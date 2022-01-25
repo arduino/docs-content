@@ -1,0 +1,28 @@
+Board:
+  Name: Arduino UNO R3
+  SKU: A000066
+Microcontroller: ATmega328P
+USB connector: USB-B
+Pins:
+  Built-in LED Pin: 13
+  Digital I/O Pins: 14
+  Analog input pins: 6
+  PWM pins: 6
+Communication:
+  UART: Yes
+  I2C: Yes
+  SPI: Yes
+Power:
+  I/O Voltage: 5V
+  Input voltage (nominal): 7-12V
+  DC Current per I/O Pin: 20 mA
+  Power Supply Connector: Barrel Plug
+Clock speed:
+  Main Processor: ATmega328P 16 MHz
+  USB-Serial Processor: ATmega16U2 16 MHz
+Memory:
+  ATmega328P: 2KB SRAM, 32KB FLASH, 1KB EEPROM
+Dimensions:
+  Weight: 25 g
+  Width: 53.4 mm
+  Length: 68.6 mm

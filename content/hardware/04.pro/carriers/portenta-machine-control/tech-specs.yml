@@ -1,0 +1,31 @@
+Board:
+  Name: Arduino® Portenta Machine Control
+  SKU: AKX00032
+Microcontroller: Portenta H7
+Input:
+  Encoder readings channels: 2
+  Analog for PT100/PT1000/J/K temperature probes: 3
+  Analog inputs: 3
+Output:
+  Analog 0-10V: 4
+Other I/O:
+  Programmable digital I/O (24V logic): 12
+Connectivity:
+  Ethernet: Yes
+  BLE: Yes
+  Wi-Fi: Yes
+  USB Programming Port: Yes
+Communication protocols:
+  CAN-BUS: Yes
+  Programmable Serial ports: 232, 422, 485
+Power:
+  Input voltage: 24V DC +/- 20%
+  Output voltage: 24V
+Memory:
+  Onboard flash memory: 16 MB
+  SDRAM: 8 MB
+Dimensions:
+  Weight: 186 g
+  Width: 90 mm
+  Length: 170 mm
+  Height: 50 mm

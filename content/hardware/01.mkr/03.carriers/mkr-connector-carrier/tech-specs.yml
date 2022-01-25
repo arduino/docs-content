@@ -1,0 +1,16 @@
+
+Shield:
+  Name: Arduino® MKR Connector Carrier
+  SKU: ASX00007
+  Compatibility: MKR
+Interface: 14 Grove Connectors
+Operating Voltage: 3.3V
+VIN: 7-16V
+Connectors:
+  Analog Inputs: 5x, A0,A1,A2,A3,A4
+  Analog Inputs (double): A5,A6
+  Digital I/O: 5x, 	D0,D1,D2,D3,D4
+  Digital I/O (double): D5,D6
+  I2C: Yes
+  Serial: Yes
+

@@ -1,0 +1,19 @@
+Shield:
+  Name: MKR ENV Shield
+  SKU: ASX00011
+  Compatibility: MKR
+Communication: I2C and analog
+Storage: Micro SD card slot
+Sensors:
+  Temperature (HTS221):
+    Range: 15-40 (celsius)
+  Humidity (HTS221):
+    Range: 20-80% rH (relative humidity)
+  Barometric pressure (LPS22HB):
+    Range: 260-1260 hPa (hectopascal)
+  Ambient light (TEMT6000):
+    Range: Max 650 LUX.
+Dimensions:
+  Weight: 32 g
+  Width: 27 mm
+  Length: 68.6 mm

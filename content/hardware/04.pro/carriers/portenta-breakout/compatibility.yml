@@ -1,0 +1,10 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+  - web-editor
+  - openmv-ide
+hardware:
+  boards:
+    - portenta-h7
+

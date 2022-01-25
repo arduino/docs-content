@@ -1,0 +1,31 @@
+Board:
+  Name: Arduino® Nano 33 BLE
+  SKU: ABX00030
+Microcontroller: nRF52840
+USB connector: Micro USB
+Pins:
+  Built-in LED Pin: 13
+  Digital I/O Pins: 14
+  Analog input pins: 8
+  PWM pins: 5
+  External interrupts: All digital pins
+Connectivity:
+  Bluetooth: nRF52840
+Sensors:
+  IMU: LSM9DS1
+Communication:
+  UART: Yes
+  I2C: Yes
+  SPI: Yes
+Power:
+  I/O Voltage: 3.3V
+  Input voltage (nominal): 5-18V
+  DC Current per I/O Pin: 10 mA
+Clock speed:
+  Processor: nRF52840 64MHz
+Memory:
+  ATmega328P: 256 KB SRAM, 1MB flash
+Dimensions:
+  Weight: 5gr
+  Width: 18 mm
+  Length: 45 mm

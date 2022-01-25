@@ -1,0 +1,18 @@
+Shield:
+  Name: Arduino® MKR CAN Shield
+  SKU: ASX00005
+  Compatibility: MKR
+Protocol: CAN bus
+Communication: SPI
+Integrated circuits:
+  Controller: Microchip MCP2515
+  Transceiver: NXP TJA1049
+  Buck converter: TPS54232
+Power:
+  Operating voltage: 3.3V
+  Vin (screw connector): 7-24V
+  Vin (header): 5V
+Dimensions:
+  Weight: 25 g
+  Width: 27 mm
+  Length: 68.6 mm

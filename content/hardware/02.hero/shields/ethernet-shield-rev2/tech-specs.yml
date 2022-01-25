@@ -1,0 +1,18 @@
+Shield:
+  Name: Arduino® Ethernet Shield Rev 2
+  SKU: A000024
+  Compatibility: UNO, MEGA
+Ethernet:
+  Connector: RJ45
+  Controller: W5500
+  Speed: 10/100 Mbps
+  Communication: SPI
+  Internal memory: 32KB
+  Maximum sockets: 8 individual
+  Supported protocols: IPv4, ICMP, TCP, UDP, ARP, IGMP, PPPoE, MQTT
+Storage: Micro SD card slot
+Power:  
+  Operating voltage: 5V
+Connectors:
+  TinkerKit: Yes, 6x
+

@@ -1,0 +1,15 @@
+Shield:
+  Name: Arduino® MKR IMU Shield
+  SKU: ASX00002
+  Compatibility: MKR
+Communication: I2C
+IMU (BNO055):
+  Gyroscope: Triaxial 14-bit
+  Accelerometer: Triaxial 16-bit
+  Geomagnetic: Triaxial 32-bit microcontroller
+Power:
+  Operating Voltage: 3.3V
+Dimensions:
+  Weight: 14 g
+  Width: 27 mm
+  Length: 61 mm

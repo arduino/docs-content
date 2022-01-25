@@ -1,0 +1,27 @@
+Board:
+  Name: Arduino® Portenta H7 Lite Connected
+  SKU: ABX00046
+Microcontroller: STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU
+USB connector: USB-C
+Pins:
+  Digital I/O Pins: 22
+  Analog input pins: 8
+  PWM pins: 10
+Connectivity:
+  Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth 5.1 BR/EDR/LE
+Communication:
+  UART: Yes
+  I2C: Yes
+  SPI: Yes
+Power:
+  Circuit operating voltage: 3.3V
+  Input voltage (VIN): 5V
+  DC Current per I/O Pin: 8 mA
+Clock speed:
+  Main core: 480 MHz
+  Second core: 240 MHz
+Memory:
+  ST STM32H747XI: 2MB Flash, 1MB RAM
+Dimensions:
+  Width: 25 mm
+  Length: 66 mm

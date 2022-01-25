@@ -1,0 +1,21 @@
+Carrier:
+  Name: Arduino® Nano Motor Carrier
+  SKU: ABX00041
+Microcontroller: ATSAMD11 (Arm Cortex-M0+ @48 Mhz)
+Motor Drivers (x4): MP6522
+Power:
+  Max input voltage (power terminals): 4V (1S Li-Ion Battery)
+  Max output current per motor driver: 500 mA
+  Motor driver output voltage: 12V
+  Battery charging: Yes
+  Max battery charging current: 500mA (configurable)
+  Power terminals (connectors): XT-30 and 2POS terminal block
+Servo connector: 4 terminals
+Encoder inputs: 2 ports
+DC motor control: 4 ports
+3V digital/analog sensor input/output: 4 ports
+IMU: BNO055 9axis Acc/Gyr/Mag
+Dimensions:
+  Weight: 35g
+  Width: 60 mm
+  Length: 80 mm

@@ -1,0 +1,10 @@
+.babelrc
+.cache
+_templates
+algolia-queries.js
+envs
+gatsby-*
+node_modules
+public
+scripts
+src

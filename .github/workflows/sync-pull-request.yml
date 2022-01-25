@@ -1,0 +1,39 @@
+name: Sync pull request from private repository
+on:
+  workflow_dispatch:
+
+jobs:
+  repo-sync:
+    if: "github.repository == 'arduino/docs-content-private'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DOCS_PRIVATE_SSH_KEY }}
+          known_hosts: unnecessary
+
+      - name: Sync branch
+        run: |
+          git remote add mirror git@github.com:arduino/docs-content.git
+          git config --global user.email "sync@docs-content-private"
+          git config --global user.name "docs-sync"
+          git checkout -b sync/${GITHUB_REF_NAME}
+          git push -u mirror sync/${GITHUB_REF_NAME}
+
+      - name: Sync PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_GITHUB_CLI_TOKEN }}
+        run: gh pr create --title "$(gh pr view $GITHUB_REF_NAME --json title --jq .title)" --body "$(gh pr view $GITHUB_REF_NAME --json body --jq .body)" --repo arduino/docs-content
+
+      - name: Close PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_GITHUB_CLI_TOKEN }}
+        run: gh pr close $GITHUB_REF_NAME
+
+      - name: Delete branch
+        run: git push origin :${GITHUB_REF_NAME}

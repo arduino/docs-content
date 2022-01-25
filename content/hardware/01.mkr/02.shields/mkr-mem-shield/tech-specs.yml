@@ -1,0 +1,14 @@
+Shield:
+  Name: Arduino® MKR MEM Shield
+  SKU: ASX00008
+  Compatibility: MKR
+Communication: SPI
+Features:
+  Storage: Micro SD card slot
+  Flash memory: 2MB (W25Q16)
+  Prototyping area: Yes
+Power:
+  Operating Voltage: 3.3V
+Dimensions:
+  Width: 27 mm
+  Length: 61 mm

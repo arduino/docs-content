@@ -1,0 +1,28 @@
+{
+  "name": "docs-content",
+  "version": "1.0.0",
+  "description": "content for docs.arduino.cc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bash node_modules/@arduino/docs-arduino-cc/bin/commands.sh bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arduino/docs-content.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arduino/docs-content/issues"
+  },
+  "homepage": "https://github.com/arduino/docs-content#readme",
+  "dependencies": {
+    "@arduino/docs-arduino-cc": "^1.0.10",
+    "gatsby": "^3.14.2"
+  },
+  "volta": {
+    "node": "14.17.3",
+    "npm": "6.14.13"
+  }
+}

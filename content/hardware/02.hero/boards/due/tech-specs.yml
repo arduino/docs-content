@@ -1,0 +1,31 @@
+Board:
+  Name: Arduino® Due
+  SKU: A000062
+Microcontroller: AT91SAM3X8E
+USB connector: Micro USB
+Pins:
+  Built-in LED Pin: 13
+  Digital I/O Pins: 54
+  Analog input pins: 12
+  Analog output pins: 2
+  PWM pins: 12
+Communication:
+  CAN: Yes (ext. transceiver needed)
+  UART: Yes, 4
+  I2C: Yes
+  SPI: Yes
+Power:
+  I/O Voltage: 3.3V
+  Input voltage (nominal): 7-12V
+  DC Current per I/O pin (group 1): 9 mA
+  DC Current per I/O pin (group 2): 3 mA
+  Power Supply Connector: Barrel Plug
+  Total DC Output Current on all I/O lines: 130 mA
+Clock speed:
+  Processor: AT91SAM3X8E 84 MHz
+Memory:
+  AT91SAM3X8E: 96KB SRAM, 512KB flash
+Dimensions:
+  Weight: 36 g
+  Width: 53.3 mm
+  Length: 101.5 mm

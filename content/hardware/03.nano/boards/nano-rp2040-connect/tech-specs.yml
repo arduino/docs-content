@@ -1,0 +1,35 @@
+Board:
+  Name: Arduino® Nano RP2040 Connect
+  SKU: ABX00053
+Microcontroller: Raspberry Pi RP2040
+USB connector: Micro USB
+Pins:
+  Built-in LED Pin: 13
+  Digital I/O Pins: 20
+  Analog input pins: 8
+  PWM pins: 20 (except A6, A7)
+  External interrupts: 20 (except A6, A7)
+Connectivity:
+  Wi-Fi: Nina W102 uBlox module
+  Bluetooth: Nina W102 uBlox module
+  Secure element: ATECC608A-MAHDA-T Crypto IC
+Sensors:
+  IMU: LSM6DSOXTR (6-axis)
+  Microphone: MP34DT05
+Communication:
+  UART: Yes
+  I2C: Yes
+  SPI: Yes
+Power:
+  I/O Voltage: 3.3V
+  Input voltage (nominal): 5-18V
+  DC Current per I/O Pin: 12 mA
+Clock speed:
+  Processor: 133 MHz
+Memory:
+  AT25SF128A-MHB-T: 16MB Flash IC
+  Nina W102 uBlox module: 448 KB ROM, 520KB SRAM, 16MB Flash
+Dimensions:
+  Weight: 6 g
+  Width: 18 mm
+  Length: 45 mm

@@ -1,0 +1,25 @@
+name: Sync private mirror
+on:
+  push:
+    branches:
+      - main
+jobs:
+  repo-sync:
+    if: "github.repository == 'arduino/docs-content'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
+          ref: "main"
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DOCS_PRIVATE_SSH_KEY }}
+          known_hosts: unnecessary
+      - run: |
+          git remote add mirror git@github.com:arduino/docs-content-private.git
+          git config --global user.email "sync@docs-content-private"
+          git config --global user.name "docs-sync"
+          git checkout main
+          git push -u mirror main

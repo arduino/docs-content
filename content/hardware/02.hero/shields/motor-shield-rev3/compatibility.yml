@@ -1,0 +1,7 @@
+software: ~
+hardware:
+  shields: ~
+  carriers: ~
+  boards:
+    - uno-rev3
+    - uno-wifi-rev2
