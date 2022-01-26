@@ -1,0 +1,13 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+  - web-editor
+  - openmv-ide
+hardware:
+  shields:
+    - vision-shield-lora
+    - vision-shield-ethernet
+  boards:
+    - portenta-breakout
+    - portenta-h7
