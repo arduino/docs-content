@@ -1,7 +1,7 @@
 ---
-title: 'Getting started with the Portenta Cat. M1/NB IoT GNSS Shield'
+title: 'Getting Started with the Portenta Cat. M1/NB IoT GNSS Shield'
 difficulty: easy
-description: 'Learn how to use GSM networks to connect to a server and print it's content in the serial monitor.'
+description: "Learn how to use GSM networks to connect to a server and print it's content in the serial monitor."
 tags:
   - Installation
   - GSM
@@ -77,7 +77,7 @@ When the GSM module is started we can then proceed to connect with a remote serv
 client.connect(server,port)
 ```
 
-### Result of sketch
+### Result of Sketch
 
 After finishing this setup, compile and upload the program, you will see the HTML content of the server printed in the serial monitor. As default the server is set as `example.com`. Feel free to change this and take a look at how it prints different web pages.
 
