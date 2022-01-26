@@ -1,0 +1,13 @@
+---
+openingHeadingLevel: 2
+excludePatterns: [ ".git", "/template", ".DS_Store"]
+
+searchPatterns: [/datasheet/, /datasheets/]
+validateSyntaxSpecifiers: true
+
+validationRuleFiles: [./rules/rules-spelling.yml, ./rules/rules-trademarks.yml]
+
+allowNestedLists: false
+metadataSchema: rules/datasheet-metadata-schema.json
+
+brokenLinkExcludePatterns: [^./, ^../, ^#, ^chrome://, localhost , ^assets/, ^images/]

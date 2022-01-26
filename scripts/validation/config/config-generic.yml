@@ -1,0 +1,22 @@
+---
+allowedSyntaxSpecifiers: [arduino, bash, markup, clike, c, cpp, css, css-extras, java, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml]
+
+baseURL: "https://docs.arduino.cc"
+
+# The maximum amount of characters that a heading / title can have
+headingMaxLength: 60
+
+# The minimum amount of words that a valid image caption needs to contain
+imageCaptionMinWords: 2
+
+# Don't check for broken URLs by default
+checkForBrokenLinks: false
+
+# Validate metadata from Frontmatter by default
+validateMetadata: true
+
+# Allows for verbose output such as non-broken link status
+verbose: true
+
+# Allows to debug the rules by outputting process messages
+debug: false

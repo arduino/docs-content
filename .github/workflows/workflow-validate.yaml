@@ -1,0 +1,36 @@
+name: Validate Content
+
+on:
+  repository_dispatch:
+    types: deploy
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+
+jobs:
+  spell_check:
+    name: Spell Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run spell check
+        run: |
+          pip install codespell
+          codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf" ./content/
+
+  lint:
+    name: Content Linter
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [14]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run linter
+        run: |
+          cd scripts/validation
+          ./content-lint.sh -p '../../content/hardware/'

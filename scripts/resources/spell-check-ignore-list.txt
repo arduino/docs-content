@@ -1,0 +1,11 @@
+wan
+sais
+tre
+inout
+als
+leaded
+specif
+extint
+dout
+synopsys
+trun
