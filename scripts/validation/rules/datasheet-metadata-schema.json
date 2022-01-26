@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxLength": 60
+      },
+      "identifier": {
+        "type": "string"
+      },
+      "author": {
+        "type": "string"
+      },     
+      "hardwareRevision": {
+        "type": "string"
+      },
+      "isPreviousRevision":{
+        "type": "boolean"
+      },
+      "isDraft":{
+        "type": "boolean"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["maker", "edu", "pro", "limited-edition"]
+      },
+      "variant": {
+        "type": "string"
+      }      
+    },
+    "required": [
+      "title",
+      "identifier",
+      "type"
+    ],
+    "additionalProperties" : false
+  }

@@ -1,0 +1,13 @@
+---
+openingHeadingLevel: 2
+excludePatterns: [ ".git", "/template", ".DS_Store"]
+
+searchPatterns: [/tutorials/]
+validateSyntaxSpecifiers: true
+
+validationRuleFiles: [./rules/rules-spelling.yml, ./rules/rules-trademarks.yml, ./rules/rules-tutorials.yml]
+
+allowNestedLists: false
+metadataSchema: rules/tutorial-metadata-schema.json
+
+brokenLinkExcludePatterns: [^./, ^../, ^#, ^chrome://, localhost , ^assets/, ^images/]

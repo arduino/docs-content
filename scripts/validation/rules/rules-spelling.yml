@@ -1,0 +1,28 @@
+---
+- regex: "\\d\\s?[Mm]ega\\s[Bb]yte|\\d\\s?Mega\\s?[Bb]yte|\\d\\s?mb[\\s\\.]|[Mm][Bb]ytes"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Megabytes should be either written as 'megabytes' or abbreviated as
+    'MB'
+    
+# Excludes Wi-Fi in URLs (prepended by dash or slash) and WiFi.XY and MKR WiFi
+- regex: "(?<![\\/-]|MKR |UNO |MKR 1000 )[wW]i[fF]i(?![-\\/]|\\.?\\S)"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  includeCodeBlocks: false
+  errorMessage: Incorrect spelling of 'Wi-Fi' found.
+
+- regex: "(?!.*Flash)[fF][lL][aA][sS][hH]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Incorrect spelling of 'Flash' found.
+
+- regex: "(?<!\\/|-)\\b(master|slave)\\b"
+  regexModifiers: "gi"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Politically incorrect terminology found (master/slave)

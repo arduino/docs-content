@@ -1,0 +1,35 @@
+---
+
+- regex: "^##### .*$"
+  shouldMatch: false
+  format: markdown
+  errorMessage: H5 headings are not supported.
+
+# - regex: "^## Conclusion"
+#   shouldMatch: true
+#   type: warning
+#   format: markdown
+#   errorMessage: Missing '## Conclusion' section.
+
+# - regex: "^## Goals"
+#   shouldMatch: true
+#   type: warning
+#   format: markdown
+#   errorMessage: Missing '## Goals' section.
+
+- regex: "(?<=\\s)\\*[^* ].*\\*[^*]"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: The use of italic emphasis is discouraged.
+
+- regex: "(?<=\\s)_[^_].*_[^_]"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: The use of italic emphasis is discouraged.
+
+- regex: "^\\*{3}(?: +\\S+)|(?:\\S+ +)\\*{3}$"
+  shouldMatch: false
+  format: markdown
+  errorMessage: Whitespaces are not allowed at the beginning or end of a note block.
