@@ -1,5 +1,5 @@
 ---
-title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat-sheet'
+title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat-Sheet'
 description: 'Learn how to set up the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.'
 tags:
   - Installation
@@ -47,7 +47,7 @@ The board can be programmed through the **Web Editor**. To get started with your
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 ## Pins
-As a Portenta family Shield it uses the High density pins to be available for the Portenta board wich is being connected.
+As a Portenta family Shield it uses the High density pins to be available for the Portenta board which is being connected.
 ![The pinout of the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/thalesPinout.svg)
 
 ## GSM
@@ -71,7 +71,7 @@ After finishing this setup compile and upload the program, you will see the HTML
 
 To get familiar with the commands, you can have a look to the [MKR GSM library](https://www.arduino.cc/en/Reference/GSM)
 
-This library contains some commands that are quite different, thats because it is using mbed APIs, in this case NetworkInterface, CellularContext and CellularDevice, you can have more info at their API reference at [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
+This library contains some commands that are quite different, that's because it is using mbed APIs, in this case NetworkInterface, CellularContext and CellularDevice, you can have more info at their API reference at [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
 
 
@@ -88,7 +88,7 @@ This library contains some commands that are quite different, thats because it i
 |                   `GSMClient.read()`                   |                 Returns data from the server                 |
 |                   `GSMClient.stop()`                   |                 Disconnects from the server                  |
 
-#### Connect to your Provider
+#### Connect to Your Provider
 
 You need to enter the Pin code and the APN link of your provider.
 The username and pass depends on the provider you have.
@@ -119,9 +119,9 @@ void setup() {
 }
 ```
 
-#### Send HTTP GET method and receive data
+#### Send HTTP GET Method and Receive Data
 
-The following sketch will do the same as the previous one, connect to your provider and use a HTTP GET method to get the data from the server you connect to. In this case "example.com", printing out the content trough the Serial monitor.
+The following sketch will do the same as the previous one, connect to your provider and use a HTTP GET method to get the data from the server you connect to. In this case "example.com", printing out the content through the Serial monitor.
 
 ```cpp
 #include <GSM.h>
@@ -207,7 +207,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 |                       `GPS.begin()`                  |                   Initialize the GPS modem                   |
 |                       `GPS.end()`                    |                    Turn OFF the GPS modem.                   |
 |                       `GPS.available()`              |           Check if the GPS has new data to be read.          |
-|                       `GPS.peek()`                   |  Allways true.                                               NEED TO BE UPDATED|
+|                       `GPS.peek()`                   |  Always true.                                               NEED TO BE UPDATED|
 |                       `GPS.read()`                   |      Returns a char with the reading from the GPS module.    NEED TO BE UPDATED |
 |                       `GPS.readAndPrint()`           | Output data on the Serial monitor, only if there is new data.|
 |                       `GPS.readAndDrop()`            |             Read the data and do nothing with it.            |
@@ -241,7 +241,7 @@ The sketch:
     GSM.begin(pin, apn, username, pass, CATNB);
 
     Serial.println("\nEnable GNSS Engine..."); 
-    GPS.begin();  //start and eanble the GNSS engine
+    GPS.begin();  //start and enable the GNSS engine
     Serial.println("\nGNSS Engine enabled...");
   }
 
@@ -289,10 +289,10 @@ This cheat sheet is written as a quick reference, to look up the GSM and GPS fea
 
 ## Troubleshooting
 
-### Getting Compiling Errors using GPS and GSM
+### Getting Compiling Errors Using GPS and GSM
 
 Make sure you included first the `GPS.h` library and then the `GSM.h`
 
-### Cant Upload the Sketch
+### Can't Upload the Sketch
 
 Sometimes if the GPS module is getting readings, you will not be able to upload a new sketch, double tap the reset button on your Potenta H7 and upload the new sketch.
