@@ -1,0 +1,171 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run linter",
+            "type": "shell",
+            "command": "./content-lint.sh -p '../../content/hardware/'",
+            "options": {
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
+            },
+            "windows": {
+                "command": ".\\content-lint.cmd -p '..\\..\\content\\hardware\\'"                
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            
+            "problemMatcher": [{
+                "fileLocation": ["relative", "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"],
+                "owner": "linter",
+                "pattern": {
+                "regexp": "^.+\\s(WARNING|ERROR):\\s(.*)\\sLocation:\\s(.*\\.[A-Za-z]+):(\\d+):?(\\d*)$",
+                "severity": 1,
+                "message": 2,
+                "file": 3,
+                "line": 4,
+                "column": 5
+                }
+            }]
+        },
+        {
+            "label": "Run linter (current article)",
+            "type": "shell",
+            "command": "./content-lint.sh -p '../../${relativeFile}' -c -v",
+            "options": {
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
+            },
+            "windows": {
+                "command": ".\\content-lint.cmd -p '..\\..\\${relativeFile}' -c -v"                                
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": [{
+                "fileLocation": ["relative", "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"],
+                "owner": "linter",
+                "pattern": {
+                "regexp": "^.+\\s(WARNING|ERROR):\\s(.+)\\sLocation:\\s(.+\\.[A-Za-z]+):(\\d+):?(\\d*)$",
+                "severity": 1,
+                "message": 2,
+                "file": 3,
+                "line": 4,
+                "column": 5
+                }
+            }]
+        },
+        {
+            "label": "Fix linter issues (current article)",
+            "type": "shell",
+            "command": "node './fix-issues.js' -p '../../${relativeFileDirname}'",
+            "options": {
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
+            },
+            "windows": {
+                "command": "node '.\\fix-issues.js' -p '..\\..\\${relativeFileDirname}'"                
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Fix linter issues",
+            "type": "shell",
+            "command": "node ./fix-issues.js -p ../../content/hardware/",
+            "options": {
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
+            },
+            "windows": {
+                "command": "node .\\fix-issues.js -p ..\\..\\content\\hardware\\"               
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate all datasheets",
+            "type": "shell",
+            "command": "./generate-datasheets.sh",
+            "options": {
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-generator"
+            },
+            "windows": {
+                "command": ".\\generate-datasheets.cmd"                
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate datasheet (current document)",
+            "type": "shell",
+            "command": "./generate-datasheets.sh '../../${relativeFileDirname}'",
+            "options": {
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-generator"
+            },
+            "windows": {
+                "command": ".\\generate-datasheets.cmd '..\\..\\${relativeFileDirname}'"                
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run spell check",
+            "type": "shell",
+            "command": "(pip install codespell > /dev/null 2>&1 || pip3 install codespell > /dev/null 2>&1) && codespell -I 'scripts${pathSeparator}resources${pathSeparator}spell-check-ignore-list.txt' --skip='*.svg,*.dxf' .${pathSeparator}content${pathSeparator}",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [{
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "owner": "linter",
+                "pattern": {
+                "regexp": "^\\s*(\\S+):(\\d+):\\s(.+)$",
+                "file": 1,
+                "line": 2,
+                "message": 3
+                }
+            }]
+        },
+        {
+            "label": "Fix misspellings",
+            "type": "shell",
+            "command": "(pip install codespell > /dev/null 2>&1 || pip3 install codespell > /dev/null 2>&1) && codespell -w -I 'scripts${pathSeparator}resources${pathSeparator}spell-check-ignore-list.txt' --skip='*.svg,*.dxf' .${pathSeparator}content${pathSeparator}",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+  }
