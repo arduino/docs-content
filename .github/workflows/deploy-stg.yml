@@ -58,7 +58,3 @@ jobs:
       - name: Sync all non-cacheable assets
         # Don't cache any HTML or JSON file: they should always be up-to-dates
         run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --delete public/ s3://${{ secrets.STAG_AWS_S3_BUCKET_NAME }}/
-
-      - name: Sync static resources
-        # Sync the static resources in a separate pass: their URL is static but we might update them once in a while
-        run: aws s3 sync --cache-control "public, max-age=14400" --delete public/resources/ s3://${{ secrets.STAG_AWS_S3_BUCKET_NAME }}/resources/
