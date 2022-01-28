@@ -207,12 +207,11 @@ Make sure you go to the `arduino_secrets.h` tab and:
 |                       `GPS.begin()`                  |                   Initialize the GPS modem                   |
 |                       `GPS.end()`                    |                    Turn OFF the GPS modem.                   |
 |                       `GPS.available()`              |           Check if the GPS has new data to be read.          |
-|                       `GPS.peek()`                   |  Always true.                                               NEED TO BE UPDATED|
-|                       `GPS.read()`                   |      Returns a char with the reading from the GPS module.    NEED TO BE UPDATED |
+|                       `GPS.read()`                   |      Returns a `char` with the reading from the GPS module.    |
 |                       `GPS.readAndPrint()`           | Output data on the Serial monitor, only if there is new data.|
 |                       `GPS.readAndDrop()`            |             Read the data and do nothing with it.            |
 |                       `GPS.checkGNSSEngine()`        |     Check if the GNSS modem is receiving data correctly.     |
-|                       `GPS.write()`                  |        Write directly to the GPS module, ADD VARIANTS        |
+
 
 #### Get GPS Data
 
