@@ -125,15 +125,6 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 **Note 3:** If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
 
-### Power Consumption
-| Symbol               | Description                                                                             | Min | Typ | Max | Unit |
-| -------------------- | --------------------------------------------------------------------------------------- | --- | --- | --- | ---- |
-| P<sub>STDBY</sub>    | Power consumption in standby                                                            |     | TBC |     | mW   |
-| P<sub>BLINK</sub>    | Power consumption with blink sketch                                                     |     | TBC |     | mW   |
-| P<sub>SENSE</sub>    | Power consumption for polling all sensors at 1 Hz                                       |     | TBC |     | mW   |
-| P<sub>SENSE_LP</sub> | Low Power consumption for polling all sensors once per hour                             |     | TBC |     | mW   |
-
-
 ## Functional Overview
 
 ### Block Diagram
