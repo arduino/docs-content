@@ -2,6 +2,7 @@
 title: 'I2S Library'
 description: 'Documentation for usage of the I2S (Inter-IC Sound) protocol on SAMD21 boards.'
 author: 'Arduino'
+tags: [I2S, Audio, SAMD]
 ---
 
 ## Overview
