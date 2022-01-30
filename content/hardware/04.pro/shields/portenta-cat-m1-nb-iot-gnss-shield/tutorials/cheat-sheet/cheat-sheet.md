@@ -1,9 +1,11 @@
 ---
 title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat-Sheet'
-description: 'Learn how to set up the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.'
+description: 'Learn how to set up the Arduino® Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of the functionality. Obtain information regarding pins and how to use the different communication technologies.'
 tags:
   - Installation
-  - CATM1
+  - Cat. M1
+  - NB IoT
+  - GNSS
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04pro/shields/portenta-cat-m1-nb-iot-gnss-shield
@@ -11,20 +13,19 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
-  - iot-cloud
 ---
 
 ![The Arduino® Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
 
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity to both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide with your choice of GPS, GLONASS, Galileo or BeiDou.
+The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide with your choice of the GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
 
-This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino® Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino® Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield).
+This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino® Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino® Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
 
 ## Core
 
-The Arduino® Portenta Cat. M1/NB IoT GNSS Shield uses the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
+The Arduino® Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
 
-***The incoming libraries are included in the mbed Core version greater than 2.6.1***
+***The libraries are included in the mbed Core version greater than 2.6.1***
 
 ## Installation
 
@@ -36,7 +37,7 @@ The Arduino® Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the 
 
 ### Arduino IDE 2.0.X 
 
-The Arduino® Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2.0.X (beta)**. To install your board, you can check out the guide below:
+The Arduino® Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
 - [How to use the board manager with the Arduino IDE 2.0](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
@@ -48,40 +49,40 @@ The board can be programmed through the **Web Editor**. To get started with your
 
 ## Pins
 As a Portenta family Shield it uses the High density pins to be available for the Portenta board which is being connected.
-![The pinout of the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/thalesPinout.svg)
+![The pinout of the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/ASX00027-pinout.png)
 
 ## GSM
 
 ### Requirements
 
 The GSM Feature requires:
-* An antenna (e.g [Dipole antenna, at the arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna?queryID=52d9fdab80e7fcace62aae924c084a93&_gl=1*msh8uc*_ga*MjA5OTMyMzAwMC4xNjIxNTE1OTY3*_ga_NEXN8H46L5*MTYzMDkzMzQ3NS40NS4xLjE2MzA5MzM5MTAuMA..)) at the **RF OUT** antenna connector on the Top side of the shield.
+* An antenna (e.g [Dipole antenna, at the arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna?queryID=52d9fdab80e7fcace62aae924c084a93&_gl=1*msh8uc*_ga*MjA5OTMyMzAwMC4xNjIxNTE1OTY3*_ga_NEXN8H46L5*MTYzMDkzMzQ3NS40NS4xLjE2MzA5MzM5MTAuMA..)) at the **RF OUT** antenna connector on the top side of the shield.
 * SIM Card capable of running with the CatM1 specifications  (check with your provider if your Card has that feature)
 
-To check if our setup it's working we can open an example inside the GSM library from the Mbed Portenta Core, going to **Examples -> GSM -> GSMClient** we will open an sketch that connects to the SIM card provider, connects to a webpage and download the content of it to display it inside the Serial Monitor.
+To check if our setup it's working we can open an example sketch from the GSM library inside the Mbed Portenta Core. Under **Examples -> GSM -> GSMClient** we open a sketch that connects to the SIM card provider, then connects to a webpage and downloads the content of it to display it inside the Serial Monitor.
 
 Make sure you go to the `arduino_secrets.h` tab and:
-* introduce the PIN of the SIM card you are using and store it at `SECRET_PIN`.
-* Browse to your IT provider and check the mobile APN link, e.g "online.provider.com" save it inside the `SECRET_APN`
+* Enter the PIN of your SIM card and store it at `SECRET_PIN`.
+* Check the mobile APN of your SIM card provider, e.g "online.provider.com" and save it inside the `SECRET_APN`
 
-After finishing this setup compile and upload the program, you will see the HTML content of the server printed at the serial monitor.
->**Note:** Sometimes it needs time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you can not connect after that time, make sure you introduced the correct SIM pin and the APN, if the issue continues, contact with your provider and make sure they have CAT M1 enabled on your SIM card.
+After finishing this setup compile and upload the program. If everything went fine you should see the HTML content of the web page printed in the serial monitor.
+>**Note:** Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and make sure they have CAT M1 enabled on your SIM card.
 
 ### API
 
-To get familiar with the commands, you can have a look to the [MKR GSM library](https://www.arduino.cc/en/Reference/GSM)
+To get familiar with the commands, you can have a look at the [MKR GSM library](https://www.arduino.cc/en/Reference/GSM) which uses the same API.
 
-This library contains some commands that are quite different, that's because it is using mbed APIs, in this case NetworkInterface, CellularContext and CellularDevice, you can have more info at their API reference at [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
+This library contains some commands that are quite different, that's because it is using mbed APIs. In this case it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about their API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
 
 
-|                       Command                        |                         Information                          |
-| :--------------------------------------------------: | :----------------------------------------------------------: |
+|                        Command                         |                         Information                          |
+| :----------------------------------------------------: | :----------------------------------------------------------: |
 | `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
-|                       `GSMClient`                      |    Client constructor, on the examples we define it as client  |
+|                      `GSMClient`                       |  Client constructor, on the examples we define it as client  |
 |                    `GSM.getTime()`                     |    Returns the time, you can set a new one with setTime()    |
 |                  `GSM.getLocalTime()`                  |                    Returns the local time                    |
-|                    `GSM.setTime()`                     | Set the time, it will be saved and it can be get by getTime() |
+|                    `GSM.setTime()`                     | Set the time, it will be saved and it can be read with getTime() |
 |                     `GSM.debug()`                      | After this command, the Serial monitor will output more detailed info about the GSM class commands, connections, etc... |
 |            `GSMClient.connect(server,port)`            |                  Connect to a remote server                  |
 |                `GSMClient.available()`                 | Check if the server that is connected to has some bytes ready to be read |
@@ -109,19 +110,14 @@ void setup() {
 
 	if(GSM.begin(pin, apn, username, pass, CATM1)){
 		Serial.println("connected");
-	}else{
-		Serial.println("unable to connect");
+    // ...
 	}
-  
-  // do nothing forevermore:
-  while(1);
-  
 }
 ```
 
-#### Send HTTP GET Method and Receive Data
+#### Send a HTTP GET Request and Receive Data
 
-The following sketch will do the same as the previous one, connect to your provider and use a HTTP GET method to get the data from the server you connect to. In this case "example.com", printing out the content through the Serial monitor.
+The following sketch will do the same as the previous one, connect to your provider and use a HTTP GET request to get the data from the server you connect to. In this case "example.com", printing out the content through the Serial monitor.
 
 ```cpp
 #include <GSM.h>
