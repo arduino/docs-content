@@ -82,7 +82,7 @@ This library contains some commands that are quite different, that's because it 
 | `GSMClient`| Client constructor, on the examples we define it as client  |
 | `GSM.getTime()`|Returns the time, you can set a new one with setTime()|
 | `GSM.getLocalTime()`| Returns the local time|
-|                    `GSM.setTime()`                     | Set the time, it will be saved and it can be read with getTime() |
+| `GSM.setTime()`| Set the time, it will be saved and it can be read with getTime() |
 |                     `GSM.debug()`                      | After this command, the Serial monitor will output more detailed info about the GSM class commands, connections, etc... |
 | `GSMClient.connect(server,port)` | Connect to a remote server |
 |                `GSMClient.available()`                 | Check if the server that is connected to has some bytes ready to be read |
