@@ -187,7 +187,7 @@ The GSM Feature requires:
 * A GPS active antenna (e.g [GPS active antenna 28dB](https://www.digikey.com/en/products/detail/adafruit-industries-llc/960/5353630)) at the **GNS ANT** antenna connector on the Top side of the shield.
 * You may need a connector converter from the active GPS antenna, we used this one [Coaxial to SMA](https://www.digikey.com/en/products/detail/taoglas-limited/CAB.719/3664639)
 
-To check if our setup it's working we can open an example inside the GSM library from the Mbed Portenta Core, going to **Examples -> GSM -> GNSSClient** we will open an sketch that connects to the SIM card provider and initialize the active GPS antenna, then it will print out GPS readings.
+To check if our setup it's working we can open an example inside the GSM library from the Mbed Portenta Core, going to **Examples > GSM > GNSSClient** we will open an sketch that connects to the SIM card provider and initialize the active GPS antenna, then it will print out GPS readings.
 
 Make sure you go to the `arduino_secrets.h` tab and:
 * introduce the PIN of the SIM card you are using and store it at `SECRET_PIN`.
