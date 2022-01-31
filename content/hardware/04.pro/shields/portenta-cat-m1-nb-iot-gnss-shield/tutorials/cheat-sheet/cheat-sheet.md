@@ -79,7 +79,7 @@ This library contains some commands that are quite different, that's because it 
 | Command | Information |
 | :----------------------------------------------------: | :----------------------------------------------------------: |
 | `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
-|                      `GSMClient`                       |  Client constructor, on the examples we define it as client  |
+| `GSMClient`| Client constructor, on the examples we define it as client  |
 |                    `GSM.getTime()`                     |    Returns the time, you can set a new one with setTime()    |
 |                  `GSM.getLocalTime()`                  |                    Returns the local time                    |
 |                    `GSM.setTime()`                     | Set the time, it will be saved and it can be read with getTime() |
