@@ -76,7 +76,7 @@ This library contains some commands that are quite different, that's because it 
 
 
 
-|                        Command                         |                         Information                          |
+| Command | Information |
 | :----------------------------------------------------: | :----------------------------------------------------------: |
 | `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
 |                      `GSMClient`                       |  Client constructor, on the examples we define it as client  |
