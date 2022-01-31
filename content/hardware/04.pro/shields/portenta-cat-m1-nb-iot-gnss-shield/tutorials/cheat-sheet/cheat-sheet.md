@@ -66,7 +66,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 * Check the mobile APN of your SIM card provider, e.g "online.provider.com" and save it inside the `SECRET_APN`
 
 After finishing this setup compile and upload the program. If everything went fine you should see the HTML content of the web page printed in the serial monitor.
->**Note:** Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and make sure they have CAT M1 enabled on your SIM card.
+***Note: Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and make sure they have CAT M1 enabled on your SIM card.***
 
 ### API
 
