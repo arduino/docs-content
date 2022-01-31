@@ -1,6 +1,6 @@
 ---
 title: Portenta Cat. M1/NB IoT GNSS Shield
-url_shop: https://store.arduino.cc/portenta-h7
+url_shop: https://store.arduino.cc/products/portenta-catm1
 url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
 core: arduino:mbed_portenta
 ---
