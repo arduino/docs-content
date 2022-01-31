@@ -92,7 +92,7 @@ This library contains some commands that are quite different, that's because it 
 #### Connect to Your Provider
 
 You need to enter the Pin code and the APN link of your provider.
-The username and pass depends on the provider you have.
+The user name and password depends on the provider you have.
 
 This sketch will initialize the SIM card and connect to your provider's network
 
@@ -117,7 +117,7 @@ void setup() {
 
 #### Send a HTTP GET Request and Receive Data
 
-The following sketch will do the same as the previous one, connect to your provider and use a HTTP GET request to get the data from the server you connect to. In this case "example.com", printing out the content through the Serial monitor.
+The following sketch will connect to your provider and use a HTTP GET request to get the data from the server you connect to. In this case it connects to "example.com" and prints out the content through the Serial monitor.
 
 ```cpp
 #include <GSM.h>
