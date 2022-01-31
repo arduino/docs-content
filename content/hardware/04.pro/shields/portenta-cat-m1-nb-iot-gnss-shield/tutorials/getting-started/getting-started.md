@@ -23,7 +23,7 @@ software:
 
 This tutorial will show how to connect the Portenta Cat. M1/NB IoT GNSS shield to the Portenta H7, connect to a website using NBIoT or Cat-M1 technology and print the website's HTML content in the serial monitor. This will help you quickly find out if the setup successfully connects to mobile networks.
 
->**Note:** This tutorial was created in Sweden, and as a result, the available networks are only Swedish network operators. The results will vary depending on what location you are in. 
+***Note: This tutorial was created in Sweden, and as a result, the available networks are only Swedish network operators. The results will vary depending on what location you are in. ***
 
 ## Goals
 
@@ -60,7 +60,7 @@ Make sure that you have the latest **Arduino Mbed OS Portenta core** installed. 
 
 Go to the **arduino_secrets.h** tab that opens with the example and enter the PIN of the SIM card you are using into the `SECRET_PIN` variable. Check your SIM card provider's mobile APN, e.g "online.provider.com" save it inside `SECRET_APN`.
 
->**Note:** A standard pre-paid SIM card typically have 0000 or 1234 as a pin code. This varies from operator to operator, it is important to find out this before uploading the code. Otherwise, too many unsuccessful attempts may block the SIM card.
+***Note: A standard pre-paid SIM card typically have 0000 or 1234 as a pin code. This varies from operator to operator, it is important to find out this before uploading the code. Otherwise, too many unsuccessful attempts may block the SIM card.***
 
 Using `GSM.begin()` will start the GSM module using the pin and APN entered in **arduino_secrets.h**. To decide whether to use NBIoT or Cat-M1 technology we need to change the last argument. Use either `CATNB` for NBIoT or `CATM1` for Cat-M1. If you are unsure what technology to use, check with your SIM card provider to see what technology they support.
 

@@ -83,11 +83,11 @@ This library contains some commands that are quite different, that's because it 
 | `GSM.getTime()`|Returns the time, you can set a new one with setTime()|
 | `GSM.getLocalTime()`| Returns the local time|
 | `GSM.setTime()`| Set the time, it will be saved and it can be read with getTime() |
-|                     `GSM.debug()`                      | After this command, the Serial monitor will output more detailed info about the GSM class commands, connections, etc... |
+| `GSM.debug()`| After this command, the Serial monitor will output more detailed info about the GSM class commands, connections, etc... |
 | `GSMClient.connect(server,port)` | Connect to a remote server |
-|                `GSMClient.available()`                 | Check if the server that is connected to has some bytes ready to be read |
-|                   `GSMClient.read()`                   |                 Returns data from the server                 |
-|                   `GSMClient.stop()`                   |                 Disconnects from the server                  |
+| `GSMClient.available()` | Check if the server that is connected to has some bytes ready to be read |
+| `GSMClient.read()` | Returns data from the server |
+| `GSMClient.stop()` | Disconnects from the server |
 
 #### Connect to Your Provider
 
@@ -200,20 +200,20 @@ Make sure you go to the `arduino_secrets.h` tab and:
 
 | Command | Information |
 | :--------------------------------------------------: | :----------------------------------------------------------: |
-|                       `GPS.begin()`                  |                   Initialize the GPS modem                   |
-|                       `GPS.end()`                    |                    Turn OFF the GPS modem.                   |
-|                       `GPS.available()`              |           Check if the GPS has new data to be read.          |
-|                       `GPS.read()`                   |      Returns a `char` with the reading from the GPS module.    |
-|                       `GPS.readAndPrint()`           | Output data on the Serial monitor, only if there is new data.|
-|                       `GPS.readAndDrop()`            |             Read the data and do nothing with it.            |
-|                       `GPS.checkGNSSEngine()`        |     Check if the GNSS modem is receiving data correctly.     |
+| `GPS.begin()` | Initialize the GPS modem |
+| `GPS.end()` | Turn OFF the GPS modem. |
+| `GPS.available()` | Check if the GPS has new data to be read. |
+| `GPS.read()` | Returns a `char` with the reading from the GPS module. |
+| `GPS.readAndPrint()` | Output data on the Serial monitor, only if there is new data.|
+| `GPS.readAndDrop()` | Read the data and do nothing with it. |
+| `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly. |
 
 
 #### Get GPS Data
 
 We included an example inside the GSM example that connects to the GSM provider, then initialize the GPS antenna, gets the data and print it out on the Serial monitor.
 
-Open the example by going to **Examples -> GSM -> GNSSClient**
+Open the example by going to **Examples > GSM > GNSSClient**
 
 The sketch:
 ```cpp
@@ -251,7 +251,7 @@ The sketch:
 ```
 ***As you previously done, you need to set up the GSM info and fill the `arduino_secrets.h`***
 
-***Remember to connect to the GSM provider and secondly connect to the GNSS (**mandatory**).***
+***Remember to connect to the GSM provider and secondly connect to the GNSS (mandatory).***
 
 You will see the **NMEA** data on the Serial monitor.
 ![NMEA log example Serial Monitor](assets/NMEA_output.png)
