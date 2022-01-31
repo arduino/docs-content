@@ -244,7 +244,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Arduino® Pro Website               | https://www.arduino.cc/pro                                                                          |
 | Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference                  | https://github.com/bcmi-labs/Arduino_EdgeControl/tree/4dad0d95e93327841046c1ef80bd8b882614eac8      |
+| Library Reference                  | https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/GSM      |
 | Online Store                       | https://store.arduino.cc/                                                                           |
 
 ## Revision History
