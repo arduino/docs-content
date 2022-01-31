@@ -121,7 +121,7 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 ### Cellular Connectivity
 The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality is are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1).
-**Note: ** The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.
+**Note:** The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.
 
 ### Positioning
 Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V.
