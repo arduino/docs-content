@@ -23,7 +23,7 @@ software:
 
 This tutorial will show how to connect the Portenta Cat. M1/NB IoT GNSS shield to the Portenta H7, connect to a website using NBIoT or Cat-M1 technology and print the website's HTML content in the serial monitor. This will help you quickly find out if the setup successfully connects to mobile networks.
 
-***Note: This tutorial was created in Sweden, and as a result, the available networks are only Swedish network operators. The results will vary depending on what location you are in. ***
+***Note: This tutorial was created in Sweden, and as a result, the available networks are only Swedish network operators. The results will vary depending on what location you are in.***
 
 ## Goals
 
