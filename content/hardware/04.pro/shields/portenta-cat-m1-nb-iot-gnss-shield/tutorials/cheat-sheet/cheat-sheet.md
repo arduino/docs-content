@@ -198,7 +198,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 ### API
 
 
-|                       Command                        |                         Information                          |
+| Command | Information |
 | :--------------------------------------------------: | :----------------------------------------------------------: |
 |                       `GPS.begin()`                  |                   Initialize the GPS modem                   |
 |                       `GPS.end()`                    |                    Turn OFF the GPS modem.                   |
