@@ -7,3 +7,4 @@ gatsby-*
 node_modules
 public
 src
+.DS_Store

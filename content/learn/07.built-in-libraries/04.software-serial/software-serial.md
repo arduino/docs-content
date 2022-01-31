@@ -7,7 +7,7 @@ tags: [Serial]
 
 The SoftwareSerial library allows serial communication on other digital pins of an Arduino board, using software to replicate the functionality (hence the name "SoftwareSerial"). It is possible to have multiple software serial ports with speeds up to 115200 bps. A parameter enables inverted signaling for devices which require that protocol.
 
-The version of SoftwareSerial included in 1.0 and later is based on the [NewSoftSerial library](http://arduiniana.org/libraries/newsoftserial/) by Mikal Hart.
+The version of SoftwareSerial included in 1.0 and later is based on the [NewSoftSerial library](http://arduiniana.org/libraries/newsoftserial/) by 'Mikal Hart'.
 
 To use this library:
 
