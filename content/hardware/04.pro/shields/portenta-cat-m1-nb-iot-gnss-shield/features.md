@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Portenta CAT.M1/NBIOT GNSS SHIELD brings cellular communication and localization on the Portenta H7 boards. The shield leverages a **Cinterion TX62** wireless module designed for highly efficient, low-power IoT applications to deliver optimized bandwidth and performance. To use the GNSS functions you will need an antenna like [this one](https://uk.farnell.com/siretta/echo19-0-1m-ufl-s-s-17/embedded-antenna-1-575ghz-ufl/dp/2717675?ost=echo19).
+The Portenta Cat. M1/NB IoT GNSS Shield brings cellular communication and localization on the Portenta H7 boards. The shield leverages a **Cinterion TX62** wireless module designed for highly efficient, low-power IoT applications to deliver optimized bandwidth and performance. To use the GNSS functions you will need an antenna like [this one](https://uk.farnell.com/siretta/echo19-0-1m-ufl-s-s-17/embedded-antenna-1-575ghz-ufl/dp/2717675?ost=echo19).
 
 </FeatureDescription>
 
