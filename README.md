@@ -69,6 +69,12 @@ On success, the following is printed:
 symbolic link created for AnalogInput <<===>> ..\..\..\..\..\built-in-examples\03.analog\AnalogInput
 ```
 
+### Including Code Snippets
+
+Code snippets can be included by using the triple backticks syntax e.g. ` ```arduino` followed by the code and three closing backticks. The following syntaxes are supported:
+arduino, bash, markup, clike, c, cpp, css, css-extras, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml
+
+
 ## Previewing Changes
 
 Whenever you create a Pull Request (PR) GatsbyCloud will create a preview deployment in which you can see how your changes look when rendered on the website. The link to the preview will appear in the comments of the PR. This also works with Draft PRs, but not for PRs created from a fork.
