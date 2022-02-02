@@ -25,14 +25,14 @@ One downside of the scheme (there always has to be a downside doesn't there?) is
  * Read_Two_Switches_On_One_Pin
  * Read two pushbutton switches or one center-off toggle switch with one Arduino pin
  * Paul Badger 2008 
- * From an idea in EDN (Electronic Design News)
+ * From an idea in Electronic Design News
  *
  * Exploits the pullup resistors available on each I/O and analog pin
  * The idea is that the 200K resistor to ground will cause the input pin to report LOW when the 
  * (20K) pullup resistor is turned off, but when the pullup resistor is turned on, 
  * it will overwhelm the 200K resistor and the pin will report HIGH.
  *
- * Schematic Diagram    ( can't belive I drew this funky ascii schematic )     
+ * Schematic Diagram    ( can't beleive I drew this funky ascii schematic )     
  *
  *
  *                             +5 V
