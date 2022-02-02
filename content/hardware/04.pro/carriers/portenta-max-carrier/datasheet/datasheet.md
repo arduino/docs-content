@@ -75,7 +75,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 | Symbol                | Description                       | Min | Typ | Max  | Unit |
 | --------------------- | --------------------------------- | --- | --- | ---- | ---- |
 | T                     | Conservative thermal limits *(1)* | -20 | 25  | 70   | °C   |
-| V<sub>PWR_IN_12</sub> | Power Jack Input Voltage          | 5   | 7   | 36   | V    |
+| V<sub>PWR_IN_12</sub> | Power Jack Input Voltage          | 6   | 7   | 36   | V    |
 | P<sub>Max</sub>       | Maximum Power Consumption         | -   | -   | 5000 | mW   |
 
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
@@ -106,7 +106,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 | J18      | 254TR Negative Li-ion Terminal                         | J19            | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
 | J20      | 110990030 Grove Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
 | CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
-| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder                            |
+| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for modem)                |
 | SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
 | PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
 
@@ -124,7 +124,7 @@ There are four analog audio interfaces accessible on the Portenta Max Carrier:
 *   1x Grove connector for speaker out (J20)
 
 ### Cell Modem 
-The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide. A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1v8 that is used for the SIM card and the I/O.
+The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide. A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1v8 that is used for the SIM card and the I/O. The corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
 
 >  (2) Functionality dependent upon connected Portenta board. Check the respective datasheet.
 
@@ -132,12 +132,12 @@ The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NB
 The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23).This module operates on 3V3.  A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
 
 ### Mini PCIe 
-The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 4 standoffs for external module  support.
+The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 4 standoffs for external module support. The SIM card holder underneath the board is connected to pins 8 (UIM_PWR), 10 (UIM_DATA), 12 (UIM_CLK), 14 (UIM_RESET) and 16 (UIM_VPP) on the mini PCIe slot. 
 
-**Note:** Only USB and I2C is available. PCIe functionality is reserved for future use and is not supported at this time.
+**Note:** Only USB, I2C and UIM functionality is available over the mini PCIe connector. PCIe functionality is reserved for future use and is not supported at this time.
 
 ### USB
-The Arduino Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
+The Arduino Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
 
 ### Ethernet 
 The Gigabit Ethernet physical interface (J17) is directly connected to the high density connector to the Portenta board. The connector includes an activity LED indication (orange) and speed indication (green).
@@ -162,7 +162,7 @@ The on board Micro SD card can be used for data logging operations.
 ### Power Tree
 ![Power tree](assets/maxCarrierPowerTree.svg)
 
-The Portenta Max Carrier can either be powered through the power jack (X1) or a Li-ion battery (J16, J18). The MPM3550EGLE (U6) provides a +5V rail to power the peripherals. This IC also provides power to the BQ24195RGET IC (U11) that manages the Li-ion battery and boosts the voltage to +5V. Priority is with the jack delivered power. The battery charger IC also outputs a +3V8 power rail that powers the modem (U1). The +5V power rail provides power to the Portenta board that regulates the voltage with its onboard buck converter to +3V3. The +3V3 power rail supplies power to the LoRa module (U23), 4-port USB hub (U3), microSD module (J11) and Fieldbus circuitry (U4). Audio is powered by a dedicated AP7311 LDO regulator that provides a low noise +1V8 power rail.
+The Portenta Max Carrier can either be powered through the power jack (X1) or a 18650 Li-ion/LiPo battery (J16, J18). The MPM3550EGLE (U6) provides a +5V rail to power the peripherals. This IC also provides power to the BQ24195RGET IC (U11) that manages the Li-ion battery and boosts the voltage to +5V. Priority is with the jack delivered power. The battery charger IC also outputs a +3V8 power rail that powers the modem (U1). The +5V power rail provides power to the Portenta board that regulates the voltage with its onboard buck converter to +3V3. The +3V3 power rail supplies power to the LoRa module (U23), 4-port USB hub (U3), microSD module (J11) and Fieldbus circuitry (U4). Audio is powered by a dedicated AP7311 LDO regulator that provides a low noise +1V8 power rail.
 
 The debugger circuitry has a dedicated power supply AP2112K (U14) that runs off the micro USB voltage from J10. This enables the debugger to operate even if the Portenta board is not inserted.
 
@@ -488,7 +488,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Arduino Pro Website       | https://www.arduino.cc/pro                                                                          |
-| Project Hub         | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
 | Library Reference         | https://www.arduino.cc/reference/en/                                                                |
 | Online Store              | https://store.arduino.cc/                                                                           |
 
