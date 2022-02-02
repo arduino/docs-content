@@ -2,6 +2,7 @@
 identifier: ABX00043
 title: Arduino® Portenta Max Carrier
 type: pro
+author: Ali Jahangiri
 ---
 
 ![Max Carrier board](assets/maxCarrierShowcase.png)
@@ -479,15 +480,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
-| Reference                 | **Link**                                                                     |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                             |
-| Cloud IDE Getting Started | https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started/ |
-| Arduino Pro Website       | https://www.arduino.cc/pro                                                   |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending     |
-| Library Reference         | https://www.arduino.cc/reference/en/                                         |
-| Online Store              | https://store.arduino.cc/                                                    |
+| Reference                     | **Link**                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)         | https://www.arduino.cc/en/Main/Software                                      |
+| Arduino IDE (Cloud)           | https://create.arduino.cc/editor                                             |
+| IoT Cloud IDE Getting Started | https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started/ |
+| Arduino Pro Website           | https://www.arduino.cc/pro                                                   |
+| Project Hub                   | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending     |
+| Library Reference             | https://www.arduino.cc/reference/en/                                         |
+| Online Store                  | https://store.arduino.cc/                                                    |
 
 ## Revision History
 | Date       | **Revision** | **Changes**   |
