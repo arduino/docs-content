@@ -166,7 +166,7 @@ Voltage range and max current are provided as a general guideline only. Consult 
 **Note:** This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview). 
 
 ### Getting Started - IDE
-If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1]** To connect the Arduino Portenta H7  to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1]** To connect the Arduino Portenta H7 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]** by just installing a simple plugin.
@@ -469,11 +469,14 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
 
+| Frequency bands      | Typical Output Power |
+| -------------------- | -------------------- |
+| 2.4 GHz, 40 channels | TBC                |
 
 ## Company Information
-| Company name    | Arduino S.r.l.                                                |
-| --------------- | ------------------------------------------------------------- |
-| Company Address | Via Ferruccio Pelli 14, 6900 Lugano, TI (Ticino), Switzerland |
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
 | Reference                 | **Link**                                                                                            |
@@ -489,4 +492,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| 05/05/2021 | 1            | First Release |
+| xx/02/2022 | 1            | First Release |
