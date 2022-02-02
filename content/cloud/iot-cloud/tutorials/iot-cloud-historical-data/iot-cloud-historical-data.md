@@ -1,8 +1,8 @@
 ---
-title: 'Historical data on Arduino IoT Cloud'
+title: 'Historical Data on Arduino IoT Cloud'
 difficulty: easy
 description: 'Learn how to download historical data from the Arduino IoT Cloud'
-tags: [IoT Cloud, Historical data, data]
+tags: [IoT Cloud, Historical Data]
 author: 'Benjamin Dannegård'
 software:
   - iot-cloud
@@ -10,28 +10,22 @@ software:
 
 ## Introduction 
 
-It is possible to gather Historical data from your [Arduino IoT Cloud]((https://create.arduino.cc/iot/)) Things and Variables. Historical data can be essential to making your electronics and Arduino project work how you want them to. Data retention is a really useful feature with Arduino IoT Cloud.
+It is possible to download historical data from your [Arduino IoT Cloud]((https://create.arduino.cc/iot/)) Things and Variables. It is downloaded in `.csv` format, and can be used for data comparison.
 
 ## Goals
 
-The goals of this project are:
+The goals of this tutorial are:
 
 - Learn about Arduino cloud historical data
 - Learn how to use this data
 
 ## Hardware & Software Needed
 
-For this tutorial, you will need a cloud compatible board. You can see the full list below:
+You do not need an active board to download the historical data, but for initial data collection, you will need a cloud compatible board.
 
-- [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)
-- [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
-- [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)
-- [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)
-- [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
-- [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
-- [Portenta H7](https://store.arduino.cc/portenta-h7)
+To see all compatible boards, check out the link below:
 
-***The MKR GSM 1400 & MKR NB 1500 requires a SIM card with a data plan to work. You can read more about it in [this page](https://store.arduino.cc/digital/sim).***
+- [Arduino IoT Cloud compatible boards](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware).
 
 ### Different Historical Data
 
@@ -51,7 +45,7 @@ Combined with 15 days or three months of historical data, you can build a detail
 
 ### Downloading Historical Data
 
-First, to download historical data navigate into one of your dashboards on the [Arduino cloud](https://create.arduino.cc/iot/dashboards).
+First, to download historical data navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards).
 
 ![Arduino cloud dashboard](assets/cloud-historical-data-dashboard.png)
 
@@ -63,7 +57,7 @@ Clicking “Historical Data” that gives you a list of all variables in use. Fr
 
 ![Selecting variables for historical data](assets/cloud-historical-data-selecting-variable.png)
 
-Simply choose the variables and Things you want to export and click the "Select Data Source" button. You’ll be taken to a new window where you confirm that you want to download the data. You will then receive an email after a couple of minutes providing you with a link to download your data as individual CSV files, zipped up into a single download.
+Simply choose the variables and Things you want to export and click the "Select Data Source" button. You’ll be taken to a new window where you confirm that you want to download the data. You will receive an email shortly after, providing you with a link to download your data as individual CSV files. 
 
 ## Conclusion
 
