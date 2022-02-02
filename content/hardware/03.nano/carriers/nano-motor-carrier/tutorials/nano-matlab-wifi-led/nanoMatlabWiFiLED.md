@@ -33,13 +33,13 @@ The goals of this project are:
 - [Arduino Nano Motor Carrier](https://store.arduino.cc/products/arduino-nano-motor-carrier)
 - [Micro USB Cable](https://store.arduino.cc/products/usb-cable-type-a-male-to-micro-type-b-male)
 - Single cell LiPo/Li-ion 18650 battery and holder with XT30 connector
-- Valid MATLAB® license
+- Valid MATLAB® licence
 - [MATLAB® Support Package for Arduino® Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware)
 
 
 ***The Arduino Nano 33 IoT, Nano Motor Carrier, Micro USB cable and single cell battery are included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2)***
 
-***A valid MATLAB® license is needed. Your workplace or education institution may have a subscription. Alternatively, a one-year trial subscription to MATLAB® is included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2).***
+***A valid MATLAB® licence is needed. Your workplace or education institution may have a subscription. Alternatively, a one-year trial subscription to MATLAB® is included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2).***
 
 
 ### Why MATLAB?
