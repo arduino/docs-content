@@ -14,7 +14,7 @@ One downside of the scheme (there always has to be a downside doesn't there?) is
 
 
 ## Hardware Required
-- Arduino Microcontroller ([Link to store](https://store.arduino.cc/))
+- Arduino Board ([Link to store](https://store.arduino.cc/))
 - 2x Pushbutton
 - 1x 10K ohm Resistor
 - 1x 200K - 1M ohm resistor
