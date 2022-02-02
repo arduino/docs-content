@@ -65,16 +65,10 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 *Example of a typical application for a solution including the Portenta Max Carrier and Portenta H7.*
 
 ## Ratings
-### Absolute Operating Conditions
-| Symbol                   | Description                      | Min  | Typ | Max | Unit |
-| ------------------------ | -------------------------------- | ---- | --- | --- | ---- |
-| T<sub>Max</sub>          | Thermal operating limits         | -40  | 25  | 85  | °C   |
-| V<sub>PWR_IN_12Max</sub> | Maximum Power Jack Input Voltage | -0.3 | 7   | 40  | V    |
-
 ### Recommended Operating Conditions
 | Symbol                | Description                       | Min | Typ | Max  | Unit |
 | --------------------- | --------------------------------- | --- | --- | ---- | ---- |
-| T                     | Conservative thermal limits *(1)* | -20 | 25  | 70   | °C   |
+| T                     | Conservative thermal limits *(1)* | -40 | 25  | 85   | °C   |
 | V<sub>PWR_IN_12</sub> | Power Jack Input Voltage          | 6   | 7   | 36   | V    |
 | P<sub>Max</sub>       | Maximum Power Consumption         | -   | -   | 5000 | mW   |
 
