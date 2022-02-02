@@ -32,7 +32,7 @@ One downside of the scheme (there always has to be a downside doesn't there?) is
  * (20K) pullup resistor is turned off, but when the pullup resistor is turned on, 
  * it will overwhelm the 200K resistor and the pin will report HIGH.
  *
- * Schematic Diagram    ( can't beleive I drew this funky ascii schematic )     
+ * Schematic Diagram    ( can't believe I drew this funky ascii schematic )     
  *
  *
  *                             +5 V

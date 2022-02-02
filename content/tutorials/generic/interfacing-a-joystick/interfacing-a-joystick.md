@@ -40,8 +40,8 @@ Finally we make the LED blink with the values read from the sensors as a direct 
   */
 
  int ledPin = 13;
- int joyPin1 = A0;                 // slider variable connecetd to analog pin 0
- int joyPin2 = A1;                 // slider variable connecetd to analog pin 1
+ int joyPin1 = A0;                 // slider variable connected to analog pin 0
+ int joyPin2 = A1;                 // slider variable connected to analog pin 1
  int value1 = 0;                  // variable to read the value from the analog pin 0
  int value2 = 0;                  // variable to read the value from the analog pin 1
 
