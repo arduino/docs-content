@@ -13,7 +13,7 @@ The following code includes a method called treatValue() that is transforming th
 
 Finally we make the LED blink with the values read from the sensors as a direct visual feedback of how we control the joystick.
 ## Hardware Required
-- Arduino Microcontroller ([Link to store](https://store.arduino.cc/))
+- Arduino Board ([Link to store](https://store.arduino.cc/))
 - Joystick
 
 
