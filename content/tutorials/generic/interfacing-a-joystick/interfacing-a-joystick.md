@@ -2,7 +2,7 @@
 author: 'Arduino'
 description: 'This tutorial shows you how to connect a joystick '
 title: 'Interfacing a Joystick'
-tags: [Joystick, potentiometer]
+tags: [Joystick, Potentiometer]
 ---
 ## Introduction
 The typical joystick is nothing but two potentiometers that allow us to measure the movement of the stick in 2-D. Potentiometers are variable resistors and, in a way, they act as sensors providing us with a variable voltage depending on the rotation of the device around its shaft.
