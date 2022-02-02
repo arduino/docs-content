@@ -66,11 +66,11 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 
 ## Ratings
 ### Recommended Operating Conditions
-| Symbol                | Description                       | Min | Typ | Max  | Unit |
-| --------------------- | --------------------------------- | --- | --- | ---- | ---- |
-| T                     | Conservative thermal limits *(1)* | -40 | 25  | 85   | °C   |
-| V<sub>PWR_IN_12</sub> | Power Jack Input Voltage          | 6   | 7   | 36   | V    |
-| P<sub>Max</sub>       | Maximum Power Consumption         | -   | -   | 5000 | mW   |
+| Symbol                | Description               | Min | Typ | Max  | Unit |
+| --------------------- | ------------------------- | --- | --- | ---- | ---- |
+| T                     | Thermal limits *(1)*      | -40 | 25  | 85   | °C   |
+| V<sub>PWR_IN_12</sub> | Power Jack Input Voltage  | 6   | 7   | 36   | V    |
+| P<sub>Max</sub>       | Maximum Power Consumption | -   | -   | 5000 | mW   |
 
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
 
