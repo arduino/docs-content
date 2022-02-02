@@ -10,7 +10,7 @@ software:
 
 ## Introduction 
 
-It is possible to gather Historical data from your [Arduino IoT Cloud]((https://create.arduino.cc/iot/)) Things and Variables. Historical data can be essential to making your electronics and Arduino project work how you want them to. Data retention is a really usefull feature with Arduino IoT Cloud.
+It is possible to gather Historical data from your [Arduino IoT Cloud]((https://create.arduino.cc/iot/)) Things and Variables. Historical data can be essential to making your electronics and Arduino project work how you want them to. Data retention is a really useful feature with Arduino IoT Cloud.
 
 ## Goals
 
