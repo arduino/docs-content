@@ -1,6 +1,6 @@
 ---
 author: 'Arduino'
-description: 'This tutorial shows you how to connect a joystick '
+description: 'This tutorial shows you how to connect a joystick to an Arduino.'
 title: 'Interfacing a Joystick'
 tags: [Joystick, Potentiometer]
 ---
