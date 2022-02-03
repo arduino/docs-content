@@ -220,8 +220,6 @@ Click on the "Play" button at the bottom of the left toolbar. Place some objects
 
 ***The MicroPython script doesn't get compiled and linked into an actual firmware. Instead it gets copied to the internal Flash of the board where it gets interpreted and executed on the fly.***
 
-![An example of a blob detection running in the OpenMV IDE](assets/por_openmv_blob_detected.png)
-
 ## Conclusion
 
 In this tutorial you learned how to use the OpenMV IDE to develop MicroPython scripts that then run on the Nicla Vision. You also learned how to configure the camera of the Nicla Vision to be used for machine vision applications in OpenMV. Last but not least you learned how to interact with the built-in LEDs in MicroPython on the OpenMV firmware.  
