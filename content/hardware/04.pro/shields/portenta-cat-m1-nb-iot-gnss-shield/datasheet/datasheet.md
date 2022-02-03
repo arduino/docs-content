@@ -48,7 +48,7 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
   - MKR requires headers
   
 
-  # Contents
+# Contents
 
 ## The Board
 
@@ -84,7 +84,6 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 **(1):** See Portenta datasheet
 **(2):** Temperatures under -30°C may cause instability in the TX62 operation.
-
 
 
 ### Power Consumption
