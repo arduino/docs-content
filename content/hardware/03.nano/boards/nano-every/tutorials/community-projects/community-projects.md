@@ -29,5 +29,5 @@ A bit more advanced use case for the Nano Every is documented by user [torstenge
 
 This smart electricity meter measures and stores the readings from two meters, simulatenously. To read more about this project, visit the link below:
 
--[Logging 2 Electricity Smart Meters Using Arduino Nano Every](https://create.arduino.cc/projecthub/torstengeppert/logging-2-electricity-smart-meters-using-arduino-nano-every-99f934)
+- [Logging 2 Electricity Smart Meters Using Arduino Nano Every](https://create.arduino.cc/projecthub/torstengeppert/logging-2-electricity-smart-meters-using-arduino-nano-every-99f934)
 
