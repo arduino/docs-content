@@ -133,7 +133,7 @@ for blob in blobs:
     img.draw_cross(blob.cx(), blob.cy(), color=(0,255,0))
 ```
 
-If you need to know which blob matched which color threshold you can use the `blob.code()` function (see [here](https://docs.openmv.io/library/omv.image.html#image.image.blob.blob.code) for more information.
+If you need to know which blob matched which color threshold you can use the `blob.code()` function (see [here](https://docs.openmv.io/library/omv.image.html#image.image.blob.blob.code) for more information).
 
 The result of that will be visible in the Frame Buffer preview panel on the right side of the OpenMV IDE.
 
