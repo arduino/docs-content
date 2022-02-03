@@ -1,41 +1,40 @@
 <FeatureDescription>
 
-The **Portenta H7** simultaneously runs high level code along with real time tasks. The design includes two processors that can run tasks in parallel. For example, is possible to execute Arduino compiled code along with MicroPython one, and have both cores to communicate with one another. The Portenta functionality is two-fold, it can either be running like any other embedded microcontroller board, or as the main processor of an embedded computer. For example, use the **Portenta Vision Shield** to transform your H7 into an industrial camera capable of performing real time machine learning algorithms on live video feeds
-
+The **Portenta X8** is a high performance board, with many great features. With two cores combined; the NXP i.MX 8M Mini and STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU, it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
 </FeatureDescription>
 
 
 <FeatureList>
-<Feature title="Portenta H7 Microcontroller" image="nano-form-factor">
+<Feature title="NXP iMX8M" image="core">
 
-  The Portenta H7 allows for programming with high-level languages and AI while performing low-latency operations on its customizable hardware.
-
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Datasheet-Portenta-H7.pdf" download blank/>
+  Includes the powerful NXP iMX8M Mini processor with 4x Arm® Cortex®-A53 core platforms up to 1.8GHz per core and 1x Cortex-M4 core up tp 400MHz. 
+  <FeatureLink title="Datasheet" url="https://www.cs.hs-rm.de/~kaiser/2121_aos/pdfs/cortexa53.pdf" download blank/>
 </Feature>
 
 <Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
 
-  H7's main processor is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+  X8's main processor is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
 </Feature>
 
-<Feature title="Murata 1DX dual WiFi and Bluetooth 5.1" image="wifi-bluetooth">
+<Feature title="NXP SE050C2" image="crypto-chip">
 
-  The onboard wireless module allows to simultaneously manage WiFi and Bluetooth® connectivity.
+  The always-updated Linux kernel environment, allows users to keep security in mind by ensuring a secure connection at the hardware level.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_Murata-1dx.pdf" download blank/>
+
+  <FeatureLink title="Datasheet" url="https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf" download blank/>
 </Feature>
 
-<Feature title="Chrom-ART graphical hardware Accelerator™" image="mcu">
+<Feature title="Real-time applications™" image="communication">
 
-  Probably one of the most exciting features of the Portenta H7 is the possibility of connecting an external monitor to build your own dedicated embedded computer with a user interface. This is possible thanks to the STM32H747 processor's on-chip GPU, the Chrom-ART Accelerator™. Besides the GPU, the chip includes a dedicated JPEG encoder and decoder.
+  Thanks to the Arduino environment, the X8 offers the best of two approaches: the flexibility of usage of Linux combined with real-time applications. This approach allows developers to leverage the Arduino envornment to perform e.g automation control while performing high-performance processonf on Linuc cores at the same time. 
 
 </Feature>
 
-<Feature title="Special Configuration Request" image="configurability">
+<Feature title="Containerizing system" image="configurability">
 
-  The Portenta H7 is a highly configurable design, it is possible to order boards with different configurations of memory, crypto chip, antenna, etc. These request will be channeled through Arduino's sales team and will require a minimum amount order. We recommend you try the default H7 configuration and if you need specific features for your solution, then contact us to discuss the terms.
+  With the so called encapsulate-application, developers can isolate a single package of software, which means that the applications can run within a controlled environment. This allow developers to design device-independent software while achieving modularization, thanks to the container composition.  
   
 </Feature>
 
