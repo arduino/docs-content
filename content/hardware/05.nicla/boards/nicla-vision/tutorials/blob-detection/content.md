@@ -21,7 +21,7 @@ In this tutorial you will use the Arduino® Nicla Vision to detect the presence 
 
 ## Nicla Vision and the OpenMV IDE
 
-The OpenMV IDE was built for Machine Vision applications. It is meant to provide an Arduino like experience for simple computer vision tasks using a camera sensor. OpenMV comes with its own firmware that is built on MicroPython. Among other hardware it supports the Nicla Vision board. OpenMV allows you to easily preview the camera stream and visually expect colour ranges to define thresholds for your machine vision scripts. [Here](https://openmv.io/) you can read more about the OpenMV IDE.
+The OpenMV IDE was built for Machine Vision applications. It is meant to provide an Arduino like experience for simple computer vision tasks using a camera sensor. OpenMV comes with its own firmware that is built on MicroPython. Among other hardware it supports the Nicla Vision board. OpenMV allows you to easily preview the camera stream and visually inspect colour ranges to define thresholds for your machine vision scripts. [Here](https://openmv.io/) you can read more about the OpenMV IDE.
 
 ## Instructions
 
