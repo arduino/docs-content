@@ -9,7 +9,7 @@ The Nano BLE Sense is a fantastic, versatile board that can be used for environm
 
 ***Videos and external links found in this article are not maintained by Arduino. You can visit the [official documentantion for Nano BLE Sense](/hardware/nano-33-ble-sense).***  
 
-## Picovoice
+## Voice Control
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/b7wzFEDU0U8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -34,7 +34,7 @@ Learn how to access data from the Nano BLE Sense via the [Phyphox](https://phyph
 
 - [Remote sensors with a smartphone](http://hebergement.universite-paris-saclay.fr/supraconductivite/projet/arduino_nano/?lang=en) (external link).
 
-## Color Recognition ML
+## Color Detection
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/BGAXLsUgPqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
