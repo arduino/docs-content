@@ -30,9 +30,6 @@ if(!allArticles || allArticles.length == 0){
 // Verify that all meta data is valid JSON and contains the correct attributes
 if(configManager.getConfig("generic").validateMetadata){
     validator.addValidation(tutorials, validateMetaData, configManager.getConfig("tutorials").metadataSchema);
-}
-
-if(configManager.getConfig("generic").validateMetadata){
     validator.addValidation(datasheets, validateMetaData, configManager.getConfig("datasheets").metadataSchema);
 }
 
@@ -56,7 +53,7 @@ validator.addValidation(allArticles, validateSVGFiles);
 
 // Verify that there are no broken links
 if(configManager.options.checkBrokenLinks){
-    validator.addValidation(tutorials, validateBrokenLinks, configManager.getConfig("tutorials").brokenLinkExcludePatterns, configManager.getConfig("generic").baseURL, configManager.options.verbose);
+    validator.addValidation(allArticles, validateBrokenLinks, configManager.getConfig("generic").brokenLinkExcludePatterns, configManager.getConfig("generic").baseURL, configManager.options.verbose);
 };
 
 // Verify that all files in the assets folder are referenced
