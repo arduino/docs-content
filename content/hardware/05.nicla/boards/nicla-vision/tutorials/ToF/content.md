@@ -18,7 +18,7 @@ software:
   - cli
 ---
 
-# Overview
+## Overview
 
 In this tutorial you will use the Nicla Vision to detect proximity, made by the Time of Flight (ToF) sensor **VL53L1X**.
 
