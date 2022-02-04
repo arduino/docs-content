@@ -14,12 +14,6 @@
   includeCodeBlocks: false
   errorMessage: Incorrect spelling of 'Wi-Fi' found.
 
-- regex: "(?!.*Flash)[fF][lL][aA][sS][hH]\\b"
-  shouldMatch: false
-  type: warning
-  format: markdown
-  errorMessage: Incorrect spelling of 'Flash' found.
-
 - regex: "(?<!\\/|-)\\b(master|slave)\\b"
   regexModifiers: "gi"
   shouldMatch: false
