@@ -2,7 +2,7 @@ Board:
   Name: Arduino® Portenta Cat. M1/NB IoT GNSS Shield
   SKU: ASX00027
 Connectivity:
-  LoRa Modem: TX62-W Cellular-GNSS Module
+  LPWAN Modem: TX62-W Cellular-GNSS Module
   ESLOV connector: SM05B-SRSS-TB
 Communication:
   UART: Yes
