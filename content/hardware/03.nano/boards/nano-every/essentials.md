@@ -4,6 +4,10 @@
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
+  <EssentialElement title="Community Projects" type="tutorial" link="/tutorials/nano-every/community-projects">
+    Discover interesting projects from the community based on the Nano Every board.
+  </EssentialElement>
+
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
