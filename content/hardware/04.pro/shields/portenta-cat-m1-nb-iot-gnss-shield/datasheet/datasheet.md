@@ -15,6 +15,7 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
 
 # Features
 **Note:** This board requires a compatible MKR or Portenta board to function. Use together with the Arduino® Vision Shield is not supported.
+
 - Cinterion TX62 wireless module
   - Cellular connectivity and positioning support
   - Embedded IPv4 and IPv6 TCP/IP stack access
@@ -125,6 +126,7 @@ The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various 
 ### Positioning
 Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V.
 **Note:** GNSS and cellular services cannot be used simultaneously. 
+
 ### Power Tree
 ![Portenta Cat. M1/NB IoT GNSS Shield Power Tree](assets/thalesShieldPowerTree.svg)
 Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by the host Portenta board via the high density connector. A 3.0V voltage is provided via TC1185-3.0VCT713 (U8) for the active GNSS antenna.
@@ -228,7 +230,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 
 ## Company Information
-
 
 | Company name    | Arduino S.r.l                              |
 | --------------- | ------------------------------------------ |
