@@ -17,6 +17,8 @@ software:
   - cli
 ---
 
+![Arduino Nicla Vision](assets/nicla_vision_perspective.png)
+
 In this tutorial you will use the Nicla Vision to detect proximity, thanks to the Time of Flight (ToF) sensor **VL53L1X**.
 
 This tutorial contains the sketch to blink the built-in RGB LED and control the speed of its blink by the proximity values.
