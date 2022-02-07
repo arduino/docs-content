@@ -56,7 +56,7 @@ As a Portenta family Shield it uses the High density pins to be available for th
 ### Requirements
 
 The GPS Feature requires:
-* An antenna (e.g [Dipole antenna, at the arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna?queryID=52d9fdab80e7fcace62aae924c084a93&_gl=1*msh8uc*_ga*MjA5OTMyMzAwMC4xNjIxNTE1OTY3*_ga_NEXN8H46L5*MTYzMDkzMzQ3NS40NS4xLjE2MzA5MzM5MTAuMA..)) at the **RF OUT** antenna connector on the top side of the shield.
+* An antenna (e.g [Dipole antenna, at the Arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna) at the **RF OUT** antenna connector on the top side of the shield.
 * SIM Card capable of running with the CatM1 specifications  (check with your provider if your Card has that feature)
 
 To check if our setup it's working we can open an example sketch from the GSM library inside the Mbed Portenta Core. Under **Examples > GSM > GSMClient** we open a sketch that connects to the SIM card provider, then connects to a webpage and downloads the content of it to display it inside the Serial Monitor.
