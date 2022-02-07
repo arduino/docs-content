@@ -34,11 +34,11 @@ The goals of this project are:
 * Arduino Nicla Vision
 * VL53L1X library (Available on the Library Manager)
 
-## Blink depending on the distance
+## Blink Depending on the Distance
 
 Make sure you have installed the latest version of **Arduino mbed Core** and the **VL53L1X library**.
 
-### Include the Needed Libraries and Objects declaring
+### Include the Needed Libraries and Objects Declaration
 
 First of all declare the sensor's class so you can access it later on your sketch.
 The variables are to avoid using delays as the reading would not be accurate.
