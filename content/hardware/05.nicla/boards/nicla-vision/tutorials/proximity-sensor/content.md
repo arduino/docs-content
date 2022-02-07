@@ -45,51 +45,50 @@ Make sure you have installed the latest version of **Arduino mbed Core** and the
 
 ```cpp
     #include <Wire.h>
-    #include "Nicla_System.h"
     #include "VL53L1X.h"
 ```
 ### Initialize the proximity sensor and the LED
 
 ```cpp
-    VL53L1X proximity;
-    bool blinkState = false;
-    int reading = 0;
-    int timeStart = 0;
-    int blinkTime = 2000;
+  VL53L1X proximity;
+  bool blinkState = false;
+  int reading = 0;
+  int timeStart = 0;
+  int blinkTime = 2000;
 
-    void setup(){
-        Serial.begin(115200);
-        Wire.begin();
-
-        nicla::begin();
-        nicla::leds.begin();
-        nicla::leds.setColor(blue);
-
-        if (!sensor.init()){
-            Serial.println("Failed to detect and initialize sensor!");
-            while (1);
-        }
-
-        sensor.setDistanceMode(VL53L1X::Long);
-        sensor.setMeasurementTimingBudget(50000);
-
-        sensor.startContinuous(50);
+  void setup(){
+    Serial.begin(115200);
+    Wire.begin();
+    Wire.setClock(400000); // use 400 kHz I2C
+    pinMode(LEDB,OUTPUT);
+    digitalWrite(LEDB, blinkState);
+    proximity.setTimeout(500);
+    if (!proximity.init()){
+        Serial.println("Failed to detect and initialize sensor!");
+        while (1)
+            ;
     }
+
+    proximity.setDistanceMode(VL53L1X::Long);
+    proximity.setMeasurementTimingBudget(50000);
+
+    proximity.startContinuous(50);
+  }
 ```
 
 ### Control the speed of the blink
 
 ```cpp
-    void loop(){
-        reading = proximity.read()
-        Serial.println(reading);
+  void loop(){
+    reading = proximity.read();
+    Serial.println(reading);
 
-        if(millis() - timeStart >= reading){
-            nicla::leds.setColor(0x0000FF * blinkState);
-            !blinkState;
-            timeStart = millis();
-        }
+    if (millis() - timeStart >= reading){
+        digitalWrite(LEDB, blinkState);
+        !blinkState;
+        timeStart = millis();
     }
+  }
 ```
 
 ## Conclusion
