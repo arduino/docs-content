@@ -1,25 +1,21 @@
 ---
-title: 'Proximity Detection with Arduino Nicla Vision'
-difficulty: easy
-description: 'Learn how to use the proximity sensor to vary the speed of the LED's blink'
-tags:
-  - Proximity
-  - Sensor
-author: 'Pablo Marquínez'
+title: Proximity Detection with Arduino Nicla Vision
+coverImage: assets/por_ard_usbh_cover.svg
+difficulty: intermediate
+tags: [Bluetooth®, WEBAPP, CLI, Installation]
+description: Learn how to use the proximity sensor to vary the speed of the LED's blink.
+author: Pablo Marquínez
 libraries: 
   - name: VL53L1X
     url: https://github.com/pololu/vl53l1x-arduino
 hardware:
-  - hardware/05.nicla/boards/nicla-vision
+  - hardware/05.nicla/boards/nicla-sense-me
 software:
   - ide-v1
   - ide-v2
   - web-editor
   - cli
 ---
-
-
-## Overview
 
 In this tutorial you will use the Nicla Vision to detect proximity, thanks to the Time of Flight (ToF) sensor **VL53L1X**.
 
@@ -42,21 +38,30 @@ The goals of this project are:
 
 Make sure you have installed the latest version of **Arduino mbed Core** and the **VL53L1X library**.
 
-### Include the needed libraries
+### Include the needed libraries and declaring
+
+First of all declare the sensor's class so you can access it later on your sketch.
+The variables are to avoid using delays as the reading would not be accurate.
 
 ```cpp
   #include <Wire.h>
   #include "VL53L1X.h"
-```
-### Initialize the proximity sensor and the LED
-
-```cpp
   VL53L1X proximity;
+
   bool blinkState = false;
   int reading = 0;
   int timeStart = 0;
   int blinkTime = 2000;
+```
 
+### Initialize the proximity sensor and the LED
+
+Inside the setup you need to initialize the I2C communication before initializing the proximity sensor.
+Also the RGB Led needs to be set as an output to make it light up.
+
+***The LEDs are accessed as the Portenta H7: LEDR, LEDG and LEDB***
+
+```cpp
   void setup(){
     Serial.begin(115200);
     Wire.begin();
@@ -79,6 +84,8 @@ Make sure you have installed the latest version of **Arduino mbed Core** and the
 
 ### Control the speed of the blink
 
+The sketch is going to get the reading on every loop, store it and then the state of the LED will change until the time is up until the proximity reading.
+
 ```cpp
   void loop(){
     reading = proximity.read();
@@ -86,8 +93,9 @@ Make sure you have installed the latest version of **Arduino mbed Core** and the
 
     if (millis() - timeStart >= reading){
       digitalWrite(LEDB, blinkState);
-      !blinkState;
       timeStart = millis();
+
+      !blinkState;
     }
   }
 ```
