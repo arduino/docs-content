@@ -18,9 +18,10 @@ software:
   - cli
 ---
 
+
 ## Overview
 
-In this tutorial you will use the Nicla Vision to detect proximity, made by the Time of Flight (ToF) sensor **VL53L1X**.
+In this tutorial you will use the Nicla Vision to detect proximity, thanks to the Time of Flight (ToF) sensor **VL53L1X**.
 
 This tutorial contains the sketch to blink the built-in RGB LED and control the speed of its blink by the proximity values.
 This could help for future projects and control the Camera only when something is crossing in front of the board, like a proximity detector.
@@ -37,15 +38,15 @@ The goals of this project are:
 * Arduino Nicla Vision
 * VL53L1X library (Available on the Library Manager)
 
-## Instructions
+## Blink depending on the distance
 
 Make sure you have installed the latest version of **Arduino mbed Core** and the **VL53L1X library**.
 
 ### Include the needed libraries
 
 ```cpp
-    #include <Wire.h>
-    #include "VL53L1X.h"
+  #include <Wire.h>
+  #include "VL53L1X.h"
 ```
 ### Initialize the proximity sensor and the LED
 
@@ -60,13 +61,13 @@ Make sure you have installed the latest version of **Arduino mbed Core** and the
     Serial.begin(115200);
     Wire.begin();
     Wire.setClock(400000); // use 400 kHz I2C
+
     pinMode(LEDB,OUTPUT);
     digitalWrite(LEDB, blinkState);
-    proximity.setTimeout(500);
+    
     if (!proximity.init()){
-        Serial.println("Failed to detect and initialize sensor!");
-        while (1)
-            ;
+      Serial.println("Failed to detect and initialize sensor!");
+      while (1);
     }
 
     proximity.setDistanceMode(VL53L1X::Long);
@@ -84,13 +85,28 @@ Make sure you have installed the latest version of **Arduino mbed Core** and the
     Serial.println(reading);
 
     if (millis() - timeStart >= reading){
-        digitalWrite(LEDB, blinkState);
-        !blinkState;
-        timeStart = millis();
+      digitalWrite(LEDB, blinkState);
+      !blinkState;
+      timeStart = millis();
     }
   }
 ```
 
-## Conclusion
-
-
+## API
+| Command                              |                           Details                            | type              |
+| :----------------------------------- | :----------------------------------------------------------: | :---------------- |
+| setAddress(newAddress)               |      Change the I2C sensor's address (Not recommended)       | `void`            |
+| getAddress()                         |                 Get the Sensor's I2C address                 | `uint8_t`         |
+| init()                               | Configures the sensor and needed data. Like the usual begin()| `void`            |
+| setDistanceMode(mode)                |                                                              | `void`            |
+| getDistanceMode()                    |                                                              | `struct distance` |
+| setMeasurementTimingBudget(uSeconds) | Set the time to get the measure, greater the value, better precision. In micro seconds. | `void`            |
+| getMeasurementTimingBudget()         |        Get the measure timing value in micro seconds.        | `uint32_t`        |
+| startContinuous()                    | Start the non stop readings, set the period inside the parameter, after that time you will get the reading. | `void`            |
+| stopContinuous()                     |               Stop the non stop measurements.                | `void`            |
+| read()                               |        Get the last reading from the continuous mode.        | `void`            |
+| readSingle()                         |           Trigger one reading and get its result.            | `uint16_t`        |
+| dataReady()                          |        Returns if the sensor has new data available.         | `bool`            |
+| setTimeout(mSeconds)                 | Configure the milliseconds the sensor will wait in case it is not getting the proper reading to abort, and continue with a new one, 0 disables it. | `void`            |
+| getTimeout()                         |              Get the configured timeout value.               | `uint16_t`        |
+| timeoutOccurred()                    |       Returns true whenever the sensor had a timeout.        | `bool`            |
