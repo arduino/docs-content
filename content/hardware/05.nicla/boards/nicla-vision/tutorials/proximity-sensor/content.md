@@ -38,7 +38,7 @@ The goals of this project are:
 
 Make sure you have installed the latest version of **Arduino mbed Core** and the **VL53L1X library**.
 
-### Include the needed libraries and declaring
+### Include the Needed Libraries and Objects declaring
 
 First of all declare the sensor's class so you can access it later on your sketch.
 The variables are to avoid using delays as the reading would not be accurate.
@@ -54,7 +54,7 @@ The variables are to avoid using delays as the reading would not be accurate.
   int blinkTime = 2000;
 ```
 
-### Initialize the proximity sensor and the LED
+### Initialize the Proximity Sensor and the LED
 
 Inside the setup you need to initialize the I2C communication before initializing the proximity sensor.
 Also the RGB Led needs to be set as an output to make it light up.
@@ -82,7 +82,7 @@ Also the RGB Led needs to be set as an output to make it light up.
   }
 ```
 
-### Control the speed of the blink
+### Control the Speed of the Blink
 
 The sketch is going to get the reading on every loop, store it and then the state of the LED will change until the time is up until the proximity reading.
 
