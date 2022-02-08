@@ -33,19 +33,19 @@ The goals of this project are:
 - [Arduino Nano Motor Carrier](https://store.arduino.cc/products/arduino-nano-motor-carrier)
 - [Micro USB Cable](https://store.arduino.cc/products/usb-cable-type-a-male-to-micro-type-b-male)
 - Single cell LiPo/Li-ion 18650 battery and holder with XT30 connector
-- Valid MATLAB® license
+- Valid MATLAB® licence
 - [MATLAB® Support Package for Arduino® Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware)
 
 
 ***The Arduino Nano 33 IoT, Nano Motor Carrier, Micro USB cable and single cell battery are included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2)***
 
-***A valid MATLAB® license is needed. Your workplace or education institution may have a subscription. Alternatively, a one-year trial subscription to MATLAB® is included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2).***
+***A valid MATLAB® licence is needed. Your workplace or education institution may have a subscription. Alternatively, a one-year trial subscription to MATLAB® is included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2).***
 
 
 ### Why MATLAB?
-MATLAB® is an educational and industrial programming platform used to analyse data, perform simulations and carry out model based designs. Through an interactive communication with an Arduino board, you can expand MATLAB's capabilities, while also gaining access to a wide range of math, engineering and plotting functions. Check out the capabilities of MATLAB® over on the [MathWorks website](https://www.mathworks.com/solutions.html#capabilities). In this tutorial, we will establish the connection with MATLAB via a USB and Wi-Fi connection.
+MATLAB® is an educational and industrial programming platform used to analyse data, perform simulations and carry out model based designs. Through an interactive communication with an Arduino board, you can expand MATLAB's capabilities, while also gaining access to a wide range of math, engineering and plotting functions. Check out the capabilities of MATLAB® over on the [MathWorks website](https://www.mathworks.com/solutions.html#capabilities). In this tutorial, we will establish the connection with MATLAB via a USB and Wi-Fi connection. The [MATLAB Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware) must be installed (which may require a MathWorks account), in order to facilitate the communication between the MATLAB software on your computer and your Arduino board. 
 
-![Connection route to MATLAB](assets/nanoMatlabWiFiLED-01.png)
+![Connection route to MATLAB](assets/nanoMatlabWiFiLED-01.png) 
 
 ### Static vs Dynamic IP Addressing
 When you connect your Arduino board, you should see the COM port under Device Manager. By referencing the COM port, you can create a two-way data link between your computer and the Arduino device. For a device connected on a network, we can use an Internet Protocol (IP) address to identify it. In the IPv4 standard, this is written as a series of four numbers such as `192.168.1.100`. By default, most routers are configured to assign a dynamic address via a Dynamic Host Configuration Protocol (DHCP). This means less configuration, but at the cost of the IP address changing. In order to reliably address your Arduino board, you may wish to utilise a static IP address. Once a static IP address is assigned, it will stay the same.
@@ -119,7 +119,7 @@ end
 
 ## Control LED over Wi-Fi with MATLAB
 
-**1.** Firstly, make sure your Arduino board is connected via the USB cable. Run `clear a` to remove the previously created arduino object and then run the `arduinoSetup()` script again. This time, select the Wi-Fi option. You will see that a few options appear at the bottom left. Select your Wi-Fi encryption type and enter your SSID, password and port. By default, the Arduino board will obtain a dynamic IP from your router.
+**1.** Firstly, make sure your Arduino board is connected via the USB cable. Run `clear a` to remove the previously created arduino object and then run the `arduinosetup()` command again. This time, select the Wi-Fi option. You will see that a few options appear at the bottom left. Select your Wi-Fi encryption type and enter your SSID, password and port. By default, the Arduino board will obtain a dynamic IP from your router.
 
 ![Connection of Arduino over Wi-Fi to MATLAB](assets/nanoMatlabWiFiLED-10.png)
 
@@ -146,7 +146,8 @@ end
 
 If the code is not working, there are some common issues we can troubleshoot:
 
-- Make sure to clear previous Arduino objects linked to the device.
+- Make sure to clear previous Arduino objects linked to the device. You can do this by running the command `clear a` where `a` is the Arduino object.
+- If you get the message `Unrecognized function or variable 'arduinosetup' ` ensure that you have installed the [MATLAB Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware).
 - If the network requires login, you may be unable to connect. Contact your network administrator or use USB to connect to the board.
 
 
@@ -162,6 +163,6 @@ You can now control your Arduino Nano 33 IoT via MATLAB by a wired or wireless c
 
 - Write a MATLAB function that allows you to change the speed based on input arguments.
 
-- Use the `writePWMVoltage` function to control a LED on an external Pin.
+- Use the `writePWMVoltage()` function to control a LED on an external Pin.
 
 - Try moving a DC/Servo motor via Wi-Fi.
