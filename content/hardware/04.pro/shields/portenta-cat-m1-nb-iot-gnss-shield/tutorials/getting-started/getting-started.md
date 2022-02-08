@@ -76,7 +76,9 @@ client.connect(server,port)
 
 ### Result of Sketch
 
-After finishing this setup, compile and upload the program. You should see the HTML content of the server printed in the serial monitor. As default the server is set as `example.com`. Feel free to change this and take a look at how it prints different web pages.
+After finishing this setup, compile and upload the program. You should see the HTML content of the server printed in the serial monitor. As default the server is set as `example.com`. Feel free to change this and take a look at how it prints different web pages. Below you can see what will print in the serial monitor, when connecting to `example.com`.
+
+![Result in the serial monitor](assets/Cat-M1-serial-monitor.png)
 
 ### Troubleshoot
 
