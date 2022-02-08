@@ -8,7 +8,7 @@ Pins:
   Digital I/O Pins: 8
   Analog Input Pins: 7 (ADC 8/10/12 bit)
   Analog Output Pins: 1 (DAC 10 bit)
-  PMW Pins: 13 (0 - 8, 10, 12, A3, A4)
+  PWM Pins: 13 (0 - 8, 10, 12, A3, A4)
   External interrupts: 10 (0, 1, 4, 5, 6, 7, 8 ,9, A1, A2)
 Communication:
   UART: Yes
