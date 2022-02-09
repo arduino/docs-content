@@ -513,11 +513,8 @@ The example below shows a basic code generated in the `thingProperties.h` file a
 ***Please note: for READ & WRITE variables a callback function (in this case called `onVariableName01Change()`) is automatically generated in sketch. This will allow for writing commands inside the function to trigger actions whenever the value is changed from the cloud.***
 
 ```arduino
-
 #include ArduinoIoTCloud.h
 #include Arduino_ConnectionHandler.h
-
-const char THING_ID[] = "A-UNIQUE-THING-ID-NUMBER";
 
 const char SSID[]     = SECRET_SSID;    // Network SSID (name)
 const char PASS[]     = SECRET_PASS;    // Network password (use for WPA, or use as key for WEP)
@@ -529,15 +526,22 @@ CloudTemperature Variable_Name_02; // declare a Cloud specific temperature varia
 
 void initProperties(){
 
-  ArduinoCloud.setThingId(THING_ID);
   ArduinoCloud.addProperty(Variable_Name_01, READWRITE, ON_CHANGE, onVariableName01Change); // linking the read & write variable with its function and updating it on change
   ArduinoCloud.addProperty(Variable_Name_02, READ, 10 * SECONDS, NULL); // setting up the read only variable and updating it every 10 seconds
 
 }
 
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS); // setting up the network name and password chosen in the Network configuration
-
 ```
+
+***As of 2022/02/09 the `thingProperties.h` no longer contains your Thing ID. If you have created a Thing prior to this date, simply update your Thing and your `thingProperties.h` will automatically be updated. You can see the lines that were removed in the snippet below:***
+
+```arduino
+const char THING_ID[] = "A-UNIQUE-THING-ID-NUMBER";
+
+ArduinoCloud.setThingId(THING_ID); //previously located inside initProperties()
+```
+
 
 ### sketch.ino
 
@@ -585,7 +589,7 @@ Uploading a sketch through the Arduino IoT Cloud can be achieved in two ways, ei
 
 The full editor allows for more control over the code and its libraries and provides access to all files included in the sketch, as well as more editing and sharing options.
 
-***Please note: the status of the connection to the Network and Arduino IoT Cloud may be checked by opening the **Serial Monitor** after uploading a sketch. If the `while(!Serial);` loop is included in the `setup()` function, the code would not execute before opening the **Serial Monitor**.***
+***Please note: the status of the connection to the Network and Arduino IoT Cloud may be checked by opening the Serial Monitor after uploading a sketch. If the `while(!Serial);` loop is included in the `setup()` function, the code would not execute before opening the Serial Monitor.***
 
 
 ## Dashboards
