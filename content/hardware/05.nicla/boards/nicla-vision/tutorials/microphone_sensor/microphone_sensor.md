@@ -145,7 +145,7 @@ Or the full edited sketch on our Arduino_Pro_Tutorials library.
     PDM.read(sampleBuffer, bytesAvailable);
 
     // 16-bit, 2 bytes per sample
-    samplesRead = bytesAvailable / 2;)
+    samplesRead = bytesAvailable / 2;
   }
 ```
 
