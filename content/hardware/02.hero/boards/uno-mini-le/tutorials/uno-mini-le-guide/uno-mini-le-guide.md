@@ -1,6 +1,6 @@
 ---
 title: 'A Guide to the Arduino UNO Mini Limited Edition'
-description: 'Learn how to set up the UNO Mini Limited Edition (LE), a minituare version of the classic UNO board. This guide includes instructions and technical information to get started with your board.'
+description: 'Learn how to set up the UNO Mini Limited Edition (LE), a miniature version of the classic UNO board. This guide includes instructions and technical information to get started with your board.'
 tags: 
   - UNO Mini LE
   - Limited Edition
