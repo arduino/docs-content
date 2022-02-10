@@ -106,11 +106,11 @@ The sketch is going to get the reading on every loop, store it and then the stat
 | setAddress(newAddress)               |      Change the I2C sensor's address (Not recommended)       | `void`            |
 | getAddress()                         |                 Get the Sensor's I2C address                 | `uint8_t`         |
 | init()                               | Configures the sensor and needed data. Like the usual begin()| `void`            |
-| setDistanceMode(mode)                |                                                              | `void`            |
-| getDistanceMode()                    |                                                              | `struct distance` |
-| setMeasurementTimingBudget(uSeconds) | Set the time to get the measure, greater the value, better precision. In micro seconds. | `void`            |
+| setDistanceMode(mode)                |  Set the distance mode (check the datasheet). Available modes `VL53L1X::Short`, `VL53L1X::Medium`, `VL53L1X::Long`, `VL53L1X::Unknown` | `void` |
+| getDistanceMode()                    |  Returns the mode that has been set. Available modes `VL53L1X::Short`, `VL53L1X::Medium`, `VL53L1X::Long`, `VL53L1X::Unknown`| `enum DistanceMode ` |
+| setMeasurementTimingBudget(uSeconds) | Set the time to get the measure, greater the value, better precision. In micro seconds. | `void` |
 | getMeasurementTimingBudget()         |        Get the measure timing value in micro seconds.        | `uint32_t`        |
-| startContinuous()                    | Start the non stop readings, set the period inside the parameter, after that time you will get the reading. | `void`            |
+| startContinuous()                    | Start the non stop readings, set the period inside the parameter, after that time you will get the reading. | `void` |
 | stopContinuous()                     |               Stop the non stop measurements.                | `void`            |
 | read()                               |        Get the last reading from the continuous mode.        | `void`            |
 | readSingle()                         |           Trigger one reading and get its result.            | `uint16_t`        |
