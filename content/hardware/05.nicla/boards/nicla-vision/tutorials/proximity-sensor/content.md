@@ -24,6 +24,8 @@ In this tutorial you will use the Nicla Vision to detect proximity, thanks to th
 This tutorial contains the sketch to blink the built-in RGB LED and control the speed of its blink by the proximity values.
 This could help for future projects and control the Camera only when something is crossing in front of the board, like a proximity detector.
 
+***The sketch shown is available inside the `Arduino_Pro_Tutorials` library by going to `Examples > Nicla Vision > Proximity_Blink***
+
 ## Goals
 The goals of this project are:
  - Set up the needed libraries
