@@ -59,8 +59,8 @@ The variables are to avoid using delays as the reading would not be accurate.
 
 ### Initialize the Proximity Sensor and the LED
 
-Inside the setup you need to initialize the I2C communication before initializing the proximity sensor.
-Also the RGB Led needs to be set as an output to make it light up.
+Inside the setup you need to initialize the proximity sensor.
+Also the RGB LED needs to be set as an output to make it light up.
 
 ***The LEDs are accessed as the Portenta H7: LEDR, LEDG and LEDB***
 
