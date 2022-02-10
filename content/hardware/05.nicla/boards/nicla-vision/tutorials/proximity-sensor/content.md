@@ -103,7 +103,7 @@ The sketch is going to get the reading on every loop, store it and then the stat
 ## API
 | Command                              |                           Details                            | type              |
 | :----------------------------------- | :----------------------------------------------------------: | :---------------- |
-| setAddress(newAddress)               |      Change the I2C sensor's address (Not recommended)       | `void`            |
+| setAddress(newAddress)               |      Change the I2C sensor's address (Mandatory to set it to `Wire1`)       | `void`            |
 | getAddress()                         |                 Get the Sensor's I2C address                 | `uint8_t`         |
 | init()                               | Configures the sensor and needed data. Like the usual begin()| `void`            |
 | setDistanceMode(mode)                |  Set the distance mode (check the datasheet). Available modes `VL53L1X::Short`, `VL53L1X::Medium`, `VL53L1X::Long`, `VL53L1X::Unknown` | `void` |
