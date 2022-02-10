@@ -48,13 +48,14 @@ The variables are to avoid using delays as the reading would not be accurate.
 ```cpp
   #include <Wire.h>
   #include "VL53L1X.h"
-  VL53L1X proximity;
+  VL53L1X proximity(Wire1);
 
   bool blinkState = false;
   int reading = 0;
   int timeStart = 0;
   int blinkTime = 2000;
 ```
+***Make sure you set `Wire1` inside the VL53L1X constructor's parameter, it won't work if you don't add that setting***
 
 ### Initialize the Proximity Sensor and the LED
 
@@ -66,8 +67,6 @@ Also the RGB Led needs to be set as an output to make it light up.
 ```cpp
   void setup(){
     Serial.begin(115200);
-    Wire.begin();
-    Wire.setClock(400000); // use 400 kHz I2C
 
     pinMode(LEDB,OUTPUT);
     digitalWrite(LEDB, blinkState);
@@ -78,9 +77,8 @@ Also the RGB Led needs to be set as an output to make it light up.
     }
 
     proximity.setDistanceMode(VL53L1X::Long);
-    proximity.setMeasurementTimingBudget(50000);
-
-    proximity.startContinuous(50);
+    proximity.setMeasurementTimingBudget(10000);
+    proximity.startContinuous(10);
   }
 ```
 
@@ -97,7 +95,7 @@ The sketch is going to get the reading on every loop, store it and then the stat
       digitalWrite(LEDB, blinkState);
       timeStart = millis();
 
-      !blinkState;
+      blinkState = !blinkState;
     }
   }
 ```
