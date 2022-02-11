@@ -101,7 +101,9 @@ In order to feed the blob detection algorithm with an image you have to take a s
 
 ![LAB thresholds for an apple in the Threshold Editor](assets/lab_thresholds_apple.png)
 
+To get a rough idea of the LAB color range of the target object you can use the histogram view in OpenMV. Draw a rectangle with the mouse pointer just above the target object in the frame buffer view. In the histogram you can see which color values appear most often. You can set the target color ranges to the min and max values of the corresponding color component.
 
+![LAB color histogram of frame buffer](assets/histogram.png)
 
 As opposed to the example above with the apple, the clustering of the banana's pixels is slightly less coherent. This is because the banana lies on a background that has slightly similar color. That means that the algorithm is sensitive to the background pixels. In order to exclude blobs that don't belong to the target object additional filtering is necessary. You can for example set a minimum bounding box size, a blob pixel density, define the elongation of the object, its roundness or even just look for objects in a specific part of the image.
 
