@@ -23,7 +23,7 @@ Create graphical UIs with a 240x240 resolution display.
 
 The LSM6DS3 is a low power IMU that features a 3D digital accelerometer and a 3D digital gyroscope. 
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6ds3.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/st_imu_lsm6ds3_datasheet.pdf" download blank/>
 </Feature>
 
 <Feature title="LPS22HB" image="pressure-sensor">
