@@ -51,5 +51,4 @@ The carrier features two analog I/O and one I2C Grove connector.
 
 </Feature>
 
-
 </FeatureList>
