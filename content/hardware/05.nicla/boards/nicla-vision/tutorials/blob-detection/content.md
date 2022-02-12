@@ -101,7 +101,7 @@ In order to feed the blob detection algorithm with an image you have to take a s
 
 ![LAB thresholds for an apple in the Threshold Editor](assets/lab_thresholds_apple.png)
 
-To get a rough idea of the LAB color range of the target object you can use the histogram view in OpenMV. Draw a rectangle with the mouse pointer just above the target object in the frame buffer view. In the histogram you can see which color values appear most often. You can set the target color ranges to the min and max values of the corresponding color component.
+To get a rough idea of the LAB color range of the target object you can use the histogram view in OpenMV. Make sure you have set the histogram to LAB color mode. Draw a rectangle with the mouse pointer just above the target object in the frame buffer view. In the histogram you can see which color values appear most often. You can set the target color ranges to the min and max values of the corresponding color component.
 
 ![LAB color histogram of frame buffer](assets/histogram.png)
 
@@ -141,7 +141,7 @@ The result of that will be visible in the Frame Buffer preview panel on the righ
 
 ![Visualisation of the blobs in the frame buffer preview](assets/blob_detection_example.png)
 
-### 4. Toggling LEDs
+### 5. Toggling LEDs
 
 What if you want some visual feedback from the blob detection without any computer connected to your board? You could use for example the built-in LEDs to indicate whether or not a blob was found in the camera image. Let's initialise the red and the green LEDs with the following code:
 
@@ -165,7 +165,7 @@ else:
 
 In this example the green LED will light up when there is at least one blob found in the image. The red LED will light up if no blob could be found.
 
-### 5. Uploading the Script
+### 6. Uploading the Script
 Let's program the board with the complete script and test if the algorithm works. Copy the following script and paste it into the new script file that you created.
 
 ```python
