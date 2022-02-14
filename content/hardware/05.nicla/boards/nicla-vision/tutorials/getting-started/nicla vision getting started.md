@@ -149,7 +149,7 @@ The board should now be selectable in the Arduino IDE, allowing you to upload sk
 In this tutorial you learned how to use the OpenMV IDE with your Portenta board. You also learned how to control the Nicla Vision's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
 
 ### Next Steps
--   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File>Examples>Arduino>** in the OpenMV IDE.
+-   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File > Examples > Arduino > ** in the OpenMV IDE.
 -   Take a look at our other Nicla Vision tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/nicla-vision#tutorials)
 
 ## Troubleshooting
