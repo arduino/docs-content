@@ -14,6 +14,7 @@ libraries:
 software:
   - openMV
 ---
+
 ## Overview
 The OpenMV IDE is meant to provide an Arduino like experience for simple machine vision tasks using a camera sensor. In this tutorial, you will learn about some of the basic features of the OpenMV IDE and how to create a simple MicroPython script. The Nicla Vision board has OpenMV firmware on the board by default, making it easy to connect to the OpenMV IDE.
 
@@ -38,7 +39,7 @@ Before you can start programming OpenMV scripts for the Nicla Vision you need to
 
 Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
 
-### 2. Flashing the OpenMV Firmware
+### 2. Connecting to the OpenMV IDE
 
 Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet.
 
@@ -172,7 +173,7 @@ print("Done! Reset the camera to see the saved image.")
 
 The camera that comes with the Nicla Vision supports RGB 565 images. That's why we use `sensor.set_pixformat(sensor.RGB565)`, enabling the camera to take an image with color. Then we need to set the resolution of the camera. Here we will use `sensor.set_framesize(sensor.QVGA)`.
 
-Using `sensor.set_vflip` and `sensor.set_hmirror` will help us set the correct orientation of the image. If you hold the board with the USB cable facing down you want to call `sensor.set_vflip(True)`. The image will be mirrored, if you want the image to be displayed as you see it from your prespective, you want to call `sensor.set_hmirror(True)`.
+Using `sensor.set_vflip` and `sensor.set_hmirror` will help us set the correct orientation of the image. If you hold the board with the USB cable facing down you want to call `sensor.set_vflip(True)`. The image will be mirrored, if you want the image to be displayed as you see it from your perspective, you want to call `sensor.set_hmirror(True)`.
 
 Running this script in OpenMV will show the image that the camera is currently capturing in the top right corner, inside the frame buffer. The on board red LED will be on for a couple of seconds, then the blue LED will turn on, this indicates when the picture is about to be taken. A message will be printed in the serial terminal when the image is taken.
 
@@ -182,9 +183,9 @@ The image will be saved as "example.jpg" in the boards directory. It is also pos
 
 ## Using the Nicla Vision with Arduino IDE
 
-As mentioned before, the Nicla Vision comes with OpenMV firmware pre installed. This makes it easier to use the board with OpenMV out of the box. It is possible to use the Nicla Vision with the Arduino IDE. First make sure that you have the latest core installed. To install the core navigate into **Tools > Board > Boards Manager...**, in the Boards Manager window search for **Nicla Vision MBED** and install it. When this core is installed and you have your board connected to your computer, put the board into bootloader mode. You do this by double pressing the reset button, located next to the LED.
+As mentioned before, the Nicla Vision comes with OpenMV firmware pre installed. This makes it easier to use the board with OpenMV out of the box. It is possible to use the Nicla Vision with the Arduino IDE. First make sure that you have the latest core installed. To install the core navigate into **Tools > Board > Boards Manager...**, in the Boards Manager window search for **Nicla Vision MBED** and install it. When this core is installed and you have your board connected to your computer, select the port that the board is connected to and the boards core. You should now be able to upload an Arduino sketch to the board.
 
-The board should now be selectable in the Arduino IDE, allowing you to upload sketches to it.
+If you wish to use the board with OpenMV after it has been used with the Arduino IDE. You have to put the board into bootloader mode and install OpenMV firmware. You do this by double pressing the reset button, located next to the LED. When the board is in bootloader mode and connected to your computer, follow the steps above in the **2. Connecting to the OpenMV IDE** section to connect the board to the OpenMV IDE again.
 
 ## Conclusion
 In this tutorial you learned how to use the OpenMV IDE with your Nicla Vision board. You also learned how to control the Nicla Vision's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
