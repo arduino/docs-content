@@ -172,7 +172,7 @@ print("Done! Reset the camera to see the saved image.")
 
 The camera that comes with the Nicla Vision supports RGB 565 images. That's why we use `sensor.set_pixformat(sensor.RGB565)`, enabling the camera to take an image with color. Then we need to set the resolution of the camera. Here we will use `sensor.set_framesize(sensor.QVGA)`.
 
-Using `sensor.set_vflip` and `sensor.set_hmirror` will help us set the correct orientation of the image. If you hold the board with the USB cable facing down you want to call `sensor.set_vflip(True)`. The image will be mirrored, if you want the image to be displayed as you see it with your eyes, you want to call `sensor.set_hmirror(True)`.
+Using `sensor.set_vflip` and `sensor.set_hmirror` will help us set the correct orientation of the image. If you hold the board with the USB cable facing down you want to call `sensor.set_vflip(True)`. The image will be mirrored, if you want the image to be displayed as you see it from your prespective, you want to call `sensor.set_hmirror(True)`.
 
 Running this script in OpenMV will show the image that the camera is currently capturing in the top right corner, inside the frame buffer. The on board red LED will be on for a couple of seconds, then the blue LED will turn on, this indicates when the picture is about to be taken. A message will be printed in the serial terminal when the image is taken.
 
