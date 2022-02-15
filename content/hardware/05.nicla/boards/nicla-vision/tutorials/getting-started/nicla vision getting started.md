@@ -43,23 +43,23 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet.
 
-![The OpenMV IDE after starting it](assets/por_openmv_open_ide.png)
+![The OpenMV IDE after starting it](assets/openmv_open_ide.png)
 
 Click on the "connect" symbol at the bottom of the left toolbar.
 
-![Click the connect button to attach the Nicla Vision to the OpenMV IDE](assets/por_openmv_click_connect.png)
+![Click the connect button to attach the Nicla Vision to the OpenMV IDE](assets/openmv_click_connect.png)
 
 A pop-up will ask you how you would like to proceed. Select "Reset Firmware to Release Version". This will install the latest OpenMV firmware on the Nicla Vision. You can leave the option of erasing the internal file system unselected and click "OK".
 
-![Install the latest version of the OpenMV firmware](assets/por_openmv_reset_firmware.png)
+![Install the latest version of the OpenMV firmware](assets/openmv_reset_firmware.png)
 
 Nicla Vision's green LED will start flashing while the OpenMV firmware is being uploaded to the board. A terminal window will open which shows you the flashing progress. Wait until the green LED stops flashing and fading. You will see a message saying "DFU firmware update complete!" when the process is done.
 
-![Installing firmware on Nicla Vision board in OpenMV](assets/por_openmv_firmware_updater.png)
+![Installing firmware on Nicla Vision board in OpenMV](assets/openmv_firmware_updater.png)
 
 The board will start flashing its blue LED when it's ready to be connected. After confirming the completion dialog the Nicla Vision should already be connected to the OpenMV IDE, otherwise click the "connect" button (plug symbol) once again.
 
-![When the Nicla Vision is successfully connected a green play button appears](assets/por_openmv_board_connected.png)
+![When the Nicla Vision is successfully connected a green play button appears](assets/openmv_board_connected.png)
 
 ### 3. Preparing the Script
 
@@ -136,7 +136,7 @@ while True:
 
 Connect your board to the OpenMV IDE and upload the above script by pressing the play button in the lower left corner.
 
-![Press the green play button to upload the script](assets/por_openmv_board_connected.png)
+![Press the green play button to upload the script](assets/openmv_board_connected.png)
 
 Now the built-in LED on your Nicla Vision board should be blinking red, green and then blue repeatedly.
 
