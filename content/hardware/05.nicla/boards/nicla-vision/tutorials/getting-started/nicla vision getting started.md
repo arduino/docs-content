@@ -46,7 +46,7 @@ Connect the Nicla Vision to your computer via the USB cable if you haven't done 
 
 Click on the "connect" symbol at the bottom of the left toolbar.
 
-![Click the connect button to attach the Portenta to the OpenMV IDE](assets/por_openmv_click_connect.png)
+![Click the connect button to attach the Nicla Vision to the OpenMV IDE](assets/por_openmv_click_connect.png)
 
 A pop-up will ask you how you would like to proceed. Select "Reset Firmware to Release Version". This will install the latest OpenMV firmware on the Nicla Vision. You can leave the option of erasing the internal file system unselected and click "OK".
 
@@ -54,11 +54,11 @@ A pop-up will ask you how you would like to proceed. Select "Reset Firmware to R
 
 Nicla Vision's green LED will start flashing while the OpenMV firmware is being uploaded to the board. A terminal window will open which shows you the flashing progress. Wait until the green LED stops flashing and fading. You will see a message saying "DFU firmware update complete!" when the process is done.
 
-![Installing firmware on portenta board in OpenMV](assets/por_openmv_firmware_updater.png)
+![Installing firmware on Nicla Vision board in OpenMV](assets/por_openmv_firmware_updater.png)
 
 The board will start flashing its blue LED when it's ready to be connected. After confirming the completion dialog the Nicla Vision should already be connected to the OpenMV IDE, otherwise click the "connect" button (plug symbol) once again.
 
-![When the Portenta H7 is successfully connected a green play button appears](assets/por_openmv_board_connected.png)
+![When the Nicla Vision is successfully connected a green play button appears](assets/por_openmv_board_connected.png)
 
 ### 3. Preparing the Script
 
@@ -139,6 +139,47 @@ Connect your board to the OpenMV IDE and upload the above script by pressing the
 
 Now the built-in LED on your Nicla Vision board should be blinking red, green and then blue repeatedly.
 
+## Using the Nicla Visions Camera
+
+You can easily access the camera on the Nicla Vision through OpenMV IDE. Below is a short script that will set up the camera and take an image. The board will blink it's LED to indicate when it will take the picture. The image can be seen in the frame buffer while the script is running.
+
+```python
+import pyb # Import module for board related functions
+import sensor # Import the module for sensor related functions
+import image # Import module containing machine vision algorithms
+
+redLED = pyb.LED(1) # built-in red LED
+blueLED = pyb.LED(3) # built-in blue LED
+
+sensor.reset() # Initialize the camera sensor.
+sensor.set_pixformat(sensor.RGB565) # Sets the sensor to RGB
+sensor.set_framesize(sensor.QVGA) # Sets the resolution to 320x240 px
+sensor.set_vflip(True) # Flips the image vertically
+sensor.set_hmirror(True) # Mirrors the image horizontally
+
+redLED.on()
+sensor.skip_frames(time = 2000) # Skip some frames to let the image stabilize
+
+redLED.off()
+blueLED.on()
+
+print("You're on camera!")
+sensor.snapshot().save("example.jpg")
+
+blueLED.off()
+print("Done! Reset the camera to see the saved image.")
+```
+
+The camera that comes with the Nicla Vision supports RGB 565 images. That's why we use `sensor.set_pixformat(sensor.RGB565)`, enabling the camera to take an image with color. Then we need to set the resolution of the camera. Here we will use `sensor.set_framesize(sensor.QVGA)`.
+
+Using `sensor.set_vflip` and `sensor.set_hmirror` will help us set the correct orientation of the image. If you hold the board with the USB cable facing down you want to call `sensor.set_vflip(True)`. The image will be mirrored, if you want the image to be displayed as you see it with your eyes, you want to call `sensor.set_hmirror(True)`.
+
+Running this script in OpenMV will show the image that the camera is currently capturing in the top right corner, inside the frame buffer. The on board red LED will be on for a couple of seconds, then the blue LED will turn on, this indicates when the picture is about to be taken. A message will be printed in the serial terminal when the image is taken.
+
+![Where to see the captured image in OpenMV](assets/openmv-nicla-vision-camera.png)
+
+The image will be saved as "example.jpg" in the boards directory. It is also possible to save the image in a ".bmp" format. If you reset the camera by pressing the reset button the image file will appear in the boards directory.
+
 ## Using the Nicla Vision with Arduino IDE
 
 As mentioned before, the Nicla Vision comes with OpenMV firmware pre installed. This makes it easier to use the board with OpenMV out of the box. It is possible to use the Nicla Vision with the Arduino IDE. First make sure that you have the latest core installed. To install the core navigate into **Tools > Board > Boards Manager...**, in the Boards Manager window search for **Nicla Vision MBED** and install it. When this core is installed and you have your board connected to your computer, put the board into bootloader mode. You do this by double pressing the reset button, located next to the LED.
@@ -146,15 +187,16 @@ As mentioned before, the Nicla Vision comes with OpenMV firmware pre installed. 
 The board should now be selectable in the Arduino IDE, allowing you to upload sketches to it.
 
 ## Conclusion
-In this tutorial you learned how to use the OpenMV IDE with your Portenta board. You also learned how to control the Nicla Vision's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
+In this tutorial you learned how to use the OpenMV IDE with your Nicla Vision board. You also learned how to control the Nicla Vision's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
 
 ### Next Steps
 -   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File > Examples > Arduino > ** in the OpenMV IDE.
+-   It is possible to use the board for more advanced image processing tasks. Be sure to take a look at our other tutorials if you want to learn more.
 -   Take a look at our other Nicla Vision tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/nicla-vision#tutorials)
 
 ## Troubleshooting
 
 ### OpenMV Firmware Flashing Issues
 - If the upload of the OpenMV firmware fails during the download, put the board back in bootloader mode and try again. Repeat until the firmware gets successfully uploaded.
-- If the OpenMV IDE still can't connect after flashing the firmware, try uploading the latest firmware using the "Load Specific Firmware File" option. You can find the latest firmware in the [OpenMV Github repository](https://github.com/openmv/openmv/releases). Look for a file named **firmware.bin** in the PORTENTA folder.
+- If the OpenMV IDE still can't connect after flashing the firmware, try uploading the latest firmware using the "Load Specific Firmware File" option. You can find the latest firmware in the [OpenMV Github repository](https://github.com/openmv/openmv/releases). Look for a file named **firmware.bin**.
 - If you see a "OSError: Reset Failed" message, reset the board by pressing the reset button. Wait until you see the blue LED flashing, connect the board to the OpenMV IDE and try running the script again.
