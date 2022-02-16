@@ -10,7 +10,7 @@ Pins:
   PWM pins: 5
   External interrupts: All digital pins
 Connectivity:
-  Bluetooth: nRF52840
+  Bluetooth: NINA-B306
 Sensors:
   IMU: LSM9DS
   Microphone: MP34DT05
