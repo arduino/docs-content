@@ -1,9 +1,10 @@
 ---
-title: 'Controlling the On-Board RGB LED with Microphone'
+title: 'Testing and Controlling the Microphone'
 difficulty: easy
 compatible-products: [nano-33-ble-sense]
 description: 'Learn how to create a soundmeter using the built-in microphone with the Nicla Vision.'
 tags:
+  - OpenMV
   - Microphone
   - Sound
   - Sensor
@@ -14,6 +15,7 @@ libraries:
 hardware:
   - hardware/05.nicla/boards/nicla-vision
 software:
+  - OpenMV
   - ide-v1
   - ide-v2
   - web-editor
@@ -37,7 +39,21 @@ In this tutorial you will use the **Arduino Nicla VIsion** board to get the micr
 - Arduino Nicla Vision
 - Latest mbed Core version
 
-## Instructions
+## Set up
+
+To check that you set up correctly the board please visit our [Getting Started Guide]() for both **OpenMV** and **Arduino** available instructions.
+
+## OpenMV
+
+Open the program by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_fft.py**.
+
+***Using the same sketch as  the NanoRP2040, cause both boards have the same microphone***
+
+Make sure you linked the board by checking the Serial Port and upload the program.
+
+You will see an spectrum analizer on the top right panel that reflects the audio readings input.
+
+## Arduino
 
 ### Setting up the sketch
 
