@@ -5,6 +5,13 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
 
 
 <FeatureList>
+<Feature title="u-blox NINA-B306" image="bluetooth">
+
+  A powerful 2.4 GHz Bluetooth® 5 low energy module from u-blox, with an internal antenna. 
+
+  <FeatureLink title="Datasheet" url="/resources/datasheets/NINA-B3-series.pdf" download blank/>
+</Feature>
+
 <Feature title="IMU for Motion Detection" image="imu">
 
   The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
@@ -27,10 +34,4 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
 </Feature>
 
 
-<Feature title="Bluetooth Low Energy" image="bluetooth">
-
-  Bluetooth Low Energy (BLE) is optimized for low power use at low data rates and is therefore perfect for connecting peripherals to a phone or computer. The connection is handled by the ArduinoBLE library.
-
-  <FeatureLink title="Link to ArduinoBLE library" url="https://www.arduino.cc/en/Reference/ArduinoBLE" blank/>
-</Feature>
 </FeatureList>

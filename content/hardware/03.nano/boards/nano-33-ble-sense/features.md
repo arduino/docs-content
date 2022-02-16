@@ -6,6 +6,14 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
 
 
 <FeatureList>
+
+<Feature title="u-blox NINA-B306" image="bluetooth">
+
+  A powerful 2.4 GHz Bluetooth® 5 low energy module from u-blox, with an internal antenna. 
+
+  <FeatureLink title="Datasheet" url="/resources/datasheets/NINA-B3-series.pdf" download blank/>
+</Feature>
+
 <Feature title="IMU for Motion Detection" image="imu">
 
   The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
