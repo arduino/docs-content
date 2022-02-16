@@ -2,9 +2,6 @@
   <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/installing-mbed-os-nicla-boards">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
-  <EssentialElement title="Cheat Sheet" type="tutorial" link="/tutorials/nicla-sense-me/cheat-sheet">
-    A collection of mini-guides and API descriptions that serves as a quick reference to look up information while you work on a project.
-  </EssentialElement>
 
 </EssentialsColumn>
 
@@ -14,12 +11,12 @@
 The ArduinoBLE library is designed for Arduino boards that have hardware enabled for BLE and Bluetooth 4.0 and above. 
   </EssentialElement>
 
-  <EssentialElement title="Arduino_BHY2" type="library" link="https://github.com/arduino/nicla-sense-me-fw/tree/main/Arduino_BHY2">
-  Provides the APIs for Nicla Sense ME board to perform a DFU or configure/read BHY sensors.
+  <EssentialElement title="PDM" type="library" link="https://www.arduino.cc/en/Reference/PDM">
+The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT06JTR.
   </EssentialElement>
 
-  <EssentialElement title="Arduino_BHY2Host" type="library" link="https://github.com/arduino/nicla-sense-me-fw/tree/main/Arduino_BHY2Host">
-  Provides the APIs for a host board to interact with the Nicla Sense ME.
+  <EssentialElement title="WiFi" type="library" link="https://www.arduino.cc/en/Reference/WiFi">
+  The WiFi library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
   </EssentialElement>
 
 </EssentialsColumn>

@@ -1,7 +1,7 @@
 Board:
-  Name: Nicla Sense ME
-  SKU: ABX00050
-Microcontroller: Cortex-M4 nRF52832
+  Name: Nicla Vision
+  SKU: ABX00051
+Microcontroller: STM32H757AII6 Dual Arm Cortex M7/M4
 USB connector: Micro USB (USB-B)
 Pins:
   LED built-in: 1 RGB LED (I2C)
@@ -10,8 +10,8 @@ Pins:
   PWM pins: 12 (of which 2 are shared with analog, 2 are shared with I2C and 4 are shared with SPI)
   External interrupts: 12
 Connectivity:
-  Bluetooth: ANNA B112 Bluetooth module
-  Wi-Fi: No
+  Bluetooth: Murata 1DX Bluetooth module
+  Wi-Fi: Yes
   Secure element: No
 Communication:
   UART: Yes
