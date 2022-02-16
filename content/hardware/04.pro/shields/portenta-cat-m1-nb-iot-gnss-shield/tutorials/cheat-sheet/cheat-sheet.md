@@ -6,6 +6,7 @@ tags:
   - Cat. M1
   - NB IoT
   - GNSS
+  - NMEA
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04pro/shields/portenta-cat-m1-nb-iot-gnss-shield
@@ -13,6 +14,10 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
+  - cli
+libraries:
+  - name: 107-Arduino-NMEA-Parser
+    url: https://github.com/107-systems/107-Arduino-NMEA-Parser
 ---
 
 ![The Arduino® Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
