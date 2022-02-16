@@ -256,6 +256,53 @@ Open the example by going to **Examples > GSM > GNSSClient**
 You will see the **NMEA** data in the Serial monitor.
 ![NMEA log example Serial Monitor](assets/NMEA_output.png)
 
+#### Parse NMEA GPS Sentences
+
+Previously we shown how to show the GPS data on the Serial Monitor, but it was not possible to evaluate those messages (NMEA sentences).
+To do so you can use an **NMEA parser** that will convert the messages received from the GPS modem and it will parse and save them into variables, you can use the **107-Arduino-NMEA-Parser** library.
+
+Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and you need to add the following: 
+
+Include the needed libraries.
+
+```cpp
+  #include "GPS.h"
+  #include "GSM.h"
+  #include "ArduinoNmeaParser.h"
+  #include "Arduino_secrets.h"
+
+  char pin[]      = SECRET_PIN;
+  char apn[]      = SECRET_APN;
+  char username[] = SECRET_LOGIN;
+  char pass[]     = SECRET_PASS;
+```
+
+Inside the `setup()` initialize the GSM and GPS modules.
+
+```cpp
+  void setup(){
+    Serial.begin(115200);
+    while (!Serial) {}
+    Serial.println("GSM...");
+    GSM.begin(pin, apn, username, pass, CATNB);
+    Serial.println("GPS...");
+    GPS.begin();
+    Serial.println("Success");
+  }
+```
+
+Edit the loop to parse the `GPS` readings instead of the `Serial1`.
+
+```cpp
+  void loop(){
+    while(GPS.available()){
+      parser.encode((char)GPS.read());
+    }
+  }
+```
+
+***You will see the output data as various "-1" until the GPS has enough visible satellites to get the correct data, make sure the GPS antenna is somewhere that can see the sky.***
+
 #### Low Power GPS
 
 The GPS antenna is active, that means that it needs power to function as it has electronics inside of it.
