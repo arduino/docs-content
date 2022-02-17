@@ -70,7 +70,7 @@ Now that you can get the microphone data, let's control the built-in RGB LED and
 **4. Complete code**
 
 You can access the example sketch at **Examples > PDM > PDMSerialPlotter** and then edit as we shown.
-Or the full edited sketch on our Arduino_Pro_Tutorials library.
+Or the full edited sketch on our **Arduino_Pro_Tutorials** library.
 
 ```arduino
   /*
@@ -98,8 +98,10 @@ Or the full edited sketch on our Arduino_Pro_Tutorials library.
   // Number of audio samples read
   volatile int samplesRead;
 
-  // Variable to save the brightness of the LED
-  int brightness;
+  // Variables to change the blinking speed of the LED
+  int speed;
+  int timeStart = 0;
+  bool state = false;
 
   void setup() {
     Serial.begin(9600);
@@ -123,7 +125,7 @@ Or the full edited sketch on our Arduino_Pro_Tutorials library.
 
     // Set the LED
     pinMode(LEDB, OUTPUT);
-    analogWrite(LEDB, 0); // Used with PWM to control the 255-0% 0-100%
+
   }
 
   void loop() {
@@ -139,14 +141,18 @@ Or the full edited sketch on our Arduino_Pro_Tutorials library.
           i++;
         }
         Serial.println(sampleBuffer[i]);
-
-        // Control the LED's brightness
-        brightness = (int)map(sampleBuffer[i], 0, 512, 0, 255);
-        analogWrite(LEDB, brightness);
+        speed = sampleBuffer[i];
       }
 
       // Clear the read count
       samplesRead = 0;
+    }
+
+    //Blinking of the LEDB
+    if(millis() - timeStart > speed){
+      digitalWrite(LEDB, state);
+      state = !state;
+      timeStart = millis();
     }
   }
 
