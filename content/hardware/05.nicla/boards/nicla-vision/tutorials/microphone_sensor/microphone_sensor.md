@@ -47,7 +47,7 @@ To check that you set up correctly the board please visit our [Getting Started G
 
 Open the program by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_fft.py**.
 
-***Using the same sketch as  the NanoRP2040, cause both boards have the same microphone***
+***Using the same sketch as  the NanoRP2040, cause both boards access the microhpone the same way***
 
 Make sure you linked the board by checking the Serial Port and upload the program.
 
