@@ -63,9 +63,9 @@ We will edit the example from the mbed Core, go to **Examples > PDM > PDMSerialP
 
 You can run the sketch to see the result, it will show the data that the microphone is getting on the **Serial Plotter**.
 
-### Controlling the LED brightness
+### Controlling the blinking LED 
 
-Now that you can get the microphone data, let's control the built-in RGB LED and change its brightness depending on the values.
+Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values.
 
 **4. Complete code**
 
@@ -181,7 +181,7 @@ After you have successfully verified and uploaded the sketch to the board, open 
 
 ![Microphone data in the Serial Monitor.](assets/nano33BS_08_printing_values.png)
 
-If you want to test it, the only thing you need to do is to place the board next to a speaker and speak or play some sound to see how the brightness of the RGB LED change based on the input.
+If you want to test it, the only thing you need to do is to place the board next to a speaker and speak or play some sound to see how the blinking of the RGB LED changes based on the input.
 
 ### Troubleshoot
 
