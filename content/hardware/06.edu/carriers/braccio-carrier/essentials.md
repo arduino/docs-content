@@ -6,10 +6,9 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-    <EssentialElement link="" title="" type="library">
+    <EssentialElement link="/content/learn/02.microcontrollers/02.analog-input/analog-input.md" title="Braccio ++" type="library">
         Braccio ++ Library
     </EssentialElement>
-
 
 </EssentialsColumn>
 
