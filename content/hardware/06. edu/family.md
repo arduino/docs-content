@@ -1,4 +1,4 @@
 ---
-title: Braccio++
-description: A fully operational robotic arrm.
+title: Education
+description: Our most advanced educational offerings.
 ---
