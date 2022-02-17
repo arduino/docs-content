@@ -1,12 +1,12 @@
 <EssentialsColumn title="Tutorials for ">
 <EssentialElement title=" technical reference" type="tutorial" link="/tutorials/">
-   <!-- Add the sentence about what the technical reference focuses on. -->
+  
   </EssentialElement>
 
-<!-- Add here the tutorials connected to the product you are writing about. -->
+
 
 <EssentialElement title="" type="tutorial" link="/tutorials/">
-    <!-- Add a sentence about what this tutorial focuses on. -->
+    
   </EssentialElement>
 </EssentialsColumn>
 
