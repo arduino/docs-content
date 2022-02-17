@@ -2,24 +2,14 @@
     <EssentialElement link="/software/ide-v1/installing-mbed-os-nano-boards" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
-    <EssentialElement link="/tutorials/" title="Technical Reference" type="tutorial">
-        <!--  -->
-    </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
     <EssentialElement link="" title="" type="library">
-        <!--  -->
+        Braccio ++ Library
     </EssentialElement>
 
-  <EssentialElement link="" title="" type="library" >
-        <!--  -->
-  </EssentialElement>
-    
-  <EssentialElement link="" title="" type="library">
-        <!--  -->
-  </EssentialElement>
 
 </EssentialsColumn>
 
