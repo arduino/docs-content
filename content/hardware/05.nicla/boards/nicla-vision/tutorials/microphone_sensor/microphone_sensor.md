@@ -53,6 +53,8 @@ Make sure you linked the board by checking the Serial Port and upload the progra
 
 You will see an spectrum analizer on the top right panel that reflects the audio readings input.
 
+![OpenMV IDE - Spectrum Analizer](assets/OpenMV_spectrumAnalizer.png)
+
 ## Arduino
 
 ### Setting up the sketch
