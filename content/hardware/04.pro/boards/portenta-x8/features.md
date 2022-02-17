@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **Portenta X8** is a high performance board, with many great features. With two cores combined; the NXP i.MX 8M Mini and STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU, it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
+The **Portenta X8** is a high performance board, with many great features. With two cores combined; the NXP i.MX 8M Mini and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU, it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
 </FeatureDescription>
 
 
