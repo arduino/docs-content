@@ -7,7 +7,7 @@ The **Portenta X8** is a high performance board, with many great features. With 
 <FeatureList>
 <Feature title="NXP iMX8M" image="core">
 
-  Includes the powerful NXP iMX8M Mini processor with 4x Arm® Cortex®-A53 core platforms up to 1.8GHz per core and 1x Cortex-M4 core up tp 400MHz. 
+  Includes the powerful NXP iMX8M Mini processor with 4x ARM® Cortex®-A53 core platforms up to 1.8GHz per core and 1x Cortex-M4 core up to 400MHz. 
   <FeatureLink title="Datasheet" url="https://www.cs.hs-rm.de/~kaiser/2121_aos/pdfs/cortexa53.pdf" download blank/>
 </Feature>
 
