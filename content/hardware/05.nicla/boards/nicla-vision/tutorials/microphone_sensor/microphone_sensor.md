@@ -39,7 +39,7 @@ In this tutorial you will use the **Arduino Nicla VIsion** board to get the micr
 - Arduino Nicla Vision
 - Latest mbed Core version
 
-## Set up
+## Set Up
 
 To check that you set up correctly the board please visit our [Getting Started Guide]() for both **OpenMV** and **Arduino** available instructions.
 
@@ -51,19 +51,19 @@ Open the program by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_f
 
 Make sure you linked the board by checking the Serial Port and upload the program.
 
-You will see an spectrum analizer on the top right panel that reflects the audio readings input.
+You will see an spectrum analyzer on the top right panel that reflects the audio readings input.
 
-![OpenMV IDE - Spectrum Analizer](assets/OpenMV_spectrumAnalizer.png)
+![OpenMV IDE - Spectrum analyzer](assets/OpenMV_spectrumAnalizer.png)
 
 ## Arduino
 
-### Setting up the sketch
+### Setting Up the Sketch
 
 We will edit the example from the mbed Core, go to **Examples > PDM > PDMSerialPlotter** and save it into your sketchbook.
 
 You can run the sketch to see the result, it will show the data that the microphone is getting on the **Serial Plotter**.
 
-### Controlling the blinking LED 
+### Controlling the Blinking LED 
 
 Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values.
 
@@ -178,8 +178,6 @@ Or the full edited sketch on our **Arduino_Pro_Tutorials** library.
 ## Testing It Out
 
 After you have successfully verified and uploaded the sketch to the board, open the Serial Monitor from the menu on the left. You will now see the new values printed.
-
-![Microphone data in the Serial Monitor.](assets/nano33BS_08_printing_values.png)
 
 If you want to test it, the only thing you need to do is to place the board next to a speaker and speak or play some sound to see how the blinking of the RGB LED changes based on the input.
 
