@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino® Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the edge. Thanks to its 2MP color camera, smart 6-axis motion sensor, integrated microphone and distance sensor, it is suitable for asset tracking, object recognition and predictive maintenance. Quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via integrated WiFi/BLE connectivity.
+The Arduino® Nicla Vision is a powerful microcontroller equipped with 2MP color camera in a tiny form factor. With WiFi and BLE connectivity, the board maximizes compatibility with professional and consumer equipment. The board features an integrated microphone, distance sensor, smart 6-axis motion sensor and MicroPython support. The Nicla Vision can also be battery powered making it standalone.
 
 </FeatureDescription>
 
