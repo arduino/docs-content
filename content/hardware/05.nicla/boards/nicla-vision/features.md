@@ -11,33 +11,33 @@ The Arduino Nicla Vision is our smallest form factor yet.
 
 </Feature>
 
-<Feature title="LSM6DSOXTR" image="imu">
+<Feature title="LSM6DSOXTR 6-axis IMU" image="imu">
 
 This 6-axis IMU is possible to obtain 3D gyroscopic and 3D accelerometer data. It is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6dsox.pdf" download blank/>
   
 </Feature>
 
 <Feature title="STM32H747AII6" image="mcu">
 
   The Nicla Vision features an STM32H747AII6 Dual ARM® Cortex® - M7 core up to 480 Mhz + M4 core up to 240 Mhz.
-<FeatureLink title="Datasheet" url="" download blank/>
+<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/stm32h747ai.pdf" download blank/>
 </Feature>
 
-<Feature title="GC2145" image="camera">
+<Feature title="2MP color camera" image="camera">
 
 The board uses the GC2145, a 2MP color camera.
 
-<FeatureLink title="Datasheet" url="" download blank/>
+<FeatureLink title="Datasheet" url="https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/968/GC2145-CSP-DataSheet-release-V1.0_5F00_20131201.pdf" download blank/>
 </Feature>
 
-<Feature title="MP34DT06JTR" image="microphone">
+<Feature title="Omnidirectional microphone" image="microphone">
 
 The MP34DT06JTR digital MEMS microphone is omnidirectional and operate via a capacitive sensing element with a high
 signal to noise ratio.
 
-<FeatureLink title="Datasheet" url="" download blank/>
+<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_mp34dt05-a.pdf" download blank/>
 </Feature>
 
 </FeatureList>
