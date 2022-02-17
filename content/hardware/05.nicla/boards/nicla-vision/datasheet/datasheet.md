@@ -50,6 +50,11 @@ wireless sensor networks, data fusion, artificial intelligence, machine vision
   - 2 Megapixel CMOS Camera
   - on-chip 10-bit ADC
   - 1.75μm pixel size
+- **LSM6DSOX** 6-axis IMU
+  - Always-on 3D accelerometer and 3D gyroscope
+  - Smart FIFO up to 4 KByte
+  - ±2/±4/±8/±16 g full scale
+  - ±125/±250/±500/±1000/±2000 dps full scale
 - **USB3320C-EZK-TR** USB Transceiver
   - Integrated ESD Protection circuit (up to ±15kV IEC Air Discharge)
 - **AT25QL128A-UUE-T** 16 MB Flash
