@@ -263,8 +263,8 @@ You will see the **NMEA** data in the Serial monitor.
 
 #### Parse NMEA GPS Sentences
 
-Previously we shown how to show the GPS data on the Serial Monitor, but it was not possible to evaluate those messages (NMEA sentences).
-To do so you can use an **NMEA parser** that will convert the messages received from the GPS modem and it will parse and save them into variables, you can use the **107-Arduino-NMEA-Parser** library.
+Previously we shown how to show the GPS data in the Serial Monitor, but it was not possible to evaluate those messages (NMEA sentences).
+To do so you can use an **NMEA parser** that will convert the messages received from the GPS modem and it will parse and save them into variables, you can use the **107-Arduino-NMEA-Parser** library. This library can be found in the library manager inside the Arduino IDE.
 
 Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and you need to add the following: 
 
