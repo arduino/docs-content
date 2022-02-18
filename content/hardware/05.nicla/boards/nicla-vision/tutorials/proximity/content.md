@@ -17,7 +17,7 @@ software:
   - cli
 ---
 
-![Arduino Nicla Vision](assets/nicla_vision_perspective.png)
+![Arduino Nicla Vision - Time of Flight sensor](assets/nicla-vision-tof.png)
 
 In this tutorial you will use the Nicla Vision to detect proximity, thanks to the Time of Flight (ToF) sensor **VL53L1X**.
 
