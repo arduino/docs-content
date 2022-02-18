@@ -61,7 +61,7 @@ Now you get to the window that asks you to select the program to be debugged, th
 
 ![Temporary .ELF file location](assets/breakout_jlink_ozone_elf_file.png)
 
-On the optional settings, dont set anything special, as it may break the proper functionality for debugging.
+On the optional settings, don't set anything special, it may break how it should debug.
 
 ![Segger Ozone J-Link connection optional settings](assets/breakout_jlink_optional_settings.png)
 
