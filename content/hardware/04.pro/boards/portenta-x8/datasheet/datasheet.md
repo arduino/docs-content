@@ -63,7 +63,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td>2x USB 2.0 OTG controllers with integrated PHY</td>
          <td></td>
       </tr>
-         <tr>
+      <tr>
          <td>1x PCIe 2.0 (1-lane) with L1 low power substates</td>
          <td></td>
       </tr>
