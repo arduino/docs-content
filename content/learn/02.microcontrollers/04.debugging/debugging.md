@@ -9,7 +9,9 @@ author: 'José Bagur, Taddy Chung'
 
 **Embedded systems** are microprocessor or microcontroller-based systems with a dedicated operational role. Rather than being made of separate components, like desktop computers, laptops or, gaming consoles, embedded systems integrate all the hardware and software necessary for a particular purpose. Nowadays, embedded systems are everywhere: automobiles, cameras, household appliances, and mobile devices are just some examples.
 
-Embedded systems design can be challenging since it combines hardware design, firmware, and software development, all in one particular device or product. In order to produce high-quality embedded firmware and software for a particular device or product, **debugging** is a necessary step in their development process. **Debugging is the process of confirming that, one by one, many things that we believe to be true and functional in our code are true**. We find a "bug" in our code when one our more assumptions are not valid. 
+Embedded systems design can be challenging since it combines hardware design, firmware, and software development, all in one particular device or product. In order to produce high-quality embedded firmware and software for a particular device or product, **debugging** is a necessary step in their development process. **Debugging is the process of confirming that, one by one, many things that we believe to be true and functional in our code are true**. We find a "**bug**" in our code when one our more assumptions are not valid. 
+
+***People worldwide have been talking about "bugs" for a long time; even [Thomas Alva Edison](https://spectrum.ieee.org/did-you-know-edison-coined-the-term-bug) used the word back in his days. The word bug has been used as an old term for "monster"; like gremlins in machinery, bugs are malicious.***
 
 The following article will discuss different debugging tools and techniques used to find bugs in microcontroller-based systems, especially those based on Arduino® hardware.  
 
@@ -161,7 +163,7 @@ A simple technique used to debug wireless communications between devices consist
 
 The properties that involve around the transceiver are composed of transmission and reception power, transfer unit defining package to transmitted, and frequency value with its shift margins. These are properties that are configured on code but cannot be debugged with a simple visual inspection, as our eyes cannot see the frequencies on the air. To be able to debug this, we can use a SDR to transform into a visual representation of the desired frequency spectrum. 
 
-There are several softwares to assist this process and one of them is GQRX supported on OSX and Linux. The devices to be debugged are powered on while SDR takes care of catching any present transmission on the air and display it on the screen. Shown visual representation of the signal via SDR software can now be used to verify the transmission power outputted by the device and the amount of data that flew on the air. 
+There are several software to assist this process and one of them is GQRX supported on OSX and Linux. The devices to be debugged are powered on while SDR takes care of catching any present transmission on the air and display it on the screen. Shown visual representation of the signal via SDR software can now be used to verify the transmission power outputted by the device and the amount of data that flew on the air. 
 
 Additionally, it is possible to observe the frequency in which the device is transmitting on. This allows us to check if the device is holding the frequency value without changing after certain actions. Such actions can be frequency change or hopping due to badly designed code architecture. On top of it, if somehow the device is found to be moving on a large distance or at a very fast speed, frequency shift can also be observed. Frequency shift can be corrected via Doppler Frequency Shift correction.
 
