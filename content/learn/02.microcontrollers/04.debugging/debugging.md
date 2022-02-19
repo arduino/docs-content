@@ -7,8 +7,6 @@ tags:
 author: 'José Bagur, Taddy Chung'
 ---
 
-# Debugging Fundamentals
-
 **Embedded systems** are microprocessor or microcontroller-based systems with a dedicated operational role. Rather than being made of separate components, like desktop computers, laptops or, gaming consoles, embedded systems integrate all the hardware and software necessary for a particular purpose. Nowadays, embedded systems are everywhere: automobiles, cameras, household appliances, and mobile devices are just some examples.
 
 Embedded systems design can be challenging since it combines hardware design, firmware, and software development, all in one particular device or product. In order to produce high-quality embedded firmware and software for a particular device or product, **debugging** is a necessary step in their development process. **Debugging is the process of confirming that, one by one, many things that we believe to be true and functional in our code are true**. We find a "bug" in our code when one our more assumptions are not valid. 
@@ -19,12 +17,12 @@ The following article will discuss different debugging tools and techniques used
 
 There are some basic debugging techniques that we can implement to validate our code:
 
-* The compiler and syntax errors
+* The compiler and syntax errors.
 * Traditional techniques: trace code and GPIOs.
 * Remote debuggers.
 * Simulators.
-* In-Circuit Emulators (ICE) and In-Circuit Debuggers (ICD).
-* Hardware tools: oscilloscopes, logic analyzers and software-defined radios (SDRs). 
+* In-Circuit Emulators and In-Circuit Debuggers.
+* Hardware tools: oscilloscopes, logic analyzers and software-defined radios. 
 
 Let us take a look into each one of the debugging tools and techniques.
 
@@ -60,7 +58,7 @@ Using trace code for debugging is usually applicable only during the early stage
 
 ***You can pass flash-memory based strings to `Serial.print()` instruction by wrapping them with `F()`.***
 
-Another trace code technique consits of **dumping strategic information into an array at run time**, we can then observe the contents of the array at a later time (for example, when the program terminates); this technique is also known as **dump into array**. Assume `good` and `bad` are two strategic variables we want to capture. The first step is to define a debug buffer in RAM to save the debugging measurements as shown in the code below:
+Another trace code technique consists of **dumping strategic information into an array at run time**, we can then observe the contents of the array at a later time (for example, when the program terminates); this technique is also known as **dump into array**. Assume `good` and `bad` are two strategic variables we want to capture. The first step is to define a debug buffer in RAM to save the debugging measurements as shown in the code below:
 
 ```arduino
 #define DUMP_BUFFER_SIZE 32
@@ -145,24 +143,45 @@ An oscilloscope is a hardware tool that graphically displays electrical signals 
 
 #### Software-Defined Radios
 
-
+A software-defined radio (SDR) is a radio communication system that uses software for the modulation and demodulation of radio signals. Traditional radio communications systems processing relies on hardware components; this limits their reprogramming to a very low level. SDRs are much more flexible since they can be reconfigured by software. 
 
 #### Debugging with Hardware Tools
 
 While there may be several debugging techniques, using an LED indicator as a pass mark for the debugging process is the simplest yet fastest method one can utilize. The indicator will be set in different points of interest to observe the correct execution of tasks visually. For instance, there can be multiple points located simultaneously to turn it on or off the LED or a single point of interest at a time for step-by-step verification. This will provide just enough information to construct an additional layer of the code or proceed to the following structure sector to debug its behavior. It will not give precise or in-depth information about registry or data exchange, so it has to be used as a tool for code structures that are not complex in their architectural nature and behave mainly in a linear trend execution. It is handy when a debugger is not available and quickly understands how the code behaves.
 
-Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to measure the input/output ports of the system in this case. The oscilloscope, in this case, can be used to monitor specific input/output ports and see if the code gives specific feedback by driving to input/output port to the desired logic state. A multimeter can also be handy for the same task. 
+Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to measure the GPIO pins of the system in this case. The oscilloscope, in this case, can be used to monitor specific GPIO pins and see if the code gives specific feedback by driving the GPIO pin to the desired logic state. A **multimeter** can also be handy for the same task. 
 
-To get the most out of an oscilloscope and input/output ports is by measuring its performance. Oscilloscopes can also be used to determine specific signals' electrical and timing properties. For example, an unnecessary delay in code can be identified with this information. myFunction() can be measured by setting an input/output port to be driven to a high logic level when its execution begins; when myFunction ends, the input/output port can be driven to a low logic level. The oscilloscope can then provide information if the function execution took precisely the defined time, longer or shorter than expected, or if it has any unaccounted electrical behavior that changes the expected behavior.
+To get the most out of an oscilloscope and GPIO pins is by measuring its **performance**. Oscilloscopes can also be used to determine specific signal's **electrical and timing properties**. For example, an unnecessary delay in the code can be identified with this information: 
 
-## Final Thoughts about Debugging
+`myFunction()` execution duration can be measured by setting a GPIO pin to be driven to a high logic level when its execution begins; when `myFunction()` execution ends, the GPIO pin can be driven to a low logic level. The oscilloscope can then provide information if the function execution took precisely the defined time, longer or shorter than expected, or if it has any unaccounted electrical behavior that changes the expected behavior.
 
+Wireless communications help the development of new Internet of Things (IoT) devices with different requirements or specifications and for different purposes. Wireless communication is present on many embedded systems, and Arduino® hardware is no exception for this feature. The question now is: how do we debug wireless communications between devices? 
+
+A simple technique used to debug wireless communications between devices consists of using acknowledge flags. Acknowledge flags are used to verify successful communication between devices; this process is found on physical communication layers, such as I2C or SPI, providing the present status between these devices. It goes the same for wireless communication between devices. Due to different protocol types in wireless communication, acknowledged methods may differ. The easiest way to confirm that the data exchange was successful is to check the log on each end device. So why would we need to debug on a radio frequency spectrum that is working correctly? It is to verify that the transceiver configuration is correct, mainly its transmission power. 
+
+The properties that involve around the transceiver are composed of transmission and reception power, transfer unit defining package to transmitted, and frequency value with its shift margins. These are properties that are configured on code but cannot be debugged with a simple visual inspection, as our eyes cannot see the frequencies on the air. To be able to debug this, we can use a SDR to transform into a visual representation of the desired frequency spectrum. 
+
+There are several softwares to assist this process and one of them is GQRX supported on OSX and Linux. The devices to be debugged are powered on while SDR takes care of catching any present transmission on the air and display it on the screen. Shown visual representation of the signal via SDR software can now be used to verify the transmission power outputted by the device and the amount of data that flew on the air. 
+
+Additionally, it is possible to observe the frequency in which the device is transmitting on. This allows us to check if the device is holding the frequency value without changing after certain actions. Such actions can be frequency change or hopping due to badly designed code architecture. On top of it, if somehow the device is found to be moving on a large distance or at a very fast speed, frequency shift can also be observed. Frequency shift can be corrected via Doppler Frequency Shift correction.
+
+All these properties can be debugged through the radio frequency spectrum and refined to provide edge wireless communication performance on embedded systems. 
+
+
+## Final Thoughts about Debugging and Embedded Software Development
+
+Debugging is a necessary step for developing robust and reliable embedded systems. We can end this article by mentioning the **four** most essential phases of debugging:
+
+* Testing.
+* Stabilization.
+* Localization.
+* Correction.
+ 
+The **testing** phase exercises the capability of the embedded software by stimulating it with a wide range of input values. The **stabilization** phase attempt to control the conditions that generate a specific bug. **The localization** phase involves narrowing the range of possibilities until the bug can be isolated to a specific code segment. The **correction** phase, the final phase, involves eradicating the bug from the software. 
 
 ## Further Reading and Resources
 
-LoRa® and LoRaWAN® are pretty extensive but exciting topics to study. If you want to learn more about these technologies, check out the following links:
+Debugging is an exciting topic to study, if you want to learn more about debugging tools and techniques, check out the following links: 
 
-- [The LoRa Alliance® Resource Hub](https://lora-alliance.org/resource-hub/). Here you can access LoRaWAN® technical documents and Whitepapers from The LoRa Alliance®.
-- [LoRa Developer Portal from Semtech](https://lora-alliance.org/resource-hub/). Here you can find technical papers and user guides as well as specifications and datasheets from Semtech. 
-- [The Things Network documentation](https://www.thethingsnetwork.org/docs/). Here you can learn all about LoRaWAN® and The Things Network!
-- [The Things Academy online course in Udemy](https://www.udemy.com/course/lorawan-fundamentals/). A free online course where you'll learn all about LoRa® and LoRaWAN®, and get ready to start building your own Low Power Wide Area Network applications.
+- Do you want to learn more bout [oscilloscopes](https://www.tek.com/en/blog/what-is-an-oscilloscope)? Learn more about them in this article from Tektronix®.
+- Do you want to learn more about [logic analyzers](https://articles.saleae.com/logic-analyzers/what-is-a-logic-analyzer)? Learn more about them in this article from Saleae®.
