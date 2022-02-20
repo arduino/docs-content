@@ -64,8 +64,8 @@ Another trace code technique consists of **dumping strategic information into an
 
 ```arduino
 #define DUMP_BUFFER_SIZE 32
-unsigned char GoodBuffer[DUMP_BUFFER_SIZE 32];
-Unsigned char BadBuffer[DUMP_BUFFER_SIZE 32];
+unsigned char GoodBuffer[DUMP_BUFFER_SIZE];
+unsigned char BadBuffer[DUMP_BUFFER_SIZE];
 unsigned long Count = 0;
 ```
 
@@ -166,6 +166,246 @@ There are several software to assist this process and one of them is GQRX suppor
 Shown visual representation of the signal via SDR software can now be used to verify the transmission power outputted by the device and the amount of data that flew on the air. This will help to visualize the properties of the device's wireless communication configuration. It will be possible to verify the transmission and reception power, the amount of bytes transmitted, and the frequency on which it is supposed to be transmitting. A very handy tool to debug wireless communication states of the devices. 
 
 All these properties can be debugged through the radio frequency spectrum and refined to provide edge wireless communication performance on embedded systems. 
+
+## Debugging Example
+
+A simple example will be used to demonstrate implementation of different debugging techniques and how they can be very useful for the development process. We are going to use [Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) and use the LSM9DS1 inertial measurement unit's features to show the importance and ease of debugging process. The example code will be based on using [accelerometer](https://docs.arduino.cc/tutorials/nano-33-ble/imu_accelerometer), [gyroscope](https://docs.arduino.cc/tutorials/nano-33-ble/imu_gyroscope), and [magnetometer](https://docs.arduino.cc/tutorials/nano-33-ble/imu_magnetometer) at the same time, having the tasks to be executed in order to be able to obtain every value of the module. 
+
+```arduino
+/*
+  Arduino LSM9DS1 - Accelerometer, Gyroscope, and Magnetometer tasks operation with debugging technique
+
+  This example combines the accelerometer, gyroscope, and magnetometer into a single code. On top of it,
+  it helps to understand different methods of debugging when the code structure combines multiple tasks.
+
+  The circuit:
+  - Arduino Nano 33 BLE
+
+  Accessing Accelerometer Data on Nano 33 BLE - https://docs.arduino.cc/tutorials/nano-33-ble/imu_accelerometer
+  
+  Created by Riccardo Rizzo
+
+  Modified by Jose García
+  27 Nov 2020
+
+  Accessing Gyroscope Data on Nano 33 BLE - https://docs.arduino.cc/tutorials/nano-33-ble/imu_gyroscope
+
+  Created by Riccardo Rizzo
+
+  Modified by Benjamin Dannegård
+  30 Nov 2020
+  
+  Accessing Magnetometer Data on Nano 33 BLE - https://docs.arduino.cc/tutorials/nano-33-ble/imu_magnetometer
+  
+  Created by Benjamin Dannegård
+  4 Dec 2020
+
+  Current example modified by Taddy Ho Chung
+  16 Feb 2022
+
+*/
+
+#include <Arduino_LSM9DS1.h>
+
+// For debugging purposes
+#define DUMP_BUFFER_SIZE 32
+unsigned char GoodBuffer[DUMP_BUFFER_SIZE];
+unsigned char BadBuffer[DUMP_BUFFER_SIZE];
+unsigned long Count = 0;
+uint8_t good, bad = 0;
+
+float x, y, z, ledvalue;
+int degreesX = 0, degreesY = 0;
+int plusThreshold = 30, minusThreshold = -30;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    
+    bad++;
+    Save_Debug_Buffer();
+    Disp_Debug_Buffer();
+
+    debug_stop();
+  }
+
+  accelermeter_setup();
+  gyroscope_setup();
+  
+}
+
+void loop() {
+  for (int i = 0; i < 5; i++){
+    accelerometer_task();
+    gyroscope_task();
+    magnetometer_task();
+  }
+  
+  Save_Debug_Buffer();
+
+  debug_stop();
+}
+
+void accelermeter_setup(){
+  Serial.print(F("Accelerometer sample rate = "));
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(F("Hz"));
+}
+
+void accelerometer_task(){
+  if (IMU.accelerationAvailable()) {
+    Serial.println(F("Accelerometer Data Ready "));
+    IMU.readAcceleration(x, y, z);
+    good++;
+  } else {
+    Serial.println(F("Accelerometer Data Not Ready "));
+    bad++;
+  }
+
+  if (x > 0.1) {
+    x = 100 * x;
+    degreesX = map(x, 0, 97, 0, 90);
+    Serial.print(F("Tilting up "));
+    Serial.print(degreesX);
+    Serial.println(F("  degrees"));
+  }
+  if (x < -0.1) {
+    x = 100 * x;
+    degreesX = map(x, 0, -100, 0, 90);
+    Serial.print(F("Tilting down "));
+    Serial.print(degreesX);
+    Serial.println(F("  degrees"));
+  }
+  if (y > 0.1) {
+    y = 100 * y;
+    degreesY = map(y, 0, 97, 0, 90);
+    Serial.print(F("Tilting left "));
+    Serial.print(degreesY);
+    Serial.println(F("  degrees"));
+  }
+  if (y < -0.1) {
+    y = 100 * y;
+    degreesY = map(y, 0, -100, 0, 90);
+    Serial.print(F("Tilting right "));
+    Serial.print(degreesY);
+    Serial.println(F("  degrees"));
+  }
+  delay(1000);
+}
+
+void gyroscope_setup(){
+  Serial.print(F("Gyroscope sample rate = "));
+  Serial.print(IMU.gyroscopeSampleRate());
+  Serial.println(F(" Hz"));
+  Serial.println();
+  Serial.println(F("Gyroscope in degrees/second"));
+}
+
+void gyroscope_task(){
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope(x, y, z);
+    Serial.println(F("GyroScope Data Ready "));
+    good++;
+  } else {
+    Serial.println(F("GyroScope Data Not Ready "));
+    bad++;
+  }
+
+  if(y > plusThreshold){
+    Serial.println(F("Collision front"));
+    delay(500);
+  }
+
+  if(y < minusThreshold){
+    Serial.println(F("Collision back"));
+    delay(500);
+  }
+
+  if(x < minusThreshold){
+    Serial.println(F("Collision right"));
+    delay(500);
+  }
+
+  if(x > plusThreshold){
+    Serial.println(F("Collision left"));
+    delay(500);
+  }
+}
+
+void magnetometer_task(){
+  // read magnetic field in all three directions
+  IMU.readMagneticField(x, y, z);
+  
+  if(x < 0){
+    ledvalue = -(x);
+  }
+  else{
+    ledvalue = x;
+  }
+  
+  analogWrite(LED_BUILTIN, ledvalue);
+  delay(500);
+}
+
+// For debugging purposes
+void Save_Debug_Buffer(void) {
+  if (Count < DUMP_BUFFER_SIZE) {
+    GoodBuffer[Count] = good;
+    BadBuffer[Count] = bad;
+    Disp_Debug_Buffer();
+    Count++;
+  }
+}
+
+void Disp_Debug_Buffer(){
+  // Simple log of Good or Bad Pass Marks during runtime
+  Serial.println(F("\n Strategic Array Dump Result >>"));
+  Serial.print(F("Good Marks: "));
+  Serial.println(GoodBuffer[Count]);
+  
+  Serial.print(F("Bad Marks: "));
+  Serial.println(BadBuffer[Count]);
+}
+
+void debug_stop(){
+  Serial.flush();
+  exit(1);
+}
+```
+
+The complete code as shown unifies accelerometer, gyroscope, and magnetometer into a single code structure. As it involves tasks from different modules, it is separated into different functions and executed in a more identifiable manner. It includes the **Strategic Array Dump** to understand exactly how the code operates. The `good` and `bad` marks are located at the points of interest, and will dump into assigned arrays to be able to display at the end of the code. 
+
+It is crucial to know when to stop the code to be able to debug the code. While the code above is capable of debugging at runtime, it is much easier to debug knowing when to or how to stop the code operation. For instance, stopping within first run, will give you following result. 
+
+![Strategic Array Dump - Only One Runtime Instance](assets/debug_dump_print.png)
+
+In the serial monitor we can observe that it has 1 good mark and 1 bad mark. The good mark came from the gyroscope having ready the data for the use, while the bad mark comes from the accelerometer as the data was not ready. So it is possible to see the accelerometer does not have enough time to get the data ready before it gets to the measurement task. We can try by running certain amount of instances before it gets to array dump sector, and the result can be seen as follows.
+
+![Strategic Array Dump - 5 Runtime Instance](assets/debug_dump_print_iter.png)
+
+The accelerometer was able to perform its task without any issue with the exception of the first runtime instance, resulting in 9 good marks but 1 bad mark due to this behaviour. By this, it is possible to know the code structure does not misbehave, but for the first time when the device is starting, the accelerometer requires more time to be able to get the data ready in the first instance. The `Serial.println(F())` of module setups, and task runtimes also show us if the code was able to get past the operations without any issue. 
+
+Additionally, it is possible to modify the loop code by adding simply GPIO 13 to drive High and Low to measure the time it takes to complete 3 module tasks. It will be also helpful to understand the power consumption it draws from this runtime instance. 
+
+```arduino
+void loop() {
+  for (int i = 0; i < 5; i++){
+    digitalWrite(13, HIGH); 
+    accelerometer_task();
+    gyroscope_task();
+    magnetometer_task();
+    digitalWrite(13, LOW); 
+  }
+  
+  Save_Debug_Buffer();
+
+  debug_stop();
+}
+```
 
 ## Final Thoughts about Debugging and Embedded Software Development
 
