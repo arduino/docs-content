@@ -47,7 +47,7 @@ The Nano 33 BLE sense uses the [Arduino Mbed OS Nano Boards core](https://github
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Download the Arduino Nano 33 BLE sense datasheet](https://content.arduino.cc/assets/ABX00031-datasheet.pdf)
+- [Download the Arduino Nano 33 BLE sense datasheet](https://docs.arduino.cc/static/5f29b61bbb52d2c964a3588d9c5c8030/ABX00031-datasheet.pdf)
 
 ## Installation
 
@@ -95,9 +95,9 @@ The Nano 33 BLE sense has 8 analog pins, that can be used through the `analogRea
 value = analogRead(pin, value);
 ```
 
->**Please note:** pin `A4` and `A5` should be used for I2C only. 
+>***Please note: pin `A4` and `A5` should be used for I2C only.***
 
->**Please note:** pin `A6` and `A7` does not support PWM. 
+>***Please note: pin `A6` and `A7` does not support PWM.***
 
 ### PWM Pins
 
