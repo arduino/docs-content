@@ -95,9 +95,9 @@ The Nano 33 BLE sense has 8 analog pins, that can be used through the `analogRea
 value = analogRead(pin, value);
 ```
 
->***Please note: pin `A4` and `A5` should be used for I2C only.***
+***Please note: pin `A4` and `A5` should be used for I2C only.***
 
->***Please note: pin `A6` and `A7` does not support PWM.***
+***Please note: pin `A6` and `A7` does not support PWM.***
 
 ### PWM Pins
 
@@ -116,11 +116,11 @@ analogWrite(pin, value);
 
 There are a total of 14 digital pins.
 
->**Please note:** A4 and A5 are I2C only, while A6 and A7 can only be used as inputs.
+***Please note: A4 and A5 are I2C only, while A6 and A7 can only be used as inputs.***
 
 To use them, we first need to define them inside the `void setup()` function of our sketch.
 
->**Note:** digital pin 3 cannot be configured as `INPUT_PULLUP`.
+***Note: digital pin 3 cannot be configured as `INPUT_PULLUP`.***
 
 ```arduino
 pinMode(pin, INPUT); //configured as an input
