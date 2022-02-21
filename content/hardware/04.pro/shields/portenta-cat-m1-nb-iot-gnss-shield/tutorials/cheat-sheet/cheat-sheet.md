@@ -6,6 +6,7 @@ tags:
   - Cat. M1
   - NB IoT
   - GNSS
+  - NMEA
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04pro/shields/portenta-cat-m1-nb-iot-gnss-shield
@@ -13,6 +14,10 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
+  - cli
+libraries:
+  - name: 107-Arduino-NMEA-Parser
+    url: https://github.com/107-systems/107-Arduino-NMEA-Parser
 ---
 
 ![The Arduino® Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
@@ -255,6 +260,55 @@ Open the example by going to **Examples > GSM > GNSSClient**
 
 You will see the **NMEA** data in the Serial monitor.
 ![NMEA log example Serial Monitor](assets/NMEA_output.png)
+
+#### Parse NMEA GPS Sentences
+
+Previously we went through how to show the GPS data in the Serial Monitor, but it was not possible to evaluate those messages (NMEA sentences).
+To do so you can use an **NMEA parser** this will convert the messages received from the GPS modem, parsing and saving them into variables. You can use the **107-Arduino-NMEA-Parser** library. This library can be found in the library manager inside the Arduino IDE.
+
+This makes it possible to interact with the data that you need for your application, for example if you only want to get the latitude and longitude. You will be able to save those needed values into variables, instead of having the whole NMEA messages.
+
+Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and you need to add the following: 
+
+Include the needed libraries.
+
+```cpp
+  #include "GPS.h"
+  #include "GSM.h"
+  #include "ArduinoNmeaParser.h"
+  #include "Arduino_secrets.h"
+
+  char pin[]      = SECRET_PIN;
+  char apn[]      = SECRET_APN;
+  char username[] = SECRET_LOGIN;
+  char pass[]     = SECRET_PASS;
+```
+
+Inside the `setup()` initialize the GSM and GPS modules.
+
+```cpp
+  void setup(){
+    Serial.begin(115200);
+    while (!Serial) {}
+    Serial.println("GSM...");
+    GSM.begin(pin, apn, username, pass, CATNB);
+    Serial.println("GPS...");
+    GPS.begin();
+    Serial.println("Success");
+  }
+```
+
+Edit the loop to parse the `GPS` readings instead of the `Serial1`.
+
+```cpp
+  void loop(){
+    while(GPS.available()){
+      parser.encode((char)GPS.read());
+    }
+  }
+```
+
+***You will see the output data as various "-1" until the GPS has enough visible satellites to get the correct data, make sure the GPS antenna is somewhere that can see the sky.***
 
 #### Low Power GPS
 
