@@ -43,7 +43,7 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 ## Set Up
 
-To check that you set up correctly the board please visit our [Getting Started Guide]() for both **OpenMV** and **Arduino** available instructions.
+To check that you set up correctly the board please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** available instructions.
 
 ## OpenMV
 
