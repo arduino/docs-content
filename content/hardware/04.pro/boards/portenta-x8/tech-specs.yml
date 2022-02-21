@@ -3,6 +3,7 @@ Board:
   SKU: ABX00049
 Microcontroller:
     4x ARMⓇ CortexⓇ A53 core platforms up to 1.8GHz per core
+Microprocessor: 
     1x ARMⓇ CortexⓇ-M4 core up to 400 MHz
 USB connector: USB-C
 Pins:
@@ -21,9 +22,13 @@ Power:
   Input voltage (VIN): 5V
   DC Current per I/O Pin: 8 mA
 Memory:
+  RAM: 2 GB of Low Power DDR4 DRAM 
+  Flash: 16 GB of eMMC and 
   SAMD21G18A: 256KB Flash 32KB SRAM
   Nina W102 uBlox Module: 448 KB ROM, 520KB SRAM, 2MB Flash
 Dimensions:
   Weight: 10,2 g
   Width: 25.4 mm
   Length: 66 mm
+Environmental temperature: 
+ -40 to + 85°C (-40 to 185°F)
