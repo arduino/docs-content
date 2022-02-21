@@ -75,7 +75,7 @@ If you want to use your board with MicroPython and OpenMV. Follow the tutorial b
 
 - [Getting started with OpenMV with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/getting-started-omv)
 
-If you want an overlook of the funtions and features that MicroPython provides, take a look at the tutorial below.
+If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below.
 
 - [MicroPython functions and syntax guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 
