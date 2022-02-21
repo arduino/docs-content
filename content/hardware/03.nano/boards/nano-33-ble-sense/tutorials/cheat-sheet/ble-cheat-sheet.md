@@ -99,7 +99,7 @@ value = analogRead(pin, value);
 
 ### PWM Pins
 
-Most of the digital & analog pins can be used as PWM (Pulse Width Modulation) pins, the exception being the following pins:
+Pins **D2-D12** and **A0-A7** supports PWM (Pulse Width Modulation).
 
 - A4
 - A5
