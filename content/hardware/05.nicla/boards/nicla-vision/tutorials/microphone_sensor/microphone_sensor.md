@@ -185,5 +185,8 @@ If you want to test it, the only thing you need to do is to place the board next
 
 ### Troubleshoot
 
+- In case the Serial Monitor freezes, unplug and plug again the board from your computer, and try to upload again the sketch
+- If the sketch is not working, try to double tap the reset button and upload the sketch once again.
+  
 ## Conclusion
 
