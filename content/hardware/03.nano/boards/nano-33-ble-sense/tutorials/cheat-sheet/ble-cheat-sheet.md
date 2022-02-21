@@ -1,0 +1,407 @@
+---
+title: 'Nano 33 BLE sense Cheat Sheet'
+description: 'Learn how to set up the Nano 33 BLE sense, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
+tags:
+  - Installation
+  - I2C
+  - SPI
+  - UART
+  - Bluetooth®
+  - IMU
+author: 'Benjamin Dannegård'
+libraries:
+  - name:  Arduino LSM9DS1
+    url: https://www.arduino.cc/en/Reference/ArduinoLSM9DS1
+  - name: Arduino HTS221
+    url: https://www.arduino.cc/en/Reference/ArduinoHTS221
+  - name: Arduino APDS9960
+    url: https://www.arduino.cc/en/Reference/ArduinoAPDS9960
+  - name: Arduino SPI
+    url: https://www.arduino.cc/en/reference/SPI
+  - name: Arduino Wire
+    url: https://www.arduino.cc/en/Reference/Wire
+  - name: ArduinoBLE
+    url: https://www.arduino.cc/en/Reference/ArduinoBLE
+hardware:
+  - hardware/03.nano/boards/nano-33-ble-sense
+software:
+  - ide-v1
+  - ide-v2
+  - web-editor
+  - iot-cloud
+---
+
+![The Arduino Nano 33 BLE sense](assets/)
+
+The Arduino® Nano 33 BLE sense
+
+This article is a collection of guides, API calls, libraries and tutorials that can help you get started with the Nano 33 BLE sense board.
+
+You can also visit the [documentation platform for the Nano 33 BLE sense](/hardware/nano-33-ble-sense).
+
+## Core
+
+The Nano 33 BLE sense uses the [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed).
+
+## Datasheet
+
+The full datasheet is available as a downloadable PDF from the link below:
+
+- [Download the Arduino Nano 33 BLE sense datasheet](https://content.arduino.cc/assets/ABX00031-datasheet.pdf)
+
+## Installation
+
+### Arduino IDE 1.8.X
+
+The Nano 33 BLE sense can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
+
+- [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano)
+
+### Arduino IDE 2.0.X 
+
+The Nano 33 BLE sense can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
+
+- [How to use the board manager with the Arduino IDE 2.0](/software/ide-v2/tutorials/ide-v2-board-manager)
+
+### Web Editor
+
+The Nano 33 BLE sense can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+
+- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
+
+## Using OpenMV IDE
+
+If you want to use your board with MicroPython and OpenMV. Follow the tutorial below.
+
+- [Getting started with OpenMV with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/getting-started-omv)
+
+If you want an overlook of the funtions and features that MicroPython provides, take a look at the tutorial below.
+
+- [MicroPython functions and syntax guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
+
+### Forcing Bootloader
+
+There is a risk that the uploading process gets stuck during an upload. If this happens, we can double-tap the reset button, to forcefully trigger the bootloader.
+
+## Pins
+
+![The pinout for Nano 33 BLE sense.](assets/pinout.png)
+
+### Analog Pins
+
+The Nano 33 BLE sense has 8 analog pins, that can be used through the `analogRead()` function.
+
+```arduino
+value = analogRead(pin, value);
+```
+
+>**Please note:** pin `A4` and `A5` should be used for I2C only. 
+
+>**Please note:** pin `A6` and `A7` does not support PWM. 
+
+### PWM Pins
+
+Most of the digital & analog pins can be used as PWM (Pulse Width Modulation) pins, the exception being the following pins:
+
+- A4
+- A5
+- A6
+- A7
+
+```arduino
+analogWrite(pin, value);
+```
+
+### Digital Pins
+
+There are a total of 14 digital pins.
+
+>**Please note:** A4 and A5 are I2C only, while A6 and A7 can only be used as inputs.
+
+To use them, we first need to define them inside the `void setup()` function of our sketch.
+
+>**Note:** digital pin 3 cannot be configured as `INPUT_PULLUP`.
+
+```arduino
+pinMode(pin, INPUT); //configured as an input
+pinMode(pin, OUTPUT); //configured as an output
+pinMode(pin, INPUT_PULLUP); //uses the internal 10k ohm resistor
+```
+
+To read the state of a digital pin:
+
+```arduino
+state = digitalRead(pin);
+```
+
+To write a state to a digital pin:
+
+```arduino
+digitalWrite(pin, HIGH);
+```
+
+### 5V Pin
+
+The microcontroller on the Arduino Nano 33 BLE Sense runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to assure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Sense.
+
+To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Sense, we have the 5V pin on the header, positioned between RST and A7 that is not connected as default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs.
+
+5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense through the USB port. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
+
+![Soldering the VUSB pins.](assets/5V-PIN-VUSB.png)
+
+## IMU
+
+![The LSM6DSOXTR sensor](assets/LSM6DSOXTR-NANORP2040CONNECT.png)
+
+### LSM9DS1
+
+The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
+
+### LSM9DS1 Library
+
+To access the data from the LSM9DS1 module, we need to install the [LSM9DS1](https://github.com/arduino-libraries/Arduino_LSM9DS1) library, which comes with examples that can be used directly with the Nano 33 BLE Sense.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_LSM9DS1.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+```
+
+### Accelerometer
+
+The accelerometer data can be accessed through the following commands:
+
+```arduino
+  float x, y, z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+  }
+```
+
+### Gyroscope
+
+The gyroscope data can be accessed through the following commands:
+
+```arduino
+  float x, y, z;
+
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope(x, y, z);
+  }
+```
+
+### Magnetometer
+
+The magnetometer data can be accessed through the following commands:
+
+```arduino
+  float x, y, z;
+
+  IMU.readMagneticField(x, y, z);
+```
+
+### Tutorials
+
+If you want to learn more on how to use the IMU, please check out the tutorial below:
+
+- [Accessing IMU gyroscope data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_gyroscope)
+- [Accessing IMU accelerometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_accelerometer)
+- [Accessing IMU magnetometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_magnetometer)
+
+## RGB
+
+![The RGB pixel.](assets/RGB-PIXEL-NANORP2040CONNECT.png)
+
+To turn ON the pixels, write a `HIGH` state to the LED:
+
+```arduino
+digitalWrite(LEDR, HIGH); //RED
+digitalWrite(LEDG, HIGH); //GREEN
+digitalWrite(LEDB, HIGH); //BLUE
+```
+
+To turn OFF the pixels, write a `LOW` state to the LED:
+
+```arduino
+digitalWrite(LEDR, LOW); //RED
+digitalWrite(LEDG, LOW); //GREEN
+digitalWrite(LEDB, LOW); //BLUE
+```
+
+We can also choose a value between 255 - 0 to write to the LED:
+
+```arduino
+analogWrite(LEDR, 72);  //GREEN 
+analogWrite(LEDG, 122); //BLUE 
+analogWrite(LEDB, 234); //RED 
+```
+
+## Communication
+
+Like other Arduino® products, the Nano 33 BLE Sense features dedicated pins for different protocols.
+
+### SPI
+
+The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE sense are the following:
+
+- (CIPO) - D12
+- (COPI) - D11
+- (SCK) - D13
+- (CS/SS) - Any GPIO (except for A6/A7)
+
+***The signal names MOSI, MISO and SS has been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
+
+To use SPI, we first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
+
+```arduino
+#include <SPI.h>
+```
+
+Inside `void setup()` we need to initialize the library.
+
+```arduino
+SPI.begin();
+```
+
+And to write to the device:
+
+```arduino
+  digitalWrite(chipSelectPin, LOW); //pull down the CS pin
+  
+  SPI.transfer(address); // address for device, for example 0x00
+  SPI.transfer(value); // value to write
+
+  digitalWrite(chipSelectPin, HIGH); // pull up the CS pin
+```
+
+
+### I2C
+
+The pins used for I2C (Inter-Integrated Circuit) on the Nano 33 BLE sense are the following:
+
+- (SDA) - A4
+- (SCL) - A5
+
+To use I2C, we can use the [Wire](https://www.arduino.cc/en/Reference/wire) library, which we need to include at the top of our sketch.
+
+```arduino
+#include <Wire.h>
+```
+
+Inside `void setup()` we need to initialize the library.
+
+```arduino
+Wire.begin(); 
+```
+
+And to write something to a device connected via I2C, we can use the following commands:
+
+```arduino
+  Wire.beginTransmission(1); //begin transmit to device 1
+  Wire.write(byte(0x00)); //send instruction byte 
+  Wire.write(val); //send a value
+  Wire.endTransmission(); //stop transmit
+```
+
+### UART
+
+The pins used for UART (Universal asynchronous receiver-transmitter) are the following:
+
+- (Rx) - D0
+- (Tx) - D1
+
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
+
+```arduino
+Serial1.begin(9600);
+```
+
+To read incoming data, we can use a while loop() to read each individual character and add it to a string.
+
+```arduino
+  while(Serial1.available()){
+    delay(2);
+    char c = Serial1.read();
+    incoming += c;
+  }
+```
+
+And to write something, we can use the following command:
+
+```arduino
+Serial1.write("Hello world!");
+```
+
+## Connectivity
+
+The Nano 33 BLE sense supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
+
+![Bluetooth module.](assets/NINA-W102-NANORP2040CONNECT.png)
+
+## Bluetooth®
+
+To enable Bluetooth® on the Nano 33 BLE sense, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
+
+```arduino
+#include <ArduinoBLE.h>
+```
+
+Set the service and characteristic:
+
+```arduino
+BLEService ledService("180A"); // BLE LED Service
+BLEByteCharacteristic switchCharacteristic("2A57", BLERead | BLEWrite);
+```
+
+Set advertised name and service:
+
+```arduino
+  BLE.setLocalName("Nano 33 BLE Sense");
+  BLE.setAdvertisedService(ledService);
+```
+
+Start advertising:
+
+```arduino
+BLE.advertise();
+```
+
+Listen for BLE peripherals to connect:
+
+```arduino  
+BLEDevice central = BLE.central();
+```
+
+### Tutorials
+
+- [Controlling Nano 33 BLE sense RGB LED via Bluetooth®](/tutorials/nano-33-ble-sense/bluetooth)
+
+## USB Keyboard
+
+To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the core.
+
+You first need to include the libraries and create an object:
+
+```arduino
+#include "PluggableUSBHID.h"
+#include "USBKeyboard.h"
+
+USBKeyboard Keyboard;
+```
+
+Then use the following command to write something:
+
+```arduino
+Keyboard.printf("This is Nano 33 speaking!");
+```
