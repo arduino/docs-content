@@ -190,3 +190,4 @@ If you want to test it, the only thing you need to do is to place the board next
   
 ## Conclusion
 
+You have learned how to get data from the microphone, it can be used for example as an alarm system to wake up the board and make a screenshot with the Camera.
