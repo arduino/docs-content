@@ -111,7 +111,6 @@ analogWrite(pin, value);
 
 There are a total of 14 digital pins.
 
-***Please note: A4 and A5 are I2C only, while A6 and A7 can only be used as inputs.***
 
 To use them, we first need to define them inside the `void setup()` function of our sketch.
 
