@@ -31,8 +31,6 @@ software:
   - iot-cloud
 ---
 
-![The Arduino Nano 33 BLE sense](assets/)
-
 The Arduino® Nano 33 BLE sense
 
 This article is a collection of guides, API calls, libraries and tutorials that can help you get started with the Nano 33 BLE sense board.
@@ -148,11 +146,11 @@ To avoid such risk with existing projects, where you should be able to pull out 
 
 5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense through the USB port. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
 
-![Soldering the VUSB pins.](assets/5V-PIN-VUSB.png)
+![Soldering the VUSB pins.](assets/nano33_ble_sense_vusb.png)
 
 ## IMU
 
-![The LSM6DSOXTR sensor](assets/LSM6DSOXTR-NANORP2040CONNECT.png)
+![The LSM9DS1 sensor](assets/Nano33_ble_sense_imu.png)
 
 ### LSM9DS1
 
@@ -220,8 +218,6 @@ If you want to learn more on how to use the IMU, please check out the tutorial b
 - [Accessing IMU magnetometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_magnetometer)
 
 ## RGB
-
-![The RGB pixel.](assets/RGB-PIXEL-NANORP2040CONNECT.png)
 
 To turn ON the pixels, write a `HIGH` state to the LED:
 
@@ -347,7 +343,7 @@ Serial1.write("Hello world!");
 
 The Nano 33 BLE sense supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
 
-![Bluetooth module.](assets/NINA-W102-NANORP2040CONNECT.png)
+![Bluetooth module.](assets/Nano33_ble_sense_ble.png)
 
 ## Bluetooth®
 
