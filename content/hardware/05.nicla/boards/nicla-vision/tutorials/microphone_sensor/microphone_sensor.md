@@ -69,10 +69,10 @@ You can run the sketch to see the result, it will show the data that the microph
 
 Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values.
 
-**4. Complete code**
-
 You can access the example sketch at **Examples > PDM > PDMSerialPlotter** and then edit as we shown.
 Or the full edited sketch on our **Arduino_Pro_Tutorials** library.
+
+**Sketch**:
 
 ```arduino
   /*
@@ -174,7 +174,6 @@ Or the full edited sketch on our **Arduino_Pro_Tutorials** library.
     samplesRead = bytesAvailable / 2;
   }
 ```
-
 
 
 ## Testing It Out
