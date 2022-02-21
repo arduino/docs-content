@@ -27,7 +27,7 @@ featuredImage: 'chip'
 
 ## Overview
 
-In this tutorial you will use the **Arduino Nicla VIsion** board to get the microphone (MP34DT06JTR) readings and change the LED brightness.
+In this tutorial you will use the **Arduino Nicla Vision** board to get the microphone (MP34DT06JTR) readings and change the LED brightness.
 
 ## Goals
 
