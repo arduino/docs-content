@@ -103,7 +103,6 @@ Pins **D2-D12** and **A0-A7** supports PWM (Pulse Width Modulation).
 ***Pins A4, A5 and D11, D12 are not recommended for PWM as they have I2C & SPI buses attached.***
 - A4
 - A6
-- A7
 
 ```arduino
 analogWrite(pin, value);
