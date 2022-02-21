@@ -1,5 +1,5 @@
 ---
-title: 'Nano 33 BLE sense Cheat Sheet'
+title: 'Nano 33 BLE Sense Cheat Sheet'
 description: 'Learn how to set up the Nano 33 BLE sense, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
 tags:
   - Installation
