@@ -114,7 +114,6 @@ There are a total of 14 digital pins.
 
 To use them, we first need to define them inside the `void setup()` function of our sketch.
 
-***Note: digital pin 3 cannot be configured as `INPUT_PULLUP`.***
 
 ```arduino
 pinMode(pin, INPUT); //configured as an input
