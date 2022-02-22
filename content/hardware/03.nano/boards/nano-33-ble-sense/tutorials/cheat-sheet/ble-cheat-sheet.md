@@ -212,6 +212,148 @@ If you want to learn more on how to use the IMU, please check out the tutorial b
 - [Accessing IMU accelerometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_accelerometer)
 - [Accessing IMU magnetometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_magnetometer)
 
+## Proximity and Gesture Detection
+
+![The APDS-9960 proximity and gesture sensor](assets/Nano33_ble_sense_gesture.png)
+
+### APDS9960
+
+The **APDS9960** chip allows for measuring digital proximity and ambient light as well as for detecting RGB colors and gestures.
+
+### APDS9960 Library
+
+To access the data from the APDS9960 module, we need to install the [APDS9960](https://github.com/arduino-libraries/Arduino_APDS9960) library, which comes with examples that can be used directly with the Nano 33 BLE Sense.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_APDS9960.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+if (!APDS.begin()) {
+  Serial.println("Error initializing APDS9960 sensor!");
+}
+```
+
+Then we check if there is data available from the proximity sensor. If there is we can print the value in the serial monitor. The value can range between 0-255, where 0 is close and 255 is far away. If it prints the value -1, it indicates an error.
+
+```arduino
+if (APDS.proximityAvailable()) {
+  Serial.println(APDS.readProximity());
+}
+```
+
+### Tutorials
+
+If you want to learn more on how to use the proximity sensor, please check out the tutorial below:
+
+- [Proximity Detection with the Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/proximity_sensor)
+- [Gesture Recognition with the Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/gesture_sensor)
+
+## Temperature and Humidity sensor
+
+![The HTS221 temperature and humidity sensor](assets/Nano33_ble_sense_temperature.png)
+
+### HTS221
+
+The **HTS221** capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.5 °C (between 15-40 °C) and is thereby perfectly suited to detect ambient temperature.
+
+### HTS221 Library
+
+To access the data from the HTS221 module, we need to install the [HTS221](https://github.com/arduino-libraries/Arduino_HTS221) library, which comes with examples that can be used directly with the Nano 33 BLE Sense.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_HTS221.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+if (!HTS.begin()) {
+  Serial.println("Failed to initialize humidity temperature sensor!");
+}
+```
+
+Then we can print our values in the serial monitor to check the temperature and humidity values.
+
+```arduino
+Serial.println(HTS.readTemperature());
+Serial.println(HTS.readHumidity());
+```
+
+### Tutorial
+
+If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
+
+- [Reading Temperature & Humidity on Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/humidity_and_temperature_sensor)
+
+## Pressure Sensor
+
+![The LPS22HB pressure sensor](assets/Nano33_ble_sense_pressure.png)
+
+### LPS22HB
+
+The **LPS22HB** picks up on barometric pressure and allows for a 24-bit pressure data output between 260 to 1260 hPa. This data can also be processed to calculate the height above sea level of the current location.
+
+### LPS22HB Library
+
+To access the data from the LPS22HB module, we need to install the [LPS22HB](https://github.com/arduino-libraries/Arduino_LPS22HB) library, which comes with examples that can be used directly with the Nano 33 BLE Sense.
+
+It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
+
+```arduino
+#include <Arduino_LPS22HB.h>
+```
+
+And to initialize the library, we can use the following command inside `void setup()`.
+
+```arduino
+if (!BARO.begin()) {
+  Serial.println("Failed to initialize pressure sensor!");
+}
+```
+
+Then we can read the values from the sensor using the code below.
+
+```arduino
+BARO.readPressure();
+```
+
+### Tutorial
+
+If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
+
+- [Access Barometric Pressure Sensor Data on Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/barometric_sensor)
+
+## Microphone
+
+![The MP34DT05 microphone](assets/Nano33_ble_sense_microphone.png)
+
+### MP34DT05 
+
+The **MP34DT05** is a compact, low-power omnidirectional digital MEMS microphone with an IC interface. It has a 64 dB signal-to-noise ratio, is capable of sensing acoustic waves and can operate in temperatures of -40 °C to +85 °C.
+
+### PDM Library
+
+To access the data from the MP34DT05, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards** core. If the core is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
+
+***Please note: The sampling frequency in the PDMSerialPlotter example is set to 16000 Hz. If the microphone appears to not be working (monitor is printing a value of -128), try to change this rate to 20000 Hz. You can change this at the top of the PDMSerialPlotter example sketch.***
+
+```arduino
+static const int frequency = 20000; //frequency at 20 KHz instead of 16 KHz
+```
+
+### Tutorial
+
+If you want to learn more on how to use the Microphone, please check out the tutorial below:
+
+- [Controlling the On-Board RGB LED with Microphone](https://docs.arduino.cc/tutorials/nano-33-ble-sense/microphone_sensor)
+
 ## RGB
 
 To turn ON the pixels, write a `HIGH` state to the LED:
