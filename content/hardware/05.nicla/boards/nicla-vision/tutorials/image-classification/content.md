@@ -55,7 +55,7 @@ The first step is to create a representative dataset of the objects that the ML 
 Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Portenta H7 board with the Vision Shield mounted. Click on the connect button in the OpenMV IDE. If you haven't set up your board for OpenMV please consult the [getting started tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/por-openmv-bt).
 Create a new dataset by using the menu command **Tools->Dataset Editor->New Dataset** and name it `Dataset-Fruits`.
 
-![The Dataset Editor can be found in the Tools menu](assets/vs_openmv_ml_new_dataset.png)
+![The Dataset Editor can be found in the Tools menu](assets/omv_new_dataset.png)
 
 The next step is to create image classes. A class represents a unique type of object, in this case the type of fruit.
 First, create a new image class and name it `orange` by clicking on "New Class Folder" in the toolbar. Now run the image capturing script that is already open by clicking the play button. Focus the orange with the camera and click on **Capture Data** to snap a picture of it. To conveniently hold the camera with the cable facing down you can use the following lines of code to flip the image accordingly:
@@ -78,7 +78,7 @@ Now that all data is ready to be uploaded you need to create a new Edge Impulse 
 
 After that you can go back to the OpenMV IDE and select **Tools->Dataset Editor->Export->Log in to Edge Impulse Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it hasn't seen yet.
 
-![You need to log in with your Edge Impulse account when uploading a dataset for the first time](assets/vs_openmv_ml_edge_impulse_login.png)
+![You need to log in with your Edge Impulse account when uploading a dataset for the first time](assets/edge_impulse_login.png)
 
 
 ### 3. Acquire Data
@@ -116,7 +116,11 @@ Then click on "Generate Features". The analysis process will take a while to com
 
 ### 6. Train the Model
 
-Now that the features of your image data are ready to be used for the actual training you can navigate to "Transfer Learning" in the menu. In this example we leave the settings at their default value except of "Number of training cycles" which we increase to 60. This defines how many times the model is being trained. The model gets better with each cycle the same way you get better when learning how to ride a bike and you practice it the first couple of times. 
+Now that the features of your image data are ready to be used for the actual training you can navigate to "Transfer Learning" in the menu. You need to tweak the settings slightly. Set the "Number of training cycles" to a number that yields good results. In this example we chose 80. This defines how many times the model is being trained. The model gets better with each cycle the same way you get better when learning how to ride a bike and you practice it the first couple of times. 
+
+***Choose `MobileNetV2 96x96 0.1` as model type. This will use roughly 200 KB of flash memory. A model with higher ROM usage will likely not fit in the flash!***
+
+In this example we also increased the drop out rate to 0.15 and the output neurons to 12. This increased the accuracy with the given training / test data. You may need to adapt those values based on your own data.
 Click on "Start Training" to train the machine learning model. A small amount of images, the **validation set**, are put aside before the training starts to validate the trained model. Not to be confused with the **test set** which can be used to evaluate the final model. Once the training finishes you will see some statistics on how well the model performed during validation. Ideally you get an accuracy of 100% for each object. If you get poor results you may have some images which are not representative of the objects you're trying to classify and should be removed from the data set.
 
 ![The confusion matrix shows the accuracy of the ML model after the last training cycle](assets/edge_impulse_training.png)
