@@ -123,7 +123,9 @@ Click on "Start Training" to train the machine learning model. A small amount of
 
 ## 7. Test the Model
 
-After training the model, you will have an idea of how well the model performs on the data that it knows from the training. That is only half of the story. You also need to know how well it performs on unseen data. In almost any real-world application a model will be confronted only with unseen data. Being able to cope with that is crucial. Edge Impulse studio provides a tool to easily test the model. You can find it under "Model Testing". The model testing results will give you an insight on the performance. If the model gets bad results while testing, but had a good accuracy after training it may be overfitting.
+After training the model, you will have an idea of how well the model performs on the data that it knows from the training. That is only half of the story. You also need to know how well it performs on unseen data. In almost any real-world application a model will be confronted only with unseen data. Being able to cope with that is crucial. Edge Impulse studio provides a tool to easily test the model. You can find it under "Model Testing". The model testing results will give you an insight on the performance. If the model gets bad results while testing, but had a good accuracy after training it may be overfitting. 
+
+You may ask yourself why this model performs so well even if the model is not robust at all. It's because the data used for testing comes from the same controlled environment as the learning data. The test images have the same background and feature the exact same fruits as the training images. If you wait a few days until the banana becomes brown, you will see a decrease in performance.
 
 
 
