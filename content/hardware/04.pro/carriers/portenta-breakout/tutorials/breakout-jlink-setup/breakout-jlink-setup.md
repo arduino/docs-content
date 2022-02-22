@@ -61,7 +61,7 @@ Now you get to the window that asks you to select the program to be debugged, th
 
 ![Temporary .ELF file location](assets/breakout_jlink_ozone_elf_file.png)
 
-On the optional settings, don't set anything special, it may break how it should debug.
+In the 'optional settings' dialog, set both options 'Initial PC' and 'Initial Stack Pointer' to 'Do not set' as it would skip the Arduino bootloader otherwise which may prevent the sketch from running correctly.
 
 ![Segger Ozone J-Link connection optional settings](assets/breakout_jlink_optional_settings.png)
 
