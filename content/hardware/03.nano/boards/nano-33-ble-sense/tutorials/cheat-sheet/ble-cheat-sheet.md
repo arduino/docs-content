@@ -95,7 +95,6 @@ value = analogRead(pin, value);
 
 ***Please note: pin `A4` and `A5` should be used for I2C only.***
 
-***Please note: pin `A6` and `A7` does not support PWM.***
 
 ### PWM Pins
 
