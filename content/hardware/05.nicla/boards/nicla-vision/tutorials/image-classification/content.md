@@ -93,7 +93,7 @@ Make sure to have a good training / test data split ratio of around 80/20. The t
 
 
 
-![](assets/data_split_ratio.png)
+![The split ratio between training data and test data should be around 80/20](assets/data_split_ratio.png)
 
 ### 4. Create an Impulse
 
@@ -129,7 +129,7 @@ You may ask yourself why this model performs so well even if the model is not ro
 
 
 
-![](assets/model_testing.png)
+![The testing results give you a better understanding on how the model performs with unseen data.](assets/model_testing.png)
 
 ## Using the ML Model
 
@@ -145,15 +145,15 @@ Since the Nicla Vision doesn't have any on-board SRAM we need to build the machi
 
 Rename the machine learning model and the label file to fruit_detection.tflite and fruit_detection.txt respectively. In your fork, replace the built-in machine learning model under `src/lib/libtf/models` with the model you downloaded from Edge Impulse Studio. Commit the files and push the commit to the repository. It will build a new firmware automatically.
 
-![github_model_path](assets/github_model_path.png)
+![The model that shall be baked into the firmware needs to be stored under src/lib/libtf/models](assets/github_model_path.png)
 
 You can inspect the build process under "Actions".
 
-![github_actions](assets/github_actions.png)
+![In the actions section you can monitor the build process once it starts.](assets/github_actions.png)
 
 Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select the firmware that you just created and flash it to the board.
 
-![github_releases](assets/github_releases.png)
+![In the release section you can find the generated firmware ready to download and install.](assets/github_releases.png)
 
 ### Run the Script
 
