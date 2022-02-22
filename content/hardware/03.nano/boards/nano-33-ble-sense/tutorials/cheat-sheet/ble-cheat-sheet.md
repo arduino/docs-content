@@ -253,7 +253,7 @@ If you want to learn more on how to use the proximity sensor, please check out t
 - [Proximity Detection with the Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/proximity_sensor)
 - [Gesture Recognition with the Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense/gesture_sensor)
 
-## Temperature and Humidity sensor
+## Temperature and Humidity Sensor
 
 ![The HTS221 temperature and humidity sensor](assets/Nano33_ble_sense_temperature.png)
 
