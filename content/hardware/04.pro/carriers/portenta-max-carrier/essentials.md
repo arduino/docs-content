@@ -1,9 +1,7 @@
 <EssentialsColumn title="First Steps">
-    <!---
-    <EssentialElement link="/tutorials/edge-control/ec-ard-gs" title="Quickstart Guide" type="getting-started">
+    <EssentialElement link="/tutorials/portenta-max-carrier/getting-started" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
-    -->
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
