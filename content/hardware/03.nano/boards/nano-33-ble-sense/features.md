@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or professional to get started with embedded machine learning. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Sense not only features the possibility to connect via ** Bluetooth® Low Energy** but also comes equipped with **sensors** to detect color, proximity, motion, temperature, humidity, audio and more.
+The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or professional to get started with embedded machine learning. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Sense not only features the possibility to connect via **Bluetooth® Low Energy** but also comes equipped with **sensors** to detect color, proximity, motion, temperature, humidity, audio and more.
 
 </FeatureDescription>
 
