@@ -15,7 +15,7 @@ A powerful microcontroller with low-power architecture from the megaAVR® 0-seri
 
 <Feature title="u-blox NINA-W102" image="wifi-bluetooth">
 
-Enables Bluetooth® and Wi-Fi connectivity for the UNO WiFi Rev 2 board.
+Enables Bluetooth® and Wi-Fi connectivity for the UNO WiFi Rev2 board.
 
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
 
