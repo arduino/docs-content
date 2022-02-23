@@ -36,9 +36,7 @@ Edge Impulse is a platform that simplifies the process of creating machine learn
 
 To train a ML model to classify an image we need to feed it with image data of that object. During the training process the model will be trained using a concept called [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning). This means that we train the model with known data and tell it while it's "practicing" its predictions if they are correct or not. This is similar to what happens when you tell a toddler who is pointing at a donkey saying "horse" and you tell them that it's actually a donkey. The next few times they see a donkey they may still get it wrong but over time under your supervision they will learn to correctly identify a donkey. Conceptually, that's also how our ML model learns.
 
-![For supervised learning objects are labeled beforehand with their names](assets/vs_openmv_ml_supervised_learning.svg)
-
-
+![For supervised learning objects are labeled beforehand with their names](assets/ml_supervised_learning.svg)
 
 ### Overfitting
 
