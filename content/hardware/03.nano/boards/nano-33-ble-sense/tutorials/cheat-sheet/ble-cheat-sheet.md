@@ -478,7 +478,7 @@ Serial1.write("Hello world!");
 
 The Nano 33 BLE sense supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
 
-![Bluetooth module.](assets/Nano33_ble_sense_ble.png)
+![ Bluetooth® module.](assets/Nano33_ble_sense_ble.png)
 
 ## Bluetooth®
 
@@ -508,7 +508,7 @@ Start advertising:
 BLE.advertise();
 ```
 
-Listen for BLE peripherals to connect:
+Listen for Bluetooth® Low Energy peripherals to connect:
 
 ```arduino  
 BLEDevice central = BLE.central();

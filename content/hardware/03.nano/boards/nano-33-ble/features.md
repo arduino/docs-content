@@ -1,13 +1,13 @@
 <FeatureDescription>
 
-The Arduino Nano 33 BLE is a great choice for any beginner, maker or professional to get started with Bluetooth Low Energy enabled projects. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE not only features the possibility to connect via **BLE** but also comes equipped with a **9 axis IMU** making it suitable for wearable projects. 
+The Arduino Nano 33 BLE is a great choice for any beginner, maker or professional to get started with Bluetooth® Low Energy enabled projects. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE not only features the possibility to connect via **BLE** but also comes equipped with a **9 axis IMU** making it suitable for wearable projects. 
 </FeatureDescription>
 
 
 <FeatureList>
 <Feature title="u-blox NINA-B306" image="bluetooth">
 
-  A powerful 2.4 GHz Bluetooth® 5 low energy module from u-blox, with an internal antenna. 
+  A powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox, with an internal antenna. 
 
   <FeatureLink title="Datasheet" url="/resources/datasheets/NINA-B3-series.pdf" download blank/>
 </Feature>

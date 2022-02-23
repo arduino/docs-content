@@ -11,7 +11,7 @@ source: "https://arduino.cc/en/Main/ArduinoBoardBT"
 
 ### Overview
 
-The Arduino BT is a microcontroller board originally was based on the ATmega168, but now is supplied with the 328P ([datasheet](http://www.atmel.com/devices/atmega328.aspx?tab=documents)) and the Bluegiga WT11 bluetooth module ([details](http://www.bluegiga.com/WT11i%5FClass%5F1%5FBluetooth%5FModule) and [datasheet](http://www.bluegiga.com/files/bluegiga/Pub%20files/WT11i%5FProduct%5FBrief%5F140711%5Flores.pdf)). It supports wireless serial communication over bluetooth (but is not compatible with Bluetooth headsets or other audio devices). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth connection. Instructions are available for [getting started with the Arduino BT](content\retired\06.getting-started-guides\ArduinoBT).
+The Arduino BT is a microcontroller board originally was based on the ATmega168, but now is supplied with the 328P ([datasheet](http://www.atmel.com/devices/atmega328.aspx?tab=documents)) and the Bluegiga WT11 Bluetooth® module ([details](http://www.bluegiga.com/WT11i%5FClass%5F1%5FBluetooth%5FModule) and [datasheet](http://www.bluegiga.com/files/bluegiga/Pub%20files/WT11i%5FProduct%5FBrief%5F140711%5Flores.pdf)). It supports wireless serial communication over Bluetooth® (but is not compatible with Bluetooth® headsets or other audio devices). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](content\retired\06.getting-started-guides\ArduinoBT).
 
 ### Summary
 
@@ -71,9 +71,9 @@ There are a couple of other pins on the board:
 
 See also the [mapping between Arduino pins and ATmega168/328P ports](https://docs.arduino.cc/hacking/hardware/PinMapping168).
 
-### Bluetooth Communication
+### Bluetooth® Communication
 
-The Bluegiga WT11 module on the Arduino BT provides Bluetooth communication with computers, phones, and other Bluetooth devices. The WT11 communicates with the ATmega328P via serial (shared with the RX and TX pins on the board). It comes configured for 115200 baud communication. The module should be configurable and detectable by your operating system's bluetooth drivers, which should then provide a virtual com port for use by other applications. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board over this bluetooth connection. The board can also be reprogrammed using this same wireless connection.
+The Bluegiga WT11 module on the Arduino BT provides Bluetooth® communication with computers, phones, and other Bluetooth® devices. The WT11 communicates with the ATmega328P via serial (shared with the RX and TX pins on the board). It comes configured for 115200 baud communication. The module should be configurable and detectable by your operating system's Bluetooth® drivers, which should then provide a virtual com port for use by other applications. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board over this Bluetooth® connection. The board can also be reprogrammed using this same wireless connection.
 
 The WT11 is specially configured for use in the Arduino BT. Its name is set to ARDUINOBT and passcode to 12345\. For details, see the complete initialization sketch on the [Arduino BT v1 page](./../arduino-BT-v1/content.md).
 

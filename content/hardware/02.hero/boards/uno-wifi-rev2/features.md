@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino UNO WiFi Rev 2 features the secure **ATECC608** crypto chip accelerator, using the **ATmega4809 8-bit** microcontroller from Microchip. It also has an onboard IMU (Inertial Measurement Unit), **LSM6DS3TR** and features the **NINA-W102** Wi-Fi & Bluetooth module from u-Blox.
+The Arduino UNO WiFi Rev 2 features the secure **ATECC608** crypto chip accelerator, using the **ATmega4809 8-bit** microcontroller from Microchip. It also has an onboard IMU (Inertial Measurement Unit), **LSM6DS3TR** and features the **NINA-W102** Wi-Fi & Bluetooth® module from u-Blox.
 
 </FeatureDescription>
 
@@ -15,7 +15,7 @@ A powerful microcontroller with low-power architecture from the megaAVR® 0-seri
 
 <Feature title="u-blox NINA-W102" image="wifi-bluetooth">
 
-Enables Bluetooth and Wi-Fi connectivity for the UNO WiFi Rev 2 board.
+Enables Bluetooth® and Wi-Fi connectivity for the UNO WiFi Rev 2 board.
 
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
 

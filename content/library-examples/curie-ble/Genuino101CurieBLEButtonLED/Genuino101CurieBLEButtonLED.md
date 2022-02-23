@@ -1,12 +1,12 @@
 ---
 author: 'Arduino'
-description: 'With this tutorial you learn to use the Curie BLE library to connect your board with a smartphone or tablet.'
+description: 'With this tutorial you learn to use the Curie Bluetooth® Low Energy library to connect your board with a smartphone or tablet.'
 tags: [Arduino 101]
 title: 'Arduino 101 CurieBLE Button LED'
 
 ---
 
-With this tutorial you learn to use the Curie BLE library to connect your board with a smartphone or tablet. A pushbutton connected to the board allows you to turn on and off the onboard LED on Pin 13. The same action can be performed from the smartphone and the smartphone is capable of reading the LED status. This bidirectional communication happens between the BLE central (smartphone) and the peripheral (our 101 board).
+With this tutorial you learn to use the Curie Bluetooth® Low Energy library to connect your board with a smartphone or tablet. A pushbutton connected to the board allows you to turn on and off the onboard LED on Pin 13. The same action can be performed from the smartphone and the smartphone is capable of reading the LED status. This bidirectional communication happens between the Bluetooth® Low Energy central (smartphone) and the peripheral (our 101 board).
 
 ## Hardware Required
 
@@ -37,7 +37,7 @@ You need to connect a pushbutton to your 101 with a 10k ohm resistor that keeps 
 
 ### Libraries
 
-*CurieBLE.h* is the library that gives access to all the parameters, features and functions of the BLE module of the 101 board. With Bluetooth Low Energy it is possible to connect to and communicate with smartphones, tablets and peripherals that support this standard. In this tutorial it is used to establish a connection with a control application on the smartphone and get the value used to turn on or off a LED either using the physical pushbutton or writing the value of a "virtual" pushbutton.
+*CurieBLE.h* is the library that gives access to all the parameters, features and functions of the Bluetooth® Low Energy module of the 101 board. With Bluetooth® Low Energy it is possible to connect to and communicate with smartphones, tablets and peripherals that support this standard. In this tutorial it is used to establish a connection with a control application on the smartphone and get the value used to turn on or off a LED either using the physical pushbutton or writing the value of a "virtual" pushbutton.
 
 ### Functions
 
@@ -49,7 +49,7 @@ To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel (
 
 ![](./ButtonBLE_1.png)
 
-Tap on *connect* to open the following screen, where you find the description of our BLE service offered by the 101 board. The unknown service has a UUID 19B10000-E8F2-537E-4F6C-D104768A1214 and it is set by the `BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214");` statement at the beginning of the sketch.
+Tap on *connect* to open the following screen, where you find the description of our Bluetooth® Low Energy service offered by the 101 board. The unknown service has a UUID 19B10000-E8F2-537E-4F6C-D104768A1214 and it is set by the `BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214");` statement at the beginning of the sketch.
 
 ![](./ButtonBLE_2.png)
 
@@ -129,7 +129,7 @@ void setup() {
 
   blePeripheral.begin();
 
-  Serial.println("Bluetooth device active, waiting for connections...");
+  Serial.println("Bluetooth® device active, waiting for connections...");
 }
 
 void loop() {

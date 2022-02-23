@@ -1,12 +1,12 @@
 ---
 author: 'Arduino'
-description: 'This tutorial shows one of the simplest things you can do with an Arduino 101 Bluetooth Low Energy capabilities.'
+description: 'This tutorial shows one of the simplest things you can do with an Arduino 101 Bluetooth® Low Energy capabilities.'
 tags: [Arduino 101]
 title: 'Arduino 101 CurieBLE Battery Monitor'
 
 ---
 
-This tutorial shows one of the simplest things you can do with an Arduino 101's onboard Bluetooth Low Energy capabilities. The sketch implements the [standard BLE "Battery Monitor" service](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.battery_service.xml). The Battery Monitor service reads battery level values over BLE from your smartphone or tablet and displays them on the Serial Monitor of the Arduino Software (IDE). This is achieved with the Curie's BLE library and a proper application on the smartphone or tablet.
+This tutorial shows one of the simplest things you can do with an Arduino 101's onboard Bluetooth® Low Energy capabilities. The sketch implements the [standard Bluetooth® Low Energy "Battery Monitor" service](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.battery_service.xml). The Battery Monitor service reads battery level values over Bluetooth® Low Energy from your smartphone or tablet and displays them on the Serial Monitor of the Arduino Software (IDE). This is achieved with the Curie's Bluetooth® Low Energy library and a proper application on the smartphone or tablet.
 
 ## Hardware Required
 
@@ -25,24 +25,24 @@ This tutorial shows one of the simplest things you can do with an Arduino 101's 
 
 image developed using [Fritzing](http://www.fritzing.org).
 
-The board has an embedded Bluetooth Low Energy module, therefore it is enough to connect the board to the computer and use the Serial Monitor to read the messages sent by the sketch. A potentiometer is connected to 3.3V, GND and A0 to simulate the charge of a battery.
+The board has an embedded Bluetooth® Low Energy module, therefore it is enough to connect the board to the computer and use the Serial Monitor to read the messages sent by the sketch. A potentiometer is connected to 3.3V, GND and A0 to simulate the charge of a battery.
 
 ## Software Essentials
 
 ### Libraries
 
-*CurieBLE.h* is the library that gives access to all the parameters, features and functions of the BLE module of the 101 board. With Bluetooth Low Energy it is possible to connect to and communicate with smartphones, tablets and peripherals that support this standard. In this tutorial it is used to read the battery level of the device to which we connect as a peripheral.
+*CurieBLE.h* is the library that gives access to all the parameters, features and functions of the Bluetooth® Low Energy module of the 101 board. With Bluetooth® Low Energy it is possible to connect to and communicate with smartphones, tablets and peripherals that support this standard. In this tutorial it is used to read the battery level of the device to which we connect as a peripheral.
 
-*updateBatteryLevel()* - This function is called every 200 millliseconds from the main loop. It simulates the readiong of a battery with a potentiometer connected to A0. The value is first checked against the former value read. If it is changed, the code activates the printing on the Serial Monitor of the new value and updates the Battery characteristic with `batteryLevelChar.setValue(batteryLevel);`. This is read on the BLE Control Panel on the smartphone under the "Battery Service"
+*updateBatteryLevel()* - This function is called every 200 millliseconds from the main loop. It simulates the readiong of a battery with a potentiometer connected to A0. The value is first checked against the former value read. If it is changed, the code activates the printing on the Serial Monitor of the new value and updates the Battery characteristic with `batteryLevelChar.setValue(batteryLevel);`. This is read on the Bluetooth® Low Energy Control Panel on the smartphone under the "Battery Service"
 
 ![](./BatteryMonitorBLE.png)
 
 ## Code
 
-This sketch example partially implements the standard Bluetooth Low-Energy Battery Service.
+This sketch example partially implements the standard Bluetooth® Low-Energy Battery Service.
 
 In the setup(), you initialize pin 13 as an output to drive the LED with `pinMode(13, OUTPUT);`
-blePeripheral is used to initialize the board as a BLE peripheral with `BLEPeripheral blePeripheral;`
+blePeripheral is used to initialize the board as a Bluetooth® Low Energy peripheral with `BLEPeripheral blePeripheral;`
 If multiple boards will be running this sketch example in close proximity, you need to modify the local name so each can be uniquely identified.
 
 For example,
@@ -69,7 +69,7 @@ Every 200ms the connection is tested and if still active, updateBatteryLevel is 
 
 /*
 
-   This sketch example partially implements the standard Bluetooth Low-Energy Battery service.
+   This sketch example partially implements the standard Bluetooth® Low-Energy Battery service.
 
    For more information: https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx
 
@@ -123,7 +123,7 @@ void setup() {
 
   blePeripheral.begin();
 
-  Serial.println("Bluetooth device active, waiting for connections...");
+  Serial.println(" Bluetooth® device active, waiting for connections...");
 }
 
 void loop() {

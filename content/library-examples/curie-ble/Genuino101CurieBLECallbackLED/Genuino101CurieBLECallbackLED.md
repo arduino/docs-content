@@ -1,12 +1,12 @@
 ---
 author: 'Arduino'
-description: 'With this tutorial you use the Arduino 101 Bluetooth Low Energy (BLE) capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet.'
+description: 'With this tutorial you use the Arduino 101 Bluetooth® Low Energy capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet.'
 tags: [Arduino 101]
 title: 'Arduino 101 CurieBLECallbackLED'
 
 ---
 
-With this tutorial you use the Arduino 101's onboard Bluetooth Low Energy (BLE) capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet. You create a LED service that polls the central and creates BLE events that are managed with callbacks. The values are sent using nRF Master Control Panel (BLE) app, available for Android and iOS.
+With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy (BLE) capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet. You create a LED service that polls the central and creates Bluetooth® Low Energy events that are managed with callbacks. The values are sent using nRF Master Control Panel (BLE) app, available for Android and iOS.
 
 ## Hardware Required
 
@@ -27,17 +27,17 @@ image developed using [Fritzing](http://www.fritzing.org).
 
 ### Libraries
 
-*CurieBLE.h* is the library that gives access to all the parameters, features and functions of the BLE module of the 101 board. With Bluetooth Low Energy it is possible to connect to and communicate with smartphones, tablets and peripherals that support this standard. In this tutorial it is used to establish a connection with a control application on the smartphone and get the value used to turn on or off a LED.
+*CurieBLE.h* is the library that gives access to all the parameters, features and functions of the Bluetooth® Low Energy module of the 101 board. With Bluetooth® Low Energy it is possible to connect to and communicate with smartphones, tablets and peripherals that support this standard. In this tutorial it is used to establish a connection with a control application on the smartphone and get the value used to turn on or off a LED.
 
 ### Functions
 
-The following functions are callbacks driven by the BLE events.
+The following functions are callbacks driven by the Bluetooth® Low Energy events.
 
-*blePeripheralConnectHandler()* - called when BLE central connects to the 101 board. It prints a connect message with BLE central address on the Arduino Software (IDE) Serial Monitor.
+*blePeripheralConnectHandler()* - called when Bluetooth® Low Energy central connects to the 101 board. It prints a connect message with Bluetooth® Low Energy central address on the Arduino Software (IDE) Serial Monitor.
 
-*blePeripheralDisconnectHandler ()* - called when BLE central disconnects from the 101 board. It prints a disconnect message with BLE central address on the Arduino Software (IDE) Serial Monitor.
+*blePeripheralDisconnectHandler ()* - called when Bluetooth® Low Energy central disconnects from the 101 board. It prints a disconnect message with Bluetooth® Low Energy central address on the Arduino Software (IDE) Serial Monitor.
 
-*switchCharacteristicWritten ()* - called when BLE central writes the switch characteristic. It switches LED on or off depending on the value written to that characteristic by the user on the nRF Master Control Panel.
+*switchCharacteristicWritten ()* - called when Bluetooth® Low Energy central writes the switch characteristic. It switches LED on or off depending on the value written to that characteristic by the user on the nRF Master Control Panel.
 
 ## On the Smartphone
 
@@ -45,7 +45,7 @@ To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel (
 
 ![](./CallBackLED_1.png)
 
-Tap on *connect* to open the following screen, where you find the description of our BLE service offered by the 101 board. The unknown service has a UUID 19B10000-E8F2-537E-4F6C-D104768A1214 and it is set by the `BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214");` statement at the beginning of the sketch.
+Tap on *connect* to open the following screen, where you find the description of our Bluetooth® Low Energy service offered by the 101 board. The unknown service has a UUID 19B10000-E8F2-537E-4F6C-D104768A1214 and it is set by the `BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214");` statement at the beginning of the sketch.
 
 ![](./CallBackLED_2.png)
 
@@ -117,7 +117,7 @@ void setup() {
 
   blePeripheral.begin();
 
-  Serial.println(("Bluetooth device active, waiting for connections..."));
+  Serial.println(("Bluetooth® device active, waiting for connections..."));
 }
 
 void loop() {

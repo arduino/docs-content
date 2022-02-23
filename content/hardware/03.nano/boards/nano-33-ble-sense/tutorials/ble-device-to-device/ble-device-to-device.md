@@ -2,10 +2,10 @@
 title: 'Connecting Nano 33 BLE Devices over Bluetooth®'
 difficulty: intermediate
 compatible-products: [nano-33-ble-sense]
-description: 'Learn about the history of Bluetooth®, how BLE works and how to connect two Nano BLE devices over Bluetooth®.'
+description: 'Learn about the history of Bluetooth®, how Bluetooth® Low Energy works and how to connect two Nano BLE devices over Bluetooth®.'
 tags: 
   - Bluetooth®
-  - BLE
+  - Bluetooth® Low Energy
 author: 'José Bagur'
 ---
 
@@ -39,13 +39,13 @@ In 1994, besides Ericsson, companies like Intel, Nokia, IBM, and Toshiba also ha
 
 Bluetooth® **1.0** was released around 1999, version **2.0** in 2004, version **2.1** in 2007, version **3.0** in 2009, version **4.0** in 2010, version **4.1** in 2013, version **4.2** in 2014, version **5.0** in 2016 and version **5.1** on 2019 (that's a lot of work!). 
 
-If you look up the Bluetooth® 3.0 specification, you will find that this specification includes three working modes: BR, EDR, and HS (AMP). These three working modes are what people usually, for convenience, call **classic** Bluetooth®. In 2010, SIG merged with Wibree, a wireless technology developed by Nokia, Nordic Semiconductor, and other companies whose objective was to find a low-power wireless communication technology for electronics devices. SIG renamed Wibree as Bluetooth® Low Energy (also referred to as Bluetooth® LE or BLE). BLE was designed to reduce, significantly, the power consumption by reducing the amount of time that the Bluetooth® radio is on. Classic Bluetooth® and BLE are both included since the Bluetooth® 4.0 specification, but here's the thing: **Classic Bluetooth® and BLE work differently, and they are not compatible.** 
+If you look up the Bluetooth® 3.0 specification, you will find that this specification includes three working modes: BR, EDR, and HS (AMP). These three working modes are what people usually, for convenience, call **classic** Bluetooth®. In 2010, SIG merged with Wibree, a wireless technology developed by Nokia, Nordic Semiconductor, and other companies whose objective was to find a low-power wireless communication technology for electronics devices. SIG renamed Wibree as Bluetooth® Low Energy. Bluetooth® Low Energy was designed to reduce, significantly, the power consumption by reducing the amount of time that the Bluetooth® radio is on. Classic Bluetooth® and Bluetooth® Low Energy are both included since the Bluetooth® 4.0 specification, but here's the thing: **Classic Bluetooth® and Bluetooth® Low Energy work differently, and they are not compatible.** 
 
-Each mode, classic Bluetooth®, and BLE have different physical layer modulation and demodulation methods. **This means that classic Bluetooth® and BLE cannot work with each other**. Generally speaking, classic Bluetooth® is mainly used for audio applications (wireless headphones, for example) while BLE is more often seen in power-constrained applications (such as wearables and IoT devices, for example).
+Each mode, classic Bluetooth®, and Bluetooth® Low Energy have different physical layer modulation and demodulation methods. **This means that classic Bluetooth® and Bluetooth® Low Energy cannot work with each other**. Generally speaking, classic Bluetooth® is mainly used for audio applications (wireless headphones, for example) while Bluetooth® Low Energy is more often seen in power-constrained applications (such as wearables and IoT devices, for example).
 
-## How Does BLE Work?
+## How Does Bluetooth® Low Energy Work?
 
-To understand how does BLE works, we need to talk about the **roles** and **responsibilities** of two devices that are connected through Bluetooth®. In any Bluetooth® connection, two roles that are being played: the **central** and **peripheral** roles. Devices with a central role are also call **servers** while devices with a peripheral role are also called **clients**.
+To understand how does Bluetooth® Low Energy works, we need to talk about the **roles** and **responsibilities** of two devices that are connected through Bluetooth®. In any Bluetooth® connection, two roles that are being played: the **central** and **peripheral** roles. Devices with a central role are also call **servers** while devices with a peripheral role are also called **clients**.
 
 ![Central and peripheral roles in Bluetooth® applications.](assets/nano_ble_sense_t2_img01.png)
 
@@ -59,15 +59,15 @@ Within each service will exist a list of **characteristics**. Each one of these 
 
 ![Health service example.](assets/nano_ble_sense_t2_img02.png)
 
-### Information Exchange in BLE
+### Information Exchange in Bluetooth® Low Energy
 
 There are three ways data can be exchanged between two connected devices: **reading**, **writing**, or **notifying**. **Reading** occurs when a peripheral device asks the central device for specific information, think about a smartphone asking a smartwatch for the physical activity information, this is an example of reading. **Writing** occurs when a peripheral device writes specific information in the central device, think about a smartphone changing the password of a smartwatch, this is an example of writing. **Notifying** occurs when a central device offers information to the peripheral device using a notification, think about a smartwatch notifying a smartphone its battery is low and needs to be recharged.  
 
-Well, that's what we need to know about BLE for now. Bluetooth® specifications are quite extensive but interesting to read and learn about. If you want to know more about BLE, check out [**Getting Started with Bluetooth® Low Energy** by Kevin Townsend, Carles Cufí, Akiba, and Robert Davidson](https://www.oreilly.com/library/view/getting-started-with/9781491900550/).
+Well, that's what we need to know about Bluetooth® Low Energy for now. Bluetooth® specifications are quite extensive but interesting to read and learn about. If you want to know more about Bluetooth® Low Energy, check out [**Getting Started with Bluetooth® Low Energy** by Kevin Townsend, Carles Cufí, Akiba, and Robert Davidson](https://www.oreilly.com/library/view/getting-started-with/9781491900550/).
 
-## Using BLE and Arduino
+## Using Bluetooth® Low Energy and Arduino
 
-Now, let's use BLE with Arduino. In this example, we are going to use two Arduino boards, the **Nano 33 BLE** and the **Nano 33 BLE Sense** to exchange information between them. One of the boards, the Nano 33 BLE Sense, is going to be set up as a central device while the other board, the Nano 33 BLE, is going to be set up as a peripheral device. The information that we are going to share between the boards will come from the embedded **gesture sensor** of the Nano 33 BLE Sense board. For this, we are going to create a service called **gestureService** that will have one characteristic called **gesture_type**.   
+Now, let's use Bluetooth® Low Energy with Arduino. In this example, we are going to use two Arduino boards, the **Nano 33 BLE** and the **Nano 33 BLE Sense** to exchange information between them. One of the boards, the Nano 33 BLE Sense, is going to be set up as a central device while the other board, the Nano 33 BLE, is going to be set up as a peripheral device. The information that we are going to share between the boards will come from the embedded **gesture sensor** of the Nano 33 BLE Sense board. For this, we are going to create a service called **gestureService** that will have one characteristic called **gesture_type**.   
 
 ![Gesture example architecture.](assets/nano_ble_sense_t2_img03.png)
 
@@ -119,7 +119,7 @@ void setup() {
   APDS.setGestureSensitivity(80); 
   
   if (!BLE.begin()) {
-    Serial.println("* Starting BLE module failed!");
+    Serial.println("* Starting Bluetooth® Low Energy module failed!");
     while (1);
   }
   
@@ -289,7 +289,7 @@ void setup() {
 
   
   if (!BLE.begin()) {
-    Serial.println("- Starting BLE module failed!");
+    Serial.println("- Starting Bluetooth® Low Energy module failed!");
     while (1);
   }
 
@@ -425,4 +425,4 @@ Sometimes errors occur, if one of the codes is not working there are some common
 
 ## Conclusion
 
-In this tutorial, we have learned how to exchange information between two Arduino boards, the Nano 33 BLE and the Nano 33 BLE Sense, through Bluetooth® Low Energy. We also learned the basics of BLE, how does it works, what are services and characteristics, and how information is exchanged in BLE. Lastly, we turn on different colors of the on-board RGB LED of the Nano 33 BLE board based on the values sent from the Nano 33 BLE Sense, those values were defined using its onboard gesture sensor. 
+In this tutorial, we have learned how to exchange information between two Arduino boards, the Nano 33 BLE and the Nano 33 BLE Sense, through Bluetooth® Low Energy. We also learned the basics of Bluetooth® Low Energy, how does it works, what are services and characteristics, and how information is exchanged in Bluetooth® Low Energy. Lastly, we turn on different colors of the on-board RGB LED of the Nano 33 BLE board based on the values sent from the Nano 33 BLE Sense, those values were defined using its onboard gesture sensor. 

@@ -95,7 +95,7 @@ To read the analog pin, simply use:
 reading = adc.read_u16() #16-bit resolution (0-65535)
 ```
 
-The below script will read the `A3` pin on the BLE Sense and print the value in the terminal.
+The below script will read the `A3` pin on the Arduino Nano BLE Sense and print the value in the terminal.
 
 ```python
 import machine
@@ -366,7 +366,7 @@ while (True):
 audio.stop_streaming()
 ```
 
-## BLE (Bluetooth Low Energy)
+## Bluetooth® Low Energy
 
 This example allows us to connect to our board via our phone, and control the built-in LED.  We recommend using the **nRF Connect** applications.
 

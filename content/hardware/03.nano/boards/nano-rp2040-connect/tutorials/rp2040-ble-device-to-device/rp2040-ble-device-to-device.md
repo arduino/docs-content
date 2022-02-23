@@ -5,7 +5,6 @@ compatible-products: [nano-rp2040-connect]
 description: 'Learn how to connect 2x Nano RP2040 Connect boards with each other, using Bluetooth® Low Energy (BLE).'
 tags: 
   - Bluetooth® Low Energy
-  - BLE
   - Button
   - LED
 author: 'Karl Söderby'
@@ -27,7 +26,7 @@ software:
 
 ## Introduction 
 
-In this tutorial, we will learn how to turn on the blue pixel onboard the Arduino® Nano RP2040 Connect board, from another board. For this, we will need two BLE compatible boards, such as the Nano RP2040 Connect board, where we will use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoLSM6DS3) library to make the connection. 
+In this tutorial, we will learn how to turn on the blue pixel onboard the Arduino® Nano RP2040 Connect board, from another board. For this, we will need two Bluetooth® Low Energy compatible boards, such as the Nano RP2040 Connect board, where we will use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoLSM6DS3) library to make the connection. 
 
 >**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/installing-mbed-os-nano-boards).
 
@@ -35,7 +34,7 @@ In this tutorial, we will learn how to turn on the blue pixel onboard the Arduin
 
 The goals of this project are:
 
-- Connect two Nano RP2040 Connect boards using BLE.
+- Connect two Nano RP2040 Connect boards using Bluetooth® Low Energy.
 - Set up one board as a "peripheral" and one as a "central" device.
 - Set up a boolean that switches each time a button is pressed.
 - Depending on what state the boolean is in, send a byte to the other board (either 0x00 or 0x01 which represents 0 and 1).
@@ -70,7 +69,7 @@ We will now get to the programming part of this tutorial.
 3. We can now take a look at some of the core functions of the sketches we will use:
 
 - `BLE.begin()` - initializes the library
-- `BLE.scanForUuid("19b10000-e8f2-537e-4f6c-d104768a1214")` - scans for BLE peripherals until the one inside parenthesis is found. 
+- `BLE.scanForUuid("19b10000-e8f2-537e-4f6c-d104768a1214")` - scans for Bluetooth® Low Energy peripherals until the one inside parenthesis is found. 
 - `BLEDevice peripheral = BLE.available()` checks whether peripheral has been discovered.
 - `BLEDevice central = BLE.available()` checks whether peripheral has been discovered.
 - `while (peripheral.connected())` - while a peripheral is connected, enter a while loop.
@@ -101,7 +100,7 @@ void setup() {
   pinMode(buttonPin, INPUT_PULLUP);
   // begin initialization
   if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
+    Serial.println("starting Bluetooth® Low Energy failed!");
   }
   // set advertised local name and service UUID:
   BLE.setLocalName("Button Device");
@@ -258,4 +257,4 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-In this tutorial, we have created a simple device-to-device application over Bluetooth®. We set up a **peripheral device** with a button, and used the built-in RGB on the **central device**. With this, we can simply turn ON and OFF the LED using BLE, with the same button.  
+In this tutorial, we have created a simple device-to-device application over Bluetooth®. We set up a **peripheral device** with a button, and used the built-in RGB on the **central device**. With this, we can simply turn ON and OFF the LED using Bluetooth® Low Energy, with the same button.  
