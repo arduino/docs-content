@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-The feature packed **Arduino® Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth and Wi-Fi connectivity thanks to the **U-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the **Arduino® Nano RP2040 Connect**!
+The feature packed **Arduino® Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth®  and Wi-Fi connectivity thanks to the **U-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the **Arduino® Nano RP2040 Connect**!
 
 # Target Areas 
 Internet of Things (IoT), machine learning, prototyping,
@@ -30,14 +30,14 @@ Internet of Things (IoT), machine learning, prototyping,
   - USB 1.1 Host/Device
   - Internal Voltage Regulator to supply the core voltage
   - Advanced High-performance Bus (AHB)/Advanced Peripheral Bus (APB)
-- **U-blox® Nina W102** Wi-Fi/Bluetooth Module
+- **U-blox® Nina W102** Wi-Fi/Bluetooth®  Module
   - 240MHz 32bit Dual Core Xtensa LX6
   - 520kB on-chip SRAM
   - 448 Kbyte ROM for booting and core functions
   - 16 Mbit FLASH for code storage including hardware encryption to protect programs and data
   -  1 kbit EFUSE (non- erasable memory) for MAC addresses, module configuration, Flash-Encryption, and Chip-ID
   - IEEE 802.11b/g/n single-band 2.4 GHz Wi-Fi operation
-  - Bluetooth 4.2
+  - Bluetooth®  4.2
   - Integrated Planar Inverted-F Antenna (PIFA)
   - 4x 12-bit ADC
   - 3x I2C, SDIO, CAN, QSPI
@@ -139,7 +139,7 @@ The Arduino® Nano RP2040 Connect can be adapted to a wide range of use cases th
 
 | **Ref.** | **Description**                                  | **Ref.** | **Description**                                 |
 | -------- | ------------------------------------------------ | -------- | ----------------------------------------------- |
-| U1       | Raspberry Pi RP2040 Microcontroller              | U2       | Ublox NINA-W102-00B Wi-Fi/Bluetooth Module      |
+| U1       | Raspberry Pi RP2040 Microcontroller              | U2       | Ublox NINA-W102-00B Wi-Fi/Bluetooth®  Module    |
 | U3       | N/A                                              | U4       | ATECC608A-MAHDA-T Crypto IC                     |
 | U5       | AT25SF128A-MHB-T 16MB Flash IC                   | U6       | MP2322GQH Step-Down Buck Regulator              |
 | U7       | DSC6111HI2B-012.0000 MEMS Oscillator             | U8       | MP34DT06JTR  MEMS Omnidirectional Microphone IC |
@@ -161,8 +161,8 @@ The processor is based upon the new Raspberry Pi RP2040 silicon (U1). This micro
 
 The RP2040 controls the peripherals and digital pins, as well as analog pins (A0-A3). The I2C connections on pins A4 (SDA) and A5 (SCL) are used for connecting to the onboard peripherals and are pulled up with a 4.7 kΩ resistor. SWD Clock line (SWCLK) and reset are also pulled up with a 4.7 kΩ resistor. An external MEMS oscillator (U7) running at 12MHz provides the clock pulse. Programmable IO helps to the implementation of arbitrary communication protocol with minimal burden on the main processing cores. A USB 1.1 device interface is implemented on the RP2040 for uploading code.
 
-### Wi-Fi/Bluetooth Connectivity
-Wi-Fi and Bluetooth connectivity is provided by the Nina W102 (U2) module. The RP2040 only has 4 analog pins, and the Nina is used to extend that to the full eight as is standard in the Arduino Nano form factor with another 4 12-bit analog inputs (A4-A7). Additionally, the common anode RGB LED is also controlled by the Nina W-102 module such that the LED is off when the digital state is HIGH and on when the digital state is LOW. The internal PCB antenna in the module eliminates the need for an external antenna.
+### Wi-Fi/Bluetooth®  Connectivity
+Wi-Fi and Bluetooth®  connectivity is provided by the Nina W102 (U2) module. The RP2040 only has 4 analog pins, and the Nina is used to extend that to the full eight as is standard in the Arduino Nano form factor with another 4 12-bit analog inputs (A4-A7). Additionally, the common anode RGB LED is also controlled by the Nina W-102 module such that the LED is off when the digital state is HIGH and on when the digital state is LOW. The internal PCB antenna in the module eliminates the need for an external antenna.
 The Nina W102 module also includes a dual core Xtensa LX6 CPU that can also be programmed independently of the RP2040 through the pads under the board using SWD. 
 
 ### 6-Axis IMU
@@ -368,7 +368,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Project Hub                           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
 | PDM (microphone)     Library          | https://www.arduino.cc/en/Reference/PDM                                                             |
 | WiFiNINA (Wi-Fi, W102)  Library       | https://www.arduino.cc/en/Reference/WiFiNINA                                                        |
-| ArduinoBLE (Bluetooth, W-102) Library | https://www.arduino.cc/en/Reference/ArduinoBLE                                                      |
+| ArduinoBLE (Bluetooth®, W-102) Library | https://www.arduino.cc/en/Reference/ArduinoBLE                                                     |
 | IMU Library                           | https://www.arduino.cc/en/Reference/Arduino_LSM6DS3                                                 |
 | Online Store                          | https://store.arduino.cc/                                                                           |
 
