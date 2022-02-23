@@ -108,7 +108,7 @@ In the menu navigate to "Image" under "Impulse Design". Set the color depth to "
 
 ![In the image inspection tool you can set the color depth according to the input data](assets/dsp_parameters.png)
 
-Then click on "Generate Features". The analysis process will take a while to complete depending on the amount of images that you uploaded. When it's done you can inspect the results. On the right hand side you can see a visualization of the features in a 3D space. You can see that apples (blue dots) and pears (green dots) are somewhat hard to tell apart due to their round shape and are therefore have some overlapping data points in that visualization. A banana on the other hand is easier to distinguish as it looks quite different.
+Then click on "Generate Features". The analysis process will take a while to complete depending on the amount of images that you uploaded. When it's done you can inspect the results. On the right hand side you can see a visualization of the features in a 3D space. You can see that some bananas (blue dots) and pears (green dots) are somewhat hard to tell apart possibly due to their long-ish shape and the stem and  therefore have some data points in close proximity. An orange on the other hand is easier to distinguish as it looks quite different.
 
 ![The feature explorer allows to visually inspect the clusters of images in regards to their properties](assets/features.png)
 
