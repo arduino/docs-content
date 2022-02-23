@@ -6,7 +6,7 @@ title: 'Arduino 101 CurieBLECallbackLED'
 
 ---
 
-With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy (BLE) capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet. You create a LED service that polls the central and creates Bluetooth® Low Energy events that are managed with callbacks. The values are sent using nRF Master Control Panel (BLE) app, available for Android and iOS.
+With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet. You create a LED service that polls the central and creates Bluetooth® Low Energy events that are managed with callbacks. The values are sent using nRF Master Control Panel(Bluetooth® Low Energy) app, available for Android and iOS.
 
 ## Hardware Required
 
@@ -15,7 +15,7 @@ With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy (BLE
 
 ## Software Required
 
-- nRF Master Control Panel (BLE) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8)
+- nRF Master Control Panel(Bluetooth® Low Energy) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8)
 
 ## The Circuit
 
@@ -41,7 +41,7 @@ The following functions are callbacks driven by the Bluetooth® Low Energy event
 
 ## On the Smartphone
 
-To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel (BLE) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8). Launch it and do a SCAN. You should find the **LEDCB** tab with a *connect* button
+To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel(Bluetooth® Low Energy) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8). Launch it and do a SCAN. You should find the **LEDCB** tab with a *connect* button
 
 ![](./CallBackLED_1.png)
 

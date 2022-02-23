@@ -21,7 +21,7 @@ software:
 ---
 
 ## Overview
-In this tutorial we will enable low energy Bluetooth® (BLE) on the Portenta H7 to allow an external Bluetooth® device to control the built-in LED either by turning it on or off.
+In this tutorial we will enable low energy Bluetooth® on the Portenta H7 to allow an external Bluetooth® device to control the built-in LED either by turning it on or off.
 
 ## Goals
 
@@ -36,7 +36,7 @@ In this tutorial we will enable low energy Bluetooth® (BLE) on the Portenta H7 
 -   Mobile device, phone or tablet
 -   [nRFconnect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) or equivalent tool downloaded on your mobile device: [nRF Connect for iOS](https://itunes.apple.com/us/app/nrf-connect/id1054362403?ls=1&mt=8) or [nRF Connect for android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp)
 
-## Portenta and Low Energy Bluetooth® (BLE) 
+## Portenta and Low Energy Bluetooth®
 The onboard WiFi/Bluetooth® module of the H7 offers low energy Bluetooth® functionality that gives the board the flexibility to be easily connected to devices which also support Bluetooth® Low Energy such as the Arduino Nano 33 IoT or most modern smart phones. Compared to classic Bluetooth®, Low Energy Bluetooth® is intended to provide considerably reduced power consumption and cost while maintaining a similar communication range.
 
 ## Instructions

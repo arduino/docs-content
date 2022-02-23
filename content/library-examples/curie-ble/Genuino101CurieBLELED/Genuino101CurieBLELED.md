@@ -6,7 +6,7 @@ title: 'Arduino 101 CurieBLE LED'
 
 ---
 
-With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet. You create a LED service and keep reading the Bluetooth® Low Energy central, looking for a writing event of the characteristic associated with the LED you want to control. This tutorial is similar to the [Callback LED](https://www.arduino.cc/en/Tutorial/Genuino101CurieBLECallbackLED) where the change is managed by polling and callback functions. The values are sent using nRF Master Control Panel (BLE) app, available for Android and iOS.
+With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy capabilities to turn on and of the LED connected to Pin 13 from a smartphone or tablet. You create a LED service and keep reading the Bluetooth® Low Energy central, looking for a writing event of the characteristic associated with the LED you want to control. This tutorial is similar to the [Callback LED](https://www.arduino.cc/en/Tutorial/Genuino101CurieBLECallbackLED) where the change is managed by polling and callback functions. The values are sent using nRF Master Control Panel(Bluetooth® Low Energy) app, available for Android and iOS.
 
 ## Hardware Required
 
@@ -15,7 +15,7 @@ With this tutorial you use the Arduino 101's onboard Bluetooth® Low Energy capa
 
 ## Software Required
 
-- nRF Master Control Panel (BLE) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8)
+- nRF Master Control Panel(Bluetooth® Low Energy) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8)
 
 ## The Circuit
 
@@ -35,7 +35,7 @@ None
 
 ## On the Smartphone
 
-To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel (BLE) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8). Launch it and do a SCAN. You should find the **LED** tab with a *connect* button.
+To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel(Bluetooth® Low Energy) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8). Launch it and do a SCAN. You should find the **LED** tab with a *connect* button.
 
 ![](./BleLED_1.png)
 

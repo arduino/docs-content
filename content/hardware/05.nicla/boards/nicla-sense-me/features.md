@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino® Nicla Sense ME is our smallest form factor yet, with a range of industrial grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Featuring a 9 axis inertial measurement unit and the possibility for Bluetooth® Low Energy (BLE) connectivity it can help you to create your next Bluetooth® Low Energy enabled project. Make your own industrial grade wireless sensing network with the onboard **BHI260AP**, **BMP390**, **BMM150** and **BME688** Bosch sensors.
+The Arduino® Nicla Sense ME is our smallest form factor yet, with a range of industrial grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Featuring a 9 axis inertial measurement unit and the possibility for Bluetooth® Low Energy connectivity it can help you to create your next Bluetooth® Low Energy enabled project. Make your own industrial grade wireless sensing network with the onboard **BHI260AP**, **BMP390**, **BMM150** and **BME688** Bosch sensors.
 
 </FeatureDescription>
 

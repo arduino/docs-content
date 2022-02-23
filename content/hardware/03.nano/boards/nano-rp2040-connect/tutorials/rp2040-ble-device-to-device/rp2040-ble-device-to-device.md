@@ -2,7 +2,7 @@
 title: 'BLE Device to Device with Nano RP2040 Connect'
 difficulty: advanced
 compatible-products: [nano-rp2040-connect]
-description: 'Learn how to connect 2x Nano RP2040 Connect boards with each other, using Bluetooth® Low Energy (BLE).'
+description: 'Learn how to connect 2x Nano RP2040 Connect boards with each other, using Bluetooth® Low Energy.'
 tags: 
   - Bluetooth® Low Energy
   - Button

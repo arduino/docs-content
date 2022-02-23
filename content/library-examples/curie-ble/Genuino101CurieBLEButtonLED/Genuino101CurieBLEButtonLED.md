@@ -23,7 +23,7 @@ With this tutorial you learn to use the Curie Bluetooth® Low Energy library to 
 
 ## Software Required
 
-- nRF Master Control Panel (BLE) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8)
+- nRF Master Control Panel(Bluetooth® Low Energy) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8)
 
 ## The Circuit
 
@@ -45,7 +45,7 @@ None
 
 ## On the Smartphone
 
-To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel (BLE) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8). Launch it and do a SCAN. You should find the **ButtonLE** tab with a *connect* button
+To drive the onboard LED of Arduino 101, you need the nRF Master Control Panel(Bluetooth® Low Energy) for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en) and [iOS](https://itunes.apple.com/us/app/nrf-master-control-panel-ble/id1054362403?mt=8). Launch it and do a SCAN. You should find the **ButtonLE** tab with a *connect* button
 
 ![](./ButtonBLE_1.png)
 

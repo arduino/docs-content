@@ -4,7 +4,7 @@
   </EssentialElement>
 
 <EssentialElement title="BLE device to device with Nano RP2040 Connect" type="tutorial" link="/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device">
-    Learn how to connect 2x Nano RP2040 Connect boards with each other, using Bluetooth® Low Energy (BLE).
+    Learn how to connect 2x Nano RP2040 Connect boards with each other, using Bluetooth® Low Energy.
   </EssentialElement>
 </EssentialsColumn>
 

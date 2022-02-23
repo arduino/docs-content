@@ -8,7 +8,7 @@ source: "https://store.arduino.cc/arduino-primo"
 
 ![The Arduino Primo board](./assets/a000135_featured.jpg)
 
-The Arduino Primo is the first board developed in cooperation with [Nordic Semiconductor](http://www.nordicsemi.com/). It brings new benefits for the IoT world all on one platform: advanced 32-bit microcontroller architecture, Bluetooth® low energy (BLE), Wi-Fi, near-field communications (NFC), and infrared (IR) transmit and receive capability.  
+The Arduino Primo is the first board developed in cooperation with [Nordic Semiconductor](http://www.nordicsemi.com/). It brings new benefits for the IoT world all on one platform: advanced 32-bit microcontroller architecture, Bluetooth® low energy, Wi-Fi, near-field communications (NFC), and infrared (IR) transmit and receive capability.  
   
 There are three onboard microcontrollers: 
 

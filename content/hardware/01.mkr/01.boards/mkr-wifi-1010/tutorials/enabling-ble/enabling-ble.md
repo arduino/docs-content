@@ -130,7 +130,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
   pinMode(ledPin, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
 
-  //initialize Bluetooth® Low Energy library
+  //initialize ArduinoBLE library
   if (!BLE.begin()) {
     Serial.println("starting Bluetooth® Low Energy failed!");
     while (1);
@@ -224,7 +224,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
   pinMode(ledPin, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
 
-  //initialize Bluetooth® Low Energy library
+  //initialize ArduinoBLE library
   if (!BLE.begin()) {
     Serial.println("starting Bluetooth® Low Energy failed!");
     while (1);
