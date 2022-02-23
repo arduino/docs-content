@@ -161,7 +161,7 @@ The processor is based upon the new Raspberry Pi RP2040 silicon (U1). This micro
 
 The RP2040 controls the peripherals and digital pins, as well as analog pins (A0-A3). The I2C connections on pins A4 (SDA) and A5 (SCL) are used for connecting to the onboard peripherals and are pulled up with a 4.7 kΩ resistor. SWD Clock line (SWCLK) and reset are also pulled up with a 4.7 kΩ resistor. An external MEMS oscillator (U7) running at 12MHz provides the clock pulse. Programmable IO helps to the implementation of arbitrary communication protocol with minimal burden on the main processing cores. A USB 1.1 device interface is implemented on the RP2040 for uploading code.
 
-### Wi-Fi/Bluetooth®  Connectivity
+### Wi-Fi/Bluetooth® Connectivity
 Wi-Fi and Bluetooth®  connectivity is provided by the Nina W102 (U2) module. The RP2040 only has 4 analog pins, and the Nina is used to extend that to the full eight as is standard in the Arduino Nano form factor with another 4 12-bit analog inputs (A4-A7). Additionally, the common anode RGB LED is also controlled by the Nina W-102 module such that the LED is off when the digital state is HIGH and on when the digital state is LOW. The internal PCB antenna in the module eliminates the need for an external antenna.
 The Nina W102 module also includes a dual core Xtensa LX6 CPU that can also be programmed independently of the RP2040 through the pads under the board using SWD. 
 
