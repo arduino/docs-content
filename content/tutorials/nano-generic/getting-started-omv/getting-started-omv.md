@@ -48,7 +48,7 @@ After updating the bootloader put the Nano 33 BLE sense in bootloader mode if ne
 
 Click on the "connect" symbol at the bottom of the left toolbar. 
 
-![Click the connect button to attach the Nano 33 BLE sense to the OpenMV IDE](assets/nano_openmv_click_connect.png)
+![Click the connect button to attach the Nano 33 BLE Sense to the OpenMV IDE](assets/nano_openmv_click_connect.png)
 
 A pop-up will ask you how you would like to proceed "DFU bootloader(s) found. What would you like to do?". Select "Reset Firmware to Release Version". This will install the latest OpenMV firmware on the Nano. If it asks you whether it should erase the internal file system you can click "No".
 
