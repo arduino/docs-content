@@ -1,14 +1,14 @@
 ---
 title: Proximity Detection with Arduino Nicla Vision
-difficulty: intermediate
-tags: [Bluetooth®, WEBAPP, CLI, Installation]
+difficulty: easy
+tags: [Proximity, Time Of Flight, Blink]
 description: Learn how to use the proximity sensor to vary the speed of the LED's blink.
 author: Pablo Marquínez
 libraries: 
   - name: VL53L1X
     url: https://github.com/pololu/vl53l1x-arduino
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/05.nicla/boards/nicla-vision
 software:
   - ide-v1
   - ide-v2
