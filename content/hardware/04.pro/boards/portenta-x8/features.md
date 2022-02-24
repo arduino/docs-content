@@ -1,5 +1,5 @@
 <FeatureDescription>
-  The Portenta X8 is a high performance board, with many great features. With two cores combined; the NXP i.MX 8M Mini (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino), it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
+  The Portenta X8 is a high performance board, with many great features. With two microprocessers combined; the NXP i.MX 8M Mini (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino), it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
 </FeatureDescription>
 
 <FeatureList>
@@ -18,8 +18,8 @@
     <FeatureLink title="Datasheet" url="https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf" download blank/>
   </Feature>
 
-  <Feature title="Real-time applications" image="communication">
-    Thanks to the Arduino environment, the X8 offers the best of two approaches: the flexibility of usage of Linux combined with real-time applications. This approach allows developers to leverage the Arduino envornment to perform e.g automation control while performing high-performance processonf on Linux cores at the same time. 
+  <Feature title="Two industrial-grade products in one" image="communication">
+    The X8 offers the best of two approaches: the flexibility of usage of Linux combined with real-time applications. This approach allows developers to leverage the Arduino environment to perform e.g automation control while performing high-performance processonf on Linux cores at the same time. 
   </Feature>
 
   <Feature title="Containerizing system" image="configurability">
