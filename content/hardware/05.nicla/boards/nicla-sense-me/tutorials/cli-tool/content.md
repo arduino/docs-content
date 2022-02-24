@@ -20,7 +20,7 @@ software:
 ---
 
 ## Overview
-It is possible to configure the Nicla Sense ME to communicate via Serial over USB or Bluetooth® LE using a tool called **bhy-controller**. This is a CLI tool that can configure the sensors, get their readings and provide this information via a local webserver or display it in the command line interface.
+It is possible to configure the Nicla Sense ME to communicate via Serial over USB or Bluetooth® Low Energy using a tool called **bhy-controller**. This is a CLI tool that can configure the sensors, get their readings and provide this information via a local webserver or display it in the command line interface.
 
 ## Goals
 

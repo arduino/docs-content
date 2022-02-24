@@ -5,7 +5,7 @@ compatible-products: [nano-33-iot]
 description: 'Learn how to control the built-in LED on the Nano 33 IoT board over Bluetooth®, using an app on your phone.'
 tags:
   - Bluetooth®
-  - BLE
+  - Bluetooth® Low Energy
 author: 'Fabricio Troya'
 libraries: 
   - name: ArduinoBLE
@@ -25,7 +25,7 @@ In this tutorial we will use an Arduino Nano 33 IoT to turn on the built-in LED 
 ## Goals
 
 The goals of this project are:
- - Learn what BLE and Bluetooth® are.
+ - Learn what Bluetooth® Low Energy and Bluetooth® are.
  - Use the Arduino BLE library.
  - Learn how to create a new service.
  - Learn how to control a LED from an external device (smartphone).
@@ -37,9 +37,9 @@ The goals of this project are:
 * In this tutorial we will use the [Arduino Web Editor](https://create.arduino.cc/editor) to program the board.
 
 
-## BLE and Bluetooth®
+## Bluetooth® Low Energy and Bluetooth®
 
-Bluetooth® Low Energy, referred to as BLE, separates itself from what is now known as “Bluetooth® Classic” by being optimized to use low power with low data rates. There are two different types of Bluetooth® devices: central or peripheral. A central Bluetooth® device is designed to read data from peripheral devices, while the peripheral devices are designed to do the opposite. Peripheral devices continuously post data for other devices to read, and it is precisely what we will be focusing on this tutorial.
+Bluetooth® Low Energy, referred to as Bluetooth® Low Energy, separates itself from what is now known as “Bluetooth® Classic” by being optimized to use low power with low data rates. There are two different types of Bluetooth® devices: central or peripheral. A central Bluetooth® device is designed to read data from peripheral devices, while the peripheral devices are designed to do the opposite. Peripheral devices continuously post data for other devices to read, and it is precisely what we will be focusing on this tutorial.
 
 
 ## Service & Characteristics
@@ -194,7 +194,7 @@ void setup() {
 
   // begin initialization
   if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
+    Serial.println("starting Bluetooth® Low Energy failed!");
 
     while (1);
   }
@@ -303,5 +303,5 @@ Sometimes errors occur, if the code is not working there are some common issues 
 
 In this tutorial we have created a basic Bluetooth® peripheral device. We learned how to create services and characteristics, and how to use UUIDs from the official Bluetooth® documentation. Lastly, we control the LED based on the values sent from the smartphone.
 
-Now that you have learned a little bit how to use the ArduinoBLE library, you can try out some of our other tutorials for the Nano 33 BLE IoT. You can also check out the <a href="https://www.arduino.cc/en/Reference/ArduinoBLE">ArduinoBLE</a> library for more examples and inspiration for creating Bluetooth® projects!
+Now that you have learned a little bit how to use the ArduinoBLE library, you can try out some of our other tutorials for the Nano 33 IoT. You can also check out the <a href="https://www.arduino.cc/en/Reference/ArduinoBLE">ArduinoBLE</a> library for more examples and inspiration for creating Bluetooth® projects!
 

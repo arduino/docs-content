@@ -23,7 +23,7 @@ Mega - A larger, more powerful Arduino board, shield compatible with the Duemila
 
 [![](assets/ArduinoBT240.jpg)](content\retired\01.boards\arduino-BT-v1)
 
-Bluetooth - The Arduino BT contains a bluetooth module that allows for wireless communication and programming. It is compatible with Arduino shields.
+Bluetooth® - The Arduino BT contains a Bluetooth® module that allows for wireless communication and programming. It is compatible with Arduino shields.
 
 [![](assets/ArduinoMini240.jpg)](content\retired\01.boards\arduino-mini-05)
 

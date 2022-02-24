@@ -8,7 +8,7 @@ Pins:
   Analog input pins: 8
   PWM pins: 10
 Connectivity:
-  Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth 5.1 BR/EDR/LE
+  Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth® 5.1 BR/EDR/LE
 Communication:
   UART: Yes
   I2C: Yes

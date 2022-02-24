@@ -3,7 +3,7 @@ title: 'Getting Started with the Arduino 101'
 description: 'The first steps to setting up your Arduino 101'
 ---
 
-The Arduino 101 is a learning and development board which contains the [Intel® Curie™](http://www.intel.com/content/www/us/en/wearables/wearable-soc.html) Module, designed to integrate the core's low power-consumption and high performance with the Arduino's ease-of-use. The 101 adds Bluetooth Low Energy capabilities and has an on-board 6-axis accelerometer/gyroscope, providing exciting opportunities for building creative projects in the connected world. 
+The Arduino 101 is a learning and development board which contains the [Intel® Curie™](http://www.intel.com/content/www/us/en/wearables/wearable-soc.html) Module, designed to integrate the core's low power-consumption and high performance with the Arduino's ease-of-use. The 101 adds Bluetooth® Low Energy capabilities and has an on-board 6-axis accelerometer/gyroscope, providing exciting opportunities for building creative projects in the connected world. 
 
 The Arduino 101 is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
 
@@ -102,7 +102,7 @@ more examples on the respective library pages
 
 All 101's embedded peripherals have dedicated libraries, namely:
 
-[CureBLE (to control Bluetooth Low Energy module)](/en/Reference/CurieBLE)
+[CureBLE (to control Bluetooth® Low Energy module)](/en/Reference/CurieBLE)
 [CurieIMU(to control the 6-axis accelerometer + gyro)](/en/Reference/CurieIMU)
 [Curie Timer One (to control Timer functions)](/en/Reference/CurieTimerOne)
 

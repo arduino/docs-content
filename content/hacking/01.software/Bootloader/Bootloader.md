@@ -35,7 +35,7 @@ The current bootloaders (i.e. the ones included in Arduino 0009) are almost iden
 
 The bootloader that actually shipped on the Arduino NG is slightly different. It enables the internal pullup resistor on pin 6, and doesn't enable the internal pullup on the RX pin. Nor does it timeout upon receiving invalid data, so if you send data to it immediately after it resets, your sketch will never start.
 
-The Arduino BT bootloader does some initial configuration of the bluetooth module.
+The Arduino BT bootloader does some initial configuration of the Bluetooth® module.
 
 The ATmega8 bootloader only takes up 1 KB of flash. It does not timeout when it receives invalid data, you need to make sure that no data is sent to the board during the 6-8 seconds when the bootloader is running.
 

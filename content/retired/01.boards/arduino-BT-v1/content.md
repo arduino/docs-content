@@ -9,7 +9,7 @@ source: "https://arduino.cc/en/Main/ArduinoBoardBluetoothNew"
 
 ### Overview
 
-The Arduino BT (Bluetooth) is a microcontroller board based on the ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)) and the Bluegiga WT11 bluetooth module ([details](http://www.bluegiga.com/wt11-1) and [datasheet](http://www.bluegiga.com/files/bluegiga/Pub%20files/WT11%5Fdatasheet.pdf) \[pdf\]). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth connection. Instructions are available for [getting started with the Arduino BT](//www.arduino.cc/en/Guide/ArduinoBT).
+The Arduino BT (Bluetooth) is a microcontroller board based on the ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)) and the Bluegiga WT11 Bluetooth® module ([details](http://www.bluegiga.com/wt11-1) and [datasheet](http://www.bluegiga.com/files/bluegiga/Pub%20files/WT11%5Fdatasheet.pdf) \[pdf\]). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](//www.arduino.cc/en/Guide/ArduinoBT).
 
 ### Summary
 
@@ -67,9 +67,9 @@ There are a couple of other pins on the board:
 
 See also the [mapping between Arduino pins and ATmega168 ports](https://docs.arduino.cc/hacking/hardware/PinMapping168).
 
-### Bluetooth Communication
+### Bluetooth® Communication
 
-The Bluegiga WT11 module on the Arduino BT provides Bluetooth communication with computers, phones, and other Bluetooth devices. The WT11 communicates with the ATmega168 via serial (shared with the RX and TX pins on the board). It comes configured for 115200 baud communication. The module should be configurable and detectable by your operating system's bluetooth drivers, which should then provide a virtual com port for use by other applications. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board over this bluetooth connection. The board can also be reprogrammed using this same wireless connection.
+The Bluegiga WT11 module on the Arduino BT provides Bluetooth® communication with computers, phones, and other Bluetooth® devices. The WT11 communicates with the ATmega168 via serial (shared with the RX and TX pins on the board). It comes configured for 115200 baud communication. The module should be configurable and detectable by your operating system's Bluetooth® drivers, which should then provide a virtual com port for use by other applications. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board over this Bluetooth® connection. The board can also be reprogrammed using this same wireless connection.
 
 The WT11 is specially configured for use in the Arduino BT. Its name is set to ARDUINOBT and passcode to 12345\. For details, see the complete initialization sketch below.
 
@@ -97,7 +97,7 @@ The maximum length and width of the BT are approximately 3.2 and 2.1 inches resp
 
 ## Arduino BT v1 Initialization Sketch
 
-This sketch is run once on each Arduino BT v1 to initialize the bluetooth module before the board is shipped (you shouldn't need to run this code; it's just here for reference). For details on the commands sent to the module, see the [iWrap data sheet](http://www.bluegiga.com/iWRAP%5Fsoftware).
+This sketch is run once on each Arduino BT v1 to initialize the Bluetooth® module before the board is shipped (you shouldn't need to run this code; it's just here for reference). For details on the commands sent to the module, see the [iWrap data sheet](http://www.bluegiga.com/iWRAP%5Fsoftware).
 
 ```arduino
 /* BT test 01

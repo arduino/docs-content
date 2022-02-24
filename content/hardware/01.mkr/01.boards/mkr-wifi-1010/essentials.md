@@ -17,7 +17,7 @@
   </EssentialElement>
 
   <EssentialElement title="ArduinoBLE" type="library" link="https://www.arduino.cc/en/Reference/ArduinoBLE">
-The ArduinoBLE library is designed for Arduino boards that have hardware enabled for BLE and Bluetooth 4.0 and above. 
+The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
   </EssentialElement>
 </EssentialsColumn>
 

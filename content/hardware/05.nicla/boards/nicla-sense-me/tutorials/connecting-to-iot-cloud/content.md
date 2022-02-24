@@ -51,7 +51,7 @@ For the hardware setup just connect the Nicla board to the Portenta H7 using the
 There are three ways to read from the on-board sensors:
 
 1. Read the sensors directly from Nicla Sense ME in standalone mode.
-2. Read sensor values through BLE
+2. Read sensor values through Bluetooth® Low Energy
 3. Read sensor values through UART by connecting an ESLOV cable.
 
 For further tips on how to operate the Nicla module check the [cheat sheet.](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov)
@@ -69,7 +69,7 @@ This is the code, which initialize the sensors, and maintain the communication
  * Use this sketch if you want to control nicla from 
  * an external device acting as a host.
  * Here, nicla just reacts to external stimuli coming from
- * the eslov port or through BLE 
+ * the eslov port or through Bluetooth® Low Energy 
 */
 
 #include "Arduino.h"
@@ -115,7 +115,7 @@ Sensor tempSensor(SENSOR_ID_TEMP);
 
 Inside `void setup()` initialize the `Serial` communication, configure the variables and configuration for the Arduino IoT Cloud(properties), wait until the **Portenta H7** is connected to the Wi-Fi and IoT Cloud and after that it will setup the communication with the **Nicla Sense ME** and configure the temperature sensor.
 
-***Note: Now we are using "NICLA_VIA_ESLOV". In case you mount it as a shield use "NICLA_AS_SHIELD" as the second parameter of the `begin()` function, or "NICLA_VIA_BLE" if you use BLE***
+***Note: Now we are using "NICLA_VIA_ESLOV". In case you mount it as a shield use "NICLA_AS_SHIELD" as the second parameter of the `begin()` function, or "NICLA_VIA_BLE" if you use Bluetooth® Low Energy***
 
 ```cpp
   void setup(){
@@ -141,7 +141,7 @@ Inside `void setup()` initialize the `Serial` communication, configure the varia
     Serial.println("Initialize the Nicla communication")
     BHY2Host.begin(false, NICLA_VIA_ESLOV);
 
-    //If you want to connect the NICLA through BLE use the following line instead of the above
+    //If you want to connect the NICLA through Bluetooth® Low Energy use the following line instead of the above
     //while(!BHY2Host.begin(false, NICLA_VIA_BLE)) {} 
 
     tempSensor.configure(1, 0);
@@ -151,7 +151,7 @@ Inside `void setup()` initialize the `Serial` communication, configure the varia
 
 ***If you use `yourSensor.begin()` it will be configured the same as with `yourSensor.configure(1,0)`***
 
-If the Nicla Sense ME shall communicate through BLE, we recommend wrapping `BHY2Host.begin(false, NICLA_VIA_BLE)` in a `while` clause to make sure the connection is established before the sketch continues.
+If the Nicla Sense ME shall communicate through Bluetooth® Low Energy, we recommend wrapping `BHY2Host.begin(false, NICLA_VIA_BLE)` in a `while` clause to make sure the connection is established before the sketch continues.
 
 Inside the `void loop()` function you will make the **Portenta H7**  get all the needed data from the **Nicla Sense ME**, store and print the temperature sensor's value and update the data to the IoT Cloud.
 

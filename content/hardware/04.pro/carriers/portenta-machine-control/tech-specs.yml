@@ -12,7 +12,7 @@ Other I/O:
   Programmable digital I/O (24V logic): 12
 Connectivity:
   Ethernet: Yes
-  BLE: Yes
+  Bluetooth® Low Energy: Yes
   Wi-Fi: Yes
   USB Programming Port: Yes
 Communication protocols:
