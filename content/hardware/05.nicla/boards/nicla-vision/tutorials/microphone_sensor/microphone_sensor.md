@@ -44,7 +44,7 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 To check that you correctly set up the board please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** instructions.
 
-## OpenMV
+### OpenMV
 
 Open the script by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_fft.py**.
 
@@ -56,7 +56,9 @@ When the script is running, you will see an spectrum analyzer in the top right p
 
 ![OpenMV IDE - Spectrum analyzer](assets/OpenMV_spectrumAnalyzer.png)
 
-## Arduino
+### Arduino
+
+## Instructions
 
 ### Setting Up the Sketch
 
@@ -175,7 +177,7 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
 ```
 
 
-## Testing It Out
+### Testing It Out
 
 After you have successfully verified and uploaded the sketch to the board, open the Serial Monitor from the menu on the left. You will now see the new values printed.
 
