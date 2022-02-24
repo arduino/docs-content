@@ -9,8 +9,6 @@ tags:
   - LED
 author: 'Karl Söderby'
 libraries: 
-  - name: Arduino LSM6DS3 
-    url: https://www.arduino.cc/en/Reference/ArduinoLSM6DS3
   - name: ArduinoBLE
     url: https://www.arduino.cc/en/Reference/ArduinoBLE
 hardware:
@@ -28,7 +26,7 @@ software:
 
 In this tutorial, we will learn how to turn on the blue pixel onboard the Arduino® Nano RP2040 Connect board, from another board. For this, we will need two Bluetooth® Low Energy compatible boards, such as the Nano RP2040 Connect board, where we will use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoLSM6DS3) library to make the connection. 
 
->**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/installing-mbed-os-nano-boards).
+>**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano).
 
 ## Goals
 
@@ -155,13 +153,13 @@ Upload the code below to the central device.
 #include <ArduinoBLE.h>
 
 void setup() {
-  pinMode(LEDB, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
   while (!Serial);
   // initialize the BLE hardware
   BLE.begin();
   Serial.println("BLE Central - LED control");
-  // start scanning for LED BLE peripherals
+  // start scanning for Button Device BLE peripherals
   BLE.scanForUuid("19b10000-e8f2-537e-4f6c-d104768a1214");
 }
 void loop() {
@@ -176,9 +174,9 @@ void loop() {
     Serial.print("' ");
     Serial.print(peripheral.advertisedServiceUuid());
     Serial.println();
-    if (peripheral.localName().indexOf("LED") < 0) {
-      Serial.println("No 'LED' in name");
-      return;  // If the name doeshn't have "LED" in it then ignore it
+    if (peripheral.localName().indexOf("Button Device") < 0) {
+      Serial.println("No 'Button Device' in name");
+      return;  // If the name doesn't have "Button Device" in it then ignore it
     }
     // stop scanning
     BLE.stopScan();
@@ -220,10 +218,10 @@ void controlLed(BLEDevice peripheral) {
       //Serial.println(LEDCharacteristic.readValue(value));
       if (value == 0x01) {
         Serial.println("ON");
-        digitalWrite(LEDB, HIGH);
+        digitalWrite(LED_BUILTIN, HIGH);
       }
       else if (value == 0x00) {
-        digitalWrite(LEDB, LOW);
+        digitalWrite(LED_BUILTIN, LOW);
         Serial.println("OFF");
       }
     }
@@ -245,7 +243,7 @@ When we open it, the central device will start looking for peripherals. When it 
 
 Now, if we press the button on the peripheral device, we can see two things change on the **central device.** The blue LED will turn ON, and the Serial Monitor will instead print **"ON"**. We can now turn ON or OFF the LED, through pushing the same button.
 
-![When the button is pressed, the RGB LED turns blue on the other device.](assets/rp2040-bluetooth-img-04.png)
+![When the button is pressed, the RGB LED turns blue on the other device.](assets/rp2040-bluetooth-img-04-new.png)
 
 ### Troubleshoot
 
