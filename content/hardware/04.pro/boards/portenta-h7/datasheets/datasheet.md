@@ -54,9 +54,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Connectivity</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / BLE</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
          <td style="text-align: center;">Ethernet FHY</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / BLE</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>

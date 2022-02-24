@@ -14,7 +14,7 @@ The **Arduino® Nicla Sense ME** is our smallest form factor yet, with a range o
 wireless sensor networks, data fusion, artificial intelligence, gas detection
 
 # Features
-- **ANNA-B112** Bluetooth Module
+- **ANNA-B112** Bluetooth®  Module
   - **nRF52832** System-on-chip
     - 64 MHz ARM® Cortex-M4F microcontroller 
     - 64 KB SRAM
@@ -23,7 +23,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
     - 2x SPI (one is accessible via pin header)
     - 2x I2C (one is accessible via pin header)
     - 12-bit/200 ksps ADC
-    - 2.400 - 2.4835 GHz Bluetooth (5.0 via cordio stack, 4.2 via ArduinoBLE)
+    - 2.400 - 2.4835 GHz Bluetooth®  (5.0 via cordio stack, 4.2 via ArduinoBLE)
   - Internal antenna
   - Internal 32 MHz oscillator
   - 1.8V Operating Voltage
@@ -137,7 +137,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 | **Ref.** | **Description**                                  | **Ref.** | **Description**                  |
 | -------- | ------------------------------------------------ | -------- | -------------------------------- |
-| MD1      | ANNA B112 Bluetooth Module                       | U2, U7   | MX25R1635FZUIH0 2 MB FLASH IC    |
+| MD1      | ANNA B112 Bluetooth®  Module                       | U2, U7   | MX25R1635FZUIH0 2 MB FLASH IC    |
 | U3       | BMP390 Pressure Sensor IC                        | U4       | BMM150 3-axis Magnetic Sensor IC |
 | U5       | BHI260AP 6 axis IMU and AI core IC               | U6       | BME688 Environmental Sensor IC   |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC  |
