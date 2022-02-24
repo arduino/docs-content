@@ -9,7 +9,7 @@
   </Feature>
 
   <Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
-    X8's main processor is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+    X8's intergrated microcontroller is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
     <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
   </Feature>
 
@@ -19,7 +19,7 @@
   </Feature>
 
   <Feature title="Two industrial-grade products in one" image="communication">
-    The X8 offers the best of two approaches: the flexibility of usage of Linux combined with real-time applications. This approach allows developers to leverage the Arduino environment to perform e.g automation control while performing high-performance processonf on Linux cores at the same time. 
+    The X8 offers the best of two approaches: the flexibility of usage of Linux combined with real-time applications. This approach allows developers to leverage the Arduino environment to perform e.g automation control while performing high-performance processors on Linux cores at the same time. 
   </Feature>
 
   <Feature title="Containerizing system" image="configurability">

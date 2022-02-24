@@ -2,8 +2,11 @@ Board:
   Name: Arduino® Portenta X8
   SKU: ABX00049
 Microprocessor: 
-    4x ARM® Cortex® -A53 core up to 1.8GHz
-    1x ARM® Cortex® -M4 core up to 400 MHz
+ 4x ARM® Cortex® -A53 core up to 1.8GHz
+ 1x ARM® Cortex® -M4 core up to 400 MHz
+Microcontroller: 
+  1x ARM® Cortex® -M7 core up to 480MHz (for internal use)
+  1x ARM® Cortex® -M4 core up to 240MHz
 USB connector: USB-C
 Pins:
   Digital I/O Pins: 22
