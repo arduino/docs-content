@@ -1,19 +1,19 @@
 <EssentialsColumn title="First Steps">
     <EssentialElement link="/software/ide-v1/installing-mbed-os-nano-boards" title="Quickstart Guide" type="getting-started">
-        A quick guide to installing your board with the Arduino IDE.
+        A quick guide to installing your carrier with the Arduino IDE.
     </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-    <EssentialElement link="/content/learn/02.microcontrollers/02.analog-input/analog-input.md" title="Braccio ++" type="library">
+    <EssentialElement link="https://github.com/arduino-libraries/Arduino_Braccio_plusplus" title="Braccio ++" type="library">
         Braccio ++ Library
     </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
-    <EssentialElement link="https://www.arduino.cc/en/Tutorial/BuiltInExamples" title="Built-in Examples" type="resource">
+    <EssentialElement link="/built-in-examples/" title="Built-in Examples" type="resource">
         Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
     </EssentialElement>
     <EssentialElement link="/learn" title="Learn" type="resource">

@@ -2,8 +2,8 @@
 title: Braccio Carrier
 url_shop: 
 url_guide: 
-url_datasheet:
+url_datasheet: 
 core: 
 ---
 
-INSERT PRODUCT TEXT
+The Braccio Carrier is the main feature of the Arduino Braccio ++, with its ability to control the motors and display. 

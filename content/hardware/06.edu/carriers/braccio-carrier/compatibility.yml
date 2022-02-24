@@ -2,7 +2,5 @@ software:
   - arduino-ide
   - web-editor
 hardware:
-  shields: ~
-  carriers: ~
   boards: 
     - nano-rp2040-connect
