@@ -1,6 +1,5 @@
 ---
 title: Proximity Detection with Arduino Nicla Vision
-coverImage: assets/por_ard_usbh_cover.svg
 difficulty: intermediate
 tags: [Bluetooth®, WEBAPP, CLI, Installation]
 description: Learn how to use the proximity sensor to vary the speed of the LED's blink.
