@@ -11,7 +11,7 @@ libraries:
   - name: Arduino LSM6DSOX
     url: https://www.arduino.cc/en/Reference/ArduinoLSM6DSOX
 hardware:
-  - hardware/
+  - hardware/05.nicla/boards/nicla-vision
 software:
   - ide-v1
   - ide-v2
