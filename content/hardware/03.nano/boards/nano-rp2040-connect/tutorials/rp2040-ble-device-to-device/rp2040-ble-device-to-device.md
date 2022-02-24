@@ -244,7 +244,7 @@ When we open it, the central device will start looking for peripherals. When it 
 
 Now, if we press the button on the peripheral device, we can see two things change on the **central device.** The blue LED will turn ON, and the Serial Monitor will instead print **"ON"**. We can now turn ON or OFF the LED, through pushing the same button.
 
-![When the button is pressed, the RGB LED turns blue on the other device.](assets/rp2040-bluetooth-img-04.png)
+![When the button is pressed, the RGB LED turns blue on the other device.](assets/rp2040-bluetooth-img-04-new.png)
 
 ### Troubleshoot
 
