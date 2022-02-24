@@ -127,7 +127,7 @@ The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-
 The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23).This module operates on 3V3.  A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
 
 ### Mini PCIe 
-The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 4 standoffs for external module support. The SIM card holder underneath the board is connected to pins 8 (UIM_PWR), 10 (UIM_DATA), 12 (UIM_CLK), 14 (UIM_RESET) and 16 (UIM_VPP) on the mini PCIe slot. 
+The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 4 standoffs for external module support. The SIM card holder underneath the board is connected to pins 8 (UIM_PWR), 10 (UIM_DATA), 12 (UIM_CLK), 14 (UIM_RESET) and 16 (UIM_VPP) on the mini PCIe slot for mini PCIe cards with cellular modems. 
 
 **Note:** Only USB, I2C and UIM functionality is available over the mini PCIe connector. PCIe functionality is reserved for future use and is not supported at this time.
 
