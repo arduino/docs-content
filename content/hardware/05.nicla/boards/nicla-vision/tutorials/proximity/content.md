@@ -68,7 +68,8 @@ Also the RGB LED needs to be set as an output to make it light up.
 ```cpp
   void setup(){
     Serial.begin(115200);
-
+    Wire1.begin();
+    
     pinMode(LEDB,OUTPUT);
     digitalWrite(LEDB, blinkState);
     
@@ -88,6 +89,48 @@ Also the RGB LED needs to be set as an output to make it light up.
 The sketch is going to get the reading on every loop, store it and then the state of the LED will change until the time is up until the proximity reading.
 
 ```cpp
+  void loop(){
+    reading = proximity.read();
+    Serial.println(reading);
+
+    if (millis() - timeStart >= reading){
+      digitalWrite(LEDB, blinkState);
+      timeStart = millis();
+
+      blinkState = !blinkState;
+    }
+  }
+```
+
+### Complete Sketch
+
+```cpp
+    #include <Wire.h>
+  #include "VL53L1X.h"
+  VL53L1X proximity(Wire1);
+
+  bool blinkState = false;
+  int reading = 0;
+  int timeStart = 0;
+  int blinkTime = 2000;
+
+  void setup(){
+    Serial.begin(115200);
+    Wire1.begin();
+    
+    pinMode(LEDB,OUTPUT);
+    digitalWrite(LEDB, blinkState);
+    
+    if (!proximity.init()){
+      Serial.println("Failed to detect and initialize sensor!");
+      while (1);
+    }
+
+    proximity.setDistanceMode(VL53L1X::Long);
+    proximity.setMeasurementTimingBudget(10000);
+    proximity.startContinuous(10);
+  }
+
   void loop(){
     reading = proximity.read();
     Serial.println(reading);
