@@ -9,7 +9,7 @@ Pins:
   Analog input pins: 6
   PWM pins: 5
 Connectivity:
-  Bluetooth: Nina W102 uBlox module
+  Bluetooth®: Nina W102 uBlox module
   Wi-Fi: Nina W102 uBlox module
   Secure element: ATECC608A
 Sensors:
