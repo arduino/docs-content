@@ -43,17 +43,17 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 ## Set Up
 
-To check that you set up correctly the board please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** available instructions.
+To check that you correctly set up the board please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** instructions.
 
 ## OpenMV
 
-Open the program by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_fft.py**.
+Open the script by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_fft.py**.
 
-***Using the same sketch as  the NanoRP2040, cause both boards access the microhpone the same way***
+***Using the same sketch as the NanoRP2040, because both boards access the microhpone in the same way***
 
-Make sure you linked the board by checking the Serial Port and upload the program.
+Make sure the board is connected, if the board is connected to OpenMV you should see a green play button in the bottom left corner of the window. If you do not see this icon, try pressing the connect button in the bottom left corner. If there still is some issue to connect the board take another look at the getting started guide.
 
-You will see an spectrum analyzer on the top right panel that reflects the audio readings input.
+When the script is running, you will see an spectrum analyzer in the top right panel that reflects the audio readings input. Try making some noise and see how it reacts.
 
 ![OpenMV IDE - Spectrum analyzer](assets/OpenMV_spectrumAnalyzer.png)
 
@@ -69,10 +69,10 @@ You can run the sketch to see the result, it will show the data that the microph
 
 Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values.
 
-You can access the example sketch at **Examples > PDM > PDMSerialPlotter** and then edit as we shown.
-Or the full edited sketch on our **Arduino_Pro_Tutorials** library.
+You can access the example sketch at **Examples > PDM > PDMSerialPlotter** and then edit as shown in this tutorial.
+Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
 
-**Sketch**:
+### Complete Sketch
 
 ```arduino
   /*
@@ -180,13 +180,13 @@ Or the full edited sketch on our **Arduino_Pro_Tutorials** library.
 
 After you have successfully verified and uploaded the sketch to the board, open the Serial Monitor from the menu on the left. You will now see the new values printed.
 
-If you want to test it, the only thing you need to do is to place the board next to a speaker and speak or play some sound to see how the blinking of the RGB LED changes based on the input.
+If you want to test it, the only thing you need to do is to speak or play some sounds close to the board and see how the blinking of the RGB LED changes based on the input.
 
 ### Troubleshoot
 
-- In case the Serial Monitor freezes, unplug and plug again the board from your computer, and try to upload again the sketch
+- In case the Serial Monitor freezes, unplug and then plug the board into your computer again, now try to upload the sketch
 - If the sketch is not working, try to double tap the reset button and upload the sketch once again.
   
 ## Conclusion
 
-You have learned how to get data from the microphone, it can be used for example as an alarm system to wake up the board and make a screenshot with the Camera.
+You have learned how to use the Arduino IDE and OpenMV to get data from the microphone and then use it to change the RGB LED on the board. This can for example be used as an alarm system to wake the board up and take a screenshot with the Camera.
