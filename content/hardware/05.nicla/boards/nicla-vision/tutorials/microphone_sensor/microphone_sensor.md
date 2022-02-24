@@ -20,7 +20,6 @@ software:
   - ide-v2
   - web-editor
   - cli
-featuredImage: 'chip'
 ---
 
 ![Nicla Vision - microphone](assets/nicla-vision-microphone.png)
