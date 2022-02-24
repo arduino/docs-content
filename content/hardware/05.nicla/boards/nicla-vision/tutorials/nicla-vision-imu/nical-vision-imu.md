@@ -98,7 +98,7 @@ void setup() {
 }
 ```
 
-In the loop of the sketch we can check the sensors to see if there is data available on the IMU sensors, using `IMU.accelerationAvailable()` and `IMU.gyroscopeAvailable()`. Then we can call `IMU.readAcceleration(Ax, Ay, Az)` to read the accelerometer. It will return the value of the **x**, **y** and **z** axis. And we do the same for the gyroscope, formatting it in the serial monitor so it will be a bit easier to read the data. The data is being printed with an interval of 500 milliseconds. This can be adjusted by changing the line `delay(500)` at the bottom of the sketch.
+In the loop of the sketch we can check the sensors to see if there is data available on the IMU sensors, using `IMU.accelerationAvailable()` and `IMU.gyroscopeAvailable()`. Then we can call `IMU.readAcceleration(Ax, Ay, Az)` to read the accelerometer. It will return the value of the **x**, **y** and **z** axis and update the variables `Ax`, `Ay` and `Az`. And we do the same for the gyroscope, formatting it in the serial monitor so it will be a bit easier to read the data. The data is being printed with an interval of 500 milliseconds. This can be adjusted by changing the line `delay(500)` at the bottom of the sketch.
 
 ```arduino
 void loop() {
