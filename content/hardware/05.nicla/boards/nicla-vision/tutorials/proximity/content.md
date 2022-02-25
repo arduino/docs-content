@@ -48,14 +48,14 @@ To make sure that the sketch works properly, the latest versions of the **Arduin
 First of all declare the sensor's class so you can access it later on in your sketch. We use variables to control the time elements in the sketch. This will make sure that the readings stay accurate over time.
 
 ```cpp
-  #include <Wire.h>
-  #include "VL53L1X.h"
-  VL53L1X proximity(Wire1);
+#include <Wire.h>
+#include "VL53L1X.h"
+VL53L1X proximity(Wire1);
 
-  bool blinkState = false;
-  int reading = 0;
-  int timeStart = 0;
-  int blinkTime = 2000;
+bool blinkState = false;
+int reading = 0;
+int timeStart = 0;
+int blinkTime = 2000;
 ```
 ***Make sure you set `Wire1` inside the VL53L1X constructor's parameter, it won't work if you don't add this setting***
 
@@ -105,43 +105,43 @@ The sketch is going to get the reading on every loop, store it and then the stat
 ### Complete Sketch
 
 ```cpp
-  #include <Wire.h>
-  #include "VL53L1X.h"
-  VL53L1X proximity(Wire1);
+#include <Wire.h>
+#include "VL53L1X.h"
+VL53L1X proximity(Wire1);
 
-  bool blinkState = false;
-  int reading = 0;
-  int timeStart = 0;
-  int blinkTime = 2000;
+bool blinkState = false;
+int reading = 0;
+int timeStart = 0;
+int blinkTime = 2000;
 
-  void setup(){
-    Serial.begin(115200);
-    Wire1.begin();
-    
-    pinMode(LEDB,OUTPUT);
+void setup(){
+  Serial.begin(115200);
+  Wire1.begin();
+  
+  pinMode(LEDB,OUTPUT);
+  digitalWrite(LEDB, blinkState);
+  
+  if (!proximity.init()){
+    Serial.println("Failed to detect and initialize sensor!");
+    while (1);
+  }
+
+  proximity.setDistanceMode(VL53L1X::Long);
+  proximity.setMeasurementTimingBudget(10000);
+  proximity.startContinuous(10);
+}
+
+void loop(){
+  reading = proximity.read();
+  Serial.println(reading);
+
+  if (millis() - timeStart >= reading){
     digitalWrite(LEDB, blinkState);
-    
-    if (!proximity.init()){
-      Serial.println("Failed to detect and initialize sensor!");
-      while (1);
-    }
+    timeStart = millis();
 
-    proximity.setDistanceMode(VL53L1X::Long);
-    proximity.setMeasurementTimingBudget(10000);
-    proximity.startContinuous(10);
+    blinkState = !blinkState;
   }
-
-  void loop(){
-    reading = proximity.read();
-    Serial.println(reading);
-
-    if (millis() - timeStart >= reading){
-      digitalWrite(LEDB, blinkState);
-      timeStart = millis();
-
-      blinkState = !blinkState;
-    }
-  }
+}
 ```
 
 ## API
