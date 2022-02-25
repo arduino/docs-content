@@ -48,16 +48,14 @@ To make sure that the sketch works properly, the latest versions of the **Arduin
 First of all declare the sensor's class so you can access it later on in your sketch. We use variables to control the time elements in the sketch. This will make sure that the readings stay accurate over time.
 
 ```cpp
-#include <Wire.h>
 #include "VL53L1X.h"
-VL53L1X proximity(Wire1);
+VL53L1X proximity;
 
 bool blinkState = false;
 int reading = 0;
 int timeStart = 0;
 int blinkTime = 2000;
 ```
-***Make sure you set `Wire1` inside the VL53L1X constructor's parameter, it won't work if you don't add this setting***
 
 ### Initialize the Proximity Sensor and the LED
 
@@ -69,6 +67,8 @@ Inside the setup you need to initialize and configure the proximity sensor. Also
   void setup(){
     Serial.begin(115200);
     Wire1.begin();
+    Wire1.setClock(400000); // use 400 kHz I2C
+    proximity.setBus(&Wire1);
     
     pinMode(LEDB,OUTPUT);
     digitalWrite(LEDB, blinkState);
@@ -83,6 +83,8 @@ Inside the setup you need to initialize and configure the proximity sensor. Also
     proximity.startContinuous(10);
   }
 ```
+
+***Make sure you intialize `Wire1`, set the clock speed to 400kHz and set the bus pointer to `Wire1`, it won't work if you don't add these setting***
 
 ### Control the Speed of the Blink
 
@@ -105,23 +107,25 @@ The sketch is going to get the reading on every loop, store it and then the stat
 ### Complete Sketch
 
 ```cpp
-#include <Wire.h>
 #include "VL53L1X.h"
-VL53L1X proximity(Wire1);
+VL53L1X proximity;
 
 bool blinkState = false;
 int reading = 0;
 int timeStart = 0;
 int blinkTime = 2000;
 
-void setup(){
+void setup() {
   Serial.begin(115200);
   Wire1.begin();
-  
-  pinMode(LEDB,OUTPUT);
+  Wire1.setClock(400000); // use 400 kHz I2C
+  proximity.setBus(&Wire1);
+
+
+  pinMode(LEDB, OUTPUT);
   digitalWrite(LEDB, blinkState);
-  
-  if (!proximity.init()){
+
+  if (!proximity.init()) {
     Serial.println("Failed to detect and initialize sensor!");
     while (1);
   }
@@ -131,11 +135,11 @@ void setup(){
   proximity.startContinuous(10);
 }
 
-void loop(){
+void loop() {
   reading = proximity.read();
   Serial.println(reading);
 
-  if (millis() - timeStart >= reading){
+  if (millis() - timeStart >= reading) {
     digitalWrite(LEDB, blinkState);
     timeStart = millis();
 
