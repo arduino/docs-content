@@ -1,694 +1,160 @@
 ---
-identifier: SKU IN HERE
-title: Arduino® Braccio++
+identifier: ABX00032
+title: Arduino® Braccio++ Carrier
+revision: Rev. 01
 type: edu
-variant: 'x'
 ---
-![](assets/featured.png)
+![Braccio++ Carrier Feature Image](./assets)
 
-# Description 
-Portenta H7 family runs high level codes along with real time tasks thanks to the two processors that makes it possible to run tasks in parallel. For example, it is possible to execute Arduino compiled code along with MicroPython one simultaneously, and have both cores to communicate with one another. 
+# Description
+Braccio++ Carrier is an add-on board that sits on top of your favorite Arduino Educational existing
+product line providing faster prototyping in increasing demands for robotics and automation. The
+tailor-made Arduino Braccio++ Carrier has a collection of features that enables quick and easy
+learning while building small projects
 
-Within the H7 family,  there are two variants; H7 Lite and H7 Lite Connected. All the three boards and their differences are presented in this datasheet.  
+# Target Areas 
+Robotics, Automation, Education, Gaming, Communication
 
+# Features
+- **MaxLinear SP335 Transceiver**
+    - Multiprotocol transceiver supporting RS-232, RS-485, and RS-422 serial standards
+    - Data rates of 20 Mbps in RS-485/422 modes and up to 1Mbps in RS-232
+    - ±15kV ESD protection
+    - Supply voltage from 3V to 5.5V
+- **Display Connector**
+    - Flexible flat cable and flexible printed circuit connector with 0.5mm spacing
+    - Operating temperature up to 105°C
+    - Max current for one contact is 0.5A
+    - Robust, reliable and easy to operate for automatic mounting and SMT processes
+    - Right angle mounting
+    - Plastic tape packaging
+- **Mini Joystick Connector**
+- **Programmable USB Type-C Connector**
+- **ESD Protection**
+    - 4- and 5-line unidirectional transil function for electrostatic discharge protection
+    - Low-leakage current: < 500 nA
+    - PCB Area: < 2.6 mm2
 
-# Target Areas:
-Laboratory equipment, Computer vision
+# Contents 
 
-<table style="page-break-before: always;">
-   <thead>
-      <tr>
-         <th style="text-align: center;">Name </th>
-         <th style="text-align: center;">Portenta H7   </th>
-         <th style="text-align: center;">Portenta H7 Lite   </th>
-         <th style="text-align: center;">Portenta H7 Lite Connected</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td style="text-align: center;">SKU</td>
-         <td style="text-align: center;">ABX00042</td>
-         <td style="text-align: center;">ABX00045</td>
-         <td style="text-align: center;">ABX00046</td>
-      </tr>
-      <tr>
-         <td style="text-align: center;">Preview</td>
-         <td>
-            <img src="assets/portentaH7.jpg" />
-         </td>
-         <td>
-            <img src="assets/portentaH7lite.jpg" />
-         </td>
-         <td>
-            <img src="assets/portentaH7liteConnected.jpg" />
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;">Security  </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>ATECC608 </p>
-            <p>NXP SE0502</p>
-         </td>
-         <td style="text-align: center;">ATECC608</td>
-         <td style="text-align: center;">ATECC608</td>
-      </tr>
-      <tr>
-         <td style="text-align: center;">Connectivity</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / BLE</td>
-         <td style="text-align: center;">Ethernet FHY</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / BLE</td>
-      </tr>
-      <tr>
-         <td style="text-align: center;">Memory</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB /16 MB</td>
-      </tr>
-      <tr>
-         <td style="text-align: center;">Power</td>
-         <td style="text-align: center;">Li-Po Single Cell 3.7V, 700mAh Minimum</td>
-         <td style="text-align: center;">Li-Po Single Cell 3.7V, 700mAh Minimum</td>
-         <td style="text-align: center;">Li-Po Single Cell 3.7V, 700mAh Minimum</td>
-      </tr>
-   </tbody>
-</table>
+## The board
 
+The custom-made Arduino Braccio++ Carrier provides a wide range of connectivity capabilities to
+the Arduino Educational boards. For easy to learn and play around prototyping robotic and
+smart automation projects in and out of classrooms, Arduino Braccio++ Carrier features interfaces
+for display, servo motors and joystick. Along with high-speed RS-485/422 and RS-232 serial
+communication, the carrier board offers huge support for several accessories through the IO
+headers. In situations of long-range operations, RS-485 can support several devices on the
+same bus in a noisy environment. The board has robust electrostatic discharge protection
+circuitry to keep the components safe
 
+### Application examples
 
-# CONTENTS
-
-<h2>Features</h2>
-<table>
-   <thead>
-      <tr style="text-align: middle;">
-         <th width="30%">Component</th>
-         <th colspan="2">Details</th>
-         <th>
-            <p> Supported boards </p>
-         </th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td rowspan="36" style="vertical-align: top;" >ST STM32H747XI Processor</td>
-         <td style="vertical-align: top;">Dual Core</td>
-         <td>
-            <p>Arm® Cortex®-M7 core at up to 480 MHz with double-precision FPU and 16K data + 16K instruction L1 cache</p>
-            <p>Arm® 32-bit Cortex®-M4 core at up to 240 MHz with FPU, Adaptive real-time accelerator (ART AcceleratorTM)</p>
-         </td>
-         <td rowspan="38" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
-      </tr>
-      <tr>
-         <td style="vertical-align: top;">Flash Memory</td>
-         <td style="vertical-align: top;">
-            <p>2Mbytes of Flash Memory with read-while-write support</p>
-            <p>1 Mbyte of RAM</p>
-         </td>
-      </tr>
-      <tr>
-         <td>Dual mode Quad-SPI memory interface running up to 133 MHz</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>CRC calculation unit</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Security</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>ROP, PC-ROP, active tamper</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td style="vertical-align: top;">3 separate power domains. Possible to be independently clock gated or switched off.</td>
-         <td style="vertical-align: top;">
-            <p>D1: high performance capabilities</p>
-            <p>D2: communication peripherals and timers</p>
-            <p>D3: reset/clock control/power management</p>
-         </td>
-      </tr>
-      <tr>
-         <td>Voltage scaling in Run and Stop mode 6 configurable ranges</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2.95μA in Standby mode Backup SRAM OFF, RTC/LSE/ON</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>4 DMA controllers to unload the CPU</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x high-speed master direct memory access controller (MDMA) With linked list support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2x Dual-port DMA with FIFO</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x basic DMA with request router capabilities </td>
-         <td></td>
-      </tr>
-      <tr>
-         <td style="vertical-align: top;">Up to 35 communication peripherals</td>
-         <td style="vertical-align: top;">
-            <p>4× I2Cs FM+ interfaces (SMBus/PMBus)</p>
-            <p>4× USARTs/4x UARTs (ISO7816 interface, LIN, IrDA, up to 12.5 Mbit/s) and 1x LPUART</p>
-            <p>6× SPIs, 3 with muxed duplex I2S audio class accuracy via internal audio PLL or external clock, 1x I2S in LP domain (up to 150 MHz) 4x SAIs (serial audio interface)</p>
-            <p>SPDIFRX interface</p>
-            <p>SWPMI single-wire protocol master I/F</p>
-            <p>MDIO Slave interface</p>
-            <p>2× SD/SDIO/MMC interfaces (up to 125 MHz)</p>
-            <p>2× CAN controllers: 2 with CAN FD, 1 with time-triggered CAN (TT-CAN)</p>
-            <p>2× USB OTG interfaces (1FS, 1HS/FS) crystal-less solution with LPM and BCD</p>
-            <p>Ethernet MAC interface with DMA controller</p>
-         </td>
-      </tr>
-      <tr>
-         <td>8-bit camera interface (up to 80 MHz)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>11 analog peripherals</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>3x ADCs with 16-bit max. resolution (up to 36 channels, up to 3,6 MSPS)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x temperature sensor </td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2x 12-bit D/A converters (1 MHz)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2x ultra-low power comparators</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2x operational amplifiers (7.3 MHz bandwidth)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x digital filters for sigma delta modulator (DFSDM) with 8 channel/4 filters</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Graphics</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Chrom.ART graphical hardware Accelerator<sup>TM </sup>(DMA2D) to reduce CPU load</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Hardware JPEG Codec</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Up to 22 timers and watchdogs</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x high-resolution timer (2.1 ns max resolution)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2× 32-bit timers with up to 4 IC/OC/PWM or pulse counter and quadrature (incremental) encoder input (up to 240 MHz)	</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2× 16-bit advanced motor control timers (up to 240 MHz)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>10× 16-bit general-purpose timers (up to 240 MHz)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>5× 16-bit low-power timers (up to 240 MHz)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>4× watchdogs (independent and window)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2× SysTick timers	</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>RTC with sub-second accuracy and hardware calendar</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>True random number generators (3 oscillators each)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>96-bit unique ID </td>
-         <td></td>
-      </tr>
-      <tr>
-         <td rowspan="2" style="vertical-align: top;">External memories</td>
-         <td>SDRAM (optional)</td>
-         <td>Up to 64 MByte</td>
-      </tr>
-      <tr>
-         <td>QSPI Flash (optional)</td>
-         <td>Up to 128 MByte</td>
-      </tr>
-      <tr>
-         <td rowspan="4" style="vertical-align: top;" >USB-C</td>
-         <td>High speed (optional/FUll Speed USB)</td>
-         <td></td>
-         <td rowspan="3"></td>
-      </tr>
-      <tr>
-         <td>Host and Device operation</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Power Delivery support (optional)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>DisplayPort</td>
-         <td></td>
-         <td style="text-align: right">H7 full</td>
-      </tr>
-      <tr>
-         <td rowspan="13" style="vertical-align: top;" >High Density connectors </td>
-         <td>1x10/100 Ethernet with PHY</td>
-         <td></td>
-         <td rowspan="28" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
-      </tr>
-      <tr>
-         <td>1x CAN</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>4x UART (2 with flow control)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>3x I2C</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x SD Card</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x SPI </td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x I2S</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x PDM input</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2 lane MIPI DSI output</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>8 bit parallel camera interface</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>10x PWM output</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>7x GPIO</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>8x ADC inputs with separate VREF</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td rowspan="15" style="vertical-align: top;" >ATECC608 Microchip  Crypto (optional)</td>
-         <td>Protected storage for up to 16 Keys, certificates or data</td>
-         <td></td>
-      </tr>
-         <tr>
-            <td>Hardware support for asymmetric sign, verify, key agreement – ECDSA: FIPS186-3 Elliptic Curve Digital Signature</td>
-            <td></td>
-         </tr>
-      <tr>
-         <td>ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>NIST standard P256 elliptic curve support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Hardware support for symmetric algorithms</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>SHA-256 & HMAC hash including off-chip context save/restore</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>AES-128: encrypt/decrypt, galois field multiply for GCM</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Networking key management support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Turnkey PRF/HKDF calculation for TLS 1.2 & 1.3</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Ephemeral key generation and key agreement in SRAM – Small message encryption with keys entirely protected</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Secure boot support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Full ECDSA code signature validation, optional stored digest/signature – optional communication key disablement prior to secure boot</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Two high-endurance monotonic counters</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Guaranteed unique 72-bit serial number</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td style="vertical-align: top;">SE050 Secure element</td>
-         <td>Ready-to-use IoT secure element solution</td>
-         <td></td>
-         <td><p style="text-align: right">H7 full</p></td>
-      </tr>
-      <tr>
-         <td rowspan="5" style="vertical-align: top;" >MKR compatible header</td>
-         <td>7x PWM channels</td>
-         <td></td>
-         <td rowspan="10" style="vertical-align: top;"><p style="text-align: right">All</p></td>
-      </tr>
-      <tr>
-         <td>7x ADC channels</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x SPI</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x UART</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x I2C</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td style="vertical-align: top;">ESLOV Connector</td>
-         <td style="vertical-align: top;"><p>I2C port with automatic device enumeration</p></td>
-         <td></td>
-      </tr>
-      <tr>
-         <td rowspan="4" style="vertical-align: top;">NXP PF1550 Programmable PMIC</td>
-         <td>Dynamic voltage scaling</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>
-            <p>Programmable independent </p>
-            <p>1A voltage output to carrier board</p>
-         </td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Programmable I/O voltage</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Integrated Li-Po/Li-lon Battery charger</td>
-         <td></td>
-      </tr>
-   </tbody>
-</table>
-
-
-## Ratings
-### Recommended Operating Conditions
-
-| Symbol | Description                                      | Min             | Max            |
-| ------ | ------------------------------------------------ | --------------- | -------------- |
-|        | Conservative thermal limits for the whole board: | -40 °C (-40 °F) | 85 °C (185 °F) |
-
-### Power Consumption
-
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -    | xx   | V    |
-| VUSBMax | Maximum input voltage from USB connector | -0.3 | -    | xx   | V    |
-| PMax    | Maximum Power Consumption                | -xx  | -    | xx   | mW   |
-
-### Block Diagram 
-![Block diagram](assets/portentaH7_blockDiagram.svg)
-
-## Connector Pinouts
-
-![USB-C Pinout](assets/portentaH7_PinoutUSB-C.png)
-
-### USB-C
-
-| Pin     | **Description**                                              | **Pin**         | **Description**                                          |
-| ------- | ------------------------------------------------------------ | --------------- | -------------------------------------------------------- |
-| GND     | Cable Ground                                                 | TX1 +/- TX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
-| VBUS    | Cable bus power                                              | RX1 +/- RX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
-| D+/D-   | USB 2.0 Interface                                            | SBU1 SBU2       | For sideband use  (Not used for USB)                     |
-| CC1 CC2 | Plug configuration detection * One becomes VCONN for cable or adaptor power * CC is used for USB-PD communication |                 |                                                          |
-
-### High Density Connector
-
-
-![High density connectors pinouts](assets/portentaH7_higDensity_pinOut.png)
-
-| Pin               | **Description**        | **Pin**                                | **Description**        |
-| ----------------- | ---------------------- | -------------------------------------- | ---------------------- |
-| ETH               | High Density Connector | CAN                                    | High Density Connector |
-| USB               | High Density Connector | DSI                                    | High Density Connector |
-| CAM               | High Density Connector | DMIC                                   | High Density Connector |
-| I2C0 I2C1 I2C2I2S | High Density Connector | VSYS VIN V-SDCARDVCC VBUS USB ADC-VREF | Power                  |
-| GND               | Ground                 | PWM                                    | High Density Connector |
-| GPIO              | High Density Connector | SPI1                                   | High Density Connector |
-| SWDIOSWCK SWO     | High Density Connector | ADC                                    | High Density Connector |
-| SDC               | High Density Connector | RESET                                  | Other Pin              |
-
-### Wake Up Signals/External Relay Commands
-
-![MKR format Headers pinout](assets/portentaH7_mkr_pinouts.png)
-
-## Application Examples
-
-Due to the dual core processing, the Portenta supports a wide array of applications.  
+- **Smart Automation**: The industry-standard RS-232 and RS-485/422 serial communication
+support for Arduino Braccio++ Carrier has made it possible to implement smart automation
+IoT projects for a wide range of projects. The low-power carrier board enables students
+to take advantage of the onboard connectors and play with the Arduino hardware for the
+enhanced learning experience
+- **Robotic Arm**: Through servo motor connector supporting up to a total of 7 motors has
+given a chance to demonstrate robotic application including RC Car. Some of the most
+interesting robotic applications with faster prototyping come from the student community
+for various problem statements.
+- **Gaming**: Thanks to the Mini Joystick connector provided on the Arduino Braccio++ Carrier
+carrier board which facilitates the implementation of LCD gaming options. Interfacing
+Mini Joystick with the carrier board integrated with a powerful Arduino board can deliver
+some really exciting projects.
 
 ### Accessories
-* Portenta Vision shield
-* USB 2.0 Cable Type A/B
-* Portenta Breakout Board 
+
+
+### Related products
+
+- Arduino Education Carrier.
+
+## Ratings
+
+### Recommended operating conditions
+| Symbol | Description                                       | Min        | Max     |
+| ------ | ------------------------------------------------- | ---------- | ------- | 
+|        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
+
+
+
+### Power consumption
+
+| Symbol      | Description                  | Min | Typ | Max | Unit |
+| ----------- | ---------------------------- | --- | --- | --- | ---- |
+|   PWRIN     | Input supply from power jack |     | TBC |     |  mW  |
+|   USB VCC   | Input supply from USB        |     | TBC |     |  mW  |
+|   VIN       | Input from VIN pad           |     | TBC |     |  mW  |
+
 
 ## Functional Overview
 
-### Board Topology 
-
-Depending on the variant, some of the components does not apply. The image below originates from the H7 form factor, see what components are applied on your board:
-
-![Board Topology](assets/collectiveH7_boardTopology_top_80.png)
+### Block Diagram
 
 
-| **Ref.** | **Description**                      | **Ref.**         | **Description**             |
-| -------- | ------------------------------------ | ---------------- | --------------------------- |
-| U1       | Main processor                       | U10              | Power Manager               |
-| U2       | QSPI Flash Memory                    | U11              | Crypto Chip (NXP)*          |
-| U3       | USB HS PHY                           | U12, U13, U14    | ESD protection*             |
-| U4       | SDRAM                                | U16              | Crypto Chip (Microchip)     |
-| U5       | Ethernet PHY                         | J1, J2           | High Density Connectors     |
-| U6       | MIPI to USB-C/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
-| U7       | Level Shifter*                       | JANALOG JDIGITAL | MKR Compatible headers      |
-| U8       | I2C level shifter*                   | J4               | Battery Connector           |
-| U9       | Wifi/BT Module**                     | J5               | ESLOV Connector             |
+![Arduino Braccio++ Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.jpg)
 
-<p>
-* &emsp;&nbsp;&nbsp; = Only with Portenta H7 <br />
-**      &emsp; = Only with Portenta H7 and Portenta H7 Lite Connected
-</p>
+The USB powers the Arduino Nano RP2040 which is the heart of the Braccio++ Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functinality the system. RS485 Transreceiver signals the motor connector for the precise motion of the motors according to the input given by the user.
+
+![Arduino Braccio++ Carrier Block Diagram](./assets/Block_Diagram_Braccio_Carrier.jpg)
+
+### Board Topology
+**Front View**
+
+![Arduino Braccio++ Carrier Top View](./assets/Top_View_Braccio_Carrier.jpg)
+
+| **Ref.** | **Description**                    | **Ref.** | **Description**                      |
+| -------- | ---------------------------------- | -------- | ------------------------------------ |
+|   PB1    |  Pushbutton SMD                    |  PB2     |  Mini Joystick                       |
+|   U1     |  24 Bit I2C SMBUS I/O              |  U4      |  Line Transreceiver                  |
+|   J1     |  CONN FPC SMD                      |  J2      |  CONN JST 5 POS                      |
+|   J3     |  Board Connector                   |  J4      |  Board Connector                     |
+|   U3     |  Power Supply Support Circuit      |  J8      |  USB 3.1 Type C                      |
+
+
+### Processor
+Primary processor of Arduino Braccio++ Carrier is the processor of the Arduino Nano RP2040 microcontroller mounted on it. The microcontroller controls every operation of the Braccio++ ++ Carrier for the target applications via connections with motors and LED display screen.
 
 ### Power Tree
+![Braccio++ Carrier Power Tree](./assets/Power_Tree_Braccio_Carrier.jpg)
 
-![Portenta H7 Power Tree](assets/portentaH7powerT.svg)
+## Board Operation
+### Getting started - IDE
+If you want to program your Arduino® Braccio++ Carrier while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Braccio++ Carrier to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
+
+### Sample Sketches
+Sample sketches for the Arduino® Braccio++ Carrier can be found either in the “Examples” menu in the Arduino® IDE 
+
+### Online resources
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[2]**, the Arduino® Library Reference **[3]** and the online store **[4]** where you will be able to complement your board with sensors, actuators and more.
+
+### Board Recovery
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
+
+## Connector Pinouts
+
+![Braccio++ Carrier Pinout](./assets)
 
 ## Mechanical Information
 
 ### Board Outline
-![Board outline](assets/portentaH7_outline.png)
 
-### Mounting Holes
-![Mounting outline](assets/portentaH7_mounting.png)
+![Outline](./assets/Outline_Braccio_Carrier.jpg)
 
-### Connector Positions
-![Connectors positions top](assets/portentaH7_connectors_top.png)
+### Board Mount Holes
 
-![Connectors positions bottom](assets/portentaH7_connectors_bot.png)
+![Mount Holes](./assets/Mount_Holes_Braccio_Carrier.jpg)
 
-## Certifications
-<table>
-   <thead>
-      <tr>
-         <th style="width: 16%;vertical-align: middle;text-align: center;"><strong>Cert</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>H7</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>H7 Lite </strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>H7 Lite Connected</strong></th>
-      </tr>
-      <tr></tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>CE (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>EN 301489-1,  </p>
-            <p>EN 301489-17,  </p>
-            <p>EN 300328,  </p>
-            <p>EN 62368-1, </p>
-            <p>EN 62311</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>EN55032,  </p>
-            <p>EN 55035, </p>
-            <p>EN 62368-1</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>EN 301489-1,  </p>
-            <p>EN 301489-17,  </p>
-            <p>EN 300328,  </p>
-            <p>EN 62368-1, </p>
-            <p>EN 62311</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>WEEE (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>RoHS (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>2011/65/(EU) </p>
-            <p>2015/863/(EU)</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>2011/65/(EU) </p>
-            <p>2015/863/(EU)</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>2011/65/(EU) </p>
-            <p>2015/863/(EU)</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>REACH (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>UKCA (UK)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>RCM (RCM)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>FCC (US)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p><strong>ID. </strong> </p>
-            <p>Radio: Part 15-247 </p>
-            <p>MPE: Part 2. 1091</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p><strong>SDoC. </strong> </p>
-            <p>47 CFR FCC Part 15 Subpart B</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p><strong>ID. </strong> </p>
-            <p>Radio: Part 15-247 </p>
-            <p>MPE: Part 2. 1091</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>IC (CA)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <strong>ID.</strong>
-            <p>Radio: RSS-247 </p>
-            <p>MPE: RSS-102 </p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">X </td>
-         <td style="vertical-align: middle;text-align: center;">X</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>RCM </strong>(AU)</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>SRRC </strong>(China) NO</td>
-         <td style="vertical-align: middle;text-align: center;">X</td>
-         <td style="vertical-align: middle;text-align: center;">X</td>
-         <td style="vertical-align: middle;text-align: center;">X</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>MIC </strong>(Japan)</td>
-         <td style="vertical-align: middle;text-align: center;">Article 2, Paragraph 1, Item 19 </td>
-         <td style="vertical-align: middle;text-align: center;">X</td>
-         <td style="vertical-align: middle;text-align: center;">X</td>
-      </tr>
-   </tbody>
-</table>
-
-### Declaration of Conformity CE DoC (EU)
-
+# Certifications
+## Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
-### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-
+## Declaration of Conformity to EU RoHS  & REACH 211 01/19/2021
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
-| Substance                              | **Maximum limit (ppm)** |
+| **Substance**                          | **Maximum Limit (ppm)** |
 | -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
@@ -705,11 +171,8 @@ Exemptions : No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-
-### Conflict Minerals Declaration 
-
+## Conflict Minerals Declaration 
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
-
 
 ## FCC Caution
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
@@ -718,7 +181,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 (1) This device may not cause harmful interference
 
- (2) this device must accept any interference received, including interference that may cause undesired operation.
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
 **FCC RF Radiation Exposure Statement:**
 
@@ -733,7 +196,7 @@ User manuals for licence-exempt radio apparatus shall contain the following or e
 
 (1) this device may not cause interference
 
- (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French: 
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
@@ -742,7 +205,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR Warning:**
+**IC SAR Waring:**
 
 English 
 This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
@@ -752,27 +215,30 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
 | Frequency bands | Maximum output power (ERP) |
 | --------------- | -------------------------- |
-| 863-870Mhz      | -3.22dBm                   |
+| 2400-2483.5 Mhz | 17 dBm                     |
 
-## Company Information
 
-| Company name    | Arduino SRL                              |
-| --------------- | ---------------------------------------- |
-| Company Address | Via Andrea Appiani 25 - 20900 Monza (MB) |
+## Company information
+
+| Company name    | Arduino S.r.l.                                                |
+| --------------- | ------------------------------------------------------------- |
+| Company Address | Via Ferruccio Pelli 14, 6900 Lugano, TI (Ticino), Switzerland |
 
 ## Reference Documentation
 
-| Reference             | **Link**                                |
-| --------------------- | --------------------------------------- |
-| Arduino IDE (Desktop) | https://www.arduino.cc/en/Main/Software |
+| Ref                       | Link                                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
+| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Library Reference         | https://www.arduino.cc/reference/en/libraries/                                                      |
+| Online Store              | https://store.arduino.cc/                                                                           |
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
+| **Date**   | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| 27/12/2021 | 1            | First Release |
-
+| 06/02/2022 | 1            | First Release |
