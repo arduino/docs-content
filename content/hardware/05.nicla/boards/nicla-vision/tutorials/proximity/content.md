@@ -22,7 +22,7 @@ In this tutorial you will use the Nicla Vision to detect proximity, thanks to th
 
 This tutorial goes through how to create a sketch that will blink the built-in RGB LED and control the speed of its blink with the proximity values. It can be useful for future projects where there is a need to control the camera only when something is detected in front of the sensor. 
 
-***The Arduino sketch shown is available inside the `Arduino_Pro_Tutorials` library by going to `Examples > Nicla Vision > Proximity_Blink***
+***The Arduino sketch shown is available inside the `Arduino_Pro_Tutorials` library by going to Examples > Nicla Vision > Proximity_Blink***
 
 ## Goals
 The goals of this project are:
@@ -105,7 +105,7 @@ The sketch is going to get the reading on every loop, store it and then the stat
 ### Complete Sketch
 
 ```cpp
-    #include <Wire.h>
+  #include <Wire.h>
   #include "VL53L1X.h"
   VL53L1X proximity(Wire1);
 
