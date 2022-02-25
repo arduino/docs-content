@@ -1,42 +1,43 @@
 <FeatureDescription>
 
-The Arduino® Nicla Sense ME is our smallest form factor yet, with a range of industrial grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Featuring a 9 axis inertial measurement unit and the possibility for Bluetooth Low Energy (BLE) connectivity it can help you to create your next BLE enabled project. Make your own industrial grade wireless sensing network with the onboard **BHI260AP**, **BMP390**, **BMM150** and **BME688** Bosch sensors.
+The Arduino® Nicla Vision is a powerful microcontroller equipped with 2MP color camera in a tiny form factor. With WiFi and BLE connectivity, the board maximizes compatibility with professional and consumer equipment. The board features an integrated microphone, distance sensor, smart 6-axis motion sensor and MicroPython support. The Nicla Vision can also be battery powered making it standalone.
 
 </FeatureDescription>
 
 <FeatureList>
 <Feature title="Nicla Form Factor" image="nicla-form-factor">
 
-The Arduino Nicla Sense ME is our smallest form factor yet.
+The Arduino Nicla Vision is our smallest form factor yet.
 
 </Feature>
 
-<Feature title="BHI260AP" image="imu">
+<Feature title="LSM6DSOXTR 6-axis IMU" image="imu">
 
-  An AI smart sensor hub with integrated 6 axis IMU (3-Axis Accelerometer + 3-Axis Gyroscope) for activity detection, powered by a 32 Bit Synopsys DesignWare ARC™ EM4™ CPU.
+This 6-axis IMU is possible to obtain 3D gyroscopic and 3D accelerometer data. It is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6dsox.pdf" download blank/>
   
 </Feature>
 
-<Feature title="BMP390" image="pressure-sensor">
+<Feature title="STM32H747AII6" image="mcu">
 
-  A high performance pressure sensor operating between 300 - 1250 hPa with low drift
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp390-ds002.pdf" download blank/>
+  The Nicla Vision features an STM32H747AII6 Dual ARM® Cortex® - M7 core up to 480 Mhz + M4 core up to 240 Mhz.
+<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/stm32h747ai.pdf" download blank/>
 </Feature>
 
-<Feature title="BMM150" image="magnetometer">
+<Feature title="2MP color camera" image="camera">
 
-  A low noise magnetometer with a typical range of ±1300μT in the X,Y axis and ±2500μT in the Z axis. 
+The board uses the GC2145, a 2MP color camera.
 
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/968/GC2145-CSP-DataSheet-release-V1.0_5F00_20131201.pdf" download blank/>
 </Feature>
 
-<Feature title="BME688" image="temperature-sensor">
+<Feature title="Omnidirectional microphone" image="microphone">
 
-  An Environmental sensor that can measure pressure, humidity and temperature. The onboard smart gas sensor can also help in determining the air quality index by detecting a broad range of gases including Volatile Organic Compounds (VOC).
+The MP34DT06JTR digital MEMS microphone is omnidirectional and operate via a capacitive sensing element with a high
+signal to noise ratio.
 
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_mp34dt05-a.pdf" download blank/>
 </Feature>
 
 </FeatureList>
