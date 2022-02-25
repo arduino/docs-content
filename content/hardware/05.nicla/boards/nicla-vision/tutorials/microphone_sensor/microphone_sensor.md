@@ -87,6 +87,7 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
     This example code is in the public domain.
   */
 
+  
   #include <PDM.h>
 
   // default number of output channels
@@ -101,13 +102,14 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
   // Number of audio samples read
   volatile int samplesRead;
 
-  // Variables to change the blinking speed of the LED
-  int speed;
-  int timeStart = 0;
+  // Blinking 
   bool state = false;
+  int timeStart = 0;
 
   void setup() {
     Serial.begin(9600);
+    pinMode(LEDB, OUTPUT);
+
     while (!Serial);
 
     // Configure the data receive callback
@@ -126,8 +128,6 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
       while (1);
     }
 
-    // Set the LED
-    pinMode(LEDB, OUTPUT);
 
   }
 
@@ -137,32 +137,29 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
 
       // Print samples to the serial monitor or plotter
       for (int i = 0; i < samplesRead; i++) {
-        if(channels == 2) {
+        if (channels == 2) {
           Serial.print("L:");
           Serial.print(sampleBuffer[i]);
           Serial.print(" R:");
           i++;
         }
         Serial.println(sampleBuffer[i]);
-        speed = sampleBuffer[i];
       }
 
       // Clear the read count
       samplesRead = 0;
-    }
 
-    //Blinking of the LEDB
-    if(millis() - timeStart > speed){
-      digitalWrite(LEDB, state);
-      state = !state;
-      timeStart = millis();
+      if (millis() - timeStart > sampleBuffer[2]) {
+        digitalWrite(LEDB, state);
+        state = !state;
+      }
     }
   }
 
   /**
-  * Callback function to process the data from the PDM microphone.
-  * NOTE: This callback is executed as part of an ISR.
-  * Therefore using `Serial` to print messages inside this function isn't supported.
+    Callback function to process the data from the PDM microphone.
+    NOTE: This callback is executed as part of an ISR.
+    Therefore using `Serial` to print messages inside this function isn't supported.
   * */
   void onPDMdata() {
     // Query the number of available bytes
