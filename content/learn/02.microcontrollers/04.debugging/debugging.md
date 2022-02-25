@@ -32,7 +32,7 @@ Let us take a look into each one of the debugging tools and techniques.
 
 **Compiling** is transforming high-level code into machine language that can be understood by a processor, for example a microcontroller. In this process, the compiler also helps to identify **syntax errors**. Syntax errors indicate something wrong with the program's syntax; for example, **when a semi-colon is omitted at the end of a statement in a program**, the compiler generates a syntax error. 
 
-**ADD SCREENSHOT HERE**
+![The Arduino IDE 2.0 compiler showing a syntax error in a sketch.](assets/debugging_img04.png)
 
 Using the compiler for debugging syntax errors can be sometimes tricky; let us analyze two commonly encountered situations: 
 
@@ -85,7 +85,7 @@ void Save_Debug_Buffer(void) {
 }
 ```
 
-**General Purpose Input/Output (GPIO) pins** can help debug purposes when the UART is in use or adding trace code is not particularly helpful. For example, we can turn on or off the built-in LED of an Arduino® board by inserting a `digitalWrite(13, HIGH)` instruction before or after questionable areas in our programs as shown in the example code below. If the built-in LED turns on, then we know that a particular line of code executed:
+**General Purpose Input/Output (GPIO) pins** can help debug purposes when the UART is in use or adding trace code is not particularly helpful. For example, we can turn on or off the built-in LED of an Arduino® board by inserting a `digitalWrite(LED_BUILTIN, HIGH)` instruction before or after questionable areas in our programs as shown in the example code below. If the built-in LED turns on, then we know that a particular line of code executed:
 
 ```arduino
 // Print a message if the execution gets here
@@ -95,17 +95,17 @@ Serial.println("Code got here");
 myFunction1(); 
 
 // Turn on the built-in LED for one second to indicate that myFunction1 was executed
-digitalWrite(13, HIGH); 
+digitalWrite(LED_BUILTIN, HIGH); 
 delay(1000);
-digitalWrite(13, LOW); 
+digitalWrite(LED_BUILTIN, LOW); 
 
 // Try to execute myFunction2()
 myFunction2(); 
 
 // Turn on the built-in LED for one second to indicate that myFunction2 was executed
-digitalWrite(13, HIGH); 
+digitalWrite(LED_BUILTIN, HIGH); 
 delay(1000);
-digitalWrite(13, LOW);
+digitalWrite(LED_BUILTIN, LOW);
 ```
 
 ### Remote Debuggers
@@ -115,15 +115,17 @@ digitalWrite(13, LOW);
 Remote debuggers usually have two essential parts: a **front-end debugger** and a **back-end debugger**. 
 
 * The front-end debugger contains the user interface (can be graphical or command-line-based) and offers the programmer choices about the execution of the code in the embedded system hardware.
-* The back-end debugger, also known as the "debug monitor," is specific for a particular processor. It starts when the processor resets and handles the runtime instruction between the front-end debugger and the embedded system hardware. 
+* The back-end debugger, also known as the "debug monitor," is specific for a particular processor architecture or family an usually work with an external hardware tool, like an in-circuit emulator or an in-circuit debugger. It starts when the processor resets and handles the runtime instruction between the front-end debugger and the embedded system hardware. 
 
-**ADD CONTENT ABOUT THE IDE V2**
+***The debugger tool is a newly introduced yet less famous feature of Arduino IDE 2.0. Check out [this tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger) that shows how to use the Arduino® IDE 2.0 debugger with compatible boards.***
 
 ### Simulators
 
 Simulators are tools used to **simulate the functionality and the instruction set of the target processor**. These tools, usually, can only simulate the target processor functionalities but not its environment and external parts and components. Simulators are handy in the early stages of the development process, where we only have the software but have not implemented any hardware yet.
 
 ***[Tinkercad Circuits](https://www.tinkercad.com/learn/circuits) is an excellent simulator for beginners in the Arduino® ecosystem. This tool can simulate the instruction set of an Arduino® UNO board and the functionalities of several electronic components such as resistors, LEDs, motors, LCDs, and some sensors.***
+
+![A simulation of a circuit that consists of an LCD and an Arduino® UNO board in Tinkercad Circuits.](assets/debugging_img05.png)
 
 ### In-Circuit Emulators and In-Circuit Debuggers
 
