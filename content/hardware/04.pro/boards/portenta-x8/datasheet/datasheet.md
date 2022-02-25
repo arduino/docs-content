@@ -260,6 +260,15 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td>Maximum temperature depends on the use of a heatsink</td>
       </tr>
       <tr>
+         <td rowspan="2" ><strong>Onboard memory</strong></td>
+         <td>NT6AN512T32AV</td>
+         <td>2GB LP-DDR4 DRAM</td>
+      </tr>
+      <tr>
+         <td>FEMDRW016G</td>
+         <td>16GB Forsee eMMC Flash module</td>
+      </tr>
+      <tr>
          <td><strong>Safety information</strong></td>
          <td>Class A </td>
          <td></td>
@@ -357,8 +366,8 @@ The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a du
 ## Wi-Fi/Bluetooth Connectivity
 The Muratta® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth connectivity in an ultrasmall package based on the Cypress CYW4343W. The IEEE802.11b/g/n Wi-Fi interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi and Bluetooth. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth 5.1 is supported together with Wi-Fi conforming to the IEEE802.11b/g/n standard.
 
-## External Memories
-The Arduino® Portenta X8 includes a onboard memory modules. A NT6AN512T32AV 2GB LP-DDR4 DRAM (U19) and 16GB Forsee eMMC Flash module (FEMDRW016G) (U5) are accessible to the i.MX 8M Mini (U2).
+## Onboard Memories
+The Arduino® Portenta X8 includes two onboard memory modules. A NT6AN512T32AV 2GB LP-DDR4 DRAM (U19) and 16GB Forsee eMMC Flash module (FEMDRW016G) (U5) are accessible to the i.MX 8M Mini (U2).
 
 ## Crypto Capabilities
 The Arduino® Portenta X8 enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U11). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage. It interacts with the NXP i.MX 8M Mini via I2C. 
