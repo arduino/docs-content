@@ -31,39 +31,39 @@ software:
   - iot-cloud
 ---
 
-The Arduino® Nano 33 BLE sense
+![The Arduino® Nano 33 BLE Sense](assets/Nano33_ble_sense.png)
 
-This article is a collection of guides, API calls, libraries and tutorials that can help you get started with the Nano 33 BLE sense board.
+This article is a collection of guides, API calls, libraries and tutorials that can help you get started with the Nano 33 BLE Sense board.
 
-You can also visit the [documentation platform for the Nano 33 BLE sense](/hardware/nano-33-ble-sense).
+You can also visit the [documentation platform for the Nano 33 BLE Sense](/hardware/nano-33-ble-sense).
 
 ## Core
 
-The Nano 33 BLE sense uses the [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed).
+The Nano 33 BLE Sense uses the [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed).
 
 ## Datasheet
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Download the Arduino Nano 33 BLE sense datasheet](https://docs.arduino.cc/static/5f29b61bbb52d2c964a3588d9c5c8030/ABX00031-datasheet.pdf)
+- [Download the Arduino Nano 33 BLE Sense datasheet](docs.arduino.cc/resources/datasheets/ABX00031-datasheet.pdf)
 
 ## Installation
 
 ### Arduino IDE 1.8.X
 
-The Nano 33 BLE sense can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
+The Nano 33 BLE Sense can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
 
 - [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano)
 
 ### Arduino IDE 2.0.X 
 
-The Nano 33 BLE sense can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
+The Nano 33 BLE Sense can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
 
 - [How to use the board manager with the Arduino IDE 2.0](/software/ide-v2/tutorials/ide-v2-board-manager)
 
 ### Web Editor
 
-The Nano 33 BLE sense can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+The Nano 33 BLE Sense can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
@@ -71,7 +71,7 @@ The Nano 33 BLE sense can be programmed through the **Web Editor**. To get start
 
 If you want to use your board with MicroPython and OpenMV. Follow the tutorial below.
 
-- [Getting started with OpenMV with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/getting-started-omv)
+- [Getting started with OpenMV with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv)
 
 If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below.
 
@@ -83,11 +83,11 @@ There is a risk that the uploading process gets stuck during an upload. If this 
 
 ## Pins
 
-![The pinout for Nano 33 BLE sense.](assets/pinout.png)
+![The pinout for Nano 33 BLE Sense.](assets/pinout.png)
 
 ### Analog Pins
 
-The Nano 33 BLE sense has 8 analog pins, that can be used through the `analogRead()` function.
+The Nano 33 BLE Sense has 8 analog pins, that can be used through the `analogRead()` function.
 
 ```arduino
 value = analogRead(pin, value);
@@ -206,9 +206,9 @@ The magnetometer data can be accessed through the following commands:
 
 If you want to learn more on how to use the IMU, please check out the tutorial below:
 
-- [Accessing IMU gyroscope data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_gyroscope)
-- [Accessing IMU accelerometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_accelerometer)
-- [Accessing IMU magnetometer data with Nano 33 BLE sense](/tutorials/nano-33-ble-sense/imu_magnetometer)
+- [Accessing IMU gyroscope data with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/imu_gyroscope)
+- [Accessing IMU accelerometer data with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/imu_accelerometer)
+- [Accessing IMU magnetometer data with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/imu_magnetometer)
 
 ## Proximity and Gesture Detection
 
@@ -384,7 +384,7 @@ Like other Arduino® products, the Nano 33 BLE Sense features dedicated pins for
 
 ### SPI
 
-The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE sense are the following:
+The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE Sense are the following:
 
 - (CIPO) - D12
 - (COPI) - D11
@@ -419,7 +419,7 @@ And to write to the device:
 
 ### I2C
 
-The pins used for I2C (Inter-Integrated Circuit) on the Nano 33 BLE sense are the following:
+The pins used for I2C (Inter-Integrated Circuit) on the Nano 33 BLE Sense are the following:
 
 - (SDA) - A4
 - (SCL) - A5
@@ -476,13 +476,13 @@ Serial1.write("Hello world!");
 
 ## Connectivity
 
-The Nano 33 BLE sense supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
+The Nano 33 BLE Sense supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
 
 ![ Bluetooth® module.](assets/Nano33_ble_sense_ble.png)
 
 ## Bluetooth®
 
-To enable Bluetooth® on the Nano 33 BLE sense, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
+To enable Bluetooth® on the Nano 33 BLE Sense, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -516,7 +516,7 @@ BLEDevice central = BLE.central();
 
 ### Tutorials
 
-- [Controlling Nano 33 BLE sense RGB LED via Bluetooth®](/tutorials/nano-33-ble-sense/bluetooth)
+- [Controlling Nano 33 BLE Sense RGB LED via Bluetooth®](/tutorials/nano-33-ble-sense/bluetooth)
 
 ## USB Keyboard
 
