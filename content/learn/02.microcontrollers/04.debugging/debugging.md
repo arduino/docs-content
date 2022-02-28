@@ -125,7 +125,7 @@ Simulators are tools used to **simulate the functionality and the instruction se
 
 ***[Tinkercad Circuits](https://www.tinkercad.com/learn/circuits) is an excellent simulator for beginners in the Arduino® ecosystem. This tool can simulate the instruction set of an Arduino® UNO board and the functionalities of several electronic components such as resistors, LEDs, motors, LCDs, and some sensors.***
 
-![A simulation of a circuit that consists of an LCD and an Arduino® UNO board in Tinkercad Circuits.](assets/debugging_img05.png)
+![A simulation of a circuit in Tinkercad Circuits.](assets/debugging_img05.png)
 
 ### In-Circuit Emulators and In-Circuit Debuggers
 
@@ -163,9 +163,9 @@ A software-defined radio (SDR) is a radio communication system that uses softwar
 
 #### Debugging with Hardware Tools
 
-While there may be several debugging techniques, using a LED as a pass mark for the debugging process is the simplest yet fastest method one can utilize. The indicator will be set in different points of interest to observe the correct execution of tasks visually. For instance, there can be multiple points located simultaneously to turn it on or off the LED or a single point of interest at a time for step-by-step verification. This will provide just enough information to construct an additional layer of the code or proceed to the following structure sector to debug its behavior. It will not give precise or in-depth information about registry or data exchange, so it has to be used as a tool for code structures that are not complex in their architectural nature and behave mainly in a linear trend execution. It is handy when a debugger is not available and quickly understand how the code behaves.
+While there may be several debugging techniques, using a LED as a pass mark for the debugging process is the simplest yet fastest method one can utilize. The indicator will be set in different points of interest to observe the correct execution of tasks visually. For instance, there can be multiple points located simultaneously to turn it on or off the LED on a single point of interest at a time for step-by-step verification. This will provide just enough information to construct an additional layer of the code or proceed to the following structure sector to debug its behavior. It will not give precise or in-depth information about registry or data exchange, so it has to be used as a tool for code structures that are not complex in their architectural nature and behave mainly in a linear trend execution. It is handy when a debugger is not available and quickly understand how the code behaves.
 
-Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to measure the GPIO pins of the system in this case. The oscilloscope, in this case, can be used to monitor specific GPIO pins and see if the code gives specific feedback by driving the GPIO pin to the desired logic state. A **multimeter** can also be handy for the same task. 
+Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to monitor the state of GPIO pins of the system in this case. The oscilloscope, in this case, can be used to monitor specific GPIO pins and see if the code gives specific feedback by driving the GPIO pin to the desired logic state. A **multimeter** can also be handy for the same task. 
 
 To get the most out of an oscilloscope and GPIO pins is by measuring its **performance**. Oscilloscopes can also be used to determine specific signal's **electrical and timing properties**. For example, an unnecessary delay in the code can be identified with this information: 
 
@@ -187,19 +187,16 @@ A simple example will be used to demonstrate implementation of different debuggi
 
 ```arduino
 /*
-  Arduino LSM9DS1 - Accelerometer, Gyroscope, and Magnetometer tasks operation with debugging technique
+  LSM9DS1 accelerometer, gyroscope, and magnetometer tasks operation with debugging.
 
-  This example combines the accelerometer, gyroscope, and magnetometer into a single code. On top of it,
-  it helps to understand different methods of debugging when the code structure combines multiple tasks.
+  This example combines data from the LSM9DS1 accelerometer, gyroscope, and magnetometer into a single code. On top of it,
+  it helps to understand different methods and techniques of debugging when the code structure combines multiple tasks.
 
   The circuit:
-  - Arduino Nano 33 BLE
+  - Arduino Nano 33 BLE Sense.
 
-  Originally created by Riccardo Rizzo, Jose García, and Benjamin Dannegård
-
-  Modified by Taddy Ho Chung & José Bagur
-  16 Feb 2022
-
+  Based on examples created by Riccardo Rizzo, Jose García, and Benjamin Dannegård.
+  Modified by Taddy Ho Chung & José Bagur (16/02/22).
 */
 
 #include <Arduino_LSM9DS1.h>
@@ -406,24 +403,27 @@ void loop() {
 
 ## Final Thoughts about Debugging
 
-Debugging is a necessary step for developing robust and reliable embedded systems. We can end this article by mentioning the **four** most essential phases of debugging:
+Debugging is a necessary step for developing robust and reliable embedded systems software. We can end this article by mentioning the **four** most essential phases of debugging:
 
-* Testing.
-* Stabilization.
-* Localization.
-* Correction.
- 
-The **testing** phase exercises the capability of the embedded software by stimulating it with a wide range of input values. The **stabilization** phase attempt to control the conditions that generate a specific bug. **The localization** phase involves narrowing the range of possibilities until the bug can be isolated to a specific code segment. The **correction** phase, the final phase, involves eradicating the bug from the software. 
+* **Testing**: this phase exercises the capability of the embedded software by stimulating it with a wide range of input values and in different environments.
+* **Stabilization**: this phase attempt to control the conditions that generate a specific bug.
+* **Localization**: this phase involves narrowing the range of possibilities until the bug can be isolated to a specific code segment in the embedded software.
+* **Correction**: this phase involves eradicating the bug from the software. 
+
+Knowing the potential causes of bugs, allows us to adopt strategies that can minimize their occurence. 
 
 ## Further Reading and Resources
 
-Debugging is an exciting topic to study, if you want to learn more about debugging tools and techniques, check out the following links: 
+Debugging is an exciting topic to study; if you want to learn more about debugging tools and techniques, check out the following links: 
 
+- Do you want to improve your debugging and engineering skills? A highly recommended reading is [Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems](http://debuggingrules.com/) by David J. Agans. 
 - Do you want to learn more about oscilloscopes? Learn more about them in [this](https://www.tek.com/en/blog/what-is-an-oscilloscope) article from Tektronix®.
 - Do you want to learn more about logic analyzers? Learn more about them in [this](https://articles.saleae.com/logic-analyzers/what-is-a-logic-analyzer) article from Saleae®.
-- Do you want to learn more about SDRs? Check out Great Scott Gadgets [video series](https://greatscottgadgets.com/sdr/) about SDRs. The video series from Great Scott Gadgets are a complete course about SDRs where you will learn the fundamentals of Digital Signal Processing (DSP) and how to build flexible SDR applications using GNU Radio.
+- Do you want to learn more about SDRs? Check out the Great Scott Gadgets [video series](https://greatscottgadgets.com/sdr/) about SDRs. The video series from Great Scott Gadgets is a complete course about SDRs. You will learn the fundamentals of Digital Signal Processing (DSP) and build flexible SDR applications using GNU Radio.
   
 ## References 
-
-* M. Barr and A. Massa, Programming Embedded Systems with C and GNU Development Tools. MTM, 2013.  
-* J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. Self-published, 2015.   
+  
+* P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.
+* D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.
+* M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.  
+* J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.S
