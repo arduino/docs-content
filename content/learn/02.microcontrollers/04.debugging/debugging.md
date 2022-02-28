@@ -137,11 +137,17 @@ An **in-circuit debugger** (or ICD) is also a specialized tool connected between
 
 ### Hardware Tools
 
-Embedded systems developers and typical software developers differ on a key aspect: their "closeness" to hardware; embedded system developers are usually closer to hardware than typical software developers. There are several tools that embedded systems developers use to find out what is going on with the hardware, which is very helpful for low-level software debugging. These tools are **logic analyzers**, **oscilloscopes**, and **software-defined radios** (SDRs). 
+Embedded systems developers and typical software developers differ on a key aspect: their "closeness" to hardware; embedded system developers are usually closer to hardware than typical software developers. There are several tools that embedded systems developers use to find out what is going on with the hardware, which is very helpful for low-level software debugging. These tools are **multimeters**, **logic analyzers**, **oscilloscopes**, and **software-defined radios** (SDRs). 
 
-Let us take a look at each one of the hardware debugging tools. A basic understanding of these tools can significantly improve debugging skills, especially while developing embedded systems devel. 
+Let us take a look at each one of the hardware debugging tools. A basic understanding of these tools can significantly improve debugging skills, especially while developing embedded systems. 
 
-***Logic analyzers, oscilloscopes and software-defined radios help debug interactions between the processor and other electronic parts on an embedded system. These tools do not control the flow of execution of the code of an embedded system.*** 
+***Multimeters, logic analyzers, oscilloscopes and, software-defined radios help debug interactions between the processor and other electronic parts on an embedded system. These tools do not control the flow of execution of the code of an embedded system.*** 
+
+#### Multimeters
+
+A multimeter (DMM) is a hardware tool that can be used to measure two or more electrical values, usually voltage (in volts), current (in amps), and resistance (in ohms). DMMs are great tools and one of the most fundamental pieces of test equipment that can be used to debug electrical problems within an embedded system.
+
+![Digital multimeter. Source: Fluke®.](assets/debugging_img06.png)
 
 #### Logic Analyzers
 
@@ -165,15 +171,24 @@ A software-defined radio (SDR) is a radio communication system that uses softwar
 
 While there may be several debugging techniques, using a LED as a pass mark for the debugging process is the simplest yet fastest method one can utilize. The indicator will be set in different points of interest to observe the correct execution of tasks visually. For instance, there can be multiple points located simultaneously to turn it on or off the LED on a single point of interest at a time for step-by-step verification. This will provide just enough information to construct an additional layer of the code or proceed to the following structure sector to debug its behavior. It will not give precise or in-depth information about registry or data exchange, so it has to be used as a tool for code structures that are not complex in their architectural nature and behave mainly in a linear trend execution. It is handy when a debugger is not available and quickly understand how the code behaves.
 
-Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to monitor the state of GPIO pins of the system in this case. The oscilloscope, in this case, can be used to monitor specific GPIO pins and see if the code gives specific feedback by driving the GPIO pin to the desired logic state. A **multimeter** can also be handy for the same task. 
+Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to monitor the state of GPIO pins of the system in this case. The oscilloscope, in this case, can be used to monitor specific GPIO pins and see if the code gives specific feedback by driving the GPIO pin to the desired logic state. A DMM can also be handy for the same task. 
 
-To get the most out of an oscilloscope and GPIO pins is by measuring its **performance**. Oscilloscopes can also be used to determine specific signal's **electrical and timing properties**. For example, an unnecessary delay in the code can be identified with this information: 
+To get the most out of an oscilloscope and GPIO pins is by measuring its **performance**, this means to determine the an specific signal's **electrical and timing properties**. For example, an unnecessary delay in the code can be identified with this information: 
 
-`myFunction()` execution duration can be measured by setting a GPIO pin to be driven to a high logic level when its execution begins; when `myFunction()` execution ends, the GPIO pin can be driven to a low logic level. The oscilloscope can then provide information if the function execution took precisely the defined time, longer or shorter than expected, or if it has any unaccounted electrical behavior that changes the expected behavior.
+```arduino
+void myFunction() {
+  digitalWrite(LED_BUILTIN, HIGH); 
+  Serial.println("Code got here");
+  count++;
+  digitalWrite(LED_BUILTIN, LOW); 
+}
+```
 
-Wireless communications help the development of new Internet of Things (IoT) devices with different requirements or specifications and for different purposes. Wireless communication is present on many embedded systems, and Arduino® hardware is no exception for this feature. The question now is: how do we debug wireless communications between devices? 
+`myFunction()` execution duration can be measured by setting a GPIO pin to be driven to a high logic level when its execution begins; when `myFunction()` execution ends, the GPIO pin can be driven to a low logic level. An oscilloscope can then provide information if the function execution took precisely the defined time, longer or shorter than expected, or if it has any unaccounted electrical behavior that changes the expected behavior.
 
-A simple technique used to debug wireless communications between devices consists of using acknowledge flags. Acknowledge flags are used to verify successful communication between devices; this process is found on physical communication layers, such as I2C or SPI, providing the present status between these devices. It goes the same for wireless communication between devices. Due to different protocol types in wireless communication, acknowledged methods may differ. The easiest way to confirm that the data exchange was successful is to check the log on each end device. So why would we need to debug on a radio frequency spectrum that is working correctly? It is to verify that the transceiver configuration is correct, mainly its transmission power. 
+Now let's talk about **wireless communications**. Wireless communications are a key feature in the development of new Internet of Things (IoT) devices with different requirements or specifications and for different purposes. Wireless communication is present on many embedded systems, and Arduino® hardware is no exception for this feature. The question now is: how do we debug wireless communications between devices? 
+
+A simple technique used to debug wireless communications between devices consists of using **acknowledge flags**. Acknowledge flags are used to verify successful communication between devices; this process is found on physical communication layers, such as I2C or SPI, providing the present status between these devices. It goes the same for wireless communication between devices. Due to different protocol types in wireless communication, acknowledged methods may differ. The easiest way to confirm that the data exchange was successful is to check the log on each end device. So why would we need to debug on a radio frequency spectrum that is working correctly? It is to verify that the transceiver configuration is correct, mainly its transmission power. 
 
 There are several software to assist this process and one of them is GQRX supported on OSX and Linux. For the Windows operating system, AirSpy could be software of choice to assist for this type of task. The SDR via USB stick can be used as a low cost spectrum analyzer, using the user's computer as a hot for radio station. The devices to be debugged are powered on while SDR takes care of catching any present transmission on the air and display it on the screen. 
 
@@ -233,24 +248,23 @@ void setup() {
 }
 
 void loop() {
-  for (int i = 0; i < 5; i++){
+  for (int i = 0; i < 5; i++) {
     accelerometer_task();
     gyroscope_task();
     magnetometer_task();
   }
   
   Save_Debug_Buffer();
-
   debug_stop();
 }
 
-void accelermeter_setup(){
-  Serial.print(F("Accelerometer sample rate = "));
+void accelermeter_setup() {
+  Serial.print(F("- Accelerometer sample rate: "));
   Serial.print(IMU.accelerationSampleRate());
-  Serial.println(F("Hz"));
+  Serial.println(F(" Hz"));
 }
 
-void accelerometer_task(){
+void accelerometer_task() {
   if (IMU.accelerationAvailable()) {
     Serial.println(F("Accelerometer Data Ready "));
     IMU.readAcceleration(x, y, z);
@@ -417,6 +431,7 @@ Knowing the potential causes of bugs, allows us to adopt strategies that can min
 Debugging is an exciting topic to study; if you want to learn more about debugging tools and techniques, check out the following links: 
 
 - Do you want to improve your debugging and engineering skills? A highly recommended reading is [Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems](http://debuggingrules.com/) by David J. Agans. 
+- Do you want to learn more about digital multimeters? Learn more about them in [this](https://www.fluke.com/en-us/learn/blog/electrical/what-is-a-digital-multimeter) article from Fluke®.
 - Do you want to learn more about oscilloscopes? Learn more about them in [this](https://www.tek.com/en/blog/what-is-an-oscilloscope) article from Tektronix®.
 - Do you want to learn more about logic analyzers? Learn more about them in [this](https://articles.saleae.com/logic-analyzers/what-is-a-logic-analyzer) article from Saleae®.
 - Do you want to learn more about SDRs? Check out the Great Scott Gadgets [video series](https://greatscottgadgets.com/sdr/) about SDRs. The video series from Great Scott Gadgets is a complete course about SDRs. You will learn the fundamentals of Digital Signal Processing (DSP) and build flexible SDR applications using GNU Radio.
@@ -426,4 +441,4 @@ Debugging is an exciting topic to study; if you want to learn more about debuggi
 * P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.
 * D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.
 * M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.  
-* J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.S
+* J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.
