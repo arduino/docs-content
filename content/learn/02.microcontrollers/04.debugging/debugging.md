@@ -410,7 +410,7 @@ Debugging is a necessary step for developing robust and reliable embedded system
 * **Localization**: this phase involves narrowing the range of possibilities until the bug can be isolated to a specific code segment in the embedded software.
 * **Correction**: this phase involves eradicating the bug from the software. 
 
-Knowing the potential causes of bugs, allows us to adopt strategies that can minimize their occurence. 
+Knowing the potential causes of bugs, allows us to adopt strategies that can minimize their occurrence. 
 
 ## Further Reading and Resources
 
