@@ -31,7 +31,7 @@ software:
   - iot-cloud
 ---
 
-The Arduino® Nano 33 BLE Sense
+![The Arduino® Nano 33 BLE Sense](assets/Nano33_ble_sense.png)
 
 This article is a collection of guides, API calls, libraries and tutorials that can help you get started with the Nano 33 BLE Sense board.
 
