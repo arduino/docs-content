@@ -195,26 +195,9 @@ A simple example will be used to demonstrate implementation of different debuggi
   The circuit:
   - Arduino Nano 33 BLE
 
-  Accessing Accelerometer Data on Nano 33 BLE - https://docs.arduino.cc/tutorials/nano-33-ble/imu_accelerometer
-  
-  Created by Riccardo Rizzo
+  Originally created by Riccardo Rizzo, Jose García, and Benjamin Dannegård
 
-  Modified by Jose García
-  27 Nov 2020
-
-  Accessing Gyroscope Data on Nano 33 BLE - https://docs.arduino.cc/tutorials/nano-33-ble/imu_gyroscope
-
-  Created by Riccardo Rizzo
-
-  Modified by Benjamin Dannegård
-  30 Nov 2020
-  
-  Accessing Magnetometer Data on Nano 33 BLE - https://docs.arduino.cc/tutorials/nano-33-ble/imu_magnetometer
-  
-  Created by Benjamin Dannegård
-  4 Dec 2020
-
-  Current example modified by Taddy Ho Chung
+  Modified by Taddy Ho Chung & José Bagur
   16 Feb 2022
 
 */
