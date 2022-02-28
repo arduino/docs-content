@@ -24,7 +24,7 @@ There are some basic debugging tools and techniques that we can use and implemen
 * Remote debuggers.
 * Simulators.
 * In-circuit emulators and in-circuit debuggers.
-* Hardware tools: oscilloscopes, logic analyzers and software-defined radios. 
+* Hardware tools: multimeters, logic analyzers, oscilloscopes, and software-defined radios. 
 
 Let us take a look into each one of the debugging tools and techniques.
 
@@ -117,7 +117,7 @@ Remote debuggers usually have two essential parts: a **front-end debugger** and 
 * The front-end debugger contains the user interface (can be graphical or command-line-based) and offers the programmer choices about the execution of the code in the embedded system hardware.
 * The back-end debugger, also known as the "debug monitor," is specific for a particular processor architecture or family an usually work with an external hardware tool, like an in-circuit emulator or an in-circuit debugger. It starts when the processor resets and handles the runtime instruction between the front-end debugger and the embedded system hardware. 
 
-***The debugger tool is a newly introduced yet less famous feature of Arduino IDE 2.0. Check out [this tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger) that shows how to use the Arduino® IDE 2.0 debugger with compatible boards.***
+***The debugger tool is a newly introduced yet less famous feature of Arduino IDE 2.0. Check out [this tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger) that shows how to use the Arduino® IDE 2.0 debugger with supported boards.***
 
 ### Simulators
 
@@ -131,9 +131,33 @@ Simulators are tools used to **simulate the functionality and the instruction se
 
 An **in-circuit emulator** (or ICE) is a specialized tool that allows developers to examine the state of the processor while a particular program is running. ICEs are considered embedded systems by themselves; they are a copy of the target processor and its memory (RAM and ROM); this is why they provide an unintrusive way to debug code at the target processor. Historically, ICEs were the tool of choice of embedded systems developers, but as processor complexity and clock speed increased, ICEs became more expensive, and their availability declined considerably.
 
-An **in-circuit debugger** (or ICD) is also a specialized tool connected between a host computer and a processor for debugging real-time applications faster and easier; this uses some memory and GPIO pins of the target microcontroller during the debugging operations. With an ICD, a monitor program runs inside the processor; with this program, the developer can set breakpoints, run code, single step the program, examine variables and registers on the processor, and, if required, change their values.
+An **in-circuit debugger** (or ICD) is also a specialized tool connected between a host computer and a processor for debugging real-time applications faster and easier; this tool uses some memory and GPIO pins of the target microcontroller during the debugging operations. With an ICD, developers access an on-chip debug module which is integrated into the CPU over an interface (for example, JTAG). This debug module allows developers to load, run, halt and step the processor.
 
 ***The fundamental difference between an ICE and an ICD relies on the resources used to control the debug target. In ICEs, resources are provided by the emulation hardware; in ICDs, resources are provided by the target processor.*** 
+
+#### Arduino® ICD Support
+
+The Arduino® boards with a SAMD microcontroller support ICD debugging; these boards are the following:
+
+* [Zero](https://store.arduino.cc/products/arduino-zero). 
+* [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot).
+* [MKR Zero](https://store.arduino.cc/collections/boards/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data).
+* [MKR WiFi 1010](https://store.arduino.cc/collections/boards/products/arduino-mkr-wifi-1010).
+* [MKR WAN 1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity).
+* [MKR WAN 1310](https://store.arduino.cc/products/arduino-mkr-wan-1310).
+* [MKR FOX 1200](https://store.arduino.cc/products/arduino-mkr-fox-1200).
+* [MKR NB 1500](https://store.arduino.cc/products/arduino-mkr-nb-1500).
+* [MKR GSM 1400](https://store.arduino.cc/products/arduino-mkr-gsm-1400).
+* [MKR Vidor 4000](https://store.arduino.cc/products/arduino-mkr-vidor-4000).
+
+The Arduino® Zero board features an on-board debugger, the Atmel® Embedded Debugger (EDGB). In addition to programming and debugging support, the EDGB also offers data streaming capabilities between the host computer and the target processor. Check out [this tutorial](https://docs.arduino.cc/tutorials/zero/debugging-with-zero) to learn how to use the Arduino® Zero board debugging capabilities with the [Arduino IDE 2.0](https://www.arduino.cc/en/software). 
+
+![Arduino® Zero EDGB.](assets/debugging_img07.png)
+
+Arduino® boards with a SAMD microcontroller feature native on-chip debug capabilities; these debugging capabilities can be used with an external ICD tool over JTAG or SWD interfaces. CMSIS-DAP compliant debug probes can be used with the Arduino IDE 2.0 out of the box without any configuration file; non-standard debug probes require a special configuration. Check out these tutorials to learn how to use an external ICD tool with SAMD based Arduino boards and the Arduino IDE 2.0:
+
+* [Debugging with the Segger J-Link](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mkr-jlink-setup).
+* [Debugging with the Atmel-ICE](https://docs.arduino.cc/tutorials/mkr-wifi-1010/atmel-ice).
 
 ### Hardware Tools
 
@@ -145,7 +169,7 @@ Let us take a look at each one of the hardware debugging tools. A basic understa
 
 #### Multimeters
 
-A multimeter (DMM) is a hardware tool that can be used to measure two or more electrical values, usually voltage (in volts), current (in amps), and resistance (in ohms). DMMs are great tools and one of the most fundamental pieces of test equipment that can be used to debug electrical problems within an embedded system.
+A digital multimeter (DMM) is a hardware tool that can be used to measure two or more electrical values, usually voltage (in volts), current (in amps), and resistance (in ohms). DMMs are great tools and one of the most fundamental pieces of test equipment that can be used to debug electrical problems within an embedded system.
 
 ![Digital multimeter. Source: Fluke®.](assets/debugging_img06.png)
 
@@ -173,7 +197,7 @@ While there may be several debugging techniques, using a LED as a pass mark for 
 
 Sometimes, LEDs might not be present or might not be available in a particular system; there is no way to make a visual inspection in the system. However, we can use an oscilloscope directly to monitor the state of GPIO pins of the system in this case. The oscilloscope, in this case, can be used to monitor specific GPIO pins and see if the code gives specific feedback by driving the GPIO pin to the desired logic state. A DMM can also be handy for the same task. 
 
-To get the most out of an oscilloscope and GPIO pins is by measuring its **performance**, this means to determine the an specific signal's **electrical and timing properties**. For example, an unnecessary delay in the code can be identified with this information: 
+To get the most out of an oscilloscope and GPIO pins is by measuring its **performance**, this means to determine a signal's **electrical and timing properties**. For example, an unnecessary delay in the code can be identified with this information: 
 
 ```arduino
 void myFunction() {
@@ -186,9 +210,9 @@ void myFunction() {
 
 `myFunction()` execution duration can be measured by setting a GPIO pin to be driven to a high logic level when its execution begins; when `myFunction()` execution ends, the GPIO pin can be driven to a low logic level. An oscilloscope can then provide information if the function execution took precisely the defined time, longer or shorter than expected, or if it has any unaccounted electrical behavior that changes the expected behavior.
 
-Now let's talk about **wireless communications**. Wireless communications are a key feature in the development of new Internet of Things (IoT) devices with different requirements or specifications and for different purposes. Wireless communication is present on many embedded systems, and Arduino® hardware is no exception for this feature. The question now is: how do we debug wireless communications between devices? 
+Now let us talk about **wireless communications**. Wireless communications are a key feature in developing new Internet of Things (IoT) devices with different requirements or specifications and for different purposes. Wireless communication is present on many embedded systems, and Arduino® hardware is no exception for this feature. The question now is: how do we debug wireless communications between devices? 
 
-A simple technique used to debug wireless communications between devices consists of using **acknowledge flags**. Acknowledge flags are used to verify successful communication between devices; this process is found on physical communication layers, such as I2C or SPI, providing the present status between these devices. It goes the same for wireless communication between devices. Due to different protocol types in wireless communication, acknowledged methods may differ. The easiest way to confirm that the data exchange was successful is to check the log on each end device. So why would we need to debug on a radio frequency spectrum that is working correctly? It is to verify that the transceiver configuration is correct, mainly its transmission power. 
+A simple technique used to debug wireless communications between devices consists of using **acknowledge flags**. Acknowledge flags are used to verify successful communication between devices; this process is found on physical communication layers, such as I2C or SPI, providing the present status between these devices. It goes the same for wireless communication between devices. Due to different protocol types in wireless communication, acknowledged methods may differ; the easiest way to confirm that the data exchange was successful is to check the log on each end device. So why would we need to debug on a radio frequency spectrum that is working correctly? It is to verify that the transceiver configuration is correct, mainly its transmission power. 
 
 There are several software to assist this process and one of them is GQRX supported on OSX and Linux. For the Windows operating system, AirSpy could be software of choice to assist for this type of task. The SDR via USB stick can be used as a low cost spectrum analyzer, using the user's computer as a hot for radio station. The devices to be debugged are powered on while SDR takes care of catching any present transmission on the air and display it on the screen. 
 
@@ -401,12 +425,12 @@ Additionally, it is possible to modify the loop code by adding simply GPIO 13 to
 
 ```arduino
 void loop() {
-  for (int i = 0; i < 5; i++){
-    digitalWrite(13, HIGH); 
+  for (int i = 0; i < 5; i++) {
+    digitalWrite(LED_BUILTIN, HIGH); 
     accelerometer_task();
     gyroscope_task();
     magnetometer_task();
-    digitalWrite(13, LOW); 
+    digitalWrite(LED_BUILTIN, LOW); 
   }
   
   Save_Debug_Buffer();
@@ -424,7 +448,7 @@ Debugging is a necessary step for developing robust and reliable embedded system
 * **Localization**: this phase involves narrowing the range of possibilities until the bug can be isolated to a specific code segment in the embedded software.
 * **Correction**: this phase involves eradicating the bug from the software. 
 
-Knowing the potential causes of bugs, allows us to adopt strategies that can minimize their occurrence. 
+Knowing the potential causes of bugs allows us to adopt strategies that minimize their occurrence. 
 
 ## Further Reading and Resources
 
