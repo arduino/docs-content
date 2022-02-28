@@ -1,5 +1,5 @@
 <FeatureDescription>
-  The Portenta X8 is a high performance board, with many great features. With two microprocessers combined; the NXP i.MX 8M Mini (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino), it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
+  The Portenta X8 is a high performance board, with many great features. With two microprocessors combined; the NXP i.MX 8M Mini (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino), it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
 </FeatureDescription>
 
 <FeatureList>
