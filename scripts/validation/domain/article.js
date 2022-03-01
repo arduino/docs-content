@@ -17,6 +17,7 @@ export class Article {
         this._markdown = null;
         this._metaData = null;
         this._codeBlockData = null;
+        this._referencedAssetsPaths = null;
     }
 
     get path(){
@@ -175,17 +176,60 @@ export class Article {
         return data.length == 0 ? null : data;
     }       
 
-    get referencedAssetsPaths(){
-        const images = this.html.querySelectorAll("img");
-        const imagePaths = images.map(image => image.attributes.src);
-        const videos = this.html.querySelectorAll("video source");
-        const videoPaths = videos.map(video => video.attributes.src);
-        return imagePaths.concat(videoPaths);
+    /**
+     * Returns a list of all asset file paths that are not referenced in an article
+     */
+    get unreferencedAssetsPaths(){
+        const referencedAssetNames = this.referencedAssetsPaths.map(assetPath => path.basename(assetPath));    
+        return this.assets.filter((filePath) => { return !referencedAssetNames.includes(path.basename(filePath)); });
     }
 
-    get linkPaths(){
+    /**
+     * Returns an array of all images and video files referenced
+     * in the article including its meta data.
+     */
+    get referencedAssetsPaths(){
+        if(this._referencedAssetsPaths) return this._referencedAssetsPaths;
+        const images = this.html.querySelectorAll("img");
+        const imagePaths = images.map(image => image.attributes.src);
+
+        const pathRegex = new RegExp(`^(?!http).*(${this.assetsFolder})\/.*(?:\..{1,4})$`);
+        const filteredFilePaths = this.links.filter((link) => link.match(pathRegex));      
+
+        const videos = this.html.querySelectorAll("video source");
+        const videoPaths = videos.map(video => video.attributes.src);
+        
+        const allPaths = imagePaths.concat(videoPaths).concat(filteredFilePaths);
+        let coverImagePath = this.metadata?.coverImage;   
+        if(coverImagePath) allPaths.push(coverImagePath);
+        this._referencedAssetsPaths = allPaths;
+        return this._referencedAssetsPaths;
+    }
+
+    /**
+     * Returns all hyperlinks in the document
+     */
+    get links(){
         let links = this.html.querySelectorAll("a");
         return links.map(link => link.attributes.href);
+    }
+
+
+    get assetsFolder(){
+        if(this._assetFolder) return this._assetFolder;
+        const validDirectories = ["assets", "images"];
+
+        if (existsSync(`${this.path}/${validDirectories[0]}/`)){
+            this._assetFolder = validDirectories[0];
+            return this._assetFolder;
+        }
+        if (existsSync(`${this.path}/${validDirectories[1]}/`)){
+            console.log("😬 WARNING: Using deprecated 'images' directory to store assets. Location:", path);
+            this._assetFolder = validDirectories[1];
+            return this._assetFolder;
+        }
+        console.log(`😬 WARNING: No standard assets directory (${validDirectories.join(" | ")}) found in: ${this.path}`);
+        return null;
     }
 
     /**
@@ -193,18 +237,8 @@ export class Article {
      */
     get assetsPath(){
         if(this._assetsPath) return this._assetsPath;
-        const validDirectories = ["assets", "images"];
-        let path = `${this.path}/${validDirectories[0]}/`;
-
-        if (!existsSync(path)) {
-            path = `${this.path}/${validDirectories[1]}/`;
-            if(!existsSync(path)){
-                console.log(`😬 WARNING: No standard assets directory (${validDirectories.join(" | ")}) found in: ${this.path}`);
-                return null;
-            }
-            console.log("😬 WARNING: Using deprecated 'images' directory to store assets. Location:", path);
-        }
-        this._assetsPath = path;
+        if(!this.assetsFolder) return null;
+        this._assetsPath = `${this.path}/${this.assetsFolder}/`;
         return this._assetsPath;
     }
 

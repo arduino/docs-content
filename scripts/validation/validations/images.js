@@ -50,13 +50,13 @@ function validateReferencedImages(article){
     let errorsOccurred = [];
     let imageNames = article.referencedAssetsPaths.map(imagePath => basename(imagePath));    
     let assetNames = article.assets.map(asset => basename(asset));    
-    let linkNames = article.linkPaths.map(link => basename(link));     
+    let linkNames = article.links.map(link => basename(link));     
     let coverImagePath = article.metadata?.coverImage;   
     let coverImageName = coverImagePath ? basename(coverImagePath) : null;
 
     assetNames.forEach(asset => {        
         if(coverImageName == asset) return;
-        if(!imageNames.includes(asset) && !linkNames.includes(asset)){        
+        if(!imageNames.includes(asset) && !linkNames.includes(asset)){ 
            const errorMessage = `Asset '${asset}' is not used.`;
            errorsOccurred.push(new ValidationIssue(errorMessage, article.contentFilePath));                       
         }
