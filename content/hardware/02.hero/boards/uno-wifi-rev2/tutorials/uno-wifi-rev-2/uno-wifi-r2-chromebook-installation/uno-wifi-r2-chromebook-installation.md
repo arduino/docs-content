@@ -33,26 +33,26 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- [Arduino IDE 2](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide). 
+- [Arduino IDE](https://www.arduino.cc/en/software).
 - [Arduino Web Editor](https://create.arduino.cc/).
 - [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) (Chrome Web Store)
 - [Arduino UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2).
 
-***Please note that you need to install the Arduino IDE 2.0.X. The legacy IDE (1.8.X) will not work for this tutorial.***
+***While you won't be using the Arduino IDE directly, you will be utilizing a tool called AVRDUDE that is included in each version of the IDE. If you wish to install just AVRDUDE, please refer to the [GitHub repository](https://github.com/avrdudes/avrdude).***
 
 ## Upgrading Firmware
 
 Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi Rev 2 needs to be done through a computer with the Windows/Mac/Linux OS installed. 
 
-***While you won't be using the Arduino IDE 2.0 directly, you will be utilizing a set of tools that is included in the IDE. This is why you need to install the editor on your local machine.***
-
-**1.** Make sure you have installed [Arduino IDE 2.0.X](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide). 
+**1.** Make sure you have installed [Arduino IDE 1.8.X](https://www.arduino.cc/en/software).
 
 **2.** Download the [optiboot_atmega4.hex](/resources/firmware/optiboot_atmega4809.hex) file, and move it to your **Desktop folder**. 
 
 ![.hex file in your Desktop folder.](assets/hex-file-desktop.png)
 
-**3.** Open your Command Prompt (Windows) or Terminal (Mac), copy paste the command for your OS from the snippets below:
+**3.** Open your Command Prompt (Windows) or Terminal (Mac), copy paste the command for your OS from the snippets below.
+
+***Please note that the path may be updated in the future (`6.3.0-arduino17` may change to for example `6.4.0-arduino18`).***
 
 **Mac Command:**
 
@@ -78,11 +78,33 @@ Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi 
 
 **5.** Now that your firmware is upgraded, you should see your board blinking (1 second off, followed by a quick blink). This is another proof that it was successful. You can now disconnect your board, and **plug it into your Chromebook.** 
 
+### Check AVRDUDE Installation
+
+The above commands utilizes a tool called **AVRDUDE**, which is included in each version of the IDE. To check whether it is accessible on your computer, you can run the following commands. 
+
+**Windows:**
+
+```
+%userprofile%\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17\bin\avrdude
+```
+
+**Mac:**
+
+```
+/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude
+```
+
+**Linux:**
+
+```
+/home/$(whoami)/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude
+```
+
 ### Troubleshoot
 
 If the command fails to upgrade the firmware, please make sure that:
 
-- Arduino IDE 2.0 is installed.
+- Arduino IDE / AVRDUDE is installed.
 - That you are using a Windows/Mac/Linux machine (remember, this cannot be performed on a Chromebook).
 - That you have the `.hex` file in the Desktop folder. The command is written to look for it in that specific folder, so if it is not present, it will not work.
 
