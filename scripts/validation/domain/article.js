@@ -224,7 +224,7 @@ export class Article {
             return this._assetFolder;
         }
         if (existsSync(`${this.path}/${validDirectories[1]}/`)){
-            console.log("😬 WARNING: Using deprecated 'images' directory to store assets. Location:", path);
+            console.log("😬 WARNING: Using deprecated 'images' directory to store assets. Location:", this.path);
             this._assetFolder = validDirectories[1];
             return this._assetFolder;
         }
