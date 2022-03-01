@@ -1,7 +1,7 @@
 import { fixMissingTitleCase } from './fixes/headings.js'
 import { ConfigManager } from './logic/config-manager.js';
 import { ArticleManager } from './logic/article-manager.js';
-import { fixUnusedAssets } from './fixes/images.js';
+import { fixUnusedAssets } from './fixes/assets.js';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");
