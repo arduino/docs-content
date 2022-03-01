@@ -1,7 +1,7 @@
 import { fixMissingTitleCase } from './fixes/headings.js'
 import { ConfigManager } from './logic/config-manager.js';
 import { ArticleManager } from './logic/article-manager.js';
-import commandLineArgs from 'command-line-args';
+import { fixUnusedAssets } from './fixes/images.js';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");
@@ -21,5 +21,9 @@ if(!allArticles || allArticles.length == 0){
 for(let article of allArticles){
     if(fixMissingTitleCase(article)){
         console.log(`✅ Fixed missing Title Case headings in '${article.contentFilePath}'.`);
+    }
+
+    if(fixUnusedAssets(article)){
+        console.log(`✅ Fixed unused assets in '${article.contentFilePath}'.`);
     }
 }
