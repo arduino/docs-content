@@ -8,6 +8,7 @@
    * remove following from your copy:
      * README.md
      * all assets in assets folder not relating to your content
+     * all comments
 5. Send in your content for review.
 6. Interate according to feedback.
 7. Wait for approval.
@@ -30,6 +31,7 @@ You are also allowed to add your own content to the Arduino Documentation reposi
 |-------|-----------|-------|---------|
 |Tutorial|Learn how to do something.|[Control Built-in RGB LED over Wi-Fi with Nano RP2040 Connect](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-web-server-rgb)|`Tutorials` folder <br> `Tutorial` folder inside the corresponding product|
 |Article|Learn about a specific topic.|[Multimeter Basics](https://docs.arduino.cc/learn/electronics/multimeter-basics)|`Learn`|
+|Nugget|Smaller tutorial with less information and more straight to the example|[Analog Read Serial](https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial)|`Tutorials` folder <br> `Tutorial` folder inside the corresponding product <br> `Learn`|
 |Project|Learn how to build something.|[DIY Photoshop Editing Console using Arduino Nano RP2040 Connect](https://create.arduino.cc/projecthub/jithinsanal1610/diy-photoshop-editing-console-using-arduino-nano-rp-2040-a43e97?ref=search&ref_id=nano%20rp2040%20connect&offset=0)|`Project Hub`|
 
 For us to be able to approve your contribution, you should follow the guidelines on how to structure and write your content.
