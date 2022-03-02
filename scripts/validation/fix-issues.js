@@ -2,6 +2,7 @@ import { fixMissingTitleCase } from './fixes/headings.js'
 import { ConfigManager } from './logic/config-manager.js';
 import { ArticleManager } from './logic/article-manager.js';
 import { fixUnusedAssets } from './fixes/assets.js';
+import { replaceItalicEmphasisWithBoldEmphasis } from './fixes/styling.js';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");
@@ -26,4 +27,9 @@ for(let article of allArticles){
     if(fixUnusedAssets(article)){
         console.log(`✅ Fixed unused assets in '${article.contentFilePath}'.`);
     }
+    
+    if(replaceItalicEmphasisWithBoldEmphasis(article)){
+        console.log(`✅ Fixed italic styling in '${article.contentFilePath}'.`);
+    }
+
 }

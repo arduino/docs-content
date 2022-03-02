@@ -18,6 +18,7 @@ export class Article {
         this._metaData = null;
         this._codeBlockData = null;
         this._referencedAssetsPaths = null;
+        this._emphasizedTextData = null;
     }
 
     get path(){
@@ -52,8 +53,8 @@ export class Article {
     }
 
     set rawData(data){
-        this._rawData = data;
         this.clearData();
+        this._rawData = data;
     }
 
     get rawData(){
@@ -145,6 +146,34 @@ export class Article {
         }
         this._codeBlockData = data;
         return this._codeBlockData;
+    }
+
+    get emphasizedTextData(){
+        if(this._emphasizedTextData) return this._emphasizedTextData;
+
+        let data = new Array();
+        const italicRegex1 = new RegExp(/(?<=\s)\*(?<text>[^* ].*?)\*(?!\*)/, "g");
+        const italicRegex2 = new RegExp(/(?<=\s)_(?<text>[^_].*?)_(?!_)/, "g");
+        const boldRegex1 = new RegExp(/(?<=\s)\*\*(?<text>[^* ].*?)\*\*(?!\*)/, "g");
+        const boldRegex2 = new RegExp(/(?<=\s)__(?<text>[^_].*?)__(?!_)/, "g");
+        const regexes = [
+            {regex : italicRegex1, type : "italic" },
+            {regex : italicRegex2, type : "italic" },
+            {regex : boldRegex1, type : "bold" },
+            {regex : boldRegex2, type : "bold" }
+        ];
+
+        for(let regexData of regexes){
+            const matches = [...this.rawData.matchAll(regexData.regex)];
+    
+            for(let match of matches){
+                if(this.isInsideCodeBlock(match.index)) continue;
+                data.push({text : match.groups.text, type: regexData.type, beginIndex: match.index, endIndex: match.index + match[0].length })
+            }
+        }
+
+        this._emphasizedTextData = data;
+        return this._emphasizedTextData;
     }
 
     /**
