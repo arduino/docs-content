@@ -220,6 +220,8 @@ However, not everything is connected on a physical layer, but on an **abstract l
 
 Shown visual representation of the signal via SDR software can now be used to verify the transmission power outputted by the device and the amount of data transmitted. This will help visualize the device's wireless communication configuration properties. It will be possible to verify the transmission and reception power, the number of bytes transmitted, and the frequency it is supposed to transmit. These properties can be debugged through the frequency spectrum and refined to provide edge wireless communication performance on embedded systems.
 
+![LoRa signals shown in a spectogram. Source: [The Things Network](https://www.thethingsnetwork.org/community/bydgoszcz/post/would-you-like-to-see-lora).](assets/debugging_img08.png)
+
 ## Debugging Techniques Example
 
 A simple example will be used to demonstrate implementation of different debugging techniques and how they can be very useful for the development process. We are going to use [Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) and use the LSM9DS1 inertial measurement unit's features to show the importance and ease of debugging process. The example code will be based on using [accelerometer](https://docs.arduino.cc/tutorials/nano-33-ble/imu_accelerometer), [gyroscope](https://docs.arduino.cc/tutorials/nano-33-ble/imu_gyroscope), and [magnetometer](https://docs.arduino.cc/tutorials/nano-33-ble/imu_magnetometer) at the same time, having the tasks to be executed in order to be able to obtain every value of the module. 
@@ -461,6 +463,7 @@ Debugging is an exciting topic to study; if you want to learn more about debuggi
 - Do you want to learn more about digital multimeters? Learn more about them in [this](https://www.fluke.com/en-us/learn/blog/electrical/what-is-a-digital-multimeter) article from Fluke®.
 - Do you want to learn more about oscilloscopes? Learn more about them in [this](https://www.tek.com/en/blog/what-is-an-oscilloscope) article from Tektronix®.
 - Do you want to learn more about logic analyzers? Learn more about them in [this](https://articles.saleae.com/logic-analyzers/what-is-a-logic-analyzer) article from Saleae®.
+- Do you want to learn more about spectrum analyzers? Learn more about them in [this](https://www.tek.com/en/documents/primer/what-spectrum-analyzer-and-why-do-you-need-one) article from Tektronix®.
 - Do you want to learn more about SDRs? Check out the Great Scott Gadgets [video series](https://greatscottgadgets.com/sdr/) about SDRs. The video series from Great Scott Gadgets is a complete course about SDRs. You will learn the fundamentals of Digital Signal Processing (DSP) and build flexible SDR applications using GNU Radio.
   
 ## References 
