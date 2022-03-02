@@ -161,15 +161,15 @@ All graphics should be 1920x1080. All graphics are stored in an assets folder in
 
 Name the tutorial folder after the title of your tutorial. The name of the folder should contain a maximum of 4 words divided by dashes.
 
-![]()
+![](assets/tutorial-folder.png)
 
 The tutorial folder should then contain an assets folder, as well as the main content markdown file. It’s important to name the main content file the same name as the tutorial folder.
 
-![]()
+![](assets/tutorial-folder2.png)
 
 ### Images
 
-There is no specific way you need to name the images, however it is a good practise to add something descriptive in the name. Also remember to divide words by using dashes.
+There is no specific way you need to name the images, however it is a good practice to add something descriptive in the name. Also remember to divide words by using dashes.
 
 `UNO-Mini-LE-external-power.png`
 

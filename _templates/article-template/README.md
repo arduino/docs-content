@@ -4,13 +4,15 @@ To write a article for the Arduino Documentation website, you should follow thes
 
 ## Frontmatter
 
----
-The frontmatter is enclosed by three dashes. See template.
----
+\--- <br>
+The frontmatter is enclosed by three dashes. See template.<br>
+\---
 
 Here is where you add the metadata of your article. This is including the author, title of tutorial, compatible libraries, compatible hardware etc.
 
 You must fill in title, description and author. The others are voluntary.
+
+![](assets/frontmatter.png)
 
 <hr>
 
@@ -26,8 +28,8 @@ The Introduction should be a maximum of three sentences long and be well descrip
 
 You are not allowed to change the name of the heading.
 
-![example]()
- 
+![example](assets/art-intro.png)
+
 ## Hardware & Software Needed
 
 This is an h2 heading.
@@ -36,7 +38,7 @@ Here you set the hardware and software you need to continue your tutorial. You a
 
 You can modify the heading if your article only requires one of the two, either Hardware or Software.
 
-![example]()
+![example](assets/hardware.png)
 
 ## Circuit/Schematic
 
@@ -46,7 +48,9 @@ Here you add the circuits and/or schematics of your tutorial.
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](/_templates/article-template/assets/art-circuit.png)
+
+![example](assets/art-schematic.png)
 
 # Writing Content
 

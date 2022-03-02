@@ -4,13 +4,15 @@ To write a tutorial good enough to be posted on our site, you should follow thes
 
 ## Frontmatter
 
----
-The frontmatter is enclosed by three dashes. See template.
----
+\--- <br>
+The frontmatter is enclosed by three dashes. See template.<br>
+\---
 
 Here is where you add the metadata of your tutorial. This is including the author, title of tutorial, compatible libraries, compatible hardware etc.
 
 You must fill in title, description and author. The others are voluntary.
+
+![](assets/frontmatter.png)
 
 ## Introduction
 
@@ -20,7 +22,7 @@ The Introduction to the tutorial should be a maximum of three sentences long and
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets/tut-intro.png)
 
 ## Goals
 
@@ -30,7 +32,7 @@ What are the goals of this tutorial? What should the reader be able to do at the
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-goals.png)
 
 ## Hardware & Software Needed
 
@@ -40,7 +42,7 @@ Here you set the hardware and software you need to continue your tutorial. You a
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-hardware.png)
 
 ## Circuit/Schematic
 
@@ -50,7 +52,7 @@ Here you add the circuits and/or schematics of your tutorial.
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-circuit.png)
 
 ## Focus Feature
 
@@ -64,7 +66,7 @@ This sections heading should be updated to the main focus of your tutorial. This
 
 This is the only heading you are allowed to modify.
 
-![example]()
+![example](assets\tut-fcus.png)
 
 ## Programming the Board
 
@@ -74,7 +76,7 @@ This is the section where you go through the code of your tutorial.
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-programming.png)
 
 ## Testing it Out
 
@@ -84,7 +86,7 @@ This is the experimental part of your tutorial, where the reader is supposed to 
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-testing.png)
 
 ### Troubleshoot
 
@@ -94,7 +96,7 @@ If there are something in your tutorial that you know people might get stuck on,
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-troubleshoot.png)
 
 ## Conclusion
 
@@ -104,7 +106,7 @@ This is where you summarize your tutorial in a few sentences. What is it that yo
 
 You are not allowed to change the name of the heading.
 
-![example]()
+![example](assets\tut-conclusion.png)
 
 <hr>
 
