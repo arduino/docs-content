@@ -220,7 +220,7 @@ However, not everything is connected on a physical layer, but on an **abstract l
 
 Shown visual representation of the signal via SDR software can now be used to verify the transmission power outputted by the device and the amount of data transmitted. This will help visualize the device's wireless communication configuration properties. It will be possible to verify the transmission and reception power, the number of bytes transmitted, and the frequency it is supposed to transmit. These properties can be debugged through the frequency spectrum and refined to provide edge wireless communication performance on embedded systems.
 
-![LoRa signals shown in a spectogram. Source: [The Things Network](https://www.thethingsnetwork.org/community/bydgoszcz/post/would-you-like-to-see-lora).](assets/debugging_img08.png)
+![LoRa signals shown in a spectogram. Source: The Things Network.](assets/debugging_img08.png)
 
 ## Debugging Techniques Example
 
@@ -238,7 +238,7 @@ A simple example will be used to demonstrate implementation of different debuggi
   - Arduino Nano 33 BLE Sense.
 
   Based on examples created by Riccardo Rizzo, Jose García, and Benjamin Dannegård.
-  Modified by Taddy Ho Chung & José Bagur (16/02/22).
+  Modified by Taddy Ho Chung and José Bagur (16/02/22).
 */
 
 #include <Arduino_LSM9DS1.h>
@@ -444,7 +444,7 @@ void loop() {
 
 ## Final Thoughts about Debugging
 
-Debugging is a necessary step for developing robust and reliable embedded systems software. We can end this article by mentioning the **four** most essential phases of debugging:
+Debugging is a necessary step for developing robust and reliable embedded systems software. We can end this article by mentioning the **four** most essential phases of debugging stated by Robin Knoke in this [article](https://www.embedded.com/debugging-embedded-c/) about debugging embedded C that was published in the Embedded Systems Programming magazine:
 
 * **Testing**: this phase exercises the capability of the embedded software by stimulating it with a wide range of input values and in different environments.
 * **Stabilization**: this phase attempt to control the conditions that generate a specific bug.
