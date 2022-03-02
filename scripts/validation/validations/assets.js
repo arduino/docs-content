@@ -46,7 +46,7 @@ function validateImagePaths(article){
     return errorsOccurred;
 }
 
-function validateReferencedImages(article){
+function validateReferencedAssets(article){
     let errorsOccurred = [];
     let imageNames = article.referencedAssetsPaths.map(imagePath => basename(imagePath));    
     let assetNames = article.assets.map(asset => basename(asset));    
@@ -83,4 +83,4 @@ function validateSVGFiles(article){
     return errorsOccurred;
 }
 
-export { validateImageDescriptions, validateImagePaths, validateReferencedImages, validateSVGFiles }
+export { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles }
