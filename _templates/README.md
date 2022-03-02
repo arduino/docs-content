@@ -34,6 +34,11 @@ You are also allowed to add your own content to the Arduino Documentation reposi
 
 For us to be able to approve your contribution, you should follow the guidelines on how to structure and write your content.
 
+### Writing Content
+
+Please read the [Arduino Style Guide](https://docs.arduino.cc/hacking/software/ArduinoStyleGuide).
+
+
 # Styling Guidelines
 
 ## Markdown

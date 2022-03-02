@@ -52,10 +52,6 @@ You are not allowed to change the name of the heading.
 
 ![example](assets/art-schematic.png)
 
-# Writing Content
-
-Please read the [Arduino Style Guide](https://docs.arduino.cc/hacking/software/ArduinoStyleGuide).
-
 
 
  
