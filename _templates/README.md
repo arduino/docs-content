@@ -43,7 +43,7 @@ Please read the [Arduino Style Guide](https://docs.arduino.cc/hacking/software/A
 
 ## Markdown
 
-We write all of our content in markdown. To be able to contribute properly to our website, we suggest you to do the same. Practise your markdown skills here: https://commonmark.org/help/tutorial/ 
+We write all of our content in markdown. To be able to contribute properly to our website, we suggest you to do the same. Practice your markdown skills here: https://commonmark.org/help/tutorial/ 
 
 You should use the following markdown styling for our content:
 
