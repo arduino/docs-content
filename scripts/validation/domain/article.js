@@ -190,8 +190,7 @@ export class Article {
      */
     get referencedAssetsPaths(){
         if(this._referencedAssetsPaths) return this._referencedAssetsPaths;
-        const images = this.html.querySelectorAll("img");
-        const imagePaths = images.map(image => image.attributes.src);
+        const imagePaths = this.referencedImages;
 
         const pathRegex = new RegExp(`^(?!http).*(${this.assetsFolder})\/.*(?:\..{1,4})$`);
         const filteredFilePaths = this.links.filter((link) => link.match(pathRegex));      
@@ -210,11 +209,14 @@ export class Article {
      * Returns all hyperlinks in the document
      */
     get links(){
-        let links = this.html.querySelectorAll("a");
-        return links.map(link => link.attributes.href);
+        let linkElements = this.html.querySelectorAll("a");
+        return linkElements.map(element => element.attributes.href);
     }
 
 
+    /**
+     * Determines the assets folder used by an article
+     */
     get assetsFolder(){
         if(this._assetFolder) return this._assetFolder;
         const validDirectories = ["assets", "images"];
@@ -227,9 +229,28 @@ export class Article {
             console.log("😬 WARNING: Using deprecated 'images' directory to store assets. Location:", this.path);
             this._assetFolder = validDirectories[1];
             return this._assetFolder;
-        }
-        console.log(`😬 WARNING: No standard assets directory (${validDirectories.join(" | ")}) found in: ${this.path}`);
+        }        
+
+        console.log(`😬 WARNING: No standard assets directory (${validDirectories.join(" | ")}) found in: ${this.path}`);        
+        
+        // Try to figure out assets path from the referenced images
+        const usedAssetPaths = this.referencedImages.map((assetPath) => {
+            const directory = path.dirname(assetPath)
+            if(!directory) return null;
+            return directory.split("/")[0];
+        })
+
+        const uniqueAssetPaths = usedAssetPaths.filter((element, index) => { return usedAssetPaths.indexOf(element) == index; });
+        if(uniqueAssetPaths.length == 1) return uniqueAssetPaths[0];
         return null;
+    }
+
+    /**
+     * Returns a list of referenced images in the article
+     */
+    get referencedImages(){
+        const images = this.html.querySelectorAll("img");
+        return images.map(image => image.attributes.src);
     }
 
     /**
