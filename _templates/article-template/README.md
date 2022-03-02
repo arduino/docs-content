@@ -12,7 +12,7 @@ Here is where you add the metadata of your article. This is including the author
 
 You must fill in title, description and author. The others are voluntary.
 
-![](assets/frontmatter.png)
+![Example of Frontmatter](assets/frontmatter.png)
 
 <hr>
 
@@ -28,7 +28,7 @@ The Introduction should be a maximum of three sentences long and be well descrip
 
 You are not allowed to change the name of the heading.
 
-![example](assets/art-intro.png)
+![Example of Introduction](assets/art-intro.png)
 
 ## Hardware & Software Needed
 
@@ -38,7 +38,7 @@ Here you set the hardware and software you need to continue your tutorial. You a
 
 You can modify the heading if your article only requires one of the two, either Hardware or Software.
 
-![example](assets/hardware.png)
+![Example of Hardware & Software](assets/hardware.png)
 
 ## Circuit/Schematic
 
@@ -48,9 +48,9 @@ Here you add the circuits and/or schematics of your tutorial.
 
 You are not allowed to change the name of the heading.
 
-![example](/_templates/article-template/assets/art-circuit.png)
+![Example of Circuit](/_templates/article-template/assets/art-circuit.png)
 
-![example](assets/art-schematic.png)
+![Example of Schematic](assets/art-schematic.png)
 
 
 

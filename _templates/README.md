@@ -55,7 +55,7 @@ You should use the following markdown styling for our content:
 
 Use bold when you are referring to either a path in the chosen software, or when you want to highlight a specific topic or button. See examples.
 
-![example](assets/bold1.png)
+![Example use of bold](assets/bold1.png)
 
 ### Inline Code
 
@@ -65,7 +65,7 @@ Use bold when you are referring to either a path in the chosen software, or when
 
 Use the inline code markdown for code inside text sections.
 
-![example](assets/inline-code.png)
+![Example use of inline code](assets/inline-code.png)
 
 ### Code snippets
 
@@ -83,7 +83,7 @@ this is my code
 
 Use the code snippet markdown for longer code snippets.
 
-![example](assets/code-snippet.png)
+![Example use of code snippet](assets/code-snippet.png)
 
 ### Notes
 
@@ -93,7 +93,7 @@ Use the code snippet markdown for longer code snippets.
 
 Use the three asterisks for note tags. Note that these can’t contain line-breaks.
 
-![example](assets/notes.png)
+![Example use of note tag](assets/notes.png)
 
 ### Quotes
 
@@ -101,7 +101,7 @@ Use the three asterisks for note tags. Note that these can’t contain line-brea
 
 > This is a quote.
 
-![example]()
+![Example use of quote tag]()
 
 ### Bullet points
 
@@ -117,7 +117,7 @@ Use the * or the - to make bullet points in your tutorial.
 
 If your bullet point is a full sentence, remember to punctuate it. If your bullet point is a single word, or words not making a sentence, leave the punctuation off.
 
-![example](assets/bullet-points.png)
+![Example use of bullet points](assets/bullet-points.png)
 
 ### Numbered lists
 
@@ -131,7 +131,7 @@ If your bullet point is a full sentence, remember to punctuate it. If your bulle
 
 Make sure to bold your numbering lists to make them format properly.
 
-![example](assets/numbered-list.png)
+![Example use of numbered lists](assets/numbered-list.png)
 
 ### Paths
 
@@ -139,7 +139,7 @@ This > is > my > path
 
 Use > when describing paths in your chosen software.
 
-![example](assets/path.png)
+![Example use of paths](assets/path.png)
 
 ### Images
 
@@ -147,7 +147,7 @@ Use > when describing paths in your chosen software.
 
 Used to display images.
 
-![example](assets/image-tags.png)
+![Example use of images](assets/image-tags.png)
 
 ## Graphics
 
@@ -157,8 +157,8 @@ All graphics should be 1920x1080. All graphics are stored in an assets folder in
 
 |Type|Purpose|Guidelines|Example|
 |----|-------|----------|-------|
-|Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylised electronic diagram explaining electric circuits.|We create the circuits diagrams and schematics. The only thing you need to do is provide us with a properly drawn schematic so that we can replicate it. <br>Please make sure to use the proper schematic style guides found [here]()|![example](assets/circuit1.png)<br>![](assets/circuit2.png)|
-|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Background color: #A5F2EE66 at 40% transparency. <br> The screenshot itself should be of high quality, good zoom.|![example](assets/screenshot1.png)<br>![](assets/screenshot2.png)<br>![](assets/screenshot3.png)|
+|Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylised electronic diagram explaining electric circuits.|We create the circuits diagrams and schematics. The only thing you need to do is provide us with a properly drawn schematic so that we can replicate it. <br>Please make sure to use the proper schematic style guides found [here]()|![Example of circuit](assets/circuit1.png)<br>![Example of circuit](assets/circuit2.png)|
+|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Background color: #A5F2EE66 at 40% transparency. <br> The screenshot itself should be of high quality, good zoom.|![Example of screenshot](assets/screenshot1.png)<br>![Example of screenshot](assets/screenshot2.png)<br>![](assets/screenshot3.png)|
 
 ## Naming Guidelines
 
@@ -166,11 +166,11 @@ All graphics should be 1920x1080. All graphics are stored in an assets folder in
 
 Name the tutorial folder after the title of your tutorial. The name of the folder should contain a maximum of 4 words divided by dashes.
 
-![](assets/tutorial-folder.png)
+![Naming of tutorial folder](assets/tutorial-folder.png)
 
 The tutorial folder should then contain an assets folder, as well as the main content markdown file. It’s important to name the main content file the same name as the tutorial folder.
 
-![](assets/tutorial-folder2.png)
+![Naming and formatting of tutorial folder](assets/tutorial-folder2.png)
 
 ### Images
 
@@ -179,13 +179,3 @@ There is no specific way you need to name the images, however it is a good pract
 `UNO-Mini-LE-external-power.png`
 
 `rp2040-ap-mode-img-01.png`
-
-<hr>
-
-
-
-
-
-
-
-
