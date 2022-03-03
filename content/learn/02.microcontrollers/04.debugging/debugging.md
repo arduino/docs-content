@@ -156,7 +156,7 @@ The Arduino® Zero board features an on-board debugger, the Atmel® Embedded Deb
 
 Arduino® boards with a SAMD microcontroller feature native on-chip debug capabilities; these debugging capabilities can be used with an external ICD tool over JTAG or SWD interfaces. CMSIS-DAP compliant debug probes can be used with the Arduino IDE 2.0 out of the box without any configuration file; non-standard debug probes require a special configuration. Check out these tutorials to learn how to use an external ICD tool with SAMD based Arduino boards and the Arduino IDE 2.0:
 
-* [Debugging with the Segger J-Link](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mkr-jlink-setup).
+* [Debugging with the SEGGER J-Link](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mkr-jlink-setup).
 * [Debugging with the Atmel-ICE](https://docs.arduino.cc/tutorials/mkr-wifi-1010/atmel-ice).
 
 ### Hardware Tools
@@ -224,7 +224,7 @@ Shown visual representation of the signal via SDR software can now be used to ve
 
 ## Debugging Techniques Example
 
-A simple example will be used to demonstrate implementation of different debugging techniques and how they can be very useful for the development process. We are going to use [Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) and use the LSM9DS1 inertial measurement unit's features to show the importance and ease of debugging process. The example code will be based on using [accelerometer](https://docs.arduino.cc/tutorials/nano-33-ble/imu_accelerometer), [gyroscope](https://docs.arduino.cc/tutorials/nano-33-ble/imu_gyroscope), and [magnetometer](https://docs.arduino.cc/tutorials/nano-33-ble/imu_magnetometer) at the same time, having the tasks to be executed in order to be able to obtain every value of the module. 
+A simple example will demonstrate the implementation of different debugging techniques and how they can be handy for the development process of a program in the Arduino® ecosystem. We will use the Arduino® Nano 33 BLE Sense board, and its onboard inertial measurement unit (IMU) features to show the debugging process's importance. The example code uses accelerometer, gyroscope, and magnetometer data simultaneously, having the tasks be executed to obtain every value:
 
 ```arduino
 /*
@@ -243,11 +243,10 @@ A simple example will be used to demonstrate implementation of different debuggi
 
 #include <Arduino_LSM9DS1.h>
 
-// For debugging purposes
 #define DUMP_BUFFER_SIZE 32
 unsigned char GoodBuffer[DUMP_BUFFER_SIZE];
 unsigned char BadBuffer[DUMP_BUFFER_SIZE];
-unsigned long Count = 0;
+unsigned long count = 0;
 uint8_t good, bad = 0;
 
 float x, y, z, ledvalue;
@@ -257,15 +256,14 @@ int plusThreshold = 30, minusThreshold = -30;
 void setup() {
   Serial.begin(9600);
   while (!Serial);
-  Serial.println("Started");
+  Serial.println("- Started");
 
   if (!IMU.begin()) {
-    Serial.println("Failed to initialize IMU!");
+    Serial.println("- Failed to initialize IMU!");
     
     bad++;
-    Save_Debug_Buffer();
-    Disp_Debug_Buffer();
-
+    save_bebug_buffer();
+    disp_debug_buffer();
     debug_stop();
   }
 
@@ -281,104 +279,112 @@ void loop() {
     magnetometer_task();
   }
   
-  Save_Debug_Buffer();
+  save_debug_buffer();
   debug_stop();
 }
 
+// Accelerometer setup
 void accelermeter_setup() {
   Serial.print(F("- Accelerometer sample rate: "));
   Serial.print(IMU.accelerationSampleRate());
   Serial.println(F(" Hz"));
 }
 
+// Read accelerometer data in all three directions task
 void accelerometer_task() {
   if (IMU.accelerationAvailable()) {
-    Serial.println(F("Accelerometer Data Ready "));
+    Serial.println(F("- Accelerometer data ready"));
     IMU.readAcceleration(x, y, z);
     good++;
   } else {
-    Serial.println(F("Accelerometer Data Not Ready "));
+    Serial.println(F("Accelerometer data not ready"));
     bad++;
   }
 
   if (x > 0.1) {
     x = 100 * x;
     degreesX = map(x, 0, 97, 0, 90);
-    Serial.print(F("Tilting up "));
+    Serial.print(F("- Tilting up "));
     Serial.print(degreesX);
     Serial.println(F("  degrees"));
   }
+
   if (x < -0.1) {
     x = 100 * x;
     degreesX = map(x, 0, -100, 0, 90);
-    Serial.print(F("Tilting down "));
+    Serial.print(F("- Tilting down "));
     Serial.print(degreesX);
     Serial.println(F("  degrees"));
   }
+
   if (y > 0.1) {
     y = 100 * y;
     degreesY = map(y, 0, 97, 0, 90);
-    Serial.print(F("Tilting left "));
+    Serial.print(F("- Tilting left "));
     Serial.print(degreesY);
     Serial.println(F("  degrees"));
   }
+
   if (y < -0.1) {
     y = 100 * y;
     degreesY = map(y, 0, -100, 0, 90);
-    Serial.print(F("Tilting right "));
+    Serial.print(F("- Tilting right "));
     Serial.print(degreesY);
     Serial.println(F("  degrees"));
   }
+  
   delay(1000);
 }
 
+// Gyroscope setup
 void gyroscope_setup(){
-  Serial.print(F("Gyroscope sample rate = "));
+  Serial.print(F("- Gyroscope sample rate = "));
   Serial.print(IMU.gyroscopeSampleRate());
   Serial.println(F(" Hz"));
   Serial.println();
-  Serial.println(F("Gyroscope in degrees/second"));
+  Serial.println(F("- Gyroscope in degrees/second"));
 }
 
+// Read gyroscope data in all three directions task
 void gyroscope_task(){
   if (IMU.gyroscopeAvailable()) {
     IMU.readGyroscope(x, y, z);
-    Serial.println(F("GyroScope Data Ready "));
+    Serial.println(F("- Gyroscope data ready"));
     good++;
   } else {
-    Serial.println(F("GyroScope Data Not Ready "));
+    Serial.println(F("- Gyroscope data not ready"));
     bad++;
   }
 
   if(y > plusThreshold){
-    Serial.println(F("Collision front"));
+    Serial.println(F("- Collision front"));
     delay(500);
   }
 
   if(y < minusThreshold){
-    Serial.println(F("Collision back"));
+    Serial.println(F("- Collision back"));
     delay(500);
   }
 
   if(x < minusThreshold){
-    Serial.println(F("Collision right"));
+    Serial.println(F("- Collision right"));
     delay(500);
   }
 
   if(x > plusThreshold){
-    Serial.println(F("Collision left"));
+    Serial.println(F("- Collision left"));
     delay(500);
   }
 }
 
+// Read magnetometer data in all three directions task
 void magnetometer_task(){
-  // read magnetic field in all three directions
   IMU.readMagneticField(x, y, z);
   
-  if(x < 0){
+  if(x < 0) {
     ledvalue = -(x);
   }
-  else{
+  else {
     ledvalue = x;
   }
   
@@ -387,23 +393,23 @@ void magnetometer_task(){
 }
 
 // For debugging purposes
-void Save_Debug_Buffer(void) {
-  if (Count < DUMP_BUFFER_SIZE) {
-    GoodBuffer[Count] = good;
-    BadBuffer[Count] = bad;
+void save_debug_buffer(void) {
+  if (count < DUMP_BUFFER_SIZE) {
+    GoodBuffer[count] = good;
+    BadBuffer[count] = bad;
     Disp_Debug_Buffer();
-    Count++;
+    count++;
   }
 }
 
-void Disp_Debug_Buffer(){
+void disp_debug_buffer(){
   // Simple log of Good or Bad Pass Marks during runtime
   Serial.println(F("\n Strategic Array Dump Result >>"));
   Serial.print(F("Good Marks: "));
-  Serial.println(GoodBuffer[Count]);
+  Serial.println(GoodBuffer[count]);
   
   Serial.print(F("Bad Marks: "));
-  Serial.println(BadBuffer[Count]);
+  Serial.println(BadBuffer[count]);
 }
 
 void debug_stop(){
@@ -412,19 +418,19 @@ void debug_stop(){
 }
 ```
 
-The complete code as shown unifies accelerometer, gyroscope, and magnetometer into a single code structure. As it involves tasks from different modules, it is separated into different functions and executed in a more identifiable manner. It includes the **Strategic Array Dump** to understand exactly how the code operates. The `good` and `bad` marks are located at the points of interest, and will dump into assigned arrays to be able to display at the end of the code. 
+As shown, the complete code unifies the accelerometer, gyroscope, and magnetometer into a single code structure. As it involves tasks from different modules, it is separated into different functions and executed in a more identifiable manner. The code includes a **trace code** technique for debugging (dump into an array) to understand precisely how the code operates. The `good` and `bad` marks are located at the points of interest in the code and will dump into assigned arrays to be able to display at the end of the code. 
 
-It is crucial to know when to stop the code to be able to debug the code. While the code above is capable of debugging at runtime, it is much easier to debug knowing when to or how to stop the code operation. For instance, stopping within first run, will give you following result. 
+It is crucial to know when to stop the code from debugging. While the code shown above can be debugged at runtime, it is much easier to know when to stop or how to stop the code operation. For instance, stopping within the first run gives the following result: 
 
 ![Strategic Array Dump - Only One Runtime Instance](assets/debug_dump_print.png)
 
-In the serial monitor we can observe that it has 1 good mark and 1 bad mark. The good mark came from the gyroscope having ready the data for the use, while the bad mark comes from the accelerometer as the data was not ready. So it is possible to see the accelerometer does not have enough time to get the data ready before it gets to the measurement task. We can try by running certain amount of instances before it gets to array dump sector, and the result can be seen as follows.
+In the Arduino Serial Monitor, we can observe that it has a `1` good mark and a `1` bad mark. The good mark came from the gyroscope having ready the data for use, while the bad mark came from the accelerometer as the data was not ready. So it is possible to see that the accelerometer does not have enough time to get the data ready before it gets to the measurement task. We can try by running a certain number of instances before it gets to the array dump sector, and the result can be seen as follows: 
 
 ![Strategic Array Dump - 5 Runtime Instance](assets/debug_dump_print_iter.png)
 
-The accelerometer was able to perform its task without any issue with the exception of the first runtime instance, resulting in 9 good marks but 1 bad mark due to this behaviour. By this, it is possible to know the code structure does not misbehave, but for the first time when the device is starting, the accelerometer requires more time to be able to get the data ready in the first instance. The `Serial.println(F())` of module setups, and task runtimes also show us if the code was able to get past the operations without any issue. 
+The accelerometer performed its task without any issue except the first runtime instance, resulting in `9` good marks but `1` bad mark due to this behavior. The `Serial.println(F())`  instruction of module setups and task runtimes also shows us if the code could get past the operations without any issue. By this, it is possible to know the code structure does not misbehave, but for the first time when the device is starting, the accelerometer requires more time to get the data ready in the first instance.
 
-Additionally, it is possible to modify the loop code by adding simply GPIO 13 to drive High and Low to measure the time it takes to complete 3 module tasks. It will be also helpful to understand the power consumption it draws from this runtime instance. 
+Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction to measure the time it takes to complete the three module tasks. It will also be helpful to understand the power consumption it draws from this runtime instance:
 
 ```arduino
 void loop() {
@@ -451,9 +457,9 @@ Debugging is a necessary step for developing robust and reliable embedded system
 * **Localization**: this phase involves narrowing the range of possibilities until the bug can be isolated to a specific code segment in the embedded software.
 * **Correction**: this phase involves eradicating the bug from the software. 
 
-Knowing the potential causes of bugs allows us to adopt strategies that minimize their occurrence. To aid this process, lots of different debugging technniques and external devices are present. Maybe some software designs does not require the usage of external debuggers for example, but when the software involves different levels of requirements and specially when it requires scalability, things change drastically for the development process. The debugging techniques and the external debuggers will support this development process, thus granting refined software. You will know how the device will behave in most cases with the software, its computational performance, and even achieve non-power hungry devices due to clean memory management. 
+Knowing the potential causes of bugs allows us to adopt strategies that minimize their occurrence. Many different debugging techniques and external devices are present to aid this process. Maybe some software designs do not require the usage of external debuggers, for example. However, when the software involves different requirements, especially scalability, things change drastically for the development process. The debugging techniques and the external debuggers will support this development process, thus granting sophisticated software. In most cases, we will know how the device will behave with the software, its computational performance, and even achieve non-power hungry devices due to clean memory management.
 
-The debugging may be an overlooked aspect of the development, but it is the most serious yet crucial tool that exists for the development. If you desire to develop a genuine device, the debugging process should always be implemented, to achieve its genuine performance. 
+Debugging may be an overlooked aspect of development, but it is the most serious yet crucial tool for development. If we desire to develop a robust and reliable device, the debugging process should consistently be implemented to achieve this goals.
 
 ## Further Reading and Resources
 
