@@ -18,7 +18,7 @@ software:
 
 The [UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2) is the connected version of the classic UNO board. If you are using a **Chromebook**, setting up your board is a bit different for this particular board:
 
-- You will need to upgrade the firmware using either a **Windows/Mac/Linux** computer, prior to programming it via a Chromebook. Detailed instructions are provided in this tutorial, and the process only takes a few minutes!
+- You will need to upgrade the firmware using either a **Windows/Mac** computer, prior to programming it via a Chromebook. Detailed instructions are provided in this tutorial, and the process only takes a few minutes!
 - It is only possible to use the [Web Editor](https://create.arduino.cc/editor), an online IDE that is part of the [Arduino Cloud](https://cloud.arduino.cc/).
 
 ***Note that only the Web Editor is supported in Chromebooks. It is not possible to configure and upload to UNO WiFi Rev 2 boards via the [IoT Cloud](https://create.arduino.cc/iot/things).***
@@ -42,7 +42,7 @@ The goals of this project are:
 
 ## Upgrading Firmware
 
-Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi Rev 2 needs to be done through a computer with the Windows/Mac/Linux OS installed. 
+Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi Rev 2 needs to be done through a computer with the Windows/Mac OS installed. 
 
 **1.** Make sure you have installed [Arduino IDE 1.8.X](https://www.arduino.cc/en/software).
 
@@ -52,24 +52,16 @@ Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi 
 
 **3.** Open your Command Prompt (Windows) or Terminal (Mac), copy paste the command for your OS from the snippets below.
 
-***Please note that the path may be updated in the future (`6.3.0-arduino17` may change to for example `6.4.0-arduino18`).***
-
-**Mac Command:**
+### Mac Command
 
 ```
-/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
+/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C /Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
 ```
 
-**Windows Command:**
+### Windows Command
 
 ```
-%userprofile%\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17\bin\avrdude.exe -C%userprofile%\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17\etc\avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:%userprofile%\Desktop\optiboot_atmega4809.hex:i
-```
-
-**Linux Command:**
-
-```
-/home/$(whoami)/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/$(whoami)/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m  -Uflash:w:/home/$(whoami)/Desktop/optiboot_atmega4809.hex:i
+"C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avrdude.exe" -C "C:/Program Files (x86)/Arduino/hardware/tools/avr/etc/avrdude.conf" -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:%userprofile%\Desktop\optiboot_atmega4809.hex:i
 ```
 
 **4.** This will start a process of uploading the `.hex` file to your board. This will not take long, but make sure you do not disconnect the board from your computer. When finished, you should see the following output in the terminal (screen capture from Windows): 
@@ -85,19 +77,13 @@ The above commands utilizes a tool called **AVRDUDE**, which is included in each
 **Windows:**
 
 ```
-%userprofile%\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17\bin\avrdude
+"C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avrdude.exe"
 ```
 
 **Mac:**
 
 ```
-/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude
-```
-
-**Linux:**
-
-```
-/home/$(whoami)/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude
+/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude
 ```
 
 ### Troubleshoot
@@ -105,7 +91,7 @@ The above commands utilizes a tool called **AVRDUDE**, which is included in each
 If the command fails to upgrade the firmware, please make sure that:
 
 - Arduino IDE / AVRDUDE is installed.
-- That you are using a Windows/Mac/Linux machine (remember, this cannot be performed on a Chromebook).
+- That you are using a Windows/Mac machine (remember, this cannot be performed on a Chromebook).
 - That you have the `.hex` file in the Desktop folder. The command is written to look for it in that specific folder, so if it is not present, it will not work.
 
 ## Install Arduino App (Chrome Store)
