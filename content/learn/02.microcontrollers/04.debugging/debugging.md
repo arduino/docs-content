@@ -154,10 +154,14 @@ The Arduino® Zero board features an on-board debugger, the Atmel® Embedded Deb
 
 ![Arduino® Zero EDGB.](assets/debugging_img07.png)
 
-Arduino® boards with a SAMD microcontroller feature native on-chip debug capabilities; these debugging capabilities can be used with an external ICD tool over JTAG or SWD interfaces. CMSIS-DAP compliant debug probes can be used with the Arduino IDE 2.0 out of the box without any configuration file; non-standard debug probes require a special configuration. Check out these tutorials to learn how to use an external ICD tool with SAMD based Arduino boards and the Arduino IDE 2.0:
+Arduino® boards with a SAMD microcontroller feature native on-chip debug capabilities; these debugging capabilities can be used with an external ICD tool over JTAG or SWD interfaces. **CMSIS-DAP compliant debug probes can be used with the Arduino IDE 2.0** out of the box without any configuration file; non-standard debug probes require a special configuration. Check out these tutorials to learn how to use an external ICD tool with SAMD based Arduino boards and the Arduino IDE 2.0:
 
 * [Debugging with the SEGGER J-Link](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mkr-jlink-setup).
 * [Debugging with the Atmel-ICE](https://docs.arduino.cc/tutorials/mkr-wifi-1010/atmel-ice).
+
+The [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7), [H7 Lite](https://store.arduino.cc/products/portenta-h7-lite), and [H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected) boards from the [Pro family](https://www.arduino.cc/pro) also support ICD debugging; these boards use the TRACE32 debugger from Lauterbach. The TRACE32 debugger allows testing embedded hardware and software by using the in-circuit debug interface of processors. Check out this tutorial to learn how to use the TRACE32 debugger with the Portenta family boards: 
+
+* [Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-trace32).
 
 ### Hardware Tools
 
@@ -224,7 +228,7 @@ Shown visual representation of the signal via SDR software can now be used to ve
 
 ## Debugging Techniques Example
 
-A simple example will demonstrate the implementation of different debugging techniques and how they can be handy for the development process of a program in the Arduino® ecosystem. We will use the Arduino® Nano 33 BLE Sense board, and its onboard inertial measurement unit (IMU) features to show the debugging process's importance. The example code uses accelerometer, gyroscope, and magnetometer data simultaneously, having the tasks be executed to obtain every value:
+A simple example will demonstrate the implementation of some of the debugging techniques we discussed before and how they can be handy for the development process of code in the Arduino® ecosystem. We will use the [Arduino® Nano 33 BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) board, and its onboard inertial measurement unit (IMU) features to show the debugging process's importance. The example code uses accelerometer, gyroscope, and magnetometer data simultaneously, having the tasks be executed to obtain every value:
 
 ```arduino
 /*
@@ -297,7 +301,7 @@ void accelerometer_task() {
     IMU.readAcceleration(x, y, z);
     good++;
   } else {
-    Serial.println(F("Accelerometer data not ready"));
+    Serial.println(F("- Accelerometer data not ready"));
     bad++;
   }
 
@@ -337,7 +341,7 @@ void accelerometer_task() {
 }
 
 // Gyroscope setup
-void gyroscope_setup(){
+void gyroscope_setup() {
   Serial.print(F("- Gyroscope sample rate = "));
   Serial.print(IMU.gyroscopeSampleRate());
   Serial.println(F(" Hz"));
@@ -346,7 +350,7 @@ void gyroscope_setup(){
 }
 
 // Read gyroscope data in all three directions task
-void gyroscope_task(){
+void gyroscope_task( ) {
   if (IMU.gyroscopeAvailable()) {
     IMU.readGyroscope(x, y, z);
     Serial.println(F("- Gyroscope data ready"));
@@ -356,22 +360,22 @@ void gyroscope_task(){
     bad++;
   }
 
-  if(y > plusThreshold){
+  if(y > plusThreshold) {
     Serial.println(F("- Collision front"));
     delay(500);
   }
 
-  if(y < minusThreshold){
+  if(y < minusThreshold) {
     Serial.println(F("- Collision back"));
     delay(500);
   }
 
-  if(x < minusThreshold){
+  if(x < minusThreshold) {
     Serial.println(F("- Collision right"));
     delay(500);
   }
 
-  if(x > plusThreshold){
+  if(x > plusThreshold) {
     Serial.println(F("- Collision left"));
     delay(500);
   }
@@ -397,22 +401,22 @@ void save_debug_buffer(void) {
   if (count < DUMP_BUFFER_SIZE) {
     GoodBuffer[count] = good;
     BadBuffer[count] = bad;
-    Disp_Debug_Buffer();
+    disp_debug_buffer();
     count++;
   }
 }
 
-void disp_debug_buffer(){
-  // Simple log of Good or Bad Pass Marks during runtime
-  Serial.println(F("\n Strategic Array Dump Result >>"));
-  Serial.print(F("Good Marks: "));
+// Debugging array buffer
+void disp_debug_buffer() {
+  Serial.println(F("\n Debugging array buffer result >>"));
+  Serial.print(F("- Good marks: "));
   Serial.println(GoodBuffer[count]);
   
-  Serial.print(F("Bad Marks: "));
+  Serial.print(F("- Bad marks: "));
   Serial.println(BadBuffer[count]);
 }
 
-void debug_stop(){
+void debug_stop() {
   Serial.flush();
   exit(1);
 }
@@ -430,7 +434,7 @@ In the Arduino Serial Monitor, we can observe that it has a `1` good mark and a 
 
 The accelerometer performed its task without any issue except the first runtime instance, resulting in `9` good marks but `1` bad mark due to this behavior. The `Serial.println(F())`  instruction of module setups and task runtimes also shows us if the code could get past the operations without any issue. By this, it is possible to know the code structure does not misbehave, but for the first time when the device is starting, the accelerometer requires more time to get the data ready in the first instance.
 
-Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction to measure the time it takes to complete the three module tasks. It will also be helpful to understand the power consumption it draws from this runtime instance:
+Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction before tasks are called instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction after the tasks are exectued to measure the time it takes to complete them. This can also be helpful to understand the power consumption it draws from this runtime instance:
 
 ```arduino
 void loop() {
@@ -442,7 +446,7 @@ void loop() {
     digitalWrite(LED_BUILTIN, LOW); 
   }
   
-  Save_Debug_Buffer();
+  save_debug_buffer();
 
   debug_stop();
 }
@@ -459,7 +463,7 @@ Debugging is a necessary step for developing robust and reliable embedded system
 
 Knowing the potential causes of bugs allows us to adopt strategies that minimize their occurrence. Many different debugging techniques and external devices are present to aid this process. Maybe some software designs do not require the usage of external debuggers, for example. However, when the software involves different requirements, especially scalability, things change drastically for the development process. The debugging techniques and the external debuggers will support this development process, thus granting sophisticated software. In most cases, we will know how the device will behave with the software, its computational performance, and even achieve non-power hungry devices due to clean memory management.
 
-Debugging may be an overlooked aspect of development, but it is the most serious yet crucial tool for development. If we desire to develop a robust and reliable device, the debugging process should consistently be implemented to achieve this goals.
+Debugging may be an overlooked aspect in developing embedded systems, but it is its most serious yet crucial tool. If we desire to develop robust and reliable embedded systems, the debugging process should consistently be implemented to achieve these goals.
 
 ## Further Reading and Resources
 
