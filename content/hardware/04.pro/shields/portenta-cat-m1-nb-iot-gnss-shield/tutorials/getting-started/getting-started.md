@@ -37,7 +37,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
-- [Portenta Cat. M1/NB IoT GNSS Shield](https://store.arduino.cc/products/portenta-catm1?queryID=undefined)
+- [Portenta Cat. M1/NB IoT GNSS Shield](https://store.arduino.cc/products/portenta-catm1)
 - [Dipole Antenna](https://store.arduino.cc/antenna) (or equivalent product with the same frequency range).
 
 ## Instructions
