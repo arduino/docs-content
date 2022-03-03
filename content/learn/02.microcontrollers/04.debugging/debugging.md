@@ -163,6 +163,8 @@ The [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7), [H7 
 
 * [Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-trace32).
 
+![The Arduino® Portenta H7](assets/debugging_img09.png).
+
 ### Hardware Tools
 
 Embedded systems developers and typical software developers differ on a key aspect: their "closeness" to hardware; embedded system developers are usually closer to hardware than typical software developers. There are several tools that embedded systems developers use to find out what is going on with the hardware, which is very helpful for low-level software debugging. These tools are **multimeters**, **logic analyzers**, **oscilloscopes**, and **software-defined radios** (SDRs). 
@@ -426,15 +428,15 @@ As shown, the complete code unifies the accelerometer, gyroscope, and magnetomet
 
 It is crucial to know when to stop the code from debugging. While the code shown above can be debugged at runtime, it is much easier to know when to stop or how to stop the code operation. For instance, stopping within the first run gives the following result: 
 
-![Strategic Array Dump - Only One Runtime Instance](assets/debug_dump_print.png)
+![Only one runtime instance of the debugging array.](assets/debug_dump_print.png)
 
 In the Arduino Serial Monitor, we can observe that it has a `1` good mark and a `1` bad mark. The good mark came from the gyroscope having ready the data for use, while the bad mark came from the accelerometer as the data was not ready. So it is possible to see that the accelerometer does not have enough time to get the data ready before it gets to the measurement task. We can try by running a certain number of instances before it gets to the array dump sector, and the result can be seen as follows: 
 
-![Strategic Array Dump - 5 Runtime Instance](assets/debug_dump_print_iter.png)
+![5 runtime instance of the debugging array.](assets/debug_dump_print_iter.png)
 
 The accelerometer performed its task without any issue except the first runtime instance, resulting in `9` good marks but `1` bad mark due to this behavior. The `Serial.println(F())`  instruction of module setups and task runtimes also shows us if the code could get past the operations without any issue. By this, it is possible to know the code structure does not misbehave, but for the first time when the device is starting, the accelerometer requires more time to get the data ready in the first instance.
 
-Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction before tasks are called instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction after the tasks are exectued to measure the time it takes to complete them. This can also be helpful to understand the power consumption it draws from this runtime instance:
+Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction before tasks are called instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction after the tasks are executued to measure the time it takes to complete them. This can also be helpful to understand the power consumption it draws from this runtime instance:
 
 ```arduino
 void loop() {
