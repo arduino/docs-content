@@ -15,19 +15,17 @@ This tutorial will focus on creating **circuit diagrams**, **schematics** and **
 
 - Don't over-use images.
 - Format images to be 1920x1080
-- 
 
 ### Suggested creation platforms
 
 - Fritzing
 - Figma
-- 
 
 ## Image styles
 
 ### Circuit Diagrams
 
-![](assets/simple-circuit.png)
+![Example of a circuit diagram](assets/simple-circuit.png)
 
 **Circuit diagrams** represent how Arduino products work with components in order to function. 
 
@@ -51,19 +49,21 @@ This tutorial will focus on creating **circuit diagrams**, **schematics** and **
 
 ![Colors of jumper wires](assets/jumperwires.png)
 
+Components for the circuit diagrams can be found [here]().
+
 ### Schematics
 
-![](assets/simple-schematic.png)
+![Example of schematic.](assets/simple-schematic.png)
 
 A **schematic** is a stylized electronic diagram explaining electric circuits.
 
 Standard circuit diagrams or schematics are non stylised and are used primarily by hardware engineers and programmers internally. An example of this can be seen below.
 
-![](assets/engineer-schematic.png)
+![Complex schematic.](assets/engineer-schematic.png)
 
 The schematics for the Arduino Documentation website however are a bit more simple.
 
-![](assets/simple-schematic.png)
+![Simple schematic.](assets/simple-schematic.png)
 
 **Basic rules**
 
@@ -72,8 +72,18 @@ The schematics for the Arduino Documentation website however are a bit more simp
 
 ### Screenshots
 
-![]()
+![Example of screenshot.](assets/screenshot-example.png)
 
 **Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.
 
+When taking screenshots it's important to think of legibility, consistency and aesthetic. 
 
+|Background color|Code|
+|-----|----|
+|Teal|#A5F2EE66 at 40%|
+
+![Example browser.](assets/screenshot.png)
+
+![Example standard IDE.](assets/Example%20-%20Standard%20IDE%20Screenshot.png)
+
+![Example zoomed in.](assets/Example%20-%20Zoomed%20in%20Screenshot%20on%20specific%20area.png)
