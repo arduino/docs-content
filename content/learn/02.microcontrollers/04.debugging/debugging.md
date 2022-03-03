@@ -436,7 +436,7 @@ In the Arduino Serial Monitor, we can observe that it has a `1` good mark and a 
 
 The accelerometer performed its task without any issue except the first runtime instance, resulting in `9` good marks but `1` bad mark due to this behavior. The `Serial.println(F())`  instruction of module setups and task runtimes also shows us if the code could get past the operations without any issue. By this, it is possible to know the code structure does not misbehave, but for the first time when the device is starting, the accelerometer requires more time to get the data ready in the first instance.
 
-Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction before tasks are called instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction after the tasks are executued to measure the time it takes to complete them. This can also be helpful to understand the power consumption it draws from this runtime instance:
+Additionally, it is possible to modify the loop code by simply adding a `digitalWrite(LED_BUILTIN, HIGH)` instruction before tasks are called instruction and a `digitalWrite(LED_BUILTIN, LOW)` instruction after the tasks are executed to measure the time it takes to complete them. This can also be helpful to understand the power consumption it draws from this runtime instance:
 
 ```arduino
 void loop() {
