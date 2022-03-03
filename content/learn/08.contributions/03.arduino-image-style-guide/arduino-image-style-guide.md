@@ -78,12 +78,15 @@ The schematics for the Arduino Documentation website however are a bit more simp
 
 When taking screenshots it's important to think of legibility, consistency and aesthetic. 
 
+* On a Mac use cmd + shift + 4 + space bar to take a screen shot of a specific Application window.
+* On a PC use a specific tool screenshot tool and take a shot of the specific Application window.
+
 |Background color|Code|
 |-----|----|
 |Teal|#A5F2EE66 at 40%|
 
 ![Example browser.](assets/screenshot.png)
 
-![Example standard IDE.](assets/Example%20-%20Standard%20IDE%20Screenshot.png)
+![Example standard IDE.](assets/standard-IDE-screenshot.png)
 
-![Example zoomed in.](assets/Example%20-%20Zoomed%20in%20Screenshot%20on%20specific%20area.png)
+![Example zoomed in.](assets/zoomed-in-screenshot-on-specific-area.png)
