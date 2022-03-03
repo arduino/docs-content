@@ -2,7 +2,7 @@
 title: 'Writing a Library for Arduino'
 description: 'Creating libraries to extend the functionality of Arduino. Goes step-by-step through the process of making a library from a sketch.'
 tags: 
-  - Style Guide
+  - Styleguide
   - Guidelines
   - Libraries
 ---
