@@ -78,7 +78,7 @@ After finishing this setup compile and upload the program. If everything went fi
 
 ### API
 
-To get familiar with the commands, you can have a look at the [MKR GSM library](https://www.arduino.cc/en/Reference/GSM) which uses the same API.
+To get familiar with the commands, you can have a look at the [GSM library](https://www.arduino.cc/en/Reference/GSM) which uses the same API.
 
 This library contains some commands that are quite different, that's because it is using mbed APIs. In this case it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about their API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
