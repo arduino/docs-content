@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Style Guide for creating Libraries'
+title: 'Arduino Style Guide for Creating Libraries'
 description: 'Learn how to write library APIs in an Arduino style.'
 tags: 
   - Styleguide

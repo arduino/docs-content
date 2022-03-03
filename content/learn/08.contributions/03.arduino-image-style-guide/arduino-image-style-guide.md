@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Style Guide for creating images'
+title: 'Arduino Style Guide for Creating Images'
 description: 'Learn how to create clear Arduino approved images for your contributed content.'
 tags: 
   - Styleguide
