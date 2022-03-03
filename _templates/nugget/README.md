@@ -76,6 +76,8 @@ You are not allowed to change the name of the heading.
 
 <hr>
 
+# The Sections of a Nugget
+
 |Section|Rules|Description|Example|
 |-------|-----|-----------|-------|
 |**Frontmatter**|h2 heading <br><br> You are not allowed to change the name of the heading.|Here is where you add the metadata of your nugget. This is including the author, title of nugget, compatible libraries, compatible hardware etc. <br><br> You must fill in title, description and author. The others are voluntary. **Note** that you must remove the sections in the frontmatter which are empty.|![Example of Frontmatter](assets/frontmatter.png)|
