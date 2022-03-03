@@ -152,10 +152,10 @@ export class Article {
         if(this._emphasizedTextData) return this._emphasizedTextData;
 
         let data = new Array();
-        const italicRegex1 = new RegExp(/(?<!\*)\*(?<text>[^* ].*?)\*(?!\*)/, "g");
-        const italicRegex2 = new RegExp(/(?<!_)_(?<text>[^_].*?)_(?!_)/, "g");
-        const boldRegex1 = new RegExp(/(?<!\*)\*\*(?<text>[^* ].*?)\*\*(?!\*)/, "g");
-        const boldRegex2 = new RegExp(/(?<!_)__(?<text>[^_].*?)__(?!_)/, "g");
+        const italicRegex1 = new RegExp(/(?<=\W)(?<!\*)\*(?<text>[^\*]+?)\*(?!\*)/, "g");
+        const italicRegex2 = new RegExp(/(?<=\W)(?<!_)_(?<text>[^_]+?)_(?!_)/, "g");
+        const boldRegex1 = new RegExp(/(?<=\W)(?<!\*)\*\*(?<text>[^\*\*]+?)\*\*(?!\*)/, "g");
+        const boldRegex2 = new RegExp(/(?<=\W)(?<!_)__(?<text>[^__]+?)__(?!_)/, "g");
         const regexes = [
             {regex : italicRegex1, type : "italic" },
             {regex : italicRegex2, type : "italic" },
