@@ -1,6 +1,6 @@
 ---
-title: 'Arduino Style Guide for Writing Content
-description: 'Learn how to write clear Arduino examples that can be read by beginners and advanced users alike.'
+title: 'Arduino Style Guide for creating Libraries'
+description: 'Learn how to write library APIs in an Arduino style.'
 tags: 
   - Style Guide
   - Guidelines
