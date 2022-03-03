@@ -10,11 +10,13 @@ libraries:
 hardware:
   - hardware/03.nano/boards/nano-rp2040-connect
 software:
-  - ide-vi
+  - ide-v1
   - ide-v2
   - web-editor
   - iot-cloud
 ---
+
+<!--Update the frontmatter above with information that fits your tutorial. Remove the section that are not relevant or filled in. Note that you must at least fill in the title, description and author.-->
 
 ## Introduction 
 

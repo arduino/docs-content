@@ -1,17 +1,22 @@
 ---
-title: ''
-description: ''
+title: 'Article Template'
+description: 'This is the template for creating an article for the Arduino Documentation website.'
 tags: 
-  - 
-author: ''
+  - article
+author: 'Arduino'
 libraries:
-  - name: 
-    url: 
+  - name: Arduino PDM
+    url: https://www.arduino.cc/en/Reference/PDM
 hardware:
-  - hardware/
+  - hardware/03.nano/boards/nano-rp2040-connect
 software:
-  - 
+  - ide-v1
+  - ide-v2
+  - web-editor
+  - iot-cloud
 ---
+
+<!--Update the frontmatter above with information that fits your article. Remove the section that are not relevant or filled in. Note that you must at least fill in the title, description and author.-->
 
 ## Introduction
 
