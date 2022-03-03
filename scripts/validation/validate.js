@@ -4,7 +4,7 @@ import { ArticleManager } from './logic/article-manager.js';
 import { validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase } from './validations/headings.js'
 import { validateMetaData } from './validations/metadata.js';
 import { validateRules } from './validations/rules.js';
-import { validateImageDescriptions, validateImagePaths, validateReferencedImages, validateSVGFiles } from './validations/images.js';
+import { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles } from './validations/assets.js';
 import { validateSyntaxSpecifiers } from './validations/code-blocks.js';
 import { validateNestedLists } from './validations/lists.js';
 import { validateBrokenLinks } from './validations/links.js';
@@ -57,7 +57,7 @@ if(configManager.options.checkBrokenLinks){
 };
 
 // Verify that all files in the assets folder are referenced
-validator.addValidation(allArticles, validateReferencedImages);
+validator.addValidation(allArticles, validateReferencedAssets);
 
 // Verify that the images exist and don't have an absolute path
 validator.addValidation(allArticles, validateImagePaths);

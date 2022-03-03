@@ -1,6 +1,5 @@
 ---
 title: Sensors Readings on a Local Webserver
-coverImage: assets/por_ard_usbh_cover.svg
 difficulty: intermediate
 tags: [Bluetooth®, WEBAPP, CLI, Installation]
 description: This tutorial teaches you how to set up the Nicla Sense ME and your computer to use the already built tool to get data and configure the board using a CLI app.
