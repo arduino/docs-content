@@ -163,7 +163,7 @@ The [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7), [H7 
 
 * [Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-trace32).
 
-![The Arduino® Portenta H7](assets/debugging_img09.png).
+![The Arduino® Portenta H7.](assets/debugging_img09.png)
 
 ### Hardware Tools
 
@@ -184,6 +184,8 @@ A digital multimeter (DMM) is a hardware tool that can be used to measure two or
 A logic analyzer is a hardware tool designed specifically for capturing, displaying, and measuring electrical signals in a digital circuit. This tool consists of several digital inputs pins capable of detecting whether an electric signal is at a specific logic level (1 or 0). Logic analyzers are also capable of showing the relationship and timing of different electrical signals in a digital circuit and often capable also of analyzing digital communication protocols (for example, SPI communication protocol).
 
 ![24MHz, 8-channel logic analyzer. Source: Sparfun Electronics®.](assets/debugging_img01.png)
+
+> "Sparkfun® images are [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)"
 
 #### Oscilloscopes
 
