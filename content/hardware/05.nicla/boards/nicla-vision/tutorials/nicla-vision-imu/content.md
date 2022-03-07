@@ -34,7 +34,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [LSM6DSOX library](https://github.com/arduino-libraries/Arduino_LSM6DSOX) 
-- Nicla Vision board (<https://store.arduino.cc/products/nicla-vision>)
+- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 
 ## IMU (Inertial Measurement Unit)
 
