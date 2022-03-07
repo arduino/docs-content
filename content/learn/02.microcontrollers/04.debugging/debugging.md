@@ -131,7 +131,15 @@ Simulators are tools used to **simulate the functionality and the instruction se
 
 An **in-circuit emulator** (or ICE) is a specialized tool that allows developers to examine the state of the processor while a particular program is running. ICEs are considered embedded systems by themselves; they are a copy of the target processor and its memory (RAM and ROM); this is why they provide an unintrusive way to debug code at the target processor. Historically, ICEs were the tool of choice of embedded systems developers, but as processor complexity and clock speed increased, ICEs became more expensive, and their availability declined considerably.
 
+![An early 1990s Mikrotek in-circuit emulator for 8086 microprocessors.](assets/debugging_img13.png)
+
+> [Binarysequence](https://commons.wikimedia.org/wiki/File:Microtek_8086_In-Circuit_Emulator.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0>), via Wikimedia Commons.
+
 An **in-circuit debugger** (or ICD) is also a specialized tool connected between a host computer and a processor for debugging real-time applications faster and easier; this tool uses some memory and GPIO pins of the target microcontroller during the debugging operations. With an ICD, developers access an on-chip debug module which is integrated into the CPU over an interface (for example, JTAG). This debug module allows developers to load, run, halt and step the processor.
+
+![SEGGER J-Link EDU JTAG/SWD debug probe.](assets/debugging_img14.png)
+
+> [SEGGER Microcontroller GmbH & Co](https://commons.wikimedia.org/wiki/File:Segger_J-Link_EDU.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons.
 
 ***The fundamental difference between an ICE and an ICD relies on the resources used to control the debug target. In ICEs, resources are provided by the emulation hardware; in ICDs, resources are provided by the target processor.*** 
 
@@ -177,27 +185,33 @@ Let us take a look at each one of the hardware debugging tools. A basic understa
 
 A digital multimeter (DMM) is a hardware tool that can be used to measure two or more electrical values, usually voltage (in volts), current (in amps), and resistance (in ohms). DMMs are great tools and one of the most fundamental pieces of test equipment that can be used to debug electrical problems within an embedded system.
 
-![Digital multimeter. Source: Fluke®.](assets/debugging_img06.png)
+![Digital multimeter.](assets/debugging_img06.png)
+
+> [oomlout](https://commons.wikimedia.org/wiki/File:Digital_Multimeter.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons. 
 
 #### Logic Analyzers
 
 A logic analyzer is a hardware tool designed specifically for capturing, displaying, and measuring electrical signals in a digital circuit. This tool consists of several digital inputs pins capable of detecting whether an electric signal is at a specific logic level (1 or 0). Logic analyzers are also capable of showing the relationship and timing of different electrical signals in a digital circuit and often capable also of analyzing digital communication protocols (for example, SPI communication protocol).
 
-![24MHz, 8-channel logic analyzer. Source: Sparfun Electronics®.](assets/debugging_img01.png)
+![24MHz, 8-channel logic analyzer.](assets/debugging_img01.png)
 
-> "Sparkfun® images are [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)"
+> [SparkFun Electronics](https://commons.wikimedia.org/wiki/File:8-Channel_-_51738307039.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons.
 
 #### Oscilloscopes
 
 An oscilloscope is a hardware tool that graphically displays electrical signals and shows how those signals change over time. Signals are measured in an oscilloscope with the help of a sensor.
 
-![50MHz, 2-channel oscilloscope. Source: Rigol®.](assets/debugging_img02.png)
+![50MHz, 4-channel oscilloscope.](assets/debugging_img02.png)
+
+> [Dave Jones from Australia](https://commons.wikimedia.org/wiki/File:Rigol_DS1054Z_Oscilloscope_Teardown_PCB_(15354160277).jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons.
 
 #### Software-Defined Radios
 
 A software-defined radio (SDR) is a radio communication system that uses software for the modulation and demodulation of radio signals. Traditional radio communications systems processing relies on hardware components; this limits their reprogramming to a very low level. SDRs are much more flexible since they can be reconfigured by software. 
 
 ![NESDR Mini 2. Source: Nooelec.](assets/debugging_img03.png)
+
+> [Alexander Neumann](https://commons.wikimedia.org/wiki/File:Hackrf-one-img_0004.jpg), Public domain, via Wikimedia Commons.
 
 #### Debugging with Hardware Tools
 
@@ -484,7 +498,7 @@ Debugging is an exciting topic to study; if you want to learn more about debuggi
   
 ## References 
   
-* P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.
-* D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.
-* M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.  
-* J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.
+[1] P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.
+[2] D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.
+[3] M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.  
+[4] J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.
