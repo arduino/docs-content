@@ -15,7 +15,7 @@ In this tutorial you will use the Arduino® Nicla Vision to detect the presence 
 - Learn how to use MicroPython to toggle the built-in LEDs
 
 ### Required Hardware and Software
-- Nicla Vision board (<https://store.arduino.cc/products/nicla-vision>)
+- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable (either USB A to Micro USB or USB C to Micro USB)
 - OpenMV IDE 2.6.4+
 
