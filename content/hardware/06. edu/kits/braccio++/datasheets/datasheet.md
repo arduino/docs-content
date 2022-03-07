@@ -1,13 +1,13 @@
 ---
 identifier: ABX00032
-title: Arduino® Braccio++ Carrier
+title: Arduino® Braccio Carrier
 revision: Rev. 01
 type: edu
 ---
 ![Braccio++ Carrier Feature Image](./assets)
 
 # Description
-Braccio++ Carrier is an add-on board that sits on top of your favorite Arduino Educational existing
+Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing
 product line providing faster prototyping in increasing demands for robotics and automation. The
 tailor-made Arduino Braccio++ Carrier has a collection of features that enables quick and easy
 learning while building small projects
@@ -39,9 +39,9 @@ Robotics, Automation, Education, Gaming, Communication
 
 ## The board
 
-The custom-made Arduino Braccio++ Carrier provides a wide range of connectivity capabilities to
+The custom-made Arduino Braccio Carrier provides a wide range of connectivity capabilities to
 the Arduino Educational boards. For easy to learn and play around prototyping robotic and
-smart automation projects in and out of classrooms, Arduino Braccio++ Carrier features interfaces
+smart automation projects in and out of classrooms, Arduino Braccio Carrier features interfaces
 for display, servo motors and joystick. Along with high-speed RS-485/422 and RS-232 serial
 communication, the carrier board offers huge support for several accessories through the IO
 headers. In situations of long-range operations, RS-485 can support several devices on the
@@ -51,7 +51,7 @@ circuitry to keep the components safe
 ### Application examples
 
 - **Smart Automation**: The industry-standard RS-232 and RS-485/422 serial communication
-support for Arduino Braccio++ Carrier has made it possible to implement smart automation
+support for Arduino Braccio Carrier has made it possible to implement smart automation
 IoT projects for a wide range of projects. The low-power carrier board enables students
 to take advantage of the onboard connectors and play with the Arduino hardware for the
 enhanced learning experience
@@ -59,7 +59,7 @@ enhanced learning experience
 given a chance to demonstrate robotic application including RC Car. Some of the most
 interesting robotic applications with faster prototyping come from the student community
 for various problem statements.
-- **Gaming**: Thanks to the Mini Joystick connector provided on the Arduino Braccio++ Carrier
+- **Gaming**: Thanks to the Mini Joystick connector provided on the Arduino Braccio Carrier
 carrier board which facilitates the implementation of LCD gaming options. Interfacing
 Mini Joystick with the carrier board integrated with a powerful Arduino board can deliver
 some really exciting projects.
@@ -94,16 +94,16 @@ some really exciting projects.
 ### Block Diagram
 
 
-![Arduino Braccio++ Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.jpg)
+![Arduino Braccio Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.jpg)
 
-The USB powers the Arduino Nano RP2040 which is the heart of the Braccio++ Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functinality the system. RS485 Transreceiver signals the motor connector for the precise motion of the motors according to the input given by the user.
+The USB powers the Arduino Nano RP2040 which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functinality the system. RS485 Transreceiver signals the motor connector for the precise motion of the motors according to the input given by the user.
 
-![Arduino Braccio++ Carrier Block Diagram](./assets/Block_Diagram_Braccio_Carrier.jpg)
+![Arduino Braccio Carrier Block Diagram](./assets/Block_Diagram_Braccio_Carrier.jpg)
 
 ### Board Topology
 **Front View**
 
-![Arduino Braccio++ Carrier Top View](./assets/Top_View_Braccio_Carrier.jpg)
+![Arduino Braccio Carrier Top View](./assets/Top_View_Braccio_Carrier.jpg)
 
 | **Ref.** | **Description**                    | **Ref.** | **Description**                      |
 | -------- | ---------------------------------- | -------- | ------------------------------------ |
@@ -115,17 +115,17 @@ The USB powers the Arduino Nano RP2040 which is the heart of the Braccio++ Carri
 
 
 ### Processor
-Primary processor of Arduino Braccio++ Carrier is the processor of the Arduino Nano RP2040 microcontroller mounted on it. The microcontroller controls every operation of the Braccio++ ++ Carrier for the target applications via connections with motors and LED display screen.
+Primary processor of Arduino Braccio Carrier is the processor of the Arduino Nano RP2040 microcontroller mounted on it. The microcontroller controls every operation of the Braccio Carrier for the target applications via connections with motors and LED display screen.
 
 ### Power Tree
-![Braccio++ Carrier Power Tree](./assets/Power_Tree_Braccio_Carrier.jpg)
+![Braccio Carrier Power Tree](./assets/Power_Tree_Braccio_Carrier.jpg)
 
 ## Board Operation
 ### Getting started - IDE
-If you want to program your Arduino® Braccio++ Carrier while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Braccio++ Carrier to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Arduino® Braccio Carrier while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Braccio Carrier to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Sample Sketches
-Sample sketches for the Arduino® Braccio++ Carrier can be found either in the “Examples” menu in the Arduino® IDE 
+Sample sketches for the Arduino® Braccio Carrier can be found either in the “Examples” menu in the Arduino® IDE 
 
 ### Online resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[2]**, the Arduino® Library Reference **[3]** and the online store **[4]** where you will be able to complement your board with sensors, actuators and more.
@@ -135,7 +135,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Connector Pinouts
 
-![Braccio++ Carrier Pinout](./assets)
+![Braccio Carrier Pinout](./assets)
 
 ## Mechanical Information
 
