@@ -19,7 +19,7 @@ We're happy that you have found our contribution page! Here you will find everyt
 6. Iterate according to feedback.
 7. Wait for approval.
 
-<hr>
+---
 
 # What can I contribute with?
 
