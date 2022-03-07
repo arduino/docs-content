@@ -201,7 +201,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 2400-2483.5 Mhz | 17 dBm                     |
 
 
-## Company information
+## Company Information
 
 | Company name    | Arduino S.r.l.                                                |
 | --------------- | ------------------------------------------------------------- |

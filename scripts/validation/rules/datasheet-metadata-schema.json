@@ -32,7 +32,8 @@
     "required": [
       "title",
       "identifier",
-      "type"
+      "type",
+      "revision"
     ],
     "additionalProperties" : false
   }
