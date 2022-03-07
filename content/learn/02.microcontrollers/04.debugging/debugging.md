@@ -209,7 +209,7 @@ An oscilloscope is a hardware tool that graphically displays electrical signals 
 
 A software-defined radio (SDR) is a radio communication system that uses software for the modulation and demodulation of radio signals. Traditional radio communications systems processing relies on hardware components; this limits their reprogramming to a very low level. SDRs are much more flexible since they can be reconfigured by software. 
 
-![NESDR Mini 2. Source: Nooelec.](assets/debugging_img03.png)
+![HackRF software-defined radio.](assets/debugging_img03.png)
 
 > [Alexander Neumann](https://commons.wikimedia.org/wiki/File:Hackrf-one-img_0004.jpg), Public domain, via Wikimedia Commons.
 
@@ -499,6 +499,9 @@ Debugging is an exciting topic to study; if you want to learn more about debuggi
 ## References 
   
 [1] P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.
+
 [2] D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.
+
 [3] M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.  
+
 [4] J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.
