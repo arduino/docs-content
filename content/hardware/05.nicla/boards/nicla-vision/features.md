@@ -13,7 +13,7 @@ The Arduino Nicla Vision is our smallest form factor yet.
 
 <Feature title="LSM6DSOXTR 6-axis IMU" image="imu">
 
-This 6-axis IMU is possible to obtain 3D gyroscopic and 3D accelerometer data. It is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
+This 6-axis IMU allows to obtain 3D gyroscopic and 3D accelerometer data. It is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
 <FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6dsox.pdf" download blank/>
   
