@@ -34,10 +34,10 @@ Robotics, Automation, Education, Gaming, Communication
 
 # Contents 
 
-## The board
+## The Board
 
 The custom-made Arduino® Braccio Carrier provides a wide range of connectivity capabilities to the Arduino® Educational boards. For easy to learn and play around prototyping robotic and smart automation projects in and out of classrooms, Arduino® Braccio Carrier features interfaces for display, servo motors and joystick. Along with high-speed RS-485/422 and RS-232 serial communication, the carrier board offers huge support for several accessories through the IO headers. In situations of long-range operations, RS-485 can support several devices on the same bus in a noisy environment. The board has robust electrostatic discharge protection circuitry to keep the components safe.
-### Application examples
+### Application Examples
 
 - **Smart Automation**: The industry-standard RS-232 and RS-485/422 serial communication support for Arduino® Braccio Carrier has made it possible to implement smart automation IoT projects for a wide range of projects. The low-power carrier board enables students to take advantage of the onboard connectors and play with the Arduino® hardware for the enhanced learning experience
 - **Robotic Arm**: Through servo motor connector supporting up to a total of 7 motors has given a chance to demonstrate robotic application including RC Car. Some of the most interesting robotic applications with faster prototyping come from the student community for various problem statements.
@@ -46,20 +46,20 @@ The custom-made Arduino® Braccio Carrier provides a wide range of connectivity 
 ### Accessories
 
 
-### Related products
+### Related Products
 
 - Arduino® Education Carrier.
 
 ## Ratings
 
-### Recommended operating conditions
+### Recommended Operating Conditions
 | Symbol | Description                                       | Min        | Max     |
 | ------ | ------------------------------------------------- | ---------- | ------- | 
 |        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
 
 
 
-### Power consumption
+### Power Consumption
 
 | Symbol      | Description                  | Min | Typ | Max | Unit |
 | ----------- | ---------------------------- | --- | --- | --- | ---- |
@@ -100,13 +100,13 @@ Primary processor of Arduino® Braccio Carrier is the processor of the Arduino®
 ![Braccio Carrier Power Tree](./assets/Power_Tree_Braccio_Carrier.jpg)
 
 ## Board Operation
-### Getting started - IDE
+### Getting Started - IDE
 If you want to program your Arduino® Braccio Carrier while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Braccio Carrier to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Sample Sketches
 Sample sketches for the Arduino® Braccio Carrier can be found either in the “Examples” menu in the Arduino® IDE 
 
-### Online resources
+### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Project Hub **[2]**, the Arduino® Library Reference **[3]** and the online store **[4]** where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
@@ -130,7 +130,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ## Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
-## Declaration of Conformity to EU RoHS  & REACH 211 01/19/2021
+## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 Arduino® boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
 | **Substance**                          | **Maximum Limit (ppm)** |
@@ -184,7 +184,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR Waring:**
+**IC SAR Warning:**
 
 English 
 This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
