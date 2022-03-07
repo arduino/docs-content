@@ -498,10 +498,7 @@ Debugging is an exciting topic to study; if you want to learn more about debuggi
   
 ## References 
   
-[1] P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.
-
-[2] D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.
-
-[3] M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.  
-
+[1] P. Koopman, Better Embedded System Software. S.L.: Drumnadrochit Press, 2010.<br />
+[2] D. J. Agans, Debugging: The Nine Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems. New York: Amacom, 2002.<br />
+[3] M. Barr and A. Massa, Programming Embedded Systems: with C and GNU Development Tools. Johanneshov: MTM, 2013.<br />
 [4] J. W. Valvano, Embedded Systems: Introduction to ARM® Cortex™-M Microcontrollers. United States: Self-published, 2015.
