@@ -4,7 +4,7 @@ title: Arduino® Braccio Carrier
 revision: Rev. 01
 type: edu
 ---
-![Braccio++ Carrier Feature Image](./assets)
+![Braccio++ Carrier Featured Image](featured.jpg/assets)
 
 # Description
 Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing
