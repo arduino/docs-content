@@ -29,11 +29,14 @@
         "type": "string"
       }      
     },
+    "revision": {
+      "type": "string"
+    }      
+  },
     "required": [
       "title",
       "identifier",
-      "type",
-      "revision"
+      "type"
     ],
     "additionalProperties" : false
   }
