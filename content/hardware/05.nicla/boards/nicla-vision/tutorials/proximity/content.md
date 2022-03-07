@@ -32,7 +32,7 @@ The goals of this project are:
 
 ### Required Hardware and Software
 
-* Arduino Nicla Vision
+* [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 * VL53L1X library (Available in the Library Manager)
 
 ## Instructions

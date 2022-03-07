@@ -37,7 +37,7 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 ### Required Hardware and Software
 
-- Arduino Nicla Vision
+- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 - Latest mbed Core version
 
 ## Set Up
