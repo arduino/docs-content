@@ -1,7 +1,6 @@
 ---
-title: 'Testing and Controlling the Microphone'
+title: 'Reading Audio Samples With the Onboard Microphone'
 difficulty: easy
-compatible-products: [nano-33-ble-sense]
 description: 'Learn how to create a soundmeter using the built-in microphone with the Nicla Vision.'
 tags:
   - OpenMV
@@ -33,16 +32,20 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 - Get the microphone data.
 - Use the PDM(Pulse-density modulation) library.
 - Print the microphone values in the Serial Monitor.
-- Change RGB brightness with the stored microphone values.
+- Change RGB blinking speed with the last microphone reading. (Arduino IDE)
+- Show the values on a spectrum analyzer (only with openMV)
 
 ### Required Hardware and Software
 
 - [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 - Latest mbed Core version
+- Latest openMV IDE version
 
 ## Set Up
 
 To check that you correctly set up the board please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** instructions.
+
+## Instructions
 
 ### OpenMV
 
@@ -58,22 +61,20 @@ When the script is running, you will see an spectrum analyzer in the top right p
 
 ### Arduino
 
-## Instructions
-
-### Setting Up the Sketch
+#### Setting Up the Sketch
 
 We will edit the example from the mbed Core, go to **Examples > PDM > PDMSerialPlotter** and save it into your sketchbook.
 
 You can run the sketch to see the result, it will show the data that the microphone is getting on the **Serial Plotter**.
 
-### Controlling the Blinking LED 
+#### Controlling the Blinking LED 
 
-Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values.
+Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values by changing the blinking time to the last reading of the microphone, the blink will be slow if the sound is loud, and fast if it is quiet.
 
 You can access the example sketch at **Examples > PDM > PDMSerialPlotter** and then edit as shown in this tutorial.
 Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
 
-### Complete Sketch
+#### Complete Sketch
 
 ```arduino
   /*
@@ -81,6 +82,7 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
     out the samples to the Serial console. The Serial Plotter built into the
     Arduino IDE can be used to plot the audio data (Tools -> Serial Plotter)
     Circuit:
+    - Arduino Nicla Vision, or
     - Arduino Nano 33 BLE board, or
     - Arduino Nano RP2040 Connect, or
     - Arduino Portenta H7 board plus Portenta Vision Shield
@@ -103,7 +105,7 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
   volatile int samplesRead;
 
   // Blinking 
-  bool state = false;
+  bool state = false;Arduino Nano 33 BLE board, or
   int timeStart = 0;
 
   void setup() {
