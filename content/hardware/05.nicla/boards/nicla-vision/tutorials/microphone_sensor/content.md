@@ -105,7 +105,7 @@ Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
   volatile int samplesRead;
 
   // Blinking 
-  bool state = false;Arduino Nano 33 BLE board, or
+  bool state = false;
   int timeStart = 0;
 
   void setup() {
