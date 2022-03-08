@@ -46,9 +46,11 @@ An IMU is a component that exists of different sensors that records data such as
 
 An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity or, as is the case with many mobile devices, dynamic to sense movement or vibrations.
 
+![Illustration of Nicla Vision accelerometer axis.](assets/nicla_vision_acceleration.png)
+
 A gyroscope sensor is a device that can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, as they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion. Gyroscope sensors are also called "Angular Rate Sensors" or "Angular Velocity Sensors". Measured in degrees per second, angular velocity is the change in the rotational angle of the object per unit of time.
 
-![Illustration of Nicla Vision axis.](assets/)
+![Illustration of Nicla Vision gyroscope axis.](assets/nicla_vision_gyroscope.png)
 
 In this tutorial, we will use the gyroscope as an indicator for the direction of the force that is applied to the board. We will also use the accelerometer as a "level" that will provide information about the position of the board. With this application we will be able to read what the relative position of the board is, as well as the degrees by tilting the board up, down, left or right. The results will be visible through the Serial Monitor.
 
@@ -72,7 +74,7 @@ float Gx, Gy, Gz;
 
 ```
 
-To initializes the library we need to call `IMU.begin()`. When the IMU is inistialized, we can quickly check the sameple rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
+To initializes the library we need to call `IMU.begin()`. When the IMU is inistialized, we can quickly check the sample rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
 
 ```arduino
 void setup() {
