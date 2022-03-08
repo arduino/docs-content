@@ -74,7 +74,7 @@ float Gx, Gy, Gz;
 
 ```
 
-To initializes the library we need to call `IMU.begin()`. When the IMU is inistialized, we can quickly check the sameple rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
+To initializes the library we need to call `IMU.begin()`. When the IMU is inistialized, we can quickly check the sample rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
 
 ```arduino
 void setup() {
