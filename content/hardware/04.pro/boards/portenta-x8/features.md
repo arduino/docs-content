@@ -5,17 +5,17 @@
 <FeatureList>
   <Feature title="NXP iMX8M" image="core">
     Includes the powerful NXP iMX8M Mini processor with 4x ARM® Cortex®-A53 core platforms up to 1.8GHz per core and 1x Cortex-M4 core up to 400MHz. 
-    <FeatureLink title="Datasheet" url="https://www.cs.hs-rm.de/~kaiser/2121_aos/pdfs/cortexa53.pdf" download blank/>
+    <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/cortexa53.pdf" download blank/>
   </Feature>
 
   <Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
     X8's integrated microcontroller is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
-    <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
+    <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
   </Feature>
 
   <Feature title="NXP SE050C2" image="crypto-chip">
     The Crypto chip, allows users to keep security in mind by ensuring a secure connection at the hardware level.
-    <FeatureLink title="Datasheet" url="https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf" download blank/>
+    <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/SE050-DATASHEET.pdf" download blank/>
   </Feature>
 
   <Feature title="Two industrial-grade products in one" image="communication">
