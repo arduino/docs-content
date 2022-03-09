@@ -31,7 +31,7 @@ The goals of this project are:
 - 2x [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers).
 - Micro USB cable.
 
->**Note:** It is not required to have two devices of the same type. You can for example use a Nano RP2040 Connect and a MKR WiFi 1010. Any IoT Cloud enabled Wi-Fi board will work with this tutorial.
+***Note: It is not required to have two devices of the same type. You can for example use a Nano RP2040 Connect and a MKR WiFi 1010. Any [IoT Cloud enabled Wi-Fi board](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware) will work with this tutorial.***
 
 We will also need the following components for the circuit:
 
@@ -45,7 +45,7 @@ We will also need the following components for the circuit:
 
 Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
->**Note:** Remember that the pinouts are different on a Nano board. The circuit below is for a MKR WiFi 1000/1010 board.
+***Note that the pinouts are different on a Nano board. The circuit below is for a MKR WiFi 1000/1010 board.***
 
 ![Two identical circuits with 1x button and 1x LED each.](assets/device-to-device-img-01.png)
 
