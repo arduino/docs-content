@@ -43,7 +43,7 @@ Below is a list of Arduino IoT Cloud features.
 
 ## Compatible Hardware
 
-To use the Arduino IoT Cloud, we need a **cloud compatible board**. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN (via The Things Network) and mobile networks.
+To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN® (via The Things Network) and mobile networks.
 
 ***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](/resources/datasheets/ATECC508A-datasheet.pdf) cryptochip), where you can store your security keys.***
 
@@ -56,6 +56,9 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
@@ -66,7 +69,7 @@ The following boards connect to the Arduino IoT Cloud via [The Things Stack](htt
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
 - [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
 
-Connection via LoRaWAN is recommended for low-power projects in both remote and urban areas, where Wi-Fi or other popular connectivity types are not available. The MKR WAN 1300/1310 boards are equipped with a LoRa radio module and has a slot for an antenna. With the right low-power configuration, the board can send data to the cloud for months on a single battery.
+Connection via LoRaWAN® is recommended for low-power projects in both remote and urban areas, where Wi-Fi or other popular connectivity types are not available. The MKR WAN 1300/1310 boards are equipped with a LoRa radio module and has a slot for an antenna. With the right low-power configuration, the board can send data to the cloud for months on a single battery.
 
 ***To learn more about setting up LoRaWAN® devices, visit the [Configuring LoRaWAN® devices in the Arduino Cloud](/cloud/iot-cloud/tutorials/cloud-lora-getting-started) guide.***
 
