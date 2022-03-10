@@ -172,24 +172,7 @@ The debugger circuitry has a dedicated power supply AP2112K (U14) that runs off 
 Voltage range and max current are provided as a general guideline only. Consult converter datasheet for specific details.
 
 ## Board Operation
-**Note:** This board is intended to operate together with Portenta X8 (see section 1.4 Solution Overview). 
-
-### Getting Started - IDE
-If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1]** To connect the Arduino Portenta H7 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
-
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]** by just installing a simple plugin.
-
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
-
-### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
-
-### Sample Sketches
-Sample sketches for the Arduino Portenta H7 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website **[4]**
-
-### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
+**Note:** This board is intended to operate together with Portenta X8 (see section 1.4 Solution Overview). For more information see Portenta X8 datasheet 
 
 ## Connector Pinouts
 ### LoRa® Header (CN2)
