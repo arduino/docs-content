@@ -336,13 +336,13 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 | 5   | NC           | NC           | Not Connected                           |
 | 6   | NC           | NC           | Not Connected                           |
 | 7   | PCIE_CLKREQ  | Digital      | PCIe Clock Request Signal               |
-| 8   | NC           | NC           | Not Connected                           |
+| 8   | UIM_PWR      | Power        | SIM Power                               |
 | 9   | GND          | Power        | Ground                                  |
-| 10  | NC           | NC           | Not Connected                           |
+| 10  | UIM_DATA     | Digital      | SIM Data Line                           |
 | 11  | mPCIe_CK_N   | Differential | PCIe Clock Differential Negative        |
-| 12  | NC           | NC           | Not Connected                           |
+| 12  | UIM_CLK      | Digital      | SIM Clock Signal                        |
 | 13  | mPCIe_CK_P   | Differential | PCIe Clock Differential Positive        |
-| 14  | NC           | NC           | Not Connected                           |
+| 14  | UIM_RST      | Digital      | SIM Reset Signal                        |
 | 15  | GND          | Power        | Ground                                  |
 | 16  | NC           | NC           | Not Connected                           |
 | 17  | NC           | NC           | Not Connected                           |
