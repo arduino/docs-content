@@ -59,7 +59,7 @@ void runCurl() {
 
   p.begin("curl");
 
-  p.addParameter("http://arduino.cc/asciilogo.txt");
+  p.addParameter("http://arduino.tips/asciilogo.txt");
 
   p.run();
 ```
