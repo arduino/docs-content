@@ -1,6 +1,6 @@
 ---
-title: 'Nugget Template'
-description: 'This is the template for creating a nugget for the Arduino Documentation website.'
+title: 'How To Template'
+description: 'This is the template for creating a How To article for the Arduino Documentation website.'
 tags: 
   - tutorial
 author: 'Arduino'
@@ -20,7 +20,7 @@ software:
 
 ## Introduction
 
-<!-- Write a short introduction to the nugget. This should be maximum three sentences long and summarize what the nugget is about. -->
+<!-- Write a short introduction to the How To. This should be maximum three sentences long and summarize what the How To is about. -->
 
 ## Hardware & Software Required
 

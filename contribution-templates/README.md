@@ -19,7 +19,7 @@ We're happy that you have found our contribution page! Here you will find everyt
 6. Iterate according to feedback.
 7. Wait for approval.
 
-<hr>
+---
 
 # What can I contribute with?
 
@@ -37,7 +37,7 @@ You are also allowed to add your own content to the Arduino Documentation reposi
 |-------|-----------|-------|---------|-----|
 |Tutorial|Learn how to do something.|[Control Built-in RGB LED over Wi-Fi with Nano RP2040 Connect](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-web-server-rgb)|`Tutorials` folder <br> `Tutorial` folder inside the corresponding product|*content > tutorials* <br><br> *content > hardware > 03.nano > boards > nano-33-ble > tutorials* |
 |Article|Learn about a specific topic.|[Multimeter Basics](https://docs.arduino.cc/learn/electronics/multimeter-basics)|`Learn`|*content > learn > 04.electronics*|
-|Nugget|Smaller tutorial with less information and more straight to the example.|[Analog Read Serial](https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial)|`Tutorials` folder <br> `Tutorial` folder inside the corresponding product <br> `Learn`|*content > tutorials* <br><br> *content > hardware > 03.nano > boards > nano-33-ble > tutorials* <br><br> *content > learn > 04.electronics* |
+|How To|Smaller tutorial with less information and more straight to the example.|[Analog Read Serial](https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial)|`Tutorials` folder <br> `Tutorial` folder inside the corresponding product <br> `Learn`|*content > tutorials* <br><br> *content > hardware > 03.nano > boards > nano-33-ble > tutorials* <br><br> *content > learn > 04.electronics* |
 |Project|Learn how to build something.|[DIY Photoshop Editing Console using Arduino Nano RP2040 Connect](https://create.arduino.cc/projecthub/jithinsanal1610/diy-photoshop-editing-console-using-arduino-nano-rp-2040-a43e97?ref=search&ref_id=nano%20rp2040%20connect&offset=0)|`Project Hub`*|---|
 
 \*Note that the contributed Projects should be added to **Project Hub** instead of on the Arduino Documentation website.
@@ -48,7 +48,7 @@ For us to be able to approve your contribution, you should follow the guidelines
 
 Please read the [Arduino Style Guide](https://docs.arduino.cc/hacking/software/ArduinoStyleGuide).
 
-<hr>
+---
 
 # Documentation Style Guidelines
 
@@ -72,16 +72,16 @@ You should use the following markdown styling for our content:
 
 ***Note that we are not including cursive writing as a markdown style. We implore you not to use cursive as a means to highlight text. Instead use bold.***
 
-<hr>
+---
 
-## Graphics
+<!-- ## Graphics
 
 All graphics should be **1920x1080**. All graphics are stored in an assets folder in the documentation folder. See section **Naming Guidelines**.
 
 |Type|Purpose|Guidelines|Example|
 |----|-------|----------|-------|
 |Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylized electronic diagram explaining electric circuits.|Please follow [this]() guide on how to create your own Arduino approved circuit diagrams and schematics.|![Example of circuit](assets/circuit1.png)<br>![Example of circuit](assets/circuit2.png)|
-|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Please follow [this]() guide on how to create your own Arduino approved screenshots.|![Example of screenshot](assets/screenshot1.png)<br>![Example of screenshot](assets/screenshot2.png)<br>![](assets/screenshot3.png)|
+|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Please follow [this]() guide on how to create your own Arduino approved screenshots.|![Example of screenshot](assets/screenshot1.png)<br>![Example of screenshot](assets/screenshot2.png)<br>![](assets/screenshot3.png)| -->
 
 ## Naming Guidelines
 
