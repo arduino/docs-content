@@ -10,7 +10,7 @@ Pins:
   PWM pins: 12 (of which 2 are shared with analog, 2 are shared with I2C and 4 are shared with SPI)
   External interrupts: 12
 Connectivity:
-  Bluetooth: Bluetooth 4.2 (Murata 1DX module)
+  Bluetooth: Bluetooth® 4.2 (Murata 1DX module)
   Wi-Fi®: 11b/g/n (Murata 1DX module)
   Secure element: NXP SE050C2 Crypto chip
 Communication:
