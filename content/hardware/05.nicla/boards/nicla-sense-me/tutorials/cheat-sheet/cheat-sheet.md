@@ -343,7 +343,7 @@ Reading the sensor values:
 
 ```cpp
 void loop(){
-  unsigned long lastCheck= millis();
+  static auto lastCheck = millis();
 
   // Update function should be continuously polled
   BHY2.update();
