@@ -27,7 +27,7 @@ Clock speed:
   Processor (M7): 480MHz
   Processor (M4): 240MHz
 Memory:
-  nRF52832 System-on-chip: 64kB SRAM, 512kB flash
+  STM32H747: 1MB RAM, 2MB flash
   QSPI flash: 16MB
 Dimensions:
   Weight: 2 g
