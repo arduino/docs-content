@@ -78,6 +78,10 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
 
 ## Functional Overview
+
+### Block Diagram
+![Block Diagram](assets/maxCarrierBlockDiagram.svg)
+
 ### Board Topology 
 ![Board topology](assets/maxCarrierDesignators.png)
 
