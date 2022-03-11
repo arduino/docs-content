@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Nicla Vision
   SKU: ABX00051
-Microcontroller: STM32H757AII6 Dual Arm Cortex M7/M4
+Microcontroller: STM32H757AII6 Dual Arm® Cortex® M7/M4
 USB connector: Micro USB (USB-B)
 Pins:
   LED built-in: 1 RGB LED (I2C)
@@ -10,8 +10,8 @@ Pins:
   PWM pins: 12 (of which 2 are shared with analog, 2 are shared with I2C and 4 are shared with SPI)
   External interrupts: 12
 Connectivity:
-  Bluetooth: Murata 1DX Bluetooth module
-  Wi-Fi: Yes
+  Bluetooth: Bluetooth 4.2 (Murata 1DX module)
+  Wi-Fi®: 11b/g/n (Murata 1DX module)
   Secure element: NXP SE050C2 Crypto chip
 Communication:
   UART: Yes
@@ -27,7 +27,7 @@ Clock speed:
   Processor (M7): 480MHz
   Processor (M4): 240MHz
 Memory:
-  nRF52832 System-on-chip: 64kB SRAM, 512kB flash
+  ST STM32H757AII6: 2MB Flash, 1MB RAM 
   QSPI flash: 16MB
 Dimensions:
   Weight: 2 g
