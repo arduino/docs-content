@@ -81,7 +81,7 @@ You can use several Arduino libraries with the CMWX1ZZABZ-078 LoRaWAN® module f
 
  If you are using the online IDE, you don't need to do anything; the library is already installed and ready to be used. If you are using the offline IDE, you must install the library **manually**. Installing the library can be done quickly by navigating to **Tools > Manage Libraries...** and then in the **Library Manager** search for **MKRWAN** library by Arduino; remember to install the latest version of the libraries. You can also access the Library Manager using the left toolbar of the IDE, as shown in the image below:
 
- ![Library Manager in the Arduino IDE 2.](assets/mc_ard_ttn_library.png)
+![Library Manager in the Arduino IDE 2.](assets/mc_ard_ttn_library.png)
 
 ***Currently, there are two versions of the MKRWAN library. We recommend using the MKRWAN_v1 library since MKRWAN_v2 library is still in beta.***
 
@@ -144,29 +144,124 @@ Now, let's use the `DevEUI` number from your Portenta Max Carrier to create an a
 
 ### 3. Creating an Application in TTN
 
-To send information to TTN, first we need to create an application and register a device with it. Navigate to TTN portal and sign in; after signing in, clik on **Create an application**. If you already created an aplication, clik on **Go to applications**.
+To send information to TTN, first we need to **create an application and register a device with it**. Navigate to TTN portal and sign in; after signing in, click on **Create an application**. If you already created an application, click on **Go to applications**.
+
+![TTN console welcome page.](assets/mc_ard_ttn_console_1.png)
 
 Now click in **Create an application**. You will need to add the following information:
 
 * **Owner**: the person or organization that owns the application.
 * **Application ID**: a unique identifier for your application (must be lowercase and without spaces).
 
-Complete both fields and click on **Create application**. Now you will be redirected to the application dashboard that shows information of the newly created application. Now, scroll to **End devices** in the left toolbar and then click on **Add end device**; a registration page for end devices will open.
+Complete both fields and click on **Create application**. Now you will be redirected to the application dashboard that shows information of the newly created application. 
 
-On the registration page click on **Manually**, now you will have to add the following information for your Portenta Max Carrier:
+![Application dashboard in TTN.](assets/mc_ard_ttn_console_2.png)
+
+Now, scroll to **End devices** in the left toolbar and then click on **Add end device**; a registration page for end devices will open.
+
+![Registering an end device in TTN.](assets/mc_ard_ttn_console_3.png)
+
+On the registration page click on **Manually**; you will have to add the following information for your Portenta Max Carrier:
 
 * **Frequency plan**: choose a region according to your country.
 * **LoRaWAN version**: 1.0.2.
 * **Regional Parameters version**: 1.0.2.
 * **Activation mode**: Over the air activation (OTAA).
-* **DevEUI**: fill it with the `DevEUI` number of your Portenta Max Carier. 
+* **DevEUI**: fill it with the `DevEUI` number of your Portenta Max Carier you found before. 
 * **AppEUI**: fill it with zeros or enter your own.
 * **AppKey**: generate one or enter your own.
 * **Device ID**: must be lowercase and without spaces. 
 
-Click on **Register end device**, this will take you to a Device Overview page where you will see all the information related to the device. We are going to use some of this information with your Portenta Max Carrier. 
+Click on **Register end device**, this will take you to a **Device Overview** page where you will see all the information related to the device. You are going to use some of this information with your Portenta Max Carrier to send information to TTN. 
 
 ### 4. Sending a Message to an Application in TTN 
+
+Now, let's start sending information to TTN. The following sketch let's you send information to TTN using your Portenta Max Carrier LoRaWAN® module; Over the Air (OTAA) device activation method is used to join TTN: 
+
+```arduino
+#define PORTENTA_CARRIER
+#include <MKRWAN.h>
+
+_lora_band region = US915;
+
+LoRaModem modem(Serial1);
+
+String appEui;
+String appKey;
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+  Serial.println(F("LoRaWAN + Portenta Max Carrier (OTAA)"));
+  
+  if (!modem.begin(region)) {
+    Serial.println(F("- Failed to start module!"));
+    while (1) {}
+  };
+  
+  Serial.print(F("- Your module version is: "));
+  Serial.println(modem.version());
+
+  if (modem.version() != ARDUINO_FW_VERSION) {
+    Serial.println(F("- Please make sure that the latest module firmware is installed."));
+    Serial.println(F("- To perform a firmware update, use the 'MKRWANFWUpdate_standalone.ino' example sketch."));
+  }
+  
+  Serial.print(F("- Your device EUI is: "));
+  Serial.println(modem.deviceEUI());
+
+  // To use predfined setting for OTAA or use a custom setting
+  int mode = 0;
+  while (mode != 1 && mode != 2) {
+    Serial.println(F("- Use predefined AppEUI & AppKey settings? (1) Yes | (2) No"));
+    while (!Serial.available());
+    mode = Serial.readStringUntil('\n').toInt();
+  }
+
+  if (mode == 2) {
+    Serial.println(F("- Enter your AppEUI"));
+    while (!Serial.available());
+    appEui = Serial.readStringUntil('\n');
+
+    Serial.println(F("- Enter your AppKey"));
+    while (!Serial.available());
+    appKey = Serial.readStringUntil('\n');
+  } else if (mode == 1) {
+    Serial.println(F("- Using predefined settings"));
+  }
+
+  appKey.trim();
+  appEui.trim();
+
+  int connected = modem.joinOTAA(appEui, appKey);
+
+  if (!connected) {
+    Serial.println("- Something went wrong; are you indoor? Move near a window and retry...");
+    while (1) {}
+  }
+
+  delay(5000);
+
+  // Sending packet
+  int err;
+  modem.setPort(3);
+  modem.beginPacket();
+  modem.print("HeLoRA world!");
+  err = modem.endPacket(true);
+  if (err > 0) {
+    Serial.println("- Message sent correctly!");
+  } else {
+    Serial.println("- Error sending message :(");
+  }
+}
+
+void loop() {
+  while (modem.available()) {
+    Serial.write(modem.read());
+  }
+  modem.poll();
+}
+```
 
 ## Conclusion
 
