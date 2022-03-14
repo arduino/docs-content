@@ -1,12 +1,11 @@
 ---
-title: 'Connecting the Portenta Max Carrier to The Things Network Using LoRaWAN®'
-description: 'This tutorial explains how to connect your Portenta Max Carrier to the Things Network(TTN) using the carrier's LoRa® connectivity feature.'
-coverImage: assets/
-difficulty: Intermediate
+title: Connecting the Portenta Max Carrier to The Things Network
+description: This tutorial explains how to connect your Portenta Max Carrier to the Things Network(TTN) using the carrier's LoRaWAN® module.
+difficulty: intermediate
 tags:
-  - IoT
-  - LoRa
-author: 'Taddy Chung, José Bagur'
+  - iot
+  - LoRa®
+author: Taddy Chung, José Bagur
 libraries:
   - name: MKRWAN
 hardware:
@@ -36,7 +35,7 @@ This tutorial explains how to connect your Arduino® Max Carrier, with an [Ardui
 - [MKRWAN library](https://github.com/arduino-libraries/MKRWAN).  
 - An active account in [TTN](https://www.thethingsnetwork.org/).
 
-## The Arduino® Portenta Max Carrier LoRaWAN® Connectivity Feature
+## The Arduino® Portenta Max Carrier LoRaWAN® Module
 
 The Arduino® Portenta Max Carrier provides you with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Max Carrier possibilities are endless. One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRaWAN® communications module, the [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
 
@@ -77,7 +76,7 @@ Now you can connect the Portenta H7 board to your computer using a USB-C cable. 
 
 ### 2. Setting up the Software
 
-You can use several Arduino libraries with the CMWX1ZZABZ-078 LoRaWAN® module from Murata®; we recommend the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by the Arduino Team. The MKRWAN library provides you the APIs to communicate with LoRa® and LoRaWAN networks® using the CMWX1ZZABZ-078 module. You can use this library in the Arduino IDE, both [online](https://create.arduino.cc/editor) and [offline](https://www.arduino.cc/en/software). 
+You can use several Arduino libraries with the CMWX1ZZABZ-078 LoRaWAN® module from Murata®; we recommend the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN), developed by the Arduino Team. The MKRWAN library provides you the APIs to communicate with LoRa® and LoRaWAN® networks using the CMWX1ZZABZ-078 module. You can use this library in the Arduino IDE, both [online](https://create.arduino.cc/editor) and [offline](https://www.arduino.cc/en/software). 
 
  If you are using the online IDE, you don't need to do anything; the library is already installed and ready to be used. If you are using the offline IDE, you must install the library **manually**. Installing the library can be done quickly by navigating to **Tools > Manage Libraries...** and then in the **Library Manager** search for **MKRWAN** library by Arduino; remember to install the latest version of the libraries. You can also access the Library Manager using the left toolbar of the IDE, as shown in the image below:
 
@@ -164,7 +163,7 @@ Now, scroll to **End devices** in the left toolbar and then click on **Add end d
 On the registration page click on **Manually**; you will have to add the following information for your Portenta Max Carrier:
 
 * **Frequency plan**: choose a region according to your country.
-* **LoRaWAN version**: 1.0.2.
+* **LoRaWAN® version**: 1.0.2.
 * **Regional Parameters version**: 1.0.2.
 * **Activation mode**: Over the air activation (OTAA).
 * **DevEUI**: fill it with the `DevEUI` number of your Portenta Max Carier you found before. 
