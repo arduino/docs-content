@@ -4,32 +4,40 @@ description: 'This is the template for creating an article for the Arduino Docum
 tags: 
   - article
 author: 'Arduino'
-libraries:
-  - name: Arduino PDM
-    url: https://www.arduino.cc/en/Reference/PDM
-hardware:
-  - hardware/03.nano/boards/nano-rp2040-connect
-software:
-  - ide-v1
-  - ide-v2
-  - web-editor
-  - iot-cloud
 ---
-
-<!--Update the frontmatter above with information that fits your article. Remove the section that are not relevant or filled in. Note that you must at least fill in the title, description and author.-->
 
 ## Introduction
 
-<!-- Write a short introduction to the article. This should be maximum three sentences long and summarize what the article is about. -->
+Write a short introduction to the article. Consider this to be an abstract that should summarize the content of this article.
 
-## Hardware & Software Needed
+Note that **plagiarism is unacceptable**, and we encourage you to provide references used to produce your article. These can be listed under the **"References"** section at the bottom of this article. Plagiarised work will be removed immediately.
 
-<!-- List the hardware and software needed. This could be the IDEs, libraries but also the hardware such as the board for example. Make sure to link to whatever you are listing. -->
+## Hardware & Software Needed (Optional)
+
+***This section is optional, since articles may not directly include the use of an Arduino board or the software.***
+
+List the hardware and software needed. This could be the IDEs, libraries but also the hardware such as the board for example. Make sure to link to whatever you are listing. 
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect).
 - etc.
 
-## Circuit
+## Section 1
 
-<!-- Add the image of the circuit here. This section should not need any text following the image, only a well thought alternative image text. -->
+Free format section.
+
+## Section 2
+
+Free format section.
+
+## Section 3
+
+Free format section.
+
+## Conclusion
+
+A summary of your article.
+
+## References
+
+- [Arduino (Wikipedia)](https://en.wikipedia.org/wiki/Arduino)
