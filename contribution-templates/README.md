@@ -52,65 +52,6 @@ Please read the [Arduino Style Guide](https://docs.arduino.cc/hacking/software/A
 
 # Documentation Style Guidelines
 
-## Markdown
-
-We write all of our content in markdown. To be able to contribute properly to our website, we suggest you to do the same. Practice your markdown skills here: https://commonmark.org/help/tutorial/ 
-
-You should use the following markdown styling for our content:
-
-|Style|Use|Description|Example|
-|-----|---|-----------|-------|
-|**Bold**|\*\*bold**|Use bold when you are referring to either a path in the chosen software, or when you want to highlight a specific topic or button.|![Example use of bold](_assets/bold1.png)|
-|**Inline Code**|\`code\`|Use the inline code markdown for code inside text sections.|![Example use of inline code](_assets/inline-code.png)|
-|**Code Snippet**|\```arduino <br><br> this is my code <br><br>\```|Use the code snippet markdown for longer code snippets.|![Example use of code snippet](_assets/code-snippet.png)|
-|**Notes**|\*\*\*Note: This is my note.***|Use the three asterisks for note tags. Note that these can’t contain line-breaks unless made with a \<br> tag.|![Example use of note tag](_assets/notes.png)|
-|**Quotes**|\> This is a quote.|Use sparsely and with quotes only.|![Example use of quote tag]()|
-|**Bullet points**|\* bullet point 1 <br>\* bullet point 2 <br>\* bullet point 3|Use the * or the - to make bullet points in your tutorial. <br><br> If your bullet point is a full sentence, remember to punctuate it. If your bullet point is a single word, or words not making a sentence, leave the punctuation off.|![Example use of bullet points](_assets/bullet-points.png)|
-|**Numbered lists**|\*\*1.** One <br>\*\*2.** Two <br>\*\*3.** Three|Make sure to bold your numbering lists to make them format properly.|![Example use of numbered lists](_assets/numbered-list.png)|
-|**Paths**|This > is > my > path|Use > when describing paths in your chosen software.|![Example use of paths](_assets/path.png)|
-|**Images**|![image alternative text](relative link to image in assets folder)|Use the image tag to display images.|![Example use of images](_assets/image-tags.png)|
-
-***Note that we are not including cursive writing as a markdown style. We implore you not to use cursive as a means to highlight text. Instead use bold.***
-
----
-
- ## Graphics
-
-All graphics should be **1920x1080**. All graphics are stored in an assets folder in the documentation folder. See section **Naming Guidelines**.
-
-|Type|Purpose|Guidelines|Example|
-|----|-------|----------|-------|
-|Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylized electronic diagram explaining electric circuits.|Please follow [this]() guide on how to create your own Arduino approved circuit diagrams and schematics.|![Example of circuit](_assets/circuit1.png)<br>![Example of circuit](_assets/circuit2.png)|
-|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Please follow [this]() guide on how to create your own Arduino approved screenshots.|![Example of screenshot](_assets/screenshot1.png)<br>![Example of screenshot](_assets/screenshot2.png)<br>![](_assets/screenshot3.png)| 
-
-## Naming Guidelines
-
-### Files
-
-Name the folder after the title of your documentation. The name of the folder should contain a maximum of 4 words divided by dashes.
-
-`connector-basics`
-
-`SoftwareSerialExample`
-
-![Naming of tutorial folder](_assets/tutorial-folder.png)
-
-The folder should then contain an assets folder, as well as the main content markdown file. It’s important to name the main content file the same name as the folder.
-
-`connector-basics.md`
-
-`SoftwareSerialExample.md`
-
-![Naming and formatting of tutorial folder](_assets/tutorial-folder2.png)
-
-### Images
-
-There is no specific way you need to name the images, however it is a good practice to add something descriptive in the name. Also remember to divide words by using dashes.
-
-`UNO-Mini-LE-external-power.png`
-
-`rp2040-ap-mode-img-01.png`
-
 ## Format Guidelines
 
 ### Tutorial Guidelines
@@ -148,8 +89,6 @@ To write a How To for the Arduino Documentation website, you should follow these
 
 To write a article for the Arduino Documentation website, you should follow these guidelines:
 
-# Structure
-
 |Section|Rules|Description|Example|
 |-------|-----|-----------|-------|
 |**Frontmatter**|You must fill in title, description and author. The others are voluntary.|Here is where you add the metadata of your article. This is including the author, title of tutorial, compatible libraries, compatible hardware etc.|![Example of Frontmatter](_assets/frontmatter.png)|
@@ -157,3 +96,63 @@ To write a article for the Arduino Documentation website, you should follow thes
 |**Hardware & Software Needed**|This is an h2 heading. <br><br> You can modify the heading if your article only requires one of the two, either Hardware or Software.|Here you set the hardware and software you need to continue your tutorial. You are more than welcome to link the Arduino based software and hardware to the respective store or downloads page.|![Example of Hardware & Software](_assets/hardware.png)|
 |**Circuit/Schematic**|This is an h2 heading. <br><br> You should not change the name of the heading.|Here you add the circuits and/or schematics of your tutorial.|![Example of Circuit](_assets/art-circuit.png) <br><br> ![Example of Schematic](_assets/art-schematic.png)|
 
+## Markdown
+
+We write all of our content in markdown. To be able to contribute properly to our website, we suggest you to do the same. Practice your markdown skills here: https://commonmark.org/help/tutorial/ 
+
+You should use the following markdown styling for our content:
+
+|Style|Use|Description|Example|
+|-----|---|-----------|-------|
+|**Bold**|\*\*bold**|Use bold when you are referring to either a path in the chosen software, or when you want to highlight a specific topic or button.|![Example use of bold](_assets/bold1.png)|
+|**Inline Code**|\`code\`|Use the inline code markdown for code inside text sections.|![Example use of inline code](_assets/inline-code.png)|
+|**Code Snippet**|\```arduino <br><br> this is my code <br><br>\```|Use the code snippet markdown for longer code snippets.|![Example use of code snippet](_assets/code-snippet.png)|
+|**Notes**|\*\*\*Note: This is my note.***|Use the three asterisks for note tags. Note that these can’t contain line-breaks unless made with a \<br> tag.|![Example use of note tag](_assets/notes.png)|
+|**Quotes**|\> This is a quote.|Use sparsely and with quotes only.|![Example use of quote tag]()|
+|**Bullet points**|\* bullet point 1 <br>\* bullet point 2 <br>\* bullet point 3|Use the * or the - to make bullet points in your tutorial. <br><br> If your bullet point is a full sentence, remember to punctuate it. If your bullet point is a single word, or words not making a sentence, leave the punctuation off.|![Example use of bullet points](_assets/bullet-points.png)|
+|**Numbered lists**|\*\*1.** One <br>\*\*2.** Two <br>\*\*3.** Three|Make sure to bold your numbering lists to make them format properly.|![Example use of numbered lists](_assets/numbered-list.png)|
+|**Paths**|This > is > my > path|Use > when describing paths in your chosen software.|![Example use of paths](_assets/path.png)|
+|**Images**|![image alternative text](relative link to image in assets folder)|Use the image tag to display images.|![Example use of images](_assets/image-tags.png)|
+
+***Note that we are not including cursive writing as a markdown style. We implore you not to use cursive as a means to highlight text. Instead use bold.***
+
+<!--
+
+## Graphics
+
+All graphics should be **1920x1080**. All graphics are stored in an assets folder in the documentation folder. See section **Naming Guidelines**.
+
+|Type|Purpose|Guidelines|Example|
+|----|-------|----------|-------|
+|Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylized electronic diagram explaining electric circuits.|Please follow [this]() guide on how to create your own Arduino approved circuit diagrams and schematics.|![Example of circuit](_assets/circuit1.png)<br>![Example of circuit](_assets/circuit2.png)|
+|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Please follow [this]() guide on how to create your own Arduino approved screenshots.|![Example of screenshot](_assets/screenshot1.png)<br>![Example of screenshot](_assets/screenshot2.png)<br>![](_assets/screenshot3.png)| 
+
+-->
+
+## Naming Guidelines
+
+### Files
+
+Name the folder after the title of your documentation. The name of the folder should contain a maximum of 4 words divided by dashes.
+
+`connector-basics`
+
+`SoftwareSerialExample`
+
+![Naming of tutorial folder](_assets/tutorial-folder.png)
+
+The folder should then contain an assets folder, as well as the main content markdown file. It’s important to name the main content file the same name as the folder.
+
+`connector-basics.md`
+
+`SoftwareSerialExample.md`
+
+![Naming and formatting of tutorial folder](_assets/tutorial-folder2.png)
+
+### Images
+
+There is no specific way you need to name the images, however it is a good practice to add something descriptive in the name. Also remember to divide words by using dashes.
+
+`UNO-Mini-LE-external-power.png`
+
+`rp2040-ap-mode-img-01.png`

@@ -16,7 +16,7 @@ software:
   - iot-cloud
 ---
 
-Update the frontmatter above with information that fits your article. Remove the section that are not relevant or filled in. Note that you must at least fill in the title, description and author.
+Update the frontmatter above with information that fits your article. Remove the section that are not relevant or filled in. Note that you **must** at least fill in the title, description and author. Remove the sections that are not filled in.
 
 ## Introduction
 
@@ -28,15 +28,18 @@ List the hardware and software needed. This could be the IDEs, libraries but als
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect).
-- etc.
 
 ## Circuit
 
 Add the image of the circuit here. This section should not need any text following the image, only a well thought alternative image text. 
 
+![Well thought out alternative image text.]()
+
 ## Schematic
 
 Add the image of the schematic here. This section should not need any text following the image, only a well thought alternative image text. 
+
+![Well thought out alternative image text.]()
 
 ## Code
 

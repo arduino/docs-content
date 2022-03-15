@@ -16,7 +16,7 @@ software:
   - iot-cloud
 ---
 
-Update the frontmatter above with information that fits your tutorial. Remove the section that are not relevant or filled in. Note that you must at least fill in the title, description and author.
+Update the frontmatter above with information that fits your tutorial. Remove the section that are not relevant or filled in. Note that you **must** at least fill in the title, description and author. Remove the sections that are not filled in.
 
 ## Introduction 
 
@@ -42,11 +42,13 @@ List the hardware and software needed. This could be the IDEs, libraries but als
 
 Add the image of the circuit here. This section should not need any text following the image, only a well thought alternative image text. 
 
-![](_assets/)
+![Well thought out alternative image text.]()
 
 ## Focus Feature
 
-This is the only heading you should rename to what the feature is about. Talk about the first feature you want this tutorial to highlight. You can use step-by-step instructions, images or code snippets to show examples. You can use subheading h3 here as well. You can also add how many of the "Focus Feature" headings as needed, however as the tutorials only focus on minimal features - this amount should not be higher than three.
+This is the **only** heading you should rename to what the feature is about. Talk about the first feature you want this tutorial to highlight. You can use step-by-step instructions, images or code snippets to show examples. You can use subheading h3 here as well. 
+
+You can also add how many of the "Focus Feature" headings as needed, however as tutorials only focus on minimal features, we recommend to only adding a maximum of three "Focus Feature" headings.
 
 ## Programming the Board
 
@@ -57,7 +59,6 @@ Example code for the reader to copy and paste into their own sketch. This sectio
 After uploading the code, we should now start using it. Go through the flow with the reader. 
 
 ### Troubleshoot
-
 
 Add a bullet list of the things that could be the potential issue for something not working. 
 
