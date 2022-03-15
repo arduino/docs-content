@@ -84,7 +84,7 @@ Connection through mobile networks can be considered in remote areas where there
 
 ***For more information, visit the [Arduino SIM page](https://store.arduino.cc/digital/sim).***
 
-***Note that connection via GSM is a memory intense operation, so there's not a lot of memory for the user application (around 2.6 kB). Using a lot of IoT Cloud variables may cause the sketch to run out of memory on the MKR GSM 1400 and make it crash.***
+***Note that a secured connection is a memory intense operation, so there's not a lot of memory for the user application (e.g. around 2.6 kB on the MKR GSM 1400). Using a lot of IoT Cloud variables may cause the sketch to run out of memory on boards which don't offload the SSL stack and make it crash.***
 
 ### ESP32 / ESP8266
 
