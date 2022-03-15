@@ -33,7 +33,7 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- [Arduino IDE](https://www.arduino.cc/en/software).
+- [Arduino IDE 2](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide).
 - [Arduino Web Editor](https://create.arduino.cc/).
 - [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) (Chrome Web Store)
 - [Arduino UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2).
