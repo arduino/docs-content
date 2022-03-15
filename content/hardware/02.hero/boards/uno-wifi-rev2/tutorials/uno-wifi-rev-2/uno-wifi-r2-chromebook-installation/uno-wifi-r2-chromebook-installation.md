@@ -50,7 +50,7 @@ Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi 
 
 ![.hex file in your Desktop folder.](assets/hex-file-desktop.png)
 
-**3.** Connect the Uno Wifi  board to your computer and open your Command Prompt (Windows) or Terminal (Mac/Linux), copy paste the command for your OS from the snippets below.
+**3.** Connect your UNO WiFi Rev2 board to your computer and open your Command Prompt (Windows) or Terminal (Mac/Linux), copy paste the command for your OS from the snippets below.
 
 ### Mac
 
