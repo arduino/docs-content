@@ -21,7 +21,7 @@ This 6-axis IMU allows to obtain 3D gyroscopic and 3D accelerometer data. It is 
 
 <Feature title="STM32H747AII6" image="mcu">
 
-  The Nicla Vision features an STM32H747AII6 Dual ARM® Cortex® - M7 core up to 480 Mhz + M4 core up to 240 Mhz.
+  The Nicla Vision features an STM32H747AII6 Dual ARM® Cortex® - M7 core up to 480 MHz + M4 core up to 240 MHz.
 <FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/stm32h747ai.pdf" download blank/>
 </Feature>
 
