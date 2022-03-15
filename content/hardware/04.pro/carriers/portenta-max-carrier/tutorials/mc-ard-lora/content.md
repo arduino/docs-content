@@ -180,53 +180,50 @@ Now, let's start sending information to TTN. The following sketch let's you send
 ```arduino
 #define PORTENTA_CARRIER
 #include <MKRWAN.h>
-
-_lora_band region = US915;
+#include "arduino_secrets.h"
 
 LoRaModem modem(Serial1);
-
-String appEui;
-String appKey;
 
 void setup() {
   Serial.begin(115200);
   while (!Serial);
-  Serial.println(F("LoRaWAN + Portenta Max Carrier (OTAA)"));
+  Serial.println(F("LoRa + Portenta Max Carrier (OTAA)"));
   
-  if (!modem.begin(region)) {
-    Serial.println(F("- Failed to start module!"));
+  // change this to your regional band (eg. US915, AS923, ...)
+  if (!modem.begin(US915)) {
+    Serial.println(F("Failed to start module"));
     while (1) {}
   };
   
-  Serial.print(F("- Your module version is: "));
+  Serial.print(F("Your module version is: "));
   Serial.println(modem.version());
 
   if (modem.version() != ARDUINO_FW_VERSION) {
-    Serial.println(F("- Please make sure that the latest module firmware is installed."));
-    Serial.println(F("- To perform a firmware update, use the 'MKRWANFWUpdate_standalone.ino' example sketch."));
+    Serial.println(F("Please make sure that the latest modem firmware is installed."));
+    Serial.println(F("To update the firmware upload the 'MKRWANFWUpdate_standalone.ino' sketch."));
   }
   
-  Serial.print(F("- Your device EUI is: "));
+  Serial.print(F("Your device EUI is: "));
   Serial.println(modem.deviceEUI());
 
-  // To use predfined setting for OTAA or use a custom setting
+  // To Use Predfined Setting for OTAA or use Custom Setting
   int mode = 0;
   while (mode != 1 && mode != 2) {
-    Serial.println(F("- Use predefined AppEUI & AppKey settings? (1) Yes | (2) No"));
+    Serial.println(F("Use predefined appEUI & appKEY Settings? (1) Yes | (2) No"));
     while (!Serial.available());
     mode = Serial.readStringUntil('\n').toInt();
   }
 
-  if (mode == 2) {
-    Serial.println(F("- Enter your AppEUI"));
+  if (mode == 2){
+    Serial.println(F("Enter your APP EUI"));
     while (!Serial.available());
     appEui = Serial.readStringUntil('\n');
 
-    Serial.println(F("- Enter your AppKey"));
+    Serial.println(F("Enter your APP KEY"));
     while (!Serial.available());
     appKey = Serial.readStringUntil('\n');
-  } else if (mode == 1) {
-    Serial.println(F("- Using predefined settings"));
+  } else if (mode == 1){
+    Serial.println(F("Using predefined Settings"));
   }
 
   appKey.trim();
@@ -235,22 +232,22 @@ void setup() {
   int connected = modem.joinOTAA(appEui, appKey);
 
   if (!connected) {
-    Serial.println("- Something went wrong; are you indoor? Move near a window and retry...");
+    Serial.println("Something went wrong; are you indoor? Move near a window and retry");
     while (1) {}
   }
 
   delay(5000);
 
-  // Sending packet
+  // Sending Packet Off
   int err;
   modem.setPort(3);
   modem.beginPacket();
   modem.print("HeLoRA world!");
   err = modem.endPacket(true);
   if (err > 0) {
-    Serial.println("- Message sent correctly!");
+    Serial.println("Message sent correctly!");
   } else {
-    Serial.println("- Error sending message :(");
+    Serial.println("Error sending message :(");
   }
 }
 
@@ -264,7 +261,24 @@ void loop() {
 
 ## Conclusion
 
+You have now succesfully configured the Portenta Max Carrier with Portenta H7 to power up and use its onboard CMWX1ZZABZ-078 LoRaWAN® communications module. You have learned how to properly setup The Things Network (TTN) and establish a communication using its LoRaWAN® connectivity.
+
 ### Next Steps
 
+- Scale up the usage of Portenta Max Carrier by using its additional peripherals and turning into an interesting industrial grade projects, taking the advantage of LoRaWAN® connectivity.
+- You can read more about LoRa and LoRaWAN, and get a deeper understanding of how you can adapt your higher grade projects into real world solver [here](https://docs.arduino.cc/learn/communication/lorawan-101). 
+
 ## Troubleshooting
+
+While working on the sketch or when tried to upload the sketch, the Arduino IDE might show some errors preventing to proceed on the development. you can try the following troubleshooting tips to solve the commonly known issues. 
+
+- If the sketch upload process fails, please put the Portenta H7 into Bootloader mode. To put the Portenta H7 into Bootloader mode, it is required to double-press the RESET button found on the Portenta H7 and verify that the Green LED is waving. After this you can try re-uploading the sketch and it will be successfuly solved.
+
+- If the Portenta H7 gets into Bootloader mode immediately after power on, including when connected via USB-C to a device, please make sure to check the DIP Switch found on the Portenta Max Carrier board. The DIP Switch must be configured to a device address to be powered on. The DIP Switch will allow to configure BOOT_SEL to configure the address. You will be able to upload and run the code without any issue after this.
+
+- If the Arduino IDE fails to compile the sketch, please make sure to have defined for Portenta Max Carrier settings. The following one-line code should be defined above all the sketch that have been written. With this, there should not be any issue compiling sketches designed for Portenta Max Carrier boards. 
+
+```cpp 
+#define PORTENTA_CARRIER
+```
 
