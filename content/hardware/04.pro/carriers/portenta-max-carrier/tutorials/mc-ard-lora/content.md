@@ -261,7 +261,7 @@ void loop() {
 
 ## Conclusion
 
-You have now succesfully configured the Portenta Max Carrier with Portenta H7 to power up and use its onboard CMWX1ZZABZ-078 LoRaWAN® communications module. You have learned how to properly setup The Things Network (TTN) and establish a communication using its LoRaWAN® connectivity.
+You have now successfully configured the Portenta Max Carrier with Portenta H7 to power up and use its onboard CMWX1ZZABZ-078 LoRaWAN® communications module. You have learned how to properly setup The Things Network (TTN) and establish a communication using its LoRaWAN® connectivity.
 
 ### Next Steps
 
@@ -272,7 +272,7 @@ You have now succesfully configured the Portenta Max Carrier with Portenta H7 to
 
 While working on the sketch or when tried to upload the sketch, the Arduino IDE might show some errors preventing to proceed on the development. you can try the following troubleshooting tips to solve the commonly known issues. 
 
-- If the sketch upload process fails, please put the Portenta H7 into Bootloader mode. To put the Portenta H7 into Bootloader mode, it is required to double-press the RESET button found on the Portenta H7 and verify that the Green LED is waving. After this you can try re-uploading the sketch and it will be successfuly solved.
+- If the sketch upload process fails, please put the Portenta H7 into Bootloader mode. To put the Portenta H7 into Bootloader mode, it is required to double-press the RESET button found on the Portenta H7 and verify that the Green LED is waving. After this you can try re-uploading the sketch and it will be successfully solved.
 
 - If the Portenta H7 gets into Bootloader mode immediately after power on, including when connected via USB-C to a device, please make sure to check the DIP Switch found on the Portenta Max Carrier board. The DIP Switch must be configured to a device address to be powered on. The DIP Switch will allow to configure BOOT_SEL to configure the address. You will be able to upload and run the code without any issue after this.
 
