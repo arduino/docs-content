@@ -49,7 +49,7 @@ If you are using version 1.6.2 or later of the Arduino software (IDE), you can u
 In the Arduino IDE, open the "Sketch" menu, select "Include Library", then "Manage Libraries...".
 Search for "VL53L1X".
 Click the VL53L1X entry in the list, authored by Pololu.
-Click "Install".
+Click "Install". More detailed instructions on how to install a library can be found [here](/learn/starting-guide/software-libraries).
 
 
 ### Include the Needed Libraries and Objects Declaration
