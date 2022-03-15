@@ -160,4 +160,4 @@ function getColumnFromIndex(index, haystack){
     return column;
 }
 
-module.exports = { findAllFiles, findAllFolders, getFilesWithExtension, getSubdirectories, createDirectoryIfNecessary, getLineNumberFromIndex, getColumnFromIndex};
+module.exports = { isFile, isDirectory, findAllFiles, findAllFolders, getFilesWithExtension, getSubdirectories, createDirectoryIfNecessary, getLineNumberFromIndex, getColumnFromIndex};
