@@ -17,7 +17,7 @@ wireless sensor networks, data fusion, artificial intelligence, machine vision
 - **STM32H747AII6** Microcontroller
   - Dual core
     - 32-bit Arm® Cortex®-M7 core with double-precision FPU and L1 cache up to 480 MHz
-    - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240MHz
+    - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
 - **Murata® 1DX** Wi-Fi/BT Module
@@ -52,7 +52,7 @@ wireless sensor networks, data fusion, artificial intelligence, machine vision
   - 1.75μm pixel size
 - **LSM6DSOX** 6-axis IMU
   - Always-on 3D accelerometer and 3D gyroscope
-  - Smart FIFO up to 4 KByte
+  - Smart FIFO up to 4 kByte
   - ±2/±4/±8/±16 g full scale
   - ±125/±250/±500/±1000/±2000 dps full scale
 - **USB3320C-EZK-TR** USB Transceiver
@@ -145,7 +145,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 
 ### Processor
-H7's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The Nicla Vision's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 
 ### 6-Axis IMU
 It is possible to obtain 3D gyroscope and 3D accelerometer data from the LSM6DSOX 6-axis IMU (U3). In addition to providing such data, it is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
@@ -170,9 +170,9 @@ Input voltage can be provided to the Nicla Vision through the USB connector (J7)
 A NTC (negative thermal coefficient) sensor provides overtemperature shutoff to the battery. The battery fuel gauge provides indication of the remaining battery capacity 
 
 There are three main power lines provided:
-- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 oscillator (Y1), USB transceiver (U5) and Wi-Fi/Bluetooth module.
+- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 kHz oscillator (Y1), USB transceiver (U5) and Wi-Fi/Bluetooth module.
 - **+2V8A** provides power to the camera (M1) and time-of-flight sensor (U4) 
-- **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi/Bluetooth module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13),27 MHz oscillator (U15) as well as the two level translators (U11,U12).
+- **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi/Bluetooth module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13), 27 MHz oscillator (U15) as well as the two level translators (U11, U12).
 
 - Additionally, a dedicated analog supply rail (VDDA) is provided for the microprocessor (U1). The camera module (M1) also has a dedicated power rail (+1V8CAM).
 
