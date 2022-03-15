@@ -44,7 +44,7 @@ The goals of this project are:
 
 Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi Rev 2 needs to be done through a Windows/Mac/Linux computer. 
 
-**1.** Make sure you have installed [Arduino IDE 2](https://www.arduino.cc/en/software).
+**1.** Make sure you have installed [Arduino IDE 2](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide).
 
 **2.** Download the [optiboot_atmega4.hex](/resources/firmware/optiboot_atmega4809.hex) file, and move it to your **Desktop folder**. 
 
