@@ -159,7 +159,7 @@ The on board Micro SD card can be used for data logging operations.
 
 The Portenta Max Carrier can either be powered through the power jack (X1) or a 18650 Li-ion/LiPo battery (J16, J18). The battery is charged while the minimum input voltage to X1 is met. The MPM3550EGLE (U6) provides a +5V rail to power the peripherals. This IC also provides power to the BQ24195RGET IC (U11) that manages the Li-ion battery and boosts the voltage to +5V. U11 also determines the battery status. 
 
-The power source can be determined by querying the System Status Register of U11 and check the PG_STAT field. PG_STAT = 1 means the board is powered with power source on VBUS. Please refer to the IC [datasheet](/resources/datasheets/bq24195-datasheet.pdf) for further details.
+The power source can be determined by querying the System Status Register of U11 and check the PG_STAT field. PG_STAT = 1 means the board is powered with a power source on VBUS. Please refer to the IC [datasheet](/resources/datasheets/bq24195-datasheet.pdf) for further details.
 
 Priority is with the jack delivered power. The battery charger IC also outputs a +3V8 power rail that powers the modem (U1). The +5V power rail provides power to the Portenta board that regulates the voltage with its onboard buck converter to +3V3. The +3V3 power rail supplies power to the LoRa module (U23), 4-port USB hub (U3), microSD module (J11) and Fieldbus circuitry (U4). Audio is powered by a dedicated AP7311 LDO regulator that provides a low noise +1V8 power rail. 
 
