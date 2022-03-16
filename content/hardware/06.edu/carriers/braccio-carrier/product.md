@@ -1,9 +1,9 @@
 ---
-title: Braccio Carrier
+title: Arduino® Braccio Carrier 
 url_shop: https://store.arduino.cc/products/braccioplusplus
 url_guide: 
 url_datasheet: 
 core: 
 ---
 
-The Braccio Carrier is the main feature of the Arduino Braccio ++, with its ability to control the motors and display. 
+The Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing product line providing faster prototyping in increasing demands for robotics and automation. A perfect board for quixk an easy learning while building small projects.

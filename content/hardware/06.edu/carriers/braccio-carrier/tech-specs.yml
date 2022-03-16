@@ -1,3 +1,15 @@
 Carrier:
   Name: Arduino® Braccio Carrier
   SKU: ABX00032
+  Compatibility: Nano Family (Inc: Nano RP2040 Connect)
+Peripherals:
+  Display: Yes
+  Joystick: 
+  Connectors: 7 (For motors)
+Power:
+  USB-C: Yes
+Dimensions:
+  Weight: 186 g
+  Width: 90 mm
+  Length: 170 mm
+  Height: 50 mm
