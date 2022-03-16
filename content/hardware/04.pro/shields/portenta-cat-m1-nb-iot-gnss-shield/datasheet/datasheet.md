@@ -144,7 +144,7 @@ Now that you have gone through the basics of what you can do with the board you 
 ## Mechanical Information
 ![Portenta Cat. M1/NB IoT GNSS Shield Mechanical Dimensions](assets/thalesShieldMeMech.svg)
 
-## Connector Pinouts
+## Pinout
 ![Portenta Cat. M1/NB IoT GNSS Shield Pinouts](assets/thalesPinout.svg)
 
 
