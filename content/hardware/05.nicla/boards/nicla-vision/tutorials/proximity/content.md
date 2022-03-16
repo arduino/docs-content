@@ -44,7 +44,7 @@ The goals of this project are:
 To make sure that the sketch works properly, the latest versions of the **Arduino mbed Core** and the **VL53L1X library** needs to be installed. Both can be found inside the Arduino IDE.
 
 - The **Arduino mbed Core** can be found in the **boards manager...**.  
-The **VL53L1X library** can be found in the **Library manager**, 
+- The **VL53L1X library** can be found in the **Library manager**, 
 
 If you are using version 1.6.2 or later of the Arduino software (IDE), you can use the Library Manager to install the VL53L1X library:
 In the Arduino IDE, open the "Sketch" menu, select "Include Library", then "Manage Libraries...".
