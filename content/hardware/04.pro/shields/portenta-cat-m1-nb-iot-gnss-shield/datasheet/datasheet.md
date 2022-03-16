@@ -103,20 +103,20 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 **Top View**
 ![Portenta Cat. M1/NB IoT GNSS Shield Top View](assets/thalesShieldTopTopology.svg)
 
-| **Ref.** | **Description**                                       | **Ref.** | **Description**                                   |
-| -------- | ----------------------------------------------------- | -------- | ------------------------------------------------- |
-| DL1      | SMLP34RGB2W3 RGB LED                                  | J1,J2    | Female High Density Connector                     |
-| J7       | U.FL-R-SMT-1(60) micro UFL Cellular Antenna Connector | J8       | U.FL-R-SMT-1(60) micro UFL GNSS Antenna Connector |
-| PB1      | TL3340AF160QG Mode Select button                      | PB2      | TL3340AF160QG Reset button                        |
-| U1       | TX62-W Cellular-GNSS Module                           | U2,U5,U7 | 74LVCH2T45GT Level Translator                     |
+| **Ref.** | **Description**                  | **Ref.** | **Description**               |
+| -------- | -------------------------------- | -------- | ----------------------------- |
+| DL1      | SMLP34RGB2W3 RGB LED             | J1,J2    | Female High Density Connector |
+| PB1      | TL3340AF160QG Mode Select button | PB2      | TL3340AF160QG Reset button    |
+| U1       | TX62-W Cellular-GNSS Module      | U2,U5,U7 | 74LVCH2T45GT Level Translator |
 
 **Back View**
 ![Portenta Cat. M1/NB IoT GNSS Shield Back View](assets/thalesShieldBackTopology.svg)
 
-| **Ref.** | **Description**               | **Ref.** | **Description**                                 |
-| -------- | ----------------------------- | -------- | ----------------------------------------------- |
-| J3, J4   | Male High Density Connectors  | J6       | SIM8060-6-0-14-00-A Hinged Nano SIM card module |
-| U3,U4,U6 | 74LVCH2T45GT Level Translator | U8       | TC1185-3.0VCT713 3V 150mA LDO IC                |
+| **Ref.** | **Description**                                       | **Ref.** | **Description**                                   |
+| -------- | ----------------------------------------------------- | -------- | ------------------------------------------------- |
+| J3, J4   | Male High Density Connectors                          | J6       | SIM8060-6-0-14-00-A Hinged Nano SIM card module   |
+| J7       | U.FL-R-SMT-1(60) micro UFL Cellular Antenna Connector | J8       | U.FL-R-SMT-1(60) micro UFL GNSS Antenna Connector |
+| U3,U4,U6 | 74LVCH2T45GT Level Translator                         | U8       | TC1185-3.0VCT713 3V 150mA LDO IC                  |
 
 
 ### Cellular Connectivity
