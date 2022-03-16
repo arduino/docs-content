@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![](assets/featured.png)
 
 # Description
-The Arduino® Portenta X8 is a high performance single board computer designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP i.MX 8M Mini hosting an embedded linux OS together with a range of peripherals powered by the STM32H7 including SAI, full HD video output, USB connectivity and Gigabit ethernet. A wide range of shield and carrier boards extend the functionality of the X8 or alternatively make use of the reference designs to develop your own custom solutions.
+The Arduino® Portenta X8 is a high performance single board computer designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP iMX 8M hosting an embedded Linux OS with the STM32H7 to leverage Arduino libraries/skills. Shield and carrier boards are available to extend the functionality of the X8 or alternatively can be used as reference designs to develop your own custom solutions.
 
 # Target Areas
 Edge computing, industrial internet of things, single board computer, artificial intelligence
@@ -23,12 +23,12 @@ Edge computing, industrial internet of things, single board computer, artificial
    </thead>   
    <tbody>
       <tr>
-         <td rowspan="16" ><strong>NXP i.MX 8M Mini </strong>Processor</td>
-         <td>4x Arm® Cortex®-A53 core platforms up to 1.8GHz per core</td>
+         <td rowspan="16" ><strong>NXP iMX8M </strong>Processor</td>
+         <td>4x Arm® Cortex®-A53 core platforms up to 1.8 GHz per core</td>
          <td>32KB L1-I Cache/ 32 kB L1-D Cache 512 kB L2 Cache</td>
       </tr>
       <tr>
-         <td>Arm® Cortex®-M4 core up to 400MHz</td>
+         <td>Arm® Cortex®-M4 core up to 400 MHz</td>
          <td>16 kB L1-I Cache \ 16 kB L2-D Cache</td>
       </tr>
       <tr>
@@ -89,11 +89,11 @@ Edge computing, industrial internet of things, single board computer, artificial
       </tr>
       <tr>
          <td rowspan="4" ><strong>USB-C</strong></td>
-         <td>High Speed (optional)/Full Speed USB</td>
+         <td>High Speed USB</td>
          <td></td>
       </tr>
       <tr>
-         <td>DisplayPort output (optional)</td>
+         <td>DisplayPort output </td>
          <td></td>
       </tr>
       <tr>
@@ -101,7 +101,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td>Power Delivery support (optional)</td>
+         <td>Power Delivery support</td>
          <td></td>
       </tr>
       <tr>
@@ -110,7 +110,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td>1x 10/100/1000 Ethernet with PHY</td>
+         <td>1x 10/100/1000 Ethernet interface with PHY</td>
          <td></td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td>1x SDCard</td>
+         <td>1x SDCard interface</td>
          <td></td>
       </tr>
       <tr>
@@ -138,7 +138,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td>1xPDM input</td>
+         <td>1x PDM input</td>
          <td></td>
       </tr>
       <tr>
@@ -234,7 +234,7 @@ Edge computing, industrial internet of things, single board computer, artificial
       </tr>
       <tr>  
          <td rowspan="3" ><strong>NXP PCF8563BS</strong></td>
-         <td>Low power Real TIme Clock</td>
+         <td>Low power Real Time Clock</td>
          <td></td>
       </tr>
       <tr>
@@ -242,7 +242,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td>Low backup current; typical 250 nA att VDD = 3.0 V and Tamb = 25 C</td>
+         <td>Low backup current; typical 250 nA at VDD = 3.0 V and T<sub>amb</sub> = 25°C</td>
          <td></td>
       </tr>
       <tr>
@@ -256,8 +256,9 @@ Edge computing, industrial internet of things, single board computer, artificial
       </tr>
       <tr>
          <td><strong>Temperature range</strong></td>
-         <td> -40 - +85°C</td>
-         <td>Maximum temperature depends on the use of a heatsink</td>
+         <td> -40°C to +85°C</td>
+         <td> It is user’s sole responsibility to test board's operation in full temperature
+         range</td>
       </tr>
       <tr>
          <td rowspan="2" ><strong>Onboard memory</strong></td>
@@ -280,20 +281,17 @@ Edge computing, industrial internet of things, single board computer, artificial
 
 # The Board
 ## Application Examples
-The Arduino® Portenta X8 has been designed for high performance embedded computing applications in mind, based on the quad core NXP iMX8M Mini Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
+The Arduino® Portenta X8 has been designed for high performance embedded computing applications in mind, based on the quad core NXP iMX8M Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
 - **Embedded Linux:** Kickstart the deployment of Industry 4.0 with Linux Board Support Packages running on the feature packed and energy efficient Arduino® Portenta X8. Make use of the GNU toolchain to develop your solutions free from technological lock in.   
-- **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi and Bluetooth connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet provides high speed and low latency for the most demanding of applications. 
-- **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions included PCIe connectivity that allows for connection of external boards through the Arduino Portenta Max Carrier. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference design for your own designs. Low-code software containers allow for rapid deployment.
+- **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi and Bluetooth connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications. 
+- **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
 ## Accessories
 - USB-C Hub
 - USB-C to HDMI Adapter
 
 ## Related Products
-- Arduino® Portenta Max Carrier (ABX00043)
-- Arduino® Machine Control (ASX00024)
 - Arduino® Portenta Breakout Board (ASX00031)
-- Arduino Portenta Cat. M1/NB IoT GNSS Shield (ASX00027)
 
 # Rating
 
@@ -303,8 +301,8 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 | ------------------ | -------------------------------------------------- | ---- | --- | ---- | ---- |
 | V<sub>IN</sub>     | Input voltage from VIN pad                         | 4.5  | 5   | 5.5  | V    |
 | V<sub>USB</sub>    | Input voltage from USB connector                   | 4.5  | 5   | 5.5  | V    |
-| V<sub>3V3</sub>    | 3.3V output to user application                    |      | 3.1 |      | V    |
-| I<sub>3V3</sub>    | 3.3V output current available for user application | -    | -   | 1000 | mA   |
+| V<sub>3V3</sub>    | 3.3 V output to user application                   |      | 3.1 |      | V    |
+| I<sub>3V3</sub>    | 3.3 V output current available for user application| -    | -   | 1000 | mA   |
 | V<sub>IH</sub>     | Input high-level voltage                           | 2.31 | -   | 3.3  | V    |
 | V<sub>IL</sub>     | Input low-level voltage                            | 0    | -   | 0.99 | V    |
 | I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high              |      |     | 8    | mA   |
@@ -330,7 +328,7 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 
 | **Ref.** | **Description**                                | **Ref.**        | **Description**                                              |
 | -------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------ |
-| U1       | BD71847AMWV i.MX 8M Mini PMIC                  | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
+| U1       | BD71847AMWV iMX8M PMIC                         | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
 | U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C™ Bridge IC                |
 | U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth Combo IC                       |
 | U12      | PCMF2USB3B/CZ Bidirectional EMI Protection IC  | U16,U21,U22,U23 | FXL4TD245UMX 4-Bit Bidirectional Voltage-level Translator IC |
@@ -357,11 +355,11 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 ## Processor
 The Arduino Portenta X8 makes use of two ARM®-based physical processing units.
 
-### NXP i.MX 8M Mini Quad Core Microprocessor
-The MIMX8MM6CVTKZAA i.MX 8M Mini (U2) features a quad core ARM® Cortex® A53 running at up to 1.6 GHz for high performance applications alongside an ARM® Cortex® M4 running at up to 400 MHz. The ARM® Cortex® A53 is capable of running a fully fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The ARM® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
+### NXP iMX8M Quad Core Microprocessor
+The MIMX8MM6CVTKZAA iMX8M (U2) features a quad core ARM® Cortex® A53 running at up to 1.8 GHz for high performance applications alongside an ARM® Cortex® M4 running at up to 400 MHz. The ARM® Cortex® A53 is capable of running a fully fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The ARM® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
 
 ### STM32 Dual Core Microprocessor
-The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as a I/O expander for the i.MX 8M Mini (U2). Peripherals are controlled via the M7 core. Additionally, the M4 core is available for for real time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini and has runs a proprietary firmware inaccessible to the User. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2). 
+The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as a I/O expander for the i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini and runs a proprietary firmware inaccessible to the User. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2). 
 
 ## Wi-Fi/Bluetooth Connectivity
 The Muratta® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth connectivity in an ultrasmall package based on the Cypress CYW4343W. The IEEE802.11b/g/n Wi-Fi interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi and Bluetooth. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth 5.1 is supported together with Wi-Fi conforming to the IEEE802.11b/g/n standard.
@@ -370,18 +368,18 @@ The Muratta® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi 
 The Arduino® Portenta X8 includes two onboard memory modules. A NT6AN512T32AV 2GB LP-DDR4 DRAM (U19) and 16GB Forsee eMMC Flash module (FEMDRW016G) (U5) are accessible to the i.MX 8M Mini (U2).
 
 ## Crypto Capabilities
-The Arduino® Portenta X8 enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U11). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage. It interacts with the NXP i.MX 8M Mini via I2C. 
+The Arduino® Portenta X8 enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U11). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage. It interacts with the NXP iMX8M via I2C. 
 
 ## Gigabit Ethernet
-The NXP i.MX 8M Mini Quad includes a 10/100/1000 Ethernet controller with support for Energy Efficient Ethernet (EEE), Ethernet AVB, and IEEE 1588. An external physical connector is required to complete the interface. This can be accessed via a high density connector with an external component such as the Arduino® Portenta Breakout board or Portenta Max Carrier.
+The NXP iMX8M Quad includes a 10/100/1000 Ethernet controller with support for Energy Efficient Ethernet (EEE), Ethernet AVB, and IEEE 1588. An external physical connector is required to complete the interface. This can be accessed via a high density connector with an external component such as the Arduino® Portenta Breakout board.
 
 ## USB-C Connector
 ![USB-C Pinout](assets/usbCPinout.png)
 The USB-C connector provides multiple connectivity options over a single physical interface:
 - Provide board power supply in both DFP and DRP mode
 - Source power to external peripherals when board is powered through VIN
-- Expose High Speed (480Mbps) or Full Speed (12 Mbps) USB Host/Device interface
-- Expose Displayport output interface (optional)
+- Expose High Speed (480 Mbps) or Full Speed (12 Mbps) USB Host/Device interface
+- Expose Displayport output interface 
 The Displayport interface is usable in conjunction with USB and can be either used with a simple cable adapter when board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting Displayport and USB. Such dongles usually provide an ethernet over USB port, a 2 port USB hub and a USB-C port that can be used to provide power to the system.
 
 ## Real Time Clock
@@ -566,4 +564,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Changes**  |
 | ---------- | ------------ |
-| xx/02/2022 | Release      |
+| 24/03/2022 | Release      |
