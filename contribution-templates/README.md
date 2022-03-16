@@ -116,6 +116,52 @@ You should use the following markdown styling for our content:
 
 ***Note that we are not including cursive writing as a markdown style. We implore you not to use cursive as a means to highlight text. Instead use bold.***
 
+## Trademark Guidelines
+
+If you want to include unit symbols or trademarked names in your content, please follow these guidelines.
+
+### Units
+
+For all unit symbols, make sure to include a space between the number and the symbol.
+
+Wrong: `1.75μm pixel size`
+
+Right: `1.75 μm pixel size`
+
+|Unit|Symbol|
+|----|------|
+|kilobyte|kB|
+|megabyte|MB|
+|micrometers|μm|
+
+### Trademarks
+
+
+|Trademark|Source of information|
+|---------|---------------------|
+|Arduino®|https://www.arduino.cc/en/trademark|
+|Bluetooth® / Bluetooth® Low Energy|https://www.bluetooth.com/develop-with-bluetooth/marketing-branding/|
+|Wi-Fi®|https://www.wi-fi.org/who-we-are/our-brands|
+|LoRa®|https://blog.semtech.com/how-to-name-and-brand-your-lora-application|
+|LoRaWAN®|https://lora-alliance.org/resource_hub/lora-alliance-marks-logo-usage-policy-and-guidelines/|
+|Arm® / Cortex®|https://www.arm.com/company/policies/trademarks/arm-trademark-list|
+|MathWorks®|https://www.mathworks.com/company/aboutus/policies_statements/trademarks.html|
+|Microchip®|https://www.microchip.com/en-us/about/legal-information/microchip-trademarks|
+|Python®|https://www.python.org/psf/trademarks/|
+|Arm® Mbed™ OS|https://www.arm.com/company/policies/trademarks/arm-trademark-list/mbed-trademark|
+|TensorFlow|https://www.tensorflow.org/extras/tensorflow_brand_guidelines.pdf|
+
+
+### Other 
+
+These are some other naming structures that we recommend using:
+
+* OpenMV
+* MicroPython
+* OTA (Over-the-air)
+* USB-_ (A/B/C)
+* 
+
 <!--
 
 ## Graphics
