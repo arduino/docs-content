@@ -1,6 +1,6 @@
 ---
 title: Connecting the Portenta Max Carrier to The Things Network
-description: This tutorial explains how to connect your Portenta Max Carrier to the Things Network(TTN) using the carrier's LoRaWAN® module.
+description: This tutorial explains how to connect your Portenta Max Carrier to the Things Network(TTN) using its onboard LoRaWAN® module.
 difficulty: intermediate
 tags:
   - iot
@@ -17,7 +17,7 @@ software:
 
 ## Overview
 
-This tutorial explains how to connect your Arduino® Max Carrier, with an [Arduino® Portena H7](https://store.arduino.cc/products/portenta-h7), to The Things Network (TTN) using its LoRaWAN® connectivity feature. The article will focus on achieving communication between the Max Carrier and an application on TTN.
+This tutorial explains how to connect your Arduino® Max Carrier, with an [Arduino® Portena H7](https://store.arduino.cc/products/portenta-h7), to The Things Network (TTN) using its onboard LoRaWAN® module. The article will focus on achieving communication between the Max Carrier and an application on TTN.
 
 ## Goals
 
@@ -32,12 +32,12 @@ This tutorial explains how to connect your Arduino® Max Carrier, with an [Ardui
 - 868-915 MHz antenna with SMA connector.
 - USB-C cable (either USB-A to USB-C or USB-C to USB-C).
 - [Arduino IDE 2.0](https://www.arduino.cc/en/software). 
-- [MKRWAN library](https://github.com/arduino-libraries/MKRWAN).  
+- [Arduino MKRWAN library](https://github.com/arduino-libraries/MKRWAN).  
 - An active account in [TTN](https://www.thethingsnetwork.org/).
 
 ## The Arduino® Portenta Max Carrier LoRaWAN® Module
 
-The Arduino® Portenta Max Carrier provides you with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Max Carrier possibilities are endless. One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRaWAN® communications module, the [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
+The Arduino® Portenta Max Carrier provides you with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Max Carrier possibilities are endless. One feature that boosts Portenta's Max Carrier possibilities is its **onboard LoRaWAN® module**, the [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
 
 ![CMWX1ZZABZ-078 LoRaWAN® module in the Portenta Max Carrier.](assets/mc_ard_ttn_module.png)
 
@@ -45,7 +45,9 @@ The Arduino® Portenta Max Carrier provides you with an unlimited range of appli
 
 ## Connecting to TTN
 
-Let's start sending data to TTN using the Portenta Max Carrier LoRaWAN® module. As stated before, to do this, you will need a TTN account and to be in the range of a public TTN gateway. You can check the [world map](https://www.thethingsnetwork.org/map) of public gateways connected to TTN and see if your region already has a gateway installed. If not, consider installing one!
+Let's start sending data to TTN using the Portenta Max Carrier LoRaWAN® module. To do this, you will need a TTN account and to be in the range of a public TTN gateway. You can check the [world map](https://www.thethingsnetwork.org/map) of public gateways connected to TTN and see if your region already has a gateway installed. If not, consider installing one!
+
+***Check out [this](https://www.thethingsnetwork.org/docs/gateways/) article from TTN, where you can find how to buy or build your gateway to extend TTN coverage in your region.***
 
 To connect your Portenta Max Carrier to TTN, we must follow these steps:
 
@@ -57,20 +59,19 @@ To connect your Portenta Max Carrier to TTN, we must follow these steps:
 
 Let's start!
 
-
 ### 1. Setting up the Hardware 
 
 Begin by attaching the Arduino® Portenta H7 board to the high-density connectors of the Arduino® Portenta Max Carrier, as shown in the image below:
 
 ![CMWX1ZZABZ-078 LoRaWAN® module in the Portenta Max Carrier.](assets/mc_ard_hd_ttn_connectors.png)
 
-To power the CMWX1ZZABZ-078 LoRaWAN® module of the Portenta Max Carrier, you can use the **DC power jack** (with a 4.5V to 36V external DC power supply) of the Portenta Max Carrier or a **18650 3.7V Li-Ion battery**, connected to the Portenta Max Carrier battery clips; you can power the module also directly from the USB-C connector of the Portenta H7 board. **Also, do not forget to attach a LoRa® antenna to the SMA connector (J9) in the Max Carrier**.
+To power the CMWX1ZZABZ-078 LoRaWAN® module of the Portenta Max Carrier, you can use the **DC power jack** (with a 4.5V to 36V external DC power supply) of the Portenta Max Carrier or a **18650 3.7V Li-Ion battery**, connected to the Portenta Max Carrier battery clips; you can power the module also directly from the USB-C connector of the Portenta H7 board. **Also, do not forget to attach an 868-915 MHz antenna to the SMA connector (J9) in the Max Carrier**.
 
 ![Power sources and LoRa® antenna connector in the Portenta Max Carrier.](assets/mc_ard_ttn_power.png)
 
-***Using the LoRaWAN® module of the Portenta Max Carrier without an antenna may damage it. Please, do not forget to connect a suitable antenna to the dedicated SMA connector (J9) on the Max Carrier board.***
+***Using the LoRaWAN® module of the Portenta Max Carrier without an antenna may damage it. Please, do not forget to connect a suitable antenna to the dedicated SMA connector (J9) on the Portenta Max Carrier.***
 
-Now you can connect the Portenta H7 board to your computer using a USB-C cable. **Don't forget to change the position of the BOOT DIP switch** (SW1), **from BOOT SEL to BOO**T; otherwise, you are not going to be able to program your Portenta H7 board when attached to the Max Carrier.
+Now you can connect the Portenta H7 board to your computer using a USB-C cable. **Don't forget to change the position of the BOOT DIP switch** (SW1), **from BOOT SEL to BOOT**; otherwise, you will not be able to program your Portenta H7 board when attached to the Portenta Max Carrier.
 
 ![Power sources and LoRa® antenna connector in the Portenta Max Carrier.](assets/mc_ard_ttn_boot_sel.png)
 
@@ -137,7 +138,11 @@ The only line you may need to change before uploading the code is the one that s
 _lora_band region = US915;
 ```
 
-Set the frequency designator according to your country if needed. You can find more information about frequency plans definitions used in TTN [here](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans/). After you upload the sketch into your Portenta H7 board, you should see the Portenta Max Carrier `DevEUI` in the Serial Monitor as shown below:
+Set the frequency designator according to your country if needed. You can find more information about frequency plans definitions used in TTN [here](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans/). After you upload the sketch into your Portenta H7 board, you should see the Portenta Max Carrier `DevEUI` in the Arduino IDE Serial Monitor as shown below:
+
+```arduino
+Your Portenta Max Carrier DevEUI is: a861XXXXXXXXXXXX
+```
 
 Now, let's use the `DevEUI` number from your Portenta Max Carrier to create an application in TTN. 
 
@@ -160,71 +165,62 @@ Now, scroll to **End devices** in the left toolbar and then click on **Add end d
 
 ![Registering an end device in TTN.](assets/mc_ard_ttn_console_3.png)
 
-On the registration page click on **Manually**; you will have to add the following information for your Portenta Max Carrier:
+On the registration page, click on **Manually**; you will have to add the following information for your Portenta Max Carrier:
 
 * **Frequency plan**: choose a region according to your country.
 * **LoRaWAN® version**: 1.0.2.
 * **Regional Parameters version**: 1.0.2.
+
+Click on Show advanced activation, **LoRaWAN class and cluster settings** and choose: 
+
 * **Activation mode**: Over the air activation (OTAA).
-* **DevEUI**: fill it with the `DevEUI` number of your Portenta Max Carier you found before. 
+* **Additional LoRaWAN class capabilities**: None (class A only).
+* **Network defaults**: Use network's default MAC settings.
+
+Leave the **Cluster settings** option unchecked. Then continue with the following information:
+
+* **DevEUI**: fill it with the `DevEUI` number of your Portenta Max Carrier you found [before](#3-provisioning-the-arduino-portenta-max-carrier).
 * **AppEUI**: fill it with zeros or enter your own.
 * **AppKey**: generate one or enter your own.
 * **Device ID**: must be lowercase and without spaces. 
 
-Click on **Register end device**, this will take you to a **Device Overview** page where you will see all the information related to the device. You are going to use some of this information with your Portenta Max Carrier to send information to TTN. 
+Click on **Register end device**; this will take you to a **Device Overview** page where you will see all the information related to the device. Now, you will use some of this information with your Portenta Max Carrier to send data to TTN. 
 
-### 4. Sending a Message to an Application in TTN 
+![Device overview in TTN.](assets/mc_ard_ttn_console_4.png)
 
-Now, let's start sending information to TTN. The following sketch let's you send information to TTN using your Portenta Max Carrier LoRaWAN® module; Over the Air (OTAA) device activation method is used to join TTN: 
+### 4. Sending Data to an Application in TTN 
+
+Now, let's start sending information to TTN. The following sketch enables you to join and send data to TTN using the Over the Air (OTAA) device activation method. You will need to define your TTN application's AppEUI and AppKey numbers in the `arduino_secrets.h` file before uploading the code:
 
 ```arduino
 #define PORTENTA_CARRIER
 #include <MKRWAN.h>
 #include "arduino_secrets.h"
 
+_lora_band region = US915;
+
 LoRaModem modem(Serial1);
 
 void setup() {
   Serial.begin(115200);
   while (!Serial);
-  Serial.println(F("LoRa + Portenta Max Carrier (OTAA)"));
+  Serial.println(F("Portenta Max Carrier LoRaWAN Example (OTAA)"));
   
-  // change this to your regional band (eg. US915, AS923, ...)
-  if (!modem.begin(US915)) {
-    Serial.println(F("Failed to start module"));
+  if (!modem.begin(region)) {
+    Serial.println(F("Failed to start the module..."));
     while (1) {}
   };
   
-  Serial.print(F("Your module version is: "));
+  Serial.print(F("Your Portenta Max Carrier module version is: "));
   Serial.println(modem.version());
 
   if (modem.version() != ARDUINO_FW_VERSION) {
-    Serial.println(F("Please make sure that the latest modem firmware is installed."));
-    Serial.println(F("To update the firmware upload the 'MKRWANFWUpdate_standalone.ino' sketch."));
+    Serial.println(F("Please make sure that the modem's firmware is updated."));
+    Serial.println(F("To update the module's firmware, open and upload the 'MKRWANFWUpdate_standalone.ino' sketch."));
   }
   
-  Serial.print(F("Your device EUI is: "));
+  Serial.print(F("Your Portenta Max Carrier DevEUI is: "));
   Serial.println(modem.deviceEUI());
-
-  // To Use Predfined Setting for OTAA or use Custom Setting
-  int mode = 0;
-  while (mode != 1 && mode != 2) {
-    Serial.println(F("Use predefined appEUI & appKEY Settings? (1) Yes | (2) No"));
-    while (!Serial.available());
-    mode = Serial.readStringUntil('\n').toInt();
-  }
-
-  if (mode == 2){
-    Serial.println(F("Enter your APP EUI"));
-    while (!Serial.available());
-    appEui = Serial.readStringUntil('\n');
-
-    Serial.println(F("Enter your APP KEY"));
-    while (!Serial.available());
-    appKey = Serial.readStringUntil('\n');
-  } else if (mode == 1){
-    Serial.println(F("Using predefined Settings"));
-  }
 
   appKey.trim();
   appEui.trim();
@@ -232,22 +228,21 @@ void setup() {
   int connected = modem.joinOTAA(appEui, appKey);
 
   if (!connected) {
-    Serial.println("Something went wrong; are you indoor? Move near a window and retry");
+    Serial.println("Something went wrong; are you indoor? Move near a window and retry...");
     while (1) {}
   }
 
   delay(5000);
 
-  // Sending Packet Off
   int err;
   modem.setPort(3);
   modem.beginPacket();
-  modem.print("HeLoRA world!");
+  modem.print("HelLoRa World!");
   err = modem.endPacket(true);
   if (err > 0) {
-    Serial.println("Message sent correctly!");
+    Serial.println("Data sent correctly!");
   } else {
-    Serial.println("Error sending message :(");
+    Serial.println("Error sending data...");
   }
 }
 
@@ -258,27 +253,23 @@ void loop() {
   modem.poll();
 }
 ```
+If data was sent correctly to TTN, you should see the following messages in the Arduino IDE Serial Monitor:
+
+In your device overview dashboard in TTN, you should see changes in data activity every time a new message is sent: 
 
 ## Conclusion
 
-You have now successfully configured the Portenta Max Carrier with Portenta H7 to power up and use its onboard CMWX1ZZABZ-078 LoRaWAN® communications module. You have learned how to properly setup The Things Network (TTN) and establish a communication using its LoRaWAN® connectivity.
+You have now successfully configured and used the onboard LoRaWAN® module of your Portenta Max Carrier. You also have learned how to correctly setup a TTN application and enable LoRaWAN® connectivity between a TTN application and the Portenta Max Carrier.
 
 ### Next Steps
 
-- Scale up the usage of Portenta Max Carrier by using its additional peripherals and turning into an interesting industrial grade projects, taking the advantage of LoRaWAN® connectivity.
-- You can read more about LoRa and LoRaWAN, and get a deeper understanding of how you can adapt your higher grade projects into real world solver [here](https://docs.arduino.cc/learn/communication/lorawan-101). 
-
+- Scale up the usage of Portenta Max Carrier by using its additional peripherals and turning them into interesting industrial-grade projects, taking advantage of LoRaWAN® connectivity.
+  
 ## Troubleshooting
 
-While working on the sketch or when tried to upload the sketch, the Arduino IDE might show some errors preventing to proceed on the development. you can try the following troubleshooting tips to solve the commonly known issues. 
+While working on the sketch or when tried to upload the sketch, the Arduino IDE might show some errors preventing to proceed on the development. You can try the following troubleshooting tips to solve the commonly known issues:
 
-- If the sketch upload process fails, please put the Portenta H7 into Bootloader mode. To put the Portenta H7 into Bootloader mode, it is required to double-press the RESET button found on the Portenta H7 and verify that the Green LED is waving. After this you can try re-uploading the sketch and it will be successfully solved.
-
-- If the Portenta H7 gets into Bootloader mode immediately after power on, including when connected via USB-C to a device, please make sure to check the DIP Switch found on the Portenta Max Carrier board. The DIP Switch must be configured to a device address to be powered on. The DIP Switch will allow to configure BOOT_SEL to configure the address. You will be able to upload and run the code without any issue after this.
-
-- If the Arduino IDE fails to compile the sketch, please make sure to have defined for Portenta Max Carrier settings. The following one-line code should be defined above all the sketch that have been written. With this, there should not be any issue compiling sketches designed for Portenta Max Carrier boards. 
-
-```cpp 
-#define PORTENTA_CARRIER
-```
+* If the sketch upload process fails, check if your Portenta H7 is in bootloader mode. To put the Portenta H7 into Bootloader mode, double-press its RESET button and verify that the green LED is waving. After this, you can try re-uploading the sketch.
+* Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta H7 gets into bootloader mode immediately after power-on, including when connected via USB-C, change the position of the BOOT DIP switch from BOOT SEL to BOOT.
+* If the Arduino IDE fails to compile the sketch, check if you have defined `PORTENTA_CARRIER` before MKRWAN library inclusion.
 
