@@ -3,8 +3,8 @@
 </FeatureDescription>
 
 <FeatureList>
-  <Feature title="NXP iMX8M" image="core">
-    Includes the powerful NXP iMX8M Mini processor with 4x ARM® Cortex®-A53 core platforms up to 1.8GHz per core and 1x Cortex-M4 core up to 400MHz. 
+  <Feature title="NXP® i.MX 8M Mini" image="core">
+    Includes the powerful NXP® i.MX 8M Mini processor with 4x ARM® Cortex®-A53 core platforms up to 1.8GHz per core and 1x Cortex-M4 core up to 400MHz. 
     <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/cortexa53.pdf" download blank/>
   </Feature>
 
