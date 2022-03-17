@@ -1,1 +1,1 @@
-These are the technical specifications of the Braccio Carrier.
+These are the technical specifications of the Arduino® Braccio Carrier.

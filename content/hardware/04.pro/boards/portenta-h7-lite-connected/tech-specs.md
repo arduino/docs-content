@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Arduino® Braccio++.
+Here you will find the technical specifications for the Arduino® Portenta H7 Lite Connected.
