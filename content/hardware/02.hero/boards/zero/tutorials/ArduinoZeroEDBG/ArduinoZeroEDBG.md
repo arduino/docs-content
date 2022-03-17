@@ -68,7 +68,7 @@ and, if all has gone as it should, in the log console you will see "OK".
 
 **13.** Go to "Memories"
 
-**14.** Select the file to write (typically Bootloader*board_Vxxx.hex) that you will find in your Arduino Software (IDE) installation, under the \_hardware/arduino/samd/...* path found in your _Documents/Arduino/sketchbook_' folder. You need to install the SAMD core from board manager if you haven't done it yet. If your Arduino installation has been made ["portable"](/en/Guide/PortableIDE), the firmware will be in the _portable/packages/arduino_ path. folder, as seen in our screen capture below.
+**14.** Select the file to write (typically Bootloader\_board\_Vxxx.hex) that you will find in your Arduino Software (IDE) installation, under the \_hardware/arduino/samd/...* path found in your '**Documents/Arduino/sketchbook**' folder. You need to install the SAMD core from board manager if you haven't done it yet. If your Arduino installation has been made ["portable"](/en/Guide/PortableIDE), the firmware will be in the **portable/packages/arduino** path. folder, as seen in our screen capture below.
 
 **15.** Click "Program" and again, in the log console you will see "OK".
 
@@ -116,11 +116,11 @@ Choose SAMD21G18A, as shown in the next picture, and press 'finish' :
 
 ![Atmel Studio.](assets/Studio_OpenMicro_15.jpg)
 
-There is a chance that Atmel Studio 6.2 doesn't find the sketch and the Remap Object Files to Disk Files pops up with a _Missing: 1_ error. Scroll the list of files until you find the line with a red X icon on the left, then click on the three dots on the right of the line.
+There is a chance that Atmel Studio 6.2 doesn't find the sketch and the Remap Object Files to Disk Files pops up with a **Missing: 1** error. Scroll the list of files until you find the line with a red X icon on the left, then click on the three dots on the right of the line.
 
 ![Atmel Studio.](assets/Studio_Remap_15a.jpg)
 
-The window that pops up allows you to browse to your sketchbook where you need to select your _blinkEDBG.ino_ sketch file. When you click on _Open_ you go back to the Remap Object Files where the red X is now a green check mark. Click on _Finish_.
+The window that pops up allows you to browse to your sketchbook where you need to select your **blinkEDBG.ino** sketch file. When you click on **Open** you go back to the Remap Object Files where the red X is now a green check mark. Click on **Finish**.
 
 ![Atmel Studio.](assets/Studio_Remap_15b.jpg)
 
