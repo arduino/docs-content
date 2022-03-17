@@ -55,7 +55,7 @@ Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi 
 ### Mac
 
 ```
-/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
+/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C /Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
 ```
 
 ### Windows
