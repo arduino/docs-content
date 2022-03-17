@@ -272,4 +272,3 @@ While working on the sketch or when tried to upload the sketch, the Arduino IDE 
 * If the sketch upload process fails, check if your Portenta H7 is in bootloader mode. To put the Portenta H7 into Bootloader mode, double-press its RESET button and verify that the green LED is waving. After this, you can try re-uploading the sketch.
 * Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta H7 gets into bootloader mode immediately after power-on, including when connected via USB-C, change the position of the BOOT DIP switch from BOOT SEL to BOOT.
 * If the Arduino IDE fails to compile the sketch, check if you have defined `PORTENTA_CARRIER` before MKRWAN library inclusion.
-
