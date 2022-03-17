@@ -128,7 +128,7 @@ void process(YunClient client) {
 }
 ```
 
-Create a function to deal with *digital* commands. Accept the client as the argument. Create some local variables to hold the pin and value of the command.
+Create a function to deal with **digital** commands. Accept the client as the argument. Create some local variables to hold the pin and value of the command.
 
 ```arduino
 void digitalCommand(YunClient client) {
@@ -162,7 +162,7 @@ Print the value to the client and update the datastore key with the current pin 
 
 By wrapping the value to the client in `F()`, you'll be printing form the flash memory. This helps conserve space in SRAM, which is useful when dealing with long strings like URLs.
 
-The key will be the pin, and type. For example *D2* will be saved for for digital pin 2. The value will be whatever value the pin is currently set to, or was read from the pin.
+The key will be the pin, and type. For example **D2** will be saved for for digital pin 2. The value will be whatever value the pin is currently set to, or was read from the pin.
 
 ```arduino
 client.print(F("Pin D"));

@@ -29,7 +29,7 @@ Include the VidorCamera library, which is part of VidorGraphics.
 `#include "VidorGraphics.h"`
 `#include "VidorCamera.h"`
 
-You have a number of functions available to manage the recognition of a QR Code. VidorQR is part of the VidorCam library; the functions are accessible with *cam.qrrec*.
+You have a number of functions available to manage the recognition of a QR Code. VidorQR is part of the VidorCam library; the functions are accessible with **cam.qrrec**.
 
 - `void begin()` - start recognition algorithm
 
@@ -150,4 +150,4 @@ void loop()  {
 }
 ```
 
-*Last revision 2018/07/22 by SM*
+**Last revision 2018/07/22 by SM**

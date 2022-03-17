@@ -40,4 +40,4 @@ Image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 Copy the Processing sketch from the code sample above. When you type any letter in the Processing sketch window, it will send a string to the Arduino via UDP.
 
 
-*Last revision 2018/09/07 by SM*
+**Last revision 2018/09/07 by SM**

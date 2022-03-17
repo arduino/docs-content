@@ -45,7 +45,7 @@ sudo launchctl start com.apple.tftpd
 
 Move the unpacked base images files into the folder /private/tftpboot/
 
-You can access hidden directories like */private/* by using the *Go To Folder* option in the *Go* menu of the taskbar. In this instance, click on 'Go To Folder'' and enter `/private/tftpboot/` to open the directory in the Finder.
+You can access hidden directories like **/private/** by using the **Go To Folder** option in the **Go** menu of the taskbar. In this instance, click on 'Go To Folder'' and enter `/private/tftpboot/` to open the directory in the Finder.
 
 ### Setup a TFTP Server on GNU/Linux (Ubuntu)
 

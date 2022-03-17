@@ -485,7 +485,7 @@ Laboratory equipment, Computer vision
 | GND     | Cable Ground                                                 | TX1 +/- TX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
 | VBUS    | Cable bus power                                              | RX1 +/- RX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
 | D+/D-   | USB 2.0 Interface                                            | SBU1 SBU2       | For sideband use  (Not used for USB)                     |
-| CC1 CC2 | Plug configuration detection * One becomes VCONN for cable or adaptor power * CC is used for USB-PD communication |                 |                                                          |
+| CC1 CC2 | Plug configuration detection \* One becomes VCONN for cable or adaptor power \* CC is used for USB-PD communication |                 |                                                          |
 
 ### High Density Connector
 

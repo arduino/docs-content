@@ -28,7 +28,7 @@ Make sure the Yún and your computer are on the same network, and open a browser
 
 Once logged in, on the first page with the network information, scroll to the bottom, where you should see a notification informing you that a file containing an upgrade image has been found.
 
-If you want to proceed resetting the Yún, click the red *RESET* button at the very bottom of the page.
+If you want to proceed resetting the Yún, click the red **RESET** button at the very bottom of the page.
 
 ![Click on "reset".](assets/YunSysupgrade_1.png)
 
@@ -82,4 +82,4 @@ As with the web panel method, the process will take a few minutes, and the WLAN 
 
 
 
-*Last revision 2018/05/29 by SM*
+**Last revision 2018/05/29 by SM**
