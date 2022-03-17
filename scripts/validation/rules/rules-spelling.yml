@@ -5,7 +5,56 @@
   format: markdown
   errorMessage: Megabytes should be either written as 'megabytes' or abbreviated as
     'MB'
+
+# MHz / GHz spacing
+- regex: "(?<!\\S)\\b\\d+[MG][hH]z\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
+# MHz / GHz spelling
+- regex: "(?<!\\S)\\b\\d+\\s?[MG]hz\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Megahertz/Gigahertz should be abbreviated as MHz/GHz
+
+# Mbps / Gbps spacing
+- regex: "(?<!\\S)\\b\\d+[MG]bps\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
+# kB / MB spacing
+- regex: "(?<!\\S)\\b\\d+[mMkK][bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
+# kB spelling
+- regex: "(?<!\\S)\\b\\d+\\s?K[bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Kilobyte should be abbreviated as kB.
+
+# MB spelling
+- regex: "(?<!\\S)\\b\\d+\\s?m[bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Megabyte should be abbreviated as MB.
     
+# μm / mm spacing
+- regex: "(?<!\\S)\\b\\d+[μm]m\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
 # Excludes Wi-Fi in URLs (prepended by dash or slash) and WiFi.XY and MKR WiFi
 - regex: "(?<![\\/-]|Arduino |MKR |UNO |MKR 1000 )[wW]i[fF]i(?![-\\/]|\\.?\\S| [sS]hield)"
   shouldMatch: false
