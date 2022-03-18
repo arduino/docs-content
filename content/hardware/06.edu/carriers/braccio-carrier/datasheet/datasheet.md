@@ -64,7 +64,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
     |  J1 (Display CONN)         | 
 
 - Switronic IT-1501-G 
-    - Joystick module to allow Braccio++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
+    - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
     
     |  Compatible Connector      |  
     | -------------------------- | 
