@@ -34,7 +34,7 @@ Wireless sensor networks, data fusion, artificial intelligence, machine vision
   - HMAC, CMAC, SHA-1, SHA-224/256/384/512 operations
   - HKDF, MIFARE® KDF, PRF (TLS-PSK)
   - Support of main TPM functionalities
-  - Secured flash user memory up to 50 KByte
+  - Secured flash user memory up to 50 kB
   - SCP03 (bus encryption and encrypted credential injection on applet and platform level)
 - **VL53L1CBV0FY/1** Time-of-Flight Sensor
   - Fully integrated miniature module
@@ -57,7 +57,7 @@ Wireless sensor networks, data fusion, artificial intelligence, machine vision
   - ±125/±250/±500/±1000/±2000 dps full scale
 - **USB3320C-EZK-TR** USB Transceiver
   - Integrated ESD Protection circuit (up to ±15kV IEC Air Discharge)
-- **AT25QL128A-UUE-T** 16 MByte Flash
+- **AT25QL128A-UUE-T** 16 MB Flash
 - **MC34PF1550A0EP** Power Management IC
 
 # Contents
@@ -139,7 +139,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U2,U7    | LM66100DCKR Ideal Diode                     | U3       | LSM6DSOXTR 6-axis IMU with ML Core                 |
 | U8       | SE050C2HQ1/Z01SDZ Crypto IC                 | U9       | LBEE5KL1DX-883 Wi-Fi/Bluetooth Module              |
 | U10      | MC34PF1550A0EP PMIC                         | U11      | TXB0108YZPR Bidirectional Voltage Shifter          |
-| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MByte FLASH Memory IC          |
+| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MB FLASH Memory IC          |
 | U19      | MAX17262REWL+T Fuel Gauge IC                | J4       | BM03B-ACHSS-GAN-TF(LF)(SN) 3-pin battery connector |
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin ESLOV connector | J7       | microUSB connector                                 |
 
