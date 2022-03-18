@@ -57,7 +57,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
 ### Peripherals
 
 - **display model** 
-    - Display module to allow Braccio++ to deploy visual information. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
+    - Display module to allow Braccio ++ to deploy visual information. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
     
     |  Compatible Connector      |  
     | -------------------------- | 
