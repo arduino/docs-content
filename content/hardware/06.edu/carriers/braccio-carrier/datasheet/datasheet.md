@@ -110,11 +110,6 @@ Following information outlines the technical overview of the Arduino® Braccio C
     | ------------------- | ---------------------- | ---------------------------- |
     |  J2                 |  5V                    |  I2C Protocol + Interrupt    |
 
-### Dimensions
-
-|  Weight [grams]  |  Width [mm]  |  Length [mm]  |  Height [m]  |
-| ---------------- | ------------ | ------------- | ------------ |
-|                  |              |               |              |
 
 ## Ratings
 
@@ -122,17 +117,6 @@ Following information outlines the technical overview of the Arduino® Braccio C
 | Symbol | Description                                       | Min        | Max     |
 | ------ | ------------------------------------------------- | ---------- | ------- | 
 |        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
-
-
-
-### Power Consumption
-
-| Symbol      | Description                  | Min | Typ | Max | Unit |
-| ----------- | ---------------------------- | --- | --- | --- | ---- |
-|   PWRIN     | Input supply from power jack |     | TBC |     |  mW  |
-|   USB VCC   | Input supply from USB        |     | TBC |     |  mW  |
-|   VIN       | Input from VIN pad           |     | TBC |     |  mW  |
-
 
 ## Functional Overview
 
