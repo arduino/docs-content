@@ -41,7 +41,7 @@ The custom-made Arduino® Braccio Carrier provides a wide range of connectivity 
 ### Application Examples
 
 - **Smart Automation**: The industry-standard RS-232 and RS-485/422 serial communication support for Arduino® Braccio Carrier has made it possible to implement smart automation IoT projects for a wide range of projects. The low-power carrier board enables students to take advantage of the onboard connectors and play with the Arduino® hardware for the enhanced learning experience
-- **Robotic Arm**: Through servo motor connector supporting up to a total of 7 motors has given a chance to demonstrate robotic application including RC Car. Some of the most interesting robotic applications with faster prototyping come from the student community for various problem statements.
+- **Robotic Arm**: Through servo motor connector supporting up to a total of 6 motors has given a chance to demonstrate robotic application including RC Car. Some of the most interesting robotic applications with faster prototyping come from the student community for various problem statements.
 - **Gaming**: Thanks to the Mini Joystick connector provided on the Arduino® Braccio Carrier carrier board which facilitates the implementation of LCD gaming options. Interfacing Mini Joystick with the carrier board integrated with a powerful Arduino® board can deliver some really exciting projects.
 
 ### Accessories
