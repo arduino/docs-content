@@ -56,14 +56,14 @@ Following information outlines the technical overview of the Arduino® Braccio C
 
 ### Peripherals
 
-- **display model** 
-    - Display module to allow Braccio ++ to deploy visual information. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
+- **JAX133T-IF05** 
+    - Display module to allow Braccio ++ to deploy visual information. The module is based on 240RGBX240 Dot-Matrix TFT LCD via FPC interface. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
     
     |  Compatible Connector      |  
     | -------------------------- | 
     |  J1 (Display CONN)         | 
 
-- Switronic IT-1501-G 
+- **Switronic IT-1501-G** 
     - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
     
     |  Compatible Connector      |  
@@ -73,7 +73,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
 ### Connectors & I/O Port 
 
 - **Display Connector J1**
-    - Connector available to interface the **display model**.
+    - Connector available to interface the JAX133T-IF05 display module.
 
     |  Connector Ref.     |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
     | ------------------- | ------------------------------------ | ------------------------------------- |
