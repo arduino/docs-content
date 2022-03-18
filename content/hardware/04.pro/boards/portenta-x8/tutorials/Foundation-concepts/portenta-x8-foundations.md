@@ -1,7 +1,7 @@
 ---
 title: Portenta X8 Foundations
-difficulty:
-tags: []
+difficulty: easy
+tags: [Linux, ]
 description: This article conatins information about the fundemental concepts of the Portenta X8
 author: Benjamin Dannegård
 libraries:
@@ -16,7 +16,7 @@ software:
 
 ## Overview
 
-The Portenta X8 is one of the more advanced boards available from Arduino. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works. Especially how containers on the Portenta X8 works.
+The Portenta X8 is one of the more advanced boards available from Arduino. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how the new features of the board can be usefull. Especially how factories and containers on the Portenta X8 works.
 
 ## Goals
 
@@ -28,33 +28,36 @@ The Portenta X8 is one of the more advanced boards available from Arduino. In th
 
 -   Portenta X8
 -   Factories
--   Floctl
 
 ## Instructions
 
-If you need help with setting up your board then please have a look at the [Getting started tutorial](). When you have your board set up and want to explore the different options available to you. 
+If you need help with setting up your board then please have a look at the [Getting started tutorial]().
 
-### Factories
+## Factories
 
 When you have your board connected to a factory you can then wirelessly change the container on the board.
 
 FoundriesFactory is the start of your embedded OS, tailored specifically for your product. When you create a Factory, we immediately bootstrap the CI build process for a vanilla, unmodified Linux microPlatform OS Image, which is from this point onward, owned by you.
 
-### Conatiners
+### Factories integrated with Arduino Cloud
 
-The conatiners available on your factory page can be easily updated by pushing your changes to the git repository that is linked. This way you can get new releases of your code to your board in a quick and easy way. 
+With the help of the Arduino Cloud integration with foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8. With the factory created and the board linked to it, you can start and develop Linux based containers that can then easily be uploaded to your factories Portenta X8. In your factory page you can with ease keep track of the devices, members, teams and containers associated with your factory. 
 
-A Linux® container is a set of processes that are isolated from the rest of the system. All the files necessary to run them are provided from a distinct image, meaning Linux containers are portable and consistent as they move from development, to testing, and finally to production. This makes them much quicker to use than development pipelines that rely on replicating traditional testing environments.
+## Conatiners
+
+Containers allow for easy deployment of Linux based processes, uploaded through git to your factory page. A Linux container are processes that are isolated from the rest of the system. Creating an image that contains all the files that are necessary to run it. This makes the Linux containers portable and consistent throughout development, testing and production. Making them much quicker to use than development pipelines that rely on replicating traditional testing environments.
 
 ### Benefits of container
 
-Imagine you’re developing an application. You do your work on a laptop and your environment has a specific configuration. Other developers may have slightly different configurations. The application you’re developing relies on that configuration and is dependent on specific libraries, dependencies, and files. Meanwhile, your business has development and production environments that are standardized with their own configurations and their own sets of supporting files. You want to emulate those environments as much as possible locally, but without all the overhead of recreating the server environments.
+For example if you are developing an application on a laptop and your environment has a specific configuration. Then other developers may have slightly different configurations. The application will rely on your configuartion and is dependent on specific files, libraries and dependencies. While your business has development and production enviroments with their own configurations and supporting files. You would want to emulate that environment as much as possible locally.
 
-So, how do you make your app work across these environments, pass quality assurance, and get your app deployed without massive headaches, rewriting, and break-fixing? The answer: containers.
+With containers you can make your app work across environments, pass quality assurance and get it deployd as fast and easy as possible.
 
-The container that holds your application has the necessary libraries, dependencies, and files so you can move it through production without nasty side effects. In fact, the contents of a container image can be thought of as an installation of a Linux distribution because it comes complete with RPM packages, configuration files, etc. But, container image distribution is a lot easier than installing new copies of operating systems.
+The contents of a container image can be compared to a an installation of a Linux distribution complete with RPM packages, configuration files, etc. However, a container image distribution is easier to install rather than a new copy of the operating system.
 
-That’s a common example, but Linux containers can be applied to many different problems where portability, configurability, and isolation is needed. The point of Linux containers is to develop faster and meet business needs as they arise. In some cases, such as real-time data streaming with Apache Kafka, containers are essential because they're the only way to provide the scalability an application needs. No matter the infrastructure—on-premise, in the cloud, or a hybrid of the two—containers meet the demand. Of course, choosing the right container platform is just as important as the containers themselves.
+A linux container is a good solution for solutions that require portability, configurability and isolation. The idea behind Linux containers is to be able to develop solutions faster to meet business needs as they arise. In certain scenaris, like when real-time data streaming with Apache Kafka is implemented, containers are the only way to provide the scalability that the application needs. Regardles of the infrastructure on site, in the cloud, or a mix of both, containers are a great solution. 
+
+(without all the overhead of recreating the server environment.) 
 
 ## Conclusion
 
