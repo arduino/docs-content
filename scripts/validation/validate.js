@@ -1,15 +1,15 @@
-import { Validator } from './logic/validator.js';
-import { ArticleManager } from './logic/article-manager.js';
+import { Validator } from 'content-lint';
+import { ArticleManager } from 'content-lint';
 
-import { validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase } from './validations/headings.js'
-import { validateMetaData } from './validations/metadata.js';
-import { validateRules } from './validations/rules.js';
-import { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles } from './validations/assets.js';
-import { validateSyntaxSpecifiers } from './validations/code-blocks.js';
-import { validateNestedLists } from './validations/lists.js';
-import { validateBrokenLinks } from './validations/links.js';
-import { IssueProcessor } from './logic/issue-processor.js';
-import { ConfigManager } from './logic/config-manager.js';
+import { validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase } from 'content-lint'
+import { validateMetaData } from 'content-lint';
+import { validateRules } from 'content-lint';
+import { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles } from 'content-lint';
+import { validateSyntaxSpecifiers } from 'content-lint';
+import { validateNestedLists } from 'content-lint';
+import { validateBrokenLinks } from 'content-lint';
+import { ConfigManager } from 'content-lint';
+import { IssueProcessor } from 'content-lint';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");
