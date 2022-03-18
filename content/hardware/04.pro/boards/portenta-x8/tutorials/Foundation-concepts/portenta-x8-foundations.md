@@ -55,8 +55,6 @@ The contents of a container image can be compared to a an installation of a Linu
 
 A linux container is a good solution for solutions that require portability, configurability and isolation. The idea behind Linux containers is to be able to develop solutions faster to meet business needs as they arise. In certain scenaris, like when real-time data streaming with Apache Kafka is implemented, containers are the only way to provide the scalability that the application needs. Regardles of the infrastructure on site, in the cloud, or a mix of both, containers are a great solution. 
 
-(without all the overhead of recreating the server environment.) 
-
 ## Conclusion
 
-Now you should have a better understanding of how the Portenta X8 works. And have a better picture of how to utalize its full potential.
+Now you should have a better understanding of how the Portenta X8 works. And have a better picture of how to utalize its full potential. Be sure to check out our other tutorials with the Portenta X8 to see how to use factories and containers.
