@@ -11,7 +11,7 @@ Along with high-speed RS-485/422 and RS-232 serial communication, the Arduino® 
 </Feature>
 
 <Feature title="Support up to seven motors" image="connection">
- Through servo motor connector supporting up to a total of 7 motors has given a chance to demonstrate robotic application including RC Car.
+ Through servo motor connector supporting up to a total of 6 motors has given a chance to demonstrate robotic application including RC Car.
 
 </Feature>
 
