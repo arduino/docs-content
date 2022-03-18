@@ -49,7 +49,7 @@ The custom-made Arduino® Braccio Carrier provides a wide range of connectivity 
 
 ### Related Products
 
-- Arduino® Education Carrier.
+- Arduino® Nano RP2040 Connect.
 
 ## Technical Specification Overview
 Following information outlines the technical overview of the Arduino® Braccio Carrier.
