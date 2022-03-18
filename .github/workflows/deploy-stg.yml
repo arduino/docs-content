@@ -9,7 +9,6 @@ on:
 
 jobs:
   build:
-    if: "github.repository == 'arduino/docs-content'"
     runs-on: ubuntu-latest
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
