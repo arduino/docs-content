@@ -56,7 +56,7 @@ The Arduino Nano 33 BLE Sense has a variety of onboard sensors meaning potential
 - Environmental – temperature, humidity and pressure
 - Light – brightness, color and object proximity
 
-Unlike classic Arduino Uno, the board combines a microcontroller with onboard sensors which means you can address many use cases without additional hardware or wiring. The board is also small enough to be used in end applications like wearables. As the name suggests it has Bluetooth LE connectivity so you can send data (or inference results) to a laptop, mobile app or other BLE boards and peripherals.
+Unlike classic Arduino Uno, the board combines a microcontroller with onboard sensors which means you can address many use cases without additional hardware or wiring. The board is also small enough to be used in end applications like wearables. As the name suggests it has Bluetooth® Low Energy connectivity so you can send data (or inference results) to a laptop, mobile app or other Bluetooth® Low Energy boards and peripherals.
 
 **Tip: Sensors on a USB stick** – Connecting the BLE Sense board over USB is an easy way to capture data and add multiple sensors to single board computers without the need for additional wiring or hardware – a nice addition to a Raspberry Pi, for example.
 

@@ -15,6 +15,7 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
 
 # Features
 **Note:** This board requires a compatible MKR or Portenta board to function. Use together with the Arduino® Vision Shield is not supported.
+
 - Cinterion TX62 wireless module
   - Cellular connectivity and positioning support
   - Embedded IPv4 and IPv6 TCP/IP stack access
@@ -48,7 +49,7 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
   - MKR requires headers
   
 
-  # Contents
+# Contents
 
 ## The Board
 
@@ -86,7 +87,6 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 **(2):** Temperatures under -30°C may cause instability in the TX62 operation.
 
 
-
 ### Power Consumption
 | Symbol                  | Description                                                                           | Min | Typ | Max | Unit |
 | ----------------------- | ------------------------------------------------------------------------------------- | --- | --- | --- | ---- |
@@ -120,12 +120,13 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 
 ### Cellular Connectivity
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality is are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1).
+The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1).
 **Note:** The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.
 
 ### Positioning
 Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V.
 **Note:** GNSS and cellular services cannot be used simultaneously. 
+
 ### Power Tree
 ![Portenta Cat. M1/NB IoT GNSS Shield Power Tree](assets/thalesShieldPowerTree.svg)
 Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by the host Portenta board via the high density connector. A 3.0V voltage is provided via TC1185-3.0VCT713 (U8) for the active GNSS antenna.
@@ -229,7 +230,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 
 ## Company Information
-
 
 | Company name    | Arduino S.r.l                              |
 | --------------- | ------------------------------------------ |

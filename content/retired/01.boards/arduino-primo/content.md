@@ -8,11 +8,11 @@ source: "https://store.arduino.cc/arduino-primo"
 
 ![The Arduino Primo board](./assets/a000135_featured.jpg)
 
-The Arduino Primo is the first board developed in cooperation with [Nordic Semiconductor](http://www.nordicsemi.com/). It brings new benefits for the IoT world all on one platform: advanced 32-bit microcontroller architecture, bluetooth low energy (BLE), Wi-Fi, near-field communications (NFC), and infrared (IR) transmit and receive capability.  
+The Arduino Primo is the first board developed in cooperation with [Nordic Semiconductor](http://www.nordicsemi.com/). It brings new benefits for the IoT world all on one platform: advanced 32-bit microcontroller architecture, Bluetooth® low energy, Wi-Fi, near-field communications (NFC), and infrared (IR) transmit and receive capability.  
   
 There are three onboard microcontrollers: 
 
-* [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf), the main Arduino microcontroller with integrated BLE and NFC
+* [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf), the main Arduino microcontroller with integrated Bluetooth® Low Energy and NFC
 * [STM32f103](http://www.st.com/content/ccc/resource/technical/document/datasheet/33/d4/6f/1d/df/0b/4c/6d/CD00161566.pdf/files/CD00161566.pdf/jcr:content/translations/en.CD00161566.pdf), a service microcontroller used for advanced debugging and programming of the other microcontrollers
 * [ESP8266](https://espressif.com/en/products/hardware/esp8266ex/overview), for Wi-Fi and related internet connectivity functions.
 
@@ -26,13 +26,13 @@ The board has:
 * battery charger
 * Infrared receiver and transmitter
 * NFC antenna
-* BLE interface
+* Bluetooth® Low Energy interface
 * Buzzer
 * two service buttons
 * LEDs
 * reset buttons (to reset the various microcontrollers).
 
-Arduino Primo can be connected to a computer using a micro-USB cable, or it can be powered using a battery, connected via a 2-pin JST-PH connector. Having both Bluetooth and Wi-Fi connectivity on board makes it easy to get started in the IoT world
+Arduino Primo can be connected to a computer using a micro-USB cable, or it can be powered using a battery, connected via a 2-pin JST-PH connector. Having both Bluetooth® and Wi-Fi connectivity on board makes it easy to get started in the IoT world
 
 ## Documentation
 
@@ -100,7 +100,7 @@ The [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf) also s
   
 The board allows wireless communication with other devices via Bluetooth, NFC, WiFi and IR, using specific libraries for each protocol.  
   
-The BLE interface allows Primo to communicate with other BLE devices. It can also be used by PCs, tablets, and smartphones. The library used is BLE that allows peripheral and central capabilities.  
+The Bluetooth® Low Energy interface allows Primo to communicate with other Bluetooth® Low Energy devices. It can also be used by PCs, tablets, and smartphones. The library used is Bluetooth® Low Energy that allows peripheral and central capabilities.  
   
 The NFC peripheral supports type A communication signals at a106 kbps rate. The NFC library is contained in the NRF52 platform for [Arduino software](https://www.arduino.cc/en/Main/Software) (Arduino IDE 1.8.x or later).  
   
@@ -128,7 +128,7 @@ Note that like the Arduino Uno and several other boards, the distance between di
 | **Wake up time**            | < 2ms                      | \-                       | \-                      |
 | **Analog I/O Pins**         | \-                         | 6 + 1 DAC                | \-                      |
 | **DC Current per I/O Pins** | \-                         | 15 mA                    | \-                      |
-| **Bluetooth Smart**         | \-          | BLE4.0: TX power up to +4dBm \-96dBm sensitivity in BLE mode | \- |
+| **Bluetooth® Smart**         | \-          | BLE4.0: TX power up to +4dBm \-96dBm sensitivity in Bluetooth® Low Energy mode | \- |
 
 - Other features: PDM interface, AES HW enc, NFC tag, USB/Uart converter, CMSIS-DAP, GPIO expander, Board power management, IrDA
 

@@ -37,7 +37,7 @@ Agriculture measurements, smart irrigation systems, hydroponics
     <tr>
         <td style="text-align: center">Wireless</td>
         <td>
-            <p>Bluetooth (BLE 5 via Cordio® stack, BLE 4.2 via Arduino® Stack)</p>
+            <p>Bluetooth®  (Bluetooth® Low Energy 5 via Cordio® stack, Bluetooth® Low Energy 4.2 via Arduino® Stack)</p>
             <p>Advertising Extensions</p>
             <p>95 dBm sensitivity</p>
             <p>4.8 mA in TX (0 dBm)</p>

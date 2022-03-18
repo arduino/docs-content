@@ -22,7 +22,7 @@ software:
 
 In this tutorial we will control the built-in LED of an Arduino Nano 33 BLE from another Arduino Nano 33 BLE. To do so, we will connect both boards using a wired communication protocol called I2C.
 
-> **Note:** This example would work connecting an Arduino BLE board with any other Arduino board, but be mindful that by using any other board the connections might differ. If the connections vary, it may happen that the code might also need changes to match with the I2C pins of the different boards. 
+> **Note:** This example would work connecting an Arduino Bluetooth® Low Energy board with any other Arduino board, but be mindful that by using any other board the connections might differ. If the connections vary, it may happen that the code might also need changes to match with the I2C pins of the different boards. 
 
 In this example, we will power both the Arduino boards through a computer, then through the Serial Monitor, we will introduce some commands to turn **ON** or **OFF** the LED of the 33 BLE board. 
 

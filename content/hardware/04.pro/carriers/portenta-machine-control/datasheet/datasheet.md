@@ -137,7 +137,7 @@ Industry 4.0,  system integrators
 | J3       | Digital inputs                                  | J10      | Encoders        |
 | J4       | Power supply 24V                                | J11      | Analog out      |
 | J5       | HMI - Comm protocols (RS232, RS422, RS485, CAN) | J13      | Ethernet        |
-| J6       | Digital outputs                                 | J14      | WI-FI / BLE SMA |
+| J6       | Digital outputs                                 | J14      | WI-FI / Bluetooth® Low Energy SMA |
 | J7       | Temperature probes                              | J15      | USB A           |
 | J8       | Digital programmable                            | J16      | USB micro       |
 | J9       | Analog in                                       | J17      | Grove I2C       |

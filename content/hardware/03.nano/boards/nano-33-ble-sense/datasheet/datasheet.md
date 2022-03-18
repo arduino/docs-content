@@ -19,7 +19,7 @@ Maker, enhancements, IoT application
         - 64 MHz Arm® Cortex-M4F (with FPU)
         - 1 MB Flash + 256 KB RAM 
 
-    - **Bluetooth 5 multiprotocol radio**
+    - **Bluetooth®  5 multiprotocol radio**
         - 2 Mbps
         - CSA #2
         - Advertising Extensions
@@ -113,7 +113,7 @@ Top:
 
 | **Ref.** | **Description**                 | **Ref.** | **Description**                  |
 | -------- | ------------------------------- | -------- | -------------------------------- |
-| U1       | NINA-B306 Module BLE 5.0 Module | U6       | MP2322GQH Step Down Converter    |
+| U1       | NINA-B306 Module Bluetooth® Low Energy 5.0 Module | U6       | MP2322GQH Step Down Converter    |
 | U2       | LSM9DS1TR Sensor IMU            | PB1      | IT-1185AP1C-160G-GTR Push button |
 | U3       | MP34DT06JTR Mems Microphone     | HS-1     | HTS221 Humidity Sensor           |
 | U4       | ATECC608A Crypto chip           | DL1      | Led L                            |

@@ -7,18 +7,12 @@
     'MB'
     
 # Excludes Wi-Fi in URLs (prepended by dash or slash) and WiFi.XY and MKR WiFi
-- regex: "(?<![\\/-]|MKR |UNO |MKR 1000 )[wW]i[fF]i(?![-\\/]|\\.?\\S)"
+- regex: "(?<![\\/-]|Arduino |MKR |UNO |MKR 1000 )[wW]i[fF]i(?![-\\/]|\\.?\\S| [sS]hield)"
   shouldMatch: false
   type: warning
   format: markdown
   includeCodeBlocks: false
   errorMessage: Incorrect spelling of 'Wi-Fi' found.
-
-- regex: "(?!.*Flash)[fF][lL][aA][sS][hH]\\b"
-  shouldMatch: false
-  type: warning
-  format: markdown
-  errorMessage: Incorrect spelling of 'Flash' found.
 
 - regex: "(?<!\\/|-)\\b(master|slave)\\b"
   regexModifiers: "gi"

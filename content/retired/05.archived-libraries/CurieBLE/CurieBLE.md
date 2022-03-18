@@ -1,31 +1,31 @@
 ---
 title: 'CurieBLE Library'
-description: 'A library designed to access the BLE features on the Arduino 101 board.'
+description: 'A library designed to access the Bluetooth® Low Energy features on the Arduino 101 board.'
 author: 'Arduino'
 ---
 
 ***This library is included in the [Arc32 core](https://github.com/arduino/ArduinoCore-arc32/tree/master/libraries). This core can be installed through the Arduino IDEs , where the package is named "Intel Curie Boards".*** 
 
-With the [Arduino/Genuino 101](https://www.arduino.cc/en/Main/ArduinoBoard101), using this library, it is possible to use BLE features to communicate and interact with other devices like smartphones and tablet.
+With the [Arduino/Genuino 101](https://www.arduino.cc/en/Main/ArduinoBoard101), using this library, it is possible to use Bluetooth® Low Energy features to communicate and interact with other devices like smartphones and tablet.
 
 To use this library
 ```
 #include <CurieBLE.h>
 ```
-## A quick introduction to BLE
-Bluetooth 4.0 includes both traditional Bluetooth, now labeled "Bluetooth Classic", and the new Bluetooth Low Energy (Bluetooth LE, or BLE). BLE is optimized for low power use at low data rates, and was designed to operate from simple lithium coin cell batteries.
+## A quick introduction to Bluetooth® Low Energy
+Bluetooth® 4.0 includes both traditional Bluetooth, now labeled "Bluetooth® Classic", and the new Bluetooth® Low Energy. Bluetooth® Low Energy is optimized for low power use at low data rates, and was designed to operate from simple lithium coin cell batteries.
 
-Unlike standard bluetooth communication basically based on an asynchronous serial connection (UART) a Bluetooth LE radio acts like a community bulletin board. The computers that connect to it are like community members that read the bulletin board. Each radio acts as either the bulletin board or the reader. If your radio is a bulletin board (called a peripheral device in Bluetooth LE parlance) it posts data for all radios in the community to read. If your radio is a reader (called a central device in Blueooth LE terms) it reads from any of the bulletin boards (peripheral devices) that have information about which it cares. You can also think of peripheral devices as the servers in a client-server transaction, because they contain the information that reader radios ask for. Similarly, central devices are the clients of the Bluetooth LE world because they read information available from the peripherals.
+Unlike standard Bluetooth® communication basically based on an asynchronous serial connection (UART) a Bluetooth® Low Energy radio acts like a community bulletin board. The computers that connect to it are like community members that read the bulletin board. Each radio acts as either the bulletin board or the reader. If your radio is a bulletin board (called a peripheral device in Bluetooth® Low Energy parlance) it posts data for all radios in the community to read. If your radio is a reader (called a central device in Blueooth LE terms) it reads from any of the bulletin boards (peripheral devices) that have information about which it cares. You can also think of peripheral devices as the servers in a client-server transaction, because they contain the information that reader radios ask for. Similarly, central devices are the clients of the Bluetooth® Low Energy world because they read information available from the peripherals.
 ![](assets/ble-bulletin-board-model.png)
 
-Think of a Bluetooth LE peripheral device as a bulletin board and central devices as viewers of the board. Central devices view the services, get the data, then move on. Each transaction is quick (a few milliseconds), so multiple central devices can get data from one peripheral.
+Think of a Bluetooth® Low Energy peripheral device as a bulletin board and central devices as viewers of the board. Central devices view the services, get the data, then move on. Each transaction is quick (a few milliseconds), so multiple central devices can get data from one peripheral.
 
 The information presented by a peripheral is structured as services, each of which is subdivided into characteristics. You can think of services as the notices on a bulletin board, and characteristics as the individual paragraphs of those notices. If you're a peripheral device, you just update each service characteristic when it needs updating and don't worry about whether the central devices read them or not. If you're a central device, you connect to the peripheral then read the boxes you want. If a given characteristic is readable and writable, then the peripheral and central can both change it.
 
 ### Notify
-The Bluetooth LE specification includes a mechanism known as notify that lets you know when data's changed. When notify on a characteristic is enabled and the sender writes to it, the new value is automatically sent to the receiver, without the receiver explicitly issuing a read command. This is commonly used for streaming data such as accelerometer or other sensor readings. There's a variation on this specification called indicate which works similarly, but in the indicate specification, the reader sends an acknowledgement of the pushed data.
+The Bluetooth® Low Energy specification includes a mechanism known as notify that lets you know when data's changed. When notify on a characteristic is enabled and the sender writes to it, the new value is automatically sent to the receiver, without the receiver explicitly issuing a read command. This is commonly used for streaming data such as accelerometer or other sensor readings. There's a variation on this specification called indicate which works similarly, but in the indicate specification, the reader sends an acknowledgement of the pushed data.
 
-The client-server structure of Bluetooth LE, combined with the notify characteristic, is generally called a publish-and-subscribe model.
+The client-server structure of Bluetooth® Low Energy, combined with the notify characteristic, is generally called a publish-and-subscribe model.
 
 ### Update a characteristic
 Your peripheral should update characteristics when there's a significant change to them. For example, when a switch changes from off to on, update its characteristic. When an analog sensor changes by a significant amount, update its characteristic.
@@ -36,7 +36,7 @@ Just as with writing to a characteristic, you could update your characteristics 
 Central devices are clients. They read and write data from peripheral devices. Peripheral devices are servers. They provide data from sensors as readable characteristics, and provide read/writable characteristics to control actuators like motors, lights, and so forth.
 
 ### Services, characteristics, and UUIDs
-A BLE peripheral will provide services, which in turn provide characteristics. You can define your own services, or use [standard services](https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx).
+A Bluetooth® Low Energy peripheral will provide services, which in turn provide characteristics. You can define your own services, or use [standard services](https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx).
 
 Services are identified by unique numbers known as UUIDs. You know about UUIDs from other contexts. Standard services have a 16-bit UUID and custom services have a 128-bit UUID. The ability to define services and characteristics depends on the radio you're using and its firmware.
 
@@ -77,12 +77,12 @@ Advertising packets have a limited size. You will only be able to fit a single 1
 You can provide additional services that are not advertised. Central devices will learn about these through the connection/bonding process. Non-advertised services cannot be used to discover devices, though. Sometimes this is not an issue. For example, you may have a custom peripheral device with a custom service, but in your central device app you may know that it also provides the Battery Service and other services.
 
 ### GATT
-The Bluetooth LE protocol operates on multiple layers. **General Attribute Profile (GATT)** is the layer that defines services and characteristics and enables read/write/notify/indicate operations on them. When reading more about GATT, you may encounter GATT concepts of a "server" and "client". These don't always correspond to central and peripherals. In most cases, though, the peripheral is the GATT server (since it provides the services and characteristics), while the central is the GATT client.
+The Bluetooth® Low Energy protocol operates on multiple layers. **General Attribute Profile (GATT)** is the layer that defines services and characteristics and enables read/write/notify/indicate operations on them. When reading more about GATT, you may encounter GATT concepts of a "server" and "client". These don't always correspond to central and peripherals. In most cases, though, the peripheral is the GATT server (since it provides the services and characteristics), while the central is the GATT client.
 
 ## Library structure
 As the library enables multiple types of functionality, there are a number of different classes.
 
-- BLEPeripheral used to enable the BLE module
+- BLEPeripheral used to enable the Bluetooth® Low Energy module
 - BLEDescriptor that prepares the functions that the board will show
 - BLECentral that represent the device the board is connected to
 - BLECharacteristic used to enable the characteristics board offers
@@ -102,7 +102,7 @@ As the library enables multiple types of functionality, there are a number of di
 
 ### `BLEPeripheral constructor`
 #### Description
-The BLE peripheral device is typically the board you are programming. Peripheral connects to the central to expose its characteristics
+The Bluetooth® Low Energy peripheral device is typically the board you are programming. Peripheral connects to the central to expose its characteristics
 
 #### Syntax
 ```
@@ -205,7 +205,7 @@ void loop() {
 
 ### `begin`
 #### Description
-Initializes the BLE peripheral in order to use all its methods within the sketch.
+Initializes the Bluetooth® Low Energy peripheral in order to use all its methods within the sketch.
 
 #### Syntax
 ```
@@ -617,7 +617,7 @@ void loop() {
 
 ### `setLocalName()`
 #### Description
-Sets the local name of your BLE peripheral
+Sets the local name of your Bluetooth® Low Energy peripheral
 
 #### Syntax
 ```
@@ -720,7 +720,7 @@ void loop() {
 
 ### `setDeviceName()`
 #### Description
-Sets the device name of your BLE peripheral
+Sets the device name of your Bluetooth® Low Energy peripheral
 
 #### Syntax
 ```
@@ -981,7 +981,7 @@ void setup() {
 
   // advertise the service
   blePeripheral.begin();
-  Serial.println(("Bluetooth device active, waiting for connections..."));
+  Serial.println(("Bluetooth® device active, waiting for connections..."));
 }
 
 void loop() {
@@ -2265,14 +2265,14 @@ void loop() {
 
 ### `BLEService constructor`
 #### Description
-The BLE service allows you to create the service you want to show through your BLE device
+The Bluetooth® Low Energy service allows you to create the service you want to show through your Bluetooth® Low Energy device
 
 #### Syntax
 ```
 BLEService (const char* uuid)
 ```
 #### Parameters
-uuid: the 16 bit or 128 bit UUID defined by BLE standard
+uuid: the 16 bit or 128 bit UUID defined by Bluetooth® Low Energy standard
 
 #### Example 
 ```

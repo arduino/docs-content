@@ -15,7 +15,7 @@ Sometimes, one serial port just isn't enough! When trying to communicate with mu
 
 - Arduino Mega Board
 
-- Serial enabled device  (a Xbee Radio, a Bluetooth module, or RFID reader, or another board, for instance).
+- Serial enabled device  (a Xbee Radio, a Bluetooth® module, or RFID reader, or another board, for instance).
 
 ### Circuit
 

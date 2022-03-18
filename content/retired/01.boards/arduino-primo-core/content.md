@@ -1,6 +1,6 @@
 ---
 title: "Arduino Primo Core"
-description: "The PRIMO CORE is a compact device, using a Nordic nrf52832 chip with Bluetooth smart (BLE 4.0) and NFC-A tag functions, and also integrated motion and environmental sensors. The low power consumption permits powering the Primo Core with a coin cell battery. The Arduino PRIMO CORE can be mounted on a breakout board to extend its functionalities."
+description: "The PRIMO CORE is a compact device, using a Nordic nrf52832 chip with Bluetooth® smart(Bluetooth® Low Energy 4.0) and NFC-A tag functions, and also integrated motion and environmental sensors. The low power consumption permits powering the Primo Core with a coin cell battery. The Arduino PRIMO CORE can be mounted on a breakout board to extend its functionalities."
 coverImage: "assets/a000138_featured.jpg"
 sku: "A000138"
 source: "https://store.arduino.cc/arduino-primo-core"
@@ -10,7 +10,7 @@ source: "https://store.arduino.cc/arduino-primo-core"
 
 Arduino Primo Core is the compact Arduino board developed in cooperation with [Nordic Semiconductor](http://www.nordicsemi.com/).  
 
-For the little dimension, the Bluetooth integrated and the Low Power the board is ideal for IoT world and in particular for the wearables.  
+For the little dimension, the Bluetooth® integrated and the Low Power the board is ideal for IoT world and in particular for the wearables.  
 
 The Microcontroller used is the same of the Arduino Primo, the Nordic microcontroller [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf).
 
@@ -26,7 +26,7 @@ Furthermore the Arduino Primo Core has:
 * RGB Led
 * SWD connector (to program the board using an external programmer)
 * A coin cell battery connector
-* BLE interface
+* Bluetooth® Low Energy interface
 * LED
 * NFC connector (to use an external NFC Antenna)
 * Reset buttons (to reset the microcontroller)
@@ -84,7 +84,7 @@ Onboard there are some sensors and actuators:
 
 The Arduino Primo Core has a number of facilities available for communicating with other devices.  
   
-In particular it has a Bluetooth interface 4.0 that allows to communicate with PC, tablet and smartphone and to program the board. This interface is managed from the BLE library. This library is contained in the nRF52 platform, downloadable from [Board Manager](https://www.arduino.cc/en/Guide/Cores) of the [Arduino IDE 1.8.x or later](https://www.arduino.cc/en/Main/Software).  
+In particular it has a Bluetooth® interface 4.0 that allows to communicate with PC, tablet and smartphone and to program the board. This interface is managed from the Bluetooth® Low Energy library. This library is contained in the nRF52 platform, downloadable from [Board Manager](https://www.arduino.cc/en/Guide/Cores) of the [Arduino IDE 1.8.x or later](https://www.arduino.cc/en/Main/Software).  
   
 The board supports also the NFC communication until to 106 kbps as bit rate and 13,56 MHz of frequency. It needs only to connect the NFC antenna in the corresponding connector. The NFC is managed from NFC library and also this is contained in the nRF52 platform.  
   

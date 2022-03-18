@@ -7,7 +7,7 @@ description: 'The first steps to setting up your Arduino ADK'
 
 This guide describe how to connect an Android™ device to an Arduino ADK board ([Mega ADK](/en/Main/ArduinoBoardMegaADK) and [USB Host shield](/en/Main/ArduinoUSBHostShield)). Furthermore, we have tried to make it as easy as possible by concentrating in the use of Processing instead of Eclipse as the tool of choice for writing the Android Apps.
 
-Here you can learn how to connect Arduino to Android™ via the USB cable the phone (or tablet) uses for data transfers as well as for recharging its battery. You might be interested in using Bluetooth as an alternative to get Arduino and the Android artifact to talk to each other.
+Here you can learn how to connect Arduino to Android™ via the USB cable the phone (or tablet) uses for data transfers as well as for recharging its battery. You might be interested in using Bluetooth® as an alternative to get Arduino and the Android artifact to talk to each other.
 
 ### Phones, Tablets & Connection Strategies
 

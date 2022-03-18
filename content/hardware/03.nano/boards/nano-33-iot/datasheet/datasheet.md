@@ -43,15 +43,15 @@ Maker, enhancements, basic IoT application scenarios
         - 16dBm output power
         - 19 dBm EIRP
         - -96 dBm sensitivity 
-    - **Bluetooth BR/EDR**
+    - **Bluetooth®  BR/EDR**
         - Max 7 peripherals
         - 2.4 GHz, 79 channels
         - Up to 3 Mbit/s
         - 8 dBm output power at 2/3 Mbit/s
         - 11 dBm EIRP at 2/3 Mbit/s
         - -88 dBm sensitivity 
-    - **Bluetooth Low Energy**
-        - Bluetooth 4.2 dual mode
+    - **Bluetooth® Low Energy**
+        - Bluetooth®  4.2 dual mode
         - 2.4GHz 40 channels
         - 6 dBm output power
         - 9 dBm EIRP

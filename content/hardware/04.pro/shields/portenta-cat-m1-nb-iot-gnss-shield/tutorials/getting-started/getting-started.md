@@ -37,7 +37,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
-- [Portenta Cat. M1/NB IoT GNSS Shield]()
+- [Portenta Cat. M1/NB IoT GNSS Shield](https://store.arduino.cc/products/portenta-catm1)
 - [Dipole Antenna](https://store.arduino.cc/antenna) (or equivalent product with the same frequency range).
 
 ## Instructions
@@ -76,7 +76,9 @@ client.connect(server,port)
 
 ### Result of Sketch
 
-After finishing this setup, compile and upload the program. You should see the HTML content of the server printed in the serial monitor. As default the server is set as `example.com`. Feel free to change this and take a look at how it prints different web pages.
+After finishing this setup, compile and upload the program. You should see the HTML content of the server printed in the serial monitor. As default the server is set as `example.com`. Feel free to change this and take a look at how it prints different web pages. Below you can see what will print in the serial monitor, when connecting to `example.com`.
+
+![Result in the serial monitor](assets/Cat-M1-serial-monitor.png)
 
 ### Troubleshoot
 
