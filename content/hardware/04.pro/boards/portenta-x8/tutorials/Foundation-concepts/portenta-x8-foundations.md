@@ -1,7 +1,7 @@
 ---
 title: Portenta X8 Foundations
 difficulty: easy
-tags: [Linux, ]
+tags: [Linux, containers, factories]
 description: This article conatins information about the fundemental concepts of the Portenta X8
 author: Benjamin Dannegård
 libraries:
@@ -16,7 +16,7 @@ software:
 
 ## Overview
 
-The Portenta X8 is one of the more advanced boards available from Arduino. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how the new features of the board can be usefull. Especially how factories and containers on the Portenta X8 works.
+The Portenta X8 is one of the more advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how the new features of the board can be usefull. Such as how factories and containers on the Portenta X8 works.
 
 ## Goals
 
@@ -31,17 +31,15 @@ The Portenta X8 is one of the more advanced boards available from Arduino. In th
 
 ## Instructions
 
-If you need help with setting up your board then please have a look at the [Getting started tutorial]().
+If you need help with setting up your board then please have a look at the [Getting started tutorial](). The getting started tutorial will show you how to set up your board with a factory and upload containers to it.
 
 ## Factories
 
-When you have your board connected to a factory you can then wirelessly change the container on the board.
+In your factory page you can with ease keep track of the devices, members, teams and containers associated with your factory. 
 
-FoundriesFactory is the start of your embedded OS, tailored specifically for your product. When you create a Factory, we immediately bootstrap the CI build process for a vanilla, unmodified Linux microPlatform OS Image, which is from this point onward, owned by you.
+With the help of the Arduino Cloud integration with foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8.
 
-### Factories integrated with Arduino Cloud
-
-With the help of the Arduino Cloud integration with foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8. With the factory created and the board linked to it, you can start and develop Linux based containers that can then easily be uploaded to your factories Portenta X8. In your factory page you can with ease keep track of the devices, members, teams and containers associated with your factory. 
+With the factory created and the board linked to it, you can start and develop Linux based containers that can then easily be uploaded to your factories Portenta X8.
 
 ## Conatiners
 
