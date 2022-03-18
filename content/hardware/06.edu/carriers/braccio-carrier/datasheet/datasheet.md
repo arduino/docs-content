@@ -7,7 +7,7 @@ type: edu
 ![Braccio Carrier Featured Image](assets/featured.jpg)
 
 # Description
-Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Arduino Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
+Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Arduino® Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
 
 # Target Areas 
 Robotics, Automation, Education, Gaming, Communication
