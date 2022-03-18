@@ -80,4 +80,4 @@ The complete sketch is below :
 
 <iframe src='https://create.arduino.cc/example/library/bridge_1_7_0/bridge_1_7_0%5Cexamples%5CHttpClient/HttpClient/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
 
-*Last revision 2016/05/25 by SM*
+**Last revision 2016/05/25 by SM**

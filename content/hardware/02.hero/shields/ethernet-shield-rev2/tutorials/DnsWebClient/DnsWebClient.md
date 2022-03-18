@@ -11,7 +11,7 @@ tags: [Ethernet]
 
 This example connects to a named server using an Ethernet shield.  The sketch illustrates how to connect using DHCP and DNS. When calling Ethernet.begin(mac), the Etehrnet library attempts to obtain an IP address using DHCP. Using DHCP significantly adds to the sketch size; be sure there is enough space to run the program.
 
-DNS lookup happens when client.connect(*servername*,port) is called. *servername* is a URL string, like `"www.arduino.cc"`.
+DNS lookup happens when client.connect(**servername**,port) is called. **servername** is a URL string, like `"www.arduino.cc"`.
 
 ## Hardware Required
 

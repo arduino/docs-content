@@ -33,7 +33,7 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- [Arduino IDE](https://www.arduino.cc/en/software).
+- [Arduino IDE 2](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide).
 - [Arduino Web Editor](https://create.arduino.cc/).
 - [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) (Chrome Web Store)
 - [Arduino UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2).
@@ -44,18 +44,18 @@ The goals of this project are:
 
 Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi Rev 2 needs to be done through a Windows/Mac/Linux computer. 
 
-**1.** Make sure you have installed [Arduino IDE 1.8.X](https://www.arduino.cc/en/software).
+**1.** Make sure you have installed [Arduino IDE 2](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide).
 
 **2.** Download the [optiboot_atmega4.hex](/resources/firmware/optiboot_atmega4809.hex) file, and move it to your **Desktop folder**. 
 
 ![.hex file in your Desktop folder.](assets/hex-file-desktop.png)
 
-**3.** Open your Command Prompt (Windows) or Terminal (Mac/Linux), copy paste the command for your OS from the snippets below.
+**3.** Connect your UNO WiFi Rev2 board to your computer and open your Command Prompt (Windows) or Terminal (Mac/Linux), copy paste the command for your OS from the snippets below.
 
 ### Mac
 
 ```
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C /Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
+/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/Users/$(whoami)/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
 ```
 
 ### Windows

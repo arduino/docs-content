@@ -106,7 +106,7 @@ The `carrier.begin();` command is essential to initializing the carrier and must
 
 ![The HTS221 Humidity Sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-temp&humi.png)
 
-The **HTS221 Humidity Sensor** is mounted on the top side of the carrier under the display, marked with a drop icon. The sensor uses capacitive sensing with a **humidity sensing range** of _0-100%_ and **accuracy** of _± 3.5% rH (20 to +80% rH)_, and a **temperature sensing range** of _-40 to 120° C_, with an **accuracy** of _± 0.5 °C,15 to +40 °C_. The sensor uses a low power consumption (2μA at 1 Hz sampling rate) and connects to the mounted Arduino MKR board through a I2C interface.
+The **HTS221 Humidity Sensor** is mounted on the top side of the carrier under the display, marked with a drop icon. The sensor uses capacitive sensing with a **humidity sensing range** of **0-100%** and **accuracy** of **± 3.5% rH (20 to +80% rH)**, and a **temperature sensing range** of **-40 to 120° C**, with an **accuracy** of **± 0.5 °C,15 to +40 °C**. The sensor uses a low power consumption (2μA at 1 Hz sampling rate) and connects to the mounted Arduino MKR board through a I2C interface.
 
 ### Code
 
@@ -135,7 +135,7 @@ Returns relative humidity (rH) in percentage.
 
 ![The LPS22HBTR Pressure Sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-pressure.png)
 
-The **LPS22HBTR Pressure Sensor** is mounted on the top side of the carrier under the display, marked with a meter icon. The sensor measures **absolute pressure range** of _260 to 1260 hPa (0.25 to 1.24 atm)_ and connects to the mounted Arduino MKR board through a I2C interface.
+The **LPS22HBTR Pressure Sensor** is mounted on the top side of the carrier under the display, marked with a meter icon. The sensor measures **absolute pressure range** of **260 to 1260 hPa (0.25 to 1.24 atm)** and connects to the mounted Arduino MKR board through a I2C interface.
 
 ### Code
 

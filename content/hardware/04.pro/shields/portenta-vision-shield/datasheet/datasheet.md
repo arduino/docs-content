@@ -154,7 +154,7 @@ Once connected you will receive a message like the following:
 
 ![OpenMV connect window](assets/visionShield_openMV_connect.png)
 
-Click on “OK” and the latest OpenMV firmware will be automatically loaded. To open the “Hello World” example, under the _File_ menu select _Examples _-> _Arduino _->_ Basics _and click on _helloworld.py_.
+Click on “OK” and the latest OpenMV firmware will be automatically loaded. To open the “Hello World” example, under the **File** menu select **Examples **-> **Arduino **->_ Basics _and click on **helloworld.py**.
 
 ![OpenMV IDE loading "hello world!" example](assets/visionShield_openMV_IDE.png)
 

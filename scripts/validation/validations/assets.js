@@ -1,5 +1,5 @@
 import { ValidationIssue } from '../domain/validation-issue.js';
-import { getLineNumberFromIndex, getColumnFromIndex} from '../../lib/file-helper.cjs';
+import { getLineNumberFromIndex, getColumnFromIndex, isFile} from '../../lib/file-helper.cjs';
 import { readFileSync, existsSync } from 'fs';
 import { basename } from 'path';
 import _ from 'node-html-parser';
@@ -34,7 +34,7 @@ function validateImagePaths(article){
            const lineNumber = getLineNumberFromIndex(index, content);
            const column = getColumnFromIndex(index, content);
            errorsOccurred.push(new ValidationIssue(errorMessage, article.contentFilePath, ValidationIssue.Type.ERROR, lineNumber, column));               
-        } else if(!imagePath.startsWith("http") && !existsSync(`${article.path}/${imagePath}`)){
+        } else if(!imagePath.startsWith("http") && (!existsSync(`${article.path}/${imagePath}`) || !isFile(`${article.path}/${imagePath}`))){
             const errorMessage = "Image doesn't exist: " + imagePath;
             const content = article.rawData;
             const index = content.indexOf(imagePath);
