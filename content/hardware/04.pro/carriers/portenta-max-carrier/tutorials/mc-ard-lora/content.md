@@ -253,6 +253,14 @@ void loop() {
   modem.poll();
 }
 ```
+
+The `arduino_secrets.h` file which contains AppEUI and AppKey numbers for the TTN applications can be defined as following code. AppEUI and AppKey information is found on the End device page of the Application of TTN. 
+
+```arduino
+String appEui = "xxxxxxxxxxxxxxxx";
+String appKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+```
+
 If data was sent correctly to TTN, you should see the following messages in the Arduino IDE Serial Monitor:
 
 In your device overview dashboard in TTN, you should see changes in data activity every time a new message is sent: 
