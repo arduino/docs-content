@@ -35,9 +35,9 @@ If you need help with setting up your board then please have a look at the [Gett
 
 ## Factories
 
-In your factory page you can with ease keep track of the devices, members, teams and containers associated with your factory. 
-
 With the help of the Arduino Cloud integration with foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8.
+
+Your factory page allows you to add members, so that you can easily keep track of the members of your team that should have access to the Portenta X8's that are linked to your factory. You can also set up teams for better managment. On the page you can also find a list of all devices linked to the factory, along with their name and version of container that is currently uploaded to the board. On the containers page you can find all the different versions of containers uploaded to the factory.
 
 With the factory created and the board linked to it, you can start and develop Linux based containers that can then easily be uploaded to your factories Portenta X8.
 
