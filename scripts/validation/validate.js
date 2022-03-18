@@ -9,7 +9,6 @@ import { validateSyntaxSpecifiers } from 'content-lint';
 import { validateNestedLists } from 'content-lint';
 import { validateBrokenLinks } from 'content-lint';
 import { ConfigManager } from 'content-lint';
-import { IssueProcessor } from 'content-lint';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");
@@ -81,8 +80,4 @@ for(let validationRuleFile of configManager.getConfig("tutorials").validationRul
 }
 
 // Check if an error occurred and exit with the corresponding status code
-(async function main() {
-    console.log(`🕵️ Validating ${validator.articleCount} articles...`);
-    const validationIssues = await validator.validate();
-    (new IssueProcessor()).processIssues(validationIssues);
-})()
+validator.run();
