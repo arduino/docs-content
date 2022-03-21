@@ -1,5 +1,5 @@
 <FeatureDescription>
-  The Portenta X8 is a high performance board, with many great features. With two microprocessors combined; the NXP i.MX 8M Mini (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino), it makes this board a great source to power the upcoming generation of Industrial Internet of Things.
+  The Portenta X8 is a high performance board, with many great features. With two microprocessors combined, the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino), this board is a great source to power the upcoming generation of Industrial Internet of Things.
 </FeatureDescription>
 
 <FeatureList>
@@ -9,7 +9,7 @@
   </Feature>
 
   <Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
-    X8's integrated microcontroller is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+    X8's integrated microcontroller is the dual core STM32H747 including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The M4 core is available for real time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini and runs a proprietary firmware inaccessible to the User.
     <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
   </Feature>
 
