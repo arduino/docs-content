@@ -5,6 +5,18 @@ Carrier:
 Peripherals:
   Display: Yes
   Joystick: Switronic IT-1501-G
+Other I/O: 
+  Programmable digital I/O (24V logic): 12
+Connectivity:
+  USB Programming Port: Amphenol USB Type C
+Communication protocols:
+  CAN-BUS: RS485 communication protocol
+  Programmable Serial ports: RS232 communication protocol
+Power:
+  Supply voltage: 5V
+Memory:
+  Onboard flash memory:
+  SDRAM:
 Connectors: 
   6x Motors: Adam Equipment LHA-04-TS 
   2x Motors: Molex 44914-0601 
