@@ -11,7 +11,7 @@ USB connector: USB-C
 Pins:
   Digital I/O Pins: 22
   Analog input pins: 8
-  PWM pins: 10
+  PWM pins: 4
 Connectivity:
   Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth 5.1 BR/EDR/LE
   Secure Element: NXP SE0502C2 Crypto
@@ -25,12 +25,11 @@ Power:
   DC Current per I/O Pin: 8 mA
 Memory:
   RAM: 2 GB of Low Power DDR4 DRAM 
-  Flash: 16 GB of eMMC and 
-  SAMD21G18A: 256KB Flash 32KB SRAM
-  Nina W102 uBlox Module: 448 KB ROM, 520KB SRAM, 2MB Flash
+  Flash: 16 GB of eMMC 
+  ST STM32H747XI: 2MB Flash, 1MB RAM
 Dimensions:
   Weight: 10,2 g
   Width: 25.4 mm
   Length: 66 mm
 Environmental temperature: 
- -40 to + 85°C (-40 to 185°F)
+ -40°C to + 85°C (-40 to 185°F)
