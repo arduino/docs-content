@@ -27,8 +27,11 @@
       },
       "variant": {
         "type": "string"
-      }      
-    },
+      },
+    "revision": {
+      "type": "string"
+    }      
+  },
     "required": [
       "title",
       "identifier",
