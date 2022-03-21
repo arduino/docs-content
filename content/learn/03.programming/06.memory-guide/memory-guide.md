@@ -1,8 +1,30 @@
 ---
-title: 'Memory Allocation on Arduino Boards'
-description: 'Learn how the memory on Arduino boards work.'
-tags: [Flash, SRAM, EEPROM, ]
+title: 'Arduino Memory Guide'
+description: 'Learn about the built-in memory blocks of Arduino® boards in this article.'
+tags: 
+  - ROM
+  - RAM
+  - Flash
+  - SRAM
+  - EEPROM
+author: 'José Bagur, Taddy Chung'
 ---
+
+A microcontroller (usually called MCU) is an integrated circuit (IC) typically used for specific applications or tasks. Usually, this type of IC gathers information from its surroundings, process it, and generates specific outputs according to input data. Microcontrollers are everywhere; they are an essential part of modern embedded systems.
+
+## What is Memory?
+
+Memory blocks are essential and fundamental in modern computing systems, especially microcontroller-based embedded systems. Memory blocks are electronic devices, usually semiconductor devices, that store and retrieve information or data; the CPU of the microcontroller uses and processes data stored in memory blocks for acting in a certain way.
+
+## Memory Architectures 101
+
+**NEEDS REVISION**
+
+The name Harvard Architecture comes from the Harvard Mark I relay-based computer. The most obvious characteristic of the Harvard Architecture is that it has physically separate signals and storage for code and data memory. It is possible to access program memory and data memory simultaneously. Typically, code (or program) memory is read-only and data memory is read-write. Therefore, it is impossible for program contents to be modified by the program itself.
+
+The von Neumann Architecture is named after the mathematician and early computer scientist John von Neumann. von Neumann machines have shared signals and memory for code and data. Thus, the program can be easily modified by itself since it is stored in read-write memory.
+
+## Types of Memories 
 
 There are three potential pools of memory in the microcontrollers used on Arduino boards:
 
@@ -13,6 +35,156 @@ There are three potential pools of memory in the microcontrollers used on Arduin
 - EEPROM is memory space that programmers can use to store long-term information.
 
 Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
+
+## Arduino Board Memory Allocation
+Arduino boards processor vary by family, depending on the necessity of the user. Arduino has two big roots that can be differed by processor architecture. The boards are either powered by **AVR** or **ARM** architecture. The Arduino boards such as MKR WAN 1310, Nano 33 BLE Sense, and Portenta H7 are powered by ARM architecture using Cortex-M family. The Arduino Nano is for example powered by AVR architecture using Atmega328.
+​
+### AVR-based Boards
+​
+AVR architecture microcontrollers has the Flash Program Memory and Static Random Access Memory 
+on a separate bus. There are 2 existing bus in which handles all the data and the other line handling Input and Output with limited access. The memory architecture is allocated briefly in following manner:
+​
+- Program Memory (Flash)
+- EEPROM Memory (Data)
+- SRAM Memory (Data)
+- I/O Memory 
+​
+Each memory type serves different role that handles the function of the AVR architecture microcontrollers. It is good to know what does each memory class manages, to comprehend what is about to be detailed in the continuing section.
+​
+#### Program Memory
+​
+The Program Memory is the reprogrammable memory found on the system. This is the Flash memory that serves as a storage, and the memory divides into two different section due to security measure. A Boot-loader section is where all the crucial code is stored to intialize peripherals and essential components. While the application section is where the composed code is uploaded.
+​
+#### EEPROM Memory
+​
+This type of memory is Read-Only memory that is electrically eraseable and reprogrammable. The memory module is designed usually with minimal resource available on the table. Commonly the memory is used to save small amounts of data and store even if when the device powers down. EEPROM registers are to access this memory department and during rewrite process, the memory removes everything in order to reprogram.  
+​
+#### SRAM Memory
+​
+The Static Random Access Memory is accessed via standard data bus, and the data is retained while it has power feed. This data memory stores different memory units that are from registers, Input/Ouput memory, and its internal SRAM. All this is to have general purpose 8-Bit registers, control registers to address peripheral components, and volatile storage location to temporarily manage the data generated from the code. 
+​
+### ARM-based Boards
+​
+ARM architecture implements **Memory Organization** or **Memory Map**, built depending on the width of the address map that goes from 32-Bit to 40-Bit structure. It uses Virtual and Physical addresses while the Memory Management Unit (MMU) interfaces in between to correct operation of memory system. 
+​
+The **Translation Tables** are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed by peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease the access.
+​
+## Heap & Stack
+STAND_BY
+​
+## Measuring Memory Usage in Arduino Boards
+Memory usage stadistics will help you understand the resource management affected by the designed code. It is an important factor to consider, as the resources are finite. In fact, it should run without always reaching maximum load capacity. This is one stadistic that will tell you how efficient the code is designed. 
+​
+### Flash Memory Measurement 
+​
+The Flash memory on Arduino boards can be measured with the help of the Arduino IDE. As the Flash memory is where the Application code will be stored, the Arduino IDE will report through output log to let the developer know how much resource is being used. 
+​
+This is the output log format for Arduino Nano.
+​
+![Flash Memory Usage - Arduino Nano [AVR]](assets/avr_nano.png)
+​
+This is the output log format for Arduino MKR WAN 1310.
+​
+![Flash Memory Usage - Arduino MKR WAN 1310 [ARM]](assets/arm_mkrwan1310.png)
+​
+This is the output log format for Arduino Portenta H7.
+​
+![Flash Memory Usage - Arduino Portenta H7 (ABX00042) [ARM]](assets/arm_portentah7.png)
+​
+Each image of Arduino IDE is based of three different Arduino boards, one based on AVR and the other two based of ARM architecture. The compiler will output a log where how much Flash resource is used when uploading the code. 
+​
+The purpose of three images for different boards is to how that for each Arduino board family, the output log format is little different from one another; but it will show you the required information regarding the code that is to be uploaded to the board. 
+​
+***If it is required to handle the Flash memory within the code, please read more about in [this](https://docs.arduino.cc/tutorials/portenta-h7-lite/por-ard-flash) using Arduino Portenta H7***
+​
+### SRAM Memory Measurement
+​
+The code may upload and run. However, there may be situations in which the program will suffer from sudden operation halt. Moments like this can be due to memory resource hogging. To solve this, it will require to understand in which sector of the code, the memory demand is going beyond the available resources. Following code fragment will help you measure the SRAM usage while the code is running.
+​
+```cpp
+void display_freeram(){
+  Serial.print(F("SRAM left"));
+  Serial.println(freeRam());
+}
+​
+int freeRam() {
+  extern int __heap_start,*__brkval;
+  int v;
+  return (int)&v - (__brkval == 0  
+    ? (int)&__heap_start : (int) __brkval);  
+}
+```
+​
+In the code, `__heap_start` and `__brkval` are as following:
+- **`__heap_start`**: Refers to beginning of the Heap.
+- **`__brkval`**: Last memory address pointer used by Heap. It is pointing towards the Stack. 
+​
+### EEPROM Memory Measurement
+​
+To be able to use EEPROM features, it is already included with the Arduino IDE platform so it does not require additional step to install any library. 
+​
+EEPROM memory measurement can be done through use of the following simple code fragment. The code is simplified to write a byte to know exactly which address it is reading from. It can be modified to read everything from every possible address. 
+​
+```cpp
+#include <EEPROM.h>
+​
+EEPROM.write(address, value);
+EEPROM.read(address);
+```
+​
+On the other hand, it is possible to clear the entire EEPROM memory to set it to 0. 
+​
+```cpp
+#include <EEPROM.h>
+​
+...
+​
+for (int i = 0 ; i < EEPROM.length() ; i++) {
+    EEPROM.write(i, 0);
+}
+​
+...
+```
+​
+The complete example codes can be found in our guide to EEPROM found below the following code. 
+​
+***For more information on how to manage the EEPROM memory, please read [here](https://docs.arduino.cc/learn/programming/eeprom-guide)***
+​
+## Optimizing Memory Usage in Arduino-based Systems
+To know how the code utilizes the memory resources is one matter, but to optimize the memory is a whole different task. As the term development may infer, the requirements may change or be adjusted depending on external factors such as reduced device capacity due to inavailability of the components. Thus the code architecture may require optimization to be able to run on the reduced limited memory resources.
+​
+The optimization process also implies reduced computational complexities, trimming down extra time required to process the tasks. The memory optimization process may help the overall optimization process, as it will handle how the memory is managed in a more suitable manner. 
+​
+### Flash Memory Optimization 
+​
+One of the memory sources to begin optimization with is the Flash memory. As the Flash memory is where the size itself of the code can be reduced greatly by considering some details. 
+​
+1. Detach Unused Sources
+Detaching unused sources include unused libraries, and code residues. Code residues can be composed of functions that are no longer used and floating variables that takes up the unnecessary space in memory. This will vastly improve the compiled code size and make more clear compilation process. 
+​
+2. Modular Tasks
+Modular tasks mean functions that wraps the code which will be used in a repetitive or continuous manner by receiving different parameters. It is a great way to maintain clean code structure and performance, while reducing the memory space required for additional tasks that might need to be implemented.     
+​
+This leads to compact code structure, that is much easier to understand when debugging process is required, and demand developer to considerate compute complexity while designing the code structure. 
+​
+### SRAM Memory Optimization
+​
+1. Literal String Reduction - F()
+​
+2. PROGMEM
+​
+3. RESERVE()
+​
+4. Buffer Size Control
+​
+5. Non Dynamic Memory Allocation 
+Dynamic allocations cause Heap fragmentation. Although, when dynamic allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the Heap Size. 
+​
+6. Corrective Data Type Usage 
+​
+### EEPROM Memory Optimization
+
+TDB!
 
 ## Memory on Arduino Nano boards
 
