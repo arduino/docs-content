@@ -10,11 +10,15 @@ tags:
 author: 'José Bagur, Taddy Chung'
 ---
 
-A microcontroller (usually called MCU) is an integrated circuit (IC) typically used for specific applications or tasks. Usually, this type of IC gathers information from its surroundings, process it, and generates specific outputs according to input data. Microcontrollers are everywhere; they are an essential part of modern embedded systems.
+A microcontroller unit (also known as MCU) is an integrated circuit (IC) typically used to perform specific applications or tasks. Usually, this type of IC gathers information or data from its surroundings, process it, and generates specific outputs according to the gathered data. Microcontrollers today are everywhere; they are an essential part of modern embedded systems that can be found practically everywhere in our world, from smartwatches to electric vehicles; they are even on the Martian surface right now. 
+
+One essential part of a microcontroller is its **memory**; memory stores information temporarily or permanently in microcontrollers and can be used for several purposes. This article talks about memory organization in microcontrollers, focusing on those present in Arduino® boards. Also, several ways to manage, measure, and optimize memory usage in Arduino-based systems are discussed in the article.
 
 ## What is Memory?
 
-Memory blocks are essential and fundamental in modern computing systems, especially microcontroller-based embedded systems. Memory blocks are electronic devices, usually semiconductor devices, that store and retrieve information or data; the CPU of the microcontroller uses and processes data stored in memory blocks for acting in a certain way.
+Memory blocks are essential parts of modern embedded systems, especially microcontroller-based ones. **Memory blocks are semiconductor devices that store and retrieve information or data**; a microcontroller central processing unit (CPU) uses and processes data stored in memory blocks to perform specific tasks.
+
+As shown in the image below, memory blocks in microcontrollers are usually described as **arrays**. Memory arrays are divided into **cells** that can store data and be accessed using a unique identifier representing its **address** or position relative to the memory array. Information in memory cells is stored using binary digits (bits), usually organized in bytes (8-bits); it can also be retrieved later by the MCU or other components of a microcontroller-based system.
 
 ## Memory Architectures 101
 
