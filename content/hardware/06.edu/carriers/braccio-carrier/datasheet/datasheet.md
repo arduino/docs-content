@@ -164,7 +164,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ## Connector Pinouts
 
-![Braccio Carrier Pinout](../interactive/ABX00032-pinout.png)
+![Braccio Carrier Pinout](assets/braccio-pinout.png)
 
 ## Mechanical Information
 
