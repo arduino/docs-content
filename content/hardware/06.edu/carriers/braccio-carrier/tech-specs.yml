@@ -5,7 +5,7 @@ Carrier:
 Peripherals:
   Display: AX133T-IF05
   Joystick: Switronic IT-1501-G
-Other I/O: 
+Other I/O:
   Programmable digital I/O (24V logic): 12
 Connectivity:
   USB Programming Port: Amphenol USB Type C
@@ -14,14 +14,11 @@ Communication protocols:
   Programmable Serial ports: RS232 communication protocol
 Power:
   Supply voltage: 5V
-Connectors: 
-  6x Motors: Adam Equipment LHA-04-TS 
-  2x Motors: Molex 44914-0601 
-  1x Eslov connector (5V, interrupt, I2C (SCL, SDA, GND)
-Power:
   USB-C: Yes (used for power supply)
+Connectors:
+  6x Motors: Adam Equipment LHA-04-TS
+  2x Motors: Molex 44914-0601
 Dimensions:
   Weight: 54 g
   Width: 78,5 mm
   Length: 122 mm
-  
