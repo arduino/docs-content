@@ -50,7 +50,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 
 **Reference Design:** The Arduino Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard eNUC specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
-### Accessories (not included)
+### Accessories (Not Included)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
@@ -64,7 +64,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 ### Solution Overview
 ![Carrier assembly](assets/maxCarrierAssembly.png)
 
-*Example of a typical application for a solution including the Portenta Max Carrier and Portenta H7 with posts mounted.*
+*Example of a typical application for a solution including the Portenta Max Carrier and Portenta X8 with posts mounted.*
 
 ## Ratings
 
