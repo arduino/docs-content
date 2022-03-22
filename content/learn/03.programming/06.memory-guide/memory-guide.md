@@ -7,7 +7,7 @@ tags:
   - Flash
   - SRAM
   - EEPROM
-author: 'José Bagur, Taddy Chung'
+author: 'José Bagur, Taddy Chung, Luca Osti'
 ---
 
 A microcontroller unit (also known as MCU) is an integrated circuit (IC) typically used to perform specific applications or tasks. Usually, this type of IC gathers information or data from its surroundings, process it, and generates specific outputs according to the gathered data. Microcontrollers today are everywhere; they are an essential part of modern embedded systems that can be found practically everywhere in our world, from smartwatches to electric vehicles; they are even on the Martian surface right now. 
@@ -18,15 +18,23 @@ One essential part of a microcontroller is its **memory**; memory stores informa
 
 Memory blocks are essential parts of modern embedded systems, especially microcontroller-based ones. **Memory blocks are semiconductor devices that store and retrieve information or data**; a microcontroller central processing unit (CPU) uses and processes data stored in memory blocks to perform specific tasks.
 
-As shown in the image below, memory blocks in microcontrollers are usually described as **arrays**. Memory arrays are divided into **cells** that can store data and be accessed using a unique identifier representing its **address** or position relative to the memory array. Information in memory cells is stored using binary digits (bits), usually organized in bytes (8-bits); it can also be retrieved later by the MCU or other components of a microcontroller-based system.
+As shown in the image below, memory blocks in microcontrollers are usually described as **arrays**. Memory arrays are divided into **cells** that can store data and be accessed using a unique identifier representing its **address** or position relative to the memory array. Information in memory cells is stored using binary digits (bits), usually organized in bytes (8-bits); it can also be retrieved later by the MCU or other components of a microcontroller-based system. 
+
+Memory in computing systems can be **volatile** or **non-volatile**. **Volatile memory is a temporary memory**, this means that data is stored while the system is running, but it is lost forever when the system is turned off. **Non-volatile memory is permanent memory**; data is not lost even if the system is turned off. 
 
 ## Memory Architectures 101
 
-**NEEDS REVISION**
+Computer architecture is a vast topic; we will focus on a general picture that will let us understand how memory is organized in the microcontrollers used in Arduino® boards.
 
-The name Harvard Architecture comes from the Harvard Mark I relay-based computer. The most obvious characteristic of the Harvard Architecture is that it has physically separate signals and storage for code and data memory. It is possible to access program memory and data memory simultaneously. Typically, code (or program) memory is read-only and data memory is read-write. Therefore, it is impossible for program contents to be modified by the program itself.
+In the early days of computing, two computer architectures, i.e., the organization of the components inside a computing system, emerged: **von Neumann** and **Harvard**. 
 
-The von Neumann Architecture is named after the mathematician and early computer scientist John von Neumann. von Neumann machines have shared signals and memory for code and data. Thus, the program can be easily modified by itself since it is stored in read-write memory.
+### Von Neumann Architecture
+
+The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. This architecture stores program data and instructions in the same memory unit; both are accessed by the CPU using the same communications bus, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
+
+### Harvard Architecture
+
+The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. This architecture's main characteristic is that it uses two separate memory units, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
 
 ## Types of Memories 
 
@@ -57,7 +65,7 @@ Each memory type serves different role that handles the function of the AVR arch
 ​
 #### Program Memory
 ​
-The Program Memory is the reprogrammable memory found on the system. This is the Flash memory that serves as a storage, and the memory divides into two different section due to security measure. A Boot-loader section is where all the crucial code is stored to intialize peripherals and essential components. While the application section is where the composed code is uploaded.
+The Program Memory is the reprogrammable memory found on the system. This is the Flash memory that serves as a storage, and the memory divides into two different section due to security measure. A Boot-loader section is where all the crucial code is stored to initialize peripherals and essential components. While the application section is where the composed code is uploaded.
 ​
 #### EEPROM Memory
 ​
@@ -65,7 +73,7 @@ This type of memory is Read-Only memory that is electrically eraseable and repro
 ​
 #### SRAM Memory
 ​
-The Static Random Access Memory is accessed via standard data bus, and the data is retained while it has power feed. This data memory stores different memory units that are from registers, Input/Ouput memory, and its internal SRAM. All this is to have general purpose 8-Bit registers, control registers to address peripheral components, and volatile storage location to temporarily manage the data generated from the code. 
+The Static Random Access Memory is accessed via standard data bus, and the data is retained while it has power feed. This data memory stores different memory units that are from registers, Input/Output memory, and its internal SRAM. All this is to have general purpose 8-Bit registers, control registers to address peripheral components, and volatile storage location to temporarily manage the data generated from the code. 
 ​
 ### ARM-based Boards
 ​
@@ -309,7 +317,7 @@ Notice that with boards that do not have a lot of SRAM available, like the UNO. 
 char message[] = "I support the Cape Wind project.";
 ```
 
-puts 33 bytes into SRAM (each character takes a byte, plus the '\0' terminator).  This might not seem like a lot, but it doesn't take long to get to 2048, especially if you have a large amount of text to send to a display, or a large lookup table, for example.
+puts 33 bytes into SRAM (each character ta|kes a byte, plus the '\0' terminator).  This might not seem like a lot, but it doesn't take long to get to 2048, especially if you have a large amount of text to send to a display, or a large lookup table, for example.
 
 If you run out of SRAM, your program may fail in unexpected ways; it will appear to upload successfully, but not run, or run strangely. To check if this is happening, you can try commenting out or shortening the strings or other data structures in your sketch (without changing the code). If it then runs successfully, you're probably running out of SRAM. There are a few things you can do to address this problem:
 
