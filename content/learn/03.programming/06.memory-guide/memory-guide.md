@@ -185,7 +185,7 @@ This leads to compact code structure, that is much easier to understand when deb
 ### SRAM Memory Optimization
 
 1. **String Wrapper - F()**
-It is convenient to use `Serial.println("Something");` to display the literals. This is used usally to understand where the code is going and to observe certain conditionals. However, doing this so will hog up the Static Random Access Memory (SRAM) space, which is something not desirable as the content is a simple literal string that is not used under the hood. 
+It is convenient to use `Serial.println("Something");` to display the literals. This is used usually to understand where the code is going and to observe certain conditionals. However, doing this so will hog up the Static Random Access Memory (SRAM) space, which is something not desirable as the content is a simple literal string that is not used under the hood. 
 
 The ideal way to use the Print Line command is to use the `F()` String Wrapper around the literals. This will lead us to following piece of code. 
 
