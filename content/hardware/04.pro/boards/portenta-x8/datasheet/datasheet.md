@@ -187,12 +187,12 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td rowspan="2" ><strong>Murata® 1DX </strong>Wi-Fi/BT Module</td>
-         <td>Wi-Fi 802.11b/g/n 65 Mbps</td>
+         <td rowspan="2" ><strong>Murata® 1DX </strong>Wi-Fi®/Bluetooth® Module</td>
+         <td>Wi-Fi® 802.11b/g/n 65 Mbps</td>
          <td></td>
       </tr>
       <tr>
-         <td>Bluetooth 5.1 BR/EDR/LE</td>
+         <td>Bluetooth® 5.1 BR/EDR/LE</td>
          <td></td>
       </tr>
       <tr>
@@ -299,7 +299,7 @@ Edge computing, industrial internet of things, single board computer, artificial
 ## Application Examples
 The Arduino® Portenta X8 has been designed for high performance embedded computing applications in mind, based on the quad core NXP® i.MX 8M Mini Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
 - **Embedded Linux:** Kickstart the deployment of Industry 4.0 with Linux Board Support Packages running on the feature packed and energy efficient Arduino® Portenta X8. Make use of the GNU toolchain to develop your solutions free from technological lock in.   
-- **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi and Bluetooth connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications. 
+- **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi® and Bluetooth® connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications. 
 - **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
 ## Accessories
@@ -349,7 +349,7 @@ Please note: if the board is powered by a standard USB port, it will reboot beca
 | -------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------ |
 | U1       | BD71847AMWV i.MX 8M Mini  PMIC                 | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
 | U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C™ Bridge IC                |
-| U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth Combo IC                       |
+| U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth® Combo IC                       |
 | U12      | PCMF2USB3B/CZ Bidirectional EMI Protection IC  | U16,U21,U22,U23 | FXL4TD245UMX 4-Bit Bidirectional Voltage-level Translator IC |
 | U17      | DSC6151HI2B 25MHz MEMS Oscillator              | U18             | DSC6151HI2B 27MHz MEMS Oscillator                            |
 | U19      | NT6AN512T32AV 2GB LP-DDR4 DRAM                 | IC1,IC2,IC3,IC4 | SN74LVC1G125DCKR 3-state 1.65-V to 5.5-V buffer IC           |
@@ -380,8 +380,8 @@ The MIMX8MM6CVTKZAA iMX8M (U2) features a quad core ARM® Cortex® A53 running a
 ### STM32 Dual Core Microprocessor
 The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as a I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini and runs a proprietary firmware inaccessible to the User. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2). 
 
-## Wi-Fi/Bluetooth Connectivity
-The Muratta® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth connectivity in an ultrasmall package based on the Cypress CYW4343W. The IEEE802.11b/g/n Wi-Fi interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi and Bluetooth. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth 5.1 is supported together with Wi-Fi conforming to the IEEE802.11b/g/n standard.
+## Wi-Fi®/Bluetooth® Connectivity
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi® and Bluetooth®. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth® 5.1 is supported together with Wi-Fi® conforming to the IEEE802.11b/g/n standard.
 
 ## Onboard Memories
 The Arduino® Portenta X8 includes two onboard memory modules. A NT6AN512T32AV 2GB LP-DDR4 DRAM (U19) and 16GB Forsee eMMC Flash module (FEMDRW016G) (U5) are accessible to the i.MX 8M Mini (U2).
