@@ -41,7 +41,18 @@ The goals of this project are:
 
 ![Arduino Nicla Vision - Time of Flight sensor](assets/nicla-vision-tof.png)
 
-To make sure that the sketch works properly, the latest versions of the **Arduino mbed Core** and the **VL53L1X library** needs to be installed. The **Arduino mbed Core** can be found in the **boards manager...** and the **VL53L1X library** can be found in the **Library manager**, both can be found inside the Arduino IDE.
+To make sure that the sketch works properly, the latest versions of the **Arduino mbed Core** and the **VL53L1X library** needs to be installed. Both can be found inside the Arduino IDE.
+
+- The **Arduino mbed Core** can be found in the **boards manager...**.  
+- The **VL53L1X library** can be found in the **Library manager**, 
+
+If you are using version 1.6.2 or later of the Arduino software (IDE), you can use the Library Manager to install the VL53L1X library:
+
+- In the Arduino IDE, open the "Sketch" menu, select "Include Library", then "Manage Libraries...".
+- Search for "VL53L1X".
+- Click the VL53L1X entry in the list, authored by Pololu.
+- Click "Install". More detailed instructions on how to install a library can be found [here](/learn/starting-guide/software-libraries).
+
 
 ### Include the Needed Libraries and Objects Declaration
 

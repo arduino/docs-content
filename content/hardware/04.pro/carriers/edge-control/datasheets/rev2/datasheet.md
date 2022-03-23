@@ -140,7 +140,7 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 ### Solution Overview
 ![Preview assembly](assets/edgeControlSolutionOverview.png)
 
-*Example of a typical application for a solution including LCD Display and two Arduino® MKR 1300 boards.*
+**Example of a typical application for a solution including LCD Display and two Arduino® MKR 1300 boards.**
 
 ## Ratings
 ### Absolute Maximum Ratings

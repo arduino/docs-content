@@ -9,7 +9,7 @@ The package management system, also called "package manager", is a very importan
 
 On the OpenWrt-Yun Linux system the package manager tool is called "opkg".  Usually operations on a package can be done through the command line with a few arguments.
 
-The package manager needs an updated database to display packages available for your system. Running the *opkg* update command updates the list of available packages. Due to the small flash memory available on the Yún, the database with the list of the package is only saved inside RAM. This means that you need to run the *opkg* update command every time you want to install a program after freeing the RAM or after a reboot.
+The package manager needs an updated database to display packages available for your system. Running the **opkg** update command updates the list of available packages. Due to the small flash memory available on the Yún, the database with the list of the package is only saved inside RAM. This means that you need to run the **opkg** update command every time you want to install a program after freeing the RAM or after a reboot.
 
 ![Downloading the packages.](assets/YunOpkgFortune.png)
 

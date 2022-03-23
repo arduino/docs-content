@@ -162,7 +162,7 @@ second: the second value to be set.
 
 day: the day value to be set.
 
-minute: the minute value to be set.
+month: the month value to be set.
 
 year: the year value to be set.
 

@@ -11,13 +11,13 @@ author: Ali Jahangiri
 The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
 
 # Target areas:
-wireless sensor networks, data fusion, artificial intelligence, machine vision
+Wireless sensor networks, data fusion, artificial intelligence, machine vision
 
 # Features
 - **STM32H747AII6** Microcontroller
   - Dual core
     - 32-bit Arm® Cortex®-M7 core with double-precision FPU and L1 cache up to 480 MHz
-    - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240MHz
+    - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
 - **Murata® 1DX** Wi-Fi/BT Module
@@ -25,7 +25,7 @@ wireless sensor networks, data fusion, artificial intelligence, machine vision
   - Bluetooth 4.2 BR/EDR/LE
 - **MAX17262REWL+T** Fuel Gauge
   - Implements ModelGauge m5 EZ for battery monitoring
-  - Low 5.2μA Operating Current
+  - Low 5.2 μA Operating Current
   - No Calibration Required
 - **NXP SE050C2** Crypto
   - Common Criteria EAL 6+ certified up to OS level
@@ -34,13 +34,13 @@ wireless sensor networks, data fusion, artificial intelligence, machine vision
   - HMAC, CMAC, SHA-1, SHA-224/256/384/512 operations
   - HKDF, MIFARE® KDF, PRF (TLS-PSK)
   - Support of main TPM functionalities
-  - Secured flash user memory up to 50kB
+  - Secured flash user memory up to 50 kB
   - SCP03 (bus encryption and encrypted credential injection on applet and platform level)
 - **VL53L1CBV0FY/1** Time-of-Flight Sensor
   - Fully integrated miniature module
   - 940 nm invisible laser (VCSEL) emitter
   - Receiving array with integrated lens
-  - 400 cm+ detection with full field of view (FoV)
+  - 400 cm detection with full field of view (FoV)
 - **MP34DT06JTR** Microphone
   - AOP = 122.5 dBSPL
   - 64 dB signal-to-noise ratio
@@ -49,10 +49,10 @@ wireless sensor networks, data fusion, artificial intelligence, machine vision
 - **GC2145** Camera
   - 2 Megapixel CMOS Camera
   - on-chip 10-bit ADC
-  - 1.75μm pixel size
+  - 1.75 μm pixel size
 - **LSM6DSOX** 6-axis IMU
   - Always-on 3D accelerometer and 3D gyroscope
-  - Smart FIFO up to 4 KByte
+  - Smart FIFO up to 4 kByte
   - ±2/±4/±8/±16 g full scale
   - ±125/±250/±500/±1000/±2000 dps full scale
 - **USB3320C-EZK-TR** USB Transceiver
@@ -123,9 +123,9 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | -------- | ------------------------------------------------ | -------- | ----------------------------------------- |
 | U1       | STM32H747AII6 Dual ARM® Cortex® M7/M4 IC         | U4       | VL53L1CBV0FY/1 Time-of-flight sensor IC   |
 | U5       | USB3320C-EZK-TR  USB 2.0 Transceiver             | U6       | MP34DT06JTR Omnidirectional Mic           |
-| U14      | DSC6151HI2B 25MHz MEMS Oscillator                | U15      | DSC6151HI2B 27MHz MEMS Oscillator         |
+| U14      | DSC6151HI2B 25 MHz MEMS Oscillator               | U15      | DSC6151HI2B 27 MHz MEMS Oscillator         |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC           |
-| U10      | SN74LVC1T45 1Channel voltage level translator IC | U11      | TXB0108YZPR Bidirectional IC              |
+| U10      | SN74LVC1T45 1-channel voltage level translator IC| U11      | TXB0108YZPR Bidirectional IC              |
 | U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and GPIO Pin headers             |
 | J2       | I2C, JTAG, Power and GPIO pin headers            | J3       | Battery headers                           |
 | DL1      | SMLP34RGB2W3 RGB SMD LED                         | DL2      | KPHHS-1005SURCK Red LED                   |
@@ -139,19 +139,19 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U2,U7    | LM66100DCKR Ideal Diode                     | U3       | LSM6DSOXTR 6-axis IMU with ML Core                 |
 | U8       | SE050C2HQ1/Z01SDZ Crypto IC                 | U9       | LBEE5KL1DX-883 Wi-Fi/Bluetooth Module              |
 | U10      | MC34PF1550A0EP PMIC                         | U11      | TXB0108YZPR Bidirectional Voltage Shifter          |
-| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16MB FLASH Memory IC              |
+| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MB FLASH Memory IC          |
 | U19      | MAX17262REWL+T Fuel Gauge IC                | J4       | BM03B-ACHSS-GAN-TF(LF)(SN) 3-pin battery connector |
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin ESLOV connector | J7       | microUSB connector                                 |
 
 
 ### Processor
-H7's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The Nicla Vision's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 
 ### 6-Axis IMU
 It is possible to obtain 3D gyroscope and 3D accelerometer data from the LSM6DSOX 6-axis IMU (U3). In addition to providing such data, it is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
 ### Wi-Fi/Bluetooth Connectivity
- The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth.
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth.
 
 ### Crypto Capabilities
 The Arduino® Nicla Vision enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
@@ -170,11 +170,12 @@ Input voltage can be provided to the Nicla Vision through the USB connector (J7)
 A NTC (negative thermal coefficient) sensor provides overtemperature shutoff to the battery. The battery fuel gauge provides indication of the remaining battery capacity 
 
 There are three main power lines provided:
-- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 oscillator (Y1), USB transceiver (U5) and Wi-Fi/Bluetooth module.
-- **+2V8A** provides power to the camera (M1) and time-of-flight sensor (U4) 
-- **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi/Bluetooth module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13),27 MHz oscillator (U15) as well as the two level translators (U11,U12).
 
-- Additionally, a dedicated analog supply rail (VDDA) is provided for the microprocessor (U1). The camera module (M1) also has a dedicated power rail (+1V8CAM).
+- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 MHz oscillator (Y1), USB transceiver (U5) and Wi-Fi/Bluetooth module.
+- **+2V8A** provides power to the camera (M1) and time-of-flight sensor (U4) 
+- **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi/Bluetooth module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13), 27 MHz oscillator (U15) as well as the two level translators (U11, U12).
+
+- Additionally, a dedicated analog supply rail (VDDA) is provided for the microcontroller (U1). The camera module (M1) also has a dedicated power rail (+1V8CAM).
 
 ## Board Operation
 ### Getting Started - IDE

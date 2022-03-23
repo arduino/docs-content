@@ -56,13 +56,13 @@ Defines the correspondence between notes and MIDI note values. Part of MIDIUSB
 
 ### Functions In Sketch
 
-*searchForNote(float frequency)*
+**searchForNote(float frequency)**
 Search for the nearest frequency that is in the vector of frequencies noteFrequency[ ]
 
-*noteOn(byte channel, byte pitch, byte velocity)*
+**noteOn(byte channel, byte pitch, byte velocity)**
 Sends out to MIDI the event to turn on the note of the specified pitch on the specified MIDI Channel
 
-*void noteOff(byte channel, byte pitch, byte velocity)*
+**void noteOff(byte channel, byte pitch, byte velocity)**
 Sends out to MIDI the event to turn off  the note of the specified pitch on the specified MIDI Channel
 
 ## Code

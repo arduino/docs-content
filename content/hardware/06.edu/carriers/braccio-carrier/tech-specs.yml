@@ -1,0 +1,24 @@
+Carrier:
+  Name: Arduino® Braccio Carrier
+  SKU: ABX00032
+  Compatibility: Nano Family (Inc. Nano RP2040 Connect)
+Peripherals:
+  Display: AX133T-IF05
+  Joystick: Switronic IT-1501-G
+Other I/O:
+  Programmable digital I/O (24V logic): 12
+Connectivity:
+  USB Programming Port: Amphenol USB Type C
+Communication protocols:
+  CAN-BUS: RS485 communication protocol
+  Programmable Serial ports: RS232 communication protocol
+Power:
+  Supply voltage: 5V
+  USB-C: Yes (used for power supply)
+Connectors:
+  6x Motors: Adam Equipment LHA-04-TS
+  2x Motors: Molex 44914-0601
+Dimensions:
+  Weight: 54 g
+  Width: 78,5 mm
+  Length: 122 mm

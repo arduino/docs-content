@@ -73,7 +73,7 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 ### Assembly Overview
 ![Preview assembly](assets/thalesShieldSolutionOverview_60.png)
-*Example of a typical assembly including an Arduino® Portenta H7 and Arduino® Portenta Cat. M1/NB IoT GNSS Shield.*
+**Example of a typical assembly including an Arduino® Portenta H7 and Arduino® Portenta Cat. M1/NB IoT GNSS Shield.**
 
 ## Ratings
 ### Recommended Operating Conditions

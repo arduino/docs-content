@@ -30,7 +30,7 @@ Before you can start programming OpenMV scripts for the Portenta you need to dow
 
 ### Flashing the OpenMV Firmware
 
-Connect the Portenta to your computer via the USB cable if you haven't done so yet. Put the Nicla Vision in bootloader mode by double pressing the reset button on the board. The built-in LED will start fading in and out. Now open the OpenMV IDE.
+Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet. Put the Nicla Vision in bootloader mode by double pressing the reset button on the board. The built-in LED will start fading in and out. Now open the OpenMV IDE.
 
 ![The OpenMV IDE after starting it](assets/por_openmv_open_ide.png)
 

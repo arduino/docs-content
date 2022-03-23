@@ -179,7 +179,7 @@ This are the activities:
 * 4: "In vehicle activity ended"
 * 5: "Tilting activity ended"
 * 6: "In vehicle still ended"
-* 7: *blank*
+* 7: **blank**
 * 8: "Still activity started"
 * 9: "Walking activity started"
 * 10: "Running activity started"
@@ -187,7 +187,7 @@ This are the activities:
 * 12: "IN vehicle activity started"
 * 13: "Tilting activity started"
 * 14: "In vehicle still started"
-* 15: *blank*
+* 15: **blank**
 
 **Syntax example**
 ```arduino
