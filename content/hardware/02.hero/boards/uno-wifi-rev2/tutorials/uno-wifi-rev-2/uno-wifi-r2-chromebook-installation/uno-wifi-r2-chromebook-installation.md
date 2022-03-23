@@ -150,6 +150,8 @@ To program your Arduino via a Chromebook, you will need the [Arduino Create for 
 
 Congratulations, you have now uploaded a sketch to your UNO WiFi Rev 2 using the Web Editor on a Chromebook.
 
+***For more details on using the Web Editor, visit the [Getting Started with Web Editor guide](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
+
 ### Troubleshoot
 
 If things are not working as expected:
