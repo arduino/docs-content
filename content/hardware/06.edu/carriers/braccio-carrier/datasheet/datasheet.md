@@ -4,7 +4,7 @@ title: Arduino® Braccio Carrier
 revision: Rev. 01
 type: edu
 ---
-![Braccio Carrier Featured Image](assets/featured.jpg)
+![Braccio Carrier Featured Image](assets/featured.png)
 
 # Description
 Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Arduino® Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
@@ -123,7 +123,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
 ### Block Diagram
 
 
-![Arduino Braccio Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.jpg)
+![Arduino Braccio Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.svg)
 
 The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functionality the system. RS485 Transceiver signals the motor connector for the precise motion of the motors according to the input given by the user.
 
