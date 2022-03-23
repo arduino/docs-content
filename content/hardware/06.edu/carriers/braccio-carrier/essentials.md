@@ -1,3 +1,9 @@
+<EssentialsColumn title="First Steps">
+    <EssentialElement link="/software/ide-v1/installing-mbed-os-nano-boards" title="Quickstart Guide" type="getting-started">
+        A quick guide to installing your carrier with the Arduino IDE.
+    </EssentialElement>
+
+</EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_Braccio_plusplus" title="Braccio ++" type="library">
