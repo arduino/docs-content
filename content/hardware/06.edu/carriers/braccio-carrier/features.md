@@ -19,7 +19,6 @@ Along with high-speed RS-485/422 and RS-232 serial communication, the Arduino® 
 <Feature title="LCD gaming options" image="configurability">
  Interfacing Mini Joystick with the carrier board integrated with a powerful Arduino® board can deliver some really exciting projects.
  
-  <FeatureLink title="Datasheet" url="" download blank/>
 </Feature>
 
 </FeatureList>
