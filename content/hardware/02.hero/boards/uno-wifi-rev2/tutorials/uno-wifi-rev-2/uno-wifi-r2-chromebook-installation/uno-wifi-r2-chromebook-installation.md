@@ -46,7 +46,7 @@ First download the [optiboot_atmega4.hex](/resources/firmware/optiboot_atmega480
 
 Connect your UNO WiFi Rev2 board to your computer and follow the instructions for each operative system below.
 
-***It is important that you move the `optiboot_atmega4.hex` file to your desktop folder, otherwise the following commands wont work.***
+***It is important that you move the `optiboot_atmega4.hex` file to your desktop folder, otherwise the following commands won't work.***
 
 ### Mac
 
