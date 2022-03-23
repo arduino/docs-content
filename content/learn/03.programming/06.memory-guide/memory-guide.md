@@ -87,38 +87,41 @@ STAND_BY
 ## Measuring Memory Usage in Arduino Boards
 Memory usage stadistics will help you understand the resource management affected by the designed code. It is an important factor to consider, as the resources are finite. In fact, it should run without always reaching maximum load capacity. This is one stadistic that will tell you how efficient the code is designed. 
 ​
+### SRAM & DRAM: Quick Differentiation Specification
+STAND_BY
+
 ### Flash Memory Measurement 
-​
+
 The Flash memory on Arduino boards can be measured with the help of the Arduino IDE. As the Flash memory is where the Application code will be stored, the Arduino IDE will report through output log to let the developer know how much resource is being used. 
-​
+
 This is the output log format for Arduino Nano.
-​
+
 ![Flash Memory Usage - Arduino Nano [AVR]](assets/avr_nano.png)
-​
+
 This is the output log format for Arduino MKR WAN 1310.
-​
+
 ![Flash Memory Usage - Arduino MKR WAN 1310 [ARM]](assets/arm_mkrwan1310.png)
-​
+
 This is the output log format for Arduino Portenta H7.
-​
+
 ![Flash Memory Usage - Arduino Portenta H7 (ABX00042) [ARM]](assets/arm_portentah7.png)
-​
+
 Each image of Arduino IDE is based of three different Arduino boards, one based on AVR and the other two based of ARM architecture. The compiler will output a log where how much Flash resource is used when uploading the code. 
-​
+
 The purpose of three images for different boards is to how that for each Arduino board family, the output log format is little different from one another; but it will show you the required information regarding the code that is to be uploaded to the board. 
-​
+
 ***If it is required to handle the Flash memory within the code, please read more about in [this](https://docs.arduino.cc/tutorials/portenta-h7-lite/por-ard-flash) using Arduino Portenta H7***
-​
+
 ### SRAM Memory Measurement
-​
+
 The code may upload and run. However, there may be situations in which the program will suffer from sudden operation halt. Moments like this can be due to memory resource hogging. To solve this, it will require to understand in which sector of the code, the memory demand is going beyond the available resources. Following code fragment will help you measure the SRAM usage while the code is running.
-​
+
 ```cpp
 void display_freeram(){
   Serial.print(F("SRAM left"));
   Serial.println(freeRam());
 }
-​
+
 int freeRam() {
   extern int __heap_start,*__brkval;
   int v;
@@ -126,73 +129,140 @@ int freeRam() {
     ? (int)&__heap_start : (int) __brkval);  
 }
 ```
-​
+
 In the code, `__heap_start` and `__brkval` are as following:
 - **`__heap_start`**: Refers to beginning of the Heap.
 - **`__brkval`**: Last memory address pointer used by Heap. It is pointing towards the Stack. 
-​
+
 ### EEPROM Memory Measurement
-​
+
 To be able to use EEPROM features, it is already included with the Arduino IDE platform so it does not require additional step to install any library. 
-​
+
 EEPROM memory measurement can be done through use of the following simple code fragment. The code is simplified to write a byte to know exactly which address it is reading from. It can be modified to read everything from every possible address. 
-​
+
 ```cpp
 #include <EEPROM.h>
-​
+
 EEPROM.write(address, value);
 EEPROM.read(address);
 ```
-​
+
 On the other hand, it is possible to clear the entire EEPROM memory to set it to 0. 
-​
+
 ```cpp
 #include <EEPROM.h>
-​
+
 ...
-​
+
 for (int i = 0 ; i < EEPROM.length() ; i++) {
     EEPROM.write(i, 0);
 }
-​
+
 ...
 ```
-​
+
 The complete example codes can be found in our guide to EEPROM found below the following code. 
-​
+
 ***For more information on how to manage the EEPROM memory, please read [here](https://docs.arduino.cc/learn/programming/eeprom-guide)***
-​
+
 ## Optimizing Memory Usage in Arduino-based Systems
 To know how the code utilizes the memory resources is one matter, but to optimize the memory is a whole different task. As the term development may infer, the requirements may change or be adjusted depending on external factors such as reduced device capacity due to inavailability of the components. Thus the code architecture may require optimization to be able to run on the reduced limited memory resources.
-​
+
 The optimization process also implies reduced computational complexities, trimming down extra time required to process the tasks. The memory optimization process may help the overall optimization process, as it will handle how the memory is managed in a more suitable manner. 
-​
+
 ### Flash Memory Optimization 
-​
+
 One of the memory sources to begin optimization with is the Flash memory. As the Flash memory is where the size itself of the code can be reduced greatly by considering some details. 
-​
-1. Detach Unused Sources
+
+1. **Detach Unused Sources**
 Detaching unused sources include unused libraries, and code residues. Code residues can be composed of functions that are no longer used and floating variables that takes up the unnecessary space in memory. This will vastly improve the compiled code size and make more clear compilation process. 
-​
-2. Modular Tasks
+
+2. **Modular Tasks**
 Modular tasks mean functions that wraps the code which will be used in a repetitive or continuous manner by receiving different parameters. It is a great way to maintain clean code structure and performance, while reducing the memory space required for additional tasks that might need to be implemented.     
-​
+
 This leads to compact code structure, that is much easier to understand when debugging process is required, and demand developer to considerate compute complexity while designing the code structure. 
-​
+
 ### SRAM Memory Optimization
-​
-1. Literal String Reduction - F()
-​
-2. PROGMEM
-​
-3. RESERVE()
-​
-4. Buffer Size Control
-​
-5. Non Dynamic Memory Allocation 
-Dynamic allocations cause Heap fragmentation. Although, when dynamic allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the Heap Size. 
-​
-6. Corrective Data Type Usage 
+
+1. **String Wrapper - F()**
+It is convenient to use `Serial.println("Something");` to display the literals. This is used usally to understand where the code is going and to observe certain conditionals. However, doing this so will hog up the Static Random Access Memory (SRAM) space, which is something not desirable as the content is a simple literal string that is not used under the hood. 
+
+The ideal way to use the Print Line command is to use the `F()` String Wrapper around the literals. This will lead us to following piece of code. 
+
+```cpp
+Serial.println(F("Something"));
+```
+
+By wrapping the String with `F()`, will move the Strings to Flash memory only rather than to use SRAM space also. It can be observed as offloading such data to Flash memory instead of SRAM. 
+
+Flash memory is much more spacious than SRAM size, so it is possible to use the Flash space than using SRAM which will use Heap. This does not mean, the memory space will always be available as Flash memory does too have limited space. It is not recommendable to spam the code structure with Print Line, but to use them where they most matter for such applications with minimized implementation. 
+
+2. **PROGMEM**
+It is not always with the literal String that occupies the SRAM space, but also using Global Variables which also takes up quite good amount of SRAM. As Global and Static variables are streamed to SRAM space, and pushes the Heap towards the Stack. The space occupied by this variables streamed to SRAM space will be saved at its location and will not be changing, meaning more of these variables are created, they will use more space and consequently, system failure due to low and poor memory management. 
+
+PROGMEM stands simply for Program Memory. We will use Program memory to store variable data offloading to Flash Memory space. As it goes same as to String Wrapper F(), PROGMEM uses Flash Memory space for its usage. The only disadvantage presented using PROGMEM is the Read Speed. Using RAM will provide much faster Read Speed, but PROGMEM, as it uses Flash Memory, it will be slower than RAM, given the same data size read. Thus, it is important to design the software knowing which variables are crucial and others has lower priority. It is one of the many factors that needs to be considered when developing the software, but this will lead to have nicely designed code architecture.
+
+To use the PROGMEM, it can begin with following code fragment. 
+
+```cpp
+#include <avr/pgmspace.h>
+
+// Basic PROGMEM Define Structure 
+const PROGMEM DataType Variable_Name[] = {var0, var1, var2 ...};
+
+// Unsigned 16 Bit int
+const PROGMEM uint16_t NumSet[] = {0, 1, 1, 2, 3, 5, 8 ...};
+
+// Storing Char
+const char greetMessage[] PROGMEM = {"Hello There"};
+```
+
+***For In-Depth detail about PROGMEM, please read [here](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/)***
+
+3. **RESERVE()**
+STAND_BY
+
+4. **Buffer Size Control**
+STAND_BY
+
+5. **Non Dynamic Memory Allocation** 
+Dynamic Memory Allocation usually is a good method if the given RAM size is big enough to get around with, from MegaBytes and so on. However, for embedded devices counting every Byte of the RAM, the process becomes hostile for RAM.
+
+Dynamic Memory Allocations cause Heap fragmentation. With heap fragmentation, many areas of the RAM affected by it cannot reused again, leaving dead Byte that can be taken as an advantage for other tasks. On top of it, when dynamic allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the Heap Size. So to avoid Heap or RAM fragmentation as much as possible, you can follow following rules to apply into code architecture design. 
+
+- Prioritize using **Stack** than **Heap** if possible to do so.
+  - Stack memory is fragmentation free and can be freed up completely when the function returns. Heap in contrast ma not free up the space even though it was instructed to do so. Using Local Variables will help to do this and try not to use dynamic memory allocation, composed of different calls: `malloc, calloc, realloc`.
+
+- Reduced Global and Static Data if possible to do so.
+  - Meantime the code is running, memory area occupied by these data will not be freed up. Meaning the data won't be modified as it is constant data taking up the precious space.
+
+- Short Strings / Literals
+  - It is good practice to keep the literal Strings as short as possible. Single char takes **One** Byte of RAM, so shorter the better memory space usage. This does not mean, keeping it short and using it in several different areas of the code is possible. Use it when it is absolutely required and keep as short as possible to spare RAM space for other task functions. 
+
+  Arrays are also recommended to be at a minimum size. If it requires to resize the array, you can always re-set the array size in the code. 
+
+6. **Corrective Data Type Usage** 
+Implementation of adequate data type leads to a good overall code architecture. It may be desirable for the developer to use easiest or the most accessible data type to handle the data stream. However, it is important to consider the amount of memory space that it takes up when using certain data types.
+
+The Data Types exist to ease data stream format and to be handled without making illegal access. The illegal access in terms of data types are meant when the data is handled in the code with incompatible format. So it is a good practice to not to abuse the the data type and use only convenient types for every data bits. Rather, design and allocate memory carefully according to the requirements, which will help to reserve some memory space if further designed tasks needs extra space.
+
+Following table shows some of the existing data types to opt out for more options. 
+
+| Data Type              | Byte Size   | Range                                 | Format Specifier    | 
+| :--------------------: | :---------: | :-----------------------------------: | :-----------------: |
+| **char, signed char**  | 1           | -128 ~ 127                            | %c                  | 
+| **unsigned char**      | 1           | 0 ~ 255                               | %c                  |
+| **int, signed int**    | 2 , 4       | -32,768 ~ 32,767                      | %d, %i              | 
+| **unsigned int**       | 2 , 4       | 0 ~ 65,535                            | %u                  |
+| **signed short int**   | 2           | -32,768 ~ 32,767                      | %hd                 | 
+| **unsigned short int** | 2           | 0 ~ 65,535                            | %hu                 |
+| **long int**           | 4           | -2,147,483,648 ~ 2,147,483,647        | %ld, %li            |
+| **long long int**      | 8           | -(2^63-1) ~ 2^63-1 (C99 Standard)     | %lld, %lli          |
+| **unsigned long int**  | 4           | 0 to 4,294,967,295                    | %lu                 |
+| **unsigned long long int**  | 8           | 2^64-1 (C99 standard)            | %llu                |
+| **float**              | 4           | 1E-37 ~ 1E+37 + 6 Digit Precision     | %f                  |
+| **double**             | 8           | 1E-37 ~ 1E+37 + 10 Digit Precision    | %lf                 |
+| **long double**        | 10          | 1E-37 ~ 1E+37 + 10 Digit Precision    | %Lf                 |
 ​
 ### EEPROM Memory Optimization
 
