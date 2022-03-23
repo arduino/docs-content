@@ -30,11 +30,48 @@ In the early days of computing, two computer architectures, i.e., the organizati
 
 ### Von Neumann Architecture
 
-The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. This architecture stores program data and instructions in the same memory unit; both are accessed by the CPU using the same communications bus, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
+The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. T**his architecture stores program data and instructions in the same memory unit**; **both are accessed by the CPU using the same communications bus**, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
 
 ### Harvard Architecture
 
-The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. This architecture's main characteristic is that it uses two separate memory units, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
+The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. **This architecture's main characteristic is that it uses two separate memory units**, **one for storing program instructions and one for storing program data**. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
+
+### Modern Architectures: Hybrids
+
+Modern computing systems use **hybrid architectures** models that maximize performance using the best of both worlds, the von Neumann and the Harvard models. 
+
+Microcontrollers are usually used in embedded applications. They must perform defined tasks reliably and efficiently, with low or constrained resources; this is why the **Harvard architecture model is mainly used in microcontrollers**: microcontrollers have a small program and data memory that needs to be accessed simultaneously. However, Harvard architecture is not always used in microcontrollers; some microcontroller families use hybrid or Von Neumann architecture models. 
+
+### Arduino® Boards Architectures
+
+Arduino® boards are mainly based on two families of microcontrollers: **AVR®** and **ARM®**. While AVR® family microcontrollers are based on the Harvard architecture model, ARM® family microcontrollers can be based on either von Neuman or Harvard architectures models. The following table summarizes Arduino boards microcontrollers architectures:
+
+**Board**|**Microcontroller**|**Family**|**Architecture**
+:-----:|:-----:|:-----:|:-----:
+UNO Mini|ATmega328P|AVR|Harvard
+UNO Rev3|ATmega328P|AVR|Harvard
+UNO WiFi Rev2|ATmega4809|AVR|Harvard
+UNO Rev3 SMD|ATmega328P|AVR|Harvard
+Leonardo|ATmega32u4|AVR|Harvard
+Mega 2560 Rev3|ATmega2560|AVR|Harvard
+Micro|ATmega32u4|AVR|Harvard
+Zero|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+Portenta H7|STM32H747|ARM Cortex M4/M7|Harvard
+Nicla Sense ME|nRF52832|ARM Cortex M4|Harvard
+Nano RP2040 Connect|RP2040|ARM Cortex M0+|Von Neumann
+MKR FOX 1200|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+MKR NB 1500|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+MKR Vidor 4000|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+MKR WiFi 1010|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+MKR Zero|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+MKR1000 WIFI|ATSAMW25H18|ARM Cortex M0+|Von Neumann
+MKR WAN 1300|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+MKR WAN 1310|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+Nano|ATmega328P|AVR|Harvard
+Nano Every|ATmega4809|AVR|Harvard
+Nano 33 IoT|ATSAMD21G18|ARM Cortex M0+|Von Neumann
+Nano 33 BLE|nRF52840|ARM Cortex M4|Harvard
+Nano 33 BLE Sense|nRF52840|ARM Cortex M4|Harvard
 
 ## Types of Memories 
 
