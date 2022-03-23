@@ -22,22 +22,22 @@ The Portenta X8 is one of the more advanced boards available from Arduino. And w
 
 - Learn more in depth information about how the Portenta X8 works
 - Learn how containers work
-- Learn why we decide to implement containers on the Portenta X8
 
 ### Required Hardware and Software
 
 -   Portenta X8
--   Factories
 
 ## Instructions
 
 If you need help with setting up your board then please have a look at the [Getting started tutorial](). The getting started tutorial will show you how to set up your board with a factory and upload containers to it.
 
-## Factories
+### Factories
 
 With the help of the Arduino Cloud integration with foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8.
 
 Your factory page allows you to add members, so that you can easily keep track of the members of your team that should have access to the Portenta X8's that are linked to your factory. You can also set up teams for better management. On the page you can also find a list of all devices linked to the factory, along with their name and version of container that is currently uploaded to the board. On the containers page you can find all the different versions of containers uploaded to the factory.
+
+![Factory page](assets/factory-page.png)
 
 With the factory created and the board linked to it, you can start and develop Linux based containers that can then easily be uploaded to your factories Portenta X8.
 
