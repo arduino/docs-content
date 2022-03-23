@@ -160,7 +160,28 @@ Default configuration:
 The Arduino Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
 
 ### Micro SD Card Slot
-The on board Micro SD card can be used for data logging operations. 
+The on board Micro SD card can be used for data logging operations.
+
+### Features supported by Portenta boards
+The features supported depend upon your choice of Portenta board used together with the Portenta Max Carrier.
+
+| Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                            |
+| ------------------------ | ------------------- | ------------------- | ------------------------------------------------ |
+| USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                         |
+| CAN                      | Yes                 | Yes                 |                                                  |
+| Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards   |
+| Battery Charger          | Yes                 | Yes                 |                                                  |
+| LoRa®                    | Yes                 | Yes                 |                                                  |
+| NBIoT/CatM1/2G           | Yes                 | Yes                 | Communication with modem is via USB              |
+| Camera                   | No                  | MIPI up to 4 lanes  |                                                  |
+| Audio                    | Limited             | Yes                 | No firmware support for the H7                   |
+| RS232/422/485            | Yes                 | Yes                 |                                                  |
+| on board JTAG  debugging | Yes                 | No                  |                                                  |
+| on board console to USB  | Yes                 | Yes                 |                                                  |
+| on board bus sniffing    | Limited             | Limited             | Only hardware support                            |
+
 
 ### Power Tree
 ![Power tree](assets/maxCarrierPowerTree.svg)
