@@ -1,17 +1,14 @@
 ---
 title: Portenta X8 Foundations
 difficulty: easy
-tags: [Linux, containers, factories]
+tags: [Linux, containers, factories, foundries]
 description: This article conatins information about the fundemental concepts of the Portenta X8
 author: Benjamin Dannegård
 libraries:
 hardware:
   - hardware/04.pro/board/portenta-x8
 software:
-  - ide-v1
-  - ide-v2
-  - web-editor
-  - iot-cloud
+
 ---
 
 ## Overview
@@ -26,6 +23,7 @@ The Portenta X8 is one of the more advanced boards available from Arduino. And w
 ### Required Hardware and Software
 
 -   Portenta X8
+-   fioctl
 
 ## Instructions
 
@@ -43,7 +41,9 @@ With the factory created and the board linked to it, you can start and develop L
 
 ## Containers
 
-Containers allow for easy deployment of Linux based processes, uploaded through git to your factory page. A Linux container are processes that are isolated from the rest of the system. Creating an image that contains all the files that are necessary to run it. This makes the Linux containers portable and consistent throughout development, testing and production. Making them much quicker to use than development pipelines that rely on replicating traditional testing environments.
+Containers allow for easy deployment of Linux based processes, uploaded through git, which can then be tracked on your factory page. A Linux container are processes that are isolated from the rest of the system. A container is an image file that contains all the files that are necessary to run it. This makes the Linux containers portable and consistent throughout development, testing and production. Making them much quicker to use than development pipelines that rely on replicating traditional testing environments.
+
+Using [fioctl](https://docs.foundries.io/82/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your factory. When the board is online and connected to the factory you can easily push new apps to the board. Using fioctl command lines you only need to state the factory, board and app.
 
 ### Benefits of container
 
@@ -53,8 +53,8 @@ With containers you can make your app work across environments, pass quality ass
 
 The contents of a container image can be compared to a an installation of a Linux distribution complete with RPM packages, configuration files, etc. However, a container image distribution is easier to install rather than a new copy of the operating system.
 
-A Linux container is a good solution for solutions that require portability, configurability and isolation. The idea behind Linux containers is to be able to develop solutions faster to meet business needs as they arise. In certain scenarios, like when real-time data streaming with Apache Kafka is implemented, containers are the only way to provide the scalability that the application needs. Regardless of the infrastructure on site, in the cloud, or a mix of both, containers are a great solution. 
+A Linux container is a good solution for solutions that require portability, configurability and isolation. The idea behind Linux containers is to be able to develop solutions faster to meet business needs as they arise. In certain scenarios, like when real-time data streaming is implemented, containers are the only way to provide the scalability that the application needs. Regardless of the infrastructure on site, in the cloud, or a mix of both.
 
 ## Conclusion
 
-Now you should have a better understanding of how the Portenta X8 works. And have a better picture of how to utilize its full potential. Be sure to check out our other tutorials with the Portenta X8 to see how to use factories and containers.
+Now you should have a better understanding of how the Portenta X8 works with factories and containers. This article also gives a better picture of how to utilize the Portenta X8 to its full potential. Be sure to check out our other tutorials with the Portenta X8 to see how to practically use factories and containers.
