@@ -14,7 +14,7 @@ Pins:
   PWM pins: 4
 Connectivity:
   Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth 5.1 BR/EDR/LE
-  Secure Element: NXP SE0502C2 Crypto
+  Secure Element: NXP SE050C2 Crypto
 Communication:
   UART: Yes
   I2C: Yes
@@ -29,7 +29,7 @@ Memory:
   ST STM32H747XI: 2MB Flash, 1MB RAM
 Dimensions:
   Weight: 10,2 g
-  Width: 25.4 mm
-  Length: 66 mm
+  Width: 25.40 mm
+  Length: 66.04 mm
 Environmental temperature: 
  -40°C to + 85°C (-40 to 185°F)
