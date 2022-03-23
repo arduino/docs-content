@@ -13,7 +13,7 @@ Communication protocols:
   CAN-BUS: RS485 communication protocol
   Programmable Serial ports: RS232 communication protocol
 Power:
-  Supply voltage: 5V
+  Supply voltage: 7.4V
   USB-C: Yes (used for power supply)
 Connectors:
   6x Motors: Adam Equipment LHA-04-TS
