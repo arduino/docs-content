@@ -313,29 +313,28 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 
 ## Recommended Operating Conditions
 
-| Symbol             | Description                                        | Min  | Typ | Max  | Unit |
-| ------------------ | -------------------------------------------------- | ---- | --- | ---- | ---- |
-| V<sub>IN</sub>     | Input voltage from VIN pad                         | 4.5  | 5   | 5.5  | V    |
-| V<sub>USB</sub>    | Input voltage from USB connector                   | 4.5  | 5   | 5.5  | V    |
-| V<sub>3V3</sub>    | 3.3 V output to user application                   |      | 3.1 |      | V    |
-| I<sub>3V3</sub>    | 3.3 V output current available for user application| -    | -   | 1000 | mA   |
-| V<sub>IH</sub>     | Input high-level voltage                           | 2.31 | -   | 3.3  | V    |
-| V<sub>IL</sub>     | Input low-level voltage                            | 0    | -   | 0.99 | V    |
-| I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high              |      |     | 8    | mA   |
-| I<sub>OL Max</sub> | Current at VSS+0.4 V, output set low               |      |     | 8    | mA   |
-| V<sub>OH</sub>     | Output high voltage, 8 mA                          | 2.7  | -   | 3.3  | V    |
-| V<sub>OL</sub>     | Output low voltage, 8 mA                           | 0    | -   | 0.4  | V    |
+| Symbol             | Description                                         | Min  | Typ | Max  | Unit |
+| ------------------ | --------------------------------------------------- | ---- | --- | ---- | ---- |
+| V<sub>IN</sub>     | Input voltage from VIN pad                          | 4.5  | 5   | 5.5  | V    |
+| V<sub>USB</sub>    | Input voltage from USB connector                    | 4.5  | 5   | 5.5  | V    |
+| V<sub>3V3</sub>    | 3.3 V output to user application                    |      | 3.1 |      | V    |
+| I<sub>3V3</sub>    | 3.3 V output current available for user application | -    | -   | 1000 | mA   |
+| V<sub>IH</sub>     | Input high-level voltage                            | 2.31 | -   | 3.3  | V    |
+| V<sub>IL</sub>     | Input low-level voltage                             | 0    | -   | 0.99 | V    |
+| I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high               |      |     | 8    | mA   |
+| I<sub>OL Max</sub> | Current at VSS+0.4 V, output set low                |      |     | 8    | mA   |
+| V<sub>OH</sub>     | Output high voltage, 8 mA                           | 2.7  | -   | 3.3  | V    |
+| V<sub>OL</sub>     | Output low voltage, 8 mA                            | 0    | -   | 0.4  | V    |
 
 ## Power Consumption
 
-| Symbol          | Description                         | Min | Typ | Max | Unit |
-| --------------- | ----------------------------------- | --- | --- | --- | ---- |
-| P<sub>BL</sub>  | Power consumption with busy loop    |     | 2350|     | mW   |
-| P<sub>LP</sub>  | Power consumption in low power mode |     | 200 |     | mW   |
-| P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000|     | mW   |
+| Symbol          | Description                         | Min | Typ  | Max | Unit |
+| --------------- | ----------------------------------- | --- | ---- | --- | ---- |
+| P<sub>BL</sub>  | Power consumption with busy loop    |     | 2350 |     | mW   |
+| P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     | mW   |
+| P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     | mW   |
 
-When the Portenta X8 approaches 85°C (185°F) temperature, the GPU is automatically switched off and the power consumption is around 800 mA, so an external power supply of at least 1.5 A must be provided. 
-Please note: if the board is powered by a standard USB port, it will reboot because the USB standard power delivery is around 500 mA.
+It is recommended to use a USB 3.0 port when connecting to the Portenta X8 which can deliver the required power. Dynamic scaling of the Portenta X8 can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
 # Functional Overview
 ## Block Diagram
@@ -349,7 +348,7 @@ Please note: if the board is powered by a standard USB port, it will reboot beca
 | -------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------ |
 | U1       | BD71847AMWV i.MX 8M Mini  PMIC                 | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
 | U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C™ Bridge IC                |
-| U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth® Combo IC                       |
+| U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth® Combo IC                      |
 | U12      | PCMF2USB3B/CZ Bidirectional EMI Protection IC  | U16,U21,U22,U23 | FXL4TD245UMX 4-Bit Bidirectional Voltage-level Translator IC |
 | U17      | DSC6151HI2B 25MHz MEMS Oscillator              | U18             | DSC6151HI2B 27MHz MEMS Oscillator                            |
 | U19      | NT6AN512T32AV 2GB LP-DDR4 DRAM                 | IC1,IC2,IC3,IC4 | SN74LVC1G125DCKR 3-state 1.65-V to 5.5-V buffer IC           |
@@ -364,7 +363,7 @@ Please note: if the board is powered by a standard USB port, it will reboot beca
 
 | **Ref.** | **Description**                                       | **Ref.**     | **Description**                                      |
 | -------- | ----------------------------------------------------- | ------------ | ---------------------------------------------------- |
-| U3       | LM66100DCKR Ideal Diode                               | U5           | FEMDRW016G 16GB eMMC Flash IC                         |
+| U3       | LM66100DCKR Ideal Diode                               | U5           | FEMDRW016G 16GB eMMC Flash IC                        |
 | U8       | KSZ9031RNXIA Gigabit Ethernet Transceiver IC          | U10          | FXMA2102L8X Dual Supply, 2-Bit Voltage Translator IC |
 | U11      | SE050C2HQ1/Z01SDZ IoT Secure Element                  | U12, U13,U14 | PCMF2USB3B/CZ Bidirectional EMI Protection IC        |
 | U15      | NX18P3001UKZ Bidirectional power switch IC            | U20          | STM32H747AII6 Dual ARM® Cortex® M7/M4 IC             |
@@ -556,16 +555,16 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
-| Frequency bands | Maximum output power (ERP) |
-| --------------- | -------------------------- |
-| TBC             | TBC                        |
+| Frequency bands      | Maximum output power (ERP) |
+| -------------------- | -------------------------- |
+| 2.4 GHz, 40 channels | +6dBm                      |
 
 
 ## Company Information
 
-| Company name    | Arduino S.r.l.                                                |
-| --------------- | ------------------------------------------------------------- |
-| Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy                 |
+| Company name    | Arduino S.r.l.                                |
+| --------------- | --------------------------------------------- |
+| Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
 
 ## Reference Documentation
 
@@ -581,6 +580,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes**  |
-| ---------- | ------------ |
-| 24/03/2022 | Release      |
+| **Date**   | **Changes** |
+| ---------- | ----------- |
+| 24/03/2022 | Release     |
