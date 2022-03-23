@@ -44,8 +44,7 @@ The custom-made Arduino® Braccio Carrier provides a wide range of connectivity 
 - **Robotic Arm**: Through servo motor connector supporting up to a total of 6 motors has given a chance to demonstrate robotic application including RC Car. Some of the most interesting robotic applications with faster prototyping come from the student community for various problem statements.
 - **Gaming**: Thanks to the Mini Joystick connector provided on the Arduino® Braccio Carrier carrier board which facilitates the implementation of LCD gaming options. Interfacing Mini Joystick with the carrier board integrated with a powerful Arduino® board can deliver some really exciting projects.
 
-### Accessories
-
+<!--### Accessories-->
 
 ### Related Products
 
@@ -122,17 +121,15 @@ Following information outlines the technical overview of the Arduino® Braccio C
 
 ### Block Diagram
 
+![Arduino Braccio Carrier System Block Diagram](assets/System_Block_Diagram_Braccio_Carrier.jpg)
 
-![Arduino Braccio Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.svg)
+The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functionality the system. RS485 Transceiver signals the motor connector for the precise motihe motors according to the input given by the user.
 
-The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functionality the system. RS485 Transceiver signals the motor connector for the precise motion of the motors according to the input given by the user.
-
-![Arduino® Braccio Carrier Block Diagram](./assets/Block_Diagram_Braccio_Carrier.jpg)
+![Arduino® Braccio Carrier Block Diagram](assets/Block_Diagram_Braccio_Carrier.svg)
 
 ### Board Topology
-**Front View**
 
-![Arduino® Braccio Carrier Top View](./assets/Top_View_Braccio_Carrier.jpg)
+![Arduino® Braccio Carrier Top View](assets/braccio-connectors.svg)
 
 | **Ref.** | **Description**                    | **Ref.** | **Description**                      |
 | -------- | ---------------------------------- | -------- | ------------------------------------ |
@@ -147,7 +144,7 @@ The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Bracc
 Primary processor of Arduino® Braccio Carrier is the processor of the Arduino® Nano RP2040 Connect microcontroller mounted on it. The microcontroller controls every operation of the Braccio Carrier for the target applications via connections with motors and LED display screen.
 
 ### Power Tree
-![Braccio Carrier Power Tree](./assets/Power_Tree_Braccio_Carrier.jpg)
+![Braccio Carrier Power Tree](assets/Power_Tree_Braccio_Carrier.jpg)
 
 ## Board Operation
 ### Getting Started - IDE
@@ -170,11 +167,11 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ### Board Outline
 
-![Outline](./assets/Outline_Braccio_Carrier.jpg)
+![Outline](assets/braccio-outline.svg)
 
 ### Board Mount Holes
 
-![Mount Holes](./assets/Mount_Holes_Braccio_Carrier.jpg)
+![Mount Holes](assets/braccio-mount.svg)
 
 # Certifications
 ## Declaration of Conformity CE DoC (EU)
