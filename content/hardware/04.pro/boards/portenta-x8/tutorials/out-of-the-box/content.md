@@ -111,4 +111,4 @@ Make sure you have the latest mbed Core and as every other board you can select 
 
 And click compile and upload.
 
-***Make sure you don't share GPIOs on the linux side and the Arduino sketc, this will avoid possible errors***
+***Make sure you don't share GPIOs on the linux side and the Arduino sketch, this will avoid possible errors***
