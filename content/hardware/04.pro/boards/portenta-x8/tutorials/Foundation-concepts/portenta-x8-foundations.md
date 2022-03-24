@@ -13,31 +13,31 @@ software:
 
 ## Overview
 
-The Portenta X8 is one of the more advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how the new features of the board can be useful. Such as how factories and containers on the Portenta X8 works.
+The Portenta X8 is one of the more advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how you can benefit from the advanced features of this board. You will learn about factories and how containers on the Portenta X8 work.
 
 ## Goals
 
-- Learn more in depth information about how the Portenta X8 works
+- Get in-depth information about how the Portenta X8 works
 - Learn how containers work
 
 ### Required Hardware and Software
 
--   Portenta X8
--   fioctl
+-   [Portenta X8](https://store.arduino.cc/portenta-x8)
+-   [fioctl](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html)
 
 ## Instructions
 
-If you need help with setting up your board then please have a look at the [Getting started tutorial](). The getting started tutorial will show you how to set up your board with a factory and upload containers to it.
+If you need help with setting up your board then please have a look at the "Getting Started" tutorial. That tutorial will show you how to set up your board with a factory and install containers on it.
 
 ## Embedded Linux
 
-To work in an embedded Linux environment there a few things to consider. When approaching linux-based embedded devices software solutions, you always need to provide a base distribution (e.g. Raspberry Pi OS, Armbian, Volumio), a mechanism to update it (e.g. swupdate), and some applications that can run on the board (e.g RPi.GPIO to control gpio from Python language).
+To work in an embedded Linux environment there a few things to consider. When approaching linux-based embedded devices software solutions, you need to provide a base distribution, a mechanism to update it and some applications that can run on the board. The X8 uses a Yocto Linux distribution as the base platform and applications are installed packaged as confined containers.
 
-All these steps have some pro/cons. For example pre-required skills vary a lot between them. The first solution is the most attractive for end users but you have to be lucky enough to find a distribution that implements the function that you need. If you need to tweak them you may end up in a mess of patches on the top of someone else's build system. Which may disappear tomorrow from what you know. On the other hand, a generic distribution has some problems since installing software over it may corrupt the original system. For example you install a new application and the older one no longer works. In addition to that you have to implement a lot of things like cybersecurity stuff and system updates. Finally, your solution may rely on a too "generic" distribution, with tons of software you don't need and that you don't know the purpose of. So you may end up running a lot of apt remove commands on the target and also tuning features on and off. Until you mess up things or you need to update the system and you restart with a new fresh image and restart everything from the beginning.
+A ready-made Linux distribution that packages everything seems most attractive for end users but you need to find a distribution that implements the function that you need. If you need to tweak them you may end up in a mess of patches on the top of someone else's build system. On the other hand, a generic distribution has some problems since installing software over it may pollute the original system and cause issues when updating the base platform. For example you install a new application and the older one no longer works. In addition to that you have to implement a lot of things like cybersecurity functions and system updates. Finally, your solution may rely on a too "generic" distribution, with tons of software you don't need. So you may end up removing a lot of software on the target and also turning features on and off. Until you mess up things or you need to update the system and you restart with a new fresh image and restart everything from the beginning.
 
 ### Benefits of Foundries.io
 
-Foundries.io basically created their generic-but-not-too-generic distribution based on Yocto with minimal software installed, by default implementing top level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for serious companies. A custom OTA system update mechanism which is based on a client running on target and a robust cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container which may contain a whole distribution or a minimal distribution running only our app or our set of apps.
+Foundries.io basically created their generic-but-not-too-generic distribution based on Yocto with minimal software installed, by default implementing top level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for professional applications. A custom OTA system update mechanism which is based on a client running on target and a robust cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container which may contain a whole distribution or a minimal distribution running only our app or our set of apps.
 
 In addition to that they developed the cloud side as well. In a nutshell you can have what's called a Factory with a unique id and then you have automatic builds that are building the base system and the containers for this system in one place. When you flash a device (i.e. Portenta X8 board) with their image and connect it to the Internet it automatically register its self generated random rsa key to the factory. Let's now take a look at the Foundries.io Factory page.
 
