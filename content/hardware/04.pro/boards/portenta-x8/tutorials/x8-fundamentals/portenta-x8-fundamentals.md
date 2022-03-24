@@ -1,5 +1,5 @@
 ---
-title: Portenta X8 Foundations
+title: Portenta X8 Fundamentals
 difficulty: easy
 tags: [Linux, containers, factories, foundries]
 description: This article contains information about the fundamental concepts of the Portenta X8
