@@ -129,7 +129,7 @@ It is good to know a little bit about what is **Heap** and **Stack** when we dis
 Memory usage stadistics will help you understand the resource management affected by the designed code. It is an important factor to consider, as the resources are finite. In fact, it should run without always reaching maximum load capacity. This is one stadistic that will tell you how efficient the code is designed. 
 ​
 ### SRAM & DRAM: Quick Differentiation Specification
-Embedded devices has **Static Random Access Memory (SRAM)** and **Dynamic Random Access Memory (DRAM)**. These are 2 different derivatives that forms Random Access Memory (RAM) inside the embedded devices. Both RAM types hass trade-off in between them, and it is based on speed, physical size and cost. 
+Embedded devices has **Static Random Access Memory (SRAM)** and **Dynamic Random Access Memory (DRAM)**. These are 2 different derivatives that forms Random Access Memory (RAM) inside the embedded devices. Both RAM types has trade-off in between them, and it is based on speed, physical size and cost. 
 
 - SRAM is much faster than DRAM has to propose. In Read, Write and Access speed. 
 - SRAM is mucho more expensive in terms of manufacturing cost than DRAM.
