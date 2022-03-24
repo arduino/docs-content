@@ -6,7 +6,9 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-
+<EssentialElement>
+The MKR Relay Shield requires no external libraries.
+</EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">
