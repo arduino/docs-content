@@ -4,8 +4,6 @@ difficulty: easy
 tags: [Linux, containers, factories, foundries]
 description: This article contains information about the fundamental concepts of the Portenta X8
 author: Benjamin Dannegård
-libraries:
-  - 
 hardware:
   - hardware/04.pro/board/portenta-x8
 software:
