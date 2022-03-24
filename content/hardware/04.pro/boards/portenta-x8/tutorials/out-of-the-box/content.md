@@ -1,8 +1,8 @@
 ---
+beta: true
 title: 'Portenta X8 Getting Started (Beta)'
 description: 'Learn how to set up the Portenta X8 (Beta)'
 difficulty: medium
-beta: true
 tags:
   - Beta
   - Installation
@@ -56,7 +56,7 @@ Click the "Register with Factory" button, and set your new factory name.
 
 ![](assets/x8-oob-factory-name.png)
 
-Click register, now you will get a code that you need to paste into your factory page by openning [Arduino Create Cloud](https://create.arduino.cc) in your browser and click inside the integrations section "Portenta X8 Board Manager
+Click register, now you will get a code that you need to paste into your factory page by opening [Arduino Create Cloud](https://create.arduino.cc) in your browser and click inside the integrations section "Portenta X8 Board Manager
 
 ![](assets/cloud-main.png)
 
