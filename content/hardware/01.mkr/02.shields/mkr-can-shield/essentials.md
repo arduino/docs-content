@@ -8,7 +8,7 @@
 <EssentialsColumn title="Suggested Libraries">
 
   <EssentialElement title="Arduino-CAN" type="library" link="https://github.com/sandeepmistry/arduino-CAN">
-    The ArduinoRS485 library enables sending and receiving data using a CAN bus.
+    The Arduino-CAN library enables sending and receiving data using a CAN bus.
   </EssentialElement>
 
 </EssentialsColumn>
