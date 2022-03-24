@@ -119,13 +119,25 @@ ARM architecture implements **Memory Organization** or **Memory Map**, built dep
 The **Translation Tables** are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed by peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease the access.
 ​
 ## Heap & Stack
-STAND_BY
+It is good to know a little bit about what is **Heap** and **Stack** when we discuss about Random Access Memory (RAM), as it will be mentioned sometimes to explain its behaviour. 
+
+- Heap: Dynamic memory sector, in which if the new allocation is made, it can grow; but also reduce in size with some possibility depending on the requirement. It is where `malloc` is found.
+
+- Stack: This memory sector is used for functions calls and local variable storage. When the function finishes the job, the local variables that wad holding the memory pool is freed up. The memory sector will grow towards the Heap, and it is positioned at the end of the RAM, at the side of External RAM.
 ​
 ## Measuring Memory Usage in Arduino Boards
 Memory usage stadistics will help you understand the resource management affected by the designed code. It is an important factor to consider, as the resources are finite. In fact, it should run without always reaching maximum load capacity. This is one stadistic that will tell you how efficient the code is designed. 
 ​
 ### SRAM & DRAM: Quick Differentiation Specification
-STAND_BY
+Embedded devices has **Static Random Access Memory (SRAM)** and **Dynamic Random Access Memory (DRAM)**. These are 2 different derivatives that forms Random Access Memory (RAM) inside the embedded devices. Both RAM types hass trade-off in between them, and it is based on speed, physical size and cost. 
+
+- SRAM is much faster than DRAM has to propose. In Read, Write and Access speed. 
+- SRAM is mucho more expensive in terms of manufacturing cost than DRAM.
+- DRAM offers more friendly physical size than SRAM. 
+
+While these are 2 types of RAM that exists for embedded devices, optimization process that will be stated in the following are applicable as a whole. No matter which type of RAM is on-board, it can be managed efficiently with careful design factors in mind. 
+
+Ultimately, it should not be abused whatsoever, because even if the code might run, the device may have a lot of holes to be filled and fixed to run in a stable manner. And the fix or patch that has to be applied later, might cost entire code architecture re-design.  
 
 ### Flash Memory Measurement 
 
@@ -211,17 +223,17 @@ The optimization process also implies reduced computational complexities, trimmi
 
 One of the memory sources to begin optimization with is the Flash memory. As the Flash memory is where the size itself of the code can be reduced greatly by considering some details. 
 
-1. **Detach Unused Sources**
+#### Detach Unused Sources
 Detaching unused sources include unused libraries, and code residues. Code residues can be composed of functions that are no longer used and floating variables that takes up the unnecessary space in memory. This will vastly improve the compiled code size and make more clear compilation process. 
 
-2. **Modular Tasks**
+#### Modular Tasks
 Modular tasks mean functions that wraps the code which will be used in a repetitive or continuous manner by receiving different parameters. It is a great way to maintain clean code structure and performance, while reducing the memory space required for additional tasks that might need to be implemented.     
 
 This leads to compact code structure, that is much easier to understand when debugging process is required, and demand developer to considerate compute complexity while designing the code structure. 
 
 ### SRAM Memory Optimization
 
-1. **String Wrapper - F()**
+#### String Wrapper - F()
 It is convenient to use `Serial.println("Something");` to display the literals. This is used usually to understand where the code is going and to observe certain conditionals. However, doing this so will hog up the Static Random Access Memory (SRAM) space, which is something not desirable as the content is a simple literal string that is not used under the hood. 
 
 The ideal way to use the Print Line command is to use the `F()` String Wrapper around the literals. This will lead us to following piece of code. 
@@ -234,7 +246,7 @@ By wrapping the String with `F()`, will move the Strings to Flash memory only ra
 
 Flash memory is much more spacious than SRAM size, so it is possible to use the Flash space than using SRAM which will use Heap. This does not mean, the memory space will always be available as Flash memory does too have limited space. It is not recommendable to spam the code structure with Print Line, but to use them where they most matter for such applications with minimized implementation. 
 
-2. **PROGMEM**
+#### PROGMEM
 It is not always with the literal String that occupies the SRAM space, but also using Global Variables which also takes up quite good amount of SRAM. As Global and Static variables are streamed to SRAM space, and pushes the Heap towards the Stack. The space occupied by this variables streamed to SRAM space will be saved at its location and will not be changing, meaning more of these variables are created, they will use more space and consequently, system failure due to low and poor memory management. 
 
 PROGMEM stands simply for Program Memory. We will use Program memory to store variable data offloading to Flash Memory space. As it goes same as to String Wrapper F(), PROGMEM uses Flash Memory space for its usage. The only disadvantage presented using PROGMEM is the Read Speed. Using RAM will provide much faster Read Speed, but PROGMEM, as it uses Flash Memory, it will be slower than RAM, given the same data size read. Thus, it is important to design the software knowing which variables are crucial and others has lower priority. It is one of the many factors that needs to be considered when developing the software, but this will lead to have nicely designed code architecture.
@@ -256,13 +268,7 @@ const char greetMessage[] PROGMEM = {"Hello There"};
 
 ***For In-Depth detail about PROGMEM, please read [here](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/)***
 
-3. **RESERVE()**
-STAND_BY
-
-4. **Buffer Size Control**
-STAND_BY
-
-5. **Non Dynamic Memory Allocation** 
+#### Non Dynamic Memory Allocation 
 Dynamic Memory Allocation usually is a good method if the given RAM size is big enough to get around with, from MegaBytes and so on. However, for embedded devices counting every Byte of the RAM, the process becomes hostile for RAM.
 
 Dynamic Memory Allocations cause Heap fragmentation. With heap fragmentation, many areas of the RAM affected by it cannot reused again, leaving dead Byte that can be taken as an advantage for other tasks. On top of it, when dynamic allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the Heap Size. So to avoid Heap or RAM fragmentation as much as possible, you can follow following rules to apply into code architecture design. 
@@ -276,9 +282,35 @@ Dynamic Memory Allocations cause Heap fragmentation. With heap fragmentation, ma
 - Short Strings / Literals
   - It is good practice to keep the literal Strings as short as possible. Single char takes **One** Byte of RAM, so shorter the better memory space usage. This does not mean, keeping it short and using it in several different areas of the code is possible. Use it when it is absolutely required and keep as short as possible to spare RAM space for other task functions. 
 
-  Arrays are also recommended to be at a minimum size. If it requires to resize the array, you can always re-set the array size in the code. 
+  - Arrays are also recommended to be at a minimum size. If it requires to resize the array, you can always re-set the array size in the code. It may be a tedious, also non-efficient method to hard-code the array sizes. But if the code utilizes small array sizes and less than 3 arrays, it may be suffice via manual resizing, knowing the requirements. A smart way to do this is resizeable array with limited size. In which the tasks will use the array without going over the size boundary, thus it is suitable for extensive code size. Although, the limit of the array size must be analyzed and kept as small as possible. 
 
-6. **Corrective Data Type Usage** 
+#### RESERVE()
+If the tasks work with the Strings, that changes in its size depending on the operation outcome, `RESERVE()` is way to go. This function will help to reserve buffer space and pre-allocate for String variable, which changes in its size, and avoid fragmentation. String variable that changes in its size could be a result of `int` type variable wrapped to be used as a `String` for example.
+
+To use the `RESERVE()` function, it is possible to begin usage with following code piece.
+
+```cpp
+// String_Variable is variable of String type
+// Alloc_Size is memory to be pre-allocated in number of Bytes with unsigned int type
+String_Variable.reserve(Alloc_Size);
+```
+
+***For more information about the `RESERVE()` function, please check out [here](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/reserve/)***
+
+#### Buffer Size Control
+Backend processes also requires memory pool for its processing purpose. It is something in which the machine will work on according to the size of the memory pool defined. This Buffer size can be user defined, meaning it can be can reduced to allocate lower memory size. It is similar to defining Array size, in which it is important not to allocate excessive size when it will use only third portion of the defined size. 
+
+In between backend services, Serial communication defines the needed memory pool as Serial Buffer Size. Bigger serial buffer assists in establishing high speed communication, relative to the device that is interchanging data stream. If high speed communication is not part of the requiremente, the buffer size can be redefined to save some memory consumption. This is possible to do so by modifying the `HardwareSerial.h` that comes with Arduino IDE compiler, searching the following line. 
+
+```cpp
+#define SERIAL_TX_BUFFER_SIZE 64
+
+#define SERIAL_RX_BUFFER_SIZE 64
+```
+
+Libraries, or external modules that involve in code architecture development, also uses Buffer pool for better computing performance. Although, depending on the requirement, smooth performance might be cherry on top for the code architecture that is being developed. It is feasible to modify the buffer size that is designated in the library code.
+
+#### Corrective Data Type Usage
 Implementation of adequate data type leads to a good overall code architecture. It may be desirable for the developer to use easiest or the most accessible data type to handle the data stream. However, it is important to consider the amount of memory space that it takes up when using certain data types.
 
 The Data Types exist to ease data stream format and to be handled without making illegal access. The illegal access in terms of data types are meant when the data is handled in the code with incompatible format. So it is a good practice to not to abuse the the data type and use only convenient types for every data bits. Rather, design and allocate memory carefully according to the requirements, which will help to reserve some memory space if further designed tasks needs extra space.
