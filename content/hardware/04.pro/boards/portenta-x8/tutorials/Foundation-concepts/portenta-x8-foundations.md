@@ -2,12 +2,14 @@
 title: Portenta X8 Foundations
 difficulty: easy
 tags: [Linux, containers, factories, foundries]
-description: This article conatins information about the fundemental concepts of the Portenta X8
+description: This article contains information about the fundamental concepts of the Portenta X8
 author: Benjamin Dannegård
 libraries:
+  - 
 hardware:
   - hardware/04.pro/board/portenta-x8
 software:
+  - fioctl
 
 ---
 
@@ -41,7 +43,7 @@ Foundries.io basically created their generic-but-not-too-generic distribution ba
 
 In addition to that they developed the cloud side as well. In a nutshell you can have what's called a Factory with a unique id and then you have automatic builds that are building the base system and the containers for this system in one place. When you flash a device (i.e. Portenta X8 board) with their image and connect it to the Internet it automatically register its self generated random rsa key to the factory. Let's now take a look at the Foundries.io Factory page.
 
-### Foundries.io factory
+### Foundries.io Factory
 
 With the help of the Arduino Cloud integration with Foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8.
 
@@ -66,7 +68,7 @@ Foundries provides a service that allows building images based on yocto and spec
 
 Using [fioctl](https://docs.foundries.io/82/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your factory. When the board is online and connected to the factory you can easily push new apps to the board. Using fioctl command lines you only need to state the factory, board and app.
 
-### Benefits of containers
+### Benefits of Containers
 
 For example if you are developing an application on a laptop and your environment has a specific configuration. Other developers may have slightly different configurations. The application will rely on your configuration and is dependent on specific files, libraries and dependencies. While your business has development and production environments with their own configurations and supporting files. You would want to emulate that environment as much as possible locally.
 
