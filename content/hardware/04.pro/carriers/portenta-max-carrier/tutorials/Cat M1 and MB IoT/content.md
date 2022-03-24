@@ -57,6 +57,10 @@ Make sure you have the latest **Portenta mbed os Core** installed. Found in **To
 
 We will also be using an example sketch from the **MKRNB** library, make sure this library is installed. It can be found inside the **Library manager** in the Arduino IDE.
 
+### NB IoT or Cat M1
+
+NB-IoT is a radio technology deployed over mobile networks which is especially suited for indoor coverage, low cost, long battery life, and large number of devices. While Cat M1 supports downlink and uplink speeds up to 1 Mbps with a latency of 50 to 100 ms and can be used for realtime-communication. Cat M1 is ideal if you are interested in tracking things such as logistics and transportation.
+
 ### Switching between NB IoT and Cat M1
 
 If you prefer to use one communication technology over the other, then this can be changed with the simple use of one sketch. Open the **ChoseRadioAccessTechnology** sketch located in the libraries examples. When this sketch is uploaded open the serial monitor. You will now get options for what technology you prefer to use in the serial monitor. Follow the steps and wait for the sketch to say that it is finished. The board will now use the prefered technology and we can move on to upload other sketches.
