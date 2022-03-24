@@ -7,6 +7,10 @@
 
 <EssentialsColumn title="Suggested Libraries">
 
+  <EssentialElement title="Arduino-MKRMEM" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_mkrmem/">
+    The ArduinoMKRMEM library lets you access the flash memory on the MKRMEM Shield.
+  </EssentialElement>
+
   <EssentialElement title="SD library" type="library" link="https://www.arduino.cc/en/Reference/SD">
     The SD library allows you to read and write to SD cards. 
   </EssentialElement>

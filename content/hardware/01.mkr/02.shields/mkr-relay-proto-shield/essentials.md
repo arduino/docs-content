@@ -6,9 +6,6 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-  <EssentialElement title="Arduino-MKRMEM" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_mkrmem/">
-    The ArduinoMKRMEM library lets you access the flash memory on the MKRMEM Shield.
-  </EssentialElement>
 
 </EssentialsColumn>
 
