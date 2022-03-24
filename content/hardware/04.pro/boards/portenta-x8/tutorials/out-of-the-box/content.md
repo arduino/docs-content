@@ -1,8 +1,10 @@
 ---
-title: 'Portenta X8 Getting Started'
-description: 'Learn how to set up the Portenta X8'
+title: 'Portenta X8 Getting Started (Beta)'
+description: 'Learn how to set up the Portenta X8 (Beta)'
 difficulty: medium
+beta: true
 tags:
+  - Beta
   - Installation
   - OTA
   - Embedded Linux
