@@ -18,7 +18,7 @@ software:
   - iot-cloud
 ---
 
-## Connecting to the board
+## Connecting to the Board
 
 Once the Portenta X8 its plugged via USB, you can open your browser and go to http://192.168.7.1 and see a web which is hosted by the board, from this dashboard you will be able to:
 
@@ -30,11 +30,11 @@ Once the Portenta X8 its plugged via USB, you can open your browser and go to ht
 * Board details
 * Shell
 
-## Connecting to your Wi-Fi
+## Connecting to Your Wi-Fi
 
 Click the Wi-Fi button to start configuring your network connection.
 
-![](assets/x8-oob-  main-wifi.png)
+![](assets/x8-oob-main-wifi.png)
 
 Select your Wi-Fi SSID
 
@@ -52,12 +52,16 @@ Once its connected you should see the Wi-Fi status button on green.
 
 ## Registering a Factory
 
-Click the "Register with Factory" button, and set your new factory name.
+Click the "Register with Factory" button.
+
+![](assets/x8-oob-main-factory.png)
+
+And set your new factory name.
 
 ![](assets/x8-oob-factory-name.png)
 
 Click register, now you will get a code that you need to paste into your factory page by opening [Arduino Create Cloud](https://create.arduino.cc) in your browser and click inside the integrations section "Portenta X8 Board Manager
-
+![](assets/x8-oob-factory-register.png)
 ![](assets/cloud-main.png)
 
 Once it succeed the factory button will turn to green.
@@ -65,7 +69,7 @@ Once it succeed the factory button will turn to green.
 ![](assets/x8-oob-wifi-sucess.png)
 
 
-## Controlling Portenta X8 through the terminal
+## Controlling Portenta X8 Through the Terminal
 
 You have plenty of ways to communicate with your board, we are going to show adb and ssh.
 
@@ -93,7 +97,7 @@ To gain admin (root) access, type `sudo su -` and the password is `fio`  after t
 
 ![](assets/ssh-connection-admin.png)
 
-### Inspecting real time tasks
+### Inspecting Real Time Tasks
 
 Run: `journalctl -f` to see what's going on on the device
 
