@@ -22,7 +22,7 @@ software:
 
 Once the Portenta X8 its plugged via USB, you can open your browser and go to http://192.168.7.1 and see a web which is hosted by the board, from this dashboard you will be able to:
 
-![](assets/x8-oob-main.png)
+![Board set up page](assets/x8-oob-main.png)
 
 
 * [Configure Wi-Fi](#connecting-to-your-wi-fi)
@@ -34,18 +34,18 @@ Once the Portenta X8 its plugged via USB, you can open your browser and go to ht
 
 Click the Wi-Fi button to start configuring your network connection.
 
-![](assets/x8-oob-main-wifi.png)
+![Select wifi on set up page](assets/x8-oob-main-wifi.png)
 
 Select your Wi-Fi SSID
 
-![](assets/x8-oob-wifi-ssid.png)
+![Wifi ssid set up](assets/x8-oob-wifi-ssid.png)
 
 Type the password
-![](assets/x8-oob-wifi-pass.png)
+![Wifi password set up](assets/x8-oob-wifi-pass.png)
 
 Once its connected you should see the Wi-Fi status button on green.
 
-![](assets/x8-oob-wifi-sucess.png)
+![Wifi connection done](assets/x8-oob-wifi-sucess.png)
 
 
 ***You can change your network by clicking again on the button and repeat the steps***
@@ -54,19 +54,19 @@ Once its connected you should see the Wi-Fi status button on green.
 
 Click the "Register with Factory" button.
 
-![](assets/x8-oob-main-factory.png)
+![Register with factory](assets/x8-oob-main-factory.png)
 
 And set your new factory name.
 
-![](assets/x8-oob-factory-name.png)
+![Name your factory](assets/x8-oob-factory-name.png)
 
-Click register, now you will get a code that you need to paste into your factory page by opening [Arduino Create Cloud](https://create.arduino.cc) in your browser and click inside the integrations section "Portenta X8 Board Manager
-![](assets/x8-oob-factory-register.png)
-![](assets/cloud-main.png)
+Click register, now you will get a code that you need to paste into your factory page by opening [Arduino Create Cloud](https://create.arduino.cc) in your browser and click inside the integrations section "Portenta X8 Board Manager"
+![Complete factory page](assets/x8-oob-factory-register.png)
+![Arduin Cloud integration](assets/cloud-main.png)
 
 Once it succeed the factory button will turn to green.
 
-![](assets/x8-oob-wifi-sucess.png)
+![Successful connection](assets/x8-oob-wifi-sucess.png)
 
 
 ## Controlling Portenta X8 Through the Terminal
@@ -90,24 +90,24 @@ To communicate with your board, you will need to know the IP of it, and just typ
 
 The password is `fio`.
 
-![](assets/ssh-connection.png)
+![SSH connection](assets/ssh-connection.png)
 As it is a linux device, you can do normal stuff like creating files, changing directory, etc.
 
 To gain admin (root) access, type `sudo su -` and the password is `fio`  after that the terminal prefix should turn red.
 
-![](assets/ssh-connection-admin.png)
+![CLI configured](assets/ssh-connection-admin.png)
 
 ### Inspecting Real Time Tasks
 
 Run: `journalctl -f` to see what's going on on the device
 
-![](assets/command-journalctl.png)
+![Real time tasks on CLI](assets/command-journalctl.png)
 
 ## Uploading an Arduino Sketch
 
 Make sure you have the latest mbed Core and as every other board you can select the board inside the `mbed Portenta`.
 
-![](assets/IDE-boards.png)
+![Board selected in Arduino IDE](assets/IDE-boards.png)
 
 And click compile and upload.
 
