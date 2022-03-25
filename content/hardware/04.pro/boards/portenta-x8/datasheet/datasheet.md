@@ -450,13 +450,13 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 | Certification | Details                                                      |
 | :------------ | :----------------------------------------------------------- |
-| CE (EU)       | EN 301489-1<br>EN 301489-1<br>EN 300328<br>EN 62368-1<br>EN 62311 |
+| CE (EU)       | EN 301489-1<br />EN 301489-1<br />EN 300328<br />EN 62368-1<br />EN 62311 |
 | WEEE (EU)     | Yes                                                          |
-| RoHS (EU)     | 2011/65/(EU)<br>2015/863/(EU)                               |
+| RoHS (EU)     | 2011/65/(EU)<br />2015/863/(EU)                              |
 | REACH (EU)    | Yes                                                          |
 | UKCA (UK)     | Yes                                                          |
 | RCM (RCM)     | Yes                                                          |
-| FCC (US)      | ID.<br>Radio: Part 15.247<br>MPE: Part 2.1091                |
+| FCC (US)      | ID.<br />Radio: Part 15.247<br />MPE: Part 2.1091            |
 | RCM (AU)      | Yes                                                          |
 
 ## Declaration of Conformity CE DoC (EU)
