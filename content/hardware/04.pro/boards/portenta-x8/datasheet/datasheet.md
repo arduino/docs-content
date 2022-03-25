@@ -322,26 +322,26 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 
 ## Recommended Operating Conditions
 
-| Symbol             | Description                                         | Min  | Typ | Max  | Unit |
-| ------------------ | --------------------------------------------------- | ---- | --- | ---- | ---- |
-| V<sub>IN</sub>     | Input voltage from VIN pad                          | 4.5  | 5   | 5.5  | V    |
-| V<sub>USB</sub>    | Input voltage from USB connector                    | 4.5  | 5   | 5.5  | V    |
-| V<sub>3V3</sub>    | 3.3 V output to user application                    |      | 3.1 |      | V    |
-| I<sub>3V3</sub>    | 3.3 V output current available for user application | -    | -   | 1000 | mA   |
-| V<sub>IH</sub>     | Input high-level voltage                            | 2.31 | -   | 3.3  | V    |
-| V<sub>IL</sub>     | Input low-level voltage                             | 0    | -   | 0.99 | V    |
-| I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high               |      |     | 8    | mA   |
-| I<sub>OL Max</sub> | Current at VSS+0.4 V, output set low                |      |     | 8    | mA   |
-| V<sub>OH</sub>     | Output high voltage, 8 mA                           | 2.7  | -   | 3.3  | V    |
-| V<sub>OL</sub>     | Output low voltage, 8 mA                            | 0    | -   | 0.4  | V    |
+| Symbol             | Description                                         | Min  | Typ  | Max  | Unit |
+| :----------------- | :-------------------------------------------------- | :--: | :--: | :--: | :--: |
+| V<sub>IN</sub>     | Input voltage from VIN pad                          | 4.5  |  5   | 5.5  |  V   |
+| V<sub>USB</sub>    | Input voltage from USB connector                    | 4.5  |  5   | 5.5  |  V   |
+| V<sub>3V3</sub>    | 3.3 V output to user application                    |      | 3.1  |      |  V   |
+| I<sub>3V3</sub>    | 3.3 V output current available for user application |  -   |  -   | 1000 |  mA  |
+| V<sub>IH</sub>     | Input high-level voltage                            | 2.31 |  -   | 3.3  |  V   |
+| V<sub>IL</sub>     | Input low-level voltage                             |  0   |  -   | 0.99 |  V   |
+| I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high               |      |      |  8   |  mA  |
+| I<sub>OL Max</sub> | Current at VSS+0.4 V, output set low                |      |      |  8   |  mA  |
+| V<sub>OH</sub>     | Output high voltage, 8 mA                           | 2.7  |  -   | 3.3  |  V   |
+| V<sub>OL</sub>     | Output low voltage, 8 mA                            |  0   |  -   | 0.4  |  V   |
 
 ## Power Consumption
 
-| Symbol          | Description                         | Min | Typ  | Max | Unit |
-| --------------- | ----------------------------------- | --- | ---- | --- | ---- |
-| P<sub>BL</sub>  | Power consumption with busy loop    |     | 2350 |     | mW   |
-| P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     | mW   |
-| P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     | mW   |
+| Symbol          | Description                         | Min  | Typ  | Max  | Unit |
+| --------------- | :---------------------------------- | :--: | :--: | :--: | :--: |
+| P<sub>BL</sub>  | Power consumption with busy loop    |      | 2350 |      |  mW  |
+| P<sub>LP</sub>  | Power consumption in low power mode |      | 200  |      |  mW  |
+| P<sub>MAX</sub> | Maximum Power Consumption           |      | 4000 |      |  mW  |
 
 It is recommended to use a USB 3.0 port when connecting to the Portenta X8 which can deliver the required power. Dynamic scaling of the Portenta X8 can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
@@ -447,53 +447,17 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ![](assets/x8Mechanical.svg)
 
 # Certifications
-<table>
-   <tr>
-      <td><strong>CE (EU)</strong></td>
-      <td>
-         <p>EN 301489-1</p>
-         <p>EN 301489-17</p>
-         <p>EN 300328</p>
-         <p>EN 62368-1</p>
-         <p>EN 62311</p>
-      </td>
-   </tr>
-   <tr>
-      <td><strong>WEEE (EU)</strong></td>
-      <td>Yes</td>
-   </tr>
-   <tr>
-      <td><strong>RoHS (EU)</strong></td>
-      <td>
-         <p>2011/65/(EU)</p>
-         <p>2015/863/(EU)</p>
-      </td>
-   </tr>
-   <tr>
-      <td><strong>REACH (EU)</strong></td>
-      <td>Yes</td>
-   </tr>
-   <tr>
-      <td><strong>UKCA (UK)</strong></td>
-      <td>Yes</td>
-   </tr>
-   <tr>
-      <td><strong>RCM (RCM)</strong></td>
-      <td>Yes</td>
-   </tr>
-   <tr>
-      <td><strong>FCC (US)</strong></td>
-      <td>
-         <p><strong>ID. </strong></p>
-         <p>Radio: Part 15.247</p>
-         <p>MPE: Part 2.1091</p>
-      </td>
-   </tr>
-   <tr>
-      <td><strong>RCM </strong>(AU)</td>
-      <td>Yes</td>
-   </tr>
-</table>
+
+| Certification | Details                                                      |
+| :------------ | :----------------------------------------------------------- |
+| CE (EU)       | EN 301489-1<br>EN 301489-1<br>EN 300328<br>EN 62368-1<br>EN 62311 |
+| WEEE (EU)     | Yes                                                          |
+| RoHS (EU)     | 2011/65/(EU)<br>2015/863/(EU)                               |
+| REACH (EU)    | Yes                                                          |
+| UKCA (UK)     | Yes                                                          |
+| RCM (RCM)     | Yes                                                          |
+| FCC (US)      | ID.<br>Radio: Part 15.247<br>MPE: Part 2.1091                |
+| RCM (AU)      | Yes                                                          |
 
 ## Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
@@ -571,21 +535,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino S.r.l.                                |
+| Company name    | Arduino SRL                                   |
 | --------------- | --------------------------------------------- |
 | Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
+| Ref                       | Link                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Pro Website       | https://www.arduino.cc/pro                                                                          |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://github.com/arduino-libraries/                                                               |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Arduino Pro Website       | https://www.arduino.cc/pro                                   |
+| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference         | https://github.com/arduino-libraries/                        |
+| Online Store              | https://store.arduino.cc/                                    |
 
 ## Change Log
 
