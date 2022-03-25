@@ -267,7 +267,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>  
-         <td rowspan="3" ><strong>NXP® PCF8563BS</strong><br></td>
+         <td rowspan="3" ><strong>NXP® PCF8563BS</strong><br /></td>
          <td>Low power Real Time Clock</td>
          <td></td>
       </tr>
