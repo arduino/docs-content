@@ -1,6 +1,6 @@
 ---
 title: Installing Mbed OS Portenta boards
-compatible-products: [portenta-h7]
+compatible-products: [portenta-h7, portenta-h7-lite, portenta-h7-lite-connected]
 difficulty: easy
 description: 'A step-by-step guide to install the core needed for the Portenta boards.'
 author: 'Benjamin Dannegård'
@@ -14,10 +14,14 @@ This tutorial uses the **Arduino IDE**. You can download the editor easily from 
 
 If you are using the **Web Editor**, you can follow the [getting started with the Web Editor tutorial](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).
 
+***IMPORTANT: In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. Make sure you update the bootloader as explained in the ["Updating the Portenta Bootloader"](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-bl) tutorial***
+
 ### Boards using the Mbed core
 
 - [Arduino Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Arduino Portenta Machine Control](https://store.arduino.cc/portenta-machine-control)
+- [Arduino Portenta H7 Lite](https://store.arduino.cc/products/portenta-h7-lite)
+- [Arduino Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
 
 ### Downloading and installing
 
