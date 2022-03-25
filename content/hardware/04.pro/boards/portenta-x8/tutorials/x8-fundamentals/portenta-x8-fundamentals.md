@@ -13,7 +13,7 @@ software:
 
 ## Overview
 
-The Portenta X8 is one of the more advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how you can benefit from the advanced features of this board. You will learn about factories and how containers on the Portenta X8 work.
+The Portenta X8 is one of the more advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how you can benefit from the advanced features of this board. You will learn about FoundriesFactory® and how containers on the Portenta X8 work.
 
 ## Goals
 
@@ -27,29 +27,29 @@ The Portenta X8 is one of the more advanced boards available from Arduino. And w
 
 ## Instructions
 
-If you need help with setting up your board then please have a look at the "Getting Started" tutorial. That tutorial will show you how to set up your board with a factory and install containers on it.
+If you need help with setting up your board then please have a look at the "Getting Started" tutorial. That tutorial will show you how to set up your board with FoundriesFactory and install containers on it.
 
 ## Embedded Linux
 
-To work in an embedded Linux environment there a few things to consider. When approaching linux-based embedded devices software solutions, you need to provide a base distribution, a mechanism to update it and some applications that can run on the board. The X8 uses a Yocto Linux distribution as the base platform and applications are installed packaged as confined containers.
+To work in an embedded Linux environment there a few things to consider. When approaching linux-based embedded devices software solutions, you need to provide a base distribution, a mechanism to update it and some applications that can run on the board. The X8 uses a Linux distribution built with the Yocto Project® as the base platform, with applications that are installed and packaged as confined containers.
 
 A ready-made Linux distribution that packages everything seems most attractive for end users but you need to find a distribution that implements the function that you need. If you need to tweak them you may end up in a mess of patches on the top of someone else's build system. On the other hand, a generic distribution has some problems since installing software over it may pollute the original system and cause issues when updating the base platform. For example you install a new application and the older one no longer works. In addition to that you have to implement a lot of things like cybersecurity functions and system updates. Finally, your solution may rely on a too "generic" distribution, with tons of software you don't need. So you may end up removing a lot of software on the target and also turning features on and off. Until you mess up things or you need to update the system and you restart with a new fresh image and restart everything from the beginning.
 
 ### Benefits of Foundries.io
 
-Foundries.io basically created their generic-but-not-too-generic distribution based on Yocto with minimal software installed, by default implementing top level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for professional applications. A custom OTA system update mechanism which is based on a client running on target and a robust cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container which may contain a whole distribution or a minimal distribution running only our app or our set of apps.
+Foundries.io™ basically created their generic-but-not-too-generic distribution based on Yocto with minimal software installed, by default implementing top level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for professional applications. A custom OTA system update mechanism which is based on a client running on target and a robust cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container which may contain a whole distribution or a minimal distribution running only our app or our set of apps.
 
-In addition to that they developed the cloud side as well. In a nutshell you can have what's called a Factory with a unique id and then you have automatic builds that are building the base system and the containers for this system in one place. When you flash a device (i.e. Portenta X8 board) with their image and connect it to the Internet it automatically register its self generated random rsa key to the factory. Let's now take a look at the Foundries.io Factory page.
+In addition to that they developed the cloud side as well. In a nutshell you can use what's called FoundriesFactory, a cloud DevSecOps subscription service to build, test, deploy, and maintain secure, updatable IoT and Edge products. It provides a unique id and automatic builds of the base system and containers for this system in one place. When you flash a device (i.e. Portenta X8 board) with their image and connect it to the Internet it automatically registers itself, generating a random RSA key to your Factory. Let's now take a look at the Foundries.io Factory page.
 
 ### Foundries.io Factory
 
-With the help of the Arduino Cloud integration with Foundries you can easily create your own factory right from the Arduino Cloud page. You can set your factory's platform and name. The platform here will be the Portenta X8.
+With the help of the Arduino Cloud integration with Foundries.io, you can easily create your Factory right from the Arduino Cloud page. You can set your Factory's platform and name. The platform here will be the Portenta X8.
 
 ![Factory page](assets/factory-page.png)
 
-Your factory page allows you to add members, so that you can easily keep track of the members of your team that should have access to the Portenta X8's that are linked to your factory. You can also set up teams for better management. On the page you can also find a list of all devices linked to the factory, along with their name and version of container that is currently uploaded to the board. On the containers page you can find all the different versions of containers uploaded to the factory.
+Your Factory page allows you to add members, so that you can easily keep track of the members of your team that should have access to the Portenta X8's that are linked to your Factory. You can also set up teams for better management. On the page you can also find a list of all devices linked to the Factory, along with their name and version of container that is currently uploaded to the board. On the containers page you can find all the different versions of containers uploaded to the Factory.
 
-On the "source" page of your factory, you can find the four repositories that are used to customize the images. These are:
+On the "source" page of your Factory, you can find the four repositories that are used to customize the images. These are:
 
 - **ci-scripts.git**: CI scripts to build images for all the machines that need to be built.
 - **lmp-manifest.git**: Index of the repositories to be downloaded by repository to create the source work tree.
@@ -60,11 +60,11 @@ While the "targets" page contains the images built by the Continuous integration
 
 ## Containers
 
-Containers allow for easy deployment of Linux based processes, uploaded through git, which can then be tracked on your factory page. A Linux container are processes that are isolated from the rest of the system. A container is an image file that contains all the files that are necessary to run it. This makes the Linux containers portable and consistent throughout development, testing and production. Making them much quicker to use than development pipelines that rely on replicating traditional testing environments.
+Containers allow for easy deployment of Linux based processes, uploaded through git, which can then be tracked on your Factory page. A Linux container are processes that are isolated from the rest of the system. A container is an image file that contains all the files that are necessary to run it. This makes the Linux containers portable and consistent throughout development, testing and production. Making them much quicker to use than development pipelines that rely on replicating traditional testing environments.
 
-Foundries provides a service that allows building images based on yocto and specifically built around the Linux Micro Platform distribution they maintain. LMP distribution contains an extensive set of software components needed for IoT applications. 
+Foundries.io provides a service that builds images using the Yocto Project and specifically built around the Linux microPlatform (LmP) distribution they maintain. LmP contains an extensive set of software components needed for IoT applications. 
 
-Using [fioctl](https://docs.foundries.io/82/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your factory. When the board is online and connected to the factory you can easily push new apps to the board. Using fioctl command lines you only need to state the factory, board and app.
+Using [fioctl](https://docs.foundries.io/82/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your Factory. When the board is online and connected to the Factory you can easily push new apps to the board. Using fioctl command lines you only need to state the Factory, board and app.
 
 ### Benefits of Containers
 
