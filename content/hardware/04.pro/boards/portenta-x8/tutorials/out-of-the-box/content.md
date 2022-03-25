@@ -65,7 +65,7 @@ Click register, now you will get a code that you need to paste into your factory
 ![Complete factory page](assets/x8-oob-factory-register.png)
 ![Arduin Cloud integration](assets/cloud-main.png)
 
-Once it is complete the factory button will turn green.
+Once it is completed the factory button will turn green.
 
 ![Successful connection](assets/x8-oob-wifi-sucess.png)
 
