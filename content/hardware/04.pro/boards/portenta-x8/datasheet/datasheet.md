@@ -17,19 +17,26 @@ Edge computing, industrial internet of things, single board computer, artificial
 <table>
    <thead>
       <tr>
-         <td><strong><code>Component</code></strong></td>
-         <td colspan="2" ><strong><code>Details</code></strong></td>
+         <th>Component</th>
+         <th colspan="2">Details</th>
       </tr>
-   </thead>   
+   </thead>
    <tbody>
       <tr>
          <td rowspan="16" ><strong>NXP® i.MX 8M Mini </strong>Processor</td>
          <td>4x Arm® Cortex®-A53 core platforms up to 1.8 GHz per core</td>
-         <td>32KB L1-I Cache/ 32 kB L1-D Cache 512 kB L2 Cache</td>
+         <td>
+            <p>32KB L1-I Cache</p>
+            <p>32 kB L1-D Cache</p>
+            <p>512 kB L2 Cache</p>
+         </td>
       </tr>
       <tr>
          <td>Arm® Cortex®-M4 core up to 400 MHz</td>
-         <td>16 kB L1-I Cache \ 16 kB L2-D Cache</td>
+         <td>
+            <p>16 kB L1-I Cache</p>
+            <p> 16 kB L2-D Cache</p>
+         </td>
       </tr>
       <tr>
          <td>3D GPU (1x shader, OpenGL® ES 2.0)</td>
@@ -129,8 +136,10 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td>Power Delivery support</td>
          <td></td>
       </tr>
-      <tr>
-         <td rowspan="14" ><strong>High Density connectors</strong></td>
+      <tr >
+         <td rowspan="14" >
+            <p><strong>High Density connectors</strong></p>
+         </td>
          <td>1 lane PCI express</td>
          <td></td>
       </tr>
@@ -258,7 +267,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>  
-         <td rowspan="3" ><strong>NXP® PCF8563BS</strong></td>
+         <td rowspan="3" ><strong>NXP® PCF8563BS</strong><br></td>
          <td>Low power Real Time Clock</td>
          <td></td>
       </tr>
@@ -271,7 +280,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td rowspan="2" ><strong>ROHM BD71847AMWV  \</strong>Programmable PMIC</td>
+         <td rowspan="2"><strong>ROHM BD71847AMWV</strong> Programmable PMIC</td>
          <td>Dynamic voltage scaling</td>
          <td></td>
       </tr>
@@ -287,7 +296,7 @@ Edge computing, industrial internet of things, single board computer, artificial
       </tr>
       <tr>
          <td><strong>Safety information</strong></td>
-         <td>Class A </td>
+         <td>Class A</td>
          <td></td>
       </tr>
    </tbody>
