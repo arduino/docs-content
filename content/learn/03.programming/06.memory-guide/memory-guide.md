@@ -335,7 +335,7 @@ Following table shows some of the existing data types to opt out for more option
 ​
 ### EEPROM Memory Optimization
 
-EEPROM memory optimization usually is not required, as it will be used mainly to store external module tuning constant. The data which are to be used by EEPROM space are the ones does not really need Flash memory as storage source. On top of it, it is not a good practice to offload SRAM data on EEPROM space. SRAM data are placed within volatility in mind, so offloading to EERPOM space, which is non-volatile memory, will mean the offloaded data will be engraved into EEPROM space. As result, the it is impractical use of storage and the variable will change in its value, making the old data unuseable. 
+EEPROM memory optimization usually is not required, as it will be used mainly to store external module tuning constant. The data which are to be used by EEPROM space are the ones does not really need Flash memory as storage source. On top of it, it is not a good practice to offload SRAM data on EEPROM space. SRAM data are placed within volatility in mind, so offloading to EERPOM space, which is non-volatile memory, will mean the offloaded data will be engraved into EEPROM space. As result, the it is impractical use of storage and the variable will change in its value, making the old data unusable. 
 
 One thing to consider with EEPROM is the read and write operation cycles. With EEPROM, it is crucial to know that write operation is limited. The read operation is unlimited for EEPROM. However, the write operation is finite and capped to 100,000 cycles of operation usually. Thus, it is important to save only parameters that are absolutely important for sensors or modules to work with mostly unchanging data. Additionally avoid implementing in a loop code, to avoid constant write operation, as it will wipe out, most likely in instant. 
 
@@ -347,7 +347,7 @@ Sometimes the developer would have to use the EEPROM as an alternative storage f
 
 ***`FlashStorage` library by Christian Maglie can be accessed by [here](https://github.com/cmaglie/FlashStorage)***
 
-Above library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, te Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability. 
+Above library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, the Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability. 
 
 ## Memory on Arduino Nano boards
 
