@@ -34,7 +34,7 @@ Industry 4.0, prototyping, robotics, data logging, eNUC
     *   1x Serial RS232/422/485 on RJ12
 *   **Audio**
     *   3x audio jacks: stereo line in, mic in, HP line out 
-    *   1x Grove connector for speaker 
+    *   1x speaker connector
 *   **Debugging**
     *   On board JLink OB / Blackmagic probe 
 
@@ -55,7 +55,6 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 *   SIM card
 *   3.7V 18650 Li-ion battery
 *   microSD card
-*   Grove Speaker
 
 ### Related Products
 *   Portenta H7 (Partial support)
@@ -105,7 +104,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 | J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector               |
 | J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector                  |
 | J18      | 254TR Negative Li-ion Terminal                         | J19            | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
-| J20      | 110990030 Grove Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
+| J20      | 110990030 Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
 | CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
 | CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)       |
 | SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
@@ -122,7 +121,7 @@ There are four analog audio interfaces accessible on the Portenta Max Carrier:
 *   1x audio jack for right line (J13)
 *   1x audio jack for left line in (J14)
 *   1x audio jack for stereo headphone line out (J12)
-*   1x Grove connector for speaker out (J20)
+*   1x connector for speaker out (J20)
 
 **Note:** Audio not supported with the Portenta H7.
 
@@ -239,7 +238,7 @@ Voltage range and max current are provided as a general guideline only. Consult 
 | 4   | ID           | Digital      | Not Connected           |
 | 5   | GND          | Power        | Ground                  |
 
-### Grove Speaker Connector (J20)
+### Speaker Connector (J20)
 | Pin | **Function** | **Type** | **Description**             |
 | --- | ------------ | -------- | --------------------------- |
 | 1   | SPK_OUTA+    | Analog   | Speaker A Positive Terminal |
