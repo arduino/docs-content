@@ -10,7 +10,8 @@ We're happy that you have found our contribution page! Here you will find everyt
 2. Copy the chosen template folder into the path structure of choice. See below for suggestions on where to place your content.
 2. Read the README documentation on how to fill in the template. These are placed inside the corresponding template folder.
 3. Read the [Arduino Style Guide](https://docs.arduino.cc/hacking/software/ArduinoStyleGuide) on how to write content.
-4. Fill in your chosen template.
+4. Fill in your chosen template following the guidelines in the template.
+
 5. Send in your content for review.
 6. Iterate according to feedback.
 7. Wait for approval.
