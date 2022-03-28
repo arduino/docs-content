@@ -335,7 +335,19 @@ Following table shows some of the existing data types to opt out for more option
 ​
 ### EEPROM Memory Optimization
 
-TDB!
+EEPROM memory optimization usually is not required, as it will be used mainly to store external module tuning constant. The data which are to be used by EEPROM space are the ones does not really need Flash memory as storage source. On top of it, it is not a good practice to offload SRAM data on EEPROM space. SRAM data are placed within volatility in mind, so offloading to EERPOM space, which is non-volatile memory, will mean the offloaded data will be engraved into EEPROM space. As result, the it is impractical use of storage and the variable will change in its value, making the old data unuseable. 
+
+One thing to consider with EEPROM is the read and write operation cycles. With EEPROM, it is crucial to know that write operation is limited. The read operation is unlimited for EEPROM. However, the write operation is finite and capped to 100,000 cycles of operation usually. Thus, it is important to save only parameters that are absolutely important for sensors or modules to work with mostly unchanging data. Additionally avoid implementing in a loop code, to avoid constant write operation, as it will wipe out, most likely in instant. 
+
+### EEPROM Emulation with Flash Memory.
+
+As EEPROM is limited with write operatin cycle, it also applies same to Flash memory. Both of them are subjected to loss of data retention after the manufacturer's defined life cycle. EEPROM is based of NOR type memory, while the Flash memory is NAND type, making the EEPROM more costly than Flash memory. EEPROM works by accessing the data byte-wise, whereas Flash memory accesses block by block. 
+
+Sometimes the developer would have to use the EEPROM as an alternative storage for task operations, but we clearly know that it will be impractical coding due to its size and behaviour properties. To solve this, it is possible to use Flash memory to emulate the EEPROM. Thanks to `FlashStorage` library created by Chrisitan Maglie, it is possible to emulate the EEPROM by using Flash memory. 
+
+***`FlashStorage` library by Christian Maglie can be accessed by [here](https://github.com/cmaglie/FlashStorage)***
+
+Above library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, te Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability. 
 
 ## Memory on Arduino Nano boards
 
