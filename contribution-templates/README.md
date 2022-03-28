@@ -165,18 +165,17 @@ These are some other naming structures that we recommend using:
 
 ***Note that this list will be updated with more examples in the future.***
 
-<!--
+
 
 ## Graphics
 
-All graphics should be **1920x1080**. All graphics are stored in an assets folder in the documentation folder. See section **Naming Guidelines**.
+All graphics should be **1920x1080**. All graphics are stored in an assets folder in the tutorial/article/how-to folder. See section **Naming Guidelines**.
 
-|Type|Purpose|Guidelines|Example|
-|----|-------|----------|-------|
-|Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylized electronic diagram explaining electric circuits.|Please follow [this]() guide on how to create your own Arduino approved circuit diagrams and schematics.|![Example of circuit](_assets/circuit1.png)<br>![Example of circuit](_assets/circuit2.png)|
-|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|Please follow [this]() guide on how to create your own Arduino approved screenshots.|![Example of screenshot](_assets/screenshot1.png)<br>![Example of screenshot](_assets/screenshot2.png)<br>![](_assets/screenshot3.png)| 
+|Type|Purpose|Example|
+|----|-------|----------|
+|Circuit/Schematic|**Circuit diagrams** represent how Arduino products work with components in order to function. <br> A **schematic** is a stylized electronic diagram explaining electric circuits.|![Example of circuit](_assets/circuit1.png)<br>![Example of circuit](_assets/circuit2.png)|
+|Screenshot|**Screenshots** are most often used to show the program in the Arduino IDE or any other chosen software.|![Example of screenshot](_assets/screenshot1.png)<br>![Example of screenshot](_assets/screenshot2.png)<br>![](_assets/screenshot3.png)| 
 
--->
 
 ## Naming Guidelines
 
