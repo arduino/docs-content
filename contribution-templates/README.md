@@ -134,8 +134,9 @@ Right: `1.75 μm pixel size`
 |megabyte|MB|
 |micrometers|μm|
 
-### Trademarks
+***Note that this table will be updated with more examples in the future.***
 
+### Trademarks
 
 |Trademark|Source of information|
 |---------|---------------------|
@@ -151,6 +152,7 @@ Right: `1.75 μm pixel size`
 |Arm® Mbed™ OS|https://www.arm.com/company/policies/trademarks/arm-trademark-list/mbed-trademark|
 |TensorFlow|https://www.tensorflow.org/extras/tensorflow_brand_guidelines.pdf|
 
+***Note that this table will be updated with more examples in the future.***
 
 ### Other 
 
@@ -160,7 +162,8 @@ These are some other naming structures that we recommend using:
 * MicroPython
 * OTA (Over-the-air)
 * USB-_ (A/B/C)
-* 
+
+***Note that this list will be updated with more examples in the future.***
 
 <!--
 
