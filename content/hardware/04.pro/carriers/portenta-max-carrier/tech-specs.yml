@@ -15,7 +15,7 @@ Connectors:
   CAN-BUS: RJ11
   Serial: RS232/422/485 RJ12
   USB host: 2x USB 2.0
-  PCIe: mini PCIe (limited support) with removable posts
+  PCIe: mini PCIe with removable posts
 Power:
   Input voltage: 6-36 V
   Operating logic level: 3.3V/5V
@@ -23,6 +23,6 @@ Power:
 Memory:
   Removable media: 1x microSD 
 Dimensions:
-  Weight: 
+  Weight: 85 gr
   Width: 101.6 mm
   Length: 101.6 mm
