@@ -225,6 +225,6 @@ It's also nice to provide people with an example sketch that uses your library. 
 
 If you'd like to check out the complete library (with keywords and example), you can download it: [Morse.zip](https://www.arduino.cc/en/uploads/Hacking/Morse.zip).
 
-That's all for now but I'll probably write an advanced library tutorial soon. In the meantime, if you have any problems or suggestions, please post them to the [Software Development forum](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?board=dev).
+That's all for now but I'll probably write an advanced library tutorial soon. In the meantime, if you have any problems or suggestions, please post them to the [Software Development forum](https://forum.arduino.cc/c/development/libraries/39).
 
 For more information, see the [API Style Guide](https://www.arduino.cc/en/Reference/APIStyleGuide) for information on making a good Arduino-style API for your library.
