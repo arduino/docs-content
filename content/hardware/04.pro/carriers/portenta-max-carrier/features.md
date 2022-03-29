@@ -29,7 +29,7 @@ The **Portenta Max Carrier** includes a wide range of features to give you flexi
 
 <Feature title="Connectivity" image="connection">
 
-  Access a wide range of I/O including high density connectors, Gigabit Ethernet, mini PCIe, 3.5mm audio in/out as well as Serial RS232/422/485  
+  Access a wide range of I/O including high density connectors, Gigabit Ethernet, mini PCIe (PCI Express), 3.5mm audio in/out as well as Serial RS232/422/485  
   
 </Feature>
 
