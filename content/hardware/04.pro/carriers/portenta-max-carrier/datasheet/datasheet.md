@@ -162,7 +162,7 @@ The Arduino Portenta Max Carrier includes a high speed CAN transceiver based on 
 ### Micro SD Card Slot
 The on board Micro SD card can be used for data logging operations.
 
-### Features supported by Portenta boards
+### FEATURES SUPPORTED BY PORTENTA BOARDS
 The features supported depend upon your choice of Portenta board used together with the Portenta Max Carrier.
 
 | Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                            |
