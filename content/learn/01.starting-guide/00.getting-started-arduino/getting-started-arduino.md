@@ -80,15 +80,11 @@ The speed of a program is incredibly fast, unless we tell it to slow down. It de
 
 ![The basic operation of an Arduino]()
 
-### Memory
+### Sensors & Actuators
 
-The "standard" Arduino typically has two memories: SRAM and Flash memory. 
 
-The SRAM (Static Random-Access Memory) is used to for example store the value of a variable (such as the state of a boolean). When powered off, this memory resets.
 
-The Flash memory is primarily used to store the main program, or the instructions for the microcontroller. This memory is not erased when powered off so that the instructions for the microcontroller are executed as soon as the board is powered.
 
-![Memory types on an Arduino.]()
 
 ### Circuit Basics
 
@@ -109,8 +105,6 @@ An analog signal is generally bound to a range. In an Arduino, that range is typ
 
 If we for example use a potentiometer (an analog component used to change the resistance of a circuit), we can adjust this range (0-5V). In the program, this is represented in a range of 0-1023, which is a 10-bit resolution. 
 
-
-
 ### Digital Signal
 
 ![Basics of a digital signal.]()
@@ -128,7 +122,7 @@ Let's take a look at two binary sequences:
 101110001110011
 ```
 
-Which in decimal is:
+Which in decimal format is:
 
 ```
 45
@@ -146,6 +140,16 @@ There are several serial communication protocols that uses the aforementioned di
 The SPI and I²C protocols are used for communication between both internal and external components. The communication is handled by something called a **serial bus**, which is attached to a specific pin on the Arduino. 
 
 Using the I²C protocol, we can connect several sensors on the same pin, and retrieve the data accurately. A device an address that we need to specify, where we can request this device to send back data. 
+
+### Memory
+
+The "standard" Arduino typically has two memories: SRAM and Flash memory. 
+
+The SRAM (Static Random-Access Memory) is used to for example store the value of a variable (such as the state of a boolean). When powered off, this memory resets.
+
+The Flash memory is primarily used to store the main program, or the instructions for the microcontroller. This memory is not erased when powered off so that the instructions for the microcontroller are executed as soon as the board is powered.
+
+![Memory types on an Arduino.]()
 
 ### Embedded Components
 
@@ -166,6 +170,113 @@ Bluetooth is used to communicate with nearby devices, and is really useful for m
 Similarly to serial protocols, radio modules use their own set of protocols to communicate, such as HTTP, MQTT and UPD.
 
 ![Wireless communication]().
+
+## Arduino API
+
+***Visit the [Arduino Language Reference]() to explore the full Arduino API.***
+
+The Arduino API, aka the "Arduino Programming Language", consists of several functions, variables and structures based on the C/C++ language. 
+
+### Main Parts
+
+The Arduino API can be divided into three main parts: **functions, variables** and **structure**:
+
+- **Functions:** for controlling the Arduino board and performing computations. For example, to read or write a state to a digital pin, map a value or use serial communication.
+- **Variables:** the Arduino constants, data types and conversions. E.g. `int`, `boolean`, `array`.
+- **Structure:** the elements of the Arduino (C++) code, such as 
+  - *sketch* (`loop()`, `setup()`)
+  - *control structure* (`if`, `else`, `while`, `for`)
+  - *arithmetic operators* (multiplication, addition, subtraction)
+  - *comparison operators*, such as `==` (equal to), `!=` (not equal to), `>` (greater than).
+
+The Arduino API can be described as a simplification of the C++ programming language, with a lot of additions for controlling the Arduino hardware. 
+
+### Program Structure
+
+The absolute minimum requirement of an Arduino program is the use of two functions: `void setup()` and `void loop()`. The "void" indicates that nothing is returned on execution.
+
+- `void setup()` - this function executes only once, when the Arduino is powered on. Here we define things such as the mode of a pin (input or output), the baud rate of serial communication or the initialization of a library.
+- `void loop()` - this is where we write the code that we want to execute over and over again, such as turning on/off a lamp based on an input, or to conduct a sensor reading every X second.
+
+The above functions are **always** required in an Arduino sketch, but you are of course able to add several more functions, which is very useful for longer programs. 
+
+### The "Sketch"
+
+![The Arduino Sketch.]()
+
+In the Arduino project, a program is referred to as a "Sketch". A sketch is basically just a file that you write your program inside. It has the `.ino` extension, and is always stored in a folder of the same name. 
+
+The folder can include other files, such as a **header file**, that can be included in your sketch. 
+
+### Example Sketch
+
+Below is an example of a standard Arduino sketch, which contains some popular Arduino programming elements. 
+
+```arduino
+/* 
+This is a comment at the top of a program, 
+it will not be recognized as code. Very good 
+to add an explanation of what your code does 
+here.
+
+This sketch shows how to read a value from a
+sensor connected to pin A1, print it out in 
+the Serial Monitor, and turn on an LED connected
+to pin number 2 if a conditional is met.
+*/
+
+int sensorPin = A1; //define pin A1 (analog pin)
+int ledPin = 2; //define pin 2 (digital pin)
+int sensorValue; //create variable for storing readings
+
+//void setup is for configurations on start up
+void setup() { 
+    Serial.begin(9600); //initialize serial communication
+    pinMode(ledPin, OUTPUT); //define ledPin as an output
+}
+
+void loop() {
+    sensorValue = analogRead(sensorPin); // do a sensor reading
+    
+    Serial.print("Sensor value is: "); //print a message to the serial monitor
+    Serial.println(sensorValue); //print the value to the serial monitor
+    
+    //check if sensorValue is below 200
+    if(sensorValue < 200) { 
+        digitalWrite(ledPin, HIGH); //if it is, turn on the LED on pin 2.
+    }
+    //if sensorValue is above 200, turn off the LED
+    else{ 
+        digitalWrite(ledPin, LOW);
+    }
+}
+```
+
+### Libraries
+
+Arduino libraries are an extension of the standard Arduino API, and consists of **thousands of libraries**, both official and contributed by the community.
+
+Libraries simplifies the use of otherwise complex code, such as reading a specific sensor, controlling a motor or connecting to the Internet. Instead of having to write all of this code yourself, you can just install a library, include it at the top of your code, and use any of the available functionalities of it. All Arduino libraries are open source and free to use by **anyone.**
+
+To use a library, you need to include it at the top of your code, as the example below:
+
+```arduino
+#include <Library.h>
+```
+
+***You can browse through all official and contributed libraries in the [Arduino Libraries page]().***
+
+### Core Specific API
+
+Every Arduino board requires a "core", or "package", that needs to be installed. All packages contains the standard Arduino API, but also a specific API that can only be used with specific boards. 
+
+As an example, the [ArduinoCore-mbed]() package
+
+
+
+### Quick Reference
+
+In this section, you will find a list of some of the most common elements in the Arduino API. To discover the fu 
 
 ## Arduino Software Tools
 
@@ -239,9 +350,5 @@ The Arduino CLI is a command line tool that can be used to compile and upload co
 
 A proper use of the CLI can speed up your development time by far, as any operation is executed much faster than in the regular IDE.
 
-## Arduino API
 
-***Visit the [Arduino Language Reference] to learn more about the standard Arduino API.***
-
-The Arduino API, aka the "Arduino Programming Language", consists of several functions, variables and structures based on the C/C++ language. 
 
