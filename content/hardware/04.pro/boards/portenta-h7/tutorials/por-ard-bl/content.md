@@ -45,7 +45,7 @@ The bootloader helps to upload a new sketch to the board. If the bootloader wasn
 
 ## Memory Layout
 
-Both the bootloader and the firmware have predefined (but adjustable) locations in the memory where they get stored. In the end, the processor needs to know where to find the instructions to do its work. On the Portenta for example the bootloader is stored at the Flash memory address `0x08000000`. When the board gets powered on it will jump to this location and start to do its job. The bootloader in turn knows that e.g. for the M7 the firmware can be found at location `0x08040000` so it will jump there if it doesn't need to upload a new firmware.
+Both the bootloader and the firmware have predefined (but adjustable) locations in the memory where they get stored. In the end, the processor needs to know where to find the instructions to do its work. On the Portenta for example the bootloader is stored at the Flash memory address `0x08000000`. When the board gets powered on it will jump to this location and start to do its job. The bootloader in turn knows that e.g. for the M7 the firmware can be found at location `0x08040000` so it will jump there if it doesn't need to upload a new firmware. Should you for some reason want to adjust the start address of the application, you can edit the property `target.mbed_app_start` in the [mbed_app.json config file](https://github.com/arduino/ArduinoCore-mbed/blob/master/variants/PORTENTA_H7_M7/conf/mbed_app.json) of the core.
 
 ![There are predefinded, but adjustable locations in the memory where the firmwares and the bootloader get installed](assets/por_ard_bl_flash_memory.svg)
 
