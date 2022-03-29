@@ -16,7 +16,7 @@ When you're done with a draft you can create a pull request. This will give the 
 
 Once the pull request gests approved and merged into main, the content will be deployed to the live server.
 
-There are four different content types you can contribute with. These are **tutorial**, **article**, **nugget** and **project**. Please read more on what they mean and how to write one in the [Contribution Templates folder](/contribution-templates/README.md).
+There are four different content types you can contribute with. These are **tutorial**, **article**, **how to** and **project**. Please read more on what they mean and how to write one in the [Contribution Templates folder](/contribution-templates/README.md).
 
 |Content|Description|Example|
 |-------|-----------|-------|
