@@ -268,15 +268,17 @@ To use a library, you need to include it at the top of your code, as the example
 
 ### Core Specific API
 
-Every Arduino board requires a "core", or "package", that needs to be installed. All packages contains the standard Arduino API, but also a specific API that can only be used with specific boards. 
+Every Arduino board requires a "core", or "package", that needs to be installed in order to program it. All packages contain the standard Arduino API, but also a specific API that can only be used with specific boards. 
 
-As an example, the [ArduinoCore-mbed]() package
+For example, the classic [ArduinoCore-avr](https://github.com/arduino/ArduinoCore-avr) package, automatically includes the [EEPROM](/learn/built-in-libraries/eeprom), and [SoftwareSerial](/learn/built-in-libraries/software-serial) libraries, and can be used freely without any additional installation. In this package you will find the classic Arduino UNO, Nano, Mega2560 and more.
 
+Another example is the [ArduinoCore-mbed]() package, which includes over 40 libraries, designed for specific board features, such as:
 
+- **PDM** - used for sampling Audio from microphones onboard the Nano BLE Sense and Nano RP2040 Connect boards.
+- **Ethernet** - for using the Ethernet functionalities of the Portenta Vision Shield.
+- **GSM** - to access GSM functionalities on the Portenta Cat. M1/NB IoT GNSS Shield.
 
-### Quick Reference
-
-In this section, you will find a list of some of the most common elements in the Arduino API. To discover the fu 
+These features are documented in the **documentation landing page** of each product. A list of all hardware can be found at [docs.arduino.cc](/).
 
 ## Arduino Software Tools
 
@@ -350,5 +352,401 @@ The Arduino CLI is a command line tool that can be used to compile and upload co
 
 A proper use of the CLI can speed up your development time by far, as any operation is executed much faster than in the regular IDE.
 
+
+## Quick Reference
+
+In this section, you will find a list of some of the most common elements in the standard Arduino API. This will help you get familiar with some key building blocks.
+
+To explore the whole Arduino API, please refer to the [Arduino Language Reference](), which is an in-depth wiki maintained by Arduino and its community.
+
+
+### General
+
+#### `setup()`
+
+The `setup()` function is where you can make program configurations.
+
+```arduino
+void setup() {
+    //program configurations here
+}
+```
+
+#### `loop()`
+
+The `loop()` function is where your main program is stored. It will run as long as your board is powered.
+
+```arduino
+void loop() {
+    //main program here
+}
+```
+
+#### `delay(time)`
+
+The `delay()` function pauses the program for a set number of milliseconds.
+
+The classic blink sequence is found in the snippet below:
+
+```arduino
+void loop() {
+
+digitalWrite(LED, HIGH); //turn on an LED
+delay(1000); //as program is paused, with the LED on
+digitalWrite(LED, LOW); //program is unpaused, and the LED is turned off
+delay(1000); //program is paused, with the LED off
+
+}
+```
+
+The `delay()` function is an incredibly useful function, and you will find it in almost all examples. But, for efficiency of the code, it is not the best option, as it prevents the Arduino from doing anything for the duration of the delay.
+
+For this, we can use the `millis()` function.
+
+#### `millis()`
+
+The `millis()` function is a bit more advanced, but an incredibly resourceful function. It allows you to have multiple events happening simultaneously, without pausing the program. This is done by measuring time (in milliseconds) passed since the program started.
+
+Then, with the use of **intervals** and continously storing the **time for last event**, a simple algorithm can be made to have events happening at specific times without pausing the program.
+
+See the example below:
+
+```arduino
+unsigned long previousMillis_1 = 0; //store time for first event
+unsigned long previousMillis_2 = 0; //store time for second event
+
+const long interval_1 = 1000; //interval for first event
+const long interval_2 = 2000; //interval for second event
+
+
+void setup(){
+
+}
+
+void loop() {
+
+//check time since program started, and store in "currentMillis"
+unsigned long currentMillis = millis();
+
+//conditional that checks whether 1 second has passed since last event
+if (currentMillis - previousMillis_1 >= interval_1) {
+    //execute a piece of code, every *1 second*
+}
+
+//conditional that checks whether 2 seconds have passed since last event
+if (currentMillis - previousMillis_2 >= interval_2) {
+    //execute a piece of code, every *2 seconds*
+}
+
+}
+```
+
+While the `millis()` function is a more advanced concept than the `delay()` function, it is a good to start practicing it early on.
+
+#### Functions
+
+You can create custom functions that either just executes code and returns to the program, or that returns a result.
+
+Example of a `void` function that does not return:
+
+```arduino
+int x;
+
+void loop(){
+    thisFunction(); //execute the function
+}
+
+void thisFunction() {
+    x = x++; //increase x by 1 each time function is run.
+}
+```
+
+Example of a type `int` function that returns a value.
+
+```arduino
+
+int value;
+
+void setup(){
+
+}
+
+void loop(){
+    value = returnFunction();
+}
+
+int returnFunction() {
+    int returnValue = 5 + 2;
+    return returnValue;
+}
+```
+
+#### Variable Definition
+
+Variables can either be created **locally** or **globally**. Variables that are defined in the `loop()` are considered local, and variables defined at the top of your sketch are considered global. 
+
+```arduino
+int sensorReading = x; //global variable
+
+void setup(){
+
+}
+
+void loop(){
+    int sensorReading = x; //local variable
+}
+```
+
+#### Data Types
+
+There are several data types available for use, and below are some of the most common:
+
+```
+bool 
+byte
+char
+double
+float
+int
+long
+short
+String()
+```
+
+To store data in for example an `int` (integer):
+
+```arduino
+int exampleNumber = 25;
+```
+
+For numbers with a lot of decimals, we can use `float`:
+
+```arduino
+float exampleNumber = 22.2123002;
+```
+
+Or to store a string, we can use the `String` function:
+
+```arduino
+String exampleSentence = "This is a string!";
+```
+
+For simple switches and true/false, we use booleans:
+
+```arduino
+bool exampleSwitch = true/false;
+```
+
+***You can read more about this in the [variables & data types](https://www.arduino.cc/reference/en/#variables) in the Arduino Language Reference.***
+
+### Serial Communication
+
+Serial communication is **essential** to Arduino programming, as it is the easiest way to know what goes on on your board.
+
+For this, we can use the `Serial` class.
+
+#### `Serial.begin()`
+
+Initializes serial communication between board & computer. This is defined in the `void setup()` function, where you also specify baud rate (speed of communication).
+
+```arduino
+void setup() {
+    Serial.begin(9600);
+}
+```
+
+#### `Serial.print()`
+
+Prints data to the serial port, which can be viewed in the Arduino IDE **Serial Monitor** tool.
+
+```arduino
+void loop() {
+    Serial.print();
+}
+```
+
+#### `Serial.available()`
+
+#### `Serial.read()`
+
+### GPIO / Pin Management
+
+Configuring, controlling and reading the state of a digital/analog pin on an Arduino.
+
+#### `pinMode()`
+
+Configures a digital pin to behave as an input or output. Is configured inside the `void setup()` function.
+
+```arduino
+pinMode(pin, INPUT); //configures pin as an input
+pinMode(pin, OUTPUT); //configures pin as an output
+pinMode(pin, INPUT_PULLUP); //enables the internal pull-up resistor
+```
+
+***You can read more about digital pins in the article about [Digital Pins](/learn/microcontrollers/digital-pins).***
+
+#### `digitalRead()`
+
+Reads the state of a digital pin. Used to for example detect a button click.
+
+```arduino
+int state = digitalRead(pin); //store the state in the "state" variable
+```
+
+#### `digitalWrite()`
+
+Writes a high or low state to a digital pin. Used to switch on or off a component.
+
+```arduino
+digitalWrite(pin, HIGH); // writes a high (1) state to a pin (aka turn it on)
+digitalWrite(pin, LOW); // writes a low (0) state to a pin (aka turn it off)
+```
+
+#### `analogRead()`
+
+Reads the voltage of an analog pin, and returns a value between 0-1023 (10-bit resolution). Used to read analog components.
+
+```arduino
+sensorValue = analogRead(A1); //stores reading of A1 in "sensorValue" variable
+```
+
+#### `analogWrite()`
+
+Writes a value between 0-255 (8-bit resolution). Used for dimming lights or setting the speed of a motor. Also referred to as **PWM**, or Pulse Width Modulation. 
+
+```arduino
+analogWrite(pin, value); //write a range between 0-255 to a specific pin
+```
+
+PWM is only available on specific pins (marked with a "~" symbol).
+
+### Structure
+
+The structure of the Arduino API is based on C++, and can be considered the building blocks of a program. 
+
+#### Conditionals
+
+Conditionals are some of the most popular used elements in any program. In Arduino, a typical conditional consists of an `if` and `else` statement.
+
+```arduino
+if(variable == true){
+    //do something
+}
+else {
+    //do something else
+}
+```
+
+You can make use of several if/else statements in your code.
+
+#### Loops / Iterations
+
+The `for` and `while` loops are commonly used in programs, to execute a block of code *for* a set number of times, or *while* a condition is met.
+
+A basic use of a `while` loop to execute a block of code while `variable` is true.
+
+```arduino
+while (variable == true) {
+    //do something
+}
+```
+
+A basic use of a `for` loop is to execute a block of code a number of times (in this case, 10).
+
+```arduino
+  for (int x = 0; x <= 10; x++) {
+      //do something 10 times
+  }
+```
+
+To break out of a loop, you can use `break`. In the snippet below, if a condition is met (variable is true), we break out of the loop.
+
+```arduino
+  for (int x = 0; x <= 10; x++) {
+      if(variable == true) {
+          break;
+      }
+  }
+```
+
+#### Arithmetic Operators
+
+Arithmetic operators are used for addition, subtraction, multiplication, division and other mathematical calculations.
+
+```arduino
+int x = 5;
+int y = 2;
+
+x + y; //result is 7
+x * y; //result is 10
+x - y; //result is 3
+```
+
+#### Comparison Operators
+
+Comparison operators are used for comparing one property to another, and are a key component of a conditional statement.
+
+There are several comparison operators:
+
+```arduino
+!= //not equal to
+< //less than
+<= //less than or equal to
+== //equal to
+> //greater than
+>= //greater than or equal to
+```
+
+To use them in a conditional, see the following example:
+
+```arduino
+if(value > 10) {
+    //do something
+}
+```
+
+#### Boolean Operators
+
+Boolean operators (logical not `!`, and `&&`, or `||`) can for example be used for more advanced conditionals.
+
+To use the and `&&` operator:
+
+```arduino
+if(value > 10 && otherValue > 10){
+    //do something if only if *both* conditions are met
+}
+```
+
+To use the or `||` operator:
+
+```arduino
+if(value > 10 || otherValue > 10){
+    //do something if a one *or* the other condition is met
+}
+```
+
+To use the not `!` operator:
+
+if(!value){
+    //do something if value is false (!)
+}
+
+#### Compund Operators
+
+Compound operators consists of **two operators**, which are used to perform two operations in the same statement. This can for example be to add `+` and assign `=` a value at the same time.
+
+Here are some examples:
+
+```arduino
+x = 5;
+y = 2;
+
+xx++; //increase by one, so x is now 6
+xx--; //decrease by one, so x is now 4
+
+x += y; //x is now 7 (add and assign)
+x -= y; //x is now 3 (subtract and assign)
+x *= y; //x is now 10 (multiply and assign)
+```
 
 
