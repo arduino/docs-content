@@ -41,7 +41,7 @@ Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/la
 
 Before you can start programming OpenMV scripts for the Portenta you need to download and install the OpenMV IDE.
 
-***IMPORTANT: In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. Make sure you update the bootloader as explained in the "Flashing the OpenMV Firmware" section before you proceed with the next step of this tutorial!***
+***IMPORTANT: If you are experiencing problems with the board being stuck in boot mode. Please make sure that you have updated the bootloader to the latest version. As explained in the "Flashing the OpenMV Firmware" section before you proceed with the next step of this tutorial!***
 
 Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
 

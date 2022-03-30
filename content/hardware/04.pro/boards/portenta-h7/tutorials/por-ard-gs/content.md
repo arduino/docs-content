@@ -50,7 +50,7 @@ The Arduino core for the Portenta H7 sits on top of the Mbed OS and allows to de
 ### Configuring the Development Environment
 In this section, we will guide you through a step-by-step process of setting up your Portenta board for running an Arduino Sketch that blinks the built-in RGB LED.
 
-***In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. We strongly advise to update the bootloader before you proceed with the next step of this tutorial! Instructions can be found [here](/tutorials/portenta-h7/por-ard-bl).***
+***IMPORTANT: If you are experiencing problems with the board being stuck in boot mode. Please make sure that you have updated the bootloader to the latest version. As explained [here](/tutorials/portenta-h7/por-ard-bl), before you proceed with the next step of this tutorial!***
 
 ### 1. The Basic Setup
 Let's begin by Plug-in your Portenta to your computer using the appropriate USB C cable. Next, open your IDE and make sure that you have the right version of the Arduino IDE or the PRO IDE downloaded on to your computer.
