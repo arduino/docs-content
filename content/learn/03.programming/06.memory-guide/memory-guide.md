@@ -113,9 +113,9 @@ The `text` section contains instructions loaded into the flash memory; `data` se
 
 In hybid ARM architectures, memory is organized as shown in the image below:
 
-Something important to mention about ARM architecture is that it implements **Memory Organization** or **Memory Map**, built depending on the width of the address map that goes from 32-Bit to 40-Bit structure. It uses Virtual and Physical addresses while the Memory Management Unit (MMU) interfaces in between to correct operation of memory system. 
+Something important to mention about ARM architecture is that it implements a memory map, built depending on the width of the address map that goes from 32-bit to a 40-bit structure. This memory map uses virtual and physical addresses while the Memory Management Unit (MMU) interfaces check the correct operation of the memory system.
 ​
-The **Translation Tables** are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed by peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease the access.
+The translation tables are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed of peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease access.
 
 The following table summarizes Arduino® boards memory allocation:
 
