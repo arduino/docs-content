@@ -99,7 +99,7 @@ In microcontroller-based systems, Erasable Programmable Read-Only Memory, or EEP
 
 ## Arduino® Boards Memory Allocation
 
-As stated before, Arduino® boards are mainly based on two families of microcontrollers, AVR® and ARM®; **memory allocation differs in both architectures**. In Harvard-based AVR architecture, memory is organized as shown in the image below:
+As stated before, Arduino® boards are mainly based on two families of microcontrollers, AVR® and ARM®; it is important to know that **memory allocation differs in both architectures**. In Harvard-based AVR architecture, memory is organized as shown in the image below:
 
 Something important to mention about AVR-based Arduino boards is how their SRAM is organized into different sections:
 
@@ -113,9 +113,11 @@ The `text` section contains instructions loaded into the flash memory; `data` se
 
 In hybid ARM architectures, memory is organized as shown in the image below:
 
-Something important to mention about ARM architecture is that it implements a memory map, built depending on the width of the address map that goes from 32-bit to a 40-bit structure. This memory map uses virtual and physical addresses while the Memory Management Unit (MMU) interfaces check the correct operation of the memory system.
-​
-The translation tables are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed of peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease access.
+Arduino Pro Family's Portenta H7 is built with ARM architecture microcontroller. This architecture is renowned for implementation of so called **Memor map**, with different address map configuration of 32-bit, 36-bit, and 40-bit that depends on the requirement of System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design, while having most system control on a high level coding. Memory access instructions can be used on high level code to manage interrupt modules and built-in peripherals. All of this controlled by Memory Management Unit (MMU).
+
+The Memory Management Unit (MMU) establishes bridge between virtual and physical addresses using translation tables. Table Walk Unit and Translation Lookaside Buffers (TLBs) are 2 main pieces of MMU. Table Walk Unit implements an algorithm that interprets translation table, while the TLBs hold most recent translations for future uses derived from Table Walk Unit. The Virtual Address is composed of Kernel and application in blocks of data and code; the Physical Address controls peripherals, Flash, SRAM, and ROM. 
+
+Simply put, Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address. 
 
 The following table summarizes Arduino® boards memory allocation:
 
