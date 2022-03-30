@@ -9,10 +9,21 @@ The production website is available at: <https://docs.arduino.cc>
 ## How Can I Contribute?
 
 Contributing by creating content or suggestion changes to existing content can be done by making **pull requests**.
+
 You start by forking the repository or by creating a new branch if you have write access to this repo. Create a new branch based on main and name it according to what you will create prefixed with your github username and a slash (e.g. `sebromero/wifi-tutorial`). Read in the section below how to add different types of new content.
 
 When you're done with a draft you can create a pull request. This will give the content team the possibility to review it and leave comments or request changes. During this review process you can continue to push commits to the same branch. They will show up in the pull request automatically.
+
 Once the pull request gests approved and merged into main, the content will be deployed to the live server.
+
+There are four different content types you can contribute with. These are **tutorial**, **article**, **how to** and **project**. Please read more on what they mean and how to write one in the [Contribution Templates folder](/contribution-templates/README.md).
+
+|Content|Description|Example|
+|-------|-----------|-------|
+|Tutorial|Learn how to do something.|[Control Built-in RGB LED over Wi-Fi with Nano RP2040 Connect](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-web-server-rgb)|
+|Article|Learn about a specific topic.|[Multimeter Basics](https://docs.arduino.cc/learn/electronics/multimeter-basics)|
+|How To|Smaller tutorial with less information and more straight to the example.|[Analog Read Serial](https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial)|
+|Project|Learn how to build something.|[DIY Photoshop Editing Console using Arduino Nano RP2040 Connect](https://create.arduino.cc/projecthub/jithinsanal1610/diy-photoshop-editing-console-using-arduino-nano-rp-2040-a43e97?ref=search&ref_id=nano%20rp2040%20connect&offset=0)|
 
 ## Fixing Bugs and Typos
 
@@ -37,7 +48,7 @@ If you found a mistake in the content you need to locate the corresponding file 
 
 ### Software
 
-- If you found an issue in a sofware product's tutorial they are located according to the following pattern:
+- If you found an issue in a software product's tutorial they are located according to the following pattern:
   `/content/software/[product-name]/tutorials/(tutorial-subfolder)/[tutorial-name]/[content-file].md`
 
 ## Adding Content
