@@ -348,7 +348,11 @@ Sometimes the developer would have to use the EEPROM as an alternative storage f
 
 Above library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, the Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability. 
 
-## Memory on Arduino Nano boards
+## Memory Specification on Arduino Boards
+
+Memory specification of Arduino board families are briefly described within their available sizes as following. 
+
+### Memory on Arduino Nano boards
 
 The nRF52840 ([datasheet](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf?_gl=1*x4s7j8*_ga*Mjk5OTAxNjU5LjE2MzkyMTU1MDg.*_ga_NEXN8H46L5*MTYzOTQ5NzYzMS44LjEuMTYzOTQ5ODc4Ny4w)) chip found on the [Nano 33 BLE Sense](https://store.arduino.cc/collections/boards/products/arduino-nano-33-ble-sense) and [Nano 33 BLE](https://store.arduino.cc/collections/boards/products/arduino-nano-33-ble) has the following amounts of memory:
 
@@ -396,7 +400,7 @@ The ATmega328 ([datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/ATmeg
 |EEPROM| 1kb|
 
 
-## Memory on Arduino MKR boards
+### Memory on Arduino MKR boards
 
 The SAMD21G18A ([datasheet](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf)) chip found on the [MKR WiFi 1000](https://store.arduino.cc/collections/boards/products/arduino-mkr1000-wifi), [MKR FOX 1200](https://store.arduino.cc/collections/boards/products/arduino-mkr-fox-1200), [MKR GSM 1400](https://store.arduino.cc/collections/boards/products/arduino-mkr-gsm-1400), [MKR NB 1500](https://store.arduino.cc/collections/boards/products/arduino-mkr-nb-1500), [MKR Vidor 4000](https://store.arduino.cc/collections/boards/products/arduino-mkr-vidor-4000), [MKR WAN 1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity?pr_prod_strat=description&pr_rec_pid=5517873053847&pr_ref_pid=5517874233495&pr_seq=uniform), [MKR WAN 1310](https://store.arduino.cc/collections/boards/products/arduino-mkr-wan-1310), [MKR WiFi 1010](https://store.arduino.cc/collections/boards/products/arduino-mkr-wifi-1010) and [MKR Zero](https://store.arduino.cc/collections/boards/products/arduino-zero) has the following amounts of memory:
 
@@ -406,7 +410,7 @@ The SAMD21G18A ([datasheet](https://content.arduino.cc/assets/mkr-microchip_samd
 |SRAM   |32kb|
 
 
-## Memory on Arduino Pro boards
+### Memory on Arduino Pro boards
 
 The ST STM32H747XI ([datasheet](https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf?_gl=1*14nfrmx*_ga*Mjk5OTAxNjU5LjE2MzkyMTU1MDg.*_ga_NEXN8H46L5*MTYzOTQ5NzYzMS44LjEuMTYzOTQ5OTE2NS4w)) chip found on the [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7), [Portenta H7 Lite](https://store.arduino.cc/collections/boards/products/portenta-h7-lite) and [Portenta H7 Lite Connected](https://store.arduino.cc/collections/boards/products/portenta-h7-lite-connected) has the following amounts of memory:
 
@@ -416,7 +420,7 @@ The ST STM32H747XI ([datasheet](https://content.arduino.cc/assets/Arduino-Porten
 |SRAM   |1mb|
 
 
-## Memory on Arduino Classic boards
+### Memory on Arduino Classic boards
 
 The ATmega328P ([datasheet](https://content.arduino.cc/assets/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf?_gl=1*if3eoe*_ga*Mjk5OTAxNjU5LjE2MzkyMTU1MDg.*_ga_NEXN8H46L5*MTYzOTQ5NzYzMS44LjEuMTYzOTQ5OTIyMS4w)) chip found on the [UNO R3](https://store.arduino.cc/collections/boards/products/arduino-uno-rev3) and [UNO Mini](https://store.arduino.cc/collections/boards/products/uno-mini-le) has the following amounts of memory:
 
@@ -461,6 +465,7 @@ The ATmega2560 ([datasheet](https://content.arduino.cc/assets/ATmega640-1280-128
 |SRAM   |8kb|
 |EEPROM| 4kb|
 
+## Tips & Troubleshooting
 
 Notice that with boards that do not have a lot of SRAM available, like the UNO. It's easy to use it all up by having lots of strings in your program.  For example, a declaration like:
 ```arduino
