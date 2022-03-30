@@ -79,9 +79,9 @@ Now, let us talk about the different memory units present on microcontrollers. A
 
 RAM and ROM in microcontroller-based systems are organized into three main categories:
 
-* Flash.
-* RAM.
-* EEPROM.
+* Flash
+* RAM
+* EEPROM
 
 Let us talk more about these types of memories.
 
@@ -99,6 +99,24 @@ In microcontroller-based systems, Erasable Programmable Read-Only Memory, or EEP
 
 ## Arduino® Boards Memory Allocation
 
+As stated before, Arduino® boards are mainly based on two families of microcontrollers, AVR® and ARM®; **memory allocation differs in both architectures**. In Harvard-based AVR architecture, memory is organized as shown in the image below:
+
+Something important to mention about AVR-based Arduino boards is how their SRAM is organized into different sections:
+
+- `Text`
+- `Data`
+- `BSS`
+- `Stack`
+- `Heap`
+  
+The `text` section contains instructions loaded into the flash memory; `data` section contains variables initialized in the sketch, `BSS` section contains uninitialized data, `stack` section stores data of functions and interrupts, and `heap` section stores variables created during run time.
+
+In hybid ARM architectures, memory is organized as shown in the image below:
+
+Something important to mention about ARM architecture is that it implements **Memory Organization** or **Memory Map**, built depending on the width of the address map that goes from 32-Bit to 40-Bit structure. It uses Virtual and Physical addresses while the Memory Management Unit (MMU) interfaces in between to correct operation of memory system. 
+​
+The **Translation Tables** are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed by peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease the access.
+
 The following table summarizes Arduino® boards memory allocation:
 
 |      **Board**      | **Microcontroller** |    **Family**    | **Architecture** | **Flash** | **SRAM** | **EEPROM** |
@@ -110,70 +128,30 @@ The following table summarizes Arduino® boards memory allocation:
 |       Leonardo      |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
 |    Mega 2560 Rev3   |      ATmega2560     |        AVR       |      Harvard     |   256kB   |    8kB   |     4kB    |
 |        Micro        |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
-|         Zero        |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
+|         Zero        |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
 |     Portenta H7     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |           |          |            |
 |    Nicla Sense ME   |       nRF52832      |   ARM Cortex M4  |      Harvard     |           |          |            |
 | Nano RP2040 Connect |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |     -     |   264kB  |      -     |
-|     MKR FOX 1200    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|     MKR NB 1500     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|    MKR Vidor 4000   |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|    MKR WiFi 1010    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|       MKR Zero      |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|     MKR1000 WIFI    |     ATSAMW25H18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|     MKR WAN 1300    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
-|     MKR WAN 1310    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
+|     MKR FOX 1200    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|     MKR NB 1500     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|    MKR Vidor 4000   |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|    MKR WiFi 1010    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|       MKR Zero      |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|     MKR1000 WIFI    |     ATSAMW25H18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|     MKR WAN 1300    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|     MKR WAN 1310    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
 |         Nano        |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
 |      Nano Every     |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
-|     Nano 33 IoT     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |           |          |            |
+|     Nano 33 IoT     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
 |     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |           |          |            |
 |  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |           |          |            |
 
-### AVR-based Boards
-​
-AVR architecture microcontrollers has the Flash Program Memory and Static Random Access Memory 
-on a separate bus. There are 2 existing bus in which handles all the data and the other line handling Input and Output with limited access. The memory architecture is allocated briefly in following manner:
-​
-- Program Memory (Flash)
-- EEPROM Memory (Data)
-- SRAM Memory (Data)
-- I/O Memory 
-​
-Each memory type serves different role that handles the function of the AVR architecture microcontrollers. It is good to know what does each memory class manages, to comprehend what is about to be detailed in the continuing section.
-​
-#### Program Memory
-​
-The Program Memory is the reprogrammable memory found on the system. This is the Flash memory that serves as a storage, and the memory divides into two different section due to security measure. A Boot-loader section is where all the crucial code is stored to initialize peripherals and essential components. While the application section is where the composed code is uploaded.
-​
-#### EEPROM Memory
-​
-This type of memory is Read-Only memory that is electrically eraseable and reprogrammable. The memory module is designed usually with minimal resource available on the table. Commonly the memory is used to save small amounts of data and store even if when the device powers down. EEPROM registers are to access this memory department and during rewrite process, the memory removes everything in order to reprogram.  
-​
-
-#### SRAM Memory
-​
-The Static Random Access Memory is accessed via standard data bus, and the data is retained while it has power feed. This data memory stores different memory units that are from registers, Input/Output memory, and its internal SRAM. All this is to have general purpose 8-Bit registers, control registers to address peripheral components, and volatile storage location to temporarily manage the data generated from the code. 
-
-#### EEPROM
-
-In microcontroller-based systems, erasable Programmable Read Only Memory, or EEPROM, is also part of its ROM; actually, Flash memory is a type of EEPROM. The main difference between Flash memory and EEPROM that EEPROM can be managed at byte-level (write or erased), while Flash can be managed at block-level.
-​
-### ARM-based Boards
-​
-ARM architecture implements **Memory Organization** or **Memory Map**, built depending on the width of the address map that goes from 32-Bit to 40-Bit structure. It uses Virtual and Physical addresses while the Memory Management Unit (MMU) interfaces in between to correct operation of memory system. 
-​
-The **Translation Tables** are injected by virtual addresses, composed of Kernel and application in blocks of data and code; then translated into physical addresses composed by peripherals, Flash, SRAM, and ROM. The present architecture uses its Memory Map, predefined accordingly depending on the ARM chip family, to ease the access.
-​
-## Heap & Stack
-It is good to know a little bit about what is **Heap** and **Stack** when we discuss about Random Access Memory (RAM), as it will be mentioned sometimes to explain its behaviour. 
-
-- Heap: Dynamic memory sector, in which if the new allocation is made, it can grow; but also reduce in size with some possibility depending on the requirement. It is where `malloc` is found.
-
-- Stack: This memory sector is used for functions calls and local variable storage. When the function finishes the job, the local variables that wad holding the memory pool is freed up. The memory sector will grow towards the Heap, and it is positioned at the end of the RAM, at the side of External RAM.
-​
 ## Measuring Memory Usage in Arduino Boards
+
 Memory usage stadistics will help you understand the resource management affected by the designed code. It is an important factor to consider, as the resources are finite. In fact, it should run without always reaching maximum load capacity. This is one stadistic that will tell you how efficient the code is designed. 
 ​
 ### SRAM & DRAM: Quick Differentiation Specification
+
 Embedded devices has **Static Random Access Memory (SRAM)** and **Dynamic Random Access Memory (DRAM)**. These are 2 different derivatives that forms Random Access Memory (RAM) inside the embedded devices. Both RAM types has trade-off in between them, and it is based on speed, physical size and cost. 
 
 - SRAM is much faster than DRAM has to propose. In Read, Write and Access speed. 
