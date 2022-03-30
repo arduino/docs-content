@@ -27,6 +27,13 @@
   format: markdown
   errorMessage: Space between unit and value required
 
+# Mbps / Gbps spelling
+- regex: "(?<!\\S)\\b\\d+\\s?[mg]bps\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Megabit per second shout be abbreviated mbps, Gigabit per second gbps  
+
 # kB / MB spacing
 - regex: "(?<!\\S)\\b\\d+[mMkK][bB]\\b"
   shouldMatch: false
@@ -39,14 +46,14 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Kilobyte should be abbreviated as kB.
+  errorMessage: Kilobyte should be abbreviated as kB, Kilobit as kb.
 
 # MB spelling
 - regex: "(?<!\\S)\\b\\d+\\s?m[bB]\\b"
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Megabyte should be abbreviated as MB.
+  errorMessage: Megabyte should be abbreviated as MB, Megabit as Mb.
     
 # μm / mm spacing
 - regex: "(?<!\\S)\\b\\d+[μm]m\\b"
