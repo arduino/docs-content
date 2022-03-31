@@ -37,7 +37,7 @@ These keys are embedded in the example sketch `STM32H747_updateBootloader` which
 The default keys provided with the mbed platform are obviously only intended for development purposes. In a production environment it is advised to generate a new key pair (public and private key).
 This can be done with [**imgtool**](https://github.com/arduino/imgtool-packing/releases/latest). You can download and install it directly from the release section.
 
-***Pro tip: imgtool is already installed by the mbed platform and can be found in the `Arduino15/packages/arduino/tools/imgtool` directory.***
+***Pro tip: imgtool is already installed by the mbed platform and can be found in the `%LOCALAPPDATA%\Arduino15\packages\arduino\tools\imgtool` directory on Windows, in `~/.arduino15/packages/arduino/tools/imgtool` on Linux and in `~/Library/Arduino15/packages/arduino/tools/imgtool` on macOS.***
 
 To generate the new keys you can use this command line:
 ```
