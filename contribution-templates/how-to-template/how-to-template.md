@@ -45,6 +45,6 @@ Add the image of the schematic here. This section should not need any text follo
 
 Example code for the reader to copy and paste into their own sketch. This section should explain the different sections in the code. 
 
-## Learn more
+## Learn More
 
 Information on how the reader could delve deeper into the topic. For example linking to other tutorials or projects. 
