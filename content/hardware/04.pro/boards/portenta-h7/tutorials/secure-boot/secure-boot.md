@@ -17,7 +17,7 @@ software:
 This short tutorial will teach how to enable the secure boot on the Portenta H7, how to generate custom security keys, and how you can use them with MCUBoot bootloader.
 
 ## Hardware & Software Required
--   [Portenta H7](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+-   [Portenta H7](https://store.arduino.cc/portenta-h7)
 -   Arduino IDE 1.8.19+  or Arduino IDE 2.0.0-rc5+ (https://www.arduino.cc/en/software)
 -   [Arduino Mbed OS Portenta Boards](https://github.com/arduino/ArduinoCore-mbed) version 3.0.0+
 -   [imgtool](https://github.com/arduino/imgtool-packing/releases/latest) (optional)
