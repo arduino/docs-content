@@ -5,7 +5,7 @@ description: 'The first steps to setting up the Arduino Primo Core'
 
 **This is a retired product.**
 
-The PRIMO CORE is a compact device, using a Nordic nrf52832 chip with Bluetooth smart (BLE 4.0) and NFC-A tag functions , and also integrated motion and environmental sensors. The low power consumption permits powering the Primo Core with a coin cell battery.
+The PRIMO CORE is a compact device, using a Nordic nrf52832 chip with Bluetooth® smart (Bluetooth® Low Energy 4.0) and NFC-A tag functions , and also integrated motion and environmental sensors. The low power consumption permits powering the Primo Core with a coin cell battery.
 
 The Arduino Primo Core is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running only offline for this board. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
 

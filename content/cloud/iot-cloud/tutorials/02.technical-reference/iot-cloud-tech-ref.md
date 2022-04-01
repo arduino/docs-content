@@ -9,48 +9,55 @@ author: 'Liam Aljundi'
 
 This article summarizes the use of the Arduino Cloud IoT, and includes information regarding requirements, installation, API and general usage of the platform. 
 
-## Hardware Compatibility
+## Compatible Hardware
 
-The Arduino IoT Cloud's compatible boards can be either an **official Arduino board**, or a board based on the **ESP32/ESP8266 microcontroller**.
+To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN® (via The Things Network) and mobile networks.
 
-### Arduino Boards
+***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](/resources/datasheets/ATECC508A-datasheet.pdf) cryptochip), where you can store your security keys.***
 
-All official Arduino boards that are compatible with the Arduino Cloud are listed in the image below.
+### Wi-Fi
 
-![Compatible IoT Cloud boards.](./images/iot-cloud-compatible-boards.png)
+The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 
 - [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
-- [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
-- [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
-- [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)\*
-- [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)\*
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 
-***\* Please note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the cloud, as they communicate over mobile networks.***
-
-### Third Party Boards
-
-The Arduino IoT Cloud supports a wide range of third party boards based on the ESP32 and ESP8266 microcontrollers with support for Wi-Fi. To set them up, the **third party option** can be simply chosen in the device setup.
-
-***The official Arduino boards are equipped with a Secure Element chip which provides an additional layer of security, protecting the communication between the board and the cloud with public-key cryptography.***
-
-You can read more about setting up ESP32/8266 boards in the tutorial listed below:
-
-- [Connecting ESP32 & ESP8266 to Arduino Cloud IoT](/cloud/iot-cloud/tutorials/esp-32-cloud)
+Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
 ### LoRaWAN®
 
-You can easily set up your Arduino LoRaWAN® devices in the Arduino Cloud IoT platform, which is interfaced with the [The Things Stack](https://www.thethingsindustries.com/stack/). Currently, the following boards are supported:
+The following boards connect to the Arduino IoT Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRaWAN® Network Server connected to thousands of public LoRa® gateways.
 
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
 - [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
 
-A complete guide to setting up your LoRaWAN® devices is found in the link below:
+Connection via LoRaWAN® is recommended for low-power projects in both remote and urban areas, where Wi-Fi or other popular connectivity types are not available. The MKR WAN 1300/1310 boards are equipped with a LoRa radio module and has a slot for an antenna. With the right low-power configuration, the board can send data to the cloud for months on a single battery.
 
-- [Configuring LoRaWAN® devices in the Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/cloud-lora-getting-started)
+***To learn more about setting up LoRaWAN® devices, visit the [Configuring LoRaWAN® devices in the Arduino Cloud](/cloud/iot-cloud/tutorials/cloud-lora-getting-started) guide.***
+
+### GSM / NB-IoT Boards
+
+The MKR GSM 1400 and MKR NB 1500 require a **SIM card** to connect to the cloud, as they communicate over the mobile networks. 
+
+- [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)
+- [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)
+
+Connection through mobile networks can be considered in remote areas where there's no Wi-Fi, or in mobile projects (such as cargo tracking).  
+
+***For more information, visit the [Arduino SIM page](https://store.arduino.cc/digital/sim).***
+
+### ESP32 / ESP8266
+
+The Arduino IoT Cloud supports a wide range of third party boards based on the ESP32 and ESP8266 microcontrollers with support for Wi-Fi. To set them up, simply choose the **third party option** in the device setup.
+
+![Configuring third party boards.](assets/3rd-party-support.png)
+
+***To learn more about ESP32/ESP8266 support and how to set it up, visit the [Connecting ESP32 & ESP8266 to Arduino Cloud IoT](/cloud/iot-cloud/tutorials/esp-32-cloud) guide.***
 
 ## Software Requirements
 
@@ -513,11 +520,8 @@ The example below shows a basic code generated in the `thingProperties.h` file a
 ***Please note: for READ & WRITE variables a callback function (in this case called `onVariableName01Change()`) is automatically generated in sketch. This will allow for writing commands inside the function to trigger actions whenever the value is changed from the cloud.***
 
 ```arduino
-
 #include ArduinoIoTCloud.h
 #include Arduino_ConnectionHandler.h
-
-const char THING_ID[] = "A-UNIQUE-THING-ID-NUMBER";
 
 const char SSID[]     = SECRET_SSID;    // Network SSID (name)
 const char PASS[]     = SECRET_PASS;    // Network password (use for WPA, or use as key for WEP)
@@ -529,15 +533,22 @@ CloudTemperature Variable_Name_02; // declare a Cloud specific temperature varia
 
 void initProperties(){
 
-  ArduinoCloud.setThingId(THING_ID);
   ArduinoCloud.addProperty(Variable_Name_01, READWRITE, ON_CHANGE, onVariableName01Change); // linking the read & write variable with its function and updating it on change
   ArduinoCloud.addProperty(Variable_Name_02, READ, 10 * SECONDS, NULL); // setting up the read only variable and updating it every 10 seconds
 
 }
 
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS); // setting up the network name and password chosen in the Network configuration
-
 ```
+
+***As of 2022/02/09 the `thingProperties.h` no longer contains your Thing ID. If you have created a Thing prior to this date, simply update your Thing and your `thingProperties.h` will automatically be updated. You can see the lines that were removed in the snippet below:***
+
+```arduino
+const char THING_ID[] = "A-UNIQUE-THING-ID-NUMBER";
+
+ArduinoCloud.setThingId(THING_ID); //previously located inside initProperties()
+```
+
 
 ### sketch.ino
 
@@ -585,7 +596,7 @@ Uploading a sketch through the Arduino IoT Cloud can be achieved in two ways, ei
 
 The full editor allows for more control over the code and its libraries and provides access to all files included in the sketch, as well as more editing and sharing options.
 
-***Please note: the status of the connection to the Network and Arduino IoT Cloud may be checked by opening the **Serial Monitor** after uploading a sketch. If the `while(!Serial);` loop is included in the `setup()` function, the code would not execute before opening the **Serial Monitor**.***
+***Please note: the status of the connection to the Network and Arduino IoT Cloud may be checked by opening the Serial Monitor after uploading a sketch. If the `while(!Serial);` loop is included in the `setup()` function, the code would not execute before opening the Serial Monitor.***
 
 
 ## Dashboards

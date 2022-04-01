@@ -40,7 +40,7 @@ For this tutorial, you will need a cloud compatible board. You can see the full 
 The working principle of the scheduler is pretty straight forward. The `CloudSchedule` variable can be configured to go off at a specific time, with a specific duration. In the code, you do not need to worry about any timers, as this is done in the Arduino IoT Cloud. The "jobs" are created in the dashboard, through a widget associated to the variable.
 
 For example, we can set `schedule_variable` to be:
-- ON for 10 seconds, every 10 minutes
+- ON for 10 seconds, every minute.
 - ON for 8 hours, every day. 
 - ON for a week, and then finish.
 

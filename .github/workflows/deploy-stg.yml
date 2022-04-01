@@ -24,7 +24,7 @@ jobs:
           cache-dependency-path: "**/package-lock.json"
 
       - name: Gatsby main cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -33,7 +33,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-
 
       - name: Gatsby Public Folder
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         id: gatsby-public-folder
         with:
           path: public/
@@ -43,7 +43,7 @@ jobs:
 
       - run: npm install
 
-      - run: npm run build
+      - run: GENERATE_DATASHEETS=true npm run build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -53,8 +53,8 @@ jobs:
           aws-region: us-west-1
 
       - name: Sync all cacheable assets
-        run:
-          aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --delete public/ s3://${{ secrets.STAG_AWS_S3_BUCKET_NAME }}/
-          # Don't cache any HTML or JSON file: they should always be up-to-date
+        run: aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --delete public/ s3://${{ secrets.STAG_AWS_S3_BUCKET_NAME }}/
+
       - name: Sync all non-cacheable assets
+        # Don't cache any HTML or JSON file: they should always be up-to-dates
         run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --delete public/ s3://${{ secrets.STAG_AWS_S3_BUCKET_NAME }}/

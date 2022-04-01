@@ -1,6 +1,5 @@
 ---
 title: Getting Started With the Arduino Portenta Breakout
-coverImage: assets/ec_ard_gs_cover.svg
 difficulty: easy
 tags: [Getting Started, Setup, PWM, Analog, I2C]
 description: This tutorial will give you an overview of the core features of the breakout, setup the development environment and introduce the APIs required to program the board.

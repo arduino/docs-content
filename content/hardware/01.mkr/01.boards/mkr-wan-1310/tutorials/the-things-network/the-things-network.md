@@ -79,6 +79,8 @@ The aim with this tutorial is to achieve a connection between a MKR WAN 1310 boa
 
 **2.** Now, we need to install the library needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRWAN** and install it.
 
+***Note that there is also a library named MKRWAN_v2 from Arduino. We used the MKRWAN library for this tutorial, but both libraries work. As the two libraries rely on two separate firmware, it is important that your device has the correct firmware installed. Updating it is done by running the File > Examples > MKRWAN / MKRWAN_v2 > MKRWANFWUpdate_standalone example from the corresponding library. This note was last updated 2022/02/16.***
+
 **3.** Once we have downloaded the library, we will need to upload an example from the **MKRWAN** library, called **FirstConfiguration**. We will find this in **File > Examples > MKRWAN > FirstConfiguration**. You can also find the code in the snippet below:
 
 Copy and paste the code into the editor, and upload it to the board. Once we have uploaded the code successfully, open the Serial Monitor and an interface will appear in it. Here we will find the unique Device EUI as displayed in the picture below:
@@ -159,9 +161,9 @@ The payload contains a very simple message: `HelLora world!`, coded in HEX. This
 
 ![Payload tab in The Things Network console.](assets/WAN1310_T6_IMG13.png)
 
-As the payload comes in a HEX format, we will need to decode it. This can be done by using a Hex code translator, such as [this one](https://www.qbit.it/lab/hextext.php). We can also automate it directly in the TTN console, by navigating to our application overview, and to the **"Payload Formats"** tab. 
+As the payload comes in a HEX format, we will need to decode it. This can be done by using a Hex code translator, such as [this one](https://www.qbit.it/lab/hextext.php). We can also automate it directly in the TTC console, by navigating to our application overview, and to the **Payload formatters > Uplink**. 
 
-Here, we can enter a custom code, that will convert the incoming data in HEX format to a simple text format. Select Javascript as **Formatter type**, then use the code below as **Formatter parameter**.
+Here, we can enter a custom code, that will convert the incoming data in HEX format to a simple text format. Below is an example written in `JavaScript`.  
 
 ```javascript
 function Decoder(bytes, port) {
@@ -172,6 +174,8 @@ function Decoder(bytes, port) {
  return { payload: result, };
 }
 ```
+
+***For further instructions on how to use formatters, please refer to [The Things Stack's documentation on formatters](https://www.thethingsindustries.com/docs/integrations/payload-formatters/).***
 
 This will decode the incoming message and add the text "payload: yourmessage" at the end of the incoming payloads. That way, we do not need to manually translate it each time we get a new message. 
 

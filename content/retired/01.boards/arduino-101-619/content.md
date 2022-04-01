@@ -1,6 +1,6 @@
 ---
 title: "Arduino 101"
-description: "Arduino 101 combine the ease-of-use of the classic boards with the latest technologies. The board recognises gestures, and features a six-axis accelerometer and gyroscope. Control your projects with your phone over Bluetooth connectivity!"
+description: "Arduino 101 combine the ease-of-use of the classic boards with the latest technologies. The board recognises gestures, and features a six-axis accelerometer and gyroscope. Control your projects with your phone over Bluetooth® connectivity!"
 url_guide: "https://www.arduino.cc/en/Guide/Arduino101"
 coverImage: "assets/ABX00005_featured_2.jpg"
 sku: "ABX00005"
@@ -9,9 +9,9 @@ source: "https://store.arduino.cc/arduino-101-619"
 
 ![The Arduino 101 board](./assets/ABX00005_featured_2.jpg)
 
-A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](http://www.intel.com/content/dam/support/us/en/documents/boardsandkits/curie/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth LE capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
+A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](http://www.intel.com/content/dam/support/us/en/documents/boardsandkits/curie/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth® Low Energy capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
 
-The module contains two tiny cores, an x86 (Quark) and a [32-bit ARC](https://en.wikipedia.org/wiki/ARC_(processor)) architecture core, both clocked at 32MHz. The Intel toolchain compiles your Arduino sketches optimally across both cores to accomplish the most demanding tasks. The Real-Time Operating Systems (RTOS) and framework developed by Intel is open sourced. See below under Firmware for the download link. The Arduino core communicates with the RTOS via static mailboxes to accomplish a predefined list of tasks (interface with PC using USB, program the sketch into flash, expose Bluetooth LE functionality to sketch, perform PWM). The RTOS for Intel Curie is still under development and new functions and features will be released in the near future.
+The module contains two tiny cores, an x86 (Quark) and a [32-bit ARC](https://en.wikipedia.org/wiki/ARC_(processor)) architecture core, both clocked at 32MHz. The Intel toolchain compiles your Arduino sketches optimally across both cores to accomplish the most demanding tasks. The Real-Time Operating Systems (RTOS) and framework developed by Intel is open sourced. See below under Firmware for the download link. The Arduino core communicates with the RTOS via static mailboxes to accomplish a predefined list of tasks (interface with PC using USB, program the sketch into flash, expose Bluetooth® Low Energy functionality to sketch, perform PWM). The RTOS for Intel Curie is still under development and new functions and features will be released in the near future.
 
 The 101 comes with 14 digital input/output pins (of which 4 can be used as PWM outputs), 6 analog inputs, a USB connector for serial communication and sketch upload, a power jack, an ICSP header with SPI signals and I2C dedicated pins. The board operating voltage and I/O is 3.3V but all pins are protected against 5V overvoltage. 
 
@@ -43,7 +43,7 @@ The 101 can be programmed with the Arduino Software (IDE). Select "Arduino/Genui
 
 ### Differences with other boards
 
-The 101 has some features in common with both UNO (connectors, available peripherals) and Zero (32bit microcontroller, 3.3V IO) but the low power Intel microcontroller, on-board BLE and motion sensors make it unique.
+The 101 has some features in common with both UNO (connectors, available peripherals) and Zero (32bit microcontroller, 3.3V IO) but the low power Intel microcontroller, on-board Bluetooth® Low Energy and motion sensors make it unique.
 
 ### Compatibility guide
 
@@ -98,7 +98,7 @@ In addition, some pins have specialized functions:
 | SRAM                        | 24 kB                                   |
 | Clock Speed                 | 32MHz                                   |
 | LED\_BUILTIN                | 13                                      |
-| Features                    | Bluetooth LE, 6-axis accelerometer/gyro |
+| Features                    | Bluetooth® Low Energy, 6-axis accelerometer/gyro |
 | Length                      | 68.6 mm                                 |
 | Width                       | 53.4 mm                                 |
 | Weight                      | 34 gr.                                  |

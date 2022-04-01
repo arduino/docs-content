@@ -400,6 +400,7 @@ unsigned long sendNTPpacket(IPAddress& address)
   //Serial.println("6");
 }
 ```
+
 ### MKR GSM Make Voice Call
 
 Get your board to make phone calls from the Serial Monitor.
@@ -1554,35 +1555,35 @@ Check [http://www.worldtimezone.com/gsm.html](http://www.worldtimezone.com/gsm.h
 
 /*
 
- Band Management
+  Band Management
 
- This sketch, for the MKR GSM 1400 board, checks the band
+  This sketch, for the MKR GSM 1400 board, checks the band
 
- currently configured in the modem and allows you to change
+  currently configured in the modem and allows you to change
 
- it.
+  it.
 
- Please check http://www.worldtimezone.com/gsm.html
+  Please check http://www.worldtimezone.com/gsm.html
 
- Usual configurations:
+  Usual configurations:
 
- Europe, Africa, Middle East: E-GSM(900)+DCS(1800)
+  Europe, Africa, Middle East: E-GSM(900)+DCS(1800)
 
- USA, Canada, South America: GSM(850)+PCS(1900)
+  USA, Canada, South America: GSM(850)+PCS(1900)
 
- Mexico: PCS(1900)
+  Mexico: PCS(1900)
 
- Brazil: GSM(850)+E-GSM(900)+DCS(1800)+PCS(1900)
+  Brazil: GSM(850)+E-GSM(900)+DCS(1800)+PCS(1900)
 
- Circuit:
+  Circuit:
 
- * MKR GSM 1400 board
+   MKR GSM 1400 board
 
- * Antenna
+   Antenna
 
- created 12 June 2012
+  created 12 June 2012
 
- by Javier Zorzano, Scott Fitzgerald
+  by Javier Zorzano, Scott Fitzgerald
 
 */
 
@@ -1733,7 +1734,6 @@ String askUser() {
     newBand = GSM_MODE_UMTS;
 
   } else if (c == '8') {
-
     newBand = GSM_MODE_GSM850_EGSM_PCS_UMTS;
 
   } else {
@@ -1741,7 +1741,6 @@ String askUser() {
     newBand = "GSM_MODE_UNDEFINED";
 
   }
-
   return newBand;
 }
 ```

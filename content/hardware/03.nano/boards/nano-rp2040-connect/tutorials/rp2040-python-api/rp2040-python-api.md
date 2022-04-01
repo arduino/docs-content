@@ -466,7 +466,7 @@ In the terminal, we should see it in this format:
 Year:2021 Month:8 Day:10 Time: 7:56:30
 ```
 
-### BLE
+### Bluetooth® Low Energy
 
 This example allows us to connect to our board via our phone, and control the built-in LED.  We recommend using the **nRF Connect** applications.
 

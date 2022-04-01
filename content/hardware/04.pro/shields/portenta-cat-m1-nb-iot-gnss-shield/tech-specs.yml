@@ -1,0 +1,16 @@
+Board:
+  Name: Arduino® Portenta Cat. M1/NB IoT GNSS Shield
+  SKU: ASX00027
+Connectivity:
+  LPWAN Modem: TX62-W Cellular-GNSS Module
+  ESLOV connector: SM05B-SRSS-TB
+Communication:
+  UART: Yes
+  I2C: Yes
+  SPI: Yes
+Power:
+  Operating voltage: 3.3V
+Dimensions:
+  Width: 25 mm
+  Length: 66 mm
+  Weight: 9 g

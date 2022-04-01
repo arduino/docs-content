@@ -1,13 +1,13 @@
 ---
 title: 'BLE Connectivity on Portenta H7'
-description: 'This tutorial explains how to use BLE connectivity on the Portenta H7 to control the built-in LED using an external Bluetooth® application.'
+description: 'This tutorial explains how to use Bluetooth® Low Energy connectivity on the Portenta H7 to control the built-in LED using an external Bluetooth® application.'
 coverImage: assets/por_ard_ble_cover.svg
 difficulty: easy
 tags:
-  - BLE
+  - Bluetooth® Low Energy
   - LED
   - Connectivity
-  - Bluetooth
+  - Bluetooth®
 author: 'Jeremy Ellis, Lenard George, Sebastian Romero'
 libraries:
   - name: Arduino BLE
@@ -21,12 +21,12 @@ software:
 ---
 
 ## Overview
-In this tutorial we will enable low energy Bluetooth® (BLE) on the Portenta H7 to allow an external Bluetooth® device to control the built-in LED either by turning it on or off.
+In this tutorial we will enable low energy Bluetooth® on the Portenta H7 to allow an external Bluetooth® device to control the built-in LED either by turning it on or off.
 
 ## Goals
 
--   Enabling BLE connectivity on the Portenta H7.
--   Connecting the Portenta to an external BLE Mobile Application (In this case [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) by Nordic Semiconductor).
+-   Enabling Bluetooth® Low Energy connectivity on the Portenta H7.
+-   Connecting the Portenta to an external Bluetooth® Low Energy Mobile Application (In this case [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) by Nordic Semiconductor).
 
 ### Required Hardware and Software
 
@@ -36,13 +36,13 @@ In this tutorial we will enable low energy Bluetooth® (BLE) on the Portenta H7 
 -   Mobile device, phone or tablet
 -   [nRFconnect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) or equivalent tool downloaded on your mobile device: [nRF Connect for iOS](https://itunes.apple.com/us/app/nrf-connect/id1054362403?ls=1&mt=8) or [nRF Connect for android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp)
 
-## Portenta and Low Energy Bluetooth® (BLE) 
-The onboard WiFi/Bluetooth® module of the H7 offers low energy Bluetooth® functionality that gives the board the flexibility to be easily connected to devices which also support BLE such as the Arduino Nano 33 IoT or most modern smart phones. Compared to classic Bluetooth®, Low Energy Bluetooth® is intended to provide considerably reduced power consumption and cost while maintaining a similar communication range.
+## Portenta and Low Energy Bluetooth®
+The onboard WiFi/Bluetooth® module of the H7 offers low energy Bluetooth® functionality that gives the board the flexibility to be easily connected to devices which also support Bluetooth® Low Energy such as the Arduino Nano 33 IoT or most modern smart phones. Compared to classic Bluetooth®, Low Energy Bluetooth® is intended to provide considerably reduced power consumption and cost while maintaining a similar communication range.
 
 ## Instructions
 
 ### Configuring the Development Environment
-To communicate with the Portenta H7 via Bluetooth®, we are going to start by uploading a pre-built sketch that starts a Bluetooth® network and allows your mobile device, which will be used to control the LEDs, to connect to it. The sketch uses the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) Library that enables the BLE module and handles important functions such as scanning, connecting and interacting with services provided by other devices. You will also be using a third party application (e.g. [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile)), running on your mobile device that will connect your device to the board and help you control the built-in LED.
+To communicate with the Portenta H7 via Bluetooth®, we are going to start by uploading a pre-built sketch that starts a Bluetooth® network and allows your mobile device, which will be used to control the LEDs, to connect to it. The sketch uses the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) Library that enables the Bluetooth® Low Energy module and handles important functions such as scanning, connecting and interacting with services provided by other devices. You will also be using a third party application (e.g. [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile)), running on your mobile device that will connect your device to the board and help you control the built-in LED.
 
 ![BLE Configuration Scheme](assets/por_ard_ble_configuration.svg) 
 
@@ -56,20 +56,20 @@ Begin by plugging in your Portenta board to the computer using a USB-C cable and
 
 You will need to install the ArduinoBLE library in the Arduino IDE you are using. For this example we will use the classic Arduino IDE. To install the library go to : **Tools -> Manage Libararies...** type **ArduinoBLE** and click **Install**. Make sure you install ArduinoBLE version 1.1.3 or higher.
 
-![Download the BLE library in the Library Manager.](assets/por_ard_ble_arduino_library.png)
+![Download the Bluetooth® Low Energy library in the Library Manager.](assets/por_ard_ble_arduino_library.png)
 
 
 
-### 3. Create the BLE Sketch
+### 3. Create the Bluetooth® Low Energy Sketch
 
-Let's program the Portenta with the following example sketch. If the BLE module can be initialized correctly, you will see the blue LED lighting up for one second after uploading the sketch. If it fails you will see the red LED lighting up instead. Copy and paste the following code into a new sketch in your IDE or by open it from: **Examples -> Arduino_Pro_Examples -> BLE Connectivity on Portenta H7 -> PortentaBLE**
+Let's program the Portenta with the following example sketch. If the Bluetooth® Low Energy module can be initialized correctly, you will see the blue LED lighting up for one second after uploading the sketch. If it fails you will see the red LED lighting up instead. Copy and paste the following code into a new sketch in your IDE or by open it from: **Examples -> Arduino_Pro_Examples -> BLE Connectivity on Portenta H7 -> PortentaBLE**
 
 ```cpp
 #include <ArduinoBLE.h>
 
 BLEService ledService("19b10000-e8f2-537e-4f6c-d104768a1214");
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth® Low Energy LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEByteCharacteristic switchCharacteristic("19b10000-e8f2-537e-4f6c-d104768a1214", BLERead | BLEWrite);
 
 const int ledPin = LED_BUILTIN; // Pin to use for the LED
@@ -84,12 +84,12 @@ void setup() {
 
   // Begin initialization
   if (!BLE.begin()) {
-    Serial.println("Starting BLE failed!");
+    Serial.println("Starting Bluetooth® Low Energy failed!");
     digitalWrite(LEDR, LOW);
     delay(1000);
     digitalWrite(LEDR, HIGH);
 
-    // Stop if BLE couldn't be initialized.
+    // Stop if Bluetooth® Low Energy couldn't be initialized.
     while (1);
   }
 
@@ -115,7 +115,7 @@ void setup() {
 }
 
 void loop() {
-  // Listen for BLE peripherals to connect:
+  // Listen for Bluetooth® Low Energy peripherals to connect:
   BLEDevice central = BLE.central();
 
   // If a central is connected to peripheral:
@@ -168,13 +168,13 @@ These GATT codes are very long, but in our example it is always the same code:
 Double press the reset button so the built-in LED is slowly pulsing green. Then, select your board in the menu: **Tools** ->  **Board** -> **Arduino Portenta H7 (M7 core)** 
  ![Select the Arduino Portenta H7 (M7 core) in the board selector.](assets/por_ard_ble_select_board_h7.png)
 
-Then choose the **Port** where your Portenta is connected to and **Upload** the sketch. Open the Serial Monitor once you've **uploaded** the code to the board to see debugging messages. If the BLE setup was successful you should see the message `BLE LED Control ready`. If something went wrong you will see the message `Starting BLE failed!` In that case update the Arduino BLE library (in the Library Manager) and the board (in the Board Manager) to the latest version and try again.
+Then choose the **Port** where your Portenta is connected to and **Upload** the sketch. Open the Serial Monitor once you've **uploaded** the code to the board to see debugging messages. If the Bluetooth® Low Energy setup was successful you should see the message `BLE LED Control ready`. If something went wrong you will see the message `Starting Bluetooth® Low Energy failed!` In that case update the Arduino BLE library (in the Library Manager) and the board (in the Board Manager) to the latest version and try again.
 
 ![Select the Port to which the Portenta is connected to.](assets/por_ard_ble_select_port.png)
 
 ### 5. Connect an External Device
 
-On your mobile device install **nRF Connect** or an equivalent app that allows for BLE connections. We will refer to **nRF Connect** for the rest of this tutorial.
+On your mobile device install **nRF Connect** or an equivalent app that allows for Bluetooth® Low Energy connections. We will refer to **nRF Connect** for the rest of this tutorial.
 
 ![Download the nRF Connect app from the Apple App Store or Google Play Store.](assets/por_ard_ble_download_nrfapp.png)
 
@@ -187,11 +187,11 @@ Once you have downloaded the nRF application on your mobile device look for your
 ![In the nRF Connect app use a Bool toggle switch to toggle the built-in LED.](assets/por_ard_ble_nrf_connect.png)
 
 ## Conclusion
-This tutorial shows how to connect and control the built-in LED using a BLE connection. You have learnt how a simple BLE connection between your Portenta and your cell phone which has basic communication abilities between the two devices works.
+This tutorial shows how to connect and control the built-in LED using a Bluetooth® Low Energy connection. You have learnt how a simple Bluetooth® Low Energy connection between your Portenta and your cell phone which has basic communication abilities between the two devices works.
 
 ### Next Steps
 
-Now that you learnt how to configure the Portenta as a BLE endpoint you can try with two Portentas (or other BLE capable Arduino devices) to facilitate bidirectional communication. More information on how to achieve that can be found on the [BLE library reference page](https://www.arduino.cc/en/Reference/ArduinoBLE)
+Now that you learnt how to configure the Portenta as a Bluetooth® Low Energy endpoint you can try with two Portentas (or other Bluetooth® Low Energy capable Arduino devices) to facilitate bidirectional communication. More information on how to achieve that can be found on the [BLE library reference page](https://www.arduino.cc/en/Reference/ArduinoBLE)
 
 
 ## Troubleshooting

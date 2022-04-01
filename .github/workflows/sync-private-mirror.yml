@@ -22,4 +22,4 @@ jobs:
           git config --global user.email "sync@docs-content-private"
           git config --global user.name "docs-sync"
           git checkout main
-          git push -u mirror main
+          git push --force -u mirror main
