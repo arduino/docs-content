@@ -111,14 +111,22 @@ Something important to mention about AVR-based Arduino boards is how their SRAM 
   
 The `text` section contains instructions loaded into the flash memory; `data` section contains variables initialized in the sketch, `BSS` section contains uninitialized data, `stack` section stores data of functions and interrupts, and `heap` section stores variables created during run time.
 
-In hybrid ARM architectures, memory is handled by the **Memory Management Unit** (MMU). The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. An example of how memory is organized in ARM-based microcontrollers, virtually and physically, is shown in the image below:
+In hybrid ARM architectures, so called **Memory map** is implemented, with different address map configuration of 32-bit, 36-bit, and 40-bit that depends on the requirement of System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design, while having most system control on a high level coding. Memory access instructions can be used on high level code to manage interrupt modules and built-in peripherals. All of this controlled by Memory Management Unit (MMU).
 
-Usually, memory in ARM-based microcontroller is organized into the following sections:
+The memory resource is handled by the **Memory Management Unit** (MMU). The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
+An example of how memory is organized in ARM-based microcontrollers, virtually and physically, is shown in the image below:
 
-- `System`
-- `Peripherals`
+The ARM-based microcontroller's memory department is organized into the following sections respectively within the address type mentioned previously:
+
+- **Virtual Address**
+- `Kernel Code & Data`
+- `Application Code & Data`
+
+- **Physical Address**
 - `ROM`
 - `RAM`
+- `Flash`
+- `Peripherals`
 
 The following table summarizes the Arduino® board's memory allocation:
 
