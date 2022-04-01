@@ -150,7 +150,7 @@ The following table summarizes Arduino® boards memory allocation:
 
 ## Measuring Memory Usage in Arduino Boards
 
-Memory usage stadistics helps comprehend of the insight of resource management affected by the designed code structure. It is an important development consideration element, because the resources are finite. As a matter of fact, the software should perform always without reaching maximum load capacity. Memory load demand is one stadistic that will provide you an insight of how efficient the code is designed. Memory load could be observed either as available RAM at disposal for certain tasks, or Flash storage with remaing capacity for required headroom.   
+Memory usage stadistics helps comprehend of the insight of resource management affected by the designed code structure. It is an important development consideration element, because the resources are finite. As a matter of fact, the software should perform always without reaching maximum load capacity. Memory load demand is one stadistic that will provide you an insight of how efficient the code is designed. Memory load could be observed either as available RAM at disposal for certain tasks, or Flash storage with remaining capacity for required headroom.   
 ​
 ### SRAM & DRAM: Quick Differentiation Specification
 
