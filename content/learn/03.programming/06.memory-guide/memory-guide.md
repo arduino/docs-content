@@ -119,14 +119,14 @@ An example of how memory is organized in ARM-based microcontrollers, virtually a
 The ARM-based microcontroller's memory department is organized into the following sections respectively within the address type mentioned previously:
 
 - **Virtual Address**
-- `Kernel Code & Data`
-- `Application Code & Data`
+  - `Kernel Code & Data`
+  - `Application Code & Data`
 
 - **Physical Address**
-- `ROM`
-- `RAM`
-- `Flash`
-- `Peripherals`
+  - `ROM`
+  - `RAM`
+  - `Flash`
+  - `Peripherals`
 
 The following table summarizes the Arduino® board's memory allocation:
 
