@@ -1,5 +1,5 @@
 ---
-title: "Gnome Forecaster © CC BY-SA"
+title: "Gnome Forecaster"
 description: "Our Gnome becomes a weather forecaster with an Arduino Nano Every and a pressure sensor. Get your local forecast without the internet."
 coverImage: "assets/blob_kwfPOeEtt2.png"
 tags: [nanoevery, pressure, weather]

@@ -1,5 +1,5 @@
 ---
-title: "Scheduled Relays © GPL3+"
+title: "Scheduled Relays"
 description: "This project will show you how to schedule to drive the outputs on a MKR Relay Proto Shield using a MKR1000!"
 coverImage: "assets/tsx00003_iso_YCZrEamvd2.jpg"
 tags: [relay]

@@ -1,5 +1,5 @@
 ---
-title: "IoT Air Quality checker © LGPL"
+title: "IoT Air Quality checker"
 description: "Would you like to know quality of the air inside / outside your house, or in your DIY lab? Let's build this IoT Air Quality checker!"
 coverImage: "assets/_Vqcv50XM6W.png"
 tags: [diy, iot]

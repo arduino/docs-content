@@ -1,5 +1,5 @@
 ---
-title: "Arduino IoT Cloud Amazon Alexa Integration © CC BY-NC"
+title: "Arduino IoT Cloud Amazon Alexa Integration"
 description: "Learn how to use Arduino IoT Cloud and Amazon Alexa to interact with your sensors."
 coverImage: "assets/blob_ognVMF5UTp.png"
 tags: [environmental sensing, home automation, smart appliances]
