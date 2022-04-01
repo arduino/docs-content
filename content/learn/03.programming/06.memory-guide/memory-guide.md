@@ -111,15 +111,15 @@ Something important to mention about AVR-based Arduino boards is how their SRAM 
   
 The `text` section contains instructions loaded into the flash memory; `data` section contains variables initialized in the sketch, `BSS` section contains uninitialized data, `stack` section stores data of functions and interrupts, and `heap` section stores variables created during run time.
 
-In hybid ARM architectures, memory is organized as shown in the image below:
+In hybrid ARM architectures, memory is organized as shown in the image below:
 
-Arduino Pro Family's Portenta H7 is built with ARM architecture microcontroller. This architecture is renowned for implementation of so called **Memory map**, with different address map configuration of 32-bit, 36-bit, and 40-bit that depends on the requirement of System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design, while having most system control on a high level coding. Memory access instructions can be used on high level code to manage interrupt modules and built-in peripherals. All of this controlled by Memory Management Unit (MMU).
+Arduino Pro Family's Portenta H7 is built with an ARM architecture microcontroller. This architecture is renowned for implementing a so-called memory map, with different address map configurations of 32-bit, 36-bit, and 40-bit that depend on the System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design while having most system control on a high-level coding. Memory access instructions can be used on high-level code to manage interrupt modules and built-in peripherals—all of this controlled by Memory Management Unit (MMU).
 
-The Memory Management Unit (MMU) establishes bridge between virtual and physical addresses using translation tables. Table Walk Unit and Translation Lookaside Buffers (TLBs) are 2 main pieces of MMU. Table Walk Unit implements an algorithm that interprets translation table, while the TLBs hold most recent translations for future uses derived from Table Walk Unit. The Virtual Address is composed of Kernel and application in blocks of data and code; the Physical Address controls peripherals, Flash, SRAM, and ROM. 
+The Memory Management Unit (MMU) uses translation tables to establish a bridge between virtual and physical addresses. The Virtual Address is composed of Kernel and application in data and code blocks; the Physical Address controls peripherals, Flash, SRAM, and ROM. Table Walk Unit and Translation Lookaside Buffers (TLBs) are two main pieces of MMU. Table Walk Unit implements an algorithm that interprets the translation table, while the TLBs hold the most recent translations for future uses derived from the Table Walk Unit. 
 
-Simply put, Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address. 
+Simply put, the Virtual Address is managed via software with memory instructions, and the Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address. 
 
-The following table summarizes Arduino® boards memory allocation:
+The following table summarizes the Arduino® board's memory allocation:
 
 |      **Board**      | **Microcontroller** |    **Family**    | **Architecture** | **Flash** | **SRAM** | **EEPROM** |
 |:-------------------:|:-------------------:|:----------------:|:----------------:|:---------:|:--------:|:----------:|
@@ -131,8 +131,8 @@ The following table summarizes Arduino® boards memory allocation:
 |    Mega 2560 Rev3   |      ATmega2560     |        AVR       |      Harvard     |   256kB   |    8kB   |     4kB    |
 |        Micro        |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
 |         Zero        |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     Portenta H7     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |           |          |            |
-|    Nicla Sense ME   |       nRF52832      |   ARM Cortex M4  |      Harvard     |           |          |            |
+|     Portenta H7     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
+|    Nicla Sense ME   |       nRF52832      |   ARM Cortex M4  |      Harvard     |   512kB   |   64kB   |      -     |
 | Nano RP2040 Connect |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |     -     |   264kB  |      -     |
 |     MKR FOX 1200    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
 |     MKR NB 1500     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
@@ -145,12 +145,12 @@ The following table summarizes Arduino® boards memory allocation:
 |         Nano        |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
 |      Nano Every     |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
 |     Nano 33 IoT     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |           |          |            |
-|  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |           |          |            |
+|     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
+|  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
 
 ## Measuring Memory Usage in Arduino Boards
 
-Memory usage stadistics helps comprehend of the insight of resource management affected by the designed code structure. It is an important development consideration element, because the resources are finite. As a matter of fact, the software should perform always without reaching maximum load capacity. Memory load demand is one stadistic that will provide you an insight of how efficient the code is designed. Memory load could be observed either as available RAM at disposal for certain tasks, or Flash storage with remaining capacity for required headroom.   
+Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is design|ed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **Flash storage remaining capacity** for required headroom.
 ​
 ### SRAM & DRAM: Quick Differentiation Specification
 
