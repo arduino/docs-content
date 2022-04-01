@@ -108,7 +108,7 @@ The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://www.mous
 
 You can use [this](https://www.digikey.ca/en/products/detail/adafruit-industries-llc/5244/16056943) cable assembly and make your mono speaker. The CS42L52 stereo CODEC operates using an I2C interface, with the CODEC acting as a secondary device. 
 
-Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, is expanded via Header Connector J5. External modules requiring I2C interface can be established via header Connector J5 with upto 2 available I2C bridges. 
+Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, is expanded via Header Connector J5. External modules requiring I2C interface can be established via header Connector J5 with up to 2 available I2C bridges. 
 
 IP
 
