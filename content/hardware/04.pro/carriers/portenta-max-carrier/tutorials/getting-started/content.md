@@ -72,7 +72,7 @@ A Micro USB port is available for the use on the Arduino® Portenta Max Carrier 
 
 #### 1.3. Onboard Memory Units
 
-The Portenta Max Carrier equips two different memory unit access: Flash Memory and Mini SD Card slot.
+The Portenta Max Carrier equips two different memory units on-board: Flash Memory and Mini SD Card slot.
 
 - Flash Memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
 - Mini SD Card slot grants the possibility to extend the storage size. It can be used to process hefty amount of log data, which can be from sensors or programmed on-board computer registry. 
@@ -81,7 +81,7 @@ IP
 
 #### 1.4. Wireless Connectivity
 
-##### LoRaWAN® Module - Murata CMWX1ZZABZ-078
+#### LoRaWAN® Module - Murata CMWX1ZZABZ-078
 One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
 
 ![Murata CMWX1ZZABZ-078 LoRaWAN® Module](assets/)
@@ -93,14 +93,13 @@ Depending on the region, it will require to use the appropriate antenna for the 
 The LoRa® Connection tutorial with in-depth details on how to power up the module and establish connection to The Things Network (TTN), please go [here]() for more information. 
 
 ##### Cell Modem Initialization on Portenta Max Carrier
-###### 1. Cat-M1
+##### 1. Cat-M1
 
-###### 2. NB-IoT
-
+##### 2. NB-IoT
 
 #### 1.5. Audio Interfaces
 
-The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://statics.cirrus.com/pubs/proDatasheet/CS42L52_F2.pdf) from Cirrus Logic®. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers (8-ohm stereo speakers and 4-ohm mono speakers) or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces in the Portenta Max Carrier, as shown in the image below:
+The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://www.mouser.com/datasheet/2/76/CS42L52_F2-1141287.pdf) from Cirrus Logic®. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers (8-ohm stereo speakers and 4-ohm mono speakers) or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces in the Portenta Max Carrier, as shown in the image below:
 
 - J13 - Audio line-in (right).
 - J14 - Audio line-in (left).
@@ -108,6 +107,8 @@ The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://statics.
 - J20 - Speaker line-out via Groove connector. 
 
 You can use [this](https://www.digikey.ca/en/products/detail/adafruit-industries-llc/5244/16056943) cable assembly and make your mono speaker. The CS42L52 stereo CODEC operates using an I2C interface, with the CODEC acting as a secondary device. 
+
+Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, is expanded via Header Connector J5. External modules requiring I2C interface can be established via header Connector J5 with upto 2 available I2C bridges. 
 
 IP
 
@@ -118,9 +119,9 @@ Part of the development process, debugging process is crucial and it is required
 ***For more in-depth information about Debugging, please read [Debugging Fundamentals](https://docs.arduino.cc/learn/microcontrollers/debugging).***
 
 ### 2. Basic Setup of the Portenta Max Carrier
-To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Swtich for Boot mode selection is present on the Portena Max Carrier board. It requires to set **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
+To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires to set **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
-Everytime it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. This will help to understand the board is in Boot mode and not turned off due to unavailable electric supply as it shutted off. As the power lines are alive even if the board shows no indication of operating instance. 
+Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. This will help to understand the board is in Boot mode and not turned off due to unavailable electric supply as it shutted off. As the power lines are alive even if the board shows no indication of operating instance. 
 
 ![Portenta Max Carrier Power DIP Switch](assets/)
 
