@@ -1,5 +1,5 @@
 ---
-title: "Gnome Traveller © CC BY"
+title: "Gnome Traveller"
 description: "Our Gnome is ready to follow you in your travels and keep track of all the places you visit, thanks to a GPS shield and the Nano Every."
 coverImage: "assets/blob_CEAMRFvHo9.png"
 tags: [gps, nano, tracking]

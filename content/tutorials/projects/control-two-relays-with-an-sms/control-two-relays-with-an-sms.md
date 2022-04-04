@@ -1,5 +1,5 @@
 ---
-title: "Control Two Relays with an SMS © GPL3+"
+title: "Control Two Relays with an SMS"
 description: "Drive the relays of the MKR Relay Shield connected to a MKR GSM 1400 with an SMS."
 coverImage: "assets/blob_PWZsWS7C1J.png"
 tags: [communication, home automation, remote control]
