@@ -34,7 +34,7 @@ If no operation is performed the default security keys are used.
 These keys are embedded in the example sketch `STM32H747_updateBootloader` which can be found in  **Files > Examples > STM32H747_System > STM32H747_updateBootloader**. A private 256bit [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) key is used for the encryption (`ecdsa-p256-encrypt-key.h`), while a public key is used for the signing (`ecdsa-p256-signing-key.h`). These two keys are the ones the bootloader uses to verify if a sketch is valid or not, before starting it for the first time. The default private keys used after compiling a sketch to sign and encrypt it are located in `Arduino15/packages/arduino/hardware/mbed_portenta/<version>/libraries/MCUboot/default_keys/`.
 
 ### 1. Generate Custom Cecurity Keys
-The default keys provided with the mbed platform are obviously only intended for development purposes. In a production environment it is advised to generate a new key pair (public and private key).
+The default keys provided with the mbed platform are obviously only intended for development purposes. In a production environment it is strongly recommended to generate a new key pair (public and private key).
 This can be done with [**imgtool**](https://github.com/arduino/imgtool-packing/releases/latest). You can download and install it directly from the release section.
 
 ***Pro tip: imgtool is already installed by the mbed platform and can be found in the `%LOCALAPPDATA%\Arduino15\packages\arduino\tools\imgtool` directory on Windows, in `~/.arduino15/packages/arduino/tools/imgtool` on Linux and in `~/Library/Arduino15/packages/arduino/tools/imgtool` on macOS.***
