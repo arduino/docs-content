@@ -17,6 +17,7 @@ If you are using the **Web Editor**, you can follow the [getting started with th
 ### Boards using the Mbed Nicla core
 
 - Arduino Nicla Sense ME
+- Arduino Nicla Vision
 
 ### Downloading and installing
 
@@ -64,9 +65,13 @@ For **MAC** users, it could look like this:
 
 - `/dev/cu.usbmodem14112 (Nicla Sense ME)`
 
+If you are using a Nicla Vision board it will say (Arduino Nicla Vision), instead of (Nicla Sense ME).
+
 ### Uploading a simple example
 
-You are now ready to start using your board! The easiest way to check that everything is working, is to upload just a simple blink example to your board. This is done by navigating to **File > Examples > Nicla_System > Blink_Nicla**.
+You are now ready to start using your board! The easiest way to check that everything is working, is to upload just a simple blink example to your board. This is done by navigating to **File > Examples > Nicla_System > Blink_Nicla**, if you are using a **Nicla Sense ME**.
+
+If you are using the **Nicla Vision**, then please use the **File > Examples > Scheduler > MultipleBlinks**
 
 ![Selecting the blink example.](assets/install_mbed_nicla_img07.png)
 
