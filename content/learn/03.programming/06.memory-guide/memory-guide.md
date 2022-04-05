@@ -7,12 +7,12 @@ tags:
   - Flash
   - SRAM
   - EEPROM
-author: 'José Bagur, Taddy Chung'
+author: 'Arduino, José Bagur, Taddy Chung'
 ---
 
-A microcontroller unit (also known as MCU) is an integrated circuit (IC) typically used to perform specific applications or tasks. Usually, this type of IC gathers information or data from its surroundings, process it, and generates specific outputs according to the gathered data. Microcontrollers today are everywhere; they are an essential part of modern embedded systems that can be found practically everywhere in our world, from smartwatches to electric vehicles; they are even on the Martian surface right now. 
+A microcontroller unit (also known as a MCU) is an integrated circuit (IC), typically used to perform specific applications or tasks. Usually, this type of IC gathers information or data from its surroundings, process it, and generates specific outputs according to the gathered data. Microcontrollers today are everywhere; they are an essential part of modern embedded systems that can be found practically everywhere in our world, from smartwatches to electric vehicles; they are even on the Martian surface right now. 
 
-One essential part of a microcontroller is its **memory**; memory stores information temporarily or permanently in microcontrollers and can be used for several purposes. This article talks about memory organization in microcontrollers, focusing on those present in Arduino® boards. Also, several ways to manage, measure, and optimize memory usage in Arduino-based systems are discussed in the article.
+One essential part of a microcontroller is its **memory**; memory stores information temporarily or permanently in microcontrollers, and can be used for several purposes. In this article, we will explore memory organization in microcontrollers, focusing on those present in Arduino® boards. We will also explore several ways to manage, measure, and optimize memory usage in Arduino-based systems are discussed in the article.
 
 ## What is Memory?
 
@@ -20,7 +20,7 @@ Memory blocks are essential parts of modern embedded systems, especially microco
 
 As shown in the image below, memory blocks in microcontrollers are usually described as **arrays**. Memory arrays are divided into **cells** that can store data and be accessed using a unique identifier representing its **address** or position relative to the memory array. Information in memory cells is stored using binary digits (bits), usually organized in bytes (8-bits); it can also be retrieved later by the MCU or other components of a microcontroller-based system. 
 
-Memory in computing systems can be **volatile** or **non-volatile**. **Volatile memory is a temporary memory**, this means that data is stored while the system is running, but it is lost forever when the system is turned off. **Non-volatile memory is permanent memory**; data is not lost even if the system is turned off. 
+Memory in computing systems can be **volatile** or **non-volatile**. Volatile memory is a **temporary memory**, this means that data is stored while the system is running, but it is lost forever when the system is turned off. Non-volatile memory is **permanent memory**; data is not lost even if the system is turned off. 
 
 ## Memory Architectures 101
 
@@ -30,11 +30,13 @@ In the early days of computing, two computer architectures, i.e., the organizati
 
 ### Von Neumann Architecture
 
-The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. T**his architecture stores program data and instructions in the same memory unit**; **both are accessed by the CPU using the same communications bus**, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
+The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. This architecture stores program data and instructions in the same memory unit. 
+
+Both are accessed by the CPU using the same communications bus, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
 
 ### Harvard Architecture
 
-The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. **This architecture's main characteristic is that it uses two separate memory units**, **one for storing program instructions and one for storing program data**. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
+The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. This architecture's main characteristic is that it uses **two separate memory units**, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
 
 ### Modern Architectures: Hybrids
 
@@ -73,15 +75,15 @@ Arduino® boards are mainly based on two families of microcontrollers: **AVR®**
 |     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |
 |  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |
 
-## Types of Memories 
+## Memory Types
 
 Now, let us talk about the different memory units present on microcontrollers. All the different memory units inside a microcontroller can be divided into two main types: **RAM** and **ROM**. RAM (from Random-Access Memory) in microcontroller-based systems is a volatile memory used to store temporary data such as the system's firmware variables. ROM (from Read-Only Memory) in microcontroller-based systems is non-volatile memory used to store permanent data such as the system's firmware.
 
 RAM and ROM in microcontroller-based systems are organized into three main categories:
 
-* Flash
-* RAM
-* EEPROM
+- Flash
+- RAM
+- EEPROM
 
 Let us talk more about these types of memories.
 
