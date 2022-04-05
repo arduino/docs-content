@@ -12,7 +12,6 @@ software:
   - ide-v2
   - cli
 ---
-
 ## Introduction
 This short tutorial will guide the user through enabling the secure boot on the Portenta H7, generating custom security keys, and using them with the MCUboot bootloader.
 
@@ -25,7 +24,7 @@ This short tutorial will guide the user through enabling the secure boot on the 
 ## Instructions
 
 ### Flashing the Latest Bootloader
-In order to have secure boot enabled you must update the bootloader on your Portenta H7 and use [MCUboot](https://www.mcuboot.com/). You can find more info on how to perform the update in [this other tutorial](../por-ard-bl/content.md).
+In order to have secure boot enabled you must update the bootloader on your Portenta H7 and use [MCUboot](https://www.mcuboot.com/). You can find more info on how to perform the update in [this other tutorial](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
 
 ### Use Default Security Keys
 Once The bootloader has been updated to MCUboot, it's possible to use [secure boot](https://www.keyfactor.com/blog/what-is-secure-boot-its-where-iot-security-starts/) to have an additional layer of security. From that point on it is required to upload a compiled sketch with the Custom Board Option **"Security settings"** set to **"Signature + Encryption"** (the option can be found under **Tools > Security settings** in the IDE when selecting Portenta H7 as board, or you can use `--board-options security=sien` if using the Arduino CLI). Failing to provide such option will cause the bootloader not to run the compiled sketch because it is not trusted.
@@ -37,16 +36,16 @@ These keys are embedded in the example sketch `STM32H747_updateBootloader` which
 The default keys provided with the mbed platform are obviously only intended for development purposes. In a production environment it is strongly recommended to generate a new key pair (public and private key).
 This can be done with [**imgtool**](https://github.com/arduino/imgtool-packing/releases/latest). You can download and install it directly from the release section.
 
-***Pro tip: imgtool is already installed by the mbed platform and can be found in the `%LOCALAPPDATA%\Arduino15\packages\arduino\tools\imgtool` directory on Windows, in `~/.arduino15/packages/arduino/tools/imgtool` on Linux and in `~/Library/Arduino15/packages/arduino/tools/imgtool` on macOS.***
+***`imgtool` is already installed by the mbed platform and can be found in the `%LOCALAPPDATA%\Arduino15\packages\arduino\tools\imgtool` directory on Windows, in `~/.arduino15/packages/arduino/tools/imgtool` on Linux and in `~/Library/Arduino15/packages/arduino/tools/imgtool` on macOS.***
 
 To generate the new keys you can use this command line:
 ```
 imgtool keygen --key my-sign-keyfile.pem -t ecdsa-p256
 imgtool keygen --key my-encrypt-keyfile.pem -t ecdsa-p256
 ```
-This command line will generate two private PEM encoded security keys and save them in the current directory with `my-sign-keyfile.pem`and `my-encrypt-keyfile.pem` names. The algorithm used to generate the keys is ECDSA 256bit.
+This command line will generate two private PEM encoded security keys and save them in the current directory with `my-sign-keyfile.pem` and `my-encrypt-keyfile.pem` names. The algorithm used to generate the keys is ECDSA 256bit.
 
-Remember to **save the keys to a secure location** and not to lose them.
+Remember to **save the keys on a secure location** and not to lose them.
 
 ### 2. Upload the Custom Keys to the Board
 Once the keys have been generated they have to be uploaded on the Portenta. This procedure has to be done only once, because it's persistent. To extract the public\private key and encode it in to a "C" byte array inside a `.h` header file you can use:
@@ -56,7 +55,7 @@ imgtool getpub -k my-sign-keyfile.pem > ecsda-p256-signing-key.h
 ```
 
 Now you have to replace the keys inside the Sketch to update the bootloader(**STM32H747_updateBootloader**).
-To do so just save the sketch to another location and replace the `ecsda-p256-encrypt-key.h` and `ecsda-p256-signing-key.h` files with the newly generated ones and then [update the bootloader](../por-ard-bl/content.md) again.
+To do so just save the sketch to another location and replace the `ecsda-p256-encrypt-key.h` and `ecsda-p256-signing-key.h` files with the newly generated ones and then [update the bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) again.
 
 ***NOTE: In case the keys are compromised, this process can be performed again with a new set of keys, but any firmware signed with the previous pair will no longer work.***
 
