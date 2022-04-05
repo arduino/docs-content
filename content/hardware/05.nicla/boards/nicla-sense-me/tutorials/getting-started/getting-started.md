@@ -43,6 +43,8 @@ The Nicla Sense ME's BHI sensor includes a 6-axis IMU, we will use this IMU to g
 
 You can see the full list with all the needed information about the sensors [here.](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)
 
+***Before proceeding with the tutorial please update the board's bootloader. You can do this by first downloading the latest version of the "Mbed OS Nicla core" in the Arduino IDE. Then go to "File > Examples > STM32H747_System > STM32H747_updateBootloader" and upload this sketch to your board. After the sketch is uploaded follow the instructions in the serial monitor.***
+
 ### Sensor Types
 
 To access the Arduino Nicla Sense ME sensor's data you will need to declare the type of the sensor you want to use (they are called constructors), which have different data functions that return data (e.g Accelerometer will have X, Y and Z values).
