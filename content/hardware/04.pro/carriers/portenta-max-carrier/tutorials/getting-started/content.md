@@ -70,14 +70,45 @@ A Micro USB port is available for the use on the Arduino® Portenta Max Carrier 
 
 #### 1.2. Connectors
 
+The Portenta Max carrier equips wide spectrum of connectors for expandability. The following table will show briefly the connectors that are available within the Portenta Max Carrier.
+
+| Connector (Ref.)                      | Description                                                                     |
+| ------------------------------------- | ------------------------------------------------------------------------------- |
+| **USB Hub (U3)**                      | USB2514Bi/M2 4-port USB 2.0 Hub IC                                              |
+| **LoRa® Header (CN2)**                | Debug Header                                                                    | 
+| **Debug Header (CN3)**                | LoRa® Debug Header                                                              |
+| **High Density Connectors (J1,J2)**   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors                               |
+| **Modem SMA Connector (J3)**          | Right-Angle SMA Connector for Modem                                             |
+| **LoRa® SMA Conenctor (J9)**          | Right-Angle SMA Connector for LoRa®                                             |
+| **FPC Connector (J4)**                | 2-1734248-0 FPC Connector                                                       |
+| **JTAG Header (CN1)**                 | FTSH-105-01-F-DV 10-pin JTAG Header                                             | 
+| **USB DBG0 (J10)**                    | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS                          | 
+| **USB DBG1 (J19)**                    | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS                       | 
+| **Grove Speaker Connector (J20)**     | 110990030 Grove Connector for Speaker                                           | 
+| **Header Connector (J5)**             | FW-20-05-G-D-254-150 Signal Break                                               | 
+| **4P4C CAN Connector (J7)**           | J6 615006138421 RS232/RS485 Connector J7 6                                      | 
+| **6P6C Serial Connector (J6)**        | 615006138421 RS232/RS485 Connector                                              | 
+| **PCIe Connector (J8)**               | 1759546-1 Mini PCIe Connector                                                   |
+| **Micro SD Connector (J11)**          | 114-00841-68 Micro SD Connector                                                 |
+| **Ethernet Connector (J17)**          | TRJK7003A97NL Gigabit Ethernet Connector                                        |
+
+***PCIe connector is available on-board. However, only USB and I2C is available for use at the moment. PCIe is reserved at the moment and will let you know when it gets update in the near future.***
+
 #### 1.3. Onboard Memory Units
 
 The Portenta Max Carrier equips two different memory units on-board: Flash Memory and Mini SD Card slot.
 
-- Flash Memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
-- Mini SD Card slot grants the possibility to extend the storage size. It can be used to process hefty amount of log data, which can be from sensors or programmed on-board computer registry. 
+- *On-Board Flash Memory* 
+  - The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
 
-IP
+***For more information on how to use the Flash Memory storage, please follow this [guide](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-flash) to get most out of the Flash Memory***
+
+- *Mini SD Card slot* 
+  - The Mini SD card interface grants the possibility to extend the storage size. It can be used to process hefty amount of log data, which can be from sensors or programmed on-board computer registry. 
+
+***To learn on how to use the Mini SD card slot to expand the storage size, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide)***
+
+***If it requires to reduce library size and uses FAT16/FAT32 formats, please look into this [library](https://github.com/greiman/SdFat), created and maintained by Bill Greiman***
 
 #### 1.4. Wireless Connectivity
 
@@ -108,9 +139,9 @@ The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://www.mous
 
 You can use [this](https://www.digikey.ca/en/products/detail/adafruit-industries-llc/5244/16056943) cable assembly and make your mono speaker. The CS42L52 stereo CODEC operates using an I2C interface, with the CODEC acting as a secondary device. 
 
-Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, is expanded via Header Connector J5. External modules requiring I2C interface can be established via header Connector J5 with up to 2 available I2C bridges. 
+Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, can be expanded via Header Connector J5 for I2C interface interoperability. External modules requiring I2C interface can be established via header Connector J5 with up to 2 available I2C bridges. 
 
-IP
+***For more information on I2C protocol, please have a look at this [guide to Arduino & the I2C Protocol (Two Wire)](https://docs.arduino.cc/learn/communication/wire)***
 
 #### 1.6. Onboard Debugger
 
@@ -126,28 +157,107 @@ Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to
 ![Portenta Max Carrier Power DIP Switch](assets/)
 
 ### 3. Portenta Max Carrier Quick Peripheral Table
-The following peripheral table will help you guide through quickly about the available connectors on Portenta Max Carrier. 
+The following peripheral table will help you guide through quickly about the select available connectors on Portenta Max Carrier. 
 
-| PERIPHERAL             | PIN     | FUNCTION      | TYPE    | DESCRIPTION             |
-| ---------------------- | ------- | ------------- | ------- | ----------------------- |
-| **LoRa® Header (CN2)** |         |               |         |                         | 
-|                        | 1       | +3V3          | Power   | +3V3 Power Rail         | 
-|                        | 2       | LoRa_SWDIO    | Digital | LoRa® SWD Data Line     | 
-|                        | 3, 5, 9 | GND           | Power   | Ground                  | 
-|                        | 6 ~ 8   | NC            | NC      | Not Connected           | 
-|                        | 4       | LoRa_SWCLK    | Digital | LoRa® SWD Clock Line    | 
-|                        | 10      | LORA_RST      | Digital | LoRa® module reset pin  | 
-| **Debug Header (CN3)** |         |               |         |                         | 
-|                        | 1       | 3V3_DBG       | Power   | +3V3 Power Rail         |
-|                        | 2       | DBG_SWDIO     | Digital | SWD Data Line           |
-|                        | 3, 5, 9 | GND           | Power   | Ground                  | 
+| PERIPHERAL                 | PIN       | FUNCTION      | TYPE    | DESCRIPTION                         |
+| -------------------------- | --------- | ------------- | ------- | ----------------------------------- |
+| **LoRa® Header (CN2)**     |           |               |         |                                     | 
+|                            | 1         | +3V3          | Power   | +3V3 Power Rail                     | 
+|                            | 2         | LoRa_SWDIO    | Digital | LoRa® SWD Data Line                 | 
+|                            | 3, 5, 9   | GND           | Power   | Ground                              | 
+|                            | 6 ~ 8     | NC            | NC      | Not Connected                       | 
+|                            | 4         | LoRa_SWCLK    | Digital | LoRa® SWD Clock Line                | 
+|                            | 10        | LORA_RST      | Digital | LoRa® module reset pin              | 
+| **Debug Header (CN3)**     |           |               |         |                                     | 
+|                            | 1         | 3V3_DBG       | Power   | +3V3 Power Rail                     |
+|                            | 2         | DBG_SWDIO     | Digital | SWD Data Line                       |
+|                            | 3, 5, 9   | GND           | Power   | Ground                              | 
+|                            | 4         | DBG_SWCLK     | Digital | SWD Clock Line                      |
+|                            | 6 ~ 8     | NC            | NC      | Not Connected                       |
+|                            | 10        | RST           | Digital | Reset Pin                           |
+| **JTAG Header (CN1)**      |           |               |         |                                     | 
+|                            | 1         | 3V3           | Power   | +3V3 Power Rail                     |
+|                            | 2         | JTAG_SWD      | Digital | JTAG SWD Data Line                  |
+|                            | 3, 5      | GND           | Power   | Ground                              | 
+|                            | 4         | JTAG_SCK      | Digital | JTAG Clock Line                     |
+|                            | 6         | JTAG_SWO      | Digital | JTAG Trace Data Line                |
+|                            | 7         | NC            | NC      | Not Connected                       |
+|                            | 8         | JTAG_TDI      | Digital | JTAG Test Data In Line              |
+|                            | 9         | JTAG_TRST     | Digital | JTAG Test Reset Line                |
+|                            | 10        | JTAG_RST      | Digital | JTAG Reset Line                     |
+| **Header Connector (J5)**  |           |               |         |                                     | 
+|                            | 1         | 3V3           | Power   | +3V3 Power Rail                     |
+|                            | 2, 13, 14 | GND           | Power   | Ground                              |
+|                            | 3         | VREF_P        | Analog  | Positive Analog Voltage Reference   | 
+|                            | 4         | VREF_N        | Analog  | Negative Analog Voltage Reference   |
+|                            | 5 ~ 12    | A0 ~ A7       | Analog  | Analog input 0 ~ 7                  |
+|                            | 15        | SAI_CK        | Digital | SAI Clock Line                      |
+|                            | 16        | CS            | Digital | SPI1 Clock Select                   |
+|                            | 17        | SAI_FS        | Digital | SAI Frame Synchronization           |
+|                            | 18        | CK            | Digital | SPI1 Clock Line                     |
+|                            | 19        | SAI_D0        | Digital | SAI Data Line 0                     |
+|                            | 20        | MISO          | Digital | SPI Main In Secondary Out           |
+|                            | 21        | SAI_D1        | Digital | SAI Data Line 1                     |
+|                            | 22        | MOSI          | Digital | SPI1 Main Out Secondary In          |
+|                            | 23        | SPDIF_TX      | Digital | SPDIF Transmission                  |
+|                            | 24        | TX            | Digital | Serial3 Transmission                |
+|                            | 25        | SPDIF_RX      | Digital | SPDIF Receive                       |
+|                            | 26        | RX            | Digital | Serial3 Receive                     |
+|                            | 27        | SDA           | Digital | I2C1 Data Line                      |
+|                            | 28        | RTS           | Digital | Serial3 Ready to Send               |
+|                            | 29        | SCL           | Digital | I2C1 Clock Line                     |
+|                            | 30        | CTS           | Digital | Serial3 Clear to Send               |
+|                            | 31        | 3V8           | Power   | +3V8 Power Rail                     |
+|                            | 32        | SDA           | Digital | I2C2 Data Line                      |
+|                            | 33        | PWM0          | Digital | PWM Output 0                        |
+|                            | 34        | SCL           | Digital | I2C2 Clock Line                     |
+|                            | 35        | PWM1          | Digital | PWM Output 1                        |
+|                            | 36        | 5V            | Power   | +5V Power Rail                      |
+|                            | 37        | PWM2          | Digital | PWM Output 2                        |
+|                            | 38        | CAN1_TX       | Digital | CAN Transmission Line               |
+|                            | 39        | PWM3          | Digital | PWM Output 3                        |
+|                            | 40        | CAN1_RX       | Digital | CAN Receive Line                    |
+| **4P4C CAN Connector (J7)**|           |               |         |                                     | 
+|                            | 1         | 5V            | Power   | +5V (Fused)                         |
+|                            | 2         | CANL          | Diff.   | CAN Differential Signal Low         |
+|                            | 3         | CANH          | Diff.   | CAN Differential Signal High        |
+|                            | 4         | GND           | Power   | Ground                              | 
+| **6P6C Serial Conn. (J6)** |           |               |         |                                     | 
+|                            | 1         | GND           | Power   | Ground                              |
+|                            | 2         | Z             | Digital | SP335 Out 1                         |
+|                            | 3         | Y             | Digital | SP335 Out 2                         |
+|                            | 4         | A             | Digital | SP335 In 2                          |
+|                            | 5         | B             | Digital | SP335 In 1                          |
+|                            | 6         | GND           | Power   | Ground                              | 
+| **PCIe Connector (J8)**    |           |               |         |                                     | 
+|                            | 1, 3, 5, 6, 8, 10, 12, 14, 16, 17, 19, 20, 24, 28, 37, 42 ~ 49, 51        | NC            | NC      | Not Connected                       |
+|                            | 2, 39, 41, 52             | 3V3_PCIE      | Power   | +3V3 Power Rail                     |
+|                            | 3, 9, 15, 18, 21, 26, 27, 29, 34, 35, 40, 50                              | GND           | Power   | Ground                              | 
+|                            | 7         | PCIE_CLKREQ   | Digital | PCIE Clock Request Signal           |
+|                            | 11        | mPCIe_CK_N    | Diff.   | PCIe Clock Differential Negative    |
+|                            | 13        | mPCIe_CK_P    | Diff.   | PCIe Clock Differential Positive    |
+|                            | 22        | mPCIe_RST     | Digital | PCIe Reset Signal                   |
+|                            | 23        | mPCIe_RX_N    | Diff.   | PCIe Receive Differential Negative  |
+|                            | 25        | mPCIe_RX_N    | Diff.   | PCIe Receive Differential Positive  |
+|                            | 30        | SCL           | Digital | I2C Clock Line                      |
+|                            | 31        | mPCIe_TX_N    | Diff.   | PCIe Transmission Differential Negative  |
+|                            | 32        | SDA           | Digital | I2C Data  Line                      |
+|                            | 33        | mPCIe_TX_P    | Diff.   | PCIe Transmission Differential Positive  |
+|                            | 36        | USB_DN        | Diff.   | USB Data Differential Negative      |
+|                            | 38        | USB_DN        | Diff.   | USB Differential Positive           |
 
 ## Conclusion
+You now have a quickstart guide of the Portenta Max Carrier with its rich modules and peripherals to design and implement real world solutions. The Portenta Max Carrier provides wide spectrum of tools and ports to enable a scalable design solution. With this guide, you now also acquired brief knowledge about the Portenta Max Carrier and will be able to solidify the requirements and devise more clearly. 
 
 ### Next Steps
+In-depth guides for each module on-board Portenta Max Carrier can be found under each section of the features listed previously on this guide. 
 
 ## Troubleshooting
+One may encounter issues setting up and initializing for the first time the Portenta Max Carrier. Following troubleshooting will help you with the possible issues that might occur in the beginning. 
 
+- When sketch upload fails, please check if the Portenta H7 attached to Portenta Max Carrier is in bootloader mode. Double-press the RESET button and the Green LED will be waving, indicating it has entered bootloader mode. Pleae retry uploading the sketch afterward.
+
+- Verify that the BOOT DIP switch of the Portenta Max Carrier has been configured to an address. Otherwise, the paired Portenta H7 will go into bootloader mode after power-on and it will not initialize the program. 
 
 
 
