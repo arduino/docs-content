@@ -7,4 +7,7 @@ software:
 hardware:
   boards:
     - portenta-h7
+    - portenta-h7-lite
+    - portenta-h7-lite-connected
+    - portenta-x8
 
