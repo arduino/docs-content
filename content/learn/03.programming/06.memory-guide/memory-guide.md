@@ -32,9 +32,13 @@ In the early days of computing, two computer architectures, i.e., the organizati
 
 The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. T**his architecture stores program data and instructions in the same memory unit**; **both are accessed by the CPU using the same communications bus**, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
 
+**ADD IMAGE HERE**
+
 ### Harvard Architecture
 
-The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. **This architecture's main characteristic is that it uses two separate memory units**, **one for storing program instructions and one for storing program data**. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
+The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. **This architecture's main characteristic is that it uses two separate memory units**, **one for storing program instructions and one for storing program data**. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses.
+
+**ADD IMAGE HERE**
 
 ### Modern Architectures: Hybrids
 
@@ -91,7 +95,7 @@ Flash memory in microcontroller-based systems is part of its ROM. The **Flash me
 
 ### RAM
 
-**RAM** in microcontroller-based systems **is where the system's temporary data or run-time data is stored**. A microcontroller's RAM usually is SRAM; this is a type of RAM that uses a flip-flop to store one bit of data. For example, the variables created by functions. 
+**RAM** in microcontroller-based systems **is where the system's temporary data or run-time data is stored**; for example, the variables created by functions of a program. RAM in microcontrollers usually is **SRAM**; this is a type of RAM that uses a flip-flop to store one bit of data. There is also another type of RAM that can be found in microcontrollers: DRAM.
 
 ### EEPROM
 
@@ -101,7 +105,9 @@ In microcontroller-based systems, Erasable Programmable Read-Only Memory, or EEP
 
 As stated before, Arduino® boards are mainly based on two families of microcontrollers, AVR® and ARM®; it is important to know that **memory allocation differs in both architectures**. In Harvard-based AVR architecture, memory is organized as shown in the image below:
 
-Something important to mention about AVR-based Arduino boards is how their SRAM is organized into different sections:
+**ADD IMAGE HERE**
+
+Something important to mention about AVR-based Arduino boards is how their SRAM is organized into the following sections:
 
 - `Text`
 - `Data`
@@ -111,18 +117,19 @@ Something important to mention about AVR-based Arduino boards is how their SRAM 
   
 The `text` section contains instructions loaded into the flash memory; `data` section contains variables initialized in the sketch, `BSS` section contains uninitialized data, `stack` section stores data of functions and interrupts, and `heap` section stores variables created during run time.
 
-In hybrid ARM architectures, so called **Memory map** is implemented, with different address map configuration of 32-bit, 36-bit, and 40-bit that depends on the requirement of System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design, while having most system control on a high level coding. Memory access instructions can be used on high level code to manage interrupt modules and built-in peripherals. All of this controlled by Memory Management Unit (MMU).
+In hybrid ARM architectures, a **memory map** is implemented with different address map configurations of 32-bit, 36-bit, and 40-bit. ARM's memory map grants an interface with the barebones of the microcontroller while having the most control over memory with high-level coding. Memory access instructions can be used on high-level code to manage interrupt modules and built-in peripherals—all of this controlled by the **Memory Management Unit** (MMU). The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual memory is managed via software with memory instructions, and the physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
 
-The memory resource is handled by the **Memory Management Unit** (MMU). The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
 An example of how memory is organized in ARM-based microcontrollers, virtually and physically, is shown in the image below:
 
-The ARM-based microcontroller's memory department is organized into the following sections respectively within the address type mentioned previously:
+**ADD IMAGE HERE**
 
-- **Virtual Address**
-  - `Kernel Code & Data`
-  - `Application Code & Data`
+The ARM-based microcontroller's memory is organized into the following sections within the address type mentioned previously:
 
-- **Physical Address**
+- **Virtual address:**
+  - `Kernel code and data`
+  - `Application code and data`
+
+- **Physical address:**
   - `ROM`
   - `RAM`
   - `Flash`
@@ -140,7 +147,7 @@ The following table summarizes the Arduino® board's memory allocation:
 |    Mega 2560 Rev3   |      ATmega2560     |        AVR       |      Harvard     |   256kB   |    8kB   |     4kB    |
 |        Micro        |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
 |         Zero        |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|    Porten ta H7*     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
+|    Portenta H7*     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
 |    Nicla Sense ME   |       nRF52832      |   ARM Cortex M4  |      Harvard     |   512kB   |   64kB   |      -     |
 | Nano RP2040 Connect |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |     -     |   264kB  |      -     |
 |     MKR FOX 1200    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
@@ -157,53 +164,41 @@ The following table summarizes the Arduino® board's memory allocation:
 |     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
 |  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
 
-## Measuring Memory Usage in Arduino Boards
+**ADD PRO NOTE HERE**
 
-Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is design|ed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **Flash storage remaining capacity** for required headroom.
+## Measuring Memory Usage in Arduino® Boards
 
-Let us talk more about memory usage measurement in Arduino boards.
-​
-### SRAM & DRAM: Quick Differentiation Specification
+Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is designed. It is a crucial development consideration element because the resources in microcontroller-based systems are constrained and finite. Memory load could be observed either as **available RAM** at disposal for specific tasks or **Flash storage remaining capacity** for required headroom.
 
-Embedded devices compose of **Static Random Access Memory (SRAM)** and **Dynamic Random Access Memory (DRAM)**. These are 2 different derivatives that shapes the Random Access Memory (RAM). Both RAM types has trade-off in between them, and it is based on speed, physical size and manufacturing cost. 
+***To avoid run-time problems, microcontroller-based systems should always run without reaching their maximum memory capacity.***
 
-- SRAM performs much faster than DRAM has to propose. In Read, Write and Access speed. 
-- SRAM is much more expensive in terms of manufacturing cost than DRAM.
-- DRAM offers more friendly physical size, in terms of storage capacity, than SRAM. 
-
-While these are 2 types of RAM that are found within embedded devices, optimization process that will be stated in the following are applicable as a whole. No matter which type of RAM is on-board, it can be controlled to achieve efficient memory management with careful design factors in mind. 
-
-Ultimately, it should not be abused whatsoever, because even if the code might produce results, the system may be filled with a lot of memory handling flaws causing unstable on-the-edge software. The fix or patch that are applied later, might cost entire code architecture re-design.  
+Let us talk more about **memory usage measurement** in Arduino® boards.
 
 ### Flash Memory Measurement 
 
-The Flash memory on Arduino boards can be measured with the help of the Arduino IDE. As the Flash memory is where the Application code is stored, the Arduino IDE will report through output log to let the developer know how much resource is being used. 
+Flash memory on Arduino® boards can be measured with the help of the Arduino IDE. As stated before, Flash memory is where the application code is stored; **the Arduino IDE reports Flash memory usage through its compiler output console** to let developers know how much Flash memory resources are being used. 
 
-This is the output log format for Arduino Nano.
+For example, the IDE's compiler output console an AVR-based Arduino® board, the UNO, with the `Blink.ino` example sketch uploaded, is shown in the image below:
 
-![Flash Memory Usage - Arduino Nano [AVR]](assets/avr_nano.png)
+![Flash memory memory measurement in an AVR-based Arduino® board](assets/avr_nano.png)
 
-This is the output log format for Arduino MKR WAN 1310.
+The IDE's compiler output console log for an ARM-based Arduino® board, the MKR WAN 1310, is shown in the image below:
 
-![Flash Memory Usage - Arduino MKR WAN 1310 [ARM]](assets/arm_mkrwan1310.png)
+![Flash memory memory measurement in an ARM-based Arduino® board](assets/arm_mkrwan1310.png)
 
-This is the output log format for Arduino Portenta H7.
+The IDE's compiler output console log for another ARM-based Arduino®, the Portenta H7, is shown in the image below:
 
-![Flash Memory Usage - Arduino Portenta H7 (ABX00042) [ARM]](assets/arm_portentah7.png)
+![Flash memory memory measurement in an ARM-based Arduino® board](assets/arm_portentah7.png)
 
-Each image of Arduino IDE is based of selected three different Arduino boards, in which one is based on AVR and the other two is based of ARM architecture. The compiler will output a log where how much Flash resource is used when uploading the code. 
-
-The purpose of these three images for different boards is to show that for each Arduino board family, the output log format is little different from one another; but it will show you the memory consumption information regarding the uploaded code. 
-
-***If it is required to handle the Flash memory within high level code, please read more about in [this](https://docs.arduino.cc/tutorials/portenta-h7-lite/por-ard-flash) using Arduino Portenta H7***
+Notice that the compiler's output changes depending on if the board is AVR-based or ARM-based. 
 
 ### SRAM Memory Measurement
 
-The code may compile, upload and run. However, there may be situations in which the program will suffer from sudden operation halt. Thys type of issues are likely due to memory resource hogging or not enough memory to allocate. To solve this, it will require to understand in which sector of the code, the memory demand is going beyond the available resources. Following code fragment will help you measure the SRAM usage at a high level code.
+Sometimes, there are situations where even when code is compiled and uploaded successfully by the IDE into a board, it suffers from sudden halts. These issues are likely due to memory resource-hogging or insufficient memory to allocate. To solve this, it is necessary to understand which code sector the memory demand is going beyond the available resources. The following example code can be used to **measure SRAM usage**:
 
-```cpp
-void display_freeram(){
-  Serial.print(F("SRAM left"));
+```arduino
+void display_freeram() {
+  Serial.print(F("- SRAM left: "));
   Serial.println(freeRam());
 }
 
@@ -215,115 +210,137 @@ int freeRam() {
 }
 ```
 
-In the code, `__heap_start` and `__brkval` are as following:
-- **`__heap_start`**: Refers to beginning of the Heap.
-- **`__brkval`**: Last memory address pointer used by Heap. It is pointing towards the Stack. 
+Remember that the `heap` section is where variables created during the run time are stored. In the code, `__heap_start` and `__brkval` are as following:
+
+- **`__heap_start`**: the beginning of the `heap` section. 
+- **`__brkval`**: the last memory address pointer used by the `heap`.
+
+**ADD REFERENCE HERE, DOES THIS WORKS FOR ARM ALSO?**
 
 ### EEPROM Memory Measurement
 
-EEPROM features are already included with the Arduino IDE platform so it does not require additional step to install any library to use its features. 
+EEPROM memory management can be done easily using native libraries already installed into the Arduino IDE. The `EEPROM` library can be used to read, write and erase the EEPROM memory. The following code shows how a byte of information can be stored in the EEPROM memory and then read using the `write` and `read` functions:
 
-EEPROM memory measurement can be done through use of the following simple code fragment. The code is simplified to write a byte to know exactly which address it is reading from. It can be modified to read everything from every available possible address. 
-
-```cpp
+```arduino
 #include <EEPROM.h>
 
-EEPROM.write(address, value);
-EEPROM.read(address);
-```
-
-On the other hand, it is possible to clear the entire EEPROM memory to set it to 0.
-
-```cpp
-#include <EEPROM.h>
-
-...
-
-for (int i = 0 ; i < EEPROM.length() ; i++) {
-    EEPROM.write(i, 0);
+void setup() {
 }
 
-...
+void loop {
+  // Write data into an specific address of the EEPROM memory 
+  EEPROM.write(address, value);
+
+  // Read data of an specific address of the EEPROM memory 
+  EEPROM.read(address);
+}
 ```
 
-The complete example codes can be found in our guide to EEPROM found below the following code. 
+Also, it is possible to clear the entire EEPROM memory by setting it to 0, as shown in the code below:
 
-***For more information on how to manage the EEPROM memory, please read [here](https://docs.arduino.cc/learn/programming/eeprom-guide)***
+```arduino
+#include <EEPROM.h>
+
+void setup() {
+}
+
+void loop {
+  for (int i = 0 ; i < EEPROM.length() ; i++) {
+    // Clear EEPROM memory 
+    EEPROM.write(i, 0);
+
+}
+```
+
+***Check [this](https://docs.arduino.cc/learn/programming/eeprom-guide) guide for more information on managing the EEPROM memory of Arduino boards.***
 
 ## Optimizing Memory Usage in Arduino-based Systems
-Knowing how the code utilizes the memory resources is one matter, but to optimize the memory is a whole different task. As the term development may infer, the requirements may change or be adjusted depending on external factors such as reduced device capacity due to inavailability of the components. Thus the code architecture may require optimization to be able to run on the reduced limited memory resources.
 
-The optimization process also implies reduced computational complexities, trimming down extra time required to process the tasks while using less memory resource to do the same task. The memory optimization process may help the overall code optimization process, as it will handle how the memory is managed in a more suitable manner by requiring smart algorithm development. 
+Knowing how code uses memory resources of a system is just the first recommended task in the development process; a whole different task is **optimizing memory usage**. As the term development may infer, the requirements may change or be adjusted depending on external factors such as reduced device capacity due to the unavailability of the components. Thus the code architecture may require optimization to run on the reduced limited memory resources.
+
+The memory usage optimization process also implies reduced computational complexities, trimming down extra time required to process tasks while using fewer memory resources to do the same tasks. The memory usage optimization process may help the overall code optimization process, as it will handle how the memory is managed more suitably by requiring intelligent algorithms development.
+
+Let us talk about some memory usage optimization techniques.
 
 ### Flash Memory Optimization 
 
-Flash memory optimization is the most likely the straightforward optimization possible source to begin with. The Flash memory is where the capacity used by compiled code can be reduced greatly by considering some details. 
+Flash memory optimization is the most likely straightforward optimization possible source. Flash memory is where the capacity used by compiled code can be significantly reduced by considering some details.
 
 #### Detach Unused Sources
-Detaching unused sources include unused libraries, and code residues. Code residues can be composed of functions that are no longer used and floating variables that takes up the unnecessary space in memory. This will vastly improve the compiled code size and make more clear compilation process. 
+
+Detaching new sources includes **unused libraries** and **code residues**. Code residues can be composed of no-longer-used functions and floating variables that take up the unnecessary space in memory. This will vastly improve the compiled code size and make a more clear compilation process.
+
 
 #### Modular Tasks
-Modular tasks mean functions that wraps the code which will be used in a repetitive or continuous manner by receiving different parameters. It is a great way to maintain clean code structure and performance, while reducing the memory space required for additional tasks that might need to be implemented.     
 
-This leads to compact code structure, that is much easier to understand when debugging process is required, and demand developer to considerate compute complexity when designing the code structure or such specific algorithm. 
+**Modular tasks** mean **functions that wrap code that will be used repetitively or continuously** by receiving different parameters. It is a great way to maintain clean code structure and performance while reducing the memory space required for additional tasks that might need to be implemented.
+
+This leads to a compact code structure, which is much easier to understand when debugging is required and demands the developer consider computing complexity when designing the code structure or such a specific algorithm.
 
 ### SRAM Memory Optimization
 
-#### String Wrapper - F()
-It is convenient to use `Serial.println("Something");` to display the literals. This is used usually to understand where the code is going and to observe certain conditionals. However, doing this so will hog up the Static Random Access Memory (SRAM) space, which is something not desirable as the content is a simple literal string that is not used under the hood. 
+SRAM memory is probably the most important memory unit inside a microcontroller-based system; optimizing the SRAM usage is essential for designing reliable microcontroller-based systems. SRAM shortages are usually the most common memory problems found; SRAM optimization can help in reducing this type of issue.
 
-The ideal way to use the Print Line command is to use the `F()` String Wrapper around the literals. This will lead us to following piece of code. 
+#### String Wrapper
 
-```cpp
+`Serial.print()` or `Serial.println()` instructions uses SRAM space, which can be convenient but not desirable. The ideal way to use a `Serial.print()` or `Serial.println()` instruction is with the use of the **`F()` String wrapper** around the literals. For example: 
+
+```arduino
 Serial.println(F("Something"));
 ```
 
-By wrapping the String with `F()`, will move the Strings to Flash memory only rather than to use SRAM space also. It can be observed as offloading such data to Flash memory instead of SRAM. 
-
-Flash memory is much more spacious than SRAM size, so it is better to use the Flash space than using SRAM which will use Heap. This does not mean the memory space will always be available, as Flash memory does have limited space too. It is not recommendable to cloag the code structure with Print Line, but to use them where they most matter for such applications with minimized implementation. 
+Wrapping the String `Something` with the `F()` wrapper will **move the Strings to Flash memory only rather than to use SRAM space** also. Using the `F()` wrapper can be observed as offloading such data to Flash memory instead of SRAM. Flash memory is much more spacious than SRAM, so it is better to use Flash memory space than SRAM, which will use `heap` section. This does not mean that memory space will always be available, as Flash memory does have limited space. It is not recommended to clog code with `Serial.print()` or `Serial.println()` instructions, but use them where they most matter inside the code.
 
 #### PROGMEM
-It is not always with the literal String that occupies the SRAM space, but also using Global Variables which also takes up quite good amount of SRAM. As Global and Static variables are streamed to SRAM space, and pushes the Heap towards the Stack. The space occupied by this variables streamed to SRAM space will be saved at its location and will not be changing, meaning more of these variables are created, they will use more space and consequently, system failure due to low and poor memory management. 
 
-PROGMEM stands simply for **Program Memory**. We will use Program memory to store variable data offloading to Flash Memory space. As it goes same as to String Wrapper F(), PROGMEM uses Flash Memory space for its implementation. The only disadvantage presented using PROGMEM is the Read Speed. Using RAM will provide much faster Read Speed, but PROGMEM, as it uses Flash Memory, it will be slower than RAM, given the same data size. Thus, it is important to design the software knowing which variables are crucial and which has lower priority. It is one of the many factors that needs to be considered when developing the software, but this will lead to have nicely designed code architecture.
+Not only Strings occupy SRAM space, but **global variables** also take up quite a good amount of SRAM space. As global and static variables are streamed into SRAM space and push the `heap` memory section towards the `stack`. The space occupied by these variables streamed into SRAM space will be saved at its location and will not be changing, meaning more of these variables are created, they will use more space, and consequently, the system presenting problems and issues due to poor memory management. 
 
-To use the PROGMEM, it can begin with following code fragment. 
+`PROGMEM`, which stands for **Program Memory**, can be used to store variable data into Flash memory space, just as the `F()` wrapper described before, but the use of `PROGMEM` presents one disadvantage: data read speed. Using RAM will provide a much faster data read speed, but `PROGMEM`, as it uses Flash memory, will be slower than RAM, given the same data size. Thus, it is essential to design code knowing which variables are crucial and which do not or have a lower priority. 
 
-```cpp
+The use of `PROGMEM` in an AVR-based Arduino board is shown in the example code below:
+
+```arduino
 #include <avr/pgmspace.h>
 
-// Basic PROGMEM Define Structure 
+// Basic PROGMEM structure 
 const PROGMEM DataType Variable_Name[] = {var0, var1, var2 ...};
 
-// Unsigned 16 Bit int
+// Storing an unsigned, 16-bit, integer
 const PROGMEM uint16_t NumSet[] = {0, 1, 1, 2, 3, 5, 8 ...};
 
-// Storing Char
-const char greetMessage[] PROGMEM = {"Hello There"};
+// Storing a char in PROGMEM
+const char greetMessage[] PROGMEM = {"Something"};
 ```
 
-***For In-Depth detail about PROGMEM, please read [here](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/)***
+***For more information about PROGMEM, check [this](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/) article.***
 
-#### Non Dynamic Memory Allocation 
-Dynamic Memory Allocation usually is a good method if the given RAM size is big enough to get around with, from MegaBytes and so on. However, for embedded devices counting every Byte of the RAM, the process becomes hostile for RAM.
+**ADD REFERENCE HERE, DOES THIS WORKS FOR ARM ALSO?**
 
-Dynamic Memory Allocations cause **Heap fragmentation**. With heap fragmentation, many areas of the RAM affected by it cannot reused again, leaving dead Byte that can be taken as an advantage for other tasks. On top of it, when dynamic allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the Heap Size. So to avoid Heap or RAM fragmentation as much as possible, you can follow following rules to apply into code architecture design. 
+#### Non-Dynamic Memory Allocation 
 
-- Prioritize using **Stack** than **Heap** if possible to do so.
-  - Stack memory is fragmentation free and can be freed up completely when the function returns. Heap in contrast ma not free up the space even though it was instructed to do so. Using Local Variables will help to do this and try not to use dynamic memory allocation, composed of different calls: `malloc, calloc, realloc`.
+Dynamic memory allocation is usually a suitable method if the RAM size of the system is big enough to get around with; however, for microcontroller-based systems, such as embedded systems, counting every Byte of RAM is not recommended.
 
-- Reduced Global and Static Data if possible to do so.
-  - Meantime the code is running, memory area occupied by these data will not be freed up. Meaning the data won't be modified as it is constant data taking up the precious space.
+Dynamic memory allocations cause **`heap` fragmentation**. With `heap` fragmentation, many areas of RAM affected by it cannot be reused again, leaving dead Bytes that can be taken as an advantage for other tasks. On top of it, when dynamic memory allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the `heap` size. So to avoid `heap` or RAM fragmentation as much as possible, the following rules can be followed: 
 
-- Short Strings / Literals
-  - It is good practice to keep the literal Strings as short as possible. Single char takes **One** Byte of RAM, so shorter the better memory space usage. This does not mean, keeping it short and using it in several different areas of the code is possible. Use it when it is absolutely required and keep as short as possible to spare RAM space for other task functions. 
+- Prioritize using the **`stack`** rather than the **`heap`**:
+  
+  - `Stack` memory is fragmentation-free and can be freed up thoroughly when the function returns. `Heap`, in contrast, may not free up the space even though it was instructed to do so. Using local variables will help to do this and try not to use dynamic memory allocation, composed of different calls: `malloc, calloc, realloc`.
 
-  - Arrays are also recommended to be at a minimum size. If it requires to resize the array, you can always re-set the array size in the code. It may be a tedious, also non-efficient method to hard-code the array sizes. But if the code utilizes small array sizes and less than 3 arrays, it may be suffice via manual resizing, knowing the requirements. A smart way to do this is resizeable array with limited size. In which the tasks will use the array without going over the size boundary, thus it is suitable for extensive code size. Although, the limit of the array size must be analyzed and kept as small as possible. 
+- Reduced global and static data (if possible):
+  
+  - Meantime the code is running, memory area occupied by these data will not be freed up. The data will not be modified as constant data takes up precious space.
+
+- Short Strings/Literals:
+  
+  - It is good to keep Strings/literals as short as possible. A single char takes **one** Byte of RAM, so the shorter, the better memory space usage. This does not mean keeping it short and using it in several different code areas is possible. Use it when required and keep it as short as possible to spare RAM space for other tasks.
+
+  - Arrays are also recommended to be at a minimum size. If it requires resizing the array, you can always re-set the array size in code. It may be a tedious, also non-efficient method to hard-code the array sizes. However, if the code utilizes small array sizes and less than three arrays, it may suffice via manual resizing, knowing the requirements. An intelligent way to do this is a resizeable array with limited size. The tasks will use the array without going over the size boundary. Thus it is suitable for extensive code. Although, the limit of the array size must be analyzed and kept as small as possible.
 
 #### RESERVE()
-If the tasks work with the Strings, that changes in its size depending on the operation outcome, `RESERVE()` is way to go. This function will help to reserve buffer space and pre-allocate for String variable, which changes in its size, and avoid fragmentation. String variable that changes in its size could be a result of `int` type variable wrapped to be used as a `String` for example.
 
-To use the `RESERVE()` function, it is possible to begin usage with following code piece.
+If tasks in code work with Strings, that changes in its size depending on the operation outcome, `RESERVE()` is way to go. This function will help to reserve buffer space and pre-allocate for a String variable, which changes in its size, and avoid memory fragmentation. String variable that changes in its size could be a result of an `int` type variable wrapped to be used as a `String`, for example.
+
+To use the `RESERVE()` instruction, it is possible to begin usage with following code piece.
 
 ```cpp
 // String_Variable is variable of String type
@@ -334,6 +351,7 @@ String_Variable.reserve(Alloc_Size);
 ***For more information about the `RESERVE()` function, please check out [here](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/reserve/)***
 
 #### Buffer Size Control
+
 Backend processes also requires memory pool for its processing purpose. It is something in which the machine will work on according to the size of the memory pool defined. This Buffer size can be user defined, meaning it can be can reduced to allocate lower memory size. It is similar to defining Array size, in which it is important not to allocate excessive size when it will use only third portion of the defined size. 
 
 In between backend services, Serial communication defines the needed memory pool as Serial Buffer Size. Bigger serial buffer assists in establishing high speed communication, relative to the device that is interchanging data stream. If high speed communication is not part of the requiremente, the buffer size can be redefined to save some memory consumption. This is possible to do so by modifying the `HardwareSerial.h` that comes with Arduino IDE compiler, searching the following line. 
@@ -347,6 +365,7 @@ In between backend services, Serial communication defines the needed memory pool
 Libraries, or external modules that involve in code architecture development, also uses Buffer pool for better computing performance. Although, depending on the requirement, smooth performance might be cherry on top for the code architecture that is being developed. It is feasible to modify the buffer size that is designated in the library code.
 
 #### Corrective Data Type Usage
+
 Implementation of adequate data type leads to a good overall code architecture. It may be desirable for the developer to use easiest or the most accessible data type to handle the data stream. However, it is important to consider the amount of memory space that it takes up when using certain data types.
 
 The Data Types exist to ease data stream format and to be handled without making illegal access. The illegal access in terms of data types are meant when the data is handled in the code with incompatible format. So it is a good practice to not to abuse the the data type and use only convenient types for every data bits. Rather, design and allocate memory carefully according to the requirements, which will help to reserve some memory space if further designed tasks needs extra space.
