@@ -123,10 +123,11 @@ Depending on the region, it will require to use the appropriate antenna for the 
 
 The LoRa® Connection tutorial with in-depth details on how to power up the module and establish connection to The Things Network (TTN), please go [here]() for more information. 
 
-##### Cell Modem Initialization on Portenta Max Carrier
-##### 1. Cat-M1
+#### Cell Modem - SARA-R412M-02B
 
-##### 2. NB-IoT
+The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires SIM card integration, which can be fulfilled by intriducing SIM card in the available microSIM slot (SIM1). The modem has dedicated SMA connector (J3) for the antenna. 
+
+***Please DO NOT USE the cellular modem without the external antenna attached to the SMA connector. It might damage the Portenta Max Carrier if used without.***
 
 #### 1.5. Audio Interfaces
 
@@ -250,7 +251,7 @@ The following peripheral table will help you guide through quickly about the sel
 You now have a quickstart guide of the Portenta Max Carrier with its rich modules and peripherals to design and implement real world solutions. The Portenta Max Carrier provides wide spectrum of tools and ports to enable a scalable design solution. With this guide, you now also acquired brief knowledge about the Portenta Max Carrier and will be able to solidify the requirements and devise more clearly. 
 
 ### Next Steps
-In-depth guides for each module on-board Portenta Max Carrier can be found under each section of the features listed previously on this guide. 
+In-depth guides for each distinctive module on-board Portenta Max Carrier can be found under each section of the features listed previously on this guide. 
 
 ## Troubleshooting
 One may encounter issues setting up and initializing for the first time the Portenta Max Carrier. Following troubleshooting will help you with the possible issues that might occur in the beginning. 
