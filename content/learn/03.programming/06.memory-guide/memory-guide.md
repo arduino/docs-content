@@ -194,7 +194,7 @@ Notice that the compiler's output changes depending on if the board is AVR-based
 
 ### SRAM Memory Measurement
 
-Sometimes, there are situations where even when code is compiled and uploaded successfully by the IDE into a board, it suffers from sudden halts. These issues are likely due to memory resource-hogging or insufficient memory to allocate. To solve this, it is necessary to understand which code sector the memory demand is going beyond the available resources. The following example code can be used to **measure SRAM usage**:
+Sometimes, there are situations where even when code is compiled and uploaded successfully by the IDE into a board, it suffers from sudden halts. These issues are likely due to memory resource-hogging or insufficient memory to allocate. It is necessary to understand which code sector the memory demand is going beyond the available resources to solve this. The following example code can be used to **measure SRAM usage**:
 
 ```arduino
 void display_freeram() {
@@ -322,55 +322,55 @@ Dynamic memory allocation is usually a suitable method if the RAM size of the sy
 
 Dynamic memory allocations cause **`heap` fragmentation**. With `heap` fragmentation, many areas of RAM affected by it cannot be reused again, leaving dead Bytes that can be taken as an advantage for other tasks. On top of it, when dynamic memory allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the `heap` size. So to avoid `heap` or RAM fragmentation as much as possible, the following rules can be followed: 
 
-- Prioritize using the **`stack`** rather than the **`heap`**:
+- **Prioritize using the `stack` rather than the `heap`**:
   
   - `Stack` memory is fragmentation-free and can be freed up thoroughly when the function returns. `Heap`, in contrast, may not free up the space even though it was instructed to do so. Using local variables will help to do this and try not to use dynamic memory allocation, composed of different calls: `malloc, calloc, realloc`.
 
-- Reduced global and static data (if possible):
+- **Reduced global and static data (if possible)**:
   
   - Meantime the code is running, memory area occupied by these data will not be freed up. The data will not be modified as constant data takes up precious space.
 
-- Short Strings/Literals:
+- **Use short Strings/literals**:
   
   - It is good to keep Strings/literals as short as possible. A single char takes **one** Byte of RAM, so the shorter, the better memory space usage. This does not mean keeping it short and using it in several different code areas is possible. Use it when required and keep it as short as possible to spare RAM space for other tasks.
 
-  - Arrays are also recommended to be at a minimum size. If it requires resizing the array, you can always re-set the array size in code. It may be a tedious, also non-efficient method to hard-code the array sizes. However, if the code utilizes small array sizes and less than three arrays, it may suffice via manual resizing, knowing the requirements. An intelligent way to do this is a resizeable array with limited size. The tasks will use the array without going over the size boundary. Thus it is suitable for extensive code. Although, the limit of the array size must be analyzed and kept as small as possible.
+  - **Arrays** are also recommended to be at a minimum size. If it requires resizing the array, you can always re-set the array size in code. It may be a tedious, also non-efficient method to hard-code the array sizes. However, if the code utilizes small array sizes and less than three arrays, it may suffice via manual resizing, knowing the requirements. An intelligent way to do this is a resizeable array with limited size. The tasks will use the array without going over the size boundary. Thus it is suitable for extensive code. Although, the limit of the array size must be analyzed and kept as small as possible.
 
-#### RESERVE()
+#### Reserve Function
 
-If tasks in code work with Strings, that changes in its size depending on the operation outcome, `RESERVE()` is way to go. This function will help to reserve buffer space and pre-allocate for a String variable, which changes in its size, and avoid memory fragmentation. String variable that changes in its size could be a result of an `int` type variable wrapped to be used as a `String`, for example.
+In tasks in code work with Strings that change in size depending on the operation outcome, `reserve()` is the way to go. This function will help **reserve buffer space and pre-allocate for a String variable**, changing its size and avoiding memory fragmentation. A String variable that changes in its size could result from an int type variable wrapped to be used as a String, for example.
 
-To use the `RESERVE()` instruction, it is possible to begin usage with following code piece.
+The following code shows how to use the `reserve()` instruction:
 
-```cpp
-// String_Variable is variable of String type
-// Alloc_Size is memory to be pre-allocated in number of Bytes with unsigned int type
+```arduino
+// String_Variable is an String type variable
+// Alloc_Size is the memory to be pre-allocated in number of Bytes with unsigned int type
 String_Variable.reserve(Alloc_Size);
 ```
 
-***For more information about the `RESERVE()` function, please check out [here](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/reserve/)***
+***Please check out [here](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/reserve/) for more information about the `reserve()` function.***
 
 #### Buffer Size Control
 
-Backend processes also requires memory pool for its processing purpose. It is something in which the machine will work on according to the size of the memory pool defined. This Buffer size can be user defined, meaning it can be can reduced to allocate lower memory size. It is similar to defining Array size, in which it is important not to allocate excessive size when it will use only third portion of the defined size. 
+Backend processes also require a memory pool for their processing purpose. It is something on which the system will work according to the size of the memory pool defined. This **buffer size can be user-defined**, which can be reduced to allocate a lower memory size. Think about defining an array variable size, in which it is important not to allocate excessive size when it uses only a third portion of the defined size.
 
-In between backend services, Serial communication defines the needed memory pool as Serial Buffer Size. Bigger serial buffer assists in establishing high speed communication, relative to the device that is interchanging data stream. If high speed communication is not part of the requiremente, the buffer size can be redefined to save some memory consumption. This is possible to do so by modifying the `HardwareSerial.h` that comes with Arduino IDE compiler, searching the following line. 
+Let us discuss an example: serial communications in Arduino. Serial communications is a regularly used service in Arduino-based systems; Serial communications in Arduino work using the preinstalled Serial library (external libraries can also emulate serial communications using software). In between backend services, serial communications define the needed memory pool as a buffer with a defined size. If high-speed serial communication is not part of the requirements, the serial buffer size can be redefined to save some memory consumption. This can be made easily by modifying the following code line in the  `HardwareSerial.h` file that can be found in the installation folder of the Arduino IDE:
 
-```cpp
+```arduino
 #define SERIAL_TX_BUFFER_SIZE 64
 
 #define SERIAL_RX_BUFFER_SIZE 64
 ```
 
-Libraries, or external modules that involve in code architecture development, also uses Buffer pool for better computing performance. Although, depending on the requirement, smooth performance might be cherry on top for the code architecture that is being developed. It is feasible to modify the buffer size that is designated in the library code.
+External libraries can usually be modified to optimize buffer sizes used for performing specific tasks of the libraries.
 
 #### Corrective Data Type Usage
 
-Implementation of adequate data type leads to a good overall code architecture. It may be desirable for the developer to use easiest or the most accessible data type to handle the data stream. However, it is important to consider the amount of memory space that it takes up when using certain data types.
+Implementation of adequate **data type** leads to a good overall code architecture. It may be desirable for developers to use easiest or the most accessible data type to handle the data in code. However, it is important to consider the amount of memory space that it takes up when using certain data types.
 
-The Data Types exist to ease data stream format and to be handled without making illegal access. The illegal access in terms of data types are meant when the data is handled in the code with incompatible format. So it is a good practice to not to abuse the the data type and use only convenient types for every data bits. Rather, design and allocate memory carefully according to the requirements, which will help to reserve some memory space if further designed tasks needs extra space.
+Data types exist to ease data stream format and to be handled without making illegal access. The illegal access in terms of data types are meant when the data is handled in the code with incompatible format. So it is a good practice to not to abuse the the data type and use only convenient types for every data bits. Rather, design and allocate memory carefully according to the requirements, which will help to reserve some memory space if further designed tasks needs extra space.
 
-Following table shows some of the existing data types to opt out for more options. 
+The following table shows basic value data types in Arduino:  
 
 | Data Type              | Byte Size   | Range                                 | Format Specifier    | 
 | :--------------------: | :---------: | :-----------------------------------: | :-----------------: |
@@ -402,21 +402,4 @@ Sometimes the developer would have to use the EEPROM as an alternative storage f
 
 ***`FlashStorage` library by Christian Maglie can be accessed by [here](https://github.com/cmaglie/FlashStorage)***
 
-Above library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, the Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability. 
-
-## Tips & Troubleshooting
-
-Notice that with boards that do not have a lot of SRAM available, like the UNO. It's easy to use it all up by having lots of strings in your program.  For example, a declaration like:
-```arduino
-char message[] = "I support the Cape Wind project.";
-```
-
-puts 33 bytes into SRAM (each character ta|kes a byte, plus the '\0' terminator).  This might not seem like a lot, but it doesn't take long to get to 2048, especially if you have a large amount of text to send to a display, or a large lookup table, for example.
-
-If you run out of SRAM, your program may fail in unexpected ways; it will appear to upload successfully, but not run, or run strangely. To check if this is happening, you can try commenting out or shortening the strings or other data structures in your sketch (without changing the code). If it then runs successfully, you're probably running out of SRAM. There are a few things you can do to address this problem:
-
-- If your sketch talks to a program running on a (desktop/laptop) computer, you can try shifting data or calculations to the computer, reducing the load on the Arduino.
-
-- If you have lookup tables or other large arrays, use the smallest data type necessary to store the values you need; for example, an [int](/en/Reference/Int) takes up two bytes, while a [byte](arduino.cc/en/Reference/Byte) uses only one (but can store a smaller range of values).
-
-- If you don't need to modify the strings or data while your sketch is running, you can store them in flash (program) memory instead of SRAM; to do this, use the [PROGMEM](arduino.cc/en/Reference/PROGMEM) keyword.
+Above library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, the Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability.
