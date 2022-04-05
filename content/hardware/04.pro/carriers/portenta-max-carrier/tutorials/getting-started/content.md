@@ -79,7 +79,7 @@ The Portenta Max carrier equips wide spectrum of connectors for expandability. T
 | **Debug Header (CN3)**                | LoRa® Debug Header                                                              |
 | **High Density Connectors (J1,J2)**   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors                               |
 | **Modem SMA Connector (J3)**          | Right-Angle SMA Connector for Modem                                             |
-| **LoRa® SMA Conenctor (J9)**          | Right-Angle SMA Connector for LoRa®                                             |
+| **LoRa® SMA Connector (J9)**          | Right-Angle SMA Connector for LoRa®                                             |
 | **FPC Connector (J4)**                | 2-1734248-0 FPC Connector                                                       |
 | **JTAG Header (CN1)**                 | FTSH-105-01-F-DV 10-pin JTAG Header                                             | 
 | **USB DBG0 (J10)**                    | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS                          | 
@@ -255,7 +255,7 @@ In-depth guides for each module on-board Portenta Max Carrier can be found under
 ## Troubleshooting
 One may encounter issues setting up and initializing for the first time the Portenta Max Carrier. Following troubleshooting will help you with the possible issues that might occur in the beginning. 
 
-- When sketch upload fails, please check if the Portenta H7 attached to Portenta Max Carrier is in bootloader mode. Double-press the RESET button and the Green LED will be waving, indicating it has entered bootloader mode. Pleae retry uploading the sketch afterward.
+- When sketch upload fails, please check if the Portenta H7 attached to Portenta Max Carrier is in bootloader mode. Double-press the RESET button and the Green LED will be waving, indicating it has entered bootloader mode. Please retry uploading the sketch afterward.
 
 - Verify that the BOOT DIP switch of the Portenta Max Carrier has been configured to an address. Otherwise, the paired Portenta H7 will go into bootloader mode after power-on and it will not initialize the program. 
 
