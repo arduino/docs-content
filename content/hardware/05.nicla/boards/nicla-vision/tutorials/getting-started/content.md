@@ -33,7 +33,7 @@ The OpenMV IDE is meant to provide an Arduino like experience for simple machine
 
 Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/latest/) scripts on the Nicla Vision board. MicroPython provides a lot of classes and modules that make it easy to quickly explore the features of the Nicla Vision. In this tutorial you will first download the OpenMV IDE and set up the development environment. [Here](https://openmv.io/) you can read more about the OpenMV IDE. OpenMV comes with its own firmware that is built on MicroPython. You will then learn to write a simple script that will blink the on-board RGB LED using some basic MicroPython commands.
 
-***Before proceeding with the tutorial please update the board's bootloader. You can do this by first downloading the latest version of the "Mbed OS Nicla core" in the Arduino IDE. Next go to "File > Examples > STM32H747_System > STM32H747_updateBootloader" and upload this sketch to your board. After the sketch is uploaded follow the instructions in the serial monitor.***
+***Before proceeding with the tutorial please update the board's bootloader. You can do this by first downloading the latest version of the "Mbed OS Nicla core" in the Arduino IDE. Then go to "File > Examples > STM32H747_System > STM32H747_updateBootloader" and upload this sketch to your board. After the sketch is uploaded follow the instructions in the serial monitor.***
 
 ### 1. Downloading the OpenMV IDE
 
