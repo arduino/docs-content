@@ -26,7 +26,6 @@ Windows XP may be polling your parallel port and disrupting the bootloader burni
 [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Parport\Parameters]
 "DisableWarmPoll"=dword:00000001
 ```
-See this [forum thread](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1142106610) for details.
 
 ## Versions of the Bootloader
 There are different versions of the bootloader - both in order to work on different hardware and because it has changed over time.
