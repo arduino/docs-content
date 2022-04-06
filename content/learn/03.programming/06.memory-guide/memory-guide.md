@@ -20,6 +20,8 @@ Memory blocks are essential parts of modern embedded systems, especially microco
 
 As shown in the image below, memory blocks in microcontrollers are usually described as **arrays**. Memory arrays are divided into **cells** that can store data and be accessed using a unique identifier representing its **address** or position relative to the memory array. Information in memory cells is stored using binary digits (bits), usually organized in bytes (8-bits); it can also be retrieved later by the MCU or other components of a microcontroller-based system. 
 
+![Memory blocks.](assets/memory-guide-001.png)
+
 Memory in computing systems can be **volatile** or **non-volatile**. Volatile memory is a **temporary memory**, this means that data is stored while the system is running, but it is lost forever when the system is turned off. Non-volatile memory is **permanent memory**; data is not lost even if the system is turned off. 
 
 ## Memory Architectures 101
@@ -115,11 +117,13 @@ The `text` section contains instructions loaded into the flash memory; `data` se
 
 In hybrid ARM architectures, a so called **memory map** is implemented, with a different address map configuration of 32-bit, 36-bit, and 40-bit that depends on the requirement of System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design, while having most system control on a high level coding. Memory access instructions can be used on high level code to manage interrupt modules and built-in peripherals. All of this controlled by **Memory Management Unit (MMU)**.
 
+![Hybrid architectures.](assets/memory-guide-004.png)
+
 The memory resource is handled by the MMU. The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
 
 An example of how memory is organized in ARM-based microcontrollers, virtually and physically, is shown in the image below:
 
-![Memory organization in ARM-based microcontrollers.]()
+![Memory organization in ARM-based microcontrollers.](assets/memory-guide-002.png)
 
 The ARM-based microcontroller's memory department is organized into the following sections respectively within the address type mentioned previously:
 
