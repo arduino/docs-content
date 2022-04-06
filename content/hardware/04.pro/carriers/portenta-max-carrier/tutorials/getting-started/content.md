@@ -146,7 +146,7 @@ Inside the `GSM.begin(pin, apn, username, pass, CATNB)` function, where CATNB is
 - To use the NB-IoT network technology, please use `CATNB` as the argument
 - To use the Cat-M1 network technology, please use `CATM1` as the argument
 
-For the `client.connect(server, port);` function, the port is predefined as `80`. It is required to define the server, and the port argument if neccesary, to successfully carry out the operation. 
+For the `client.connect(server, port);` function, the port is predefined as `80`. It is required to define the server, and the port argument if necessary, to successfully carry out the operation. 
 
 #### 1.5. Audio Interfaces
 
