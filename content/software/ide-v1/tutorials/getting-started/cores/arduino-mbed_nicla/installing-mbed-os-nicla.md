@@ -88,4 +88,4 @@ If you look closely at your board, you will notice an green LED blink with an in
 
 ### Troubleshooting
 
-If you are having issues uploading a sketch to your Nicla Vision board and you are using Windows. It might be necessary to install the drivers manually. When you have the Nicla Mbed OS core installed, go to the cores folder. Usually located in **C:\Users\USER\AppData\Local\Arduino15\packages\arduino\hardware\mbed_nicla\3.0.1\cores\arduino\mbed\drivers**. Here you can find the drivers and manually install them.
+If you are having issues uploading a sketch to your **Nicla Vision** board and you are using Windows. It might be necessary to install the drivers manually. When you have the Nicla Mbed OS core installed, go to the core's folder. Usually located in **C:\Users\USER\AppData\Local\Arduino15\packages\arduino\hardware\mbed_nicla\3.0.1\drivers**. Here you can find *dpinst-amd64.exe* and *dpinst-x86.exe*, running this program will install the necessary drivers for the **Nicla Vision**.
