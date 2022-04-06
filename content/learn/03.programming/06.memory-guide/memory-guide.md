@@ -238,8 +238,6 @@ Remember that the `heap` section is where variables created during the run time 
 - **`__heap_start`**: the beginning of the `heap` section. 
 - **`__brkval`**: the last memory address pointer used by the `heap`.
 
-**ADD REFERENCE HERE, DOES THIS WORKS FOR ARM ALSO?**
-
 ### EEPROM Memory Measurement
 
 EEPROM memory management can be done easily using native libraries already installed into the Arduino IDE. The `EEPROM` library can be used to read, write and erase the EEPROM memory. The following code shows how a byte of information can be stored in the EEPROM memory and then read using the `write` and `read` functions:
