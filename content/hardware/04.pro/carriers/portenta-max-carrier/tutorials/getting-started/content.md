@@ -125,9 +125,28 @@ The LoRa® Connection tutorial with in-depth details on how to power up the modu
 
 #### Cell Modem - SARA-R412M-02B
 
-The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires SIM card integration, which can be fulfilled by intriducing SIM card in the available microSIM slot (SIM1). The modem has dedicated SMA connector (J3) for the antenna. 
+The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing **2G / Cat-M1 / NB-IoT** connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires SIM card integration, which can be fulfilled by intriducing SIM card in the available microSIM slot (SIM1). The modem has dedicated SMA connector (J3) for the antenna. 
 
 ***Please DO NOT USE the cellular modem without the external antenna attached to the SMA connector. It might damage the Portenta Max Carrier if used without.***
+
+To begin using the modem, it will require some packages to be installed beforehand. Given the network technology, Cat-M1 and NB-IoT, it will require the use of `GSMClient` library. If the library is not installed or needs to be updated, please make sure to have the `Arduino Mbed OS Portenta Core` up to date from the board manager. 
+
+We will use the `arduino_secrets.h` header file for PIN and APN configuration of the SIM card that will be inserted into microSIM slot on-board Portenta Max Carrier. Following code pieces are to be used to initialize the GSM and set the general network configuration. 
+
+```cpp
+// Initializes GSM 
+GSM.begin(pin, apn, username, pass, CATNB);
+
+// Establishes connection to desired server 
+client.connect(server, port);
+```
+
+Inside the `GSM.begin(pin, apn, username, pass, CATNB)` function, where CATNB is the fifth argument of the function, must be defined to which network technology will be used. 
+
+- To use the NB-IoT network technology, please use `CATNB` as the argument
+- To use the Cat-M1 network technology, please use `CATM1` as the argument
+
+For the `client.connect(server, port);` function, the port is predefined as `80`. It is required to define the server, and the port argument if neccesary, to successfully carry out the operation. 
 
 #### 1.5. Audio Interfaces
 
@@ -151,6 +170,8 @@ Part of the development process, debugging process is crucial and it is required
 ***For more in-depth information about Debugging, please read [Debugging Fundamentals](https://docs.arduino.cc/learn/microcontrollers/debugging).***
 
 ### 2. Basic Setup of the Portenta Max Carrier
+The Portenta Max Carrier only requires the Portenta H7 as main unit to be able to use it. External components are required to enable the on-board module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed. In case it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update. 
+
 To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires to set **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
 Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. This will help to understand the board is in Boot mode and not turned off due to unavailable electric supply as it shutted off. As the power lines are alive even if the board shows no indication of operating instance. 
