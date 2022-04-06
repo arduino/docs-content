@@ -101,6 +101,8 @@ In microcontroller-based systems, Erasable Programmable Read-Only Memory, or EEP
 
 As stated before, Arduino® boards are mainly based on two families of microcontrollers, AVR® and ARM®; it is important to know that **memory allocation differs in both architectures**. In Harvard-based AVR architecture, memory is organized as shown in the image below:
 
+![Memory using Harvard architecture.](assets/memory-guide-003.png)
+
 Important to mention about AVR-based Arduino boards is how their SRAM is organized into different sections:
 
 - `Text`
@@ -116,6 +118,8 @@ In hybrid ARM architectures, a so called **memory map** is implemented, with a d
 The memory resource is handled by the MMU. The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
 
 An example of how memory is organized in ARM-based microcontrollers, virtually and physically, is shown in the image below:
+
+![Memory organization in ARM-based microcontrollers.]()
 
 The ARM-based microcontroller's memory department is organized into the following sections respectively within the address type mentioned previously:
 
