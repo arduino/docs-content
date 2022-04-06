@@ -36,8 +36,6 @@ The von Neumann architecture, named after the mathematician, physicist, and comp
 
 Both are accessed by the CPU using the same communications bus, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
 
-**ADD IMAGE HERE**
-
 ### Harvard Architecture
 
 The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. This architecture's main characteristic is that it uses **two separate memory units**, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
@@ -127,21 +125,6 @@ An example of how memory is organized in ARM-based microcontrollers, virtually a
 
 ![Memory organization in ARM-based microcontrollers.](assets/memory-guide-002.png)
 
-The ARM-based microcontroller's memory department is organized into the following sections respectively within the address type mentioned previously:
-
-**Virtual Address**
-
-  - `Kernel Code & Data`
-  - `Application Code & Data`
-
-**Physical Address**
-
-In hybrid ARM architectures, a **memory map** is implemented with different address map configurations of 32-bit, 36-bit, and 40-bit. ARM's memory map grants an interface with the barebones of the microcontroller while having the most control over memory with high-level coding. Memory access instructions can be used on high-level code to manage interrupt modules and built-in peripherals—all of this controlled by the **Memory Management Unit** (MMU). The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual memory is managed via software with memory instructions, and the physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
-
-An example of how memory is organized in ARM-based microcontrollers, virtually and physically, is shown in the image below:
-
-**ADD IMAGE HERE**
-
 The ARM-based microcontroller's memory is organized into the following sections within the address type mentioned previously:
 
 - **Virtual address:**
@@ -187,11 +170,7 @@ The following table summarizes a specific Arduino® board's memory allocation:
 
 Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is design|ed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **flash storage remaining capacity** for required headroom.
 
-Let us talk more about memory usage measurement in Arduino boards.
-
 ### SRAM & DRAM: Quick Differentiation Specification
-
-Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is designed. It is a crucial development consideration element because the resources in microcontroller-based systems are constrained and finite. Memory load could be observed either as **available RAM** at disposal for specific tasks or **Flash storage remaining capacity** for required headroom.
 
 ***To avoid run-time problems, microcontroller-based systems should always run without reaching their maximum memory capacity.***
 
@@ -289,6 +268,7 @@ Let us talk about some memory usage optimization techniques.
 Flash memory optimization is the most likely straightforward optimization possible source. Flash memory is where the capacity used by compiled code can be significantly reduced by considering some details.
 
 #### Detach Unused Sources
+
 Detaching new sources includes **unused libraries** and **code residues**. Code residues can be composed of no-longer-used functions and floating variables that take up the unnecessary space in memory. This will vastly improve the compiled code size and make a more clear compilation process.
 
 
@@ -310,6 +290,7 @@ The ideal way to use the Print Line command is to use the `F()` String Wrapper a
 ```arduino
 Serial.println(F("Something"));
 ```
+
 Wrapping the String `Something` with the `F()` wrapper will **move the Strings to Flash memory only rather than to use SRAM space** also. Using the `F()` wrapper can be observed as offloading such data to Flash memory instead of SRAM. Flash memory is much more spacious than SRAM, so it is better to use Flash memory space than SRAM, which will use `heap` section. This does not mean that memory space will always be available, as Flash memory does have limited space. It is not recommended to clog code with `Serial.print()` or `Serial.println()` instructions, but use them where they most matter inside the code.
 
 #### PROGMEM
@@ -339,11 +320,11 @@ const char greetMessage[] PROGMEM = {"Something"};
 
 Dynamic memory allocation is usually a suitable method if the RAM size of the system is big enough to get around with; however, for microcontroller-based systems, such as embedded systems, counting every Byte of RAM is not recommended.
 
-Dynamic memory allocations cause **`heap` fragmentation**. With `heap` fragmentation, many areas of RAM affected by it cannot be reused again, leaving dead Bytes that can be taken as an advantage for other tasks. On top of it, when dynamic memory allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the `heap` size. So to avoid `heap` or RAM fragmentation as much as possible, the following rules can be followed: 
+Dynamic memory allocations cause **heap fragmentation**. With heap fragmentation, many areas of RAM affected by it cannot be reused again, leaving dead Bytes that can be taken as an advantage for other tasks. On top of it, when dynamic memory allocation proceeds to de-allocate to free up the space, it does not necessarily reduce the heap size. So to avoid heap or RAM fragmentation as much as possible, the following rules can be followed: 
 
-- **Prioritize using the `stack` rather than the `heap`**:
+- **Prioritize using the stack rather than the heap**:
   
-  - `Stack` memory is fragmentation-free and can be freed up thoroughly when the function returns. `Heap`, in contrast, may not free up the space even though it was instructed to do so. Using local variables will help to do this and try not to use dynamic memory allocation, composed of different calls: `malloc, calloc, realloc`.
+  - **Stack** memory is fragmentation-free and can be freed up thoroughly when the function returns. Heap, in contrast, may not free up the space even though it was instructed to do so. Using local variables will help to do this and try not to use dynamic memory allocation, composed of different calls: `malloc, calloc, realloc`.
 
 - **Reduced global and static data (if possible)**:
   
