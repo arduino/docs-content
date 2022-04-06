@@ -50,7 +50,7 @@ The Arduino core for the Portenta H7 sits on top of the Mbed OS and allows to de
 ### Configuring the Development Environment
 In this section, we will guide you through a step-by-step process of setting up your Portenta board for running an Arduino Sketch that blinks the built-in RGB LED.
 
-***In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. We strongly advise to update the bootloader before you proceed with the next step of this tutorial! Instructions can be found [here](/tutorials/portenta-h7/por-ard-bl).***
+***In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. We strongly advise to update the bootloader before you proceed with the next step of this tutorial! Instructions can be found [here](../../tutorials/portenta-h7/updating-the-bootloader).***
 
 ### 1. The Basic Setup
 Let's begin by Plug-in your Portenta to your computer using the appropriate USB C cable. Next, open your IDE and make sure that you have the right version of the Arduino IDE or the PRO IDE downloaded on to your computer.
@@ -66,12 +66,7 @@ This step is the same for both the classic IDE and the Pro IDE. Open the board m
 
 ![Also in the Pro IDE, a search for "portenta" reveals the core that needs to be installed to support Portenta H7.](assets/por_ard_gs_bm_core_pro_ide.png)
 
-### 3. Verify the USB Connection (Windows Only)
-In this step you will check if Windows is able to detect the Portenta H7. To do so open the Windows Device manager and if everything is set up correctly you will be able to see your device listed under USB devices. Otherwise, try unplugging it and plugging it back in.
-
-![If the Portenta H7 is detected correctly, it will be listed in the device manager under USB devices.](assets/por_ard_gs_usb_driver_win.png)
-
-### 4. Uploading the Classic Blink Sketch
+### 3. Uploading the Classic Blink Sketch
 Let's program the Portenta with the classic blink example to check if the connection to the board works. There are two ways to do that:
 
 -   In the classic Arduino IDE open the blink example by clicking the menu entry File->Examples->01.Basics->Blink. You need to swap LOW and HIGH pin values as the built-in LED on Portenta is turned on by pulling it LOW.
@@ -101,7 +96,7 @@ For Portenta H7  LED_BUILTIN  represents the built-in RGB LED on the board in gr
 
 **Note:** The individual colours of the built-in RGB LED can be accessed and controlled separately. In the tutorial "Dual Core Processing"  you will learn how to control the LED to light it in different colors
 
-### 5. Upload the Blink Sketch 
+### 4. Upload the Blink Sketch 
 Now it's time to upload the sketch and see if the LED will start to blink. Make sure you select Arduino Portenta H7 (M7 core) as the board and the port to which the Portenta H7 is connected. If the Portenta H7 doesn't show up in the list of ports, go back to step 5 and make sure that the drivers are installed correctly. Once selected click Upload. Once uploaded the built-in LED should start blinking with an interval of 1 second.
 
 **Note:** The Portenta H7 has an M7 and an M4 processor which run separate cores. That's why you need to select the one to which you want to upload your sketch to (check out the tutorial "Dual Core Processing" to learn more about Portenta's processors).
