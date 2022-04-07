@@ -332,6 +332,8 @@ const PROGMEM uint16_t NumSet[] = {0, 1, 1, 2, 3, 5, 8 ...};
 const char greetMessage[] PROGMEM = {"Something"};
 ```
 
+***You can read more about PROGMEM in the [Arduino Language Reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
+
 For **ARM-based Arduino® board**, to implement similar solution, we will need to use `static const` over the variables. 
 
 ```arduino
@@ -347,8 +349,6 @@ The usage differs in different levels summarized as following:
 
 - *Class Level*
   - On a Class level, `static` declaration will mean any type of applicable data that is handled will be shared in between the instances. 
-
-***You can read more about PROGMEM in the [Arduino Language Reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
 
 #### Non-Dynamic Memory Allocation 
 
