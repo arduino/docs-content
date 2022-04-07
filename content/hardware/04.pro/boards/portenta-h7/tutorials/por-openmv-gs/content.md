@@ -41,7 +41,8 @@ Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/la
 
 Before you can start programming OpenMV scripts for the Portenta you need to download and install the OpenMV IDE.
 
-***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. As explained in the "Flashing the OpenMV Firmware" section before you proceed with the next step of this tutorial!***
+***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](/tutorials/portenta-h7/updating-the-bootloader) before you proceed with the next step of this tutorial.***
+
 
 Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
 
