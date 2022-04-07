@@ -71,7 +71,7 @@ If you are using a Nicla Vision board it will say (Arduino Nicla Vision), instea
 
 You are now ready to start using your board! The easiest way to check that everything is working, is to upload just a simple blink example to your board. This is done by navigating to **File > Examples > Nicla_System > Blink_Nicla**, if you are using a **Nicla Sense ME**.
 
-If you are using the **Nicla Vision**, then please use the **File > Examples > Scheduler > MultipleBlinks**
+If you are using the **Nicla Vision**, then please use the **File > Examples > 01.Basics > Blink**
 
 ![Selecting the blink example.](assets/install_mbed_nicla_img07.png)
 
@@ -88,4 +88,4 @@ If you look closely at your board, you will notice an green LED blink with an in
 
 ### Troubleshooting
 
-If you are having issues uploading a sketch to your **Nicla Vision** board and you are using Windows. It might be necessary to install the drivers manually. When you have the Nicla Mbed OS core installed, go to the core's folder. Usually located in **C:\Users\USER\AppData\Local\Arduino15\packages\arduino\hardware\mbed_nicla\3.0.1\drivers**. Here you can find *dpinst-amd64.exe* and *dpinst-x86.exe*, running this program will install the necessary drivers for the **Nicla Vision**.
+If you are having issues uploading a sketch to your **Nicla Vision** board and you are using Windows, it might be necessary to install the drivers manually. When you have the Nicla Mbed OS core installed, go to the core's folder, usually located in **C:\Users\USER\AppData\Local\Arduino15\packages\arduino\hardware\mbed_nicla\3.0.1\drivers**. Here you can find *dpinst-x86.exe*, running this program will install the necessary drivers for the **Nicla Vision**.
