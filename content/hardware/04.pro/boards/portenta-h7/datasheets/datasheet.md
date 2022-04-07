@@ -54,9 +54,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Connectivity</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
          <td style="text-align: center;">Ethernet FHY</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>
@@ -131,10 +131,6 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td>Voltage scaling in Run and Stop mode 6 configurable ranges</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2.95μA in Standby mode Backup SRAM OFF, RTC/LSE/ON</td>
          <td></td>
       </tr>
       <tr>

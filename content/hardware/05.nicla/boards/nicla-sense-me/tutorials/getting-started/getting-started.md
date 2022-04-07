@@ -122,8 +122,9 @@ The **Arduino_BHY2** library contains these sensors:
 ```arduino
   #include "Arduino_BHY2.h"
 
-  SensorOrientation orientation(SENSOR_ID_DEVICE_ORI);
-
+  Sensor device_orientation(SENSOR_ID_DEVICE_ORI);
+  SensorOrientation orientation(SENSOR_ID_ORI);  
+  
   void setup(){
     Serial.begin(115200);
     BHY2.begin();
