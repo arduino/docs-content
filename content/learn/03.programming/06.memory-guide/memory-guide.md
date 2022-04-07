@@ -172,8 +172,6 @@ The following table summarizes a specific Arduino® board's memory allocation:
 
 Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is design|ed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **flash storage remaining capacity** for required headroom.
 
-### SRAM & DRAM: Quick Differentiation Specification
-
 ***To avoid run-time problems, microcontroller-based systems should always run without reaching their maximum memory capacity.***
 
 Let us talk more about **memory usage measurement** in Arduino® boards.
@@ -198,7 +196,7 @@ Notice that the compiler's output changes depending on if the board is AVR-based
 
 ### SRAM Memory Measurement
 
-Sometimes, there are situations where even when code is compiled and uploaded successfully by the IDE into a board, it suffers from sudden halts. These issues are likely due to memory resource-hogging or insufficient memory to allocate. It is necessary to understand which code sector the memory demand is going beyond the available resources to solve this. The following example code can be used to **measure SRAM usage**:
+Sometimes, there are situations where even when code is compiled and uploaded successfully by the IDE into a board, it suffers from sudden halts. These issues are likely due to memory resource-hogging or insufficient memory to allocate. It is necessary to understand which code sector the memory demand is going beyond the available resources to solve this. The following example code can be used to **measure SRAM usage in AVR-based Arduino® boards**:
 
 ```arduino
 void display_freeram() {
@@ -218,6 +216,24 @@ Remember that the `heap` section is where variables created during the run time 
 
 - **`__heap_start`**: the beginning of the `heap` section. 
 - **`__brkval`**: the last memory address pointer used by the `heap`.
+
+The following example code can be used to **measure SRAM usage in ARM-based Arduino® boards**:
+
+```arduino
+extern "C" char* sbrk(int incr);
+
+void display_freeram(){
+  Serial.print(F("- SRAM left: "));
+  Serial.println(freeRam());
+}
+
+int freeRam() {
+  char top;
+  return &top - reinterpret_cast<char*>(sbrk(0));
+}
+```
+
+The code above is taken from Michael P. Flaga's library [Arduino-MemoryFree](https://github.com/mpflaga/Arduino-MemoryFree). 
 
 ### EEPROM Memory Measurement
 
@@ -316,7 +332,7 @@ const PROGMEM uint16_t NumSet[] = {0, 1, 1, 2, 3, 5, 8 ...};
 const char greetMessage[] PROGMEM = {"Something"};
 ```
 
-***You can read more about PROGMEM in the [lArduino Language Reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
+***You can read more about PROGMEM in the [Arduino Language Reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
 
 #### Non-Dynamic Memory Allocation 
 
@@ -366,7 +382,7 @@ Let us discuss an example: serial communications in Arduino. Serial communicatio
 #define SERIAL_RX_BUFFER_SIZE 64
 ```
 
-External libraries can usually be modified to optimize buffer sizes used for performing specific tasks of the libraries.
+***External libraries can usually be modified to optimize buffer sizes used for performing specific tasks of the libraries.***
 
 #### Corrective Data Type Usage
 
@@ -394,14 +410,25 @@ The following table shows basic value data types in Arduino:
 
 EEPROM memory optimization is usually not required; data that are to be used by EEPROM space do not need Flash memory as a storage source. On top of it, **it is not a good practice to offload SRAM data on EEPROM**. SRAM data are placed within volatility in mind, so offloading to EEPROM space, which is non-volatile memory, will mean the offloaded data will be engraved into EEPROM space. 
 
-With EEPROM, it is crucial to know that `write` operation is limited. The `read` operation is unlimited for EEPROM; however, the `write` operation is finite and usually capped at 100,000 cycles. Thus, it is essential to save only essential parameters for sensors or modules to work with primarily unchanging data. Additionally, avoid implementing `write` operations into loops to avoid constant `write` operations while the system is working.
+With EEPROM, it is crucial to know that `write` operation is limited. The `read` operation is unlimited for EEPROM; however, the `write` operation is finite and usually capped at 100,000 cycles. Thus, it is essential to save only essential parameters for sensors or modules to work with primarily unchanging data. Additionally, avoid implementing `write` operations into loops to avoid constant `write` operations, these operations should be minimized while the system is working.
 
-### EEPROM Emulation with Flash Memory
+#### EEPROM Emulation with Flash Memory
 
-As EEPROM is limited with write operatin cycle, it also applies same to Flash memory. Both of them are subjected to loss of data retention after the manufacturer's defined life cycle. EEPROM is based of NOR type memory, while the Flash memory is NAND type, making the EEPROM more costly than Flash memory. EEPROM works by accessing the data byte-wise, whereas Flash memory accesses block by block. 
+As EEPROM is limited with the write operation cycle, it also applies to Flash memory. Both of them are subjected to data retention loss after the manufacturer's defined life cycle. EEPROM is based on NOR-type memory, while the Flash memory is NAND type, making the EEPROM more costly than Flash memory. EEPROM works by accessing the data byte-wise, whereas Flash memory accesses block by block.
 
-Sometimes the developer would have to use the EEPROM as an alternative storage for task operations, but we clearly know that it will be impractical coding due to its size and behaviour properties. To solve this, it is possible to use Flash memory to emulate the EEPROM. Thanks to [FlashStorage](https://github.com/cmaglie/FlashStorage) library created by Chrisitan Maglie, it is possible to emulate the EEPROM by using Flash memory. 
+Sometimes the developer would have to use the EEPROM as alternative storage for task operations, but we know it will be impractical coding due to its size and behavior properties. It is possible to use Flash memory to emulate the EEPROM to solve this. Thanks to the [FlashStorage](https://github.com/cmaglie/FlashStorage) library created by Chrisitan Maglie, it is possible to emulate the EEPROM by using Flash memory.
 
-***Find out more in the [FlashStorage](https://github.com/cmaglie/FlashStorage) library by Christian Maglie.***
+***The FlashStorage library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As for EEPROM, the Flash memory is also limited in the `write` cycles. With two new additional functions stated in the library, `EEPROM.commit()` should not be called inside a loop function; otherwise, it will wipe out the Flash memory's `write` operation cycles, thus losing data retention ability.***
 
-The FlashStorage library will help you to use the Flash memory to emulate the EEPROM, but of course, please remember the EEPROM's properties when using the library. As it is for EEPROM, the Flash memory is also limited in write operation cycle. With two new additional functions stated in the library, one of them being `EEPROM.commit()` should not be called inside a loop function. Otherwise, it will wipe out the Flash memory's write operation cycles, thus loss of data retention ability.
+### Further Reading and Resources
+
+Memory architectures in microcontroller-based systems is a pretty vast topic; if you want to learn more about this topic, check out the following links:
+
+- 8-bit AVR® Core documentation in the [Microchip® Developer help site](https://microchipdeveloper.com/8avr:avrcore). Here you can find detailed information of the 8-bit AVR® Central Processing Unit (CPU).
+- ARM architecture [documentation site](https://developer.arm.com/documentation/). Here you can find detailed information of the different ARM processors. Check out the Cortex-M0+ and Cortex-M4 Technical Reference Manuals. 
+
+### References
+
+[1] S. F. Barrett and D. J. Pack, Microchip AVR® Microcontroller Primer: Programming and Interfacing, Third Edition (Synthesis Lectures on Digital Circuits and Systems), Morgan & Claypool, 2019. <br />
+[2] J. Y. Yiu, The Definitive Guide to ARM Cortex -M0 and Cortex-M0+ Processors, Second ed., Newnes, 2015.<br />
+[3] J. Yiu, The Definitive Guide to ARM® Cortex®-M3 and Cortex®-M4 Processors, Third ed., Newnes, 2014.<br />
