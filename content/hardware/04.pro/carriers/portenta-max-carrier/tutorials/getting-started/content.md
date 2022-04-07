@@ -165,12 +165,16 @@ Arduino Portenta H7 establishes I2C interface using the `Wire` library included 
 
 #### 1.6. Onboard Debugger
 
-Part of the development process, debugging process is crucial and it is required step if we are aiming now to work with industrial grade devices. The Portenta Max Carrier provides discrete debugging capability on-board. The feature can be accessed via micro USB to J-Link debugger. It is driven by STM32F405RGT6 controller and compatible with Segger® J-Link OB and Blackmagic probes. The module itself does not require Portenta H7 to be attached on the Portenta Max Carrier, meaning it does not require VBUS. 
+Part of the development process, debugging process is crucial and it is required step if we are aiming now to work with industrial grade devices. The Portenta Max Carrier provides discrete debugging capability on-board. The feature can be accessed via micro USB to J-Link debugger. 
+
+It is driven by STM32F405RGT6 controller and compatible with Segger® J-Link OB and Blackmagic probes. The module itself does not require Portenta H7 to be attached on the Portenta Max Carrier, meaning it does not require VBUS. 
 
 ***For more in-depth information about Debugging, please read [Debugging Fundamentals](https://docs.arduino.cc/learn/microcontrollers/debugging).***
 
 ### 2. Basic Setup of the Portenta Max Carrier
-The Portenta Max Carrier only requires the Portenta H7 as main unit to be able to use it. External components are required to enable the on-board module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed. In case it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update. 
+The Portenta Max Carrier only requires the Portenta H7 as main unit to be able to use it. External components are required to enable the on-board module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed. 
+
+In case it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update. 
 
 To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires to set **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
