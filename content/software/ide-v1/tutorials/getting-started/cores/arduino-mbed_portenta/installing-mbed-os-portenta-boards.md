@@ -14,7 +14,8 @@ This tutorial uses the **Arduino IDE**. You can download the editor easily from 
 
 If you are using the **Web Editor**, you can follow the [getting started with the Web Editor tutorial](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).
 
-***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. How to do so is explained in the ["Updating the Portenta Bootloader"](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) tutorial***
+***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. How to do so is explained in the ["Updating the Portenta Bootloader"](/tutorials/portenta-h7/updating-the-bootloader) tutorial***
+
 
 
 ### Boards using the Mbed core
