@@ -50,7 +50,7 @@ Connect your UNO WiFi Rev2 board to your computer and follow the instructions fo
 
 ### Mac
 
-**1.** Download the [AVRDUDE tool for Mac (.zip file)](http://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-apple-darwin12.tar.bz2) and unzip it to your Desktop folder. 
+**1.** Download the [AVRDUDE tool for Mac (.zip file)](https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-apple-darwin12.tar.bz2) and unzip it to your Desktop folder. 
 
 **2.** Open a terminal, and run the following command:
 
@@ -60,7 +60,7 @@ Connect your UNO WiFi Rev2 board to your computer and follow the instructions fo
 
 ### Windows
 
-**1.** Download the [AVRDUDE tool for Windows (.zip file)](http://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-i686-w64-mingw32.zip) and unzip it to your Desktop folder. 
+**1.** Download the [AVRDUDE tool for Windows (.zip file)](https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-i686-w64-mingw32.zip) and unzip it to your Desktop folder. 
 
 **2.** Open a command prompt (CMD), and run the following command:
 
@@ -70,7 +70,7 @@ Connect your UNO WiFi Rev2 board to your computer and follow the instructions fo
 
 ### Linux
 
-**1.** Download the [AVRDUDE tool for Linux (.zip file)](http://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-pc-linux-gnu.tar.bz2) and unzip it to your Desktop folder. 
+**1.** Download the [AVRDUDE tool for Linux (.zip file)](https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-pc-linux-gnu.tar.bz2) and unzip it to your Desktop folder. 
 
 **2.** Open a terminal, navigate to your root directory.
 
