@@ -20,8 +20,6 @@ Memory blocks are essential parts of modern embedded systems, especially microco
 
 As shown in the image below, memory blocks in microcontrollers are usually described as **arrays**. Memory arrays are divided into **cells** that can store data and be accessed using a unique identifier representing its **address** or position relative to the memory array. Information in memory cells is stored using binary digits (bits), usually organized in bytes (8-bits); it can also be retrieved later by the MCU or other components of a microcontroller-based system. 
 
-![Memory blocks.](assets/memory-guide-001.png)
-
 Memory in computing systems can be **volatile** or **non-volatile**. Volatile memory is a **temporary memory**, this means that data is stored while the system is running, but it is lost forever when the system is turned off. Non-volatile memory is **permanent memory**; data is not lost even if the system is turned off. 
 
 ## Memory Architectures 101
@@ -34,11 +32,15 @@ In the early days of computing, two computer architectures, i.e., the organizati
 
 The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. This architecture stores program data and instructions in the same memory unit. 
 
+![Von Neumann architecture.](assets/memory-guide-004.png)
+
 Both are accessed by the CPU using the same communications bus, as shown below. Von Neumann's architecture is fundamental since nearly all digital computers design have been based on this architecture.
 
 ### Harvard Architecture
 
 The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. This architecture's main characteristic is that it uses **two separate memory units**, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
+
+![Harvard architecture.](assets/memory-guide-003.png)
 
 ### Modern Architectures: Hybrids
 
@@ -103,7 +105,7 @@ In microcontroller-based systems, Erasable Programmable Read-Only Memory, or EEP
 
 As stated before, Arduino® boards are mainly based on two families of microcontrollers, AVR® and ARM®; it is important to know that **memory allocation differs in both architectures**. In Harvard-based AVR architecture, memory is organized as shown in the image below:
 
-![Memory using Harvard architecture.](assets/memory-guide-003.png)
+![AVR memory map.](assets/memory-guide-001.png)
 
 Important to mention about AVR-based Arduino boards is how their SRAM is organized into different sections:
 
@@ -116,8 +118,6 @@ Important to mention about AVR-based Arduino boards is how their SRAM is organiz
 The `text` section contains instructions loaded into the flash memory; `data` section contains variables initialized in the sketch, `BSS` section contains uninitialized data, `stack` section stores data of functions and interrupts, and `heap` section stores variables created during run time.
 
 In hybrid ARM architectures, a so called **memory map** is implemented, with a different address map configuration of 32-bit, 36-bit, and 40-bit that depends on the requirement of System On a Chip (SoC) address space with extra DRAM. The Memory Map grants interface with SoC design, while having most system control on a high level coding. Memory access instructions can be used on high level code to manage interrupt modules and built-in peripherals. All of this controlled by **Memory Management Unit (MMU)**.
-
-![Hybrid architectures.](assets/memory-guide-004.png)
 
 The memory resource is handled by the MMU. The main role of the MMU is to enable the processor to run multiple tasks independently in its own virtual memory space; the MMU then uses translation tables to establish a bridge between the virtual and the physical memory addresses. Virtual Address is managed via software with memory instructions, and Physical address is the memory system that is controlled depending on the Translation Table input given by the Virtual Address.
 
@@ -139,32 +139,34 @@ The ARM-based microcontroller's memory is organized into the following sections 
 
 The following table summarizes a specific Arduino® board's memory allocation:
 
-|      **Board**      | **Microcontroller** |    **Family**    | **Architecture** | **Flash** | **SRAM** | **EEPROM** |
-|:-------------------:|:-------------------:|:----------------:|:----------------:|:---------:|:--------:|:----------:|
-|       UNO Mini      |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
-|       UNO Rev3      |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
-|    UNO WiFi Rev2    |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
-|     UNO Rev3 SMD    |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
-|       Leonardo      |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
-|    Mega 2560 Rev3   |      ATmega2560     |        AVR       |      Harvard     |   256kB   |    8kB   |     4kB    |
-|        Micro        |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
-|         Zero        |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|    Portenta H7*     |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
-|    Nicla Sense ME   |       nRF52832      |   ARM Cortex M4  |      Harvard     |   512kB   |   64kB   |      -     |
-| Nano RP2040 Connect |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |     -     |   264kB  |      -     |
-|     MKR FOX 1200    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     MKR NB 1500     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|    MKR Vidor 4000   |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|    MKR WiFi 1010    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|       MKR Zero      |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     MKR1000 WIFI    |     ATSAMW25H18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     MKR WAN 1300    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     MKR WAN 1310    |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|         Nano        |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
-|      Nano Every     |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
-|     Nano 33 IoT     |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
-|     Nano 33 BLE     |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
-|  Nano 33 BLE Sense  |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
+|             **Board**             | **Microcontroller** |    **Family**    | **Architecture** | **Flash** | **SRAM** | **EEPROM** |
+|:---------------------------------:|:-------------------:|:----------------:|:----------------:|:---------:|:--------:|:----------:|
+|              UNO Mini             |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
+|              UNO Rev3             |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
+|           UNO WiFi Rev2           |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
+|            UNO Rev3 SMD           |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
+|              Leonardo             |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
+|           Mega 2560 Rev3          |      ATmega2560     |        AVR       |      Harvard     |   256kB   |    8kB   |     4kB    |
+|               Micro               |      ATmega32u4     |        AVR       |      Harvard     |    32kB   |   2.5kB  |     1kB    |
+|                Zero               |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+| Portenta H7 (basic configuration) |      STM32H747      | ARM Cortex M4/M7 |      Harvard     |    16MB   |    8MB   |      -     |
+|           Nicla Sense ME          |       nRF52832      |   ARM Cortex M4  |      Harvard     |   512kB   |   64kB   |      -     |
+|        Nano RP2040 Connect        |        RP2040       |  ARM Cortex M0+  |    Von Neumann   |     -     |   264kB  |      -     |
+|            MKR FOX 1200           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR NB 1500            |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|           MKR Vidor 4000          |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|           MKR WiFi 1010           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|              MKR Zero             |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR1000 WIFI           |     ATSAMW25H18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR WAN 1300           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            MKR WAN 1310           |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|                Nano               |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
+|             Nano Every            |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
+|            Nano 33 IoT            |     ATSAMD21G18     |  ARM Cortex M0+  |    Von Neumann   |   256kB   |   32kB   |      -     |
+|            Nano 33 BLE            |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
+|         Nano 33 BLE Sense         |       nRF52840      |   ARM Cortex M4  |      Harvard     |    1MB    |   256kB  |      -     |
+
+***Pro hardware SDRAM and Flash memory are highly customizable in volumes. Check out the [Pro site](https://www.arduino.cc/pro/) for more information.***
 
 ## Measuring Memory Usage in Arduino® Boards
 
@@ -314,7 +316,7 @@ const PROGMEM uint16_t NumSet[] = {0, 1, 1, 2, 3, 5, 8 ...};
 const char greetMessage[] PROGMEM = {"Something"};
 ```
 
-***You can read more about PROGMEM in the [language reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
+***You can read more about PROGMEM in the [lArduino Language Reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
 
 #### Non-Dynamic Memory Allocation 
 
@@ -349,7 +351,7 @@ String_Variable.reserve(Alloc_Size);
 ```
 
 
-***For more information about the `reserve()` function, visit [this article](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/reserve/).***
+***For more information about the `reserve()` function, visit [Arduino Language Reference](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/reserve/).***
 
 #### Buffer Size Control
 
@@ -374,27 +376,25 @@ Data types exist to ease data stream format and to be handled without making ill
 
 The following table shows basic value data types in Arduino:  
 
-| Data Type              | Byte Size   | Range                                 | Format Specifier    | 
-| :--------------------: | :---------: | :-----------------------------------: | :-----------------: |
-| **char, signed char**  | 1           | -128 ~ 127                            | %c                  | 
-| **unsigned char**      | 1           | 0 ~ 255                               | %c                  |
-| **int, signed int**    | 2 , 4       | -32,768 ~ 32,767                      | %d, %i              | 
-| **unsigned int**       | 2 , 4       | 0 ~ 65,535                            | %u                  |
-| **signed short int**   | 2           | -32,768 ~ 32,767                      | %hd                 | 
-| **unsigned short int** | 2           | 0 ~ 65,535                            | %hu                 |
-| **long int**           | 4           | -2,147,483,648 ~ 2,147,483,647        | %ld, %li            |
-| **long long int**      | 8           | -(2^63-1) ~ 2^63-1 (C99 Standard)     | %lld, %lli          |
-| **unsigned long int**  | 4           | 0 to 4,294,967,295                    | %lu                 |
-| **unsigned long long int**  | 8           | 2^64-1 (C99 standard)            | %llu                |
-| **float**              | 4           | 1E-37 ~ 1E+37 + 6 Digit Precision     | %f                  |
-| **double**             | 8           | 1E-37 ~ 1E+37 + 10 Digit Precision    | %lf                 |
-| **long double**        | 10          | 1E-37 ~ 1E+37 + 10 Digit Precision    | %Lf                 |
+|     **Type**    | **Byte Length** |       **Range of Values**       |
+|:---------------:|:---------------:|:-------------------------------:|
+|    `boolean`    |        1        | Limited to logic true and false |
+|      `char`     |        1        |           -128 to 128           |
+| `unsigned char` |        1        |             0 to 255            |
+|      `byte`     |        1        |             o to 255            |
+|      `int`      |        2        |        -32,768 to 32,767        |
+|  `unsigned int` |        2        |           0 to 65,535           |
+|      `word`     |        2        |           0 to 65,535           |
+|      `long`     |        4        | -2,147,483,648 to 2,147,483,647 |
+| `unsigned long` |        4        |        0 to 4,294,967,295       |
+|     `float`     |        4        | -3.4028235E+38 to 3.4028235E+38 |
+|     `double`    |        4        | -3.4028235E+38 to 3.4028235E+38 |
 
 ### EEPROM Memory Optimization
 
-EEPROM memory optimization usually is not required, as it will be used mainly to store external module tuning constant. The data which are to be used by EEPROM space are the ones does not really need flash memory as storage source. On top of it, it is not a good practice to offload SRAM data on EEPROM space. SRAM data are placed within volatility in mind, so offloading to EERPOM space, which is non-volatile memory, will mean the offloaded data will be engraved into EEPROM space. As result, the it is impractical use of storage and the variable will change in its value, making the old data unusable. 
+EEPROM memory optimization is usually not required; data that are to be used by EEPROM space do not need Flash memory as a storage source. On top of it, **it is not a good practice to offload SRAM data on EEPROM**. SRAM data are placed within volatility in mind, so offloading to EEPROM space, which is non-volatile memory, will mean the offloaded data will be engraved into EEPROM space. 
 
-One thing to consider with EEPROM is the read and write operation cycles. With EEPROM, it is crucial to know that write operation is limited. The read operation is unlimited for EEPROM. However, the write operation is finite and capped to 100,000 cycles of operation usually. Thus, it is important to save only parameters that are absolutely important for sensors or modules to work with mostly unchanging data. Additionally avoid implementing in a loop code, to avoid constant write operation, as it will wipe out, most likely in instant. 
+With EEPROM, it is crucial to know that `write` operation is limited. The `read` operation is unlimited for EEPROM; however, the `write` operation is finite and usually capped at 100,000 cycles. Thus, it is essential to save only essential parameters for sensors or modules to work with primarily unchanging data. Additionally, avoid implementing `write` operations into loops to avoid constant `write` operations while the system is working.
 
 ### EEPROM Emulation with Flash Memory
 
