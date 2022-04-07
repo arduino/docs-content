@@ -1,7 +1,7 @@
 ---
 tags: [Yún]
 author: Arduino
-title: 'Arduino Yún Yún WiFi Status'
+title: 'Arduino Yún WiFi Status'
 description: 'Runs a pre-configured script that reports back the strength of the current WiFi network.'
 ---
 
