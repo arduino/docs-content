@@ -317,7 +317,7 @@ Not only Strings occupy SRAM space, but **global variables** also take up quite 
 
 `PROGMEM`, which stands for **Program Memory**, can be used to store variable data into Flash memory space, just as the `F()` wrapper described before, but the use of `PROGMEM` presents one disadvantage: data read speed. Using RAM will provide a much faster data read speed, but `PROGMEM`, as it uses Flash memory, will be slower than RAM, given the same data size. Thus, it is essential to design code knowing which variables are crucial and which do not or have a lower priority.
 
-The use of `PROGMEM` in an AVR-based Arduino board is shown in the example code below:
+The use of `PROGMEM` in an **AVR-based Arduino® board** is shown in the example code below:
 
 ```arduino
 #include <avr/pgmspace.h>
@@ -331,6 +331,22 @@ const PROGMEM uint16_t NumSet[] = {0, 1, 1, 2, 3, 5, 8 ...};
 // Storing a char in PROGMEM
 const char greetMessage[] PROGMEM = {"Something"};
 ```
+
+For **ARM-based Arduino® board**, to implement similar solution, we will need to use `static const` over the variables. 
+
+```arduino
+static const int Variable = Data;
+```
+
+The usage differs in different levels summarized as following:
+- *Namespace Level*
+  - At Namespace level, we are pointing at the variables and it is differed whether `static` is declared or not. If declared, it infers that the variable is explicit static; on the other hand, it is implicit static declaration.
+
+- *Function Level*
+  - If it is declared within `static`, any type of applicable data that is to be managed will be between function calls. 
+
+- *Class Level*
+  - On a Class level, `static` declaration will mean any type of applicable data that is handled will be shared in between the instances. 
 
 ***You can read more about PROGMEM in the [Arduino Language Reference](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/).***
 
