@@ -192,9 +192,9 @@ The Arduino® Portenta Max Carrier uses the Arduino® Portenta H7 as the main ce
 
 Rest of the connection population will depend on the development requirement. It is important that if the connectivity modules are to be utilized, respective antennas should be attached before powering up. Otherwise, the Portenta Max Carrier may suffer from severe electronic hardware damage. Such details are drawn on the table with briefly mentioned content above in `1.4. Wireless Connectivity` section. 
 
-### 4. Getting upto Pro with Development Environment
+### 4. Getting up to Pro with Development Environment
 
-For all the information detailed and layed out as above to be used, we will need to develop the code and flash it to the system. It is possible to use following development environment designed by Arduino®.
+For all the information detailed as above for it to be used, we will need to develop the code and flash it to the system. It is possible to use following development environment designed by Arduino®.
 
 #### 4.1. Using Arduino® IDE 2
 
