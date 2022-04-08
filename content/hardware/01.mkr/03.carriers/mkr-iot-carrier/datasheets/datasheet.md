@@ -17,7 +17,7 @@ IoT applications, MKR hobbyists
 
 # Features
 
-**Note: **This board is passive and requires a MKR board to** **function.
+***Note: This board is passive and requires a MKR board to function.***
 
 * **Grove Connectors**
     * Easy interface with wide range of Grove modules and sensors
@@ -53,8 +53,8 @@ IoT applications, MKR hobbyists
     * 260 to 1260 hPa (0.25 to 1.24 atm) absolute pressure range
     * I2C interface to Arduino MKR board 
 
-* ** Relays**
-    * 2x** **KEMET EE2-5NU-L relays
+* **Relays**
+    * 2x KEMET EE2-5NU-L relays
     * 5V Coil voltage
     * 2A Current
     * 220V DC, 250V AC
@@ -91,11 +91,11 @@ IoT applications, MKR hobbyists
 
 ### Application Examples
 
-**Light controller: **Control your house lightning with the IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to WiFi,  you can manage and control your device remotely on a smartphone via the IoT Cloud.
+**Light controller:** Control your house lightning with the IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to WiFi,  you can manage and control your device remotely on a smartphone via the IoT Cloud.
 
-**Light and water controller for greenhouse: **With moisture sensor, pressure sensor and temperature the IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays. 
+**Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays. 
 
-**Weather station: **With temperature sensor, pressure sensor, humidity sensor and light sensors,  you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather. 
+**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors,  you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather. 
 
 ### Accessories
 
@@ -112,7 +112,7 @@ IoT applications, MKR hobbyists
 
 ### Board Topology 
 
-Front view
+#### Front view
 
 ![Front view](assets/front_view.png)
 
@@ -123,7 +123,7 @@ Front view
 | LPS-1    | LPS22HBTR Pressure Sensor IC           | L0-L4    | APA1022020-2018 RGB LED IC         |
 | J6       | FH26W-45S-0.3SHW(60) Display Connector | J12      | SFV24R-1STBE1HLF Display Connector |
 
-Back view
+#### Back view
 
 ![Bottom view](assets/bottom_view.png)
 
@@ -152,13 +152,13 @@ Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protect
 
 ## Board Operation
 
-**Note:** Please note that in order to operate with the Arduino MKR IoT Carrier, an Arduino MKR WiFi 1010 is required.
+***Note: Please note that in order to operate with the Arduino MKR IoT Carrier, an Arduino MKR WiFi 1010 is required.***
 
 ### Getting Started - IDE 
-If you want to program your Arduino MKR IoT carrier while offline you need to install the Arduino Desktop IDE <strong>[1]</strong>. To connect the Arduino IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Arduino MKR IoT carrier while offline you need to install the Arduino Desktop IDE **[1]**. To connect the Arduino IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor <strong>[2]</strong>, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
@@ -166,7 +166,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches 
-Sample sketches for the Arduino IoT carrier can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website <strong>[4]</strong>
+Sample sketches for the Arduino IoT carrier can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website **[4]**
 
 
 ### Online Resources
