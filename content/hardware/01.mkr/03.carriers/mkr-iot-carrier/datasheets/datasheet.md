@@ -1,6 +1,6 @@
 ---
 identifier: ABX00047
-title: Arduino® Nano 33 BLE
+title: Arduino® MKR IoT Carrier
 type: maker
 ---
 
