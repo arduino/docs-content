@@ -87,9 +87,9 @@ IoT applications, MKR hobbyists
 
 # Contents
 
-## The board
+## The Board
 
-### Application examples
+### Application Examples
 
 **Light controller: **Control your house lightning with the IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to WiFi,  you can manage and control your device remotely on a smartphone via the IoT Cloud.
 
@@ -102,7 +102,7 @@ IoT applications, MKR hobbyists
 * 18650 Li-ion battery
 * Grove sensors 
 
-### Related products
+### Related Products
 
 * Arduino MKR 1010 (SKU: ABX00023)
 * Protective case
@@ -110,7 +110,7 @@ IoT applications, MKR hobbyists
 
 ## Functional Overview
 
-### Board topology 
+### Board Topology 
 
 Front view
 
@@ -136,13 +136,13 @@ Back view
 | J1        | Micro SD Module                       | J7, J8   | Li-Ion 18650 Holder               |
 
 
-### Power tree
+### Power Tree
 
 The Arduino MKR IoT Carrier makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery. 
 
 ![Power tree](assets/Power_Tree_MKR_IoT_Carrier.png)
 
-### Solution overview
+### Solution Overview
 
 ![Solution overview](assets/solution_overview.png)
 
@@ -154,22 +154,22 @@ Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protect
 
 **Note:** Please note that in order to operate with the Arduino MKR IoT Carrier, an Arduino MKR WiFi 1010 is required.
 
-### Getting started - IDE 
+### Getting Started - IDE 
 If you want to program your Arduino MKR IoT carrier while offline you need to install the Arduino Desktop IDE <strong>[1]</strong>. To connect the Arduino IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting started - Arduino Web Editor 
+### Getting Started - Arduino Web Editor 
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor <strong>[2]</strong>, by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting started - Arduino IoT Cloud 
+### Getting Started - Arduino IoT Cloud 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches 
 Sample sketches for the Arduino IoT carrier can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website <strong>[4]</strong>
 
 
-### Online resources
+### Online Resources
 
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
 
@@ -216,7 +216,7 @@ Detailed information on the IoT Carrier’s pinouts are available in a separate 
 |  3   |     +5V      |  Power   | +5.0V power rail |
 |  4   |     GND      |  Power   | Ground           |
 
-### Relay 1/Relay 2
+### Relay 1 / Relay 2
 
 | Pin  | **Function** | **Type** | **Description** |
 | :--: | :----------: | :------: | --------------- |
@@ -224,9 +224,9 @@ Detailed information on the IoT Carrier’s pinouts are available in a separate 
 |  2   |     COM      |  Switch  | Common          |
 |  3   |      NO      |  Switch  | Normally Open   |
 
-## Mechanical information
+## Mechanical Information
 
-### Board outline/ mounting holes
+### Board Outline / Mounting Holes
 
 ![Mechanical view](assets/mechanical.png)
 
@@ -306,7 +306,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR Waring:**
+**IC SAR Warning:**
 
 **English** 
 This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
@@ -322,7 +322,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | :-------------: | :------------------------: |
 |   863-870Mhz    |          -3.22dBm          |
 
-## Company information
+## Company Information
 
 | Company name    | Arduino S.r.l.                             |
 | --------------- | ------------------------------------------ |
