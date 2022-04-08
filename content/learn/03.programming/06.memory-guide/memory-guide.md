@@ -53,7 +53,7 @@ Microcontrollers are usually used in embedded applications. They must perform de
 Arduino® boards are mainly based on two families of microcontrollers: **AVR®** and **ARM®**. While AVR® family microcontrollers are based on the Harvard architecture model, ARM® family microcontrollers can be based on either von Neuman or Harvard architectures models. The following table summarizes Arduino boards microcontrollers architectures:
 
 |      **Board**      | **Microcontroller** |    **Family**    | **Architecture** |
-|:-------------------:|:-------------------:|:----------------:|:----------------:|
+|---------------------|---------------------|------------------|------------------|
 |       UNO Mini      |      ATmega328P     |        AVR       |      Harvard     |
 |       UNO Rev3      |      ATmega328P     |        AVR       |      Harvard     |
 |    UNO WiFi Rev2    |      ATmega4809     |        AVR       |      Harvard     |
@@ -140,7 +140,7 @@ The ARM-based microcontroller's memory is organized into the following sections 
 The following table summarizes a specific Arduino® board's memory allocation:
 
 |             **Board**             | **Microcontroller** |    **Family**    | **Architecture** | **Flash** | **SRAM** | **EEPROM** |
-|:---------------------------------:|:-------------------:|:----------------:|:----------------:|:---------:|:--------:|:----------:|
+|-----------------------------------|---------------------|------------------|------------------|-----------|----------|------------|
 |              UNO Mini             |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
 |              UNO Rev3             |      ATmega328P     |        AVR       |      Harvard     |    32kB   |    2kB   |     1kB    |
 |           UNO WiFi Rev2           |      ATmega4809     |        AVR       |      Harvard     |    48kB   |    6kB   |    256B    |
@@ -180,7 +180,7 @@ Let us talk more about **memory usage measurement** in Arduino® boards.
 
 Flash memory on Arduino® boards can be measured with the help of the Arduino IDE. As stated before, Flash memory is where the application code is stored; **the Arduino IDE reports Flash memory usage through its compiler output console** to let developers know how much Flash memory resources are being used. 
 
-For example, the IDE's compiler output console an AVR-based Arduino® board, the UNO, with the `Blink.ino` example sketch uploaded, is shown in the image below:
+For example, the IDE's compiler output console an AVR-based Arduino® board, the UNO, is shown in the image below:
 
 ![Flash memory memory measurement in an AVR-based Arduino® board](assets/avr_nano.png)
 
