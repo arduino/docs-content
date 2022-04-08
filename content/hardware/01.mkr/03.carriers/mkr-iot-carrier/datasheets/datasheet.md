@@ -247,7 +247,7 @@ Detailed information on the IoT Carrier’s pinouts are available in a separate 
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
-### Declaration of Conformity to EU RoHS  & REACH 211 01/19/2021
+### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
