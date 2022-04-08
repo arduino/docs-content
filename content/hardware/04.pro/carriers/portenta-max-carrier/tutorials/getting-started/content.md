@@ -60,6 +60,8 @@ The Arduino® Portenta Max Carrier provides several peripherals and modules to c
 
 You can see the detailed Portenta's Max Carrier power tree in the image below:
 
+![Portenta Max Carrier Power Distribution](assets/)
+
 These power feed line options powers up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger; while it is possible to upload the Code. This power line use case will be useful to develop and debug the code.
 
 **If the Arduino IDE throws an error failing to upload the Code, please check the Portenta H7 is in Bootloader Mode**
@@ -182,7 +184,37 @@ Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to
 
 ![Portenta Max Carrier Power DIP Switch](assets/)
 
-### 3. Portenta Max Carrier Quick Peripheral Table
+### 3. The Circuit
+
+The Arduino® Portenta Max Carrier uses the Arduino® Portenta H7 as the main central processing unit and that powers up the carrier's modules mentioned above. Both systems possess High-Density Connectors to establish communication interface in between. It is simple as attaching the Portenta H7 to Portenta Max Carrier's High-Density Connectors. The following connection scheme shows how exactly the device is paired with correct orientation. 
+
+![Portenta Max Carrier Hardware Setup](assets/)
+
+Rest of the connection population will depend on the development requirement. It is important that if the connectivity modules are to be utilized, respective antennas should be attached before powering up. Otherwise, the Portenta Max Carrier may suffer from severe electronic hardware damage. Such details are drawn on the table with briefly mentioned content above in `1.4. Wireless Connectivity` section. 
+
+### 4. Getting upto Pro with Development Environment
+
+For all the information detailed and layed out as above to be used, we will need to develop the code and flash it to the system. It is possible to use following development environment designed by Arduino®.
+
+#### 4.1. Using Arduino® IDE 2
+
+The Arduino® IDE 2 allows the developers to design and upload the code to Portenta H7 in offline. It will also help you with organizing packages needed to program the Portenta H7. It will require a USB-C Type cable that will allow to connect and program the Portenta H7. In [here](https://www.arduino.cc/en/software), you will be able to find the latest version of the Arduino IDE 2.
+
+***If you want to know how to setup the Arduino® IDE 2 adequately, please look into [Quick Guide to Arduino® IDE 2.0](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing)***
+
+#### 4.2. Using Arduino® Web Editor
+
+All Arduino® boards work Out-of-the-Box with the Arduino® Web Editor, and the Portenta H7 with Portenta Max Carrier is no exception. The Arduino® Web Editor requires online connection with Arduino® account and a simple plugin to be able to develop on. The features are always up-to-date and support every Arduino® boards. By following this [link to Arduino® Web Editor](https://create.arduino.cc/editor), you will be able to access and begin developing the code.
+
+***If you want to know how to get started with Arduino® Web Editor, please look into [Getting started with the Web Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)***
+
+#### 4.3. Using Arduino® IoT Cloud
+
+The Arduino® boards that are IoT enabled, can use the Arduino® IoT Cloud to develop automated system and a feedback system that gathers useful data for analysis purposes. By following this [link to Arduino® IoT Cloud](https://create.arduino.cc/iot/things), you will be able to access and begin developing the code.
+
+***If you want to know how to get started with Arduino® IoT Cloud, please look into [Getting Started With the Arduino® IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started)***
+
+### 5. Portenta Max Carrier Quick Peripheral Table
 The following peripheral table will help you guide through quickly about the select available connectors on Portenta Max Carrier. 
 
 | PERIPHERAL                 | PIN       | FUNCTION      | TYPE    | DESCRIPTION                         |
@@ -271,6 +303,8 @@ The following peripheral table will help you guide through quickly about the sel
 |                            | 33        | mPCIe_TX_P    | Diff.   | PCIe Transmission Differential Positive  |
 |                            | 36        | USB_DN        | Diff.   | USB Data Differential Negative      |
 |                            | 38        | USB_DN        | Diff.   | USB Differential Positive           |
+
+***These are a quick reference to commonly used interfaces and if custom connectors are to be used, above quick peripheral table will assist you to verify the correct polarity of connector pins.***
 
 ## Conclusion
 You now have a quickstart guide of the Portenta Max Carrier with its rich modules and peripherals to design and implement real world solutions. The Portenta Max Carrier provides wide spectrum of tools and ports to enable a scalable design solution. With this guide, you now also acquired brief knowledge about the Portenta Max Carrier and will be able to solidify the requirements and devise more clearly. 
