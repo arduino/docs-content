@@ -49,7 +49,7 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 Connect the Portenta to your computer via the USB-C cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **PortentaH7_updateBootloader** sketch in the examples menu in the Arduino IDE.
 
-Instructions on how to update the bootloader can be found in the ["Updating the Portenta Bootloader" tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/updating-the-bootloader).
+Instructions on how to update the bootloader can be found in the ["Updating the Portenta Bootloader" tutorial](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
 
 After updating the bootloader put the Portenta in bootloader mode by double-pressing the reset button on the board. The built-in green LED will start fading in and out. Now open the OpenMV IDE.
 
@@ -157,7 +157,7 @@ In this tutorial you learned how to use the OpenMV IDE with your Portenta board.
 
 ### Next Steps
 -   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File>Examples>Arduino>Portenta H7** in the OpenMV IDE.
--   Take a look at our other Portenta H7 tutorials which showcase its many uses. You can find them [here](https://www.arduino.cc/pro/tutorials/portenta-h7)
+-   Take a look at our other Portenta H7 tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/portenta-h7#tutorials)
 
 ## Troubleshooting
 ### OpenMV Firmware Flashing Issues
