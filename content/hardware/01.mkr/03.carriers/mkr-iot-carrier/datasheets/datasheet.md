@@ -112,7 +112,7 @@ IoT applications, MKR hobbyists
 
 ### Board Topology 
 
-#### Front view
+#### Front View
 
 ![Front view](assets/front_view.png)
 
@@ -123,7 +123,7 @@ IoT applications, MKR hobbyists
 | LPS-1    | LPS22HBTR Pressure Sensor IC           | L0-L4    | APA1022020-2018 RGB LED IC         |
 | J6       | FH26W-45S-0.3SHW(60) Display Connector | J12      | SFV24R-1STBE1HLF Display Connector |
 
-#### Back view
+#### Back View
 
 ![Bottom view](assets/bottom_view.png)
 
