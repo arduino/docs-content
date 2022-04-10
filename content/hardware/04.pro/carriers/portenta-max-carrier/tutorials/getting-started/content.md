@@ -48,10 +48,10 @@ In this tutorial, we will describe the following features of the Portenta Max Ca
 
 - Power distribution.
 - Connectors.
-- Onboard memory units.
+- On-board memory units.
 - Wireless connectivity. 
 - Audio interfaces.
-- Onboard debugger.
+- On-board debugger.
 
 Let us talk more about those features.
 
@@ -59,9 +59,13 @@ Let us talk more about those features.
 
 The Arduino® Portenta Max Carrier provides several peripherals and modules to cover wide spectrum of applications. For this peripherals and modules to be powered up and running, Arduino® Portenta Max Carrier bases on a sophisticated electric power distribution architecture. To power the Portenta Max Carrier, you can use the **barrel jack** connector (X1) or a **3.7V 18650 Li-Ion battery** connected to the Portenta's Max Carrier battery clips (J16 and J18). You can also power the Portenta Max Carrier directly from the USB-C connector of the Portenta H7 board.
 
-You can see the detailed Portenta's Max Carrier power tree in the image below:
+You can see the detailed Portenta Max Carrier's power tree in the image below:
 
-![Portenta Max Carrier Power Distribution](assets/power_tree.PNG)
+![Portenta Max Carrier Power Distribution](assets/mc_ard_power_tree.PNG)
+
+The Portenta Max Carrier's power inputs are indicated in the following image:
+
+![Portenta Max Carrier Power Input](assets/mc_ard_power.png)
 
 These power feed line options powers up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger; while it is possible to upload the Code. This power line use case will be useful to develop and debug the code.
 
@@ -97,9 +101,20 @@ The Portenta Max carrier equips wide spectrum of connectors for expandability. T
 
 ***PCIe connector is available on-board. However, only USB and I2C is available for use at the moment. PCIe is reserved at the moment and will let you know when it gets update in the near future.***
 
+It is worth noting that 4P4C connector establishes connection to **CAN Transceiver** based on [TJA1049T/3J](https://www.mouser.com/datasheet/2/302/TJA1049-1127979.pdf) IC. 
+
+The **Serial Transceiver** based on [SP335](https://assets.maxlinear.com/web/documents/sp335e.pdf) IC, which is a multi-protocl transceiver with support for RS-232, RS-485, and RS-422. It establishes connection via 6P6C connector and its default configurations are as follows:
+
+- Full Duplex
+- 232 Protocol
+- No Data Rate Limit
+- Enabled
+
 #### 1.3. Onboard Memory Units
 
 The Portenta Max Carrier equips two different memory units on-board: Flash Memory and Mini SD Card slot.
+
+![Portenta Max Carrier Storage Option](assets/mc_ard_storage_conn.png)
 
 - *On-Board Flash Memory* 
   - The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
@@ -115,10 +130,12 @@ The Portenta Max Carrier equips two different memory units on-board: Flash Memor
 
 #### 1.4. Wireless Connectivity
 
+The Portenta Max Carrier has on-board Murata CMWX1ZZABZ-078 LoRaWAN® Module and SARA-R412M-02B Cell Modem as the following image below:
+
+![Portenta Max Carrier Connectivity Module](assets/mc_ard_conn_module.png)
+
 #### LoRaWAN® Module - Murata CMWX1ZZABZ-078
 One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
-
-![Murata CMWX1ZZABZ-078 LoRaWAN® Module](assets/)
 
 Depending on the region, it will require to use the appropriate antenna for the respective frequencies. The common frequencies are 915 MHz for North America and Australia, and 863 MHz for European region. Frequencies are on a range, so for example Australia region it is possible to use 928 MHz compatible antenna and configuration. 
 
@@ -151,14 +168,19 @@ Inside the `GSM.begin(pin, apn, username, pass, CATNB)` function, where CATNB is
 
 For the `client.connect(server, port);` function, the port is predefined as `80`. It is required to define the server, and the port argument if necessary, to successfully carry out the operation. 
 
+The antenna connectors for both LoRaWAN® and cellular modem with the microSIM slot are indicated as the following image:
+
+![Portenta Max Carrier Antenna Connectors and microSIM Slot](assets/mc_ard_antenna_sma.png)
+
+#### Ethernet Connection
+
+The Portenta Max Carrier has a physical Ethernet interface on-board, which is directly connected via High-Density Connectors of the Portenta board. The connector provides network activity status and speed indication via LED indicator. The 10/100 Ethernet is supported and Gigabit connection is reserved for future use at the moment. The physical interface is indicated visually with the previous image showing antenna connectors and microSIM slot.
+
 #### 1.5. Audio Interfaces
 
 The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://www.mouser.com/datasheet/2/76/CS42L52_F2-1141287.pdf) from Cirrus Logic®. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers (8-ohm stereo speakers and 4-ohm mono speakers) or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces in the Portenta Max Carrier, as shown in the image below:
 
-- J13 - Audio line-in (right).
-- J14 - Audio line-in (left).
-- J12 - Audio line-out (right).
-- J20 - Speaker line-out via Groove connector. 
+![Portenta Max Carrier Audio Connectors](assets/mc_ard_audio_line.png)
 
 You can use [this](https://www.digikey.ca/en/products/detail/adafruit-industries-llc/5244/16056943) cable assembly and make your mono speaker. The CS42L52 stereo CODEC operates using an I2C interface, with the CODEC acting as a secondary device. 
 
@@ -174,6 +196,10 @@ It is driven by STM32F405RGT6 controller and compatible with Segger® J-Link OB 
 
 ***For more in-depth information about Debugging, please read [Debugging Fundamentals](https://docs.arduino.cc/learn/microcontrollers/debugging).***
 
+The following image indicates the connectors that enables and allows to establish connection to Portenta Max Carrier's on-board debugger.
+
+![Portenta Max Carrier On-Board Debugger Connections](assets/mc_ard_debug_conn.png)
+
 ### 2. Basic Setup of the Portenta Max Carrier
 The Portenta Max Carrier only requires the Portenta H7 as main unit to be able to use it. External components are required to enable the on-board module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed. 
 
@@ -183,13 +209,13 @@ To take advantage of Portenta Max Carrier's Power Architecture, an important phy
 
 Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. This will help to understand the board is in Boot mode and not turned off due to unavailable electric supply as it shutted off. As the power lines are alive even if the board shows no indication of operating instance. 
 
-![Portenta Max Carrier Power DIP Switch](assets/)
+![Portenta Max Carrier Power DIP Switch](assets/mc_ard_boot_sel.png)
 
 ### 3. The Circuit
 
 The Arduino® Portenta Max Carrier uses the Arduino® Portenta H7 as the main central processing unit and that powers up the carrier's modules mentioned above. Both systems possess High-Density Connectors to establish communication interface in between. It is simple as attaching the Portenta H7 to Portenta Max Carrier's High-Density Connectors. The following connection scheme shows how exactly the device is paired with correct orientation. 
 
-![Portenta Max Carrier Hardware Setup](assets/)
+![Portenta Max Carrier Hardware Setup](assets/mc_ard_hd_connectors.png)
 
 Rest of the connection population will depend on the development requirement. It is important that if the connectivity modules are to be utilized, respective antennas should be attached before powering up. Otherwise, the Portenta Max Carrier may suffer from severe electronic hardware damage. Such details are drawn on the table with briefly mentioned content above in `1.4. Wireless Connectivity` section. 
 
