@@ -33,6 +33,7 @@ The Arduino® Portenta Max Carrier provides developers an unlimited range of app
 - LTE antenna (698-960/1710-2690MHz) with SMA connector. 
 - 3.7V 2600mAh 18650 Li-Ion battery.
 - DC 4.5-20V power supply with barrel jack. 
+- Micro SD Card 
 - [Arduino IDE 2.0](https://www.arduino.cc/en/software). 
 
 ## Instructions 
@@ -60,7 +61,7 @@ The Arduino® Portenta Max Carrier provides several peripherals and modules to c
 
 You can see the detailed Portenta's Max Carrier power tree in the image below:
 
-![Portenta Max Carrier Power Distribution](assets/)
+![Portenta Max Carrier Power Distribution](assets/power_tree.PNG)
 
 These power feed line options powers up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger; while it is possible to upload the Code. This power line use case will be useful to develop and debug the code.
 
