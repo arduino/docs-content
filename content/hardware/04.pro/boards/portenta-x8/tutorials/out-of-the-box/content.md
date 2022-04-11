@@ -130,6 +130,8 @@ To know the list of devices that can be accessed type `adb devices`.
 
 If you only see one device you can try and type `adb shell`, you are now communicating with your Portenta X8.
 
+![Terminal using ADB](assets/adb-connection.png)
+
 ### SSH
 
 SSH is commonly used for remote control on different kinds of devices running different set ups through TCP-IP.
