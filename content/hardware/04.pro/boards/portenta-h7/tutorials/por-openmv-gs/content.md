@@ -41,7 +41,7 @@ Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/la
 
 Before you can start programming OpenMV scripts for the Portenta you need to download and install the OpenMV IDE.
 
-***IMPORTANT: Before you connect the Portenta to the OpenMV IDE make sure you update the bootloader as explained in the "Flashing the OpenMV Firmware" section!***
+***IMPORTANT: In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. Make sure you update the bootloader as explained in the "Flashing the OpenMV Firmware" section before you proceed with the next step of this tutorial!***
 
 Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
 
@@ -49,7 +49,7 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 Connect the Portenta to your computer via the USB-C cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **PortentaH7_updateBootloader** sketch in the examples menu in the Arduino IDE.
 
-Instructions on how to update the bootloader can be found in the ["Updating the Portenta Bootloader" tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/por-ard-bl).
+Instructions on how to update the bootloader can be found in the ["Updating the Portenta Bootloader" tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/updating-the-bootloader).
 
 After updating the bootloader put the Portenta in bootloader mode by double-pressing the reset button on the board. The built-in green LED will start fading in and out. Now open the OpenMV IDE.
 

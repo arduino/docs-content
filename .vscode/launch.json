@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Debug Linter",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "validate.js",
+            "args": ["-p", "../../content"],
+            "cwd": "${workspaceFolder}/scripts/validation/"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Debug Quickfix",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "fix-issues.js",
+            "args": ["-p", "../../content"],
+            "cwd": "${workspaceFolder}/scripts/validation/"
+        }
+    ]
+}

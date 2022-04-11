@@ -59,7 +59,7 @@ void runCurl() {
 
   p.begin("curl");
 
-  p.addParameter("http://arduino.cc/asciilogo.txt");
+  p.addParameter("http://arduino.tips/asciilogo.txt");
 
   p.run();
 ```
@@ -222,4 +222,4 @@ void runCpuInfo() {
 ```
 
 
-*Last revision 2016/05/25 by SM*
+**Last revision 2016/05/25 by SM**

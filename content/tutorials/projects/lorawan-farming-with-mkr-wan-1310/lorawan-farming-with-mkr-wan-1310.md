@@ -1,5 +1,5 @@
 ---
-title: "LoRaWAN Farming with MKR WAN 1310 © Apache-2.0"
+title: "LoRaWAN Farming with MKR WAN 1310"
 description: "Let's collect sensor data with MKR WAN 1300 or 1310 and combine it with weather forecast in order to optimize watering in a wide area!"
 coverImage: "assets/blob_KruXU85KZx.png"
 tags: [mkr1300, mkr1310, nodered, ttn]

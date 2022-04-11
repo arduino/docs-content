@@ -41,7 +41,7 @@ The board can be turned on and off with the on-board switch. When the board is u
 
 The Lilypad SimpleSnap's built in lithium polymer battery is the primary power source for the board. The board contains a MCP73831 LiPo battery charging chip. If the board is connected to an FTDI connection, the FTDI power will charge the battery. This is true regardless of the position of the power switch. The LED adjacent to the switch lights up while the battery is being charged. The charging will stop automatically when the battery is fully charged.
 
-Because of the battery charging circuit, it is not possible to power components like a bluetooth modem via the FTDI connector.
+Because of the battery charging circuit, it is not possible to power components like a Bluetooth® modem via the FTDI connector.
 
 ### Programming
 

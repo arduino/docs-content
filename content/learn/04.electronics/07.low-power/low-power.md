@@ -424,7 +424,7 @@ For more advanced use cases, there are some methods to further reduce power cons
 
 ![Voltage and Frequency Configuration of the Microcontroller](assets/freq_voltage_select.png)
 
-The processor usually will be changing the frequency depending on the workloads. This processor frequency varies as to speed up the compute process in a minimal amount of time. Some modules such as Wi-Fi and Bluetooth (Low Energy) requires minimum frequency level. Otherwise, operating at even lower frequencies will result in modules not working correctly, or not run in any instance. At some instances, going further low frequency requires external crystal oscillator as it will require matching oscillator. 
+The processor usually will be changing the frequency depending on the workloads. This processor frequency varies as to speed up the compute process in a minimal amount of time. Some modules such as Wi-Fi and Bluetooth® Low Energy requires minimum frequency level. Otherwise, operating at even lower frequencies will result in modules not working correctly, or not run in any instance. At some instances, going further low frequency requires external crystal oscillator as it will require matching oscillator. 
 
 So forcefully lowering the frequency will not be of help as it will scramble the modules or the operations. While leaving the frequency unrestricted or unlimited also won't help provide long battery life. It is recommended to set frequency levels depending on the software architecture to maintain power consumption while accomplishing designed tasks. Frequency levels can be referenced via datasheet of the board, so it can used to design the software architecture and improve power consumption. 
 

@@ -1,5 +1,5 @@
 ---
-title: "MKR FOX 1200 Weather Monitor © GPL3+"
+title: "MKR FOX 1200 Weather Monitor"
 description: "Turn your MKR FOX 1200 into a battery-powered weather monitor that you can deploy EVERYWHERE. "
 coverImage: "assets/socials_mkrfox1200_bVlDZFCxco.jpg"
 tags: [radio, weather]

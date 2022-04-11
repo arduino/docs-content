@@ -38,7 +38,7 @@ Connect your board to your computer with a micro-USB cable. The buttons are conn
 
 ![](assets/circuit.png)
 
-###Schematic 
+### Schematic 
 
 ![](assets/schematic.png)
 

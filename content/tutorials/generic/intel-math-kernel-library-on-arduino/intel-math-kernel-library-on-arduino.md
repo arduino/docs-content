@@ -1,5 +1,5 @@
 ---
-title: "Intel Math Kernel Library on Arduino © CC BY-NC-SA"
+title: "Intel Math Kernel Library on Arduino"
 description: "Learn how to integrate Intel MKL library with a very streamlined Arduino workflow."
 coverImage: "assets/intel_math_j5NKlynvAk.png"
 tags: [embedded]

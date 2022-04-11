@@ -1,6 +1,5 @@
 ---
 title: MKR GSM 1400
-url_shop: https://store.arduino.cc/arduino-mkr-gsm-1400
 url_guide: /software/ide-v1/installing-samd21-core
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrgsm1400/146'

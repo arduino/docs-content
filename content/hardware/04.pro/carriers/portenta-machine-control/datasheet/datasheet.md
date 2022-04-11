@@ -40,7 +40,7 @@ Industry 4.0,  system integrators
     Each channel is SW configurable to be:
     -   0-10V input
     -   4-20mA input
-    -   NTC input with 3V voltage reference *REF3330AIRSER*
+    -   NTC input with 3V voltage reference **REF3330AIRSER**
 
 -   **4 analog output channels**
     -   DC Voltage output SW configurable 0-10V
@@ -54,20 +54,20 @@ Industry 4.0,  system integrators
 
 -   **3 temperature channels**
     Each channel is SW configurable to measure: 
-    -   Thermocouple K, non grounded, front-end *MAX31855KASA+T*
-    -   Thermocouple J, non grounded, front-end *MAX31855KASA+T* with SW multiplication coefficient
-        -   PT100, front end *MAX31865ATP+T*
-        -   PT1000, front end *MAX31865ATP+T*
+    -   Thermocouple K, non grounded, front-end **MAX31855KASA+T**
+    -   Thermocouple J, non grounded, front-end **MAX31855KASA+T** with SW multiplication coefficient
+        -   PT100, front end **MAX31865ATP+T**
+        -   PT1000, front end **MAX31865ATP+T**
 
     -   **2 encoder channels ABZ**
         -   0-24V input  
 
     -   **High speed CAN**
-        -   *TJA1049T/3J* able to work at 12V/24V 
+        -   **TJA1049T/3J** able to work at 12V/24V 
         -   On board termination resistors 
 
 -   **RS232/RS422/RS485 software configurable**
-    -   *SP335ECR1-L* with on board termination resistors 
+    -   **SP335ECR1-L** with on board termination resistors 
     -   RS485 configurable half duplex or full duplex 
 
 -   **I2C**
@@ -137,7 +137,7 @@ Industry 4.0,  system integrators
 | J3       | Digital inputs                                  | J10      | Encoders        |
 | J4       | Power supply 24V                                | J11      | Analog out      |
 | J5       | HMI - Comm protocols (RS232, RS422, RS485, CAN) | J13      | Ethernet        |
-| J6       | Digital outputs                                 | J14      | WI-FI / BLE SMA |
+| J6       | Digital outputs                                 | J14      | WI-FI / Bluetooth® Low Energy SMA |
 | J7       | Temperature probes                              | J15      | USB A           |
 | J8       | Digital programmable                            | J16      | USB micro       |
 | J9       | Analog in                                       | J17      | Grove I2C       |
@@ -152,15 +152,15 @@ The 24V IN pin is not galvanically isolated: the input voltage must be referred 
 
 The supply voltage can be the same 24V which is powering the board. 
 
--   8 high side switches (2x *TPS4H160AQPWPRQ1*), one for each channel Current limit
--   Nominal value is 0.6A per channel. Due to internal *TPS4H160AQPWPRQ1* circuit tolerances the real value can be higher, up to 0.9A. 
+-   8 high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel Current limit
+-   Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
 -   The 12 channels behavior when the current limit is reached can be selected: 
 
     - **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
 
     - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
     
-    Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode *PMEG6020ER,115*
+    Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode **PMEG6020ER,115**
 
 
 ### Digital Programmable 
@@ -170,22 +170,22 @@ The 24V IN pin is not galvanically isolated: the input voltage must be referred 
 
 The supply voltage can be the same 24V which is powering the board. 
 
--   12 high side switches (3x *TPS4H160AQPWPRQ1*), one for each channel
+-   12 high side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
 
 Current limit 
--   Nominal value is 0.6A per channel. Due to internal *TPS4H160AQPWPRQ1* circuit tolerances the real value can be higher, up to 0.9A. 
+-   Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
 -   The 12 channels behavior when the current limit is reached can be selected: 
 
     **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
 
     **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
 
-Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode *PMEG6020ER,115*
+Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode **PMEG6020ER,115**
 
 -   12 digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
 
     The digital input channels are independent of the high side switches. 
-        *The digital input channels can read the status of the high side switches if needed.*
+        **The digital input channels can read the status of the high side switches if needed.**
 
 
 ### Analog Input 
@@ -559,14 +559,14 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-*English*: 
+**English**: 
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-*French*: 
+**French**: 
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
@@ -575,10 +575,10 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 **IC SAR Warning:**
 
-*English*:
+**English**:
 This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body. 
 
-*French*: 
+**French**: 
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.

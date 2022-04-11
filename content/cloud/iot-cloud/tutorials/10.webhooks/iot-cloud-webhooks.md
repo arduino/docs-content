@@ -37,7 +37,7 @@ You will also need a cloud compatible board:
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 
-***\* Please note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the cloud, as they communicate over mobile networks.***
+***Please note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the cloud, as they communicate over mobile networks.***
 
 ## Webhook Setup
 

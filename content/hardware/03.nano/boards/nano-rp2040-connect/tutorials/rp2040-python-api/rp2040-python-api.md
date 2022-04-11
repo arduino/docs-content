@@ -11,7 +11,7 @@ tags:
 
 ![The Nano RP2040 Connect](assets/hero.png)
 
-The [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) board can be programmed using the popular **Python** programming language. The board is supported by upstream [MicroPython](https://github.com/micropython/micropython) and [OpenMV's fork of MicroPython](https://github.com/openmv/micropython), where *MicroPython* is an implementation of the Python language, designed to run on microcontrollers. 
+The [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) board can be programmed using the popular **Python** programming language. The board is supported by upstream [MicroPython](https://github.com/micropython/micropython) and [OpenMV's fork of MicroPython](https://github.com/openmv/micropython), where **MicroPython** is an implementation of the Python language, designed to run on microcontrollers. 
 
 In this article, you will find a lot of sample scripts that will work directly with your Nano RP2040 Connect, such as general GPIO control, reading onboard sensors and Wi-Fi/BLE communication!
 
@@ -466,7 +466,7 @@ In the terminal, we should see it in this format:
 Year:2021 Month:8 Day:10 Time: 7:56:30
 ```
 
-### BLE
+### Bluetooth® Low Energy
 
 This example allows us to connect to our board via our phone, and control the built-in LED.  We recommend using the **nRF Connect** applications.
 

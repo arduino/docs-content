@@ -44,7 +44,7 @@ An external power supply should provide between 2.7 and 5.5 volts. The Lilypad S
 
 The board contains a MCP73831 LiPo battery charging chip. If the board is connected to both a FTDI connection and a battery, the FTDI power will charge the battery. This is true regardless of the position of the switch. The LED adjacent to the switch lights up while the battery is being charged. The charging will stop automatically when the battery is fully charged.
 
-Because of the battery charging circuit, it is not possible to power components like a bluetooth modem via the FTDI connector.
+Because of the battery charging circuit, it is not possible to power components like a Bluetooth® modem via the FTDI connector.
 
 ### Programming
 

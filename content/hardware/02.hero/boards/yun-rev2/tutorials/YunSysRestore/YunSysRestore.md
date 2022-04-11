@@ -38,6 +38,6 @@ Then when the console ( `ar7240>` ) returns, type:
 
 Following the command, your Yún should start booting the 1.6.2 image. Once OpenWRT (Chaos Calmer) finishes booting and you have gained access to the console (`root@arduino#:`) you can follow the procedure to do a  sysupgrade as described in the tutorial [upgrade OpenWrt image on the Yún](https://www.arduino.cc/en/Tutorial/YunSysupgrade) to restore the [1.5.3 image](https://downloads.arduino.cc/openwrtyun/1/YunSysupgradeImage_v1.5.3.zip).
 
-*Remember that you must use the files of the 1.5.3 image and NOT the 1.6.2 ones.*
+**Remember that you must use the files of the 1.5.3 image and NOT the 1.6.2 ones.**
 
 At the end of the process your Yún will reboot and have 1.5.3 version of OpenWrt-Yun.

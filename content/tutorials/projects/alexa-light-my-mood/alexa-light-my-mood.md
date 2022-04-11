@@ -1,5 +1,5 @@
 ---
-title: "Alexa, Light My Mood © CC BY-NC-SA"
+title: "Alexa, Light My Mood"
 description: "Learn how to control your MKR RGB Shield using Arduino IoT Cloud and Amazon Alexa."
 coverImage: "assets/_FhGbSMUC5c.png"
 difficulty: intermediate

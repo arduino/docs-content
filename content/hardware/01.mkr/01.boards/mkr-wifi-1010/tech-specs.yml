@@ -12,7 +12,7 @@ Pins:
   PMW Pins: 13 (0 - 8, 10, 12, A3, A4)
   External interrupts: 10 (0, 1, 4, 5, 6, 7, 8 ,9, A1, A2)
 Connectivity:
-  Bluetooth: Nina W102 uBlox module
+  Bluetooth®: Nina W102 uBlox module
   Wi-Fi: Nina W102 uBlox module
   Secure element: ATECC508A
 Communication:
@@ -21,7 +21,7 @@ Communication:
   SPI: Yes
 Power:
   I/O Voltage: 3.3V
-  Input Voltage (nominal): 5-17V
+  Input Voltage (nominal): 5-7V
   DC Current per I/O pin: 7 mA
   Supported battery: Li-Po Single Cell, 3.7V, 1024mAh Minimum
   Battery connector: JST

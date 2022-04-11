@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The classic Nano is the oldest member of the Arduino Nano family boards. It is similar to the Arduino Duemilanove but made for the use of a breadboard and has no dedicated power jack. Successors of the classic Nano are for example the Nano 33 IoT featuring a WiFi module or the Nano 33 BLE Sense featuring Bluetooth Low Energy and several environment sensors.
+The classic Nano is the oldest member of the Arduino Nano family boards. It is similar to the Arduino Duemilanove but made for the use of a breadboard and has no dedicated power jack. Successors of the classic Nano are for example the Nano 33 IoT featuring a WiFi module or the Nano 33 BLE Sense featuring Bluetooth® Low Energy and several environment sensors.
 
 </FeatureDescription>
 

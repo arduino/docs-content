@@ -20,3 +20,6 @@ verbose: true
 
 # Allows to debug the rules by outputting process messages
 debug: false
+
+# Defines rules for what links not to check. Usually relative links should not be checked.
+brokenLinkExcludePatterns: [^./, ^../, ^#, ^chrome://, localhost , ^assets/, ^images/]

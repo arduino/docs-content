@@ -56,7 +56,7 @@ The Arduino Nano 33 BLE Sense has a variety of onboard sensors meaning potential
 - Environmental – temperature, humidity and pressure
 - Light – brightness, color and object proximity
 
-Unlike classic Arduino Uno, the board combines a microcontroller with onboard sensors which means you can address many use cases without additional hardware or wiring. The board is also small enough to be used in end applications like wearables. As the name suggests it has Bluetooth LE connectivity so you can send data (or inference results) to a laptop, mobile app or other BLE boards and peripherals.
+Unlike classic Arduino Uno, the board combines a microcontroller with onboard sensors which means you can address many use cases without additional hardware or wiring. The board is also small enough to be used in end applications like wearables. As the name suggests it has Bluetooth® Low Energy connectivity so you can send data (or inference results) to a laptop, mobile app or other Bluetooth® Low Energy boards and peripherals.
 
 **Tip: Sensors on a USB stick** – Connecting the BLE Sense board over USB is an easy way to capture data and add multiple sensors to single board computers without the need for additional wiring or hardware – a nice addition to a Raspberry Pi, for example.
 
@@ -150,7 +150,7 @@ With the sketch we are creating we will do the following:
 - Sample for one second at 119Hz, outputting CSV format data over USB 
 - Loop back and monitor for the next gesture
 
-*The sensors we choose to read from the board, the sample rate, the trigger threshold, and whether we stream data output as CSV, JSON, binary or some other format are all customizable in the sketch running on the Arduino. There is also scope to perform signal preprocessing and filtering on the device before the data is output to the log – this we can cover in another blog. For now, you can just upload the sketch and get sampling.*
+**The sensors we choose to read from the board, the sample rate, the trigger threshold, and whether we stream data output as CSV, JSON, binary or some other format are all customizable in the sketch running on the Arduino. There is also scope to perform signal preprocessing and filtering on the device before the data is output to the log – this we can cover in another blog. For now, you can just upload the sketch and get sampling.**
 
 The complete sketch can be found below:
 
@@ -256,7 +256,7 @@ With that done we can now visualize the data coming off the board. We’re not c
 
 ![Arduino IDE Serial Plotter will show a live graph of CSV data output from your board.](assets/plot-1.gif)
 
-*When you’re done be sure to close the Serial Plotter window – this is important as the next step won’t work otherwise.*
+**When you’re done be sure to close the Serial Plotter window – this is important as the next step won’t work otherwise.**
 
 ## Capturing Gesture Training Data
 To capture data as a CSV log to upload to TensorFlow, you can use **Arduino IDE > Tools > Serial Monitor** to view the data and export it to your desktop machine:

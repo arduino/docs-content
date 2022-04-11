@@ -1,5 +1,5 @@
 <FeatureDescription>
-The MKR VIDOR 4000 is nothing less than a powerhouse of a board, packing a huge set of features into a small form factor. It features the <b>Intel® Cyclone® 10CL016</b> for FPGA (Field Programming Gate Array), allowing you to configure a large set of pins to accommodate any of your preferences. But why stop there? The board also has a camera connector, a Micro HDMI connector, Wi-Fi / Bluetooth connectivity through the <b>NINA-W102</b> module, and cyber-security through the <b>ECC508</b> crypto chip. Just as the other members of the MKR family, it uses the popular <b>Cortex-M0 32-bit SAMD21</b> microprocessor.
+The MKR VIDOR 4000 is nothing less than a powerhouse of a board, packing a huge set of features into a small form factor. It features the <b>Intel® Cyclone® 10CL016</b> for FPGA (Field Programming Gate Array), allowing you to configure a large set of pins to accommodate any of your preferences. But why stop there? The board also has a camera connector, a Micro HDMI connector, Wi-Fi / Bluetooth® connectivity through the <b>NINA-W102</b> module, and cyber-security through the <b>ECC508</b> crypto chip. Just as the other members of the MKR family, it uses the popular <b>Cortex-M0 32-bit SAMD21</b> microprocessor.
 </FeatureDescription>
 
 
@@ -15,7 +15,7 @@ The powerful, low-power processor that is used in all MKR Family boards.
 
 <Feature title="u-blox NINA-W102" image="wifi-bluetooth">
 
-Enables Bluetooth and Wi-Fi connectivity for the MKR WiFi 1010 board.
+Enables Bluetooth® and Wi-Fi connectivity for the MKR WiFi 1010 board.
 
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
 

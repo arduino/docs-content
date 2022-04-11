@@ -18,7 +18,7 @@ The following device classes are supported by the shield:
 * ADK-capable Android phones and tables.
 * Digital cameras: Canon EOS, Powershot, Nikon DSLRs and P&S, as well as generic PTP.
 * Mass storage devices: USB sticks, memory card readers, external hard drives, etc.
-* Bluetooth dongles.
+* Bluetooth® dongles.
 
 For information on using the board with the Android OS, you may refer to the documentation about Mega2560 ADK that contains information about Arduino ADK:
 
@@ -56,7 +56,7 @@ The Arduino USB Host Shield can be used with the "USB Host Library for Arduino" 
 
 With an Arduino HSB Host Shield you can even [control an RC car using an XBOX wireless game controller](https://create.arduino.cc/projecthub/Arduino_Scuola/joystick-controlled-rc-car-076b7f). Many tutorials are available online, here you can find some tutorials developed by [circuits@home](http://www.circuitsathome.com/).
 
-* [Bluetooth HID devices](https://www.circuitsathome.com/mcu/arduino/bluetooth-hid-devices-now-supported-by-the-usb-host-library)
+* [Bluetooth® HID devices](https://www.circuitsathome.com/mcu/arduino/bluetooth-hid-devices-now-supported-by-the-usb-host-library)
 * [PS4 controller](https://www.circuitsathome.com/mcu/arduino/ps4-controller-support-for-the-usb-host-library)
 * [Adding a display to a digital scale using Arduino and USB Host shield](https://www.circuitsathome.com/mcu/adding-a-display-to-a-digital-scale-using-arduino-and-usb-host-shield)
 * [Mass Storage](https://www.circuitsathome.com/mcu/mass-storage-support-for-usb-host-library-2-0-released)

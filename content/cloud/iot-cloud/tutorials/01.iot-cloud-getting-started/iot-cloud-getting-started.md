@@ -43,7 +43,7 @@ Below is a list of Arduino IoT Cloud features.
 
 ## Compatible Hardware
 
-To use the Arduino IoT Cloud, we need a **cloud compatible board**. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN (via The Things Network) and mobile networks.
+To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN® (via The Things Network) and mobile networks.
 
 ***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](/resources/datasheets/ATECC508A-datasheet.pdf) cryptochip), where you can store your security keys.***
 
@@ -56,6 +56,9 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
@@ -66,7 +69,7 @@ The following boards connect to the Arduino IoT Cloud via [The Things Stack](htt
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
 - [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
 
-Connection via LoRaWAN is recommended for low-power projects in both remote and urban areas, where Wi-Fi or other popular connectivity types are not available. The MKR WAN 1300/1310 boards are equipped with a LoRa radio module and has a slot for an antenna. With the right low-power configuration, the board can send data to the cloud for months on a single battery.
+Connection via LoRaWAN® is recommended for low-power projects in both remote and urban areas, where Wi-Fi or other popular connectivity types are not available. The MKR WAN 1300/1310 boards are equipped with a LoRa radio module and has a slot for an antenna. With the right low-power configuration, the board can send data to the cloud for months on a single battery.
 
 ***To learn more about setting up LoRaWAN® devices, visit the [Configuring LoRaWAN® devices in the Arduino Cloud](/cloud/iot-cloud/tutorials/cloud-lora-getting-started) guide.***
 
@@ -80,6 +83,8 @@ The MKR GSM 1400 and MKR NB 1500 require a **SIM card** to connect to the cloud,
 Connection through mobile networks can be considered in remote areas where there's no Wi-Fi, or in mobile projects (such as cargo tracking).  
 
 ***For more information, visit the [Arduino SIM page](https://store.arduino.cc/digital/sim).***
+
+***Note that a secured connection is a memory intense operation, so there's not a lot of memory for the user application (e.g. around 2.6 kB on the MKR GSM 1400). Using a lot of IoT Cloud variables may cause the sketch to run out of memory on boards which don't offload the SSL stack and make it crash.***
 
 ### ESP32 / ESP8266
 
@@ -109,35 +114,35 @@ To starting using the Arduino IoT cloud, we first need to [log in or sign up to 
 
 After we have signed up, you can access the Arduino IoT Cloud from any page on [arduino.cc](https://www.arduino.cc/) by clicking on the four dots menu in the top right corner. You can also [go directly to the Arduino IoT Cloud](https://create.arduino.cc/iot/).
 
-![Navigating to the cloud.](assets/accesscloud.png)
+![Navigating to the cloud.](assets/gs-access.png)
 
 ### 3. Creating a Thing
 
 The journey always begin by creating a new **Thing**. In the Thing overview, we can choose what device to use, what Wi-Fi network we want to connect to, and create variables that we can monitor and control. This is the main configuration space, where all changes we make are automatically generated into a **special sketch file**.
 
-![The Thing overview.](assets/thingoverview.png)
+![The Thing overview.](assets/gs-thing-overview.png)
 
 ### 4. Configuring a Device
 
 Devices can easily be added and linked to a Thing. The Arduino IoT Cloud requires your computer to have the [Arduino Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). The configuration process is quick and easy, and can be done by clicking on the **“Select device”** button in the Thing overview. Here, we can choose from any board that has been configured, or select the **“Configure new device”** option.
 
-![Configuring a device.](assets/devicelink.png)
+![Configuring a device.](assets/gs-device-attach.png)
 
 We can also get a complete overview of our devices by clicking the **“Devices"** tab at the top of the Arduino IoT Cloud interface. Here we can manage and add new devices.
 
-![The device tab.](assets/deviceoverview.png)
+![The device tab.](assets/gs-device-overview.png)
 
 ### 5. Creating Variables
 
 The variables we create are automatically generated into a sketch file. There are several data types we can choose from, such as **int, float, boolean, long, char**. There’s also special variables, such as **Temperature, Velocity, Luminance** that can be used. When clicking on the **“Add variable”** button, we can choose name, data type, update setting and interaction mode.
 
-![Creating variables.](assets/variables.png)
+![Creating variables.](assets/gs-thing-variables.png)
 
 ### 6. Connecting to a Network
 
 To connect to a Wi-Fi network, simply click the **“Configure”** button in the network section. Enter the credentials and click **“Save”**. This information is also generated into your sketch file!
 
-![Entering network credentials.](assets/network.png)
+![Entering network credentials.](assets/gs-thing-network.png)
 
 ### 7. Editing the Sketch
 
@@ -151,7 +156,11 @@ Additionally, each time we create a variable that has the **Read & Write** permi
 
 To upload the program to our board, simply click the **"Upload"** button.
 
-![Editing a sketch in the cloud editor.](assets/sketchoverview.png)
+![Editing a sketch in the cloud editor.](assets/gs-thing-editor.png)
+
+The editor also has a **Serial Monitor Tool**, which can be opened by clicking the magnifying glass in the toolbar. Here you can view information regarding your connection, or commands printed via `Serial.print()`.
+
+![The Serial Monitor Tool.](assets/gs-serial-monitor.png)
 
 After we have successfully uploaded the code, we can open the **“Serial Monitor”** tab to view information regarding our connection. If it is successful, it will print **“connected to network_name”** and **“connected to cloud”**. If it fails to connect, it will print the errors here as well.
 
@@ -165,17 +174,17 @@ Now that we have configured the device & network, created variables, completed t
 
 Dashboards are visual user interface for interacting with your boards over the cloud, and we can setup many different setups depending on what your IoT project needs. We can access our dashboards by clicking on the **“Dashboards”** tab at the top of the Arduino IoT Cloud interface, where we can create new dashboards, and see a list of dashboards created for other Things.
 
-![Navigating to dashboards.](assets/navigatedashboard.png)
+![Navigating to dashboards.](assets/gs-dashboards.png)
 
 If we click on **“Create new dashboard”**, we enter a dashboard editor. Here, we can create something called **widgets**. Widgets are the visual representation of our variables we create, and there are many different to choose from. Below is an example using several types of widgets.
 
-![The different widgets available.](assets/dashboard2.png)
+![The different widgets available.](assets/gs-dashboard-widgets.png)
 
 When we create widgets, we also need to **link them to our variables**. This is done by clicking on a widget we create, select a Thing, and select a variable that we want to link. Once it is linked, we can either interact with it, for example a button, or we can monitor a value from a sensor. As long as our board is connected to the cloud, the values will update!
 
 Let's say we have a **temperature widget** that we want to link to the **temperature** variable inside the **Cloud project** thing.
 
-![Linking a variable to a widget.](assets/dashboard3.png)
+![Linking a variable to a widget.](assets/gs-dashboard-link.png)
 
 ***Note that not all widgets and variables are compatible. A switch and an integer can for example not be linked, and will not be an option while setting up your dashboard.***
 
@@ -183,7 +192,7 @@ We can also have several things running at once, depending on your Arduino IoT C
 
 ## Congratulations
 
-![Illustrated character hugging an Arduino Board](assets/endimg.png)
+![What will you build?](assets/endimg.png)
 
 You are just a few easy steps from deploying your very own IoT project. Having a project connected to the Arduino IoT Cloud opens up many possibilities, such as tracking data in real time, triggering remote devices and building wireless systems.
 
