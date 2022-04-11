@@ -20,15 +20,14 @@ software:
 
 ## Connecting to the Board
 
-Once the Portenta X8 is plugged in via USB, you can open your browser and go to http://192.168.7.1 if you use Windows and Linux or http://192.168.8.1 on MacOS and see a web page which is hosted by the board, from this dashboard you will be able to:
+Once the Portenta X8 is plugged in via USB, you can open your browser and go to http://192.168.7.1 if you use Windows and Linux or http://192.168.8.1 on MacOS. This web page is hosted on the Portenta X8, from this dashboard you will be able to:
 
 ![Board set up page](assets/x8-oob-main.png)
 
-
 * [Configure Wi-Fi](#connecting-to-your-wi-fi)
-* [Register the factory (OTA)](#registering-a-factory)
+* [Add your device to a factory (OTA)](#add-a-new-device-to-your-factory)
 * Board details
-* Shell
+* Shell (alpine python)
 
 ## Connecting to Your Wi-Fi
 
@@ -48,31 +47,75 @@ Once its connected you should see the Wi-Fi status dot in the bottom left turn g
 
 ![Wifi connection done](assets/x8-oob-wifi-sucess.png)
 
-
 ***You can change your network by clicking on the button again and repeat the steps***
 
-## Registering a Factory
+## Connect to a Factory
 
-Click the "Register with Factory" button.
+### Register the factory on foundries.io
 
-![Register with factory](assets/x8-oob-main-factory.png)
+Go to [https://create.arduino.cc](https://create.arduino.cc) and click on the portenta-X8 board manager, you will get prompted to set a new `Factory` name if you didn't have one before. The name will not be able to be changed later, so use one that you can remember and write easily.
 
-Go to <https://create.arduino.cc> and click on the portenta-X8 board manager, you will get prompted to set a new "Factory" name if you didn't have one before. The name will not be able to be changed later, so use one that you can remember and write easily.
+![Arduino Cloud integration](assets/cloud-main.png)
 
-![Arduin Cloud integration](assets/cloud-main.png)
+It will redirect you to foundries factory registration page.
 
-After you have created your Foundries.io factory you need to go back to the Portenta-X8 web dashboard and set your board's name.
+![Foundries Factory creation](assets/foundries-create-factory.png)
 
-![Name your factory](assets/x8-oob-factory-name.png)
+Then you can go to [https://app.foundries.io/factories](https://app.foundries.io/factories) and it will show the factory you just created.
 
-The next panel gives you a code that you need to copy, open the link to activate your new device and attach it to the factory by pasting it and pressing continue.
+![Foundries Factories](assets/foundries-factories.png)
 
-![Complete factory page](assets/x8-oob-factory-register.png)
+After you have created your Foundries.io factory you need to go back to the Portenta-X8 web dashboard to add a new device into your new factory.
 
-Once it is completed the factory button will turn green.
+### Add a new device to your factory
+
+Click the "Register Factory name" button.
+
+![Register factory button](assets/x8-oob-main-factory.png)
+
+![Factory connection](assets/x8-oob-factory-name.png)
+
+The next panel gives you a code that you need to copy.
+
+![Device factory token](assets/x8-oob-factory-register.png)
+
+Click on the "Complete registration" button  from the Portenta X8 dashboard
+
+The button will open the foundries activation page. Paste your token on the prompt and press continue.
+
+![Foundries device link](assets/foundries-activation-device-page.png)
+
+Confirm the addition of the new device by pressing "Connect"
+
+![Foundries device confirmation](assets/foundries-activation-prompt.png)
+
+Finally you will see a confirmation which means that your device now is attached to the new factory.
+
+![](assets/foundries-activation-success.png)
+
+Once it is completed the factory button on the Portenta X8 dashboard will turn green.
 
 ![Successful connection](assets/x8-oob-wifi-sucess.png)
 
+#### Check your factory
+
+Have a look to your factories by going to [Foundries factories page](https://app.foundries.io/factories)
+
+![](assets/foundries-factories.png)
+
+Select the factory that you want to check and it will open its dashboard.
+
+![](assets/foundries-factory-dashboard.png)
+
+#### Check your device
+
+You can check that your device is fully connected inside your factory by going to the "devices" tab
+
+![](assets/foundries-factory-devices.png)
+
+Then chose the device you want to check by clicking on its box and it will open its page.
+
+![](assets/foundries-activation-device-page.png)
 
 ## Controlling Portenta X8 Through the Terminal
 
