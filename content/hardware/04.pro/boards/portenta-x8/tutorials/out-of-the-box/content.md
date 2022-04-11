@@ -67,7 +67,7 @@ Then you can go to [https://app.foundries.io/factories](https://app.foundries.io
 
 After you have created your Foundries.io factory you need to go back to the Portenta-X8 web dashboard to add a new device into your new factory.
 
-### Add a New Device to your Factory
+### Add A New Device To Your Factory
 
 Click the "Register Factory name" button.
 
@@ -97,7 +97,7 @@ Once it is completed the factory button on the Portenta X8 dashboard will turn g
 
 ![Successful connection](assets/x8-oob-factory-success.png)
 
-#### Check your Factory
+#### Check Your Factory
 
 Have a look to your factories by going to [Foundries factories page](https://app.foundries.io/factories)
 
@@ -107,7 +107,7 @@ Select the factory that you want to check and it will open its dashboard.
 
 ![Foundries.io Factory dashboard](assets/foundries-factory-dashboard.png)
 
-#### Check your Device
+#### Check Your Device
 
 You can check that your device is fully connected inside your factory by going to the "devices" tab
 
