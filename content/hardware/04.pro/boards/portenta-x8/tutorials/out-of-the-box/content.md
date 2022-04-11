@@ -91,7 +91,7 @@ Confirm the addition of the new device by pressing "Connect"
 
 Finally you will see a confirmation which means that your device now is attached to the new factory.
 
-![](assets/foundries-activation-success.png)
+![Dashboard with a factory attached](assets/foundries-activation-success.png)
 
 Once it is completed the factory button on the Portenta X8 dashboard will turn green.
 
@@ -101,21 +101,21 @@ Once it is completed the factory button on the Portenta X8 dashboard will turn g
 
 Have a look to your factories by going to [Foundries factories page](https://app.foundries.io/factories)
 
-![](assets/foundries-factories.png)
+![Foundries.io factories page](assets/foundries-factories.png)
 
 Select the factory that you want to check and it will open its dashboard.
 
-![](assets/foundries-factory-dashboard.png)
+![Foundries.io Factory dashboard](assets/foundries-factory-dashboard.png)
 
 #### Check your device
 
 You can check that your device is fully connected inside your factory by going to the "devices" tab
 
-![](assets/foundries-factory-devices.png)
+![Foundries.io factory devices page](assets/foundries-factory-devices.png)
 
 Then chose the device you want to check by clicking on its box and it will open its page.
 
-![](assets/foundries-activation-device-page.png)
+![Foundries new device activation page](assets/foundries-activation-device-page.png)
 
 ## Controlling Portenta X8 Through the Terminal
 
