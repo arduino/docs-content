@@ -20,7 +20,7 @@ software:
 
 ## Connecting to the Board
 
-Once the Portenta X8 is plugged in via USB, you can open your browser and go to http://192.168.7.1 and see a web page which is hosted by the board, from this dashboard you will be able to:
+Once the Portenta X8 is plugged in via USB, you can open your browser and go to http://192.168.7.1 if you use Windows and Linux or http://192.168.8.1 on MacOS and see a web page which is hosted by the board, from this dashboard you will be able to:
 
 ![Board set up page](assets/x8-oob-main.png)
 
