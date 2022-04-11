@@ -95,7 +95,7 @@ Finally you will see a confirmation which means that your device now is attached
 
 Once it is completed the factory button on the Portenta X8 dashboard will turn green.
 
-![Successful connection](assets/x8-oob-wifi-sucess.png)
+![Successful connection](assets/x8-oob-factory-success.png)
 
 #### Check your factory
 
