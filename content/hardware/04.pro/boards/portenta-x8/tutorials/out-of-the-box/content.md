@@ -145,6 +145,18 @@ To gain admin (root) access, type `sudo su -` and the password is `fio`  after t
 
 ![CLI configured](assets/ssh-connection-admin.png)
 
+### CLI Commands
+
+### Connect to a Wi-Fi Access Point
+
+Using the network manager tool `nmcli`
+
+`nmcli device wifi connect <SSID> password <PASSWORD>`
+
+Check your manager connection status
+
+`nmcli de`
+
 ### Inspecting Real Time Tasks
 
 Run: `journalctl -f` to see what's going on on the device
