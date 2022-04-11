@@ -150,13 +150,3 @@ To gain admin (root) access, type `sudo su -` and the password is `fio`  after t
 Run: `journalctl -f` to see what's going on on the device
 
 ![Real time tasks on CLI](assets/command-journalctl.png)
-
-## Uploading an Arduino Sketch
-
-Make sure you have the latest mbed Core and as every other board you can select the board inside the `mbed Portenta`.
-
-![Board selected in Arduino IDE](assets/IDE-boards.png)
-
-And click compile and upload.
-
-***Make sure you don't share GPIOs on the linux side and the Arduino sketch, this will avoid possible errors***
