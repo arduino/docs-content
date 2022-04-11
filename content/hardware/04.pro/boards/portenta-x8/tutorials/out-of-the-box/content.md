@@ -51,7 +51,7 @@ Once its connected you should see the Wi-Fi status dot in the bottom left turn g
 
 ## Connect to a Factory
 
-### Register the factory on foundries.io
+### Register the Factory on Foundries.io
 
 Go to [https://create.arduino.cc](https://create.arduino.cc) and click on the portenta-X8 board manager, you will get prompted to set a new `Factory` name if you didn't have one before. The name will not be able to be changed later, so use one that you can remember and write easily.
 
@@ -67,7 +67,7 @@ Then you can go to [https://app.foundries.io/factories](https://app.foundries.io
 
 After you have created your Foundries.io factory you need to go back to the Portenta-X8 web dashboard to add a new device into your new factory.
 
-### Add a new device to your factory
+### Add a New Device to your Factory
 
 Click the "Register Factory name" button.
 
@@ -97,7 +97,7 @@ Once it is completed the factory button on the Portenta X8 dashboard will turn g
 
 ![Successful connection](assets/x8-oob-factory-success.png)
 
-#### Check your factory
+#### Check your Factory
 
 Have a look to your factories by going to [Foundries factories page](https://app.foundries.io/factories)
 
@@ -107,7 +107,7 @@ Select the factory that you want to check and it will open its dashboard.
 
 ![Foundries.io Factory dashboard](assets/foundries-factory-dashboard.png)
 
-#### Check your device
+#### Check your Device
 
 You can check that your device is fully connected inside your factory by going to the "devices" tab
 
