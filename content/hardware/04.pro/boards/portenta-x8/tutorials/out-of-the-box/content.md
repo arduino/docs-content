@@ -83,7 +83,7 @@ Click on the "Complete registration" button  from the Portenta X8 dashboard
 
 The button will open the foundries activation page. Paste your token on the prompt and press continue.
 
-![Foundries device link](assets/foundries-activation-device-page.png)
+![Foundries device link](assets/foundries-activation-token.png)
 
 Confirm the addition of the new device by pressing "Connect"
 
