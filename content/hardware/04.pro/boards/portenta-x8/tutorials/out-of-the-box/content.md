@@ -157,6 +157,16 @@ Check your manager connection status
 
 `nmcli de`
 
+### Register device on the factory
+
+Make sure the name is not already being used on your Factory.
+
+`lmp-device-register -n <newDeviceName>`
+
+**Not recommended:** In case you cannot register the new device, you can erase the current device info by removing `/var/sota/sql.db`
+
+`sudo rm /var/sota/sql.db`
+
 ### Inspecting Real Time Tasks
 
 Run: `journalctl -f` to see what's going on on the device
