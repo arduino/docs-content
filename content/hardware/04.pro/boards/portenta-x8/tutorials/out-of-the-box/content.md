@@ -57,13 +57,17 @@ Click the "Register with Factory" button.
 
 ![Register with factory](assets/x8-oob-main-factory.png)
 
-And set your new factory name.
+Go to <https://create.arduino.cc> and click on the portenta-X8 board manager, you will get prompted to set a new "Factory" name if you didn't have one before. The name will not be able to be changed later, so use one that you can remember and write easily.
+
+![Arduin Cloud integration](assets/cloud-main.png)
+
+After you have created your Foundries.io factory you need to go back to the Portenta-X8 web dashboard and set your board's name.
 
 ![Name your factory](assets/x8-oob-factory-name.png)
 
-Click register, now you will get a code that you need to paste into your factory page by opening [Arduino Create Cloud](https://create.arduino.cc) in your browser and click the "Portenta X8 Board Manager" inside the integrations section.
+The next panel gives you a code that you need to copy, open the link to activate your new device and attach it to the factory by pasting it and pressing continue.
+
 ![Complete factory page](assets/x8-oob-factory-register.png)
-![Arduin Cloud integration](assets/cloud-main.png)
 
 Once it is completed the factory button will turn green.
 
