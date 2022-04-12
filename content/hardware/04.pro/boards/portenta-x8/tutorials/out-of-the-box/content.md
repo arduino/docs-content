@@ -63,7 +63,7 @@ And set your new factory name.
 
 Click register, now you will get a code that you need to paste into your factory page by opening [Arduino Create Cloud](https://create.arduino.cc) in your browser and click the "Portenta X8 Board Manager" inside the integrations section.
 ![Complete factory page](assets/x8-oob-factory-register.png)
-![Arduin Cloud integration](assets/cloud-main.png)
+![Arduino Cloud integration](assets/cloud-main.png)
 
 Once it is completed the factory button will turn green.
 
