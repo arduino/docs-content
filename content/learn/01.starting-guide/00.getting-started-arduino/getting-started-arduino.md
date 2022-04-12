@@ -80,10 +80,6 @@ The speed of a program is incredibly fast, unless we tell it to slow down. It de
 
 ![The basic operation of an Arduino]()
 
-### Sensors & Actuators
-
-
-
 
 
 ### Circuit Basics
@@ -130,6 +126,48 @@ Which in decimal format is:
 ```
 
 This is a clever way of sending large amounts of data from one point to the other, by rapidly turning ON or OFF something. This particular operation is quite complex, and this is just a basic explanation of how a digital signal works.
+
+### Sensors & Actuators
+
+When working with Arduino, it is important to understand **sensors** and **actuators**. 
+
+#### What Is a Sensor?
+
+![The basics of a sensor.]()
+
+A sensor, in simple terms, is used to *sense* its environment, meaning it records a physical parameter, for example temperature, and converts it into a signal. 
+
+Sensors can also take the form of just a simple button: when a state changes (we press the button), and electronic signal is switched from low to high (0 to 1). 
+
+There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we record the voltage input (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
+
+Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols]() to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals]() section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **libraries**, which makes it a lot easier to read.
+
+#### What Is an Actuator?
+
+An actuator, in simple terms, is used to *actuate* or *change a physical state*. Some examples are:
+- A light (such as an LED).
+- A motor.
+- A switch.
+
+Actuators converts electric signals into e.g. radiant energy (light) or mechanical energy (movement). 
+
+How actuators are controlled really depends on what type of component we have. The most simple way is to simply turn something on/off, while more advanced is controlling the amount of voltage a component gets (i.e. the speed of a motor).
+
+#### Input & Output
+
+Sensors and actuators, are typically referred to as **inputs and outputs**. When we write a program, it is common to construct conditionals that checks the state of a sensor, and decides whether it should actuate something. 
+
+A basic example of this is a **button** and an **LED**. We can write a conditional that checks if a button is pressed, we should turn on the LED, and to turn it off if the button is not pressed. In an Arduino program, it looks like this:
+
+```arduino
+if(button == HIGH){ //check if state is high (button is pressed)
+    digitalWrite(LED, HIGH) //turn on LED
+}
+else{
+    digitalWrite(LED, LOW); //turn off LED
+}
+```
 
 ### Serial Communication Protocols
 
