@@ -179,7 +179,11 @@ The SPI and I²C protocols are used for communication between both internal and 
 
 Using the I²C protocol, we can connect several sensors on the same pin, and retrieve the data accurately. A device an address that we need to specify, where we can request this device to send back data. 
 
+***Find out more in the [Arduino SPI Guide](/learn/communication/spi) and [Arduino I2C Guide](/learn/communication/wire).***
+
 ### Memory
+
+![Memory types on an Arduino.]()
 
 The "standard" Arduino typically has two memories: SRAM and Flash memory. 
 
@@ -187,17 +191,21 @@ The SRAM (Static Random-Access Memory) is used to for example store the value of
 
 The Flash memory is primarily used to store the main program, or the instructions for the microcontroller. This memory is not erased when powered off so that the instructions for the microcontroller are executed as soon as the board is powered.
 
-![Memory types on an Arduino.]()
+***To learn more about memory on an Arduino, visit the [Arduino Memory Guide](/learn/programming/memory-guide).***
 
 ### Embedded Components
+
+![Embedded sensors.]()
 
 An **embedded component** is a tiny component that is found on your board. As electronics are getting smaller and smaller, more and more can be fitted to smaller circuit boards.
 
 Many new Arduino boards have sensors embedded directly, making them very compact. For example, the [Nano BLE Sense]() has 7 embedded sensors, but is only **45x18mm** (the size of a thumb). These are all connected via the I²C protocol as mentioned above, and has a unique address.
 
-![Embedded sensors.]()
+
 
 ### Internet of Things (IoT)
+
+![Wireless communication]().
 
 Most modern Arduino boards now come equipped with a radio module, designed to communicate wirelessly. There are several different ones: Wi-Fi, Bluetooth, LoRa, GSM, NB-IoT and more. Each are designed to communicate using the various technologies available on the market.
 
@@ -206,8 +214,6 @@ The most popular and inexpensive modules are the Wi-Fi & Bluetooth modules. The 
 Bluetooth is used to communicate with nearby devices, and is really useful for maintaining a fast and reliable connection. For example, in real-life applications, Bluetooth is used for wireless headphones & speakers.
 
 Similarly to serial protocols, radio modules use their own set of protocols to communicate, such as HTTP, MQTT and UPD.
-
-![Wireless communication]().
 
 ## Arduino API
 
