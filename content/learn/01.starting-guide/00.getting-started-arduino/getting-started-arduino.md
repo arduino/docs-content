@@ -407,7 +407,7 @@ For this, we can use the `millis()` function.
 
 The `millis()` function is a bit more advanced, but an incredibly resourceful function. It allows you to have multiple events happening simultaneously, without pausing the program. This is done by measuring time (in milliseconds) passed since the program started.
 
-Then, with the use of **intervals** and continously storing the **time for last event**, a simple algorithm can be made to have events happening at specific times without pausing the program.
+Then, with the use of **intervals** and continuously storing the **time for last event**, a simple algorithm can be made to have events happening at specific times without pausing the program.
 
 See the example below:
 
@@ -731,7 +731,7 @@ if(!value){
     //do something if value is false (!)
 }
 
-#### Compund Operators
+#### Compound Operators
 
 Compound operators consists of **two operators**, which are used to perform two operations in the same statement. This can for example be to add `+` and assign `=` a value at the same time.
 
