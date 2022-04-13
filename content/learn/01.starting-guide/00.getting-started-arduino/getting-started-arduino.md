@@ -55,15 +55,16 @@ While all Arduino boards differ from each other, there are several key component
 
 ![Key components of an Arduino board.]()
 
-- **1.** Microcontroller - this is the brain of the Arduino, and is the component that we load programs into. Think of it as a very tiny computer, designed to execute a specific number of things.
+- **1.** Microcontroller - this is the brain of an Arduino, and is the component that we load programs into. Think of it as a tiny computer, designed to execute only a specific number of things.
 - **2.** USB port - used to connect a USB cable from your computer.
-- **3.** USB to serial chip - the USB to Serial is an important component, as it helps translate data that comes from e.g. a computer to the microcontroller. This is what makes it possible to program it from your computer.
+- **3.** USB to Serial chip - the USB to Serial is an important component, as it helps translate data that comes from e.g. a computer to the microcontroller. This is what makes it possible to program it from your computer.
 - **4.** Digital pins - pins that uses digital logic (0,1 or LOW/HIGH). Commonly used for switches and to turn on an LED.
 - **5.** Analog pins - pins that can read analog values in a 10 bit resolution (0-1023).
 - **6.** 5V / 3.3V pins- these pins are used to power external components.
 - **7.** GND - also known as `ground`, `negative` or simply `-`, is used to complete a circuit, where the electrical level is at 0 volt.
+- **8.** VIN - stands for Voltage In, where you can connect external power supplies.
 
-Generally speaking, all Arduino boards have the above components, but there are of course many more than meets the eye.
+Depending on the Arduino board, you will find many more components. Listed above are generally found on any Arduino board.
 
 ### Basic Operation
 
@@ -76,20 +77,23 @@ The program that is loaded to the microcontroller will start execution as soon a
 - Check whether a condition is met.
 - All of the above.
 
-The speed of a program is incredibly fast, unless we tell it to slow down. It depends on the size of the program and how long it takes for the microcontroller to execute it, but it is generally in **microseconds(or one millionth of a second)**.  
+The speed of a program is incredibly fast, unless we tell it to slow down. It depends on the size of the program and how long it takes for the microcontroller to execute it, but it is generally in **microseconds (one millionth of a second)**.  
 
-![The basic operation of an Arduino]()
-
-
+![The basic operation of an Arduino.]()
 
 ### Circuit Basics
 
+Circuits consist of at least one active electronic component, and consists of conductive material, such as wires, so that current can pass through. When working with an Arduino, you will in most cases build a circuit for your project. 
 
+A simple example of a circuit, is an **LED circuit**. A wire is connected from a pin on the Arduino, to an LED via a resistor (to protect the board), and to ground (GND). When the pin is set to a **HIGH state**, the LED will turn on, as electric current is flowing through the circuit. When the pin is set to a **LOW state**, the LED will turn off, as electric current is not flowing through the circuit.
 
+![An LED circuit with an Arduino.]()
+
+Circuits are typically drawn as **schematics**, which are the blueprints for your circuit. In the schematic below, you will see the same circuit as the one above, but drawn differently. 
+
+![Schematics of a circuit.]()
 
 ### Electronic Signals
-
-![Electronic signals.]()
 
 All communication between any electronic components are done through **electronic signals.** There are two main types of electronic signals: **analog & digital**. 
 
@@ -100,6 +104,10 @@ All communication between any electronic components are done through **electroni
 An analog signal is generally bound to a range. In an Arduino, that range is typically 0-5V, or 0-3.3V. 
 
 If we for example use a potentiometer (an analog component used to change the resistance of a circuit), we can adjust this range (0-5V). In the program, this is represented in a range of 0-1023, which is a 10-bit resolution. 
+
+If we write an analog signal using Pulse-Width Modulation (PWM), we can use a range between 0-255, as we are using an 8-bit resolution.
+
+***Read more about [Analog Inputs](/learn/microcontrollers/analog-input) and [Analog Outputs (PWM)](/learn/microcontrollers/analog-output).***
 
 ### Digital Signal
 
@@ -133,8 +141,6 @@ When working with Arduino, it is important to understand **sensors** and **actua
 
 #### What Is a Sensor?
 
-![The basics of a sensor.]()
-
 A sensor, in simple terms, is used to *sense* its environment, meaning it records a physical parameter, for example temperature, and converts it into a signal. 
 
 Sensors can also take the form of just a simple button: when a state changes (we press the button), and electronic signal is switched from low to high (0 to 1). 
@@ -146,6 +152,7 @@ Digital sensors are a bit more advanced, depending on the type. They rely on [Se
 #### What Is an Actuator?
 
 An actuator, in simple terms, is used to *actuate* or *change a physical state*. Some examples are:
+
 - A light (such as an LED).
 - A motor.
 - A switch.
@@ -171,19 +178,15 @@ else{
 
 ### Serial Communication Protocols
 
-![Serial communication protocols.]()
-
-There are several serial communication protocols that uses the aforementioned digital signals to send data. The most common are **UART, SPI & I²C**. The UART protocol is used to send data between a computer and Arduino board, such as uploading a new program, or reading data directly from an Arduino.
+There are several serial communication protocols that uses the aforementioned digital signals to send data. The most common are **UART, SPI & I²C**. The UART protocol is among other things, used to send data between a computer and Arduino board, such as uploading a new program, or reading data directly from an Arduino.
 
 The SPI and I²C protocols are used for communication between both internal and external components. The communication is handled by something called a **serial bus**, which is attached to a specific pin on the Arduino. 
 
-Using the I²C protocol, we can connect several sensors on the same pin, and retrieve the data accurately. A device an address that we need to specify, where we can request this device to send back data. 
+Using the I²C protocol, we can connect several sensors on the same pin, and retrieve the data accurately. Each device has an address that we need to specify in the program, which we use when making data requests.
 
 ***Find out more in the [Arduino SPI Guide](/learn/communication/spi) and [Arduino I2C Guide](/learn/communication/wire).***
 
 ### Memory
-
-![Memory types on an Arduino.]()
 
 The "standard" Arduino typically has two memories: SRAM and Flash memory. 
 
@@ -308,7 +311,7 @@ To use a library, you need to include it at the top of your code, as the example
 #include <Library.h>
 ```
 
-***You can browse through all official and contributed libraries in the [Arduino Libraries page]().***
+***You can browse through all official and contributed libraries in the [Arduino Libraries page](https://www.arduino.cc/reference/en/libraries/).***
 
 ### Core Specific API
 
@@ -316,7 +319,7 @@ Every Arduino board requires a "core", or "package", that needs to be installed 
 
 For example, the classic [ArduinoCore-avr](https://github.com/arduino/ArduinoCore-avr) package, automatically includes the [EEPROM](/learn/built-in-libraries/eeprom), and [SoftwareSerial](/learn/built-in-libraries/software-serial) libraries, and can be used freely without any additional installation. In this package you will find the classic Arduino UNO, Nano, Mega2560 and more.
 
-Another example is the [ArduinoCore-mbed]() package, which includes over 40 libraries, designed for specific board features, such as:
+Another example is the [ArduinoCore-mbed](https://github.com/arduino/ArduinoCore-mbed) package, which includes over 40 libraries, designed for specific board features, such as:
 
 - **PDM** - used for sampling Audio from microphones onboard the Nano BLE Sense and Nano RP2040 Connect boards.
 - **Ethernet** - for using the Ethernet functionalities of the Portenta Vision Shield.
@@ -326,7 +329,7 @@ These features are documented in the **documentation landing page** of each prod
 
 ## Arduino Software Tools
 
-***The Arduino IDEs are available for download for free in the [Software downloads page]().***
+***The Arduino IDEs are available for download for free in the [Software downloads page](https://www.arduino.cc/en/software).***
 
 Now that we have a bit of background on Arduino hardware, let us move on to another fundamental: the Arduino Software tools.
 
@@ -401,14 +404,14 @@ A proper use of the CLI can speed up your development time by far, as any operat
 
 In this section, you will find a list of some of the most common elements in the standard Arduino API. This will help you get familiar with some key building blocks.
 
-To explore the whole Arduino API, please refer to the [Arduino Language Reference](), which is an in-depth wiki maintained by Arduino and its community.
+To explore the whole Arduino API, please refer to the [Arduino Language Reference](), an in-depth wiki maintained by Arduino and its community.
 
 
 ### General
 
 #### `setup()`
 
-The `setup()` function is where you can make program configurations.
+The `setup()` function is where you make program configurations.
 
 ```arduino
 void setup() {
@@ -426,7 +429,7 @@ void loop() {
 }
 ```
 
-#### `delay(time)`
+#### `delay()`
 
 The `delay()` function pauses the program for a set number of milliseconds.
 
@@ -489,6 +492,8 @@ While the `millis()` function is a more advanced concept than the `delay()` func
 
 #### Functions
 
+***Learn more about [functions](/learn/programming/functions).***
+
 You can create custom functions that either just executes code and returns to the program, or that returns a result.
 
 Example of a `void` function that does not return:
@@ -543,6 +548,8 @@ void loop(){
 
 #### Data Types
 
+***See all data types in the [Language Reference](https://www.arduino.cc/reference/en#data-types).***
+
 There are several data types available for use, and below are some of the most common:
 
 ```
@@ -581,9 +588,9 @@ For simple switches and true/false, we use booleans:
 bool exampleSwitch = true/false;
 ```
 
-***You can read more about this in the [variables & data types](https://www.arduino.cc/reference/en/#variables) in the Arduino Language Reference.***
-
 ### Serial Communication
+
+***Read more about the [Serial class](https://www.arduino.cc/reference/en/language/functions/communication/serial/).***
 
 Serial communication is **essential** to Arduino programming, as it is the easiest way to know what goes on on your board.
 
@@ -794,3 +801,10 @@ x *= y; //x is now 10 (multiply and assign)
 ```
 
 
+## Conclusion
+
+In this guide, we have touched upon some of the fundamentals of Arduino: hardware, software tools, what is the Arduino API, and a quick intro to it. This guide serves mainly as an introduction to Arduino, and understanding the fundamental concepts. 
+
+To learn more, you can explore the [Arduino Documentation](/) and the [Arduino Language Reference](https://www.arduino.cc/reference/en/), where you will discover thousands of detailed tutorials, examples, API entries and other resources.
+
+To purchase an Arduino board, visit the [Arduino Store](https://store.arduino.cc/).
