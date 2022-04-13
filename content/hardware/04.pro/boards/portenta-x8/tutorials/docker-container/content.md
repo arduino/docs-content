@@ -39,7 +39,7 @@ In this tutorial we will show step-by-step how to install, run and remove the [H
 ## Using Docker
 
 The Docker CLI is already built-in your Portenta X8 by default you can check the tool is installed by typing
-```sh
+```
 docker -v
 ```
 
@@ -49,31 +49,31 @@ You can check Docker reference documentation, which cover deeply all the feature
 
 The following steps shows how to install, run and uninstall the "Hello World" container.
 
-### Install a container
+### Install A Container
 
 You will need to find your Docker container, on its Docker hub page it will show you how to install the desired container.
 
 https://hub.docker.com/_/hello-world
 
-```sh
+```
 docker pull hello-world
 ```
 
 ![Docker CLI pulling a container](assets/docker-pull.png)
 
-### Run the installed container
+### Run The Installed Container
 
-```sh
+```
 docker run hello-world
 ```
 
 ![Docker CLI running Hello World app](assets/docker-run.png)
 
-***To be able to see your container with `docker ps -a` you will need to run it atleast once with `docker run`***
+***To be able to see your container with `docker ps -a` you will need to run it at least once with `docker run`***
 
-### Listing the installed packages
+### Listing The Installed Packages
 List the installed containers introducing: 
-```sh 
+``` 
 docker ps -a
 ```
 
@@ -82,18 +82,18 @@ docker ps -a
 Keep in mind that you will need to get the `CONTAINER ID` to uninstall the container afterwards.
 
 If you didn't run your container you can also check if its correctly installed by using 
-```sh
+```
 docker images
 ```
 
 ![Docker CLI images](assets/docker-images.png)
 
-### Uninstall a container
+### Uninstall A Container
 
 First get the Container ID from the container list.
 
 Then use the remove (`rm`) command 
-```sh
+```
 docker container rm <CONTAINER ID>
 ```
 
