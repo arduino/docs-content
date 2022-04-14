@@ -53,11 +53,11 @@ Once it is connected, you should see the Wi-Fi status bullet in the bottom left 
 
 ### Register the Factory on Foundries.io
 
-Go to [https://create.arduino.cc](https://create.arduino.cc) and click on the portenta-X8 board manager, you will get prompted to set a new `Factory` name if you didn't have one before. The name will not be able to be changed later, so use one that you can remember and write easily.
+Go to [https://create.arduino.cc](https://create.arduino.cc) and click on portenta-X8 board manager, you will get prompted to set a new `Factory` name if you didn't have one before. You will not be able to be change the name later, so use one that you can remember and write easily.
 
 ![Arduino Cloud integration](assets/cloud-main.png)
 
-It will redirect you to foundries factory registration page.
+It will redirect you to the Foundries.io factory registration page.
 
 ![Foundries Factory creation](assets/foundries-create-factory.png)
 
@@ -81,7 +81,7 @@ The next panel gives you a code that you need to copy.
 
 Click on the "Complete registration" button from the Portenta X8 dashboard
 
-The button will open the foundries activation page. Paste your token on the prompt and press continue.
+The button will open the Foundries.io activation page. Paste your token in the text box and press continue.
 
 ![Foundries device link](assets/foundries-activation-token.png)
 
@@ -99,7 +99,7 @@ Once it is completed, the factory button on the Portenta X8 dashboard will turn 
 
 #### Check Your Factory
 
-Have a look to your factories by going to [Foundries factories page](https://app.foundries.io/factories)
+Have a look to your factories by going to [Foundries.io factories page](https://app.foundries.io/factories)
 
 ![Foundries.io factories page](assets/foundries-factories.png)
 
@@ -109,7 +109,7 @@ Select the factory that you want to check and it will open its dashboard.
 
 #### Check Your Device
 
-You can check that your device is fully connected inside your factory by going to the "devices" tab
+You can check if your device is fully connected to your factory by going to the "devices" tab.
 
 ![Foundries.io factory devices page](assets/foundries-factory-devices.png)
 
@@ -149,17 +149,17 @@ To gain admin (root) access, type `sudo su -` and the password is `fio`  after t
 
 ### Connect to a Wi-Fi Access Point
 
-Using the network manager tool `nmcli`
+Using the network manager tool `nmcli`:
 
 `nmcli device wifi connect <SSID> password <PASSWORD>`
 
-Check your manager connection status
+To check your manager connection status, use this command:
 
 `nmcli de`
 
-### Register device on the factory
+### Register Device to the Factory
 
-Make sure the name is not already being used on your Factory.
+Make sure the name is not already being used in your Factory.
 
 `lmp-device-register -n <newDeviceName>`
 
