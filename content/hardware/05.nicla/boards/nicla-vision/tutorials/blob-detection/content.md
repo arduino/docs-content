@@ -28,6 +28,8 @@ The OpenMV IDE was built for Machine Vision applications. It is meant to provide
 ### Configuring the Development Environment
 Before you can start programming OpenMV scripts for the Portenta you need to download and install the OpenMV IDE. Open the [OpenMV download](https://openmv.io/pages/download) page in your browser and download the version that you need for your operating system. Please Follow the instructions of the installer.
 
+***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](/tutorials/portenta-h7/updating-the-bootloader) before you proceed with the next step of this tutorial.***
+
 ### Flashing the OpenMV Firmware
 
 Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet. Put the Nicla Vision in bootloader mode by double pressing the reset button on the board. The built-in LED will start fading in and out. Now open the OpenMV IDE.
