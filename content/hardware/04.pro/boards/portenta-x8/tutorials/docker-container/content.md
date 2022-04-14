@@ -16,11 +16,11 @@ hardware:
 
 ## Overview
 
-[Docker](http://docker.com) Is a platform full of applications, called containers as they are an isolated solution and don't depend on your environment.
+[Docker](http://docker.com) Is a platform full of applications, called containers. Containers are isolated solutions and thus they don't have to depend on your environment. Making them portable and consistent throughout development, testing and production.
 
-You can download, install, use and share applications in the form of containers. The page where you can find all the available containers is hub.docker.com
+You can download, install, use and share applications in the form of containers. You can find all the available containers on the [hub.docker.com](hub.docker.com) page.
 
-In this tutorial we will show step-by-step how to install, run and remove the [Hello-World Container](https://hub.docker.com/_/hello-world)
+In this tutorial we will go through the steps of how to install, run and remove the [Hello-World Container](https://hub.docker.com/_/hello-world)
 
 ## Goals
 
@@ -38,14 +38,14 @@ In this tutorial we will show step-by-step how to install, run and remove the [H
 
 ## Using Docker
 
-The Docker CLI is already built-in your Portenta X8 by default you can check the tool is installed by typing
+The Docker CLI comes with your Portenta X8 by default, you can check if the tool is installed by typing:
 ```
 docker -v
 ```
 
 ***To use this tool, first of all you will need to connect to your device, check [how to connect using adb/ssh](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal).***
 
-You can check Docker reference documentation, which cover deeply all the features of the tool at [https://docs.docker.com/](docs.docker.com).
+You can check the Docker reference documentation, which covers all the features of the tool in depth at [https://docs.docker.com/](docs.docker.com).
 
 The following steps shows how to install, run and uninstall the "Hello World" container.
 
@@ -72,7 +72,7 @@ docker run hello-world
 ***To be able to see your container with `docker ps -a` you will need to run it at least once with `docker run`***
 
 ### Listing The Installed Packages
-List the installed containers introducing: 
+List the installed containers with the following command: 
 ``` 
 docker ps -a
 ```
@@ -81,7 +81,7 @@ docker ps -a
 
 Keep in mind that you will need to get the `CONTAINER ID` to uninstall the container afterwards.
 
-If you didn't run your container you can also check if its correctly installed by using 
+If you didn't run your container you can also check if it's correctly installed by using:
 ```
 docker images
 ```
@@ -99,7 +99,7 @@ docker container rm <CONTAINER ID>
 
 In this case we run `docker ps -a` and I copied the `CONTAINER_ID` which is `c44ba77b65cb`.
 
-***`CONTAINER_ID` change its value every time you re-install them***
+***`CONTAINER_ID` changes its value every time you re-install them***
 
 ![Docker CLI container uninstall](assets/docker-container-rm.png)
 
