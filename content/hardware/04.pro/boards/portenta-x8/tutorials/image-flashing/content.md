@@ -40,13 +40,15 @@ In this tutorial you will see how to manually flash your Portenta X8 with the im
 
 Required files following this structure:
 
-- Root folder
-  - imx-boot
-  - imx-boot-portenta-x8
-  - sit-portenta-x8.bin
-  - u-boot-portenta-x8.itb
-  - mfgtool-files-portenta-x8.tar (Unzipped)
-  - lmp-partner-arduino-image-portenta-x8.wic.gz (Unzipped)
+```
+Root folder
+├── imx-boot
+├── imx-boot-portenta-x8
+├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Unzipped)**
+├── mfgtool-files-portenta-x8.tar **(Unzipped)**
+├── sit-portenta-x8.bin
+└── u-boot-portenta-x8.itb
+```
 
 To get those files open your FoundriesFactory®.
 
