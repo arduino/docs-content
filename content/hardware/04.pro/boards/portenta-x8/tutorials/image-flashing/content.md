@@ -50,11 +50,19 @@ Required files following this structure:
 
 To get those files open your FoundriesFactory®.
 
+![Foundries.io factories dashboard](assets/foundries-factories.png)
+
 Switch to the targets tab.
+
+![Foundries.io factory targets tab](assets/foundries-factories-targets.png)
 
 Click on the platform-master version.
 
-On the "Runs" section open those collapsed labels, and download the files listed above.
+![Foundries.io tag dashboard](assets/foundries-factories-targets-dashboard.png)
+
+On the "Runs" section open those collapsed labels, and download the files listed above by clicking on their text (like a normal link).
+
+![Foundries.io target runs section](assets/foundries-factories-target-runs.png)
 
 After downloading them, make sure you put them in a folder following the structure shown.
 
@@ -75,6 +83,8 @@ Open a terminal and change the directory (`cd`) to your root folder as shown in 
 Use the `uuu full_image.uuu` command.
 
 Wait until it gets flashed.
+
+![uuu tool flashing success output](assets/uuu-flashing-success.png)
 
 Switch back the DIP switches to OFF position.
 
