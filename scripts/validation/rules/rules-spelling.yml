@@ -33,12 +33,12 @@
   format: markdown
   errorMessage: Space between unit and value required
 
-# Kbps/ Mbps / Gbps spelling
-- regex: "(?<!\\S)\\b\\d+\\s?[mgk]bps\\b"
+# Kbps / KBps / Mbps / MBps / Gbps / GBps spelling
+- regex: "(?<!\\S)\\b\\d+\\s?[kmg][Bb][Pp][Ss]\\b"
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: "'Kilobit per second' should be abbreviated as Kbps, 'Megabit per second' as Mbps and 'Gigabit per second' Gbps"
+  errorMessage: "Incorrect abbreviation used. Use one of the following: Kbps, KBps, Mbps, MBps, Gbps or GBps (b = bits, B = bytes)"
 
 # kB / KB / Mb / MB / Gb / GB spacing
 - regex: "(?<!\\S)\\b\\d+[gBmMkK][bB]\\b"
