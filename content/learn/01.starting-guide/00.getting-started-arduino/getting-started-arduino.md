@@ -8,13 +8,69 @@ The Arduino platform has since its start in 2005, grown to become one of the mos
 
 But what are the cornerstones of Arduino? What is a "board", how do I write code to it, and what are the tools needed to create my own project? The goal with this guide is to provide you with an overview to the Arduino project.
 
-***In this guide, you will find links to articles that goes more in depth on a specific topic.***
+***In this guide, you will discover a lot of topics related to the Arduino Ecosystem, and links that lead to more in-depth articles.***
+
+
+## [Overview](#overview)
+
+This guide is divided into four main sections: **hardware**, **software tools**, **Arduino API**, and **Quick Reference**. You can navigate to each of these sections directly through the links below:
+
+### [Arduino Hardware](#arduino-hardware)
+
+In this section, we will dedicate some time to learn about some fundamentals in electronics, and about a basic operation of an Arduino board.
+
+  - [Anatomy of an Arduino Board](#anatomy-of-an-arduino-board)
+  - [Basic Operation](#basic-operation)
+  - [Circuit Basics](#circuit-basics)
+  - [Electronic Signals](#electronic-signals)
+  - [Analog Signal](#analog-signal)
+  - [Digital Signal](#digital-signal)
+  - [Sensors & Actuators](#sensors--actuators)
+  - [Serial Communication Protocols](#serial-communication-protocols)
+  - [Memory](#memory)
+  - [Embedded Components](#embedded-components)
+  - [Internet of Things (IoT)](#internet-of-things-iot)
+
+### [Arduino API](#arduino-api)
+
+In this section you will learn what the Arduino API is, and how to create code that can run on your Arduino board.
+
+  - [Main Parts](#main-parts)
+  - [Program Structure](#program-structure)
+  - [The "Sketch"](#the-sketch)
+  - [Example Sketch](#example-sketch)
+  - [Libraries](#libraries)
+  - [Core Specific API](#core-specific-api)
+
+### [Arduino Software Tools](#arduino-software-tools)
+
+In this section you will how to set up your development environment as well as learning about what options there are.
+
+  - [A Typical Workflow](#a-typical-workflow)
+  - [Arduino IDE 1.8.x](#arduino-ide-18x)
+  - [Arduino IDE 2.0.x](#arduino-ide-20x)
+  - [Arduino IoT Cloud](#arduino-iot-cloud)
+  - [Web Editor](#web-editor)
+  - [Library Manager](#library-manager)
+  - [Arduino CLI](#arduino-cli)
+
+### [Quick Reference](#quick-reference)
+
+The quick reference is an extract from the full Arduino API, containing popular functions, structures and methods.
+
+  - [General](#general)
+  - [Serial Communication](#serial-communication)
+  - [GPIO / Pin Management](#gpio--pin-management)
+  - [Structure](#structure)
+
+
+
 
 ## Overview
 
 This guide is divided into three main sections: **hardware**, **software tools**, and **Arduino API**. The sections just below summarizes the learning outcome of this article:
 
-### Hardware
+### [Hardware](#arduino-hardware)
 
 In this section, we will dedicate some time to learn about some fundamentals in electronics, and about a basic operation of an Arduino board.
 
@@ -25,7 +81,7 @@ In this section, we will dedicate some time to learn about some fundamentals in 
 - Creating a circuit with external sensors and actuators.
 - Internet of Things (IoT) and different radio modules & wireless protocols.
 
-### Software IDE, Tools & Services
+### [Software IDE, Tools & Services](#arduino-software-tools)
 
 In this section you will how to set up your development environment as well as learning about what options there are.s
 
@@ -34,7 +90,7 @@ In this section you will how to set up your development environment as well as l
 - Learn about the Arduino Cloud Service.
 - Intro to the Arduino CLI (Command Line Interface).
 
-### The Arduino API
+### [The Arduino API](#arduino-api)
 
 In this section you will learn what the Arduino API is, and how to create code that can run on your Arduino board.
 
@@ -43,7 +99,10 @@ In this section you will learn what the Arduino API is, and how to create code t
 - How do I upload code to an Arduino board?
 - What is a "core/platform"?
 - Core specific API.
-- Quick reference to the Arduino API.
+
+### [Quick Reference](#quick-reference)
+
+- General 
 
 ## Arduino Hardware
 
@@ -53,7 +112,7 @@ Over the years, Arduino has released hundreds of hardware designs in many shapes
 
 While all Arduino boards differ from each other, there are several key components that can be found on practically any Arduino. Let's take a look at the image below:
 
-![Key components of an Arduino board.]()
+![Key components of an Arduino board.](assets/board-anatomy.png)
 
 - **1.** Microcontroller - this is the brain of an Arduino, and is the component that we load programs into. Think of it as a tiny computer, designed to execute only a specific number of things.
 - **2.** USB port - used to connect a USB cable from your computer.
@@ -79,7 +138,7 @@ The program that is loaded to the microcontroller will start execution as soon a
 
 The speed of a program is incredibly fast, unless we tell it to slow down. It depends on the size of the program and how long it takes for the microcontroller to execute it, but it is generally in **microseconds (one millionth of a second)**.  
 
-![The basic operation of an Arduino.]()
+![The basic operation of an Arduino.](assets/program-basics.png)
 
 ### Circuit Basics
 
@@ -87,11 +146,11 @@ Circuits consist of at least one active electronic component, and consists of co
 
 A simple example of a circuit, is an **LED circuit**. A wire is connected from a pin on the Arduino, to an LED via a resistor (to protect the board), and to ground (GND). When the pin is set to a **HIGH state**, the LED will turn on, as electric current is flowing through the circuit. When the pin is set to a **LOW state**, the LED will turn off, as electric current is not flowing through the circuit.
 
-![An LED circuit with an Arduino.]()
+![An LED circuit with an Arduino.](assets/circuit.png)
 
 Circuits are typically drawn as **schematics**, which are the blueprints for your circuit. In the schematic below, you will see the same circuit as the one above, but drawn differently. 
 
-![Schematics of a circuit.]()
+![Schematics of a circuit.](assets/schematic.png)
 
 ### Electronic Signals
 
@@ -99,7 +158,7 @@ All communication between any electronic components are done through **electroni
 
 ### Analog Signal
 
-![Basics of an analog signal.]()
+![Basics of an analog signal.](assets/analog-signal.png)
 
 An analog signal is generally bound to a range. In an Arduino, that range is typically 0-5V, or 0-3.3V. 
 
@@ -111,7 +170,7 @@ If we write an analog signal using Pulse-Width Modulation (PWM), we can use a ra
 
 ### Digital Signal
 
-![Basics of a digital signal.]()
+![Basics of a digital signal.](assets/digital-signal.png)
 
 A digital signal works a bit different, and measures only if it is in a high, or low state (0 or 1). This is the most common signal type in modern technology. 
 
@@ -147,7 +206,7 @@ Sensors can also take the form of just a simple button: when a state changes (we
 
 There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we record the voltage input (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
 
-Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols]() to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals]() section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **libraries**, which makes it a lot easier to read.
+Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols](#serial-communication-protocols) to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals](#electronic-signals) section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **libraries**, which makes it a lot easier to read.
 
 #### What Is an Actuator?
 
@@ -198,17 +257,14 @@ The Flash memory is primarily used to store the main program, or the instruction
 
 ### Embedded Components
 
-![Embedded sensors.]()
+![An IMU (Inertial Measurement Unit) on the Nano RP2040 Connect board.](assets/embedded-sensor.png)
 
 An **embedded component** is a tiny component that is found on your board. As electronics are getting smaller and smaller, more and more can be fitted to smaller circuit boards.
 
 Many new Arduino boards have sensors embedded directly, making them very compact. For example, the [Nano BLE Sense]() has 7 embedded sensors, but is only **45x18mm** (the size of a thumb). These are all connected via the I²C protocol as mentioned above, and has a unique address.
 
 
-
 ### Internet of Things (IoT)
-
-![Wireless communication]().
 
 Most modern Arduino boards now come equipped with a radio module, designed to communicate wirelessly. There are several different ones: Wi-Fi, Bluetooth, LoRa, GSM, NB-IoT and more. Each are designed to communicate using the various technologies available on the market.
 
@@ -220,7 +276,7 @@ Similarly to serial protocols, radio modules use their own set of protocols to c
 
 ## Arduino API
 
-***Visit the [Arduino Language Reference]() to explore the full Arduino API.***
+***Visit the [Arduino Language Reference](https://www.arduino.cc/reference/en/) to explore the full Arduino API.***
 
 The Arduino API, aka the "Arduino Programming Language", consists of several functions, variables and structures based on the C/C++ language. 
 
@@ -248,8 +304,6 @@ The absolute minimum requirement of an Arduino program is the use of two functio
 The above functions are **always** required in an Arduino sketch, but you are of course able to add several more functions, which is very useful for longer programs. 
 
 ### The "Sketch"
-
-![The Arduino Sketch.]()
 
 In the Arduino project, a program is referred to as a "Sketch". A sketch is basically just a file that you write your program inside. It has the `.ino` extension, and is always stored in a folder of the same name. 
 
@@ -361,27 +415,37 @@ To upload code to an Arduino board using the IDE, one typically does the followi
 
 ### Arduino IDE 1.8.x
 
-![The classic Arduino IDE.]()
+![The classic Arduino IDE.](assets/ide-1.png)
 
 For what is now considered the "legacy" editor, the Arduino IDE 1.8.X, or "Java IDE", is the editor that was first released back when Arduino started.
 
-***Learn more by visiting the [Arduino IDE 1 documentation]().***
+***Learn more by visiting the [Arduino IDE 1 documentation](/software/ide-v1)).***
 
 ### Arduino IDE 2.0.x
 
-![The new Arduino IDE.]()
+![The new Arduino IDE.](assets/ide-2.png)
 
 In 2021, the Arduino IDE 2.0 was released. The new IDE has the same functionality, but also supports features such as auto-completion and debugging. 
 
-***Learn more by visiting the [Arduino IDE 2 documentation]().***
+***Learn more by visiting the [Arduino IDE 2 documentation](/software/ide-v2).***
 
-### Web Editor (Arduino Cloud)
+### Arduino IoT Cloud
 
-![The Web Editor.]()
+![The Arduino IoT Cloud.](assets/iot-cloud.png)
 
-The Web Editor is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features.
+The [Arduino IoT Cloud](https://create.arduino.cc/iot/) allows you to configure, program and control/monitor your devices - all in one web based application. With the use of **things**, or your "digital twin", you can control and monitor variables directly from **dashboards**. The service also supports webhooks and integrations with other services, such as **Amazon Alexa.**
 
-***Learn more by visiting the [Web Editor documentation]().***
+The cloud is made for **anyone** to use, and it does not require much previous experience to get started.
+
+***Get started by reading the [Getting Started with the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or visit the [full documentation](/cloud/iot-cloud).***
+
+### Web Editor
+
+![The Web Editor.](assets/web-editor.png)
+
+The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Web Editor, you will need to register an Arduino account.
+
+***Learn more by visiting the [Web Editor documentation](/cloud/web-editor).***
 
 ### Library Manager
 
@@ -389,23 +453,23 @@ The Web Editor is an online IDE, part of the Arduino Cloud suite. Similar in fun
 
 Every version of the IDE has a library manager for installing Arduino software libraries. Thousands of libraries, both official and contributed libraries, are available for direct download. Code examples for each library is made available on download.
 
-We will go through what a library is and how to use them, further down in the [Arduino API section]() of this article.
+***To explore all available Arduino libraries, visit the [Arduino Libraries page](https://www.arduino.cc/reference/en/libraries/).***
 
 ### Arduino CLI
 
-![The CLI (Command Line Interface).]()
+![The Arduino CLI (Command Line Interface).](assets/cli.png)
 
 The Arduino CLI is a command line tool that can be used to compile and upload code to your board. It has no visual UI, but is very useful for automation. It is designed for more advanced users.
 
 A proper use of the CLI can speed up your development time by far, as any operation is executed much faster than in the regular IDE.
 
+***To learn more, visit the [Arduino CLI documentation](https://arduino.github.io/arduino-cli/).***
 
 ## Quick Reference
 
 In this section, you will find a list of some of the most common elements in the standard Arduino API. This will help you get familiar with some key building blocks.
 
-To explore the whole Arduino API, please refer to the [Arduino Language Reference](), an in-depth wiki maintained by Arduino and its community.
-
+To explore the whole Arduino API, please refer to the [Arduino Language Reference](https://www.arduino.cc/reference/en/), an in-depth wiki maintained by Arduino and its community. You will find hundreds of entries, accompanied by code examples and elaborate descriptions.
 
 ### General
 
@@ -799,7 +863,6 @@ x += y; //x is now 7 (add and assign)
 x -= y; //x is now 3 (subtract and assign)
 x *= y; //x is now 10 (multiply and assign)
 ```
-
 
 ## Conclusion
 
