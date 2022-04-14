@@ -14,7 +14,9 @@ This tutorial uses the **Arduino IDE**. You can download the editor easily from 
 
 If you are using the **Web Editor**, you can follow the [getting started with the Web Editor tutorial](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).
 
-***IMPORTANT: In bootloader versions 22 and older there was a bug that could cause the board to get stuck in boot mode. This was fixed in the latest bootloader version. Make sure you update the bootloader as explained in the ["Updating the Portenta Bootloader"](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-bl) tutorial***
+***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. How to do so is explained in the ["Updating the Portenta Bootloader"](/tutorials/portenta-h7/updating-the-bootloader) tutorial***
+
+
 
 ### Boards using the Mbed core
 
