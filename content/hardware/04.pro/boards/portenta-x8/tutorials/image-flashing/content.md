@@ -34,7 +34,7 @@ In this tutorial you will see how to manually flash your Portenta X8 with the im
 - Arduino Create Pro subscription
 - Foundries.io account (linked with the Pro plan)
 - FoundriesFactory® ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
-- 1 Device already attatched to your factory ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
+- 1 Device already attached to your factory ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
     
 ## Instructions
 
