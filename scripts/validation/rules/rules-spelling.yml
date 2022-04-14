@@ -18,7 +18,7 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Megahertz/Gigahertz should be abbreviated as MHz/GHz
+  errorMessage: 'Megahertz'/'Gigahertz' should be abbreviated as MHz/GHz
 
 # Mbps / Gbps spacing
 - regex: "(?<!\\S)\\b\\d+[MG]bps\\b"
