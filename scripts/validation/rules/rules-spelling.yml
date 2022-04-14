@@ -53,7 +53,7 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Megabyte should be abbreviated as MB, Megabit as Mb.
+  errorMessage: 'Megabyte' should be abbreviated as MB, 'Megabit' as Mb.
     
 # μm / mm spacing
 - regex: "(?<!\\S)\\b\\d+[μm]m\\b"
