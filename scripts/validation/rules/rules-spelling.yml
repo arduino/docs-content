@@ -27,7 +27,7 @@
   errorMessage: "'Kilohertz' should be abbreviated as kHz"
 
 # Mbps / Gbps spacing
-- regex: "(?<!\\S)\\b\\d+[MG]bps\\b"
+- regex: "(?<!\\S)\\b\\d+[MGK]bps\\b"
   shouldMatch: false
   type: warning
   format: markdown
