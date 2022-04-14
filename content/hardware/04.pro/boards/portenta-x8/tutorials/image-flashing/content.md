@@ -72,7 +72,7 @@ You will see a new device connected called `SE Blank M845S`.
 
 Open a terminal and change the directory (`cd`) to your root folder as shown in the beginning.
 
-Use the ´uuu full_image.uuu´ command.
+Use the `uuu full_image.uuu` command.
 
 Wait until it gets flashed.
 
