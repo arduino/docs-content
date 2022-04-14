@@ -43,11 +43,11 @@ Type the password.
 
 ![Wifi password set up](assets/x8-oob-wifi-pass.png)
 
-Once its connected you should see the Wi-Fi status dot in the bottom left turn green.
+Once it is connected, you should see the Wi-Fi status bullet in the bottom left turning green.
 
 ![Wifi connection done](assets/x8-oob-wifi-sucess.png)
 
-***You can change your network by clicking on the button again and repeat the steps***
+***You can change your network by clicking on the button again and repeat the above steps***
 
 ## Connect to a Factory
 
@@ -79,7 +79,7 @@ The next panel gives you a code that you need to copy.
 
 ![Device factory token](assets/x8-oob-factory-register.png)
 
-Click on the "Complete registration" button  from the Portenta X8 dashboard
+Click on the "Complete registration" button from the Portenta X8 dashboard
 
 The button will open the foundries activation page. Paste your token on the prompt and press continue.
 
@@ -93,7 +93,7 @@ Finally you will see a confirmation which means that your device now is attached
 
 ![Dashboard with a factory attached](assets/foundries-activation-success.png)
 
-Once it is completed the factory button on the Portenta X8 dashboard will turn green.
+Once it is completed, the factory button on the Portenta X8 dashboard will turn green.
 
 ![Successful connection](assets/x8-oob-factory-success.png)
 
@@ -113,7 +113,7 @@ You can check that your device is fully connected inside your factory by going t
 
 ![Foundries.io factory devices page](assets/foundries-factory-devices.png)
 
-Then chose the device you want to check by clicking on its box and it will open its page.
+Then choose the device you want to check by clicking on its box and it will open its page.
 
 ![Foundries new device activation page](assets/foundries-activation-device-page.png)
 
@@ -123,7 +123,7 @@ You have plenty of ways to communicate with your board, be it wirelessly or with
 
 ### ADB
 
-First of all make sure you have the latest **Mbed OS Portenta Core**, which contains the adb program.
+First of all, make sure you have the latest **Mbed OS Portenta Core**, which contains the adb program.
 You can go to its directory inside the **Arduino15/packages/arduino/tools/adb/32.0.0**. To check the tool you can use your teminal and type `adb`, you should get feedback from the tool when typing this.
 
 To know the list of devices that can be accessed type `adb devices`.
