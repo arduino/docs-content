@@ -1,7 +1,8 @@
 ---
 title: Getting Started with Arduino
 description: 'An introduction to hardware, software tools, and the Arduino API.'
-tags: [Arduino, API]
+author: 'Karl Söderby'
+tags: [Arduino, API, Signals, IDE, Quick Reference]
 ---
 
 The Arduino platform has since its start in 2005, grown to become one of the most recognizable brands in the space of electronics and embedded design. 
@@ -11,11 +12,11 @@ But what are the cornerstones of Arduino? What is a "board", how do I write code
 ***In this guide, you will discover a lot of topics related to the Arduino Ecosystem, and links that lead to more in-depth articles.***
 
 
-## [Overview](#overview)
+## Overview
 
 This guide is divided into four main sections: **hardware**, **software tools**, **Arduino API**, and **Quick Reference**. You can navigate to each of these sections directly through the links below:
 
-### [Arduino Hardware](#arduino-hardware)
+### Arduino Hardware
 
 In this section, we will dedicate some time to learn about some fundamentals in electronics, and about a basic operation of an Arduino board.
 
@@ -31,7 +32,7 @@ In this section, we will dedicate some time to learn about some fundamentals in 
   - [Embedded Components](#embedded-components)
   - [Internet of Things (IoT)](#internet-of-things-iot)
 
-### [Arduino API](#arduino-api)
+### Arduino API
 
 In this section you will learn what the Arduino API is, and how to create code that can run on your Arduino board.
 
@@ -42,7 +43,7 @@ In this section you will learn what the Arduino API is, and how to create code t
   - [Libraries](#libraries)
   - [Core Specific API](#core-specific-api)
 
-### [Arduino Software Tools](#arduino-software-tools)
+### Arduino Software Tools
 
 In this section you will how to set up your development environment as well as learning about what options there are.
 
@@ -54,7 +55,7 @@ In this section you will how to set up your development environment as well as l
   - [Library Manager](#library-manager)
   - [Arduino CLI](#arduino-cli)
 
-### [Quick Reference](#quick-reference)
+### Quick Reference
 
 The quick reference is an extract from the full Arduino API, containing popular functions, structures and methods.
 
@@ -62,47 +63,6 @@ The quick reference is an extract from the full Arduino API, containing popular 
   - [Serial Communication](#serial-communication)
   - [GPIO / Pin Management](#gpio--pin-management)
   - [Structure](#structure)
-
-
-
-
-## Overview
-
-This guide is divided into three main sections: **hardware**, **software tools**, and **Arduino API**. The sections just below summarizes the learning outcome of this article:
-
-### [Hardware](#arduino-hardware)
-
-In this section, we will dedicate some time to learn about some fundamentals in electronics, and about a basic operation of an Arduino board.
-
-- The anatomy of an Arduino board.
-- The "basic" operation of an Arduino board.
-- Fundamental knowledge of microcontrollers, electronic signals, communication protocols, memory management.
-- Embedded sensors.
-- Creating a circuit with external sensors and actuators.
-- Internet of Things (IoT) and different radio modules & wireless protocols.
-
-### [Software IDE, Tools & Services](#arduino-software-tools)
-
-In this section you will how to set up your development environment as well as learning about what options there are.s
-
-- How to set up your development environment.
-- Learn about the Arduino IDEs (Integrated Development Environment).
-- Learn about the Arduino Cloud Service.
-- Intro to the Arduino CLI (Command Line Interface).
-
-### [The Arduino API](#arduino-api)
-
-In this section you will learn what the Arduino API is, and how to create code that can run on your Arduino board.
-
-- What is the "Arduino API".
-- How is an Arduino program (sketch) structured.
-- How do I upload code to an Arduino board?
-- What is a "core/platform"?
-- Core specific API.
-
-### [Quick Reference](#quick-reference)
-
-- General 
 
 ## Arduino Hardware
 
@@ -196,17 +156,23 @@ This is a clever way of sending large amounts of data from one point to the othe
 
 ### Sensors & Actuators
 
-When working with Arduino, it is important to understand **sensors** and **actuators**. 
+When working with Arduino, it is important to understand **sensors** and **actuators**, and the difference between them. 
 
 #### What Is a Sensor?
 
-A sensor, in simple terms, is used to *sense* its environment, meaning it records a physical parameter, for example temperature, and converts it into a signal. 
+A sensor, in simple terms, is used to *sense* its environment, meaning it records a physical parameter, for example temperature, and converts it into an electronic signal. 
 
-Sensors can also take the form of just a simple button: when a state changes (we press the button), and electronic signal is switched from low to high (0 to 1). 
+Sensors can also take the form of just a simple button: when a state changes (we press the button), the electronic signal is switched from low to high (0 to 1). 
 
 There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we record the voltage input (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
 
-Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols](#serial-communication-protocols) to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals](#electronic-signals) section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **libraries**, which makes it a lot easier to read.
+Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols](#serial-communication-protocols) to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals](#electronic-signals) section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **software libraries**, which makes it a lot easier to read.
+
+In many cases, all we need is just one line of code:
+
+```arduino
+sensorValue = sensor.read();
+```
 
 #### What Is an Actuator?
 
@@ -219,6 +185,16 @@ An actuator, in simple terms, is used to *actuate* or *change a physical state*.
 Actuators converts electric signals into e.g. radiant energy (light) or mechanical energy (movement). 
 
 How actuators are controlled really depends on what type of component we have. The most simple way is to simply turn something on/off, while more advanced is controlling the amount of voltage a component gets (i.e. the speed of a motor).
+
+To control actuators, it is common to use `digitalWrite()` and `analogWrite()`. 
+
+```arduino
+digitalWrite(LED, HIGH); //turn on an LED
+digitalWrite(LED, LOW); //turn off an LED
+
+analogWrite(motor, 255); //set a motor to maximum capacity
+analogWrite(motor, 25); //set a motor to 10% of its capacity
+```
 
 #### Input & Output
 
@@ -253,24 +229,25 @@ The SRAM (Static Random-Access Memory) is used to for example store the value of
 
 The Flash memory is primarily used to store the main program, or the instructions for the microcontroller. This memory is not erased when powered off so that the instructions for the microcontroller are executed as soon as the board is powered.
 
+How much memory is available on an Arduino varies from board to board. For example the **Arduino UNO** has a 32kB flash / 2kB SRAM, while a **Nano 33 IoT** has 256kB flash / 32kB SRAM. You will find this information in each of the product's documentation pages, which are available in the [Arduino Hardware Documentation](/).
+
 ***To learn more about memory on an Arduino, visit the [Arduino Memory Guide](/learn/programming/memory-guide).***
 
-### Embedded Components
+### Embedded Sensors
 
 ![An IMU (Inertial Measurement Unit) on the Nano RP2040 Connect board.](assets/embedded-sensor.png)
 
-An **embedded component** is a tiny component that is found on your board. As electronics are getting smaller and smaller, more and more can be fitted to smaller circuit boards.
-
-Many new Arduino boards have sensors embedded directly, making them very compact. For example, the [Nano BLE Sense]() has 7 embedded sensors, but is only **45x18mm** (the size of a thumb). These are all connected via the I²C protocol as mentioned above, and has a unique address.
-
+Many new Arduino boards come equipped with **embedded sensors**. For example, the [Nano BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) has 7 embedded sensors, but is only **45x18mm** (the size of a thumb). These are all connected via the I²C protocol as mentioned above, and has a unique address.
 
 ### Internet of Things (IoT)
 
-Most modern Arduino boards now come equipped with a radio module, designed to communicate wirelessly. There are several different ones: Wi-Fi, Bluetooth, LoRa, GSM, NB-IoT and more. Each are designed to communicate using the various technologies available on the market.
+Most modern Arduino boards now come equipped with a radio module, designed to communicate wirelessly. There are several different ones: Wi-Fi, Bluetooth®, LoRa®, GSM, NB-IoT and more. Each are designed to communicate using the various technologies available on the market.
 
-The most popular and inexpensive modules are the Wi-Fi & Bluetooth modules. The Wi-Fi modules allow your board to connect to routers, and to request and send data over the Internet. In a way, it works the same as your computer when requesting various types of data over the Internet, just in a smaller scale. 
+![The u-blox NINA-W102 Wi-Fi / Bluetooth® module on the Nano RP2040 Connect board.](assets/wifi-bt-module.png)
 
-Bluetooth is used to communicate with nearby devices, and is really useful for maintaining a fast and reliable connection. For example, in real-life applications, Bluetooth is used for wireless headphones & speakers.
+The most popular and inexpensive modules are the Wi-Fi & Bluetooth® modules. The Wi-Fi modules allow your board to connect to routers, and to request and send data over the Internet. In a way, it works the same as your computer when requesting various types of data over the Internet, just in a smaller scale. 
+
+Bluetooth® is used to communicate with nearby devices, and is really useful for maintaining a fast and reliable connection. For example, in real-life applications, Bluetooth® technologty for example used in wireless headphones & speakers.
 
 Similarly to serial protocols, radio modules use their own set of protocols to communicate, such as HTTP, MQTT and UPD.
 
@@ -449,7 +426,7 @@ The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, par
 
 ### Library Manager
 
-![The Library Manager.]()
+![Library manager on IDE 1.8.x and IDE 2.0.x](assets/lib-manager.png)
 
 Every version of the IDE has a library manager for installing Arduino software libraries. Thousands of libraries, both official and contributed libraries, are available for direct download. Code examples for each library is made available on download.
 
@@ -680,9 +657,15 @@ void loop() {
 }
 ```
 
-#### `Serial.available()`
-
 #### `Serial.read()`
+
+Reads the incoming serial data.
+
+```arduino
+void loop() {
+    int incomingByte = Serial.read();
+}
+```
 
 ### GPIO / Pin Management
 
@@ -871,3 +854,5 @@ In this guide, we have touched upon some of the fundamentals of Arduino: hardwar
 To learn more, you can explore the [Arduino Documentation](/) and the [Arduino Language Reference](https://www.arduino.cc/reference/en/), where you will discover thousands of detailed tutorials, examples, API entries and other resources.
 
 To purchase an Arduino board, visit the [Arduino Store](https://store.arduino.cc/).
+
+To download a version of the Arduino IDE, visit the [Arduino Software page]().
