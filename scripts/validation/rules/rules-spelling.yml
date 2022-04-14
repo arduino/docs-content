@@ -41,12 +41,12 @@
   format: markdown
   errorMessage: Space between unit and value required
 
-# kB spelling
-- regex: "(?<!\\S)\\b\\d+\\s?K[bB]\\b"
+# KB / Kb spelling
+- regex: "(?<!\\S)\\b\\d+\\s?k[bB]\\b"
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Kilobyte should be abbreviated as kB, Kilobit as kb.
+  errorMessage: Kilobyte should be abbreviated as KB, Kilobit as Kb.
 
 # MB spelling
 - regex: "(?<!\\S)\\b\\d+\\s?m[bB]\\b"
