@@ -3,8 +3,7 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: "Megabytes should be either written as 'megabytes' or abbreviated as
-    'MB'"
+  errorMessage: "Megabytes should be either written as 'megabytes' or abbreviated as 'MB'"
 
 # MHz / GHz spacing
 - regex: "(?<!\\S)\\b\\d+[MmGg][hH]z\\b"
