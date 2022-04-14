@@ -32,7 +32,7 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Megabit per second shout be abbreviated mbps, Gigabit per second gbps  
+  errorMessage: 'Megabit per second' should be abbreviated Mbps, 'Gigabit per second' Gbps  
 
 # kB / MB spacing
 - regex: "(?<!\\S)\\b\\d+[mMkK][bB]\\b"
