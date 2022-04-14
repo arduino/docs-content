@@ -14,7 +14,7 @@
   errorMessage: Space between unit and value required
 
 # MHz / GHz spelling
-- regex: "(?<!\\S)\\b\\d+\\s?[MG]hz\\b"
+- regex: "(?<!\\S)\\b\\d+\\s?[MGmg]hz\\b"
   shouldMatch: false
   type: warning
   format: markdown
