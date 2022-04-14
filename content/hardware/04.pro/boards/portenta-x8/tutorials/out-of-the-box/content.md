@@ -79,7 +79,7 @@ The next panel gives you a code that you need to copy.
 
 ![Device factory token](assets/x8-oob-factory-register.png)
 
-Click on the "Complete registration" button from the Portenta X8 dashboard
+Click on the "Complete registration" button on the Portenta X8 dashboard
 
 The button will open the Foundries.io activation page. Paste your token in the text box and press continue.
 
