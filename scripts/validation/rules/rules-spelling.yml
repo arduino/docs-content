@@ -46,7 +46,7 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Kilobyte should be abbreviated as KB, Kilobit as Kb.
+  errorMessage: 'Kilobyte' should be abbreviated as KB, 'Kilobit' as Kb.
 
 # MB spelling
 - regex: "(?<!\\S)\\b\\d+\\s?m[bB]\\b"
