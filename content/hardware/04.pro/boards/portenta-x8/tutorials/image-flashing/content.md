@@ -6,7 +6,7 @@ difficulty: intermediate
 tags:
   - Embedded Linux
   - Flashing
-  - Foundries
+  - Foundries.io
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04.pro/boards/portenta-x8
