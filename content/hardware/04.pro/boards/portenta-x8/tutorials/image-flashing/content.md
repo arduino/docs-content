@@ -2,7 +2,7 @@
 beta: true
 title: 'How To Flash Your Portenta X8'
 description: 'This tutorial teaches you how to flash your Portenta X8 through USB'
-difficulty: 'intermediate'
+difficulty: intermediate
 tags:
   - Embedded Linux
   - Flashing
@@ -10,8 +10,6 @@ tags:
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04.pro/boards/portenta-x8
-software:
-  - Terminal
 ---
 
 ## Overview
