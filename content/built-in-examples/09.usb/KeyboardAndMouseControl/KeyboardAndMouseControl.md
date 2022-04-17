@@ -12,7 +12,7 @@ tags:
 
 This example illustrates the use of the Mouse and Keyboard libraries together. Five momentary switches act as directional buttons for your cursor. When a button is pressed, the cursor on your screen will move, and a keypress, corresponding to the letter associated with the direction, will be sent to the computer. Once you have the Leonardo, Micro or Due programmed and wired up, open up your favorite text editor to see the results.
 
-**NB:  When you use the Mouse and Keyboard library functions, the Arduino takes over your computer's cursor! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call Mouse.move().**
+**NB:  When you use the Mouse and Keyboard library functions, the Arduino takes over your computer's cursor! To ensure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call Mouse.move().**
 
 ### Hardware Required
 
