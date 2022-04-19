@@ -240,7 +240,7 @@ void setup()
   {
     Serial.println("Higher version bootloader required to perform OTA.");
     Serial.println("Please update the bootloader.");
-    Serial.println("File -> Examples -> Portenta_System -> PortentaH7_updateBootloader");
+    Serial.println("File -> Examples -> STM32H747_System -> STM32H747_updateBootloader");
     return;
   }
 
@@ -338,7 +338,7 @@ void setup()
   {
     Serial.println("Higher version bootloader required to perform OTA.");
     Serial.println("Please update the bootloader.");
-    Serial.println("File -> Examples -> Portenta_System -> PortentaH7_updateBootloader");
+    Serial.println("File -> Examples -> STM32H747_System -> STM32H747_updateBootloader  ");
     return;
   }
 
