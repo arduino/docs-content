@@ -124,7 +124,7 @@ Standard configurations are:
     *   8x ADC inputs with separate VREF
 *   **Murata 1DX** Wi-Fi/BT Module (optional)
     *   Wi-Fi 802.11b/g/n 65 Mbps
-    *   Bluetooth 5.1 BR/EDR/LE
+    *   Bluetooth®  5.1 BR/EDR/LE
 *   **NXP SE050C2** Crypto (optional)
     *   Common Criteria EAL 6+ certified up to OS level
     *   RSA & ECC functionalities, high key length and future proof curves, such as brainpool, Edwards, and Montgomery
@@ -175,7 +175,7 @@ Due to the dual core processing and the low-power capabilities, Portenta support
 
 **AI & Machine Learning:**  Thanks to the power of the two cores it can simultaneously read data from sensors or other devices on one core while the other core processes the data stream and uses machine learning to make sense of the data. When used with the Portenta Vision Shield its camera module or the two directional microphones can be used as data sources.
 
-**Connectivity:** The Portenta features on-board Bluetooth and Wi-Fi capabilities which makes it the perfect candidate for reliable IoT applications. When used together with the Portenta Vision Shield it enables LoRa communication in places where it needs to communicate efficiently over a long distance. The Vision Shield also features an Ethernet port that allows for wired networking applications.
+**Connectivity:** The Portenta features on-board Bluetooth®  and Wi-Fi capabilities which makes it the perfect candidate for reliable IoT applications. When used together with the Portenta Vision Shield it enables LoRa communication in places where it needs to communicate efficiently over a long distance. The Vision Shield also features an Ethernet port that allows for wired networking applications.
 
 ### Accessories
 The [Portenta H7 Vision Shield](https://www.arduino.cc/pro/hardware/product/portenta-vision-shield) is a rapid pathway to developing applications that combine vision, audio and connectivity. The ultra low power HM-01B0 CMOS image sensor is designed with always-on applications in mind. The 324x324 data stream can be used with either the Arduino toolchain or OpenMV for gestures, ambient light, proximity sensing, and object identification. The large pixel size (3.6μm) provides a high signal-to-noise ratio. The two omnidirectional digital-microphones (MP34DB02) allows concurrent capture of stereo sounds alongside the video stream on the MicroSD Card, as well as for beamforming uses. Connectivity is provided by either ethernet or LoRa technology. LoRa technology enables the use of this platform as part of wireless sensor network solutions.
@@ -261,7 +261,7 @@ Internal memory is composed of 2MB of flash with read while write support and 1M
 *   4 Kbytes of SRAM in Backup domain 
 
 ### Wireless Module 
-The on board wireless module allows simultaneous management of Wi-Fi and Bluetooth connectivity. The Wi-Fi interface can be operated as an Access Point, as a Station or as a dual mode simultaneous AP/STA and can handle up to 65 Mbps transfer rate. Bluetooth interface supports Bluetooth Classic and BLE.  
+The on board wireless module allows simultaneous management of Wi-Fi and Bluetooth®  connectivity. The Wi-Fi interface can be operated as an Access Point, as a Station or as a dual mode simultaneous AP/STA and can handle up to 65 Mbps transfer rate. Bluetooth®  interface supports Bluetooth®  Classic and Bluetooth® Low Energy.  
 
 ### External Memories
 Optionally Portenta H7 is available with additional external SDRAM and QSPI Flash memories.

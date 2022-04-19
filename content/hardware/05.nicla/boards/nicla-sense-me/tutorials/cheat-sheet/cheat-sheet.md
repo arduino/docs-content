@@ -4,7 +4,7 @@ description: 'Learn how to set up the Arduino Nicla Sense ME and get a quick ove
 difficulty: easy
 tags:
   - Installation
-  - BLE
+  - Bluetooth® Low Energy
   - IMU
 author: 'Sebastian Romero'
 libraries:
@@ -186,7 +186,7 @@ void loop() {
 There are three ways to read from the on-board sensors:
 
 1. Read the sensors directly from Nicla Sense ME in standalone mode.
-2. Read sensor values through BLE
+2. Read sensor values through Bluetooth® Low Energy
 3. Read sensor values through UART by connecting an ESLOV cable
 
 To read from the sensors in any of these mode, you need to install the **Arduino_BHY2** and **Arduino_BHY2Host** libraries. These can be found in the library manager using the Arduino IDE. To do so in the IDE select **Tools->Manage Libraries...**, now search for **Arduino_BHY2** and **Arduino_BHY2Host** in the new window that opened and click on the install button.
@@ -343,7 +343,7 @@ Reading the sensor values:
 
 ```cpp
 void loop(){
-  unsigned long lastCheck= millis();
+  static auto lastCheck = millis();
 
   // Update function should be continuously polled
   BHY2.update();
@@ -697,14 +697,14 @@ Sensor id: 10   name: GYRO_PASS   values: x : -13.000000   y : 12.000000   z : -
 
 ### Sensor Data Over WebBLE
 
-Sensor data from the Nicla Sense ME can also be retrieved through BLE in the web browser. For that you can use the bhy tool. Please follow steps 1 - 3 from the "Sensor Data Over ESLOV" section. Then execute the following command to start the webserver: `./bhy webserver`.
+Sensor data from the Nicla Sense ME can also be retrieved through Bluetooth® Low Energy in the web browser. For that you can use the bhy tool. Please follow steps 1 - 3 from the "Sensor Data Over ESLOV" section. Then execute the following command to start the webserver: `./bhy webserver`.
 When the server has started you can open the landing page in your browser: [http://localhost:8000/](http://localhost:8000/). Click on "Open sensor page". 
 
 ![Sensor page in the browser](assets/web-ble-unpaired.png)
 
 Then click the "Connect" button and pair your computer with the Nicla Sense ME board. 
 
-***For this feature to work, make sure that Web ble is both supported and enabled! In Google Chrome go to [chrome://flags]() and enable "Experimental Web Platform features".***
+***For this feature to work, make sure that Web Bluetooth® Low Energy is both supported and enabled! In Google Chrome go to [chrome://flags]() and enable "Experimental Web Platform features".***
 
 You can check the browser compatibility with WebBLE [here](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility).
 
@@ -821,9 +821,9 @@ Serial1.write("Hello world!");
 
 ### Bluetooth® Low Energy
 
-#### Using the BHY2Host Library with BLE
+#### Using the BHY2Host Library with Bluetooth® Low Energy
 
-The BHY2 library for the Nicla Sense ME can automatically send sensor values over a BLE connection to a host board that uses the **Arduino_BHY2Host** library.
+The BHY2 library for the Nicla Sense ME can automatically send sensor values over a Bluetooth® Low Energy connection to a host board that uses the **Arduino_BHY2Host** library.
 
 Include the BHY2Host library at the top of the sketch of the **Host** board.
 Configure the sensors the same way as you do with the BHY2 library except of the `begin` function that takes a `NICLA_VIA_BLE` parameter.
@@ -853,9 +853,9 @@ void loop(){
 ```
 The parameters of `BHY2Host::begin` are: data pass through and communication configuration. The first parameter defines if the data should be passed through the Serial connection. This allows to control the Nicla Sense ME from a PC when connected through a host board. You can use the arduino-bhy tool to control the Nicla Sense ME from either the PC command line or from a web page. The second parameter can take one of the following values: NICLA_VIA_BLE, NICLA_AS_SHIELD, NICLA_VIA_ESLOV (default).
 
-#### Using the BLE Library
+#### Using the Bluetooth® Low Energy Library
 
-To enable BLE on the Nicla Sense ME, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. The example sketches included in the library work also with Nicla Sense ME with some minor modifications:
+To enable Bluetooth® Low Energy on the Nicla Sense ME, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. The example sketches included in the library work also with Nicla Sense ME with some minor modifications:
 
 Include the Nicla System header at the top of your sketch:
 
@@ -869,7 +869,7 @@ In the setup() function add:
 nicla::begin();
 ```
 
-Here is an example of how to use the BLE library to advertise a byte characteristic that can be used for example to toggle an LED.
+Here is an example of how to use the Bluetooth® Low Energy library to advertise a byte characteristic that can be used for example to toggle an LED.
 
 Include the library header it at the top of our sketch:
 

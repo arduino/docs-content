@@ -11,7 +11,7 @@ Pins:
   External interrupts: 20 (except A6, A7)
 Connectivity:
   Wi-Fi: Nina W102 uBlox module
-  Bluetooth: Nina W102 uBlox module
+  Bluetooth®: Nina W102 uBlox module
   Secure element: ATECC608A-MAHDA-T Crypto IC
 Sensors:
   IMU: LSM6DSOXTR (6-axis)

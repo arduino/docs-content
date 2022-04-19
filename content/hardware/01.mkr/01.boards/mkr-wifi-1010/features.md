@@ -8,7 +8,7 @@ The MKR WiFi 1010 is a great choice for any beginner, maker or professional to g
 
 <Feature title="u-blox NINA-W102" image="wifi-bluetooth">
 
-Enables Bluetooth and Wi-Fi connectivity for the MKR WiFi 1010 board.
+Enables Bluetooth® and Wi-Fi connectivity for the MKR WiFi 1010 board.
 
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf"/>
 

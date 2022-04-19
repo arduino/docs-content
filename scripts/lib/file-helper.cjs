@@ -15,7 +15,13 @@ function isDirectory(path, followSymlinks = true){
     const stat = fs.lstatSync(path);
     if(stat.isDirectory()) return true;
     if(followSymlinks && stat.isSymbolicLink()){
-        return fs.lstatSync(fs.realpathSync(path)).isDirectory();
+        try {
+            const resolvedPath = fs.realpathSync(path);
+            return fs.lstatSync(resolvedPath).isDirectory();            
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
     }
     return false;
 }

@@ -12,7 +12,7 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
 
 <Feature title="u-blox NINA-W102" image="wifi-bluetooth">
 
-  Enables Bluetooth and Wi-Fi connectivity to get started with IoT or BLE applications. 
+  Enables Bluetooth® and Wi-Fi connectivity to get started with IoT or Bluetooth® Low Energy applications. 
 
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
 </Feature>

@@ -5,7 +5,7 @@ compatible-products: [nano-33-ble]
 description: 'Learn how to control the built in RGB LED on the Nano 33 BLE board over Bluetooth®, using an app on your phone.'
 tags:
   - Bluetooth®
-  - BLE
+  - Bluetooth® Low Energy
 author: 'Fabricio Troya'
 libraries: 
   - name: ArduinoBLE
@@ -23,7 +23,7 @@ In this tutorial we will use an Arduino Nano 33 BLE, to turn on an RGB LED over 
 ## Goals
 
 The goals of this project are:
- - Learn what BLE and Bluetooth®   are.
+ - Learn what Bluetooth® Low Energy and Bluetooth® are.
  - Use the Arduino BLE library.
  - Learn how to create a new service.
  - Learn how to turn on a RGB LED from an external device (smartphone).
@@ -35,7 +35,7 @@ The goals of this project are:
 * In this tutorial we will use the [Arduino Web Editor](https://create.arduino.cc/editor) to program the board.
 
 
-## BLE and Bluetooth®
+## Bluetooth® Low Energy and Bluetooth®
 
 ![The nRF52840 module.](./assets/nano33BLE_04_sensor.png)
 
@@ -212,7 +212,7 @@ void setup() {
 
   // begin initialization
   if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
+    Serial.println("starting Bluetooth® Low Energy failed!");
 
     while (1);
   }

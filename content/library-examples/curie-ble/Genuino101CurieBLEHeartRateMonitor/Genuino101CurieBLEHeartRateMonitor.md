@@ -1,16 +1,16 @@
 ---
 author: 'Arduino'
-description: 'This tutorial demonstrates the Arduino 101 onboard Bluetooth Low Energy capabilities.'
+description: 'This tutorial demonstrates the Arduino 101 onboard Bluetooth® Low Energy capabilities.'
 tags: [Arduino 101]
 title: 'Arduino 101 CurieBLE Heart Rate Monitor'
 ---
 
-This tutorial demonstrates the Arduino 101's onboard Bluetooth Low Energy capabilities. The sketch implements the [standard BLE "Heart Rate Monitor" service](https://www.bluetooth.org/docman/handlers/downloaddoc.ashx?doc_id=239866). The Heart Rate service takes values from a heart rate sensor (in this tutorial emulated by an analog sensor) and sends them over BLE to your smartphone/device to create a graph of the data using the app [nRF Toolbox for BLE](https://www.nordicsemi.com/eng/Products/nRFready-Demo-Apps/nRF-Toolbox-App).
+This tutorial demonstrates the Arduino 101's onboard Bluetooth® Low Energy capabilities. The sketch implements the [standard Bluetooth® Low Energy "Heart Rate Monitor" service](https://www.bluetooth.org/docman/handlers/downloaddoc.ashx?doc_id=239866). The Heart Rate service takes values from a heart rate sensor (in this tutorial emulated by an analog sensor) and sends them over Bluetooth® Low Energy to your smartphone/device to create a graph of the data using the app [nRF Toolbox for Bluetooth® Low Energy](https://www.nordicsemi.com/eng/Products/nRFready-Demo-Apps/nRF-Toolbox-App).
 
 ## Hardware Required
 
 - [Arduino 101](https://www.arduino.cc/en/Main/ArduinoBoard101)
-- An Android or iOS device running the nRF Toolbox for BLE App
+- An Android or iOS device running the nRF Toolbox for Bluetooth® Low Energy App
 
 - A Potentiometer or other analog sensor
 
@@ -24,7 +24,7 @@ image developed using [Fritzing](http://www.fritzing.org).
 
 Set up the Arduino software as described in [Getting Started with Arduino 101](/en/Guide/Arduino101).
 
-1. Download the nRF Toolbox for BLE app [for Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.nrftoolbox&amp;hl=it) or [for iOS](https://itunes.apple.com/it/app/nrf-toolbox/id820906058?mt=8) free of charge.
+1. Download the nRF Toolbox for Bluetooth® Low Energy app [for Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.nrftoolbox&amp;hl=it) or [for iOS](https://itunes.apple.com/it/app/nrf-toolbox/id820906058?mt=8) free of charge.
 
 2. Wire up the potentiometer (or other analog sensor) to your Arduino 101 as shown in "the circuit" above.
 
@@ -48,7 +48,7 @@ Set up the Arduino software as described in [Getting Started with Arduino 101](/
 
 ## Where to Go from Here
 
-The Bluetooth Low Energy includes [many other services](https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx) with which you can experiment, such as [Alert Notificaion Service](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.alert_notification.xml), [Environmental Sensing](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.environmental_sensing.xml), and [AutomationIO](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.automation_io.xml), in which you can expose all of your Arduino's inputs and control its outputs.
+The Bluetooth® Low Energy includes [many other services](https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx) with which you can experiment, such as [Alert Notificaion Service](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.alert_notification.xml), [Environmental Sensing](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.environmental_sensing.xml), and [AutomationIO](https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.automation_io.xml), in which you can expose all of your Arduino's inputs and control its outputs.
 This tutorial uses nRF Toolbox, which allows the use of 9 services. For more advanced capabilities, other discluded services, as well the CurieImu library's LED examples, we recommend using [LightBlue for iOS](https://itunes.apple.com/it/app/lightblue-explorer-bluetooth/id557428110?mt=8) or [nRF Control Panel for Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=it).
 
 ## Code
@@ -84,7 +84,7 @@ This tutorial uses nRF Toolbox, which allows the use of 9 services. For more adv
 
 /*
 
-   This sketch example partially implements the standard Bluetooth Low-Energy Heart Rate service.
+   This sketch example partially implements the standard Bluetooth® Low-Energy Heart Rate service.
 
    For more information: https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx
 
@@ -92,9 +92,9 @@ This tutorial uses nRF Toolbox, which allows the use of 9 services. For more adv
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;       // BLE Peripheral Device (the board you're programming)
+BLEPeripheral blePeripheral;       // Bluetooth® Low Energy Peripheral Device (the board you're programming)
 
-BLEService heartRateService("180D"); // BLE Heart Rate Service
+BLEService heartRateService("180D"); // Bluetooth® Low Energy Heart Rate Service
 
 // BLE Heart Rate Measurement Characteristic"
 
@@ -102,7 +102,7 @@ BLECharacteristic heartRateChar("2A37",  // standard 16-bit characteristic UUID
 
     BLERead | BLENotify, 2);  // remote clients will be able to get notifications if this characteristic changes
 
-                              // the characteristic is 2 bytes long as the first field needs to be "Flags" as per BLE specifications
+                              // the characteristic is 2 bytes long as the first field needs to be "Flags" as per Bluetooth® Low Energy specifications
 
                               // https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.heart_rate_measurement.xml
 
@@ -115,11 +115,11 @@ void setup() {
 
   pinMode(13, OUTPUT);   // initialize the LED on pin 13 to indicate when a central is connected
 
-  /* Set a local name for the BLE device
+  /* Set a local name for the Bluetooth® Low Energy device
 
      This name will appear in advertising packets
 
-     and can be used by remote devices to identify this BLE device
+     and can be used by remote devices to identify this Bluetooth® Low Energy device
 
      The name can be changed but maybe be truncated based on space left in advertisement packet */
 
@@ -139,7 +139,7 @@ void setup() {
 
   blePeripheral.begin();
 
-  Serial.println("Bluetooth device active, waiting for connections...");
+  Serial.println("Bluetooth® device active, waiting for connections...");
 }
 
 void loop() {

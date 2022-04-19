@@ -11,7 +11,7 @@ Pins:
   External interrupts: All digital pins
 Connectivity:
   Wi-Fi: Nina W102 uBlox module
-  Bluetooth: Nina W102 uBlox module
+  Bluetooth®: Nina W102 uBlox module
 Sensors:
   IMU: LSM6DS3
 Communication:

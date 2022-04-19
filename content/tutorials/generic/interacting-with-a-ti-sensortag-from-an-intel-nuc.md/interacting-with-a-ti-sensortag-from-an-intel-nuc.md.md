@@ -1,6 +1,6 @@
 ---
 title: "Interacting with a TI SensorTag from an Intel NUC © CC BY-NC-SA"
-description: "This project shows you how setup an Intel NUC to interact with a TI SensorTag device using BLE (Bluetooth Low Energy)."
+description: "This project shows you how setup an Intel NUC to interact with a TI SensorTag device using Bluetooth® Low Energy."
 coverImage: "assets/intel_bluetooth_Rx75ZbMLc8.png"
 tags: [internet of things]
 difficulty: intermediate
@@ -15,7 +15,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/interacting-with-a
 - Monitor with HDMI input
 - HDMI cable
 - USB Keyboard
-- Bluetooth 4.0 USB Adapter
+- Bluetooth® 4.0 USB Adapter
 
 ## Apps and Online Services
 
@@ -25,15 +25,15 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/interacting-with-a
 
 ### Overview
 
-In this tutorial, we'll learn how to setup an Intel NUC to interact with a TI SensorTag using BLE (Bluetooth Low Energy). The [littleb](https://github.com/intel-iot-devkit/littleb) library will be used for Bluetooth communications.
+In this tutorial, we'll learn how to setup an Intel NUC to interact with a TI SensorTag using Bluetooth® Low Energy. The [littleb](https://github.com/intel-iot-devkit/littleb) library will be used for Bluetooth® communications.
 
 ## Setup
 
 - Follow [the Arduino Create getting started flow for the Intel NUC](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-intel-iot-gateways-on-arduino-create-dcf1bc) and select the Ubuntu Linux option. **NOTE**: make sure the select "`Ubuntu`" on the "`Get a customized OS for your Gateway`" step!
-- Once the NUC has been setup and rebooted, connect the Bluetooth 4.0 USB adapter to the NUC.
+- Once the NUC has been setup and rebooted, connect the Bluetooth® 4.0 USB adapter to the NUC.
 - Open a terminal session, by pressing `CTRL+ALT+F1`on the keyboard attached to the NUC.
 - Login using the credentials you set up previously.
-- By default, the Ubuntu install does not include the required Bluetooth software, it can be installed by running the following command:
+- By default, the Ubuntu install does not include the required Bluetooth® software, it can be installed by running the following command:
 
 ```arduino
 sudo apt-get update && sudo apt-get install bluez
@@ -85,7 +85,7 @@ Now you can press the left or right button on the SensorTag, and it will send a 
 
 ## Next Steps
 
-This tutorial has walked you through how to setup your NUC and use the `littleb`library to interact with a TI SensorTag over BLE. The button characteristic was monitored and events were printed to the Arduino Create monitor area.
+This tutorial has walked you through how to setup your NUC and use the `littleb`library to interact with a TI SensorTag over Bluetooth® Low Energy. The button characteristic was monitored and events were printed to the Arduino Create monitor area.
 
-The TI SensorTag [exposes many other features over BLE](http://processors.wiki.ti.com/index.php/CC2650_SensorTag_Users_Guide#Gatt_Server), you can use the example `SensortagButton`sketch as a starting point to interact with them.
+The TI SensorTag [exposes many other features over Bluetooth® Low Energy](http://processors.wiki.ti.com/index.php/CC2650_SensorTag_Users_Guide#Gatt_Server), you can use the example `SensortagButton`sketch as a starting point to interact with them.
 

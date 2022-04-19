@@ -69,7 +69,7 @@ The Arduino USB was the first board labelled "Arduino". These were mainly sold u
 
 ![ArduinoBT](assets/ArduinoBT.jpg) 
 
-The Arduino BT is a microcontroller board originally was based on the ATmega168, but now is supplied with the 328, and the Bluegiga WT11 bluetooth module. It supports wireless serial communication over bluetooth (but is not compatible with Bluetooth headsets or other audio devices).
+The Arduino BT is a microcontroller board originally was based on the ATmega168, but now is supplied with the 328, and the Bluegiga WT11 Bluetooth® module. It supports wireless serial communication over Bluetooth® (but is not compatible with Bluetooth® headsets or other audio devices).
 
 ### Arduino Serial
 

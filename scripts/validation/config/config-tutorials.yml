@@ -10,4 +10,3 @@ validationRuleFiles: [./rules/rules-spelling.yml, ./rules/rules-trademarks.yml, 
 allowNestedLists: false
 metadataSchema: rules/tutorial-metadata-schema.json
 
-brokenLinkExcludePatterns: [^./, ^../, ^#, ^chrome://, localhost , ^assets/, ^images/]

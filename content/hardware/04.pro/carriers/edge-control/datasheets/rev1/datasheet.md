@@ -23,7 +23,7 @@ Agriculture measurements, smart irrigation systems, hydroponics
         *   64 MHz Arm® Cortex®-M4F (with FPU)
         *   1 MB Flash + 256 KB RAM
     *   **Wireless**
-        *   Bluetooth (BLE 5 via Cordio® stack)
+        *   Bluetooth®  (Bluetooth® Low Energy 5 via Cordio® stack)
         *   Advertising Extensions
         *   95 dBm sensitivity
         *   4.8 mA in TX (0 dBm)

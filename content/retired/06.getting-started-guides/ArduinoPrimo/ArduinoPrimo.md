@@ -5,7 +5,7 @@ description: 'The first steps to setting up the Arduino Primo'
 
 **This is a retired product.**
 
-The Arduino Primo combines the processing power from the Nordic nRF52 processor, an Espressif ESP8266 for WiFi, as well as several on-board sensors and a battery charger. The nRF52 includes NFC (Near Field Communication) and Bluetooth Smart. The sensors include an on-board button, LED and infrared receiver and transmitter.
+The Arduino Primo combines the processing power from the Nordic nRF52 processor, an Espressif ESP8266 for WiFi, as well as several on-board sensors and a battery charger. The nRF52 includes NFC (Near Field Communication) and Bluetooth® Smart. The sensors include an on-board button, LED and infrared receiver and transmitter.
 
 The Arduino Primo is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
 
@@ -131,7 +131,7 @@ Following the **LED_BUILTIN** tradition, Arduino Primo has some other _define_ t
 
 - **USER2_LED** - Pin 38 - User2 Led onboard
 
-- **BLE_LED** - Pin 40 - BLE led onboard
+- **BLE_LED** - Pin 40 - Bluetooth® Low Energy led onboard
 
 #### Web panel functions details
 

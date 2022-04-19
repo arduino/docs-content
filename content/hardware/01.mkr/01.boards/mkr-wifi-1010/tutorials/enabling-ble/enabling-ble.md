@@ -4,7 +4,7 @@ difficulty: intermediate
 compatible-products: [mkr-wifi-1010]
 description: 'Learn how to access your board from your phone via Bluetooth®.' 
 tags:
-  - Bluetooth®, BLE
+  - Bluetooth®, Bluetooth® Low Energy
 author: Karl Söderby
 libraries:
   - name: ArduinoBLE
@@ -21,8 +21,8 @@ software:
   - web-editor
 ---
 
-## Enabling BLE
-Bluetooth® Low Energy, referred to as BLE, separates itself from what is now known as “Bluetooth® Classic” by being optimized to use low power with low data rates. There are two different types of Bluetooth® devices: central or peripheral. A central Bluetooth® device is designed to read data from peripheral devices, while the peripheral devices are designed to do the opposite. Peripheral devices continuously post data for other devices to read, and it is precisely what we will be focusing on today. 
+## Enabling Bluetooth® Low Energy
+Bluetooth® Low Energy separates itself from what is now known as “Bluetooth® Classic” by being optimized to use low power with low data rates. There are two different types of Bluetooth® devices: central or peripheral. A central Bluetooth® device is designed to read data from peripheral devices, while the peripheral devices are designed to do the opposite. Peripheral devices continuously post data for other devices to read, and it is precisely what we will be focusing on today. 
 
 This tutorial is a great starting point for any maker interested in creating their own Bluetooth® projects.
 
@@ -130,13 +130,13 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
   pinMode(ledPin, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
 
-  //initialize BLE library
+  //initialize ArduinoBLE library
   if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
+    Serial.println("starting Bluetooth® Low Energy failed!");
     while (1);
   }
 
-  BLE.setLocalName("MKR WiFi 1010"); //Setting a name that will appear when scanning for Bluetooth devices
+  BLE.setLocalName("MKR WiFi 1010"); //Setting a name that will appear when scanning for Bluetooth® devices
   BLE.setAdvertisedService(newService);
 
   newService.addCharacteristic(switchChar); //add characteristics to a service
@@ -148,7 +148,7 @@ void setup() {
   randomReading.writeValue(0);
 
   BLE.advertise(); //start advertising the service
-  Serial.println("Bluetooth device active, waiting for connections...");
+  Serial.println(" Bluetooth® device active, waiting for connections...");
 }
 ```
 
@@ -161,7 +161,7 @@ If our device (smartphone) disconnects, we exit the `while` loop. Once it exits,
 ```cpp
 void loop() {
   
-  BLEDevice central = BLE.central(); // wait for a BLE central
+  BLEDevice central = BLE.central(); // wait for a Bluetooth® Low Energy central
 
   if (central) {  // if a central is connected to the peripheral
     Serial.print("Connected to central: ");
@@ -224,13 +224,13 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
   pinMode(ledPin, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
 
-  //initialize BLE library
+  //initialize ArduinoBLE library
   if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
+    Serial.println("starting Bluetooth® Low Energy failed!");
     while (1);
   }
 
-  BLE.setLocalName("MKR WiFi 1010"); //Setting a name that will appear when scanning for bluetooth devices
+  BLE.setLocalName("MKR WiFi 1010"); //Setting a name that will appear when scanning for Bluetooth® devices
   BLE.setAdvertisedService(newService);
 
   newService.addCharacteristic(switchChar); //add characteristics to a service
@@ -242,12 +242,12 @@ void setup() {
   randomReading.writeValue(0);
 
   BLE.advertise(); //start advertising the service
-  Serial.println("Bluetooth device active, waiting for connections...");
+  Serial.println(" Bluetooth® device active, waiting for connections...");
 }
 
 void loop() {
   
-  BLEDevice central = BLE.central(); // wait for a BLE central
+  BLEDevice central = BLE.central(); // wait for a Bluetooth® Low Energy central
 
   if (central) {  // if a central is connected to the peripheral
     Serial.print("Connected to central: ");
@@ -289,7 +289,7 @@ void loop() {
 
 ## Testing It Out
 
-Once we are finished with the coding, we can upload the sketch to the board. When it has been successfully uploaded, open the Serial Monitor. In the Serial Monitor, the text **"Bluetooth device active, waiting for connections..."** will appear. 
+Once we are finished with the coding, we can upload the sketch to the board. When it has been successfully uploaded, open the Serial Monitor. In the Serial Monitor, the text **" Bluetooth® device active, waiting for connections..."** will appear. 
 
 ![Waiting for connections.](assets/mkr_tutorial_05_img_04.png)
 
