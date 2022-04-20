@@ -20,14 +20,16 @@ software:
 This tutorial will explain what a bootloader is, why you should consider keeping it updated and how you can update it. The Portenta H7 also features a second ST ROM bootloader which is a separate mechanism that we don't cover in this tutorial. For the remainder of this tutorial, when we reference a bootloader, the custom bootloader provided by Arduino is meant.
 
 ## Goals
--   The concept of a bootloader
--   How to use the Arduino IDE board manager to update the Portenta core
--   How to use the Arduino IDE to update the Portenta bootloader to the latest version
+
+- The concept of a bootloader
+- How to use the Arduino IDE board manager to update the Portenta core
+- How to use the Arduino IDE to update the Portenta bootloader to the latest version
 
 ### Required Hardware and Software
--   Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
--   USB C cable (either USB A to USB C or USB C to USB C)
--   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- USB C cable (either USB A to USB C or USB C to USB C)
+- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
 
 ## What Is a Firmware?
 
@@ -39,7 +41,7 @@ In order to understand how a bootloader works we first need to understand what a
 
 A bootloader is a small application that gets started when an Arduino board gets powered. When you order an official Arduino board it comes pre-flashed with a bootloader.
 
-The bootloader helps to upload a new sketch to the board. If the bootloader wasn't there you would need an external programmer device to upload your sketch to the board. The bootloader determines whether it should upload a new firmware or if it should launch an existing one that was uploaded previously. If you don't take any action the bootloader launches an existing firmware. On the other hand, when you double press the reset button on the board the bootloader recognises that and waits for a firmware to be uploaded. The bootloader then takes care of storing the new firmware in the memory.
+The bootloader helps to upload a new sketch to the board. If the bootloader wasn't there you would need an external programmer device to upload your sketch to the board. The bootloader determines whether it should upload a new firmware or if it should launch an existing one that was uploaded previously. If you don't take any action the bootloader launches an existing firmware. On the other hand, when you double press the reset button on the board the bootloader recognizes that and waits for a firmware to be uploaded. The bootloader then takes care of storing the new firmware in the memory.
 
 ![This chart shows a simplified version of the steps the Portenta goes through when it boots](assets/por_ard_bl_booting_process.svg)
 
@@ -47,7 +49,7 @@ The bootloader helps to upload a new sketch to the board. If the bootloader wasn
 
 Both the bootloader and the firmware have predefined (but adjustable) locations in the memory where they get stored. In the end, the processor needs to know where to find the instructions to do its work. On the Portenta for example the bootloader is stored at the Flash memory address `0x08000000`. When the board gets powered on it will jump to this location and start to do its job. The bootloader in turn knows that e.g. for the M7 the firmware can be found at location `0x08040000` so it will jump there if it doesn't need to upload a new firmware.
 
-![There are predefinded, but adjustable locations in the memory where the firmwares and the bootloader get installed](assets/por_ard_bl_flash_memory.svg)
+![There are predefined, but adjustable locations in the memory where the firmware and the bootloader get installed](assets/por_ard_bl_flash_memory.svg)
 
 
 ## Instructions
@@ -58,7 +60,7 @@ Even though the Arduino boards come pre-flashed with a bootloader there are some
 The bootloader is stored in a location that doesn't get overwritten by a firmware being uploaded to the Portenta. If you upload for example the OpenMV firmware and then later decide to switch back to a regular Arduino firmware the bootloader won't be affected.
 
 ### 1. Updating the Core
-New versions of the bootloader normally get shipped together with the core. That means you first have to update the core before you can update the bootloader. To do so open the board manager in the menu under **Tools->Board->Boards Manager...**
+New versions of the bootloader normally get shipped together with the core. That means you first have to update the core before you can update the bootloader. To do so open the board manager in the menu under **Tools >Board >Boards Manager...**
 
 ![Open the Boards Manager from the Tools menu](assets/por_ard_bl_boards_manager.png)
 

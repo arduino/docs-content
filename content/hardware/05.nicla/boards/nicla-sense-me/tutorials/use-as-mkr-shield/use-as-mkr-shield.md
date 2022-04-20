@@ -24,6 +24,7 @@ software:
 ---
 
 ## Overview
+
 ![The Arduino Nicla Sense ME mounted on top of the MKR WiFi 1010](assets/hero.png)
 
 The form factor of the Nicla Sense allows the board to be used as a MKR shield. In this tutorial we will walk you through converting the Nicla Sense Board into a shield to extend some of the functionalities of the MKR boards using the I<sup>2</sup>C communications and explain how this communication functions through an example sketch. 
@@ -34,13 +35,14 @@ The form factor of the Nicla Sense allows the board to be used as a MKR shield. 
 -   To establish an I<sup>2</sup>C communication between the MKRWiFi 1010 and the Nicla Sense  
 
 ### Required Hardware and Software
--   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
--   Arduino MKR WiFi 1010  (<https://store.arduino.cc/arduino-mkr-wifi-1010>)
--   Arduino Nicla Sense ME (<https://store.arduino.cc/products/nicla-sense-me>)
--   1x USB A Cable to Micro USB
--   2x row of Male Headers (1x9 1x8)
--   Soldering tool and  Stain.
--   Both libraries can be downloaded from the library manager
+
+- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
+- [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
+- [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
+- 1x USB A Cable to Micro USB
+- 2x row of Male Headers (1x9 1x8)
+- Soldering tool and  Stain.
+- Both libraries can be downloaded from the library manager
 
 
 ***The following sketches can be found inside the Arduino_BHY2 and Arduino_BHY2Host libraries, available at the library manager, you will need to add the changes shown in this tutorial***
@@ -48,7 +50,7 @@ The form factor of the Nicla Sense allows the board to be used as a MKR shield. 
 ## Instructions
 
 ### 1. The Setup
-We will need the latest version of the mbed_portenta core to be able to install the needed drivers of the Nicla Sense ME (minimum v2.5.2). Install the **Arduino_BHY2**  and **Arduino_BHY2Host** libraries from the library manager.
+We will need the latest version of the mbed_portenta core to be able to install the needed drivers of the Nicla Sense ME (minimum v2.5.2). Install the **Arduino_BHY2** and **Arduino_BHY2Host** libraries from the library manager.
 
 To convert the Nicla Sense ME into a Shield, you will have to **solder** 2 rows of **headers** one side has 9 pins and the other 8 pins, the long side of the headers needs to be on the **battery connectors side**.
 
@@ -63,13 +65,12 @@ Once the headers are soldered and the board plugged on top of the MKR, it will b
 ### 2. Structure of the Communication
 The host (MKR WiFi 1010), will communicate through the **BHY2Host** library with the **Nicla Sense ME** (both devices communicate over I<sup>2</sup>C)
 
-
-
 ### 3. Host Communication of the MKR WiFi 1010
 
-To make the host communicate with the Nicla Sense ME which is mounted as a shield you can modify one of the existing examples. Open the sketch under **Examples -> Arduino_BHY2Host -> Accelerometer** and modify the `setup` function.
+To make the host communicate with the Nicla Sense ME which is mounted as a shield you can modify one of the existing examples. Open the sketch under **Examples > Arduino_BHY2Host > Accelerometer** and modify the `setup` function.
 
 Add the following parameters to `BHY2Host.begin()`: `BHY2Host.begin(false, NICLA_AS_SHIELD);`
+
 The first parameter defines if the data should be passed through the Serial connection. This allows to control the Nicla Sense ME from a PC when connected through a host board. You can use the `arduino-bhy` tool to control the Nicla Sense ME from either the PC command line or from a web page.
 
 Full sketch:
@@ -105,7 +106,7 @@ void loop()
 
 ### 4. Program of the Nicla Sense ME
 
-Program the Nicla Sense ME with the **App.ino** sketch from the **BHY2** library. You can find it under **Examples -> Arduino_BHY2 -> App** . Modify it as follows:
+Program the Nicla Sense ME with the **App.ino** sketch from the **BHY2** library. You can find it under **Examples > Arduino_BHY2 > App** . Modify it as follows:
 
 
 Navigate to the `setup` function and add two parameters to `BHY2.begin()`
@@ -150,6 +151,7 @@ void loop(){
 
 ## Conclusion
 This tutorial shows how easy is to access the Nicla Sense ME sensors data and pins if it is plugged as a shield.
+
 The BHY2 Library encapsulates the I2C communication and therefore reduces the complexity of your sketch.
 
 

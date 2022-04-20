@@ -37,7 +37,7 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 ### Required Hardware and Software
 
-- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - Latest mbed Core version
 - Latest openMV IDE version
 
@@ -51,7 +51,7 @@ To check that you correctly set up the board please visit our [Getting Started G
 
 Open the script by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_fft.py**.
 
-***Using the same sketch as the NanoRP2040, because both boards access the microhpone in the same way***
+***Using the same sketch as the NanoRP2040, because both boards access the microphone in the same way***
 
 Make sure the board is connected, if the board is connected to OpenMV you should see a green play button in the bottom left corner of the window. If you do not see this icon, try pressing the connect button in the bottom left corner. If there still is some issue to connect the board take another look at the getting started guide.
 

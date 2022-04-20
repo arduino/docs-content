@@ -11,18 +11,18 @@ author: Lenard George
 The Edge Control board is a versatile tool that allows agriculturalists to develop creative and innovative solutions for agriculture by harnessing modern technology. In this tutorial you will set up the development environment for the board and learn to write a simple sketch that blinks the on-board LED. 
 
 ## Goals
--   About the basic board topology
--   How to setup the development environment
--   How to power up the board
--   About the basic API provided by the Arduino_EdgeControl library
+- About the basic board topology
+- How to setup the development environment
+- How to power up the board
+- About the basic API provided by the Arduino_EdgeControl library
 
 ### Required Hardware and Software
--   Arduino Edge Control (<https://store.arduino.cc/edge-control>)
--   Micro USB cable
--   Arduino IDE 1.8.10+
--   External power source : a 12V SLA battery or 12V power supply 
--   1x Connector 
--   2x Jumper wires 
+- [Arduino Edge Control](https://store.arduino.cc/edge-control)
+- Micro USB cable
+- Arduino IDE 1.8.10+
+- External power source: a 12V SLA battery or 12V power supply 
+- 1x Connector 
+- 2x Jumper wires 
 
 ## Instructions
 
@@ -41,7 +41,7 @@ The Arduino Edge Control board is designed to address the needs of **precision f
 - **16** x **Watermark Sensors** 
 - **16** x **Latching Devices** (e.g. Motorized Valves)
 
-  and provides **4** x **configurable Solid State Relays**. 
+and provides **4** x **configurable Solid State Relays**. 
 
 ***Connections to the Terminal blocks are made through the connectors included in the kit.***
 
@@ -91,13 +91,13 @@ Power.enable3V3();
 Power.enable5V();
 ```
 
-Communication to the I/O Expander happens through the I2C port which we initialise with `Wire.begin()`. We also need to initialise the expander and configure the LED pin as OUTPUT. 
+Communication to the I/O Expander happens through the I2C port which we initialize with `Wire.begin()`. We also need to initialize the expander and configure the LED pin as OUTPUT. 
 
 ```cpp
 // Start the I2C connection 
 Wire.begin();
 
-// Initialise the expander pins 
+// Initialize the expander pins 
 Expander.begin();
 Expander.pinMode(EXP_LED1, OUTPUT);
 ```
@@ -149,7 +149,7 @@ void setup() {
   // Start the I2C connection 
   Wire.begin();
 
-  // Initialise the expander pins 
+  // Initialize the expander pins 
   Expander.begin();
   Expander.pinMode(EXP_LED1, OUTPUT);
 }
