@@ -152,7 +152,7 @@ Which in decimal format is:
 23667
 ```
 
-This is a clever way of sending large amounts of data from one point to the other, by rapidly turning ON or OFF something. This particular operation is quite complex, and this is just a basic explanation of how a digital signal works.
+This is a clever way of sending large amounts of data from one point to the other, by rapidly sending high & low signals. In order to interpret the data from the signals, we use [Serial Communication Protocols](#serial-communication-protocols).
 
 ### Sensors & Actuators
 
@@ -203,10 +203,12 @@ Sensors and actuators, are typically referred to as **inputs and outputs**. When
 A basic example of this is a **button** and an **LED**. We can write a conditional that checks if a button is pressed, we should turn on the LED, and to turn it off if the button is not pressed. In an Arduino program, it looks like this:
 
 ```arduino
-if(button == HIGH){ //check if state is high (button is pressed)
+int buttonState = digitalRead(buttonPin); //read and store the button state (0 or 1)
+
+if(buttonState == HIGH){ //check if state is high (button is pressed)
     digitalWrite(LED, HIGH) //turn on LED
 }
-else{
+else {
     digitalWrite(LED, LOW); //turn off LED
 }
 ```
@@ -278,11 +280,11 @@ The absolute minimum requirement of an Arduino program is the use of two functio
 - `void setup()` - this function executes only once, when the Arduino is powered on. Here we define things such as the mode of a pin (input or output), the baud rate of serial communication or the initialization of a library.
 - `void loop()` - this is where we write the code that we want to execute over and over again, such as turning on/off a lamp based on an input, or to conduct a sensor reading every X second.
 
-The above functions are **always** required in an Arduino sketch, but you are of course able to add several more functions, which is very useful for longer programs. 
+The above functions are **always** required in an Arduino sketch, but you are of course able to add several more functions, which is useful for longer programs. 
 
 ### The "Sketch"
 
-In the Arduino project, a program is referred to as a "Sketch". A sketch is basically just a file that you write your program inside. It has the `.ino` extension, and is always stored in a folder of the same name. 
+In the Arduino project, a program is referred to as a "Sketch". A sketch is a file that you write your program inside. It has the `.ino` extension, and is always stored in a folder of the same name. 
 
 The folder can include other files, such as a **header file**, that can be included in your sketch. 
 
@@ -341,6 +343,8 @@ To use a library, you need to include it at the top of your code, as the example
 ```arduino
 #include <Library.h>
 ```
+
+Most libraries also have a set of examples that can be  
 
 ***You can browse through all official and contributed libraries in the [Arduino Libraries page](https://www.arduino.cc/reference/en/libraries/).***
 
@@ -855,4 +859,4 @@ To learn more, you can explore the [Arduino Documentation](/) and the [Arduino L
 
 To purchase an Arduino board, visit the [Arduino Store](https://store.arduino.cc/).
 
-To download a version of the Arduino IDE, visit the [Arduino Software page]().
+To download a version of the Arduino IDE, visit the [Arduino Software page](https://www.arduino.cc/en/software).
