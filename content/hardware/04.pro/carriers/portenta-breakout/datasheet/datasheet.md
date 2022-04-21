@@ -340,7 +340,7 @@ Pins closer to the edge of the board are UART2. Pins closer to the center are UA
 
 ## Mechanical Information
 ### Board Outline
-![alt_text](assets/breakoutCarrierOutline.png)
+![Board outline](assets/breakoutCarrierOutline.png)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
