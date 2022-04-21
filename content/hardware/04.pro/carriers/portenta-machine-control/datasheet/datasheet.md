@@ -170,37 +170,37 @@ The 24V IN pin is not galvanically isolated: the input voltage must be referred 
 
 The supply voltage can be the same 24V which is powering the board. 
 
--   12 high side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
+- 12 high side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
 
 Current limit 
--   Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
--   The 12 channels behavior when the current limit is reached can be selected: 
+- Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
+- The 12 channels behavior when the current limit is reached can be selected: 
 
-    **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
+  **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
 
-    **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
+  **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
 
 Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode **PMEG6020ER,115**
 
--   12 digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
+- 12 digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
 
-    The digital input channels are independent of the high side switches. 
-        **The digital input channels can read the status of the high side switches if needed.**
+  The digital input channels are independent of the high side switches.
+  **The digital input channels can read the status of the high side switches if needed.**
 
 
 ### Analog Input 
 
 Three independent analog input channels are available. Each of them has an analog switch TS12A44514PWR which is switching between three modes: 
 
--   **0-10V**
+- **0-10V**
     The input is connected to a 100kΩ and 39kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V. 
 
     Input impedance approximately 28kΩ 
 
--   **4-20mA**
+- **4-20mA**
     The input is connected to a 120Ω resistor. A 4-20mA current input becomes a 0.48V-2.4V voltage 
 
--   **NTC**
+- **NTC**
     The input is connected to a 3V voltage reference (REF3330AIRSER) with a 100kΩ resistor in series, becoming part of a resistor divider powered by the voltage reference.
 
     An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protects the 24V output pin. 
