@@ -78,8 +78,8 @@ This product is designed to work alongside the Portenta family. Please check the
 
 ## Functional Overview
 ### Board Topology 
-Front view
-![](assets/breakoutCarrierConnectors.png)
+### Top view
+![Topology - Top view](assets/breakoutCarrierConnectors.png)
 
 | **Ref.** |                 **Description**                  | **Ref.** |       **Description**       |
 | :------: | :----------------------------------------------: | :------: | :-------------------------: |
@@ -90,8 +90,8 @@ Front view
 |   SW1    |               Boot mode selection                |   PB1    |       Power ON button       |
 |    U1    |               USBA power switch IC               |          |                             |
 
-Back view
-![](assets/breakoutCarrierConnectorsBottom.png)
+### Bottom view
+![Topology - Bottom view](assets/breakoutCarrierConnectorsBottom.png)
 
 | **Ref.** |              **Description**               | **Ref.** |              **Description**               |
 | :------: | :----------------------------------------: | :------: | :----------------------------------------: |
