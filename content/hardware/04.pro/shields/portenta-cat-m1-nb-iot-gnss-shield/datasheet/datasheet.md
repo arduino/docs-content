@@ -137,7 +137,7 @@ Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by th
 ***Note: The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** requires a Portenta/MKR host board to operate.***
 
 ### Sample Sketches
-Sample sketches for the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**
+Sample sketches for the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation > Tutorials” section of the Arduino® Pro website **[4]**
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
