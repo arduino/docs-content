@@ -127,7 +127,7 @@ The DIP switch allows for boot mode configuration:
 *   **BOOT**: When set to ON enables the embedded bootloader. Firmware can be uploaded via the USB port on the breakout board (DFU). USB-A to USB-A  (non-crossover) cable required. The Portenta H7 has to be powered through the USB-C connector or VIN.
 
 ## Board Operation
-**Note:** This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview). 
+***Note: This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview).***
 
 ### Getting Started - IDE 
 If you want to program your Portenta H7 with the Breakout Board while offline you need to install the Arduino Desktop IDE **[1]**. To connect your Portenta H7 with the Portenta Breakout Board to your computer, you will need a Type-C USB cable. This also provides power to both the Portenta H7 as well as the Portenta Breakout Board. Alternatively, in order to provide power to the USB connectors and the 5V pins, a 5V source must be applied to J8. This will also provide power to the Portenta H7.
@@ -188,8 +188,8 @@ In cases where multiple channels are on a single header, the first channel is on
 
 ### CAN0/CAN1
 Pins closer to the edge of the board are CAN0. Pins close to the centre are CAN1.
-**Please Note** 
-When used with Arduino Portenta H7, only CAN1 is available.
+
+***Please Note: When used with Arduino Portenta H7, only CAN1 is available.***
 
 | Pin  | **Function** |   **Type**   |      **Description**      |
 | :--: | :----------: | :----------: | :-----------------------: |
