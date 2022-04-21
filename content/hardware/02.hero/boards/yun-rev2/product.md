@@ -1,6 +1,5 @@
 ---
 title: Yún Rev2
-url_shop: https://store.arduino.cc/arduino-yun-rev-2
 core: arduino:avr
 status: end-of-life
 ---
