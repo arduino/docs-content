@@ -78,7 +78,7 @@ This product is designed to work alongside the Portenta family. Please check the
 
 ## Functional Overview
 ### Board Topology 
-### Top view
+### Top View
 ![Topology - Top view](assets/breakoutCarrierConnectors.png)
 
 | **Ref.** |                 **Description**                  | **Ref.** |       **Description**       |
@@ -90,7 +90,7 @@ This product is designed to work alongside the Portenta family. Please check the
 |   SW1    |               Boot mode selection                |   PB1    |       Power ON button       |
 |    U1    |               USBA power switch IC               |          |                             |
 
-### Bottom view
+### Bottom View
 ![Topology - Bottom view](assets/breakoutCarrierConnectorsBottom.png)
 
 | **Ref.** |              **Description**               | **Ref.** |              **Description**               |
