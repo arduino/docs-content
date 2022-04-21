@@ -50,7 +50,7 @@ This product is designed to work alongside the Portenta family. Please check the
 <!-- *   M2x3 screws for attaching the OpenMV Global Shutter Camera Module -->
 
 ### Related Products
-* Arduino Portenta H7 (SKU: ABX00042)
+* Arduino® Portenta H7 (SKU: ABX00042)
 * Arduino® Portenta H7 Lite (SKU: ABX00045)
 * Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 * Arduino® Portenta X8 (SKU: ABX00049)
