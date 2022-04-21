@@ -97,7 +97,7 @@ Then use the remove (`rm`) command
 docker container rm <CONTAINER ID>
 ```
 
-In this case we run `docker ps -a` and I copied the `CONTAINER_ID` which is `c44ba77b65cb`.
+In this case we run `docker ps -a` and copy the `CONTAINER_ID` which in this case is `c44ba77b65cb`.
 
 ***`CONTAINER_ID` changes its value every time you re-install them***
 
