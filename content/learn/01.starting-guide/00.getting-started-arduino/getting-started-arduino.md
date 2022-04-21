@@ -9,7 +9,7 @@ The Arduino platform has since its start in 2005, grown to become one of the mos
 
 But what are the cornerstones of Arduino? What is a "board", how do I write code to it, and what are the tools needed to create my own project? The goal with this guide is to provide you with an overview to the Arduino project.
 
-***In this guide, you will discover a lot of topics related to the Arduino Ecosystem, and links that lead to more in-depth articles.***
+***In this guide, you will have an overview of the entire Arduino Ecosystem, and a set of links leading to our articles to dive deepr into each of the indivisual topics that interest you.***
 
 
 ## Overview
@@ -18,7 +18,7 @@ This guide is divided into four main sections: **hardware**, **software tools**,
 
 ### Arduino Hardware
 
-In this section, we will dedicate some time to learn about some fundamentals in electronics, and about a basic operation of an Arduino board.
+In this section, we will dedicate some time to learn about some fundamentals in electronics, and about the basic operation of an Arduino board.
 
   - [Anatomy of an Arduino Board](#anatomy-of-an-arduino-board)
   - [Basic Operation](#basic-operation)
@@ -74,22 +74,22 @@ While all Arduino boards differ from each other, there are several key component
 
 ![Key components of an Arduino board.](assets/board-anatomy.png)
 
-- **1.** Microcontroller - this is the brain of an Arduino, and is the component that we load programs into. Think of it as a tiny computer, designed to execute only a specific number of things.
-- **2.** USB port - used to connect a USB cable from your computer.
-- **3.** USB to Serial chip - the USB to Serial is an important component, as it helps translate data that comes from e.g. a computer to the microcontroller. This is what makes it possible to program it from your computer.
-- **4.** Digital pins - pins that uses digital logic (0,1 or LOW/HIGH). Commonly used for switches and to turn on an LED.
-- **5.** Analog pins - pins that can read analog values in a 10 bit resolution (0-1023).
-- **6.** 5V / 3.3V pins- these pins are used to power external components.
-- **7.** GND - also known as `ground`, `negative` or simply `-`, is used to complete a circuit, where the electrical level is at 0 volt.
-- **8.** VIN - stands for Voltage In, where you can connect external power supplies.
+- **1.** **Microcontroller** - this is the brain of an Arduino, and is the component that we load programs into. Think of it as a tiny computer, designed to execute only a specific number of things.
+- **2.** **USB port** - used to connect your Arduino board to a computer.
+- **3.** **USB to Serial chip** - the USB to Serial is an important component, as it helps translating data that comes from e.g. a computer to the on-board microcontroller. This is what makes it possible to program the Arduino board from your computer.
+- **4.** **Digital pins** - pins that use digital logic (0,1 or LOW/HIGH). Commonly used for switches and to turn on/off an LED.
+- **5.** **Analog pins** - pins that can read analog values in a 10 bit resolution (0-1023).
+- **6.** **5V / 3.3V pins**- these pins are used to power external components.
+- **7.** **GND** - also known as `ground`, `negative` or simply `-`, is used to complete a circuit, where the electrical level is at 0 volt.
+- **8.** **VIN** - stands for Voltage In, where you can connect external power supplies.
 
-Depending on the Arduino board, you will find many more components. Listed above are generally found on any Arduino board.
+Depending on the Arduino board, you will find many more components. The components listed above are generally found on any Arduino board.
 
 ### Basic Operation
 
-Most Arduino boards are designed to have a single program running on the microcontroller. This program can be designed to perform one single action, such as blinking an LED. It can also be designed to execute a hundred different actions in a cycle. The scope varies from program to program.
+Most Arduino boards are designed to have a single program running on the microcontroller. This program can be designed to perform one single action, such as blinking an LED. It can also be designed to execute hundreds of actions in a cycle. The scope varies from a program to another.
 
-The program that is loaded to the microcontroller will start execution as soon as it is powered. Every program has a function called a "loop". Inside the loop, you can for example:
+The program that is loaded to the microcontroller will start execution as soon as it is powered. Every program has a function called "loop". Inside the loop function, you can for example:
 
 - Read a sensor.
 - Turn on a light.
@@ -102,19 +102,19 @@ The speed of a program is incredibly fast, unless we tell it to slow down. It de
 
 ### Circuit Basics
 
-Circuits consist of at least one active electronic component, and consists of conductive material, such as wires, so that current can pass through. When working with an Arduino, you will in most cases build a circuit for your project. 
+Circuits consist of at least one active electronic component, and a conductive material, such as wires, so that current can pass through. When working with an Arduino, you will in most cases build a circuit for your project. 
 
-A simple example of a circuit, is an **LED circuit**. A wire is connected from a pin on the Arduino, to an LED via a resistor (to protect the board), and to ground (GND). When the pin is set to a **HIGH state**, the LED will turn on, as electric current is flowing through the circuit. When the pin is set to a **LOW state**, the LED will turn off, as electric current is not flowing through the circuit.
+A simple example of a circuit, is an **LED circuit**. A wire is connected from a pin on the Arduino, to an LED via a resistor (to protect the LED from high current), and finally to the ground pin (GND). When the pin is set to a **HIGH state**, the microcontroller on the Arduino board will allow an electric current to flow through the circuit, which turns on the LED. When the pin is set to a **LOW state**, the LED will turn off, as an electric current is not flowing through the circuit.
 
 ![An LED circuit with an Arduino.](assets/circuit.png)
 
-Circuits are typically drawn as **schematics**, which are the blueprints for your circuit. In the schematic below, you will see the same circuit as the one above, but drawn differently. 
+Circuits are typically represented as **schematics**, which are the blueprints for your circuit. The image below shows the schematic's representation of the same circuit shown in the image above.  
 
 ![Schematics of a circuit.](assets/schematic.png)
 
 ### Electronic Signals
 
-All communication between any electronic components are done through **electronic signals.** There are two main types of electronic signals: **analog & digital**. 
+All communication between electronic components are facilitated by **electronic signals.** There are two main types of electronic signals: **analog & digital**. 
 
 ### Analog Signal
 
@@ -122,7 +122,7 @@ All communication between any electronic components are done through **electroni
 
 An analog signal is generally bound to a range. In an Arduino, that range is typically 0-5V, or 0-3.3V. 
 
-If we for example use a potentiometer (an analog component used to change the resistance of a circuit), we can adjust this range (0-5V). In the program, this is represented in a range of 0-1023, which is a 10-bit resolution. 
+If we for example use a potentiometer (an analog component used to change the resistance of a circuit), we can manually adjust this range (0-5V). In the program, this is represented in a range of 0-1023, which is a 10-bit resolution. 
 
 If we write an analog signal using Pulse-Width Modulation (PWM), we can use a range between 0-255, as we are using an 8-bit resolution.
 
@@ -132,11 +132,11 @@ If we write an analog signal using Pulse-Width Modulation (PWM), we can use a ra
 
 ![Basics of a digital signal.](assets/digital-signal.png)
 
-A digital signal works a bit different, and measures only if it is in a high, or low state (0 or 1). This is the most common signal type in modern technology. 
+A digital signal works a bit different, representing only two binary states (0 or 1) that are read as high or low states in the program. This is the most common signal type in modern technology. 
 
-You can easily write and read digital signals on an Arduino, and is very useful to read button states, or to turn something on or off.
+You can easily read and write digital signals on an Arduino, which is very useful to read button states for example, or to turn something on or off.
 
-Digital signals might seem very basic (just 0 or 1 right), but are actually way more advanced. For example, we can create a sequence by sending a high or low state rapidly a number of times. This is known as a **binary sequence** or a **bitstream**.
+Digital signals might seem very basic (just 0 or 1), but are actually way more advanced. For example, we can create a sequence by sending a high or low state rapidly a number of times. This is known as a **binary sequence** or a **bitstream**.
 
 Let's take a look at two binary sequences:
 
@@ -162,9 +162,9 @@ When working with Arduino, it is important to understand **sensors** and **actua
 
 A sensor, in simple terms, is used to *sense* its environment, meaning it records a physical parameter, for example temperature, and converts it into an electronic signal. 
 
-Sensors can also take the form of just a simple button: when a state changes (we press the button), the electronic signal is switched from low to high (0 to 1). 
+Sensors can also take the form of just a simple button: when a state changes (we pressed the button), the electronic signal is switched from low to high (0 to 1), which in a way sensed our touch. 
 
-There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we record the voltage input (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
+There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we communicte a range ov values through altering the voltage input fed into an Arduino analogue pin (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
 
 Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols](#serial-communication-protocols) to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals](#electronic-signals) section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **software libraries**, which makes it a lot easier to read.
 
@@ -184,7 +184,7 @@ An actuator, in simple terms, is used to *actuate* or *change a physical state*.
 
 Actuators converts electric signals into e.g. radiant energy (light) or mechanical energy (movement). 
 
-How actuators are controlled really depends on what type of component we have. The most simple way is to simply turn something on/off, while more advanced is controlling the amount of voltage a component gets (i.e. the speed of a motor).
+How actuators are controlled really depends on what type of component we have. The most simple way is to simply turn something on/off, while more advanced is controlling the amount of voltage a component receives (i.e. the speed of a motor).
 
 To control actuators, it is common to use `digitalWrite()` and `analogWrite()`. 
 
@@ -200,7 +200,7 @@ analogWrite(motor, 25); //set a motor to 10% of its capacity
 
 Sensors and actuators, are typically referred to as **inputs and outputs**. When we write a program, it is common to construct conditionals that checks the state of a sensor, and decides whether it should actuate something. 
 
-A basic example of this is a **button** and an **LED**. We can write a conditional that checks if a button is pressed, we should turn on the LED, and to turn it off if the button is not pressed. In an Arduino program, it looks like this:
+A basic example of this is a **button** and an **LED**. We can write a conditional that checks if a button is pressed, turn on the LED, and turn it off if the button is not pressed. In an Arduino program, it looks like this:
 
 ```arduino
 int buttonState = digitalRead(buttonPin); //read and store the button state (0 or 1)
@@ -344,7 +344,7 @@ To use a library, you need to include it at the top of your code, as the example
 #include <Library.h>
 ```
 
-Most libraries also have a set of examples that can be  
+Most libraries also have a set of examples that can be helpful when starting.
 
 ***You can browse through all official and contributed libraries in the [Arduino Libraries page](https://www.arduino.cc/reference/en/libraries/).***
 
@@ -356,7 +356,7 @@ For example, the classic [ArduinoCore-avr](https://github.com/arduino/ArduinoCor
 
 Another example is the [ArduinoCore-mbed](https://github.com/arduino/ArduinoCore-mbed) package, which includes over 40 libraries, designed for specific board features, such as:
 
-- **PDM** - used for sampling Audio from microphones onboard the Nano BLE Sense and Nano RP2040 Connect boards.
+- **PDM** - used for sampling audio from onboard microphones on the Nano BLE Sense and Nano RP2040 Connect boards.
 - **Ethernet** - for using the Ethernet functionalities of the Portenta Vision Shield.
 - **GSM** - to access GSM functionalities on the Portenta Cat. M1/NB IoT GNSS Shield.
 
@@ -400,7 +400,7 @@ To upload code to an Arduino board using the IDE, one typically does the followi
 
 For what is now considered the "legacy" editor, the Arduino IDE 1.8.X, or "Java IDE", is the editor that was first released back when Arduino started.
 
-***Learn more by visiting the [Arduino IDE 1 documentation](/software/ide-v1)).***
+***Learn more by visiting the [Arduino IDE 1 documentation](/software/ide-v1).***
 
 ### Arduino IDE 2.0.x
 
