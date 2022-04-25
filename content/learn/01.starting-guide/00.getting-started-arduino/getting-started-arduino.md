@@ -116,7 +116,7 @@ Circuits are typically represented as **schematics**, which are the blueprints f
 
 All communication between electronic components are facilitated by **electronic signals.** There are two main types of electronic signals: **analog & digital**. 
 
-### Analog Signal
+#### Analog Signal
 
 ![Basics of an analog signal.](assets/analog-signal.png)
 
@@ -128,7 +128,7 @@ If we write an analog signal using Pulse-Width Modulation (PWM), we can use a ra
 
 ***Read more about [Analog Inputs](/learn/microcontrollers/analog-input) and [Analog Outputs (PWM)](/learn/microcontrollers/analog-output).***
 
-### Digital Signal
+#### Digital Signal
 
 ![Basics of a digital signal.](assets/digital-signal.png)
 
@@ -168,7 +168,7 @@ There are many types of sensors, and several ways of recording data from them. P
 
 Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols](#serial-communication-protocols) to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals](#electronic-signals) section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **software libraries**, which makes it a lot easier to read.
 
-In many cases, all we need is just one line of code:
+In many cases using a library, all we need is just one line of code:
 
 ```arduino
 sensorValue = sensor.read();
@@ -366,7 +366,7 @@ These features are documented in the **documentation landing page** of each prod
 
 ***The Arduino IDEs are available for download for free in the [Software downloads page](https://www.arduino.cc/en/software).***
 
-Now that we have a bit of background on Arduino hardware, let us move on to another fundamental: the Arduino Software tools.
+Another integral part of the Arduino ecosystem are its software tools.
 
 The Arduino IDE, as it is commonly referred to, is an **integrated development environment.** But what does that mean exactly?
 
@@ -410,6 +410,14 @@ In 2021, the Arduino IDE 2.0 was released. The new IDE has the same functionalit
 
 ***Learn more by visiting the [Arduino IDE 2 documentation](/software/ide-v2).***
 
+### Web Editor
+
+![The Web Editor.](assets/web-editor.png)
+
+The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Web Editor, you will need to register an Arduino account.
+
+***Learn more by visiting the [Web Editor documentation](/cloud/web-editor).***
+
 ### Arduino IoT Cloud
 
 ![The Arduino IoT Cloud.](assets/iot-cloud.png)
@@ -420,13 +428,6 @@ The cloud is made for **anyone** to use, and it does not require much previous e
 
 ***Get started by reading the [Getting Started with the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or visit the [full documentation](/cloud/iot-cloud).***
 
-### Web Editor
-
-![The Web Editor.](assets/web-editor.png)
-
-The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Web Editor, you will need to register an Arduino account.
-
-***Learn more by visiting the [Web Editor documentation](/cloud/web-editor).***
 
 ### Library Manager
 
@@ -483,10 +484,10 @@ The classic blink sequence is found in the snippet below:
 ```arduino
 void loop() {
 
-digitalWrite(LED, HIGH); //turn on an LED
-delay(1000); //as program is paused, with the LED on
-digitalWrite(LED, LOW); //program is unpaused, and the LED is turned off
-delay(1000); //program is paused, with the LED off
+   digitalWrite(LED, HIGH); //turn on an LED
+   delay(1000); //as program is paused, with the LED on
+   digitalWrite(LED, LOW); //program is unpaused, and the LED is turned off
+   delay(1000); //program is paused, with the LED off
 
 }
 ```
@@ -520,15 +521,15 @@ void loop() {
 //check time since program started, and store in "currentMillis"
 unsigned long currentMillis = millis();
 
-//conditional that checks whether 1 second has passed since last event
-if (currentMillis - previousMillis_1 >= interval_1) {
-    //execute a piece of code, every *1 second*
-}
+   //conditional that checks whether 1 second has passed since last event
+   if (currentMillis - previousMillis_1 >= interval_1) {
+       //execute a piece of code, every *1 second*
+   }
 
-//conditional that checks whether 2 seconds have passed since last event
-if (currentMillis - previousMillis_2 >= interval_2) {
+   //conditional that checks whether 2 seconds have passed since last event
+   if (currentMillis - previousMillis_2 >= interval_2) {
     //execute a piece of code, every *2 seconds*
-}
+   }
 
 }
 ```
@@ -537,7 +538,7 @@ While the `millis()` function is a more advanced concept than the `delay()` func
 
 #### Functions
 
-***Learn more about [functions](/learn/programming/functions).***
+***Learn more about [Arduino functions](/learn/programming/functions).***
 
 You can create custom functions that either just executes code and returns to the program, or that returns a result.
 
