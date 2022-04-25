@@ -9,7 +9,7 @@ The Arduino platform has since its start in 2005, grown to become one of the mos
 
 But what are the cornerstones of Arduino? What is a "board", how do I write code to it, and what are the tools needed to create my own project? The goal with this guide is to provide you with an overview to the Arduino project.
 
-***In this guide, you will have an overview of the entire Arduino Ecosystem, and a set of links leading to our articles to dive deepr into each of the indivisual topics that interest you.***
+***In this guide, you will gain an overview of the Arduino Ecosystem, and a set of links leading to more detailed articles.***
 
 
 ## Overview
