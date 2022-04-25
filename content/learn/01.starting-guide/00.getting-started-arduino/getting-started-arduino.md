@@ -83,7 +83,7 @@ While all Arduino boards differ from each other, there are several key component
 - **7.** **GND** - also known as `ground`, `negative` or simply `-`, is used to complete a circuit, where the electrical level is at 0 volt.
 - **8.** **VIN** - stands for Voltage In, where you can connect external power supplies.
 
-Depending on the Arduino board, you will find many more components. The components listed above are generally found on any Arduino board.
+Depending on the Arduino board, you will find many more components. The items listed above are generally found on any Arduino board.
 
 ### Basic Operation
 
