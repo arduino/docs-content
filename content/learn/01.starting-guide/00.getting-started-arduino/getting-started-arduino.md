@@ -162,7 +162,7 @@ When working with Arduino, it is important to understand **sensors** and **actua
 
 A sensor, in simple terms, is used to *sense* its environment, meaning it records a physical parameter, for example temperature, and converts it into an electronic signal. 
 
-Sensors can also take the form of just a simple button: when a state changes (we pressed the button), the electronic signal is switched from low to high (0 to 1), which in a way sensed our touch. 
+Sensors can also take the form of just a simple button: when a state changes (we pressed a button), the electronic signal is switched from low to high (0 to 1). 
 
 There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we communicte a range ov values through altering the voltage input fed into an Arduino analogue pin (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
 
