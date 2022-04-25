@@ -131,7 +131,9 @@ The files can be used together with various PCB design programs, such as [Altium
 
 The design file(s) below can be used for 3D printing, e.g. enclosures, mounts.
 
-- [Nano Board Enclosure (STL)]()
+- [Nano Board Enclosure (.stl)](/resources/3d/nano-enclosure.stl)
+- [Nano Board Enclosure (.stp)](/resources/3d/nano-enclosure.stp)
+
 
 ## Soldering Directly To PCB
 
