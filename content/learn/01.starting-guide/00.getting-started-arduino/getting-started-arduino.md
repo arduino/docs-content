@@ -134,7 +134,7 @@ If we write an analog signal using Pulse-Width Modulation (PWM), we can use a ra
 
 A digital signal works a bit different, representing only two binary states (0 or 1) that are read as high or low states in the program. This is the most common signal type in modern technology. 
 
-You can easily read and write digital signals on an Arduino, which is very useful to read button states for example, or to turn something on or off.
+You can easily read and write digital signals on an Arduino, which is useful to for example read button states, or to turn something on or off.
 
 Digital signals might seem very basic (just 0 or 1), but are actually way more advanced. For example, we can create a sequence by sending a high or low state rapidly a number of times. This is known as a **binary sequence** or a **bitstream**.
 
