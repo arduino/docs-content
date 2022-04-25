@@ -164,7 +164,7 @@ A sensor, in simple terms, is used to *sense* its environment, meaning it record
 
 Sensors can also take the form of just a simple button: when a state changes (we pressed a button), the electronic signal is switched from low to high (0 to 1). 
 
-There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we communicte a range ov values through altering the voltage input fed into an Arduino analogue pin (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
+There are many types of sensors, and several ways of recording data from them. Perhaps the easiest to use is an analog sensor, where we communicate a range of values through altering the voltage input fed into an Arduino analog pin (usually between 0-5 volts). This simply gives you a range between 0-1023 (a 10-bit resolution).
 
 Digital sensors are a bit more advanced, depending on the type. They rely on [Serial Communication Protocols](#serial-communication-protocols) to send the data accordingly, and requires a bit more effort to translate the data. As mentioned in the [Electronic Signals](#electronic-signals) section above, data is sent using a binary sequence (e.g. `101101` is `45`), and this needs to be addressed and configured on a software level. Luckily, a lot of sensors are accompanied by **software libraries**, which makes it a lot easier to read.
 
