@@ -344,7 +344,7 @@ To use a library, you need to include it at the top of your code, as the example
 #include <Library.h>
 ```
 
-Most libraries also have a set of examples that can be helpful when starting.
+Most libraries also have a set of examples that are useful to get started with the library.
 
 ***You can browse through all official and contributed libraries in the [Arduino Libraries page](https://www.arduino.cc/reference/en/libraries/).***
 
