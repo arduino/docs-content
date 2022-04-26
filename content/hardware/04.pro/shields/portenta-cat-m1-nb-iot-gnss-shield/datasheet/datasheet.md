@@ -70,8 +70,8 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 ### Related Products
 - Arduino® Portenta H7 (SKU: ABX00042)
-<!--- Arduino® Portenta H7 Lite (SKU: ABX00045)
-- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)-->
+- Arduino® Portenta H7 Lite (SKU: ABX00045)
+- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 
 ### Assembly Overview
 ![Example of a typical assembly including an Arduino® Portenta H7 and Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/thalesShieldSolutionOverview_60.png)
