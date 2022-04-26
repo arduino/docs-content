@@ -4,7 +4,9 @@ software:
   - iot-cloud
   - web-editor
   - openmv-ide
-boards:
-  - portenta-h7
-  - portenta-h7-lite
-  - portenta-h7-lite-connected
+
+hardware:
+  boards:
+    - portenta-h7
+    - portenta-h7-lite
+    - portenta-h7-lite-connected
