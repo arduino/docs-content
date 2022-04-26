@@ -1,11 +1,11 @@
 software:
   - arduino-ide
   - arduino-cli
-  - iot-cloud
   - web-editor
   - openmv-ide
 hardware:
   shields:
     - portenta-vision-shield
-  boards:
+    - portenta-cat-m1-nb-iot-gnss-shield
+  carriers:
     - portenta-breakout
