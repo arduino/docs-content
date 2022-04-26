@@ -150,7 +150,7 @@ With the sketch we are creating we will do the following:
 - Sample for one second at 119Hz, outputting CSV format data over USB 
 - Loop back and monitor for the next gesture
 
-*The sensors we choose to read from the board, the sample rate, the trigger threshold, and whether we stream data output as CSV, JSON, binary or some other format are all customizable in the sketch running on the Arduino. There is also scope to perform signal preprocessing and filtering on the device before the data is output to the log – this we can cover in another blog. For now, you can just upload the sketch and get sampling.*
+**The sensors we choose to read from the board, the sample rate, the trigger threshold, and whether we stream data output as CSV, JSON, binary or some other format are all customizable in the sketch running on the Arduino. There is also scope to perform signal preprocessing and filtering on the device before the data is output to the log – this we can cover in another blog. For now, you can just upload the sketch and get sampling.**
 
 The complete sketch can be found below:
 
@@ -256,7 +256,7 @@ With that done we can now visualize the data coming off the board. We’re not c
 
 ![Arduino IDE Serial Plotter will show a live graph of CSV data output from your board.](assets/plot-1.gif)
 
-*When you’re done be sure to close the Serial Plotter window – this is important as the next step won’t work otherwise.*
+**When you’re done be sure to close the Serial Plotter window – this is important as the next step won’t work otherwise.**
 
 ## Capturing Gesture Training Data
 To capture data as a CSV log to upload to TensorFlow, you can use **Arduino IDE > Tools > Serial Monitor** to view the data and export it to your desktop machine:

@@ -18,7 +18,7 @@ The adapter can easily connect to the Arduino Ethernet, Mini, Mini Pro, LilyPad,
 
 An onboard polyfuse limits the current to 500mA and protects the host computer from short circuits.
 
-The ATmega16U2 firmware source code is available . The ATmega16U2 is loaded with a DFU bootloader, which can be activated by connecting the solder jumper on the back of the board and then resetting the 16U2\. You can then use [Atmel's FLIP software](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=3886) (Windows) or the [DFU programmer](http://dfu-programmer.sourceforge.net/) (Mac OS X and Linux) to load a new firmware. Or you can use the ISP header with an external programmer (overwriting the DFU bootloader). See [this user-contributed tutorial](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1285962838) for more information.
+The ATmega16U2 firmware source code is available . The ATmega16U2 is loaded with a DFU bootloader, which can be activated by connecting the solder jumper on the back of the board and then resetting the 16U2\. You can then use [Atmel's FLIP software](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=3886) (Windows) or the [DFU programmer](http://dfu-programmer.sourceforge.net/) (Mac OS X and Linux) to load a new firmware. Or you can use the ISP header with an external programmer (overwriting the DFU bootloader).
 
 You can find [here](https://www.arduino.cc/en/Main/warranty) your board warranty information.
 

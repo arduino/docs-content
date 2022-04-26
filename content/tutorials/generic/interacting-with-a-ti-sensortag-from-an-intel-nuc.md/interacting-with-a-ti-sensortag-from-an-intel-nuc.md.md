@@ -1,5 +1,5 @@
 ---
-title: "Interacting with a TI SensorTag from an Intel NUC © CC BY-NC-SA"
+title: "Interacting with a TI SensorTag from an Intel NUC"
 description: "This project shows you how setup an Intel NUC to interact with a TI SensorTag device using Bluetooth® Low Energy."
 coverImage: "assets/intel_bluetooth_Rx75ZbMLc8.png"
 tags: [internet of things]

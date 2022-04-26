@@ -1,5 +1,5 @@
 ---
-title: "Full Control of Your TV Using Alexa and Arduino IoT Cloud © CC BY-NC-SA"
+title: "Full Control of Your TV Using Alexa and Arduino IoT Cloud"
 description: "Learn how to use Arduino IoT Cloud and Amazon Alexa to switch the channel, adjust the volume and turn on or off any TV."
 coverImage: "assets/_VKKWOq5yC4.png"
 tags: [alexa, cloud, home automation, television]

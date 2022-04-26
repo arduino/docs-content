@@ -325,7 +325,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nano RP2040 Connect a
 - (CIPO) - D12
 - (COPI) - D11
 - (SCK) - D13
-- (CS/SS) - Any GPIO (except for A6/A7)
+- (CS) - Any GPIO (except for A6/A7)
 
 ***The signal names MOSI, MISO and SS has been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
 

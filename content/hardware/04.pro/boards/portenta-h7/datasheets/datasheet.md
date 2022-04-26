@@ -54,9 +54,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Connectivity</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
-         <td style="text-align: center;">Ethernet FHY</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
+         <td style="text-align: center;">Ethernet PHY</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>
@@ -131,10 +131,6 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td>Voltage scaling in Run and Stop mode 6 configurable ranges</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2.95μA in Standby mode Backup SRAM OFF, RTC/LSE/ON</td>
          <td></td>
       </tr>
       <tr>
@@ -485,7 +481,7 @@ Laboratory equipment, Computer vision
 | GND     | Cable Ground                                                 | TX1 +/- TX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
 | VBUS    | Cable bus power                                              | RX1 +/- RX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
 | D+/D-   | USB 2.0 Interface                                            | SBU1 SBU2       | For sideband use  (Not used for USB)                     |
-| CC1 CC2 | Plug configuration detection * One becomes VCONN for cable or adaptor power * CC is used for USB-PD communication |                 |                                                          |
+| CC1 CC2 | Plug configuration detection \* One becomes VCONN for cable or adaptor power \* CC is used for USB-PD communication |                 |                                                          |
 
 ### High Density Connector
 

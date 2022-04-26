@@ -51,7 +51,7 @@ In this tutorial we will focus on the version for the Arduino® Nicla Sense ME.
 
 If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview)  you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI: you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
-If you use a local IDE you can copy & past the following sketch:
+If you use a local IDE you can copy & paste the following sketch:
 ```arduino
   /*
 

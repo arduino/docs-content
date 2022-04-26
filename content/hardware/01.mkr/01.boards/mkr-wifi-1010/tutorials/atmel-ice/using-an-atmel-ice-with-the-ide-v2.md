@@ -99,9 +99,9 @@ If the SWD interfaces of the debugger and the board are connected properly, a **
 
 ## Using the Debugger Tool
 
-Now that we have our hardware set up, we can learn how to use the IDE 2.0 Debugger Tool main functionalities through the [_Debugging with the Arduino IDE 2.0 tutorial_](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger). This tutorial goes through some key features of the Debugger Tool, and includes pointers to get started. 
+Now that we have our hardware set up, we can learn how to use the IDE 2.0 Debugger Tool main functionalities through the [**Debugging with the Arduino IDE 2.0 tutorial**](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger). This tutorial goes through some key features of the Debugger Tool, and includes pointers to get started. 
 
-As explained in the [_Debugging with the Arduino IDE 2.0 tutorial_](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger), before we can use the Debugger Tool of the Arduino IDE 2.0, we need to upload a sketch to our MKR WiFi 1010 board, making sure it is optimized for debugging. Let's try a simple program that blinks the onboard LED of our MKR WiFi 1010 board and changes the value of several variables while running. 
+As explained in the [**Debugging with the Arduino IDE 2.0 tutorial**](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger), before we can use the Debugger Tool of the Arduino IDE 2.0, we need to upload a sketch to our MKR WiFi 1010 board, making sure it is optimized for debugging. Let's try a simple program that blinks the onboard LED of our MKR WiFi 1010 board and changes the value of several variables while running. 
 
 ### 1. Setting Up
 

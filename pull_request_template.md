@@ -1,7 +1,5 @@
-## What Needs To Be Reviewed
-- TBD
-- TBD
+## What This PR Changes
+- (Please explain here why you created the pull request and specify what it changes)
 
-## How To Give Feedback
-Please leave your feedback as a [Github review](https://docs.github.com/en/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). 
-You can add comments to specific lines of content / code and ideally use Github's [suggestion feature](https://docs.github.com/en/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request). 🙏
+## Contribution Guidelines
+- [ ] I confirm that I have read the [contribution guidelines](https://github.com/arduino/docs-content/tree/main/contribution-templates) and comply with them.

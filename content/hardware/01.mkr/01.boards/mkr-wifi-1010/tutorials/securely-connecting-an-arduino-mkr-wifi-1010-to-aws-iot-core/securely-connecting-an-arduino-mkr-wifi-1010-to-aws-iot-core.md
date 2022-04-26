@@ -24,7 +24,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/securely-connectin
 
 [AWS IoT Core](https://aws.amazon.com/iot-core/) is a managed cloud service that lets connected devices easily and securely interact with cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. 
 
-Devices can connect to AWS IoT Core using the following protocols: HTTP, WebSockets and MQTT. This tutorial will walk you through how to connect an [Arduino MKR WiFi 1010](https://store.arduino.cc/usa/arduino-mkr-wifi-1010) (or MKR1000) board securely to AWS IoT Core using the MQTT protocol. [MQTT](http://mqtt.org/) (*Message Queuing Telemetry Transport*) is an extremely lightweight M2M (machine-to-machine) connectivity protocol which provides a messaging subscription and publish transport.
+Devices can connect to AWS IoT Core using the following protocols: HTTP, WebSockets and MQTT. This tutorial will walk you through how to connect an [Arduino MKR WiFi 1010](https://store.arduino.cc/usa/arduino-mkr-wifi-1010) (or MKR1000) board securely to AWS IoT Core using the MQTT protocol. [MQTT](http://mqtt.org/) (**Message Queuing Telemetry Transport**) is an extremely lightweight M2M (machine-to-machine) connectivity protocol which provides a messaging subscription and publish transport.
 
 When connecting to AWS IoT Core using MQTT, devices are required to use X.509 certificates with TLS for authentication, as AWS IoT Core does not support authentication via username and password like many other MQTT broker services provide support for. More information on X.509 certificate support on AWS IoT can be found [here](https://docs.aws.amazon.com/iot/latest/developerguide/x509-certs.html).
 
@@ -114,7 +114,7 @@ Now that we have a CSR to identify the board, we need to login into the AWS cons
 
 ![Create a policy.](assets/screen_shot_2019-01-14_at_3_25_34_pm_C67jg7LTXy.png)
 
-13) Click "Create a policy." We'll be creating a very open policy for testing, **later on we suggest you create a stricter policy**. We'll call this policy "AllowEverything," fill in "iot:*" for the Action and "*" for the Resource ARN, then check the "Allow" box, then click "Create."
+13) Click "Create a policy." We'll be creating a very open policy for testing, **later on we suggest you create a stricter policy***. We'll call this policy "AllowEverything," fill in "iot:\*" for the Action and "\*" for the Resource ARN, then check the "Allow" box, then click "Create."
 
 ![Click create.](assets/screen_shot_2019-01-14_at_3_26_58_pm_bkfMovt51e.png)
 
@@ -175,7 +175,7 @@ Now that your board has successfully connected to AWS IoT, we can use the AWS co
 
 Every five seconds the board sends a hello message with the current millis() value.
 
-Now let's send a message to the board. In the Publish section, change the topic to **arduino/incoming** and click the "Publish to topic" button*.*
+Now let's send a message to the board. In the Publish section, change the topic to **arduino/incoming** and click the "Publish to topic" button.
 
 ![Click Publish to topic.](assets/screen_shot_2019-01-14_at_5_53_47_pm_LKDzWUW8VV.png)
 

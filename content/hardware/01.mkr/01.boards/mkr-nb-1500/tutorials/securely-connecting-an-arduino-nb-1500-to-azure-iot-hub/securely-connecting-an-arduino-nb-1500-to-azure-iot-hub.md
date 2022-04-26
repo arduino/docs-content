@@ -155,7 +155,7 @@ In the Azure IoT Hub portal, click the device id row in the IoT Devices table fo
 
 ![Click "Message to device"](assets/screen_shot_2019-02-06_at_12_06_14_pm_554ggffxiP.png)
 
-You can now enter a message body to send to the device, in the screenshot below "*Hello there :)*" was entered. Click the "Send Message" button in the toolbar to send the message.
+You can now enter a message body to send to the device, in the screenshot below "**Hello there :)**" was entered. Click the "Send Message" button in the toolbar to send the message.
 
 ![Send your message!](assets/screen_shot_2019-02-06_at_12_07_18_pm_jZHRAyebN2.png)
 

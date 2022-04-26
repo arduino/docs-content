@@ -1,5 +1,5 @@
 ---
-title: "Arduino ♥ Linux (on UP2 Board) with Intel Mraa © CC BY-NC-SA"
+title: "Arduino ♥ Linux (on UP2 Board) with Intel Mraa"
 description: "Use libArduino and MRAA to interact with the board OS and report some nice stats with LEDs."
 tags: [embedded, internet of things, lights, monitoring]
 author: "Arduino_Genuino"
