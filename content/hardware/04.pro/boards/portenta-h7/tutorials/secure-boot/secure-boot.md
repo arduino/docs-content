@@ -35,7 +35,7 @@ Once The bootloader has been updated to MCUboot, it's possible to use [secure bo
 
 If no operation is performed the default security keys are used.
 Two keys are embedded in the example sketch `STM32H747_updateBootloader` which can be found in **Files > Examples > STM32H747_System > STM32H747_updateBootloader** and used by the bootloader.
-A private 256bit [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) key is used to extract the encryption key and decrypt the binary update (`ecdsa-p256-encrypt-key.h`), while a public key is used for image verification (`ecdsa-p256-signing-key.h`).
+A private 256bit [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) key is used to extract the encryption key and decrypt the binary update (`ecdsa-p256-encrypt-pub-key.h`), while a public key is used for image verification (`ecdsa-p256-signing-priv-key.h`).
 
 As counterpart, when building the image update, imgtool uses this private [key](https://github.com/arduino/ArduinoCore-mbed/pull/447/files#diff-f43e4850d60c61854678f6f80c6ddc4b59e3e68ca7e71b02e5ed15288c9aadb4) to sign the image and this public [key](https://github.com/arduino/ArduinoCore-mbed/pull/447/files#diff-95bb7b27de14276896a2bec099dc5a498d5332616458c04263efc8d24810e6a6) for image encryption with elliptic curve integrated encryption scheme.
 
@@ -57,12 +57,12 @@ Remember to **save the keys and keep them in a secure location** and not to lose
 ### 2. Upload the Custom Keys to the Board
 Once the keys have been generated they have to be uploaded to the Portenta H7. This procedure has to be done only once, because it's persistent. To extract the public\private key and encode it in to a "C" byte array inside a `.h` header file you can use:
 ```
-imgtool getpriv -k my-encrypt-keyfile.pem > ecsda-p256-encrypt-key.h 
-imgtool getpub -k my-sign-keyfile.pem > ecsda-p256-signing-key.h
+imgtool getpriv -k my-encrypt-keyfile.pem > ecsda-p256-encrypt-priv-key.h 
+imgtool getpub -k my-sign-keyfile.pem > ecsda-p256-signing-pub-key.h
 ```
 
 Now you have to replace the keys inside the Sketch to update the bootloader(**STM32H747_updateBootloader**).
-To do so just save the sketch to another location and replace the `ecsda-p256-encrypt-key.h` and `ecsda-p256-signing-key.h` files with the newly generated ones and then [update the bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) again.
+To do so just save the sketch to another location and replace the `ecsda-p256-encrypt-priv-key.h` and `ecsda-p256-signing-pub-key.h` files with the newly generated ones and then [update the bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) again.
 
 ***NOTE: In case the keys are compromised, this process can be performed again with a new set of keys, but any firmware signed with the previous pair will no longer work.***
 
@@ -71,7 +71,7 @@ Since the default keys have been changed in favour of custom generated ones, the
 
 To override the security keys used during the compile you have to use the Arduino CLI and specify the keys with:
 ```
-arduino-cli compile -b arduino:mbed_portenta:envie_m7 --board-options security=sien --keys-keychain <path-to-your-keys> --sign-key ecsdsa-p256-signing-key.pem --encrypt-key ecsdsa-p256-encrypt-key.pem /home/user/Arduino/MySketch
+arduino-cli compile -b arduino:mbed_portenta:envie_m7 --board-options security=sien --keys-keychain <path-to-your-keys> --sign-key ecdsa-p256-signing-priv-key.pem --encrypt-key ecdsa-p256-encrypt-pub-key.pem /home/user/Arduino/MySketch
 ```
 
 ## Learn More
