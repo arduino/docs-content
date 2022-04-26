@@ -7,9 +7,13 @@ boards:
   - portenta-h7
   - portenta-h7-lite
   - portenta-h7-lite-connected
+  - portenta-vision-shield
   - mkr-wifi-1010
   - mkr-gsm-1400
   - mkr-nb-1500
   - mkr-vidor-4000
   - mkr-wan-1310
   - mkr-zero
+
+carriers:
+  - edge-control
