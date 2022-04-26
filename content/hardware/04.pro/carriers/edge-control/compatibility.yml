@@ -4,8 +4,12 @@ software:
   - iot-cloud
   - web-editor
 hardware:
+  boards:
+    - portenta-h7
+    - portenta-h7-lite
+    - portenta-h7-lite-connected
   shields:
     - vision-shield-lora
     - vision-shield-ethernet
-  boards:
+  carriers:
     - portenta-breakout
