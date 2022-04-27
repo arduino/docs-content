@@ -284,7 +284,7 @@ The above functions are **always** required in an Arduino sketch, but you are of
 
 ### The "Sketch"
 
-In the Arduino project, a program is referred to as a "Sketch". A sketch is a file that you write your program inside. It has the `.ino` extension, and is always stored in a folder of the same name. 
+In the Arduino project, a program is referred to as a "sketch". A sketch is a file that you write your program inside. It has the `.ino` extension, and is always stored in a folder of the same name. 
 
 The folder can include other files, such as a **header file**, that can be included in your sketch. 
 
