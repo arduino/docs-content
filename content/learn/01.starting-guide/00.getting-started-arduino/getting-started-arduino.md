@@ -356,7 +356,7 @@ For example, the classic [ArduinoCore-avr](https://github.com/arduino/ArduinoCor
 
 Another example is the [ArduinoCore-mbed](https://github.com/arduino/ArduinoCore-mbed) package, which includes over 40 libraries, designed for specific board features, such as:
 
-- **PDM** - used for sampling audio from microphones found onboard the Nano BLE Sense and Nano RP2040 Connect.
+- **PDM** - used for sampling audio from microphones found onboard the Nano 33 BLE Sense and Nano RP2040 Connect.
 - **Ethernet** - for using the Ethernet functionalities of the Portenta Vision Shield.
 - **GSM** - to access GSM functionalities on the Portenta Cat. M1/NB IoT GNSS Shield.
 
