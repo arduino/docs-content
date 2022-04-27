@@ -249,7 +249,7 @@ Most modern Arduino boards now come equipped with a radio module, designed to co
 
 The most popular and inexpensive modules are the Wi-Fi & Bluetooth® modules. The Wi-Fi modules allow your board to connect to routers, and to request and send data over the Internet. In a way, it works the same as your computer when requesting various types of data over the Internet, just in a smaller scale. 
 
-Bluetooth® is used to communicate with nearby devices, and is really useful for maintaining a fast and reliable connection. For example, in real-life applications, Bluetooth® technologty for example used in wireless headphones & speakers.
+Bluetooth® is used to communicate with nearby devices, and is really useful for maintaining a fast and reliable connection. For example, in real-life applications, Bluetooth® technology for example used in wireless headphones & speakers.
 
 Similarly to serial protocols, radio modules use their own set of protocols to communicate, such as HTTP, MQTT and UPD.
 
