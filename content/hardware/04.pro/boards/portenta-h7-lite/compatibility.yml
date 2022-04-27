@@ -9,16 +9,16 @@ hardware:
   shields:
     - portenta-vision-shield
     - portenta-cat-m1-nb-iot-gnss-shield
-    - mkr-485-shield
-    - mkr-can-shield
-    - mkr-env-shield
-    - mkr-eth-shield
-    - mkr-gps-shield
-    - mkr-imu-shield
-    - mkr-mem-shield
-    - mkr-relay-proto-shield
-    - mkr-rgb-shield
-    - mkr-sd-proto-shield
-    - mkr-therm-shield
+    #- mkr-485-shield
+    #- mkr-can-shield
+    #- mkr-env-shield
+    #- mkr-eth-shield
+    #- mkr-gps-shield
+    #- mkr-imu-shield
+    #- mkr-mem-shield
+    #- mkr-relay-proto-shield
+    #- mkr-rgb-shield
+    #- mkr-sd-proto-shield
+    #- mkr-therm-shield
   carriers:
     - portenta-breakout
