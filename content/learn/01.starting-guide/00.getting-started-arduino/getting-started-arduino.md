@@ -239,7 +239,7 @@ How much memory is available on an Arduino varies from board to board. For examp
 
 ![An IMU (Inertial Measurement Unit) on the Nano RP2040 Connect board.](assets/embedded-sensor.png)
 
-Many new Arduino boards come equipped with **embedded sensors**. For example, the [Nano BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) has 7 embedded sensors, but is only **45x18mm** (the size of a thumb). These are all connected via the I²C protocol as mentioned above, and has a unique address.
+Many new Arduino boards come equipped with **embedded sensors**. For example, the [Nano 33 BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) has 7 embedded sensors, but is only **45x18mm** (the size of a thumb). These are all connected via the I²C protocol as mentioned above, and has a unique address.
 
 ### Internet of Things (IoT)
 
