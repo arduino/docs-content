@@ -121,9 +121,8 @@ The location of these pins are located in the pinout for each board. These are f
 
 Below are template files for creating your custom **Printable Circuit Board (PCB)**.
 
-- [Nano Carrier PCB template (solder pads)]() - an empty carrier template with solder pads. This is useful if you want to create a design where you solder the Nano directly on top of the PCB.
-- [Nano Carrier PCB template (connectors)]() - an empty carrier template with connectors. This is useful if you want to create a design where you can attach and remove a Nano board easily.
-- [Nano Proto Shield]() - a tiny shield that you fit smaller through-hole components in.
+- [Nano Carrier PCB template (solder pads)](/resources/cad/NanoCarrier_SolderPads.zip) - an empty carrier template with solder pads. This is useful if you want to create a design where you solder the Nano directly on top of the PCB.
+- [Nano Carrier PCB template (connectors)](/resources/cad/NanoCarrier_Socket.zip) - an empty carrier template with connectors. This is useful if you want to create a design where you can attach and remove a Nano board easily.
 
 The files can be used together with various PCB design programs, such as [Altium](https://www.altium.com/) and [Eagle](https://www.autodesk.com/products/eagle/free-download) to create your own Nano accessories.
 
@@ -133,6 +132,7 @@ The design file(s) below can be used for 3D printing, e.g. enclosures, mounts.
 
 - [Nano Board Enclosure (.stl)](/resources/3d/nano-enclosure.stl)
 - [Nano Board Enclosure (.stp)](/resources/3d/nano-enclosure.stp)
+
 
 
 ## Soldering Directly To PCB
