@@ -22,18 +22,21 @@ Each Nano Family board has a dedicated documentation page, see the list below:
 - [Nano 33 IoT](/nano-33-iot)
 - [Nano RP2040 Connect](/hardware/nano-rp2040-connect)
 
-Inside the documentation page, you will find design files such as full pinout, CAD and Fritzing files. You will also find any tutorials and compatible libraries with the respective boards in this page.
+Inside the documentation page, you will find design files such as full pinout, CAD and Fritzing files. You will also find tutorials and compatible libraries with the respective boards in this page.
 
 ## Technical Overview
 
 ### Dimensions
 
+The following dimensions apply to all of the Nano
+
 | Format | Measurement |
 | ------ | ----------- |
 | Width  | 18 mm       |
 | Length | 45 mm       |
-| Pitch  | 1.27 mm     |
+| Pitch\*  | 2.54 mm     |
 
+***\*Pitch is the space between the pins (e.g. between A1, A2. This specification is important when choosing header pins.***
 
 ### Feature Comparisons
 
@@ -117,7 +120,7 @@ The location of these pins are located in the pinout for each board. These are f
 
 ### PCB
 
-![Nano carrier template file.]()
+![Nano carrier template file.](assets/carrier-templates.png)
 
 Below are template files for creating your custom **Printable Circuit Board (PCB)**.
 
@@ -137,9 +140,9 @@ The design file(s) below can be used for 3D printing, e.g. enclosures, mounts.
 
 ## Soldering Directly To PCB
 
-All Nano boards can be purchased **without headers attached.** This makes it possible to solder it directly to a custom PCB, using the castellated pads on the board. 
+All Nano boards can be purchased **without headers attached.** This makes it possible to solder it directly to a custom PCB, using the castellated holes on the board. 
 
-![Castellated pads.]()
+![Castellated holes on a Nano board to the left, solder pads on a PCB to the right.](assets/castellated-pads.png)
 
 This method is useful for more robust applications, where the Nano board needs to be permanently attached.
 
