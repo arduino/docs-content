@@ -10,18 +10,20 @@ author: Sebastian Romero
 In this tutorial you will use the Arduino® Nicla Vision to detect the presence and the position of objects in a camera image. For that you will use a technique referred to as blob detection. For this task you will write a MicroPython script and run it on the Nicla Vision with the help of the OpenMV IDE.
 
 ## Goals
+
 - Learn how to use the OpenMV IDE to run MicroPython on Nicla Vision
 - Learn how to use the built-in blob detection algorithm of OpenMV
 - Learn how to use MicroPython to toggle the built-in LEDs
 
 ### Required Hardware and Software
-- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
+
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable (either USB A to Micro USB or USB C to Micro USB)
 - OpenMV IDE 2.6.4+
 
 ## Nicla Vision and the OpenMV IDE
 
-The OpenMV IDE was built for Machine Vision applications. It is meant to provide an Arduino like experience for simple computer vision tasks using a camera sensor. OpenMV comes with its own firmware that is built on MicroPython. Among other hardware it supports the Nicla Vision board. OpenMV allows you to easily preview the camera stream and visually inspect colour ranges to define thresholds for your machine vision scripts. [Here](https://openmv.io/) you can read more about the OpenMV IDE.
+The OpenMV IDE was built for Machine Vision applications. It is meant to provide an Arduino like experience for simple computer vision tasks using a camera sensor. OpenMV comes with its own firmware that is built on MicroPython. Among other hardware it supports the Nicla Vision board. OpenMV allows you to easily preview the camera stream and visually inspect color ranges to define thresholds for your machine vision scripts. [Here](https://openmv.io/) you can read more about the OpenMV IDE.
 
 ## Instructions
 
@@ -61,7 +63,7 @@ Application Examples:
 - Detect missing pieces in an assembly line
 - Detect insect infestation on vegetables
 
-To find blobs you need to feed an image from the camera to the algorithm. It will then analyse it and output the coordinates of the found blobs. You will visualize these coordinates directly on the image and indicate whether a blob was found by using the red and green LED.
+To find blobs you need to feed an image from the camera to the algorithm. It will then analyze it and output the coordinates of the found blobs. You will visualize these coordinates directly on the image and indicate whether a blob was found by using the red and green LED.
 
 ### 1. Prepare the Script
 
@@ -139,11 +141,11 @@ If you need to know which blob matched which color threshold you can use the `bl
 
 The result of that will be visible in the Frame Buffer preview panel on the right side of the OpenMV IDE.
 
-![Visualisation of the blobs in the frame buffer preview](assets/blob_detection_example.png)
+![Visualization of the blobs in the frame buffer preview](assets/blob_detection_example.png)
 
 ### 5. Toggling LEDs
 
-What if you want some visual feedback from the blob detection without any computer connected to your board? You could use for example the built-in LEDs to indicate whether or not a blob was found in the camera image. Let's initialise the red and the green LEDs with the following code:
+What if you want some visual feedback from the blob detection without any computer connected to your board? You could use for example the built-in LEDs to indicate whether or not a blob was found in the camera image. Let's initialize the red and the green LEDs with the following code:
 
 ```python
 ledRed = pyb.LED(1) # Initiates the red led
@@ -227,11 +229,14 @@ Click on the "Play" button at the bottom of the left toolbar. Place some objects
 In this tutorial you learned how to use the OpenMV IDE to develop MicroPython scripts that then run on the Nicla Vision. You also learned how to configure the camera of the Nicla Vision to be used for machine vision applications in OpenMV. Last but not least you learned how to interact with the built-in LEDs in MicroPython on the OpenMV firmware.  
 
 ### Next Steps
+
 -   Familiarize yourself with the OpenMV IDE. There are many other features that didn't get mentioned in this tutorial (e.g. the Serial Terminal).
 -   Try out other machine vision examples that come with the OpenMV IDE. You can find them in the "Examples" menu.
 
 ## Troubleshooting
+
 ### OpenMV Firmware Flashing Issues
+
 - If the upload of the OpenMV firmware fails during the download, put the board back in boot loader mode and try again. Give it a few tries until the firmware gets successfully uploaded.
 - If the upload of the OpenMV firmware fails without even starting, try uploading the latest firmware using the "Load Specific Firmware File" option. You can find the latest firmware on the [OpenMV Github repository](https://github.com/openmv/openmv/releases). Look for a file called **firmware.bin** in the NVISION folder.
 - If the camera cannot get recognized by the OpenMV IDE or if you see a "No OpenMV Cams found!" message, press the reset button of the board once and wait until you see the blue LED flashing. Then try again connecting to the board.

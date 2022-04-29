@@ -18,17 +18,20 @@ hardware:
 software:
   - openMV
 ---
+
 ## Overview
 The OpenMV IDE is meant to provide an Arduino like experience for simple machine vision tasks using a camera sensor. In this tutorial, you will learn about some of the basic features of the OpenMV IDE and how to create a simple MicroPython script. 
 
 ## Goals
+
 - The basic features of the OpenMV IDE
 - How to create a simple MicroPython script
 - How to use the OpenMV IDE to run MicroPython on Portenta H7
 
 
 ### Required Hardware and Software
-- Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
+
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB-C cable (either USB-A to USB-C or USB-C to USB-C)
 - Portenta Bootloader Version 20+
 - OpenMV IDE 2.6.4+
@@ -84,7 +87,7 @@ import pyb # Import module for board related functions
 
 A module in Python is a confined bundle of functionality. By importing it into the script it gets made available. For this example we only need `pyb`, which is a module that contains board related functionality such as PIN handling. You can read more about its functions [here](https://docs.micropython.org/en/latest/library/pyb.html).
 
-Now we can create the variables that will control our built-in RGB LED. With `pyb` we can easily control each colour.
+Now we can create the variables that will control our built-in RGB LED. With `pyb` we can easily control each color.
 
 ```python
 redLED = pyb.LED(1) # built-in red LED
@@ -96,7 +99,7 @@ Now we can easily distinguish between which color we control in the script.
 
 ### 4. Creating the Main Loop in the Script
 
-Putting our code inside a while loop will make the code run continuously. In the loop we turn on an LED with `on`, then we use the `delay` function to create a delay. This function will wait with execution of the next instruction in the script. The duration of the delay can be controlled by changing the value inside the parentheses. The number defines how many milliseconds the board will wait. After the specified time has passed, we turn off the LED with the `off` function. We repeat that for each colour.
+Putting our code inside a while loop will make the code run continuously. In the loop we turn on an LED with `on`, then we use the `delay` function to create a delay. This function will wait with execution of the next instruction in the script. The duration of the delay can be controlled by changing the value inside the parentheses. The number defines how many milliseconds the board will wait. After the specified time has passed, we turn off the LED with the `off` function. We repeat that for each color.
 
 ```python
 while True:
@@ -157,11 +160,14 @@ Now the built-in LED on your Portenta board should be blinking red, green and th
 In this tutorial you learned how to use the OpenMV IDE with your Portenta board. You also learned how to control the Portenta H7's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
 
 ### Next Steps
--   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File>Examples>Arduino>Portenta H7** in the OpenMV IDE.
--   Take a look at our other Portenta H7 tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/portenta-h7#tutorials)
+
+-   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File > Examples > Arduino > Portenta H7** in the OpenMV IDE.
+-   Take a look at our other Portenta H7 tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/portenta-h7#tutorials).
 
 ## Troubleshooting
+
 ### OpenMV Firmware Flashing Issues
+
 - If the upload of the OpenMV firmware fails during the download, put the board back in bootloader mode and try again. Repeat until the firmware gets successfully uploaded.
 - If the OpenMV IDE still can't connect after flashing the firmware, try uploading the latest firmware using the "Load Specific Firmware File" option. You can find the latest firmware in the [OpenMV Github repository](https://github.com/openmv/openmv/releases). Look for a file named **firmware.bin** in the PORTENTA folder.
 - If you experience issues putting the board in bootloader mode, make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch from the examples menu in the Arduino IDE.

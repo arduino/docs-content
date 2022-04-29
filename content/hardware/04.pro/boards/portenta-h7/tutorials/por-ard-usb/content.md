@@ -20,24 +20,25 @@ software:
   - ide-v2
   - web-editor
 ---
+
 ## Overview
 It is possible to configure the Portenta H7 to act as a USB host in a way that allows to connect peripherals such as a keyboard or mouse to interact with the board. This way you could connect a keyboard to your Portenta and type numbers or characters to trigger actions from your sketch.
 
 ## Goals
 
--   How to configure the Portenta H7 as a USB host
--   How to use the **KeyboardController** library to establish a USB connection with the Portenta H7
--   To write a small program that reads button presses from a keyboard
--   How to debug the data being sent from the peripheral to the Portenta H7 using an additional Arduino board.
+- How to configure the Portenta H7 as a USB host
+- How to use the **KeyboardController** library to establish a USB connection with the Portenta H7
+- To write a small program that reads button presses from a keyboard
+- How to debug the data being sent from the peripheral to the Portenta H7 using an additional Arduino board.
 
 ### Required Hardware and Software
 
--   Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
--   USB-C cable (either USB-A to USB-C or USB-C to USB-C)
--   Active USB-C hub (optional)
--   External keyboard
--   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
--   Power supply for the USB hub (if a USB hub is used)
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- USB-C cable (either USB-A to USB-C or USB-C to USB-C)
+- Active USB-C hub (optional)
+- External keyboard
+- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
+- Power supply for the USB hub (if a USB hub is used)
 
 ### Extra Materials
 
@@ -60,7 +61,9 @@ Furthermore, the Portenta H7 can also be set to be a mouse or keyboard itself. W
 ### Setting Up the USB Host
 
 In this tutorial you are going to configure your Portenta H7 as a USB Host. This will allow you to toggle the RGB built-in LEDs of the board by pressing the corresponding keys (r, g, b) on a USB keyboard that will be plugged into a USB hub.
+
 Throughout the tutorial, you will learn how to establish a serial communication between the board and the keyboard and also, how to program the board so it acts as a USB Host device.
+
 To achieve this you will use the [USBHOST](https://os.mbed.com/handbook/USBHost) library which is part of the Portenta H7 core. This library facilitates the USB connections between USB devices and and the Portenta board.
 
 Thanks to USB OTG (On The Go) specification the Portenta H7 can switch between host and client modes automatically. The code that enables USB OTG in Portenta H7 is included in the **mbed** core and it is ready to function without additional configurations. Some related classes to make use of the USB port for different use cases are:
@@ -84,14 +87,13 @@ As programming the USB protocol that allows the board to handle USB devices is a
 
 ![Select the Arduino Portenta H7 (M7 core) in the board selector](assets/por_ard_usbh_select_board.png)
 
-Then, open: File>Examples>USBHOST>KeyboardController
+Then, open: **File > Examples > USBHOST > KeyboardController**.
 
 ![Open the KeyboardController example](assets/por_ard_usbh_select_example.png)
 
 The **USBHost** library that is used in this example is a revamp of the classic Arduino **USBHost** library. This new version, among adapting the protocol to the newer USB version, allows to connect devices through USB Hubs (USB adapters). For a better understanding about how the USBHost library works, it could be helpful for you to take a look at the Arduino [USBHost](https://www.arduino.cc/en/Reference/USBHost) library.
 
-**Note:** You can find the finished sketch in the examples of the Arduino_Pro_Tutorials library:  
-**Examples -> Arduino_Pro_Tutorials -> Portenta H7 as a USB Host -> LEDKeyboardController**
+**Note:** You can find the finished sketch in the examples of the Arduino_Pro_Tutorials library: **Examples > Arduino_Pro_Tutorials > Portenta H7 as a USB Host > LEDKeyboardController**
 
 ### 3. Detecting the Keys From the Keyboard
 
@@ -140,7 +142,7 @@ Then, in order to modify the state of the LEDs of the board with the R, G or B k
 
 ### 4. Initializing the LEDs
 
-Once you have the code that detects if the correct keys are pressed and controls the LEDs accordingly, you need to initialise the LEDs. To do so, add the following portion of code inside the `setup()` function.
+Once you have the code that detects if the correct keys are pressed and controls the LEDs accordingly, you need to initialize the LEDs. To do so, add the following portion of code inside the `setup()` function.
 ```cpp
 pinMode(LEDR, OUTPUT);
 pinMode(LEDG, OUTPUT);
@@ -176,17 +178,17 @@ When you connect the Portenta board to the computer to program it, the computer 
 
 In the image above you can see that:
 
-+ The Portenta is connected to the "HOST" port of the USB hub (USB-C adapter)
-+ The USB Hub (USB-C adapter) needs to be powered externally with a power supply. This is required to provide power to Portenta.
-+ You should connect the keyboard to the USB Hub (USB-C adapter) in the same way you would connect it to your PC.
+- The Portenta is connected to the "HOST" port of the USB hub (USB-C adapter)
+- The USB Hub (USB-C adapter) needs to be powered externally with a power supply. This is required to provide power to Portenta.
+- You should connect the keyboard to the USB Hub (USB-C adapter) in the same way you would connect it to your PC.
 
 ### Alternative Configuration (No USB Hub Required)
 
 If you don't have a USB-C type hub you may complete this tutorial with a USB-C type keyboard or with a USB A type keyboard and a USB A to C adapter. To do so proceed as follows:
 
-+ Power the Portenta H7 through the VIN pin with 5V. (Check [pinout diagram](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf))
-+ Connect the keyboard directly to the Portenta's USB-C connector (use a USB-A to USB-C adapter if your keyboard's connector is USB type A)
-+ Add the following line of code in your sketch to enable power supply through Portenta's USB connector: `usb.supplyPowerOnVBUS(true);`
+- Power the Portenta H7 through the VIN pin with 5V. (Check [pinout diagram](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf))
+- Connect the keyboard directly to the Portenta's USB-C connector (use a USB-A to USB-C adapter if your keyboard's connector is USB type A)
+- Add the following line of code in your sketch to enable power supply through Portenta's USB connector: `usb.supplyPowerOnVBUS(true);`
 
 ### 7. Toggling the LEDs
 

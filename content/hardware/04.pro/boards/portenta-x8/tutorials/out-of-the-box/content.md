@@ -123,8 +123,9 @@ You have plenty of ways to communicate with your board, be it wirelessly or with
 
 ### ADB
 
-First of all, make sure you have the latest **Mbed OS Portenta Core**, which contains the adb program.
-You can go to its directory inside the **Arduino15/packages/arduino/tools/adb/32.0.0**. To check the tool you can use your teminal and type `adb`, you should get feedback from the tool when typing this.
+First of all make sure you have the latest **Mbed OS Portenta Core**, which contains the adb program.
+
+You can go to its directory inside the **Arduino15/packages/arduino/tools/adb/32.0.0**. To check the tool you can use your terminal and type `adb`, you should get feedback from the tool when typing this.
 
 To know the list of devices that can be accessed type `adb devices`.
 
@@ -139,6 +140,7 @@ SSH is commonly used for remote control on different kinds of devices running di
 To communicate with your board, you will need to know the IP of it, and just type `ssh fio@<IP>`, then the terminal workaround should be the same as ADB. The password is `fio`.
 
 ![SSH connection](assets/ssh-connection.png)
+
 As it is a linux device, you can do normal stuff like creating files, changing directory, etc.
 
 To gain admin (root) access, type `sudo su -` and the password is `fio`  after that the terminal prefix should turn red.

@@ -33,15 +33,15 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- Nicla sense ME
-- Arduino IDE
+- [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
+- [Arduino IDE](https://create.arduino.cc/)
 - Micro USB cable
 
 ## Sensors on the Nicla Sense ME
 
 The Nicla Sense ME's BHI sensor includes a 6-axis IMU, we will use this IMU to give us accelerometer and gyroscope readings. An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity or, as is the case with many mobile devices, dynamic to sense movement or vibrations. A gyroscope sensor can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, as they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion.
 
-You can see the full list with all the needed information about the sensors [here.](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)
+You can see the full list with all the needed information about the sensors [here](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids).
 
 ### Sensor Types
 
@@ -76,7 +76,7 @@ The **Arduino_BHY2** library contains these sensors:
   }
 ```
   
-***All of the following Sensor types also have the Sensor functions `value()` and `toString()`***
+***All of the following Sensor types also have the Sensor functions `value()` and `toString()`.***
 
 #### SensorXYZ
 
@@ -173,6 +173,7 @@ The **Arduino_BHY2** library contains these sensors:
 `getActivity()` - gives you a string with the current activity.
 
 This are the activities:
+
 * 0: "Still activity ended"
 * 1: "Walking activity ended"
 * 2: "Running activity ended"
@@ -191,6 +192,7 @@ This are the activities:
 * 15: **blank**
 
 **Syntax example**
+
 ```arduino
   #include "Arduino_BHY2.h"
 
@@ -219,9 +221,9 @@ Next we will go through a sketch that allows us to see the readings from the sen
 
 ### Arduino IDE and Nicla Core
 
-Start the Arduino IDE and install the **nicla_mbed** core. If you need help with installing the core for the Nicla Sense ME, please refer to this [guide](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla).
+Start the Arduino IDE and install the **nicla_mbed** core. If you need help with installing the core for the Nicla Sense ME, please refer to this [guide](/content/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla/).
 
-Now we need to add the **Arduino_BHY2** library that contains the example sketch that we want, we can do this through the library manager in the Arduino IDE. After the library is installed you can access the example sketch directly through the IDE. You can find the sketch in **File->Examples->Arduino_BHY2->Standalone**. Now you can plug in your Nicla Sense ME and upload the sketch.
+Now we need to add the **Arduino_BHY2** library that contains the example sketch that we want, we can do this through the library manager in the Arduino IDE. After the library is installed you can access the example sketch directly through the IDE. You can find the sketch in **File > Examples > Arduino_BHY2 > Standalone**. Now you can plug in your Nicla Sense ME and upload the sketch.
 
 ![Image of the example in list](assets/nicla-ide-example.png)
 
@@ -271,7 +273,7 @@ After you have uploaded the sketch to the board, open the serial monitor in the 
 
 
 ## Next Step
-In this sketch we only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, with for example the led on the board. Please take a look at our [cheat sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet) if you want quick references for the boards features. Take a look at the other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
+In this sketch we only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, with for example the led on the board. Please take a look at our [cheat sheet](/content/hardware/05.nicla/boards/nicla-sense-me/tutorials/cheat-sheet) if you want quick references for the boards features. Take a look at the other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
 
 ## Conclusion
 
