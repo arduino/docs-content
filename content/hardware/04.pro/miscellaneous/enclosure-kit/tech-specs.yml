@@ -1,0 +1,23 @@
+Kit:
+  Name: Arduino® Edge Control Enclosure Kit
+  SKU: AKX00031
+Standards:
+  Ingress Protection: IP40
+  Mounting System: DIN rail
+Operating Temperatures:
+  Min: -40º C (104º F)
+  Max: 85º C (185º F)
+Weight: 165 g
+Dimensions:
+  Width: N/A mm
+  Length: N/A mm
+  Height: N/A mm
+Included components:
+  Covers:
+    Top plastic cover: Yes
+    Bottom plastic cover: Yes
+    LCD display cover: Yes
+  LCD (Included):
+    ID: NDS1602A
+    Flat cable: Yes
+  Edge Control: No
