@@ -34,9 +34,9 @@ The following dimensions apply to all of the Nano
 | ------ | ----------- |
 | Width  | 18 mm       |
 | Length | 45 mm       |
-| Pitch\*  | 2.54 mm     |
+| Pitch  | 2.54 mm     |
 
-***\*Pitch is the space between the pins (e.g. between A1, A2. This specification is important when choosing header pins.***
+***Pitch is the space between the pins (e.g. between A1, A2. This specification is important when choosing header pins.***
 
 ### Feature Comparisons
 
