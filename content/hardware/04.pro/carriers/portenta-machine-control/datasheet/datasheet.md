@@ -152,14 +152,12 @@ The 24V IN pin is not galvanically isolated: the input voltage must be referred 
 
 The supply voltage can be the same 24V which is powering the board. 
 
--   8 high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel Current limit
--   Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
--   The 12 channels behavior when the current limit is reached can be selected: 
-
-    - **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
-
-    - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
-    
+- 8 high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel Current limit
+- Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
+- The 12 channels behavior when the current limit is reached can be selected: 
+  - **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
+  - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
+  
     Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode **PMEG6020ER,115**
 
 
@@ -170,40 +168,39 @@ The 24V IN pin is not galvanically isolated: the input voltage must be referred 
 
 The supply voltage can be the same 24V which is powering the board. 
 
--   12 high side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
+- 12 high side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
 
 Current limit 
--   Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
--   The 12 channels behavior when the current limit is reached can be selected: 
+- Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
+- The 12 channels behavior when the current limit is reached can be selected: 
 
-    **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
+  **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
 
-    **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
+  **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
 
 Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode **PMEG6020ER,115**
 
--   12 digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
+- 12 digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
 
-    The digital input channels are independent of the high side switches. 
-        **The digital input channels can read the status of the high side switches if needed.**
+  The digital input channels are independent of the high side switches.
+  **The digital input channels can read the status of the high side switches if needed.**
 
 
 ### Analog Input 
 
 Three independent analog input channels are available. Each of them has an analog switch TS12A44514PWR which is switching between three modes: 
 
--   **0-10V**
-    The input is connected to a 100kΩ and 39kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V. 
+- **0-10V**
+The input is connected to a 100kΩ and 39kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V.  
+Input impedance approximately 28kΩ 
 
-    Input impedance approximately 28kΩ 
+- **4-20mA**
+The input is connected to a 120Ω resistor. A 4-20mA current input becomes a 0.48V-2.4V voltage  
 
--   **4-20mA**
-    The input is connected to a 120Ω resistor. A 4-20mA current input becomes a 0.48V-2.4V voltage 
+- **NTC**
+The input is connected to a 3V voltage reference (REF3330AIRSER) with a 100kΩ resistor in series, becoming part of a resistor divider powered by the voltage reference.  
 
--   **NTC**
-    The input is connected to a 3V voltage reference (REF3330AIRSER) with a 100kΩ resistor in series, becoming part of a resistor divider powered by the voltage reference.
-
-    An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protects the 24V output pin. 
+An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protects the 24V output pin. 
 
 ### Analog Output 
 Four independent analog output channels are available. Each of them a double low pass filter and a high current op amp arranged in a non-inverting topology with gain 3.3.
@@ -232,8 +229,8 @@ There are two front ends on this board:
 
 The front ends are multiplexed to the three channels via: 
 
--   A single low-ohmic single-pole double-throw analog switch NX3L4053HR,115 which is switching between one front end or the other. 
--   Three quadruple single pole single throw analog switches TMUX1511RSVR which are switching the active channel between the three available. 
+  - A single low-ohmic single-pole double-throw analog switch NX3L4053HR,115 which is switching between one front end or the other. 
+  - Three quadruple single pole single throw analog switches TMUX1511RSVR which are switching the active channel between the three available. 
 
 ### Connect Thermocouples 
 
@@ -242,107 +239,107 @@ The front ends are multiplexed to the three channels via:
 **NOTE**: Do not connect both a thermocouple and a PT100/PT1000 to a channel. 
 
 Connect a thermocouple to channel 0: 
--   Connect the thermocouple positive pin to TP0
--   Connect the thermocouple negative pin to TN0 
+  - Connect the thermocouple positive pin to TP0
+  - Connect the thermocouple negative pin to TN0 
 
 **NOTE**: Do not connect the thermocouple negative pin to GND
 
 Connect a thermocouple to channel 1:
--   Connect the thermocouple positive pin to TP1
--   Connect the thermocouple negative pin to TN1 
+  - Connect the thermocouple positive pin to TP1
+  - Connect the thermocouple negative pin to TN1 
 
 **NOTE**: Do not connect the thermocouple negative pin to GND
 
 Connect a thermocouple to channel 2: 	
--   Connect the thermocouple positive pin to TP2
--   Connect the thermocouple negative pin to TN2. 
+  - Connect the thermocouple positive pin to TP2
+  - Connect the thermocouple negative pin to TN2. 
 
 **NOTE**: Do not connect the thermocouple negative pin to GND 
 
 ### Connect Two Wires RTDs (PT100 or PT1000)
 Connect a two wire RTD to channel 0: 
--   Connect one RTD pin to TP0 
--   Connect the other RTD pin to TN0 
--   Connect a jumper between TP0 and RTD0 
+  - Connect one RTD pin to TP0 
+  - Connect the other RTD pin to TN0 
+  - Connect a jumper between TP0 and RTD0 
 
 Connect a two wire RTD to channel 1: 
--   Connect one RTD pin to TP1 
--   Connect the other RTD pin to TN1
--   Connect a jumper between TP1 and RTD1
+  -  Connect one RTD pin to TP1 
+  - Connect the other RTD pin to TN1
+  - Connect a jumper between TP1 and RTD1
 
 Connect a two wire RTD to channel 2: 
--   Connect one RTD pin to TP2 
--   Connect the other RTD pin to TN2 
--   Connect a jumper between TP2 and RTD2
+  - Connect one RTD pin to TP2 
+  - Connect the other RTD pin to TN2 
+  - Connect a jumper between TP2 and RTD2
 
 ### Connect Three Wires RTDs (PT100 or PT1000) 
 
 Connect a three wire RTD to channel 0: 
--   Connect one RTD pin to TP0 
--   Connect a second RTD pin to TN0 
+  - Connect one RTD pin to TP0 
+  - Connect a second RTD pin to TN0 
 **Note:** Do not connect this pin to GND 
--   Connect the third RTD pin to RTD0
+  - Connect the third RTD pin to RTD0
 
 Connect the third RTD pin to RTDN0 
--   Connect a three wire RTD to channel 1: 
--   Connect one RTD pin to TP1 
--   Connect a second RTD pin to TN1 
-**Note:** Do not connect this pin to GND
-- Connect the third RTD pin to RTD1 
+  - Connect a three wire RTD to channel 1: 
+  - Connect one RTD pin to TP1 
+  - Connect a second RTD pin to TN1 
+  **Note:** Do not connect this pin to GND
+  - Connect the third RTD pin to RTD1 
 
 Connect a three wire RTD to channel 2: 
--   Connect one RTD pin to TP2 
--   Connect a second RTD pin to TN2 
-**Note:** Do not connect this pin to GND
--   Connect the third RTD pin to RTD2 
+  - Connect one RTD pin to TP2 
+  - Connect a second RTD pin to TN2 
+  **Note:** Do not connect this pin to GND
+  - Connect the third RTD pin to RTD2 
 
 ### Encoders 
--  Two independent ABZ encoders channels are available. 
--   Each channel is pulled up to the board 24V supply with a 10 kΩ pullup resistor.
+  - Two independent ABZ encoders channels are available. 
+  - Each channel is pulled up to the board 24V supply with a 10 kΩ pullup resistor.
 
 ### CAN 
 The on board transceiver is the TJA1049T/3J and implements the CAN physical layer as defined in ISO 11898-2:2016 and SAE J2284-1 to SAE J2284-5. It is compatible with 12V or 24V bus. 
 
--   **Nominal** maximum data rate 5Mbit/s 
--   Integrated ESD protection 
--   60Ω termination resistors are on board, with 4.7nF to GND 
-   A 500mA PTC resettable fuse protects the 24V OUT pin. 
+- **Nominal** maximum data rate 5Mbit/s 
+  - Integrated ESD protection 
+  - 60Ω termination resistors are on board, with 4.7nF to GND 
+A 500mA PTC resettable fuse protects the 24V OUT pin. 
 
 ### RS232/RS422/RS485 
 The on board transceiver is the TJA1049T/3J, which can be SW configured for RS232, RS442 or RS485 half/full duplex. 
 
--   **Nominal** data rates 20Mbps RS485 and 1Mbps RS232 Data Rates 
--   Selectable 250kbps Slew Limiting 
--   Integrated RS485 120Ω differential cable termination, inactive for RS232. 
--   Integrated ESD protection 
--   A 500mA PTC resettable fuse protects the 24V output pin. 
+  - **Nominal** data rates 20Mbps RS485 and 1Mbps RS232 Data Rates 
+  - Selectable 250kbps Slew Limiting 
+  - Integrated RS485 120Ω differential cable termination, inactive for RS232. 
+  - Integrated ESD protection 
+  - A 500mA PTC resettable fuse protects the 24V output pin. 
 
 ### I2C 
--   Grove connector
--   10kΩ pullups on board 
+  - Grove connector
+  - 10kΩ pullups on board 
 
 ### Ethernet 
--   On board transformer 
--   10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. 
--   The Wake On Lan functionality allows reducing power consumption when in sleep mode. 
+  - On board transformer 
+  - 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. 
+  - The Wake On Lan functionality allows reducing power consumption when in sleep mode. 
 
 ### USB A Full Speed USB 
--   Portenta High Speed USB Phy is connected to the USB A connector 
--   Transfer rates of up to 480 Mbps. 
--   It can be used both as a host and as a device. 
-*ESD protection
+  - Portenta High Speed USB Phy is connected to the USB A connector 
+  - Transfer rates of up to 480 Mbps. 
+  - It can be used both as a host and as a device. 
+  *ESD protection
 
 ### Half Speed Micro USB 
--   Portenta half speed USB is connected to the micro USB connector. 
--   Useful to program portenta via a micro usb cable 
--   It can be use to power Portenta while the 24V power supply is off. 
-*ESD protection
+  - Portenta half speed USB is connected to the micro USB connector. 
+  - Useful to program portenta via a micro usb cable 
+  - It can be use to power Portenta while the 24V power supply is off. 
+  *ESD protection
 
 ### RTC 
 The on board real time clock/calendar is the PCF8563T/F4,118 which clock is provided by a dedicated external crystal oscillator. 
 
--   A 100mF supercapacitor (FC0V104ZFTBR24) provides power to the PCF8563T/F4,118 when the board power supply is disconnected. PCF8563T/F4,118 will be powered by the supercapacitor for at least 48h. 
--   32,768kHz clock crystal (Q13FC1350000400) 
+  - A 100mF supercapacitor (FC0V104ZFTBR24) provides power to the PCF8563T/F4,118 when the board power supply is disconnected. PCF8563T/F4,118 will be powered by the supercapacitor for at least 48h. 
+  - 32,768kHz clock crystal (Q13FC1350000400) 
 
 ### Power Tree 
 ![Power Tree Machine Control](assets/MachineControlPowerTree.png)

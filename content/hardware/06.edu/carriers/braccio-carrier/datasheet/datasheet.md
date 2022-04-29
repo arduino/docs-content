@@ -58,16 +58,16 @@ Following information outlines the technical overview of the Arduino® Braccio C
 - **JAX133T-IF05** 
     - Display module to allow Braccio ++ to deploy visual information. The module is based on 240RGBX240 Dot-Matrix TFT LCD via FPC interface. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
     
-    |  Compatible Connector      |  
-    | -------------------------- | 
-    |  J1 (Display CONN)         | 
+    | Compatible Connector |
+    | :------------------: |
+    |  J1 (Display CONN)   |
 
 - **Switronic IT-1501-G** 
     - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
     
-    |  Compatible Connector      |  
-    | -------------------------- | 
-    |  J3 & J4 Board CONN        | 
+    | Compatible Connector |
+    | :------------------: |
+    |  J3 & J4 Board CONN  |
     
 ### Connectors & I/O Port 
 
@@ -79,8 +79,9 @@ Following information outlines the technical overview of the Arduino® Braccio C
     |  J1                 |  0.5A per Contact                    |  105°C                                |
 
 - **J3 & J4 Board Connector**
-    - Board splitter which allows to interface display and joystick at a distance, from which all the motor wire interfaces arrive.
-
+    
+- Board splitter which allows to interface display and joystick at a distance, from which all the motor wire interfaces arrive.
+    
 - **Molex 44914-0601**
     - Rectangular power connector with 6 contacts. Available for external power supply and for servo line.
 
@@ -113,9 +114,9 @@ Following information outlines the technical overview of the Arduino® Braccio C
 ## Ratings
 
 ### Recommended Operating Conditions
-| Symbol | Description                                       | Min        | Max     |
-| ------ | ------------------------------------------------- | ---------- | ------- | 
-|        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
+| Description                                      |  Min   |  Max  |
+| ------------------------------------------------ | :----: | :---: |
+| Conservative thermal limits for the whole board: | -40 °C | 85 °C |
 
 ## Functional Overview
 
