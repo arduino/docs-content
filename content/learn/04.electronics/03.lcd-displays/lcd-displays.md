@@ -271,7 +271,7 @@ void loop() {
 
   lcd.clear();
 }
-```s
+```
 
 ### Blink Example
 
