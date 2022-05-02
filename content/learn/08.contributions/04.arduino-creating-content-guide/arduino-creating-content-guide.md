@@ -22,7 +22,8 @@ You are welcome to add your own content to the Arduino Documentation repository.
 ***You can also contribute to our content by creating your own libraries. Read more about that [here](/learn/contributions/arduino-library-style-guide).***
 
 
-For us to be able to approve your contribution, you should follow the guidelines on how to structure and write your content.
+For us to be able to approve your contribution, you should [follow the guidelines](/learn/contributions/arduino-writing-style-guide) on how to structure and write your content.
+
 
 ## Styleguides
 
