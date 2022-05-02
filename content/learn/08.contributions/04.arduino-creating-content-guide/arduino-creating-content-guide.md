@@ -27,7 +27,8 @@ For us to be able to approve your contribution, you should follow the guidelines
 
 If you want to write your own content, please read the following guides on how to write in a user friendly way.
 
-* [Arduino Style Guide for Writing Content](../00.arduino-writing-style-guide)
+* [Arduino Style Guide for Writing Content](/learn/contributions/arduino-writing-style-guide)
+
 
 If you want to contribute with your own content to the Arduino Documentation website, please read the following documentation on how to do just that.
 
