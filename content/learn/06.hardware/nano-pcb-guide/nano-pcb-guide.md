@@ -15,7 +15,7 @@ This article aims to provide you with technical information that will aid the de
 
 Each Nano Family board has a dedicated documentation page, see the list below:
 
-- [Nano (classic)](/hardware/nano)
+- [Nano](/hardware/nano)
 - [Nano Every](/hardware/nano-every)
 - [Nano 33 BLE](/hardware/nano-33-ble)
 - [Nano 33 BLE Sense](/nano-33-ble-sense)
@@ -80,7 +80,7 @@ There are several embedded sensors on the Nano boards, which can be seen below:
 
 ### Voltage (3.3V / 5V)
 
-It is important to understand that the Nano family boards operates on different voltage. Any board with a radio module (Nano 33 BLE, Nano 33 BLE Sense, Nano 33 IoT, Nano RP2040 Connect) operates on **3.3V**. The Nano (classic), and Nano Every operates on **5V**.
+It is important to understand that the Nano family boards operates on different voltage. Any board with a radio module (Nano 33 BLE, Nano 33 BLE Sense, Nano 33 IoT, Nano RP2040 Connect) operates on **3.3V**. The Nano and Nano Every operates on **5V**.
 
 As the boards with radio modules operate on 3.3V logic, the 5V pin is connected to headers via a solder jumper which defaults open. When powering the board via USB, the VIN pin can be used as a 5V output from the board. This is useful when powering carrier boards requiring 5V and powering the system via USB.
 
