@@ -28,15 +28,23 @@ Inside the documentation page, you will find design files such as full pinout, C
 
 ### Dimensions
 
-The following dimensions apply to all of the Nano
+![Nano dimensions.](assets/nano-dimensions.png)
+
+The following dimensions apply to all of the Nano boards.
 
 | Format | Measurement |
 | ------ | ----------- |
-| Width  | 18 mm       |
-| Length | 45 mm       |
+| Width  | 17.76 mm    |
+| Length | 43.16 mm    |
 | Pitch  | 2.54 mm     |
 
 ***Pitch is the space between the pins (e.g. between A1, A2. This specification is important when choosing header pins.***
+
+More detailed blueprints are available for download through the links below (in `.svg` format):
+
+- [Nano General Dimensions](/resources/dimensions/nano-general-dimensions.svg)
+- [Nano Header Dimensions](/resources/dimensions/nano-header-dimensions.svg)
+- [Nano Pads Dimensions](/resources/dimensions/nano-pads-dimensions.svg)
 
 ### Feature Comparisons
 
@@ -49,22 +57,24 @@ Below is a comparison between the different Nano Family boards.
 | Connectivity | x             | x              | Bluetooth®   | Bluetooth®        | Wi-Fi, Bluetooth® | Wi-Fi, Bluetooth®   |
 | Clock Speed  | 16 Mhz        | 16 Mhz         | 64 Mhz       | 64 Mhz            | 48 Mhz            | 133 MHz             |
 | Flash Memory | 32 KB         | 48 KB          | 256 KB       | 256 KB            | 264 KB            | 16 MB               |
-| SRAM         | 2 KB          | 6 KB           | 1 MB         | 1 MB              | 256 KB            | 16 MB               |
+| SRAM         | 2 KB          | 6 KB           | 1 MB         | 1 MB              | 256 KB            | 264 KB              |
 | EEPROM       | 1 KB          | 256 byte       | x            | x                 | x                 | x                   |
 | I/O Voltage  | 5V            | 5V             | 3.3V         | 3.3V              | 3.3V              | 3.3V                |
 
 There are several embedded sensors on the Nano boards, which can be seen below:
 
-| Board       | Nano | Nano Every | Nano 33 BLE | Nano 33 BLE Sense | Nano 33 IoT | Nano RP2040 Connect |
-| ----------- | ---- | ---------- | ----------- | ----------------- | ----------- | ------------------- |
-| IMU         | x    | x          | **LSM9DS1** | **LSM9DS1**       | **LSM6DS3** | **LSM6DSOX**        |
-| Microphone  | x    | x          | x           | **MP34DT05**      | x           | **MP34DT05**        |
-| Gesture     | x    | x          | x           | **APDS-9960**     | x           | x                   |
-| Light       | x    | x          | x           | **APDS-9960**     | x           | x                   |
-| Color       | x    | x          | x           | **APDS-9960**     | x           | x                   |
-| Pressure    | x    | x          | x           | **LPS22HB**       | x           | x                   |
-| Temperature | x    | x          | x           | **HTS221**        | x           | x                   |
-| Humidity    | x    | x          | x           | **HTS221**        | x           | x                   |
+| Board       | Nano | Nano Every | Nano 33 BLE | Nano 33 BLE Sense | Nano 33 IoT    | Nano RP2040 Connect |
+| ----------- | ---- | ---------- | ----------- | ----------------- | -------------- | ------------------- |
+| IMU         | x    | x          | **LSM9DS1** | **LSM9DS1**       | **\*LSM6DSOX** | **LSM6DSOX**        |
+| Microphone  | x    | x          | x           | **MP34DT05**      | x              | **MP34DT05**        |
+| Gesture     | x    | x          | x           | **APDS-9960**     | x              | x                   |
+| Light       | x    | x          | x           | **APDS-9960**     | x              | x                   |
+| Color       | x    | x          | x           | **APDS-9960**     | x              | x                   |
+| Pressure    | x    | x          | x           | **LPS22HB**       | x              | x                   |
+| Temperature | x    | x          | x           | **HTS221**        | x              | x                   |
+| Humidity    | x    | x          | x           | **HTS221**        | x              | x                   |
+
+***\*Earlier versions of the Nano 33 IoT uses the LSM6DS3 module, which can be accessed via the [LSM6DS3 library](https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/). For newer versions using the LSM6DSOX module, use the [LSM6DSOX library](https://www.arduino.cc/reference/en/libraries/arduino_lsm6dsox/).***
 
 ## Power Considerations
 
@@ -72,11 +82,11 @@ There are several embedded sensors on the Nano boards, which can be seen below:
 
 It is important to understand that the Nano family boards operates on different voltage. Any board with a radio module (Nano 33 BLE, Nano 33 BLE Sense, Nano 33 IoT, Nano RP2040 Connect) operates on **3.3V**. The Nano (classic), and Nano Every operates on **5V**.
 
-As the boards with radio modules operate on 3.3V logic, the 5V pin is disabled by default. When powering the board via USB, the VIN pin can instead be used as a 5V pin. This is useful when powering circuits requiring 5V.
+As the boards with radio modules operate on 3.3V logic, the 5V pin is connected to headers via a solder jumper which defaults open. When powering the board via USB, the VIN pin can be used as a 5V output from the board. This is useful when powering carrier boards requiring 5V and powering the system via USB.
 
 ### VUSB Pads
 
-The 5V pin is also referred to as **"VUSB"**. The purpose of this pin is to power devices connected to the board via USB. To enable it, you will need to solder together the VUSB pads on the bottom of the board, as shown in the image below:
+The 5V pin is also referred to as **"VUSB"**. The purpose of this pin is to provide direct connection between USB connector's VUSB (5V) to headers. This can be used to power devices on a carrier board directly while when using VIN pin this will exhibit a drop due to the series diodes that prevents VIN to back power the USB. In order to connect VUSB/5V pin headers, you will need to solder together the VUSB pads on the bottom of the board, as shown in the image below:
 
 ![Solder the VUSB pads.](assets/5V-PIN-VUSB.png)
 
@@ -92,13 +102,13 @@ The min/max voltage supply varies between boards. This is important to consider 
 
 ### Battery Connection
 
-None of the Nano Family boards have a battery connector due to its small form factor. This means it also has no battery charging circuit, such as the one onboard the [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010).
+The Nano family was not designed to be battery powered, so it has no battery charging circuit, and does not have battery under voltage protections.
 
-To power the Nano board using a battery, you will need to use the VIN pin (refer to the table in the section above).
+If you want to connect a battery to a Nano, do so by using the VIN pin but you have to keep in mind VIN minimum requirements (which means a single cell battery won't be enough). Since there's no under voltage protection, a battery without a protection circuit will be damaged if it is kept connected to the Nano board even after it is completely discharged. It is thus recommended not to connect a battery directly but rather to use circuits like those in USB pattery packs that provide a stabilized 5V power supply and protect the battery from undervoltage.
+
+To connect a battery to a Nano board, you will need to use the VIN pin (refer to the VIN min-max table in the section above).
 
 ![Nano battery connection.](assets/nano-external-power.png)
-
-Note that Nano boards does not have a battery protection circuit, meaning it will continue to drain the battery even when it is below the discharge value, which can damage the battery. This issue can be addressed by using a battery with a built in battery protection circuit.
 
 ## Pinout
 
@@ -118,7 +128,7 @@ The location of these pins are located in the pinout for each board. These are f
 
 ## Nano Form Factor Design Files
 
-### PCB
+### Carrier Template
 
 ![Nano carrier template file.](assets/carrier-templates.png)
 
@@ -137,7 +147,6 @@ The design file(s) below can be used for 3D printing, e.g. enclosures, mounts.
 - [Nano Board Enclosure (.stp)](/resources/3d/nano-enclosure.stp)
 
 
-
 ## Soldering Directly To PCB
 
 All Nano boards can be purchased **without headers attached.** This makes it possible to solder it directly to a custom PCB, using the castellated holes on the board. 
@@ -146,4 +155,4 @@ All Nano boards can be purchased **without headers attached.** This makes it pos
 
 This method is useful for more robust applications, where the Nano board needs to be permanently attached.
 
-***Do not attempt to solder any Arduino Nano boards using the SMT (Surface Mount Technology) method. Since Arduino boards are shipped without anti-static bags, the board may absorb humidity which will cause issues during the SMT process. Boards should always be soldered manually.***
+***Do not attempt to solder any Arduino Nano boards shipped in single package using the reflow soldering method. Since Arduino boards are not shipped in a dry pack, the board may absorb humidity and is thus unsuitable for reflow process. Boards should always be soldered manually; in case you're interested in using the reflow soldering process for volume manufacturing, please [contact Arduino PRO](https://www.arduino.cc/pro/contact-us).***

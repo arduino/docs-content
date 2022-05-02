@@ -27,8 +27,9 @@ Power:
 Clock speed:
   Processor: 133 MHz
 Memory:
+  SRAM: 264 KB
   AT25SF128A-MHB-T: 16MB Flash IC
-  Nina W102 uBlox module: 448 KB ROM, 520KB SRAM, 16MB Flash
+  Nina W102 uBlox module: 448 KB ROM, 520KB SRAM, 2MB Flash
 Dimensions:
   Weight: 6 g
   Width: 18 mm
