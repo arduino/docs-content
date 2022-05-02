@@ -129,6 +129,11 @@ Industry 4.0,  system integrators
 | I<sub>OUT_ENC</sub>     | Maximum output current from any ENCODERS pin                                                                                                                                                                       | 0   | -   | 2   | mA   |
 
 ## Functional Overview
+
+## Block Diagram
+![Block Diagram of Portenta Machine Control](assets/MachineControlBlockDiagram.svg)
+
+
 ### Board Topology 
 ![Machine Control topology](assets/MachineControlOutline.png)
 
