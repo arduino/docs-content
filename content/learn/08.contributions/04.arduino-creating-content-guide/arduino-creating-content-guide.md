@@ -19,7 +19,8 @@ You are welcome to add your own content to the Arduino Documentation repository.
 
 \*Note that the contributed Projects should be added to **Project Hub** instead of on the Arduino Documentation website.
 
-***You can also contribute to our content by creating your own libraries. Read more about that [here](../03.arduino-creating-library-guide).***
+***You can also contribute to our content by creating your own libraries. Read more about that [here](/learn/contributions/arduino-library-style-guide).***
+
 
 For us to be able to approve your contribution, you should follow the guidelines on how to structure and write your content.
 
