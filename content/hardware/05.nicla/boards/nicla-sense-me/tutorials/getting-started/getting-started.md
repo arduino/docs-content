@@ -105,7 +105,7 @@ The **Arduino_BHY2** library contains these sensors:
     valueY = gyroscope.y();
     valueZ = gyroscope.z();
 
-    Serial.println(gyroscope.toString); //Prints all the data "automatically"
+    Serial.println(gyroscope.toString()); //Prints all the data "automatically"
 
     //Print the individual values
     Serial.println(valueX);
