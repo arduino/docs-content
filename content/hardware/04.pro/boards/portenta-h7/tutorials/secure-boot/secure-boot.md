@@ -35,7 +35,7 @@ Once The bootloader has been updated to MCUboot, it's possible to use [secure bo
 
 If no operation is performed the default security keys are used.
 Two keys are embedded in the example sketch `STM32H747_updateBootloader` which can be found in **Files > Examples > STM32H747_System > STM32H747_updateBootloader** and used by the bootloader.
-A private 256bit [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) key is used to extract the encryption key and decrypt the binary update (`ecdsa-p256-encrypt-pub-key.h`), while a public key is used for image verification (`ecdsa-p256-signing-priv-key.h`).
+A private 256bit [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) key is used to extract the encryption key and decrypt the binary update (`ecdsa-p256-encrypt-priv-key.h`), while a public key is used for image verification (`ecdsa-p256-signing-pub-key.h`).
 
 As counterpart, when building the image update, imgtool uses this private [key](https://github.com/arduino/ArduinoCore-mbed/pull/447/files#diff-f43e4850d60c61854678f6f80c6ddc4b59e3e68ca7e71b02e5ed15288c9aadb4) to sign the image and this public [key](https://github.com/arduino/ArduinoCore-mbed/pull/447/files#diff-95bb7b27de14276896a2bec099dc5a498d5332616458c04263efc8d24810e6a6) for image encryption with elliptic curve integrated encryption scheme.
 
