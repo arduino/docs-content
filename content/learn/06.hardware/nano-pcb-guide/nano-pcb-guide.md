@@ -50,16 +50,16 @@ More detailed blueprints are available for download through the links below (in 
 
 Below is a comparison between the different Nano Family boards. 
 
-| Board        | Nano          | Nano Every     | Nano 33 BLE  | Nano 33 BLE Sense | Nano 33 IoT       | Nano RP2040 Connect |
-| ------------ | ------------- | -------------- | ------------ | ----------------- | ----------------- | ------------------- |
-| Processor    | **ATmega328** | **ATmega4809** | **nRF42840** | **nRF42840**      | **SAMD21G18A**    | **RP2040**          |
-| Radio Module | x             | x              | NINA-B306    | NINA-B306         | NINA-W102         | NINA-W102           |
-| Connectivity | x             | x              | Bluetooth®   | Bluetooth®        | Wi-Fi, Bluetooth® | Wi-Fi, Bluetooth®   |
-| Clock Speed  | 16 Mhz        | 16 Mhz         | 64 Mhz       | 64 Mhz            | 48 Mhz            | 133 MHz             |
-| Flash Memory | 32 KB         | 48 KB          | 256 KB       | 256 KB            | 264 KB            | 16 MB               |
-| SRAM         | 2 KB          | 6 KB           | 1 MB         | 1 MB              | 256 KB            | 264 KB              |
-| EEPROM       | 1 KB          | 256 byte       | x            | x                 | x                 | x                   |
-| I/O Voltage  | 5V            | 5V             | 3.3V         | 3.3V              | 3.3V              | 3.3V                |
+| Board        | Nano           | Nano Every     | Nano 33 BLE  | Nano 33 BLE Sense | Nano 33 IoT       | Nano RP2040 Connect |
+| ------------ | -------------- | -------------- | ------------ | ----------------- | ----------------- | ------------------- |
+| Processor    | **ATmega328P** | **ATmega4809** | **nRF52840** | **nRF52840**      | **SAMD21G18A**    | **RP2040**          |
+| Radio Module | x              | x              | NINA-B306    | NINA-B306         | NINA-W102         | NINA-W102           |
+| Connectivity | x              | x              | Bluetooth®   | Bluetooth®        | Wi-Fi, Bluetooth® | Wi-Fi, Bluetooth®   |
+| Clock Speed  | 16 Mhz         | 16 Mhz         | 64 Mhz       | 64 Mhz            | 48 Mhz            | 133 MHz             |
+| Flash Memory | 32 KB          | 48 KB          | 256 KB       | 256 KB            | 264 KB            | 16 MB               |
+| SRAM         | 2 KB           | 6 KB           | 1 MB         | 1 MB              | 256 KB            | 264 KB              |
+| EEPROM       | 1 KB           | 256 byte       | x            | x                 | x                 | x                   |
+| I/O Voltage  | 5V             | 5V             | 3.3V         | 3.3V              | 3.3V              | 3.3V                |
 
 There are several embedded sensors on the Nano boards, which can be seen below:
 
