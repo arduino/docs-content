@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-Thanks to its form factor, can be attached to a Din Rail mount system, providing a quick access to all the I/O ‘s.
+Thanks to its form factor, it can be attached to a Din Rail mount system, providing a quick access to all the I/O ‘s.
 
 </FeatureDescription>
 
@@ -19,11 +19,11 @@ Thanks to its form factor, can be attached to a Din Rail mount system, providing
   Note: Does not protect against Moisture.
 </Feature>
 
-<Feature title="Enclosure LCD display" image="hw-pin">
+<Feature title="Breakout LCD display + Push Button" image="hw-pin">
 
-  The Kit includes an LCD display (NDS1602A) with a Push-button so you can display data and characters in the 2x20 LCD display and interact with the device with the pus-button.
+  The Kit includes a breakout board with a LCD display (NDS1602A) and a Push-button so you can display data and characters in the 2x16 LCD display and also interact with the device with the pus-button.
 
-  Note: Also included coverage for the LCD display, with a fixed assembly on the device cover. (See pictures)
+  Note: Included coverage for the LCD display, with a fixed assembly on the device cover. (See pictures)
 
 </Feature>
 
