@@ -90,7 +90,7 @@ The 5V pin is also referred to as **"VUSB"**. The purpose of this pin is to pro
 
 ![Solder the VUSB pads.](assets/5V-PIN-VUSB.png)
 
-***If you solder the VUSB pads, and then power the board via USB, it also enables the 5V pin to be used. Be very cautios with this, as you risk damaging your board's ICs.***
+***If you solder the VUSB pads, and then power the board via USB, it also enables the 5V pin to be used. Be very cautious with this, as you risk damaging your board's ICs.***
 
 ### VIN Min/Max
 
