@@ -27,7 +27,19 @@ The file is compressed and you have to extract it in a suitable folder, remember
 
 Open the **arduino-1.6.x** folder just created by the extraction process and spot the **install.sh** file. Right click on it and choose **Run in Terminal** from the contextual menu. The installation process will quickly end and you should find a new icon on your desktop.
 
-If you don't find the option to run the script from the contextual menu, you have to open a Terminal window and move into the **arduino-1.6.x** folder. Type the command **assets/install.sh** and wait for the process to finish. You should find a new icon on your desktop.
+If you don't find the option to run the script from the contextual menu, you have to open a Terminal window and move into the **arduino-1.6.x** folder or the folder of the version that you downloaded and run the following command:
+```
+sudo sh assets/install.sh
+```
+NOTE: 
+- Remove 'sudo' keyword if already running terminal with administrative rights. 
+- The folder structure of the latest 1.8.19 version does not have 'assets' folder in it and the 'intall.sh' is directly placed in the "arduino-1.8.19" folder. In this case run the following command:
+```
+sudo sh install.sh
+```
+
+
+You should find a new icon on your desktop.
 
 ![Running the installation script.](assets/Linux_Install_2.jpg)
 
