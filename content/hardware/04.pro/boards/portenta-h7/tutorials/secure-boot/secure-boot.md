@@ -33,7 +33,7 @@ In order to have secure boot enabled you must update the bootloader on your Port
 ### Use Default Security Keys
 Once The bootloader has been updated to MCUboot, it's possible to use [secure boot](https://www.keyfactor.com/blog/what-is-secure-boot-its-where-iot-security-starts/) to have an additional layer of security. From that point on it is required to upload a compiled sketch with the Custom Board Option **"Security settings"** set to **"Signature + Encryption"** (the option can be found under **Tools > Security settings** in the IDE when selecting Portenta H7 as board, or you can use `--board-options security=sien` if using the Arduino CLI). Failing to provide such option will cause the bootloader not to run the compiled sketch because it is not trusted.
 
-If no operation is performed the default security keys are used.
+If the security keys are not overridden, the default ones are used."
 Two keys are embedded in the example sketch `STM32H747_updateBootloader` which can be found in **Files > Examples > STM32H747_System > STM32H747_updateBootloader** and used by the bootloader.
 A private 256bit [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) key is used to extract the encryption key and decrypt the binary update (`ecdsa-p256-encrypt-priv-key.h`), while a public key is used for image verification (`ecdsa-p256-signing-pub-key.h`).
 
