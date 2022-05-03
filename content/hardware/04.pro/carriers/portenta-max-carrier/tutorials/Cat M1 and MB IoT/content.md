@@ -43,21 +43,21 @@ The goals of this project are:
 
 ### Circuit
 
-For this tutorial we need to plug the Portenta H7 into the Max Carrier, like shown in the image below.
+For this tutorial we need to plug the Portenta H7 into the Max Carrier, like shown in the image below. By attaching the Portenta H7 board to the HD connectors on top of the Portenta Max Carrier. Press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB C cable.
 
 ![Connecting the Portenta H7 and Max Carrier](assets/Connect-H7-to-Max-carrier.svg)
 
-And we also need to insert a SIM card and connect an antenna to the Max Carrier, like shown in the image below.
+And we also need to insert a SIM card and connect an antenna to the Max Carrier, like shown in the image below. Put the SIM card into the SIM card slot at the top of the Carrier, the same side where the Portenta H7 is located. Next to the SIM card slot there is an antenna SMA connector where you will need to screw on your antenna. 
 
-![SIM card slot and antenna connector](assets/Sim-card-and-antenna-on-Max-carrier.png)
+![SIM card slot and antenna connector](assets/Sim-card-and-antenna-on-Max-carrier.svg)
 
-After everything else is connected, connect a power cable to the barrel jack. The one right next to the antenna connector.
+After everything else is connected, connect a power cable to the barrel jack. The one right next to the SMA antenna connector.
 
 ### Arduino IDE
 
-Make sure you have the latest **Portenta mbed os Core** installed. Found in **Tools > Board: > boards manager...**.
+In the Arduino IDE, make sure you have the latest **Portenta mbed os Core** installed. Found in **Tools > Board: > boards manager...**.
 
-We will also need to libraries to be installed, **MKRNB** and **arduino_bq24195**. You can find these in the **Library manager** in the Arduino IDE. We will be using example sketches from the **MKRNB** library.
+We will also need two libraries to be installed, **MKRNB** and **arduino_bq24195**. You can find these in the **Library manager** in the Arduino IDE. We will be using example sketches from the **MKRNB** library. The **arduino_bq24195** library allows us to control and configuration the BQ24195 PMIC used on the Portenta Max Carrier.
 
 ### NB-IoT or Cat-M1
 
@@ -65,25 +65,25 @@ NB-IoT is a radio technology deployed over mobile networks which is especially s
 
 ### Switching between NB-IoT and Cat-M1
 
-If you prefer to use one communication technology over the other, then this can be changed with the simple use of one sketch. Open the **ChoseRadioAccessTechnology** sketch located in the libraries examples. When this sketch is uploaded open the serial monitor. You will now get options for what technology you prefer to use in the serial monitor. Follow the steps and wait for the sketch to say that it is finished. The board will now use the preferred technology and we can move on to upload other sketches.
+If you prefer to use one communication technology over the other, then this can be changed with the simple use of one sketch. Open the **ChoseRadioAccessTechnology** sketch located in the **MKRNB** examples. When this sketch is uploaded, open the serial monitor. You will now get options for what technology you prefer to use in the serial monitor. Follow the steps and wait for the sketch to say that it is finished. The board will now use the preferred technology and we can move on to upload other sketches.
 
-[Serial monitor for sketch]()
+![Serial monitor for sketch](assets/set-radio-technology-sm.png)
 
 ### Programming the Board
 
-Now open the sketch from examples **NBWebClient**. This sketch will connect the Portenta Max carrier to a website and print its content in the serial monitor.
+Now open the **NBWebClient** example, this is located inside the **MKRNB**. This sketch will connect the our setup to a website and print its content in the serial monitor.
 
-First go to the **arduino_secrets.h** tab and enter your PIN code into the **Secret_pinnumber** variable.
+This sketch uses a secret.h file to store sensitive information, like the PIN code for the SIM card. First we need to go to the **arduino_secrets.h** tab and enter our PIN code into the **Secret_pinnumber** variable.
 
-The **char server[]** variable will decide what website the board will connect to and print in the serial monitor. Feel free to try different sites and see the difference in the result. In this tutorial we will use the default **example.org**.
+The **char server[]** variable will decide what website the setup will connect to and print in the serial monitor. Feel free to try different sites and see the difference in the result. In this tutorial we will use the default **example.org**.
 
-The sketch will also set the port it uses for connecting with **int port = 80;**. This is the default connection port, but if the connection is not being established. Or if you know the specific port you want to connect to, then change this variable to a more appropriate value.
+The sketch will also set the port it uses for connecting with **int port = 80;**. This is the default connection port. If the connection is not being established or if you know the specific port you want to connect to, then change this variable to a more appropriate value.
 
 ### Result of Sketch
 
-When the sketch is uploaded open the serial monitor to see the result. You will also get error messages in the serial monitor if there is some issue along the way. When it works you should see something similar to what is shown below.
+When the sketch is uploaded, open the serial monitor to see the result. You will get error messages in the serial monitor if there is some issue along the way. When it works you should see something similar to what is shown below.
 
-[Result in the serial monitor]()
+![Result in the serial monitor](assets/result-serial-monitor.png)
 
 ### Troubleshoot
 
@@ -95,10 +95,10 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Next Step
 
-- The Portenta Max Carrier offers a lot of features when used with the Portenta H7. If you want to learn more about the Portenta Max Carriers peripherals and features, check out our [Getting Started guide for Max Carrier and Portenta H7]().
+- The Portenta Max Carrier offers a lot of features when used with the Portenta H7. If you want to learn more about the Portenta Max Carriers peripherals and features, check out our [Getting Started guide for Max Carrier and Portenta H7](/tutorials/getting-started-with-H7).
 
-- If you are interested in trying out more of the Max Carriers connectivity options. Be sure to check out our tutorial on how to use [LoRa with the Max Carrier and Portenta H7]().
+- If you are interested in trying out more of the Max Carriers connectivity options. Be sure to check out our tutorial on how to use [LoRa with the Max Carrier and Portenta H7](/tutorials/lora-tutorial).
 
 ## Conclusion
 
-In this tutorial we went through how to connect all the necessary parts to the Portenta Max Carrier. How to change whether to use NB-IoT or Cat-M1. To then connect to a website and print it's content in the serial monitor.
+In this tutorial we went through how to connect the Portenta H7 and Portenta Max Carrier, with peripherals to be able to use the carriers GSM feature. We then learned how to set a preference between NB-IoT or Cat-M1 technology. And at the end we tested so everything works by running an example sketch on our setup.
