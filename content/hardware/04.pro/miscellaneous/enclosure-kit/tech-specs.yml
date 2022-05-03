@@ -14,10 +14,15 @@ Dimensions:
   Height: 6 mm
 Included components:
   Covers:
-    Top plastic cover: Yes
-    Bottom plastic cover: Yes
-    LCD display cover: Yes
-  LCD (Included):
-    ID: NDS1602A
-    Flat cable: Yes
-  Edge Control: No
+    Top plastic cover: Included
+    Bottom plastic cover: Included
+    LCD display cover: Included
+  Breakout:
+    LCD:
+      ID: NDS1602A
+      Rows: 2
+      Columns: 16
+    Push-button:
+      Included
+    Flat cable: Wired both Display and Push-button
+Not included: Edge Control 
