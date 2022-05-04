@@ -63,7 +63,7 @@ We will also need two libraries to be installed, **MKRNB** and **arduino_bq24195
 
 NB-IoT is a radio technology deployed over mobile networks which is especially suited for indoor coverage, low cost, long battery life, and large number of devices. While Cat-M1 supports downlink and uplink speeds up to 1 Mbps with a latency of 50 to 100 ms and can be used for realtime-communication. Cat-M1 is ideal if you are interested in tracking things such as logistics and transportation. Make sure the technology that you choose is supported by your service provider.
 
-### Switching between NB-IoT and Cat-M1
+### Switching Between NB-IoT and Cat-M1
 
 If you prefer to use one communication technology over the other, then this can be changed with the simple use of one sketch. Open the **ChoseRadioAccessTechnology** sketch located in the **MKRNB** examples. When this sketch is uploaded, open the serial monitor. You will now get options for what technology you prefer to use in the serial monitor. Follow the steps and wait for the sketch to say that it is finished. The board will now use the preferred technology and we can move on to upload other sketches.
 
