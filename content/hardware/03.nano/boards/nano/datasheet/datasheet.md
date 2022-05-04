@@ -80,29 +80,6 @@ to environmental issues.
 ## Functional Overview
 ### Block Diagram
 ![Block Diagram of Arduino Nano](./assets/nano_block_diagram.png)
-<!-- 
-### Board Topology
-**Front View**
-![Front View of Arduino Nano RP2040 Connect Topology](assets/nanoRP2040BoardTopologyTop.png)
-
-| **Ref.** | **Description**                                  | **Ref.** | **Description**                                 |
-| -------- | ------------------------------------------------ | -------- | ----------------------------------------------- |
-| U1       | Raspberry Pi RP2040 Microcontroller              | U2       | Ublox NINA-W102-00B Wi-Fi/Bluetooth Module      |
-| U3       | N/A                                              | U4       | ATECC608A-MAHDA-T Crypto IC                     |
-| U5       | AT25SF128A-MHB-T 16MB Flash IC                   | U6       | MP2322GQH Step-Down Buck Regulator              |
-| U7       | DSC6111HI2B-012.0000 MEMS Oscillator             | U8       | MP34DT06JTR  MEMS Omnidirectional Microphone IC |
-| U9       | LSM6DSOXTR 6-axis IMU with Machine Learning Core | J1       | Male Micro USB Connector                        |
-| DL1      | Green Power On LED                               | DL2      | Builtin Orange LED                              |
-| DL3      | RGB Common Anode LED                             | PB1      | Reset Button                                    |
-| JP2      | Analog Pin + D13 Pins                            | JP3      | Digital Pins                                    |
-
-**Back View**
-![Back View of Arduino Nano RP2040 Connect Topology](assets/nanoRP2040BoardTopologyBack.png)
-
-| **Ref.** | **Description**         | **Ref.** | **Description**            |
-| -------- | ----------------------- | -------- | -------------------------- |
-| SJ4      | 3.3V jumper (connected) | SJ1      | VUSB jumper (disconnected) |
- -->
 
 ### Processor
 
