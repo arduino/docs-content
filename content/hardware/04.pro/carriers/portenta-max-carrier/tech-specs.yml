@@ -5,7 +5,7 @@ Audio:
   Mic: 3.5 mm
   Line in: 3.5 mm   
   Headphone: 3.5 mm headphone output
-  Speaker: Grove connector 
+  Speaker: "Speaker connector (Grove format)"
 Connectivity:
   Cellular module: SARA-R412M-02B (4G/Cat-M1/NBIoT)
   LoRa® module: Murata CMWX1ZZABZ-078 LoRa® module
