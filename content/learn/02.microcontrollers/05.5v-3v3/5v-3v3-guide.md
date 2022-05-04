@@ -11,15 +11,15 @@ author: 'Arduino, José Bagur, Taddy Chung'
 
 Most electronic devices, when designed, tends to choose between 5.0V or 3.3V that will feed voltage to its designed system. Voltage design selection can be usually either due to its convenience of availability of the power source, or the need of power efficiency that the system itself has as a requirement.
 
-Although, 5.0V and 3.3V, in numerical difference, it has only 1.7V of difference. However, this voltage difference alone is sufficient enough to provide major power difference in eletronic system device. In this guide, we will show you about why 3.3V is the modern standard voltage level, and general tips when designing and handling these voltage levels. 
+Although, 5.0V and 3.3V, in numerical difference, it has only 1.7V of difference. However, this voltage difference alone is sufficient enough to provide major power difference in electronic system device. In this guide, we will show you about why 3.3V is the modern standard voltage level, and general tips when designing and handling these voltage levels. 
 
 ## 3.3V, the Standard Voltage Level
 
 So, why is the **3.3V** level a standard voltage level? There are several reasons that contributes for standardizing 3.3V level as a standard, and in world of electronics, as it is in engineering, we are in constant search for much more efficient and performant yet density-low package devices or machines. 
 
-The industry is always moving forward, and in electronics, the transistors have reduced in its size than previous years and due to its reduced size, voltage threshold also follows the trend by going lower. The industry continuosly is working to develop faster electronic devices, and one general way to achieve this is to lower the applied voltage level. Lowering applied voltage level implies much faster logic level changes. Power usage is a concerning topic if we discuss about power efficiency, and lower voltage levels will help us achieve this goal. 
+The industry is always moving forward, and in electronics, the transistors have reduced in its size than previous years and due to its reduced size, voltage threshold also follows the trend by going lower. The industry continuously is working to develop faster electronic devices, and one general way to achieve this is to lower the applied voltage level. Lowering applied voltage level implies much faster logic level changes. Power usage is a concerning topic if we discuss about power efficiency, and lower voltage levels will help us achieve this goal. 
 
-In the end, the industry has moved from 5V TTL by achieving lower optimal voltage level due to chip development improvement and introduction of CMOS (Complementary Metal-Oxide Semiconductor). Also, it is always better to have a clear working standard which ensures compatbility of device development and operation. To manage this standard, **JEDEC Standard** made **JESD8 standard** which defines 3.3V level as the standard voltage level. 
+In the end, the industry has moved from 5V TTL by achieving lower optimal voltage level due to chip development improvement and introduction of CMOS (Complementary Metal-Oxide Semiconductor). Also, it is always better to have a clear working standard which ensures compatibility of device development and operation. To manage this standard, **JEDEC Standard** made **JESD8 standard** which defines 3.3V level as the standard voltage level. 
 
 ***For more in-depth information about current microelectronic standards, please look into [JEDEC](https://www.jedec.org/)***
 
@@ -65,7 +65,7 @@ Implementing complicated power protection circuit does not mean the Load is prot
 
 ![Complete Reverse Polarity Protection](assets/ElegantRPP.png)
 
-The key points of the circuit presented above are the Transient Voltage Supressor diode and the MOSFET of P-Channel type. This protection circuit will help you save the Protected Load and to have it as a good reference for protection design. Although due to its electric components, it becomes a little more advanced to cover in the scope of this guide.
+The key points of the circuit presented above are the Transient Voltage Suppressor diode and the MOSFET of P-Channel type. This protection circuit will help you save the Protected Load and to have it as a good reference for protection design. Although due to its electric components, it becomes a little more advanced to cover in the scope of this guide.
 
 ***If you are interested to go further in detail, you are in for a treat. Please have a look this [article](https://www.electroboom.com/?p=914) written by Mehdi Sadaghdar explained in-depth.***
 
@@ -73,11 +73,11 @@ The key points of the circuit presented above are the Transient Voltage Supresso
 
 Sometimes the electronic device, that should receive 3.3V level of input from the supply may get on "dirty" tension. Causing the electronic device to suffer abnormal electronic behaviour, which is definitely undesired factor. As it could destabilize the system completely or change the logic forcefully due to changed logic range to be unrecognized. There are more of this such undesired behaviour, if over-voltage or over-current is introduced to the system. 
 
-So for this matter, how do we protect the system? The solution can be based of the proper Reverse Polarity Protection showed previously. The proper Polarity Reverse Polarith Protection implements a bidirectional Transient Voltage Supressor while adding the P-Channel MOSFET with a zenerdiode and two resistors to get all its flavours. 
+So for this matter, how do we protect the system? The solution can be based of the proper Reverse Polarity Protection showed previously. The proper Polarity Reverse Polarith Protection implements a bidirectional Transient Voltage Suppressor while adding the P-Channel MOSFET with a zenerdiode and two resistors to get all its flavours. 
 
-***To give quick explanation on Transient Voltage Supressor - It is a type of a diode that helps to protect high-spike voltages generated at the output of Power Supply.***
+***To give quick explanation on Transient Voltage Suppressor - It is a type of a diode that helps to protect high-spike voltages generated at the output of Power Supply.***
 
-But a simple Reverse Polarity Protection, with a Transient Voltage Supressor diode can be used to protect the over-voltage and over-current issues. If you want to go further into protecting the Load from over-voltage and over-current, it is possible to integrate **Surge Stopper** to provide active protection. May increase the cost, however it is a good measure to protect the Load. 
+But a simple Reverse Polarity Protection, with a Transient Voltage Suppressor diode can be used to protect the over-voltage and over-current issues. If you want to go further into protecting the Load from over-voltage and over-current, it is possible to integrate **Surge Stopper** to provide active protection. May increase the cost, however it is a good measure to protect the Load. 
 
 ## Stepping the Voltage - Level Shifters
 
