@@ -18,7 +18,8 @@ Arduino boards can be powered in several ways; we can use dedicated **connectors
 Arduino boards have **four** ways in which they can be powered:
 
 1. Powering via USB connector
-2. Powering via the barrel jack connector
+2. Powering via a barrel jack connector / JST connector if available on the board.
+
 3. Powering via the Vin pin
 4. Powering via the 3V3/5V pin
 
