@@ -56,7 +56,8 @@ Some Arduino boards have an **onboard barrel jack connector** that its use is in
 The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3. The recommended voltages for the external power supply are summarized in the table below:
 
 |          Board         | External Power Supply Voltage (V) | External Power Supply Current (A) |
-|:----------------------:|:---------------------------------:|:---------------------------------:|
+|----------------------|---------------------------------|---------------------------------|
+
 |    Arduino UNO Rev3    |                7-12               |                 1                 |
 |  Arduino UNO WiFi Rev2 |               4.5-21              |                1.5                |
 |    Arduino Leonardo    |                7-12               |                 1                 |
