@@ -27,7 +27,8 @@ Arduino boards have **four** ways in which they can be powered:
 
 The USB
 
-Let's take a closer look at each of these power sources.
+In this article, we will examine the alternatives to power your Arduino more in-depth.
+
 
 ### USB Connector
 
