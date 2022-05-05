@@ -31,7 +31,8 @@ The USB
 In this article, we will examine the alternatives to power your Arduino more in-depth.
 
 
-### USB Connector
+## USB Connector
+
 
 The most common and easy way we can use to power an Arduino board is by using its **onboard USB connector**. The USB connector provides a regulated 5V line to power the board's electronics. However, it can also power external components via the 5V pin that can be found in Arduino boards, as shown in the image below:
 
