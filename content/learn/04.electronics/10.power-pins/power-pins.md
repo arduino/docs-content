@@ -52,7 +52,8 @@ Some Arduino boards have an **onboard barrel jack connector** that its use is in
 - [Arduino Due](https://store.arduino.cc/collections/boards/products/arduino-due)
 - [Arduino Zero](https://store.arduino.cc/collections/boards/products/arduino-zero)
 
-***Arduino boards with onboard barrel jacks are configured with **positive polarity**; this means a negative sleeve and a positive pin.***
+***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin.***
+
 
 The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3. The recommended voltages for the external power supply are summarized in the table below:
 
