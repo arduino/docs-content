@@ -2,6 +2,7 @@
 title: MKR IoT Carrier
 url_shop: https://store.arduino.cc/mkr-iot-carrier
 url_guide: https://opla.arduino.cc/
+url_datasheet:
 certifications: [REACH, FCC, RoHS, CE, RCM, IC, UKCA, WEEE]
 ---
 
