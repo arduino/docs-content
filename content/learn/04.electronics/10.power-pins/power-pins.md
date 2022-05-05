@@ -79,7 +79,8 @@ The VIN pin in Arduino boards is a power pin with a dual function. This pin can 
 ***Use the VIN pin carefully to avoid damaging your Arduino board since it does not have reverse polarity protection.***
 
 
-The **maximum and minimum voltages** that can be applied to the Vin pin are determined by the onboard 5V voltage regulator of Arduino boards. Those voltages are summarized in the table below:
+The **minimum and maximum voltages** that can be applied to the VIN pin are determined by the onboard 5V voltage regulator on Arduino boards, varying from board to board. Those voltages are summarized in the table below:
+
 
 |      **Board**      | **Vin Minimum Voltage (V)** | **Vin Maximum Voltage (V)** |
 |---------------------|-----------------------------|-----------------------------|
