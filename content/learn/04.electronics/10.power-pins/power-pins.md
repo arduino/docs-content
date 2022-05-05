@@ -45,7 +45,8 @@ Something important about the USB connection is the current rating of the USB ho
 ## Barrel Jack Connector
 
 
-Some Arduino boards have an **onboard barrel jack connector** that its use is intended to connect external power supplies. The Arduino boards with an onboard barrel jack connector are the following:
+Some Arduino boards have an **onboard barrel jack connector** that is used to connect external power supplies. The Arduino boards with an onboard barrel jack connector are the following:
+
 
 - [Arduino UNO Rev3](https://store.arduino.cc/collections/boards/products/arduino-uno-rev3)
 - [Arduino UNO WiFi Rev2](https://store.arduino.cc/collections/boards/products/arduino-uno-wifi-rev2)
