@@ -13,7 +13,8 @@ author: 'José Bagur, Taddy Chung'
 
 Arduino boards can be powered in several ways; we can use dedicated **connectors** (USB ports and barrel jacks) or dedicated **pins**. One fundamental question that usually arises when using an Arduino board in real-life applications is what dedicated power connector or pin we should use. This article will describe the main characteristics and correct use of power pins and connectors of Arduino boards.
 
-## Power Pins and Connectors in Arduino Boards
+## Powering Alternatives
+
 
 Arduino boards have **four** ways in which they can be powered:
 
