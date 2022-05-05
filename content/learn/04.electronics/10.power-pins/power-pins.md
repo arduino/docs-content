@@ -64,7 +64,8 @@ The voltage line from the barrel jack connector is regulated in Arduino boards u
 |       Arduino Due      |               4.5-21              |                1.5                |
 |      Arduino Zero      |                3-20               |                 1                 |
 
- ### Vin Pin
+ ## VIN Pin
+
 
 The Vin pin in Arduino boards is a power pin with a dual function. This pin can work as a **voltage input for external power supplies** that do not use a barrel jack connector. This pin can also work as a voltage output when an external power supply is connected to the barrel jack connector present in some Arduino boards. An important consideration is that the Vin pin is connected directly to the input pin of the 5V voltage regulator of Arduino boards. Since the Vin pin is directly connected to the voltage regulator, the **Vin pin does not have reverse polarity protection**. 
 
