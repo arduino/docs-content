@@ -29,7 +29,7 @@ The power inputs and outputs may vary, depending on the requirement of the elect
 
 ***Fun Fact of 3.3V - The number 3.3 dates by going back to early days of IC (Integrated Circuit) development of semiconductor technology, and it is assumed that it is the result of RTL (Register-Transfer Level) designs***
 
-## How **Not** to Burn the Electronic 101
+## How Not to Burn the Electronic 101
 
 Every electronic designer and developers driving the power lines of the electronic devices always keeps its effort to avoid frying the system. Depending on the power design integrated to the electronic device, it might be a slip of a hand to short the electronic or it could be an all-out effort to short the system. In the end, it is inevitable not to short the electronic if the misimplementation is made. So, how do we avoid frying the electronics? 
 
