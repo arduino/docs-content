@@ -40,7 +40,8 @@ Something important about the USB connection is the current rating of the USB ho
 
 ***Current from USB ports of computers is usually limited to 500mA.***
 
-### Barrel Jack Connector
+## Barrel Jack Connector
+
 
 Some Arduino boards have an **onboard barrel jack connector** that its use is intended to connect external power supplies. The Arduino boards with an onboard barrel jack connector are the following:
 
