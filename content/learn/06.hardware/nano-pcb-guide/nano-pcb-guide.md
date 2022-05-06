@@ -63,18 +63,16 @@ Below is a comparison between the different Nano Family boards.
 
 There are several embedded sensors on the Nano boards, which can be seen below:
 
-| Board       | Nano | Nano Every | Nano 33 BLE | Nano 33 BLE Sense | Nano 33 IoT    | Nano RP2040 Connect |
-| ----------- | ---- | ---------- | ----------- | ----------------- | -------------- | ------------------- |
-| IMU         | x    | x          | **LSM9DS1** | **LSM9DS1**       | **\*LSM6DSOX** | **LSM6DSOX**        |
-| Microphone  | x    | x          | x           | **MP34DT05**      | x              | **MP34DT05**        |
-| Gesture     | x    | x          | x           | **APDS-9960**     | x              | x                   |
-| Light       | x    | x          | x           | **APDS-9960**     | x              | x                   |
-| Color       | x    | x          | x           | **APDS-9960**     | x              | x                   |
-| Pressure    | x    | x          | x           | **LPS22HB**       | x              | x                   |
-| Temperature | x    | x          | x           | **HTS221**        | x              | x                   |
-| Humidity    | x    | x          | x           | **HTS221**        | x              | x                   |
-
-***\*Earlier versions of the Nano 33 IoT uses the LSM6DS3 module, which can be accessed via the [LSM6DS3 library](https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/). For newer versions using the LSM6DSOX module, use the [LSM6DSOX library](https://www.arduino.cc/reference/en/libraries/arduino_lsm6dsox/).***
+| Board       | Nano | Nano Every | Nano 33 BLE | Nano 33 BLE Sense | Nano 33 IoT | Nano RP2040 Connect |
+| ----------- | ---- | ---------- | ----------- | ----------------- | ----------- | ------------------- |
+| IMU         | x    | x          | **LSM9DS1** | **LSM9DS1**       | **LSM6DS3** | **LSM6DSOX**        |
+| Microphone  | x    | x          | x           | **MP34DT05**      | x           | **MP34DT05**        |
+| Gesture     | x    | x          | x           | **APDS-9960**     | x           | x                   |
+| Light       | x    | x          | x           | **APDS-9960**     | x           | x                   |
+| Color       | x    | x          | x           | **APDS-9960**     | x           | x                   |
+| Pressure    | x    | x          | x           | **LPS22HB**       | x           | x                   |
+| Temperature | x    | x          | x           | **HTS221**        | x           | x                   |
+| Humidity    | x    | x          | x           | **HTS221**        | x           | x                   |
 
 ## Power Considerations
 
@@ -130,20 +128,32 @@ The Nano Family boards have serial buses attached to the following pins:
 
 The location of these pins are located in the pinout for each board. These are found in the **Resources Section** product page of each board.
 
-## Nano Form Factor Design Files
-
-### Carrier Template
+## Carrier Templates
 
 ![Nano carrier template file.](assets/carrier-templates.png)
 
-Below are template files for creating your custom **Printable Circuit Board (PCB)**.
+In this section, you will find downloadble files that can be used together with various PCB design programs, such as [Altium](https://www.altium.com/) and [Eagle](https://www.autodesk.com/products/eagle/free-download) to create your own Nano accessories.
 
-- [Nano Carrier PCB template (solder pads)](/resources/cad/NanoCarrier_SolderPads.zip) - an empty carrier template with solder pads. This is useful if you want to create a design where you solder the Nano directly on top of the PCB.
-- [Nano Carrier PCB template (connectors)](/resources/cad/NanoCarrier_Socket.zip) - an empty carrier template with connectors. This is useful if you want to create a design where you can attach and remove a Nano board easily.
+You can either download the **connector** template, or the **solder pads** template.
 
-The files can be used together with various PCB design programs, such as [Altium](https://www.altium.com/) and [Eagle](https://www.autodesk.com/products/eagle/free-download) to create your own Nano accessories.
+- **Connector template:** empty carrier template with connectors. This is useful if you want to create a design where you can attach and remove a Nano board easily.
+- **Solder pads template:** an empty carrier template with solder pads. This is useful if you want to create a design where you solder the Nano directly on top of the PCB.
 
-### 3D Files
+### Altium
+
+Below are template files for Altium.
+
+- [Nano Carrier PCB template (solder pads)](/resources/cad/NanoCarrier_SolderPads.zip)
+- [Nano Carrier PCB template (connectors)](/resources/cad/NanoCarrier_Socket.zip)
+
+### Eagle
+
+Below are template files for Eagle.
+
+- [Nano Carrier PCB template (solder pads)](/resources/cad/eagle_nano_carrier_castellated.zip)
+- [Nano Carrier PCB template (connectors)](/resources/cad/eagle_nano_carrier_throughhole.zip)
+
+## 3D Files
 
 The design file(s) below can be used for 3D printing, e.g. enclosures, mounts.
 
