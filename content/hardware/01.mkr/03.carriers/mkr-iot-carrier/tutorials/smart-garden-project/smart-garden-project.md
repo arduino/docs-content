@@ -70,7 +70,6 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 | moisture    | int       | Read moisture               | Read Only    |
 | temperature | float     | Read temperature            | Read Only    |
 | humidity    | float     | Read humidity               | Read Only    |
-| light       | int       | Read ambient light          | Read Only    |
 
 **3.** Enter your credentials to your Wi-Fi network in the network section. 
 
