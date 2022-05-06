@@ -102,7 +102,11 @@ The min/max voltage supply varies between boards. This is important to consider 
 
 ### Battery Connection
 
-The Nano family was not designed to be battery powered, so it has no battery charging circuit, and does not have battery under voltage protections.
+Nano boards can be powered with batteries, but they do not come with a **battery charging circuit** or **battery protection circuit**. 
+
+Many LiPo batteries have a built-in protection circuit, but some does not. In short, this means overdischarge can happen when powering the board with a LiPo battery. See the section below for more information.
+
+### Battery Overdischarge Warning
 
 If you want to connect a battery to a Nano, do so by using the VIN pin but you have to keep in mind VIN minimum requirements (which means a single cell battery won't be enough). Since there's no under voltage protection, a battery without a protection circuit will be damaged if it is kept connected to the Nano board even after it is completely discharged. It is thus recommended not to connect a battery directly but rather to use circuits like those in USB pattery packs that provide a stabilized 5V power supply and protect the battery from undervoltage.
 
