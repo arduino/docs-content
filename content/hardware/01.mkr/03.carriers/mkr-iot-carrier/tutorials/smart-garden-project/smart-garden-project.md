@@ -1,7 +1,7 @@
 ---
 title: "IoT Smart Garden Setup with MKR IoT Carrier"
 description: "Build a smart garden setup with the MKR IoT Carrier, a pump, and a moisture sensor."
-tags: [internet of things, iot, plants, relay]
+tags: [IoT, Pumps, Soil Sensor, Temperature Reading]
 difficulty: beginner
 author: "Jacob Hylén, Hannes Siebeneicher"
 ---
