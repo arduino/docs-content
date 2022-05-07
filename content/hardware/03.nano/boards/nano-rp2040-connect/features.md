@@ -32,7 +32,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
   The first and only RP2040 board with native Bluetooth® and WiFi connectivity.
 
-  <FeatureLink title="Datasheet" url="https://content.u-blox.com/sites/default/files/NINA-W10_ProductSummary_UBX-17051775.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="https://www.u-blox.com/sites/default/files/NINA-W10_ProductSummary_UBX-17051775.pdf" download blank/>
 </Feature>
 
 <Feature title="ST LSM6DSOX 6-axis IMU" image="imu">
