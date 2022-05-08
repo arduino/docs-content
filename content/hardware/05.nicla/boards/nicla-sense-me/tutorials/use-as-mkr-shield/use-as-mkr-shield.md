@@ -56,7 +56,7 @@ To convert the Nicla Sense ME into a Shield, you will have to **solder** 2 rows 
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/3XwwYb5yFLk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once the headers are soldered and the board plugged on top of the MKR, it will be possible to see the Nicla Sense ME LED and the Reset button, also to confirm the correct position you can see a white silk outline in the GND pin of the Nicla Sense ME, it needs to be aligned with the MKR GND pin. Have a look to at video to figure out the correct orientation of the board.
+Once the headers are soldered and the board plugged on top of the MKR, it will be possible to see the Nicla Sense ME LED and the Reset button, also to confirm the correct position you can see a white silk outline in the GND pin of the Nicla Sense ME, it needs to be aligned with the MKR GND pin. Have a look to the video to figure out the correct orientation of the board.
 
 ![Assembly of the Nicla Sense ME in top of the MKR WiFi 1010](assets/NiclaSenseME-MKR-Shield.gif)
 
