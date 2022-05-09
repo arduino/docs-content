@@ -1,6 +1,6 @@
 ---
-title: 'Upload sketches to Portenta X8'
-description: 'This tutorial will show how to upload Arduino sketches on the M4 processor'
+title: 'Upload Sketches to the Arduino Portenta X8'
+description: 'This tutorial will show how to upload Arduino sketches on the Portenta X8's M4 processor'
 difficulty: medium
 beta: true
 tags:
