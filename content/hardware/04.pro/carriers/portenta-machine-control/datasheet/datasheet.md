@@ -86,7 +86,7 @@ Industry 4.0,  system integrators
 -   **Wi-Fi/BLE**
     -   SMA connector 50Ω 
 
-> ESD protection on all inputs/outputs
+***Note: ESD protection on all inputs/outputs***
 
 # Contents
 
