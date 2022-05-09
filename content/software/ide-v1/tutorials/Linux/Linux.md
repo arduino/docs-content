@@ -32,9 +32,7 @@ If you don't find the option to run the script from the contextual menu, you hav
 ```
 sudo sh install.sh
 ```
-NOTE: 
-- For version>=1.6.5
-- Remove 'sudo' keyword if already running terminal with administrative rights. 
+***This method only works for versions greater or equal than 1.6.5.  Remove `sudo` keyword if already running the terminal with administrative rights.***
 
 
 You should find a new icon on your desktop.
