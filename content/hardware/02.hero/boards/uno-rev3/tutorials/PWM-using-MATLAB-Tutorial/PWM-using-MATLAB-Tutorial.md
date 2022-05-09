@@ -115,7 +115,7 @@ end
 ## Set up the circuit and code
 
 **1.** On one breadboard we have the white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
-On the right breadboard we have a simple LED circuite comprised of a red output wire connected to pin11, a resistor and the LED finally connected to GRND via the green wire
+On the right breadboard we have a simple LED circuit comprised of a red output wire connected to pin11, a resistor and the LED finally connected to GND via the green wire
 
 <p align="center">
 <img src="https://gcdnb.pbrd.co/images/4cFR5KxIjOGn.jpg?o=1"/>
@@ -131,7 +131,7 @@ On the right breadboard we have a simple LED circuite comprised of a red output 
 </p>
 
 <p align="center">
-MATLAB should be displaying different amount for "VOlts as your turn the potentiometer.
+MATLAB should be displaying different amount for "Volts as your turn the potentiometer.
 </p>
 
 **3.** All that is left is to send the amount recieved from A0 to pin 11. For this we need a different command: `writePWMVolatge()`.
