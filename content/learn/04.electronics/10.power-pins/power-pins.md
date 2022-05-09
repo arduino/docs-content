@@ -1,5 +1,6 @@
 ---
-title: 'Understanding Power Pins and Connectors of Arduino Boards'
+title: 'Powering Alternatives for Arduino Boards'
+
 description: 'Learn more about the power pins and connectors of Arduino® boards in this article, their main characteristics, and how to use them correctly.'
 tags: 
   - Power
