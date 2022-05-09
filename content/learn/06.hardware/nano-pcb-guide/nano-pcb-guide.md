@@ -106,7 +106,7 @@ Many LiPo batteries have a built-in protection circuit, but some does not. In sh
 
 ### Battery Overdischarge Warning
 
-If you want to connect a battery to a Nano, do so by using the VIN pin but you have to keep in mind VIN minimum requirements (which means a single cell battery won't be enough). Since there's no under voltage protection, a battery without a protection circuit will be damaged if it is kept connected to the Nano board even after it is completely discharged. It is thus recommended not to connect a battery directly but rather to use circuits like those in USB pattery packs that provide a stabilized 5V power supply and protect the battery from undervoltage.
+If you want to connect a battery to a Nano, do so by using the VIN pin but you have to keep in mind VIN minimum requirements (which means a single cell battery won't be enough). Since there's no under voltage protection, a LiPo battery without a protection circuit will be damaged if it is kept connected to the Nano board even after it is completely discharged. It is thus recommended not to connect a battery directly but rather to use circuits like those in USB battery packs that provide a stabilized 5V power supply and protect the battery from undervoltage.
 
 To connect a battery to a Nano board, you will need to use the VIN pin (refer to the VIN min-max table in the section above).
 
