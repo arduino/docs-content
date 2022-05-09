@@ -21,7 +21,7 @@ Industry 4.0,  system integrators
     -   8 MB SDRAM
     -   16 MB Flash QSPI
     -   480 Mhz clock
-    -   Cryptochip NXP SE050C2 security
+    -   Cryptochip NXP SE0502 security
  
 -   **Input voltage 24**
     
