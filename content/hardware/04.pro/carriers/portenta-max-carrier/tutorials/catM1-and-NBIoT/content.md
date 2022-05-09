@@ -85,7 +85,7 @@ When the sketch is uploaded, open the serial monitor to see the result. You will
 
 ![Result in the serial monitor](assets/result-serial-monitor.png)
 
-### Full sketch
+### Full Sketch
 
 ```arduino
 
