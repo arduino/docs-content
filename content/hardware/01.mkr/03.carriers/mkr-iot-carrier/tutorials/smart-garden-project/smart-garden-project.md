@@ -10,7 +10,6 @@ author: "Jacob Hylén, Hannes Siebeneicher"
 
 Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why don't you spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the Arduino IoT Cloud?
 
-
 ## How It Works
 
 The MKR IoT Carrier has built in relay modules that can let you control circuits that are powered separately. In this tutorial we will be using one of the relay modules on the carrier to control a pump that can provide one of your plants with water from the Arduino IoT Cloud thanks to the functionality of the [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010). 
@@ -20,6 +19,8 @@ We will also connect a soil moisture sensor, and together with the sensors onboa
 - Automatic or remotely triggered watering of your plant **(with a pump)**.
 - Check the moisture of your plant **(with a moisture sensor)**.
 - Check the temperature/humidity **(using the onboard HTS221 sensor)**.
+
+![Live data streamed to the Arduino IoT Cloud.](assets/cloud-dashboard.gif)
 
 ## Hardware & Software Needed
 
