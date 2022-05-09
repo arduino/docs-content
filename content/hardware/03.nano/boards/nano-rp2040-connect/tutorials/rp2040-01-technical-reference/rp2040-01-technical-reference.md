@@ -272,7 +272,7 @@ If you want to learn more on how to use the Microphone, please check out the tut
 
 ![The RGB pixel.](assets/RGB-PIXEL-NANORP2040CONNECT.png)
 
-***Please note: While using the BLE mode on the NINA module, the RGB cannot be used by default. While the module is in BLE mode, SPI is deactivated, which is used to control the RGBs.***
+***Please note: While using the Bluetooth® Low Energy mode on the NINA module, the RGB cannot be used by default. While the module is in Bluetooth® Low Energy mode, SPI is deactivated, which is used to control the RGBs.***
 
 The Nano RP2040 Connect features a built-in RGB that can be utilized as a feedback component for applications. The RGB is connected through the W-102 module, so the `WiFiNINA` library needs to be installed and included at the top of your sketch to work.
 
@@ -325,7 +325,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nano RP2040 Connect a
 - (CIPO) - D12
 - (COPI) - D11
 - (SCK) - D13
-- (CS/SS) - Any GPIO (except for A6/A7)
+- (CS) - Any GPIO (except for A6/A7)
 
 ***The signal names MOSI, MISO and SS has been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
 
@@ -414,7 +414,7 @@ Serial1.write("Hello world!");
 
 The Nano RP2040 Connect supports both Wi-Fi and Bluetooth® through the [uBlox W-102](https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf) module. To use this module, we can use the [WiFiNINA](https://www.arduino.cc/en/Reference/WiFiNINA) library or the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
 
-![Wi-Fi & Bluetooth module.](assets/NINA-W102-NANORP2040CONNECT.png)
+![Wi-Fi & Bluetooth® module.](assets/NINA-W102-NANORP2040CONNECT.png)
 
 ## Wi-Fi
 
@@ -451,7 +451,7 @@ The **WiFiNINA** library can be used to make GET & POST requests, while connecte
 
 ## Bluetooth®
 
-***Please note: While using the BLE mode on the NINA module, the RGB cannot be used by default. While the module is in BLE mode, SPI is deactivated, which is used to control the RGBs.***
+***Please note: While using the Bluetooth® Low Energy mode on the NINA module, the RGB cannot be used by default. While the module is in Bluetooth® Low Energy mode, SPI is deactivated, which is used to control the RGBs.***
 
 To enable Bluetooth® on the Nano RP2040 Connect, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
 

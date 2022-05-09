@@ -1,5 +1,5 @@
 ---
-title: "MKR FOX 1200 Movement Trigger © CC BY-NC"
+title: "MKR FOX 1200 Movement Trigger"
 description: "Use your MKR FOX 1200 as a movement trigger to keep an eye on your belongings."
 coverImage: "assets/img_0186_a3yjVyo0kX.JPG"
 tags: [geolocation]

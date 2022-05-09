@@ -7,12 +7,12 @@ software:
   - iot-cloud
 ---
 
-It is now possible to schedule jobs with the [Arduino IoT Cloud](https://create.arduino.cc/iot/), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This is done through the IoT Cloud dashboards.
+It is now possible to schedule jobs with the [Arduino IoT Cloud](https://create.arduino.cc/iot/), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an IoT Cloud dashboard.
 
 We can for example have:
 
-- One trigger scheduled to go off every minute, and last for 10 seconds
-- One trigger scheduled to go off every hour, and last for 10 minutes.
+- One trigger scheduled to run every minute for 10 seconds
+- One trigger scheduled to run every hour for 10 minutes
 
 ## Goals
 
@@ -21,32 +21,117 @@ The goals of this project are:
 - Learn how the `CloudSchedule` variable works.
 - Learn how to access local time in your sketch.
 
-## Hardware & Software Needed
-
-For this tutorial, you will need a cloud compatible board. You can see the full list below:
-
-- [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)
-- [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
-- [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)\*
-- [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)\*
-- [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
-- [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
-- [Portenta H7](https://store.arduino.cc/portenta-h7)
-
-***The MKR GSM 1400 & MKR NB 1500 requires a SIM card with a data plan to work. You can read more about it in [this page](https://store.arduino.cc/digital/sim).***
+Make sure you have a [cloud-compatible board](/cloud/iot-cloud/tutorials/technical-reference#compatible-hardware).
 
 ## How Does it Work?
 
-The working principle of the scheduler is pretty straight forward. The `CloudSchedule` variable can be configured to go off at a specific time, with a specific duration. In the code, you do not need to worry about any timers, as this is done in the Arduino IoT Cloud. The "jobs" are created in the dashboard, through a widget associated to the variable.
+A variable of `CloudSchedule` type can be configured to trigger at a specific time, with a specific duration. In the code, you do not need to worry about the logic for this. The configuration of the variable is done in the dashboard, through a widget associated to the variable.
 
-For example, we can set `schedule_variable` to be:
-- ON for 10 seconds, every 10 minutes
+For example, we can set such variable to be:
+- ON for 10 seconds, every minute.
 - ON for 8 hours, every day. 
 - ON for a week, and then finish.
 
-![Example of how a scheduler works.](assets/cloud-scheduler-img-01.png)
+![Example of a schedule configured to run for 10 seconds every minute.](assets/cloud-scheduler-img-01.png)
 
-## API
+## Application Examples
+
+There are countless examples where schedulers can be used, but predominantly it can be utilized for timer projects. Below are a few examples that can be used as inspiration.
+
+***Note that "schedule_variable" used in these examples is the name we give when creating the variable in the Thing settings.***
+
+### Basic Example
+
+To test out functionality of your scheduler job, we can turn on an LED while the job is active. 
+
+```arduino
+if (schedule_variable.isActive()) {
+   // whenever the job is "active", turn on the LED
+   digitalWrite(LED, HIGH);
+} else {
+   // whenever the job is "not active", turn off the LED
+   digitalWrite(LED, LOW);  
+}
+```
+
+### Multiple Schedulers
+
+You can set up **multiple scheduler variables.** This way, you can have a different code executing at specific times. In the example below, there are three schedulers, each performing a unique task whenever triggered:
+
+- Write a high state to a pin.
+- Read a sensor.
+- Change a string.
+
+```arduino
+// scheduler 1 (write a high state to a pin)
+if (schedule_variable_1.isActive()) {
+   digitalWrite(3, HIGH);
+} else {
+   digitalWrite(3, LOW);
+}
+
+// scheduler 2 (read a sensor)
+if(schedule_variable_2.isActive()) {
+   sensor_variable = analogRead(A1);
+}
+
+// scheduler 3 (change a string)
+if (schedule_variable_3.isActive()) {
+   string_variable = "";
+   string_variable = "Update something here!";
+}
+```
+
+
+### Smart Light Automation
+
+Turning on and off light sources can be a great power saver for the office, home or vacation home. This can be achieved with a few lines of code and a [relay shield](https://store.arduino.cc/products/arduino-mkr-relay-proto-shield).
+
+```arduino
+if (schedule_variable.isActive()) {
+   // can be configured to be ON between 8am - 5pm 
+   digitalWrite(relay, HIGH);
+} else {
+   //can be set to OFF between 5pm - 8am the next morning
+   digitalWrite(relay, LOW);  
+}
+```
+
+
+
+### Plant Watering
+
+For a "smart watering" setup, if you connect a pump through a relay, you can schedule a job to be on for a period of time (pumping water) and then turn off. This could for example occur for a few seconds every day to keep your plants alive.
+
+```arduino
+// configure to be "on" for 10 seconds every day
+if (schedule_variable.isActive()) {
+   digitalWrite(pump, HIGH);
+} else {
+   digitalWrite(pump, LOW);
+}
+```
+
+Or, if you use a driver, such as **L298N**, you can control the pump through:
+
+```arduino
+if (schedule_variable.isActive()) {
+   analogWrite(pump, 127); // range between 0-255
+} else {
+   analogWrite(pump, 0);
+}
+```
+
+## Creating a Scheduler (Tutorial)
+
+In this section you will find a step by step tutorial that will guide you to creating and testing out the **scheduler feature**.
+
+- Create a Thing.
+- Configure an Arduino board.
+- Create a basic sketch & upload it to the board.
+- Create a dashboard.
+
+### API
 
 The two **variables types** introduced in this tutorial are `CloudTime` and `CloudSchedule`. These are used to retrieve local time and to schedule a job respectively.
 
@@ -63,113 +148,6 @@ The `CloudTime` variable is an unsigned integer which is used to store current t
 ```arduino
 time_variable = ArduinoCloud.getLocalTime();
 ```
-
-## Application Examples
-
-There are countless examples where schedulers can be used, but predominantly it can be utilized for timer projects. Below are a few examples that can be used as inspiration.
-
-***Note that "schedule_variable" used in these examples is the name we give when creating the variable in the Thing settings.***
-
-### Basic Example
-
-To test out functionality of your scheduler job, we can turn on an LED while the job is active. 
-
-```arduino
-// whenever the job is "active", turn on the LED
-if(schedule_variable.isActive()){
-digitalWrite(LED, HIGH);
-}
-
-
-// whenever the job is "not active", turn off the LED
-else{
-digitalWrite(LED, LOW);  
-}
-```
-
-### Multiple Schedulers
-
-You can set up **multiple scheduler variables.** This way, you can have a different code executing at specific times. In the example below, there are three schedulers, each performing a unique task whenever triggered:
-
-- Write a high state to a pin.
-- Read a sensor.
-- Change a string.
-
-```arduino
-//scheduler 1 (write a high state to a pin)
-if(schedule_variable_1.isActive()){
-digitalWrite(3, HIGH);
-}
-else{
-digitalWrite(3, HIGH);
-}
-
-//scheduler 2 (read a sensor)
-if(schedule_variable_2.isActive()){
-sensor_variable = analogRead(A1);
-}
-
-//scheduler 3 (change a string)
-if(schedule_variable_3.isActive()){
-string_variable = "";
-string_variable = "Update something here!";
-}
-```
-
-
-### Smart Light Automation
-
-Turning on and off light sources can be a great power saver for the office, home or vacation home. This can be achieved with a few lines of code and a [relay shield](https://store.arduino.cc/products/arduino-mkr-relay-proto-shield).
-
-```arduino
-//can be configured to be ON between 8am - 5pm 
-if(schedule_variable.isActive()){
-digitalWrite(relay, HIGH);
-}
-
-//can be set to OFF between 5pm - 8am the next morning
-else{
-digitalWrite(relay, LOW);  
-}
-```
-
-
-
-### Plant Watering
-
-For a "smart watering" setup, if you connect a pump through a relay, you can schedule a job to be on for a period of time (pumping water) and then turn off. This could for example occur for a few seconds every day to keep your plants alive.
-
-```arduino
-//configure to be "on" for 10 seconds every day
-if(schedule_variable.isActive()){
-digitalWrite(pump, HIGH);
-}
-
-else{
-digitalWrite(pump, LOW);
-}
-```
-
-Or, if you use a driver, such as **L298N**, you can control the pump through:
-
-```arduino
-if(schedule_variable.isActive()){
-analogWrite(pump, 127); //range between 0-255
-}
-
-else{
-analogWrite(pump, 0);
-}
-```
-
-## Creating a Scheduler (Tutorial)
-
-In this section you will find a step by step tutorial that will guide you to creating and testing out the **scheduler feature**.
-
-- Create a Thing.
-- Configure an Arduino board.
-- Create a basic sketch & upload it to the board.
-- Create a dashboard.
 
 ### Create a Thing
 

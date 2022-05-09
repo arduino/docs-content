@@ -3,22 +3,85 @@
   shouldMatch: false
   type: warning
   format: markdown
-  errorMessage: Megabytes should be either written as 'megabytes' or abbreviated as
-    'MB'
+  errorMessage: "Megabytes should be either written as 'megabytes' or abbreviated as 'MB'"
+
+# MHz / GHz / kHz spacing
+- regex: "(?<!\\S)\\b\\d+[MmGgk][hH]z\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
+# MHz / GHz spelling
+- regex: "(?<!\\S)\\b\\d+\\s?[MmGg]hz\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: "'Megahertz'/'Gigahertz' should be abbreviated as MHz/GHz"
+
+# kHz spelling
+- regex: "(?<!\\S)\\b\\d+\\s?[Kk]hz\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: "'Kilohertz' should be abbreviated as kHz"
+
+# Mbps / Gbps spacing
+- regex: "(?<!\\S)\\b\\d+[MGK]bps\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
+# Kbps / KBps / Mbps / MBps / Gbps / GBps spelling
+- regex: "(?<!\\S)\\b\\d+\\s?[kmg][Bb][Pp][Ss]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: "Incorrect abbreviation used. Use one of the following: Kbps, KBps, Mbps, MBps, Gbps or GBps (b = bits, B = bytes)"
+
+# kB / KB / Mb / MB / Gb / GB spacing
+- regex: "(?<!\\S)\\b\\d+[gBmMkK][bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
+# KB / Kb spelling
+- regex: "(?<!\\S)\\b\\d+\\s?k[bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: "'Kilobyte' should be abbreviated as KB, 'Kilobit' as Kb."
+
+# MB / Mb spelling
+- regex: "(?<!\\S)\\b\\d+\\s?m[bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: "'Megabyte' should be abbreviated as MB, 'Megabit' as Mb."
     
+# GB / Gb spelling
+- regex: "(?<!\\S)\\b\\d+\\s?g[bB]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: "'Gigabyte' should be abbreviated as GB, 'Gigabit' as Gb."
+
+# μm / mm spacing
+- regex: "(?<!\\S)\\b\\d+[μm]m\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Space between unit and value required
+
 # Excludes Wi-Fi in URLs (prepended by dash or slash) and WiFi.XY and MKR WiFi
-- regex: "(?<![\\/-]|MKR |UNO |MKR 1000 )[wW]i[fF]i(?![-\\/]|\\.?\\S)"
+- regex: "(?<![\\/-]|Arduino |MKR |UNO |MKR 1000 )[wW]i[fF]i(?![-\\/]|\\.?\\S| [sS]hield)"
   shouldMatch: false
   type: warning
   format: markdown
   includeCodeBlocks: false
-  errorMessage: Incorrect spelling of 'Wi-Fi' found.
-
-- regex: "(?!.*Flash)[fF][lL][aA][sS][hH]\\b"
-  shouldMatch: false
-  type: warning
-  format: markdown
-  errorMessage: Incorrect spelling of 'Flash' found.
+  errorMessage: "Incorrect spelling of 'Wi-Fi' found."
 
 - regex: "(?<!\\/|-)\\b(master|slave)\\b"
   regexModifiers: "gi"

@@ -23,7 +23,7 @@ Agriculture measurements, smart irrigation systems, hydroponics
         *   64 MHz Arm® Cortex®-M4F (with FPU)
         *   1 MB Flash + 256 KB RAM
     *   **Wireless**
-        *   Bluetooth (BLE 5 via Cordio® stack)
+        *   Bluetooth®  (Bluetooth® Low Energy 5 via Cordio® stack)
         *   Advertising Extensions
         *   95 dBm sensitivity
         *   4.8 mA in TX (0 dBm)
@@ -95,7 +95,7 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 ### Solution Overview
 ![Preview assembly](assets/edgeControlSolutionOverview.png)
 
-*Example of a typical application for a solution including LCD Display and two Arduino® MKR 1300 boards.*
+**Example of a typical application for a solution including LCD Display and two Arduino® MKR 1300 boards.**
 
 ## Ratings
 ### Absolute Maximum Ratings

@@ -1,5 +1,5 @@
 ---
-title: "MKR Zero Weather Data Logger © GPL3+"
+title: "MKR Zero Weather Data Logger"
 description: "Read temperature and humidity values in a remote location and store the data in an SD card."
 coverImage: "assets/Weather_Data_Logger_(6_of_10)%20-%20Copy.jpg"
 tags: [data collection, weather]

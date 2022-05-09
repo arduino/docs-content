@@ -1,5 +1,5 @@
 ---
-title: Ethernet Shield Rev 2
+title: Ethernet Shield Rev2
 url_shop: https://store.arduino.cc/products/arduino-ethernet-shield-2
 url_guide: https://www.arduino.cc/en/Guide/ArduinoEthernetShield
 ---

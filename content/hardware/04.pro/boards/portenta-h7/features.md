@@ -20,7 +20,7 @@ The **Portenta H7** simultaneously runs high level code along with real time tas
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
 </Feature>
 
-<Feature title="Murata 1DX dual WiFi and Bluetooth 5.1" image="wifi-bluetooth">
+<Feature title="Murata 1DX dual WiFi and Bluetooth® 5.1" image="wifi-bluetooth">
 
   The onboard wireless module allows to simultaneously manage WiFi and Bluetooth® connectivity.
 

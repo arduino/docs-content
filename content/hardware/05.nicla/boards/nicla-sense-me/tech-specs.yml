@@ -10,7 +10,7 @@ Pins:
   PWM pins: 12 (of which 2 are shared with analog, 2 are shared with I2C and 4 are shared with SPI)
   External interrupts: 12
 Connectivity:
-  Bluetooth: ANNA B112 Bluetooth module
+  Bluetooth®: ANNA B112 Bluetooth® module
   Wi-Fi: No
   Secure element: No
 Communication:

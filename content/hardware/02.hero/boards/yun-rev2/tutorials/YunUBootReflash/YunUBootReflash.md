@@ -10,7 +10,7 @@ There are situations in which the recommended [upgrade procedure](https://www.ar
 This procedure uses U-Boot, something similar to the BIOS on a PC.  U-Boot is a very small program executed right after you power on a Yún. With U-Boot you can restore a Yún to its factory settings. To reflash the Yún from the U-Boot prompt, you will download 3 different image files and write their contents on the flash memory of the Yún, erasing all previously stored information. It's a bit like formatting a computer's hard drive.
 
 This should be considered an advanced topic, pay heed to the warnings throughout. These notes are for reference only. You should read and understand this document before trying anything mentioned below.
-If you are in doubt about any of these steps, **DO NOT** follow this guide and send an email to support@arduino.cc
+If you are in doubt about any of these steps, **DO NOT** follow this guide and contact us [here](https://www.arduino.cc/en/contact-us/).
 
 ***Warning: Following this guide will VOID the WARRANTY of your Yún***
 
@@ -45,7 +45,7 @@ sudo launchctl start com.apple.tftpd
 
 Move the unpacked base images files into the folder /private/tftpboot/
 
-You can access hidden directories like */private/* by using the *Go To Folder* option in the *Go* menu of the taskbar. In this instance, click on 'Go To Folder'' and enter `/private/tftpboot/` to open the directory in the Finder.
+You can access hidden directories like **/private/** by using the **Go To Folder** option in the **Go** menu of the taskbar. In this instance, click on 'Go To Folder'' and enter `/private/tftpboot/` to open the directory in the Finder.
 
 ### Setup a TFTP Server on GNU/Linux (Ubuntu)
 

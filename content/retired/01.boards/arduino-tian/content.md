@@ -65,7 +65,7 @@ Each of the 20 digital i/o pins on the Tian can be used as an input or output, u
 * LINUX (MIPS) on/off: it possible turn on/off the Linux side via pin32 ( digitalWrite(32, HIGH) - digitalWrite(32, LOW) ).
 * PWM: From pins 2 to 13 provide 8-bit PWM output with the analogWrite() function. The resolution of the PWM can be changed with the analogWriteResolution() function. Note: The pins 4 and 10 can not be used simultaneously as PWM. Note: The pins 5 and 12 can not be used simultaneously as PWM.
 * SPI: on the ICSP header. These pins support SPI communication using the SPI library. Note that the SPI pins are not connected to any of the digital I/O pins as they are on the Uno, They are only available on the ICSP connector. This means that if you have a shield that uses SPI, but does NOT have a 6-pin ICSP connector that connects to the Tian's 6-pin ICSP header, the shield will not work.
-* LED: 13\. There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off. There are several other status LEDs on the Tian, indicating power, WLAN connection, WAN connection, Bluetooth and USB.
+* LED: 13\. There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off. There are several other status LEDs on the Tian, indicating power, WLAN connection, WAN connection, Bluetooth® and USB.
 * Analog Inputs: A0 - A5, A6 - A11 (on digital pins 4, 6, 8, 9, 10, and 12). The Tian has 12 analog inputs, labeled A0 through A11, all of which can also be used as digital i/o. Pins A0-A5 appear in the same locations as on the Uno; inputs A6-A11 are on digital i/o pins 4, 6, 8, 9, 10, and 12 respectively. Each analog input provide 10 bits of resolution (i.e. 1024 different values). By default the analog inputs measure from ground to 5 volts, though is it possible to change the upper end of their range using the AREF pin and the analogReference() function.
 * AREF. Reference voltage for the analog inputs. Used with analogReference().
 * 10-bit DAC is on pin A0 and can be used with the analogWrite() function.
@@ -122,6 +122,6 @@ Rather than requiring a physical press of the reset button before an upload, the
 | PWM Output        | 12                                    |
 | Power Consumption | 470 mA                                |
 | PCB Size          | 53 x 68.5 mm                          |
-| Bluetooth         | CSR8510, Bluetooth with EDR / BLE 4.0 |
+| Bluetooth®         | CSR8510, Bluetooth® with EDR / Bluetooth® Low Energy 4.0 |
 | Weight            | 36g                                   |
 | Product Code      | A000116                               |

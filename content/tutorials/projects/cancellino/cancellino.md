@@ -1,5 +1,5 @@
 ---
-title: "Cancellino © CC BY-NC"
+title: "Cancellino"
 description: "Control everything with a SINGLE phone call."
 coverImage: "assets/blob_c9oY2qvB4r.png"
 tags: [home automation, internet of things, remote control]

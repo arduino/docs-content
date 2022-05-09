@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Arduino FIo'
+title: 'Getting Started with the Arduino Fio'
 description: 'The first steps to setting up your Arduino Fio'
 ---
 

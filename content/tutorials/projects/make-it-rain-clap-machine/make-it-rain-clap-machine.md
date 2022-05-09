@@ -1,5 +1,5 @@
 ---
-title: "Make-It-Rain Clap Machine © GPL3+"
+title: "Make-It-Rain Clap Machine"
 description: "Just got paid? Perfect! Time to make this fun Make-it-Rain machine. Clap your hands and let the money flow!"
 coverImage: "assets/fUHXu7JT9QoW85TPFr7P.jpg"
 tags: [clap, fun, machine]

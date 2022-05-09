@@ -32,17 +32,17 @@ image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
 ### Libraries
 
-*Process.h* is used to launch processes on the Linux processor, and other things like shell scripts. Here we use it to get the list of APs and to perform other actions that let us know the WiFi parameters.
+**Process.h** is used to launch processes on the Linux processor, and other things like shell scripts. Here we use it to get the list of APs and to perform other actions that let us know the WiFi parameters.
 
 ### Functions
 
-*String getUserInput(String out, bool obfuscated)* - manages the input from the user through the Serial Monitor, printing back in the window. The boolean variable "obfuscated" is used to print out "*" when a password is entered.
+**String getUserInput(String out, bool obfuscated)*** - manages the input from the user through the Serial Monitor, printing back in the window. The boolean variable "obfuscated" is used to print out "**" when a password is entered.
 
-*void wifiConfig(String yunName, String yunPsw, String wifissid, String wifipsw, String wifiAPname, String countryCode, String encryption)* - uses Process to execute a series of commands and scripts, under linux, that set the WiFi and network parameters as chosen by the user.
+**void wifiConfig(String yunName, String yunPsw, String wifissid, String wifipsw, String wifiAPname, String countryCode, String encryption)** - uses Process to execute a series of commands and scripts, under linux, that set the WiFi and network parameters as chosen by the user.
 
-*void startSerialTerminal()* - simply initialize the two serial ports needed to perform the actions required by the sketch.
+**void startSerialTerminal()** - simply initialize the two serial ports needed to perform the actions required by the sketch.
 
-*void loopSerialTerminal()* - creates the connection between the two serial ports, one talking with the PC using USB, the other talking to the linux processor. It has a command mode that can be invoked typing '~' that shuts down Bridge and allows to set a different communication speed with the Atheros chip.
+**void loopSerialTerminal()** - creates the connection between the two serial ports, one talking with the PC using USB, the other talking to the linux processor. It has a command mode that can be invoked typing '~' that shuts down Bridge and allows to set a different communication speed with the Atheros chip.
 
 ## Usage
 
@@ -656,4 +656,4 @@ void loopSerialTerminal() {
 }
 ```
 
-*Last revision 2016/05/25 by SM*
+**Last revision 2016/05/25 by SM**

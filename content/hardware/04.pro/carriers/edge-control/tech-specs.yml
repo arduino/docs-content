@@ -19,7 +19,7 @@ Power:
   Power Supply: 12 V Acid/lead SLA Battery Supply (Recharged via solar panels)
   Power Consumption: Low power (up to 34 months on a 12V/5Ah battery) 200uA Sleep current
 Connectivity (* Requires Arduino MKR board):
-  Bluetooth
+  Bluetooth®
   Wifi*
   3G*NB-IoT*
   LoRaWAN®*

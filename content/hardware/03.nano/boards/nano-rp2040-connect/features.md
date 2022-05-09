@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth and WiFi connectivity thanks to the **U-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the **Arduino Nano RP2040 Connect**!
+The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi RP2040** microcontroller to the Nano form factor. Make the most of the dual core **32-bit Arm® Cortex®-M0+** to make Internet of Things projects with Bluetooth® and WiFi connectivity thanks to the **U-blox® Nina W102** module. Dive into real-world projects with the onboard accelerometer, gyroscope, RGB LED and microphone. Develop robust embedded AI solutions with minimal effort using the **Arduino Nano RP2040 Connect**!
 
 </FeatureDescription>
 
@@ -30,7 +30,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 <Feature title="U-blox® Nina W102" image="wifi-bluetooth">
 
-  The first and only RP2040 board with native Bluetooth and WiFi connectivity.
+  The first and only RP2040 board with native Bluetooth® and WiFi connectivity.
 
   <FeatureLink title="Datasheet" url="https://www.u-blox.com/sites/default/files/NINA-W10_ProductSummary_%28UBX-17051775%29_C1-public.pdf" download blank/>
 </Feature>

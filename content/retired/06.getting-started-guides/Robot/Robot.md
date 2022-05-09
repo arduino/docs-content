@@ -35,7 +35,7 @@ Once that's in place, you'll need to attach the protective cover for the botom b
 
 ### Content on the SD card
 
-The SD card is used to store information for the robot to read. It comes preloaded with images and sound files used in the _Explore_ examples. Once comfortable with the robot's functionality, you should be able to add your own files. If you ever accidentally remove files used by the explore sketches, you can copy them over from the SDcontent directory found in the robot library. Alternatively you can [download the files here](/en/uploads/Guide/sdContent.zip).
+The SD card is used to store information for the robot to read. It comes preloaded with images and sound files used in the _Explore_ examples. Once comfortable with the robot's functionality, you should be able to add your own files. If you ever accidentally remove files used by the explore sketches, you can copy them over from the SDcontent directory found in the robot library. Alternatively you can [download the files here](https://www.arduino.cc/en/uploads/Guide/sdContent.zip).
 
 ### Connecting the robot to your computer
 

@@ -1,5 +1,5 @@
 ---
-title: "Control Your IoT Cloud Kit via Blynk © CERN-OHL"
+title: "Control Your IoT Cloud Kit via Blynk"
 description: "Use the popular Blynk app to control and change the state of your IoT Cloud Kit through your smartphone."
 coverImage: "assets/blob_vVw5dIKQgP.png"
 tags: [arduino, blynk, iot]

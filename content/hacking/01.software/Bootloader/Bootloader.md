@@ -26,7 +26,6 @@ Windows XP may be polling your parallel port and disrupting the bootloader burni
 [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Parport\Parameters]
 "DisableWarmPoll"=dword:00000001
 ```
-See this [forum thread](http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1142106610) for details.
 
 ## Versions of the Bootloader
 There are different versions of the bootloader - both in order to work on different hardware and because it has changed over time.
@@ -35,7 +34,7 @@ The current bootloaders (i.e. the ones included in Arduino 0009) are almost iden
 
 The bootloader that actually shipped on the Arduino NG is slightly different. It enables the internal pullup resistor on pin 6, and doesn't enable the internal pullup on the RX pin. Nor does it timeout upon receiving invalid data, so if you send data to it immediately after it resets, your sketch will never start.
 
-The Arduino BT bootloader does some initial configuration of the bluetooth module.
+The Arduino BT bootloader does some initial configuration of the Bluetooth® module.
 
 The ATmega8 bootloader only takes up 1 KB of flash. It does not timeout when it receives invalid data, you need to make sure that no data is sent to the board during the 6-8 seconds when the bootloader is running.
 

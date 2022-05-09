@@ -31,7 +31,7 @@ None
 
 ## Code
 
-The orientation of the board is calculated using the orientation of the three axes. The Z axis passes through the pcb: component side upwards is positive, while going below is negative. The X axis goes from USB connector to Bluetooth antenna if positive, while Y axis goes from analog and power pins to digital pins when positive. Using the three axes signs the sketch calculates the orientation of the whole board.
+The orientation of the board is calculated using the orientation of the three axes. The Z axis passes through the pcb: component side upwards is positive, while going below is negative. The X axis goes from USB connector to Bluetooth® antenna if positive, while Y axis goes from analog and power pins to digital pins when positive. Using the three axes signs the sketch calculates the orientation of the whole board.
 
 ```arduino
 /*

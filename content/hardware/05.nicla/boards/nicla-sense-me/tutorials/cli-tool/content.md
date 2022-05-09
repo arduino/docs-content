@@ -1,6 +1,5 @@
 ---
 title: Sensors Readings on a Local Webserver
-coverImage: assets/por_ard_usbh_cover.svg
 difficulty: intermediate
 tags: [Bluetooth®, WEBAPP, CLI, Installation]
 description: This tutorial teaches you how to set up the Nicla Sense ME and your computer to use the already built tool to get data and configure the board using a CLI app.
@@ -20,7 +19,7 @@ software:
 ---
 
 ## Overview
-It is possible to configure the Nicla Sense ME to communicate via Serial over USB or Bluetooth® LE using a tool called **bhy-controller**. This is a CLI tool that can configure the sensors, get their readings and provide this information via a local webserver or display it in the command line interface.
+It is possible to configure the Nicla Sense ME to communicate via Serial over USB or Bluetooth® Low Energy using a tool called **bhy-controller**. This is a CLI tool that can configure the sensors, get their readings and provide this information via a local webserver or display it in the command line interface.
 
 ## Goals
 

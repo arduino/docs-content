@@ -4,7 +4,7 @@ coverImage: hero-banner.svg
 tags: 
   - Bluetooth®
   - WEB-BLE
-  - BLE
+  - Bluetooth® Low Energy
   - ArduinoAI
 description: 'This tutorial shows how to use the web dashboard to read data from the Arduino® Nicla Sense ME sensors.'
 author: 'Pablo Marquínez'
@@ -36,7 +36,7 @@ In this tutorial we will focus on the version for the Arduino® Nicla Sense ME.
 ## Goals
 
 -   Upload the sketch to the Arduino® Nicla Sense ME.
--   Connect through BLE to our dashboard and read sensor data.
+-   Connect through Bluetooth® Low Energy to our dashboard and read sensor data.
 
 ### Required Hardware and Software
 
@@ -51,11 +51,11 @@ In this tutorial we will focus on the version for the Arduino® Nicla Sense ME.
 
 If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview)  you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI: you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
-If you use a local IDE you can copy & past the following sketch:
+If you use a local IDE you can copy & paste the following sketch:
 ```arduino
   /*
 
-  Arduino Nicla Sense ME WEB BLE Sense dashboard demo
+  Arduino Nicla Sense ME WEB Bluetooth® Low Energy Sense dashboard demo
 
 
   Hardware required: https://store.arduino.cc/nicla-sense-me
@@ -65,7 +65,7 @@ If you use a local IDE you can copy & past the following sketch:
   2) Open the following web page in the Chrome browser:
   https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
 
-  3) Click on the green button in the web page to connect the browser to the board over BLE
+  3) Click on the green button in the web page to connect the browser to the board over Bluetooth® Low Energy
 
 
   Web dashboard by D. Pajak
@@ -133,7 +133,7 @@ If you use a local IDE you can copy & past the following sketch:
     gas.begin();
 
     if (!BLE.begin()){
-      Serial.println("Failed to initialized BLE!");
+      Serial.println("Failed to initialized Bluetooth® Low Energy!");
 
       while (1)
         ;
@@ -298,4 +298,4 @@ Breathe onto the board and see the humidity and temperature values changing.
 
 ## Conclusion
 
-The Nicla Sense ME supports a lot of use cases through its on-board sensors and the BLE functionality. By leveraging the WebBLE API you don't need to install or run any application from your computer as shown in this tutorial. You can read more about WebBLE technology [here](https://web.dev/bluetooth/).
+The Nicla Sense ME supports a lot of use cases through its on-board sensors and the Bluetooth® Low Energy functionality. By leveraging the WebBLE API you don't need to install or run any application from your computer as shown in this tutorial. You can read more about WebBLE technology [here](https://web.dev/bluetooth/).
