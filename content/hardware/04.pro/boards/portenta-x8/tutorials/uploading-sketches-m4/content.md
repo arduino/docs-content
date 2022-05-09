@@ -30,7 +30,7 @@ This tutorial will explain how to upload a standard Arduino sketch to your Porte
 
 ## Instructions
 
-### Standard Arduino IDE upload
+### Standard Arduino IDE Upload
 Open the Arduino IDE, make sure you have selected the Portenta X8 on the boards selector.
 
 ![IDE board selector](assets/x8-board-manager.png)
@@ -55,7 +55,7 @@ Press the Compile and Upload button.
 
 To finalize, when you see that the sketch has bee uploaded successfully, check that every second you are getting the LED changing from OFF to ON.
 
-### Upload using ADB
+### Upload Using ADB
 
 To use ADB, it gets installed at `Arduino15\packages\arduino\tools\adb\32.0.0`.
 
@@ -66,7 +66,7 @@ adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 
 ![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
 
-## How it works?
+## How It Works?
 The Portenta X8 has some services that once the sketch has been pushed to the required folder, if it detects changes the device will flash the M4 after that happened!
 
 This work thanks to the following services:
@@ -79,6 +79,6 @@ You now have access to the M4 processor, so for example you are able to connect 
 
 ## Troubleshooting
 
-### ADB folder empty
+### ADB Folder Empty
 
 If you cannot use the `ADB` tool and the folder `Arduino15\packages\arduino\tools\adb\32.0.0` is empty Remove the Mbed Portenta Core and install it again.
