@@ -70,12 +70,12 @@ adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 The Portenta X8 has some services that once the sketch has been pushed to the required folder, if it detects changes the device will flash the M4 after that happened!
 
 This work thanks to the following services:
-* monitor-m4-elf-file.service: this service monitors the directory `/tmp/arduino/m4-user-sketch.elf` each time it detects a new file it will proceed to flash the M4 using the tool `openOCD` and providing the sketch that has been pushed.
-* android-tools-adbd.service: responsible of generating the needed interfaces for the different types of usb gadgets.
-* create-docker-envfile.service: Controls if the device has been plugged for example in some carrier and makes the info available at `/var/run/arduino_hw_info.env` and is meant to be used by the ´docker containers´.
+* **monitor-m4-elf-file.service**: this service monitors the directory `/tmp/arduino/m4-user-sketch.elf` each time it detects a new file it will proceed to flash the M4 using the tool `openOCD` and providing the sketch that has been pushed.
+* **android-tools-adbd.service**: responsible of generating the needed interfaces for the different types of usb gadgets.
+* **create-docker-envfile.service**: Controls if the device has been plugged for example in some carrier and makes the info available at `/var/run/arduino_hw_info.env` and is meant to be used by the ´docker containers´.
 
 ## Conclusion
-You now have access to the M4 processor, so for example you are able to connect an I<sup>2</sup>C sensor and interact with it and the Arduino X8 Linux side.
+You now have access to the M4 processor, so for example you are able to connect an I<sup>2</sup>C sensor and interact with it, also you could track the sensor from the Arduino Portenta X8 Linux side.
 
 ## Troubleshooting
 
