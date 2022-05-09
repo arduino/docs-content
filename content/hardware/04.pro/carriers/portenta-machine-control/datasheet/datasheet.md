@@ -21,7 +21,7 @@ Industry 4.0,  system integrators
     -   8 MB SDRAM
     -   16 MB Flash QSPI
     -   480 Mhz clock
-    -   Cryptochip NXP SE050C2 security
+    -   Cryptochip NXP SE0502 security
  
 -   **Input voltage 24**
     
@@ -57,7 +57,6 @@ Industry 4.0,  system integrators
     -   Thermocouple K, non grounded, front-end **MAX31855KASA+T**
     -   Thermocouple J, non grounded, front-end **MAX31855KASA+T** with SW multiplication coefficient
         -   PT100, front end **MAX31865ATP+T**
-        -   PT1000, front end **MAX31865ATP+T**
 
     -   **2 encoder channels ABZ**
         -   0-24V input  
@@ -87,7 +86,7 @@ Industry 4.0,  system integrators
 -   **Wi-Fi/BLE**
     -   SMA connector 50Ω 
 
-> ESD protection on all inputs/outputs
+***Note: ESD protection on all inputs/outputs***
 
 # Contents
 
@@ -221,16 +220,16 @@ Maximum output current is 20mA per channel.
 ### Temperature Measurements 
 Three independent temperature measurement channels are available. 
 
-Each channel can measure non grounded thermocouples **OR** PT100/PT1000, but cannot measure them at the same time.
+Each channel can measure non grounded thermocouples **OR** PT100, but cannot measure them at the same time.
 
-**NOTE**: do not connect both a thermocouple and a PT100/PT1000 to one channel. 
+**NOTE**: do not connect both a thermocouple and a PT100 to one channel. 
 Only a single channel at a time is available to be read, according to the analog switches position. 
 
 ### Front-Ends 
-There are two front ends on this board: 
+There are two front ends on this board:
 
-- MAX31855KASA+T dedicated to thermocouples 
-- MAX31865ATP+T dedicated to PT100 and PT1000 
+- MAX31855KASA+T dedicated to thermocouples
+- MAX31865ATP+T dedicated to PT100
 
 The front ends are multiplexed to the three channels via: 
 
@@ -241,7 +240,7 @@ The front ends are multiplexed to the three channels via:
 
 **NOTE**: Connect only **non-grounded** thermocouples. (Grounded thermocouples are not supported).
 
-**NOTE**: Do not connect both a thermocouple and a PT100/PT1000 to a channel. 
+**NOTE**: Do not connect both a thermocouple and a PT100 to a channel. 
 
 Connect a thermocouple to channel 0: 
   - Connect the thermocouple positive pin to TP0
@@ -261,7 +260,7 @@ Connect a thermocouple to channel 2:
 
 **NOTE**: Do not connect the thermocouple negative pin to GND 
 
-### Connect Two Wires RTDs (PT100 or PT1000)
+### Connect Two Wires RTDs (PT100)
 Connect a two wire RTD to channel 0: 
   - Connect one RTD pin to TP0 
   - Connect the other RTD pin to TN0 
@@ -277,7 +276,7 @@ Connect a two wire RTD to channel 2:
   - Connect the other RTD pin to TN2 
   - Connect a jumper between TP2 and RTD2
 
-### Connect Three Wires RTDs (PT100 or PT1000) 
+### Connect Three Wires RTDs (PT100) 
 
 Connect a three wire RTD to channel 0: 
   - Connect one RTD pin to TP0 
@@ -391,7 +390,7 @@ Now that you have gone through the basics of what you can do with the board you 
 
 
 ### Temperature Probes (J7)
-**NOTE**: RTD (**R**esistance **T**emperature **D**etector) are PT100 or PT1000. 
+**NOTE**: RTD (**R**esistance **T**emperature **D**etector) are PT100. 
 
 | Pin | **Type** | **Channel** | **Description**                                                |
 | --- | -------- | ----------- | -------------------------------------------------------------- |
@@ -610,3 +609,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
 | 04/13/2021 | 1            | First Release |
+| 05/09/2020 | 2            | Remove PT1000, not compatible |
