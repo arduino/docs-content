@@ -24,7 +24,9 @@ Arduino boards have **four** ways in which they can be powered:
 
 3. Powering via the VIN (Voltage In) pin.
 
-4. Powering via the 3V3/5V pin
+4. Powering via the 3V3/5V pin*\
+
+***\* Powering your board via the 3V3/5V pin is not recommended, as it can damage your board easily. This is described [here](#link-to-section).***
 
 The USB
 
