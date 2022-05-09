@@ -87,7 +87,7 @@ When the sketch is uploaded, open the serial monitor to see the result. You will
 
 ### Full Sketch
 
-```arduino
+```cpp
 
 // libraries
 #include <MKRNB.h>
