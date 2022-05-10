@@ -180,18 +180,18 @@ To stop the docker-compose app from running, use the following command:
 docker-compose stop
 ```
 
+## Conclusion
 
-## Troubleshoot
-
-Here are some errors that might occur in the process of this tutorial:
-
-- Make sure you have followed our other tutorials that shows how to set up the [Portenta X8 out of the box](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box)
-- If you are having issues with the adb shell, don't forget to try and use `sudo` and `su`
+This tutorial went through what goes into a container, how the folder should be built and what files it should contain. It then explained what each files purpose is and what they should contain for this example. Then we went through how this relates back to the factory, and how Foundries.io makes the whole process easier for us. We then showed how to build the container and run it on the Portenta X8. Lastly, we showed a useful testing feature with docker-compose. Which lets us test our container with a faster process.
 
 ### Next Steps
 
 To get a better understanding of how to manage containers with Docker, take a look at our [Managing Containers with Docker on Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container). This tutorial will show some useful commands to use with the docker service and ADB or SSH.
 
-## Conclusion
 
-This tutorial went through what goes into a container, how the folder should be built and what files it should contain. It then explained what each files purpose is and what they should contain for this example. Then we went through how this relates back to the factory, and how Foundries.io makes the whole process easier for us. We then showed how to build the container and run it on the Portenta X8. Lastly, we showed a usefull testing feature with docker-compose. Which lets us test our container with a faster process.
+## Troubleshooting
+
+Here are some errors that might occur in the process of this tutorial:
+
+- Make sure you have followed our other tutorials that shows how to set up the [Portenta X8 out of the box](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box)
+- If you are having issues with the adb shell, don't forget to try and use `sudo` and `su`
