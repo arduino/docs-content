@@ -11,13 +11,15 @@ author: Sebastian Romero
 In this tutorial you will use the vision carrier board for Portenta to detect the presence and the position of objects in a camera image. For that you will use a technique that is often referred to as blob detection. For this task you will write a MicroPython script and run it on the Portenta with the help of the OpenMV IDE.
 
 ## Goals
+
 - How to use the OpenMV IDE to run MicroPython on Portenta
 - How to use the built-in blob detection algorithm of OpenMV
 - How to use MicroPython to toggle the built-in LEDs
 
 ### Required Hardware and Software
-- Portenta H7 board (<https://store.arduino.cc/portenta-h7>)
-- Arduino Portenta Vision Shield - Ethernet (https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
+
+- [Portenta H7 board](https://store.arduino.cc/portenta-h7)
+- [Arduino Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
 - USB C cable (either USB A to USB C or USB C to USB C)
 - Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
 - Portenta Bootloader Version 20+
@@ -54,7 +56,8 @@ Follow the instructions of the installer.
 ### 2. Flashing the OpenMV Firmware
 
 Connect the Portenta to your computer via the USB-C cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch in the examples menu in the Arduino IDE. 
-Instructions on how to update the bootloader can be found in the ["Updating the Portenta Bootloader" tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/updating-the-bootloader).
+
+Instructions on how to update the bootloader can be found in the [Updating the Portenta Bootloader](https://www.arduino.cc/pro/tutorials/portenta-h7/updating-the-bootloader) tutorial.
 
 ***In bootloader versions 17 and older there was a bug that could put the Portenta in a boot loop when the transmission aborted while flashing a large firmware file. This was fixed in the bootloader version 18. We strongly advise to update the bootloader before you proceed with the next step of this tutorial!***
 
@@ -83,7 +86,7 @@ The Portenta will start flashing its blue LED when it's ready to be connected. A
 
 In this section you will learn how to use the built-in blob detection algorithm to detect the location of objects in an image. That algorithm allows to detect areas in a digital image that differ in properties such as brightness or color compared to surrounding areas. These areas are called blobs.
 
-To do so you need to feed an image from the camera to the algorithm. It will then analyse it and output the coordinates of the found blobs. You will visualize these coordinates directly on the image and indicate whether a blob was found by using the red and green LED.
+To do so you need to feed an image from the camera to the algorithm. It will then analyze it and output the coordinates of the found blobs. You will visualize these coordinates directly on the image and indicate whether a blob was found by using the red and green LED.
 
 ### 1. Prepare the Script
 
@@ -141,7 +144,7 @@ The result of that will be visible in the Frame Buffer preview panel on the righ
 
 ### 4. Toggling LEDs
 
-What if you want some visual feedback from the blob detection without any computer connected to your Portenta? You could use for example the built-in LEDs to indicate whether or not a blob was found in the camera image. Let's initialise the red and the green LEDs with the following code:
+What if you want some visual feedback from the blob detection without any computer connected to your Portenta? You could use for example the built-in LEDs to indicate whether or not a blob was found in the camera image. Let's initialize the red and the green LEDs with the following code:
 
 ```python
 ledRed = pyb.LED(1) # Initiates the red led
@@ -224,11 +227,14 @@ Click on the "Play" button at the bottom of the left toolbar. Place some objects
 In this tutorial you learned how to use the OpenMV IDE to develop MicroPython scripts that then run on the Portenta board. You also learned how to configure the camera of the Vision Carrier board to be used for machine vision applications in OpenMV. Last but not least you learned how to interact with the built-in LEDs in MicroPython on the OpenMV firmware.  
 
 ### Next Steps
+
 -   Familiarize yourself with the OpenMV IDE. There are many other features that didn't get mentioned in this tutorial (e.g. the Serial Terminal).
 -   Try out other machine vision examples that come with the OpenMV IDE (e.g. Face Detection). You can find them in the "Examples" menu.
 
 ## Troubleshooting
+
 ### OpenMV Firmware Flashing Issues
+
 - If the upload of the OpenMV firmware fails during the download, put the board back in boot loader mode and try again. Give it a few tries until the firmware gets successfully uploaded.
 - If the upload of the OpenMV firmware fails without even starting, try uploading the latest firmware using the "Load Specific Firmware File" option. You can find the latest firmware on the [OpenMV Github repository](https://github.com/openmv/openmv/releases). Look for a file called **firmware.bin** in the PORTENTA folder.
 - If you experience issues putting the board in bootloader mode, make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch from the examples menu in the Arduino IDE.

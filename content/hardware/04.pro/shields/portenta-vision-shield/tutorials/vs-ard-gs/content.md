@@ -1,29 +1,31 @@
 ---
-title: Getting Started With The Vision Shield Camera
+title: Getting Started With the Portenta Vision Shield Camera
 coverImage: assets/vs_ard_gs_cover.svg
 difficulty: easy
 tags: [Getting Started, Camera, Processing, Serial]
-description: This tutorial shows you how to capture frames from the Vision Shield Camera module and visualise the video output through a Processing sketch.
+description: This tutorial shows you how to capture frames from the Portenta Vision Shield Camera module and visualize the video output through a Processing sketch.
 author: Lenard George, Sebastian Romero
 ---
 
 ## Overview
-This tutorial shows you how to capture frames from the Vision Shield Camera module and visualise the video output through a Processing sketch.
+This tutorial shows you how to capture frames from the Arduino Portenta Vision Shield Camera module and visualize the video output through a Processing sketch.
 
 ## Goals
+
 - Capturing the frames from the camera.
 - Sending the frames as a byte stream through a Serial connection.
 - Visualising the frames in Processing. 
 
 ### Required Hardware and Software
-- 1x [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- 1x Portenta Vision Shield ( [LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield) )
+
+- [Portenta H7](https://store.arduino.cc/portenta-h7)
+- Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
 - 1x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
 - Arduino IDE 1.8.10+
 - Processing 3.5.4+
 
 ## Instructions
-Accessing the Vision Shield's camera data is done with the help of both Arduino and the Processing IDE. The Arduino sketch handles the capture of image data by the on-board camera while the java applet created with Processing helps to visualise this data with the help of a serial connection. The following steps will run you through how to capture, package the data through the serial port and visualise the output in Processing. 
+Accessing the Vision Shield's camera data is done with the help of both Arduino and the Processing IDE. The Arduino sketch handles the capture of image data by the on-board camera while the java applet created with Processing helps to visualize this data with the help of a serial connection. The following steps will run you through how to capture, package the data through the serial port and visualize the output in Processing. 
 
 ### 1. The Basic Setup
 Connect the Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connecters are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB C cable. 
@@ -44,14 +46,14 @@ To capture the frames you will need to use the functions contained in `camera.h`
 #include "camera.h"
 ```
 
-Next, let's initialise a camera object and a frame buffer of the size 320*240 (76'800 bytes).
+Next, let's initialize a camera object and a frame buffer of the size 320*240 (76'800 bytes).
 
 ```cpp
 CameraClass cam;
 uint8_t fb[320*240];
 ```
 
-In the `setup()` function, let's start the Serial communication at `921600` baud rate and iniitialise the camera using `cam.begin()`. 
+In the `setup()` function, let's start the Serial communication at `921600` baud rate and initialize the camera using `cam.begin()`. 
 
 ```cpp
 void setup() {
@@ -84,17 +86,17 @@ Open a new processing sketch file and name it `CameraCapture.pde`.
 
 ![Create a processing sketch](assets/vs_ard_open_pde_sketch.png)
 
-Let's start by importing the libraries and initialising the variables you will need to process the captured data. To process the data sent by the Vision Shield you will need to import the following libraries:
+Let's start by importing the libraries and initializing the variables you will need to process the captured data. To process the data sent by the Vision Shield you will need to import the following libraries:
 
-- `processing.serial.*` : a [Serial Library](https://processing.org/reference/libraries/serial/index.html)  that is used to read and write data to external devices over the serial line. 
-- `java.nio.ByteBuffer`  : a java class that provides access to operations on byte buffers
+- `processing.serial.*`: a [Serial Library](https://processing.org/reference/libraries/serial/index.html)  that is used to read and write data to external devices over the serial line. 
+- `java.nio.ByteBuffer`: a java class that provides access to operations on byte buffers
 
 ```java
 import processing.serial.*;
 import java.nio.ByteBuffer;
 ```
 
-Next we initialise the following variables to process the received pixels from the serial port. We set the dimensions, pixel count, and bytes required per frame. 
+Next we initialize the following variables to process the received pixels from the serial port. We set the dimensions, pixel count, and bytes required per frame. 
 
 ```java
 // must match resolution used in the sketch
@@ -158,7 +160,7 @@ void draw() {
 }
 ```
 
-### 4. Visualing the Frames
+### 4. Visualizing the Frames
 For this step, you will use the `serialEvent()` callback function to update the `myImage` when a new data is received on the serial port.
 
 ```java
@@ -243,7 +245,7 @@ Select the right serial port on your IDE and upload the Arduino sketch to your H
 
 ## Conclusion
 
-In this tutorial you learnt how to capture the frames from your Vision Shield's Camera and to visualise the  frames through Processing. This knowledge can be useful for you to build and experiment simple computer vision applications for both outdoor and indoor environments. 
+In this tutorial you learnt how to capture the frames from your Vision Shield's Camera and to visualize the  frames through Processing. This knowledge can be useful for you to build and experiment simple computer vision applications for both outdoor and indoor environments. 
 
 ### Complete Sketch
 The `CaptureRawBytes.ino` Sketch. 

@@ -111,19 +111,19 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                      | 5.0 | 5.5                      | V    |
 | V<sub>USB</sub>      | Input voltage from USB connector | 4.8                      | 5.0 | 5.5                      | V    |
 | V<sub>DDIO_EXT</sub> | Level Translator Voltage         | 1.8                      | 3.3 | 3.3                      | V    |
-| V<sub>IH</sub>       | Input high-level voltage         | 0.7*V<sub>DDIO_EXT</sub> |     | V<sub>DDIO_EXT</sub>     | V    |
-| V<sub>IL</sub>       | Input low-level voltage          | 0                        |     | 0.3*V<sub>DDIO_EXT</sub> | V    |
+| V<sub>IH</sub>       | Input high-level voltage         | 0.7V<sub>DDIO_EXT</sub><sup>1</sup> |     | V<sub>DDIO_EXT</sub>     | V    |
+| V<sub>IL</sub>       | Input low-level voltage          | 0                        |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
 | T<sub>OP</sub>       | Operating Temperature            | -40                      | 25  | 85                       | °C   |
 
-**Note:** V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
+**Note** : V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
 
-**Note 2:** All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
+**<sup>1</sup>** : All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
 - ADC1 and ADC2 - 1V8
 - JTAG_SAMD11 - 3V3
 - JTAG_ANNA - 1V8
 - JTAG_BHI - 1V8
 
-**Note 3:** If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
+**<sup>2</sup>** : If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
 
 ## Functional Overview
 

@@ -45,11 +45,11 @@ Maker, enhancements, basic IoT application scenarios
 
 
 - **LSM9DS1** (9 axis IMU)
-        - 3 acceleration channels, 3 angular rate channels, 3 magnetic field channels
-        - ±2/±4/±8/±16 g linear acceleration full scale
-        - ±4/±8/±12/±16 gauss magnetic full scale
-        - ±245/±500/±2000 dps angular rate full scale
-        - 16-bit data output
+    - 3 acceleration channels, 3 angular rate channels, 3 magnetic field channels
+    - ±2/±4/±8/±16 g linear acceleration full scale
+    - ±4/±8/±12/±16 gauss magnetic full scale
+    - ±245/±500/±2000 dps angular rate full scale
+    - 16-bit data output
 - **MPM3610** DC-DC
     - Regulates input voltage from up to 21V with a minimum of 65% efficiency @minimum load
     - More than 85% efficiency @12V
@@ -83,7 +83,7 @@ As all Nano form factor boards, Nano 33 BLE does not have a battery charger but 
 
 ## Functional Overview
 ### Board Topology 
-Top:
+#### Top
 ![Board topology Top](assets/topologyTop.png)
 
 | **Ref.** | **Description**                 | **Ref.** | **Description**                  |
@@ -92,8 +92,8 @@ Top:
 | U2       | LSM9DS1TR Sensor IMU            | PB1      | IT-1185AP1C-160G-GTR Push button |
 | DL1      | Led L                           | DL2      | Led Power                        |
 
-Bottom:
-![Board topology bot](assets/topologyBot.png)
+#### Bottom
+![Board topology bottom](assets/topologyBot.png)
 
 | **Ref.** | **Description** | **Ref.** | **Description** |
 | -------- | --------------- | -------- | --------------- |

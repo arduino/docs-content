@@ -29,19 +29,21 @@ At the moment of writing the tutorial, there is an Arduino core and a MicroPytho
 This tutorial focuses on the Arduino core which allows you to benefit from the thousands of existing Arduino libraries and code examples written in C and C++ which are compatible with the Arduino core. A tutorial about setting the Portenta H7 up for development with the MicroPython core will be released soon.
 
 ## Goals
--   About the Arduino and Mbed operating system (Mbed OS) stack
--   Installing the Mbed library  
--   Controlling the built in LED on the Portenta board
+
+- About the Arduino and Mbed operating system (Mbed OS) stack
+- Installing the Mbed library  
+- Controlling the built in LED on the Portenta board
 
 ### Required Hardware and Software
--   Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
--   USB C cable (either USB A to USB C or USB C to USB C)
--   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
+
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7),  [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- USB C cable (either USB A to USB C or USB C to USB C)
+- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
 
 ## Portenta and The Arduino Core
-The Portenta H7 is equipped with two Arm Cortex ST processors (Cortex-M4 and Cortex-M7) which run the Mbed OS.  Mbed OS is an embedded real time operating system (RTOS) designed specifically for microcontrollers to run IoT applications on low power. A real-time operating system is an operating system designed to run real-time applications that process data as it comes in, typically without buffer delays. [Here](https://www.ni.com/en-us/innovations/white-papers/07/what-is-a-real-time-operating-system--rtos--.html) you can read more about real time operating systems.
+The Portenta H7 is equipped with two Arm Cortex ST processors (Cortex-M4 and Cortex-M7) which run the Mbed OS.  Mbed OS is an embedded real time operating system (RTOS) designed specifically for microcontrollers to run IoT applications on low power. A real-time operating system is an operating system designed to run real-time applications that process data as it comes in, typically without buffer delays. [Here you can read more about real time operating systems](https://www.ni.com/en-us/innovations/white-papers/07/what-is-a-real-time-operating-system--rtos--.html).
 
-The Arduino core for the Portenta H7 sits on top of the Mbed OS and allows to develop applications using Mbed OS APIs which handle for example storage, connectivity, security and other hardware interfacing. [Here](https://os.mbed.com/docs/mbed-os/v5.15/apis/index.html) you can read more about the Mbed OS APIs. However, taking advantage of the Arm® Mbed™ real time operating system's powerful features can be a complicated process. Therefore we simplified that process by allowing you to run Arduino sketches on top of it.
+The Arduino core for the Portenta H7 sits on top of the Mbed OS and allows to develop applications using Mbed OS APIs which handle for example storage, connectivity, security and other hardware interfacing. [Here you can read more about the Mbed OS APIs](https://os.mbed.com/docs/mbed-os/v5.15/apis/index.html). However, taking advantage of the Arm® Mbed™ real time operating system's powerful features can be a complicated process. Therefore we simplified that process by allowing you to run Arduino sketches on top of it.
 
 ![The Arduino core is built on top of the Mbed stack](assets/por_gs_mbed_stack.svg)
 
@@ -69,8 +71,8 @@ This step is the same for both the classic IDE and the Pro IDE. Open the board m
 ### 3. Uploading the Classic Blink Sketch
 Let's program the Portenta with the classic blink example to check if the connection to the board works. There are two ways to do that:
 
--   In the classic Arduino IDE open the blink example by clicking the menu entry File->Examples->01.Basics->Blink. You need to swap LOW and HIGH pin values as the built-in LED on Portenta is turned on by pulling it LOW.
--   By downloading the 'Arduino_Pro_Tutorials' library and opening the pre-made sketch under File->Examples->Arduino_Pro_Tutorials->Setting Up Portenta H7 For Arduino->Blink 
+-   In the classic Arduino IDE open the blink example by clicking the menu entry **File > Examples > 01.Basics > Blink**. You need to swap LOW and HIGH pin values as the built-in LED on Portenta is turned on by pulling it LOW.
+-   By downloading the 'Arduino_Pro_Tutorials' library and opening the pre-made sketch under **File > Examples > Arduino_Pro_Tutorials > Setting Up Portenta H7 For Arduino > Blink** 
 -   In the Arduino Pro IDE Copy and paste the following code into a new sketch in your IDE.
 
 ```cpp
@@ -92,9 +94,9 @@ void loop() {
 
 ***Remember that the built-in RGB LEDs on the Portenta H7 need to be pulled to ground to make them light up. This means that a voltage level of __LOW__ on each of their pins will turn the specific color of the LED on, a voltage level of __HIGH__ will turn them off. Furthermore invoking __pinMode(LED_BUILTIN, OUTPUT)__ pulls the LED LOW which means it turns the LED on.***
 
-For Portenta H7  LED_BUILTIN  represents the built-in RGB LED on the board in green color.
+For Portenta H7 LED_BUILTIN represents the built-in RGB LED on the board in green color.
 
-**Note:** The individual colours of the built-in RGB LED can be accessed and controlled separately. In the tutorial "Dual Core Processing"  you will learn how to control the LED to light it in different colors
+**Note:** The individual colors of the built-in RGB LED can be accessed and controlled separately. In the tutorial "Dual Core Processing" you will learn how to control the LED to light it in different colors
 
 ### 4. Upload the Blink Sketch 
 Now it's time to upload the sketch and see if the LED will start to blink. Make sure you select Arduino Portenta H7 (M7 core) as the board and the port to which the Portenta H7 is connected. If the Portenta H7 doesn't show up in the list of ports, go back to step 5 and make sure that the drivers are installed correctly. Once selected click Upload. Once uploaded the built-in LED should start blinking with an interval of 1 second.
@@ -105,7 +107,7 @@ Now it's time to upload the sketch and see if the LED will start to blink. Make 
 
 ![Selecting the Arduino Portenta H7 (M7 core)](assets/por_gs_board_selection_pro_ide.png)
 
-**Optional:** We collect all the sketches from the tutorials in a library which you can install from the Library Manager: **Tools -> Manage Libraries**. Search for 'Arduino_Pro_Tutorials' or download them from the [repository](https://github.com/arduino-libraries/Arduino_Pro_Tutorials/releases).
+**Optional:** We collect all the sketches from the tutorials in a library which you can install from the Library Manager: **Tools > Manage Libraries**. Search for 'Arduino_Pro_Tutorials' or download them from the [repository](https://github.com/arduino-libraries/Arduino_Pro_Tutorials/releases).
 
 ## Conclusion
 You have now configured your Portenta board to run Arduino sketches. Along with that you gained an understanding of how the Arduino Core runs on top of Mbed OS.  
@@ -133,6 +135,7 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="2341", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1fc9", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0525", MODE="0666"
 ```
+
 - Reboot your PC
 - You may use the following commands to create a new udev rule from scratch:
 `echo 'SUBSYSTEMS=="usb", ATTR{idVendor}=="2341", MODE:="0666"' > 20-portenta.rules` 
