@@ -19,7 +19,7 @@ In this tutorial you will use the Arduino® Nicla Vision to detect the presence 
 
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable (either USB A to Micro USB or USB C to Micro USB)
-- OpenMV IDE 2.6.4+
+- OpenMV IDE 2.9.0+
 
 ## Nicla Vision and the OpenMV IDE
 
@@ -30,13 +30,15 @@ The OpenMV IDE was built for Machine Vision applications. It is meant to provide
 ### Configuring the Development Environment
 Before you can start programming OpenMV scripts for the Portenta you need to download and install the OpenMV IDE. Open the [OpenMV download](https://openmv.io/pages/download) page in your browser and download the version that you need for your operating system. Please Follow the instructions of the installer.
 
+***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](/tutorials/portenta-h7/updating-the-bootloader) before you proceed with the next step of this tutorial.***
+
 ### Flashing the OpenMV Firmware
 
-Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet. Put the Nicla Vision in bootloader mode by double pressing the reset button on the board. The built-in LED will start fading in and out. Now open the OpenMV IDE.
+Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet. Now open the OpenMV IDE. 
 
 ![The OpenMV IDE after starting it](assets/por_openmv_open_ide.png)
 
-Click on the "connect" symbol at the bottom of the left toolbar. 
+Click on the "connect" symbol at the bottom of the left toolbar. Note that in previous versions of the OpenMV IDE you had to manually put the Nicla Vision in bootloader mode by double pressing the reset button on the board to make it detectable by the OpenMV IDE. This is no longer necessary.
 
 ![Click the connect button to attach the Portenta to the OpenMV IDE](assets/por_openmv_click_connect.png)
 
@@ -50,7 +52,7 @@ The board's LED will start flashing while the OpenMV firmware is being uploaded.
 
 The Nicla Vision will start flashing its blue LED when it's ready to be connected. After confirming the completion dialog the board should already be connected to the OpenMV IDE, otherwise click the "connect" button (plug icon) once again.
 
-![When the Portenta is successfully connected to the OpenMV IDE a green play button appears in the lower left](assets/por_openmv_board_connected.png)
+![When the board is successfully connected to the OpenMV IDE a green play button appears in the lower left](assets/por_openmv_board_connected.png)
 
 
 ## Blob Detection
