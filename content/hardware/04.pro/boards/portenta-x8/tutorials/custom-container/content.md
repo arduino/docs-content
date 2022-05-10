@@ -29,7 +29,7 @@ When running a container, it uses an isolated filesystem. This custom filesystem
 
 ## Container File Structure
 
-To create our container we need to collect our necessary files. Creating a folder called **hello-world**, then putting the following files in the folder:
+To create our container we need to collect our necessary files. Creating a folder called **x8-custom-test**, the following files needs to be in the folder:
 - docker-build.conf
 - docker-compose.yml
 - Dockerfile
@@ -40,20 +40,20 @@ To create our container we need to collect our necessary files. Creating a folde
 Lets go through what these files contain and do.
 
 ### docker-buil.conf
-A file containing the minimal "unit test" command to be executed on the container to prove it's working.
+A file containing the minimal "unit test" command to be executed on the container to prove it's working. Our file will make our containers minimal unit test a test of Python3's help commmand.
 
 ```python
 TEST_CMD="python3 --help"
 ```
 
 ### docker-compose.yml
-This file defines the app name through the factory, permissions and settings for the involved containers.
+This file defines the app name through the factory, permissions and settings for the involved containers. The argument in the image tag will make it so our image file builds locally.
 
 ```python
 version: '3.6'
 
 services:
-  python-hello-world:
+  x8-custom-test:
     image: blob-opera:latest
     restart: always
     tty: true
@@ -74,8 +74,8 @@ This is used to build the container.
 #
 
 # Examples:
-# docker build --tag "python-hello-world:latest" .
-# docker run -it --rm --user "63" python-hello-world:latest
+# docker build --tag "hello-world:latest" .
+# docker run -it --rm --user "63" hello-world:latest
 
 FROM python:3-alpine3.15
 
@@ -107,7 +107,7 @@ Flask==0.12.3
 ```
 
 ### Source
-Here we will keep source code of the app you want to run in the container or simply a startup script. We will create a file and name it **main.py** in this folder. This script will ?????.
+Here we will keep source code of the app you want to run in the container or simply a startup script. We will create a file and name it **main.py** in this folder. This script will print "Hello World!" in the CLI window.
 
 ```python
 from flask import Flask
@@ -121,27 +121,54 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
 ```
 
-## Upload container
+## Uploading the Container Folder
 
-Using docker-compose
+First, you have to have set up your board to a factory, as shown in the [Portenta X8 Out of the Box tutorial]().
 
-Should be the preferred way of testing app/containers since inside docker-compose.yml you specify a lot of settings that may not be trivial to convert to docker run arguments
+Once this is done, we will push our folder to a repository within the factory. Lets place our folder "x8-custom-test" inside the "containers.git" repository. You can find this repository inside your factory page, if you click on "Source". And then on "container.git", the url of this page will be used in the next command.
 
+In bash use the following command, replace the "YOUR_FACTORY" with the name of your factory, to get the container repository, where we will put our folder. The "-m" tag selects the manifest file within the repository. If no manifest name is selected, the default is "default.xml". And the "-b" tag specifies a revision.
+
+```python
+repo init -u https://source.foundries.io/factories/YOUR_FACTORY/containers.git -m arduino.xml -b devel
 ```
-cd /home/fio/hello-world
+
+We can also run ```repo sync``` to get the latest version of the repository. Put the "x8-custom-test" folder in the repository.
+
+### Building and Running the Container
+
+After uploading the folder to the repository. Navigate into the "x8-custom-test" folder, that should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with --tag will let us give the container a tag so we can easily keep track of what version of the build this is.
+
+```python
+docker build --tag "x8-custom-test:latest" .
 ```
+
+Now that it is built we can run it with ```docker run```, finding it with the tag that we chose to give to the build we want to run. Here we will have to enter the user information into the --user tag. This information is found inside the "docker-compose.yml" file.
+
+```python
+docker run -it --rm --user "63" x8-custom-test:latest
 ```
+
+###  Using docker-compose
+
+
+A option for testing an app or container is to use "docker-compose". This is helpful when we have a lot of settings in our "docker-compose.yml" file, since we don't have to use those settings in the run argument with this method. First navigate into the container folder.
+
+```python
+cd /home/fio/x8-custom-test
+```
+
+This docker-compose command will start your application and register it as a systemd service that will presist even when a reboot occurs. So at the next boot your docker-compose app will run automatically.
+
+```python
 docker-compose up --detach
 ```
 
-Should start your application and register it as a systemd service that will be persistent
+To stop the docker-compose app from running, use the following command:
 
-accross reboots (e.g. at next boot your docker-compose app will be executed automagically)
-
-```
+```python
 docker-compose stop
 ```
-This command will stop your docker-compose app from running
 
 
 ## Conclusion
