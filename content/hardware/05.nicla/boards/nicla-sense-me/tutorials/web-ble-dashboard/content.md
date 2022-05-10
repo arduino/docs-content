@@ -35,23 +35,23 @@ In this tutorial we will focus on the version for the Arduino® Nicla Sense ME.
 
 ## Goals
 
--   Upload the sketch to the Arduino® Nicla Sense ME.
--   Connect through Bluetooth® Low Energy to our dashboard and read sensor data.
+- Upload the sketch to the Arduino® Nicla Sense ME.
+- Connect through Bluetooth® Low Energy to our dashboard and read sensor data.
 
 ### Required Hardware and Software
 
--   [Arduino® Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
--   Micro USB-A cable (USB-A to Micro USB-A)
--   Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Web Editor
--   If you choose the Arduino IDE, you will need to install 2 libraries: `Arduino_BHY2`and `ArduinoBLE`
+- [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
+- Micro USB-A cable (USB-A to Micro USB-A)
+- Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Web Editor
+- If you choose the Arduino IDE, you will need to install 2 libraries: `Arduino_BHY2`and `ArduinoBLE`
 
 ## Instructions
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview)  you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI: you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
+If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI: you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
-If you use a local IDE you can copy & past the following sketch:
+If you use a local IDE you can copy & paste the following sketch:
 ```arduino
   /*
 
@@ -284,14 +284,13 @@ To connect your board to the dashboard, you will need to click on the top left b
 
 ![Popup message to connect the device to the browser](assets/arduinoAI_Nicla_dashboard_connectDevice.png)
 
-***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to <chrome://flags> and enable "Experimental Web Platform features".
-Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
+***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to <chrome://flags> and enable "Experimental Web Platform features". Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
 
 Once it's connected, the button will change its color to green, and the graphs will start to show data in real time.
 
 Try to rotate the board and see the 3D model of the board spin.
 
-You can also select a different LED colour from the bottom left widget.
+You can also select a different LED color from the bottom left widget.
 
 Breathe onto the board and see the humidity and temperature values changing.
 

@@ -5,7 +5,7 @@ tags: [LoRa, WAN]
 author: Arduino
 ---
 
-These examples will show you how to set up your board to use the LoRa network and how to send and receive data from the LoRa network.
+These examples will show you how to set up your board to use the LoRa® network and how to send and receive data from the LoRa® network.
 
 ## Hardware Required
 

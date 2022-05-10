@@ -242,44 +242,6 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td></td>
       </tr>
       <tr>
-         <td rowspan="6" ><strong>TI ADS7959SRGET</strong></td>
-         <td>12 bit, 1 MSPS, 8 Ch, Single Ended, Micro Power, SAR ADC</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Two SW Selectable Unipolar, Input Ranges: 0 to VREF and 0 to 2 x VREF</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Auto and Manual Modes for Channel Selection</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Two Programmable Alarm Levels per Channel</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Power-Down Current (1 µA)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Input Bandwidth (47 MHz at 3 dB)</td>
-         <td></td>
-      </tr>
-      <tr>  
-         <td rowspan="3" ><strong>NXP® PCF8563BS</strong><br /></td>
-         <td>Low power Real Time Clock</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Provides Century flag, year, month, day, weekday, hours, minutes and seconds</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Low backup current; typical 250 nA at VDD = 3.0 V and T<sub>amb</sub> = 25°C</td>
-         <td></td>
-      </tr>
-      <tr>
          <td rowspan="2"><strong>ROHM BD71847AMWV</strong> Programmable PMIC</td>
          <td>Dynamic voltage scaling</td>
          <td></td>
@@ -311,7 +273,7 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 - **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi® and Bluetooth® connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications. 
 - **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
-## Accessories
+## Accessories (Not Included)
 - USB-C Hub
 - USB-C to HDMI Adapter
 
@@ -343,7 +305,7 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 | P<sub>LP</sub>  | Power consumption in low power mode |      | 200  |      |  mW  |
 | P<sub>MAX</sub> | Maximum Power Consumption           |      | 4000 |      |  mW  |
 
-It is recommended to use a USB 3.0 port when connecting to the Portenta X8 which can deliver the required power. Dynamic scaling of the Portenta X8 can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
+The use of a USB 3.0 compatible port will ensure that current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
 # Functional Overview
 ## Block Diagram
@@ -435,13 +397,15 @@ Sample sketches for the Arduino® Portenta X8 can be found either in the “Exam
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by configuring DIP switches. 
+
+**Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
 
 # Mechanical Information
 
 ## Pinout
 
-![](assets/x8HDCPinout.png)
+![](assets/x8HDCPinout.jpg)
 ## Mounting Holes and Board Outline
 
 ![](assets/x8Mechanical.svg)

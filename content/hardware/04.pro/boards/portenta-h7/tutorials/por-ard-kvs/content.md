@@ -23,12 +23,14 @@ software:
 This tutorial explains how to create a Flash-optimized key-value store using the Flash memory of the Portenta H7. It builds on top of the **Flash In-Application Programming** tutorial.
 
 ## Goals
+
 In this tutorial you will learn how to use the Mbed OS [TDBStore API](https://os.mbed.com/docs/mbed-os/v6.9/apis/kvstore.html) to create a [Key value store](https://en.wikipedia.org/wiki/Key%E2%80%93value_database) in the free space of the microcontroller's internal Flash.
 
 ### Required Hardware and Software
--   Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
--   USB C cable (either USB A to USB C or USB C to USB C)
--   Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
+
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7),  [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- USB C cable (either USB A to USB C or USB C to USB C)
+- Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
 
 ## Instructions
 
@@ -46,11 +48,12 @@ Begin by plugging in your Portenta board to the computer using a USB-C cable and
 
 ### 2. Create the Structure of the Program
 Let's program the Portenta with a sketch. We will also define a few helper functions in a supporting header file.
+
 * Create a new sketch named `FlashKeyValue.ino` 
 * Create a new file named `FlashIAPLimits.h` to store the helper functions in a reusable file.
 
 **Note:** Finished sketch its inside the tutorials library wrapper at:  
-**Examples -> Arduino_Pro_Tutorials -> Creating a Flash-Optimized Key-Value Store -> FlashKeyValueStore**
+**Examples > Arduino_Pro_Tutorials > Creating a Flash-Optimized Key-Value Store > FlashKeyValueStore**
 
 ### 3. Populate the Helper Functions
 First let's add the helper functions to the `FlashIAPLimits.h` header. This will determine the available Flash limits to allocate the custom data.
@@ -301,9 +304,11 @@ Push the reset button to restart the sketch. The values of the stats have been u
 
 ## Conclusion
 We have learned how to use the available space in the Flash memory of the microcontroller to create a key-value store and use it to retrieve and store data.
+
 It's not recommended to use the Flash of the microcontroller as the primary storage for data-intensive applications. It is best suited for read/write operations that are performed only once in a while such as storing and retrieving application configurations or persistent parameters.
 
 ### Next Steps
+
 - Learn how to retrieve a collection of keys using TDBStore iterators via [`iterator_open`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a77661adec54b9909816e7492a2c61a91) and [`iterator_next`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a5116b40a3480462b88dc3f1bb8583ad4)
 - Learn how to create an incremental TDBStore set sequence via [`set_start`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a6e882a0d4e0cbadf6269142ac3c4e693), [`set_add_data`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#adbe636bf8c05834fe68b281fc638c348) and [`set_finalize`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a346da66252added46d3b93902066b548)
 - Learn how to use the 16MB QSPI Flash on the Portenta H7
