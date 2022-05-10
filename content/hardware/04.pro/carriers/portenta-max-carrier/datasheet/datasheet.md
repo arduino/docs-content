@@ -60,11 +60,6 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 *   Portenta H7 (Partial support)
 *   Portenta X8
 
-### Solution Overview
-![Carrier assembly](assets/maxCarrierAssembly.png)
-
-*Example of a typical application for a solution including the Portenta Max Carrier and Portenta X8 with posts mounted.*
-
 ## Ratings
 
 ### Recommended Operating Conditions
