@@ -3,7 +3,6 @@ title: Getting Started with the Portenta Max Carrier
 description: This tutorial give you an overview of the core features of the Portenta Max Carrier. 
 difficulty: Beginner 
 tags:
-  - Portenta Max Carrier
   - Getting Started
 author: José Bagur, Taddy Chung
 hardware:
@@ -16,7 +15,7 @@ software:
 
 ## Overview
 
-The Arduino® Portenta Max Carrier provides developers an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Portenta Max Carrier possibilities are endless. The Portenta Max Carrier can be used as a single-board computer (SBC) or reference design. It couples the Arduino® Portenta H7 board as a central high-performance unit, granting Edge AI and cutting edge connectivity features into an industry-standard embedded Next Unit of Computing (eNUC) form factor ready. In this tutorial, you will know the core features of the Portenta Max Carrier and how to get started with it.
+The Arduino® Portenta Max Carrier provides developers an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Portenta Max Carrier possibilities are endless. The Portenta Max Carrier can be used as a single-board computer (SBC) or reference design. It couples the Arduino® Portenta H7 board as a central high-performance unit, granting Edge AI and cutting edge connectivity features into an industry-standard embedded Next Unit of Computing (eNUC) form factor ready. In this tutorial, you will learn about the core features of the Portenta Max Carrier and how to get started with it.
 
 ## Goals 
 
@@ -27,22 +26,20 @@ The Arduino® Portenta Max Carrier provides developers an unlimited range of app
 ## Required Hardware and Software
 
 - [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7).
-- Arduino® Portenta Max Carrier.
+- [Arduino® Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
 - USB-C cable (either USB-A to USB-C or USB-C to USB-C).
 - LoRa® antenna (868-915MHz) with SMA connector.
 - LTE antenna (698-960/1710-2690MHz) with SMA connector. 
 - 3.7V 2600mAh 18650 Li-Ion battery.
 - DC 4.5-20V power supply with barrel jack. 
 - Micro SD Card 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software). 
+- [Arduino IDE (online or offline)](https://www.arduino.cc/en/software). 
 
 ## Instructions 
 
 ### 1. Get to Know the Portenta Max Carrier
 
-The Portenta Max Carrier was designed to augment the capabilities of the Arduino® Portenta H7 board and provide easy access to its onboard peripherals. It is designed to enable research and develop industrial grade advanced applications, from fast prototyping to deployable robust single board computer. The Portenta Max Carrier establishes connection with Portenta H7 via High Density connectors. This interface grants access to extensive modules and peripherals on-board Portenta Max Carrier.
-
-In the image below, you can see Portenta's Max Carrier main features highlighted: 
+The Portenta Max Carrier was designed to augment the capabilities of the Arduino® Portenta H7 board and provide easy access to its onboard peripherals. It is designed to enable research and develop industrial grade advanced applications, from fast prototyping to a deployable robust single board computer. The Portenta Max Carrier establishes connection with Portenta H7 via High Density connectors. This interface grants access to extensive modules and peripherals on-board Portenta Max Carrier.
 
 In this tutorial, we will describe the following features of the Portenta Max Carrier:
 
@@ -53,57 +50,55 @@ In this tutorial, we will describe the following features of the Portenta Max Ca
 - Audio interfaces.
 - On-board debugger.
 
-Let us talk more about those features.
-
 #### 1.1. Power Distribution
 
-The Arduino® Portenta Max Carrier provides several peripherals and modules to cover wide spectrum of applications. For this peripherals and modules to be powered up and running, Arduino® Portenta Max Carrier bases on a sophisticated electric power distribution architecture. To power the Portenta Max Carrier, you can use the **barrel jack** connector (X1) or a **3.7V 18650 Li-Ion battery** connected to the Portenta's Max Carrier battery clips (J16 and J18). You can also power the Portenta Max Carrier directly from the USB-C connector of the Portenta H7 board.
+The Arduino® Portenta Max Carrier provides several peripherals and modules to cover a wide spectrum of applications. For these peripherals and modules to be powered up and run, the Arduino® Portenta Max Carrier bases on a sophisticated electric power distribution architecture. To power the Portenta Max Carrier, you can use the **barrel jack** connector (X1) or a **3.7V 18650 Li-Ion battery** connected to the Portenta Max Carrier's battery clips (J16 and J18). You can also power the Portenta Max Carrier directly from the USB-C connector of the Portenta H7 board.
 
 You can see the detailed Portenta Max Carrier's power tree in the image below:
 
-![Portenta Max Carrier Power Distribution](assets/mc_ard_power_tree.PNG)
+![Portenta Max Carrier Power Distribution](assets/mc_ard_power_tree.png)
 
 The Portenta Max Carrier's power inputs are indicated in the following image:
 
 ![Portenta Max Carrier Power Input](assets/mc_ard_power.png)
 
-These power feed line options powers up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger; while it is possible to upload the Code. This power line use case will be useful to develop and debug the code.
+These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger while it is also possible to upload the Code. This power line use case will be useful to develop and debug the code.
 
-**If the Arduino IDE throws an error failing to upload the Code, please check the Portenta H7 is in Bootloader Mode**
+**If the Arduino IDE throws an error failing to upload the Code, please put the Portenta H7 in Bootloader Mode before uploading.**
 
-The external power supply goes through [**MPM3550EGLE**](https://www.mouser.com/datasheet/2/277/MPS_05172019_MPM3550E_r1.0-1595120.pdf), which is a DC/DC power module, to provide +5V to power up the peripherals and the modules. The module provides the power to [**BQ24195RGET**](https://www.ti.com/lit/ds/symlink/bq24195.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&ts=1647034752895&ref_url=https%253A%252F%252Fwww.mouser.com%252F), which is a battery charge and power path management, and it is used in Portenta Max Carrier for the Li-Ion battery source and to boost the voltage to +5V. The battery charger IC feeds the power to Modem above all the peripherals and modules mentioned previously. The external power supply has the highest priority in power line. 
+The external power supply goes through [**MPM3550EGLE**](https://www.mouser.com/datasheet/2/277/MPS_05172019_MPM3550E_r1.0-1595120.pdf), which is a DC/DC power module, to provide +5V to power up the peripherals and the modules. The module provides the power to [**BQ24195RGET**](https://www.ti.com/lit/ds/symlink/bq24195.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&ts=1647034752895&ref_url=https%253A%252F%252Fwww.mouser.com%252F), which is a battery charge and power path management, and it is used in Portenta Max Carrier for the Li-Ion battery source and to boost the voltage to +5V. The battery charger IC feeds the power to Modem above all the peripherals and modules mentioned previously. The external power supply has the highest priority in the power line. 
 
-A Micro USB port is available for the use on the Arduino® Portenta Max Carrier for debugging capability. The debugging module is a separate segment, and it is powered by Micro USB port using its own power supply [**AP2112K**](https://www.diodes.com/assets/Datasheets/AP2112.pdf), which is a low-dropout linear regulator. The debugger is available for use without the Portenta H7 paired to the Portenta Max Carrier. 
+A Micro USB port is available for debbugging on the Arduino® Portenta Max Carrier. The debugging module is a separate segment, and it is powered by Micro USB port using its own power supply [**AP2112K**](https://www.diodes.com/assets/Datasheets/AP2112.pdf), which is a low-dropout linear regulator. The debugger is available for use without the Portenta H7 paired to the Portenta Max Carrier. 
 
 #### 1.2. Connectors
 
-The Portenta Max carrier equips wide spectrum of connectors for expandability. The following table will show briefly the connectors that are available within the Portenta Max Carrier.
+The Portenta Max carrier is equipped with a wide spectrum of connectors for expandability. The following table will show briefly the connectors that are available on the Portenta Max Carrier.
 
-| Connector (Ref.)                      | Description                                                                     |
-| ------------------------------------- | ------------------------------------------------------------------------------- |
-| **USB Hub (U3)**                      | USB2514Bi/M2 4-port USB 2.0 Hub IC                                              |
-| **LoRa® Header (CN2)**                | Debug Header                                                                    | 
-| **Debug Header (CN3)**                | LoRa® Debug Header                                                              |
-| **High Density Connectors (J1,J2)**   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors                               |
-| **Modem SMA Connector (J3)**          | Right-Angle SMA Connector for Modem                                             |
-| **LoRa® SMA Connector (J9)**          | Right-Angle SMA Connector for LoRa®                                             |
-| **FPC Connector (J4)**                | 2-1734248-0 FPC Connector                                                       |
-| **JTAG Header (CN1)**                 | FTSH-105-01-F-DV 10-pin JTAG Header                                             | 
-| **USB DBG0 (J10)**                    | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS                          | 
-| **USB DBG1 (J19)**                    | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS                       | 
-| **Grove Speaker Connector (J20)**     | 110990030 Grove Connector for Speaker                                           | 
-| **Header Connector (J5)**             | FW-20-05-G-D-254-150 Signal Break                                               | 
-| **4P4C CAN Connector (J7)**           | J6 615006138421 RS232/RS485 Connector J7 6                                      | 
-| **6P6C Serial Connector (J6)**        | 615006138421 RS232/RS485 Connector                                              | 
-| **PCIe Connector (J8)**               | 1759546-1 Mini PCIe Connector                                                   |
-| **Micro SD Connector (J11)**          | 114-00841-68 Micro SD Connector                                                 |
-| **Ethernet Connector (J17)**          | TRJK7003A97NL Gigabit Ethernet Connector                                        |
+| Connector (Ref.)                    | Description                                               |
+| ----------------------------------- | --------------------------------------------------------- |
+| **USB Hub (U3)**                    | USB2514Bi/M2 4-port USB 2.0 Hub IC                        |
+| **LoRa® Header (CN2)**              | Debug Header                                              |
+| **Debug Header (CN3)**              | LoRa® Debug Header                                        |
+| **High Density Connectors (J1,J2)** | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors         |
+| **Modem SMA Connector (J3)**        | Right-Angle SMA Connector for Modem                       |
+| **LoRa® SMA Connector (J9)**        | Right-Angle SMA Connector for LoRa®                       |
+| **FPC Connector (J4)**              | 2-1734248-0 FPC Connector                                 |
+| **JTAG Header (CN1)**               | FTSH-105-01-F-DV 10-pin JTAG Header                       |
+| **USB DBG0 (J10)**                  | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS    |
+| **USB DBG1 (J19)**                  | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
+| **Grove Connector for Audio (J20)** | 110990030 Grove Connector for a Speaker                   |
+| **Header Connector (J5)**           | FW-20-05-G-D-254-150 Signal Break                         |
+| **4P4C CAN Connector (J7)**         | J6 615006138421 RS232/RS485 Connector J7 6                |
+| **6P6C Serial Connector (J6)**      | 615006138421 RS232/RS485 Connector                        |
+| **PCIe Connector (J8)**             | 1759546-1 Mini PCIe Connector                             |
+| **Micro SD Connector (J11)**        | 114-00841-68 Micro SD Connector                           |
+| **Ethernet Connector (J17)**        | TRJK7003A97NL Gigabit Ethernet Connector                  |
 
-***PCIe connector is available on-board. However, only USB and I2C is available for use at the moment. PCIe is reserved at the moment and will let you know when it gets update in the near future.***
+***PCIe connector is available on-board. However, only USB and I<sub>2</sub>C is available for use at the moment.***
 
-It is worth noting that 4P4C connector establishes connection to **CAN Transceiver** based on [TJA1049T/3J](https://www.mouser.com/datasheet/2/302/TJA1049-1127979.pdf) IC. 
+It is worth noting that a 4P4C connector establishes the connection to the **CAN Transceiver** based on a [TJA1049T/3J](https://www.mouser.com/datasheet/2/302/TJA1049-1127979.pdf) IC. 
 
-The **Serial Transceiver** based on [SP335](https://assets.maxlinear.com/web/documents/sp335e.pdf) IC, which is a multi-protocl transceiver with support for RS-232, RS-485, and RS-422. It establishes connection via 6P6C connector and its default configurations are as follows:
+The **Serial Transceiver** based on [SP335](https://assets.maxlinear.com/web/documents/sp335e.pdf) IC, which is a multi-protocol transceiver with support for RS-232, RS-485, and RS-422. It establishes connection via 6P6C connector and its default configurations are as follows:
 
 - Full Duplex
 - 232 Protocol
@@ -246,34 +241,34 @@ The following peripheral table will help you guide through quickly about the sel
 
 | PERIPHERAL                 | PIN       | FUNCTION      | TYPE    | DESCRIPTION                         |
 | -------------------------- | --------- | ------------- | ------- | ----------------------------------- |
-| **LoRa® Header (CN2)**     |           |               |         |                                     | 
-|                            | 1         | +3V3          | Power   | +3V3 Power Rail                     | 
-|                            | 2         | LoRa_SWDIO    | Digital | LoRa® SWD Data Line                 | 
-|                            | 3, 5, 9   | GND           | Power   | Ground                              | 
-|                            | 6 ~ 8     | NC            | NC      | Not Connected                       | 
-|                            | 4         | LoRa_SWCLK    | Digital | LoRa® SWD Clock Line                | 
-|                            | 10        | LORA_RST      | Digital | LoRa® module reset pin              | 
-| **Debug Header (CN3)**     |           |               |         |                                     | 
+| **LoRa® Header (CN2)**     |           |               |         |                                     |
+|                            | 1         | +3V3          | Power   | +3V3 Power Rail                     |
+|                            | 2         | LoRa_SWDIO    | Digital | LoRa® SWD Data Line                 |
+|                            | 3, 5, 9   | GND           | Power   | Ground                              |
+|                            | 6 ~ 8     | NC            | NC      | Not Connected                       |
+|                            | 4         | LoRa_SWCLK    | Digital | LoRa® SWD Clock Line                |
+|                            | 10        | LORA_RST      | Digital | LoRa® module reset pin              |
+| **Debug Header (CN3)**     |           |               |         |                                     |
 |                            | 1         | 3V3_DBG       | Power   | +3V3 Power Rail                     |
 |                            | 2         | DBG_SWDIO     | Digital | SWD Data Line                       |
-|                            | 3, 5, 9   | GND           | Power   | Ground                              | 
+|                            | 3, 5, 9   | GND           | Power   | Ground                              |
 |                            | 4         | DBG_SWCLK     | Digital | SWD Clock Line                      |
 |                            | 6 ~ 8     | NC            | NC      | Not Connected                       |
 |                            | 10        | RST           | Digital | Reset Pin                           |
-| **JTAG Header (CN1)**      |           |               |         |                                     | 
+| **JTAG Header (CN1)**      |           |               |         |                                     |
 |                            | 1         | 3V3           | Power   | +3V3 Power Rail                     |
 |                            | 2         | JTAG_SWD      | Digital | JTAG SWD Data Line                  |
-|                            | 3, 5      | GND           | Power   | Ground                              | 
+|                            | 3, 5      | GND           | Power   | Ground                              |
 |                            | 4         | JTAG_SCK      | Digital | JTAG Clock Line                     |
 |                            | 6         | JTAG_SWO      | Digital | JTAG Trace Data Line                |
 |                            | 7         | NC            | NC      | Not Connected                       |
 |                            | 8         | JTAG_TDI      | Digital | JTAG Test Data In Line              |
 |                            | 9         | JTAG_TRST     | Digital | JTAG Test Reset Line                |
 |                            | 10        | JTAG_RST      | Digital | JTAG Reset Line                     |
-| **Header Connector (J5)**  |           |               |         |                                     | 
+| **Header Connector (J5)**  |           |               |         |                                     |
 |                            | 1         | 3V3           | Power   | +3V3 Power Rail                     |
 |                            | 2, 13, 14 | GND           | Power   | Ground                              |
-|                            | 3         | VREF_P        | Analog  | Positive Analog Voltage Reference   | 
+|                            | 3         | VREF_P        | Analog  | Positive Analog Voltage Reference   |
 |                            | 4         | VREF_N        | Analog  | Negative Analog Voltage Reference   |
 |                            | 5 ~ 12    | A0 ~ A7       | Analog  | Analog input 0 ~ 7                  |
 |                            | 15        | SAI_CK        | Digital | SAI Clock Line                      |
@@ -302,22 +297,22 @@ The following peripheral table will help you guide through quickly about the sel
 |                            | 38        | CAN1_TX       | Digital | CAN Transmission Line               |
 |                            | 39        | PWM3          | Digital | PWM Output 3                        |
 |                            | 40        | CAN1_RX       | Digital | CAN Receive Line                    |
-| **4P4C CAN Connector (J7)**|           |               |         |                                     | 
+| **4P4C CAN Connector (J7)**|           |               |         |                                     |
 |                            | 1         | 5V            | Power   | +5V (Fused)                         |
 |                            | 2         | CANL          | Diff.   | CAN Differential Signal Low         |
 |                            | 3         | CANH          | Diff.   | CAN Differential Signal High        |
-|                            | 4         | GND           | Power   | Ground                              | 
-| **6P6C Serial Conn. (J6)** |           |               |         |                                     | 
+|                            | 4         | GND           | Power   | Ground                              |
+| **6P6C Serial Conn. (J6)** |           |               |         |                                     |
 |                            | 1         | GND           | Power   | Ground                              |
 |                            | 2         | Z             | Digital | SP335 Out 1                         |
 |                            | 3         | Y             | Digital | SP335 Out 2                         |
 |                            | 4         | A             | Digital | SP335 In 2                          |
 |                            | 5         | B             | Digital | SP335 In 1                          |
-|                            | 6         | GND           | Power   | Ground                              | 
-| **PCIe Connector (J8)**    |           |               |         |                                     | 
+|                            | 6         | GND           | Power   | Ground                              |
+| **PCIe Connector (J8)**    |           |               |         |                                     |
 |                            | 1, 3, 5, 6, 8, 10, 12, 14, 16, 17, 19, 20, 24, 28, 37, 42 ~ 49, 51        | NC            | NC      | Not Connected                       |
 |                            | 2, 39, 41, 52             | 3V3_PCIE      | Power   | +3V3 Power Rail                     |
-|                            | 3, 9, 15, 18, 21, 26, 27, 29, 34, 35, 40, 50                              | GND           | Power   | Ground                              | 
+|                            | 3, 9, 15, 18, 21, 26, 27, 29, 34, 35, 40, 50                              | GND           | Power   | Ground                              |
 |                            | 7         | PCIE_CLKREQ   | Digital | PCIE Clock Request Signal           |
 |                            | 11        | mPCIe_CK_N    | Diff.   | PCIe Clock Differential Negative    |
 |                            | 13        | mPCIe_CK_P    | Diff.   | PCIe Clock Differential Positive    |
