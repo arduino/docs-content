@@ -160,7 +160,7 @@ Now that it is built we can run it with ```docker run```, finding it with the ta
 docker run -it --rm --user "63" x8-custom-test:latest
 ```
 
-### Using docker-compose
+### Using Docker-compose
 
 A option for testing an app or container is to use "docker-compose". This is helpful when we have a lot of settings in our "docker-compose.yml" file, since we don't have to use those settings in the run argument with this method. First navigate into the container folder.
 
