@@ -45,14 +45,14 @@ The complete folder will look like this:
 
 Lets go through what these files contain and do.
 
-### docker-buil.conf
+### Docker-build.conf
 A file containing the minimal "unit test" command to be executed on the container to prove it's working. Our file will make our containers minimal unit test a test of Python3 help command.
 
 ```python
 TEST_CMD="python3 --help"
 ```
 
-### docker-compose.yml
+### Docker-compose.yml
 This file defines the app name through the factory, permissions and settings for the involved containers. The argument in the image tag will make it so our image file builds locally.
 
 ```python
@@ -97,7 +97,7 @@ ENV UDEV=1
 CMD ["python","-u","main.py"]
 ```
 
-### requirements.txt
+### Requirements.txt
 
 ```python
 Flask==0.12.3
@@ -144,7 +144,7 @@ repo init -u https://source.foundries.io/factories/YOUR_FACTORY/containers.git -
 
 We can also run ```repo sync``` to get the latest version of the repository. Put the "x8-custom-test" folder in the repository. If you push the commit to "container.git" a new target will automatically build on your Foundries.io Factory page.
 
-*** NOTE: The "repo sync" will at some point pause. This is because it is waiting for a username and password but the prompt will be hidden. Enter the username and password to move on. ***
+***NOTE: The "repo sync" will at some point pause. This is because it is waiting for a username and password but the prompt will be hidden. Enter the username and password to move on.***
 
 ### Building and Running the Container
 
@@ -160,7 +160,7 @@ Now that it is built we can run it with ```docker run```, finding it with the ta
 docker run -it --rm --user "63" x8-custom-test:latest
 ```
 
-###  Using docker-compose
+### Using docker-compose
 
 A option for testing an app or container is to use "docker-compose". This is helpful when we have a lot of settings in our "docker-compose.yml" file, since we don't have to use those settings in the run argument with this method. First navigate into the container folder.
 
