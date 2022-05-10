@@ -273,7 +273,7 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 - **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi® and Bluetooth® connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications. 
 - **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
-## Accessories (not included)
+## Accessories (Not Included)
 - USB-C Hub
 - USB-C to HDMI Adapter
 
