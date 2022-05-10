@@ -1,6 +1,5 @@
 .babelrc
 .cache
-_templates
 algolia-queries.js
 envs
 gatsby-*

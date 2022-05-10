@@ -10,17 +10,19 @@ author: Benjamin Dannegård
 This tutorial will show you how to debug an Arduino sketch using the Portenta H7, Portenta Breakout board and the Segger J-link device. Using the Arduino IDE we will build a version of the sketch so that it can be used in Segger's Ozone debugger. 
 
 ## Goals
--   How to debug an Arduino sketch
--   How to connect the Portenta breakout to the Segger J-link device
--   How to use the Segger J-link and Portenta with the Ozone debugger
+
+- How to debug an Arduino sketch
+- How to connect the Portenta breakout to the Segger J-link device
+- How to use the Segger J-link and Portenta with the Ozone debugger
 
 ### Required Hardware and Software
--   Portenta H7 board (<https://store.arduino.cc/portenta-h7>)
--   Portenta Breakout board (<https://store.arduino.cc/portenta-breakout>)
--   Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+
--   J-link adapter
--   Segger J-link device
--   Segger Ozone
+
+- [Portenta H7 board](https://store.arduino.cc/portenta-h7)
+- [Portenta Breakout board](https://store.arduino.cc/portenta-breakout)
+- Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+
+- J-link adapter
+- Segger J-link device
+- Segger Ozone
 
 ## Instructions
 ### 1. Setting up with the Arduino IDE

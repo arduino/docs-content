@@ -21,8 +21,6 @@ The [UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2) is the conn
 - You will need to upgrade the firmware using either a **Windows/Mac/Linux** computer, prior to programming it via a Chromebook. Detailed instructions are provided in this tutorial, and the process only takes a few minutes!
 - It is only possible to use the [Web Editor](https://create.arduino.cc/editor), an online IDE that is part of the [Arduino Cloud](https://cloud.arduino.cc/).
 
-***Note that only the Web Editor is supported in Chromebooks. It is not possible to configure and upload to UNO WiFi Rev 2 boards via the [IoT Cloud](https://create.arduino.cc/iot/things).***
-
 ## Goals
 
 The goals of this project are:
@@ -33,58 +31,66 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- [Arduino IDE](https://www.arduino.cc/en/software).
+- AVRDUDE (instructions provided in the next section for each OS).
 - [Arduino Web Editor](https://create.arduino.cc/).
 - [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) (Chrome Web Store)
 - [Arduino UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2).
-
-***While you won't be using the Arduino IDE directly, you will be utilizing a tool called AVRDUDE that is included in each version of the IDE. If you wish to install just AVRDUDE, please refer to the [GitHub repository](https://github.com/avrdudes/avrdude).***
 
 ## Upgrading Firmware
 
 Since Chromebooks cannot run executables, the firmware upgrade for the UNO WiFi Rev 2 needs to be done through a Windows/Mac/Linux computer. 
 
-**1.** Make sure you have installed [Arduino IDE 1.8.X](https://www.arduino.cc/en/software).
-
-**2.** Download the [optiboot_atmega4.hex](/resources/firmware/optiboot_atmega4809.hex) file, and move it to your **Desktop folder**. 
+First download the [optiboot_atmega4.hex](/resources/firmware/optiboot_atmega4809.hex) file, and move it to your **Desktop folder**. 
 
 ![.hex file in your Desktop folder.](assets/hex-file-desktop.png)
 
-**3.** Open your Command Prompt (Windows) or Terminal (Mac/Linux), copy paste the command for your OS from the snippets below.
+Connect your UNO WiFi Rev2 board to your computer and follow the instructions for each operative system below.
+
+***It is important that you move the `optiboot_atmega4.hex` file to your desktop folder, otherwise the following commands won't work.***
 
 ### Mac
 
+**1.** Download the [AVRDUDE tool for Mac (.zip file)](https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-apple-darwin12.tar.bz2) and unzip it to your Desktop folder. 
+
+**2.** Open a terminal, and run the following command:
+
 ```
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C /Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
+/Users/$(whoami)/Desktop/avrdude/bin/avrdude -C/Users/$(whoami)/Desktop/avrdude/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
 ```
 
 ### Windows
 
+**1.** Download the [AVRDUDE tool for Windows (.zip file)](https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-i686-w64-mingw32.zip) and unzip it to your Desktop folder. 
+
+**2.** Open a command prompt (CMD), and run the following command:
+
 ```
-"C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avrdude.exe" -C "C:/Program Files (x86)/Arduino/hardware/tools/avr/etc/avrdude.conf" -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:%userprofile%\Desktop\optiboot_atmega4809.hex:i
+"%userprofile%/Desktop/avrdude/bin/avrdude.exe" -C "%userprofile%/Desktop/avrdude/etc/avrdude.conf" -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:%userprofile%\Desktop\optiboot_atmega4809.hex:i
 ```
 
-**4.** This will start a process of uploading the `.hex` file to your board. This will not take long, but make sure you do not disconnect the board from your computer. When finished, you should see the following output in the terminal (screen capture from Windows): 
+### Linux
 
-![Successful upgrade](assets/windows-success.png)
+**1.** Download the [AVRDUDE tool for Linux (.zip file)](https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-pc-linux-gnu.tar.bz2) and unzip it to your Desktop folder. 
 
-**5.** Now that your firmware is upgraded, you should see your board blinking (1 second off, followed by a quick blink). This is another proof that it was successful. You can now disconnect your board, and **plug it into your Chromebook.** 
-
-## Linux
-
-In the terminal, navigate to your root directory.
+**2.** Open a terminal, navigate to your root directory.
 
 ```
 cd /
 ```
 
-Then, run the following command:
+**3.** Run the following command:
 
 ```
-home/$(whoami)/Downloads/arduino-1.8.19-linux64/arduino-1.8.19/hardware/tools/avr/bin/avrdude -C home/$(whoami)/Downloads/arduino-1.8.19-linux64/arduino-1.8.19/hardware/tools/avr/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m  -Uflash:w:/home/$(whoami)/Desktop/optiboot_atmega4809.hex:i
+/Users/$(whoami)/Desktop/avrdude/bin/avrdude -C/Users/$(whoami)/Desktop/avrdude/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -b115200 -e -D -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:/Users/$(whoami)/Desktop/optiboot_atmega4809.hex:i
 ```
 
-***Please note that on Linux, the path to the AVRDUDE tool may vary.***
+### Expected Outcome
+
+This will start a process of uploading the `.hex` file to your board. This will not take long, but make sure you do not disconnect the board from your computer. When finished, you should see the following output in the terminal (screen capture from Windows): 
+
+![Successful upgrade](assets/windows-success.png)
+
+Now that your firmware is upgraded, you should see your board blinking (1 second off, followed by a quick blink). This is another proof that it was successful. You can now disconnect your board, and **plug it into your Chromebook.** 
 
 ### Check AVRDUDE Installation
 
@@ -93,26 +99,26 @@ The above commands utilizes a tool called **AVRDUDE**, which is included in each
 **Windows:**
 
 ```
-"C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avrdude.exe"
+"%userprofile%/Desktop/avrdude/bin/avrdude.exe"
 ```
 
 **Mac:**
 
 ```
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude
+/Users/$(whoami)/Desktop/avrdude/bin/avrdude
 ```
 
 **Linux:**
 
 ```
-/home/$(whoami)/Downloads/arduino-1.8.19-linux64/arduino-1.8.19/hardware/tools/avr/bin/avrdude
+/Users/$(whoami)/Desktop/avrdude/bin/avrdude
 ```
 
 ### Troubleshoot
 
 If the command fails to upgrade the firmware, please make sure that:
 
-- Arduino IDE / AVRDUDE is installed.
+- AVRDUDE is accessible (see above instructions). The commands are designed to look for the tool in the `Desktop` folder, so it will need to be unzipped there.
 - That you are using a Windows/Mac/Linux computer (remember, this cannot be performed on a Chromebook).
 - That you have the `.hex` file in the Desktop folder. The command is written to look for it in that specific folder, so if it is not present, it will not work.
 
@@ -144,6 +150,8 @@ To program your Arduino via a Chromebook, you will need the [Arduino Create for 
 
 Congratulations, you have now uploaded a sketch to your UNO WiFi Rev 2 using the Web Editor on a Chromebook.
 
+***For more details on using the Web Editor, visit the [Getting Started with Web Editor guide](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
+
 ### Troubleshoot
 
 If things are not working as expected:
@@ -153,4 +161,6 @@ If things are not working as expected:
 
 ## Conclusion
 
-In this tutorial, we learned how to upload sketches to the UNO WiFi Rev 2 board, using the Web Editor on a Chromebook. For more tutorials on the UNO WiFi Rev 2 board, visit the [official documentation](/hardware/uno-wifi-rev2).
+In this tutorial, we learned how to prepare the UNO WiFi Rev 2 board, to be used on a Chromebook. This was done by loading a specific hardware to the board, using the **AVRDUDE** tool and some custom commands.
+
+For more tutorials on the UNO WiFi Rev 2 board, visit the [official documentation](/hardware/uno-wifi-rev2).

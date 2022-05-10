@@ -43,7 +43,7 @@ This document has additional information about [using the CLI and OpenWRT](http:
 
 SSH is shorthand for Secure Shell, a terminal protocol for securely connecting between two computers. You'll use SSH to connect between your computer and the Yún.
 
-To connect via SSH, you need the IP address of the Yún, the administrator password, and you'll need to have the Arduino and the computer you're using on the same network. To find the Yun's IP address, make sure you're on the same wireless network, and open the Arduino software. Check the *Ports* list, the Yún should be listed with its address.
+To connect via SSH, you need the IP address of the Yún, the administrator password, and you'll need to have the Arduino and the computer you're using on the same network. To find the Yun's IP address, make sure you're on the same wireless network, and open the Arduino software. Check the **Ports** list, the Yún should be listed with its address.
 
 To connect to your Yún via SSH, open your terminal application, type the following, substituting the IP address for that of your Yún :
 

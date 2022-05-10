@@ -156,7 +156,7 @@ void loop() {
 
 The 19.6.1 firmware is only available for model B of the WINC1500, this is used in the MKR1000 board. Unfortunately, the WiFi101 shield uses model A, which Atmel has stopped supporting, so there is no 19.6.1 firmware release for it, 19.4.4 will be the latest firmware version that is compatible.
 
-To simplify the process, we have prepared a specific sketch - this *FirmwareUpdater* - that you must load on the host board (either the one with the shield plugged in, or the MKR1000 itself) and an easy to use plug-in available in Arduino Software (IDE) 1.6.10 onwards.
+To simplify the process, we have prepared a specific sketch - this **FirmwareUpdater** - that you must load on the host board (either the one with the shield plugged in, or the MKR1000 itself) and an easy to use plug-in available in Arduino Software (IDE) 1.6.10 onwards.
 
 The `FirmwareUpdater.ino` sketch is available in **Examples > WiFi101**
 
@@ -180,7 +180,7 @@ To update the firmware you should choose the right typer of board. You can find 
 
 ![Find the model.](assets/MKR1000_RevA_B_20copy.png)
 
-Choose in the dropdown list the model corresponding to your unit and proceed clicking on the *Update Firmware button*. A bar at the bottom will show you the progress of the procedure that includes erasing, writing and verifying of the firmware. At the end you get a clear notice of the successful operation.
+Choose in the dropdown list the model corresponding to your unit and proceed clicking on the **Update Firmware button**. A bar at the bottom will show you the progress of the procedure that includes erasing, writing and verifying of the firmware. At the end you get a clear notice of the successful operation.
 
 ![Firmware has been updated.](assets/firmware_uploaded_101.png)
 
@@ -189,7 +189,7 @@ Choose in the dropdown list the model corresponding to your unit and proceed cli
 With the same procedure, you may load root certificates on the WiFi module to access securely specific websites. Your board must be running the **FirmwareUpdater** sketch to work .The root certificates are issued by a limited number of certification authorities, but it is difficult to know which site is using which authority. To ease your life, we allow you to specify directly the URL to which you need to connect securely, leaving to us the task to download the root certificate.
 The list you are building is not saved from one session to the next one. It might happen that a few websites share the same root certificate. You don't have to worry about this as we take care of it. The space available on your WiFi module to store the certificates is limited to around 10 certificates that, being issued by a limited number of authorities, should be more than enough for the average projects.
 
-The procedure starts connecting your board (either the one with the shield plugged in, or the MKR1000 itself) to your computer and selecting it from the Tools menu of the Arduino Software (IDE). Load the FirmwareUpdater on the board and launch the *WiFi 101 Firmware Updater* from Tools and go to the third section of the interface.
+The procedure starts connecting your board (either the one with the shield plugged in, or the MKR1000 itself) to your computer and selecting it from the Tools menu of the Arduino Software (IDE). Load the FirmwareUpdater on the board and launch the **WiFi 101 Firmware Updater** from Tools and go to the third section of the interface.
 
 ![Adding SSL root certificates.](assets/certificates_upload_101.png)
 

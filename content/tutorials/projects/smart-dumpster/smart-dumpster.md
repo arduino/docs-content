@@ -1,5 +1,5 @@
 ---
-title: "Smart Dumpster © CC BY-NC"
+title: "Smart Dumpster"
 description: "Monitor a dumpster's status with flame, movement, and fill level sensors connected to a MKR NB 1500."
 coverImage: "assets/blob_XBhvp3tw65.png"
 tags: [data collection, environmental sensing, greener planet]

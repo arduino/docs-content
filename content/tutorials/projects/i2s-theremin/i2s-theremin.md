@@ -1,5 +1,5 @@
 ---
-title: "I2S Theremin © GPL3+"
+title: "I2S Theremin"
 description: "Discover how to make an I2S Theremin based on the new Arduino I2S library."
 coverImage: "assets/1XxDkvet6xpYPKeYpUNM.png"
 tags: [audio, maker]

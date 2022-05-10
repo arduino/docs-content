@@ -14,6 +14,17 @@
             "program": "validate.js",
             "args": ["-p", "../../content"],
             "cwd": "${workspaceFolder}/scripts/validation/"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Debug Quickfix",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "fix-issues.js",
+            "args": ["-p", "../../content"],
+            "cwd": "${workspaceFolder}/scripts/validation/"
         }
     ]
 }

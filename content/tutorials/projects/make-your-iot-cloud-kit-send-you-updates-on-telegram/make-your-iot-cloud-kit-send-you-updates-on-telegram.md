@@ -1,5 +1,5 @@
 ---
-title: "Make Your IoT Cloud Kit Send You Updates on Telegram © GPL3+"
+title: "Make Your IoT Cloud Kit Send You Updates on Telegram"
 description: "Read, monitor and get notified about environmental data using Arduino MKR(s), the Environmental Shield, and MKR Relay Proto Shield."
 coverImage: "assets/blob_VQVTggaLFW.png"
 tags: [environmental sensing, telegram]

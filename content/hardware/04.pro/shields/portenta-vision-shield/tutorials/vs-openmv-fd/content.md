@@ -11,14 +11,16 @@ author: Sebastian Romero, Lenard George
 In this tutorial you will build a MicroPython application with OpenMV that uses the Portenta Vision Shield to detect faces and overlay them with a custom bitmap image. Think of it as building your own camera filter that puts a smile on every face it detects. This tutorial is based on the face detection example that comes with the OpenMV IDE.
 
 ## Goals
+
 - How to use the OpenMV IDE to run MicroPython on Portenta
 - How to use the built-in face detection algorithm of OpenMV
 - Copying files to the internal Flash of the Portenta
 - Using MicroPython to read files from the internal Flash
 
 ### Required Hardware and Software
-- Portenta H7 board (<https://store.arduino.cc/portenta-h7>)
-- Arduino Portenta Vision Shield (https://store.arduino.cc/portenta-vision-shield)
+
+- [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta Vision Shield](https://store.arduino.cc/portenta-vision-shield)
 - USB C cable (either USB A to USB C or USB C to USB C)
 - Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
 - Portenta Bootloader Version 20+
@@ -38,7 +40,7 @@ The built-in Haar Cascade model for faces was trained with hundreds of images co
 
 ### Creating the Face Detection Script
 
-For this tutorial you will be using the OpenMV IDE along with the OpenMV firmware on your Portenta H7 to build the face detection script. If this is your first time using the Vision Carrier and OpenMV we recommend you to take a look at the "Configuring the Development Environment" section inside the [Blob Detection tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/por-openmv-bt) to configure the development environment. 
+For this tutorial you will be using the OpenMV IDE along with the OpenMV firmware on your Portenta H7 to build the face detection script. If this is your first time using the Vision Carrier and OpenMV we recommend you to take a look at the "Configuring the Development Environment" section inside the [Blob Detection tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/vs-openmv-bt) to configure the development environment. 
 
 ### 1. The Basic Setup
 

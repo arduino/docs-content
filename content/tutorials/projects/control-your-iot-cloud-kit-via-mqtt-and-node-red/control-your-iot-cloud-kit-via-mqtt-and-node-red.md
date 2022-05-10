@@ -1,5 +1,5 @@
 ---
-title: "Control Your IoT Cloud Kit via MQTT and Node-RED © CC BY"
+title: "Control Your IoT Cloud Kit via MQTT and Node-RED"
 description: "We are going to use popular tools such as Node-RED and the MQTT protocol to create a simple dashabord esposing data and a simple UI"
 coverImage: "assets/blob_Q08iq374rE.png"
 tags: [environmental sensing, mqtt, node-red]

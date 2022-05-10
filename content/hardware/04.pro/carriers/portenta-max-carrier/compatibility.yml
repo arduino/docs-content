@@ -9,7 +9,4 @@ hardware:
     - portenta-h7
     - portenta-h7-lite
     - portenta-h7-lite-connected
-<<<<<<< HEAD
-=======
     - portenta-x8
->>>>>>> 618748741d141c57f0269b2b27fdb05ec44ec2d6

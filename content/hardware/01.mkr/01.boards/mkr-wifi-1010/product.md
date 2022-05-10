@@ -6,6 +6,7 @@ draft: true
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrwifi1010/147'
 certifications: [FCC,UKCA, IC, REACH, RED, RoHS, WEEE]
+productCode: '025'
 ---
 
 <SubTitle>The easiest entry point to basic IoT and pico-network application design.</SubTitle>

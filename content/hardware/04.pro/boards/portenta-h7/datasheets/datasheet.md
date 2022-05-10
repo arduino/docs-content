@@ -54,9 +54,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Connectivity</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
-         <td style="text-align: center;">Ethernet FHY</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi / Bluetooth® Low Energy</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
+         <td style="text-align: center;">Ethernet PHY</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>
@@ -90,13 +90,13 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>
       <tr>
-         <td rowspan="36" style="vertical-align: top;" >ST STM32H747XI Processor</td>
+         <td rowspan="35" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td style="vertical-align: top;">Dual Core</td>
          <td>
             <p>Arm® Cortex®-M7 core at up to 480 MHz with double-precision FPU and 16K data + 16K instruction L1 cache</p>
             <p>Arm® 32-bit Cortex®-M4 core at up to 240 MHz with FPU, Adaptive real-time accelerator (ART AcceleratorTM)</p>
          </td>
-         <td rowspan="38" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+         <td rowspan="37" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td style="vertical-align: top;">Flash Memory</td>
@@ -131,10 +131,6 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td>Voltage scaling in Run and Stop mode 6 configurable ranges</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2.95μA in Standby mode Backup SRAM OFF, RTC/LSE/ON</td>
          <td></td>
       </tr>
       <tr>
@@ -485,7 +481,7 @@ Laboratory equipment, Computer vision
 | GND     | Cable Ground                                                 | TX1 +/- TX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
 | VBUS    | Cable bus power                                              | RX1 +/- RX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
 | D+/D-   | USB 2.0 Interface                                            | SBU1 SBU2       | For sideband use  (Not used for USB)                     |
-| CC1 CC2 | Plug configuration detection * One becomes VCONN for cable or adaptor power * CC is used for USB-PD communication |                 |                                                          |
+| CC1 CC2 | Plug configuration detection \* One becomes VCONN for cable or adaptor power \* CC is used for USB-PD communication |                 |                                                          |
 
 ### High Density Connector
 

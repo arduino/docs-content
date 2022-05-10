@@ -26,12 +26,14 @@ software:
 In this tutorial you will learn to use [LVGL](https://lvgl.io/) to create a simple graphical user interface that consists of a text label that updates itself.
 
 ## Goals
+
 -   Understanding the structure to build LVGL interfaces.
 -   Building a simple UI with a text label. 
 -   Configuring the setup to display the User-Interface. 
 
 ### Required Hardware and Software
--   Portenta H7 (ABX00042) board (<https://store.arduino.cc/portenta-h7>)
+
+-   [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7)
 -   USB-C cable (either USB-A to USB-C or USB-C to USB-C)
 -   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
 -   USB-C hub with HDMI
@@ -40,7 +42,7 @@ In this tutorial you will learn to use [LVGL](https://lvgl.io/) to create a simp
 
 ## The Light and Versatile Graphics Library
 
-Graphical User interfaces are necessary for visualising information and interacting with certain aspects of an application. The Light and Versatile Graphics Library, also known as [LVGL](https://lvgl.io/), is an open-sourced library used to create graphical user-interfaces for microcontrollers and high-end processors. The light weight embedded library provides all the necessary widgets and user interface elements that will allow you to easily create user interfaces for displays and touch screens.
+Graphical User interfaces are necessary for visualizing information and interacting with certain aspects of an application. The Light and Versatile Graphics Library, also known as [LVGL](https://lvgl.io/), is an open-sourced library used to create graphical user-interfaces for microcontrollers and high-end processors. The light weight embedded library provides all the necessary widgets and user interface elements that will allow you to easily create user interfaces for displays and touch screens.
 
 ## Instructions
 
@@ -58,11 +60,11 @@ Begin by plugging your Portenta board into the computer using a USB-C cable and 
 
 ### 2. Download the LVGL Library
 
-Next, select 'Portenta' in the **Tools -> Board** menu before installing [lvgl](https://github.com/lvgl/lvgl) from the Library Manager. Then go to **Sketch** **->** **Include Libraries** **-> Manage Libraries** and search for LVGL. Download **lvgl ** by [kisvegabor](https://github.com/kisvegabor).  
+Next, select 'Portenta' in the **Tools > Board** menu before installing [lvgl](https://github.com/lvgl/lvgl) from the Library Manager. Then go to **Sketch > Include Libraries > Manage Libraries** and search for LVGL. Download **lvgl** by [kisvegabor](https://github.com/kisvegabor).  
 
 ![Library Manager showing the installed lvgl library.](assets/por_ard_lvgl_select_library.png)
 
-***The sketches that we show are using the version 7.11.0, if you have the version 8 or greater you will need to make changes on the code, check LVGL API docs to see the update changes <https://docs.lvgl.io/master/>***
+***The sketches that we show are using the version 7.11.0, if you have the version 8 or greater you will need to make changes on the code, check LVGL API docs to see the update changes: <https://docs.lvgl.io/master/>.***
 
 ### 3. Adding a Label Widget
 
@@ -104,11 +106,11 @@ This sketch creates a label that will be displayed in the center of the connecte
 
 Compile and upload the sketch to your Portenta H7. At this point your board becomes the host. Unplug the board from your computer and connect it to the USB-hub along with a monitor that is connected to the HDMI port. Power up your hub by connecting it to an external power source and the monitor will display a label saying `Counter`. 
 
-   ![Connecting the USB peripherals and the display to Portenta.](assets/por_ard_lvgl_connect_monitor.svg)
+![Connecting the USB peripherals and the display to Portenta.](assets/por_ard_lvgl_connect_monitor.svg)
 
-   ***If you aren't familiar how the USB host works, we recommend you to have a look at the [USB Host tutorial](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-usb)***
+***If you aren't familiar how the USB host works, we recommend you to have a look at the [USB Host tutorial](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-usb).***
 
-Our label object currently has LVGL's default style. If you want to customise the style you can have a look at LVGL's [documentation](https://docs.lvgl.io/latest/en/html/widgets/label.html).
+Our label object currently has LVGL's default style. If you want to customize the style you can have a look at LVGL's [documentation](https://docs.lvgl.io/latest/en/html/widgets/label.html).
 
 ### 5. Creating a Simple Counter
 
@@ -208,12 +210,15 @@ This tutorial shows how to build a simple user interface with your Portenta. Sta
 Now that you know how to build a simple UI for a screen, you can try to add more labels to the screen to show various information or try out different LVGL widgets.
 
 ## Troubleshooting
+
 ### Counter Label Doesn't Update
+
 - Make sure that the label and task are declared on top of the sketch, outside the `setup()` and `loop()` like a normal variable.
 - Check if the task has the same structure in the first declaration and the function creation.
 - Look inside the `loop()` and see if `lv_task_handler()` is there.
 
 ### Sketch Upload Troubleshooting
+
 - If you have troubles uploading the sketch, try to first set the board in bootloader mode, by clicking the reset button twice, then you should see the built-in LED pulsating.
 - If you uploaded the sketch and you don't have any output in the display, make sure you have `portenta_init_video()` in the `setup()`.
 - Unplug and plug the HDMI cable in again.

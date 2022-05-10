@@ -426,4 +426,4 @@ unsigned int readRegister(byte registerName, int numBytes) {
 }
 ```
 
-*Last revision 2018/09/07 by SM*
+**Last revision 2018/09/07 by SM**

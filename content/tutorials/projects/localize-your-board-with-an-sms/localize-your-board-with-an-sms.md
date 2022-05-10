@@ -1,5 +1,5 @@
 ---
-title: "Localize Your Board with an SMS © CC BY"
+title: "Localize Your Board with an SMS"
 description: "Get the position of your MKR GSM 1400 on your smartphone through an SMS with a Google Maps link."
 coverImage: "assets/blob_FLqNPWjaVR.png"
 tags: [monitoring, tracking]

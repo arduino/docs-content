@@ -65,7 +65,7 @@ void loop() {
   Process p;
 ```
 
-Pass `runShellCommand()` the path of the script you wish to run, along with any additional commands. In this case, you'll call "grep Signal" to pull out just the signal strength of the WiFi connection.
+Pass `runShellCommand()` the path of the script you wish to run, along with any additional commands. In this case, you'll call "grep Signal" to pull out just the signal strength of the Wi-Fi connection.
 
 `p.runShellCommand("/usr/bin/pretty-wifi-info.lua | grep Signal");`
 
@@ -92,7 +92,7 @@ while (p.available()) {
 }
 ```
 
-The LED should change its brightness as the WiFi signal strength fluctuates.
+The LED should change its brightness as the Wi-Fi signal strength fluctuates.
 
 ## Complete Sketch
 
@@ -180,4 +180,4 @@ void loop() {
 ```
 
 
-*Last revision 2016/05/25 by SM*
+**Last revision 2016/05/25 by SM**
