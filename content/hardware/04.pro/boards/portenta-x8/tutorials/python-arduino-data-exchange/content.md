@@ -20,7 +20,7 @@ The container infrastructure provided by Arduino contains a pre-built Python ima
 - Learn how to modify a container and run it
 - Learn how to use commands to debug the container and service infrastructure
 
-### Required Hardware and Software
+## Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8) board
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout) board
