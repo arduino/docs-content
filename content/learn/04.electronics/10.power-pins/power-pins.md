@@ -9,7 +9,7 @@ tags:
   - Vin
   - USB
   - Barrel jack
-author: 'José Bagur, Taddy Chung'
+author: 'José Bagur, Taddy Chung, Karl Söderby'
 ---
 
 Arduino boards can be powered in several ways; we can use dedicated **connectors** (USB ports and barrel jacks) or dedicated **pins**. One fundamental question that usually arises when using an Arduino board in real-life applications is what dedicated power connector or pin we should use. This article will describe the main characteristics and correct use of power pins and connectors of Arduino boards.
@@ -19,17 +19,15 @@ Arduino boards can be powered in several ways; we can use dedicated **connectors
 
 Arduino boards have **four** ways in which they can be powered:
 
-1. Powering via USB connector.
+1. Powering via USB connector
 
-2. Powering via a barrel jack connector / JST connector if available on the board.
+2. Powering via a barrel jack connector / JST connector if available on the board
 
-3. Powering via the VIN (Voltage In) pin.
+3. Powering via the VIN (Voltage In) pin
 
-4. Powering via the 3V3/5V pin*\
+4. Powering via the 3V3/5V pin*
 
-***\* Powering your board via the 3V3/5V pin is not recommended, as it can damage your board easily. This is described [here](#link-to-section).***
-
-
+***\*Powering your board via the 3V3/5V pins is not recommended, as it can damage your board's voltage regulator. Read more [here](#3v35v-pin).***
 
 
 In this article, we will examine the alternatives to power your Arduino more in-depth.
@@ -46,6 +44,7 @@ Something important about the USB connection is the current rating of the USB ho
 
 ***Current from USB ports of computers is usually limited to 500mA.***
 
+
 ## Barrel Jack Connector
 
 
@@ -59,14 +58,15 @@ Some Arduino boards have an **onboard barrel jack connector** that is used to co
 - [Arduino Due](https://store.arduino.cc/collections/boards/products/arduino-due)
 - [Arduino Zero](https://store.arduino.cc/collections/boards/products/arduino-zero)
 
-***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin.***
+
+***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin. They use a a negative 5.5mm sleeve and a 2.1mm positive pin***
 
 
-The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3. The recommended voltages for the external power supply are summarized in the table below:
+The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3 in most Arduino boards. The recommended voltage and current ratings for external regulated power supplies connected to the barrel jack connector are summarized in the table below:
+
 
 |          Board         | External Power Supply Voltage (V) | External Power Supply Current (A) |
-|----------------------|---------------------------------|---------------------------------|
-
+|:----------------------:|:---------------------------------:|:---------------------------------:|
 |    Arduino UNO Rev3    |                7-12               |                 1                 |
 |  Arduino UNO WiFi Rev2 |               4.5-21              |                1.5                |
 |    Arduino Leonardo    |                7-12               |                 1                 |
@@ -74,21 +74,21 @@ The voltage line from the barrel jack connector is regulated in Arduino boards u
 |       Arduino Due      |               4.5-21              |                1.5                |
 |      Arduino Zero      |                3-20               |                 1                 |
 
+
  ## VIN Pin
 
 
-The VIN pin in Arduino boards is a power pin with a dual function. This pin can work as a **voltage input for external power supplies** that do not use a barrel jack connector. This pin can also work as a voltage output when an external power supply is connected to the barrel jack connector present in some Arduino boards. An important consideration is that the Vin pin is connected directly to the input pin of the 5V voltage regulator on Arduino boards. Since the VIN pin is directly connected to the voltage regulator, the VIN pin does not have reverse polarity protection. 
+The VIN pin in Arduino boards is a power pin with a dual function. This pin can work as a **voltage input for regulated external power supplies** that do not use a barrel jack connector. This pin can also work as a **voltage output when an external power supply is connected to the barrel jack connector** present in some Arduino boards. An important consideration is that the Vin pin is connected directly to the input pin of the onboard voltage regulator on Arduino boards. Since the VIN pin is directly connected to the voltage regulator, the **VIN pin does not have reverse polarity protection**. 
 
 
 ***Use the VIN pin carefully to avoid damaging your Arduino board since it does not have reverse polarity protection.***
 
 
-The **minimum and maximum voltages** that can be applied to the VIN pin are determined by the onboard 5V voltage regulator on Arduino boards, varying from board to board. Those voltages are summarized in the table below:
+The **minimum and maximum voltages** that can be applied to the VIN pin are determined by the onboard voltage regulator on Arduino boards, varying from board to board. Those voltages are summarized in the table below:
 
 
 |      **Board**      | **VIN Minimum Voltage (V)** | **VIN Maximum Voltage (V)** |
-
-|---------------------|-----------------------------|-----------------------------|
+|:-------------------:|:---------------------------:|:---------------------------:|
 |       UNO Mini      |             4.5             |              21             |
 |       UNO Rev3      |              7              |              12             |
 |    UNO WiFi Rev2    |              7              |              12             |
@@ -98,7 +98,7 @@ The **minimum and maximum voltages** that can be applied to the VIN pin are dete
 |        Micro        |              7              |              12             |
 |         Zero        |              3              |              20             |
 |     Portenta H7     |             4.1             |              6              |
-|   Nicla Sense ME*   |             3.4             |             5.5             |
+|   Nicla Sense ME    |             3.4             |             5.5             |
 | Nano RP2040 Connect |              3              |              22             |
 |     MKR NB 1500     |             3.9             |              17             |
 |    MKR Vidor 4000   |             3.9             |              17             |
@@ -113,16 +113,27 @@ The **minimum and maximum voltages** that can be applied to the VIN pin are dete
 |     Nano 33 BLE     |             4.5             |              21             |
 |  Nano 33 BLE Sense  |             4.5             |              21             |
 
+
 ## 3V3/5V Pin 
 
-3V3 and 5V pins are also power pins with a dual function. They can work as **power outputs** since these pins are directly connected to the onboard 3V3 and 5V voltage regulators outputs (depending on the board). Moreover, 3V3 and 5V power pins can also be used as **power inputs** if no power supply is connected through the board's USB port or barrel jack connector.
 
-***Since 3V3 and 5V pins are directly connected to the onboard's 3V3 and 5V voltage regulators outputs, these pins have no reverse polarity protection. Use them carefully when working as power inputs to avoid damaging your board.***
+3V3 and 5V pins are also power pins with a dual function. They can work as **power outputs** since these pins are directly connected to the onboard 3V3 and 5V voltage regulators outputs (depending on the board). Moreover, 3V3 and 5V pins can also be used as **power inputs if no regulated power supply is connected through the other power inputs (USB port, barrel jack connector or VIN pin)**.
 
-The **maximum current** that can be drawn from the 3V3 and 5V pins is summarized in the table below:
+
+***Since 3V3 and 5V pins are directly connected to the onboard's 3V3 and 5V voltage regulators outputs, these pins have no reverse polarity protection. Use them carefully when working as power inputs to avoid damaging your board's voltage regulator.***
+
+
+Although 3V3 and 5V pins can be used as power inputs, **it is not recommended** if no power supply is connected through the USB port, the barrel jack connector, or the VIN pin. 3V3 and 5V pins are connected directly to the onboard voltage regulator's output pin. Suppose the voltage in the voltage regulator output pin becomes higher than the input voltage of the voltage regulator. In that case, a large current may flow into the voltage regulator from its output pin to its input pin. That large current can permanently damage your board's voltage regulator.
+
+
+***It is safe but not recommended to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.*** 
+
+
+The **maximum current** drawn from the 3V3 and 5V pins are summarized below. Notice that this current can be provided by the 3V3 and 5V onboard voltage regulators or from the power source connected to the board:
+
 
 |      **Board**      | **Vin Minimum Voltage (V)** | **Vin Maximum Voltage (V)** |
-|---------------------|-----------------------------|-----------------------------|
+|:-------------------:|:---------------------------:|:---------------------------:|
 |       UNO Mini      |             4.5             |              21             |
 |       UNO Rev3      |              7              |              12             |
 |    UNO WiFi Rev2    |              7              |              12             |
