@@ -399,7 +399,7 @@ Now that you have gone through the basics of what you can do with the board you 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by configuring DIP switches. 
 
-***Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier or Portenta Breakout) is required to enable bootloader mode. Bootloader cannot be reached with the Portenta X8 alone.***
+**Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
 
 # Mechanical Information
 
