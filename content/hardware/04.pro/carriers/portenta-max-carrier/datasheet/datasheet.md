@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![Max Carrier board](assets/featured.png)
 
 # Description 
-Enable edge AI for high performance industrial, building automation and robotics applications with the Portenta Max Carrier. The Portenta Max Carrier transforms the Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Portenta Max Carrier provides easy access to the onboard peripherals of the Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
+Enable edge AI for high performance industrial, building automation and robotics applications with the Portenta Max Carrier. The Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
 
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
