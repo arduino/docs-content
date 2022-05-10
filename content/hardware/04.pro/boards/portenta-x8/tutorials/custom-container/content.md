@@ -5,7 +5,7 @@ tags: [Linux, Python, Containers, ADB]
 description: This tutorial will show you how to create and upload your custom container to your Portenta X8
 author: Benjamin Dannegård
 hardware:
-  - hardware/04.pro/board/portenta-x8
+  - hardware/04.pro/boards/portenta-x8
 software:
   - adb
 ---
