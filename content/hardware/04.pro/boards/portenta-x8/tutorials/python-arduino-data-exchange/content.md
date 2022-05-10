@@ -24,7 +24,7 @@ The container infrastructure provided by Arduino contains a pre-built Python ima
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8) board
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout) board
-- Any sensor (in this example we'll use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sub>2</sub>C module)
+- Any sensor (in this example we'll use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
 
 ## Python on the X8
 
@@ -57,7 +57,7 @@ Two additional header files need to be included:
 
 The bind function makes the data available via the specified name e.g. "temperature". In our example an anonymous function is created that returns the corresponding sensor property whenever requested. Alternatively you could bind the name to an existing, named function instead. The data can then easily be requested using that name (e.g. "humidity") by querying the `m4-proxy` service. Once data is being requested it is packaged as a message and sent over SPI to the iMX8.
 
-You can find the sketch in the software package [here](assets/python-sensor-rpc.zip). You may need to change the sketch depending on what sensor you would like to read from. If you're using an I2C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout. That's because the labeled I2C pins on the Portenta Breakout are only available on the Linux side. If you're using an analog sensor you can connect it to any analog pin. Please refer to the pinout diagram on the Portenta Breakout [documentation page](/hardware/portenta-breakout).
+You can find the sketch in the software package [here](assets/python-sensor-rpc.zip). You may need to change the sketch depending on what sensor you would like to read from. If you're using an I<sup>2</sup>C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout. That's because the labeled I<sup>2</sup>C pins on the Portenta Breakout are only available on the Linux side. If you're using an analog sensor you can connect it to any analog pin. Please refer to the pinout diagram on the Portenta Breakout [documentation page](/hardware/portenta-breakout).
 
 Make sure you've installed the "Arduino Mbed OS Portenta Boards" core and upload the sketch to the X8 in the Arduino IDE or via Arduino CLI.
 
