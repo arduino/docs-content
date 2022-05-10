@@ -5,16 +5,16 @@ type: pro
 author: Ali Jahangiri
 ---
 
-![Max Carrier board](assets/maxCarrierShowcase.png)
+![Max Carrier board](assets/featured.png)
 
 # Description 
-Enable edge AI for high performance industrial, building automation and robotics applications with the Arduino® Portenta Max Carrier. The Arduino® Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Arduino® Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Arduino® Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
+Enable edge AI for high performance industrial, building automation and robotics applications with the Portenta Max Carrier. The Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
 
 # Target areas:
 Industry 4.0, prototyping, robotics, data logging 
 
 # Features
-**Note**: This board needs the Arduino® Portenta X8 for full functionality. Not all features are available with the Arduino® Portenta H7.  
+**Note**: This board needs the Portenta X8 for full functionality. Not all features are available with the Arduino® Portenta H7.  
 
 *   **High Density connectors compatible with Portenta family**
 *   **Memory**
@@ -42,13 +42,13 @@ Industry 4.0, prototyping, robotics, data logging
 
 ## The Board
 ### Application Examples
-The Arduino® Portenta Max Carrier provides the user with almost limitless possibilities to create edge computing applications. Together with the Arduino® Portenta X8, there is a wide range of application options.
+The Portenta Max Carrier provides the user with almost limitless possibilities to create edge computing applications. Together with the Portenta X8, there is a wide range of application options.
 
 **Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino IoT Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
 
 **Digital Smart Kiosk:** Develop fully-fledged Information Kiosks, Point of Sales devices or other HMI solutions with the Portenta Max Carrier. Increase the productivity and satisfaction of your personnel and customers with real time information. The Portenta Max Carrier can be part of your solution for real time assessment of production environments, just-in-time management of warehouses, patient centric healthcare experiences and mobility management with a streamlined development process
 
-**Reference Design:** The Arduino Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
+**Reference Design:** The Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
 ### Accessories (Not Included)
 *   Mini PCIe expansion boards
@@ -59,11 +59,6 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 ### Related Products
 *   Portenta H7 (Partial support)
 *   Portenta X8
-
-### Solution Overview
-![Carrier assembly](assets/maxCarrierAssembly.png)
-
-*Example of a typical application for a solution including the Portenta Max Carrier and Portenta X8 with posts mounted.*
 
 ## Ratings
 
@@ -114,7 +109,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB (J10). The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
 
 ### Audio
-The Arduino Portenta Max Carrier enables connection connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. Configuration of the CS42L52 is achieved over I2C. The CS42L52 IC operates over the 1V8 rail.
+The Portenta Max Carrier enables connection connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. Configuration of the CS42L52 is achieved over I2C. The CS42L52 IC operates over the 1V8 rail.
 
 There are four analog audio interfaces accessible on the Portenta Max Carrier:
 
@@ -134,12 +129,12 @@ The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-
 The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23). This module operates on 3V3. A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
 
 ### Mini PCIe 
-The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 2 removable standoffs for external module support. To use the spacer, add the plastic spacer on the top side of the board then attach the M2.5 screw from the back together with the washer. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
+The Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 2 removable standoffs for external module support. To use the spacer, add the plastic spacer on the top side of the board then attach the M2.5 screw from the back together with the washer. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
 
 **Note:** USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
 
 ### USB
-The Arduino Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
+The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
 
 ### Ethernet 
 The Gigabit Ethernet physical interface (J17) is directly connected to the high density connector to the Portenta board. The connector includes an activity LED indication (orange) and speed indication (green).
@@ -147,7 +142,7 @@ The Gigabit Ethernet physical interface (J17) is directly connected to the high 
 **Note:** Gigabit Ethernet functionality is only supported on the Portenta X8.
 
 ### Serial Transceiver 
-The Arduino Portenta Max Carrier includes a multi-protocol transceiver supporting RS-232, RS-485, and RS-422 serial standards (configurable) based on the SP335 IC. It is connected to a 6P6C Connector (RJ11, RJ12, RJ14, RJ25).
+The Portenta Max Carrier includes a multi-protocol transceiver supporting RS-232, RS-485, and RS-422 serial standards (configurable) based on the SP335 IC. It is connected to a 6P6C Connector (RJ11, RJ12, RJ14, RJ25).
 
 Default configuration:
 *   Full Duplex
@@ -156,7 +151,7 @@ Default configuration:
 *   Enabled
 
 ### CAN Transceiver
-The Arduino Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
+The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
 
 ### Micro SD Card Slot
 The on board Micro SD card can be used for data logging operations.
@@ -499,4 +494,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| xx/02/2022 | 1            | First Release |
+| 10/05/2022 | 1            | First Release |
