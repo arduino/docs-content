@@ -2,18 +2,19 @@
 identifier: ABX00043
 title: Arduino® Portenta Max Carrier
 type: pro
+author: Ali Jahangiri
 ---
 
 ![Max Carrier board](assets/maxCarrierShowcase.png)
 
 # Description 
-Enable edge AI for high performance automotive, industrial, medical and robotics applications with the Arduino® Portenta Max Carrier. The Arduino® Portenta Max Carrier transforms the Arduino® Portenta H7 into the industry standard embedded Next Unit of Computing (eNUC) form factor ready for use as a single board computer or as a reference design. The Arduino® Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta H7 including Ethernet, microSD and PCIe. This board further augments the capabilities of the Arduino® Portenta H7 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
+Enable edge AI for high performance industrial, building automation and robotics applications with the Arduino® Portenta Max Carrier. The Arduino® Portenta Max Carrier transforms the Arduino® Portenta family into a standardized industrial platform, ready for use as a single board computer or as a reference design. The Arduino® Portenta Max Carrier provides easy access to the onboard peripherals of the Arduino® Portenta X8 including Gigabit Ethernet, microSD and PCIe. This board further augments the capabilities of the Arduino® Portenta X8 with Fieldbus, LoRa®, 4G, Cat-M1 and NB-IoT connectivity providing a platform for Industry 4.0. 
 
 # Target areas:
-Industry 4.0, prototyping, robotics, data logging, eNUC 
+Industry 4.0, prototyping, robotics, data logging 
 
 # Features
-**Note**: This board needs the Arduino® Portenta H7 to function
+**Note**: This board needs the Arduino® Portenta X8 for full functionality. Not all features are available with the Arduino® Portenta H7.  
 
 *   **High Density connectors compatible with Portenta family**
 *   **Memory**
@@ -21,7 +22,7 @@ Industry 4.0, prototyping, robotics, data logging, eNUC
     *   Micro SD Card slot
 *   **Power**
     *   Power Jack for external supply (6-36V)
-    *   On-board 18650 Li-ion battery connector with battery charger (3.7V)
+    *   On-board 18650 Li-ion battery connector with battery charger (3.7V). It can be used as backup power source if the external power supply fails.
 *   **Wireless modules**
     *   Murata CMWX1ZZABZ-078 LoRa® module,  SMA connector for antenna
     *   SARA-R412M-02B (4G/Cat-M1/NBIoT), micro SIM, SMA connector for antenna
@@ -33,7 +34,7 @@ Industry 4.0, prototyping, robotics, data logging, eNUC
     *   1x Serial RS232/422/485 on RJ12
 *   **Audio**
     *   3x audio jacks: stereo line in, mic in, HP line out 
-    *   1x Grove connector for speaker 
+    *   1x speaker connector
 *   **Debugging**
     *   On board JLink OB / Blackmagic probe 
 
@@ -41,46 +42,45 @@ Industry 4.0, prototyping, robotics, data logging, eNUC
 
 ## The Board
 ### Application Examples
-The Arduino® Portenta Max Carrier provides the user with almost limitless possibilities. Together with the Arduino® Portenta H7, there is a wide range of application options.
+The Arduino® Portenta Max Carrier provides the user with almost limitless possibilities to create edge computing applications. Together with the Arduino® Portenta X8, there is a wide range of application options.
 
 **Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino IoT Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
 
-**Digital Smart Kiosk:** Develop fully-fledged Information Kiosks, Point of Sales devices or other HMI solutions with the Portenta Max Carrier. Increase the productivity and satisfaction of your personnel and customers with realtime information. The Portenta Max Carrier can be part of your solution for real time assessment of production environments, just-in-time management of warehouses, patient centric healthcare experiences and mobility management with a streamlined development process
+**Digital Smart Kiosk:** Develop fully-fledged Information Kiosks, Point of Sales devices or other HMI solutions with the Portenta Max Carrier. Increase the productivity and satisfaction of your personnel and customers with real time information. The Portenta Max Carrier can be part of your solution for real time assessment of production environments, just-in-time management of warehouses, patient centric healthcare experiences and mobility management with a streamlined development process
 
-**Reference Design:** The Arduino Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard eNUC specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
+**Reference Design:** The Arduino Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
-### Accessories
+### Accessories (Not Included)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
 *   microSD card
-*   Grove Speaker
 
 ### Related Products
-*   Portenta H7
+*   Portenta H7 (Partial support)
+*   Portenta X8
 
 ### Solution Overview
 ![Carrier assembly](assets/maxCarrierAssembly.png)
 
-*Example of a typical application for a solution including the Portenta Max Carrier and Portenta H7.*
+*Example of a typical application for a solution including the Portenta Max Carrier and Portenta X8 with posts mounted.*
 
 ## Ratings
-### Absolute Operating Conditions
-| Symbol                   | Description                      | Min  | Typ | Max | Unit |
-| ------------------------ | -------------------------------- | ---- | --- | --- | ---- |
-| T<sub>Max</sub>          | Thermal operating limits         | -40  | 25  | 85  | °C   |
-| V<sub>PWR_IN_12Max</sub> | Maximum Power Jack Input Voltage | -0.3 | 7   | 40  | V    |
 
 ### Recommended Operating Conditions
-| Symbol                | Description                       | Min | Typ | Max  | Unit |
-| --------------------- | --------------------------------- | --- | --- | ---- | ---- |
-| T                     | Conservative thermal limits *(1)* | -20 | 25  | 70   | °C   |
-| V<sub>PWR_IN_12</sub> | Power Jack Input Voltage          | 5   | 7   | 36   | V    |
-| P<sub>Max</sub>       | Maximum Power Consumption         | -   | -   | 5000 | mW   |
+| Symbol                | Description               | Min | Typ | Max  | Unit |
+| --------------------- | ------------------------- | --- | --- | ---- | ---- |
+| T                     | Thermal limits *(1)*      | -20 | 25  | 85   | °C   |
+| V<sub>PWR_IN_12</sub> | Power Jack Input Voltage  | 6   | 7   | 36   | V    |
+| P<sub>Max</sub>       | Maximum Power Consumption | -   | -   | 5000 | mW   |
 
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
 
 ## Functional Overview
+
+### Block Diagram
+![Block Diagram](assets/maxCarrierBlockDiagram.svg)
+
 ### Board Topology 
 ![Board topology](assets/maxCarrierDesignators.png)
 
@@ -103,15 +103,15 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 | J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                        |
 | J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector               |
 | J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector                  |
-| J18      | 254TR Negative Li-ion Terminal                         | J19            | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
-| J20      | 110990030 Grove Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
+| J18      | 254TR Negative Li-ion Terminal                         |             |  |
+| J20      | 110990030 Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
 | CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
-| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder                            |
+| CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)       |
 | SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
 | PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
 
 ### Debugger 
-Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB with (J10) and without (U19) VBUS. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
+Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB (J10). The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
 
 ### Audio
 The Arduino Portenta Max Carrier enables connection connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. Configuration of the CS42L52 is achieved over I2C. The CS42L52 IC operates over the 1V8 rail.
@@ -121,28 +121,30 @@ There are four analog audio interfaces accessible on the Portenta Max Carrier:
 *   1x audio jack for right line (J13)
 *   1x audio jack for left line in (J14)
 *   1x audio jack for stereo headphone line out (J12)
-*   1x Grove connector for speaker out (J20)
+*   1x connector for speaker out (J20)
+
+**Note:** Audio not supported with the Portenta H7.
 
 ### Cell Modem 
-The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide. A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1v8 that is used for the SIM card and the I/O.
+The SARA-R412M-02B (U1) is a multi-region modem capable of connecting to 2G/Cat-M1/NBIoT networks worldwide. A dedicated SMA connector (J3) allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available (SIM1). SN74LVC1T45 bidirectional logic level shifters (U8, U20, U21, U22) act as middleware for connecting to 3V3 serial connections. The chip is powered by 3V8 and an internal regulator provides 1V8 that is used for the SIM card and the I/O. The corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
 
 >  (2) Functionality dependent upon connected Portenta board. Check the respective datasheet.
 
 ### LoRa® Module
-The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23).This module operates on 3V3.  A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
+The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the on-board Murata CMWX1ZZABZ-078 LoRa® transceiver module (U23). This module operates on 3V3. A dedicated SMA connector (J9) allows for an external antenna. Serial wire debug (SWD) headers are accessible via CN2.
 
 ### Mini PCIe 
-The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 4 standoffs for external module  support.
+The Arduino Portenta Max Carrier includes one female mini PCI Express card slot (J8). The connector is right angled and the board includes 2 removable standoffs for external module support. To use the spacer, add the plastic spacer on the top side of the board then attach the M2.5 screw from the back together with the washer. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
 
-**Note:** Only USB and I2C is available. PCIe functionality is reserved for future use and is not supported at this time.
+**Note:** USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
 
 ### USB
-The Arduino Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
+The Arduino Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 (U3) that manages the 2 USB devices from the USB type A connector (J15) plus the LoRa® (U23) and PCIe (J8) modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter. 
 
 ### Ethernet 
 The Gigabit Ethernet physical interface (J17) is directly connected to the high density connector to the Portenta board. The connector includes an activity LED indication (orange) and speed indication (green).
 
-**Note:** Gigabit Ethernet functionality is reserved for future use and only 10/100 Ethernet is supported at this time
+**Note:** Gigabit Ethernet functionality is only supported on the Portenta X8.
 
 ### Serial Transceiver 
 The Arduino Portenta Max Carrier includes a multi-protocol transceiver supporting RS-232, RS-485, and RS-422 serial standards (configurable) based on the SP335 IC. It is connected to a 6P6C Connector (RJ11, RJ12, RJ14, RJ25).
@@ -157,36 +159,44 @@ Default configuration:
 The Arduino Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
 
 ### Micro SD Card Slot
-The on board Micro SD card can be used for data logging operations. 
+The on board Micro SD card can be used for data logging operations.
+
+### FEATURES SUPPORTED BY PORTENTA BOARDS
+The supported features depend upon your choice of Portenta board used together with the Portenta Max Carrier.
+
+| Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                            |
+| ------------------------ | ------------------- | ------------------- | ------------------------------------------------ |
+| USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                         |
+| CAN                      | Yes                 | Yes                 |                                                  |
+| Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards   |
+| Battery Charger          | Yes                 | Yes                 |                                                  |
+| LoRa®                    | Yes                 | Yes                 |                                                  |
+| NBIoT/CatM1/2G           | Yes                 | Yes                 | Communication with modem is via USB              |
+| Camera                   | No                  | MIPI up to 4 lanes  |                                                  |
+| Audio                    | Limited             | Yes                 | No firmware support for the H7                   |
+| RS232/422/485            | Yes                 | Yes                 |                                                  |
+| on board JTAG  debugging | Yes                 | No                  |                                                  |
+| on board console to USB  | Yes                 | Yes                 |                                                  |
+| on board bus sniffing    | Limited             | Limited             | Only hardware support                            |
+
 
 ### Power Tree
 ![Power tree](assets/maxCarrierPowerTree.svg)
 
-The Portenta Max Carrier can either be powered through the power jack (X1) or a Li-ion battery (J16, J18). The MPM3550EGLE (U6) provides a +5V rail to power the peripherals. This IC also provides power to the BQ24195RGET IC (U11) that manages the Li-ion battery and boosts the voltage to +5V. Priority is with the jack delivered power. The battery charger IC also outputs a +3V8 power rail that powers the modem (U1). The +5V power rail provides power to the Portenta board that regulates the voltage with its onboard buck converter to +3V3. The +3V3 power rail supplies power to the LoRa module (U23), 4-port USB hub (U3), microSD module (J11) and Fieldbus circuitry (U4). Audio is powered by a dedicated AP7311 LDO regulator that provides a low noise +1V8 power rail.
+The Portenta Max Carrier can either be powered through the power jack (X1) or a 18650 Li-ion/LiPo battery (J16, J18). The battery is charged while the minimum input voltage to X1 is met. The MPM3550EGLE (U6) provides a +5V rail to power the peripherals. This IC also provides power to the BQ24195RGET IC (U11) that manages the Li-ion battery and boosts the voltage to +5V. U11 also determines the battery status. 
+
+The power source can be determined by querying the System Status Register of U11 and check the PG_STAT field. PG_STAT = 1 means the board is powered with a power source on VBUS. Please refer to the IC [datasheet](/resources/datasheets/bq24195-datasheet.pdf) for further details.
+
+Priority is with the jack delivered power. The battery charger IC also outputs a +3V8 power rail that powers the modem (U1). The +5V power rail provides power to the Portenta board that regulates the voltage with its onboard buck converter to +3V3. The +3V3 power rail supplies power to the LoRa module (U23), 4-port USB hub (U3), microSD module (J11) and Fieldbus circuitry (U4). Audio is powered by a dedicated AP7311 LDO regulator that provides a low noise +1V8 power rail. 
 
 The debugger circuitry has a dedicated power supply AP2112K (U14) that runs off the micro USB voltage from J10. This enables the debugger to operate even if the Portenta board is not inserted.
 
 Voltage range and max current are provided as a general guideline only. Consult converter datasheet for specific details.
 
 ## Board Operation
-**Note:** This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview). 
-
-### Getting Started - IDE
-If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1]** To connect the Arduino Portenta H7  to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
-
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]** by just installing a simple plugin.
-
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
-
-### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
-
-### Sample Sketches
-Sample sketches for the Arduino Portenta H7 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website **[4]**
-
-### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
+**Note:** This board is intended to operate together with Portenta X8 (see section 1.4 Solution Overview). For more information see Portenta X8 datasheet 
 
 ## Connector Pinouts
 ### LoRa® Header (CN2)
@@ -240,16 +250,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 4   | ID           | Digital      | Not Connected           |
 | 5   | GND          | Power        | Ground                  |
 
-### USB DBG1 (J19)
-| Pin | **Function** | **Type**     | **Description**         |
-| --- | ------------ | ------------ | ----------------------- |
-| 1   | VBUS         | Power        | Pulled down             |
-| 2   | D-           | Differential | USB differential data - |
-| 3   | D+           | Differential | USB differential data + |
-| 4   | ID           | Digital      | Not Connected           |
-| 5   | GND          | Power        | Ground                  |
-
-### Grove Speaker Connector (J20)
+### Speaker Connector (J20)
 | Pin | **Function** | **Type** | **Description**             |
 | --- | ------------ | -------- | --------------------------- |
 | 1   | SPK_OUTA+    | Analog   | Speaker A Positive Terminal |
@@ -339,7 +340,7 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 
 
 ### PCIe Connector
-**Note:** Only USB and I2C is available. PCIe functionality is reserved for future use and is not supported at this time
+**Note:** Only USB, I2C and USIM is available. PCIe functionality is reserved for future use and is not supported at this time
 
 | Pin | **Function** | **Type**     | **Description**                         |
 | --- | ------------ | ------------ | --------------------------------------- |
@@ -350,13 +351,13 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 | 5   | NC           | NC           | Not Connected                           |
 | 6   | NC           | NC           | Not Connected                           |
 | 7   | PCIE_CLKREQ  | Digital      | PCIe Clock Request Signal               |
-| 8   | NC           | NC           | Not Connected                           |
+| 8   | UIM_PWR      | Power        | SIM Power                               |
 | 9   | GND          | Power        | Ground                                  |
-| 10  | NC           | NC           | Not Connected                           |
+| 10  | UIM_DATA     | Digital      | SIM Data Line                           |
 | 11  | mPCIe_CK_N   | Differential | PCIe Clock Differential Negative        |
-| 12  | NC           | NC           | Not Connected                           |
+| 12  | UIM_CLK      | Digital      | SIM Clock Signal                        |
 | 13  | mPCIe_CK_P   | Differential | PCIe Clock Differential Positive        |
-| 14  | NC           | NC           | Not Connected                           |
+| 14  | UIM_RST      | Digital      | SIM Reset Signal                        |
 | 15  | GND          | Power        | Ground                                  |
 | 16  | NC           | NC           | Not Connected                           |
 | 17  | NC           | NC           | Not Connected                           |
@@ -475,24 +476,27 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
 
+| Frequency bands      | Typical Output Power |
+| -------------------- | -------------------- |
+| 2.4 GHz, 40 channels | TBC                  |
 
 ## Company Information
-| Company name    | Arduino S.r.l.                                                |
-| --------------- | ------------------------------------------------------------- |
-| Company Address | Via Ferruccio Pelli 14, 6900 Lugano, TI (Ticino), Switzerland |
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
-| Reference                 | **Link**                                                                                            |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Pro Website       | https://www.arduino.cc/pro                                                                          |
-| Project Hub         | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://www.arduino.cc/reference/en/                                                                |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Reference                        | **Link**                                                                     |
+| -------------------------------- | ---------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                      |
+| Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                             |
+| Cloud Web Editor Getting Started | https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started/ |
+| Arduino Pro Website              | https://www.arduino.cc/pro                                                   |
+| Library Reference                | https://www.arduino.cc/reference/en/                                         |
+| Online Store                     | https://store.arduino.cc/                                                    |
+| Arduino Max Carrier Docs         | https://docs.arduino.cc/hardware/portenta-max-carrier                        |
 
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
-| 05/05/2021 | 1            | First Release |
+| xx/02/2022 | 1            | First Release |
