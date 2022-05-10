@@ -71,8 +71,6 @@ The Portenta X8 has a service that waits for a sketch to be uploaded to a folder
 
 This work thanks to the following services:
 * **monitor-m4-elf-file.service**: this service monitors the directory `/tmp/arduino/m4-user-sketch.elf` and each time it detects a new file it will proceed to flash the M4 using  `openOCD` with the sketch that has been pushed.
-* **android-tools-adbd.service**: responsible of generating the needed interfaces for the different types of usb gadgets.
-* **create-docker-envfile.service**: Controls if the device has been plugged for example in some carrier and makes the info available at `/var/run/arduino_hw_info.env` and is meant to be used by the ´docker containers´.
 
 ## Conclusion
 In this tutorial you have learned how to upload a sketch to the M4 core. Now for example you are able to connect an I<sup>2</sup>C sensor and interact with it. 
