@@ -14,7 +14,7 @@ Enable edge AI for high performance industrial, building automation and robotics
 Industry 4.0, prototyping, robotics, data logging 
 
 # Features
-**Note**: This board needs the Portenta X8 for full functionality. Not all features are available with the Portenta H7.  
+**Note**: This board needs the Portenta X8 for full functionality. Not all features are available with the Arduino® Portenta H7.  
 
 *   **High Density connectors compatible with Portenta family**
 *   **Memory**
