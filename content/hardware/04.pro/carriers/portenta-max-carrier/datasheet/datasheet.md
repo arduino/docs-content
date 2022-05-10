@@ -103,7 +103,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 | J12      | SJ-3524-SMT-TR 3.5mm Headphone Out                     | J13            | SJ-3524-SMT-TR 3.5mm Line In Right                        |
 | J14      | SJ-3524-SMT-TR 3.5mm Line In Left                      | J15            | 61400826021 2-port USB 2.0 Female Connector               |
 | J16      | 254TR Positive Li-ion Terminal                         | J17            | TRJK7003A97NL Gigabit Ethernet Connector                  |
-| J18      | 254TR Negative Li-ion Terminal                         | J19            | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
+| J18      | 254TR Negative Li-ion Terminal                         |             |  |
 | J20      | 110990030 Connector for Speaker                  | X1             | PJ-102A 5.5mm Power Jack Adapter                          |
 | CN1      | FTSH-105-01-F-DV 10-pin JTAG Header                    | CN2            | Debug Header                                              |
 | CN3      | LoRa® Debug Header                                     | SIM1           | 2199337-5 microSIM Card Holder (for on-board modem)       |
@@ -111,7 +111,7 @@ The Arduino® Portenta Max Carrier provides the user with almost limitless possi
 | PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
 
 ### Debugger 
-Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB with (J10) and without (U19) VBUS. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
+Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB (J10). The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller (U15). In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines.  The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
 
 ### Audio
 The Arduino Portenta Max Carrier enables connection connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. Configuration of the CS42L52 is achieved over I2C. The CS42L52 IC operates over the 1V8 rail.
@@ -245,15 +245,6 @@ Voltage range and max current are provided as a general guideline only. Consult 
 | Pin | **Function** | **Type**     | **Description**         |
 | --- | ------------ | ------------ | ----------------------- |
 | 1   | VBUS         | Power        | Connected to +5V_DBG    |
-| 2   | D-           | Differential | USB differential data - |
-| 3   | D+           | Differential | USB differential data + |
-| 4   | ID           | Digital      | Not Connected           |
-| 5   | GND          | Power        | Ground                  |
-
-### USB DBG1 (J19)
-| Pin | **Function** | **Type**     | **Description**         |
-| --- | ------------ | ------------ | ----------------------- |
-| 1   | VBUS         | Power        | Pulled down             |
 | 2   | D-           | Differential | USB differential data - |
 | 3   | D+           | Differential | USB differential data + |
 | 4   | ID           | Digital      | Not Connected           |
