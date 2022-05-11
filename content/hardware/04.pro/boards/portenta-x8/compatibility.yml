@@ -6,3 +6,5 @@ hardware:
     - portenta-vision-shield
   boards:
     - portenta-breakout
+  carriers:
+    - portenta-max-carrier
