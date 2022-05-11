@@ -54,21 +54,15 @@ The internal LED in the Arduino Uno is connected to Digital Pin 13. By pulling t
 ## Control LED over USB with MATLAB
 **1.** Connect your board to the computer via the USB 2.0 Cable Type A/B.
 
-<p align="center">
-<img src="https://images.squarespace-cdn.com/content/v1/56ca25c2b654f92cd6ea08ad/1495724580786-GD1QUF9T1EYJSQUDNHY1/image-asset.png?format=750w"/>
-</p>
-
+![USB connection to computer](assets/Arduino-Connect.png)
 
 **2.** Open MATLAB and run the command `arduinosetup()` in the Command Window.
 
-<p align="center">
-<img src="assets/nanoMatlabWiFiLED-05.png"/>
-</p>
-
+![arduino Setup](assets/arduinosetup.png)
 
 **3.** A Graphical User Interface (GUI) appears, that will help you set up the MATLAB-Arduino connection. To establish the connection over the USB cable, make sure that the USB radio box is selected and then click on Next.
 
-![Selection of Connection Type](assets/nanoMatlabWiFiLED-06.png)
+![Selection of Connection Type](assets/connectiontype.png)
 
 
 **4.** Choose the "Uno" from the dropdown menu, as well as the relevant COM port, and click on the blue `Program` button to upload the Arduino Server to the board. When you have done so, click on next.
@@ -87,10 +81,7 @@ The internal LED in the Arduino Uno is connected to Digital Pin 13. By pulling t
 
 **6.** The Arduino Uno is now configured to interact with MATLAB. Now to create the object in MATLAB, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
 
-<p align="center">
-<img src="https://i.imgur.com/XMWGCHr.png"/>
-</p>
-
+![](assets/arduinoproperties.png)
 
 **7.** Enter the command `writeDigitalPin(a,'D13',1);`. This command is similar to the `digitalWrite(D13, HIGH)` by the Arduino programming language. Which means that digital pin 13 (D13) is connected to the built-in LED, `a` is the arduino object we created, and 1 represents a HIGH or ON state. Try turning the LED ON and OFF several times by changing 1 to 0 and vice-versa.
 
@@ -117,10 +108,7 @@ end
 **1.** On one breadboard we have the white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
 On the right breadboard we have a simple LED circuit comprised of a red output wire connected to pin11, a resistor and the LED finally connected to GND via the green wire
 
-<p align="center">
-<img src="https://gcdnb.pbrd.co/images/4cFR5KxIjOGn.jpg?o=1"/>
-</p>
-
+![](assets/curcuit.jpg)
 
 ***Make sure to connect the longer leg of the LED to the resistor and the shorter to GND.***
 
