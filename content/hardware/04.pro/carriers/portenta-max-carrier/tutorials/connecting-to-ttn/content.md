@@ -21,14 +21,14 @@ This tutorial explains how to connect your [Arduino® Max Carrier](http://store.
 
 ## Goals
 
-* Enable LoRaWAN® connectivity on the Arduino® Portenta Max Carrier.
-* Establish a connection between the Arduino® Portenta Max Carrier and TTN.
+* Enable LoRaWAN® connectivity on the Portenta Max Carrier.
+* Establish a connection between the Portenta Max Carrier and TTN.
 
 
 ### Required Hardware and Software
 
-- [Arduino® Portena H7](https://store.arduino.cc/products/portenta-h7).
-- [Arduino® Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
+- [Portena H7](https://store.arduino.cc/products/portenta-h7).
+- [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
 - 868-915 MHz antenna with SMA connector.
 - USB-C cable (either USB-A to USB-C or USB-C to USB-C).
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
@@ -37,7 +37,7 @@ This tutorial explains how to connect your [Arduino® Max Carrier](http://store.
 
 ## The Arduino® Portenta Max Carrier LoRaWAN® Module
 
-The Arduino® Portenta Max Carrier provides you with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Max Carrier possibilities are endless. One feature that boosts Portenta's Max Carrier possibilities is its **onboard LoRaWAN® module**, the [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
+The Portenta Max Carrier provides you with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Max Carrier possibilities are endless. One feature that boosts Portenta's Max Carrier possibilities is its **onboard LoRaWAN® module**, the [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
 
 ![CMWX1ZZABZ-078 LoRaWAN® module in the Portenta Max Carrier.](assets/mc_ard_ttn_module.png)
 
@@ -53,7 +53,7 @@ To connect your Portenta Max Carrier to TTN, we must follow these steps:
 
 1. Hardware setup.
 2. Software setup.
-3. Arduino® Portenta Max Carrier provisioning. 
+3. Portenta Max Carrier provisioning. 
 4. Create an application in TTN.
 5. Send a message to a TTN application.
 
@@ -61,7 +61,7 @@ Let's start!
 
 ### 1. Setting up the Hardware 
 
-Begin by attaching the Arduino® Portenta H7 board to the high-density connectors of the Arduino® Portenta Max Carrier, as shown in the image below:
+Begin by attaching the Arduino® Portenta H7 board to the high-density connectors of the Portenta Max Carrier, as shown in the image below:
 
 ![CMWX1ZZABZ-078 LoRaWAN® module in the Portenta Max Carrier.](assets/mc_ard_hd_ttn_connectors.png)
 
