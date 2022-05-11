@@ -66,7 +66,7 @@ The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data 
 Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyse and dynamically manage your fleet to optimise fuel usage, increase your client's satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
 
 ### Accessories (Not Included)
-- Active GNSS Antenna
+- Active GNSS Antenna (e.g. ECHO19/0.1M/UFL/S/S/17)
 
 ### Related Products
 - Arduino® Portenta H7 (SKU: ABX00042)
@@ -121,11 +121,11 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 
 ### Cellular Connectivity
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1).
+The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1). Input cellular for GNSS antenna is 50Ω.
 ***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.***
 
 ### Positioning
-Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V.
+Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V. Input impedence for GNSS antenna is 50Ω. For compatibility with all GNSS system, the antenna should be compatible over the 1559 - 1606 MHz frequency range. 
 ***Note: GNSS and cellular services cannot be used simultaneously.***
 
 ### Power Tree
