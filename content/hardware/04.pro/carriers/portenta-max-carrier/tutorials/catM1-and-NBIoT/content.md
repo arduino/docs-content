@@ -19,7 +19,7 @@ software:
 
 ## Introduction 
 
-The Portenta Max carrier adds a lot of functionality to the Portenta H7. With the Portenta Max Carrier it is possible to use NB-IoT and Cat-M1 technology. In this tutorial we will show to connect to GSM with the Portenta Max carrier and the Portenta H7.
+The Arduino® Portenta Max Carrier adds a lot of functionality to the Portenta H7. With the Portenta Max Carrier it is possible to use NB-IoT and Cat-M1 technology. In this tutorial we will show to connect to GSM with the Portenta Max Carrier and the Portenta H7.
 
 ***Note: This tutorial was created in Sweden, and as a result, the available networks are only Swedish network operators. The results will vary depending on what location you are in.***
 
@@ -43,11 +43,11 @@ The goals of this project are:
 
 ### Circuit
 
-For this tutorial we need to plug the Portenta H7 into the Max Carrier, like shown in the image below. By attaching the Portenta H7 board to the HD connectors on top of the Portenta Max Carrier. Press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB C cable.
+For this tutorial we need to plug the Portenta H7 into the Max Carrier, like shown in the image below. By attaching the Portenta H7 board to the HD connectors on top of the carrier, press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB-C cable.
 
 ![Connecting the Portenta H7 and Max Carrier](assets/Connect-H7-to-Max-carrier.svg)
 
-And we also need to insert a SIM card and connect an antenna to the Max Carrier, like shown in the image below. Put the SIM card into the SIM card slot at the top of the Carrier, the same side where the Portenta H7 is located. Next to the SIM card slot there is an antenna SMA connector where you will need to screw on your antenna. 
+And we also need to insert a SIM card and connect an antenna to the Max Carrier, like shown in the image below. Put the SIM card into the SIM card slot at the top of the carrier, the same side where the Portenta H7 is located. Next to the SIM card slot there is an antenna SMA connector where you will need to screw on your antenna. 
 
 ![SIM card slot and antenna connector](assets/Sim-card-and-antenna-on-Max-carrier.svg)
 
