@@ -16,7 +16,7 @@ Communication:
   SPI: Yes
 Power:
   I/O Voltage: 3.3V
-  Input Voltage (nominal): 5V
+  Input Voltage (nominal): 5-5.5V
   DC Current per I/O pin: 7 mA
   Supported battery: Li-Po single cell, 3.7V, 700mAh minimum
   Battery connector: JST
