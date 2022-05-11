@@ -81,12 +81,49 @@ But a simple Reverse Polarity Protection, with a Transient Voltage Suppressor di
 
 ## Stepping the Voltage - Level Shifters
 
-We now know how not to fry our electronic devices, and that includes our Arduino boards. The Arduino boards provide and relies on 3.3V and 5V levels. We will use a bidirectional Logic Level Converter to demonstrate stepping the voltage level, to feed the Arduino from a power supply of higher voltage level and to feed a module from the Arduino board. 
+We now know how not to fry our electronic devices, and that includes our Arduino boards. The Arduino boards provide and relies on 3.3V and 5V levels. But sometimes there may not be available pins that matches the voltage requirement to adequately drive the sensor or any such line. You will get to know basic of stepping down and up the voltage required using simple electronic circuit.   
+
+We will also use a bidirectional Logic Level Converter to step the voltage level, to be able to use sensors or logics at higher or lower voltage levels. This is an option to use if tight electric specification is implemented on the board. 
 
 ***The bidirectional Logic Level Converter to be used can be found [here](https://www.sparkfun.com/products/12009) from SparkFun.***
 
-### Stepping Up
-
 ### Stepping Down
 
-***If you are interested in stepping the voltage manually, please have a look at [here](https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/)***
+We will begin by learning how to step down the voltage. Usually, voltage is driven down to lower level needed by the external module or sensors. It can also be due to need of lower voltage line to handle a separate circuit. It is crucial that you know the electric requirement that will demand if the electronic design is more complex than usual design. Such as tight electric specification and multiple signal lines to handle with operating at high speeds.
+
+The **Voltage Divider** is the simplest yet easy to implement solution. It uses 2 resistors to create a lower voltage output. So, knowing the Input Voltage and targeted Output Voltage and a reference resistor, it is simple enough to calculate the other required resistor to implement to produce desired result. The Votlage Divider is as follows. 
+
+![Voltage/Resistive Divider](assets/StepDown.png)
+
+As it is as simple as it can be, when using this circuit, you will need to be cautious of the residing capacitance that is connected at the output of this circuit and with the quick rise times. 
+
+### Stepping Up
+
+On the contrary to stepping down the voltage using simple voltage divider, to **step up** the voltage, due to uncompatible TTL threshold scenario as in the previous, you will need to use a little bit more constructive electric circuit by using diodes. Following circuit shows how it is done.
+
+![Step Up Circuit - Diode Implementation](assets/StepUpDiode.png)
+
+You will need to biase the diodes with precaution and the resistor that is much lower than the input impedance of the 5V gate. One of the know-hows shared by Microchip is to use a **Schottky** diodes to gain slight high-level voltage and reduce low-level voltage from incrementing. Following circuit uses a different setup. 
+
+![Step Up Circuit - MOSFET](assets/StepUpMOSFET.png)
+
+This circuit uses the MOSFET as a switch and takes the 5V logic from the drain. It is useful if the logic inversion can be treated, as 3.3V logic becomes inverted. To begin with MOSFET, a 2N7000 or a BSS138 MOSFET can be used for this circuit. 
+
+### Bi-Directional Logic Level Converter
+
+Previous electric circuits are **uni-directional** logic level shifters. Meaning that to use different stepping configuration, you will need to change the entire electric circuit to go from stepping up to down, and vice-versa. On top of it, if the electronic size is factor to take it into account, then you can use a off-the-shelf logic level converter.
+
+You can use the [Bi-Directional Logic Level Shifter](https://www.sparkfun.com/products/12009) from SparkFun to test and also for deployment if the requirements enables its integration. The advantage of this particular shifter is that it provdies 4 channels to shift within the voltage references given. High Voltage level and Low Voltage level references are injected with desired voltage level and channels are used to transmit the data in between.
+
+![Step Down - Logic Shifter](assets/StepDownShifter.png)
+
+The circuit above uses the bi-directional logic shifter to establish I2C interface with any sensor capable of the protocol. The SCL and SDA lines go through a High Voltage channel and establishes communication with the sensor that is connected at its respective Low Voltage Channel. 
+
+## Further Reading and Resources
+
+Handling different voltage levels covers vast electronic department, and without exception for 3.3V and 5V levels which are the most used voltage levels. To get deeper into the topic handling voltage levels, you can follow some of the links that might get our attention.
+
+- If you want to know about some know-hows from Microchip, you can read [Microchip: 3V Tips 'n Tricks](https://www.newark.com/pdfs/techarticles/microchip/3_3vto5vAnalogTipsnTricksBrchr.pdf) to learn about wide variety of techniques used with 3.3V and 5V levels.
+- Level Shifting the voltage has its own science dedicated to it and Philips Semiconductor welcomes you if you are ready learn deeper about [Bi-Directional Level Shifter for I2C Bus and Other Systems](http://cdn.sparkfun.com/tutorialimages/BD-LogicLevelConverter/an97055.pdf) with their Application Note AN97055.  
+
+## References
