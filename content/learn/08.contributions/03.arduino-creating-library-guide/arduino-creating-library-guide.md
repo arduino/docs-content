@@ -242,9 +242,9 @@ then inside a call to `morse2.dot()`, `_pin` would be 12.
 If you tried the new sketch, you probably noticed that nothing from our library was recognized by the environment and highlighted in color. Unfortunately, the Arduino software can't automatically figure out what you've define in your library (though it would be a nice feature to have), so you have to give it a little help. To do this, create a file called **keywords.txt** in the Morse directory. It should look like this:
 
 ```arduino
-Morse   KEYWORD1
-dash    KEYWORD2
-dot     KEYWORD2
+Morse	KEYWORD1
+dash	KEYWORD2
+dot	KEYWORD2
 ```
 
 Each line has the name of the keyword, followed by a tab (not spaces), followed by the kind of keyword. Classes should be KEYWORD1 and are colored orange; functions should be KEYWORD2 and will be brown. You'll have to restart the Arduino environment to get it to recognize the new keywords.
