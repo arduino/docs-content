@@ -79,7 +79,7 @@ void loop() {
   random_variable = random(0, 1000);
 
   Serial.print("Variable 1:");
-  Serial.print(potentiometer);
+  Serial.print(random_variable);
   Serial.print(",");
   Serial.print("Variable 2:");
   Serial.println(static_variable);
