@@ -255,4 +255,4 @@ If you'd like to check out the complete library (with keywords and example), you
 
 That's all for now but I'll probably write an advanced library tutorial soon. In the meantime, if you have any problems or suggestions, please post them to the [Software Development forum](https://forum.arduino.cc/c/development/libraries/39).
 
-For more information, see the [API Style Guide](/content/learn/07.creating-content/arduino-library-style-guide) for information on making a good Arduino-style API for your library.
+For more information, see the [API Style Guide](/learn/contributions/arduino-library-style-guide) for information on making a good Arduino-style API for your library.
