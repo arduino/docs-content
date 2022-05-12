@@ -9,7 +9,7 @@ tags:
 
 This is a guide for writing clear Arduino examples that can be read by beginners and advanced users alike. You don't have to code this way, but it helps if you want your code to be clear to all levels of users. This is not a set of hard and fast rules, it's a set of guidelines. Some of these guidelines might even conflict with each other. Use your judgment on when they're best followed, and if you're not sure, ask someone who'll be learning from what you write what makes the most sense. You might also be interested in the [Arduino Style Guide for Creating Libraries](/learn/contributions/arduino-library-style-guide).
 
-If you want to contribute with content for the Arduino Documentation website, please find instructions in the Contributions folder in the [Arduino Documentation repository](https://github.com/arduino/docs-content).
+If you want to contribute with content for the Arduino Documentation website, please find instructions in the contribution-templates folder in the [Arduino Documentation repository](https://github.com/arduino/docs-content).
 
 ## Writing a tutorial
 
