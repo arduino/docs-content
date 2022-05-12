@@ -6,7 +6,7 @@ tags:
   - Guidelines
 ---
 
-This is a style guide to writing library APIs in an Arduino style. Some of these run counter to professional programming practice. We’re aware of that, but it’s what’s made it possible for so many beginners to get started with Arduino easily. So please code with these principles in mind. If you have suggestions on how to make Arduino libraries clearer for that core audience, please jump in the discussion. This is a work in progress.
+This is a style guide to writing library APIs in an Arduino style. Some of these run counter to professional programming practice. We’re aware of that, but it’s what’s made it possible for so many beginners to get started with Arduino easily. So please code with these principles in mind. If you have suggestions on how to make Arduino libraries clearer for that core audience, please jump in the discussion.
 
 **Be kind to the end user.** Assume you are writing an API for an intelligent person who has not programmed before. Come up with a clear mental model of the concept you’re working with, and the terms and functions you will use.
 
