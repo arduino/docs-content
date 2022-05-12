@@ -9,28 +9,25 @@ tags:
   - Joystick
 ---
 
-Using the Mouse library, you can controls a computer's onscreen cursor with an Arduino Leonardo, Micro, or Due.  This particular example uses a pushbutton to turn on and off mouse control with a joystick.
+Using the Mouse library, you can control a computer's onscreen cursor with an Arduino Leonardo, Micro, or Due. This particular example uses a pushbutton to turn on and off mouse control with a joystick.
 
-Cursor movement from the Arduino is always relative. So every time the analog input is read, the cursor's position is updated relative to it's current position.
+Cursor movement from the Arduino is always relative. So every time the analog input is read, the cursor's position is updated relative to its current position.
 
-Two analog inputs ranging from 0 to 1023 are translated to ranges of -12 to 12.  The sketch assumes that the joystick resting values are around the middle of the range, but that they vary within a threshold.
+Two analog inputs ranging from 0 to 1023 are translated to ranges of -12 to 12. The sketch assumes that the joystick resting values are around the middle of the range, but that they vary within a threshold.
 
 The pushbutton allows you to toggle mouse control on and off. As an option you may connect a status LED to pin 5 that lights upwhen the Arduino is controlling the mouse. A second pushbutton may be connected with another 10k ohm pulldown (to GND) resistor to D3 to act as the left click of the mouse.
 
-**NB:  When you use the Mouse.move() command, the Arduino takes over your computer's cursor! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call Mouse.move(). This sketch includes a pushbutton to toggle the mouse control state, so you can turn on and off mouse control.**
+***Note: If you want to add the LED or the extra pushbutton, please follow the guidelines for the [LED circuit](./basics/Blink) and the [button circuit](./digital/Button).*** 
+
+***Note: When you use the `Mouse.move()` command, the Arduino takes over your computer's cursor! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call `Mouse.move()`. This sketch includes a pushbutton to toggle the mouse control state, so you can turn on and off mouse control.***
 
 ### Hardware Required
 
 - Arduino Leonardo, Micro, or Due board
-
 - 2 axis joystick
-
 - momentary pushbutton (possibly integrated in the joystick)
-
 - LED
-
 - 220 ohm resistor
-
 - 10k ohm resistor (if needed as pulldown)
 
 ### Circuit
@@ -39,12 +36,9 @@ Connect your Leonardo board to your computer with a micro-USB cable. The pushbut
 
 ![](assets/circuit.png)
 
-
-
 ### Schematic
 
 ![](assets/schematic.png)
-
 
 ### Code
 
@@ -55,5 +49,3 @@ Connect your Leonardo board to your computer with a micro-USB cable. The pushbut
 You can find more basic tutorials in the [built-in examples](/built-in-examples) section.
 
 You can also explore the [language reference](https://www.arduino.cc/reference/en/), a detailed collection of the Arduino programming language.
-
-*Last revision 2015/07/29 by SM*
