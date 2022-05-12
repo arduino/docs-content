@@ -158,31 +158,23 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 
 ![Control and monitor your Smart Garden!](assets/cloud-dashboard.gif)
 
+***In this dashboard, we have also added a chart widget for each of the variables we monitor.***
+
 - **Watering:** to activate the pump, click on the switch widget on the dashboard.
 - **Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise!
 - **Temperature:** check temperature levels. Note that this may be inaccurate if placed directly in a sunny window!
 - **Humidity:** measure the relative humidity of your room. Some plants like it dry; some doesn't!
 
-## Extra Tips
+## Conclusion
 
-There are several additions and changes we can do to our project.
+With a smart garden setup, you can easily monitor the environment of your plant, and water it remotely. In this tutorial, we have gone through the basic elements needed for achieving just that: but there are more things you can do. Below is a list of some fun ideas that you can do with your plant:
 
-### Automatic Watering
+- **Automatic watering** - instead of watering your plant remotely, you can also activate the pump automatically whenever moisture drops too low. We do however think it is more fun to control it from a phone, but the choice is yours.
+- **Cooling/heating fan** - you can use the other relay to connect a cooling/heating fan. This can help you bring the temperature to a perfect level (some plants like it cold, some hot).
+- **Humidifier** - a humidifier is an awesome component that increases the humidity (a perfect combo with the humidity sensor).
+- **UV lights** - a UV light allows you to grow plants even when there's no natural sun light.
 
-Right now, we are controlling the pump remotely. This can easily be automated, by using a statement like this in the code:
 
-```
-if (moisture < 20) {
-    relay.on();
-}
-else {
-    relay.off();
-}
-```
-
-### Add a Fan
-
-Fans are great to reduce humidity & temperature, and is easy to add. To add a fan, you will need an additional power source, that is connected to the relay (same way as the pump). You can then create a switch that turns it on / off. Alternatively, you can set it to automatically turn on if humidity/temperature is too high!
 
 
 
