@@ -20,7 +20,7 @@ This is a style guide to writing library APIs in an Arduino style. Some of these
 
 **When you have to use a domain-specific term, write a sentence or two describing it to the general public FIRST.** You’ll likely come across a better term, and if not, you’ll have started the documentation on your library.
 
-**Document and comment as you go.** When writing examples and documentation, follow the [Writing Style Guide](/content/learn/07.creating-content/ArduinoWritingStyleGuide/ArduinoWritingStyleGuide.md)
+**Document and comment as you go.** When writing examples and documentation, follow the [Writing Style Guide](/learn/contributions/arduino-writing-style-guide)
 
 **Use the established core libraries and styles.**
 
