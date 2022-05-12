@@ -59,6 +59,8 @@ The bind function makes the data available via the specified name e.g. "temperat
 
 You can find the sketch in the software package [here](assets/python-sensor-rpc.zip). You may need to change the sketch depending on what sensor you would like to read from. If you're using an I<sup>2</sup>C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout. That's because the labeled I<sup>2</sup>C pins on the Portenta Breakout are only available on the Linux side. If you're using an analog sensor you can connect it to any analog pin. Please refer to the pinout diagram on the Portenta Breakout [documentation page](/hardware/portenta-breakout).
 
+![Wiring diagram of an I2C sensor attached to the X8 via Portenta Breakout](assets/sensor-wiring-breakout.svg)
+
 Make sure you've installed the "Arduino Mbed OS Portenta Boards" core and upload the sketch to the X8 in the Arduino IDE or via Arduino CLI.
 
 ### Debugging the Arduino Sketch
