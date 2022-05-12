@@ -12,9 +12,9 @@ You are welcome to add your own content to the Arduino Documentation repository.
 
 |Content|Description|Example|
 |-------|-----------|-------|
-|Tutorial|Learn how to do something.|[Control Built-in RGB LED over Wi-Fi with Nano RP2040 Connect](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-web-server-rgb)|
-|Article|Learn about a specific topic.|[Multimeter Basics](https://docs.arduino.cc/learn/electronics/multimeter-basics)|
-|Nugget|Smaller tutorial with less information and more straight to the example.|[Analog Read Serial](https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial)|
+|Tutorial|Learn how to do something.|[Control Built-in RGB LED over Wi-Fi with Nano RP2040 Connect](/tutorials/nano-rp2040-connect/rp2040-web-server-rgb)|
+|Article|Learn about a specific topic.|[Multimeter Basics](/learn/electronics/multimeter-basics)|
+|Nugget|Smaller tutorial with less information and more straight to the example.|[Analog Read Serial](/built-in-examples/basics/AnalogReadSerial)|
 |Project|Learn how to build something.|[DIY Photoshop Editing Console using Arduino Nano RP2040 Connect](https://create.arduino.cc/projecthub/jithinsanal1610/diy-photoshop-editing-console-using-arduino-nano-rp-2040-a43e97)|
 
 \*Note that the contributed Projects should be added to **Project Hub** instead of on the Arduino Documentation website.
