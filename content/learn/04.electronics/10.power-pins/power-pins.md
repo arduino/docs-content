@@ -17,20 +17,22 @@ Arduino boards can be powered in several ways; we can use dedicated **connectors
 ## Powering Alternatives
 
 
-Arduino boards have **four** ways in which they can be powered:
+Arduino boards have **five** options in which they can be powered:
 
 1. Powering via USB connector
 
-2. Powering via a barrel jack connector / JST connector if available on the board
+2. Powering via the barrel jack connector (if available on the board)
+   
+3. Powering via the onboard battery connector (if available on the board)
 
-3. Powering via the VIN (Voltage In) pin
+4. Powering via the VIN (Voltage In) pin
 
-4. Powering via the 3V3/5V pin*
+5. Powering via the 3V3/5V pin*
 
 ***\*Powering your board via the 3V3/5V pins is not recommended, as it can damage your board's voltage regulator. Read more [here](#3v35v-pin).***
 
 
-In this article, we will examine the alternatives to power your Arduino more in-depth.
+This article will examine the alternatives to power your Arduino more in-depth.
 
 
 ## USB Connector
@@ -65,14 +67,37 @@ Some Arduino boards have an **onboard barrel jack connector** that is used to co
 The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3 in most Arduino boards. The recommended voltage and current ratings for external regulated power supplies connected to the barrel jack connector are summarized in the table below:
 
 
-|          Board         | External Power Supply Voltage (V) | External Power Supply Current (A) |
-|:----------------------:|:---------------------------------:|:---------------------------------:|
-|    Arduino UNO Rev3    |                7-12               |                 1                 |
-|  Arduino UNO WiFi Rev2 |               4.5-21              |                1.5                |
-|    Arduino Leonardo    |                7-12               |                 1                 |
-| Arduino Mega 2560 Rev3 |                7-12               |                 1                 |
-|       Arduino Due      |               4.5-21              |                1.5                |
-|      Arduino Zero      |                3-20               |                 1                 |
+|        **Board**       | **External Power Supply Voltage (V)** | **External Power Supply Current (A)** |
+|:----------------------:|:-------------------------------------:|:-------------------------------------:|
+|    Arduino UNO Rev3    |                  7-12                 |                   1                   |
+|  Arduino UNO WiFi Rev2 |                 4.5-21                |                  1.5                  |
+|    Arduino Leonardo    |                  7-12                 |                   1                   |
+| Arduino Mega 2560 Rev3 |                  7-12                 |                   1                   |
+|       Arduino Due      |                 4.5-21                |                  1.5                  |
+|      Arduino Zero      |                  3-20                 |                   1                   |
+
+
+ ## Battery Connector
+
+
+ Some Arduino boards also have an **onboard battery connector** to connect a battery to the board and use it as its primary or secondary power supply. The Arduino boards with an onboard battery connector are the following:
+
+
+-  [Arduino Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7)
+-  [Arduino Nicla Sense ME](https://store.arduino.cc/collections/boards/products/nicla-sense-me)
+-  [Arduino Nicla Vision](https://store.arduino.cc/collections/boards/products/nicla-vision)
+-  [Arduino MKR NB 1500](https://store.arduino.cc/collections/boards/products/arduino-mkr-nb-1500)
+-  [Arduino MKR Vidor 4000](https://store.arduino.cc/collections/boards/products/arduino-mkr-vidor-4000)
+-  [Arduino MKR WiFi 1010](https://store.arduino.cc/collections/boards/products/arduino-mkr-wifi-1010)
+-  [Arduino MKR ZERO](https://store.arduino.cc/collections/boards/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
+-  [Arduino MKR WAN 1310](https://store.arduino.cc/collections/boards/products/arduino-mkr-wan-1310)
+-  [Arduino MKR GSM 1400](https://store.arduino.cc/collections/boards/products/arduino-mkr-gsm-1400)
+
+
+***Pro family boards use a 3-pin, 1.2mm SMD ACH battery connector, and MKR family boards use a  2-pin, 2mm SMD PH battery connector.***
+
+
+The boards mentioned before have an **onboard integrated battery charge management circuit**. This circuit integrates the most common battery and power management functions, like a battery charger, a voltage regulator, and a load switch. **Boards can work with single cell 3V7 Li-Ion and Li-polymer batteries**. 
 
 
  ## VIN Pin
@@ -87,31 +112,33 @@ The VIN pin in Arduino boards is a power pin with a dual function. This pin can 
 The **minimum and maximum voltages** that can be applied to the VIN pin are determined by the onboard voltage regulator on Arduino boards, varying from board to board. Those voltages are summarized in the table below:
 
 
-|      **Board**      | **VIN Minimum Voltage (V)** | **VIN Maximum Voltage (V)** |
-|:-------------------:|:---------------------------:|:---------------------------:|
-|       UNO Mini      |             4.5             |              21             |
-|       UNO Rev3      |              7              |              12             |
-|    UNO WiFi Rev2    |              7              |              12             |
-|     UNO Rev3 SMD    |              7              |              12             |
-|       Leonardo      |              7              |              12             |
-|    Mega 2560 Rev3   |              7              |              12             |
-|        Micro        |              7              |              12             |
-|         Zero        |              3              |              20             |
-|     Portenta H7     |             4.1             |              6              |
-|   Nicla Sense ME    |             3.4             |             5.5             |
-| Nano RP2040 Connect |              3              |              22             |
-|     MKR NB 1500     |             3.9             |              17             |
-|    MKR Vidor 4000   |             3.9             |              17             |
-|    MKR WiFi 1010    |             3.9             |              17             |
-|       MKR Zero      |             3.3             |             5.5             |
-|     MKR1000 WIFI    |             4.5             |              21             |
-|     MKR WAN 1300    |             3.3             |             5.5             |
-|     MKR WAN 1310    |             3.3             |             5.5             |
-|         Nano        |              7              |              12             |
-|      Nano Every     |             4.5             |              21             |
-|     Nano 33 IoT     |             4.5             |              21             |
-|     Nano 33 BLE     |             4.5             |              21             |
-|  Nano 33 BLE Sense  |             4.5             |              21             |
+|      **Board**      | **VIN Voltage (V)** |
+|:-------------------:|:-------------------:|
+|       UNO Mini      |         5-18        |
+|       UNO Rev3      |         7-12        |
+|    UNO WiFi Rev2    |         7-12        |
+|     UNO Rev3 SMD    |         7-12        |
+|       Leonardo      |         7-12        |
+|    Mega 2560 Rev3   |         7-12        |
+|         Due         |         7-12        |
+|        Micro        |         7-12        |
+|         Zero        |         5-18        |
+|     Portenta H7     |          5          |
+|    Nicla Sense ME   |          5          |
+| Nano RP2040 Connect |         5-18        |
+|     MKR NB 1500     |         5-7         |
+|     MKR GSM 1400    |         5-7         |
+|    MKR Vidor 4000   |         5-7         |
+|    MKR WiFi 1010    |         5-7         |
+|       MKR Zero      |        5-5.5        |
+|     MKR1000 WIFI    |        5-5.5        |
+|     MKR WAN 1300    |        5-5.5        |
+|     MKR WAN 1310    |         5-7         |
+|         Nano        |         7-12        |
+|      Nano Every     |         7-18        |
+|     Nano 33 IoT     |         5-18        |
+|     Nano 33 BLE     |         5-18        |
+|  Nano 33 BLE Sense  |         5-18        |
 
 
 ## 3V3/5V Pin 
@@ -126,34 +153,71 @@ The **minimum and maximum voltages** that can be applied to the VIN pin are dete
 Although 3V3 and 5V pins can be used as power inputs, **it is not recommended** if no power supply is connected through the USB port, the barrel jack connector, or the VIN pin. 3V3 and 5V pins are connected directly to the onboard voltage regulator's output pin. Suppose the voltage in the voltage regulator output pin becomes higher than the input voltage of the voltage regulator. In that case, a large current may flow into the voltage regulator from its output pin to its input pin. That large current can permanently damage your board's voltage regulator.
 
 
-***It is safe but not recommended to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.*** 
+***It is safe **but not recommended** to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.*** 
 
 
-The **maximum current** drawn from the 3V3 and 5V pins are summarized below. Notice that this current can be provided by the 3V3 and 5V onboard voltage regulators or from the power source connected to the board:
+The **maximum current** that can be drawn from the 3V3 and 5V pins when working as power outputs are summarized below. Notice that these currents can be provided by the 3V3 and 5V onboard voltage regulators, or from the power source connected to the board:
 
 
-|      **Board**      | **Vin Minimum Voltage (V)** | **Vin Maximum Voltage (V)** |
-|:-------------------:|:---------------------------:|:---------------------------:|
-|       UNO Mini      |             4.5             |              21             |
-|       UNO Rev3      |              7              |              12             |
-|    UNO WiFi Rev2    |              7              |              12             |
-|     UNO Rev3 SMD    |              7              |              12             |
-|       Leonardo      |              7              |              12             |
-|    Mega 2560 Rev3   |              7              |              12             |
-|        Micro        |              7              |              12             |
-|         Zero        |              3              |              20             |
-|     Portenta H7     |             4.1             |              6              |
-|   Nicla Sense ME*   |             3.4             |             5.5             |
-| Nano RP2040 Connect |              3              |              22             |
-|     MKR NB 1500     |             3.9             |              17             |
-|    MKR Vidor 4000   |             3.9             |              17             |
-|    MKR WiFi 1010    |             3.9             |              17             |
-|       MKR Zero      |             3.3             |             5.5             |
-|     MKR1000 WIFI    |             4.5             |              21             |
-|     MKR WAN 1300    |             3.3             |             5.5             |
-|     MKR WAN 1310    |             3.3             |             5.5             |
-|         Nano        |              7              |              12             |
-|      Nano Every     |             4.5             |              21             |
-|     Nano 33 IoT     |             4.5             |              21             |
-|     Nano 33 BLE     |             4.5             |              21             |
-|  Nano 33 BLE Sense  |             4.5             |              21             |
+|      **Board**      | **5V Pin Output Current (A)** | **3V3 Pin Output Current (A)** |
+|:-------------------:|:-----------------------------:|:------------------------------:|
+|       UNO Mini      |                               |                                |
+|       UNO Rev3      |                               |                                |
+|    UNO WiFi Rev2    |                               |                                |
+|     UNO Rev3 SMD    |                               |                                |
+|       Leonardo      |                               |                                |
+|    Mega 2560 Rev3   |                               |                                |
+|        Micro        |                               |                                |
+|         Zero        |                               |                                |
+|     Portenta H7     |                               |                                |
+|   Nicla Sense ME*   |                               |                                |
+| Nano RP2040 Connect |                               |                                |
+|     MKR NB 1500     |                               |                                |
+|    MKR Vidor 4000   |                               |                                |
+|    MKR WiFi 1010    |                               |                                |
+|       MKR Zero      |                               |                                |
+|     MKR1000 WIFI    |                               |                                |
+|     MKR WAN 1300    |                               |                                |
+|     MKR WAN 1310    |                               |                                |
+|         Nano        |                               |                                |
+|      Nano Every     |                               |                                |
+|     Nano 33 IoT     |                               |                                |
+|     Nano 33 BLE     |                               |                                |
+|  Nano 33 BLE Sense  |                               |                                |
+
+
+## Choosing a Power Input
+
+
+Now that we know more about the powering alternatives of Arduino boards, we can answer that question we made at the beginning of this article about what power connector or pin we should use. When choosing a power connector or pin for a specific application or project, we should consider the **available power source** and the **power budget** of our application or project.
+
+***A power budget analyzes how much power our application or project requires for its correct working.***
+
+Let's talk about when it is recommended to use each of the **options** ways in which Arduino boards can be powered:
+
+### USB Connector
+
+This option is often recommended when experimenting with small loads that requires 5V, current would be constrained by USB host device where the board is connected.
+
+
+### Barrel Jack Connector
+
+
+This option is recommended when a regulated power supply with a barrel jack connector is available. Current is constrained by the regulated power supply and the onboard voltage regulator. 
+
+
+### Battery Connector
+
+
+This option is recommended for portable projects, or projects that need a secondary o backup power supply. Currently, 3V7 Li-Ion and Li-polymer batteries are supported in 
+
+
+### VIN Pin
+
+This option is recommended when a regulated power supply with out a barrel jack connector is available. Take into account that using VIN pin should be made carefully since this pin does not have reverse polarity protection. 
+
+
+## 3V3/5V Pin 
+
+
+This option is not recommended since the risk of damaging the onboard voltage regulator is high. It can be done safely, just remember to not 
