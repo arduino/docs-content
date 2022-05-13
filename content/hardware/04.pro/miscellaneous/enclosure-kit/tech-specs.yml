@@ -13,10 +13,6 @@ Dimensions:
   Length: 9 mm
   Height: 6 mm
 Included components:
-  Covers:
-    Top plastic cover: Included
-    Bottom plastic cover: Included
-    LCD display cover: Included
   Breakout:
     LCD:
       ID: NDS1602A
