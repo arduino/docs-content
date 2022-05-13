@@ -72,7 +72,7 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 </p>
 
 
-**5.** In this step you can review the connection type, Port, board and loaded libraries. You can also click on Test connection to evaluate the Arduino-MATLAB connection. Next, you should see a Green check-mark signalling the successful connection, as shown in the image below.
+**5.** In this step you can review the connection type, Port, board and loaded libraries. You can also click on Test connection to evaluate the Arduino-MATLAB® connection. Next, you should see a Green check-mark signalling the successful connection, as shown in the image below.
 
 
 <p align="center">
