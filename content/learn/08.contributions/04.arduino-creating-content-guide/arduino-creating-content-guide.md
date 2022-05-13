@@ -34,4 +34,4 @@ If you want to write your own content, please read the following guides on how t
 
 If you want to contribute with your own content to the Arduino Documentation website, please read the following documentation on how to do just that.
 
-* [Contribution Content](https://github.com/arduino/docs-content/contribution-templates)
+* [Contribution Content](https://github.com/arduino/docs-content/tree/main/contribution-templates)
