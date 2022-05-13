@@ -28,7 +28,7 @@ The enclosure kit features an LCD screen on top and a perfectly fitted case for 
 <source src="assets/edge-control-kit-assembly-animation.mp4" type="video/mp4"/>
 </video>
 
-Once you got all the parts and a Edge Control, we can start with placing the Edge Control into the bottom part of the enclosure kit.
+Once you got all the parts and an Edge Control, we can start with placing the Edge Control into the bottom part of the enclosure kit.
 
 ![First step](assets/1st.png)
 
