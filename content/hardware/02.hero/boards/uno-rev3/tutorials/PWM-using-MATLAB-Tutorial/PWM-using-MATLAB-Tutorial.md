@@ -14,7 +14,7 @@ software:
 
 ## Introduction
 
-In this tutorial, we will use MATLAB to turn on an external LED, and then to adjust the output using MATLAB® Support Package for Arduino® Hardware.
+In this tutorial, we will use MATLAB® to turn on an external LED, and then to adjust the output using MATLAB® Support Package for Arduino® Hardware.
 
 
 ### Goals
