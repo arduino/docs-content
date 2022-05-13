@@ -4,6 +4,7 @@ url_shop: https://store.arduino.cc/arduino-mkr-wan-1300
 url_guide: /software/ide-v1/installing-samd21-core
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrwan1310/161'
+productCode: '129'
 ---
 
 
