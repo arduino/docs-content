@@ -79,7 +79,7 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 <img src="https://i.imgur.com/QEXZ27s.png"/>
 </p>
 
-**6.** The Arduino Uno is now configured to interact with MATLAB. Now to create the object in MATLAB, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
+**6.** The UNO R3 is now configured to interact with MATLAB®. Now to create the object in MATLAB®, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
 
 ![](assets/arduinoproperties.png)
 
