@@ -17,7 +17,7 @@ Two analog inputs ranging from 0 to 1023 are translated to ranges of -12 to 12. 
 
 The pushbutton allows you to toggle mouse control on and off. As an option you may connect a status LED to pin 5 that lights upwhen the Arduino is controlling the mouse. A second pushbutton may be connected with another 10k ohm pulldown (to GND) resistor to D3 to act as the left click of the mouse.
 
-***Note: If you want to add the LED or the extra pushbutton, please follow the guidelines for the [LED circuit](./basics/Blink) and the [button circuit](./digital/Button).*** 
+***Note: If you want to add the LED or the extra pushbutton, please follow the guidelines for the [LED circuit](../basics/Blink) and the [button circuit](../digital/Button).*** 
 
 ***Note: When you use the `Mouse.move()` command, the Arduino takes over your computer's cursor! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call `Mouse.move()`. This sketch includes a pushbutton to toggle the mouse control state, so you can turn on and off mouse control.***
 
