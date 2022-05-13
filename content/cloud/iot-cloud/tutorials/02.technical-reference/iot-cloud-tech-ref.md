@@ -281,6 +281,8 @@ To read the location values, we can use the following method `Location coordinat
 | Latitude  | `float` | `coordinates.lat` | This variable is ready only |
 | Longitude | `float` | `coordinates.lon` | This variable is ready only |
 
+***The format of the `lat` and `lon` is in Decimal Degrees (DD), for example `41.40338`, `2.17403`.***
+
 #### Television    
    
 Declared as `CloudTelevision x;`
