@@ -60,7 +60,7 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 
 ![arduino Setup](assets/arduinosetup.png)
 
-**3.** A Graphical User Interface (GUI) appears, that will help you set up the MATLAB-Arduino connection. To establish the connection over the USB cable, make sure that the USB radio box is selected and then click on Next.
+**3.** A Graphical User Interface (GUI) appears, that will help you set up the MATLAB®-Arduino connection. To establish the connection over the USB cable, make sure that the USB radio box is selected and then click on Next.
 
 ![Selection of Connection Type](assets/connectiontype.png)
 
