@@ -125,6 +125,7 @@ MATLAB® should be displaying different amount for "Volts as your turn the poten
 
 **3.** All that is left is to send the amount recieved from A0 to pin 11. For this we need a different command: `writePWMVolatge()`.
 
+
 <p align="center">
 <img src="https://gcdnb.pbrd.co/images/PUSyiiyMTi0T.png?o=1"/>
 </p>
