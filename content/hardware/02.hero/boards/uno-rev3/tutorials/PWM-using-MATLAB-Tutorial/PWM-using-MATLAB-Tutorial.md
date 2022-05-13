@@ -119,6 +119,7 @@ On the right breadboard we have a simple LED circuit comprised of a red output w
 
 
 
+
 <p align="center">
 <img src="https://i.imgur.com/jRj6dh1.png"/>
 </p>
@@ -128,6 +129,7 @@ MATLAB® should be displaying different amount for "Volts as your turn the poten
 </p>
 
 **3.** All that is left is to send the amount recieved from A0 to pin 11. For this we need a different command: `writePWMVolatge()`.
+
 
 
 
