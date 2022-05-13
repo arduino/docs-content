@@ -274,7 +274,7 @@ To set the color, we can assign the CloudColor variable directly to float variab
 
 Declared as `CloudLocation x;`.
 
-To read the location values, we can use the following method `Location coordinates = x.getValue();`. This will assign the longitude and latitude values to the coordinates variable. If we want too access the values individually we can use `Serial.println(coordinates.lat)` and `Serial.println(coordinates.lot)`.
+To read the location values, we can use the following method `Location coordinates = x.getValue();`. This will assign the longitude and latitude values to the coordinates variable. If we want too access the values individually we can use `Serial.println(coordinates.lat)` and `Serial.println(coordinates.lon)`.
 
 | Property  | Type    | Read value        | Set value                   |
 | --------- | ------- | ----------------- | --------------------------- |
