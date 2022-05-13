@@ -83,7 +83,7 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 
 ![](assets/arduinoproperties.png)
 
-**7.** Enter the command `writeDigitalPin(a,'D13',1);`. This command is similar to the `digitalWrite(D13, HIGH)` by the Arduino programming language. Which means that digital pin 13 (D13) is connected to the built-in LED, `a` is the arduino object we created, and 1 represents a HIGH or ON state. Try turning the LED ON and OFF several times by changing 1 to 0 and vice-versa.
+**7.** Enter the command `writeDigitalPin(a,'D13',1);`. This command is similar to the `digitalWrite(D13, HIGH)` by the Arduino programming language. Which means that digital pin 13 (D13) is connected to the built-in LED, `a` is the Arduino object we created, and 1 represents a HIGH or ON state. Try turning the LED ON and OFF several times by changing 1 to 0 and vice-versa.
 
 
 ***Unlike in the Arduino IDE, here you cannot address the built-in LED using the `LED_BUILTIN` function.***
