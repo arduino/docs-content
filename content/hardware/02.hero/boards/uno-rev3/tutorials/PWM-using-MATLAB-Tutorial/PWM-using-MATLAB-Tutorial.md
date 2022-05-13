@@ -115,6 +115,7 @@ On the right breadboard we have a simple LED circuit comprised of a red output w
 
 **2.** Set your output voltage to 1 in the previously mentioned way, using `writeDigitalPin(a, 'D13', 1);` Now we'll check to see if A0 is actually reading an adjustable voltage. To see if the input changes as we turn the potentiometer use `readVoltage(a, A0);` in a loop.
 
+
 <p align="center">
 <img src="https://i.imgur.com/jRj6dh1.png"/>
 </p>
@@ -124,6 +125,7 @@ MATLAB® should be displaying different amount for "Volts as your turn the poten
 </p>
 
 **3.** All that is left is to send the amount recieved from A0 to pin 11. For this we need a different command: `writePWMVolatge()`.
+
 
 
 <p align="center">
