@@ -262,26 +262,24 @@ Declared as `CloudColor x;`.
 
 To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the `colorValues` variable.
 
-| Property   | Type | Read value        | Set value                              |
-| ---------- | ---- | ----------------- | -------------------------------------- |
-| Hue        |      | `colorValues.hue` | `x = Color(hue,saturation,brightness)` |
-| Saturation |      | `colorValues.sat` | `x = Color(hue,saturation,brightness)` |
-| Brightness |      | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
-
-
-
-
-To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the `colorValues` variable. If we want too access the values individually we can use `Serial.println(colorValues.hue)`, `Serial.println(colorValues.sat)`, and `Serial.println(colorValues.bri)`.
+| Property   | Type    | Read value        | Set value                              |
+| ---------- | ------- | ----------------- | -------------------------------------- |
+| Hue        | `float` | `colorValues.hue` | `x = Color(hue,saturation,brightness)` |
+| Saturation | `float` | `colorValues.sat` | `x = Color(hue,saturation,brightness)` |
+| Brightness | `float` | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
 
 To set the color, we can assign the CloudColor variable directly to float variables `x = {hue,saturation,brightness}`, or using the method ` x = Color(hue,saturation,brightness)`.
 
 #### CloudLocation
 
-Declared as `CloudLocation x;`
+Declared as `CloudLocation x;`.
 
-To read the location values, we can use the following method `Location coordinates = x.getValue();`. This will assign the longitude and latitude values to the coordinates variable. If we want too access the values individually we can use `Serial.println(coordinates.lat)` and `Serial.println(coordinates.lat)`.
+To read the location values, we can use the following method `Location coordinates = x.getValue();`. This will assign the longitude and latitude values to the coordinates variable. If we want too access the values individually we can use `Serial.println(coordinates.lat)` and `Serial.println(coordinates.lot)`.
 
-To set the coordinates, we can assign the CloudLocation variable directly to float variables `x = {latitude, longitude}`, or using the method ` x = Location(latitude, longitude)`.
+| Property  | Type    | Read value        | Set value                   |
+| --------- | ------- | ----------------- | --------------------------- |
+| Latitude  | `float` | `coordinates.lat` | This variable is ready only |
+| Longitude | `float` | `coordinates.lon` | This variable is ready only |
 
 #### Television    
    
@@ -296,6 +294,35 @@ Declared as `CloudTelevision x;`
 | Input            | `InputValue` ([Up to 60 values](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/property/types/automation/CloudTelevision.h) such as HDMI1, HDMI2, DVD, GAME...etc.) | `x.getInput()`           | `x.setInput()`           |
 | Channel          | `int`                                                                                                                                                                                     | `x.getChannel()`         | `x.setChannel()`         |
 
+
+### Utilities
+
+The following utilities are available using any IoT Cloud sketch.
+
+#### Check Connection Status
+
+To check connection to the cloud, use:
+
+```arduino
+ArduinoCloud.connected()
+```
+
+This will return in an `int` format:
+- `0` (not connected)
+- `1` (connected).
+
+#### Get Local Time (Unix)
+
+To check local time, use:
+
+```arduino
+ArduinoCloud.getLocalTime()                         
+```
+
+This will return in a `long` format:
+- Epoch Unix time stamp. Example: `1652442415`.
+
+***This utility can be used together with the `CloudTime` variable and the `Time Picker` widget.***
 
 ### Examples
 
