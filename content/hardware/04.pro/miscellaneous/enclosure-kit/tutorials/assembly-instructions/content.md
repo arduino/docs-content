@@ -15,7 +15,7 @@ hardware:
 
 ![The enclosure kit and Edge Control](assets/enclosure-kit.png)
 
-The enclosure kit features a LCD screen on top and a perfectly fitted case for the Arduino Edge Control.
+The enclosure kit features an LCD screen on top and a perfectly fitted case for the Arduino Edge Control.
 
 ### Required Hardware and Software
 
