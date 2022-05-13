@@ -120,10 +120,11 @@ On the right breadboard we have a simple LED circuit comprised of a red output w
 </p>
 
 <p align="center">
-MATLAB should be displaying different amount for "Volts as your turn the potentiometer.
+MATLAB® should be displaying different amount for "Volts as your turn the potentiometer.
 </p>
 
 **3.** All that is left is to send the amount recieved from A0 to pin 11. For this we need a different command: `writePWMVolatge()`.
+
 <p align="center">
 <img src="https://gcdnb.pbrd.co/images/PUSyiiyMTi0T.png?o=1"/>
 </p>
@@ -134,7 +135,7 @@ MATLAB should be displaying different amount for "Volts as your turn the potenti
 If the code is not working, there are some common issues we can troubleshoot:
 
 - Make sure to clear previous Arduino objects linked to the device. You can do this by running the command `clear a` where `a` is the Arduino object.
-- If you get the message `Unrecognized function or variable 'arduinosetup' ` ensure that you have installed the [MATLAB Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware).
+- If you get the message `Unrecognized function or variable 'arduinosetup'` ensure that you have installed the [MATLAB® Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware).
 
 
 ## Conclusion
@@ -143,6 +144,5 @@ You can now control your output using variable inputs to control your devices an
 
 ## Further Ideas
 
-- You can also use the command line arguments to upload the MATLAB server to the Nano 33 IoT via the `arduino()` command. See more information on using this function in the [MathWorks documentation](https://www.mathworks.com/help/supportpkg/arduinoio/ref/arduino.html).
-
-- Try writing a MATLAB code that slowly increases and then decreases the blink speed instead of adjusting the brightness.
+- You can also use the command line arguments to upload the MATLAB® server to the Arduino® Nano 33 IoT via the `arduino()` command. See more information on using this function in the [MathWorks® documentation](https://www.mathworks.com/help/supportpkg/arduinoio/ref/arduino.html).
+- Try writing a MATLAB® code that slowly increases and then decreases the blink speed instead of adjusting the brightness.
