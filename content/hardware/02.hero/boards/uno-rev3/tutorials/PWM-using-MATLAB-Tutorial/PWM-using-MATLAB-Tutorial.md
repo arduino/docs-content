@@ -2,7 +2,7 @@
 title: 'Controlling PWM output with a potentiometer on the Arduino Uno via MATLAB'
 difficulty: intermediate
 compatible-products: [Arduino Uno Rev 3, Potentiometer]
-description: 'Learn how to dim an LED connceted to the Arduino Uno with MATLAB.'
+description: 'Learn how to dim an LED connceted to the UNO R3 with MATLAB®.'
 tags:
   - MATLAB
 author: 'Mohammed Hussain Jahangiri'
