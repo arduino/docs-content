@@ -27,7 +27,7 @@ The goals of this project are:
 
 ### Hardware & Software Needed
 
-- [Arduino Uno Rev3](https://store.arduino.cc/products/arduino-uno-rev3)
+- [UNO R3](https://store.arduino.cc/products/arduino-uno-rev3)
 - [USB 2.0 Cable Type A/B](https://store.arduino.cc/products/usb-2-0-cable-type-a-b)
 - Any potentiometer connectable to a breadboard
 - Valid MATLAB® licence
