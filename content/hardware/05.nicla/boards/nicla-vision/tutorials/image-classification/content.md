@@ -107,7 +107,7 @@ It's recommended to adjust the image size to 48x48 for improved performance. You
 ### 5. Generate Features
 
 In this step you will adjust the image settings and generate the features from the input data. Features are unique properties that will be used by the classification algorithm to detect the objects. A feature can be the round shape of an orange or the fact that an image of a banana has many bright pixels as bananas are mostly yellow.
-In the menu navigate to "Image" under "Impulse Design". Set the color depth to "GB" and save the parameters. 
+In the menu navigate to "Image" under "Impulse Design". Set the color depth to "RGB" and save the parameters. 
 
 ![In the image inspection tool you can set the color depth according to the input data](assets/dsp_parameters.png)
 
