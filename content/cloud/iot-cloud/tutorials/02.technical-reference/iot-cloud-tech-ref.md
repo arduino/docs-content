@@ -192,44 +192,44 @@ For your convenience, IoT Cloud provides specialized types which are just wrappe
 You can use them just like a normal variable of the wrapped type, since they support assignment and comparison operators.
 
 | Type                 | Declaration                              | Wrapped data type |
-| -------------------- | ---------------------------------------- | ------- |
-| Acceleration         | `CloudAcceleration variableName;`        | `float` |
-| Angle                | `CloudAngle variableName;`               | `float` |
-| Area                 | `CloudArea variableName;`                | `float` |
-| Capacitance          | `CloudCapacitance variableName;`         | `float` |
-| Color                | `CloudColor variableName;`               | `float` |
-| Contact Sensor       | `CloudContactSensor variableName;`       | `bool`  |
-| Counter              | `CloudCounter variableName;`             | `int`   |
-| Data Rate            | `CloudDataRate variableName;`            | `float` |
-| Electric Current     | `CloudElectricCurrent variableName;`     | `float` |
-| Electric Potention   | `CloudElectricPotention variableName;`   | `float` |
-| Electric Resistance  | `CloudElectricResistance variableName;`  | `float` |
-| Energy               | `CloudEnergy variableName;`              | `float` |
-| Flow Rate            | `CloudFlowRate variableName;`            | `float` |
-| Force                | `CloudForce variableName;`               | `float` |
-| Frequency            | `CloudFrequency variableName;`           | `float` |
-| Heart Rate           | `CloudHeartRate variableName;`           | `float` |
-| Information Content  | `CloudInformationContent variableName;`  | `int`   |
-| Length               | `CloudLength variableName;`              | `float` |
-| Light                | `CloudLight variableName;`               | `bool`  |
-| Location             | `CloudLocation variableName;`            | `float` |
-| Logarithmic Quantity | `CloudLogarithmicQuantity variableName;` | `float` |
-| Luminance            | `CloudLuminance variableName;`           | `float` |
-| Luminous Flux        | `CloudLuminousFlux variableName;`        | `float` |
-| Luminous Intensity   | `CloudLuminousIntensity variableName;`   | `float` |
-| Mass                 | `CloudMass variableName;`                | `float` |
-| Motion Sensor        | `CloudMotionSensor variableName;`        | `bool`  |
-| Percentage           | `CloudPercentage variableName;`          | `float` |
-| Power                | `CloudPower variableName;`               | `float` |
-| Pressure             | `CloudPressure variableName;`            | `float` |
-| Relative Humidity    | `CloudRelativeHumidity variableName;`    | `float` |
-| Smart Plug           | `CloudSmartPlug variableName;`           | `bool`  |
-| Switch               | `CloudSwitch variableName;`              | `bool`  |
-| CloudTemperature     | `CloudTemperature variableName;`         | `float` |
-| Temperature Sensor   | `CloudTemperatureSensor variableName;`   | `float` |
-| Time                 | `CloudTime variableName;`                | `float` |
-| Velocity             | `CloudVelocity variableName;`            | `float` |
-| Volume               | `CloudVolume variableName;`              | `float` |
+| -------------------- | ---------------------------------------- | ----------------- |
+| Acceleration         | `CloudAcceleration variableName;`        | `float`           |
+| Angle                | `CloudAngle variableName;`               | `float`           |
+| Area                 | `CloudArea variableName;`                | `float`           |
+| Capacitance          | `CloudCapacitance variableName;`         | `float`           |
+| Color                | `CloudColor variableName;`               | `float`           |
+| Contact Sensor       | `CloudContactSensor variableName;`       | `bool`            |
+| Counter              | `CloudCounter variableName;`             | `int`             |
+| Data Rate            | `CloudDataRate variableName;`            | `float`           |
+| Electric Current     | `CloudElectricCurrent variableName;`     | `float`           |
+| Electric Potention   | `CloudElectricPotention variableName;`   | `float`           |
+| Electric Resistance  | `CloudElectricResistance variableName;`  | `float`           |
+| Energy               | `CloudEnergy variableName;`              | `float`           |
+| Flow Rate            | `CloudFlowRate variableName;`            | `float`           |
+| Force                | `CloudForce variableName;`               | `float`           |
+| Frequency            | `CloudFrequency variableName;`           | `float`           |
+| Heart Rate           | `CloudHeartRate variableName;`           | `float`           |
+| Information Content  | `CloudInformationContent variableName;`  | `int`             |
+| Length               | `CloudLength variableName;`              | `float`           |
+| Light                | `CloudLight variableName;`               | `bool`            |
+| Location             | `CloudLocation variableName;`            | `float`           |
+| Logarithmic Quantity | `CloudLogarithmicQuantity variableName;` | `float`           |
+| Luminance            | `CloudLuminance variableName;`           | `float`           |
+| Luminous Flux        | `CloudLuminousFlux variableName;`        | `float`           |
+| Luminous Intensity   | `CloudLuminousIntensity variableName;`   | `float`           |
+| Mass                 | `CloudMass variableName;`                | `float`           |
+| Motion Sensor        | `CloudMotionSensor variableName;`        | `bool`            |
+| Percentage           | `CloudPercentage variableName;`          | `float`           |
+| Power                | `CloudPower variableName;`               | `float`           |
+| Pressure             | `CloudPressure variableName;`            | `float`           |
+| Relative Humidity    | `CloudRelativeHumidity variableName;`    | `float`           |
+| Smart Plug           | `CloudSmartPlug variableName;`           | `bool`            |
+| Switch               | `CloudSwitch variableName;`              | `bool`            |
+| CloudTemperature     | `CloudTemperature variableName;`         | `float`           |
+| Temperature Sensor   | `CloudTemperatureSensor variableName;`   | `float`           |
+| Time                 | `CloudTime variableName;`                | `float`           |
+| Velocity             | `CloudVelocity variableName;`            | `float`           |
+| Volume               | `CloudVolume variableName;`              | `float`           |
 
 
 ### Complex Types
@@ -249,18 +249,29 @@ Declared as `CloudDimmedLight x;`
 
 Declared as `CloudColoredLight x;`
 
-| Property  | Type               | Read value                     | Set value                     |
-| ----------| -------------------| -------------------------------| ------------------------------|
-| Switch    | `bool`             | `x.getSwitch()`                | `x.setSwitch()`               |
-| Hue       | `float` (0-360)    | `x.getHue()`                   | `x.setHue()`                  |
-| Saturation| `float` (0-100)    | `x.getSaturation()`            | `x.setSaturation()`           |
-| Brightness| `float` (0-100)    | `x.getBrightness()`            | `x.setBrightness()`           |
+| Property   | Type            | Read value          | Set value           |
+| ---------- | --------------- | ------------------- | ------------------- |
+| Switch     | `bool`          | `x.getSwitch()`     | `x.setSwitch()`     |
+| Hue        | `float` (0-360) | `x.getHue()`        | `x.setHue()`        |
+| Saturation | `float` (0-100) | `x.getSaturation()` | `x.setSaturation()` |
+| Brightness | `float` (0-100) | `x.getBrightness()` | `x.setBrightness()` |
 
 #### CloudColor
 
-Declared as `CloudColor x;`
+Declared as `CloudColor x;`.
 
-To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the colorValues variable. If we want too access the values individually we can use `Serial.println(colorValues.hue)`, `Serial.println(colorValues.sat)`, and `Serial.println(colorValues.bri)`.
+To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the `colorValues` variable.
+
+| Property   | Type | Read value        | Set value                              |
+| ---------- | ---- | ----------------- | -------------------------------------- |
+| Hue        |      | `colorValues.hue` | `x = Color(hue,saturation,brightness)` |
+| Saturation |      | `colorValues.sat` | `x = Color(hue,saturation,brightness)` |
+| Brightness |      | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
+
+
+
+
+To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the `colorValues` variable. If we want too access the values individually we can use `Serial.println(colorValues.hue)`, `Serial.println(colorValues.sat)`, and `Serial.println(colorValues.bri)`.
 
 To set the color, we can assign the CloudColor variable directly to float variables `x = {hue,saturation,brightness}`, or using the method ` x = Color(hue,saturation,brightness)`.
 
@@ -276,14 +287,14 @@ To set the coordinates, we can assign the CloudLocation variable directly to flo
    
 Declared as `CloudTelevision x;`
 
-| Property         | Type                                                                                   | Read Value               | Set value                | 
-| -----------------| ---------------------------------------------------------------------------------------| -------------------------| -------------------------|
-| Switch           | `bool`                                                                                 | `x.getSwitch()`          | `x.setSwitch()`          |                 
-| Volume           | `int`(0-100)                                                                           | `x.getVolume()`          | `x.setVolume()`          |
-| Mute             | `bool`                                                                                 | `x.getMute()`            | `x.setMute()`            |                                                       
-| PlaybackCommands | `PlaybackCommands` (FastForward, Next, Pause, Play, Previous, Rewind, StartOver, Stop) | `x.getPlaybackCommand()` | `x.setPlaybackCommand()` | 
-| Input            | `InputValue` ([Up to 60 values](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/property/types/automation/CloudTelevision.h) such as HDMI1, HDMI2, DVD, GAME...etc.)                 | `x.getInput()`           | `x.setInput()`           |
-| Channel          | `int`                                                                                  | `x.getChannel()`         | `x.setChannel()`         |
+| Property         | Type                                                                                                                                                                                      | Read Value               | Set value                |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------ |
+| Switch           | `bool`                                                                                                                                                                                    | `x.getSwitch()`          | `x.setSwitch()`          |
+| Volume           | `int`(0-100)                                                                                                                                                                              | `x.getVolume()`          | `x.setVolume()`          |
+| Mute             | `bool`                                                                                                                                                                                    | `x.getMute()`            | `x.setMute()`            |
+| PlaybackCommands | `PlaybackCommands` (FastForward, Next, Pause, Play, Previous, Rewind, StartOver, Stop)                                                                                                    | `x.getPlaybackCommand()` | `x.setPlaybackCommand()` |
+| Input            | `InputValue` ([Up to 60 values](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/property/types/automation/CloudTelevision.h) such as HDMI1, HDMI2, DVD, GAME...etc.) | `x.getInput()`           | `x.setInput()`           |
+| Channel          | `int`                                                                                                                                                                                     | `x.getChannel()`         | `x.setChannel()`         |
 
 
 ### Examples
