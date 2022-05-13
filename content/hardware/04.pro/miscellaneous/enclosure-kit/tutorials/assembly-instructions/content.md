@@ -54,7 +54,7 @@ There you go, a perfectly fitted enclosure for your Edge Control with an LCD scr
 
 ## Next Step
 
-Now that you have your Edge Control hooked up to a LCD screen you might want to test the set up out. Feel free to take a look at our tutorials for the Arduino Edge Control.
+Now that you have your Edge Control hooked up to a LCD screen you might want to test the setup out. Feel free to take a look at our tutorials for the Arduino Edge Control.
 
 - For simple getting started instructions for the Edge Control, look no further than our [Getting Started tutorial](https://docs.arduino.cc/tutorials/edge-control/ec-ard-gs)
 - For a more in-depth look at the Edge Controls features head on over to our [Connecting and Controlling a Motorized Ball Valve tutorial](https://docs.arduino.cc/tutorials/edge-control/ec-ard-3wirevalve)
