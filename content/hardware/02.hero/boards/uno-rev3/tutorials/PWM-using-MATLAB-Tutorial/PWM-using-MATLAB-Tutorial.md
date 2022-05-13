@@ -46,10 +46,7 @@ MATLAB® is an educational and industrial programming platform used to analyse d
 ### LED on the Arduino Uno R3
 The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this pin HIGH, we can turn the LED on and by pulling it LOW we can turn the LED off. But to output a variable voltage we have to use pins such as pin ~11 or ~10.
 
-<p align="center">
-<img src="http://electronicswithyou.com/wp-content/uploads/2019/05/Arduino-Uno-LED.jpg"/>
-</p>
-
+![Pin13](assets/Arduino-Uno-LED.jpg)
 
 ## Control LED over USB with MATLAB
 **1.** Connect your board to the computer via the USB 2.0 Cable Type A/B.
@@ -67,17 +64,13 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 
 **4.** Choose the "UNO" from the dropdown menu, as well as the relevant COM port, and click on the blue `Program` button to upload the Arduino Server to the board. When you have done so, click on next.
 
-<p align="center">
-<img src="https://i.imgur.com/AUhpmWO.png"/>
-</p>
+![Programming-the-arduino](assets/program-Arduino.png)
 
 
 **5.** In this step you can review the connection type, Port, board and loaded libraries. You can also click on Test connection to evaluate the Arduino-MATLAB® connection. Next, you should see a Green check-mark signalling the successful connection, as shown in the image below.
 
 
-<p align="center">
-<img src="https://i.imgur.com/QEXZ27s.png"/>
-</p>
+![Program-successful](assets/programming-done.png)
 
 **6.** The UNO R3 is now configured to interact with MATLAB®. Now to create the object in MATLAB®, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
 
