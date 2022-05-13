@@ -9,8 +9,6 @@ author: 'Benjamin Dannegård'
 hardware:
   - hardware/04.pro/carriers/edge-control
   - hardware/04.pro/miscellaneous/enclosure-kit
-software:
-  - 
 ---
 
 ## Introduction 
@@ -24,7 +22,7 @@ The enclosure kit features a LCD screen on top and a perfectly fitted case for t
 - [Arduino® Edge Control](https://store.arduino.cc/products/arduino-edge-control)
 - [Arduino® Enclosure Kit]()
 
-## Assemble the kit
+## Assemble the Kit
 
 <video width="100%" controls="true">
 <source src="assets/edge-control-kit-assembly-animation.mp4" type="video/mp4"/>
@@ -54,7 +52,7 @@ Finally you can put the upper part that holds the screen on the bottom part that
 There you go, a perfectly fitted enclosure for your Edge Control with an LCD screen!
 
 
-## Next step
+## Next Step
 
 Now that you have your Edge Control hooked up to a LCD screen you might want to test the set up out. Feel free to take a look at our tutorials for the Arduino Edge Control.
 
