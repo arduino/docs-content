@@ -65,7 +65,7 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 ![Selection of Connection Type](assets/connectiontype.png)
 
 
-**4.** Choose the "Uno" from the dropdown menu, as well as the relevant COM port, and click on the blue `Program` button to upload the Arduino Server to the board. When you have done so, click on next.
+**4.** Choose the "UNO" from the dropdown menu, as well as the relevant COM port, and click on the blue `Program` button to upload the Arduino Server to the board. When you have done so, click on next.
 
 <p align="center">
 <img src="https://i.imgur.com/AUhpmWO.png"/>
