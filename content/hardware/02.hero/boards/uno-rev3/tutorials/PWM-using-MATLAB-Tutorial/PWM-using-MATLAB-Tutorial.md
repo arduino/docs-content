@@ -44,7 +44,7 @@ MATLAB® is an educational and industrial programming platform used to analyse d
  
 
 ### LED on the Arduino Uno R3
-The internal LED in the Arduino Uno is connected to Digital Pin 13. By pulling this pin HIGH, we can turn the LED on and by pulling it LOW we can turn the LED off. But to output a variable voltage we have to use pins such as pin ~11 or ~10.
+The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this pin HIGH, we can turn the LED on and by pulling it LOW we can turn the LED off. But to output a variable voltage we have to use pins such as pin ~11 or ~10.
 
 <p align="center">
 <img src="http://electronicswithyou.com/wp-content/uploads/2019/05/Arduino-Uno-LED.jpg"/>
