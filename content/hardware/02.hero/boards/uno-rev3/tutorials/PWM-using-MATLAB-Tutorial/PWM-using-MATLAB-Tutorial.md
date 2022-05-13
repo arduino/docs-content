@@ -120,6 +120,7 @@ On the right breadboard we have a simple LED circuit comprised of a red output w
 
 
 
+
 <p align="center">
 <img src="https://i.imgur.com/jRj6dh1.png"/>
 </p>
