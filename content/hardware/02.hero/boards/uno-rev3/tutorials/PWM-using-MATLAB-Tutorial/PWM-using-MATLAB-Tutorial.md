@@ -22,7 +22,7 @@ In this tutorial, we will use MATLAB to turn on an external LED, and then to adj
 The goals of this project are:
 
 - Control the UNO R3 LED with MATLAB.
-- Control the Arduino Uno PWM output with MATLAB.
+- Control the UNO R3 PWM output with MATLAB.
 - Create a dimmable light using a potentiometer.
 
 ### Hardware & Software Needed
