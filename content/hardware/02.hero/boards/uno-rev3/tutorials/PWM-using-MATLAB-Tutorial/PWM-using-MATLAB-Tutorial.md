@@ -42,16 +42,10 @@ The goals of this project are:
 ### Why MATLAB?
 MATLAB® is an educational and industrial programming platform used to analyse data, perform simulations and carry out model based designs. Through an interactive communication with an Arduino board, you can expand MATLAB®'s capabilities, while also gaining access to a wide range of math, engineering and plotting functions. Check out the capabilities of MATLAB® over on the [MathWorks website](https://www.mathworks.com/solutions.html#capabilities). In this tutorial, we will establish the connection with MATLAB® via a USB and Wi-Fi connection. The [MATLAB® Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware) must be installed (which may require a MathWorks® account), in order to facilitate the communication between the MATLAB® software on your computer and your Arduino board. 
  
-
-### LED on the Arduino Uno R3
-The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this pin HIGH, we can turn the LED on and by pulling it LOW we can turn the LED off. But to output a variable voltage we have to use pins such as pin ~11 or ~10.
-
-![Pin13](assets/Arduino-Uno-LED.jpg)
-
-## Control LED over USB with MATLAB
+## Connecting the board to MATLAB
 **1.** Connect your board to the computer via the USB 2.0 Cable Type A/B.
 
-![USB connection to computer](assets/Arduino-Connect.png)
+![USB connection to computer](assets/Arduino-Connect1080.png)
 
 **2.** Open MATLAB and run the command `arduinosetup()` in the Command Window.
 
@@ -64,17 +58,17 @@ The internal LED in the UNO R3 is connected to Digital Pin 13. By pulling this p
 
 **4.** Choose the "UNO" from the dropdown menu, as well as the relevant COM port, and click on the blue `Program` button to upload the Arduino Server to the board. When you have done so, click on next.
 
-![Programming-the-arduino](assets/program-Arduino.png)
+![Programming-the-arduino](assets/HardwareSetup1080.PNG)
 
 
 **5.** In this step you can review the connection type, Port, board and loaded libraries. You can also click on Test connection to evaluate the Arduino-MATLAB® connection. Next, you should see a Green check-mark signalling the successful connection, as shown in the image below.
 
+![Program-successful](assets/SetupSuccess1080.PNG)
 
-![Program-successful](assets/programming-done.png)
 
 **6.** The UNO R3 is now configured to interact with MATLAB®. Now to create the object in MATLAB®, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
 
-![](assets/arduinoproperties.png)
+![](assets/arduinoproperties1080.png)
 
 **7.** Enter the command `writeDigitalPin(a,'D13',1);`. This command is similar to the `digitalWrite(D13, HIGH)` by the Arduino programming language. Which means that digital pin 13 (D13) is connected to the built-in LED, `a` is the Arduino object we created, and 1 represents a HIGH or ON state. Try turning the LED ON and OFF several times by changing 1 to 0 and vice-versa.
 
@@ -93,48 +87,47 @@ while (1)
 end
 ```
 
-
 **9.** See what happens when you change the pause duration. Try replacing the while with an `if` statement to make it blink a certain number of times.
 
-## Set up the circuit and code
+## Circuit
 
-**1.** On one breadboard we have the white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
-On the right breadboard we have a simple LED circuit comprised of a red output wire connected to pin11, a resistor and the LED finally connected to GND via the green wire.
+On one breadboard there is a white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
+On the right breadboard we have a simple LED circuit comprised of a red output wire from pin11, a resistor and the LED finally connected to GND via the green wire.
 
-![](assets/curcuit.jpg)
+![](assets/curcuit.png)
 
 ***Make sure to connect the longer leg of the LED to the resistor and the shorter to GND.***
 
+## Programming the board
 
-**2.** Set your output voltage to 1 in the previously mentioned way, using `writeDigitalPin(a, 'D13', 1);` Now we'll check to see if A0 is actually reading an adjustable voltage. To see if the input changes as we turn the potentiometer use `readVoltage(a, A0);` in a loop.
+**1.** Set your output to 1 in the previously mentioned way using `writeDigitalPin(a, 'D13', 1);`. As mentioned earlier, 1 means ON or HIGH and sends a 5V current through pin13. Check to see if A0 is actually reading an adjustable voltage using `readVoltage(a, A0);` in a loop and then use `display(Volts)` to print the value of `Volts`.
 
+```
+a = arduino();
+writeDigitalPin(a, 'D13', 1)
+while(1)
+  Volts = readVoltage(a, 'A0');
+  display(Volts)
+  pause(0.5)
+end
+```
 
+The amount assigned to `Volts` should be changing as you turn the potentiometer.
 
+![](assets/Volts.PNG)
 
+**2.** Set the value of `Volts` as the voltage to be sent through pin 11 using the command: `writePWMVolatge()`. This command is different from `writeDigitlaPin()` as it's voltage is adjustable between 1 and 5 volts. Whereas the latter is either ON(1), being **5V** or OFF(0), **0V**.
 
-
-
-<p align="center">
-<img src="https://i.imgur.com/jRj6dh1.png"/>
-</p>
-
-<p align="center">
-MATLAB® should be displaying different amount for "Volts as your turn the potentiometer.
-</p>
-
-**3.** All that is left is to send the amount recieved from A0 to pin 11. For this we need a different command: `writePWMVolatge()`.
-
-
-
-
-
-
-
-
-<p align="center">
-<img src="https://gcdnb.pbrd.co/images/PUSyiiyMTi0T.png?o=1"/>
-</p>
-
+```
+a = arduino();
+writeDigitalPin(a, 'D13', 1)
+while(1)
+  Volts = readVoltage(a, 'A0');
+  writePWMVolatge(a, 'D11', Volts)
+  display(Volts)
+  pause(0.5)
+end
+```
 
 ### Troubleshoot
 
@@ -146,9 +139,10 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-You can now control your output using variable inputs to control your devices and make use of the powerful features for scientific computing and developing engineering applications!
+You can now control your output using variable inputs to control your devices and make use of the powerful features for scientific computing and developing engineering applications! Different input modulators similar to the potentiometer porcessed by the various toolboxes offered my MATLAB can lead to infinite types of ouput beyond that of the brightness of an LED.
 
 ## Further Ideas
 
-- You can also use the command line arguments to upload the MATLAB® server to the Arduino® Nano 33 IoT via the `arduino()` command. See more information on using this function in the [MathWorks® documentation](https://www.mathworks.com/help/supportpkg/arduinoio/ref/arduino.html).
+- You can also use the command line arguments to upload the MATLAB® server to the Arduino® UNO via the `arduino()` command. See more information on using this function in the [MathWorks® documentation](https://www.mathworks.com/help/supportpkg/arduinoio/ref/arduino.html).
 - Try writing a MATLAB® code that slowly increases and then decreases the blink speed instead of adjusting the brightness.
+- Use different sensors and parts instead of the potentiometer and LED (maybe a light sensor and a motor?)
