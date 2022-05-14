@@ -23,20 +23,20 @@ It is possible to configure the Nicla Sense ME to communicate via Serial over US
 
 ## Goals
 
--   How to install Go Lang
--   How to set up the Nicla Sense ME
--   How to use the bhy-controller tool to: configure and read the sensors through the terminal (CLI commands)
--   How to use the bhy-controller tool to: run the webserver, configure and read the sensors on your internet browser
+- How to install Go Lang
+- How to set up the Nicla Sense ME
+- How to use the bhy-controller tool to: configure and read the sensors through the terminal (CLI commands)
+- How to use the bhy-controller tool to: run the webserver, configure and read the sensors on your internet browser
 
 ### Required Hardware and Software
 
--   Nicla Sense ME (<https://store.arduino.cc/nicla-sense-me>)
--   Nicla Sense ME library (Arduino_BHY2)
--   Micro USB-A cable (USB-A to Micro USB-A)
--   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
--   Go Lang (<https://golang.org/>)
--   BHY-CONTROLLER tool
--   MKR Board (Only required for DFU)
+- [Nicla Sense ME](https://store.arduino.cc/nicla-sense-me)
+- Nicla Sense ME library (Arduino_BHY2)
+- Micro USB-A cable (USB-A to Micro USB-A)
+- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
+- [Go Lang](https://golang.org/)
+- BHY-CONTROLLER tool
+- MKR Board (Only required for DFU)
 
 ***The bhy-controller tool can be downloaded from https://github.com/arduino/nicla-sense-me-fw while the libraries can be obtained via library manager in the Arduino IDE / CLI.***
 
@@ -51,7 +51,7 @@ First, please go to [Go's download page](https://golang.org/dl/) and follow the 
 
 ### Set up the Board
 
-First we need to download the library **Arduino_BHY2** in the Arduino IDE. Next we need to upload the **App.ino** example sketch inside the library. This sketch can be found in: **Examples -> Arduino_BHY2 -> App.ino**. Select the sketch and upload it to your board.
+First we need to download the library **Arduino_BHY2** in the Arduino IDE. Next we need to upload the **App.ino** example sketch inside the library. This sketch can be found in: **Examples > Arduino_BHY2 > App.ino**. Select the sketch and upload it to your board.
 
 ### Use the Bhy-Controller
 
@@ -60,22 +60,25 @@ Open your terminal console and open the directory **tools/bhy-controller/src** w
 Now to use the tool, the basic **syntax** is introducing the name of the program, `bhy`, followed by the command we want to use, plus its arguments.
 
 Once the board is set up and connected we can verify it by using the command:
+
 ```arduino
 bhy list
 ```
+
 Where `bhy` is the program and `list` is the command. This command will print the list of devices connected to the serial ports. After checking that the program works and the Nicla is connected, to configure and read the sensors data we have 2 options: using a WebAPP or the CLI.
 
 ### Running the Web App
 
 When we run the Web application we are going to connect through Bluetooth® to the Nicla Sense ME and we will configure the sensors inside the browser. This application is going to use WebBLE from your browser.
 
-***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to [chrome://flags]() and enable "Experimental Web Platform features".
-Check the browser list to confirm that your browser has this feature <https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility>***
+***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to [chrome://flags]() and enable "Experimental Web Platform features". [Check the browser list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser has this feature.***
 
 So let's run the app by going to the directory of the **bhy-controller** app and enter the next command:
+
 ```arduino
 bhy webserver
 ```
+
 This will start a local server hosted at <[localhost:8000](localhost:8000)>
 
 Click the button "Open sensor page" and you will see:
@@ -95,39 +98,47 @@ To configure the sensor and get the data, enter the sensor ID, e.g Gyroscope is 
 We can set the rate and the latency of each sensor, please check the [Nicla Sense ME Cheat sheet sensor IDs](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids) to configure the right one.
 
 The syntax for configuring a sensor is:
+
 `bhy sensor config -p <YourCOMPort> -sensor <SENSORID> -rate <RATE> -latency <LATENCY>`
 
 For example if we want to configure the **Gyroscope passthrough** which has the sensor ID #**10** connected on the port `COM01` with a rate of 1Hz and a latency of 0ms we would enter:
+
 `bhy sensor config -p /dev/ttyACM2 -sensor 10 -rate 1 -latency 0`
 
 Now it's configured to output the reading every second (1Hz).
 
 ### Disable
 If we set the latency and rate to **0** the sensor will be disabled and it will not output any data.
+
 `bhy sensor config -p <YourCOMPort> -sensor <SENSORID> -rate 0 -latency 0`
 
 ### Read Data From a Sensor
 If we want to read data from a sensor and print it once, we use:
+
 `bhy sensor read -p <YourCOMPort>`
 
 To do it continuously we add the parameter `-live`
+
 `bhy sensor read -live -p <YourCOMPort>`
 
 ## Using a Passthrough Board with CLI
-When we have a firmware for the BHI module or a sketch for the MCU already compiled in a **.bin** file, we can upload them through a MKR or Portenta board directly using the terminal. We need to upload a passthrough sketch to the MKR or Portenta board. Allowing the Nicla to communicate with the computer through the host board. The sketch can be found at **Examples -> Arduino_BHY_HOST -> Passthrough.ino**.
+When we have a firmware for the BHI module or a sketch for the MCU already compiled in a **.bin** file, we can upload them through a MKR or Portenta board directly using the terminal. We need to upload a passthrough sketch to the MKR or Portenta board. Allowing the Nicla to communicate with the computer through the host board. The sketch can be found at **Examples > Arduino_BHY_HOST > Passthrough.ino**.
 
 We then need to connect the Nicla board to the desired passthrough board with an Eslov cable, or we can mount the Nicla onto the board as a shield. If you wish to mount the Nicla as a shield, take a look at this [tutorial.](./use-as-mkr-shield) Now that we have everything set up, we can use the commands below to upload firmware or a sketch, if they are in the right format.
 
 ### Upload a Sketch
 Syntax for uploading sketch:
+
 `bhy dfu -t nicla -bin <CompiledSketch.bin> -p <MKRBoardCOMPort>`
 
 ### Updating Firmware
 Syntax for uploading firmware:
+
 `bhy dfu -t bhi -bin <CompiledFirmware.bin> -p <MKRBoardCOMPort>`
 
 
 ## Conclusion
 
 This tutorial shows how to set up the board so it can communicate with both the **Web Application** and the **CLI**.
+
 You also learned the commands to configure, get data from the board with the Web Application and the CLI. We also went through how to launch the Web Application from your terminal.

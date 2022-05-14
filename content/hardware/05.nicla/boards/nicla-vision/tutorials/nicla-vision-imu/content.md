@@ -34,7 +34,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [LSM6DSOX library](https://github.com/arduino-libraries/Arduino_LSM6DSOX) 
-- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 
 ## IMU (Inertial Measurement Unit)
 
@@ -74,7 +74,7 @@ float Gx, Gy, Gz;
 
 ```
 
-To initializes the library we need to call `IMU.begin()`. When the IMU is inistialized, we can quickly check the sample rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
+To initializes the library we need to call `IMU.begin()`. When the IMU is initialized, we can quickly check the sample rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
 
 ```arduino
 void setup() {

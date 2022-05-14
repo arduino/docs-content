@@ -55,7 +55,7 @@ As you may have noticed, each type of component has its own visual style. The in
 ![Power Tree Components](assets/powerTreeComponents.png)
 
 ## Further Resources
-Various IC manufactuers have material for understanding power conversion, including switch mode power supplies. These can help advanced users better understand power conversion that you see in the Power Trees included in the Arduino datasheets. See [ON Semiconductor's Switch-Mode Power Supply Reference Manual](https://www.onsemi.com/pub/Collateral/Smpsrm-D.PDF) or the [Power Topologies Handbook by Texas Instruments](https://www.ti.com/seclit/ug/slyu036/slyu036.pdf).
+Various IC manufacturers have material for understanding power conversion, including switch mode power supplies. These can help advanced users better understand power conversion that you see in the Power Trees included in the Arduino datasheets. See [ON Semiconductor's Switch-Mode Power Supply Reference Manual](https://www.onsemi.com/pub/Collateral/Smpsrm-D.PDF) or the [Power Topologies Handbook by Texas Instruments](https://www.ti.com/seclit/ug/slyu036/slyu036.pdf).
 
 
 In order to explain complex interactions, conceptual diagrams similar to the Power Tree are widely used by domain experts to quickly and efficiently convey information. For a survey of how conceptual diagrams are used in various disciplines see:

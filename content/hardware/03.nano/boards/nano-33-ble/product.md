@@ -5,6 +5,7 @@ url_guide: /software/ide-v1/installing-mbed-os-nano-boards
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
 certifications: [FCC, IC, REACH, CE, RoHS, WEEE, RCM]
+productCode: '031'
 ---
 
 The Arduino Nano 33 BLE shares its pinout with the classic Arduino Nano but builds on the nRF52840 microcontroller with 1MB CPU Flash Memory. Featuring a 9 axis inertial measurement unit and the possibility for Bluetooth® Low Energy connectivity it can help you to create your next Bluetooth® Low Energy enabled project.

@@ -22,12 +22,14 @@ software:
 This tutorial demonstrates how to use the on-board Flash memory of the Portenta H7 to read and write data using the BlockDevice API provided by Mbed OS. As the internal memory is limited in size we will also take a look at saving data to the QSPI Flash memory.
 
 ## Goals
+
 - Accessing the Portenta's internal Flash memory using Mbed's Flash In-Application Programming Interface 
 - Accessing the Portenta's QSPI Flash memory using Mbed's Flash In-Application Programming Interface 
 - Reading the memory's characteristics
 
 ### Required Hardware and Software
-- Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
+
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB-C cable (either USB-A to USB-C or USB-C to USB-C)
 - Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
 
@@ -79,6 +81,7 @@ struct FlashIAPLimits {
 ```
 
 The last part of the helper file consists of the `getFlashIAPLimits()` function used to calculate both the size of the Flash memory as well as the size and start address of the available memory.
+
 This is done with Mbed's [FlashIAP](https://os.mbed.com/docs/mbed-os/v6.6/mbed-os-api-doxy/classmbed_1_1_flash_i_a_p.html) API. It finds the address of the first sector after the sketch stored in the microcontroller's ROM: `FLASHIAP_APP_ROM_END_ADDR` and uses the FlashIAP to calculate the Flash memory's size with `flash.get_flash_size()`. The other parameters can be determined using the same API.
 
 ```cpp
@@ -381,6 +384,7 @@ if(blockDevice.init() != 0 || blockDevice.size() != BLOCK_DEVICE_SIZE) {
 ```
 
 While the QSPI block device memory can be used directly, it's better to use a partition table as the QSPI storage is also filled with other data such as the Wi-Fi firmware. For that we use the [MBRBlockDevice](https://os.mbed.com/docs/mbed-os/v6.8/apis/mbrblockdevice.html) class and allocate a 8 KB partition which can then be used to read and write data.
+
 The full QSPI version of the sketch is as follows:
 
 ```cpp

@@ -15,19 +15,19 @@ A ball valve is a form of quarter-turn [valve](https://en.wikipedia.org/wiki/Val
 
 ## Goals
 
--   How to connect a motorized valve to the Edge Control board
--   How to control the valve through basic commands provided by the `Arduino_EdgeControl` library
--   How to power the board with an external power supply 
+- How to connect a motorized valve to the Edge Control board
+- How to control the valve through basic commands provided by the `Arduino_EdgeControl` library
+- How to power the board with an external power supply 
 
 ### Required Hardware and Software
 
--   1 x [Arduino Edge control board](https://store.arduino.cc/edge-control)
--   1 x [US Solid Motorised Ball Valve (9 - 24 V)](https://ussolid.com/u-s-solid-motorized-ball-valve-1-2-brass-electrical-ball-valve-with-full-port-9-24-v-ac-dc-3-wire-setup.html) (or compatible)
--   External power source: 12V battery (LiPo / SLA) or power supply 
--   1 x Micro USB cable
--   Arduino IDE 1.8.10+
--   2 x Phoenix Connectors
--   2 x Jumper cables  
+- [Arduino Edge control board](https://store.arduino.cc/edge-control)
+- 1x [US Solid Motorised Ball Valve (9 - 24 V)](https://ussolid.com/u-s-solid-motorized-ball-valve-1-2-brass-electrical-ball-valve-with-full-port-9-24-v-ac-dc-3-wire-setup.html) (or compatible)
+- External power source: 12V battery (LiPo / SLA) or power supply 
+- 1x Micro USB cable
+- Arduino IDE 1.8.10+
+- 2x Phoenix Connectors
+- 2x Jumper cables  
 
 ## Instructions 
 
@@ -73,6 +73,7 @@ void setup(){
     Serial.println("Starting");
 }
 ```
+
 As mentioned earlier, the 2 Input Pins of the latching circuit are primarily used to control the direction of the output signal. The `<Arduino_EdgeControl.h>` provides various methods to access and control these pins. The command `Latching.chennalDirection(LATCHING_OUT_1, direction)` is a method that can be used to assign a signal direction to a specific pin on the board through the parameters.  
 
 Inside the `loop()` you will add the instructions to open and close the valve. `Latching.channelDirection()` with the parameter `LATCHING_OUT_1` to access the 1N:1P pins and the parameters,  `POSITIVE` or `NEGATIVE` for the direction. If you want the valve to open you can use the function as such, 

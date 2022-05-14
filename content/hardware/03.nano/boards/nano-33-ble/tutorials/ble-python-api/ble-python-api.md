@@ -11,7 +11,7 @@ featuredImage: 'board'
 
 ![The Nano 33 BLE](assets/hero.png)
 
-The [Nano 33 BLE board](https://store.arduino.cc/arduino-nano-33-ble-sense) board can be programmed using the popular **Python** programming language. More specifically, it supports [OpenMV's fork of MicroPython](https://github.com/openmv/micropython), where MicroPython is an implementation of the Python language, designed to run on microcontrollers. In this article, you will find a lot of sample scripts that will work directly with your Nano 33 BLE, such as general GPIO control, reading data from the IMU module and testing Bluetooth® Low Energy connection.
+The [Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble-sense) board can be programmed using the popular **Python** programming language. More specifically, it supports [OpenMV's fork of MicroPython](https://github.com/openmv/micropython), where MicroPython is an implementation of the Python language, designed to run on microcontrollers. In this article, you will find a lot of sample scripts that will work directly with your Nano 33 BLE, such as general GPIO control, reading data from the IMU module and testing Bluetooth® Low Energy connection.
 
 - If you want to read more about Arduino & Python, you can visit the [Python with Arduino](/learn/programming/arduino-and-python) article. Here you will find a lot of useful examples, such as how to use delays, interrupts, reading pins and more general functions.
 

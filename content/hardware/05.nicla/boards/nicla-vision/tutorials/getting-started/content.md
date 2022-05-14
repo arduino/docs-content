@@ -19,13 +19,15 @@ software:
 The OpenMV IDE is meant to provide an Arduino like experience for simple machine vision tasks using a camera sensor. In this tutorial, you will learn about some of the basic features of the OpenMV IDE and how to create a simple MicroPython script. The Nicla Vision board has OpenMV firmware on the board by default, making it easy to connect to the OpenMV IDE.
 
 ## Goals
+
 - The basic features of the OpenMV IDE
 - How to create a simple MicroPython script
 - How to use the OpenMV IDE to run MicroPython on Nicla Vision
 
 
 ### Required Hardware and Software
-- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
+
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable (either USB A to Micro USB or USB C to Micro USB)
 - OpenMV IDE 2.6.4+
 
@@ -193,13 +195,15 @@ If you wish to use the board with OpenMV after it has been used with the Arduino
 In this tutorial you learned how to use the OpenMV IDE with your Nicla Vision board. You also learned how to control the Nicla Vision's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
 
 ### Next Steps
+
 -   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File > Examples > Arduino > ** in the OpenMV IDE.
 -   It is possible to use the board for more advanced image processing tasks. Be sure to take a look at our other tutorials if you want to learn more.
--   Take a look at our other Nicla Vision tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/nicla-vision#tutorials)
+-   Take a look at our other Nicla Vision tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/nicla-vision#tutorials).
 
 ## Troubleshooting
 
 ### OpenMV Firmware Flashing Issues
+
 - If the upload of the OpenMV firmware fails during the download, put the board back in bootloader mode and try again. Repeat until the firmware gets successfully uploaded.
 - If the OpenMV IDE still can't connect after flashing the firmware, try uploading the latest firmware using the "Load Specific Firmware File" option. You can find the latest firmware in the [OpenMV Github repository](https://github.com/openmv/openmv/releases). Look for a file named **firmware.bin**.
 - If you see a "OSError: Reset Failed" message, reset the board by pressing the reset button. Wait until you see the blue LED flashing, connect the board to the OpenMV IDE and try running the script again.

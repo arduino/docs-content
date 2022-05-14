@@ -14,7 +14,7 @@ Unleash global connectivity and positioning capabilities of your Portenta or MKR
 Internet of Things, outdoor asset tracking, positioning, cellular connectivity, fleet management
 
 # Features
-**Note:** This board requires a compatible MKR or Portenta board to function. Use together with the Arduino® Vision Shield is not supported.
+***Note: This board requires a compatible MKR or Portenta board to function. Use together with the Arduino® Vision Shield is not supported.***
 
 - Cinterion TX62 wireless module
   - Cellular connectivity and positioning support
@@ -70,62 +70,63 @@ Manage your MaaS (Mobility as a Service) solution across the city or between bor
 
 ### Related Products
 - Arduino® Portenta H7 (SKU: ABX00042)
+- Arduino® Portenta H7 Lite (SKU: ABX00045)
+- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 
 ### Assembly Overview
-![Preview assembly](assets/thalesShieldSolutionOverview_60.png)
-**Example of a typical assembly including an Arduino® Portenta H7 and Arduino® Portenta Cat. M1/NB IoT GNSS Shield.**
+![Example of a typical assembly including an Arduino® Portenta H7 and Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/thalesShieldSolutionOverview_60.png)
 
 ## Ratings
 ### Recommended Operating Conditions
-| Symbol           | Description                                  | Min | Typ | Max | Unit |
-| ---------------- | -------------------------------------------- | --- | --- | --- | ---- |
-| V<sub>cc</sub>   | Input Voltage from Portenta                  | 3.2 | 3.3 | 3.4 | V    |
-| V<sub>GNSS</sub> | Active GNSS Antenna Bias Voltage             | 2.9 | 3   | 3.1 | V    |
-| T<sub>OP</sub>   | Operating Temperature <sup>2</sup>           | -40 | 25  | 85  | °C   |
+| Symbol           | Description                        | Min  | Typ  | Max  | Unit |
+| ---------------- | ---------------------------------- | :--: | :--: | :--: | :--: |
+| V<sub>cc</sub>   | Input Voltage from Portenta        | 3.2  | 3.3  | 3.4  |  V   |
+| V<sub>GNSS</sub> | Active GNSS Antenna Bias Voltage   | 2.9  |  3   | 3.1  |  V   |
+| T<sub>OP</sub>   | Operating Temperature <sup>2</sup> | -40  |  25  |  85  |  °C  |
 
-**(1):** See Portenta datasheet
-**(2):** Temperatures under -30°C may cause instability in the TX62 operation.
+**<sup>(1)</sup>:** See Portenta datasheet  
+**<sup>(2)</sup>:** Temperatures under -30°C may cause instability in the TX62 operation.
 
 
 ### Power Consumption
-| Symbol                  | Description                                                                           | Min | Typ | Max | Unit |
-| ----------------------- | ------------------------------------------------------------------------------------- | --- | --- | --- | ---- |
-| P<sub>STDBY</sub>       | Power consumption in standby                                                          |     | TBC |     | mW   |
-| P<sub>GPS</sub>         | Power consumption for GPS geo-location at 1 Hz                                         |     | TBC |     | mW   |
-| P<sub>CLOUD</sub>       | Power consumption for sending data to Arduino Cloud at 1 Hz                           |     | TBC |     | mW   |
-| P<sub>GPSCLOUD_LP</sub> | Power consumption for GPS geo-location and sending data to Arduino Cloud once per hour |     | TBC |     | mW   |
+| Symbol                  | Description                                                  | Min  | Typ  | Max  | Unit |
+| ----------------------- | ------------------------------------------------------------ | :--: | :--: | :--: | :--: |
+| P<sub>STDBY</sub>       | Power consumption in standby                                 |      | TBC  |      |  mW  |
+| P<sub>GPS</sub>         | Power consumption for GPS geo-location at 1 Hz               |      | TBC  |      |  mW  |
+| P<sub>CLOUD</sub>       | Power consumption for sending data to Arduino Cloud at 1 Hz  |      | TBC  |      |  mW  |
+| P<sub>GPSCLOUD_LP</sub> | Power consumption for GPS geo-location and sending data to Arduino Cloud once per hour |      | TBC  |      |  mW  |
 
 ## Functional Overview
 ### Block Diagram
 ![Portenta Cat. M1/NB IoT GNSS Shield Block Diagram](assets/thalesShieldBlockDiagram.svg)
 
 ### Board Topology
-**Top View**
+### Top View
 ![Portenta Cat. M1/NB IoT GNSS Shield Top View](assets/thalesShieldTopTopology.svg)
 
-| **Ref.** | **Description**                  | **Ref.** | **Description**               |
-| -------- | -------------------------------- | -------- | ----------------------------- |
-| DL1      | SMLP34RGB2W3 RGB LED             | J1,J2    | Female High Density Connector |
-| PB1      | TL3340AF160QG Mode Select button | PB2      | TL3340AF160QG Reset button    |
-| U1       | TX62-W Cellular-GNSS Module      | U2,U5,U7 | 74LVCH2T45GT Level Translator |
+| **Ref.** |         **Description**          | **Ref.** |        **Description**        |
+| :------: | :------------------------------: | :------: | :---------------------------: |
+|   DL1    |       SMLP34RGB2W3 RGB LED       |  J1,J2   | Female High Density Connector |
+|   PB1    | TL3340AF160QG Mode Select button |   PB2    |  TL3340AF160QG Reset button   |
+|    U1    |   TX62-W Cellular-GNSS Module    | U2,U5,U7 | 74LVCH2T45GT Level Translator |
 
-**Back View**
-![Portenta Cat. M1/NB IoT GNSS Shield Back View](assets/thalesShieldBackTopology.svg)
+### Bottom View
+![Portenta Cat. M1/NB IoT GNSS Shield Bottom View](assets/thalesShieldBackTopology.svg)
 
-| **Ref.** | **Description**                                       | **Ref.** | **Description**                                   |
-| -------- | ----------------------------------------------------- | -------- | ------------------------------------------------- |
-| J3, J4   | Male High Density Connectors                          | J6       | SIM8060-6-0-14-00-A Hinged Nano SIM card module   |
-| J7       | U.FL-R-SMT-1(60) micro UFL Cellular Antenna Connector | J8       | U.FL-R-SMT-1(60) micro UFL GNSS Antenna Connector |
-| U3,U4,U6 | 74LVCH2T45GT Level Translator                         | U8       | TC1185-3.0VCT713 3V 150mA LDO IC                  |
+| **Ref.** |                    **Description**                    | **Ref.** |                  **Description**                  |
+| :------: | :---------------------------------------------------: | :------: | :-----------------------------------------------: |
+|  J3, J4  |             Male High Density Connectors              |    J6    |  SIM8060-6-0-14-00-A Hinged Nano SIM card module  |
+|    J7    | U.FL-R-SMT-1(60) micro UFL Cellular Antenna Connector |    J8    | U.FL-R-SMT-1(60) micro UFL GNSS Antenna Connector |
+| U3,U4,U6 |             74LVCH2T45GT Level Translator             |    U8    |         TC1185-3.0VCT713 3V 150mA LDO IC          |
 
 
 ### Cellular Connectivity
 The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1).
-**Note:** The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.
+***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.***
 
 ### Positioning
 Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V.
-**Note:** GNSS and cellular services cannot be used simultaneously. 
+***Note: GNSS and cellular services cannot be used simultaneously.***
 
 ### Power Tree
 ![Portenta Cat. M1/NB IoT GNSS Shield Power Tree](assets/thalesShieldPowerTree.svg)
@@ -133,10 +134,10 @@ Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by th
 
 ## Board Operation
 
-**Note:** The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** requires a Portenta/MKR host board to operate.
+***Note: The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** requires a Portenta/MKR host board to operate.***
 
 ### Sample Sketches
-Sample sketches for the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**
+Sample sketches for the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation > Tutorials” section of the Arduino® Pro website **[4]**
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.

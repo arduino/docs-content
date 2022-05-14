@@ -21,7 +21,7 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 
 ### Required Hardware and Software
 
-- [Portenta H7 board](https://store.arduino.cc/portenta-h7)
+- [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield - LoRa®](https://store.arduino.cc/portenta-vision-shield-lora)
 - [1x Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
 - Arduino [offline](https://www.arduino.cc/en/main/software) IDE or Arduino [Web Editor](https://create.arduino.cc/)
@@ -91,7 +91,7 @@ Plug the Portenta Vision Shield - LoRa® to the Portenta H7 and them to your PC 
 
 ![Select port M7 Core](assets/vs_ard_select_port.png)
 
-The LoRa® module on the Vision Shield - LoRa® can be accessed by using the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN)( if you can't find it in your examples list, you can go to **tools > library manager** and type "MKRWAN library" to install it). This library provides all the APIS to communicate with LoRa® and LoRaWAN® networks and can be Installed from the library Manager. The first code you need to upload and run is from the **MKRWAN** library, and its name is **FirstConfiguration**.
+The LoRa® module on the Vision Shield - LoRa® can be accessed by using the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN)( if you can't find it in your examples list, you can go to **Tools > Library Manager** and type "MKRWAN library" to install it). This library provides all the APIS to communicate with LoRa® and LoRaWAN® networks and can be Installed from the library Manager. The first code you need to upload and run is from the **MKRWAN** library, and its name is **FirstConfiguration**.
 
 ![Upload code to IDE](assets/vs_ard_select_example.png)
 
@@ -141,7 +141,7 @@ Once your board has been registered you can send information to TTN. Let's come 
 - The Application EUI
 - The App Key.
 
-Lets start by making a connection through the OTAA. Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode at [this link](https://www.thethingsnetwork.org/docs/devices/registration.html)
+Lets start by making a connection through the OTAA. Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsnetwork.org/docs/devices/registration.html).
 
 ```
 Your module version is: ARD-078 1.1.9
@@ -160,7 +160,8 @@ Message sent correctly!
 ## Conclusion
 
 If you receive this message, you have managed to configure the Portenta H7 and the Vision Shield - LoRa® on the TTN.
- We have retrieved the device EUI, used it to register the device in the TTN console, and programmed the board using the data provided by TTN. Now, we can send data over the LoRa® network which can be viewed from anywhere in the world (as long as we have an Internet connection and our device is in range from a TTN gateway).
+
+We have retrieved the device EUI, used it to register the device in the TTN console, and programmed the board using the data provided by TTN. Now, we can send data over the LoRa® network which can be viewed from anywhere in the world (as long as we have an Internet connection and our device is in range from a TTN gateway).
 
 ### Next Steps
 

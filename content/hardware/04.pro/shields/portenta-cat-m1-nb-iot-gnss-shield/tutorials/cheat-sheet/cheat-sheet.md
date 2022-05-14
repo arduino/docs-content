@@ -36,13 +36,13 @@ The Arduino® Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [A
 
 ### Arduino IDE 1.8.X
 
-The Arduino® Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
+The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
 
 - [Installing the Arduino Mbed OS Portenta Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta)
 
 ### Arduino IDE 2.0.X 
 
-The Arduino® Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
+The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
 - [How to use the board manager with the Arduino IDE 2.0](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
@@ -54,19 +54,22 @@ The board can be programmed through the **Web Editor**. To get started with your
 
 ## Pins
 As a Portenta family Shield it uses the High density pins to be available for the Portenta board which is being connected.
-![The pinout of the Arduino® Portenta Cat. M1/NB IoT GNSS Shield.](assets/ASX00027-pinout.png)
+
+![The pinout of the Portenta Cat. M1/NB IoT GNSS Shield.](assets/ASX00027-pinout.png)
 
 ## GSM
 
 ### Requirements
 
 The GPS Feature requires:
+
 * An antenna (e.g [Dipole antenna, at the Arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna) at the **RF OUT** antenna connector on the top side of the shield.
 * SIM Card capable of running with the CatM1 specifications  (check with your provider if your Card has that feature)
 
 To check if our setup it's working we can open an example sketch from the GSM library inside the Mbed Portenta Core. Under **Examples > GSM > GSMClient** we open a sketch that connects to the SIM card provider, then connects to a webpage and downloads the content of it to display it inside the Serial Monitor.
 
 Make sure you go to the `arduino_secrets.h` tab and:
+
 * Enter the PIN of your SIM card and store it at `SECRET_PIN`.
 * Check the mobile APN of your SIM card provider, e.g "online.provider.com" and save it inside the `SECRET_APN` You can find it by searching Google for APN + provider name.
 
@@ -100,7 +103,7 @@ This library contains some commands that are quite different, that's because it 
 #### Connect to Your Provider
 
 You need to enter the Pin code and the APN link of your provider.
-The user name and password depend on your provider. They are required to authenticate with the APN gateway. The values can usually be found by searching Google for APN crediantials + provider name. Sometimes they can be left blank.
+The user name and password depend on your provider. They are required to authenticate with the APN gateway. The values can usually be found by searching Google for APN credentials + provider name. Sometimes they can be left blank.
 
 This sketch will initialize the SIM card and connect to your provider's network
 
@@ -192,12 +195,14 @@ void loop() {
 ### Requirements
 
 The GPS Feature requires:
+
 * A GPS active antenna (e.g [GPS active antenna 28dB](https://www.digikey.com/en/products/detail/adafruit-industries-llc/960/5353630)) at the **GNS ANT** antenna connector on the Top side of the shield.
 * You may need a connector converter from the active GPS antenna, we used this one [Coaxial to SMA](https://www.digikey.com/en/products/detail/taoglas-limited/CAB.719/3664639)
 
 To check if our setup it's working we can open an example inside the GSM library from the Mbed Portenta Core, going to **Examples > GSM > GNSSClient** we will open an sketch that connects to the SIM card provider and initialize the active GPS antenna, then it will print out GPS readings.
 
 Make sure you go to the `arduino_secrets.h` tab and:
+
 * introduce the PIN of the SIM card you are using and store it at `SECRET_PIN`.
 * Browse to your IT provider and check the mobile APN link, e.g "online.provider.com" save it inside the `SECRET_APN`
 
@@ -220,7 +225,8 @@ Make sure you go to the `arduino_secrets.h` tab and:
 #### Get GPS Data
 
 The following example connects to the GSM provider, then initialize the GPS antenna, gets the data and print it out on the Serial monitor. As you previously done, you need to provide the GSM data by filling in the secrets in `arduino_secrets.h`
-Open the example by going to **Examples > GSM > GNSSClient**
+
+Open the example by going to **Examples > GSM > GNSSClient**.
 
 ```arduino
   #include <GPS.h>
@@ -259,11 +265,13 @@ Open the example by going to **Examples > GSM > GNSSClient**
 ***Remember to connect to the GSM provider and secondly connect to the GNSS (mandatory).***
 
 You will see the **NMEA** data in the Serial monitor.
+
 ![NMEA log example Serial Monitor](assets/NMEA_output.png)
 
 #### Parse NMEA GPS Sentences
 
 Previously we went through how to show the GPS data in the Serial Monitor, but it was not possible to evaluate those messages (NMEA sentences).
+
 To do so you can use an **NMEA parser** this will convert the messages received from the GPS modem, parsing and saving them into variables. You can use the **107-Arduino-NMEA-Parser** library. This library can be found in the library manager inside the Arduino IDE.
 
 This makes it possible to interact with the data that you need for your application, for example if you only want to get the latitude and longitude. You will be able to save those needed values into variables, instead of having the whole NMEA messages.
@@ -313,6 +321,7 @@ Edit the loop to parse the `GPS` readings instead of the `Serial1`.
 #### Low Power GPS
 
 The GPS antenna is active, that means that it needs power to function as it has electronics inside of it.
+
 One way to save power on your project is to enable the GPS module only when it is needed to read the data:
 
 ```cpp
@@ -332,7 +341,7 @@ By using this method, you don't need to initialize the GPS inside the `setup()`.
 
 ## Conclusion
 
-This cheat sheet is written as a quick reference, to look up the GSM and GPS feature of this product. For a more in-depth walkthrough experience please have a look at the other tutorials.
+This cheat sheet is written as a quick reference, to look up the GSM and GPS feature of this product. For a more in-depth walk through experience please have a look at the other tutorials.
 
 ## Troubleshooting
 
@@ -342,4 +351,4 @@ Make sure you included first the `GPS.h` library and then the `GSM.h`
 
 ### Can't Upload the Sketch
 
-Sometimes if the GPS module is getting readings, you will not be able to upload a new sketch, double tap the reset button on your Potenta H7 and upload the new sketch.
+Sometimes if the GPS module is getting readings, you will not be able to upload a new sketch, double tap the reset button on your Portenta H7 and upload the new sketch.

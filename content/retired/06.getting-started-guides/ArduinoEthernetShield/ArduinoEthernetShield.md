@@ -1,11 +1,11 @@
 ---
-title: 'Getting Started with the Arduino Ethernet Shield and Ethernet Shield 2'
-description: 'The first steps to ssetting up the Arduino Ethernet Shield and Ethernet Shield 2'
+title: 'Getting Started with the Arduino Ethernet Shield.'
+description: 'The first steps to setting up the Arduino Ethernet Shield'
 ---
 
-**The Ethernet Shield is a retired product. The Arduino Ethernet Shield 2 is available to buy .**
+**The Ethernet Shield is a retired product. The Arduino Ethernet Shield Rev2 is available to buy. See [documentation for Ethernet Shield Rev2](/hardware/ethernet-shield-rev2).**
 
-The [Arduino Ethernet Shield 2](/en/Main/ArduinoEthernetShield) allows an Arduino board to connect to the internet using the [Ethernet library](/en/Reference/Ethernet) and to read and write an SD card using the [SD library](/en/Reference/SD). This shield is fully compatible with the former version but relies on the newer W5500 chip.
+The **Arduino Ethernet Shield** allows an Arduino board to connect to the internet using the [Ethernet library](https://www.arduino.cc/reference/en/libraries/ethernet/) and to read and write an SD card using the [SD library](https://www.arduino.cc/reference/en/libraries/sd/). This shield is fully compatible with the former version but relies on the newer W5500 chip.
 
 ### Connecting the Shield
 
@@ -17,43 +17,19 @@ Connect the shield to your computer or a network hub or router using a standard 
 
 ### Tutorials
 
-You may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-ethernet-shield-2) tutorial platform with some projects developed by our users
+***All tutorials for the Ethernet Shield can be found in the [Ethernet Shield Rev2 Tutorials](https://docs.arduino.cc/hardware/ethernet-shield-rev2#tutorials) section.***
 
-<iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/thomas_sxt/automated-garden-77bee8/embed?use_route=project' width='354' style='margin-top:30px; margin-right:20px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/ThereIsNoTry/water-leakage-detector-and-valve-control-f45048/embed?use_route=project' width='354' style='margin-top:30px'></iframe>
+You may also find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-ethernet-shield-2) tutorial platform with some projects developed by our users
 
-or have a look to the tutorial pages that explain how to use the various features of your shield.
-
-Here is a list of tutorials that will help you in making very cool things!
-
-- [ChatServer](/en/Tutorial/LibraryExamples/ChatServer): set up a simple chat server.
-
-- [WebClient](/en/Tutorial/LibraryExamples/WebClient): make a HTTP request.
-
-- [WebClientRepeating](/en/Tutorial/LibraryExamples/WebClientRepeating): Make repeated HTTP requests.
-
-- [WebServer](/en/Tutorial/LibraryExamples/WebServer): host a simple HTML page that displays analog sensor values.
-
-- [BarometricPressureWebServer](/en/Tutorial/LibraryExamples/BarometricPressureWebServer): outputs the values from a barometric pressure sensor as a web page.
-
-- [UDPSendReceiveString](/en/Tutorial/LibraryExamples/UDPSendReceiveString): Send and receive text strings via UDP.
-
-- [UdpNtpClient](/en/Tutorial/LibraryExamples/UdpNtpClient): Query a Network Time Protocol (NTP) server using UDP.
-
-- [DnsWebClient](/en/Tutorial/DnsWebClient): DNS and DHCP-based Web client.
-
-- [DhcpChatServer](/en/Tutorial/LibraryExamples/DhcpChatServer): A simple DHCP Chat Server
-
-- [DhcpAddressPrinter](/en/Tutorial/LibraryExamples/DhcpAddressPrinter): Get an IP address via DHCP and print it out
-
-- [TelnetClient](/en/Tutorial/LibraryExamples/TelnetClient): A simple Telnet client
+<iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/ThereIsNoTry/water-leakage-detector-and-valve-control-f45048/embed?use_route=project' width='354' style='margin-top:30px'></iframe>
 
 ### Network Settings
 
-The shield must be assigned a MAC address and a fixed IP address using the [Ethernet.begin()](/en/Reference/EthernetBegin) function. A MAC address is a globally unique identifier for a particular device. Current Ethernet shields come with a sticker indicating the MAC address you should use with them. For older shields without a dedicated MAC address, inventing a random one should work, but don't use the same one for multiple boards. Valid IP addresses depend on the configuration of your network. It is possible to use DHCP to dynamically assign an IP to the shield. Optionally, you can also specify a network gateway and subnet.
+The shield must be assigned a MAC address and a fixed IP address using the [Ethernet.begin()](https://www.arduino.cc/reference/en/libraries/ethernet/ethernet.begin/) function. A MAC address is a globally unique identifier for a particular device. Current Ethernet shields come with a sticker indicating the MAC address you should use with them. For older shields without a dedicated MAC address, inventing a random one should work, but don't use the same one for multiple boards. Valid IP addresses depend on the configuration of your network. It is possible to use DHCP to dynamically assign an IP to the shield. Optionally, you can also specify a network gateway and subnet.
 
 ### SD Card
 
-The latest revision of the Ethernet Shield includes a micro-SD card slot, which can be interfaced with using the [SD library](/en/Reference/SD).
+The latest revision of the Ethernet Shield includes a micro-SD card slot, which can be interfaced with using the [SD library](https://www.arduino.cc/reference/en/libraries/sd/).
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

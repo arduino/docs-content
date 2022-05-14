@@ -21,13 +21,13 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 
 ## Required Hardware and Software
 
-- 1 x [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- 1 x [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora)
-- [1x Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
+- [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora)
+- 1x [Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
 - [OpenMV IDE](https://openmv.io/pages/download)
 - Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
-- 1 x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
-- An [account on The Things Network](https://console.cloud.thethings.network/)
+- 1x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
+- An account on [The Things Network](https://console.cloud.thethings.network/)
 
 ## Instructions
 
@@ -67,7 +67,7 @@ Let's take a closer look at these sections:
 
 ### 3. Updating the Modems Firmware
 
-To be able to use the LoRa® functionality, we need to first update the modems firmware through the Arduino IDE. Connect the Portenta and Vision shield to your computer and open the Arduino IDE. The LoRa® module on the Vision Shield can be accessed by using the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN)(if you can't find it in your examples list, you can go to **tools > library manager** and type "MKRWAN library" to install it). This library provides all the APIS to communicate with LoRa® and LoRaWAN® networks and can be installed from the library manager. Select the **Portenta H7 (M7 core)** board in the Arduino IDE, like shown below.
+To be able to use the LoRa® functionality, we need to first update the modems firmware through the Arduino IDE. Connect the Portenta and Vision shield to your computer and open the Arduino IDE. The LoRa® module on the Vision Shield can be accessed by using the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN)(if you can't find it in your examples list, you can go to **Tools > Library Manager** and type "MKRWAN library" to install it). This library provides all the APIS to communicate with LoRa® and LoRaWAN® networks and can be installed from the library manager. Select the **Portenta H7 (M7 core)** board in the Arduino IDE, like shown below.
 
 ![Select the Arduino Portenta H7 (M7 core) in the board selector.](assets/por_ard_gs_upload_sketch.png)
 

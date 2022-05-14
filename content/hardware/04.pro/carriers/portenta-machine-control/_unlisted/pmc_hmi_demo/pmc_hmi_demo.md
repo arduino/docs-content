@@ -30,10 +30,11 @@ With this set up we have two devices that operate on their own, but they can exc
 For example, when a button is touched on the screen, it sends the button **ID** and the **type of press** through the serial communication. On the Arduino sketch side you can have a callback for that button and add reactions for the PMC to the button press.
 
 ### Required Hardware & Software
-- Portenta Machine Control (PMC)
+
+- [Portenta Machine Control (PMC)](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - Portenta H7 (Included with the Machine Control Carrier)
-- x6 Jumper Wires (connection between PMC and HMI)
-- x2 Jumper Wires (connection between Power supply and PMC)
+- 6x Jumper Wires (connection between PMC and HMI)
+- 2x Jumper Wires (connection between Power supply and PMC)
 - Micro USB
 - Male USB-A to Male USB-A (upload UI to the HMI)
 - Stone Designer v210601 (Only for Windows)
@@ -45,7 +46,7 @@ For example, when a button is touched on the screen, it sends the button **ID** 
 
 Below you can find a table that shows which connections to make between the HMI and PMC. Connect the HMI and PMC according to the table below. The PMC will also need to be powered by a external power supply of 24V and minimum 0.2A.
 
-> **The PMC + HMI consumes ~0.2A, if you connect more devices to the PMC you will need more current**
+***The PMC + HMI consumes ~0.2A, if you connect more devices to the PMC you will need more current.***
 
 ![How to connect the HMI and PMC](assets/HMI_PMC_connection.png)
 
@@ -286,7 +287,7 @@ void setup(){
 
   // PMC
   //Configure Digital outputs
-  digital_outputs.setLatch(); //setup overcurrent behaviour on all channels.
+  digital_outputs.setLatch(); //setup overcurrent behavior on all channels.
   digital_outputs.setAll(0);  //At startup set all channels (0-255)
 
   //Analog inputs

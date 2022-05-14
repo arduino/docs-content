@@ -44,11 +44,13 @@ To train a ML model to classify an image we need to feed it with image data of t
 The first step is to create a representative dataset of the objects that the ML model is supposed to identify. The key is to have as much diversity in the models as possible. If we show it for example only one specific apple that has a certain size, shape and peel, then it won't be very good at recognizing other apples that look different. This is referred to as a bias and should be avoided as much as possible. In addition you need to teach the model what an apple is not. For that purpose you feed it random image data of things that are not an apple. You could name that class of image data "unknown". If you don't have such a class and the model has only ever seen an apple, it won't know what to do if there is no apple in the image.
 
 Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Portenta H7 board with the Vision Shield mounted. Click on the connect button in the OpenMV IDE. If you haven't set up your board for OpenMV please consult the [getting started tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/por-openmv-bt).
-Create a new dataset by using the menu command **Tools->Dataset Editor->New Dataset** and name it `Dataset-Fruits`.
+
+Create a new dataset by using the menu command **Tools > Dataset Editor > New Dataset** and name it `Dataset-Fruits`.
 
 ![The Dataset Editor can be found in the Tools menu](assets/vs_openmv_ml_new_dataset.png)
 
 The next step is to create image classes. A class represents a unique type of object, in this case the type of fruit.
+
 First, create a new image class and name it `apple` by clicking on "New Class Folder" in the toolbar. Now run the image capturing script that is already open by clicking the play button. Focus the apple with the camera and click on **Capture Data** to snap a picture of it. Capture it from different angles and with different backgrounds to make the recognition later on more robust. Repeat this for other fruits that you would like to classify (e.g. a pear and a banana). Add an `unknown` class and capture some images of different backgrounds that you would like to use during the classification later on.
 
 ![The various image classes can be created directly in the dataset editor](assets/vs_openmv_ml_classes.png)
@@ -58,7 +60,7 @@ You may have also noticed that there is a labels text file. This file is used to
 ### 2. Uploading the Data to Edge Impulse
 Now that all data is ready to be uploaded you need to create a new Edge Impulse project. If you haven't registered an Edge Impulse account yet, you may create one on [their website](https://studio.edgeimpulse.com/login). Log in to the Edge Impulse Studio and create a new project named `Fruit-Detector`.
 
-After that you can go back to the OpenMV IDE and select **Tools->Dataset Editor->Export->Log in to Edge Impulse Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it hasn't seen yet.
+After that you can go back to the OpenMV IDE and select **Tools > Dataset Editor > Export > Log in to Edge Impulse Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it hasn't seen yet.
 
 ![You need to log in with your Edge Impulse account when uploading a dataset for the first time](assets/vs_openmv_ml_edge_impulse_login.png)
 
@@ -72,6 +74,7 @@ Open your project in the Edge Impulse studio and navigate to "Data Acquisition".
 ### 4. Create an Impulse
 
 If you're happy with the data samples you can move on to designing your impulse. An impulse is in a nutshell a recipe with which the model is being trained. It defines actions that are performed on your input data to make them better suited for machine learning and a learning block that defines the algorithm for the classification. In the menu navigate to "Create Impulse" under "Impulse Design" and add an **Image** processing block as well as a **Transfer Learning** learning block.
+
 It's recommended to adjust the image size to 48x48 for improved performance. You can try with higher resolutions but you will notice that the frame rate during the classification will drop significantly. Click on Save Impulse to apply the adjusted settings.
 
 ![An Impulse consists of the building blocks needed to train a ML model](assets/vs_openmv_ml_edge_impulse_design.png)
@@ -91,6 +94,7 @@ Then click on "Generate Features". The analysis process will take a while to com
 ### 6. Train the Model
 
 Now that the features of your image data are ready to be used for the actual training you can navigate to "Transfer Learning" in the menu. In this example we leave the settings at their default value except of "Number of training cycles" which we increase to 60. This defines how many times the model is being trained. The model gets better with each cycle the same way you get better when learning how to ride a bike and you practice it the first couple of times. 
+
 Click on "Start Training" to train the machine learning model. A small amount of images, the **validation set**, are put aside before the training starts to validate the trained model. Not to be confused with the **test set** which can be used to evaluate the final model. Once the training finishes you will see some statistics on how well the model performed during validation. Ideally you get an accuracy of 100% for each object. If you get poor results you may have some images which are not representative of the objects you're trying to classify and should be removed from the data set.
 
 ![The confusion matrix shows the accuracy of the ML model after the last training cycle](assets/vs_openmv_ml_edge_impulse_training.png)
@@ -130,7 +134,7 @@ The complete script of the classification example is as follows:
 import sensor, image, time, os, tf
 
 sensor.reset()                         # Reset and initialize the sensor.
-sensor.set_pixformat(sensor.GRAYSCALE)    # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_pixformat(sensor.GRAYSCALE) # Set pixel format to RGB565 (or GRAYSCALE)
 sensor.set_framesize(sensor.QVGA)      # Set frame size to QVGA (320x240)
 sensor.set_windowing((240, 240))       # Set 240x240 window.
 sensor.skip_frames(time=2000)          # Let the camera adjust.

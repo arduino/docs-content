@@ -16,15 +16,16 @@ software:
   - web-editor
 ---
 ## Overview
-This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug your Portenta H7 application via GDB on a serial interface. It also explains how to obtain a free licence of a fully functional version of TRACE32 using your Portenta's serial number.
+This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug your Portenta H7 application via GDB on a serial interface. It also explains how to obtain a free license of a fully functional version of TRACE32 using your Portenta's serial number.
 
 ## Goals
--  How to get a free license key for TRACE32 GDB Front End debugger for Portenta H7 - M7 core
--  How to download and start the Lauterbach TRACE32 GDB Front End debugger
--  How to Flash and debug some ready-to-run demos
+
+- How to get a free license key for TRACE32 GDB Front End debugger for Portenta H7 - M7 core
+- How to download and start the Lauterbach TRACE32 GDB Front End debugger
+- How to Flash and debug some ready-to-run demos
 
 ### Required Hardware and Software
--   Portenta H7 (ABX00042), Portenta H7 Lite Connected (ABX00046) or Portenta H7 Lite (ABX00045) board (<https://store.arduino.cc/portenta-h7>)
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 -  USB C cable (either USB A to USB C or USB C to USB C)
 -  Arduino IDE 1.8.13+ or Arduino Pro IDE 0.1.0+
 -  Lauterbach TRACE32 (https://www.lauterbach.com/download_demo.html)
@@ -65,7 +66,7 @@ There are two alternative ways to detect the board serial number:
 
 ![Click the menu item "Detect Board S/N" to display the serial number](assets/por_ard_trace32_board_sn.png)
 
-![Licence State Dialog](assets/por_ard_trace32_license_state.png)
+![License State Dialog](assets/por_ard_trace32_license_state.png)
 
 Either copy & paste the displayed serial number manually to the Lauterbach registration page or click on the provided link in the dialog window.
 
@@ -98,7 +99,7 @@ For easy access, we suggest creating a link to the corresponding executable file
 
 On Windows systems, the TRACE32 start-up script will automatically search for the right COM port attached to the Portenta H7 board.
 
-On Linux systems, you will need to edit the system-settings.cmm file to manually add the serial port to connect to the Portenta H7 board. This is a text file and can be opened with your favourite text editor. Edit the line that defines &GDBPORT to refer to the serial port, for example: `&GDBPORT="/dev/ttyACM0"`. This must be done **before** you start the TRACE32 software. After changing the port you can start the TRACE32 debugger or re-start it in case it was open while you made the changes.
+On Linux systems, you will need to edit the system-settings.cmm file to manually add the serial port to connect to the Portenta H7 board. This is a text file and can be opened with your favorite text editor. Edit the line that defines &GDBPORT to refer to the serial port, for example: `&GDBPORT="/dev/ttyACM0"`. This must be done **before** you start the TRACE32 software. After changing the port you can start the TRACE32 debugger or re-start it in case it was open while you made the changes.
 
 ***The manual port setting is also useful for Windows systems where you have multiple Portenta H7 boards connected, and you want to select a specific board to be used by TRACE32 for debugging. The automatic port selection is disabled when a &GDBPORT definition is found in `system-settings.cmm`.***
 
@@ -118,7 +119,7 @@ Select "T32ThreadDebug" from the "Portenta H7 Demos" menu and you will be presen
 
 In this dialog you can select which variant of the Arduino IDE you would like to use to source ELF files or if you want to use the current directory. To follow this tutorial please select "current dir". 
 
-The list to the right of the "Options" selection should then become populated with a number of available ELF files for downloading and debugging. Select the one you want with a double click. In this case select "T32ThreadDebug.ino.elf". This will also show file attributes such as date, time and size. To select an ELF file from a custom directory, click the "File" button underneath the "User's choice" field and browse for the desired ELF file. You can opt for changing the behaviour of this script the next time it is executed.
+The list to the right of the "Options" selection should then become populated with a number of available ELF files for downloading and debugging. Select the one you want with a double click. In this case select "T32ThreadDebug.ino.elf". This will also show file attributes such as date, time and size. To select an ELF file from a custom directory, click the "File" button underneath the "User's choice" field and browse for the desired ELF file. You can opt for changing the behavior of this script the next time it is executed.
 
 If the application has already been programmed to Flash, for instance via the Arduino IDE or a previous TRACE32 session, select "Load debug symbols (program is already in Flash)" to prevent an unnecessary erase and write cycle of the on-chip Flash memory.
 
@@ -191,7 +192,7 @@ Lauterbach also provides hardware-based debug & trace tools. To learn more about
 
 - Update Arduino IDE to the latest version available
 - Update **Arduino mbed-enabled Boards** core from Arduino IDE menu: **Tools > Board > Boards Manager**
-- Update the Portenta's bootloader using the instructions found [here](https://www.arduino.cc/pro/tutorials/portenta-h7/updating-the-bootloader).
+- [Update the Portenta's bootloader using the instructions](https://www.arduino.cc/pro/tutorials/portenta-h7/updating-the-bootloader).
 
 ### Error Message in AREA View: 'No More Arguments Expected' 
 

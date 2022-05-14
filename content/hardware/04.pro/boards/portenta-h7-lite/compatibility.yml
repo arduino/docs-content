@@ -22,3 +22,4 @@ hardware:
     #- mkr-therm-shield
   carriers:
     - portenta-breakout
+    - portenta-max-carrier

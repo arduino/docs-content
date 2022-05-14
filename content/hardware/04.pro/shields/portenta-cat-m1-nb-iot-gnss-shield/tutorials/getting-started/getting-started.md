@@ -21,7 +21,7 @@ software:
 
 ## Introduction 
 
-This tutorial will show how to connect the Portenta Cat. M1/NB IoT GNSS shield to the Portenta H7, connect to a website using NBIoT or Cat-M1 technology and print the website's HTML content in the serial monitor. This will help you quickly find out if the setup successfully connects to mobile networks.
+This tutorial will show how to connect the Arduino® Portenta Cat. M1/NB IoT GNSS shield to the Arduino® Portenta H7, connect to a website using NBIoT or Cat-M1 technology and print the website's HTML content in the serial monitor. This will help you quickly find out if the setup successfully connects to mobile networks.
 
 ***Note: This tutorial was created in Sweden, and as a result, the available networks are only Swedish network operators. The results will vary depending on what location you are in.***
 
@@ -54,7 +54,7 @@ Now connect the shield to the Portenta H7. Do this by attaching it to the HD con
 
 ### Arduino IDE
 
-Make sure that you have the latest **Arduino Mbed OS Portenta core** installed. You can install it with the board manager under **Tools > Board > Board Manager...**. With the core installed and the board selected, navigate to **file > Examples > GSM > GSMClient**. This is the example sketch we will use to test out the Cat-M1 or NBIoT connection.
+Make sure that you have the latest **Arduino Mbed OS Portenta core** installed. You can install it with the board manager under **Tools > Board > Board Manager...**. With the core installed and the board selected, navigate to **File > Examples > GSM > GSMClient**. This is the example sketch we will use to test out the Cat-M1 or NBIoT connection.
 
 ### Programming the Board
 

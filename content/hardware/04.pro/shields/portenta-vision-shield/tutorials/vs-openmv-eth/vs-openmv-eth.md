@@ -20,11 +20,9 @@ software:
 
 ## Introduction 
 
-With the Ethernet version of the Portenta Vision shield it is possible to connect the board to the Internet using an Ethernet cable. In this tutorial we will go through useful scenarios for using Ethernet and how to connect the board to the Internet with OpenMV.
+With the Ethernet version of the Arduino Portenta Vision Shield it is possible to connect the board to the Internet using an Ethernet cable. In this tutorial we will go through useful scenarios for using Ethernet and how to connect the board to the Internet with OpenMV.
 
 ## Goals
-
-The goals of this project are:
 
 - Learn how to use the Portenta H7 and Vision Shield Ethernet with a Ethernet cable
 
@@ -46,7 +44,7 @@ Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the 
 
 ### Programming the Board
 
-After everything is connected, connect the board to OpenMV to install the latest firmware. Once it is connected, we can open the example we are going to upload. In OpenMV go to: **File->Examples->Arduino->Portenta H7->Ethernet->http_client.py**.
+After everything is connected, connect the board to OpenMV to install the latest firmware. Once it is connected, we can open the example we are going to upload. In OpenMV go to: **File > Examples > Arduino > Portenta H7 > Ethernet > http_client.py**.
 
 ![Where to find the example in OpenMV](assets/vs-eth-openmv-example.png)
 

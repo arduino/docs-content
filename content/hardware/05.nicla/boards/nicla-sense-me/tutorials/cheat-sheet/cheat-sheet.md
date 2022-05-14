@@ -85,7 +85,7 @@ int value = analogRead(pin);
 
 ### PWM Pins
 
-Most of the digital and analog pins can be used as PWM (Pulse Width Modulation) pins. Check the full pinout in the resources section of the [Nicla Sense ME product page](/hardware/nicla-sense-me)) to see which pins can be used.
+Most of the digital and analog pins can be used as PWM (Pulse Width Modulation) pins. Check the full pinout in the resources section of the [Nicla Sense ME product page](/hardware/nicla-sense-me) to see which pins can be used.
 
 ```arduino
 analogWrite(pin, value);
@@ -191,7 +191,7 @@ There are three ways to read from the on-board sensors:
 
 To read from the sensors in any of these mode, you need to install the **Arduino_BHY2** and **Arduino_BHY2Host** libraries. These can be found in the library manager using the Arduino IDE. To do so in the IDE select **Tools->Manage Libraries...**, now search for **Arduino_BHY2** and **Arduino_BHY2Host** in the new window that opened and click on the install button.
 
-To use the sensors in our sketches, we need to know the sensors ID. You can find them in the section "Sensor IDs" of this article. They can also be found in the header file [here](https://github.com/arduino-libraries/Arduino_BHY2/blob/main/src/sensors/SensorID.h). Additionally, there is an example sketch in the library that will print all available sensors in the serial monitor of the Arduino IDE. This example sketch can be found in **File->Examples->Arduino_BHY2->ShowSensorList** in the Arduino IDE.
+To use the sensors in our sketches, we need to know the sensors ID. You can find them in the section "Sensor IDs" of this article. They can also be found in the header file [here](https://github.com/arduino-libraries/Arduino_BHY2/blob/main/src/sensors/SensorID.h). Additionally, there is an example sketch in the library that will print all available sensors in the serial monitor of the Arduino IDE. This example sketch can be found in **File > Examples > Arduino_BHY2 > ShowSensorList** in the Arduino IDE.
 
 In the following section you can see how these ID's are used in an Arduino sketch.
 
@@ -635,9 +635,9 @@ In order to transmit data over ESLOV to another Arduino board you need to connec
 
 ![Two Arduino boards connected via ESLOV cable](assets/eslov-connection.svg)
 
-1. To have the Nicla Sense ME pass the sensor data through ESLOV you need to upload the **App** sketch. You can find it in the Examples menu in the IDE under **Arduino_BH2 -> App**. After you upload the sketch you can disconnect the Nicla Sense ME from the USB cable. It can be powered through the ESLOV connection.
+1. To have the Nicla Sense ME pass the sensor data through ESLOV you need to upload the **App** sketch. You can find it in the Examples menu in the IDE under **Arduino_BH2 > App**. After you upload the sketch you can disconnect the Nicla Sense ME from the USB cable. It can be powered through the ESLOV connection.
 
-1. For the receiving device you need to upload the passthrough sketch. You can find it in the Examples menu in the IDE under **Arduino_BHY2Host -> Passthrough**. After you upload the sketch a separate serial port will be exposed. One port is used for debugging and the other one is used for passing through the sensor data. The latter one is the one you will use for configuring the sensors and reading from them.
+1. For the receiving device you need to upload the passthrough sketch. You can find it in the Examples menu in the IDE under **Arduino_BHY2Host > Passthrough**. After you upload the sketch a separate serial port will be exposed. One port is used for debugging and the other one is used for passing through the sensor data. The latter one is the one you will use for configuring the sensors and reading from them.
 
 3. When you're done uploading the sketches you can use the **bhy** script to interact with the sensors. In the downloaded package (see [here](#sensors)) navigate into the tools folder. There you will find binaries of the bhy tool for Linux and Windows. If you like you can build the tool yourself (e.g. if you're on macOS). For that, if you haven't installed **Go** yet, please do so by following [there](https://golang.org/doc/install) instructions.
 From the terminal execute this command to start the build: `go build`
@@ -714,7 +714,7 @@ Use the sensor IDs from the section "Sensor IDs" to enable and configure the des
 
 ## BSX Sensor Fusion Software
 
-The BHI260AP sensor runs a customisable firmware based on the BSX Sensor Fusion library. It provides a complete 9-axis fusion solution, which combines the measurements from 3-axis gyroscope, 3-axis geomagnetic sensor and a 3-axis accelerometer to provide a robust absolute orientation vector. The algorithm fuses the sensor raw data from the accelerometer, geomagnetic sensor and gyroscope in an intelligent way to improve each sensor’s output.
+The BHI260AP sensor runs a customizable firmware based on the BSX Sensor Fusion library. It provides a complete 9-axis fusion solution, which combines the measurements from 3-axis gyroscope, 3-axis geomagnetic sensor and a 3-axis accelerometer to provide a robust absolute orientation vector. The algorithm fuses the sensor raw data from the accelerometer, geomagnetic sensor and gyroscope in an intelligent way to improve each sensor’s output.
 
 Go to this [site](https://www.bosch-sensortec.com/software-tools/software/sensor-fusion-software/) or take a look at the BHI260AP's [datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf) for more information.
 
@@ -826,6 +826,7 @@ Serial1.write("Hello world!");
 The BHY2 library for the Nicla Sense ME can automatically send sensor values over a Bluetooth® Low Energy connection to a host board that uses the **Arduino_BHY2Host** library.
 
 Include the BHY2Host library at the top of the sketch of the **Host** board.
+
 Configure the sensors the same way as you do with the BHY2 library except of the `begin` function that takes a `NICLA_VIA_BLE` parameter.
 
 ```cpp

@@ -32,9 +32,9 @@ The goals of this project are:
 
 ### Hardware & Software Needed
 
-- [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/usa/portenta-vision-shield)
-- Arduino [offline](https://www.arduino.cc/en/main/software) IDE or Arduino [Web Editor](https://create.arduino.cc/)
+- [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
+- Arduino [offline IDE](https://www.arduino.cc/en/main/software) or Arduino [Web Editor](https://create.arduino.cc/)
 - Ethernet cable
 - USB-C cable
 
@@ -58,7 +58,7 @@ Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the 
 
 After everything is connected, make sure that you have the latest Portenta H7 core installed in the Arduino IDE. After the right board and port is selected, we can open an example that will help us make sure everything is working as it should.
 
-In the Arduino IDE go to: **File->Examples->Ethernet->WebClient**.
+In the Arduino IDE go to: **File > Examples > Ethernet > WebClient**.
 
 ![Where to find the example in the Arduino IDE](assets/VS-eth-ide-example.png)
 
