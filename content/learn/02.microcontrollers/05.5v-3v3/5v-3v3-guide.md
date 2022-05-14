@@ -115,7 +115,7 @@ Previous electric circuits are **uni-directional** logic level shifters. Meaning
 
 You can use the [Bi-Directional Logic Level Shifter](https://www.sparkfun.com/products/12009) from SparkFun to test and also for deployment if the requirements enables its integration. The advantage of this particular shifter is that it provides 4 channels to shift within the voltage references given. High Voltage level and Low Voltage level references are injected with desired voltage level and channels are used to transmit the data in between.
 
-![Step Down - Logic Shifter](assets/StepDownShifter.png)
+![Voltage Stepping- Logic Shifter](assets/BD_LC.png)
 
 The circuit above uses the bi-directional logic shifter to establish I2C interface with any sensor capable of the protocol. The SCL and SDA lines go through a High Voltage channel and establishes communication with the sensor that is connected at its respective Low Voltage Channel. 
 
