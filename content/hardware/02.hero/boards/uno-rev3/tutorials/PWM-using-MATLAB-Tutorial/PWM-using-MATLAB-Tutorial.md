@@ -1,8 +1,8 @@
 ---
-title: 'Controlling PWM output with a potentiometer on the Arduino® UNO R3 via MATLAB®'
+title: 'Controlling PWM Output with a Potentiometer via MATLAB®'
 difficulty: intermediate
 compatible-products: [Arduino Uno Rev 3, Potentiometer]
-description: 'Learn how to dim an LED connceted to the UNO R3 with MATLAB®.'
+description: 'Learn how to dim an LED connected to the UNO R3 with MATLAB®.'
 tags:
   - MATLAB
 author: 'Mohammed Hussain Jahangiri'
@@ -49,7 +49,7 @@ MATLAB® is an educational and industrial programming platform used to analyse d
 
 **2.** Open MATLAB and run the command `arduinosetup()` in the Command Window.
 
-![arduino Setup](assets/arduinosetup.png)
+![Arduino Setup](assets/arduinosetup.png)
 
 **3.** A Graphical User Interface (GUI) appears, that will help you set up the MATLAB®-Arduino connection. To establish the connection over the USB cable, make sure that the USB radio box is selected and then click on Next.
 
@@ -58,17 +58,17 @@ MATLAB® is an educational and industrial programming platform used to analyse d
 
 **4.** Choose the "UNO" from the dropdown menu, as well as the relevant COM port, and click on the blue `Program` button to upload the Arduino Server to the board. When you have done so, click on next.
 
-![Programming-the-arduino](assets/HardwareSetup1080.PNG)
+![Programming the Arduino](assets/HardwareSetup1080.PNG)
 
 
 **5.** In this step you can review the connection type, Port, board and loaded libraries. You can also click on Test connection to evaluate the Arduino-MATLAB® connection. Next, you should see a Green check-mark signalling the successful connection, as shown in the image below.
 
-![Program-successful](assets/SetupSuccess1080.PNG)
+![Programming successful](assets/SetupSuccess1080.PNG)
 
 
 **6.** The UNO R3 is now configured to interact with MATLAB®. Now to create the object in MATLAB®, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
 
-![](assets/arduinoproperties1080.png)
+![Arduino properties](assets/arduinoproperties1080.png)
 
 **7.** Enter the command `writeDigitalPin(a,'D13',1);`. This command is similar to the `digitalWrite(D13, HIGH)` by the Arduino programming language. Which means that digital pin 13 (D13) is connected to the built-in LED, `a` is the Arduino object we created, and 1 represents a HIGH or ON state. Try turning the LED ON and OFF several times by changing 1 to 0 and vice-versa.
 
@@ -94,7 +94,7 @@ end
 On one breadboard there is a white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
 On the right breadboard we have a simple LED circuit comprised of a red output wire from pin11, a resistor and the LED finally connected to GND via the green wire.
 
-![](assets/curcuit.png)
+![Circuit](assets/curcuit.png)
 
 ***Make sure to connect the longer leg of the LED to the resistor and the shorter to GND.***
 
@@ -114,7 +114,7 @@ end
 
 The amount assigned to `Volts` should be changing as you turn the potentiometer.
 
-![](assets/Volts.PNG)
+![Voltage display](assets/Volts.PNG)
 
 **2.** Set the value of `Volts` as the voltage to be sent through pin 11 using the command: `writePWMVolatge()`. This command is different from `writeDigitlaPin()` as it's voltage is adjustable between 1 and 5 volts. Whereas the latter is either ON(1), being **5V** or OFF(0), **0V**.
 
