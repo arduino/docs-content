@@ -42,7 +42,7 @@ The goals of this project are:
 ### Why MATLAB?
 MATLAB® is an educational and industrial programming platform used to analyse data, perform simulations and carry out model based designs. Through an interactive communication with an Arduino board, you can expand MATLAB®'s capabilities, while also gaining access to a wide range of math, engineering and plotting functions. Check out the capabilities of MATLAB® over on the [MathWorks website](https://www.mathworks.com/solutions.html#capabilities). In this tutorial, we will establish the connection with MATLAB® via a USB and Wi-Fi connection. The [MATLAB® Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware) must be installed (which may require a MathWorks® account), in order to facilitate the communication between the MATLAB® software on your computer and your Arduino board. 
  
-## Connecting the board to MATLAB
+## Connecting the Board to MATLAB
 **1.** Connect your board to the computer via the USB 2.0 Cable Type A/B.
 
 ![USB connection to computer](assets/Arduino-Connect1080.png)
@@ -94,11 +94,11 @@ end
 On one breadboard there is a white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
 On the right breadboard we have a simple LED circuit comprised of a red output wire from pin11, a resistor and the LED finally connected to GND via the green wire.
 
-![Circuit](assets/curcuit.png)
+![Circuit](assets/circuit.png)
 
 ***Make sure to connect the longer leg of the LED to the resistor and the shorter to GND.***
 
-## Programming the board
+## Programming the Board
 
 **1.** Set your output to 1 in the previously mentioned way using `writeDigitalPin(a, 'D13', 1);`. As mentioned earlier, 1 means ON or HIGH and sends a 5V current through pin13. Check to see if A0 is actually reading an adjustable voltage using `readVoltage(a, A0);` in a loop and then use `display(Volts)` to print the value of `Volts`.
 
@@ -139,7 +139,7 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-You can now control your output using variable inputs to control your devices and make use of the powerful features for scientific computing and developing engineering applications! Different input modulators similar to the potentiometer porcessed by the various toolboxes offered my MATLAB can lead to infinite types of ouput beyond that of the brightness of an LED.
+You can now control your output using variable inputs to control your devices and make use of the powerful features for scientific computing and developing engineering applications! Different input modulators similar to the potentiometer processed by the various toolboxes offered my MATLAB can lead to infinite types of ouput beyond that of the brightness of an LED.
 
 ## Further Ideas
 
