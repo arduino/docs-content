@@ -1,6 +1,6 @@
 ---
 title: 'Guide to 5V VS 3.3V'
-description: 'Learn about the difference of 5V and 3.3V in world of electronics.'
+description: 'Learn about the difference of 5V and 3.3V in world of electronics, with protective measures to help you design & build robust electronics.'
 tags: 
   - Power
   - Electronic
@@ -95,7 +95,7 @@ The **Voltage Divider** is the simplest yet easy to implement solution. It uses 
 
 ![Voltage/Resistive Divider](assets/StepDown.png)
 
-As it is as simple as it can be, when using this circuit, you will need to be cautious of the residing capacitance that is connected at the output of this circuit and with the quick rise times. 
+As it is as simple as it can be, when using this circuit, you will need to be cautious of the residing capacitance that is connected at the output of this circuit and with the quick rise times, as for certain application with cautious timing requirements or modules non-response to quick rise times will be affected. 
 
 ### Stepping Up
 
