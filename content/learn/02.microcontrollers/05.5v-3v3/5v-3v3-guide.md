@@ -9,7 +9,7 @@ author: 'José Bagur, Taddy Chung'
 
 Most electronic devices, when designed, tends to choose between 5.0V or 3.3V that will feed voltage to its designed system. Voltage design selection can be usually either due to its convenience of availability of the power source, or the need of power efficiency that the system itself has as a requirement.
 
-Although, 5.0V and 3.3V, in numerical difference, it has only 1.7V of difference. However, this voltage difference alone is sufficient enough to provide major power difference in electronic system device. In this guide, we will show you about why 3.3V is the modern standard voltage level, and general tips when designing and handling these voltage levels. 
+Although 5.0V and 3.3V in numerical difference only have a 1.7V of difference it is sufficient enough to provide major power difference in electronic systems. In this guide, we will show you why 3.3V is the modern standard voltage level, and general tips when designing and handling these voltage levels. 
 
 ## 3.3V, the Standard Voltage Level
 
