@@ -24,7 +24,7 @@ software:
 
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) board.
 * Wi-Fi AP with Internet access.
-* Arduino Pro Cloud Subscription plan. [Learn more about the Plan](https://www.arduino.cc/pro/hardware/product/portenta-x8).
+* Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8).
 
 ## Connecting to the Board
 
@@ -61,7 +61,7 @@ Once it is connected, you should see the Wi-Fi status bullet in the bottom left 
 
 ### Register the Factory on Foundries.io
 
-***The integration with Foundries.io requires the Arduino Pro Cloud plan, contact us at [Arduino Pro Contact Inquires](https://www.arduino.cc/pro/contact-us), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8)***
+***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, contact us at [Arduino Pro Contact Inquires](https://www.arduino.cc/pro/contact-us), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8)***
 Go to [https://create.arduino.cc](https://create.arduino.cc) and click on portenta-X8 board manager, you will get prompted to set a new `Factory` name if you didn't have one before. You will not be able to be change the name later, so use one that you can remember and write easily.
 
 ![Arduino Cloud integration](assets/cloud-main.png)
