@@ -24,7 +24,7 @@ In this tutorial we will create a simple container that we can then upload to th
 - [Portenta X8](https://store.arduino.cc/portenta-x8)
 - ADB
 - USB-C cable (either USB-C to USB-A or USB-C to USB-C)
-- Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8).
+- Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
 
 ## Instructions
