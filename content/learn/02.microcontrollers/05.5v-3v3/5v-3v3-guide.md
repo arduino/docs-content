@@ -53,7 +53,7 @@ This simple reverse polarity protection circuit uses a fuse and a diode, that la
 
 For the low power applications, if the power supply is connected with the polarities reversed, the diode will clamp the voltage to relatively low negative voltage. While, there will be a large current passing through to blow the fuse as the result of shorting the supply. The Load is protected and the user will have to change the fuse. 
 
-As the simplicity of the circuit might work for low power applications, for high power applications, it changes the whole story. For high power applications, where the nominal operating current is matched to a fuse rated at much higher current, the fuse must receive higher than specified current to be broken in time. When it passes through the general diode, it will clamp to relatively high negative voltage. 
+As the simplicity of the circuit might work for low power applications, it is different for high power applications. For high power applications, where the nominal operating current is matched to a fuse rated at much higher current, the fuse must receive higher than specified current to be broken in time. When it passes through the general diode, it will clamp to relatively high negative voltage. 
 
 This in result will **damage** the Load, resulting in a useless protection circuit for high power applications; on the other hand, typically good implementations for low power circuits. Although, it is good practice to implement better protection design to keep the electronic as robust as possible and this is where a proper reverse polarity protection comes into play.
 
