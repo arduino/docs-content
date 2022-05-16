@@ -83,7 +83,7 @@ Arduino boards relies on 3.3V and 5V levels. But sometimes there may not be avai
 
 We will use a bidirectional Logic Level Converter to step the voltage level, to be able to use sensors or logics at higher or lower voltage levels. This is an option to use if tight electric specification is implemented on the board. 
 
-***The bidirectional Logic Level Converter to be used can be found [here](https://www.sparkfun.com/products/12009) from SparkFun.***
+***The bidirectional Logic Level Converter used can be found [here](https://www.sparkfun.com/products/12009) (SparkFun).***
 
 ### Stepping Down
 
