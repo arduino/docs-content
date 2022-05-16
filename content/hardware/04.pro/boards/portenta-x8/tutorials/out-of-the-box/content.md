@@ -8,6 +8,7 @@ tags:
   - Installation
   - OTA
   - Embedded Linux
+  - Arduino Pro Cloud
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04.pro/boards/portenta-x8
@@ -17,6 +18,13 @@ software:
   - web-editor
   - iot-cloud
 ---
+
+
+## Required Hardware and Software
+
+* [Portenta X8](https://store.arduino.cc/products/portenta-x8) board.
+* Wi-Fi AP with Internet access.
+* Arduino Pro Cloud Subscription plan. [Learn more about the Plan](https://www.arduino.cc/pro/hardware/product/portenta-x8).
 
 ## Connecting to the Board
 
