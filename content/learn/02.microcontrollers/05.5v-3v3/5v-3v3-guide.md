@@ -79,7 +79,7 @@ But a simple Reverse Polarity Protection, with a Transient Voltage Suppressor di
 
 ## Stepping the Voltage - Level Shifters
 
-We now know how not to fry our electronic devices, and that includes our Arduino boards. The Arduino boards provide and relies on 3.3V and 5V levels. But sometimes there may not be available pins that matches the voltage requirement to adequately drive the sensor or any such line. You will get to know basic of stepping down and up the voltage required using simple electronic circuit.   
+Arduino boards relies on 3.3V and 5V levels. But sometimes there may not be available pins that matches the voltage requirement to adequately drive the sensor or any such line. In this section, we will take a look at how we can **step up and down voltages.**   
 
 We will also use a bidirectional Logic Level Converter to step the voltage level, to be able to use sensors or logics at higher or lower voltage levels. This is an option to use if tight electric specification is implemented on the board. 
 
