@@ -69,7 +69,7 @@ The key points of the circuit presented above are the Transient Voltage Suppress
 
 ### Over-Voltage and Over-Current Protection
 
-Sometimes the electronic device, that should receive 3.3V level of input from the supply may get on "dirty" tension. Causing the electronic device to suffer abnormal electronic behaviour, which is definitely undesired factor. As it could destabilize the system completely or change the logic forcefully due to changed logic range to be unrecognized. There are more of this such undesired behaviour, if over-voltage or over-current is introduced to the system. 
+Sometimes the electronic device, that should receive 3.3V level of input from the supply may receive a "dirty" tension. This causes the electronic device to suffer abnormal electronic behaviour. As it could destabilise the system completely or change the logic forcefully due to changed logic range to be unrecognised. There are more of this undesired behaviour, if over-voltage or over-current is introduced to the system. 
 
 So for this matter, how do we protect the system? The solution can be based of the proper Reverse Polarity Protection showed previously. The proper Polarity Reverse Polarith Protection implements a bidirectional Transient Voltage Suppressor while adding the P-Channel MOSFET with a zenerdiode and two resistors to get all its flavours. 
 
