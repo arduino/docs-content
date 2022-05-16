@@ -29,8 +29,8 @@ In this tutorial you will see how to manually flash your Portenta X8 with the im
 - Portenta X8
 - Portenta Breakout Board <!-- or Portenta Max Carrier-->
 - Arduino Create account
-- Arduino Create Pro subscription
-- Foundries.io account (linked with the Pro plan)
+- Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
+- Foundries.io account (linked with the Pro Cloud subscription)
 - FoundriesFactory® ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
 - 1 Device already attached to your factory ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
     
