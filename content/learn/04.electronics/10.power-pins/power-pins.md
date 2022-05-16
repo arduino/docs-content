@@ -12,7 +12,7 @@ tags:
 author: 'José Bagur, Taddy Chung, Karl Söderby'
 ---
 
-Arduino boards can be powered in several ways; we can use dedicated **connectors** (USB ports and barrel jacks) or dedicated **pins**. One fundamental question that usually arises when using an Arduino board in real-life applications is what dedicated power connector or pin we should use. This article will describe the main characteristics and correct use of power pins and connectors of Arduino boards.
+Arduino boards can be powered in several ways; we can use dedicated **connectors** (USB ports, barrel jacks or battery connectors) or dedicated **pins**. One fundamental question that usually arises when using an Arduino board in real-life applications is what dedicated power connector or pin we should use. This article will describe the main characteristics and correct use of power pins and connectors of Arduino boards.
 
 ## Powering Alternatives
 
@@ -21,7 +21,7 @@ Arduino boards have **five** options in which they can be powered:
 
 1. Powering via USB connector
 
-2. Powering via the barrel jack connector (if available on the board)
+2. Powering via the onboard barrel jack connector (if available on the board)
    
 3. Powering via the onboard battery connector (if available on the board)
 
@@ -32,13 +32,16 @@ Arduino boards have **five** options in which they can be powered:
 ***\*Powering your board via the 3V3/5V pins is not recommended, as it can damage your board's voltage regulator. Read more [here](#3v35v-pin).***
 
 
-This article will examine the alternatives to power your Arduino more in-depth.
+This article will examine these alternatives more in-depth.
 
 
 ## USB Connector
 
 
-The most common and easiest way we can power an Arduino board is by using its **onboard USB connector**. The USB connector provides a regulated 5V line to power the board's electronics. However, it can also power external components via the 5V pin that can be found in Arduino boards, as shown in the image below:
+The most common and easiest way we can power an Arduino board is by using its **onboard USB connector**. The USB connector provides a regulated 5V line to power the board's electronics. However, **5V from the USB connector can also power external components through the 5V pin** that can be found in Arduino boards.
+
+
+![Micro USB connector of the Arduino Nano RP2040 board.](assets/power-pins_img01.png)
 
 
 Something important about the USB connection is the current rating of the USB host device. For example, a USB host device can be a computer; this means that the computer's USB port is the 5V power source of the Arduino board connected to it. Besides USB ports of computers, we can also use power banks, for example, as power sources for Arduino boards. Power banks usually have one or more USB outputs that provide regulated 5V lines at different current ratings. Arduino boards that run at 5V use the USB-regulated 5V line directly, boards that run at 3V3 regulate the 5V line from the USB connector to 3V3 using their onboard voltage regulator. Output current rating from the 5V pin will vary, depending on the 5V power source.   
@@ -61,26 +64,30 @@ Some Arduino boards have an **onboard barrel jack connector** that is used to co
 - [Arduino Zero](https://store.arduino.cc/collections/boards/products/arduino-zero)
 
 
-***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin. They use a a negative 5.5mm sleeve and a 2.1mm positive pin***
+***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin. Boards with an onboard barreljack use a a negative 5.5mm sleeve and a 2.1mm positive pin***
 
 
-The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3 in most Arduino boards. The recommended voltage and current ratings for external regulated power supplies connected to the barrel jack connector are summarized in the table below:
+![Barrel jack connector of the Arduino Zero board.](assets/power-pins_img02.png)
+
+
+
+The voltage line from the barrel jack connector is regulated in Arduino boards using their onboard voltage regulator; usually, it is first regulated to 5V and then regulated again to 3V3 in most Arduino boards. The **recommended voltage and current ratings for external regulated DC power supplies** connected to the barrel jack connector are summarized in the table below:
 
 
 |        **Board**       | **External Power Supply Voltage (V)** | **External Power Supply Current (A)** |
 |:----------------------:|:-------------------------------------:|:-------------------------------------:|
 |    Arduino UNO Rev3    |                  7-12                 |                   1                   |
-|  Arduino UNO WiFi Rev2 |                 4.5-21                |                  1.5                  |
+|  Arduino UNO WiFi Rev2 |                  7-12                 |                  1.5                  |
 |    Arduino Leonardo    |                  7-12                 |                   1                   |
 | Arduino Mega 2560 Rev3 |                  7-12                 |                   1                   |
-|       Arduino Due      |                 4.5-21                |                  1.5                  |
-|      Arduino Zero      |                  3-20                 |                   1                   |
+|       Arduino Due      |                  7-12                 |                  1.5                  |
+|      Arduino Zero      |                  5-18                 |                   1                   |
 
 
  ## Battery Connector
 
 
- Some Arduino boards also have an **onboard battery connector** to connect a battery to the board and use it as its primary or secondary power supply. The Arduino boards with an onboard battery connector are the following:
+ Some Arduino boards have an **onboard battery connector** to connect a battery to the board and use it as its primary or secondary power supply. The Arduino boards with an onboard battery connector are the following:
 
 
 -  [Arduino Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7)
@@ -94,16 +101,21 @@ The voltage line from the barrel jack connector is regulated in Arduino boards u
 -  [Arduino MKR GSM 1400](https://store.arduino.cc/collections/boards/products/arduino-mkr-gsm-1400)
 
 
-***Pro family boards use a 3-pin, 1.2mm SMD ACH battery connector, and MKR family boards use a  2-pin, 2mm SMD PH battery connector.***
+***Pro family boards use a 3-pin, 1.2mm SMD ACH battery connector; MKR family boards use a 2-pin, 2mm SMD PH battery connector.***
 
 
-The boards mentioned before have an **onboard integrated battery charge management circuit**. This circuit integrates the most common battery and power management functions, like a battery charger, a voltage regulator, and a load switch. **Boards can work with single cell 3V7 Li-Ion and Li-polymer batteries**. 
+![Battery connector of the Arduino MKR WAN 1310 board.](assets/power-pins_img03.png)
+
+
+The boards mentioned before have an **onboard integrated battery charge management circuit**. This circuit integrates the most common battery and power management functions, like a battery charger, a voltage regulator, and a load switch, all in one. 
+
+***Arduino boards with an onboard battery connector can work with single cell 3V7 Li-Ion and Li-polymer batteries***. 
 
 
  ## VIN Pin
 
 
-The VIN pin in Arduino boards is a power pin with a dual function. This pin can work as a **voltage input for regulated external power supplies** that do not use a barrel jack connector. This pin can also work as a **voltage output when an external power supply is connected to the barrel jack connector** present in some Arduino boards. An important consideration is that the Vin pin is connected directly to the input pin of the onboard voltage regulator on Arduino boards. Since the VIN pin is directly connected to the voltage regulator, the **VIN pin does not have reverse polarity protection**. 
+The VIN pin in Arduino boards is a power pin with a dual function. This pin can work as a **voltage input for regulated external power supplies** that do not use a barrel jack connector. This pin can also work as a **voltage output when an external power supply is connected to the barrel jack connector** present in some Arduino boards. An important consideration is that the VIN pin is connected directly to the input pin of the onboard voltage regulator on Arduino boards. Since the VIN pin is directly connected to the voltage regulator, the **VIN pin does not have reverse polarity protection**. 
 
 
 ***Use the VIN pin carefully to avoid damaging your Arduino board since it does not have reverse polarity protection.***
