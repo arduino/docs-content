@@ -65,7 +65,7 @@ Implementing complicated power protection circuit does not mean the load is prot
 
 The key points of the circuit presented above are the Transient Voltage Suppressor diode and the MOSFET of P-Channel type. This protection circuit will help you save the Protected Load and to have it as a good reference for protection design. Although due to its electric components, it becomes a little more advanced to cover in the scope of this guide.
 
-***If you are interested to go further in detail, you are in for a treat. Please have a look this [article](https://www.electroboom.com/?p=914) written by Mehdi Sadaghdar explained in-depth.***
+***If you are interested in reading more, visit [this article](https://www.electroboom.com/?p=914) by Mehdi Sadaghdar.***
 
 ### Over-Voltage and Over-Current Protection
 
