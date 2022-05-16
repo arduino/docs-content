@@ -173,29 +173,29 @@ The **maximum current** that can be drawn from the 3V3 and 5V pins when working 
 
 |      **Board**      | **5V Pin Output Current (A)** | **3V3 Pin Output Current (A)** |
 |:-------------------:|:-----------------------------:|:------------------------------:|
-|       UNO Mini      |                               |                                |
-|       UNO Rev3      |                               |                                |
-|    UNO WiFi Rev2    |                               |                                |
-|     UNO Rev3 SMD    |                               |                                |
-|       Leonardo      |                               |                                |
-|    Mega 2560 Rev3   |                               |                                |
-|        Micro        |                               |                                |
-|         Zero        |                               |                                |
-|     Portenta H7     |                               |                                |
-|   Nicla Sense ME*   |                               |                                |
-| Nano RP2040 Connect |                               |                                |
-|     MKR NB 1500     |                               |                                |
-|    MKR Vidor 4000   |                               |                                |
-|    MKR WiFi 1010    |                               |                                |
-|       MKR Zero      |                               |                                |
-|     MKR1000 WIFI    |                               |                                |
-|     MKR WAN 1300    |                               |                                |
-|     MKR WAN 1310    |                               |                                |
-|         Nano        |                               |                                |
-|      Nano Every     |                               |                                |
-|     Nano 33 IoT     |                               |                                |
-|     Nano 33 BLE     |                               |                                |
-|  Nano 33 BLE Sense  |                               |                                |
+|       UNO Mini      |               1               |               0.5              |
+|       UNO Rev3      |               1               |              0.15              |
+|    UNO WiFi Rev2    |               1               |               0.5              |
+|     UNO Rev3 SMD    |               1               |              0.15              |
+|       Leonardo      |               1               |              0.15              |
+|    Mega 2560 Rev3   |              0.8              |              0.05              |
+|        Micro        |               1               |              0.15              |
+|         Zero        |               1               |               0.5              |
+|     Portenta H7     |               -               |                1               |
+|   Nicla Sense ME*   |               -               |               0.5              |
+| Nano RP2040 Connect |               -               |                1               |
+|     MKR NB 1500     |               -               |               0.5              |
+|    MKR Vidor 4000   |               1               |               0.3              |
+|    MKR WiFi 1010    |               1               |               0.5              |
+|       MKR Zero      |               -               |               0.5              |
+|     MKR1000 WIFI    |               -               |               0.5              |
+|     MKR WAN 1300    |               -               |               0.5              |
+|     MKR WAN 1310    |               -               |               0.5              |
+|         Nano        |              0.8              |              0.15              |
+|      Nano Every     |               1               |               0.5              |
+|     Nano 33 IoT     |               1               |               0.5              |
+|     Nano 33 BLE     |               -               |                1               |
+|  Nano 33 BLE Sense  |               -               |                1               |
 
 
 ## Choosing a Power Input
@@ -221,15 +221,23 @@ This option is recommended when a regulated power supply with a barrel jack conn
 ### Battery Connector
 
 
-This option is recommended for portable projects, or projects that need a secondary o backup power supply. Currently, 3V7 Li-Ion and Li-polymer batteries are supported in 
+This option is recommended for portable projects, or projects that need a secondary o backup power supply. Currently, 3V7 Li-Ion and Li-polymer batteries are supported only, current is constrained by the capacity of battery. 
 
 
 ### VIN Pin
 
-This option is recommended when a regulated power supply with out a barrel jack connector is available. Take into account that using VIN pin should be made carefully since this pin does not have reverse polarity protection. 
+This option is recommended when a regulated power supply with out a barrel jack connector is available. Take into account that using VIN pin should be made carefully since this pin does not have reverse polarity protection. Current is constrained by the regulated power supply and the onboard voltage regulator. 
 
 
-## 3V3/5V Pin 
+### 3V3/5V Pin 
 
 
-This option is not recommended since the risk of damaging the onboard voltage regulator is high. It can be done safely, just remember to not 
+**Avoid this option** since since the risk of damaging the onboard voltage regulator is high. It can be done safely tough, just remember to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.
+
+## Further Reading and Resources
+
+
+If you want to learn more about power supplies, check out the following links: 
+
+
+- Power supplies are one of the most popular and most needed electronic testing equipment. Check out more about them in [this](https://www.bkprecision.com/support/downloads/power-supply-guide.html) guide from BK Precision®.
