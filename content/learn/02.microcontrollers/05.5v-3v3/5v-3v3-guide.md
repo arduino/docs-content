@@ -89,7 +89,7 @@ We will use a bidirectional Logic Level Converter to step the voltage level, to 
 
 We will begin by learning how to step down the voltage. Usually, voltage is driven down to lower level needed by the external module or sensors. It can also be due to need of lower voltage line to handle a separate circuit. It is crucial that you know the electric requirement that will demand if the electronic design is more complex than usual design. Such as tight electric specification and multiple signal lines to handle with operating at high speeds.
 
-The **Voltage Divider** is the simplest yet easy to implement solution. It uses 2 resistors to create a lower voltage output. So, knowing the Input Voltage and targeted Output Voltage and a reference resistor, it is simple enough to calculate the other required resistor to implement to produce desired result. The Votlage Divider is as follows. 
+A **voltage divider** is the simplest yet easy to implement solution. It uses 2 resistors to create a lower voltage output. So, knowing the **input voltage** and targeted **output voltage** and a **reference resistor**, it is simple enough to calculate the other required resistor to implement to produce desired voltage. Below is a voltage dividing circuit.
 
 ![Voltage/Resistive Divider](assets/StepDown.png)
 
