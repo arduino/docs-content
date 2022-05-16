@@ -55,7 +55,7 @@ For the low power applications, if the power supply is connected with the polari
 
 As the simplicity of the circuit might work for low power applications, it is different for high power applications. For high power applications, where the nominal operating current is matched to a fuse rated at much higher current, the fuse must receive higher than specified current to be broken in time. When it passes through the general diode, it will clamp to relatively high negative voltage. 
 
-This in result will **damage** the Load, resulting in a useless protection circuit for high power applications; on the other hand, typically good implementations for low power circuits. Although, it is good practice to implement better protection design to keep the electronic as robust as possible and this is where a proper reverse polarity protection comes into play.
+As a result, this will **damage the load**, resulting in a useless protection circuit for high power applications; on the other hand, typically good implementations for low power circuits. Although, it is good practice to implement better protection design to keep the electronic as robust as possible and this is where a proper reverse polarity protection comes into play.
 
 ### Reverse Polarity Protection
 
