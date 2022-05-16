@@ -27,7 +27,7 @@ In this tutorial you will see how to manually flash your Portenta X8 with the im
 
 - USB-C to USB-A or USB-C to USB-C
 - Portenta X8
-- Portenta Breakout Board <!-- or Portenta Max Carrier-->
+- Portenta Breakout Board or Portenta Max Carrier
 - Arduino Create account
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 - Foundries.io account (linked with the Pro Cloud subscription)
