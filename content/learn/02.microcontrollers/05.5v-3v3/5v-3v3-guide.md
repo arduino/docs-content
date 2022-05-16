@@ -2,7 +2,7 @@
 title: 'Guide to 3.3V and 5V Logic Level Differences'
 description: 'Learn about the difference of 5V and 3.3V in world of electronics, with protective measures to help you design & build robust electronics.'
 tags: [5V, 3.3V, Electronics, Power]
-author: 'Arduino, José Bagur, Taddy Chung'
+author: 'José Bagur, Taddy Chung'
 ---
 
 ## 5.0V vs. 3.3V
