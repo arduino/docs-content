@@ -59,7 +59,7 @@ As a result, this will **damage the load**, resulting in a useless protection ci
 
 ### Reverse Polarity Protection
 
-Implementing complicated power protection circuit does not mean the Load is protected, as it could cost expensive yet defenseless. Depending on the component selection and cost for implementation, the solution can become much more elegant, and so is for reverse polarity protection. The following reverse polarity protection is designed by Mehdi Sadaghdar.
+Implementing complicated power protection circuit does not mean the load is protected. Depending on the component selection and cost for implementation, the solution can become much more elegant, and the same applies for reverse polarity protection. The following reverse polarity protection is designed by Mehdi Sadaghdar.
 
 ![Complete Reverse Polarity Protection](assets/ElegantRPP.png)
 
