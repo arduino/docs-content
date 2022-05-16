@@ -13,7 +13,7 @@ Although 5.0V and 3.3V in numerical difference only have a 1.7V of difference it
 
 ## 3.3V, the Standard Voltage Level
 
-So, why is the **3.3V** level a standard voltage level? There are several reasons that contributes for standardizing 3.3V level as a standard, and in world of electronics, as it is in engineering, we are in constant search for much more efficient and performant yet density-low package devices or machines. 
+So, why is the **3.3V** level a standard voltage level? There are several reasons that contributes for standardising the 3.3V level, and in world of electronics, we are in constant search for more efficient and performant yet density-low package devices or machines. 
 
 The industry is always moving forward, and in electronics, the transistors have reduced in its size than previous years and due to its reduced size, voltage threshold also follows the trend by going lower. The industry continuously is working to develop faster electronic devices, and one general way to achieve this is to lower the applied voltage level. Lowering applied voltage level implies much faster logic level changes. Power usage is a concerning topic if we discuss about power efficiency, and lower voltage levels will help us achieve this goal. 
 
