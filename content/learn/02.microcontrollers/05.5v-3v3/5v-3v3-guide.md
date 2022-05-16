@@ -85,7 +85,7 @@ We will use a bidirectional Logic Level Converter to step the voltage level, to 
 
 ***The bidirectional Logic Level Converter used can be found [here](https://www.sparkfun.com/products/12009) (SparkFun).***
 
-### Stepping Down
+### Stepping Down Voltage
 
 We will begin by learning how to step down the voltage. Usually, voltage is driven down to lower level needed by the external module or sensors. It can also be due to need of lower voltage line to handle a separate circuit. It is crucial that you know the electric requirement that will demand if the electronic design is more complex than usual design. Such as tight electric specification and multiple signal lines to handle with operating at high speeds.
 
