@@ -106,7 +106,7 @@ IoT applications, MKR hobbyists
 
 * Arduino MKR 1010 (SKU: ABX00023)
 * Protective case
-* TFT Display
+* Arduino MKR Zero
 
 ## Functional Overview
 
@@ -152,8 +152,6 @@ Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protect
 
 ## Board Operation
 
-***Note: Please note that in order to operate with the Arduino MKR IoT Carrier, an Arduino MKR WiFi 1010 is required.***
-
 ### Getting Started - IDE 
 If you want to program your Arduino MKR IoT carrier while offline you need to install the Arduino Desktop IDE **[1]**. To connect the Arduino IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
@@ -166,8 +164,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches 
-Sample sketches for the Arduino IoT carrier can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website **[4]**
-
+Sample sketches for the Arduino IoT carrier can be found either in the “Examples” menu in the Arduino IDE or in the Opla Arduino website **[4]** and further documentation can be found in Arduino MKR **[8]** which also contains links to the troubleshooting articles.
 
 ### Online Resources
 
@@ -333,9 +330,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
+| Arduino Opla              | https://opla.arduino.cc/                                     |
 | Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
 | Library Reference         | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/ |
 | Online Store              | https://store.arduino.cc/mkr-iot-carrier                     |
+| Arduino MKR               | https://docs.arduino.cc/hardware/mkr-iot-carrier             |
 
 ## Revision History
 
