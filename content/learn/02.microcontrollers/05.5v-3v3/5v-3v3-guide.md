@@ -101,7 +101,7 @@ To **step up** voltage, you will need to use a little bit more constructive elec
 
 ![Step Up Circuit - Diode Implementation](assets/StepUpDiode.png)
 
-You will need to biase the diodes with precaution and the resistor that is much lower than the input impedance of the 5V gate. One of the know-hows shared by Microchip is to use a **Schottky** diodes to gain slight high-level voltage and reduce low-level voltage from incrementing. Following circuit uses a different setup. 
+You will need to biase the diodes with precaution and the resistor that is much lower than the input impedance of the 5V gate. One of the know-hows shared by Microchip is to use **Schottky** diodes to gain slight high-level voltage and reduce low-level voltage from incrementing. Following circuit uses a different setup. 
 
 ![Step Up Circuit - MOSFET](assets/StepUpMOSFET.png)
 
