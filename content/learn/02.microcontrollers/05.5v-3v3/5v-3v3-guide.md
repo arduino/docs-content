@@ -97,7 +97,7 @@ When using this circuit, you will still need to be cautious of the residing capa
 
 ### Stepping Up
 
-On the contrary to stepping down the voltage using simple voltage divider, to **step up** the voltage, due to uncompatible TTL threshold scenario as in the previous, you will need to use a little bit more constructive electric circuit by using diodes. Following circuit shows how it is done.
+To **step up** voltage, you will need to use a little bit more constructive electric circuit by using diodes. The following circuit shows how to use diodes to step up voltage.
 
 ![Step Up Circuit - Diode Implementation](assets/StepUpDiode.png)
 
