@@ -25,7 +25,7 @@ Usually, such broad classification given to **low power** electronic devices are
 
 The power inputs and outputs may vary, depending on the requirement of the electronic design. Which it also means it could use ambiguous voltage levels mostly for power inputs, implying to drive the voltage down in most cases. In contrast, most of the electronic components and modules are regulated by its electrical specification. The electrical specification for these components used internally, in exception for specialized components for specific cases, are designed to have 3.3V as a operating voltage level, otherwise specified in range. 
 
-***Fun Fact of 3.3V - The number 3.3 dates by going back to early days of IC (Integrated Circuit) development of semiconductor technology, and it is rumoured that it is the result of RTL (Register-Transfer Level) designs***
+***Fun Fact of 3.3V - The number 3.3 dates by going back to early days of IC (Integrated Circuit) development of semiconductor technology, and it is rumoured that it is the result of RTL (Register-Transfer Level) designs.***
 
 ## How Not to Burn the Electronic 101
 
