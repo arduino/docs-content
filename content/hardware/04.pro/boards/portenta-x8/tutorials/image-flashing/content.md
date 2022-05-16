@@ -50,7 +50,15 @@ Root folder
 └── u-boot-portenta-x8.itb
 ```
 
-To get those files open your FoundriesFactory®.
+To get those files:
+
+#### Arduino's GitHub Repository
+
+Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
+
+#### Through Foundries
+
+Open your FoundriesFactory®.
 
 ![Foundries.io factories dashboard](assets/foundries-factories.png)
 
