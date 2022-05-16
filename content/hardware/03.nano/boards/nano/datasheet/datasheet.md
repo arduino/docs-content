@@ -4,7 +4,7 @@ title: Arduino® Nano
 type: maker
 ---
 
-![](assets/)
+![Arduino Nano Feature Image](assets/nano_feature_image.png)
 
 # Description
 
