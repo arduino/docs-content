@@ -209,7 +209,7 @@ Let's talk about when it is recommended to use each of the **options** ways in w
 
 ### USB Connector
 
-This option is often recommended when experimenting with small loads that requires 5V, current would be constrained by USB host device where the board is connected.
+This option is often recommended when experimenting with small loads that require 5V; the current would be constrained by the USB host device where the board is connected.
 
 
 ### Barrel Jack Connector
@@ -221,18 +221,18 @@ This option is recommended when a regulated power supply with a barrel jack conn
 ### Battery Connector
 
 
-This option is recommended for portable projects, or projects that need a secondary o backup power supply. Currently, 3V7 Li-Ion and Li-polymer batteries are supported only, current is constrained by the capacity of battery. 
+This option is recommended for portable projects or projects that need a secondary o backup power supply. Currently, 3V7 Li-Ion and Li-polymer batteries are supported only; the battery's capacity constrains current. 
 
 
 ### VIN Pin
 
-This option is recommended when a regulated power supply with out a barrel jack connector is available. Take into account that using VIN pin should be made carefully since this pin does not have reverse polarity protection. Current is constrained by the regulated power supply and the onboard voltage regulator. 
+This option is recommended when a regulated power supply without a barrel jack connector is available. Take into account that using VIN pin should be made carefully since this pin does not have reverse polarity protection. Current is constrained by the regulated power supply and the onboard voltage regulator. 
 
 
 ### 3V3/5V Pin 
 
 
-**Avoid this option** since since the risk of damaging the onboard voltage regulator is high. It can be done safely tough, just remember to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.
+**Avoid this option** since the risk of damaging the onboard voltage regulator is high. It can be done safely if the applied voltage to the 3V3 or 5V pins is not higher than the input voltage of the voltage regulators.
 
 ## Further Reading and Resources
 
@@ -241,3 +241,4 @@ If you want to learn more about power supplies, check out the following links:
 
 
 - Power supplies are one of the most popular and most needed electronic testing equipment. Check out more about them in [this](https://www.bkprecision.com/support/downloads/power-supply-guide.html) guide from BK Precision®.
+- LiPo batteries are everywhere. Check out [this](https://rogershobbycenter.com/lipoguide) guide from Roger's Hobby Center to learn more about LiPo batteries. 
