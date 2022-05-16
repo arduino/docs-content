@@ -24,7 +24,7 @@ software:
 
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) board.
 * Wi-Fi AP with Internet access.
-* Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8).
+* Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
 ## Connecting to the Board
 
