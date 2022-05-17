@@ -166,7 +166,8 @@ The **minimum and maximum voltages** that can be applied to the VIN pin are dete
 Although 3V3 and 5V pins can be used as power inputs, **it is not recommended** if no power supply is connected through the USB port, the barrel jack connector, or the VIN pin. 3V3 and 5V pins are connected directly to the onboard voltage regulator's output pin. Suppose the voltage in the voltage regulator output pin becomes higher than the input voltage of the voltage regulator. In that case, a large current may flow into the voltage regulator from its output pin to its input pin. That large current can permanently damage your board's voltage regulator.
 
 
-***It is safe **but not recommended** to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.*** 
+***It is safe, but not recommended, to apply a voltage to the 3V3 or 5V pins that are not higher than the input voltage of the voltage regulators.*** 
+
 
 
 The **maximum current** that can be drawn from the 3V3 and 5V pins when working as power outputs are summarized below. Notice that these currents can be provided by the 3V3 and 5V onboard voltage regulators, or from the power source connected to the board:
