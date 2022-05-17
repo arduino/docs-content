@@ -71,6 +71,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 | moisture    | int       | Read moisture               | Read Only    |
 | temperature | float     | Read temperature            | Read Only    |
 | humidity    | float     | Read humidity               | Read Only    |
+| log_message | String    | Message Log                 | Read Only    |
 
 **3.** Enter your credentials to your Wi-Fi network in the network section. 
 
@@ -81,13 +82,36 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 **5.** Go to the sketch tab, and use the following code:
 
 ```arduino
+
+/*
+  MKR IoT Carrier Smart Garden Setup Project
+
+  A setup that allows for remote/local control of
+  a pump, as well as reading sensors (moisture,
+  temperature, humidity).
+
+  Built using the Arduino IoT Cloud service.
+
+  Components used:
+  - MKR WiFi 1010
+  - MKR IoT Carrier
+  - Moisture Sensor
+  - 5V water pump
+  - USB Adapter with 2x slots
+  - Micro USB Cable
+  - Open ended USB Cable
+  - Grove cable 
+
+  Code by (c) Alessandro Ranelucci for Arduino.
+*/
+
 #include "arduino_secrets.h"
 #include "thingProperties.h"
 
 #include <Arduino_MKRIoTCarrier.h>
 #include <Arduino_OplaUI.h>
 
-const int moistPin = A5;
+const int moistPin = A6;
 const float waterAmount = 2;  // liters
 const float waterSpeed = 0.045; // liters/sec
 const float waterTime = waterAmount / waterSpeed;  // seconds
@@ -142,6 +166,9 @@ void loop() {
   raw_moisture = analogRead(moistPin);
   moisture = map(raw_moisture, 780, 1023, 100, 0);
 
+  temperature = carrier.Env.readTemperature();
+  humidity = carrier.Env.readHumidity();
+
   // Set the LED color according to the moisture percentage
   if (moisture > 40) {
     opla.leds.setPixelColor(1, 50, 0 , 0);  // green
@@ -193,7 +220,7 @@ void stopWatering () {
 
 Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device.
 
-***In this dashboard, we replaced some of the widgets with more nicer representations, like gauges and percentage.***
+***In this dashboard, we replaced some of the widgets with nicer representations, like gauges and percentage.***
 
 ## Final Setup
 
