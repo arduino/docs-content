@@ -1,6 +1,6 @@
 ---
-title: 'Datalogging with MQTT, Node-RED, InfluxDB, Grafana and the Portenta X8'
-description: 'This tutorial will show you how to set up a local data logging server using an MQTT broker, Node-RED, InfluxDB, Grafana, and the Arduino® Portenta X8.'
+title: 'Data logging with MQTT, Node-RED, InfluxDB and Grafana'
+description: 'This tutorial will show you how to set up a local data logging application using an MQTT broker, Node-RED, InfluxDB, Grafana, and the Arduino® Portenta X8.'
 difficulty: Intermediate
 tags:
   - Docker
@@ -41,9 +41,12 @@ These four blocks will be running locally on the Portenta X8 board. We will use 
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino® MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
 - USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- 10KΩ potentiometer (x1)
+- Breadboard and jumper cables
 - Wi-Fi Access Point (AP) with Internet access
-- ADB or SSH 
-
+- ADB or SSH
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software)
+  
 ***If you are new to the Portenta X8 board, check out this [getting started tutorial](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal) on how to control your board using a terminal or command-line interface.***
 
 ## IoT Architecture 101
