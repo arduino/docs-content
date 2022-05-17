@@ -64,7 +64,8 @@ Some Arduino boards have an **onboard barrel jack connector** that is used to co
 - [Arduino Zero](https://store.arduino.cc/collections/boards/products/arduino-zero)
 
 
-***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin. Boards with an onboard barreljack use a a negative 5.5mm sleeve and a 2.1mm positive pin***
+***Arduino boards with onboard barrel jacks are configured with positive polarity; this means a negative sleeve and a positive pin. Boards with an onboard barreljack use a negative 5.5mm sleeve and a 2.1mm positive pin***
+
 
 
 ![Barrel jack connector of the Arduino Zero board.](assets/power-pins_img02.png)
