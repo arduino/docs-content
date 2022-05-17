@@ -27,7 +27,7 @@ In this tutorial you will see how to manually flash your Portenta X8 with the im
 
 - USB-C to USB-A or USB-C to USB-C
 - Portenta X8
-- Portenta Breakout Board <!-- or Portenta Max Carrier-->
+- Portenta Breakout Board or Portenta Max Carrier
 - Arduino Create account
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 - Foundries.io account (linked with the Pro Cloud subscription)
@@ -50,7 +50,15 @@ Root folder
 └── u-boot-portenta-x8.itb
 ```
 
-To get those files open your FoundriesFactory®.
+To get those files:
+
+#### Arduino's GitHub Repository
+
+Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
+
+#### Through Foundries
+
+Open your FoundriesFactory®.
 
 ![Foundries.io factories dashboard](assets/foundries-factories.png)
 
