@@ -34,7 +34,7 @@ This is a style guide to writing library APIs in an Arduino style. Some of these
 
 **Try to avoid boolean arguments.** Instead, consider providing two different functions with names the describe the differences between them.
 
-**Don’t assume knowledge of pointers.** Beginning users of C find this the biggest roadblock, and get very confused by & and *, so whenever you can avoid having them hanging out in the API, do so. One way is to pass by reference using array notation rather than * notation, for example.
+**Don’t assume knowledge of pointers.** Beginning users of C find this the biggest roadblock, and get very confused by `&` and `*`, so whenever you can avoid having them hanging out in the API, do so. One way is to pass by reference using array notation rather than `*` notation, for example.
 
 ```arduino
    void printArray( char* array);
