@@ -146,9 +146,7 @@ The Arduino MKR IoT Carrier makes use of the power management features of the Ar
 
 ![Solution overview](assets/solution_overview.png)
 
-The MKR IoT Carrier is also a part of the Oplá kit, that in addition to the IoT carrier contains an 
-
-Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.  
+The MKR IoT Carrier is also a part of the Arduino® Oplá IoT Kit, that in addition to the carrier contains an Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.  
 
 ## Board Operation
 
