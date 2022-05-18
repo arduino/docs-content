@@ -43,7 +43,7 @@ void printArray(char* array);
 can be replaced by
 
 ```arduino
-    void printArray(char[] array);
+void printArray(char[] array);
 ```
 
 Though there are some libraries where we pass pointers by using structures like const chars, avoid anything that requires the user to pass them. For example,rather than:
