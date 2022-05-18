@@ -226,7 +226,7 @@ Second, we now create an instance of the Morse class called **morse**:
 Morse morse(13);
 ```
 
-When this line gets executed (which actually happens even before the `setup()` function), the constructor for the Morse class will be called, and passed the argument you've given here (in this case, just 13).
+When this line gets executed (which actually happens even before the `setup()` function), the constructor for the `Morse` class will be called, and passed the argument you've given here (in this case, just 13).
 
 Notice that our `setup()` is now empty; that's because the call to `pinMode()` happens inside the library (when the instance is constructed).
 
