@@ -175,7 +175,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ![Pinout](assets/Pinout.png)
 
-Detailed information on the IoT Carrier’s pinouts are available in a separate document: [Docs Arduino - MKR IoT Carrier pinout](https://docs.arduino.cc/resources/pinouts/ABX00047-full-pinout.pdf)
+Detailed information on the MKR IoT Carrier’s pinouts are available in a separate document: [Docs Arduino - MKR IoT Carrier pinout](https://docs.arduino.cc/resources/pinouts/ABX00047-full-pinout.pdf)
 
 ### Battery Clips
 
