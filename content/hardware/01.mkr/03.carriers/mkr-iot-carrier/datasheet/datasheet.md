@@ -151,7 +151,7 @@ The MKR IoT Carrier is also a part of the Arduino® Oplá IoT Kit, that in addit
 ## Board Operation
 
 ### Getting Started - IDE 
-If you want to program your Arduino MKR IoT carrier while offline you need to install the Arduino Desktop IDE **[1]**. To connect the Arduino IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your MKR IoT Carrier while offline you need to install the Arduino Desktop IDE **[1]**. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor 
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
