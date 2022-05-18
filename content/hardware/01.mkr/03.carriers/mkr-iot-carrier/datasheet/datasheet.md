@@ -138,7 +138,7 @@ IoT applications, MKR hobbyists
 
 ### Power Tree
 
-The Arduino MKR IoT Carrier makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery. 
+The MKR IoT Carrier makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery. 
 
 ![Power tree](assets/Power_Tree_MKR_IoT_Carrier.png)
 
