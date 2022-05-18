@@ -104,7 +104,7 @@ IoT applications, MKR hobbyists
 
 ### Related Products
 
-* Arduino MKR 1010 (SKU: ABX00023)
+* Arduino® MKR WiFi 1010 (SKU: ABX00023)
 * Protective case
 * Arduino® MKR Zero
 
