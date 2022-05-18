@@ -139,7 +139,7 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-You can now control your output using variable inputs to control your devices and make use of the powerful features for scientific computing and developing engineering applications! Different input modulators similar to the potentiometer processed by the various toolboxes offered my MATLAB can lead to infinite types of ouput beyond that of the brightness of an LED.
+You can now control your output using variable inputs to control your devices and make use of the powerful features for scientific computing and developing engineering applications! Different input modulators similar to the potentiometer processed by the various toolboxes offered my MATLAB can lead to infinite types of output beyond that of the brightness of an LED.
 
 ## Further Ideas
 
