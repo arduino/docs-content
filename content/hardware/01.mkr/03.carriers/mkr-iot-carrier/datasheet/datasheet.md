@@ -162,7 +162,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches 
-Sample sketches for the Arduino IoT carrier can be found either in the “Examples” menu in the Arduino IDE or in the Opla Arduino website **[4]** and further documentation can be found in Arduino MKR **[8]** which also contains links to the troubleshooting articles.
+Sample sketches for the MKR IoT Carrier can be found either in the “Examples” menu in the Arduino IDE or in the Oplá IoT Kit platform **[4]** and further documentation can be found in Arduino Documentation **[8]** which also contains links to the troubleshooting articles.
 
 ### Online Resources
 
