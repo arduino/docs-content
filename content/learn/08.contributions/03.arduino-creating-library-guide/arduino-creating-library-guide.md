@@ -230,7 +230,7 @@ When this line gets executed (which actually happens even before the `setup()` f
 
 Notice that our `setup()` is now empty; that's because the call to `pinMode()` happens inside the library (when the instance is constructed).
 
-Finally, to call the `dot()` and `dash()` functions, we need to prefix them with **morse**. - the name of the instance we want to use. We could have multiple instances of the Morse class, each on their own pin stored in the _pin private variable of that instance. By calling a function on a particular instance, we specify which instance's variables should be used during that call to a function. That is, if we had both:
+Finally, to call the `dot()` and `dash()` functions, we need to prefix them with **morse**. - the name of the instance we want to use. We could have multiple instances of the `Morse` class, each on their own pin stored in the _pin private variable of that instance. By calling a function on a particular instance, we specify which instance's variables should be used during that call to a function. That is, if we had both:
 
 ```arduino
 Morse morse(13);
