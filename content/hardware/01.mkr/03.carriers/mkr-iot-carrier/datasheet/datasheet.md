@@ -332,7 +332,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
 | Library Reference         | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/ |
 | Online Store              | https://store.arduino.cc/mkr-iot-carrier                     |
-| Arduino MKR               | https://docs.arduino.cc/hardware/mkr-iot-carrier             |
+| Arduino Documentation               | https://docs.arduino.cc/hardware/mkr-iot-carrier             |
 
 ## Revision History
 
