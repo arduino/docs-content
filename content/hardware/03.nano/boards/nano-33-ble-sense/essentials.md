@@ -3,6 +3,14 @@
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
+  <EssentialElement title="BLE Sense Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense/cheat-sheet">
+    Learn about the Nano 33 BLE Sense's onboard sensors, supported serial & wireless protocols, pins and much more.
+  </EssentialElement>
+
+  <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
+    Learn how to create your own custom hardware that is compatible with the Arduino Nano Family.
+  </EssentialElement>
+
   <EssentialElement title="Community Projects" type="tutorial" link="/tutorials/nano-33-ble-sense/community-projects">
     Discover interesting projects from the community based on the Nano 33 BLE Sense board.
   </EssentialElement>

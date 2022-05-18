@@ -8,9 +8,10 @@
     <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-python-api" title="Python API Guide" type="tutorial">
         Learn how to install MicroPython and how to load scripts to your Nano RP2040 Connect.
     </EssentialElement>
-        <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-chromebook-upload" title="Chromebook Setup" type="tutorial">
-        Learn how to set up the Nano RP2040 Connect using a Chromebook.
-    </EssentialElement>
+<EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
+    Learn how to create your own custom hardware that is compatible with the Arduino Nano Family.
+  </EssentialElement>
+
 </EssentialsColumn>
 
 
