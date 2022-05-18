@@ -2,7 +2,9 @@
   <EssentialElement title="Quickstart Guide" type="getting-started" link="https://www.arduino.cc/en/Guide/ArduinoNano">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
-
+  <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
+    Learn how to create your own custom hardware that is compatible with the Arduino Nano Family.
+  </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
