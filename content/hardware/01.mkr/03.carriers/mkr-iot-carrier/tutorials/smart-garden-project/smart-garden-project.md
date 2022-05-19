@@ -1,7 +1,7 @@
 ---
 title: "IoT Smart Garden Setup with MKR IoT Carrier"
 description: "Build a smart garden setup with the MKR IoT Carrier, a pump, and a moisture sensor."
-tags: [IoT, Pumps, Soil Sensor, Temperature Reading]
+tags: [IoT Cloud, Water Pump, Moisture Sensor, Temperature, Humidity]
 difficulty: beginner
 author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 ---
@@ -16,7 +16,7 @@ The MKR IoT Carrier has built in relay modules that can let you control circuits
 
 We will also connect a soil moisture sensor, and together with the sensors onboard the MKR IoT Carrier, we will create a sophisticated smart garden setup, capable of:
 
-- Automatic or remotely triggered watering of your plant **(with a pump)**.
+- Remote watering of a plant **(with a pump)**.
 - Check the moisture of your plant **(with a moisture sensor)**.
 - Check the temperature/humidity **(using the onboard HTS221 sensor)**.
 
