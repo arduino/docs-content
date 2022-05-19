@@ -3,7 +3,7 @@ title: "IoT Smart Garden Setup with MKR IoT Carrier"
 description: "Build a smart garden setup with the MKR IoT Carrier, a pump, and a moisture sensor."
 tags: [IoT, Pumps, Soil Sensor, Temperature Reading]
 difficulty: beginner
-author: "Jacob Hylén, Hannes Siebeneicher"
+author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 ---
 
 ![Smart garden setup with MKR IoT Carrier.](assets/hero.png)
@@ -28,6 +28,7 @@ We will also connect a soil moisture sensor, and together with the sensors onboa
 - [MKR IoT Carrier](https://store.arduino.cc/products/arduino-mkr-iot-carrier)
 - 5V submersible pump.
 - 1 meter watering pipe.
+- Water container.
 - USB adapter with at least 2 USB ports.
 - Micro-USB cable.
 - Open ended USB Cable.
@@ -55,6 +56,8 @@ As seen in the image below, positive ends are connected to the **"NC"** connecto
 
 ![Connecting the wires to relay 1.](assets/relay-connection.png)
 
+***Tip: to connect the power, pump & relay, you can use a connector strip. This will make your connections much more reliable & sturdy.*** 
+
 ## IoT Cloud Setup
 
 ***If you are new to the Arduino IoT Cloud, please refer to the [Getting Started Guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) or visit the [full documentation](https://docs.arduino.cc/cloud/iot-cloud) to learn more about the service.*** 
@@ -65,13 +68,13 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 **2.** Create variables according to the table below:
 
-| Name        | Data Type | Function                    | Permission   |
-| ----------- | --------- | --------------------------- | ------------ |
-| pump        | boolean   | Activate / de-activate pump | Read & Write |
-| moisture    | int       | Read moisture               | Read Only    |
-| temperature | float     | Read temperature            | Read Only    |
-| humidity    | float     | Read humidity               | Read Only    |
-| log_message | String    | Message Log                 | Read Only    |
+| Name        | Data Type | Function                               | Permission   |
+| ----------- | --------- | -------------------------------------- | ------------ |
+| watering    | boolean   | Activate / de-activate pump            | Read & Write |
+| waterTime   | int       | How long the pump should run (seconds) | Read & Write |
+| moisture    | int       | Read moisture                          | Read Only    |
+| temperature | float     | Read temperature                       | Read Only    |
+| humidity    | float     | Read humidity                          | Read Only    |
 
 **3.** Enter your credentials to your Wi-Fi network in the network section. 
 
@@ -82,7 +85,6 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 **5.** Go to the sketch tab, and use the following code:
 
 ```arduino
-
 /*
   MKR IoT Carrier Smart Garden Setup Project
 
@@ -112,9 +114,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 #include <Arduino_OplaUI.h>
 
 const int moistPin = A6;
-const float waterAmount = 2;  // liters
-const float waterSpeed = 0.045; // liters/sec
-const float waterTime = waterAmount / waterSpeed;  // seconds
+
 unsigned long startedWatering;
 
 MKRIoTCarrier opla;
@@ -163,11 +163,11 @@ void loop() {
   
   // Read the sensor and convert its value to a percentage 
   // (0% = dry; 100% = wet)
-  raw_moisture = analogRead(moistPin);
-  moisture = map(raw_moisture, 780, 1023, 100, 0);
+  int raw_moisture = analogRead(moistPin);
+  moisture = map(raw_moisture, 0, 1023, 0, 100);
 
-  temperature = carrier.Env.readTemperature();
-  humidity = carrier.Env.readHumidity();
+  temperature = opla.Env.readTemperature();
+  humidity = opla.Env.readHumidity();
 
   // Set the LED color according to the moisture percentage
   if (moisture > 40) {
@@ -184,7 +184,7 @@ void loop() {
     stopWatering();
   }
   
-  delay(200);
+  delay(100);
 }
 
 // This function is triggered whenever the server sends a change event,
@@ -199,16 +199,18 @@ void onWateringChange() {
 }
 
 void startWatering () {
-  if (!watering) log_message = "Start watering";
   watering = true;
   startedWatering = millis();
   opla.Relay2.open();
 }
 
 void stopWatering () {
-  if (watering) log_message = "Stop watering";
   watering = false;
   opla.Relay2.close();
+}
+
+void onWaterTimeChange()  {
+  // Add your code here to act upon WaterTime change
 }
 ```
 
@@ -230,9 +232,9 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 **2.** Place the moisture sensor into the soil of the plant.
 
-![Make sure it is in at least a couple of centimeters.](assets/soil-sensor.png)
+![Moisture sensor in a plant.](assets/soil-sensor.png)
 
-**3.** Place the pump inside a water container. We used some adhesive to make it stick firmly, like tape. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the MKR IoT Carrier next to the plant.
+**3.** Place the pump inside a water container. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the MKR IoT Carrier next to the plant. Your setup could now look like this:
 
 ![Plant setup.](assets/smart-garden-setup.png)
 
@@ -246,10 +248,16 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 
 ***In this dashboard, we have also added a chart widget for each of the variables we monitor.***
 
-- **Watering:** to activate the pump, click on the switch widget on the dashboard.
-- **Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise!
-- **Temperature:** check temperature levels. Note that this may be inaccurate if placed directly in a sunny window!
-- **Humidity:** measure the relative humidity of your room. Some plants like it dry; some doesn't!
+**Watering:** to activate the pump, do the following:
+- Select number of seconds that you want the pump to run for.
+- Click on the switch widget. The pump will now run for `x` amount of seconds, and then it will turn off.
+- You can also activate the pump through the MKR IoT Carrier. This is done via the touch buttons.
+
+**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise!
+
+**Temperature:** check temperature levels. Note that this may be inaccurate if placed directly in a sunny window!
+
+**Humidity:** measure the relative humidity of your room. Some plants like it dry; some doesn't!
 
 ## Conclusion
 
