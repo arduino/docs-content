@@ -55,9 +55,9 @@ Though there are some libraries where we pass pointers by using structures like 
 use something like this:
 
 ```arduino
-   xAxis = adxl.readX();
-   yAxis = adxl.readY();
-   zAxis = adxl.readZ();
+  xAxis = adxl.readX();
+  yAxis = adxl.readY();
+  zAxis = adxl.readZ();
 ```
 
 When using serial communication, allow the user to specify any `Stream` object, rather than hard-coding `Serial`. This will make your library compatible with all serial ports on boards with multiple (e.g., Mega), and can also use alternate interfaces like SoftwareSerial. The Stream object can be passed to your library's constructor or to a `begin()` function (as a reference, not a pointer). See [Firmata 2.3](http://www.firmata.org/wiki/Main_Page) or [XBee 0.4](https://github.com/andrewrapp/xbee-arduino) for examples of each approach.
