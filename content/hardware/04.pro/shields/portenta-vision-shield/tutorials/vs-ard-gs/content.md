@@ -54,6 +54,8 @@ HM01B0 himax;
 Camera cam(himax);
 #define IMAGE_MODE CAMERA_GRAYSCALE
 FrameBuffer fb(320,240,2);
+
+unsigned long lastUpdate = 0;
 ```
 
 In the `setup()` function, let's start the Serial communication at `921600` baud rate and initialize the camera using `cam.begin()`. 
@@ -269,6 +271,8 @@ HM01B0 himax;
 Camera cam(himax);
 #define IMAGE_MODE CAMERA_GRAYSCALE
 FrameBuffer fb(320,240,2);
+
+unsigned long lastUpdate = 0;
 
 void setup() {
   Serial.begin(921600);
