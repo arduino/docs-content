@@ -44,13 +44,16 @@ To capture the frames you will need to use the functions contained in `camera.h`
 
 ```cpp
 #include "camera.h"
+#include "himax.h"
 ```
 
 Next, let's initialize a camera object and a frame buffer of the size 320*240 (76'800 bytes).
 
 ```cpp
-CameraClass cam;
-uint8_t fb[320*240];
+HM01B0 himax;
+Camera cam(himax);
+#define IMAGE_MODE CAMERA_GRAYSCALE
+FrameBuffer fb(320,240,2);
 ```
 
 In the `setup()` function, let's start the Serial communication at `921600` baud rate and initialize the camera using `cam.begin()`. 
@@ -59,7 +62,7 @@ In the `setup()` function, let's start the Serial communication at `921600` baud
 void setup() {
   Serial.begin(921600);
   //Init the cam QVGA, 30FPS
-  cam.begin(CAMERA_R320x240, 30);
+  cam.begin(CAMERA_R320x240, IMAGE_MODE, 30);
 }
 ```
 
@@ -68,16 +71,24 @@ In the loop we need to capture each Frame and send it over a serial connection t
 ```cpp
 void loop() {
   // put your main code here, to run repeatedly:
-  
-  // Wait until the receiver acknowledges
-  // that they are ready to receive new data
-  while(Serial.read() != 1){};
-  
-  // Grab frame and write to serial
-  if (cam.grab(fb) == 0) {
-     Serial.write(fb, 320*240);       
+  if(!Serial) {    
+    Serial.begin(921600);
+    while(!Serial);
   }
   
+  // Time out after 2 seconds and send new data
+  bool timeoutDetected = millis() - lastUpdate > 2000;
+
+  // Wait until the receiver acknowledges
+  // that they are ready to receive new data
+  if(!timeoutDetected && Serial.read() != 1) return;
+
+  lastUpdate = millis();
+  
+  // Grab frame and write to serial
+  if (cam.grabFrame(fb, 3000) == 0) {
+    Serial.write(fb.getBuffer(), cam.frameSize());
+  }
 }
 ```
 
@@ -226,7 +237,7 @@ while (bb.hasRemaining()) {
 
 Once all the pixels have been updated, you need to tell the sketch to redraw the image. Additionally we send an acknowledgement back to the arduino sketch to ask it to send the pixels for the next frame. We update the image with `updatePixels()` and write `1` to the serial port for the acknowledgement.
 
-```  cpp
+```cpp
 myImage.updatePixels();
 
 // Ensures that the new image data is drawn in the next draw loop
@@ -252,29 +263,39 @@ The `CaptureRawBytes.ino` Sketch.
 
 ```cpp
 #include "camera.h"
+#include "himax.h"
 
-CameraClass cam;
-uint8_t fb[320*240];
+HM01B0 himax;
+Camera cam(himax);
+#define IMAGE_MODE CAMERA_GRAYSCALE
+FrameBuffer fb(320,240,2);
 
 void setup() {
-  Serial.begin(921600);  
-
-  // Init the cam QVGA, 30FPS
-  cam.begin(CAMERA_R320x240, 30);
+  Serial.begin(921600);
+  //Init the cam QVGA, 30FPS
+  cam.begin(CAMERA_R320x240, IMAGE_MODE, 30);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
-  // Wait until the receiver acknowledges
-  // that they are ready to receive new data
-  while(Serial.read() != 1){};
-  
-  // Grab frame and write to serial
-  if (cam.grab(fb) == 0) {
-     Serial.write(fb, 320*240);       
+  if(!Serial) {    
+    Serial.begin(921600);
+    while(!Serial);
   }
   
+  // Time out after 2 seconds and send new data
+  bool timeoutDetected = millis() - lastUpdate > 2000;
+
+  // Wait until the receiver acknowledges
+  // that they are ready to receive new data
+  if(!timeoutDetected && Serial.read() != 1) return;
+
+  lastUpdate = millis();
+  
+  // Grab frame and write to serial
+  if (cam.grabFrame(fb, 3000) == 0) {
+    Serial.write(fb.getBuffer(), cam.frameSize());
+  }
 }
 ```
 
