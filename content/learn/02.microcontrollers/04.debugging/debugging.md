@@ -169,7 +169,7 @@ Arduino® boards with a SAMD microcontroller feature native on-chip debug capabi
 
 The [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7), [H7 Lite](https://store.arduino.cc/products/portenta-h7-lite), and [H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected) boards from the [Pro family](https://www.arduino.cc/pro) also support ICD debugging; these boards use the TRACE32 debugger from Lauterbach. The TRACE32 debugger allows testing embedded hardware and software by using the in-circuit debug interface of processors. Check out this tutorial to learn how to use the TRACE32 debugger with the Portenta family boards: 
 
-* [Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-trace32).
+* [Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/lauterbach-debugger).
 
 ![The Arduino® Portenta H7.](assets/debugging_img09.png)
 

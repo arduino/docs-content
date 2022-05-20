@@ -36,7 +36,7 @@ This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debu
 
 In this tutorial you will load an application on the Portenta H7 board which includes the Monitor for Remote Inspection (MRI). This is a GDB compatible serial monitor which is included in the ThreadDebug sketch in the Arduino IDE Examples for Portenta H7 (M7 core) and in all examples in the TRACE32 demo directory of the TRACE32 installation. Throughout this document the **double-tilde (~~)** is used as a place holder for the directory where you unzipped the TRACE32 software.
 
-***This tutorial assumes that you have already installed the Arduino IDE or Arduino Pro IDE and configured it to support the Portenta H7 board. Please refer to [Setting Up Portenta H7 For Arduino](por-ard-gs) before you proceed.***
+***This tutorial assumes that you have already installed the Arduino IDE or Arduino Pro IDE and configured it to support the Portenta H7 board. Please refer to [Setting Up Portenta H7 For Arduino](setting-up-portenta) before you proceed.***
 
 ### 1. Downloading the TRACE32 Debugger
 
