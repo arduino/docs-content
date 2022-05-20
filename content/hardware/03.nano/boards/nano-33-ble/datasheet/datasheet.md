@@ -98,7 +98,7 @@ As all Nano form factor boards, Nano 33 BLE does not have a battery charger but 
 | **Ref.** | **Description** | **Ref.** | **Description** |
 | -------- | --------------- | -------- | --------------- |
 | SJ1      | VUSB Jumper     | SJ2      | D7 Jumper       |
-| SJ3      | 3v3 Jumper      | SJ4      | D8 Jumper       |
+| SJ3      | D8 Jumper       | SJ4      | 3v3 Jumper     |
 
 ### Processor 
 The Main Processor is a Cortex M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
