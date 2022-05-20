@@ -38,7 +38,11 @@ In this tutorial we will go through the steps of how to install, run and remove 
 - External monitor 
 - HDMI cable
 
-## Setup the Video Output
+## Instructions
+
+### Hardware setup
+
+### Setup the Video Output
 
 The Portenta X8 contains a GPU so its able to manage video and display that content.
 By default if you connect the board to a display you will see the "home-screen" with the `Arduino PRO` background wallpaper, and a bottom bar with the real time.
@@ -47,7 +51,7 @@ By default if you connect the board to a display you will see the "home-screen" 
 
 [X8 home-screen]()
 
-## Install The Container
+### Install The Container
 
 There are two ways to get the container, either through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers)
 
@@ -68,15 +72,11 @@ fioctl logout
 fioctl login
 ```
 
-## Setting The Container
+**With Foundries:** If you did it within **Foundries.io** you will see the home-screen for some seconds and then it will fade-out and open the Aquarium 3D from [WebGL samples - Aquarium](https://webglsamples.org/aquarium/aquarium.html).
 
-### Foundries Option
-If you did it within **Foundries.io** you will see the home-screen for some seconds and then it will fade-out and open the Aquarium 3D from [WebGL samples - Aquarium](https://webglsamples.org/aquarium/aquarium.html).
+**With downloaded repository:** In case you downloaded the [portenta-containers repository](https://github.com/arduino/portenta-containers) and pushed the container to your Portenta X8, you will need to connect your board directly to your computer and run the `adb shell`.
 
-### "Offline" Option
-In case you downloaded the [portenta-containers repository](https://github.com/arduino/portenta-containers) and pushed the container to your Portenta X8, you will need to connect your board directly to your computer and run the `adb shell`.
-
-#### Connect to a Wi-Fi
+### Connect to a Wi-Fi
 
 Check the available Wi-Fi access points
 ```
@@ -114,7 +114,7 @@ wlan0    wifi      connected               <customName>
 docker0  bridge    connected (externally)  docker0
 ```
 
-#### Get Your Board's IP
+### Get Your Board's IP
 ```
 ifconfig wlan0
 
@@ -130,13 +130,13 @@ ssh fio@<localIP>
 ***To connect through ssh it will request the user's password, which is "fio".***
 ***If you have troubles connecting with the ssh, please check the troubleshooting section at the end of this tutorial***
 
-#### Copy/push the container
+### Copy/push the container
 You can push the container from your computer, first open a terminal on the container's directory, then you can use this command to send the container to the Portenta X8:
 ```
 scp <folderName> fio@<portentaX8-IP>:<desiredPath>
 ```
 
-## Running The Container
+### Running The Container
 If you get it from **Foundries.io** it will run automatically after few seconds.
 
 In case you copied from the repository, you will need to initialize it with **docker** by accessing your Portenta X8 through ssh, going to the directory where you copied it and run it from there:
@@ -155,7 +155,7 @@ docker-compose up --detach
 docker-compose stop
 ```
 
-## Edit The Output
+### Edit The Output
 You can change the URL of the web output, by going to the container's directory and editing the `docker-compose.yml` file:
 ```
 //Connect to your device
