@@ -40,9 +40,22 @@ As a bonus, it also comes with a smaller prototyping area that you can solder co
 
 ![Screw terminals on the carrier.](assets/nst-terminals.png)
 
+The two screw terminal blocks are mounted on each side of the carrier and provides easy connections that can be fastened with a simple flathead screwdriver.
+
+There is also two extra GND connectors for your convenience.
+
 ### Prototyping Area
 
-![Prototype area on the carrier.](assets/nst-proto-area.png)
+![Prototyping area on the carrier.](assets/nst-proto-area.png)
+
+The prototyping area is **9x8**, with a pitch of **2.54 mm**. While not huge, it is perfect for mounting smaller circuits ICs, sensors or other components.
+
+An example on how much you can fit on the area is:
+- A ULN2803A motor driver for stepper/DC motors.
+- A connector row.
+- A square RGB LED.
+
+![Prototype area example.](assets/nst-proto-area-pic.png)
 
 ## Considerations
 
@@ -50,11 +63,11 @@ As the pinout slightly differs from one Nano board to another, there are some im
 
 ### RST Pin
 
-![RST pin on the carrier.](assets/nst-terminals-1.png)
+![RST pin on the carrier.](assets/nst-rst-pin.png)
 
 The pin marked **"RST"** on the board stands for **"reset"**. On the Nano Screw Terminal, it is disconnected by default. The reason behind this is that the function of this pin varies from board to board. 
 
-An example of this is the [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect), where this pin is named **"REC"** as in **"recovery"**. If this pin had been connected, it would have constantly resetted the board.
+An example of this is the [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect), where this pin is named **"REC"** as in **"recovery"**.
 
 ### PWM
 
