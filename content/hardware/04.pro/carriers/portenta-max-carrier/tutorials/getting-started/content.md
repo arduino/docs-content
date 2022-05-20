@@ -115,7 +115,7 @@ The Portenta Max Carrier equips two different memory units on-board: Flash Memor
 
 - The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
 
-***For more information on how to use the Flash Memory storage, please follow this [guide](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-flash) to get most out of the Flash Memory.***
+***For more information on how to use the Flash Memory storage, please follow this [guide](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory) to get most out of the Flash Memory.***
 
 **Mini SD Card slot**
 
