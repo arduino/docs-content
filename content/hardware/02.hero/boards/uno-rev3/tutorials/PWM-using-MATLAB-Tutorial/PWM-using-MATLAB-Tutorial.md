@@ -94,7 +94,7 @@ end
 On one breadboard there is a white jumper wire sending 5 volts to the potentiometer. The orange cable is connected to GND(Ground) and the gray wire is our input to A0. A0 will read the variable voltage coming in from pin13 after being adjusted through the potentiometer.
 On the right breadboard we have a simple LED circuit comprised of a red output wire from pin11, a resistor and the LED finally connected to GND via the green wire.
 
-![Circuit](assets/circuit.png)
+![Full circuit of the setup.](assets/circuit.png)
 
 ***Make sure to connect the longer leg of the LED to the resistor and the shorter to GND.***
 
