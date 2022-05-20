@@ -116,7 +116,7 @@ The amount assigned to `Volts` should be changing as you turn the potentiometer.
 
 ![Voltage display](assets/Volts.PNG)
 
-**2.** Set the value of `Volts` as the voltage to be sent through pin 11 using the command: `writePWMVolatge()`. This command is different from `writeDigitlaPin()` as it's voltage is adjustable between 1 and 5 volts. Whereas the latter is either ON(1), being **5V** or OFF(0), **0V**.
+**2.** Set the value of `Volts` as the voltage to be sent through pin 11 using the command: `writePWMVolatge()`. This command is different from `writeDigitalPin()` as it's voltage is adjustable between 1 and 5 volts. Whereas the latter is either ON(1), being **5V** or OFF(0), **0V**.
 
 ```
 a = arduino();
