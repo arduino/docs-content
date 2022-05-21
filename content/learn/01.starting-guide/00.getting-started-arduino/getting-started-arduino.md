@@ -552,7 +552,7 @@ void loop(){
 }
 
 void thisFunction() {
-    x = x++; //increase x by 1 each time function is run.
+    x++; //increase x by 1 each time function is run.
 }
 ```
 
@@ -844,8 +844,8 @@ Here are some examples:
 x = 5;
 y = 2;
 
-xx++; //increase by one, so x is now 6
-xx--; //decrease by one, so x is now 4
+x++; //increase by one, so x is now 6
+x--; //decrease by one, so x is now 4
 
 x += y; //x is now 7 (add and assign)
 x -= y; //x is now 3 (subtract and assign)
