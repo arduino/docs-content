@@ -78,7 +78,7 @@ MATLAB® is an educational and industrial programming platform used to analyse d
 
 **8.** Now, you can use this command to continuously blink an LED as part of a `while` loop. Try entering the script below.
 
-```arduino
+```
 while (1)
       writeDigitalPin(a, 'D13', 0);
       pause(0.5);
