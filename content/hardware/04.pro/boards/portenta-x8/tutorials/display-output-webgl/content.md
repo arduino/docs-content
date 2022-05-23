@@ -17,11 +17,11 @@ hardware:
 
 ## Overview
 
-[Docker](http://docker.com) Is a platform full of applications, called containers. Containers are isolated solutions and thus they don't have to depend on your environment. Making them portable and consistent throughout development, testing and production.
+The Arduino Portenta X8's Processor **NXP® i.MX 8M Mini Processor** Includes 3D rendering, this will allow us to display 3D content on a screen or video output.
 
-You can download, install, use and share applications in the form of containers. You can find all the available containers on the [hub.docker.com](https://hub.docker.com) page.
+We will render web content from the internet that uses WebGL and display it on a screen, using an USB Hub.
 
-In this tutorial we will go through the steps of how to install, run and remove the [Hello-World Container](https://hub.docker.com/_/hello-world)
+In this tutorial we will go through the steps of how to setup, install and modify the video output.
 
 ## Goals
 
@@ -49,7 +49,7 @@ By default if you connect the board to a display you will see the "home-screen" 
 
 ***You can interact with the interface by plugging USB devices on your hub, like a mouse and a keyboard.***
 
-[X8 home-screen]()
+![X8 home-screen](assets/portentaX8-home-screen.PNG)
 
 ### Install The Container
 
@@ -165,10 +165,12 @@ ssh fio@<portentaX8-IP>
 cd <containerPath>
 
 //Edit the file with VIM
-vim docker
+vim docker-compose.yml
 ```
 
 Once you are inside the **VIM** editor, to edit the file you will need to press **insert** and replace the url as shown in the screenshot.
+
+![VIM editing docker-compose.yml](assets\vim-edit-dockerCompose.png)
 
 To save the changes press the **ESC** key and type `:wq` this will write and quit the **VIM** editor.
 
@@ -184,4 +186,10 @@ In this tutorial you learned how to get the container onto your device, run it a
 - You could make an app that shows information about the weather in a web and having that on a display.
 
 ## Troubleshooting
-- If you tried to connect with `ssh` and you get a **fingerprint** issue you will need to remove the IP and fingerprint on your `.ssh` file, on windows the file is at `C:\Users\<yourUsername>\.ssh` and try again the **ssh** connection.
+- If you tried to connect with `ssh` and you get a **fingerprint** issue you will need to remove the IP and fingerprint on your `.ssh` file, on windows the file is at `C:\Users\<yourUsername>\.ssh\known_hosts` and try again the **ssh** connection.
+
+Example:
+```
+//<portentaX8-ip> <type> <fingerprint>
+192.168.50.8 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAasdaddgre<kopPOTYAAABBBM8EZPWPKdRRGHpSMosJM08R1d10G0h5g5rE4cNjXdJtYpmJNOR+X2FhNRpEdvyDGHfSomJepbaqBoRcCi0Y7M=
+```
