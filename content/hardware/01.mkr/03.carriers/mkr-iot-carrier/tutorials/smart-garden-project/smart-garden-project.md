@@ -6,9 +6,9 @@ difficulty: beginner
 author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 ---
 
-![Smart garden setup with MKR IoT Carrier.](assets/hero.png)
+![Smart garden setup with MKR IoT Carrier.](assets/hero-image.png)
 
-Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why don't you spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the Arduino IoT Cloud?
+Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why don't you spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
 ## How It Works
 
@@ -253,7 +253,9 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 - Click on the switch widget. The pump will now run for `x` amount of seconds, and then it will turn off.
 - You can also activate the pump through the MKR IoT Carrier. This is done via the touch buttons.
 
-**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise!
+**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the cloud dashboard, on the carrier's display or through the LED indiciator (red is bad, green is good).
+
+**Display, buttons:** you can also view the moisture level locally, and activate the pump through the capacitive buttons. 
 
 **Temperature:** check temperature levels. Note that this may be inaccurate if placed directly in a sunny window!
 
