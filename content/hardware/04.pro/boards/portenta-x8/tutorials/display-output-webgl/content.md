@@ -133,7 +133,7 @@ Connect the Portenta X8 to the USB Hub as a Host, the video connector to a displ
 
 The setup should look like:
 
-![X8 usb hub setup]()
+![X8 usb hub setup](assets/portentaX8_hub_screen.svg)
 
 By default if you connect the board to a display you will see the "home-screen" with the `Arduino PRO` background wallpaper, and a bottom bar with the real time.
 
