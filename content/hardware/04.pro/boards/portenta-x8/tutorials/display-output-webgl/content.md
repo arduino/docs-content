@@ -40,17 +40,6 @@ In this tutorial we will go through the steps of how to setup, install and modif
 
 ## Instructions
 
-### Hardware setup
-
-### Setup the Video Output
-
-The Portenta X8 contains a GPU so its able to manage video and display that content.
-By default if you connect the board to a display you will see the "home-screen" with the `Arduino PRO` background wallpaper, and a bottom bar with the real time.
-
-***You can interact with the interface by plugging USB devices on your hub, like a mouse and a keyboard.***
-
-![X8 home-screen](assets/portentaX8-home-screen.PNG)
-
 ### Install The Container
 
 There are two ways to get the container, either through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers)
@@ -135,6 +124,22 @@ You can push the container from your computer, first open a terminal on the cont
 ```
 scp <folderName> fio@<portentaX8-IP>:<desiredPath>
 ```
+
+### Video output setup
+
+You need a USB Hub so you can have a video output connector like an HDMI.
+
+Connect the Portenta X8 to the USB Hub as a Host, the video connector to a display, the power supply USB to your computer and as optional a USB Mouse to the Hub.
+
+The setup should look like:
+
+![X8 usb hub setup]()
+
+By default if you connect the board to a display you will see the "home-screen" with the `Arduino PRO` background wallpaper, and a bottom bar with the real time.
+
+***You can interact with the interface by plugging USB devices on your hub, like a mouse and a keyboard.***
+
+![X8 home-screen](assets/portentaX8-home-screen.PNG)
 
 ### Running The Container
 If you get it from **Foundries.io** it will run automatically after few seconds.
