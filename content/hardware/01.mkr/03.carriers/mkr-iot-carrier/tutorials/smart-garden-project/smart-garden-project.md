@@ -12,7 +12,7 @@ Decorating your home with plants is an easy way to bring some life into your day
 
 ## How It Works
 
-The MKR IoT Carrier has built in relay modules that can let you control circuits that are powered separately. In this tutorial we will be using one of the relay modules on the carrier to control a pump that can provide one of your plants with water from the Arduino IoT Cloud thanks to the functionality of the [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010). 
+The MKR IoT Carrier has built in relays that can let you control circuits that are powered separately. In this tutorial we will be using one of the relay modules on the carrier to control a pump that can provide one of your plants with water from the Arduino IoT Cloud thanks to the functionality of the [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010). 
 
 We will also connect a soil moisture sensor, and together with the sensors onboard the MKR IoT Carrier, we will create a sophisticated smart garden setup, capable of:
 
@@ -40,11 +40,11 @@ We will also connect a soil moisture sensor, and together with the sensors onboa
 
 ## Hardware & Circuit Assembly
 
-You will connect your Arduino board to the MKR IoT Carrier, the moisture sensor to one of the Grove inputs on the carrier, and the pump to one of the Relays that is on the carrier. The GND wires on the pump and the open USB ended USB cable should be connected directly, while the positive ends of those components should be going into the relay module. 
+Begin by connecting the MKR WiFi 1010 board to the MKR IoT Carrier. Then, we need to connect the moisture sensor via a grove cable to the "A6" connector.
 
-Start by placing the Arduino MKR WiFi 1010 on the MKR IoT Carrier. Then connect the soil moisture sensor to the Grove connector labelled "A6". 
+From the open ended USB cable, connect the positive wire (+)directly to relay 1 on the carrier, labelled "NO" (normally open). Connect the negative wire (-) together with the pump's negative wire. 
 
-The pump is powered separately from the Arduino board, and will be toggled on and off using the relay module that is on the MKR IoT Carrier. You will want to take the positive ends, which are most often red cables, of the submersible pump, and the open ended USB cable, and feed one of them into the relay port that is labelled "COM", and the other into the relay port labelled "NC". The negative ends, which are most often black, need to be connected to each other.
+Finally, connect the pump's positive wire, to the "COM" (common) pin on the relay. As a result, you have created a circuit that can be switched on/off via a relay. See next section for the full circuit.
 
 ### Circuit
 
@@ -52,7 +52,7 @@ Below is the complete circuit for this setup.
 
 ![Circuit for this project.](assets/circuit.png)
 
-As seen in the image below, positive ends are connected to the **"NC"** connector, while the negative ends are connected to the **"COM"** connector.
+To connect the wires to the relay, see the image below:
 
 ![Connecting the wires to relay 1.](assets/relay-connection.png)
 
