@@ -25,10 +25,10 @@ In this tutorial we will go through the steps of how to install, run and remove 
 
 ## Goals
 
-- List the installed and running containers
-- Install a container
-- Run a container manually
-- Uninstall a container
+- Setup the Video Output
+- Get the required container
+- Run the container
+- Change the video output
 
 ### Required Hardware and Software
 
