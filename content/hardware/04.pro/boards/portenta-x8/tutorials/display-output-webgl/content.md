@@ -17,7 +17,7 @@ hardware:
 
 ## Overview
 
-The Arduino Portenta X8's Processor **NXP® i.MX 8M Mini Processor** Includes 3D rendering, this will allow us to display 3D content on a screen or video output.
+The Arduino Portenta X8's Processor **NXP® i.MX 8M Mini Processor** Includes 3D rendering, this will allow us to display 3D content on a screen or video output the device is using OpenGL to process the 3D related calculations.
 
 We will render web content from the internet that uses WebGL and display it on a screen, using an USB Hub.
 
