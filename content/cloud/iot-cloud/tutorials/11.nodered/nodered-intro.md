@@ -91,7 +91,7 @@ The Node-RED editor consists of four main parts:
 - a workspace in the middle, where flows can be created
 - the sidebar on the right, containing editing tools such as a node configuration tool and a debugger
 
-![the node red editor](./assets/nodered-intro-01.png)
+![the node red editor](./assets/nodered-01.png)
 
 You can run the simple flow shown below using Node-RED's default nodes:
 
@@ -106,7 +106,7 @@ You can run the simple flow shown below using Node-RED's default nodes:
 - press Depoly from the header on the top
 - finally, press on the checkbox of the message node
 
-![Creating a simple flow](./assets/nodered-intro-02.gif)
+![Creating a simple flow](./assets/nodered-02.gif)
 
 Your message should be printed to the console on the right side.
 
@@ -121,6 +121,8 @@ In addition to the default nodes installed in node-RED, you can use the palette 
 **4.** search for "Arduino"
 
 **5.** from the shown results, install **"@arduino/node-red-contrib-arduino-iot-cloud"**
+
+![Installing the Arduino IoT Cloud Pallette](./assets/nodered-03.gif)
 
 Now, you should be able to use the Arduino IoT Cloud nodes from the palette on the left side of the editor. There are five IoT Cloud nodes: property in, property out, historic, periodic, and inject. Each of the nodes has a description of its function, which appears when you hover over the node.
 
@@ -179,6 +181,8 @@ Follow the steps below to set up the Thing:
 
 Use the steps below to use Node-RED with the Arduino IoT Cloud:
 
+![Obtaining API Key](./assets/nodered-04.gif)
+
 - Go to the Arduino IoT Cloud -> Integrations -> Create API Key
 - Save the Client ID and Client Secret in a safe document
 - Go to Node-RED web page at [http://localhost:1880](http://localhost:1880)
@@ -186,6 +190,8 @@ Use the steps below to use Node-RED with the Arduino IoT Cloud:
 - Double click on the node -> select "Add new Arduino-connection"
 - Click on the pen icon to enter the API Key details -> enter the Client ID and Client Secret saved in the previous steps -> click on the ADD button
 - Now, you should be able to select any of your Things and properties (Variables). In our case, we select the **Humidity Thing**, and **humidity property** (Variable) to retrieve data values from.
+
+![Installing the Arduino IoT Cloud Pallette](./assets/nodered-05.gif)
 
 ### Creating a Flow
 
