@@ -191,7 +191,9 @@ Use the steps below to use Node-RED with the Arduino IoT Cloud:
 - Click on the pen icon to enter the API Key details -> enter the Client ID and Client Secret saved in the previous steps -> click on the ADD button
 - Now, you should be able to select any of your Things and properties (Variables). In our case, we select the **Humidity Thing**, and **humidity property** (Variable) to retrieve data values from.
 
-![Installing the Arduino IoT Cloud Pallette](./assets/nodered-05.gif)
+![Communicating with the Cloud](./assets/nodered-05.gif)
+
+![Values in console](./assets/nodered-06.gif)
 
 ### Creating a Flow
 
@@ -222,6 +224,9 @@ if(data<60 && trigger){
 ```
 
 This simple code will only send values when they are above 60, or when they change back to below 60. You can connect it to the flow, in between the humidity inject node, and the debug node. Try it out by blowing on the humidity sensors to increase the values.
+
+![Filtering values with a function](./assets/nodered-07.gif)
+
 
 ### Sending Email Notifications
 
