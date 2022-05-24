@@ -64,11 +64,97 @@ The three-layer IoT architecture can be a starting point for designing and imple
 
 ![IoT application high-level architecture.](assets/x8-data-logging-img_01.png)
 
-In the high-level architecture described in the image above, the perception layer consists of an MKR WiFi 1010 board; this board gathers information from a sensor. The network layer consists of the MQTT broker (Mosquitto), the data forwarder (Node-RED), and the database (InfluxDB). Finally, the application layer consists of a dashboard (Grafana) where information from the sensor node is shown.
+In the high-level architecture described in the image above:
+
+- The perception layer consists of an MKR WiFi 1010 board; this board will gather information from a sensor. 
+- The network layer consists of the MQTT broker (Mosquitto), the data forwarder (Node-RED), and the database (InfluxDB). 
+- The application layer consists of a dashboard (Grafana) where information from the sensor node is shown.
+
+***For documentation purposes, we are going to explain, step by step, the installation process of each part of the application (Mosquitto, Node-RED, InfluxDB, and Grafana); this process can be done quickly using a unique Compose `YAML` file. If you are familiar with Containers in Docker, you can skip to this section of the tutorial.***
 
 Let's start by configuring the MQTT broker!
 
 ## Installing Mosquitto
+
+Let's start by creating a new directory in our Portenta X8 called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml`: 
+
+```console 
+# mkdir mqtt
+# cd mqtt
+# export TERM=xterm
+# stty rows 36 cols 150
+# sudo vi docker-compose.yml
+```
+
+***The `export TERM=xterm` and `stty rows 36 cols 150` commands enable VI editor full screen.*** 
+
+Inside VI editor, copy and paste the following:
+
+```console
+services:
+        mqtt:
+                container_name: mosquitto
+                image: eclipse-mosquitto
+                restart: always
+                ports:
+                        - "1883:1883"
+                        - "9001:9001"
+                volumes:
+                        - /var/rootdirs/home/root/mqtt/config:/mosquitto/config
+                        - /var/rootdirs/home/root/mqtt/data:/mosquitto/data
+                        - /var/rootdirs/home/root/mqtt/log:/mosquitto/log
+volumes:
+        config:
+        data:
+        log:
+```
+
+Save the file and exit VI editor.`1883` is a standard MQTT port; `8883` port is usually used for TLS secured MQTT connections. Save the file and exit VI editor. Return to the `mqtt` directory and run the following command:
+
+```console 
+mqtt# docker-compose up -d
+```
+
+You should see the following output, as shown in the image below:
+
+**ADD IMAGE HERE**
+
+Now, the Mosquitto broker should available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command, for example:
+
+```console 
+# ping portenta-x8-a28ba09dab6fad9
+PING portenta-x8-a28ba09dab6fad9 (192.168.1.111) 56 data bytes
+```
+
+We should see inside the `mqtt` directory three folders, `config`, `data`, `log`, and the `docker-compose.yml` file we created before. Go to the `config` directory and make a file named `mosquitto.conf`:
+
+```console 
+mqtt# ls
+config  data  docker-compose.yml  log
+mqtt# cd config
+/mqtt/config# sudo mosquitto.config
+```
+
+Inside VI editor, copy and paste the following:
+
+```console 
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+```
+
+Save the file and exit VI editor. Now, let's restart the Mosquitto container so the configuration file can start working. This can be done by using the `docker restart` command and the Mosquitto `CONTAINER ID`. To identify the Mosquitto `CONTAINER ID`, run the `docker ps` command and copy the ID, as shown in the image below:
+
+![Mosquito container ID.](assets/x8-data-logging-img_03.png)
+
+Now, let's manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before as shown below:
+
+```console 
+/mqtt/config# docker exec -it CONTAINER ID sh
+/ # 
+```
+
+This will open 
 
 ### Testing Mosquitto
 
@@ -92,3 +178,10 @@ Let's start by configuring the MQTT broker!
 
 
 
+
+password_file /mosquitto/config/mosquitto.passwd
+allow_anonymous true
+
+listener 1883
+listener 9001
+protocol websockets
