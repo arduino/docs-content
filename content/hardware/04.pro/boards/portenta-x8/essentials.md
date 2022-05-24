@@ -1,29 +1,26 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="Quickstart Guide" type="getting-started">
+    <EssentialElement title="Quickstart Guide" type="getting-started" link="http://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
-</EssentialsColumn>
-
-<EssentialsColumn title="Suggested Libraries">
-    <EssentialElement link="https://www.arduino.cc/en/Reference/WiFi" title="WiFi" type="library">
-        The WiFi library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
-    </EssentialElement>
-    <EssentialElement link="https://www.arduino.cc/en/Reference/ArduinoBLE" title="Arduino BLE" type="library">
-            Bluetooth 4.0 includes both traditional Bluetooth, now labeled "Bluetooth Classic", and Bluetooth Low Energy (Bluetooth LE, or BLE)     
-    </EssentialElement>
-    <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
-            The complete Arduino sketches from the Pro tutorials.     
+    <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals" title="Fundamentals of Portenta X8" type="tutorial">
+        This article contains information about the fundamental concepts of the Portenta X8.
     </EssentialElement>
 </EssentialsColumn>
 
-<EssentialsColumn title="Arduino Basics">
-    <EssentialElement link="https://www.arduino.cc/en/Tutorial/BuiltInExamples" title="Built-in Examples" type="resource">
-        Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
+<EssentialsColumn title="Suggested Docs">
+    <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/docker-container" title="Containers management" type="tutorial">
+        Containers are isolated solutions and thus they don't have to depend on your environment. Making them portable and consistent throughout development, testing and production.
     </EssentialElement>
-    <EssentialElement link="/learn" title="Learn" type="resource">
-        Discover interesting articles, principles and techniques related to the Arduino ecosystem.
+</EssentialsColumn>
+
+<EssentialsColumn title="Suggested libraries">
+      <EssentialElement link="https://www.arduino.cc/en/Reference/Wire" title="Arduino Wire" type="library">
+            The M4 processor exposes the I<sup>2</sup>C protocol, this is the "Wire" library documentation.
     </EssentialElement>
-    <EssentialElement link="https://www.arduino.cc/reference/en/" title="Language Reference" type="resource">
-        Arduino programming language can be divided in three main parts: functions, values (variables and constants), and structure.
+      <EssentialElement link="https://www.arduino.cc/reference/en/language/functions/communication/spi/" title="Arduino SPI" type="library">
+            The M4 processor exposes the SPI protocol. This library allows you to communicate with SPI devices, with the Arduino as the controller device.
+    </EssentialElement>
+    <EssentialElement link="https://github.com/arduino/ArduinoCore-mbed/releases/latest" title="Arduino RPC" type="library">
+            Both M7 and M4 can communicate through remote procedure call (RPC), these are some examples using the RPC library of the Arduino Mbed Core.
     </EssentialElement>
 </EssentialsColumn>
