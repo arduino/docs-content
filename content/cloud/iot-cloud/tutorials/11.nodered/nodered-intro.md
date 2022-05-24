@@ -177,6 +177,8 @@ Follow the steps below to set up the Thing:
 
 - The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR WiFi 1010 board, as shown in the image below. Feel free to use any other Cloud compatible board, and a sensor of your choice.
 
+![Connecting the DHT11 Sensor](./assets/nodered-09.png)
+
 ## Communicating with Node-RED
 
 Use the steps below to use Node-RED with the Arduino IoT Cloud:
