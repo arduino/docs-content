@@ -227,7 +227,6 @@ This simple code will only send values when they are above 60, or when they chan
 
 ![Filtering values with a function](./assets/nodered-07.gif)
 
-
 ### Sending Email Notifications
 
 Now that you are able to pull and manipulate data from the Arduino IoT Cloud, it's time to use this data. In this example, we will show how to send alarm notifications to your email, using the Arduino IoT Cloud. To achieve this, we need to add an email nodes following the steps below:
@@ -239,6 +238,8 @@ Now that you are able to pull and manipulate data from the Arduino IoT Cloud, it
 - from the shown results, install **"node-red-node-email"**
 
 Next, drag the email node from the pallette menu on the left side into the editor. Double click on the node, then enter an email to send the data to, as well as your email information to send the data from.
+
+![Email node](./assets/nodered-08.png)
 
 Now, all you need to do is replace the debug node with the email node to receive email notifications with the humidity data received from the Arduino IoT Cloud. You can customize the emails using the function node if you wish.
 
