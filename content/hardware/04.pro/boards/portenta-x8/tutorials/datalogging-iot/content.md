@@ -78,7 +78,7 @@ Let's start by configuring the MQTT broker!
 
 Let's start by creating a new directory in our Portenta X8 called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml`: 
 
-```console 
+```
 # mkdir mqtt
 # cd mqtt
 # export TERM=xterm
@@ -90,7 +90,7 @@ Let's start by creating a new directory in our Portenta X8 called `mqtt`; inside
 
 Inside VI editor, copy and paste the following:
 
-```console
+```
 services:
         mqtt:
                 container_name: mosquitto
@@ -111,7 +111,7 @@ volumes:
 
 Save the file and exit VI editor.`1883` is a standard MQTT port; `8883` port is usually used for TLS secured MQTT connections. Save the file and exit VI editor. Return to the `mqtt` directory and run the following command:
 
-```console 
+```
 mqtt# docker-compose up -d
 ```
 
@@ -121,14 +121,14 @@ You should see the following output, as shown in the image below:
 
 Now, the Mosquitto broker should available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command, for example:
 
-```console 
+```
 # ping portenta-x8-a28ba09dab6fad9
 PING portenta-x8-a28ba09dab6fad9 (192.168.1.111) 56 data bytes
 ```
 
 We should see inside the `mqtt` directory three folders, `config`, `data`, `log`, and the `docker-compose.yml` file we created before. Go to the `config` directory and make a file named `mosquitto.conf`:
 
-```console 
+```
 mqtt# ls
 config  data  docker-compose.yml  log
 mqtt# cd config
@@ -137,7 +137,7 @@ mqtt# cd config
 
 Inside VI editor, copy and paste the following:
 
-```console 
+```
 persistence true
 persistence_location /mosquitto/data/
 log_dest file /mosquitto/log/mosquitto.log
@@ -149,7 +149,7 @@ Save the file and exit VI editor. Now, let's restart the Mosquitto container so 
 
 Now, let's manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before as shown below:
 
-```console 
+```
 /mqtt/config# docker exec -it CONTAINER ID sh
 / # 
 ```
