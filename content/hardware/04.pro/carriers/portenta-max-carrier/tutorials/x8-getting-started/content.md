@@ -61,13 +61,21 @@ To make use of the Arduino Portenta Max Carrier you will need to power it throug
 
 The Portenta Max Carrier equips two different memory units on-board, a flash memory and a mini SD card slot. The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
 
+If you have a sd card connected to the Max Carrier you can create a directory on the sd card by using the following command:
+```python
+mkdir -p /tmp/sdcard
+```
+
 ### Audio Interfaces
 
 The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODEC. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces on the Portenta Max Carrier, these are marked on the image below.
 
 [Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
 
-To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib).
+To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib). You can run it with something like this line:
+```python
+apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf && speaker-test -t sine -f 440 -c 2 -r 48000 -D hw:0,0
+```
 
 ## Connectivity
 
@@ -88,6 +96,11 @@ For more in-depth information about LoRa® and LoRaWAN®, please read [The Ardui
 ### Ethernet
 
 The Gigabit Ethernet physical interface is directly connected to the high density connector to the Portenta X8 board. The connector includes a LED for indicating activity using the color orange , there is also a LED using the color green to indicate speed.
+
+To access the 1 Gbps connection Ethernet peripheral on the Max Carrier you can use the following command:
+```python
+ETH_1G=`dmesg | grep "fec 30be0000.ethernet eth0: Link is Up - 1Gbps/Full"`
+```
 
 ## Instructions
 
