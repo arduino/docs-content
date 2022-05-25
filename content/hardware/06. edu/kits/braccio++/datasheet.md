@@ -84,6 +84,7 @@ some really exciting projects.
 
 | Symbol      | Description                  | Min | Typ | Max | Unit |
 | ----------- | ---------------------------- | --- | --- | --- | ---- |
+|   PWRIN     | Input supply from power jack |     | TBC |     |  mW  |
 |   USB VCC   | Input supply from USB        |     | TBC |     |  mW  |
 |   VIN       | Input from VIN pad           |     | TBC |     |  mW  |
 
@@ -93,7 +94,7 @@ some really exciting projects.
 ### Block Diagram
 
 
-![Arduino Braccio++ Carrier System Block Diagram](./assets/nano_block_diagram.png)
+![Arduino Braccio++ Carrier System Block Diagram](./assets/System_Block_Diagram_Braccio_Carrier.jpg)
 
 The USB powers the Arduino Nano RP2040 which is the heart of the Braccio++ Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functinality the system. RS485 Transreceiver signals the motor connector for the precise motion of the motors according to the input given by the user.
 
