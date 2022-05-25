@@ -532,6 +532,7 @@ Depending on the variant, some of the components does not apply. The image below
 | U7       | Level Shifter*                       | JANALOG JDIGITAL | MKR Compatible headers      |
 | U8       | I2C level shifter*                   | J4               | Battery Connector           |
 | U9       | Wifi/BT Module**                     | J5               | ESLOV Connector             |
+| J6       | Connector micro UFL                  |                  |                             |
 
 <p>
 * &emsp;&nbsp;&nbsp; = Only with Portenta H7 <br />
