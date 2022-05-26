@@ -109,7 +109,9 @@ volumes:
         log:
 ```
 
-Save the file and exit VI editor.`1883` is a standard MQTT port; `8883` port is usually used for TLS secured MQTT connections. Save the file and exit VI editor. Return to the `mqtt` directory and run the following command:
+***`1883` is a standard MQTT port; `8883` port is usually used for TLS secured MQTT connections.***
+
+Save the file and exit VI editor. Save the file and exit VI editor. Return to the `mqtt` directory and run the following command:
 
 ```
 mqtt# docker-compose up -d
@@ -119,20 +121,20 @@ You should see the following output, as shown in the image below:
 
 **ADD IMAGE HERE**
 
-Now, the Mosquitto broker should available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command, for example:
+Now, the Mosquitto broker should available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command: 
 
 ```
 # ping portenta-x8-a28ba09dab6fad9
 PING portenta-x8-a28ba09dab6fad9 (192.168.1.111) 56 data bytes
 ```
 
-We should see inside the `mqtt` directory three folders, `config`, `data`, `log`, and the `docker-compose.yml` file we created before. Go to the `config` directory and make a file named `mosquitto.conf`:
+We should see inside the `mqtt` directory three folders (`config`, `data`, and `log`) and the `docker-compose.yml` file we created before. Go to the `config` directory and make a file named `mosquitto.conf`:
 
 ```
 mqtt# ls
 config  data  docker-compose.yml  log
 mqtt# cd config
-/mqtt/config# sudo mosquitto.config
+/mqtt/config# sudo vi mosquitto.config
 ```
 
 Inside VI editor, copy and paste the following:
@@ -145,7 +147,7 @@ log_dest file /mosquitto/log/mosquitto.log
 
 Save the file and exit VI editor. Now, let's restart the Mosquitto container so the configuration file can start working. This can be done by using the `docker restart` command and the Mosquitto `CONTAINER ID`. To identify the Mosquitto `CONTAINER ID`, run the `docker ps` command and copy the ID, as shown in the image below:
 
-![Mosquito container ID.](assets/x8-data-logging-img_03.png)
+**ADD IMAGE HERE**
 
 Now, let's manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before as shown below:
 
@@ -154,9 +156,62 @@ Now, let's manage password files by adding a user to a new password file. For th
 / # 
 ```
 
-This will open 
+Let's dissect that command. `docker exec` runs a command in a running container (in this case, the Mosquitto container), `-it CONTAINER ID sh` attaches a terminal session into the running container so we can see what is going with the container and interact with it. Now, in the terminal session with the Mosquitto container, run the following command:
+
+```
+/ # mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
+```
+
+This command creates a new password file (`mosquitto.passwd`), if the file already exists, it will be overwritten; `guest` is the username. After entering the username, we would need to define a password for the username and then, exit the terminal session with the `exit` command: 
+
+```
+/ # mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
+Password:
+Reenter password:
+/ # exit
+```
+
+Now, let's return to the `config` directory, you should see now inside this directory the `mosquitto.passwd` file. Open the `mosquitto.config` file and add the following information to it:
+
+```
+password_file /mosquitto/config/mosquitto.passwd
+allow_anonymous true
+
+listener 1883
+listener 9001
+protocol websockets
+```
+
+The file should see now like this:
+
+```
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+
+password_file /mosquitto/config/mosquitto.passwd
+allow_anonymous true
+
+listener 1883
+listener 9001
+protocol websockets
+```
+
+Save the file and exit VI editor; also, we need to restart the Mosquitto container so the configuration file can start working. This can be done by using the `docker restart` command and the Mosquitto `CONTAINER ID`. After restarting the container, the local Mosquitto broker should be ready. Let's test it!
 
 ### Testing Mosquitto
+
+To test the Mosquitto broker, we need an MQTT client. We can use several ways to implement an MQTT client, one of the easiest ways is to install an MQTT client in our web browser and use it to test the connection between the local MQTT broker on the Portenta X8 board and the web-based MQTT client. In this tutorial, we will use MQTTBox, a Google Chrome extension that works as an MQTT client.
+
+In MQTTBox, let's start by configuring the settings of the MQTT client. The information we are going to need is the following:
+
+- **MQTT client name**: in this example, Portenta X8 MQTT Broker
+- **Protocol**: mqtt/tcp
+- **Username**: the one you define previously in the tutorial
+- **Password**: the one for the user you define previously in the tutorial
+- **Host**: This is your Portenta X8 board IP address
+
+Leave everything else as default and save the settings of the client. If everything is ok, you should see now that the MQTT client connected with the local MQTT broker in our Portenta X8 board. Success! We can now start sending messages to the MQTT broker.
 
 ## Installing Node-RED
 
@@ -175,13 +230,3 @@ This will open
 ## Conclusion
 
 ### Next Steps
-
-
-
-
-password_file /mosquitto/config/mosquitto.passwd
-allow_anonymous true
-
-listener 1883
-listener 9001
-protocol websockets
