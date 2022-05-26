@@ -215,7 +215,31 @@ Leave everything else as default and save the settings of the client. If everyth
 
 ## Installing Node-RED
 
+The simplest form to run Docker is by using the following command:
+
+```
+docker run -it -p 1880:1880 -v node_red_data:/data --name mynodered nodered/node-red    
+```
+
+With this command, we are going to run the Node-RED container locally in our Portenta X8 board. Let's dissect the command:
+
+- `-it`: a terminal session is attached to the container so we can see what is happening with the container
+- `-p 1880:1880`: Node-RED local port `1880` connects to the exposed internal port `1880` 
+- `v node_red_data:/data`: a docker named volume called `node_red_data` in mounted to the container `/data` directory. This permits to any changes to the flow to persist
+- `--name mynodered`: a friendly local name
+- `nodered/node-red`: the image to base it on
+
+After running the command, we should see a running instance of Node-RED in the terminal:
+
+We can detach the terminal with `Ctrl-p` `Ctrl-q`. This doesn't stop the container, the container will be running in the background. The local instance of Node-RED should be ready. Let's test it!
+
 ### Testing Node-RED
+
+Browse to `http://{your-portenta-ip}:1880`, this will open Node-RED desktop as show in the image below:
+
+Node-RED desktop is a GUI that let us work with Node-RED flows graphically. Let's test Node-RED flows by connecting to the local MQTT broker we set up before. Go to the `Nodes` section in the left part of the browser, search for `network` and choose the `mqtt in` node. Drag the node and drop it in the workspace. Then, search for the `debug` node and drop it also in the workspace. Connect both nodes, it should look like in the image below:
+
+
 
 ## Installing InfluxDB
 
