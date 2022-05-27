@@ -125,7 +125,7 @@ You can push the container from your computer, first open a terminal on the cont
 scp <folderName> fio@<portentaX8-IP>:<desiredPath>
 ```
 
-### Video output setup
+### Video Output Setup
 
 You need a USB Hub so you can have a video output connector like an HDMI.
 
@@ -139,7 +139,7 @@ By default if you connect the board to a display you will see the "home-screen" 
 
 ***You can interact with the interface by plugging USB devices on your hub, like a mouse and a keyboard.***
 
-![X8 home-screen](assets/portentaX8-home-screen.PNG)
+![X8 home-screen](assets/portentaX8-home-screen.png)
 
 ### Running The Container
 If you get it from **Foundries.io** it will run automatically after few seconds.
