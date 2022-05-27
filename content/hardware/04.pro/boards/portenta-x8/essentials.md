@@ -5,11 +5,23 @@
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals" title="Fundamentals of Portenta X8" type="tutorial">
         This article contains information about the fundamental concepts of the Portenta X8.
     </EssentialElement>
-</EssentialsColumn>
-
-<EssentialsColumn title="Suggested Docs">
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/docker-container" title="Containers management" type="tutorial">
-        Containers are isolated solutions and thus they don't have to depend on your environment. Making them portable and consistent throughout development, testing and production.
+        Tutorial to learn how to manage docker containers with the Portenta X8.
+    </EssentialElement>
+    <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange" title="Arduino RPC" type="library">
+            Both M7 and M4 can communicate through remote procedure call (RPC), this tutorial demonstrates using the RPC library of the Arduino Mbed Core.
+    </EssentialElement>
+</EssentialsColumn>
+    
+<EssentialsColumn title="Suggested Repositories">
+    <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
+        Some containers examples for Portenta X8, this containers are accessible through your Foundries.io factory.
+    </EssentialElement>
+    <EssentialElement link="https://github.com/arduino/lmp-manifest/releases" title="OS Images" type="tutorial">
+        Releases section from the lmp-manifest repo, lists all the builds also available on the Foundries.io factory.
+    </EssentialElement>
+    <EssentialElement link="https://github.com/arduino/lmp-manifest" title="Manifest repository" type="article">
+        This repository contains a Repo manifest and setup scripts for the Linux microPlatform build system. If you want to modify, extend or port Linux microPlatform to a new hardware platform, this is the manifest repository to use.
     </EssentialElement>
 </EssentialsColumn>
 
