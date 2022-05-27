@@ -17,11 +17,7 @@ hardware:
 
 ## Overview
 
-The Arduino Portenta X8's Processor **NXP® i.MX 8M Mini Processor** Includes 3D rendering, this will allow us to display 3D content on a screen or video output the device is using OpenGL to process the 3D related calculations.
-
-We will render web content from the internet that uses WebGL and display it on a screen, using an USB Hub.
-
-In this tutorial we will go through the steps of how to setup, install and modify the video output.
+The Arduino Portenta X8's processor **NXP® i.MX 8M Mini Processor** can be used for 3D rendering, this will allow us to display 3D content on a screen or video output, the device is using OpenGL to process the 3D related calculations. In this tutorial we will render web content from the internet using WebGL and display it on a screen, using an USB Hub. We will go through the steps of how to setup, install and modify the video output.
 
 ## Goals
 
@@ -44,7 +40,9 @@ In this tutorial we will go through the steps of how to setup, install and modif
 
 There are two ways to get the container, either through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers)
 
-If you use [Foundries.io](https://www.foundries.io) you just can switch the current `target` of your device to `x-kiosk-imx8-webgl` by switching the app from a terminal on your computer:
+**With Foundries:** 
+
+If you use [Foundries.io](https://www.foundries.io) you can switch the current `target` of your device to `x-kiosk-imx8-webgl` by switching the app from a terminal on your computer:
 
 ```
 //Change the app to an existing one
@@ -61,9 +59,9 @@ fioctl logout
 fioctl login
 ```
 
-**With Foundries:** If you did it within **Foundries.io** you will see the home-screen for some seconds and then it will fade-out and open the Aquarium 3D from [WebGL samples - Aquarium](https://webglsamples.org/aquarium/aquarium.html).
+You will now see the home-screen for some seconds and then it will fade-out and open the Aquarium 3D from [WebGL samples - Aquarium](https://webglsamples.org/aquarium/aquarium.html).
 
-**With downloaded repository:** In case you downloaded the [portenta-containers repository](https://github.com/arduino/portenta-containers) and pushed the container to your Portenta X8, you will need to connect your board directly to your computer and run the `adb shell`.
+**With downloaded repository:** In case you downloaded the [portenta-containers repository](https://github.com/arduino/portenta-containers) you will need to connect your board directly to your computer and run the `adb shell`, then push the container to your Portenta X8.
 
 ### Connect to a Wi-Fi
 
@@ -76,7 +74,7 @@ IN-USE  BSSID              SSID             MODE   CHAN  RATE        SIGNAL  BAR
         AA:BB:CC:DD:EE:FF  <yourAP-SSID>    Infra  X     130 Mbit/s  --      *     WPA2
 ```
 
-You can save your WiFi details by following this commands:
+You can save your WiFi details with these commands:
 ```
 nmcli c add type wifi con-name <customName> ifname wlan0 ssid <SSID>
 nmcli con modify <customName> wifi-sec.key-mgmt wpa-psk
@@ -90,8 +88,7 @@ nmcli con down <customName>
 nmcli c delete <customName>
 ```
 
-To check that it has been correctly connected, you will see the LED on Green.
-If you want to check it in your terminal you can type
+If the LED is on and green then we know that has been correctly connected. If you want to check it in your terminal, you can type:
 ```
 nmcli de
 
@@ -127,22 +124,20 @@ scp <folderName> fio@<portentaX8-IP>:<desiredPath>
 
 ### Video Output Setup
 
-You need a USB Hub so you can have a video output connector like an HDMI.
+Now we need a USB Hub that has a video output connector, like for an HDMI cable. Connect the Portenta X8 to the USB Hub as a Host, the video connector to a display, the power supply USB to your computer. We could also connect a USB mouse to the hub, this step is optional.
 
-Connect the Portenta X8 to the USB Hub as a Host, the video connector to a display, the power supply USB to your computer and as optional a USB Mouse to the Hub.
-
-The setup should look like:
+The setup should look like this:
 
 ![X8 usb hub setup](assets/portentaX8_hub_screen.svg)
 
 By default if you connect the board to a display you will see the "home-screen" with the `Arduino PRO` background wallpaper, and a bottom bar with the real time.
 
-***You can interact with the interface by plugging USB devices on your hub, like a mouse and a keyboard.***
+***You can interact with the interface by plugging USB devices to your hub, like a mouse or a keyboard.***
 
 ![X8 home-screen](assets/portentaX8-home-screen.png)
 
 ### Running The Container
-If you get it from **Foundries.io** it will run automatically after few seconds.
+If you got the container from **Foundries.io** it will run automatically after few seconds.
 
 In case you copied from the repository, you will need to initialize it with **docker** by accessing your Portenta X8 through ssh, going to the directory where you copied it and run it from there:
 
@@ -177,13 +172,11 @@ Once you are inside the **VIM** editor, to edit the file you will need to press 
 
 ![VIM editing docker-compose.yml](assets\vim-edit-dockerCompose.png)
 
-To save the changes press the **ESC** key and type `:wq` this will write and quit the **VIM** editor.
-
-After editing it you will need to compose the container again.
+To save the changes press the **ESC** key and type `:wq` this will write and quit the **VIM** editor. After editing it you will need to compose the container again.
 
 ## Conclusion
 
-In this tutorial you learned how to get the container onto your device, run it and edit the URL.
+In this tutorial we went through how to connect the board and display something on a screen. Using a container from foundriesFactories or by downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
 
 ### Next Steps
 
