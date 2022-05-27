@@ -37,22 +37,22 @@ The Portenta Max Carrier was designed to add capabilities to the Arduino® Porte
 
 To make use of the Arduino Portenta Max Carrier you will need to power it through either the barrel jack connector or with a 3.7V 18650 Li-Ion battery, connected to the Portenta Max Carriers battery clips.
 
-| Function                 | Supported on the Portenta X8 M4 Core | Supported by Linux on Portenta X8  |
-| ------------------------ | ------------------------------------ | ---------------------------------- |
-| USB Host                 | USB 1.0                              | USB 2.0                            |
-| Ethernet                 | Fast Ethernet                        | 1 Gbps                             |
-| CAN                      | Yes                                  | Yes                                |
-| Mini PCIe (USB)          | USB 1.0                              | USB 2.0                            |
-| Mini PCIe (PCIe)         | No                                   | PCIe 2.0                           |
-| Battery Charger          | Yes                                  | Yes                                |
-| LoRa®                    | Yes (additional software required)   | Yes (additional software required) |
-| NBIoT/CatM1/2G           | Yes (additional software required)   | Yes (additional software required) |
-| Camera                   | No                                   | MIPI up to 4 lanes                 |
-| Audio                    | Limited                              | Yes                                |
-| RS232/422/485            | Yes                                  | Yes                                |
-| on board JTAG  debugging | Yes                                  | No                                 |
-| on board console to USB  | Yes                                  | Yes                                |
-| on board bus sniffing    | Limited                              | Limited                            |
+| Function                 | Supported on the Portenta X8 M4 Core | Supported on Portenta X8's NXP® i.MX 8M Mini Processor |
+| ------------------------ | ------------------------------------ | ------------------------------------------------------ |
+| USB Host                 | USB 1.0                              | USB 2.0                                                |
+| Ethernet                 | Fast Ethernet                        | 1 Gbps                                                 |
+| CAN                      | Yes                                  | Yes                                                    |
+| Mini PCIe (USB)          | USB 1.0                              | USB 2.0                                                |
+| Mini PCIe (PCIe)         | No                                   | PCIe 2.0                                               |
+| Battery Charger          | Yes                                  | Yes                                                    |
+| LoRa®                    | Yes (additional software required)   | Yes (additional software required)                     |
+| NBIoT/CatM1/2G           | Yes (additional software required)   | Yes (additional software required)                     |
+| Camera                   | No                                   | MIPI up to 4 lanes                                     |
+| Audio                    | Limited                              | Yes                                                    |
+| RS232/422/485            | Yes                                  | Yes                                                    |
+| on board JTAG  debugging | Yes                                  | No                                                     |
+| on board console to USB  | Yes                                  | Yes                                                    |
+| on board bus sniffing    | Limited                              | Limited                                                |
 
 
 ## Peripherals
@@ -72,7 +72,7 @@ The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODE
 
 [Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
 
-To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib). You can run it with something like this line:
+To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib). You can run it with this command:
 ```python
 apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf && speaker-test -t sine -f 440 -c 2 -r 48000 -D hw:0,0
 ```
