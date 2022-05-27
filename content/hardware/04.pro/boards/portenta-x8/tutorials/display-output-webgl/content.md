@@ -1,5 +1,5 @@
 ---
-title: 'Output webGL content on a Screen'
+title: 'Output WebGL Content on a Screen'
 description: 'This tutorial shows how to install and modify a container that outputs web browser and webGL content'
 difficulty: easy
 tags:
@@ -119,7 +119,7 @@ ssh fio@<localIP>
 ***To connect through ssh it will request the user's password, which is "fio".***
 ***If you have troubles connecting with the ssh, please check the troubleshooting section at the end of this tutorial***
 
-### Copy/push the container
+### Copy/push the Container
 You can push the container from your computer, first open a terminal on the container's directory, then you can use this command to send the container to the Portenta X8:
 ```
 scp <folderName> fio@<portentaX8-IP>:<desiredPath>
@@ -179,7 +179,7 @@ Once you are inside the **VIM** editor, to edit the file you will need to press 
 
 To save the changes press the **ESC** key and type `:wq` this will write and quit the **VIM** editor.
 
-After editting it you will need to compose the container again.
+After editing it you will need to compose the container again.
 
 ## Conclusion
 
