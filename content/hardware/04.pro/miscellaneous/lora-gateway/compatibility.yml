@@ -1,0 +1,5 @@
+hardware:
+  shields:
+    - portenta-vision-shield
+  carriers:
+    - portenta-max-carrier
