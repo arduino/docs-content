@@ -170,7 +170,7 @@ vim docker-compose.yml
 
 Once you are inside the **VIM** editor, to edit the file you will need to press **insert** and replace the url as shown in the screenshot.
 
-![VIM editing docker-compose.yml](assets\vim-edit-dockerCompose.png)
+![VIM editing docker-compose.yml](assets/vim-edit-dockerCompose.png)
 
 To save the changes press the **ESC** key and type `:wq` this will write and quit the **VIM** editor. After editing it you will need to compose the container again.
 
