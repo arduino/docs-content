@@ -50,6 +50,7 @@ Wireless sensor networks, data fusion, artificial intelligence, machine vision
   - 2 Megapixel CMOS Camera
   - on-chip 10-bit ADC
   - 1.75 μm pixel size
+  - 2.2 mm focal length
 - **LSM6DSOX** 6-axis IMU
   - Always-on 3D accelerometer and 3D gyroscope
   - Smart FIFO up to 4 kByte
