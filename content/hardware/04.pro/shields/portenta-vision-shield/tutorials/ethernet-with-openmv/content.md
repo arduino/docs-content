@@ -34,7 +34,7 @@ With the Ethernet version of the Arduino Portenta Vision Shield it is possible t
 - Ethernet cable
 - USB-C cable
 
-***If you want to know about the ethernet connection please go to the [Arduino IDE ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/vs-ard-eth#ethernet-connection)***
+***If you want to know about the ethernet connection please go to the [Arduino IDE ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide#ethernet-connection)***
 
 ## Instructions
 
@@ -95,7 +95,7 @@ After the connection has been made, the html code of the website entered into th
 
 ## Conclusion
 
-This tutorial showed how to connect the Portenta H7 with a Vision Shield Ethernet to the Internet, with an example script in the OpenMV. The sketch allowed the board to connect to a website and print it's content. The Portenta H7 and Vision Shield can also be used with the Arduino IDE, have a look at the [Arduino IDE Ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/vs-ard-eth) if you want to see a similar example.
+This tutorial showed how to connect the Portenta H7 with a Vision Shield Ethernet to the Internet, with an example script in the OpenMV. The sketch allowed the board to connect to a website and print it's content. The Portenta H7 and Vision Shield can also be used with the Arduino IDE, have a look at the [Arduino IDE Ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide) if you want to see a similar example.
 
 ### Next Steps
 
