@@ -19,7 +19,9 @@ The [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) board ha
 
 In order to utilize this feature, we need to install the latest release of [OpenMV's flavor of MicroPython](https://github.com/openmv/openmv/). 
 
-This tutorial can be completed with only the Nano RP2040 board and open-source software.
+This tutorial can be completed with only the Nano RP2040 Connect board and open-source software.
+
+***If you are unfamiliar with Arduino & Python, you can learn more by reading the [Python with Arduino](/learn/programming/arduino-and-python) and the [Nano RP2040 Connect Python API Guide](/tutorials/nano-rp2040-connect/rp2040-python-api) articles.***
 
 ## Goals
 
@@ -43,7 +45,9 @@ The goals of this tutorial are:
 
 **3.** Force the bootloader on the Nano RP2040 Connect, by connecting a jumper wire between `GND` and `REC` pins as shown in the image below. When the mass storage device opens, drag the `firmware.uf2` onto it, and the latest version will install.
 
-**4.** Install and open the [Thonny IDE](). Navigate to **Run > Select Interpreter** and choose the **"MicroPython(generic)"** from the list. Your board should now appear in the other dropdown menu:
+![Connect GND + REC + press the reset button to open mass storage.](assets/SHORT-REC-NANORP2040CONNECT.png)
+
+**4.** Install and open the [Thonny IDE](https://thonny.org/). Navigate to **Run > Select Interpreter** and choose the **"MicroPython(generic)"** from the list. Your board should now appear in the other dropdown menu:
 
 ![Thonny board/port selection.]()
 
@@ -62,7 +66,7 @@ The script for the datalogger is quite basic, and has the following functionalit
 
 ### Code
 
-The script can be found below:
+The script for this tutorial can be found below:
 
 ```py
 import machine
@@ -74,7 +78,8 @@ adc = machine.ADC(adc_pin)
 led = Pin(6, Pin.OUT)
 readings = 0
 
-file=open("data.csv","w")
+# create a file named "data.csv"
+file=open("data.csv","w") 
 file.write("data"+"\n")
 
 while True:
@@ -85,17 +90,22 @@ while True:
     
     time.sleep_ms(100)
     
+    # convert and write the reading from the analog pin
     file.write(str(reading)+"\n")
     
     led.value(0)
     time.sleep_ms(100)
     readings += 1
+    
+    # if 25 readings are done, finish the program
     if readings >= 25:
         file.close()
         break
 ```
 
-Copy paste this code into the Thonny editor, and click on the **Green Play Button (F5)**. The values recorded are also printed in the Shell, so we can compare it later.
+Copy paste this code into the Thonny editor, and click on the **Green Play Button (F5)**. The values recorded are also printed in the terminal, so we can compare it later. After running, it should look like this:
+
+![Thonny IDE, data printed in terminal.]()
 
 When you run the script, the board should now start blinking fast, every 100 milliseconds, and it will do so 25 times (as is specified in the code, the number can be changed).
 
@@ -103,5 +113,22 @@ When you run the script, the board should now start blinking fast, every 100 mil
 
 Once done, navigate to Finder / Explorer, and locate a drive called **"NO NAME"**. This should now include a `data.csv` file. This contains the 25 readings we just made by running the script.
 
+***If you are using a Mac, you may need to change a setting that allows you to see external disks. If you can't see the drive, go to Finder > Preferences and tick the boxes that appear.***
+
 ![The "NO NAME" drive with a data.csv file.]()
 
+Congratulations, you have now successfully recorded data and stored it in a `.csv` file onboard the Nano RP2040 Connect. 
+
+***Please note that you should never open this file whenever a file management operation is ongoing. This will most likely corrupt your file and you won't be able to obtain the data. Best practice is to record the data, wait a little, and then open up the `data.csv` file.***
+
+## Conclusion
+
+In this tutorial, we turned a Nano RP2040 Connect board into a data logger, without the use of any external components (such as an SD card). 
+
+This is an incredibly useful tool whenever you are working with data collection, and the script found in this tutorial can be easily be altered to fit your project.
+
+While we in this tutorial only recorded values from an analog pin, there are many other things to do, such as:
+
+- Record data from the onboard IMU.
+- Record data from an external sensor.
+- Record events that occured along with a timestamp (for example, how many times a sensor value's threshold was met).
