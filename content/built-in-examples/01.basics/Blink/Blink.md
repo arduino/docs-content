@@ -59,7 +59,7 @@ This example uses the built-in LED that most Arduino boards have. This LED is co
 
 If you want to light an external LED with this sketch, you need to build this circuit, where you connect one end of the resistor to the digital pin correspondent to the *LED_BUILTIN* constant.  Connect the long leg of the LED (the positive leg, called the anode) to the other end of the resistor. Connect the short leg of the LED (the negative leg, called the cathode) to the GND. In the diagram below we show an UNO board that has D13 as the LED_BUILTIN value.
 
-The value of the resistor in series with the LED may be of a different value than 220 ohm; the LED will lit up also with values up to 1K ohm.
+The value of the resistor in series with the LED may be of a different value than 220 ohms; the LED will light up also with values up to 1K ohm.
 
 ![](assets/circuit.png)
 
