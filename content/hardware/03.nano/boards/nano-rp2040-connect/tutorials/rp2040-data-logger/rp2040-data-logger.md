@@ -49,7 +49,7 @@ The goals of this tutorial are:
 
 **4.** Install and open the [Thonny IDE](https://thonny.org/). Navigate to **Run > Select Interpreter** and choose the **"MicroPython(generic)"** from the list. Your board should now appear in the other dropdown menu:
 
-![Thonny board/port selection.]()
+![Thonny board/port selection.](assets/thonny-select-interpreter.png)
 
 If your board appears, it has been successful. In this case, it is called `Board in FS mode (/dev/cu.usbmodem11201)`. 
 
@@ -105,7 +105,7 @@ while True:
 
 Copy paste this code into the Thonny editor, and click on the **Green Play Button (F5)**. The values recorded are also printed in the terminal, so we can compare it later. After running, it should look like this:
 
-![Thonny IDE, data printed in terminal.]()
+![Thonny IDE, data printed in terminal.](assets/thonny-terminal.png)
 
 When you run the script, the board should now start blinking fast, every 100 milliseconds, and it will do so 25 times (as is specified in the code, the number can be changed).
 
@@ -115,7 +115,7 @@ Once done, navigate to Finder / Explorer, and locate a drive called **"NO NAME"*
 
 ***If you are using a Mac, you may need to change a setting that allows you to see external disks. If you can't see the drive, go to Finder > Preferences and tick the boxes that appear.***
 
-![The "NO NAME" drive with a data.csv file.]()
+![The "NO NAME" drive with a data.csv file.](assets/storage-device.png)
 
 Congratulations, you have now successfully recorded data and stored it in a `.csv` file onboard the Nano RP2040 Connect. 
 
