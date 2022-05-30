@@ -68,7 +68,7 @@ The script for the datalogger is quite basic, and has the following functionalit
 
 The script for this tutorial can be found below:
 
-```py
+```python
 import machine
 from machine import Pin
 import time
@@ -131,4 +131,4 @@ While we in this tutorial only recorded values from an analog pin, there are man
 
 - Record data from the onboard IMU.
 - Record data from an external sensor.
-- Record events that occured along with a timestamp (for example, how many times a sensor value's threshold was met).
+- Record events that occurred along with a timestamp (for example, how many times a sensor value's threshold was met).
