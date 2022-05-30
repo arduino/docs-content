@@ -37,7 +37,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino RS485](https://www.arduino.cc/en/Reference/ArduinoRS485) library installed
-- 2x MKR 485 Shield ([link to store](https://store.arduino.cc/arduino-mkr-gps-shield))
+- 2x MKR 485 Shield ([link to store](https://store.arduino.cc/arduino-mkr-485-shield))
 - 2x Arduino MKR family board ([link to store](https://store.arduino.cc/arduino-genuino/arduino-genuino-mkr-family))
 - Flathead screwdriver
 - Jumper wires
