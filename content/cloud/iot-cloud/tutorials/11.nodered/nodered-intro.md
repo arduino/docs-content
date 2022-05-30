@@ -85,10 +85,10 @@ If correctly installed, you will see the version number printed in the terminal.
 
 The Node-RED editor consists of four main parts:
 
-- A header on the top containing the deploy button, main menu, and the user menu (only visible if user authentication is enabled).
-- The palette on the left side, containing the available nodes
-- A workspace in the middle, where flows can be created
-- The sidebar on the right, containing editing tools such as a node configuration tool and a debugger.
+- A **header on the top** containing the Deploy button, main menu, and the user menu (only visible if user authentication is enabled).
+- The **palette on the left side**, containing the available nodes.
+- A **workspace in the middle**, where flows can be created.
+- The **sidebar on the right**, containing editing tools such as a node configuration tool and a debugger.
 
 ![The Node-RED editor](assets/nodered-01.png)
 
@@ -102,7 +102,7 @@ You can run the simple flow shown below using Node-RED's default nodes:
 - drag the **"debug"** node into the workspace
 - connect the two nodes by dragging a wire from the message node to the debug node
 - click on the debug menu from the sidebar on the right
-- press Depoly from the header on the top
+- press **Depoly** from the header on the top
 - finally, press on the checkbox of the message node
 
 ![Creating a simple flow](assets/nodered-02.gif)
@@ -175,7 +175,7 @@ Follow the steps below to set up the Thing:
 
 ### Circuit
 
-The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR WiFi 1010 board, as shown in the image below. You can also freely use any other [IoT Cloud compatible board](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware) and a different sensor.
+The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR Wi-Fi 1010 board, as shown in the image below. You can also freely use any other [IoT Cloud compatible board](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware) and a different sensor.
 
 ![Connecting the DHT11 Sensor.](assets/rednode-09.png)
 
@@ -205,11 +205,11 @@ Use the steps below to use Node-RED with the Arduino IoT Cloud:
 
 ### Creating a Flow
 
-Now that you have a node pulling data from the Arduino IoT Cloud, you need to use the inject node in order to manipulate and send the data. All you need to do is dragging an inject node and connect it to the property out node, then double clicking on the inject node to ensure that the right Thing and property are selected. 
+Now that you have a node pulling data from the Arduino IoT Cloud, you need to use the *Inject* node in order to manipulate and send the data. All you need to do is dragging the *Inject* node and connect it to the property out node, then double-clicking on the inject node to ensure that the right Thing and property are selected. 
 
 Finally, we will add a debug node from the top of the palette menu, to print the values coming from the Arduino IoT Cloud into the console. You will now be able to see the values from the humidity sensor printed into the Node-RED console.
 
-The next step is adding a **function node** that processes the data coming from the Arduino IoT Cloud. This node is important when working with a constant flow of data, as it allows you to use JavaScript code to create customized triggers from the received values. After dragging the function node into the editor, double click on the node and select **"on message"** tab, then insert the code below:
+The next step is adding a **function node** that processes the data coming from the Arduino IoT Cloud. This node is important when working with a constant flow of data, as it allows you to use JavaScript code to create customized triggers from the received values. After dragging the function node into the editor, double-click on the node and select **"on message"** tab, then insert the code below:
 
 ```js
 let data = msg.payload;
@@ -245,7 +245,7 @@ Now that you are able to pull and manipulate data from the Arduino IoT Cloud, it
 - Search for "Email".
 - From the shown results, install **"node-red-node-email"**.
 
-Next, drag the email node from the palette menu on the left side into the editor. Double click on the node, then enter an email to send the data to, as well as your email information to send the data from.
+Next, drag the email node from the palette menu on the left side into the editor. Double-click on the node, then enter an email to send the data to, as well as your email information to send the data from.
 
 ![Email node](./assets/nodered-08.png)
 
@@ -253,4 +253,4 @@ Now, all you need to do is replace the debug node with the email node to receive
 
 ## Further Applications
 
-In this tutorials we demonstrated how you can use the [Arduino IoT Cloud](https://create.arduino.cc/iot/) together with [Node-RED](https://nodered.org/) to build a more complex automation applications. The email notification is only one of the many different use cases, other applications can be creating communication between the Arduino IoT Cloud to other home automation devices, sending customized SMS and WhatsApp messages, and many more.
+In this tutorial we demonstrated how you can use the [Arduino IoT Cloud](https://create.arduino.cc/iot/) together with [Node-RED](https://nodered.org/) to build a more complex automation applications. The email notification is only one of the many different use cases, other applications can be creating communication between the Arduino IoT Cloud to other home automation devices, sending customized SMS and WhatsApp messages, and many more.
