@@ -121,7 +121,7 @@ In addition to the default nodes installed in node-RED, you can use the palette 
 
 **5.** From the results, install **"@arduino/node-red-contrib-arduino-iot-cloud"**.
 
-![Installing the Arduino IoT Cloud Pallette](assets/nodered-03.gif)
+![Installing the Arduino IoT Cloud Palette](assets/nodered-03.gif)
 
 Now, you should be able to use the Arduino IoT Cloud nodes from the palette on the left side of the editor. There are five IoT Cloud nodes: property in, property out, historic, periodic, and inject. Each of the nodes has a description of its function, which appears when you hover over the node.
 
@@ -191,7 +191,7 @@ Use the steps below to use Node-RED with the Arduino IoT Cloud:
 
 **3.** Go to Node-RED web page at [http://localhost:1880](http://localhost:1880)
 
-**4.** Add the Arduino IoT Cloud "**property out**" node from the pallette menu on the left side
+**4.** Add the Arduino IoT Cloud "**property out**" node from the palette menu on the left side
 
 **5.** Double click on the node -> select "Add new Arduino-connection"
 
@@ -207,7 +207,7 @@ Use the steps below to use Node-RED with the Arduino IoT Cloud:
 
 Now that you have a node pulling data from the Arduino IoT Cloud, you need to use the inject node in order to manipulate and send the data. All you need to do is dragging an inject node and connect it to the property out node, then double clicking on the inject node to ensure that the right Thing and property are selected. 
 
-Finally, we will add a debug node from the top of the pallette menu, to print the values coming from the Arduino IoT Cloud into the console. You will now be able to see the values from the humidity sensor printed into the Node-RED console.
+Finally, we will add a debug node from the top of the palette menu, to print the values coming from the Arduino IoT Cloud into the console. You will now be able to see the values from the humidity sensor printed into the Node-RED console.
 
 The next step is adding a **function node** that processes the data coming from the Arduino IoT Cloud. This node is important when working with a constant flow of data, as it allows you to use JavaScript code to create customized triggers from the received values. After dragging the function node into the editor, double click on the node and select **"on message"** tab, then insert the code below:
 
@@ -245,7 +245,7 @@ Now that you are able to pull and manipulate data from the Arduino IoT Cloud, it
 - Search for "Email".
 - From the shown results, install **"node-red-node-email"**.
 
-Next, drag the email node from the pallette menu on the left side into the editor. Double click on the node, then enter an email to send the data to, as well as your email information to send the data from.
+Next, drag the email node from the palette menu on the left side into the editor. Double click on the node, then enter an email to send the data to, as well as your email information to send the data from.
 
 ![Email node](./assets/nodered-08.png)
 
