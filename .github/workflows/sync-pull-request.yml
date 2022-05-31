@@ -31,6 +31,7 @@ jobs:
         run: |
          gh pr create --title "$(gh pr view $GITHUB_REF_NAME --json title --jq .title)" --body "$(gh pr view $GITHUB_REF_NAME --json body --jq .body)" --repo arduino/docs-content
          for VARIABLE in $(gh pr view $GITHUB_REF_NAME --json labels --jq .labels[].name); do gh pr edit --add-label $VARIABLE; done
+         gh pr edit --add-label "arduino"
 
       - name: Close PR
         env:
