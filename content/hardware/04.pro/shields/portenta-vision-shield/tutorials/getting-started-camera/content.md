@@ -5,6 +5,9 @@ difficulty: easy
 tags: [Getting Started, Camera, Processing, Serial]
 description: This tutorial shows you how to capture frames from the Portenta Vision Shield Camera module and visualize the video output through a Processing sketch.
 author: Lenard George, Sebastian Romero
+hardware:
+  - hardware/04.pro/boards/portenta-h7
+  - hardware/04.pro/shields/portenta-vision-shield
 ---
 
 ## Overview
