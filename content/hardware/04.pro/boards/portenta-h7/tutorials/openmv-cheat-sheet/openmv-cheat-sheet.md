@@ -31,7 +31,7 @@ The Portenta H7 uses the [Arduino Mbed OS Portenta Boards core](https://github.c
 
 Arduino supports the OpenMV build of MicroPython to be used with the Portenta H7. To install it on your board, you can check out the guide below:
 
-- [Installing the Arduino Portenta H7 with MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/por-openmv-gs)
+- [Installing the Arduino Portenta H7 with MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython)
 
 ### Potential Issues
 
