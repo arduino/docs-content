@@ -201,8 +201,8 @@ In case the debugger encounters any issues while connecting to the Nano 33 BLE, 
 
 ### Issues While Starting TRACE32 on Linux
 
-- The TRACE32 executable for Linux requires the Qt libraries. Please verify that  one of the following versions of Qt is installed:
-- or Qt5 >= 5.9	(Linux 64 bit)
+- The TRACE32 executable for Linux requires the Qt libraries. Please verify that the following versions of Qt is installed:
+- Qt5 >= 5.9	(Linux 64 bit)
 
 On Ubuntu Linux for example you can install the Qt5 libraries using apt-get: `sudo apt-get install qt5-default`
 
