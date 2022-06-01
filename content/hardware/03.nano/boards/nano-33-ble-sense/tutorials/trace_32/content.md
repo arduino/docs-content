@@ -55,13 +55,13 @@ Enter the board's serial number (instructions below), your name and e-mail addre
 
 There are two alternative ways to detect the board serial number:
 
-- In the Arduino IDE select the "Tools->Get Board Info" menu command after selecting the port to which the Nano 33 BLE is connected to. This should show a 24 character (96 bit) long serial number.
+- In the Arduino IDE select the "Tools->Get Board Info" menu command after selecting the port to which the Nano 33 BLE is connected to. This should show a 16 character (64 bit) long serial number.
 
 ![Nano's serial number can be displayed in the Arduino IDE using the "Get Board Info" command](assets/sn-from-arduino-ide.png)
 
 - Use the TRACE32 debugger. Check section "3. Start the TRACE32 Debugger" on how to start it. Click the menu item "Board S/N and License State". Your board's serial number will be printed in the AREA window and a dialog LICENSE.state will be opened.
 
-![Click the menu item "Detect Board S/N" to display the serial number](assets/sn-in-trace32.png)
+![Click the menu item "Board S/N and License State" to display the serial number](assets/sn-in-trace32.png)
 
 ![License State Dialog](assets/sn-popup-trace32.png)
 
@@ -79,15 +79,13 @@ To use the debugger launch the appropriate executable for your host operating sy
 
 `~~/bin/windows64` for 64-bit Windows hosts
 
-`~~/bin/linux` for 32-bit Linux hosts
-
-`~~/bin/linux64` for 64-bit Linux hosts.
+`~~/bin/pc_linux64` for 64-bit Linux hosts
 
 For easy access, we suggest creating a link to the corresponding executable file on your desktop:
 
 - for Windows, this is t32marm.exe
 
-- for Linux, this is t32marm-qt
+- for Linux, this is t32marm
 
 ### Setting Up the Serial Port
 
@@ -165,9 +163,9 @@ List.auto
 ENDDO
 ```
 
-You can also copy the script start.cmm from the T32ThreadDebug demo directory to your working directory. For an application using the Serial Monitor, it is necessary to copy both start.cmm and term.cmm from the T32ThreadDebugPrint demo directory.
+You can also copy the script start_nano33ble.cmm from the T32ThreadDebug demo directory to your working directory.
 
-For each demo the corresponding start.cmm script comes with a predefined window layout. For your own layout, manually open and arrange the windows as you prefer, then save this window layout using the "Store Windows..." command in the Window menu. Save the file as win.cmm. It will be automatically found and used the next time you start a debugging session.
+For each demo the corresponding start_nano33ble.cmm script comes with a predefined window layout. For your own layout, manually open and arrange the windows as you prefer, then save this window layout using the "Store Windows..." command in the Window menu. Save the file as win.cmm. It will be automatically found and used the next time you start a debugging session.
 
 ## Conclusion
 
@@ -204,7 +202,6 @@ In case the debugger encounters any issues while connecting to the Nano 33 BLE, 
 ### Issues While Starting TRACE32 on Linux
 
 - The TRACE32 executable for Linux requires the Qt libraries. Please verify that  one of the following versions of Qt is installed:
-- Qt4 >= 4.6.2	(Linux 32 bit or 64 bit)
 - or Qt5 >= 5.9	(Linux 64 bit)
 
 On Ubuntu Linux for example you can install the Qt5 libraries using apt-get: `sudo apt-get install qt5-default`
