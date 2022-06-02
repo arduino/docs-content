@@ -168,7 +168,7 @@ The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-cont
 
 ![The Arduino® Edge Control.](assets/lorawan-101_img12.png)
 
-The Arduino® [Portenta Max Carrier](https://store.arduino.cc/collections/boards/products/portenta-max-carrier) transforms Portenta boards, such as the [H7](https://store.arduino.cc/collections/pro-family/products/portenta-h7) and the [X8](https://store.arduino.cc/collections/pro-family/products/portenta-x8), into single-board computers, enabling edge AI for high performance industrial, building automation, and robotics applications. The Max Carrier features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRaWAN® connectivity.
+The Arduino® [Portenta Max Carrier](https://store.arduino.cc/collections/boards/products/portenta-max-carrier) transforms Portenta boards, such as the [H7](https://store.arduino.cc/collections/pro-family/products/portenta-h7) and the [X8](https://store.arduino.cc/collections/pro-family/products/portenta-x8), into single-board computers, enabling edge AI for high-performance industrial, building automation, and robotics applications. The Max Carrier features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRaWAN® connectivity.
 
 ![The Arduino® Max Carrier.](assets/lorawan-101_img14.png)
 
