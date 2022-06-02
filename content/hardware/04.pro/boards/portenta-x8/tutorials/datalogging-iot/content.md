@@ -26,7 +26,7 @@ This tutorial will set up a typical Internet of Things (IoT) application: an MQT
 - InfluxDB
 - Grafana
 
-These four blocks will be running locally on the Portenta X8 board. We will use sensor data gathered using an Arduino MKR WiFi 1010 board to test the data logging application.
+These four blocks will be running locally on the [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8) board. We will use data from an [Arduino® MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) board to test the data logging application.
 
 ## Goals
 
@@ -34,15 +34,13 @@ These four blocks will be running locally on the Portenta X8 board. We will use 
 - Install, configure and run Node-RED locally in the X8
 - Install, configure and run InfluxDB locally in the X8
 - Install, configure and run Grafana locally in the X8
-- Send sensor data from an Arduino® MKR WiFi 1010 board to the data logging application running locally in the X8
+- Send data from an Arduino® MKR WiFi 1010 board to the data logging application running locally in the X8
 
 ## Required Hardware and Software
 
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino® MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
 - USB-C cable (either USB-C to USB-A or USB-C to USB-C)
-- 10KΩ potentiometer (x1)
-- Breadboard and jumper cables
 - Wi-Fi Access Point (AP) with Internet access
 - ADB or SSH
 - Command-line interface
@@ -201,7 +199,7 @@ Save the file and exit VI editor; also, we need to restart the Mosquitto contain
 
 ### Testing Mosquitto
 
-To test the Mosquitto broker, we need an MQTT client. We can use several ways to implement an MQTT client, one of the easiest ways is to install an MQTT client in our web browser and use it to test the connection between the local MQTT broker on the Portenta X8 board and the web-based MQTT client. In this tutorial, we will use MQTTBox, a Google Chrome extension that works as an MQTT client.
+To test the Mosquitto broker, we need an MQTT client. We can use several ways to implement an MQTT client, one of the easiest ways is to install an MQTT client in our web browser and use it to test the connection between the local MQTT broker on the Portenta X8 board and the web-based MQTT client. This tutorial will use MQTTBox, a Google Chrome extension that works as an MQTT client.      
 
 In MQTTBox, let's start by configuring the settings of the MQTT client. The information we are going to need is the following:
 
@@ -249,7 +247,116 @@ Node-RED desktop is a GUI that let us work with Node-RED flows graphically. Let'
 
 ### Testing Grafana
 
-## Sending Sensor Data Using the MKR WiFi 1010
+## Sending Data Using the MKR WiFi 1010 Board
+
+Now, it is time to test our entire data logging application. For this, we will use an MKR WiFi 1010 board; this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
+
+First, let's ensure we have the required drivers for the MKR WiFi 1010 installed. This can be done by navigating to **Tools > Board > Board Manager...**, here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest available version. We need to install also the libraries that we are going to use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
+
+Now, let's open a new sketch and create a new header file called `arduino_secrets.h` in a separate tab; to create a separate tab in the Arduino IDE, click the arrow symbol underneath the Serial Monitor symbol, then click on the "New tab" option. In this header file, we are going to store our Wi-Fi credentials:
+
+```arduino
+#define SECRET_SSID "your-ssid"
+#define SECRET_PASS "your-password"
+```
+
+Now, let's program the following sketch in the MKR WiFi 1010 board:
+
+```arduino
+#include <ArduinoMqttClient.h>
+#include <WiFiNINA.h>
+#include "arduino_secrets.h"
+
+// Wi-Fi information
+char ssid[] = SECRET_SSID;        // Your network SSID, stored in the arduino_secrets.h file
+char pass[] = SECRET_PASS;        // Your network password, stored in the arduino_secrets.h file
+WiFiClient wifiClient;
+MqttClient mqttClient(wifiClient);
+
+// MQTT broker information
+
+const char broker[] = "your-portenta-ip";
+int        port     = 1883;
+const char topic[]  = "test";
+
+// Interval for sending messages (in milliseconds) to the MQTT broker
+const long interval = 5000;
+unsigned long previousMillis = 0;
+
+// Data to send to the MQTT broker
+int count = 0;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // Wait for serial port to connect, needed for native USB port only
+  }
+
+  // Attempt to connect to the defined Wi-Fi network
+  Serial.print("- Attempting to connect to WPA SSID: ");
+  Serial.println(ssid);
+
+  while (WiFi.begin(ssid, pass) != WL_CONNECTED) {
+    // Connection attempt failed, retry again
+    Serial.print(".");
+    delay(5000);
+  }
+
+  Serial.println("- You're connected to the network!");
+  Serial.println();
+  
+  // Attempt to connect to the defined Wi-Fi network
+  Serial.print("- Attempting to connect to the MQTT broker: ");
+  Serial.println(broker);
+
+  // Connection attempt to the MQTT broker failed
+  if (!mqttClient.connect(broker, port)) {
+    Serial.println("- MQTT connection failed!");
+    Serial.print("- Error code: ");
+    Serial.println(mqttClient.connectError());
+
+    while (1);
+  }
+
+  Serial.println("- You're connected to the MQTT broker!");
+  Serial.println();
+}
+
+void loop() {
+  // Keep the board connected to the MQTT broker
+  mqttClient.poll();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    // Send the gathered data to an specific topic of the MQTT broker
+    previousMillis = currentMillis;
+    Serial.print("- Sending message to topic: ");
+    Serial.println(topic);
+    Serial.print("- ");
+    Serial.println(count);
+    mqttClient.beginMessage(topic);
+    mqttClient.print(count);
+    mqttClient.endMessage();
+    Serial.println();
+
+    // Update data value    
+    count++;
+  }
+}
+```
+
+The sketch shown above connects the MKR WiFi 1010 to the local MQTT broker of the X8 and periodically sends the value of a counter to the topic `test`. 
+
+***Please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mqtt-device-to-device#programming-the-publisher) for more in-depth information about MQTT and the MKR WiFi 1010 board.***
+
+If everything is ok, you should see the following in the Serial monitor of the Arduino IDE:
+
+**ADD IMAGE HERE**
+
+Now let's check out out Grafana dashboard, we should see data from the MKR WiFi 1010 board:
+
+**ADD IMAGE HERE**
 
 ## Conclusion
 
