@@ -20,10 +20,10 @@ Many of the existing IoT devices will be connected to the Internet using short-r
 
 Some of the important use cases for LPWAN's include the following applications:
 
-- **Smart cities**: smart parking, intelligent street lighting.
-- **Supply chain management**: asset tracking, condition monitoring. 
-- **Smart grids**: electricity, water, and gas metering.
-- **Smart agriculture**: land condition monitoring, animal tracking, geofencing. 
+- **Smart cities**: smart parking, intelligent street lighting
+- **Supply chain management**: asset tracking, condition monitoring 
+- **Smart grids**: electricity, water, and gas metering
+- **Smart agriculture**: land condition monitoring, animal tracking, geofencing 
 
 ***If you want to read more about LPWAN's, check out [this article](/learn/wireless/lorawan-101) from the Learn section.***
 
@@ -59,8 +59,8 @@ LoRaWAN® networks are usually deployed in a **star-of-stars topology**; this me
 
 Star networks present several advantages compared to other network topologies:
 
-- Gateways can be added to the network anywhere and anytime without prior planning.
-- Message delivery is more robust since multiple gateways receive the same data packets during each uplink.
+- Gateways can be added to the network anywhere and anytime without prior planning
+- Message delivery is more robust since multiple gateways receive the same data packets during each uplink
 
 ### Data Rates
 
@@ -70,9 +70,9 @@ Communication between end-devices and gateways in LoRaWAN® networks is spread o
 
 To maximize the battery life of each end-device and the overall capacity available through the network, LoRaWAN® uses an **Adaptive Data Rate** (ADR) mechanism for **optimizing data rates, airtime, and power consumption**. ADR controls the following transmission parameters on end-devices:
 
-- **Spreading factor**: the **speed of data transmission**. Lower spreading factors mean a higher data transmission rate. 
-- **Bandwidth**: the **amount of data that can be transmitted** from one point to another within the network. 
-- **Transmission power**: the energy that the end-device transmitter produces at its output.
+- **Spreading factor**: the **speed of data transmission**. Lower spreading factors mean a higher data transmission rate
+- **Bandwidth**: the **amount of data that can be transmitted** from one point to another within the network
+- **Transmission power**: the energy that the end-device transmitter produces at its output
 
 The table below shows compares spreading factor, data rate, and time on-air at a bandwidth of 125 kHz (range is an indicative value, it will depend on the propagation conditions):
 
@@ -87,12 +87,12 @@ The table below shows compares spreading factor, data rate, and time on-air at a
 
 End-devices may transmit on any channel available at any time, using any available data rate, as long as the following rule is respected:
 
-- The end-device changes channel in a pseudo-random fashion for every transmission. The resulting frequency diversity makes the system more robust against interference.
+- The end-device changes channel in a pseudo-random fashion for every transmission. The resulting frequency diversity makes the system more robust against interference
   
 Also, local regulations must be respected, for example:
 
-- In the EU868 band, the end-device must respect the maximum transmit duty cycle relative to the sub-band used and local regulations (1% for end-devices).
-- In the US915 band, the end-device must respect the maximum transmit duration (or dwell time) relative to the sub-band used and local regulations (400ms).
+- In the EU868 band, the end-device must respect the maximum transmit duty cycle relative to the sub-band used and local regulations (1% for end-devices)
+- In the US915 band, the end-device must respect the maximum transmit duration (or dwell time) relative to the sub-band used and local regulations (400ms)
 
 ![LoRaWAN® network layers. Image credits: Semtech.](assets/lorawan-101_img03.png)
 
@@ -156,17 +156,21 @@ Arduino® brings LoRa® connectivity to your projects with several boards, addon
 
 ### Arduino® Boards with LoRa® Connectivity
 
-The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity) and [1310](https://store.arduino.cc/products/arduino-mkr-wan-1310) boards provide you with a practical and cost-effective solution to applications that require LoRa® connectivity and low-power consumption. The MKR WAN 1300 and 1310 boards are based on a [SAMD21 microcontroller](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) from Microchip®; they also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) module from Murata® for LoRa® connectivity, the [ATECC508](https://docs.arduino.cc/resources/datasheets/ATECC508A-datasheet.pdf) cryptoauthentication device for security, and a 2MB SPI Flash memory for onboard storage. 
+The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity) and [1310](https://store.arduino.cc/products/arduino-mkr-wan-1310) boards provide you with a practical and cost-effective solution to applications that require LoRa® connectivity and low-power consumption. The MKR WAN 1300 and 1310 boards are based on a [SAMD21 microcontroller](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) from Microchip®; they also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) module from Murata® for LoRaWAN® connectivity, the [ATECC508](https://docs.arduino.cc/resources/datasheets/ATECC508A-datasheet.pdf) cryptoauthentication device for security, and a 2MB SPI Flash memory for onboard storage. 
 
 ![The Arduino® MKR WAN 1310 board.](assets/lorawan-101_img10.png)
 
-PRO hardware also has  LoRa® connectivity. The Arduino® [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7) board can have LoRa® connectivity with the [Portenta Vision Shield LoRa®](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE); this addon board also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRa® connectivity, the same module present in the MKR 1300 and 1310 boards. 
+PRO hardware also has  LoRaWAN® connectivity. The Arduino® [Portenta H7](https://store.arduino.cc/collections/boards/products/portenta-h7) board can have LoRaWAN® connectivity with the [Portenta Vision Shield LoRa®](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE); this addon board also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRaWAN ® connectivity, the same module present in the MKR 1300 and 1310 boards. 
 
 ![The Arduino® Portenta Vision Shield LoRa®.](assets/lorawan-101_img11.png)
 
 The Arduino® [Edge Control](https://store.arduino.cc/products/arduino-edge-control), a remote monitoring and control solution optimized for outdoor environments, can expand its wireless connectivity capabilities by adding an MKR WAN 1300 or 1310 board. Edge Control can be positioned anywhere and is well suited for smart agriculture and other applications that require intelligent control in remote locations. 
 
 ![The Arduino® Edge Control.](assets/lorawan-101_img12.png)
+
+The Arduino® [Portenta Max Carrier](https://store.arduino.cc/collections/boards/products/portenta-max-carrier) tranforms Portenta boards, such as the [H7](https://store.arduino.cc/collections/pro-family/products/portenta-h7) and the [X8](https://store.arduino.cc/collections/pro-family/products/portenta-x8), into single-board computers, enabling edge AI for high performance industrial, building automation, and robotics applications. The Max Carrier features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf?_gl=1*54znn6*_ga*NzQ5Mzk2MDcwLjE2MjU2MDQ2MjA.*_ga_NEXN8H46L5*MTY0MDAzOTY0Ny4yNTIuMS4xNjQwMDM5NzQ2LjA.) module from Murata® for LoRaWAN® connectivity.
+
+![The Arduino® Max Carrier.](assets/lorawan-101_img14.png)
 
 ### Arduino® Libraries for LoRa® Connectivity
 
