@@ -70,7 +70,7 @@ mkdir -p /tmp/sdcard
 
 The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODEC. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces on the Portenta Max Carrier, these are marked on the image below.
 
-[Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
+![Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
 
 To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib). You can run it with this command:
 ```python
@@ -82,6 +82,8 @@ apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf 
 ### GSM Modem
 
 The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires a SIM card and an antenna connected to the SMA connector.
+
+![LoRa and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
 
 If you want to use this feature with python scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
 
