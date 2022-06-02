@@ -213,13 +213,13 @@ Leave everything else as default and save the settings of the client. If everyth
 
 ## Installing Node-RED
 
-The simplest form to run Docker is by using the following command:
+The simplest form to run Node-RED with Docker is by using the following command:
 
 ```
 docker run -it -p 1880:1880 -v node_red_data:/data --name mynodered nodered/node-red    
 ```
 
-With this command, we are going to run the Node-RED container locally in our Portenta X8 board. Let's dissect the command:
+With this command, we are going to run a Node-RED container **locally** in our Portenta X8 board. Let's dissect the command:
 
 - `-it`: a terminal session is attached to the container so we can see what is happening with the container
 - `-p 1880:1880`: Node-RED local port `1880` connects to the exposed internal port `1880` 
@@ -229,15 +229,48 @@ With this command, we are going to run the Node-RED container locally in our Por
 
 After running the command, we should see a running instance of Node-RED in the terminal:
 
-We can detach the terminal with `Ctrl-p` `Ctrl-q`. This doesn't stop the container, the container will be running in the background. The local instance of Node-RED should be ready. Let's test it!
+**ADD IMAGE HERE**
+
+We can detach the terminal with `Ctrl-p` `Ctrl-q`; This doesn't stop the container, the container will be running in the background. The local instance of Node-RED should be ready. Let's test it!
 
 ### Testing Node-RED
 
-Browse to `http://{your-portenta-ip}:1880`, this will open Node-RED desktop as show in the image below:
+Let's browse to `http://{your-portenta-ip}:1880`; this will open the Node-RED desktop as shown in the image below:
 
-Node-RED desktop is a GUI that let us work with Node-RED flows graphically. Let's test Node-RED flows by connecting to the local MQTT broker we set up before. Go to the `Nodes` section in the left part of the browser, search for `network` and choose the `mqtt in` node. Drag the node and drop it in the workspace. Then, search for the `debug` node and drop it also in the workspace. Connect both nodes, it should look like in the image below:
+**ADD IMAGE HERE**
 
+Node-RED desktop is a GUI that lets us work with Node-RED flows graphically. We can test Node-RED  by connecting to the local MQTT broker we set up before using a Node-RED flow. In the `Nodes` section located in the left part of the browser, search for `network` and choose the `mqtt in` node and drop it in the workspace; we will use this node to connect to the MQTT broker of the X8we will use this node to connect to the MQTT broker of the X8. To change the node's properties, double click on it and define the following properties:
 
+- **Server**: `your-portenta-ip:1883`
+- **Action**: Subscribe to single topic
+- **Topic**: `test`
+- **QoS**: 0
+- **Output**: auto-detect (string or buffer)
+- **Name**: MQTT Broker X8 
+
+Now, search for the `change` node and drop it also in the workspace; we will use this node to change the format of the data from the MQTT broker (string to number). To change the node's properties, double click on it and define the following properties:
+
+- **Name**: String to number
+- **Set**: msg.payload
+- **To the value**: `$number(payload)`
+
+Now, search for the `debug` node and drop it also in the workspace; we will use this node to check if Node-RED is getting data from the test topic and if Node-RED is formatting the data correctly. Define the name of the node as debug and then let's connect the nodes as shown in the image below:
+
+**ADD IMAGE HERE**
+
+After connecting the nodes, we must deploy the Node-RED application by selecting the "Deploy" button located on the superior right side of the browser. We should see a "Successfully deployed" message if everything is ok, as shown in the image below:
+
+**ADD IMAGE HERE**      
+
+Let's use the MQTT client described before to test the MQTT broker integration with Node-RED. Just beneath the "Deploy" button, look for an **icon with a bug**; **Node-RED's debug interface** is open by clicking on the bug icon. Now we can start sending messages to the MQTT broker in the X8 and see them deployed in the debug interface of Node-RED. With the MQTT client, let's subscribe first to the `test` topic and then publish any value to the topic, as shown in the image below:
+
+**ADD IMAGE HERE**      
+
+We should see now data in the debug interface of Node-RED, as shown in the image below:
+
+**ADD IMAGE HERE**   
+
+Success! We can configure InfluxDB.
 
 ## Installing InfluxDB
 
@@ -249,7 +282,7 @@ Node-RED desktop is a GUI that let us work with Node-RED flows graphically. Let'
 
 ## Sending Data Using the MKR WiFi 1010 Board
 
-Now, it is time to test our entire data logging application. For this, we will use an MKR WiFi 1010 board; this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
+Now, it is time to test our entire data logging application. We will use an MKR WiFi 1010 board; this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
 
 First, let's ensure we have the required drivers for the MKR WiFi 1010 installed. This can be done by navigating to **Tools > Board > Board Manager...**, here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest available version. We need to install also the libraries that we are going to use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
 
