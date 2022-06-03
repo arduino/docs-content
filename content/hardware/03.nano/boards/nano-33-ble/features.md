@@ -37,7 +37,7 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
 
   This board is compatible with Lauterbach TRACE32 debugger, and a free license can be obtained using the boards serial number.
 
-  <FeatureLink title="Learn More" url="/tutorials/trace-32"/>
+  <FeatureLink title="Learn More" url="/tutorials/nano-33-ble/trace-32"/>
 </Feature>
 
 
