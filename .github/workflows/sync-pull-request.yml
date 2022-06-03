@@ -30,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SYNC_GITHUB_CLI_TOKEN }}
         run: |
          gh pr create --title "$(gh pr view $GITHUB_REF_NAME --json title --jq .title)" --body "$(gh pr view $GITHUB_REF_NAME --json body --jq .body)" --repo arduino/docs-content
-         for VARIABLE in $(gh pr view $GITHUB_REF_NAME --json labels --jq .labels[].name); do gh pr edit --add-label $VARIABLE --repo arduino/docs-content; done
+         for LABEL in $(gh pr view $GITHUB_REF_NAME --json labels --jq .labels[].name); do gh pr edit --add-label $LABEL --repo arduino/docs-content; done
          gh pr edit --add-label "arduino" --add-assignee "$(gh pr view $GITHUB_REF_NAME --json assignees --jq .assignees[].login)"
         # gh pr edit --add-reviewer "$(gh pr view $GITHUB_REF_NAME --json reviewRequests --jq .reviewRequests[].login)"
 
