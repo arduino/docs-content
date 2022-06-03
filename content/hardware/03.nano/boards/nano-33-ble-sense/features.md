@@ -56,4 +56,11 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_HTS221.pdf" download blank/>
 </Feature>
 
+<Feature title="Lauterbach TRACE32 debugger" image="file-icon">
+
+  This board is compatible with Lauterbach TRACE32 debugger, and a free license can be obtained using the boards serial number.
+
+  <FeatureLink title="Learn More" url="/tutorials/trace-32"/>
+</Feature>
+
 </FeatureList>
