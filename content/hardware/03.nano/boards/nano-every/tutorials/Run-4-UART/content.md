@@ -41,7 +41,7 @@ The goals of this project are:
 
 For this project we will need:
 
-* Arduino Nano Every
+* [Arduino Nano Every](https://store.arduino.cc/products/arduino-nano-every)
 * 4 x Arduino Nano Every (or any other Arduino boards that works at 5V)
 * 5 x [mini breadboard](https://store.arduino.cc/mini-breadboard-white-998)
 * 13 x [jumper wires](https://store.arduino.cc/10-jumper-wires-150mm-male)
