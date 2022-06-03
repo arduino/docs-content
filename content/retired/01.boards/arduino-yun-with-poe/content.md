@@ -30,7 +30,7 @@ In the Getting Started section, you can find all the information you need to con
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=93.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 This board version comes with the PoE module on board.The **Arduino Yún** is a microcontroller board based on the ATmega32u4 and the Atheros AR9331\. The Atheros processor supports a Linux distribution based on OpenWrt named Linino OS. The board has built-in Ethernet and WiFi support, a USB-A port, micro-SD card slot, 20 digital input/output pins (7 of them can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, an ICSP header, and 3 reset buttons.
 

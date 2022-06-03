@@ -30,7 +30,7 @@ In the Getting Started section, you can find all the information you need to con
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=93.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 Warning: Arduino YÚN is not compatible with 12V PoE module.
 

@@ -37,5 +37,5 @@ When you purchase an Arduino Basic Kit you will receive an email with all the in
 ### Need Help?
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=86.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
