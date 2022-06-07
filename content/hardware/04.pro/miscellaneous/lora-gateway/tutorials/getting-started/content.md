@@ -24,8 +24,9 @@ This tutorial will show you how to get started with your Nicla Sense ME board an
 The goals of this article are:
 
 - Setup the hardware
-- Open the browser dashboard
-- Create a Gateway on The Things Network 
+- Connect locally to the Gateway
+- Open the dashboard panel
+- Create a Gateway on The Things Network
 - Setup the credentials on the device from TTN
 - Attatching it on a Pole and water isolating the connectors
 - Test the Gateway (optional)
@@ -46,12 +47,18 @@ The package includes:
 
 ### Setup the hardware
 
+The device can be supplied from 37 to 57 VDC with a PoE or with a Solar panel (12 VDC).
+You can supply it through the Solar Panel cable (12V cable) or with an ethernet cable with PoE.
+
+In case of the PoE, you can use the PoE Injector included with the kit by connecting your LAN to the `LAN` port and the `PoE` port to the Gateway.
+
+
 ### Connect to the WisGate dashboard
 
-There are different ways to connect to the WisGate:
-* Connecting to its Wi-Fi AP (IP `192.168.230.1`)
-* Ethernet cable from your Computer to the Gateway (IP `192.168.230.1`)
-* Connecting your Gateway to your LAN, getting its DHCP IP (You will need to discover the device's local IP)
+There are different ways to access the WisGate:
+* Connecting to its Wi-Fi Access Point (dashboarrd IP: `192.168.230.1`)
+* Ethernet cable from your Computer to the Gateway (dashboard IP: `192.168.230.1`)
+* Connecting your Gateway to your LAN, getting its DHCP IP (You will need to discover the device's IP)
 
 Once you got the IP of your Gateway you can type it in your browser to access the dashboard.
 
@@ -62,6 +69,8 @@ The first time you attempt to login it will require you to set up the password o
 Once the password is set, you will now be able to see and interact with the dashboard panel.
 
 ![WisGate dashboard](assets/wisgate-dashboard-overview.png)
+
+***The WiFi Accesss Point that is running, by default it is open, we recommend you to set a password with WPA2-PSK encryption to secure your device, you can do that by accessing the Wi-Fi settings going to network > LAN > Wi-Fi > Settings***
 
 ### Create the Gateway on TTN dashboard
 
@@ -107,8 +116,7 @@ Fill the Server URL with `wss://eu1.cloud.thethings.network` (for EU) and the po
 
 The authentication Mode "TLS Server & Client oken Authentication"
 
-Choose the file with the certificates that you can download from https://letsencrypt.org/certs/isrgrootx1.pem
-
+Choose the file with the certificates that you can download from [here](https://letsencrypt.org/certs/isrgrootx1.pem)
 
 And the client token that you can get inside the TTN Gateway's dashboard panel. 
 
@@ -124,7 +132,7 @@ Then paste it on the WisGate dashboard form as `Authorization: <YOUR_API_KEY>`
 
 Click "Save changes".
 
-After all the setup you could see the Gateway status being "Connected"
+After finishing the setup you could see the Gateway status being "Connected"
 
 ![](assets/ttn-gateway-connected.png)
 
