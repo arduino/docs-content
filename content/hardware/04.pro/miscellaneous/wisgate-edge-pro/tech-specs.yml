@@ -1,5 +1,5 @@
 Board:
-  Name: Arduino® WisGate Edge Gateway
+  Name: Arduino® WisGate Edge Pro
   SKU: 
     EU: ABX00---
     ENZ: ABX00---
@@ -13,23 +13,24 @@ Wi-Fi:
   TX Power: 20 dBm (Max)
   Operation channels: 2.4 GHz 1-13
 Lo-Ra:
-  channels: 8
+  Controller: SX1303 mPCIe card
+  channels: 16
   RX Sensitivity: -139 dBm (Min)
   TX Power: 27 dBm (Max)
   Extra: Listen Before Talk
 Antennas:
   LTE: Internal antenna
   Wi-Fi: Internal antenna
+  LoRa: External, 2 N-Type connectors
 Ethernet: RJ45 (10/100 Mbps)
-Frequencies compatibility: EU433/CN470/EU868/US915/AS923/AU915/IN865/KR920
-Otdoors version specs:
-  Enclosure protection:
-    Ingress Protecction: IP67
-    Connection plug: NEMA-6
-    Materials: Aluminum and plastic
-    Installation method: Pole or wall mounting
-  Antennas:
-    LoRa: 1 or 2 N-Type connectors
-
-
-##mPCIe card: SX1303 (Up to 2 units) Power: PoE (IEEE 802.3 af), 37~57 VDC
+Power:
+  DC Input: 12V or Solar panel
+  PoE (IEEE 802.3 af): 36-57 VDC
+Console: Through USB-C
+Frequencies compatibility: EU868, AU915, US915, AS923
+Enclosure protection:
+  Protection Rating: IP67
+  Connection plug: NEMA-6
+  Materials: Aluminum and plastic
+  Installation method: Pole or wall mounting
+Extra: GPS

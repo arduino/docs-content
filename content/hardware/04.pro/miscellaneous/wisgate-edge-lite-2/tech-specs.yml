@@ -1,0 +1,36 @@
+Board:
+  Name: Arduino® WisGate Edge Lite 2
+  SKU: 
+    EU: ABX00---
+    ENZ: ABX00---
+    US: ABX00---
+Computing: MT7628, DDR2 RAM 128 MB
+Operating temperature: -10 ºC to +55 ºC
+Wi-Fi:
+  Frequency: 2.4 GHz (802.11 bgn)
+  RX Sensitivity: -95 dBm (Min)
+  TX Power: 20 dBm (Max)
+  Operation channels: 2.4 GHz 1-13
+Lo-Ra:
+  Controller: SX1302 Mini PCIe card
+  channels: 8
+  RX Sensitivity: -139 dBm (Min)
+  TX Power: 27 dBm (Max)
+  Extra: Listen Before Talk
+Antennas:
+  LTE: Internal antenna
+  Wi-Fi: Internal antenna
+  Lo-Ra: RP-SMA female connector
+Ethernet: RJ45 (10/100 Mbps)
+Power:
+  Input: 12V 1A
+  PoE (IEEE 802.3 af): 36-57 VDC
+  consumption: 12 W (typical)
+Console: Through USB-C
+Frequencies compatibility: EU868, AU915, US915, AS923
+Enclosure:
+  Protection Rating: IP30
+  Materials: Plastic
+  Weight: 0.3 Kg
+  Dimensions: 166 x 127 x 36 mm
+  Mounting method: Wall

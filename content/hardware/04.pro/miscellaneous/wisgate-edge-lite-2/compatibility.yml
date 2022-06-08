@@ -1,4 +1,7 @@
 hardware:
+  boards:
+    - mkr-wan-1300
+    - mkr-wan-1310
   shields:
     - portenta-vision-shield
   carriers:
