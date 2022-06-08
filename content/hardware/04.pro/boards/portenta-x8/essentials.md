@@ -8,9 +8,6 @@
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/docker-container" title="Containers management" type="tutorial">
         Tutorial to learn how to manage docker containers with the Portenta X8.
     </EssentialElement>
-    <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange" title="Arduino RPC" type="library">
-            Both M7 and M4 can communicate through remote procedure call (RPC), this tutorial demonstrates using the RPC library of the Arduino Mbed Core.
-    </EssentialElement>
 </EssentialsColumn>
     
 <EssentialsColumn title="Suggested Repositories">
@@ -31,8 +28,5 @@
     </EssentialElement>
       <EssentialElement link="https://www.arduino.cc/reference/en/language/functions/communication/spi/" title="Arduino SPI" type="library">
             The M4 processor exposes the SPI protocol. This library allows you to communicate with SPI devices, with the Arduino as the controller device.
-    </EssentialElement>
-    <EssentialElement link="https://github.com/arduino/ArduinoCore-mbed/releases/latest" title="Arduino RPC" type="library">
-            Both M7 and M4 can communicate through remote procedure call (RPC), these are some examples using the RPC library of the Arduino Mbed Core.
     </EssentialElement>
 </EssentialsColumn>
