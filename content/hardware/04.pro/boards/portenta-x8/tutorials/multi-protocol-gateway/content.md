@@ -39,7 +39,7 @@ In this tutorial we will go through the steps of how to setup both Linux and Ard
 
 ## Multi-Protocol Gateway 101
 
-![Multi-Protocol Gateway Architecture Overview](assets/.png)
+<!-- ![Multi-Protocol Gateway Architecture Overview](assets/.png) -->
 
 A gateway is a network node and a key-point for data exchange between different netoworks under certain given specification. Simply referred as a hardware that relies between two networks. On the other hand, a **multi-protocol gateway** goes one step further by implementing variety of protocols in a single gateway. 
 
@@ -54,7 +54,7 @@ The Portenta X8 paired to Portenta Max Carrier has the potential to create syner
 - LoRaWAN (The Things Network)
 - NB-IoT & Cat-M1
 
-![Multi-Protocol Gateway and Scalability Overview](assets/.png)
+ <!-- ![Multi-Protocol Gateway and Scalability Overview](assets/.png) -->
 
 Bear in mind, that this present tutorial emphasizes on making a multi-protocol gateway using previous connectivity modules. Yet, this Portenta combination still has much to offer. To get the most out of this Portenta configuration, we will go step by step on establishing the multi-protocol gateway and add scalability to expand its capability. 
 
@@ -74,7 +74,7 @@ To showcase the ability of the Arduino layer extended by M4 Core, we will explor
 
 It is important to understand that **all networking process is made within the Linux layer**. All the network processes that are WiFi, Bluetooth low energy, LoRa, NB-IoT, and Cat-M1. In this tutorial we will focus on using WiFi with MQTT protocol, Bluetooth low energy, and LoRa connectivities to establish a gateway based on multiple protocols. 
 
-![Multi-Protocol Handling Procedure in Linux Layer](assets/.png)
+<!-- ![Multi-Protocol Handling Procedure in Linux Layer](assets/.png) -->
 
 The Portenta X8 provides WiFi connectivity and the Portenta Max Carrier provides LoRaWAN module that can help us communicate with The Things Network. We will use the MQTT protocol to receive the sensor data transmitted by an end device. 
 
@@ -84,7 +84,7 @@ Thus, we will use a python script that will configure and handle the connectivit
 
 First things first, we will need to configure the hardware to be able to develop and work on Multi-Protocol gateway. We will attach the Portenta X8 to Portenta Max Carrier via High-Density Connectors, and we will make sure to attach an antenna for LoRa connectvity. The Portenta X8 should also need to have the WiFi antenna attached to it. 
 
-![Multi-Protocol Gateway Hardware Setup](assets/.png)
+<!-- ![Multi-Protocol Gateway Hardware Setup](assets/.png) -->
 
 ***If you have not set up the Portenta X8, please have a look at [Portenta X8 Getting Started](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box) tutorial.***
 
