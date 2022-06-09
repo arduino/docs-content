@@ -11,6 +11,10 @@ Nano 33 IoT is a miniature sized module containing a Cortex M0+ SAMD21 processor
 # Target areas:
 Maker, enhancements, basic IoT application scenarios
 
+| Product name                       | Model     |
+| Arduino Nano IoT 33                | ABX00027  | 
+| Arduino Nano IoT 33 with headers   | ABX00032  |
+
 # Features
 - **SAMD21G18A** 
     - **Processor**
