@@ -30,7 +30,7 @@ The Nano Screw Terminal is compatible with the following boards:
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 
 
-## The Nano Screw Terminal
+## Overview
 
 The [Nano Screw Terminal](https://store.arduino.cc/nano-screw-terminal) serves a simple purpose: provide screw terminal connections with clear markings to your Nano board. This makes it easy to assemble robust circuits that can be used for finished projects. 
 
@@ -42,7 +42,7 @@ As a bonus, it also comes with a smaller prototyping area that you can solder co
 
 The two screw terminal blocks are mounted on each side of the carrier and provides easy connections that can be fastened with a simple flathead screwdriver.
 
-There is also two extra GND connectors for your convenience.
+There are also two extra GND connectors for your convenience.
 
 ### Prototyping Area
 
@@ -84,8 +84,6 @@ In particular, the carrier can be used when a project is done with the "breadboa
 Seen in the image below is a DHT22 temperature/humidity sensor, connected to a [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) board, placed inside a water tight enclosure (for outdoor use).
 
 ![Nano Screw Terminal + Nano RP2040 Connect + DHT22 Sensor.](assets/nst-dht-rp2040.png)
-
-While this was a quick prototype put together in a couple of minutes, you can build much more sophisticated setups. The board has a hole in each corner, so that you can easily attach it with screws.
 
 ## Conclusion
 
