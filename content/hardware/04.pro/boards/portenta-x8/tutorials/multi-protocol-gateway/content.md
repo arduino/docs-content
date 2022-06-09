@@ -1,5 +1,5 @@
 ---
-title: 'Establishing Multi-Protocol Gateway with your Portenta X8 and Max Carrier'
+title: 'Build Multi-Protocol Gateway With Portenta X8 & Max Carrier'
 description: 'This tutorial shows on how to setup multi-protocol gateway environment on Portenta X8 using Max Carrier'
 tags:
   - containers
@@ -45,7 +45,7 @@ A gateway is a network node and a key-point for data exchange between different 
 
 The idea of **Multi-Protocol Gateway** is to build a device that will establish a information relay, that handles incoming and outgoing traffic of data using different connectivity protocols.
 
-This means that the gatway can receive the data transmitted in certain protocol type and relay the data in a different protocol for a remote server. Such capability provides the ability to develop on distinctive types of protocols and relay the data with less complexity involving in one's end. 
+This means that the gateway can receive the data transmitted in certain protocol type and relay the data in a different protocol for a remote server. Such capability provides the ability to develop on distinctive types of protocols and relay the data with less complexity involving in one's end. 
 
 The Portenta X8 paired to Portenta Max Carrier has the potential to create synergy, and you will have following tools at disposal:
 
@@ -86,7 +86,7 @@ First things first, we will need to configure the hardware to be able to develop
 
 ![Multi-Protocol Gateway Hardware Setup](assets/.png)
 
-***If you have not setted up the Portenta X8, please have a look at [Portenta X8 Getting Started](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box) tutorial.***
+***If you have not set up the Portenta X8, please have a look at [Portenta X8 Getting Started](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box) tutorial.***
 
 ## Pre-Requisites
 
@@ -159,7 +159,7 @@ paho-mqtt
 ...
 ```
 
-### multi-protocol
+### Multi-Protocol
 
 This is the main Python script that will handle overall networking process.
 
@@ -191,7 +191,7 @@ def get_data_from_m4():
         data = temperature, humidity
 
     except RpcError.TimeoutError:
-        print("Unable to retrive data from the M4.")
+        print("Unable to retrieve data from the M4.")
 
     return data
 ```
@@ -201,14 +201,6 @@ def get_data_from_m4():
 SECRET_DEV_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-
-ser = serial.Serial()
-ser.baudrate = 19200
-ser.port = '/dev/ttymxc3'
-ser.bytesize = 8
-ser.parity = 'N'
-ser.stopbits = 2
-ser.timeout = 1
 ```
 
 <WIP>
