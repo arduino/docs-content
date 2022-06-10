@@ -97,7 +97,7 @@ For more in-depth information about LoRa® and LoRaWAN®, please read [The Ardui
 
 ### Ethernet
 
-The Gigabit Ethernet physical interface is directly connected to the high density connector to the Portenta X8 board. The connector includes a LED for indicating activity using the color orange , there is also a LED using the color green to indicate speed.
+The Gigabit Ethernet physical interface is directly connected to the high density connector to the Portenta X8 board. The connector includes a LED for indicating activity using the color orange, there is also a LED using the color green to indicate speed.
 
 To access the 1 Gbps connection Ethernet peripheral on the Max Carrier you can use the following command:
 ```python
