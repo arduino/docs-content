@@ -253,6 +253,8 @@ It's also nice to provide people with an example sketch that uses your library. 
 
 If you'd like to check out the complete library (with keywords and example), you can download it: [Morse.zip](https://www.arduino.cc/en/uploads/Hacking/Morse.zip).
 
+If you'd like to make your library available to others in Arduino's **Library Manager** you will also have to inlcude a **library.properties** file. Check out the [Library specification](https://arduino.github.io/arduino-cli/0.23/library-specification/) for more info on that.
+
 If you have any problems or suggestions, please post them to the [Software Development forum](https://forum.arduino.cc/c/development/libraries/39).
 
 For more information, see the [API Style Guide](/learn/contributions/arduino-library-style-guide) for information on making a good Arduino-style API for your library.
