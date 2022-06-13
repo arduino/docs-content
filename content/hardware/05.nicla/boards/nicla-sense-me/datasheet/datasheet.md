@@ -261,7 +261,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | Power consumption advertising with sensor poiling at 1Hz        |      | 2.5   |      | mA   |
 | Power consumption advertising with sensor poiling once per hour |      | 1.15  |      | mA   |
 
-**Note:** The measurments have been performed by activating temperature sensor, accelerometer and gyroscope, which have been configured with 1Hz sample rate and 1ms latency.
+**Note:** The measurements have been performed by activating temperature sensor, accelerometer and gyroscope, which have been configured with 1Hz sample rate and 1ms latency.
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
