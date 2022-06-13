@@ -97,7 +97,7 @@ Fill the information:
 * Gateway Server Address: the Address of the LoRa network (format: `wss://<cloudServer>`)
 * LoRaWAN options:
   * Frequency plan: select the recommended plan or the one that fits your project
-  
+
 Click the "Create gateway" button at the end of the page.
 
 ### Setup your Gateway with the TTN credentials
@@ -114,7 +114,7 @@ Then at the "Basic station server setup" section pick the "LNS Server" as a type
 
 Fill the Server URL with `wss://eu1.cloud.thethings.network` (for EU) and the port `8887`
 
-The authentication Mode "TLS Server & Client oken Authentication"
+The authentication Mode "TLS Server & Client token Authentication"
 
 Choose the file with the certificates that you can download from [here](https://letsencrypt.org/certs/isrgrootx1.pem)
 
