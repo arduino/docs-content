@@ -253,6 +253,16 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ## Mechanical Information
 ![](assets/niclaSenseMEMech.png)
 
+### Power Consumption
+| Description                                                     | Min  | Typ   | Max  | Unit |
+| ----------------------------------------------------------------| ---- | ----- | ---- | ---- |
+| Power consumption in standby                                    |      | 460   |      | uA   |
+| Power consumption with blink sketch                             |      | 960   |      | uA   |
+| Power consumption advertising with sensor poiling at 1Hz        |      | 2.5   |      | mA   |
+| Power consumption advertising with sensor poiling once per hour |      | 1.15  |      | mA   |
+
+**Note:** The measurments have been performed by activating temperature sensor, accelerometer and gyroscope, which have been configured with 1Hz sample rate and 1ms latency.
+
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
