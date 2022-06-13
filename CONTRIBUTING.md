@@ -26,7 +26,7 @@ Contributions that are more likely to be rejected:
 
 ## Style
 
-We require content to be written in plain and concise language, so that both basic and advanced users can understand it. See our [Style Guide](https://docs.arduino.cc/hacking/software/ArduinoStyleGuide) for more information about this.
+We require content to be written in plain and concise language, so that both basic and advanced users can understand it. See our [Style Guide](https://docs.arduino.cc/learn/contributions/arduino-writing-style-guide) for more information about this.
 
 ## Licensing 
 
