@@ -125,7 +125,7 @@ The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various 
 ***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.***
 
 ### Positioning
-Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V. Input impedence for GNSS antenna connector is 50Ω. For compatibility with all GNSS system, the antenna should be compatible over the 1559 - 1606 MHz frequency range. 
+Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and has a bias voltage of 3.0V. Input impedance for GNSS antenna connector is 50Ω. For compatibility with all GNSS system, the antenna should be compatible over the 1559 - 1606 MHz frequency range. 
 ***Note: GNSS and cellular services cannot be used simultaneously.***
 
 ### Power Tree
