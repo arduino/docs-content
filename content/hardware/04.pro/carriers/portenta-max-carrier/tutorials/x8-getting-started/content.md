@@ -33,9 +33,9 @@ The goals of this project are:
 
 ## The Portenta Max Carrier
 
-The Portenta Max Carrier was designed to add capabilities to the Arduino® Portenta X8 board and provide easy access to its on-board peripherals. It is designed to enable research and develop industrial grade advanced applications, from fast prototyping to deployable robust single board computer.
+The Arduino® Portenta Max Carrier was designed to add capabilities to the Arduino® Portenta X8 board and provide easy access to its on-board peripherals. It is designed to enable research and develop industrial grade advanced applications, from fast prototyping to deployable robust single board computer.
 
-To make use of the Arduino Portenta Max Carrier you will need to power it through either the barrel jack connector or with a 3.7V 18650 Li-Ion battery, connected to the Portenta Max Carriers battery clips.
+To make use of the Portenta Max Carrier you will need to power it through either the barrel jack connector or with a 3.7V 18650 Li-Ion battery, connected to the Portenta Max Carriers battery clips.
 
 | Function                 | Supported on the Portenta X8 M4 Core | Supported on Portenta X8's NXP® i.MX 8M Mini Processor |
 | ------------------------ | ------------------------------------ | ------------------------------------------------------ |
@@ -209,8 +209,3 @@ If you want to use the Portenta X8 and Max Carrier with a Foundries.io Factory, 
 |                        | 33                                                                 | mPCIe_TX_P  | Diff.   | PCIe Transmission Differential Positive |
 |                        | 36                                                                 | USB_DN      | Diff.   | USB Data Differential Negative          |
 |                        | 38                                                                 | USB_DN      | Diff.   | USB Differential Positive               |
-
-
-## Conclusion
-
-Now you should know more about the possibilities of the Portenta Max Carrier and the Portenta X8.
