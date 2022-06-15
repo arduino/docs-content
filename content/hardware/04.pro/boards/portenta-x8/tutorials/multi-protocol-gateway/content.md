@@ -54,7 +54,7 @@ The Portenta X8 paired to Portenta Max Carrier has the potential to create syner
 - LoRaWAN (The Things Network)
 - NB-IoT & Cat-M1
 
- <!-- ![Multi-Protocol Gateway and Scalability Overview](assets/.png) -->
+ ![Multi-Protocol Gateway and Scalability Overview](assets/multi-protocol-arch.png)
 
 Bear in mind, that this present tutorial emphasizes on making a multi-protocol gateway using previous connectivity modules. Yet, this Portenta combination still has much to offer. To get the most out of this Portenta configuration, we will go step by step on establishing the multi-protocol gateway and add scalability to expand its capability. 
 
@@ -84,7 +84,7 @@ Thus, we will use a python script that will configure and handle the connectivit
 
 First things first, we will need to configure the hardware to be able to develop and work on Multi-Protocol gateway. We will attach the Portenta X8 to Portenta Max Carrier via High-Density Connectors, and we will make sure to attach an antenna for LoRa connectvity. The Portenta X8 should also need to have the WiFi antenna attached to it. 
 
-<!-- ![Multi-Protocol Gateway Hardware Setup](assets/.png) -->
+![Multi-Protocol Gateway Hardware Setup](assets/multi-protocol-hardware.png)
 
 ***If you have not set up the Portenta X8, please have a look at [Portenta X8 Getting Started](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box) tutorial.***
 
