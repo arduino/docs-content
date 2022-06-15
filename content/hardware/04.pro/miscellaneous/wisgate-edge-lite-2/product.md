@@ -1,5 +1,5 @@
 ---
-title: WisGate Edge Edge Lite 2
+title: WisGate Edge Lite 2
 url_shop: https://store.arduino.cc/wisgate-edge-lite-2
 url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
 ---
