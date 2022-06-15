@@ -1,10 +1,10 @@
 <FeatureDescription>
 
-The **WisGate Edge Lite 2Gateway** is an device with high reliability and it will allow you to set home and small medium-sized industrial indoor LoRaWAN applications with a high execution efficiency.
+The **WisGate Edge Lite 2 gateway** is a device with a high reliability that allows to set up home and small medium-sized industrial indoor LoRaWAN® applications with a high execution efficiency.
 
-Supports up to 8 LoRa channels, multi backhaul with Ethernet, Wi-Fi, and Cellular connectivity.
+It supports up to 8 LoRa channels, multi backhaul with Ethernet, Wi-Fi, and Cellular connectivity.
 
-It is powered by OpenWRT which allows to develop custom applications.
+The gateway is powered by OpenWRT which allows to develop custom applications.
 
 </FeatureDescription>
 
@@ -12,21 +12,25 @@ It is powered by OpenWRT which allows to develop custom applications.
 <FeatureList>
 
 <Feature title="Connectivity" image="mcu">
-  Dual LoRa Concentrators for up to 8 channels. Wi-Fi, LTE and Ethernet.
-  Internal antenna for Wi-Fi, GPS, and LTE, External antenna for LoRa.
+  8 configurable channels. Wi-Fi, LTE and Ethernet.
+  Internal antenna for Wi-Fi, GPS, and LTE, external antenna for LoRa.
 </Feature>
 
 <Feature title="Wi-Fi Access Point" image="environment">
-  Running a Wi-Fi Access point in parallel to the other features.
-  WAN access from the a nanoSIM card (LTE) or connecting it to your LAN like a normal AP.
+  WiFi configurable as a traditional Access Point.
+</Feature>
+
+<Feature title="Cellular connectivity" image="environment">
+  LTE Cellular connectivity via a nanoSIM card.
 </Feature>
 
 <Feature title="MQTT integration" image="environment">
-  It supports the MQTT Bridge function, can use the MQTT integrated to third-party platforms.
+  Embedded MQTT client with Bridging capabilities for direct connectivity to most of the
+Cloud platforms
 </Feature>
 
 <Feature title="Easy and fast configuration" image="configurability">
-  Thanks to OpenWRT and OpenVPN the out-of-the-box installation will be quick and clear, but also allowing advance setups in an easy looking browser experience.
+  Thanks to OpenWRT and OpenVPN the out-of-the-box installation is quick and clear,  also allowing advanced setups.
 </Feature>
 
 </FeatureList>

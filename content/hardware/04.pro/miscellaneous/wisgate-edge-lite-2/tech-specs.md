@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Arduino® Wisgate Edge Lite 2 LoRa Gateway.
+Here you will find the technical specifications for the Arduino® Wisgate Edge Lite 2 gateway for LoRaWAN®.

@@ -1,10 +1,8 @@
 <FeatureDescription>
 
-The **WisGate Edge Gateway** is an industrial-grade device with high reliability and it suits every requirements for an IoT commercial deployment.
+The **WisGate Edge PRO gateway** is an industrial-graded device with high reliability and suits every requirements for an IoT commercial deployment.
 
-It supports up to 16 LoRaWAN® channels, multi backhaul with Ethernet, Wi-Fi, and Cellular connectivity. Optionally there is a dedicated port for different power options, solar panels, and batteries. With its enclosure design, it allows the LTE, Wi-Fi, and GPS antennas to be inside the enclosure.
-
-Dual LoRaWAN® Concentrators for up to 16 channels.
+It supports 16 LoRaWAN® channels thanks to a Dual LoRaWAN® Concentrator, and multi backhaul connectivity  via Ethernet, Wi-Fi, and Cellular LTE. The design of its enclosure allows internal antennas for LTE, Wi-Fi, and GPS.
 
 It is powered by OpenWRT which allows to develop custom applications.
 
@@ -13,24 +11,23 @@ It is powered by OpenWRT which allows to develop custom applications.
 <FeatureList>
 
 <Feature title="Connectivity" image="mcu">
-  Dual LoRa Concentrators for up to 8 channels. Wi-Fi, LTE and Ethernet.
-  Internal antenna for Wi-Fi, GPS, and LTE, External antenna for LoRa.
+  Dual LoRa Concentrators with 16 channels and dual fiberglass 5dB external antennas. Wi-Fi, LTE and GPS with internal antennas. Ethernet with PoE Capabilities.
 </Feature>
 
 <Feature title="Wi-Fi Access Point" image="environment">
-  Running a Wi-Fi Access point in parallel to the other features.
-  WAN access from the a nanoSIM card (LTE) or connecting it to your LAN like a normal AP.
+  WiFi configurable as a traditional Access Point.
+</Feature>
+
+<Feature title="Cellular Connectivity" image="environment">
+  LTE Cellular connectivity via a nanoSIM card.
 </Feature>
 
 <Feature title="MQTT integration" image="environment">
-  It supports the MQTT Bridge function, can use the MQTT integrated to third-party platforms.
+  Embedded MQTT client with Bridging capabilities for direct connectivity to most of the Cloud platforms
 </Feature>
 
 <Feature title="Easy and fast configuration" image="configurability">
-  Thanks to OpenWRT and OpenVPN the out-of-the-box installation will be quick and clear, but also allowing advance setups in an easy looking browser experience.
-</Feature>
-<Feature title="Easy and fast configuration" image="configurability">
-  Thanks to OpenWRT and OpenVPN the out-of-the-box installation will be quick and clear, but also allowing advance setups in an easy looking browser experience.
+  Thanks to OpenWRT and OpenVPN the out-of-the-box installation is quick and clear, also allowing advanced setups in an easy through a web browser dashboard.
 </Feature>
 
 </FeatureList>

@@ -1,9 +1,9 @@
 Board:
   Name: Arduino® WisGate Edge Pro
   SKU: 
-    EU: ABX00---
-    ENZ: ABX00---
-    US: ABX00---
+    EU: TPX00095
+    ENZ: TPX00096
+    US: TPX00097
 Computing: MT7628, DDR2 RAM 128 MB
 Operating temperature: -30 ºC to +55 ºC
 Wi-Fi:
@@ -12,22 +12,25 @@ Wi-Fi:
   RX Sensitivity: -95 dBm (Min)
   TX Power: 20 dBm (Max)
   Operation channels: 2.4 GHz 1-13
-Lo-Ra:
+LoRa:
   Controller: SX1303 mPCIe card
-  channels: 16
+  Channels: 16
   RX Sensitivity: -139 dBm (Min)
   TX Power: 27 dBm (Max)
   Extra: Listen Before Talk
 Antennas:
-  LTE: Internal antenna
-  Wi-Fi: Internal antenna
-  LoRa: External, 2 N-Type connectors
+  LTE: Internal
+  Wi-Fi: Internal
+  LoRa: 2x external fiberglass 5dB antennas with N-Type connectors
 Ethernet: RJ45 (10/100 Mbps)
 Power:
   DC Input: 12V or Solar panel
   PoE (IEEE 802.3 af): 36-57 VDC
 Console: Through USB-C
-Frequencies compatibility: EU868, AU915, US915, AS923
+Frequencies: 
+  EU868: TXP00095 
+  US915: TXP00096
+  AS923 & AU915: TXP00097
 Enclosure protection:
   Protection Rating: IP67
   Connection plug: NEMA-6
