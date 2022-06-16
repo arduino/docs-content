@@ -39,8 +39,6 @@ In this tutorial we will go through the steps of how to setup both Linux and Ard
 
 ## Multi-Protocol Gateway 101
 
-<!-- ![Multi-Protocol Gateway Architecture Overview](assets/.png) -->
-
 A gateway is a network node and a key-point for data exchange between different netoworks under certain given specification. Simply referred as a hardware that relies between two networks. On the other hand, a **multi-protocol gateway** goes one step further by implementing variety of protocols in a single gateway. 
 
 The idea of **Multi-Protocol Gateway** is to build a device that will establish a information relay, that handles incoming and outgoing traffic of data using different connectivity protocols.
@@ -54,7 +52,9 @@ The Portenta X8 paired to Portenta Max Carrier has the potential to create syner
 - LoRaWAN (The Things Network)
 - NB-IoT & Cat-M1
 
- ![Multi-Protocol Gateway and Scalability Overview](assets/multi-protocol-arch.png)
+Following illustrates how a overall multi-protocol gateway works with Portenta X8 and Max Carrier as the gateway system.
+
+![Multi-Protocol Gateway General Architecture Overview](assets/multi-protocol-arch-general.png)
 
 Bear in mind, that this present tutorial emphasizes on making a multi-protocol gateway using previous connectivity modules. Yet, this Portenta combination still has much to offer. To get the most out of this Portenta configuration, we will go step by step on establishing the multi-protocol gateway and add scalability to expand its capability. 
 
@@ -72,13 +72,15 @@ To showcase the ability of the Arduino layer extended by M4 Core, we will explor
 
 ## Linux Layer
 
-It is important to understand that **all networking process is made within the Linux layer**. All the network processes that are WiFi, Bluetooth low energy, LoRa, NB-IoT, and Cat-M1. In this tutorial we will focus on using WiFi with MQTT protocol, Bluetooth low energy, and LoRa connectivities to establish a gateway based on multiple protocols. 
-
-<!-- ![Multi-Protocol Handling Procedure in Linux Layer](assets/.png) -->
+It is important to understand that **all networking process is made within the Linux layer**. All the network processes that are WiFi, Bluetooth low energy, LoRa, NB-IoT, and Cat-M1. In this tutorial we will focus on using WiFi with MQTT protocol, and LoRa connectivities to establish a multiple protocol gateway.
 
 The Portenta X8 provides WiFi connectivity and the Portenta Max Carrier provides LoRaWAN module that can help us communicate with The Things Network. We will use the MQTT protocol to receive the sensor data transmitted by an end device. 
 
 Thus, we will use a python script that will configure and handle the connectivity modules and its sensor data. The RPC calls will make to expose the received sensor data to Arduino layer to set up data exchange configuration to further expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa if the Arduino layer is to transmit the data to Linux layer fed from the local end-device. 
+
+Now that we know the roles of Arduino and Linux layer, we will need a clear detail of how the multi-protocol gateway should look like in our tutorial. The next diagram illustrates the in-depth multi-protocol gateway architecture, showing how each layer and modules will cooperate.
+
+![Multi-Protocol Gateway In-Depth Architecture](assets/multi-protocol-arch.png)
 
 ## Hardware Setup 
 
@@ -161,7 +163,9 @@ paho-mqtt
 
 ### Multi-Protocol
 
-This is the main Python script that will handle overall networking process.
+This is the main Python script that will handle overall networking process. We will highlight important fragments of the code to help you understand why they are important and how will it be handled accordingly in brief. 
+
+First up, is the configuration for M4 Proxy Server, which is the parameter to handle communication with M4 core that extend the Arduino layer. The `m4_proxy_port` is configured to 5001, as it is the port used by clients to send the data to M4. 
 
 ```
 #M4 Proxy Server Configuration
@@ -173,6 +177,8 @@ publish_interval = 5
 m4_proxy_address = 'm4-proxy'
 m4_proxy_port = 5001
 ```
+
+This function is dedicated to retrieve data from M4 (Arduino layer). It will help you set the variables, such as sensor datas, to be pulled and be exposed at Linux layer. With this, you will have the information available to be used within the Python script. 
 
 ```
 def get_data_from_m4():
@@ -196,6 +202,8 @@ def get_data_from_m4():
     return data
 ```
 
+These 3 parameters are required to establish connection with The Things Network. Given the code provided, the `DEV_EUI` will be predefined as the device will request and apply the EUI. On the other hand, if it requires to use different `DEV_EUI`, you can make the change in this section. `APP_EUI` and `APP_KEY` are required to be configured in this case, as they are provided from The Things Network for example or from the LoRaWAN platform that you may try establishing to. 
+
 ```
 # Obtained during first registration of the device
 SECRET_DEV_EUI = 'XXXXXXXXXXXXXXXX'
@@ -203,32 +211,53 @@ SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
+<WIP - Arduino Code & additional Python script>
+
 <WIP>
 
 ## Mounting the Multi-Protocol Gateway Container
 
 It is now time make the multi-protocol gateway run, we will need to build the Docker container that will help us operate in the background on the Linux layer. Using the terminal, we will use the following commands to get the multi-protocol gatewya container up and running. 
 
+You will need to have the files ready in a folder inside the `adb` directory within Arduino root.
+
+```
+C:\Users\#USERNAME#\AppData\Local\Arduino15\packages\arduino\tools\adb\32.0.0
+```
+
+Having the files ready at that diretory, we will use the following commands to push the files the `fio` directory inside the Portenta X8. The second command will let us navigate inside Portenta X8.
+
 ```
 adb push multi-protocol-gateway /home/fio
 adb shell
 ```
+
+We will now build the container using following commands. Following command will tag the container with `multi-protocol-gateway` name. 
 
 ```
 cd ../home/fio/multi-protocol-gateway
 #multi-protocol-gateway sudo docker build . -t multi-protocol-gateway
 ```
 
+***If you have created the Docker container previously and want to re-create with new changes made outside the shell, please check that the container and its build directory is stopped and removed. This is for the convenience of having clean working environment***
+
+After a successful container build, we will have make the image run. To do that, we will use the following command. This command will immediately output in your terminal how the Python script is running. If you know or wish to have it run on the background, please add `-d` flag at the end of the command. 
+
 ```
 #multi-protocol-gateway sudo docker-compose up
 ```
+
+Finally, you will have the multi-protocol gateway running, in which it uses WiFi and LoRa connectivity, and RPC for exchanging data between its layers. However, there are cases where you wish to make changes by adding more functionalities, such as including Cat-M1 or NB-IoT to expand its communication spectrum, and for this you will need to stop the image. To stop the image from running, you can use following command.
 
 ```
 #multi-protocol-gateway sudo docker-compose down
 ```
 
+Getting to know status of the image is also crucial as it's the indicator of state of operation. Following command brings up **active** images and shows the status if the image restarted or stopped due to certain reasons. The second command lists built images, and it will show you the components that goes with main image that you're building. 
+
 ```
 docker ps -a
+docker images
 ```
 
 <WIP>
