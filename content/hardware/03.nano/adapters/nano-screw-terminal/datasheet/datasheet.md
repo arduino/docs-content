@@ -1,76 +1,84 @@
 ---
-identifier: ASX00037_ASX00037-3P
+identifier: ASX00037, ASX00037-3P
 title: Arduino® Nano Screw Terminal
 type: maker
-author: Linnea Akerberg, Ali Jahangiri
 ---
 
 ![](assets/featured.png)
 
 # Description
-Arduino® Nano Screw Terminal is a quick, secure and solderless solution for your next Nano project. Easily connect external connections to the screw terminals and use the onboard prototyping area to evaluate ideas and solutions. Easily switch between the various Nano family boards without soldering, while leaving the rest of your project intact.
+Arduino® Nano Screw Terminal is a quick, secure and solderless solution for your next project. Perfect for long standing installations using any Arduino Nano board.
 
 # Target areas:
-Maker, Nano projects, Prototyping,
+Maker, enhancements, Nano projects
 
 # Features
 - **Screw connectors** 
-    - 30 screw connectors exposing all I/O pins from your Nano board
-    - 2 screw connectors providing additional ground connections
-    - Silk is labelled for quick and easy reference
-- **Through hole**
-    - 9x8 through hole prototyping area
-- **Nano socket** 
-    - Low profile connector for high mechanical stability
-    - All pins are accessible via standard breadbord holes
-- **Mounting Holes**
-    - 4x 3.2mm ⌀ holes
-    - Easy integration into your own projects
+        - 32 screw connectors exposing the I/O pins from the board
+    
 
-# CONTENTS
+- **Through hole**
+    - 9x8 through hole prototyping area 
+
+
+- **Double row of headers** 
+    - 2x row of headers for extra connections
+
+
+# Contents
 ## The adapter
 
 As it turned out that Arduino users have a need of a quick and easy way to securely build projects as well as adding small circuits for extra control, the Nano Screw Terminal was developed to assist in building such robust projects, without the need of soldering.
 
 ### Compatible boards ###
-| Product name                                     | SKU               | Min voltage | Max voltage | 
-| ------------------------------------------------ | ----------------- | ----------- | ----------- |
-| Arduino® Nano 33 IoT                             | ABX00027/ABX00032 | 5 V         | 18 V      |
-| Arduino® Nano 33 BLE Sense                       | ABX00031/ABX00035 | 5 V         | 18 V      |
-| Arduino® Nano BLE                                | ABX00030/ABX00028 | 5 V         | 18 V      |
-| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V         | 18 V      |
-| Arduino® Nano RP2040 connect                     | ABX00052/ABX00053 | 5 V         | 18 V      |
-| Arduino® Nano Every                              | ABX00033/ABX00028 | 7 V         | 18 V      |
-| Arduino® Nano                                    | A000005           | 7 V         | 12 V      |
-
+| Product name                                     | SKU               | Min power | Max power | 
+| ------------------------------------------------ | ----------------- | ----------| --------- |
+| Arduino® Nano 33 IoT                             | ABX00027/ABX00032 | 5 V       | 18 V      |
+| Arduino® Nano 33 BLE Sense                       | ABX00031/ABX00035 | 5 V       | 18 V      |
+| Arduino® Nano BLE                                | ABX00030/ABX00028 | 5 V       | 18 V      |
+| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V       | 18 V      |
+| Arduino® Nano RP2040 connect                     | ABX00052/ABX00053 | 5 V       | 18 V      |
+| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V       | 18 V      |
+| Arduino® Nano                                    | A000005           | 5 V       | 18 V      |
 **Note!** Please turn to each board's datasheet for further information about power and their capacity. 
 
 ### Application Examples
-**Motor Driver Design:** Evaluate motor drivers and other smaller circuits on the prototyping area
+**Sound spectrum:** Create a sound spectrum to visualize sound frequencies. Connect an Arduino 33 Nano BLE and a microphone or amplifier.
 
-**External debugging:** All the standard Nano pins are accessible via both breadboard compatible pin headers as well as the screw terminals. This allows for direct probing of signals via a multimeter or oscilliscope while the device is under operation. 
+**Social distancing sensor:** Keeping the social distance has become more important than ever to ensure your own, as well as others health. By connecting an Arduino Nano 33 BLE with a sensor and a LED display, you can create a wearable band that alerts you when you get too close to other people.
 
-**Rapid solution development:** Quickly connect to external circuitry with pin headers or screw terminals to evaluate new ideas quickly. Rapidly prototype circuits and evaluate various Nano boards to choose the best option for your application. 
+**Healthy plant scanner:** Watering your plants isn’t always enough to keep them happy. Diseases, lack of sunlight etc. could also be vital factors for unhealthy plants. Keep your plants happy by creating a detector and train it to detect any diseases, all with an Arduino Nano 33 BLE 
 
 ## Functional Overview
 ### Board Topology 
 #### Top
-![Board topology Top](assets/topologyTop.svg)
+![Board topology Top](assets/topologyTop.png)
 
 | **Ref.** | **Description**                 | **Ref.** | **Description**                  |
 | -------- | ------------------------------- | -------- | -------------------------------- |
-| J17      | HLE-115-02-F-DV-Footprint-2     | J19      | HLE-115-02-F-DV-Footprint-2      |
-| J18      | CONNECTOR MORS.CS16v            | J20      | CONNECTOR MORS.CS 16v            |
+| J17      |TBD                              | J19      |TBD                               |
+| J18      |CONNECTOR MORS.CS16v             | J20      |CONNECTOR MORS.CS 16v             |
 
 #### Bottom
-![Board topology bottom](assets/topologyBottom.svg)
+![Board topology bottom](assets/topologyBot.png)
+
+
+### Power Tree
+
+![Power tree](assets/powerTree.svg)
+
+
+## Connector Pinouts
+![Pinout](assets/pinout.png)
+
 
 ### Headers
 The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias. 
 
-| **Pin**  | **Function** | **Type**     | **Description**                                          |
+***Connector J17***
+| Pin  | **Function** | **Type**     | **Description**                                              |
 | ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | D13/SCK      | Digital      | GPIO                                                         |
+| 1    | D13/SCK      | ?            | ?                                                            |
 | 2    | +3V3         | Power Out    |                                                              |
 | 3    | AREF         | Analog       | Analog Reference; can be used as GPIO                        |
 | 4    | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                          |
@@ -90,14 +98,14 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 | 18   | RST          | Digital      | Active low reset input (duplicate of pin 13)                 |
 | 19   | GND          | Power        | Power Ground                                                 |
 | 20   | D2           | Digital      | GPIO                                                         |
-| 21   | D3           | Digital      | GPIO                                                         |
+| 21   | D3/PWM       | Digital      | GPIO; can be used as PWM                                     |
 | 22   | D4           | Digital      | GPIO                                                         |
-| 23   | D5           | Digital      | GPIO                                                         |
-| 24   | D6           | Digital      | GPIO                                                         |
+| 23   | D5/PWM       | Digital      | GPIO; can be used as PWM                                     |
+| 24   | D6/PWM       | Digital      | GPIO, can be used as PWM                                     |
 | 25   | D7           | Digital      | GPIO                                                         |
 | 26   | D8           | Digital      | GPIO                                                         |
-| 27   | D9           | Digital      | GPIO                                                         |
-| 28   | D10          | Digital      | GPIO                                                         |
+| 27   | D9/PWM       | Digital      | GPIO; can be used as PWM                                     |
+| 28   | D10/PWM      | Digital      | GPIO; can be used as PWM                                     |
 | 29   | D11/MOSI     | Digital      | SPI MOSI; can be used as GPIO                                |
 | 30   | D12/MISO     | Digital      | SPI MISO; can be used as GPIO                                |
 
@@ -105,7 +113,7 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 ## Mechanical Information
 ### Board Outline and Mounting Holes
 
-![Board layout](assets/mechanical.svg)
+![Board layout](assets/mechanical.png)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
@@ -177,6 +185,10 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
 
+| Frequency bands | Maximum output power (ERP) |
+| --------------- | -------------------------- |
+| 863-870Mhz      | 5.47 dBm                   |
+
 ## Company Information
 | Company name    | Arduino S.r.l                           |
 | --------------- | --------------------------------------- |
@@ -186,4 +198,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**               |
 | ---------- | ------------ | ------------------------- |
-| 17/06/2022 | 1            | First release             |
+| 06/16/2022 | 1            | First release             |
