@@ -178,7 +178,7 @@ m4_proxy_address = 'm4-proxy'
 m4_proxy_port = 5001
 ```
 
-This function is dedicated to retrieve data from M4 (Arduino layer). It will help you set the variables, such as sensor datas, to be pulled and be exposed at Linux layer. With this, you will have the information available to be used within the Python script. 
+This function is dedicated to retrieve data from M4 (Arduino layer). It will help you set the variables, such as sensor data, to be pulled and be exposed at Linux layer. With this, you will have the information available to be used within the Python script. 
 
 ```
 def get_data_from_m4():
@@ -225,7 +225,7 @@ You will need to have the files ready in a folder inside the `adb` directory wit
 C:\Users\#USERNAME#\AppData\Local\Arduino15\packages\arduino\tools\adb\32.0.0
 ```
 
-Having the files ready at that diretory, we will use the following commands to push the files the `fio` directory inside the Portenta X8. The second command will let us navigate inside Portenta X8.
+Having the files ready at that directory, we will use the following commands to push the files the `fio` directory inside the Portenta X8. The second command will let us navigate inside Portenta X8.
 
 ```
 adb push multi-protocol-gateway /home/fio
