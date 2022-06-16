@@ -1,5 +1,5 @@
 ---
-title: 'Download GNU/Linux OS to your Arduino Yún'
+title: 'Download GNU/Linux OS to Your Arduino Yún'
 description: 'Instructions for downloading the GNU/Linux OS to your board.'
 tags: 
   - tutorial
@@ -19,7 +19,7 @@ Here you can find the necessary download links to GNU/Linux OS to use with your 
 
 Download the latest stable GNU/Linux OS for your Yún. It makes your Yún more stable and feature rich.
 
-### Easy Installation Procedure (recommended)
+### Easy Installation Procedure (Recommended)
 
 Follow the steps in the [Yún Sys Upgrade tutorial](./yun-sys-upgrade).
 
