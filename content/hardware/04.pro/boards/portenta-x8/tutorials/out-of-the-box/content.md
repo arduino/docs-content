@@ -26,7 +26,7 @@ software:
 * Wi-Fi AP with Internet access.
 * Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
-***Attention: We encourage you to check frequently if the device image version is up to date in order to have the latest bootloader and patches for bugs, please check the tutorial [How to flash your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) in order to update it.***
+***Attention: We encourage you to check every now and then if the device image version is up to date in order to have the latest bootloader, please check the tutorial [How to flash your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) for instructions.***
 
 ## Connecting to the Board
 
