@@ -7,47 +7,48 @@ type: maker
 ![](assets/featured.png)
 
 # Description
-Arduino® Nano Screw Terminal is a quick, secure and solderless solution for your next project. Perfect for long standing installations using any Arduino Nano board.
+Arduino® Nano Screw Terminal is a quick, secure and solderless solution for your next Nano project. Easily connect external connections to the screw terminals and use the onboard prototyping area to evaluate ideas and solutions. Easily switch between the various Nano family boards without soldering, while leaving the rest of your project intact.
 
 # Target areas:
-Maker, enhancements, Nano projects
+Maker, Nano projects, Prototyping,
 
 # Features
 - **Screw connectors** 
-        - 32 screw connectors exposing the I/O pins from the board
-    
-
+    - 30 screw connectors exposing all I/O pins from your Nano board
+    - 2 screw connectors providing additional ground connections
+    - Silk is labelled for quick and easy reference
 - **Through hole**
-    - 9x8 through hole prototyping area 
+    - 9x8 through hole prototyping area
+- **Nano socket** 
+    - Low profile connector for high mechanical stability
+    - All pins are accessible via standard breadbord holes
+- **Mounting Holes**
+    - 4x 3.2mm ⌀ holes
+    - Easy integration into your own projects
 
-
-- **Double row of headers** 
-    - 2x row of headers for extra connections
-
-
-# Contents
+# CONTENTS
 ## The adapter
 
 As it turned out that Arduino users have a need of a quick and easy way to securely build projects as well as adding small circuits for extra control, the Nano Screw Terminal was developed to assist in building such robust projects, without the need of soldering.
 
 ### Compatible boards ###
-| Product name                                     | SKU               | Min power | Max power | 
-| ------------------------------------------------ | ----------------- | ----------| --------- |
-| Arduino® Nano 33 IoT                             | ABX00027/ABX00032 | 5 V       | 18 V      |
-| Arduino® Nano 33 BLE Sense                       | ABX00031/ABX00035 | 5 V       | 18 V      |
-| Arduino® Nano BLE                                | ABX00030/ABX00028 | 5 V       | 18 V      |
-| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V       | 18 V      |
-| Arduino® Nano RP2040 connect                     | ABX00052/ABX00053 | 5 V       | 18 V      |
-| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V       | 18 V      |
-| Arduino® Nano                                    | A000005           | 5 V       | 18 V      |
+| Product name                                     | SKU               | Min voltage | Max voltage | 
+| ------------------------------------------------ | ----------------- | ----------- | ----------- |
+| Arduino® Nano 33 IoT                             | ABX00027/ABX00032 | 5 V         | 18 V      |
+| Arduino® Nano 33 BLE Sense                       | ABX00031/ABX00035 | 5 V         | 18 V      |
+| Arduino® Nano BLE                                | ABX00030/ABX00028 | 5 V         | 18 V      |
+| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V         | 18 V      |
+| Arduino® Nano RP2040 connect                     | ABX00052/ABX00053 | 5 V         | 18 V      |
+| Arduino® Nano Every                              | ABX00033/ABX00028 | 7 V         | 18 V      |
+| Arduino® Nano                                    | A000005           | 7 V         | 12 V      |
 **Note!** Please turn to each board's datasheet for further information about power and their capacity. 
 
 ### Application Examples
-**Sound spectrum:** Create a sound spectrum to visualize sound frequencies. Connect an Arduino 33 Nano BLE and a microphone or amplifier.
+**Motor Driver Design:** Evaluate motor drivers and other smaller circuits on the prototyping area
 
-**Social distancing sensor:** Keeping the social distance has become more important than ever to ensure your own, as well as others health. By connecting an Arduino Nano 33 BLE with a sensor and a LED display, you can create a wearable band that alerts you when you get too close to other people.
+**External debugging:** All the standard Nano pins are accessible via both breadboard compatible pin headers as well as the screw terminals. This allows for direct probing of signals via a multimeter or oscilliscope while the device is under operation. 
 
-**Healthy plant scanner:** Watering your plants isn’t always enough to keep them happy. Diseases, lack of sunlight etc. could also be vital factors for unhealthy plants. Keep your plants happy by creating a detector and train it to detect any diseases, all with an Arduino Nano 33 BLE 
+**Rapid solution development:** Quickly connect to external circuitry with pin headers or screw terminals to evaluate new ideas quickly. Rapidly prototype circuits and evaluate various Nano boards to choose the best option for your application. 
 
 ## Functional Overview
 ### Board Topology 
@@ -61,11 +62,6 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 
 #### Bottom
 ![Board topology bottom](assets/topologyBot.png)
-
-
-### Power Tree
-
-![Power tree](assets/powerTree.svg)
 
 
 ## Connector Pinouts
