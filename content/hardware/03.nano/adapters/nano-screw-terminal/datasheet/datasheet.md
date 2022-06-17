@@ -54,7 +54,7 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 ## Functional Overview
 ### Board Topology 
 #### Top
-![Board topology Top](assets/topologyTop.png)
+![Board topology Top](assets/topologyTop.svg)
 
 | **Ref.** | **Description**                 | **Ref.** | **Description**                  |
 | -------- | ------------------------------- | -------- | -------------------------------- |
@@ -62,11 +62,11 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 | J18      |CONNECTOR MORS.CS16v             | J20      |CONNECTOR MORS.CS 16v             |
 
 #### Bottom
-![Board topology bottom](assets/topologyBot.png)
+![Board topology bottom](assets/topologyBottom.svg)
 
 
 ## Connector Pinouts
-![Pinout](assets/pinout.png)
+![Pinout](assets/pinout.svg)
 
 
 ### Headers
@@ -182,10 +182,6 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
 
-| Frequency bands | Maximum output power (ERP) |
-| --------------- | -------------------------- |
-| 863-870Mhz      | 5.47 dBm                   |
-
 ## Company Information
 | Company name    | Arduino S.r.l                           |
 | --------------- | --------------------------------------- |
@@ -195,4 +191,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**               |
 | ---------- | ------------ | ------------------------- |
-| 06/16/2022 | 1            | First release             |
+| 17/06/2022 | 1            | First release             |
