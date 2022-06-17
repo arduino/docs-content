@@ -2,6 +2,7 @@
 identifier: ASX00037, ASX00037-3P
 title: Arduino® Nano Screw Terminal
 type: maker
+author: Linnea Akerberg, Ali Jahangiri
 ---
 
 ![](assets/featured.png)
@@ -72,9 +73,9 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias. 
 
 ***Connector J17***
-| Pin  | **Function** | **Type**     | **Description**                                              |
+| **Pin**  | **Function** | **Type**     | **Description**                                              |
 | ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | D13/SCK      | ?            | ?                                                            |
+| 1    | D13/SCK      | Digital            | GPIO                                                            |
 | 2    | +3V3         | Power Out    |                                                              |
 | 3    | AREF         | Analog       | Analog Reference; can be used as GPIO                        |
 | 4    | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                          |
