@@ -8,16 +8,17 @@ author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 
 ![Smart garden setup with Arduino Nano 33 IoT](assets/coverpage.png)
 
-Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why don't you spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
+Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why not spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
 ## How It Works
 
-Attaching a an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the screwterminal to control a pump providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
+Attaching a an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Nano Screw Terminal Shield to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
 
 We will also connect a soil moisture sensor creating a sophisticated smart garden setup, capable of:
 
 - Remote watering of a plant **(with a pump)**.
 - Checking  the moisture of your plant **(with a moisture sensor)**.
+- Tracking this data over time, creating a chart documenting your plants moisture levels. 
 
 ![Live data streamed to the Arduino IoT Cloud.](assets/Dashboard.gif)
 
@@ -48,13 +49,13 @@ OR
 
 ## Hardware & Circuit Assembly
 
-Begin by connecting the Nano 33 IoT board to the screwterminal. Then we need to connect the relay, the pump, the button and most importantly the power cable to power the entire system. The screw terminals on the adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.  
+Begin by connecting the Nano 33 IoT board to the screwterminal. Then we need to connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the shield are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.  
 
-Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or wall-adapter, as long as it can provide at least 500 mA at 5v. Most wall-adapters meet these requirements, so don't worry too much about finding the right one. 
+Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one. 
 
-Next, take the pump and connect the negative wire (-) to GND and connect the positive wire (+) to the screwterminal in the relay module. 
+Next, take the pump and connect the negative wire (-) to GND on the Nano Screw Terminal Shield and connect the positive wire (+) to one of the screw terminals in the relay module, it doesn't matter which one. 
 
-Now connect the other screwterminal on the relay module to the VIN pin.
+Now connect the other screw terminal on the relay module to the VIN pin.
 
 There are cases were multiple wires are going into the same screw terminal, you may find it easier to get them in at the same time if you twist them together before trying to insert them.
 
