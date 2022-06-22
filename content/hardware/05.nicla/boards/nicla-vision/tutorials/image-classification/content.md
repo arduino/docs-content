@@ -147,7 +147,7 @@ Deploying the ML model to your board requires a few steps. The Edge Impulse Stud
 
 ![The Edge Impulse Studio has a built-in export function for OpenMV](assets/deployment.png)
 
-Since the Nicla Vision doesn't have any on-board SRAM we need to build the machine learning model into the firmware and load it from the flash. To do so, go to https://github.com/openmv/openmv and fork the repository. In your fork click on "Actions" and enable the workflows by clicking on the green button.
+Since the Nicla Vision doesn't have any on-board SRAM we need to build the machine learning model into the firmware and load it from the flash. To do so, go to https://github.com/openmv/openmv and [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository. In your fork click on "Actions" and enable the workflows by clicking on the green button.
 
 Rename the machine learning model and the label file to fruit_detection.tflite and fruit_detection.txt respectively. In your fork, replace the built-in machine learning model under `src/lib/libtf/models` with the model you downloaded from Edge Impulse Studio. Commit the files and push the commit to the repository. It will build a new firmware automatically.
 
@@ -157,7 +157,7 @@ You can inspect the build process under "Actions".
 
 ![In the actions section you can monitor the build process once it starts.](assets/github_actions.png)
 
-Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select the firmware that you just created and flash it to the board.
+Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select firmware.bin in the folder that you just created and flash it to the board.
 
 ![In the release section you can find the generated firmware ready to download and install.](assets/github_releases.png)
 
@@ -228,3 +228,9 @@ while(True):
 ## Conclusion
 
 You have learned about classification as a machine learning concept which categorizes a set of data into classes. You have also learned how supervised learning works and what quantization of a model means. Furthermore you have learned to train a custom TFLite machine learning model and deploy it to your board.
+
+## Troubleshooting
+
+### GitHub Workflow
+
+If you’re encountering difficulties while using the GitHub workflow in your forked repository, make sure that your `MobileNetV2 96x96 0.1` as model type. Also make sure you are changing the files in your forked repository and not in the original OpenMV repository.
