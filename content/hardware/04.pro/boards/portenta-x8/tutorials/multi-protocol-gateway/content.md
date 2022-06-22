@@ -125,9 +125,11 @@ sudo docker-compose logs -f --tail 20
 
 ***For more detail about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
+Let us now dive into develop a multi-protocol gateway using Portenta X8 and Max Carrier!
+
 ## Coding Multi-Protocol Gateway
 
-As everything sounds beautiful, now it is important to land all the requirements into a operational task that will orchestrate every protocols we are going to use. We will create the following files and the required codes for multi-protocol gateway. 
+Everything sounds beautiful, but now it is important to land all the requirements into a operational task that will orchestrate every protocols we are going to use. We will create the following files and the required codes for multi-protocol gateway. 
 
 We will need the Docker files that will configure and let us build a working container.
 
@@ -163,7 +165,7 @@ paho-mqtt
 
 ### Multi-Protocol
 
-This is the main Python script that will handle overall networking process. We will highlight important fragments of the code to help you understand why they are important and how will it be handled accordingly in brief. 
+This is the main Python script that will handle overall networking process. We will highlight important fragments of the code to help you understand how these codes pieces together to build a gateway based on multiple protocol. 
 
 First up, is the configuration for M4 Proxy Server, which is the parameter to handle communication with M4 core that extend the Arduino layer. The `m4_proxy_port` is configured to 5001, as it is the port used by clients to send the data to M4. 
 
@@ -211,9 +213,23 @@ SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
-<WIP - Arduino Code & additional Python script>
+With these parameters configured, we have secured the connection between The Things Network. The Things Network would be our end-point where the sensor datas are going to be sent over. And to send data, we need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it, and send it to The Things Network. On the other hand, we will need to have a mechanism that will be able to intercept data sent over WiFi connectivity using MQTT protocol. 
 
-<WIP>
+```
+# WiFi - MQTT protocol handler
+```
+
+This will help to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol. This capability will help to increase the scalability of the multi-protocol gateway. For this to work, we will also need sketch for Arduino layer that will help us expose and retrieve the data in between Arduino and Linux layer. 
+
+```
+# Arduino side sketch
+#include <RPC.h>
+#include <SerialRPC.h>
+```
+
+The sketch above will help to expose and transfer the data that is processed within the Linux side. By exposing, it means you will bring forth the data received within the Linux side to the Arduino side to feed the loca-device as a control input. It can be used to display the data if you wish to for instance. Transferring data to Linux side can be seen as a direct communication, as the sensor connected and monitored via Arduino side will send this data to send over LoRa connectivity. The sketch will have both options open to assist you on further extending the possibilities within. 
+
+<WIP - Arduino Code & additional Python script>
 
 ## Mounting the Multi-Protocol Gateway Container
 
