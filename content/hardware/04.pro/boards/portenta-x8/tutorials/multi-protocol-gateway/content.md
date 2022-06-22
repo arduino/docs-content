@@ -213,7 +213,7 @@ SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
-With these parameters configured, we have secured the connection between The Things Network. The Things Network would be our end-point where the sensor datas are going to be sent over. And to send data, we need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it, and send it to The Things Network. On the other hand, we will need to have a mechanism that will be able to intercept data sent over WiFi connectivity using MQTT protocol. 
+With these parameters configured, we have secured the connection between The Things Network. The Things Network would be our end-point where the sensor data are going to be sent over. And to send data, we need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it, and send it to The Things Network. On the other hand, we will need to have a mechanism that will be able to intercept data sent over WiFi connectivity using MQTT protocol. 
 
 ```
 # WiFi - MQTT protocol handler
