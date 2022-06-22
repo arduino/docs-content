@@ -157,7 +157,7 @@ You can inspect the build process under "Actions".
 
 ![In the actions section you can monitor the build process once it starts.](assets/github_actions.png)
 
-Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select firmware.bin in the folder that you just created and flash it to the board.
+Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select `firmware.bin` in the folder that you just created and flash it to the board.
 
 ![In the release section you can find the generated firmware ready to download and install.](assets/github_releases.png)
 
