@@ -233,4 +233,4 @@ You have learned about classification as a machine learning concept which catego
 
 ### GitHub Workflow
 
-If you’re encountering difficulties while using the GitHub workflow in your forked repository, make sure that your `MobileNetV2 96x96 0.1` as model type. Also make sure you are changing the files in your forked repository and not in the original OpenMV repository.
+If you’re encountering difficulties while using the GitHub workflow in your forked repository, make sure that your `MobileNetV2 96x96 0.1` as model type, otherwise the model will likely be too big and not work. Also make sure you are changing the files in your forked repository and not in the original OpenMV repository.
