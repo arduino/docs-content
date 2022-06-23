@@ -17,7 +17,7 @@ Attaching a an external relay to the Nano 33 IoT screwterminal lets you control 
 We will also connect a soil moisture sensor creating a sophisticated smart garden setup, capable of:
 
 - Remote watering of a plant **(with a pump)**.
-- Checking  the moisture of your plant **(with a moisture sensor)**.
+- Checking the moisture of your plant **(with a moisture sensor)**.
 - Tracking this data over time, creating a chart documenting your plants moisture levels. 
 
 ![Live data streamed to the Arduino IoT Cloud.](assets/Dashboard.gif)
@@ -49,7 +49,7 @@ OR
 
 ## Hardware & Circuit Assembly
 
-Begin by connecting the Nano 33 IoT board to the screwterminal. Then we need to connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the shield are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.  
+Begin by connecting the Nano 33 IoT board to the screwterminal. Then we need to connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the shield are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
 
 Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one. 
 
@@ -61,17 +61,16 @@ There are cases were multiple wires are going into the same screw terminal, you 
 
 ![GIF of twisting cables together](assets/cabletwisting.gif)
 
-<br>
+<br />
 
 The open ended grove cable from the relay module should be wired as follows:
 
 - Black wire (-) to GND pin.
 
--  Red wire (+) to A7 pin.
+- Red wire (+) to A7 pin.
+- Yellow wire to D13 pin.
 
--  Yellow wire to D13 pin.
-
- <br>
+ <br />
 
 The grove button should be wired as follows:
 
@@ -83,7 +82,7 @@ The grove button should be wired as follows:
 
 - White wire to D11 pin.
 
-<br>
+<br />
 
 The moisture sensor should be wired as follows:
 
@@ -93,7 +92,7 @@ The moisture sensor should be wired as follows:
 
 - Yellow wire to A0 pin.
 
-<br>
+<br />
 
 ### Circuit
 
@@ -101,7 +100,7 @@ Below is the complete circuit for this setup.
 
 ![Circuit for this project.](assets/circuit.png)
 
-If you are using the 3D-printed enclosure we provide a 3D-model for, now is a good time to fit the components inside if you haven't already. Use the standoffs to click the components into place.  
+If you are using the 3D-printed enclosure we provide a 3D-model for, now is a good time to fit the components inside if you haven't already. Use the standoffs to click the components into place.
 
 In the top-cover of the enclosure you will find a hole that will fit the LED-Button. Simply push the button into place, it might take a little force but it will firmly click into place.
 
@@ -202,7 +201,7 @@ void setup() {
     digitalWrite(LED_PIN, LOW);
     delay(200);
   }
-  waterTime = waterAmount / waterSpeed;  
+  waterTime = waterAmount / waterSpeed;
 }
 
 void loop() {
@@ -267,7 +266,7 @@ void stopWatering () {
   digitalWrite(RELAY_PIN, LOW);
 }
 
-void onWaterTimeChange()  {
+void onWaterTimeChange() {
   // Add your code here to act upon WaterTime change
 }
 
@@ -287,17 +286,10 @@ Once you see the values changing, we know that the connection is successful, and
 
 We have now assembled the hardware + configured the Arduino IoT Cloud, and we are ready to start using our setup. Now, let's start using it.
 
-**1.** If you have confirmed that the connection works, we can unplug the setup from the computer, and move it to the plant we want to monitor.
-
-**2.** Place the moisture sensor into the soil of the plant.
-
-![Moisture sensor in a plant.](assets/plantwithmoisturesensor.jpg)
-
-**3.** Place the pump inside a water container. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the enclosure with your electronics next to the plant. Your setup could now look like this:
-
-![Plant setup.](assets/completesetup.jpg)
-
-**4.** Finally, plug in a USB adapter into the wall. This will now power the entire setup, which should now connect to the IoT Cloud, via your Wi-Fi network. And that is it, you now have a Smart Garden setup! 
+1. If you have confirmed that the connection works, we can unplug the setup from the computer, and move it to the plant we want to monitor.
+2. Place the moisture sensor into the soil of the plant.![Moisture sensor in a plant.](assets/plantwithmoisturesensor.jpg)
+3. Place the pump inside a water container. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the enclosure with your electronics next to the plant. Your setup could now look like this: ![Plant setup.](assets/completesetup.jpg)
+4. Finally, plug in a USB adapter into the wall. This will now power the entire setup, which should now connect to the IoT Cloud, via your Wi-Fi network. And that is it, you now have a Smart Garden setup! 
 
 ## Usage
 
