@@ -40,9 +40,9 @@ We will also connect a soil moisture sensor, and together with the sensors onboa
 
 ## Hardware & Circuit Assembly
 
-Begin by connecting the MKR WiFi 1010 board to the MKR IoT Carrier. Then, we need to connect the moisture sensor via a grove cable to the "A6" connector.
+Begin by connecting the MKR WiFi 1010 board to the MKR IoT Carrier. Then, we need to connect the moisture sensor via a Grove cable to the "A6" connector.
 
-From the open ended USB cable, connect the positive wire (+)directly to relay 1 on the carrier, labelled "NO" (normally open). Connect the negative wire (-) together with the pump's negative wire. 
+From the open ended USB cable, connect the positive wire (+) directly to relay 1 on the carrier, labelled "NO" (normally open). Connect the negative wire (-) together with the pump's negative wire. 
 
 Finally, connect the pump's positive wire, to the "COM" (common) pin on the relay. As a result, you have created a circuit that can be switched on/off via a relay. See next section for the full circuit.
 
