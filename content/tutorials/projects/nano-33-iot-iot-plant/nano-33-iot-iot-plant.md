@@ -12,7 +12,7 @@ Decorating your home with plants is an easy way to bring some life into your day
 
 ## How It Works
 
-Attaching a an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Nano Screw Terminal Shield to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
+Attaching an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Nano Screw Terminal Shield to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
 
 We will also connect a soil moisture sensor creating a sophisticated smart garden setup, capable of:
 
@@ -157,19 +157,15 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 */
 
 /* ------------- START CONFIG ------------- */
-constexpr int BUTTON_PIN = 11;
-constexpr int LED_PIN    = 12;
-constexpr int RELAY_PIN  = 13;
+constexpr int BUTTON_PIN = 4;
+constexpr int LED_PIN    = 5;
+constexpr int RELAY_PIN  = 6;
 constexpr int MOIST_PIN  = A0;
-
-const float waterAmount = 0.1;  // liters
-const float waterSpeed  = 0.045; // liters/sec
 
 
 int raw_moisture = 0;
 /* ------------- END CONFIG ------------- */
 
-#include "arduino_secrets.h"
 #include "thingProperties.h"
 #include <Bounce2.h>
 
@@ -201,7 +197,7 @@ void setup() {
     digitalWrite(LED_PIN, LOW);
     delay(200);
   }
-  waterTime = waterAmount / waterSpeed;
+
 }
 
 void loop() {
@@ -210,8 +206,8 @@ void loop() {
   // Read the sensor and convert its value to a percentage 
   // (0% = dry; 100% = wet)
   raw_moisture = analogRead(MOIST_PIN);
-  moisture = map(raw_moisture, 780, 1023, 100, 0);
-  Serial.println(raw_moisture);
+  moisture = map(raw_moisture, 610, 90, 0, 100); 
+  Serial.println(moisture);
 
   // Set the LED behavior according to the moisture percentage or watering status
   if (watering) {
@@ -245,7 +241,7 @@ void loop() {
 
 // This function is triggered whenever the server sends a change event,
 // which means that someone changed a value remotely and we need to do
-// something.
+// something. 
 void onWateringChange() {
   if (watering) {
     startWatering();
@@ -266,7 +262,7 @@ void stopWatering () {
   digitalWrite(RELAY_PIN, LOW);
 }
 
-void onWaterTimeChange() {
+void onWaterTimeChange()  {
   // Add your code here to act upon WaterTime change
 }
 
@@ -295,7 +291,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
-![Control and monitor your Smart Garden!](assets/Dashboard.gif)
+![Control and monitor your Smart Garden!](assets/dashboard.gif)
 
 ***In this dashboard, we have also added a chart widget to monitor the soil moisture over time.***
 
