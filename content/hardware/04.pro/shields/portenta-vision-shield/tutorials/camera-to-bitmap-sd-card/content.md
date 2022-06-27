@@ -58,7 +58,7 @@ The following table shows all the headers, the size of its buffer, offsets, the 
 | Name                | Size        | Details                                                      |
 | ------------------- | ----------- | ------------------------------------------------------------ |
 | DIB                 | 14 Bytes    | Bitmap information, setting the size of the file.            |
-| File Header         | 40 Bytes    | This header rquires the resolution and the bpp               |
+| File Header         | 40 Bytes    | This header requires the resolution and the bpp               |
 | Palette (Color Map) | 1025 Bytes  | This header is mandatory on bitmaps with a bpp ≤ 8, setting the grayscale |
 | Image data          | 76800 Bytes | The raw image data, in this case each pixel has 8 bits (1 Byte) and the resolution is 320 x 240, with no compression |
 
