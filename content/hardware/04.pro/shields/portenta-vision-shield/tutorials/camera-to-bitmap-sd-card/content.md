@@ -64,11 +64,11 @@ You can find the sketch on the latest version of the [Arduino_Pro_Tutorials](htt
 
 First you need to include the needed libraries
 ```cpp
-  #include "SDMMCBlockDevice.h"
-  #include "FATFileSystem.h"
+#include "SDMMCBlockDevice.h"
+#include "FATFileSystem.h"
 
-  #include "camera.h"
-  #include "himax.h"
+#include "camera.h"
+#include "himax.h"
 ```
 
 Then we define the block system (`blockDevice` and `fileSystem`) object needed to get access to the SD Card and the the 
@@ -101,111 +101,110 @@ For the bitmap headers binary file we will need some information like the resolu
 
 To mount the SD Card the sketch has one function to do so:
 ```cpp
-  // Mount File system block
-  void mountSD()
-  {
-      Serial.println("Mounting SD Card...");
+// Mount File system block
+void mountSD()
+{
+    Serial.println("Mounting SD Card...");
 
-      int error = fileSystem.mount(&blockDevice);
-      if (error)
-      {
-          Serial.println("No SD Card found");
-          while (1)
-              ;
-      }
-  }
+    int error = fileSystem.mount(&blockDevice);
+    if (error)
+    {
+        Serial.println("No SD Card found");
+        while (1)
+            ;
+    }
+}
 ```
 
 Another function that the sketch contains is the one to generate the `.bmp` file
 ```cpp
+void parseData()
+{
+    unsigned char *imgData = NULL;
+    int fileSize = HEADER_FILE_HEADER + RES_W * RES_H;
 
-  void parseData()
-  {
-      unsigned char *imgData = NULL;
-      int fileSize = HEADER_FILE_HEADER + RES_W * RES_H;
+    FILE *file = fopen("/fs/image.bmp", "w+");
 
-      FILE *file = fopen("/fs/image.bmp", "w+");
+    // Get a Frame
+    if (cam.grabFrame(fb, 3000) == 0)
+    {
+        // Save the raw image data (8bpp grayscale)
+        imgData = fb.getBuffer();
+    }
+    else
+    {
+        Serial.println("could not grab the frame");
+        while (1)
+            ;
+    }
+    // Bitmap structure (Head + DIB Head + ColorMap + binary image)
+    unsigned char bitmapFileHeader[HEADER_FILE_HEADER];
+    unsigned char bitmapDIBHeader[HEADER_DIB_SIZE];
+    unsigned char colorMap[PALETTE_SIZE]; // Needed for <=8bpp grayscale bitmaps
 
-      // Get a Frame
-      if (cam.grabFrame(fb, 3000) == 0)
-      {
-          // Save the raw image data (8bpp grayscale)
-          imgData = fb.getBuffer();
-      }
-      else
-      {
-          Serial.println("could not grab the frame");
-          while (1)
-              ;
-      }
-      // Bitmap structure (Head + DIB Head + ColorMap + binary image)
-      unsigned char bitmapFileHeader[HEADER_FILE_HEADER];
-      unsigned char bitmapDIBHeader[HEADER_DIB_SIZE];
-      unsigned char colorMap[PALETTE_SIZE]; // Needed for <=8bpp grayscale bitmaps
+    // Set the file headers to 0
+    memset(bitmapFileHeader, (unsigned char)(0), HEADER_FILE_HEADER);
+    memset(bitmapDIBHeader, (unsigned char)(0), HEADER_DIB_SIZE);
+    memset(colorMap, (unsigned char)(0), PALETTE_SIZE);
 
-      // Set the file headers to 0
-      memset(bitmapFileHeader, (unsigned char)(0), HEADER_FILE_HEADER);
-      memset(bitmapDIBHeader, (unsigned char)(0), HEADER_DIB_SIZE);
-      memset(colorMap, (unsigned char)(0), PALETTE_SIZE);
+    // Write the headers info
+    // File header
+    bitmapFileHeader[0] = 'B';
+    bitmapFileHeader[1] = 'M';
+    bitmapFileHeader[2] = (unsigned char)(fileSize);
+    bitmapFileHeader[3] = (unsigned char)(fileSize >> 8);
+    bitmapFileHeader[4] = (unsigned char)(fileSize >> 16);
+    bitmapFileHeader[5] = (unsigned char)(fileSize >> 24);
+    bitmapFileHeader[10] = (unsigned char)HEADER_FULL_SIZE + PALETTE_SIZE;
 
-      // Write the headers info
-      // File header
-      bitmapFileHeader[0] = 'B';
-      bitmapFileHeader[1] = 'M';
-      bitmapFileHeader[2] = (unsigned char)(fileSize);
-      bitmapFileHeader[3] = (unsigned char)(fileSize >> 8);
-      bitmapFileHeader[4] = (unsigned char)(fileSize >> 16);
-      bitmapFileHeader[5] = (unsigned char)(fileSize >> 24);
-      bitmapFileHeader[10] = (unsigned char)HEADER_FULL_SIZE + PALETTE_SIZE;
+    // Info header
+    bitmapDIBHeader[0] = (unsigned char)(HEADER_DIB_SIZE);
+    bitmapDIBHeader[4] = (unsigned char)(RES_W);
+    bitmapDIBHeader[5] = (unsigned char)(RES_W >> 8);
+    bitmapDIBHeader[8] = (unsigned char)(RES_H);
+    bitmapDIBHeader[8] = (unsigned char)(RES_H >> 8);
+    bitmapDIBHeader[14] = (unsigned char)(IMAGE_BPP);
 
-      // Info header
-      bitmapDIBHeader[0] = (unsigned char)(HEADER_DIB_SIZE);
-      bitmapDIBHeader[4] = (unsigned char)(RES_W);
-      bitmapDIBHeader[5] = (unsigned char)(RES_W >> 8);
-      bitmapDIBHeader[8] = (unsigned char)(RES_H);
-      bitmapDIBHeader[8] = (unsigned char)(RES_H >> 8);
-      bitmapDIBHeader[14] = (unsigned char)(IMAGE_BPP);
+    // Color palette for grayscale Bitmaps (8bpp)
+    for (int i = 0; i < (2 ^ IMAGE_BPP); i++)
+    {
+        colorMap[i * 4] = i;
+        colorMap[i * 4 + 1] = i;
+        colorMap[i * 4 + 2] = i;
+    }
 
-      // Color palette for grayscale Bitmaps (8bpp)
-      for (int i = 0; i < (2 ^ IMAGE_BPP); i++)
-      {
-          colorMap[i * 4] = i;
-          colorMap[i * 4 + 1] = i;
-          colorMap[i * 4 + 2] = i;
-      }
+    // Write theh bitmap file
+    fwrite(bitmapFileHeader, 1, HEADER_FILE_HEADER, file);
+    fwrite(bitmapDIBHeader, 1, HEADER_DIB_SIZE, file);
+    fwrite(colorMap, 1, PALETTE_SIZE, file); // Color map
+    fwrite(imgData, 1, RES_H * RES_W, file);
 
-      // Write theh bitmap file
-      fwrite(bitmapFileHeader, 1, HEADER_FILE_HEADER, file);
-      fwrite(bitmapDIBHeader, 1, HEADER_DIB_SIZE, file);
-      fwrite(colorMap, 1, PALETTE_SIZE, file); // Color map
-      fwrite(imgData, 1, RES_H * RES_W, file);
-
-      // Close the stream (bitmap file)
-      fclose(file);
-  }
+    // Close the stream (bitmap file)
+    fclose(file);
+}
 ```
 
 The `setup()` will Initialize the Serial monitor, mount the SD Card, initialize the camera module and parse the image data into the bitmap with its needed headers.
 
 ```cpp
-  void setup()
-  {
-      Serial.begin(115200);
-      while (!Serial)
-          ;
+void setup()
+{
+    Serial.begin(115200);
+    while (!Serial)
+        ;
 
-      // Mount SD Card
-      mountSD();
+    // Mount SD Card
+    mountSD();
 
-      // Init the cam QVGA, 30FPS, Grayscale
-      if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30))
-      {
-          Serial.println("Unable to find the camera");
-      }
+    // Init the cam QVGA, 30FPS, Grayscale
+    if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30))
+    {
+        Serial.println("Unable to find the camera");
+    }
 
-      // Save the headers and the image data into the .bmp file
-      parseData();
-  }
+    // Save the headers and the image data into the .bmp file
+    parseData();
+}
 ```
 
 The `loop()` is empty, as it only does one shot once the Serial monitor is open.
