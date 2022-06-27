@@ -1,6 +1,5 @@
 ---
-title: Saving camera snapshots into the SD Card as a bitmap with Portenta Vision Shield Camera
-coverImage: assets/vs_ard_gs_cover.svg
+title: "Saving Images as Bitmaps Into the SD Card"
 difficulty: easy
 tags: [Camera, Bitmap, SD Card]
 description: This tutorial shows you how to capture a frame from the Portenta Vision Shield Camera module and save the output as a bitmap image.
@@ -50,14 +49,14 @@ Inside the sketch you can use this librarys to access the camera APIs
 #include "himax.h"
 ```
 
-#### Bitmap file format
+#### Bitmap File Format
 
 The bitmap binary file needs to contain some information in order to tell the computer some required information, for example the resolution of the picture and the bit-depth (bpp)
 
 The following table shows all the headers, the size of its buffer, offsets, the settings that we used and a details column:
 
 
-### 2. The sketch
+### 2. The Sketch
 
 You can find the sketch on the latest version of the [Arduino_Pro_Tutorials](https://github.com/arduino-libraries/Arduino_Pro_Tutorials) at `examples > Vision Shield to SD Card bmp > visionShieldBitmap.ino`
 
@@ -215,9 +214,7 @@ The `loop()` is empty, as it only does one shot once the Serial monitor is open.
 
 Select the right serial port on your IDE and upload the Arduino sketch to your H7. After a successful upload.
 
-![Camera output on Processing](assets/vs_ard_frames_captured.png)
-
-### 4. Try it out
+### 4. Try It Out
 
 Insert a micro SD Card on the Portenta Vision Shield.
 
@@ -232,6 +229,6 @@ Once the capture is saved, remove the SD Card and plug it on a computer/phone wi
 
 In this tutorial you learnt how to capture the frames from your Vision Shield's Camera, encode it with the bitmap standards and save it inside an SD Card. 
 
-## Next steps
+## Next Steps
 
 With this sketch format, you could easily add some code in the `loop()` in order to capture 1 new frame each second and save it with a name, for example `image<time/count>.bmp`
