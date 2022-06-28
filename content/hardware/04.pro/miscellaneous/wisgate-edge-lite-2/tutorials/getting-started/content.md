@@ -36,7 +36,7 @@ The goals of this article are:
 - [WisGate Edge Pro](https://store.arduino.cc/products/wisgate-edge-pro)
 - x2 Ethernet Cable
 
-## What's included in the box
+## What's Included in the Box
 
 The package includes:
 * LoRa Gateway
@@ -45,7 +45,7 @@ The package includes:
 
 ## Instructions
 
-### Setup the hardware
+### Setup the Hardware
 
 The device can be supplied from 37 to 57 VDC with a PoE or with a Solar panel (12 VDC).
 You can supply it through the Solar Panel cable (12V cable) or with an ethernet cable with PoE.
@@ -53,7 +53,7 @@ You can supply it through the Solar Panel cable (12V cable) or with an ethernet 
 In case of the PoE, you can use the PoE Injector included with the kit by connecting your LAN to the `LAN` port and the `PoE` port to the Gateway.
 
 
-### Connect to the WisGate dashboard
+### Connect to the WisGate Dashboard
 
 There are different ways to access the WisGate:
 * Connecting to its Wi-Fi Access Point (dashboarrd IP: `192.168.230.1`)
@@ -72,7 +72,7 @@ Once the password is set, you will now be able to see and interact with the dash
 
 ***The WiFi Access Point that is running, by default it is open, we recommend you to set a password with WPA2-PSK encryption to secure your device, you can do that by accessing the Wi-Fi settings going to network > LAN > Wi-Fi > Settings***
 
-### Create the Gateway on TTN dashboard
+### Create the Gateway on TTN Dashboard
 
 Go to https://cloud.thethings.network and pick your region's cluster, in our case we pick Europe.
 
@@ -100,7 +100,7 @@ Fill the information:
 
 Click the "Create gateway" button at the end of the page.
 
-### Setup your Gateway with the TTN credentials
+### Setup your Gateway with the TTN Credentials
 
 Access to the Network configuration by clicking on its button.
 
@@ -136,9 +136,7 @@ After finishing the setup you could see the Gateway status being "Connected"
 
 ![](assets/ttn-gateway-connected.png)
 
-### Pole Mounting and water-isolation
-
-### Test (optional)
+### Test (Optional)
 
 Follow this tutorial to connect to the GateWay [Connecting MKR WAN 1300 to The Things Network (TTN)](https://docs.arduino.cc/tutorials/mkr-wan-1300/the-things-network)
 
