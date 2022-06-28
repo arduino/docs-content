@@ -8,7 +8,7 @@ import { validateImageDescriptions, validateImagePaths, validateReferencedAssets
 import { validateSyntaxSpecifiers } from 'content-lint';
 import { validateNestedLists } from 'content-lint';
 import { validateBrokenLinks } from 'content-lint';
-import { validateFolderName } from '../validations/naming.js';
+import { validateFolderName } from 'content-lint';
 import { ConfigManager } from 'content-lint';
 
 const configManager = new ConfigManager();
