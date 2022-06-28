@@ -28,7 +28,7 @@ The goals of this article are:
 - Open the dashboard panel
 - Create a Gateway on The Things Network
 - Setup the credentials on the device from TTN
-- Attatching it on a Pole and water isolating the connectors
+- Attaching it on a Pole and water isolating the connectors
 - Test the Gateway (optional)
 
 ## Hardware & Software Needed
@@ -70,7 +70,7 @@ Once the password is set, you will now be able to see and interact with the dash
 
 ![WisGate dashboard](assets/wisgate-dashboard-overview.png)
 
-***The WiFi Accesss Point that is running, by default it is open, we recommend you to set a password with WPA2-PSK encryption to secure your device, you can do that by accessing the Wi-Fi settings going to network > LAN > Wi-Fi > Settings***
+***The WiFi Access Point that is running, by default it is open, we recommend you to set a password with WPA2-PSK encryption to secure your device, you can do that by accessing the Wi-Fi settings going to network > LAN > Wi-Fi > Settings***
 
 ### Create the Gateway on TTN dashboard
 
