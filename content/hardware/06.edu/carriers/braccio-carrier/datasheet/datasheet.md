@@ -97,11 +97,11 @@ Following information outlines the technical overview of the Arduino® Braccio C
     |  6               |  250VAC @ 3A                         |  -25°C ~ +85°C                        |
 
 - **USB-C Port**
-    - USB 3.1 port available to enable program upload, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier. 
+    - USB Type C port available to enable programming, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier. 
     
-    |  USB Version / USB PD Revision   |  USB Type              |  Purpose                          |
-    | -------------------------------- | ---------------------- | --------------------------------- |
-    |  3.1 / 3.0                       |  C-Type (Reversible)   |  Program Upload & Power Supply    |
+    |  USB Standard   |  USB Power Delivery Rev.   |  USB Type              |  Purpose                          |
+    | --------------- | -------------------------- | ---------------------- | --------------------------------- |
+    |  3.1            |  3.0                       |  Type C (Reversible)   |  Programming & Power Supply       |
 
 - **ESLOV Connector** 
     - The connector provides the capability of module's automatic configuration and handle the sleep state for low power mode. Connector is designated with J2 reference, providing 5 pins for interrupt and I2C protocol at 5V. 
