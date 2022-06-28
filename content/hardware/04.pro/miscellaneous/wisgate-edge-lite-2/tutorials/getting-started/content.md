@@ -76,19 +76,19 @@ Once the password is set, you will now be able to see and interact with the dash
 
 Go to https://cloud.thethings.network and pick your region's cluster, in our case we pick Europe.
 
-![](assets/ttn-cluster-pick.png)
+![TTN zone picker](assets/ttn-cluster-pick.png)
 
 Now chose the gateway button.
 
-![](assets/ttn-overview-picker.png)
+![TTN device type selection](assets/ttn-overview-picker.png)
 
 It will open the Gateways page, click the create gateway button
 
-![](assets/ttn-gateways.png)
+![TTN Gateways dashboard](assets/ttn-gateways.png)
 
 Fill the required forms.
 
-![](assets/ttn-add-gateway.png)
+![TTN Gateway creation](assets/ttn-add-gateway.png)
 
 Fill the information:
 * Gateway ID: unique ID for your gateway inside the things network platform.
@@ -104,11 +104,11 @@ Click the "Create gateway" button at the end of the page.
 
 Access to the Network configuration by clicking on its button.
 
-![](assets/wisgate-dashboard-configuration.png)
+![WisGate web dashboard](assets/wisgate-dashboard-configuration.png)
 
 On the configuration tab select the work mode to "Basic station"
 
-![](assets/wisgate-basic-setup.png)
+![WisGate basic station configuration](assets/wisgate-basic-setup.png)
 
 Then at the "Basic station server setup" section pick the "LNS Server" as a type.
 
@@ -120,11 +120,11 @@ Choose the file with the certificates that you can download from [here](https://
 
 And the client token that you can get inside the TTN Gateway's dashboard panel. 
 
-![](assets/ttn-gateway-dashboard-server.png)
+![Wisgate gateway configuration with TTNos info](assets/ttn-gateway-dashboard-server.png)
 
 Click the API key on the top right and create a new one.
 
-![](assets/ttn-api-key.png)
+![Wisgate dashboard using TTN's API key](assets/ttn-api-key.png)
 
 Set the "Rights" to individual ones and chose the "Link as gateway to a Gateway Server for traffic exchange"
 
@@ -134,7 +134,7 @@ Click "Save changes".
 
 After finishing the setup you could see the Gateway status being "Connected"
 
-![](assets/ttn-gateway-connected.png)
+![TTN dashboard showing the gateway online](assets/ttn-gateway-connected.png)
 
 ### Test (Optional)
 
