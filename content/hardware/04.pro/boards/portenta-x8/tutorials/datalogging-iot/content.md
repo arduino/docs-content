@@ -115,11 +115,7 @@ Save the file and exit VI editor. Save the file and exit VI editor. Return to th
 mqtt# docker-compose up -d
 ```
 
-You should see the following output, as shown in the image below:
-
-**ADD IMAGE HERE**
-
-Now, the Mosquitto broker should available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command: 
+The Mosquitto broker should available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command: 
 
 ```
 # ping portenta-x8-a28ba09dab6fad9
@@ -143,9 +139,9 @@ persistence_location /mosquitto/data/
 log_dest file /mosquitto/log/mosquitto.log
 ```
 
-Save the file and exit VI editor. Now, let's restart the Mosquitto container so the configuration file can start working. This can be done by using the `docker restart` command and the Mosquitto `CONTAINER ID`. To identify the Mosquitto `CONTAINER ID`, run the `docker ps` command and copy the ID, as shown in the image below:
+Save the file and exit VI editor. Now, let's restart the Mosquitto container so the configuration file can start working. This can be done by using the `docker restart` command and the Mosquitto `CONTAINER ID`. To identify the Mosquitto `CONTAINER ID`, run the `docker ps` command and copy the `CONTAINER ID`, as shown in the image below:
 
-**ADD IMAGE HERE**
+![Docker container ID.](assets/x8-data-logging-img_02.png)
 
 Now, let's manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before as shown below:
 
@@ -154,13 +150,17 @@ Now, let's manage password files by adding a user to a new password file. For th
 / # 
 ```
 
-Let's dissect that command. `docker exec` runs a command in a running container (in this case, the Mosquitto container), `-it CONTAINER ID sh` attaches a terminal session into the running container so we can see what is going with the container and interact with it. Now, in the terminal session with the Mosquitto container, run the following command:
+Let's dissect that command:
+- `docker exec` runs a command in a running container (in this case, the Mosquitto container)
+- `-it CONTAINER ID sh` attaches a terminal session into the running container so we can see what is going with the container and interact with it
+
+Now, in the terminal session with the Mosquitto container, run the following command:
 
 ```
 / # mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
 ```
 
-This command creates a new password file (`mosquitto.passwd`), if the file already exists, it will be overwritten; `guest` is the username. After entering the username, we would need to define a password for the username and then, exit the terminal session with the `exit` command: 
+This command creates a new password file (`mosquitto.passwd`), if the file already exists, it will be overwritten; `guest` is the username. After entering the `username` we want, we must define a password for the username and then, exit the terminal session with the `exit` command: 
 
 ```
 / # mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
@@ -199,7 +199,7 @@ Save the file and exit VI editor; also, we need to restart the Mosquitto contain
 
 ### Testing Mosquitto
 
-To test the Mosquitto broker, we need an MQTT client. We can use several ways to implement an MQTT client, one of the easiest ways is to install an MQTT client in our web browser and use it to test the connection between the local MQTT broker on the Portenta X8 board and the web-based MQTT client. This tutorial will use MQTTBox, a Google Chrome extension that works as an MQTT client.      
+To test the Mosquitto broker, we need an MQTT client. We can use several ways to implement an MQTT client, one of the easiest ways is to install an MQTT client in our web browser and use it to test the connection between the local MQTT broker on the Portenta X8 board and the web-based MQTT client. This tutorial will use [MQTTBox](https://chrome.google.com/webstore/detail/mqttbox/kaajoficamnjijhkeomgfljpicifbkaf?hl=en), a Google Chrome extension that works as an MQTT client.      
 
 In MQTTBox, let's start by configuring the settings of the MQTT client. The information we are going to need is the following:
 
@@ -211,9 +211,13 @@ In MQTTBox, let's start by configuring the settings of the MQTT client. The info
 
 Leave everything else as default and save the settings of the client. If everything is ok, you should see now that the MQTT client connected with the local MQTT broker in our Portenta X8 board. Success! We can now start sending messages to the MQTT broker.
 
+![MQTTBox graphical user interface (GUI).](assets/x8-data-logging-img_03.png)
+
+When MQTTBox client connects to the local Mosquitto broker deployed in our Portenta X8 board, a blue "Not Connected" button should change to a green "Connected" button; notice also that with the MQTTBox client we are going to publish data to the `test` topic. Now, let's install Node-RED. 
+
 ## Installing Node-RED
 
-The simplest form to run Node-RED with Docker is by using the following command:
+Node-RED is an open-source programming tool that is used for connecting hardware with API's and online services. It is a visual tool designed for Internet of Things devices and applications, but it can be also used for other types of applications. The simplest form to run Node-RED with Docker is by using the following command:
 
 ```
 docker run -it -p 1880:1880 -v node_red_data:/data --name mynodered nodered/node-red    
@@ -227,54 +231,70 @@ With this command, we are going to run a Node-RED container **locally** in our P
 - `--name mynodered`: a friendly local name
 - `nodered/node-red`: the image to base it on
 
-After running the command, we should see a running instance of Node-RED in the terminal:
-
-**ADD IMAGE HERE**
-
-We can detach the terminal with `Ctrl-p` `Ctrl-q`; This doesn't stop the container, the container will be running in the background. The local instance of Node-RED should be ready. Let's test it!
+After running the command, we should see a running instance of Node-RED in the terminal. We can detach the terminal with `Ctrl-p` `Ctrl-q`; this doesn't stop the container, the container will be running in the background. The local instance of Node-RED should be ready, let's test it!
 
 ### Testing Node-RED
 
 Let's browse to `http://{your-portenta-ip}:1880`; this will open the Node-RED desktop as shown in the image below:
 
-**ADD IMAGE HERE**
+![Node-RED graphical user interface (GUI).](assets/x8-data-logging-img_04.png)
 
-Node-RED desktop is a GUI that lets us work with Node-RED flows graphically. We can test Node-RED  by connecting to the local MQTT broker we set up before using a Node-RED flow. In the `Nodes` section located in the left part of the browser, search for `network` and choose the `mqtt in` node and drop it in the workspace; we will use this node to connect to the MQTT broker of the X8we will use this node to connect to the MQTT broker of the X8. To change the node's properties, double click on it and define the following properties:
+Node-RED desktop is a GUI that lets us work with Node-RED flows graphically. We can test Node-RED  by connecting to the local MQTT broker we set up before using a Node-RED flow. In the `Nodes` section located in the left part of the browser, search for `network` and choose the `mqtt in` node and drop it in the workspace; we will use this node to connect to the local MQTT broker of the X8. To change the node's properties, double click on it and define the following properties:
 
 - **Server**: `your-portenta-ip:1883`
-- **Action**: Subscribe to single topic
+- **Action**: `Subscribe to single topic`
 - **Topic**: `test`
-- **QoS**: 0
-- **Output**: auto-detect (string or buffer)
-- **Name**: MQTT Broker X8 
+- **QoS**: `0`
+- **Output**: `auto-detect (string or buffer)`
+- **Name**: `MQTT Broker X8` 
 
 Now, search for the `change` node and drop it also in the workspace; we will use this node to change the format of the data from the MQTT broker (string to number). To change the node's properties, double click on it and define the following properties:
 
-- **Name**: String to number
-- **Set**: msg.payload
+- **Name**: `String to Number`
+- **Set**: `msg.payload`
 - **To the value**: `$number(payload)`
 
-Now, search for the `debug` node and drop it also in the workspace; we will use this node to check if Node-RED is getting data from the test topic and if Node-RED is formatting the data correctly. Define the name of the node as debug and then let's connect the nodes as shown in the image below:
+Now, let's search for the `debug` node and drop it also in the workspace; we will use this node to check if Node-RED is getting data from the `test` topic and if Node-RED is formatting the data correctly. Define the name of the node as `debug` and then connect the nodes as shown in the image below:
 
-**ADD IMAGE HERE**
+![Node-RED flow used for testing the Portenta X8 local MQTT broker.](assets/x8-data-logging-img_05.png)
 
 After connecting the nodes, we must deploy the Node-RED application by selecting the "Deploy" button located on the superior right side of the browser. We should see a "Successfully deployed" message if everything is ok, as shown in the image below:
 
-**ADD IMAGE HERE**      
+![Node-RED flow successfully deployed.](assets/x8-data-logging-img_06.png)
 
-Let's use the MQTT client described before to test the MQTT broker integration with Node-RED. Just beneath the "Deploy" button, look for an **icon with a bug**; **Node-RED's debug interface** is open by clicking on the bug icon. Now we can start sending messages to the MQTT broker in the X8 and see them deployed in the debug interface of Node-RED. With the MQTT client, let's subscribe first to the `test` topic and then publish any value to the topic, as shown in the image below:
+Let's use the MQTT client described before to test the MQTT broker integration with Node-RED. Just beneath the "Deploy" button, look for an **icon with a bug**; **Node-RED's debug interface** is open by clicking on the bug icon. Now we can start sending messages to the local MQTT broker in the X8 and see them deployed in the debug interface of Node-RED. With the MQTT client, let's subscribe first to the `test` topic and then publish any value to the topic, as shown in the image below:
 
-**ADD IMAGE HERE**      
+![Publish data to a topic of the MQTT broker using the MQTTBox client.](assets/x8-data-logging-img_07.png)
 
 We should see now data in the debug interface of Node-RED, as shown in the image below:
 
-**ADD IMAGE HERE**   
+![Debug interface of Node-RED showing data from the MQTT broker.](assets/x8-data-logging-img_08.png)
 
-Success! We can configure InfluxDB.
+Success! We can configure now InfluxDB.
 
 ## Installing InfluxDB
 
+InfluxDB is an open source, high performance time series database; with InfluxDB data can be written and read in real time. The simplest form to run InfluxDB with Docker is by using the following command:
+
+```
+docker run --detach --name influxdb -p 8086:8086 influxdb:2.2.0 
+```
+
+With this command, we are going to run a InfluxDB container **locally** in our Portenta X8 board. Let's dissect the command:
+
+- `--detach`: no terminal session is attached to the container
+- `-- name`: the container name 
+- `-p 1880:1880`: InfluxDB local port `8086` connects to the exposed internal port `8086`
+
+The container will be running in the background; the local instance of InfluxDB should be ready. Let's test it!
+
 ### Testing InfluxDB
+
+Let's browse to `http://{your-portenta-ip}:8086`; this will open the InfluxDB desktop as shown in the image below:
+
+**ADD IMAGE HERE**
+
+InfluxDB desktop is a GUI that lets us work with InfluxDB graphically. 
 
 ## Installing Grafana
 
