@@ -1,14 +1,14 @@
 ---
-title: 'Customizing the Auto Formatter'
+title: 'Customizing the Auto Formatter Feature'
 difficulty: easy
-description: 'Learn how '
+description: 'Learn how to configure the auto formatter feature'
 tags:
  - Auto Formatter
  - Tools
-author: 'Benjamin Dannegård'
+author: 'Benjamin Dannegård, Per Tillisch'
 ---
 
-Pressing CTRL + T on Windows or CMD + T on MacOS when writing a sketch in the Arduino IDE 2.0 will automatically format the sketch. And it is possible to change the behaviour of this command. In this article we will go through how you can change the behaviour of this command. 
+Pressing CTRL + T on Windows or CMD + T on MacOS when writing a sketch in the Arduino IDE 2.0 will automatically format the sketch. It is possible to change the behaviour of this command. In this article we will go through how you can change the behaviour of this command. 
 
 You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
 
@@ -18,9 +18,9 @@ You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tut
 
 - Arduino IDE 2.0 installed. 
 
-## Setting Custom Configuration
+## Setting the Custom Configuration
 
-It is possible to define your own custom configuration in two different ways. The custom configuration of the auto formatter can be set on a global level to cover all sketches opened in the editor, or you can set the configuration to be specific to a sketch.
+It is possible to define your own custom configuration of the auto formatter feature in two different ways. The custom configuration of the auto formatter can be set on a global level to cover all sketches opened in the editor, or you can set the configuration to be specific to a sketch.
 
 ### Global scope
 If you add a `.clang-format` configuration file to either of the following locations, the Arduino IDE 2.0 will always use it instead of the Arduino default configuration.
@@ -55,9 +55,13 @@ Or
 ### Sketch scope
 If you add a `.clang-format` configuration file to the root of a sketch, the Arduino IDE will use that configuration when formatting that sketch. This file has precedence over a global formatter configuration file.
 
+![.clang-format file at the root of a sketch](assets/format-file-at-root.png)
+
 ## Default Formatting File
 
 Here you can find the default formatting file used in the Arduino IDE 2.0. If you wish to customize how your auto formatting acts in the IDE then starting with this file is a good idea.
+
+***Please note that the custom configuration file completely overrides the Arduino default configuration, rather than merging with it. Any configuration option you don't set in your custom file will be set to the ClangFormat default value.***
 
 ```cpp
 ---
@@ -208,7 +212,7 @@ WhitespaceSensitiveMacros: []
 
 ## Conclusion
 
-In this tutorial we went through how to customize the behaviour of the CTRL + T / CMD + T auto formatter command in the Arduino IDE 2.0. This article also shows the different scopes for the auto formatter configuration.
+In this tutorial we went through how to customize the behavior of the `CTRL + T / CMD + T` auto formatter command in the Arduino IDE 2.0. This article also shows the different scopes that are available for the auto formatter configuration.
 
 ### More Tutorials
 
