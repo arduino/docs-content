@@ -9,7 +9,7 @@
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_EdgeControl" title="Arduino Edge Control" type="library">
         The official Arduino Library for the Edge Control.
     </EssentialElement>
-    <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Edge Control" type="library">
+    <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
         The complete Arduino sketches from the Pro tutorials.
     </EssentialElement>
 </EssentialsColumn>
