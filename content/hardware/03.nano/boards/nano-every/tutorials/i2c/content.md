@@ -91,6 +91,7 @@ Let's start by adding the `Wire.h` library by adding the `#include <Wire.h>` sta
 void setup() {
   Wire.begin(8);                // join i2c bus with address #8
   Wire.onReceive(receiveEvent); // function that executes whenever data is received from writer
+  pinMode(LED_BUILTIN,OUTPUT);  // sets onBoard LED as output
 }
 ```
 
@@ -186,6 +187,7 @@ If you choose to skip the code building section, the complete code for both the 
 void setup() {
   Wire.begin(8);                // join i2c bus with address #8
   Wire.onReceive(receiveEvent); // function that executes whenever data is received from writer
+  pinMode(LED_BUILTIN,OUTPUT);  // sets onBoard LED as output
 }
 
 void loop() {
