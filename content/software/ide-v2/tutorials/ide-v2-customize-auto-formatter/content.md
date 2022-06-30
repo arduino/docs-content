@@ -8,7 +8,7 @@ tags:
 author: 'Benjamin Dannegård, Per Tillisch'
 ---
 
-Pressing CTRL + T on Windows or CMD + T on MacOS when writing a sketch in the Arduino IDE 2.0 will automatically format the sketch. It is possible to change the behaviour of this command. In this tutorial we will go through how you can change the behaviour of this command. 
+Selecting **Tools > Auto Format** or pressing CTRL + T on Windows/Linux or CMD + T on MacOS when writing a sketch in the Arduino IDE 2.0 will automatically format the sketch. It is possible to change the behaviour of this command. In this tutorial we will go through how you can change the behaviour of this command. 
 
 You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
 
