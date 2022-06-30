@@ -22,6 +22,8 @@ You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tut
 
 It is possible to define your own custom configuration of the auto formatter feature in two different ways. The custom configuration of the auto formatter can be set on a global level to cover all sketches opened in the editor, or you can set the configuration to be specific to a sketch.
 
+The formatter tool used by Arduino IDE 2.0 is ClangFormat. The documentation for the configuration options is [here](https://clang.llvm.org/docs/ClangFormatStyleOptions.html).
+
 ### Global scope
 If you add a `.clang-format` configuration file to either of the following locations, the Arduino IDE 2.0 will always use it instead of the Arduino default configuration.
 
