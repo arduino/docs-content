@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-The **WisGate Edge Lite 2 gateway** is a device with a high reliability that allows to set up home and small medium-sized industrial indoor LoRaWAN® applications with a high execution efficiency.
+The **WisGate Edge Lite 2** gateway is a device with a high reliability that allows to set up home and small medium-sized industrial indoor LoRaWAN® applications with a high execution efficiency.
 
-It supports up to 8 LoRa channels, multi backhaul with Ethernet, Wi-Fi, and Cellular connectivity.
+It supports 8 LoRa channels, multi backhaul with Ethernet, Wi-Fi, and Cellular connectivity.
 
 The gateway is powered by OpenWRT which allows to develop custom applications.
 
@@ -24,7 +24,7 @@ The gateway is powered by OpenWRT which allows to develop custom applications.
   LTE Cellular connectivity via a nanoSIM card.
 </Feature>
 
-<Feature title="MQTT integration" image="environment">
+<Feature title="Network Server and MQTT integration" image="environment">
   Embedded MQTT client with Bridging capabilities for direct connectivity to most of the
 Cloud platforms
 </Feature>
