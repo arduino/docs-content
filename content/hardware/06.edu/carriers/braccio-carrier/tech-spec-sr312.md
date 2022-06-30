@@ -1,1 +1,0 @@
-These are the technical specifications of the Motor SR312 compatible with Arduino® Braccio Carrier.
