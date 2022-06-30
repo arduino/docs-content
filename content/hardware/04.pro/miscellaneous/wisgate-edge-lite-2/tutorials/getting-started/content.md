@@ -17,7 +17,7 @@ software:
 
 ## Introduction 
 
-This tutorial will show you how to get started with your Nicla Sense ME board and how it can be utilized by itself. It will showcase the boards IMU and other sensors to get readings which we can easily display. We will go through a basic sketch for the Nicla Sense ME and see the potential of the board.
+This tutorial will show you how to get started with your **WisGate Edge** gateway and how it can be utilized by itself. It will showcase the connection to **The Things Network<sup>TM</sup>. We will go through the local and online setup.
 
 ## Goals
 
@@ -26,14 +26,13 @@ The goals of this article are:
 - Setup the hardware
 - Connect locally to the Gateway
 - Open the dashboard panel
-- Create a Gateway on The Things Network
+- Create a Gateway on The Things Network<sup>TM</sup>(TTN)
 - Setup the credentials on the device from TTN
-- Attaching it on a Pole and water isolating the connectors
 - Test the Gateway (optional)
 
 ## Hardware & Software Needed
 
-- [WisGate Edge Pro](https://store.arduino.cc/products/wisgate-edge-pro)
+- [WisGate Edge Pro](https://store.arduino.cc/products/wisgate-edge-pro) or[WisGate Edge Lite 2](https://store.arduino.cc/products/wisgate-edge-lite-2)
 - x2 Ethernet Cable
 
 ## What's Included in the Box
