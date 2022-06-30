@@ -214,7 +214,7 @@ WhitespaceSensitiveMacros: []
 
 ## Conclusion
 
-In this tutorial we went through how to customize the behavior of the `CTRL + T / CMD + T` auto formatter command in the Arduino IDE 2.0. This tutorial also shows the different scopes that are available for the auto formatter configuration.
+In this tutorial we went through how to customize the behavior of the `CTRL + T` / `CMD + T` auto formatter command in the Arduino IDE 2.0. This tutorial also shows the different scopes that are available for the auto formatter configuration.
 
 ### More Tutorials
 
