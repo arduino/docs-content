@@ -22,7 +22,9 @@ Dimensions:
   Weight: 54 g
   Width: 78,5 mm
   Length: 122 mm
-Compatible Motors: SR312 & SR418D Smart Motors
+Compatible Motors: 
+  SR312 Smart Motor
+  SR418D Smart Motor
 Motor Model Designation:
   SR312: SO-SR312-MS
   SR418D: SO-SR418D-MS
