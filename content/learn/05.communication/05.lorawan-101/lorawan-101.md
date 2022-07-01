@@ -27,7 +27,7 @@ Some of the important use cases for LPWAN's include the following applications:
 
 ***If you want to read more about LPWAN's, check out [this article](/learn/wireless/lorawan-101) from the Learn section.***
 
-Several LPWAN technologies use **licensed** or **unlicensed frequencies** and and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation, **LoRaWAN®**, is currently one of the existing LPWAN gaining the most traction to support IoT devices and services. 
+Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation, **LoRaWAN®**, is currently one of the existing LPWAN gaining the most traction to support IoT devices and services. 
 
 ![Bandwidth vs. range of short distance, cellullar and LPWA networks. Image credits: The Things Network.](assets/lorawan-101_img01.png)
 
@@ -178,7 +178,7 @@ You can use both libraries in the Arduino IDE, [online](https://store.arduino.cc
 
 ### Example: Sending and Receiving Data to a Network Server
 
-Using Arduino® hardware and software to communicate with LoRa® and LoRaWAN® networks is simple; let's check outan example. This example uses an MKR WAN 1310 board and the MKRWAN library to send data to a LoRaWAN® network, in this case, TTN. The circuit for this example is shown in the image below:
+Using Arduino® hardware and software to communicate with LoRa® and LoRaWAN® networks is simple; let's check out an example. This example uses an MKR WAN 1310 board and the MKRWAN library to send data to a LoRaWAN® network, in this case, TTN. The circuit for this example is shown in the image below:
 
 ![Circuit used in the example.](assets/lorawan-101_img13.png)
 
