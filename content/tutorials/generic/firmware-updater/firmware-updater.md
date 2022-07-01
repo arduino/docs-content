@@ -33,7 +33,7 @@ This tutorial will guide you in the process of updating the firmware or loading 
 The board should be connected to the USB port of the computer ready with Arduino IDE.
 
 
-***Important note: The 19.6.1 firmware is only available for model B of the WINC1500, this is used in the MKR1000 board. Unfortunately, the WiFi101 shield uses model A, which Atmel has stopped supporting, so there is no 19.6.1 firmware release for it, 19.4.4 will be the latest firmware version that is compatible.***
+***Important note: The 19.6.1 firmware is only available for model B of the WINC1500, this is used in the MKR1000 board. Unfortunately, the WiFi shield 101 uses model A, which Atmel has stopped supporting, so there is no 19.6.1 firmware release for it, 19.4.4 will be the latest firmware version that is compatible.***
 
 ## Firmware Update Procedure
 

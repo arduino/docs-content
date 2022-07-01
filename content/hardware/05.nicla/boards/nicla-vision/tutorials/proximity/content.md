@@ -95,7 +95,7 @@ Inside the setup you need to initialize and configure the proximity sensor. Also
   }
 ```
 
-***Make sure you initialize `Wire1`, set the clock speed to 400kHz and set the bus pointer to `Wire1`, it won't work if you don't add these setting.***
+***Make sure you initialize `Wire1`, set the clock speed to 400 kHz and set the bus pointer to `Wire1`, it won't work if you don't add these setting.***
 
 ### Control the Speed of the Blink
 

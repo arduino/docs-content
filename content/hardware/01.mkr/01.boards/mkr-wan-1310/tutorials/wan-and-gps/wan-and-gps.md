@@ -9,7 +9,7 @@ tags:
  - GPS
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa
+  - name: LoRa®
     url: https://github.com/sandeepmistry/arduino-LoRa
   - name: Arduino_MKRGPS
     url: https://www.arduino.cc/en/Reference/ArduinoMKRGPS
@@ -76,7 +76,7 @@ Some of the main functions of this sketch are listed below:
 
 - `byte localAddress = 0xBB;` - create a local address for our board.
 - `byte destination = 0xFF;` - create a destination address we will send our data to. 
-- `LoRa.begin(868E6)` - initializes the LoRa® module to operate on 868MHz frequency (European, for American, change to 915E6).
+- `LoRa.begin(868E6)` - initializes the LoRa® module to operate on 868 MHz frequency (European, for American, change to 915E6).
 - `GPS.begin` - initializes the GPS library.
 - `GPS.latitude()` - records latitude.
 - `GPS.longitude()` - records longitude.

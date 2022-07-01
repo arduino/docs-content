@@ -230,7 +230,7 @@ Add a gif/video.
 
 ***For the purposes of this tutorial, we will leave the `Use static IP address and disable DHCP` box unchecked. This means that a dynamic IP address will be allocated to the Nano 33 IoT.***
 
-**2.** We now need to configure the wireless settings. Click on **WiFi properties** and enter the **Service set identifier (SSID)** or name of your wireless network. Select the appropriate encryption (`None`, `WEP` or `WPA`) and enter your password.
+**2.** We now need to configure the wireless settings. Click on **Wi-Fi properties** and enter the **Service set identifier (SSID)** or name of your wireless network. Select the appropriate encryption (`None`, `WEP` or `WPA`) and enter your password.
 
 ![Configure Wi-Fi Credentials](img/nano-Simulink-WiFi-LED-Wi-Fi-Credentials.png)
 

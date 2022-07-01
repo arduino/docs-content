@@ -2,13 +2,13 @@
 tags: [Yún]
 author: Arduino
 title: 'Arduino Yún Yún First Configuration'
-description: 'Connect your Yun product to the WiFi networks in a breeze using the Serial Monitor and answering a few simple questions within it.'
+description: 'Connect your Yun product to the Wi-Fi networks in a breeze using the Serial Monitor and answering a few simple questions within it.'
 ---
 
-This example shows you how to connect to a WiFi network with your Yún device using the Serial Monitor as the communication interface during the whole process.
+This example shows you how to connect to a Wi-Fi network with your Yún device using the Serial Monitor as the communication interface during the whole process.
 
 Upload the sketch on your Yún device and open the Serial Monitor.
-The Serial Monitor output will display the available WiFi networks, then asks you to choose the one to use. You have to input the network password and then you are asked to give your Yún device a name and a password. If the connection with the selected network is successful, you get a confirmation message and the IP assigned to your Yún device. By pasting this IP address on your web browser you will be able to reach the Yún Panel for further options.
+The Serial Monitor output will display the available Wi-Fi networks, then asks you to choose the one to use. You have to input the network password and then you are asked to give your Yún device a name and a password. If the connection with the selected network is successful, you get a confirmation message and the IP assigned to your Yún device. By pasting this IP address on your web browser you will be able to reach the Yún Panel for further options.
 
 If something goes wrong, you can restart the procedure; if the network you want to connect to is not in the list, you may proceed with the manual selection specifying the network SSID and passkey.
 
@@ -32,13 +32,13 @@ image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
 ### Libraries
 
-**Process.h** is used to launch processes on the Linux processor, and other things like shell scripts. Here we use it to get the list of APs and to perform other actions that let us know the WiFi parameters.
+**Process.h** is used to launch processes on the Linux processor, and other things like shell scripts. Here we use it to get the list of APs and to perform other actions that let us know the Wi-Fi parameters.
 
 ### Functions
 
 **String getUserInput(String out, bool obfuscated)*** - manages the input from the user through the Serial Monitor, printing back in the window. The boolean variable "obfuscated" is used to print out "**" when a password is entered.
 
-**void wifiConfig(String yunName, String yunPsw, String wifissid, String wifipsw, String wifiAPname, String countryCode, String encryption)** - uses Process to execute a series of commands and scripts, under linux, that set the WiFi and network parameters as chosen by the user.
+**void wifiConfig(String yunName, String yunPsw, String wifissid, String wifipsw, String wifiAPname, String countryCode, String encryption)** - uses Process to execute a series of commands and scripts, under linux, that set the Wi-Fi and network parameters as chosen by the user.
 
 **void startSerialTerminal()** - simply initialize the two serial ports needed to perform the actions required by the sketch.
 
@@ -47,7 +47,7 @@ image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 ## Usage
 
 This sketch uses the Serial Monitor of your Arduino Software (IDE) to interact with you, asking the relevant information for the configuration. The Yún device uses the hardware serial port on pins 0 and 1 to communicate with the board, therefore this sketch requires a second hardware serial port to work properly.
-Please get ready with SSID (the Access Point name) and the key or passphrase to access the WiFi network.
+Please get ready with SSID (the Access Point name) and the key or passphrase to access the Wi-Fi network.
 Load the sketch and then open the Serial Monitor clicking on the Magnifier Lens icon on the right of the icon bar.
 You will see a message as the one in the screenshot below.
 
@@ -59,7 +59,7 @@ You choose the AP to use typing in the input field the corresponding number. Ple
 ![Setup window two.](assets/EasySetup_2.png)
 
 The selection of the AP triggers the connection process and the Yún device will sense if the network is open or protected. In this later case, you will be asked to provide the key. The Yún device needs to be named and protected with a password to allow easy and secure connections.
-Following these step, your device is ready to connect to the WiFi network, switching off the AP mode and initiating the access to the selected WiFi network. At the end of this process, the sketch will show the IP address obtained from the WiFi DHCP server.
+Following these step, your device is ready to connect to the Wi-Fi network, switching off the AP mode and initiating the access to the selected Wi-Fi network. At the end of this process, the sketch will show the IP address obtained from the Wi-Fi DHCP server.
 
 ![Setup window three.](assets/EasySetup_3.png)
 

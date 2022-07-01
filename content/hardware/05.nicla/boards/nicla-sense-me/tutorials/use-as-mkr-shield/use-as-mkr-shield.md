@@ -32,7 +32,7 @@ The form factor of the Nicla Sense allows the board to be used as a MKR shield. 
 ## Goals.
 
 -   How to solder the headers on the Nicla Sense ME.
--   To establish an I<sup>2</sup>C communication between the MKRWiFi 1010 and the Nicla Sense  
+-   To establish an I<sup>2</sup>C communication between the MKR WiFi 1010 and the Nicla Sense  
 
 ### Required Hardware and Software
 

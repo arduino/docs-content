@@ -91,7 +91,7 @@ We will now get to the programming part of this tutorial.
 
 **3.** We can now take a look at some core functions we are going to use: 
 
-- `CAN.begin(500E3)` - initializes the library with a speed of 500 kbps.
+- `CAN.begin(500E3)` - initializes the library with a speed of 500 Kbps.
 - `CAN.beginPacket(0x12)` - begins a packet with specific ID (ID is 11 bits).
 - `CAN.beginExtendedPacket(0xabcdef)` - begins an extended packet with specific ID (ID is 29 bits).
 - `CAN.write('o')` - writes a byte to the packet. 

@@ -59,7 +59,7 @@ To make use of the Portenta Max Carrier you will need to power it through either
 
 ### Memory
 
-The Portenta Max Carrier equips two different memory units on-board, a flash memory and a mini SD card slot. The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
+The Portenta Max Carrier equips two different memory units on-board, a flash memory and a mini SD card slot. The Flash memory on-board the Portenta Max Carrier has 2 MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
 
 If you have a sd card connected to the Max Carrier you can create a directory on the sd card by using the following command:
 ```python
@@ -83,11 +83,11 @@ apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf 
 
 The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires a SIM card and an antenna connected to the SMA connector.
 
-![LoRa and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
+![LoRa® and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
 
 If you want to use this feature with python scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
 
-### LoRa
+### LoRa®
 
 One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-078 that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 

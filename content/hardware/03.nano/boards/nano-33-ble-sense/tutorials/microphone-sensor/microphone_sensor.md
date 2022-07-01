@@ -90,7 +90,7 @@ short sampleBuffer[256];
 volatile int samplesRead;
 ```
 
-In the `setup()`, we use the `PDM.conReceive()` function to configure the data receive callback. Lastly, the `PDM.begin()` sets the sensor to read data from just one channel and a sample rate of 16kHz, this statement is inside an `if()` that will print a message, as a string, in case the sensor has not been properly initialized.
+In the `setup()`, we use the `PDM.conReceive()` function to configure the data receive callback. Lastly, the `PDM.begin()` sets the sensor to read data from just one channel and a sample rate of 16 kHz, this statement is inside an `if()` that will print a message, as a string, in case the sensor has not been properly initialized.
 
 ```arduino
 void setup() {

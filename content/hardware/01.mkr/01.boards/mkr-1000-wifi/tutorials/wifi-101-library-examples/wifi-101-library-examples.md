@@ -1,6 +1,6 @@
 ---
 title: Guide to WiFi101
-description: 'Find examples & utilities for using the WiFi101 library, designed for the MKR 1000 WiFi and WiFi 101 Shield (retired).'
+description: 'Find examples & utilities for using the WiFi101 library, designed for the MKR 1000 WiFi and WiFi Shield 101 (retired).'
 tags: [Wi-Fi]
 author: Arduino
 ---
@@ -50,7 +50,7 @@ When you load the sketch on the board, it will wait for a serial monitor console
 
  * Circuit:
 
- * - WiFi101 Shield attached
+ * - WiFi Shield 101 attached
 
  *
 
@@ -83,7 +83,7 @@ void setup() {
 
   // Check for the presence of the shield
 
-  Serial.print("WiFi101 shield: ");
+  Serial.print("WiFi Shield 101: ");
 
   if (WiFi.status() == WL_NO_SHIELD) {
 
@@ -154,7 +154,7 @@ void loop() {
 
 ### Update Firmware / Load Certificates
 
-The 19.6.1 firmware is only available for model B of the WINC1500, this is used in the MKR1000 board. Unfortunately, the WiFi101 shield uses model A, which Atmel has stopped supporting, so there is no 19.6.1 firmware release for it, 19.4.4 will be the latest firmware version that is compatible.
+The 19.6.1 firmware is only available for model B of the WINC1500, this is used in the MKR1000 board. Unfortunately, the WiFi shield 101 uses model A, which Atmel has stopped supporting, so there is no 19.6.1 firmware release for it, 19.4.4 will be the latest firmware version that is compatible.
 
 To simplify the process, we have prepared a specific sketch - this **FirmwareUpdater** - that you must load on the host board (either the one with the shield plugged in, or the MKR1000 itself) and an easy to use plug-in available in Arduino Software (IDE) 1.6.10 onwards.
 
@@ -163,7 +163,7 @@ The `FirmwareUpdater.ino` sketch is available in **Examples > WiFi101**
 
 ![Select the "FirmwareUpdater" example.](assets/firmware_updater_sketch_101.png)
 
-***When you load the sketch on the board, it prepares the communication between the plug-in and the WiFi chip. It opens up the communication through the serial port to the WiFi module hosted on the board. It is necessary to perform all the procedures managed by the Firmware Upgrader Plugin. Everything will be managed by the plug-in, but it is important to upload this sketch first.***
+***When you load the sketch on the board, it prepares the communication between the plug-in and the Wi-Fi chip. It opens up the communication through the serial port to the Wi-Fi module hosted on the board. It is necessary to perform all the procedures managed by the Firmware Upgrader Plugin. Everything will be managed by the plug-in, but it is important to upload this sketch first.***
 
 Upload the sketch and keep the board (either the one with the shield plugged in, or the MKR1000 itself) connected to the computer.
 
@@ -176,7 +176,7 @@ Once done, open the plug-in that is available in the tools menu.
 Your board should be in the list of the available serial ports.
 If not, please check that it is properly configured in the Tools menu.
 
-To update the firmware you should choose the right typer of board. You can find your model looking at the WiFi module: the first line in the sticker or the last line of the silk print on the right side of the PCB shows the microcontroller model. It can be either MR210PA or MR510PB and the last letter shows yor model accordingly.
+To update the firmware you should choose the right typer of board. You can find your model looking at the Wi-Fi module: the first line in the sticker or the last line of the silk print on the right side of the PCB shows the microcontroller model. It can be either MR210PA or MR510PB and the last letter shows yor model accordingly.
 
 ![Find the model.](assets/MKR1000_RevA_B_20copy.png)
 
@@ -186,10 +186,10 @@ Choose in the dropdown list the model corresponding to your unit and proceed cli
 
 #### Certificate Uploading
 
-With the same procedure, you may load root certificates on the WiFi module to access securely specific websites. Your board must be running the **FirmwareUpdater** sketch to work .The root certificates are issued by a limited number of certification authorities, but it is difficult to know which site is using which authority. To ease your life, we allow you to specify directly the URL to which you need to connect securely, leaving to us the task to download the root certificate.
-The list you are building is not saved from one session to the next one. It might happen that a few websites share the same root certificate. You don't have to worry about this as we take care of it. The space available on your WiFi module to store the certificates is limited to around 10 certificates that, being issued by a limited number of authorities, should be more than enough for the average projects.
+With the same procedure, you may load root certificates on the Wi-Fi module to access securely specific websites. Your board must be running the **FirmwareUpdater** sketch to work .The root certificates are issued by a limited number of certification authorities, but it is difficult to know which site is using which authority. To ease your life, we allow you to specify directly the URL to which you need to connect securely, leaving to us the task to download the root certificate.
+The list you are building is not saved from one session to the next one. It might happen that a few websites share the same root certificate. You don't have to worry about this as we take care of it. The space available on your Wi-Fi module to store the certificates is limited to around 10 certificates that, being issued by a limited number of authorities, should be more than enough for the average projects.
 
-The procedure starts connecting your board (either the one with the shield plugged in, or the MKR1000 itself) to your computer and selecting it from the Tools menu of the Arduino Software (IDE). Load the FirmwareUpdater on the board and launch the **WiFi 101 Firmware Updater** from Tools and go to the third section of the interface.
+The procedure starts connecting your board (either the one with the shield plugged in, or the MKR1000 itself) to your computer and selecting it from the Tools menu of the Arduino Software (IDE). Load the FirmwareUpdater on the board and launch the **WiFi101 Firmware Updater** from Tools and go to the third section of the interface.
 
 ![Adding SSL root certificates.](assets/certificates_upload_101.png)
 
@@ -972,7 +972,7 @@ void printMacAddress(byte mac[]) {
 }
 ```
 
-### Wifi101 Simple Web Server WiFi
+### Wifi101 Simple Web Server Wi-Fi
 
 In this example,  a simple web server lets you blink an LED via the web. This example will print the IP address of your WiFi Shield 101 or MKR1000 board (once connected) to the Arduino Software (IDE) Serial Monitor. Once you know the IP address of our board, you can open that address in a web browser to turn on and off the LED on pin 9.
 
@@ -1531,7 +1531,7 @@ void printWiFiStatus() {
 }
 ```
 
-### Wifi101 WiFi Chat Server
+### Wifi101 Wi-Fi Chat Server
 
 A simple server that distributes any incoming messages to all connected clients.  To use, open a terminal window, telnet to your WiFi shield's or MKR1000's IP address, and type away.  Any incoming text will be sent to all connected clients (including the one typing). Additionally, you will be able to see the client's input in your Arduino Software (IDE) serial monitor as well.
 
@@ -1704,7 +1704,7 @@ void printWiFiStatus() {
 ```
 
 
-### Wifi101 WiFi Udp Send Receive String
+### Wifi101 Wi-Fi Udp Send Receive String
 
 This tutorial waits for a UDP packet on a local port. When a valid packet is received, an acknowledge packet is sent back to the client on a specified outgoing port. It relies on a WiFi connection made to your LAN using an Arduino Wifi 101 Shield and Zero Board or the MKR1000 board.
 
@@ -1872,7 +1872,7 @@ void printWiFiStatus() {
 }
 ```
 
-### Wifi101 WiFi Web Client
+### Wifi101 Wi-Fi Web Client
 
 This example shows you how to make a HTTP request using a WiFi Shield 101 or a MKR1000 board. It returns a [Google search for the term "Arduino"](http://www.google.com/search?q=arduino). The results of this search are viewable as HTML through your Arduino Software (IDE) serial window.
 
@@ -2057,7 +2057,7 @@ void printWiFiStatus() {
 ```
 
 
-### Wifi101 WiFi Web Client Repeating
+### Wifi101 Wi-Fi Web Client Repeating
 
 This example shows you how to make repeated HTTP requests using a WiFi Shield 101 or a MKR1000 board.  It connects to  [http://www.arduino.cc/latest.txt](/latest.txt). The content of the page is viewable through your Arduino Software (IDE) Serial Monitor window.
 
@@ -2262,9 +2262,9 @@ void printWiFiStatus() {
 ```
 
 
-### Wifi101 Simple Web Server WiFi
+### Wifi101 Simple Web Server Wi-Fi
 
-In this example, you will use your WiFi Shield 101 and your Arduino Zero, or a MKR1000 board, to create a simple Web server. Using the WiFi library, your device will be able to answer a HTTP request received from the WiFI connection. After opening a browser and navigating to your WiFi shield's or MKR1000's IP address, your board will respond with just enough HTML for a browser to display the input values from all six analog pins.
+In this example, you will use your WiFi Shield 101 and your Arduino Zero, or a MKR1000 board, to create a simple Web server. Using the Wi-Fi library, your device will be able to answer a HTTP request received from the Wi-FI connection. After opening a browser and navigating to your WiFi shield's or MKR1000's IP address, your board will respond with just enough HTML for a browser to display the input values from all six analog pins.
 
 This example is written for a network using WPA encryption. For  WEP or WPA, change the Wifi.begin() call accordingly.
 
