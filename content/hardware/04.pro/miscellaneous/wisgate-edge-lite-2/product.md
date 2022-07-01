@@ -2,6 +2,7 @@
 title: WisGate Edge Lite 2
 url_shop: https://store.arduino.cc/wisgate-edge-lite-2
 url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
+url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268/Datasheet
 ---
 
 The WisGate Edge Lite 2 gateway for LoRaWAN® embeds RAKwireless<sup>TM</sup> technologies and allows you to set home and small medium-sized industrial indoor applications
