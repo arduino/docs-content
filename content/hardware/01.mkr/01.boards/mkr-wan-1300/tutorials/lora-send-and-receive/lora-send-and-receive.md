@@ -8,7 +8,7 @@ tags:
   - LoRa®
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa
+  - name: LoRa®
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
   - hardware/01.mkr/01.boards/mkr-wan-1300
@@ -57,7 +57,7 @@ ___
 -   2x Micro USB cable .
 -   Arduino IDE (offline and online versions available).
 -   Arduino SAMD core installed ([follow this link for instructions](/content/software/ide-v1/installing-samd21-core)).
--   LoRa library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
+-   LoRa® library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
 
 
 ### Circuit

@@ -181,7 +181,7 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 - The Portenta Max Carrier offers a lot of features when used with the Portenta H7. If you want to learn more about the Portenta Max Carriers peripherals and features, check out our [Getting Started guide for Max Carrier and Portenta H7](/tutorials/getting-started-with-H7).
 
-- If you are interested in trying out more of the Max Carriers connectivity options. Be sure to check out our tutorial on how to use [LoRa with the Max Carrier and Portenta H7](/tutorials/lora-tutorial).
+- If you are interested in trying out more of the Max Carriers connectivity options. Be sure to check out our tutorial on how to use [LoRa® with the Max Carrier and Portenta H7](/tutorials/lora-tutorial).
 
 ## Conclusion
 

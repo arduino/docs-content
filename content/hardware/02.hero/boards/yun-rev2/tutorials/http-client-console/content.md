@@ -2,10 +2,10 @@
 tags: [Yún]
 author: Arduino
 title: 'Arduino Yún HTTP Client Console'
-description: 'Create a simple client that downloads a webpage and prints it to the serial monitor via WiFi using Console.'
+description: 'Create a simple client that downloads a webpage and prints it to the serial monitor via Wi-Fi using Console.'
 ---
 
-This example for a Yún device shows how create a basic HTTP client that connects to the Internet and downloads content. In this case, you'll connect to the Arduino website and download a version of the logo as ASCII text. This version uses Console and shows the output on your Arduino Software (IDE) Console through a WiFi connection and not the USB one.
+This example for a Yún device shows how create a basic HTTP client that connects to the Internet and downloads content. In this case, you'll connect to the Arduino website and download a version of the logo as ASCII text. This version uses Console and shows the output on your Arduino Software (IDE) Console through a Wi-Fi connection and not the USB one.
 
 Select the IP port as connection to your board and open the Serial Monitor in the IDE once you've programmed the board.
 

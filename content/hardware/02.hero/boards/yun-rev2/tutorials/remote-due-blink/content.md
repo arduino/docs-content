@@ -5,7 +5,7 @@ title: 'Arduino Yún Remote Due Blink'
 description: 'Demonstrates how to upload remotely a sketch on DUE boards.'
 ---
 
-This is a special version of the basic **Blink** example. It's made for demonstrating how to enable the possibility to upload a sketch on a DUE board and a Yún shield using the remote upload feature (via WiFi or Ethernet) offered by the Arduino Software (IDE).
+This is a special version of the basic **Blink** example. It's made for demonstrating how to enable the possibility to upload a sketch on a DUE board and a Yún shield using the remote upload feature (via Wi-Fi or Ethernet) offered by the Arduino Software (IDE).
 
 ## Preparing Arduino Due For Remote Upload
 

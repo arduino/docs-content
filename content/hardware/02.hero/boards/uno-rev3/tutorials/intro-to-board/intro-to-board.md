@@ -32,7 +32,7 @@ Starting clockwise from the top center:
 - DC Current per I/O Pin:	40 mA
 - Flash Memory:	32 KB
 - SRAM:	2 KB
-- EEPROM:	1KB
+- EEPROM:	1 KB
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: MKRWAN Examples
-description: 'Examples for the MKRWAN library, which is used to communicate with the LoRa module onboard the MKR WAN 1300/1310 boards.'
+description: 'Examples for the MKRWAN library, which is used to communicate with the LoRa® module onboard the MKR WAN 1300/1310 boards.'
 tags: [LoRa, WAN]
 author: Arduino
 ---
@@ -21,7 +21,7 @@ These examples will show you how to set up your board to use the LoRa® network 
 
 ### MKR WAN First Configuration
 
-This example for a MKR WAN 1300 allows you to setup your board to use the LoRa network.
+This example for a MKR WAN 1300 allows you to setup your board to use the LoRa® network.
 
 ```arduino
 /*
@@ -188,9 +188,9 @@ void loop() {
 }
 ```
 
-### MKR WAN Lora Send and Receive
+### MKR WAN Lora® Send and Receive
 
-This sketch demonstrates how to send and receive data with the MKR WAN 1300 LoRa module.
+This sketch demonstrates how to send and receive data with the MKR WAN 1300 LoRa® module.
 
 ```arduino
 

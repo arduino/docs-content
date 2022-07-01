@@ -151,7 +151,7 @@ We are using `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name and for fa
 ### QSPI Storage Mode
 
 #### Setting Up
-To use internal **QSPI** storage for downloading the binary file via OTA (Over-The-Air), you will only need the Arduino Portenta H7 board connected to the computer with the [Arduino IDE](https://www.arduino.cc/en/software). With it, you will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1MB M4** for the purpose of this tutorial and the corresponding port. 
+To use internal **QSPI** storage for downloading the binary file via OTA (Over-The-Air), you will only need the Arduino Portenta H7 board connected to the computer with the [Arduino IDE](https://www.arduino.cc/en/software). With it, you will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1 MB M4** for the purpose of this tutorial and the corresponding port. 
 
 ![Arduino Portenta H7 Board Connection](assets/portenta_h7_board_selection.png)
 
@@ -171,7 +171,7 @@ To use the **SD card** as the preferred OTA (Over-The-Air) storage device, we wi
 
 ![Arduino Portenta H7 with Vision Shield (Ethernet)](assets/portenta_h7_plus_vision_shield.svg)
 
-With this, you will need the Arduino Portenta H7 board connected to the computer with the Arduino IDE. You will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1MB M4** for the purpose of this tutorial and the corresponding port.
+With this, you will need the Arduino Portenta H7 board connected to the computer with the Arduino IDE. You will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1 MB M4** for the purpose of this tutorial and the corresponding port.
 
 #### Writing the Script
 As same as QSPI storage mode, to proceed with a OTA using the SD Card, you can open the sketch from **Examples > Arduino_Portenta_OTA > OTA_SD_Portenta**.

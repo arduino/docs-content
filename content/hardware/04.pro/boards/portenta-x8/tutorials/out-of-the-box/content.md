@@ -43,19 +43,19 @@ Once the Portenta X8 is plugged in via USB, you can open your browser and go to 
 
 Click the Wi-Fi button to start configuring your network connection.
 
-![Select wifi on set up page](assets/x8-oob-main-wifi.png)
+![Select Wi-Fi on set up page](assets/x8-oob-main-wifi.png)
 
 Select your Wi-Fi SSID.
 
-![Wifi ssid set up](assets/x8-oob-wifi-ssid.png)
+![Wi-Fi ssid set up](assets/x8-oob-wifi-ssid.png)
 
 Type the password.
 
-![Wifi password set up](assets/x8-oob-wifi-pass.png)
+![Wi-Fi password set up](assets/x8-oob-wifi-pass.png)
 
 Once it is connected, you should see the Wi-Fi status bullet in the bottom left turning green.
 
-![Wifi connection done](assets/x8-oob-wifi-sucess.png)
+![Wi-Fi connection done](assets/x8-oob-wifi-sucess.png)
 
 ***You can change your network by clicking on the button again and repeat the above steps***
 
