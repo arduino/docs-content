@@ -1,7 +1,7 @@
 ---
 title: WisGate Edge Pro
 url_shop: https://store.arduino.cc/wisgate-edge-pro
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
+url_guide: /tutorials/wisgate-edge-pro/getting-started
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
 ---
 

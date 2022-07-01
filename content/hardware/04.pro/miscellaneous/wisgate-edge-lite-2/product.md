@@ -1,7 +1,7 @@
 ---
 title: WisGate Edge Lite 2
 url_shop: https://store.arduino.cc/wisgate-edge-lite-2
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
+url_guide: /tutorials/wisgate-edge-lite-2/getting-started
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268/Datasheet
 ---
 
