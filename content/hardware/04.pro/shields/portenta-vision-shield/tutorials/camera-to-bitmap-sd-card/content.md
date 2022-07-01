@@ -21,8 +21,8 @@ This tutorial shows you how to capture a frame from the Portenta Vision Shield C
 
 - Capturing a frame from the camera.
 - Make the bitmap binary file with the correct settings.
-- Save the bitmap on SD Card.
-- Visualize the image on your computer.
+- Save the bitmap on an SD Card.
+- Visualize the captured image on your computer.
 
 ### Required Hardware and Software
 
@@ -43,7 +43,7 @@ Connect the Vision Shield to your Portenta H7 as shown in the figure. The top an
 
 You will be using the **Himax HM-01B0 camera module** which has a resolution of 320 by 240 and the output data its in grayscale with 8 bits per pixel (bpp), this is important to have in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
 
-Inside the sketch you can use this librarys to access the camera APIs
+Inside the sketch you can use these libraries to access the camera APIs
 ```cpp
 #include "camera.h"
 #include "himax.h"
@@ -51,7 +51,7 @@ Inside the sketch you can use this librarys to access the camera APIs
 
 #### Bitmap File Format
 
-The bitmap binary file needs to contain some information in order to tell the computer some required information, for example the resolution of the picture and the bit-depth (bpp)
+The bitmap binary file needs to contain some information in order to tell the computer some required information, for example the resolution of the picture and the bit-depth (bpp). Bit depth refers to the color information stored in the image. The higher the bit depth of an image, the more colors it can store. As the bit depth increases, the file size of the image also increases because more color information has to be stored for each pixel in the image.
 
 The following table shows all the headers, the size of its buffer, offsets, the settings that we used and a details column:
 
@@ -69,7 +69,7 @@ The final size of the file is **77.879 KB**.
 
 You can find the sketch on the latest version of the [Arduino_Pro_Tutorials](https://github.com/arduino-libraries/Arduino_Pro_Tutorials) at `examples > Vision Shield to SD Card bmp > visionShieldBitmap.ino`
 
-***You can see the full sketch on the [Full sketch section](#full-sketch)***
+***You can see the full sketch in the [Full sketch section](#full-sketch)***
 
 First you need to include the needed libraries
 ```cpp
@@ -108,7 +108,7 @@ For the bitmap headers binary file we will need some information like the resolu
 #define PALETTE_SIZE (2 ^ IMAGE_BPP) * 4 // 4 bytes per color
 ```
 
-To mount the SD Card the sketch has one function to do so:
+To mount the SD Card we will use the following function in the sketch:
 ```cpp
 // Mount File system block
 void mountSD()
@@ -353,18 +353,18 @@ void parseData()
 
 ### 4. Try It Out
 
-Insert a micro SD Card on the Portenta Vision Shield.
+Insert a micro SD Card into the Portenta Vision Shield.
 
 Connect the Portenta Vision shield to the Portenta H7.
 
 Once the sketch is uploaded, open the Serial monitor, you should see that everything is fine and the capture has been taken.
 
-Once the capture is saved, remove the SD Card and plug it on a computer/phone with an SD Card reader, open the storage unit and look for a bitmap called `image.bmp` then open it to check the result, you will be able to see a grayscale image on your device's image viewer.
+Once the capture is saved, remove the SD Card and plug it into a computer/phone with an SD Card reader, open the storage unit and look for a bitmap called `image.bmp` then open it to check the result, you will be able to see a grayscale image on your device's image viewer.
 
 ![Output bitmap example](assets/output-view.png)
 ## Conclusion
 
-In this tutorial you learnt how to capture the frames from your Vision Shield's Camera, encode it with the bitmap standards and save it inside an SD Card. 
+In this tutorial you learned how to capture the frames from your Vision Shield's Camera in the Arduino IDE, encode it with the bitmap standards and save it to an SD Card. 
 
 ## Next Steps
 
