@@ -78,14 +78,13 @@ Compatible Motors Spec:
       SR418D: -10℃ ～ 60℃
   Compatible Connector:
     Connector: Adam Equipment LHA-04-TS
-  Dimensions:
-    Overall Dimension (L x W x H):
-      SR312:
-        Metric: 31.3 x 16.5 x 28.6 (mm)
-        Imperial: 1.23 x 0.65 x 1.13 (in)
-      SR418D: 
-        Metric: 41.3 x 20.7 x 40.0 (mm)
-        Imperial: 1.68 x 0.81 x 1.57 (in)
-    Weight: 
-      SR312: 27g ±5% / 0.95oz ±5%
-      SR418D: 64g ±5% / 2.19oz ±5%
+  Dimension (L x W x H):
+    SR312:
+      Metric: 31.3 x 16.5 x 28.6 (mm)
+      Imperial: 1.23 x 0.65 x 1.13 (in)
+    SR418D: 
+      Metric: 41.3 x 20.7 x 40.0 (mm)
+      Imperial: 1.68 x 0.81 x 1.57 (in)
+  Weight: 
+    SR312: 27g ±5% / 0.95oz ±5%
+    SR418D: 64g ±5% / 2.19oz ±5%
