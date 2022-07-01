@@ -7,7 +7,7 @@ tags:
   - Setup
 author: 'Pablo Marquínez'
 hardware:
-  - hardware/05.pro/mmiscellaneousis/WisGate-edge-pro
+  - hardware/04.pro/miscellaneous/wisgate-edge-pro
 ---
 
 ## Introduction 
@@ -61,7 +61,7 @@ Take the bigger clamp and introduce one screw on the hole that fits better for y
   >
 </iframe>
 
-### Attaching the bracket on the clamps
+### Attaching the Bracket on the Clamps
 
 Once both the bracket on the gateway and the clamps on the pole are properly fasten, it is time to attach the gateway to the pole.
 After it's attached fasten one M6*12 screws on each side.
