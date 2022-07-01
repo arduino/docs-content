@@ -7,17 +7,13 @@ tags:
   - Setup
 author: 'Pablo Marquínez'
 hardware:
-  - hardware/05.pro/mmiscellaneousis/WisGate-edge-pro
-software:
-  - ide-v1
-  - ide-v2
-  - web-editor
-  - iot-cloud
+  - hardware/04.pro/miscellaneous/wisgate-edge-lite-2
+  - hardware/04.pro/miscellaneous/wisgate-edge-pro
 ---
 
 ## Introduction 
 
-This tutorial will show you how to get started with your **WisGate Edge** gateway and how it can be utilized by itself. It will showcase the connection to **The Things Network<sup>TM</sup>. We will go through the local and online setup.
+This tutorial will show you how to get started with your **WisGate Edge** gateway and how it can be utilized by itself. It will showcase the connection to **The Things Network<sup>TM</sup>**. We will go through the local and online setup.
 
 ## Goals
 
@@ -99,7 +95,11 @@ Fill the information:
 
 Click the "Create gateway" button at the end of the page.
 
-### Setup your Gateway with the TTN Credentials
+You will see the new gateway added to your list.
+
+![TTN Gateway created](assets/ttn-dashboard-gateways.png)
+
+### Setup Your Gateway with the TTN Credentials
 
 Access to the Network configuration by clicking on its button.
 
