@@ -87,6 +87,23 @@ On the top side of the gateway fasten both N-Type fiberglass antennas.
   >
 </iframe>
 
+### Waterproof sealing
+
+The device is meant to be on the outside, so the it includes:
+* **Vulcanising tape** which will vulcanize with itself providing a single piece protection (the edges of the tape will seem almost joint into one like a thermo-retractable tubes, making the water harder to go inside that layer)
+* **PVC tape** to increase the sealing.
+
+To make a proper waterproof sealing you should
+1. start with the PVC tape (around 50cm of tape) starting from the bottom of the connector surrounding fully the cable and connector, using this direction you will make the water slide better, as it does not have any resistance caused by the edge of each loop (it will if you do it from top to bottom)
+2. Repeat it in the same way adding one layer of vulcanising tape.
+
+We recommend to use 2 layers (x1 PVC tape and x1 vulcanising tape, two times so x4 layers of tapes)
+
+***You should check your country's IT standards in order to follow the law on IT installations, in some cases the number of minimum needed layers could be bigger.***
+
+Do not forget of sealing the antennas connections using the same order of tape.
+
+***Check the bottom side hexagonal stoppers are properly fasten to avoid leaks***
 
 ## Next Step
 
