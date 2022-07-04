@@ -37,7 +37,7 @@ Once that's done, you are ready to go! This package allows you to program the MC
 
 ## The Vidor 4000 and Verilog
 
-Unfortunately, there's no easy way to program the Intel Cyclone 10 FPGA on the Vidor board. Arduino announced a graphical tool that lets you combine pre-defined Verilog IP-blocks to build a larger FPGA project, but this tool has not yet been released. Luckily, there is a way for experienced users to utilize Verilog to configure the FPGA. To do this, you'll need the Arduino IDE, [Intel Quartus Prime 18.1](https://fpgasoftware.intel.com/18.1/?edition=lite&amp;platform=windows) (or newer), and a tool that converts the compiled files for the FPGA.
+Unfortunately, there's no easy way to program the Intel Cyclone 10 FPGA on the Vidor board. But experienced users can utilize Verilog to configure the FPGA. To do this, you'll need the Arduino IDE, [Intel Quartus Prime 18.1](https://fpgasoftware.intel.com/18.1/?edition=lite&amp;platform=windows) (or newer), and a tool that converts the compiled files for the FPGA.
 
 The official program is available in this [Vidor 4000 repository on GitHub](https://github.com/vidor-libraries/VidorBitstream/tree/release/TOOLS/makeCompositeBinary). However, I used an [alternative VidorFPGA version](https://github.com/wd5gnr/VidorFPGA) as well as the accompanying Verilog project I'll use throughout this article.
 
