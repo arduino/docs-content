@@ -99,7 +99,7 @@ To make a proper waterproof sealing you should
 
 We recommend to use 2 layers (x1 PVC tape and x1 vulcanising tape, two times so x4 layers of tapes)
 
-***You should check your country's IT standards in order to follow the law on IT installations, in some cases the number of minimum needed layers could be bigger.***
+***You should check your country's standards and law in order to follow the required procedures on telecommunication installations, in some cases the number of minimum needed layers could be bigger.***
 
 Do not forget of sealing the antennas connections using the same order of tape.
 
