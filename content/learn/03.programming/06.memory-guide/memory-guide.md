@@ -411,9 +411,9 @@ The following table shows basic value data types in Arduino:
 |     **Type**    | **Byte Length** |       **Range of Values**       |
 |:---------------:|:---------------:|:-------------------------------:|
 |    `boolean`    |        1        | Limited to logic true and false |
-|      `char`     |        1        |           -128 to 128           |
+|      `char`     |        1        |           -128 to 127           |
 | `unsigned char` |        1        |             0 to 255            |
-|      `byte`     |        1        |             o to 255            |
+|      `byte`     |        1        |             0 to 255            |
 |      `int`      |        2        |        -32,768 to 32,767        |
 |  `unsigned int` |        2        |           0 to 65,535           |
 |      `word`     |        2        |           0 to 65,535           |

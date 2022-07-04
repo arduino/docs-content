@@ -44,7 +44,7 @@ In this tutorial, we are going to save a value persistently inside the Flash mem
 ***Important: The TBStore API optimizes for access speed, reduce [wearing of the flash](https://en.wikipedia.org/wiki/Flash_memory#Memory_wear) and minimize storage overhead. TBStore is also resilient to power failures. If you want to use the flash memory of the microcontroller, always prefer the TDBStore approach over a direct access to the FlashIAP block device.***
 
 ### 1. The Basic Setup
-Begin by plugging in your Portenta board to the computer using a USB-C cable and open the Arduino IDE or the Arduino Pro IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](por-ard-gs) before you proceed.
+Begin by plugging in your Portenta board to the computer using a USB-C cable and open the Arduino IDE or the Arduino Pro IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
 
 ### 2. Create the Structure of the Program
 Let's program the Portenta with a sketch. We will also define a few helper functions in a supporting header file.

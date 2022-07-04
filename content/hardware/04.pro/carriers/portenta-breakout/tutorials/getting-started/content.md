@@ -52,7 +52,7 @@ For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case 
 After having connected everything the Portenta H7 can be plugged into the computer using a USBC cable and we can start with the code.
 
 ### 4. The Arduino_PortentaBreakout Library
-In the Arduino IDE we create a new Sketch and make sure we have selected the Arduino Portenta H7 on the M7 core, if you haven't used the Portenta H7 before, [here](/tutorials/portenta-h7/por-ard-gs) is a detailed tutorial on how to get started with it. 
+In the Arduino IDE we create a new Sketch and make sure we have selected the Arduino Portenta H7 on the M7 core, if you haven't used the Portenta H7 before, [here](/tutorials/portenta-h7/setting-up-portenta) is a detailed tutorial on how to get started with it. 
 
 In order to use the pins on the Portenta Breakout we need to install the **Arduino_PortentaBreakout** Library which allows us to address all the pins located on the Carrier. Therefore we need to download the library using the library manager by going to **Sketch > Include Libraries > Manage Libraries** and search for **Arduino_PortentaBreakout**.
 

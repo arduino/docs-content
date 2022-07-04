@@ -49,6 +49,8 @@ To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can 
 
 ### Wi-Fi
 
+***Official Arduino boards only supports the 2.4GHz frequency band for transmitting data.***
+
 The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 
 - [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)

@@ -115,7 +115,7 @@ The Portenta Max Carrier equips two different memory units on-board: Flash Memor
 
 - The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
 
-***For more information on how to use the Flash Memory storage, please follow this [guide](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-flash) to get most out of the Flash Memory.***
+***For more information on how to use the Flash Memory storage, please follow this [guide](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory) to get most out of the Flash Memory.***
 
 **Mini SD Card slot**
 
@@ -146,24 +146,11 @@ The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out ta
 
 ***Please DO NOT USE the cellular modem without the external antenna attached to the SMA connector. It might damage the Portenta Max Carrier if used without.***
 
-To begin using the modem, it will require some packages to be installed beforehand. Given the network technology, Cat-M1 and NB-IoT, it will require the use of `GSMClient` library. If the library is not installed or needs to be updated, please make sure to have the `Arduino Mbed OS Portenta Core` up to date from the board manager. 
+To begin using the modem, it will require some packages to be installed beforehand. Given the network technology, Cat-M1 and NB-IoT, it will require the use of the `MKRNB` library. Please also make sure to have the `Arduino Mbed OS Portenta Core` up to date from the board manager. 
 
-We will use the `arduino_secrets.h` header file for PIN and APN configuration of the SIM card that will be inserted into microSIM slot on-board Portenta Max Carrier. Following code pieces are to be used to initialize the GSM and set the general network configuration. 
+We will use the `arduino_secrets.h` header file for PIN and APN configuration of the SIM card that will be inserted into microSIM slot on-board Portenta Max Carrier.
 
-```cpp
-// Initializes GSM 
-GSM.begin(pin, apn, username, pass, CATNB);
-
-// Establishes connection to desired server 
-client.connect(server, port);
-```
-
-Inside the `GSM.begin(pin, apn, username, pass, CATNB)` function, where CATNB is the fifth argument of the function, must be defined to which network technology will be used. 
-
-- To use the NB-IoT network technology, please use `CATNB` as the argument
-- To use the Cat-M1 network technology, please use `CATM1` as the argument
-
-For the `client.connect(server, port);` function, the port is predefined as `80`. It is required to define the server, and the port argument if necessary, to successfully carry out the operation. 
+If you want to learn how to run a sketch with this library or how to switch between Cat M1 and NB IoT, please take a look at our [Portenta Max Carrier and Portenta H7 Cat M1/NB IoT tutorial](https://docs.arduino.cc/tutorials/portenta-max-carrier/catM1-and-NBIoT)
 
 The antenna connectors for both LoRaWAN® and cellular modem with the microSIM slot are indicated as the following image:
 

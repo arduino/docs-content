@@ -401,4 +401,4 @@ void loop()
 For troubleshooting the issues that might have arose following the tutorial, you can use following tips to solve the issue. 
 
 - If it logs there has been an issue with Wi-Fi module, means the device may have suffered from losing the Wi-Fi firmware partition. To solve this, you will have to use **PortentaWiFiFirmwareupdater** sketch found on Arduino IDE examples to fix the issue. 
-- QSPI storage may throw error -3 while running Portenta H7 OTA QSPI example. To fix this you can use this guide of [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-flash/) in the section **Programming the QSPI Flash**. After this, run the example and it should have been solved by eliminating error -3 (OTA Storage initialization error). 
+- QSPI storage may throw error -3 while running Portenta H7 OTA QSPI example. To fix this you can use this guide of [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory) in the section **Programming the QSPI Flash**. After this, run the example and it should have been solved by eliminating error -3 (OTA Storage initialization error). 

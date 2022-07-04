@@ -3,7 +3,7 @@ identifier: ASX00031
 title: Arduino® Portenta Breakout Board
 type: pro
 ---
-![](assets/breakoutCarrierShowcase.png)
+![](assets/featured.png)
 
 # Description 
 The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors. 
@@ -60,7 +60,8 @@ This product is designed to work alongside the Portenta family. Please check the
 
 <!-- [Example of a typical installation for a solution including Portenta H7 and Global Shutter Camera Module. A Portenta board must be connected for operation of the Portenta Breakout Board.](assets/breakoutCarrierAssembly.jpg) -->
 
-![Example of a typical installation for a solution including Portenta H7. A Portenta board must be connected for operation of the Portenta Breakout Board.](assets/breakoutCarrierAssembly.jpg)
+![](assets/breakoutsolution.png)
+Example of a typical installation for a solution including Portenta H7. A Portenta board must be connected for operation of the Portenta Breakout Board.
 
 ## Ratings
 ### Absolute Maximum Ratings

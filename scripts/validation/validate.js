@@ -8,6 +8,7 @@ import { validateImageDescriptions, validateImagePaths, validateReferencedAssets
 import { validateSyntaxSpecifiers } from 'content-lint';
 import { validateNestedLists } from 'content-lint';
 import { validateBrokenLinks } from 'content-lint';
+import { validateFolderName } from 'content-lint';
 import { ConfigManager } from 'content-lint';
 
 const configManager = new ConfigManager();
@@ -54,6 +55,9 @@ validator.addValidation(allArticles, validateSVGFiles);
 if(configManager.options.checkBrokenLinks){
     validator.addValidation(allArticles, validateBrokenLinks, configManager.getConfig("generic").brokenLinkExcludePatterns, configManager.getConfig("generic").baseURL, configManager.options.verbose);
 };
+
+// Verify if articles contain discouraged foldernames (which translate into URLs)
+validator.addValidation(allArticles, validateFolderName);
 
 // Verify that all files in the assets folder are referenced
 validator.addValidation(allArticles, validateReferencedAssets);

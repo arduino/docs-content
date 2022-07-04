@@ -9,6 +9,7 @@ tags:
   - Wi-Fi
   - Bluetooth®
   - IMU
+  - Temperature
 author: 'Karl Söderby'
 libraries:
   - name: Arduino LSM6DSOX
@@ -192,7 +193,9 @@ The VUSB pin is located on the bottom of the board. The pads on the Arduino RP20
 
 ### LSM6DSOXTR
 
-The LSM6DSOXTR from STM is an IMU (Inertial Measurement Unit) that features a 3D digital accelerometer and a 3D digital gyroscope. It features among many other things, a machine learning core, which is useful for any motion detection projects, such as free fall, step detector, step counter, pedometer.
+The LSM6DSOXTR from STM is an IMU (Inertial Measurement Unit) that features a 3D digital **accelerometer** and a 3D digital **gyroscope**. It features among many other things, a **machine learning core**, which is useful for any motion detection projects, such as free fall, step detector, step counter, pedometer.
+
+This module also features an embedded **temperature sensor**.
 
 ### LSM6DSOX Library
 
@@ -234,6 +237,22 @@ The gyroscope data can be accessed through the following commands:
 
   if (IMU.gyroscopeAvailable()) {
     IMU.readGyroscope(x, y, z);
+  }
+```
+
+### Temperature
+
+The temperature data can be accessed through the following code:
+
+```arduino
+if (IMU.temperatureAvailable())
+  {
+    int temperature_deg = 0;
+    IMU.readTemperature(temperature_deg);
+
+    Serial.print("LSM6DSOX Temperature = ");
+    Serial.print(temperature_deg);
+    Serial.println(" °C");
   }
 ```
 

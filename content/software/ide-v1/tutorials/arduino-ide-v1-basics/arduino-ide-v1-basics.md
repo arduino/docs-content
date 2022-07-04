@@ -13,39 +13,39 @@ Programs written using Arduino Software (IDE) are called **sketches**. These ske
 
 **NB: Versions of the Arduino Software (IDE) prior to 1.0 saved sketches with the extension .pde. It is possible to open these files with version 1.0, you will be prompted to save the sketch with the .ino extension on save.**
 
-![](./IDE_VERIFY_File.jpg)
+![](assets/IDE_VERIFY_File.jpg)
 
 _Verify_
 Checks your code for errors compiling it.
 
-![](./IDE_UPLOAD_File.jpg)
+![](assets/IDE_UPLOAD_File.jpg)
 
 _Upload_
 Compiles your code and uploads it to the configured board. See [uploading](#uploading) below for details.
 
 Note: If you are using an external programmer with your board, you can hold down the "shift" key on your computer when using this icon. The text will change to "Upload using Programmer"
 
-![](./IDE_NEW_File.jpg)
+![](assets/IDE_NEW_File.jpg)
 
 _New_
 Creates a new sketch.
 
-![](./IDE_OPEN_File.jpg)
+![](assets/IDE_OPEN_File.jpg)
 
 _Open_
 Presents a menu of all the sketches in your sketchbook. Clicking one will open it within the current window overwriting its content.
 
 Note: due to a bug in Java, this menu doesn't scroll; if you need to open a sketch late in the list, use the **File | Sketchbook** menu instead.
 
-![](./IDE_SAVE_File.jpg)
+![](assets/IDE_SAVE_File.jpg)
 
 _Save_
 Saves your sketch.
 
-![](./IDE_SERMON_File.jpg)
+![](assets/IDE_SERMON_File.jpg)
 
 _Serial Monitor_
-Opens the [serial monitor](#serialmonitor).
+Opens the [serial monitor](#serial-monitor).
 
 Additional commands are found within the five menus: **File**, **Edit**, **Sketch**, **Tools**, **Help**. The menus are context sensitive, which means only those items relevant to the work currently being carried out are available.
 
@@ -169,7 +169,7 @@ Additional commands are found within the five menus: **File**, **Edit**, **Sketc
   This menu contains all the serial devices (real or virtual) on your machine. It should automatically refresh every time you open the top-level tools menu.
 
 - _Programmer_
-  For selecting a hardware programmer when programming a board or chip and not using the onboard USB-serial connection. Normally you won't need this, but if you're [burning a bootloader](/en/Tutorial/BuiltInExamples/ArduinoISP) to a new microcontroller, you will use this.
+  For selecting a hardware programmer when programming a board or chip and not using the onboard USB-serial connection. Normally you won't need this, but if you're [burning a bootloader](/built-in-examples/arduino-isp/ArduinoISP) to a new microcontroller, you will use this.
 
 - _Burn Bootloader_
   The items in this menu allow you to burn a [bootloader](/hacking/software/Bootloader) onto the microcontroller on an Arduino board. This is not required for normal use of an Arduino board but is useful if you purchase a new ATmega microcontroller (which normally come without a bootloader). Ensure that you've selected the correct board from the **Boards** menu before burning the bootloader on the target board. This command also set the right fuses.
@@ -204,9 +204,9 @@ When you upload a sketch, you're using the Arduino **bootloader**, a small progr
 
 Libraries provide extra functionality for use in sketches, e.g. working with hardware or manipulating data. To use a library in a sketch, select it from the **Sketch > Import Library** menu. This will insert one or more **#include** statements at the top of the sketch and compile the library with your sketch. Because libraries are uploaded to the board with your sketch, they increase the amount of space it takes up. If a sketch no longer needs a library, simply delete its **#include** statements from the top of your code.
 
-There is a [list of libraries](arduino.cc/en/Reference/Libraries) in the reference. Some libraries are included with the Arduino software. Others can be downloaded from a variety of sources or through the Library Manager. Starting with version 1.0.5 of the IDE, you do can import a library from a zip file and use it in an open sketch. See these [instructions for installing a third-party library](/learn/programming/libraries).
+There is a [list of libraries](https://www.arduino.cc/reference/en/libraries/) in the reference. Some libraries are included with the Arduino software. Others can be downloaded from a variety of sources or through the Library Manager. Starting with version 1.0.5 of the IDE, you do can import a library from a zip file and use it in an open sketch. See these [instructions for installing a third-party library](/software/ide-v1/tutorials/installing-libraries).
 
-To write your own library, see [this tutorial](/en/Hacking/LibraryTutorial).
+To write your own library, see [this tutorial](/learn/contributions/arduino-creating-library-guide).
 
 ## Third-Party Hardware
 
@@ -218,7 +218,7 @@ For details on creating packages for third-party hardware, see the [Arduino Plat
 
 This displays serial sent from the Arduino board over USB or serial connector. To send data to the board, enter text and click on the "send" button or press enter. Choose the baud rate from the drop-down menu that matches the rate passed to **Serial.begin** in your sketch. Note that on Windows, Mac or Linux the board will reset (it will rerun your sketch) when you connect with the serial monitor. Please note that the Serial Monitor does not process control characters; if your sketch needs a complete management of the serial communication with control characters, you can use an external terminal program and connect it to the COM port assigned to your Arduino board.
 
-You can also talk to the board from Processing, Flash, MaxMSP, etc (see the [interfacing page](/playground/Main/Interfacing) for details).
+You can also talk to the board from Processing, Flash, MaxMSP, etc (see the [interfacing page](https://playground.arduino.cc/Main/InterfacingWithHardware/) for details).
 
 ## Preferences
 
@@ -226,7 +226,7 @@ Some preferences can be set in the preferences dialog (found under the **Arduino
 
 ## Language Support
 
-![](./languagePreferences.png)
+![](assets/languagePreferences.png)
 
 Since version 1.0.1 , the Arduino Software (IDE) has been translated into 30+ different languages. By default, the IDE loads in the language selected by your operating system. (Note: on Windows and possibly Linux, this is determined by the locale setting which controls currency and date formats, not by the language the operating system is displayed in.)
 
@@ -236,9 +236,9 @@ You can return the software to its default setting of selecting its language bas
 
 ## Boards
 
-The board selection has two effects: it sets the parameters (e.g. CPU speed and baud rate) used when compiling and uploading sketches; and sets and the file and fuse settings used by the burn bootloader command. Some of the board definitions differ only in the latter, so even if you've been uploading successfully with a particular selection you'll want to check it before burning the bootloader. You can find a comparison table between the various boards [here](/en/Products/Compare).
+The board selection has two effects: it sets the parameters (e.g. CPU speed and baud rate) used when compiling and uploading sketches; and sets and the file and fuse settings used by the burn bootloader command. Some of the board definitions differ only in the latter, so even if you've been uploading successfully with a particular selection you'll want to check it before burning the bootloader. You can find different boards [here](https://www.arduino.cc/en/hardware).
 
-Arduino Software (IDE) includes the built in support for the boards in the following list, all based on the AVR Core. The [Boards Manager](arduino.cc/en/Guide/Cores) included in the standard installation allows to add support for the growing number of new boards based on different cores like Arduino Due, Arduino Zero, Edison, Galileo and so on.
+Arduino Software (IDE) includes the built in support for the boards in the following list, all based on the AVR Core. The [Boards Manager](/learn/starting-guide/cores) included in the standard installation allows to add support for the growing number of new boards based on different cores like Arduino Due, Arduino Zero, Edison, Galileo and so on.
 
 - _Arduino Yún_
   An ATmega32u4 running at 16 MHz with auto-reset, 12 Analog In, 20 Digital I/O and 7 PWM.
@@ -303,4 +303,4 @@ Arduino Software (IDE) includes the built in support for the boards in the follo
 - _Arduino Gemma_
   An ATtiny85 running at 8 MHz with auto-reset, 1 Analog In, 3 Digital I/O and 2 PWM.
 
-For instructions on installing support for other boards, see [third-party hardware](#thirdpartyhardware) above.
+For instructions on installing support for other boards, see [third-party hardware](#third-party-hardware) above.

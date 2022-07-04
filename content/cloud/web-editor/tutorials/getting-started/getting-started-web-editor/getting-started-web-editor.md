@@ -52,6 +52,14 @@ When we are done, we should see this screen:
 
 Congratulations, you now have the necessary tools to start using the Web Editor.
 
+> You can find the Arduino Create Agent files by following the path that relates to your operative system:
+> 
+> **Windows:** `C:\Users\{username}\AppData\Roaming\ArduinoCreateAgent`
+> 
+> **MacOS:** `Users/{username}/Applications/ArduinoCreateAgent`
+> 
+> **Linux:** `/home/<user>/ArduinoCreateAgent`
+
 ### Uploading a simple example
 
 Now, let's take a look at how the Web Editor works, by uploading a simple example to the board. First, we need to navigate to the Web Editor, by either [clicking this link](https://create.arduino.cc/editor) or clicking the menu at the top right corner, following the image below:

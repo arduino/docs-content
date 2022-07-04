@@ -32,7 +32,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
   The first and only RP2040 board with native Bluetooth® and WiFi connectivity.
 
-  <FeatureLink title="Datasheet" url="https://www.u-blox.com/sites/default/files/NINA-W10_ProductSummary_%28UBX-17051775%29_C1-public.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="https://content.u-blox.com/sites/default/files/NINA-W10_ProductSummary_UBX-17051775.pdf" download blank/>
 </Feature>
 
 <Feature title="ST LSM6DSOX 6-axis IMU" image="imu">
@@ -56,11 +56,11 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
   <FeatureLink title="Datasheet" url="https://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf" download blank/>
 </Feature>
 
-<Feature title="Step down converter" image="power">
+<Feature title="Temperature Sensor" image="temperature-sensor">
 
-  Achieve high efficiency and low noise over a wide input voltage range with the builtin switch mode power supply
+  The LSM6DSOX sensor also features an embedded sensor that can be accessed directly via a library.
 
-  <FeatureLink title="Datasheet" url="https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP2322/" download blank/>
+  <FeatureLink title="Datasheet" url="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#temperature"/>
 </Feature>
 
 

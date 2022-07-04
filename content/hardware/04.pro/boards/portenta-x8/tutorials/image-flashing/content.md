@@ -16,6 +16,8 @@ hardware:
 
 In this tutorial you will see how to manually flash your Portenta X8 with the image that is provided by Foundries.io through USB using the Terminal.
 
+***Attention: We encourage you to check every now and then if the device image version is up to date in order to have the latest bootloader, please check the release section of the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/releases) and compare the target version number***
+
 ## Goals
 
 - Get the required files

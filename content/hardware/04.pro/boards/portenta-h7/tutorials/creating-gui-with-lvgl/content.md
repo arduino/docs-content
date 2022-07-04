@@ -54,7 +54,7 @@ This tutorial will guide you through building a basic user interface using the L
 
 ### 1. The Basic Setup
 
-Begin by plugging your Portenta board into the computer using a USB-C cable and open the Arduino IDE or the Arduino Pro IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](por-ard-gs) before you proceed.
+Begin by plugging your Portenta board into the computer using a USB-C cable and open the Arduino IDE or the Arduino Pro IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
 
 ![The Portenta H7 can be connected to the computer using an appropriate USB-C cable](assets/por_ard_lvgl_basic_setup.svg)
 
@@ -108,7 +108,7 @@ Compile and upload the sketch to your Portenta H7. At this point your board beco
 
 ![Connecting the USB peripherals and the display to Portenta.](assets/por_ard_lvgl_connect_monitor.svg)
 
-***If you aren't familiar how the USB host works, we recommend you to have a look at the [USB Host tutorial](https://docs.arduino.cc/tutorials/portenta-h7/por-ard-usb).***
+***If you aren't familiar how the USB host works, we recommend you to have a look at the [USB Host tutorial](https://docs.arduino.cc/tutorials/portenta-h7/usb-host).***
 
 Our label object currently has LVGL's default style. If you want to customize the style you can have a look at LVGL's [documentation](https://docs.lvgl.io/latest/en/html/widgets/label.html).
 
