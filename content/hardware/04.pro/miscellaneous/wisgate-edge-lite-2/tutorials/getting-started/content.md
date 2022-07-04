@@ -2,9 +2,7 @@
 title: 'Getting Started with WisGate Edge Gateway'
 description: 'Tutorial for setting up the WisGate Edge Lo-Ra Gateway'
 difficulty: easy
-tags: 
-  - Getting Started
-  - Setup
+tags: [Getting Started, Setup]
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04.pro/miscellaneous/wisgate-edge-lite-2
@@ -51,7 +49,7 @@ In case of the PoE, you can use the PoE Injector included with the kit by connec
 ### Connect to the WisGate Dashboard
 
 There are different ways to access the WisGate:
-* Connecting to its Wi-Fi Access Point (dashboarrd IP: `192.168.230.1`)
+* Connecting to its Wi-Fi Access Point (dashboard IP: `192.168.230.1`)
 * Ethernet cable from your Computer to the Gateway (dashboard IP: `192.168.230.1`)
 * Connecting your Gateway to your LAN, getting its DHCP IP (You will need to discover the device's IP)
 
@@ -119,7 +117,7 @@ Choose the file with the certificates that you can download from [here](https://
 
 And the client token that you can get inside the TTN Gateway's dashboard panel. 
 
-![Wisgate gateway configuration with TTNos info](assets/ttn-gateway-dashboard-server.png)
+![Wisgate gateway configuration with TTN info](assets/ttn-gateway-dashboard-server.png)
 
 Click the API key on the top right and create a new one.
 
