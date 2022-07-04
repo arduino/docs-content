@@ -63,9 +63,7 @@ As the pinout slightly differs from one Nano board to another, there are some im
 
 ### RST Pin
 
-![RST pin on the carrier.](assets/nst-rst-pin.png)
-
-The pin marked **"RST"** on the board stands for **"reset"**. On the Nano Screw Terminal, it is disconnected by default. The reason behind this is that the function of this pin varies from board to board. 
+The pin marked **"RST"** on the Nano Screw Terminal stands for **"reset"**. The function of this pin varies from board to board.
 
 An example of this is the [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect), where this pin is named **"REC"** as in **"recovery"**.
 
