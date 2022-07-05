@@ -59,7 +59,8 @@ With the Boards Manager, you can browse and install packages, or "cores" for you
 
 There are several Arduino board packages available, such as **avr, samd, megaavr** and more.
 
-***To learn more about the board manager, visit the [Installing new boards tutorial](/software/ide-v2/tutorials/ide-v2-board-manager).***
+***To learn more about the Boards Manager, visit the [Installing new boards tutorial](/software/ide-v2/tutorials/ide-v2-board-manager).***
+
 
 ### Library Manager
 
