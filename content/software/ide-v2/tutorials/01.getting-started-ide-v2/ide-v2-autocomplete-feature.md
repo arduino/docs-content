@@ -130,4 +130,4 @@ The Arduino IDE 2.0 is an open-source project that is free for anyone to downloa
 
 ## Conclusion
 
-In this guide, we have presented a series of features & more detailed articles to follow, so that you can enjoy each and everyone of the features includes in the IDE 2.0.
+In this guide, we have presented a series of features & more detailed articles to follow, so that you can enjoy each and every one of the features included in the IDE 2.0.
