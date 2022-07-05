@@ -51,11 +51,11 @@ Typically, your sketches are saved in a folder named `Arduino` in your `Document
 
 To access your sketchbook, click on the **folder icon** located in the left hand menu. 
 
-### Board Manager
+### Boards Manager
 
-![Board Manager.](assets/board-manager.png)
+![Boards Manager.](assets/board-manager.png)
 
-With the board manager, you can browse and install packages, or "cores" for your boards. A board package is always required when compiling and uploading code for your board.
+With the Boards Manager, you can browse and install packages, or "cores" for your boards. A board package is always required when compiling and uploading code for your board.
 
 There are several Arduino board packages available, such as **avr, samd, megaavr, samd** and more.
 
