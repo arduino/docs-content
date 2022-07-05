@@ -57,7 +57,7 @@ To access your sketchbook, click on the **folder icon** located in the left hand
 
 With the Boards Manager, you can browse and install packages, or "cores" for your boards. A board package is always required when compiling and uploading code for your board.
 
-There are several Arduino board packages available, such as **avr, samd, megaavr, samd** and more.
+There are several Arduino board packages available, such as **avr, samd, megaavr** and more.
 
 ***To learn more about the board manager, visit the [Installing new boards tutorial](/software/ide-v2/tutorials/ide-v2-board-manager).***
 
