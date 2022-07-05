@@ -31,7 +31,7 @@ The Arduino IDE 2.0 features a new sidebar, making the  most commonly used tools
 - **Verify / Upload** - compile and upload your code to your Arduino Board.
 - **Select Board & Port** - detected Arduino boards automatically show up here, along with the port number.
 - **Sketchbook** - here you will find all of your sketches locally stored on your computer. Additionally, you can sync with the [Arduino Cloud](https://cloud.arduino.cc/), and also obtain your sketches from the online environment.
-- **Board Manager** - browse through Arduino & third party packages that can be installed. For example, using a MKR WiFi 1010 board requires the `Arduino SAMD Boards` package installed.
+- **Boards Manager** - browse through Arduino & third party packages that can be installed. For example, using a MKR WiFi 1010 board requires the `Arduino SAMD Boards` package installed.
 - **Library Manager** - browse through thousands of Arduino libraries, made by Arduino & its community.
 - **Debugger** - test and debug programs in real time.
 - **Search** - search for keywords in your code.
