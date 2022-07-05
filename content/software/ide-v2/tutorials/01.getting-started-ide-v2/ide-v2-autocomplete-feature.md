@@ -49,7 +49,7 @@ Your sketchbook is where your code files are stored. Arduino sketches are saved 
 
 Typically, your sketches are saved in a folder named `Arduino` in your `Documents` folder. 
 
-To access your sketchbook, click on the **file icon** located in the left hand menu. 
+To access your sketchbook, click on the **folder icon** located in the left hand menu. 
 
 ### Board Manager
 
