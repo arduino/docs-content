@@ -66,9 +66,8 @@ There are cases were multiple wires are going into the same screw terminal, you 
 The open ended grove cable from the relay module should be wired as follows:
 
 - Black wire (-) to GND pin.
-
-- Red wire (+) to A7 pin.
-- Yellow wire to D13 pin.
+- Red wire (+) to 3.3V pin.
+- Yellow wire to D6 pin.
 
  <br />
 
@@ -78,9 +77,9 @@ The grove button should be wired as follows:
 
 - Red wire (+) to 3.3V pin.
 
-- Yellow wire to D12 pin.
+- Yellow wire to D5 pin.
 
-- White wire to D11 pin.
+- White wire to D4 pin.
 
 <br />
 
