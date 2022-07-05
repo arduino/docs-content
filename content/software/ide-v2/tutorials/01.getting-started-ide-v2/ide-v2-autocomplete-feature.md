@@ -10,7 +10,7 @@ author: 'Karl Söderby'
 
 Makers, students & professionals have been using the classic Arduino IDE (Integrated Development Environment) ever since Arduino was born.
 
-The Arduino IDE 2.0 is an improvement of the classic IDE, with increased performance, improved user interface and many new features, such as [autocompletion](/software/ide-v2/tutorials/ide-v2-autocomplete-feature), a [built-in debugger](/software/ide-v2/tutorials/ide-v2-debugger) and a [syncing sketches with Arduino Cloud](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).
+The Arduino IDE 2.0 is an improvement of the classic IDE, with increased performance, improved user interface and many new features, such as [autocompletion](/software/ide-v2/tutorials/ide-v2-autocomplete-feature), a [built-in debugger](/software/ide-v2/tutorials/ide-v2-debugger) and [syncing sketches with Arduino Cloud](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).
 
 In this guide, we will cover the basics of the Arduino IDE 2.0, where you will find links to more detailed resources on how to use specific features!
 
