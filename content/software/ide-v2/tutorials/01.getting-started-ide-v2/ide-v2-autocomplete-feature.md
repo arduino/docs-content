@@ -8,9 +8,9 @@ tags:
 author: 'Karl Söderby'
 ---
 
-Makers, students & professionals have been using the classic Arduino IDE (Integrated Development Environment) since the beginning of Arduino. 
+Makers, students & professionals have been using the classic Arduino IDE (Integrated Development Environment) ever since Arduino was born.
 
-The Arduino IDE 2.0 is an improvement of the classic IDE, with an increased performance, improved user interface and many new features, such as [autocompletion](/software/ide-v2/tutorials/ide-v2-autocomplete-feature), a [built-in debugger](/software/ide-v2/tutorials/ide-v2-debugger) and a [syncing sketches with Arduino Cloud](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).
+The Arduino IDE 2.0 is an improvement of the classic IDE, with increased performance, improved user interface and many new features, such as [autocompletion](/software/ide-v2/tutorials/ide-v2-autocomplete-feature), a [built-in debugger](/software/ide-v2/tutorials/ide-v2-debugger) and a [syncing sketches with Arduino Cloud](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).
 
 In this guide, we will cover the basics of the Arduino IDE 2.0, where you will find links to more detailed resources on how to use specific features!
 
@@ -39,7 +39,7 @@ The Arduino IDE 2.0 features a new sidebar, making the  most commonly used tools
 
 ## Features
 
-The Arduino IDE 2.0 is a versatile editor with many features. You can install libraries directly, sync your sketches with Arduino Cloud. In this section, many of the core features are listed, along with a link to a more detailed article.
+The Arduino IDE 2.0 is a versatile editor with many features. You can install libraries directly, sync your sketches with Arduino Cloud, debug your sketches and much more. In this section, some of the core features are listed, along with a link to a more detailed article.
 
 ### Sketchbook
 
@@ -47,15 +47,15 @@ The Arduino IDE 2.0 is a versatile editor with many features. You can install li
 
 Your sketchbook is where your code files are stored. Arduino sketches are saved as `.ino` files, and must be stored in a folder of the exact name. For example, a sketch named `my_sketch.ino` must be stored in a folder named `my_sketch`.
 
-Typically, your sketches are saved in a folder named `Arduino` in your `Documents` folder (this can be changed). 
+Typically, your sketches are saved in a folder named `Arduino` in your `Documents` folder. 
 
-To access your sketchbook, click on the **file icon** in the left hand menu. 
+To access your sketchbook, click on the **file icon** located in the left hand menu. 
 
 ### Board Manager
 
 ![Board Manager.](assets/board-manager.png)
 
-With the board manager, you can browse and install packages, or "cores" for your boards. A board package is required when compiling and uploading code for your board.
+With the board manager, you can browse and install packages, or "cores" for your boards. A board package is always required when compiling and uploading code for your board.
 
 There are several Arduino board packages available, such as **avr, samd, megaavr, samd** and more.
 
@@ -65,7 +65,7 @@ There are several Arduino board packages available, such as **avr, samd, megaavr
 
 ![Library Manager.](assets/library-manager.png)
 
-With the library manager you can browse and install thousands of libraries. Libraries are extensions of the Arduino API, and makes it easier to for example control motors, or use a Wi-Fi module.
+With the library manager you can browse and install thousands of libraries. Libraries are extensions of the Arduino API, and makes it easier to for example control a servo motor, read specific sensors, or use a Wi-Fi module.
 
 ***To learn more about the library manager, visit the [Installing libraries tutorial](/software/ide-v2/tutorials/ide-v2-installing-a-library).***
 
@@ -73,9 +73,9 @@ With the library manager you can browse and install thousands of libraries. Libr
 
 ![Serial Monitor.](assets/serial-monitor.png)
 
-The Serial Monitor is a tool that allows you to view data streamed from your board, via for example the `Serial.print()` command. 
+The Serial Monitor is a tool that allows you to view data streaming from your board, via for example the `Serial.print()` command. 
 
-Historically, this tool has been located in a separate window, but is now integrated to the editor. This makes it easy to have multiple instances running at the same time on your computer.
+Historically, this tool has been located in a separate window, but is now integrated with the editor. This makes it easy to have multiple instances running at the same time on your computer.
 
 ***To learn more about the Serial Monitor, visit the [Serial Monitor tutorial](/software/ide-v2/tutorials/ide-v2-serial-monitor).***
 
@@ -83,7 +83,7 @@ Historically, this tool has been located in a separate window, but is now integr
 
 ![Serial Plotter.](assets/potentiometer-plotter.gif)
 
-The Serial Plotter tool is great for visualizing data using graphs, and to monitor e.g. peaks in voltage. 
+The Serial Plotter tool is great for visualizing data using graphs, and to monitor for example peaks in voltage. 
 
 You can monitor several variables simultaneously, with options to enable only certain types. 
 
@@ -93,7 +93,7 @@ You can monitor several variables simultaneously, with options to enable only ce
 
 ![Debugger tool.](assets/playpause.gif)
 
-The debugger tool is used to test and *debug* programs, hence the name. It can be used to navigate through a program's execution in a controlled manner. 
+The debugger tool is used to test and **debug** programs, hence the name. It can be used to navigate through a program's execution in a controlled manner. 
 
 ***To learn more about the debugger tool, visit the [Debugging tutorial](/software/ide-v2/tutorials/ide-v2-debugger).***
 
@@ -101,7 +101,7 @@ The debugger tool is used to test and *debug* programs, hence the name. It can b
 
 ![Autocompletion tool.](assets/autocomplete.png)
 
-Autocompletion is a must-have for editors, and the 2.0 version now includes it. When writing code, this is useful to understand more about the elements of the Arduino API.
+Autocompletion is a must-have for code editors, and the 2.0 version comes well equipped. When writing code, this is useful to understand more about the elements of the Arduino API.
 
 Note that you always need to select your board for autocompletion to work. 
 
@@ -111,7 +111,7 @@ Note that you always need to select your board for autocompletion to work.
 
 ![Push and pull your sketches.](assets/remote-sketchbook.gif)
 
-The Remote Sketchbook feature lets you sync sketches from your Arduino Cloud sketchbook with your local computer. To enable this feature, you will need to login to your Arduino Cloud account.
+The Remote Sketchbook feature lets you sync sketches from your [Arduino Cloud](https://cloud.arduino.cc/) sketchbook with your local computer. To enable this feature, you will need to login to your Arduino Cloud account.
 
 ***To learn more about the Remote Sketchbook feature, visit the [Synchronizing Sketches tutorial](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).***
 
@@ -129,8 +129,4 @@ The Arduino IDE 2.0 is an open-source project that is free for anyone to downloa
 
 ## Conclusion
 
-In this guide, we have presented a series of features & more detailed articles to follow, so that you can enjoy each and everyone of the features includes in the IDE 2.0. 
-
-Make sure to visit the [arduino-ide](https://github.com/arduino/arduino-ide) GitHub repository to report issues and bugs, and to see the latest releases. 
-
-***The Arduino IDE 2.0 is open source and its source code is hosted on [GitHub](https://github.com/arduino/arduino-ide).***
+In this guide, we have presented a series of features & more detailed articles to follow, so that you can enjoy each and everyone of the features includes in the IDE 2.0.
