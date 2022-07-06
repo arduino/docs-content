@@ -32,7 +32,7 @@ The goals of this article are:
 ## What's Included in the Box
 
 The package includes:
-* LoRa Gateway
+* LoRa® Gateway
 * PoE Injector (with its power cable, IEC)
 * Pole mounting mechanical pieces
 
@@ -63,7 +63,7 @@ Once the password is set, you will now be able to see and interact with the dash
 
 ![WisGate dashboard](assets/wisgate-dashboard-overview.png)
 
-***The WiFi Access Point that is running, by default it is open, we recommend you to set a password with WPA2-PSK encryption to secure your device, you can do that by accessing the Wi-Fi settings going to network > LAN > Wi-Fi > Settings***
+***The Wi-Fi Access Point that is running, by default it is open, we recommend you to set a password with WPA2-PSK encryption to secure your device, you can do that by accessing the Wi-Fi settings going to network > LAN > Wi-Fi > Settings***
 
 ### Create the Gateway on TTN Dashboard
 
@@ -87,8 +87,8 @@ Fill the information:
 * Gateway ID: unique ID for your gateway inside the things network platform.
 * Gateway EUI: The EUI of your WisGate Gateway (Get it on the overview page on the WisGate dashboard)
 * Gateway name: Name of the Gateway on your TTN's profile
-* Gateway Server Address: the Address of the LoRa network (format: `wss://<cloudServer>`)
-* LoRaWAN options, Frequency plan: select the recommended plan or the one that fits your project
+* Gateway Server Address: the Address of the LoRa® network (format: `wss://<cloudServer>`)
+* LoRaWAN® options, Frequency plan: select the recommended plan or the one that fits your project
 
 Click the "Create gateway" button at the end of the page.
 
@@ -138,7 +138,8 @@ Follow this tutorial to connect to the GateWay [Connecting MKR WAN 1300 to The T
 
 ## Next Step
 
+Set up the gateway to be a Network Server and MQTT client to connect directly to the Arduino Cloud.
 
 ## Conclusion
 
-In this tutorial you learned how to setup the LoRa Gateway
+In this tutorial you learned how to setup the LoRa® Gateway.
