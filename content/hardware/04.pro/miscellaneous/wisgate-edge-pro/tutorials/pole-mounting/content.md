@@ -87,7 +87,7 @@ On the top side of the gateway fasten both N-Type fiberglass antennas.
   >
 </iframe>
 
-### Waterproof sealing
+### Waterproof Sealing
 
 The device is meant to be on the outside, so the it includes:
 * **Vulcanising tape** which will vulcanize with itself providing a single piece protection (the edges of the tape will seem almost joint into one like a thermo-retractable tubes, making the water harder to go inside that layer)
