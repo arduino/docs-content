@@ -104,8 +104,3 @@ We recommend to use 2 layers (x1 PVC tape and x1 vulcanising tape, two times so 
 Do not forget of sealing the antennas connections using the same order of tape.
 
 ***Check the bottom side hexagonal stoppers are properly fasten to avoid leaks***
-
-## Next Step
-
-
-## Conclusion
