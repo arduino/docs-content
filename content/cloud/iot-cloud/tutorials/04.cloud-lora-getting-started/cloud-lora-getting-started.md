@@ -227,7 +227,7 @@ void loop() {
 
 This code will simply increase the `test` variable every 3 minutes, which will sync with the variable we just created. That means that every 3 minutes, there's a change in value, which should also be visible in the Arduino Cloud if the data is sent properly.
 
-***Note that the 180000 milliseconds / 180 seconds / 3 minutes interval should be in place to limit the amount of data being sent from the device to the Arduino Cloud. This can also be defined during the variable creation in the Thing interface to update only every 180 seconds.***
+***Note that the 180000 milliseconds / 180 seconds interval should be in place to limit the amount of data being sent from the device to the Arduino Cloud. This can also be defined during the variable creation in the Thing interface to update only every 180 seconds.***
 
 **4.** Finally, we can upload the sketch to the board. After we have uploaded it, the board will start sending data via The Things Network, to the Arduino Cloud. We can check if we are receiving any data in the **Things overview**, under the **"Last Value / Last Update"** column.
 
