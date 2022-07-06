@@ -88,8 +88,7 @@ Fill the information:
 * Gateway EUI: The EUI of your WisGate Gateway (Get it on the overview page on the WisGate dashboard)
 * Gateway name: Name of the Gateway on your TTN's profile
 * Gateway Server Address: the Address of the LoRa network (format: `wss://<cloudServer>`)
-* LoRaWAN options:
-  * Frequency plan: select the recommended plan or the one that fits your project
+* LoRaWAN options, Frequency plan: select the recommended plan or the one that fits your project
 
 Click the "Create gateway" button at the end of the page.
 
