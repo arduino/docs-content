@@ -43,10 +43,10 @@ Connect the Vision Shield to your Portenta H7 as shown in the figure. The top an
 
 You will be using the **Himax HM-01B0 camera module** which has a resolution of 320 by 240 and the output data its in grayscale with 8 bits per pixel (bpp), this is important to have in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
 
-Inside the sketch you can use these libraries to access the camera APIs
+Inside the sketch you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](hardware/nicla-vision)
 ```cpp
 #include "camera.h"
-#include "himax.h"
+#include "himax.h"  //Only for the Vision Shield
 ```
 
 #### Bitmap File Format
@@ -77,10 +77,10 @@ First you need to include the needed libraries
 #include "FATFileSystem.h"
 
 #include "camera.h"
-#include "himax.h"
+#include "himax.h"  //Only for the vision Shield
 ```
 
-Then we define the block system (`blockDevice` and `fileSystem`) object needed to get access to the SD Card and the the 
+Then we define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the the file system.
 
 ```cpp
 #include "SDMMCBlockDevice.h"
@@ -125,7 +125,11 @@ void mountSD()
 }
 ```
 
-Another function that the sketch contains is the one to generate the `.bmp` file
+Another function that the sketch contains is the one to generate the `.bmp` file called `parseData()`.
+This function will create the needed headers that later we will need to encode our bitmap into a file.
+
+***Take a look to the section [Bitmap File Format](#bitmap-file-format) to better understand the file headers that are created on this function***
+
 ```cpp
 void parseData()
 {
