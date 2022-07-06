@@ -23,7 +23,7 @@ The goals of this article are:
 
 ## Hardware & Software Needed
 
-- [WisGate Edge Pro](https://store.arduino.cc/products/wisgate-edge-pro)
+- [WisGate Edge Pro](https://store.arduino.cc/pages/wisgate-lora-gateways)
 
 ## Instructions
 

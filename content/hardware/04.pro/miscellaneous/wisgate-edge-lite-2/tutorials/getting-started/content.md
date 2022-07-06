@@ -26,7 +26,7 @@ The goals of this article are:
 
 ## Hardware & Software Needed
 
-- [WisGate Edge Pro](https://store.arduino.cc/products/wisgate-edge-pro) or[WisGate Edge Lite 2](https://store.arduino.cc/products/wisgate-edge-lite-2)
+- [WisGate Edge Pro or WisGate Edge Lite 2](https://store.arduino.cc/pages/wisgate-lora-gateways)
 - x2 Ethernet Cable
 
 ## What's Included in the Box
