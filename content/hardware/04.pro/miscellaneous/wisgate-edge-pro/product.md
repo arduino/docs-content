@@ -1,6 +1,6 @@
 ---
 title: WisGate Edge Pro
-url_shop: https://store.arduino.cc/wisgate-edge-pro
+url_shop: https://store.arduino.cc/pages/wisgate-lora-gateways
 url_guide: /tutorials/wisgate-edge-pro/getting-started
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
 ---

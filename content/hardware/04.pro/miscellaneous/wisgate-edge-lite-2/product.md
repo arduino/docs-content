@@ -1,6 +1,6 @@
 ---
 title: WisGate Edge Lite 2
-url_shop: https://store.arduino.cc/wisgate-edge-lite-2
+url_shop: https://store.arduino.cc/pages/wisgate-lora-gateways
 url_guide: /tutorials/wisgate-edge-lite-2/getting-started
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268/Datasheet
 ---
