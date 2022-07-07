@@ -11,20 +11,20 @@ The gateway is powered by OpenWRT which allows to develop custom applications.
 
 <FeatureList>
 
-<Feature title="Connectivity" image="mcu">
+<Feature title="Connectivity" image="wifi-bluetooth">
   8 configurable channels. Wi-Fi, LTE and Ethernet.
   Internal antenna for Wi-Fi, GPS, and LTE, external antenna for LoRa.
 </Feature>
 
-<Feature title="Wi-Fi Access Point" image="environment">
+<Feature title="Wi-Fi Access Point" image="wifi">
   WiFi configurable as a traditional Access Point.
 </Feature>
 
-<Feature title="Cellular connectivity" image="environment">
+<Feature title="Cellular connectivity" image="cellular">
   LTE Cellular connectivity via a nanoSIM card.
 </Feature>
 
-<Feature title="Network Server and MQTT integration" image="environment">
+<Feature title="Network Server and MQTT integration" image="communication">
   Embedded MQTT client with Bridging capabilities for direct connectivity to most of the
 Cloud platforms
 </Feature>
