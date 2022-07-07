@@ -147,6 +147,8 @@ We have the pre-requisites for the Portenta X8 ready, but as we are using the Lo
 
 When adding the End-Device, at the moment we will have to use the **Manual** option. The Portenta Max Carrier will be added under Arduino SA in near future update to be included in the LoRaWAN Device Repository. The LoRaWAN version and parameters compatible with the Portenta MAx Carrier are as follows. The frequency plan will depend on the region you are going install the device. 
 
+![General End-Device Configuration](assets/ttn-end-device.png)
+
 ***To learn more about LoRa and LoRaWAN, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn on how to properly setup the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
 
 Let us now dive into developing a multi-protocol gateway using Portenta X8 and Max Carrier!
