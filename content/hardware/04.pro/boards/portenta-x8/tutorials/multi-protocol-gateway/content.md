@@ -45,7 +45,7 @@ The idea of **Multi-Protocol Gateway** is to build a device that will establish 
 
 This means that the gateway can receive the data transmitted in certain protocol type and relay the data in a different protocol for a remote server. Such capability provides the ability to develop on distinctive types of protocols and relay the data with less complexity involving in one's end. 
 
-The Portenta X8 paired to Portenta Max Carrier has the potential to create synergy, and you will have following tools at disposal:
+The Portenta X8 paired to Portenta Max Carrier has the potential to create synergy, and you will have following connectivity tools at disposal:
 
 - WiFi (MQTT Protocol)
 - Bluetooth Low Energy
@@ -259,7 +259,7 @@ The sketch above will help to expose and transfer the data that is processed wit
 
 ## Mounting the Multi-Protocol Gateway
 
-It is now time to make the multi-protocol gateway run, we will need to build the Docker container that will help us operate in the background on the Linux layer. Using the terminal, we will use the following commands to get the multi-protocol gatewya container up and running. 
+It is now time to make the multi-protocol gateway run, and for this we will need to build the Docker container that will help us operate in the background on the Linux layer. Using the terminal, we will use the following commands to get the multi-protocol gatewya container up and running. 
 
 You will need to have the files ready in a folder inside the `adb` directory within Arduino root.
 
@@ -308,11 +308,11 @@ docker images
 
 ![Active Docker Images](assets/docker-state.png)
 
-With all this, you have built and a running multi-protocol gateway based on Portenta X8 and Max Carrier. 
+With all this, you have built and a running multi-protocol gateway based on Portenta X8 and Max Carrier. You will be able to observer the data sent by the gateway with The Things Network platform at configured End-Device section under Applications.
 
 ## Conclusion
 
-In this tutorial you learned how to set up a Multi-Protocol Gateway composed of WiFi connectivity and LoRaWAN, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway in which it will connect the The Things Network to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layer using RPC, in which you have exposed the ports to be able to control a locally attached device or receive data from the local sensor to be sent directly to The Things Network. 
+In this tutorial you have learned how to set up a Multi-Protocol Gateway composed of WiFi connectivity and LoRaWAN, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway in which it will connect the The Things Network to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layer using RPC, in which you have exposed the ports to be able to control a locally attached device or receive data from the local sensor to be sent directly to The Things Network. 
 
 ### Next Steps
 - Now that you have established a multi-protocol gateway, using WiFi and LoRaWAN connectivity, expand the gateway's capability by adding other connectivity types such as Cat-M1 and NB-IoT
