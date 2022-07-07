@@ -306,6 +306,8 @@ docker ps -a
 docker images
 ```
 
+![Active Docker Images](assets/docker-state.png)
+
 With all this, you have built and a running multi-protocol gateway based on Portenta X8 and Max Carrier. 
 
 ## Conclusion
