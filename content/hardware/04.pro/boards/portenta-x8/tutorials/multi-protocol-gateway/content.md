@@ -147,8 +147,6 @@ We have the pre-requisites for the Portenta X8 ready, but as we are using the Lo
 
 When adding the End-Device, at the moment we will have to use the **Manual** option. The Portenta Max Carrier will be added under Arduino SA in near future update to be included in the LoRaWAN Device Repository. The LoRaWAN version and parameters compatible with the Portenta MAx Carrier are as follows. The frequency plan will depend on the region you are going install the device. 
 
-![General End-Device Configuration](assets/ttn-end-device.png)
-
 ***To learn more about LoRa and LoRaWAN, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn on how to properly setup the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
 
 Let us now dive into developing a multi-protocol gateway using Portenta X8 and Max Carrier!
@@ -317,3 +315,12 @@ In this tutorial you learned how to set up a Multi-Protocol Gateway composed of 
 ### Next Steps
 - Now that you have established a multi-protocol gateway, using WiFi and LoRaWAN connectivity, expand the gateway's capability by adding other connectivity types such as Cat-M1 and NB-IoT
 - Expand functionalities for data processing using RPC while using multi-protocol architecture. 
+
+## Troubleshooting
+
+You might encounter some errors or misbehaviors while working on the code, and preventing you from progressing on the development. You can try the following troubleshooting tips to solve the commonly known issues:
+
+* If the sketch upload process fails, check if your Portenta X8 is in bootloader mode. To put the Portenta X8 into Bootloader mode, double-press its RESET button and verify that the green LED is waving. After this, you can try re-uploading the sketch for Arduino layer.
+* Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta X8 gets into bootloader mode immediately after power-on, including when connected via USB-C, change the position of the BOOT DIP switch to OFF. This case applies to Arduino layer.
+* If you encounter an issue regarding terminal input inconvenience, please enter `export TERM=xterm` as the command in the terminal to get readable inputs. 
+* In case internal WiFi connection cannot be established through the command input due "unavailable" SSID, although it is in range. Please try using different SSID if available or hotspot from a different device to host network connectivity.  
