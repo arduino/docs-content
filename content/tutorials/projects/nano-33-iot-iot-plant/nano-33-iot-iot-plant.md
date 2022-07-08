@@ -49,7 +49,7 @@ OR
 
 ## Hardware & Circuit Assembly
 
-Begin by connecting the Nano 33 IoT board to the screwterminal. Then we need to connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the shield are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
+Begin by connecting the Nano 33 IoT board to the Nano Screw Terminal Shield. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the shield are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
 
 Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one. 
 
@@ -59,11 +59,11 @@ Now connect the other screw terminal on the relay module to the VIN pin.
 
 There are cases were multiple wires are going into the same screw terminal, you may find it easier to get them in at the same time if you twist them together before trying to insert them.
 
-![GIF of twisting cables together](assets/cabletwisting.gif)
+![Twisting cables together](assets/cabletwisting.gif)
 
 <br />
 
-The open ended grove cable from the relay module should be wired as follows:
+Plug an open ended grove cable into the port on the relay module, the cable ends should be wired as follows:
 
 - Black wire (-) to GND pin.
 - Red wire (+) to 3.3V pin.
@@ -124,7 +124,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 | waterTime   | int       | How long the pump should run (seconds) | Read & Write |
 | moisture    | int       | Read moisture                          | Read Only    |
 
-**3.** Enter your credentials to your Wi-Fi network in the network section. 
+**3.** Enter the credentials to your Wi-Fi network in the network section. 
 
 **4.** Your Thing overview should now look like the following:
 
@@ -273,7 +273,9 @@ void onWaterTimeChange()  {
 
 ![Dashboard overview.](assets/dashboard-overview.jpg)
 
-Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device.
+Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device. 
+
+Depending on what type of plant you decide to use this device with, you may need to calibrate the threshold values in the code to what is appropriate for your plant. Don't worry, it's not difficult, on line 79 and 82 in the code, numbers are compared to the moisture levels in your plants soil, you can just change those numbers and try different values until you find what is right for you.
 
 ***In this dashboard, we replaced some of the widgets with nicer representations, like gauges and percentage.***
 
