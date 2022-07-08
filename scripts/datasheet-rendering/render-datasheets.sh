@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# GENERATE_DATASHEETS is set to true by CI
-if [ -n "$GENERATE_DATASHEETS" ]; then
+# RENDER_DATASHEETS is set to true by CI
+if [ -n "$RENDER_DATASHEETS" ]; then
     echo "Current system:"
     uname -a
     # Fix for SSL problem in phantom.js
