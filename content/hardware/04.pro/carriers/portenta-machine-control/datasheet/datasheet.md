@@ -191,6 +191,7 @@ Internal inductive loads kick-back protection plus external 60V, 2A Schottky dio
 
 
 ### Analog Input 
+The internal A/D converter of the microcontroller has a resolution of max 16 bit (12-16 bit range) and delivers values from 0 to 65535, configurable by the user via sketch. 
 
 Three independent analog input channels are available. Each of them has an analog switch TS12A44514PWR which is switching between three modes: 
 
