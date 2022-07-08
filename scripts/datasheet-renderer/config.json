@@ -1,0 +1,11 @@
+{
+    "datasheetFile" : "datasheet.md",
+    "excludePatterns" : [".git", "/template", "/_unlisted"],
+    "defaultSourcePath" : "../../content/hardware",
+    "relativeBuildPath" : "../downloads",
+    "datasheetsFolder" : "datasheets",
+    "previousDocumentationFolder" : "previous-documentation",
+    "subtitle" : "Product Reference Manual",
+    "datasheetSuffix": "-datasheet.pdf",
+    "identifierPrefix": "SKU"
+}

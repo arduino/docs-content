@@ -1,0 +1,15 @@
+{
+  "name": "datasheet-rendering",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "render-datasheets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Romero",
+  "license": "ISC",
+  "dependencies": {
+    "datasheet-renderer": "file:../../../../bcmi-labs/datasheet-renderer"
+  }
+}
