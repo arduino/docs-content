@@ -22,6 +22,8 @@ So, what does that mean for you? It means that you can connect to any of the **2
 
 In this tutorial we will walk you through the steps needed to successfully provision devices that use the Arduino Cloud & The Things Network, from unboxing your device until viewing data on a dashboard!
 
+***Please note that when working with LoRaWAN® devices, data rates are very limited. Messages sent from devices should be limited to once every several minutes. Methods for implementing this are described further down in this article. To read more about limitations using the LoRaWAN® network, please visit [The Things Network Limitations article](https://www.thethingsnetwork.org/docs/lorawan/limitations/).***
+
 ### Terminology Run-Trough
 
 - **LoRa®** - short for **Lo**ng **Ra**nge, and is a modulation technique used to send and receive data over low-power, wide-area networks (LPWAN). 
@@ -61,7 +63,6 @@ The goals of this project are:
 - [Arduino IoT Cloud](https://create.arduino.cc/iot/)
 - [Arduino MKR WAN 1300](https://store.arduino.cc/mkr-wan-1300) or [Arduino MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
 - [Antenna](https://store.arduino.cc/antenna)
-
 
 ## Circuit
 
@@ -166,7 +167,7 @@ After some time, the automatic email sent out by TTI will expire. If the link is
 
 ## Step 3: Completing Arduino Cloud Setup
 
-In this step, we will complete the Arduino Cloud setup that we started earlier by configuring a device. We will create a simple **test variable**, that we will use to send data from the MKR WAN 1300/1310 device. This will just be a counter that updates every 10 seconds, to see if the data can be successfully sent from **end device** to the **Arduino Cloud** via the **The Things Network**.
+In this step, we will complete the Arduino Cloud setup that we started earlier by configuring a device. We will create a simple **test variable**, that we will use to send data from the MKR WAN 1300/1310 device. This will just be a counter that updates **3 minutes**, to see if the data can be successfully sent from **end device** to the **Arduino Cloud** via the **The Things Network**.
 
 ***At this point, we will need to make sure that we are in reach of a gateway registered to The Things Network. This might take a few attempts, depending on your device's success of transmitting to a nearby gateway. You can check the coverage of your area through either [TTN Map](https://www.thethingsnetwork.org/map) or the [TTN Mapper](https://ttnmapper.org/)***
 
@@ -178,19 +179,13 @@ In this step, we will complete the Arduino Cloud setup that we started earlier b
 
 ![Create a new variable.](assets/cloud-lora-img-16.png)
 
-**3.** Let's head to the **Sketch** tab, and add the following code inside the `void loop()`:
-
-```arduino
-  test = test + 1;
-  delay(10000);
-```
-
-This code will simply increase the `test` variable every 10 seconds, which will sync with the variable we just created. That means that every 10 seconds, there's a change in value, which should also be visible in the Arduino Cloud if the data is sent properly.
-
-You can take a look at the full code in the snippet below:
+**3.** Let's head to the **Sketch** tab, where you can use the following code:
 
 ```arduino
 #include "thingProperties.h"
+
+unsigned long previousMillis = 0;
+const long interval = 180000; //180 second interval (3 minutes) 
 
 void setup() {
   // Initialize serial and wait for port to open:
@@ -217,13 +212,22 @@ void setup() {
 
 void loop() {
   ArduinoCloud.update();
-  // Your code here 
-  hello = hello + 1;
-  Serial.println(hello);
-  delay(10000);
   
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    
+    previousMillis = currentMillis;
+
+    test +=1;
+
+    }
 }
 ```
+
+This code will simply increase the `test` variable every 3 minutes, which will sync with the variable we just created. That means that every 3 minutes, there's a change in value, which should also be visible in the Arduino Cloud if the data is sent properly.
+
+***Note that the 180000 milliseconds / 180 seconds interval should be in place to limit the amount of data being sent from the device to the Arduino Cloud. This can also be defined during the variable creation in the Thing interface to update only every 180 seconds.***
 
 **4.** Finally, we can upload the sketch to the board. After we have uploaded it, the board will start sending data via The Things Network, to the Arduino Cloud. We can check if we are receiving any data in the **Things overview**, under the **"Last Value / Last Update"** column.
 
