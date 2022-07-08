@@ -49,4 +49,4 @@ if [ $? -ne 0 ]; then
     npm install    
 fi
 
-node generate-datasheets.js $@
+npx datasheet-renderer config.json $@

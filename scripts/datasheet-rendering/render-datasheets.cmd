@@ -12,5 +12,5 @@ IF %ERRORLEVEL% NEQ 0 (
     npm list --depth=0 || npm install && cls && ECHO Modules installed
 
     :: argument %* only used with "Current directory" option
-    node generate-datasheets.js %*
+    npx datasheet-renderer config.json %*
 )

@@ -97,14 +97,14 @@
             "problemMatcher": []
         },
         {
-            "label": "Generate all datasheets",
+            "label": "Render all datasheets",
             "type": "shell",
-            "command": "./generate-datasheets.sh",
+            "command": "./render-datasheets.sh",
             "options": {
-                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-generator"
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-rendering"
             },
             "windows": {
-                "command": ".\\generate-datasheets.cmd"                
+                "command": ".\\render-datasheets.cmd"                
             },
             "group": "none",
             "presentation": {
@@ -114,14 +114,14 @@
             "problemMatcher": []
         },
         {
-            "label": "Generate datasheet (current document)",
+            "label": "Render datasheet (current document)",
             "type": "shell",
-            "command": "./generate-datasheets.sh '../../${relativeFileDirname}'",
+            "command": "./render-datasheets.sh '../../${relativeFileDirname}'",
             "options": {
-                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-generator"
+                "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-rendering"
             },
             "windows": {
-                "command": ".\\generate-datasheets.cmd '..\\..\\${relativeFileDirname}'"                
+                "command": ".\\render-datasheets.cmd '..\\..\\${relativeFileDirname}'"                
             },
             "group": "none",
             "presentation": {
