@@ -10,6 +10,7 @@
   "author": "Sebastian Romero",
   "license": "ISC",
   "dependencies": {
-    "datasheet-renderer": "file:../../../../bcmi-labs/datasheet-renderer"
+    "datasheet-renderer": "file:../../../../bcmi-labs/datasheet-renderer",
+    "@bcmi-labs/datasheet-renderer": "^1.0.0",
   }
 }
