@@ -1,4 +1,4 @@
-import { DatasheetRenderer } from 'datasheet-renderer'
+import { DatasheetRenderer} from '@arduino/datasheet-renderer'
 
 (async function main() {
     let args = process.argv.slice(2)

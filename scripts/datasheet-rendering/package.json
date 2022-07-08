@@ -10,7 +10,6 @@
   "author": "Sebastian Romero",
   "license": "ISC",
   "dependencies": {
-    "datasheet-renderer": "file:../../../../bcmi-labs/datasheet-renderer",
-    "@arduino/datasheet-renderer": "^1.0.0"
+    "@arduino/datasheet-renderer": "file:../../../../bcmi-labs/datasheet-renderer"
   }
 }
