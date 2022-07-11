@@ -1,5 +1,5 @@
 ---
-identifier: ASX00037, ASX00037-3P
+identifier: ASX00037_ASX00037-3P
 title: Arduino® Nano Screw Terminal
 type: maker
 author: Linnea Akerberg, Ali Jahangiri
