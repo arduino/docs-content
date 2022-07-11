@@ -921,9 +921,7 @@ locationVariable = Location(51.5074, 0.1278);
 
 ![Chart Widget](images/widget-chart.png)
 
-The chart widget is great for data analytics. It is used to track real time data, as well as tracking historical data.
-
-Can be linked with multiple variables, including **integers & floats.**
+The chart widget is great for data analytics. It is used to track real time data, as well as tracking historical data. This widget can for example be used to track temperature changes, energy consumption and other sensor values. A chart widget can only be linked to one variable at a time.
 
 An example of how it is used in a sketch:
 
