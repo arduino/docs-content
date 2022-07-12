@@ -29,7 +29,6 @@ Maker, Nano projects, Prototyping,
 
 # CONTENTS
 ## The adapter
-
 As it turned out that Arduino users have a need of a quick and easy way to securely build projects as well as adding small circuits for extra control, the Nano Screw Terminal was developed to assist in building such robust projects, without the need of soldering.
 
 ### Compatible boards ###
@@ -63,10 +62,6 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 
 #### Bottom
 ![Board topology bottom](assets/topologyBottom.svg)
-
-
-## Connector Pinouts
-![Pinout](assets/pinout.svg)
 
 
 ### Headers
