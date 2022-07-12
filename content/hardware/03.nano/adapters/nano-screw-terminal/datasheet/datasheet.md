@@ -58,8 +58,8 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 
 | **Ref.** | **Description**                 | **Ref.** | **Description**                  |
 | -------- | ------------------------------- | -------- | -------------------------------- |
-| J17      |TBD                              | J19      |TBD                               |
-| J18      |CONNECTOR MORS.CS16v             | J20      |CONNECTOR MORS.CS 16v             |
+| J17      | HLE-115-02-F-DV-Footprint-2     | J19      | HLE-115-02-F-DV-Footprint-2      |
+| J18      | CONNECTOR MORS.CS16v            | J20      | CONNECTOR MORS.CS 16v            |
 
 #### Bottom
 ![Board topology bottom](assets/topologyBottom.svg)
@@ -95,14 +95,14 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 | 18   | RST          | Digital      | Active low reset input (duplicate of pin 13)                 |
 | 19   | GND          | Power        | Power Ground                                                 |
 | 20   | D2           | Digital      | GPIO                                                         |
-| 21   | D3/PWM       | Digital      | GPIO; can be used as PWM                                     |
+| 21   | D3           | Digital      | GPIO                                                         |
 | 22   | D4           | Digital      | GPIO                                                         |
-| 23   | D5/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 24   | D6/PWM       | Digital      | GPIO, can be used as PWM                                     |
+| 23   | D5           | Digital      | GPIO                                                         |
+| 24   | D6           | Digital      | GPIO                                                         |
 | 25   | D7           | Digital      | GPIO                                                         |
 | 26   | D8           | Digital      | GPIO                                                         |
-| 27   | D9/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 28   | D10/PWM      | Digital      | GPIO; can be used as PWM                                     |
+| 27   | D9           | Digital      | GPIO                                                         |
+| 28   | D10          | Digital      | GPIO                                                         |
 | 29   | D11/MOSI     | Digital      | SPI MOSI; can be used as GPIO                                |
 | 30   | D12/MISO     | Digital      | SPI MISO; can be used as GPIO                                |
 
