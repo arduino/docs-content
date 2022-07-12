@@ -110,7 +110,7 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 ## Mechanical Information
 ### Board Outline and Mounting Holes
 
-![Board layout](assets/mechanical.png)
+![Board layout](assets/mechanical.svg)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
