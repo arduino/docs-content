@@ -8,10 +8,10 @@ author: Ali Jahangiri
 ![](assets/featured.png)
 
 # Description
-The Arduino® Portenta X8 is a high performance single board computer designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini hosting an embedded Linux OS with the STM32H7 to leverage Arduino libraries/skills. Shield and carrier boards are available to extend the functionality of the X8 or alternatively can be used as reference designs to develop your own custom solutions.
+The Arduino® Portenta X8 is a high performance system on module designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini hosting an embedded Linux OS with the STM32H7 to leverage Arduino libraries/skills. Shield and carrier boards are available to extend the functionality of the X8 or alternatively can be used as reference designs to develop your own custom solutions.
 
 # Target Areas
-Edge computing, industrial internet of things, single board computer, artificial intelligence
+Edge computing, industrial internet of things, system on module, artificial intelligence
 
 # Features 
 <table>
