@@ -24,7 +24,7 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 
 ## Hardware & Software Needed
 
-- [Nano Plant watering kit](URL) 
+- [Arduino Watering Plant Kit](URL) 
 - [3D-printed enclosure (optional)](DOWNLOAD-LINK)
 - USB - wall adapter
 
@@ -134,7 +134,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 ```arduino
 /* 
- Nano 33 IoT smart garden kit 
+ Arduino Watering Plant Kit
 
  A setup that allows for remote/local control of a pump, as well as reading sensors.
 
@@ -277,7 +277,7 @@ Once you see the values changing, we know that the connection is successful, and
 
 Depending on what type of plant you decide to use this device with, you may need to calibrate the threshold values in the code to what is appropriate for your plant. Don't worry, it's not difficult, on line 79 and 82 in the code, numbers are compared to the moisture levels in your plants soil, you can just change those numbers and try different values until you find what is right for you.
 
-***In this dashboard, we replaced some of the widgets with nicer representations, like gauges and percentage.***
+***In this dashboard, we replaced some of the widgets with nicer representations, like percentage.***
 
 ## Final Setup
 
@@ -292,7 +292,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
-![Control and monitor your Smart Garden!](assets/dashboard.gif)
+![Control and monitor your Smart Garden!](assets/Dashboard.gif)
 
 ***In this dashboard, we have also added a chart widget to monitor the soil moisture over time.***
 
