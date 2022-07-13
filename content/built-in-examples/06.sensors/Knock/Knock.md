@@ -33,18 +33,16 @@ Open the serial monitor to see this text.
 
 Piezos are **polarized**, meaning that voltage passes through them (or out of them) in a specific direction. Connect the black wire (the lower voltage) to ground and the red wire (the higher voltage) to analog pin 0. Additionally, connect a 1-megohm resistor in parallel to the Piezo element to limit the voltage and current produced by the piezo and to protect the analog input.
 
-It is possible to acquire piezo elements without a plastic housing. These will  look like a metallic disc, and are easier to use as input sensors. PIezo sensors work best when firmly pressed against, taped, or glued their sensing surface.
-
+It is possible to acquire piezo elements without a plastic housing. These will  look like a metallic disc, and are easier to use as input sensors. Piezo sensors work best when firmly pressed against, taped, or glued their sensing surface.
 
 ![](assets/circuit.png)
 
 
 ### Schematic
 
+The piezo is attached to analog pin 0 with a 1 Megohm resistor in between the two legs. The placement of the resistor is used to save the piezo from damage from extra current. Without it, the analog pin might not be capable of reading the piezo's signal.
 
 ![](assets/schematic.png)
-
-*A Piezo to attached to analog pin 0 with a 1 Megohm resistor*
 
 ### Code
 
@@ -57,5 +55,3 @@ In the code below, the incoming piezo data is compared to a threshold value set 
 You can find more basic tutorials in the [built-in examples](/built-in-examples) section.
 
 You can also explore the [language reference](https://www.arduino.cc/reference/en/), a detailed collection of the Arduino programming language.
-
-*Last revision 2015/07/29 by SM*
