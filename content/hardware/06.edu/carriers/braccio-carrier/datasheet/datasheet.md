@@ -1,5 +1,5 @@
 ---
-identifier: ABX00032
+identifier: ASX00032
 title: Arduino® Braccio Carrier
 revision: Rev. 01
 type: edu
