@@ -4,7 +4,7 @@ title: Arduino® Portenta Machine Control
 type: pro
 ---
 
-![](assets/MachineControlPCB.png)
+![](assets/featured.png)
 
 # Description
 
