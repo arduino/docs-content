@@ -10,19 +10,19 @@ It is powered by OpenWRT which allows to develop custom applications.
 
 <FeatureList>
 
-<Feature title="Connectivity" image="mcu">
+<Feature title="Connectivity" image="wifi-bluetooth">
   Dual LoRa Concentrators with 16 channels and dual fiberglass 5dB external antennas. Wi-Fi, LTE and GPS with internal antennas. Ethernet with PoE Capabilities.
 </Feature>
 
-<Feature title="Wi-Fi Access Point" image="environment">
+<Feature title="Wi-Fi Access Point" image="wifi">
   WiFi configurable as a traditional Access Point.
 </Feature>
 
-<Feature title="Cellular Connectivity" image="environment">
+<Feature title="Cellular Connectivity" image="cellular">
   LTE Cellular connectivity via a nanoSIM card.
 </Feature>
 
-<Feature title="Network Server and MQTT integration" image="environment">
+<Feature title="Network Server and MQTT integration" image="communication">
   Embedded MQTT client with Bridging capabilities for direct connectivity to most of the Cloud platforms
 </Feature>
 
