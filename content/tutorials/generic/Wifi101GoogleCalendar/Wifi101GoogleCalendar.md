@@ -1,13 +1,13 @@
 ---
 author: 'Arduino'
-description: 'This example shows you how to make repeated HTTP requests using a WiFi101 shield.'
+description: 'This example shows you how to make repeated HTTP requests using a WiFi shield 101.'
 title: 'Wifi101 Google Calendar Example'
 tags: [WiFi101]
 ---
 
 ## Google Calendar Actions Planner
 
-This example shows you how to make repeated HTTP requests using a WiFi101 shield.  It connects to  a given Google Calendar. The content of the page is downloaded and parsed in order to extract commands from the event title and planning actions to be executed at a given time.
+This example shows you how to make repeated HTTP requests using a WiFi shield 101.  It connects to  a given Google Calendar. The content of the page is downloaded and parsed in order to extract commands from the event title and planning actions to be executed at a given time.
 
 This example is written for a network using WPA encryption. For  WEP or WPA, change the Wifi101.begin() call accordingly.
 
@@ -15,7 +15,7 @@ I this particular example if an event called **LED1** is added to the specified 
 
 ## Hardware Required
 
-- Arduino WiFi101 Shield
+- Arduino WiFi Shield 101
 
 - Arduino Zero board
 
@@ -122,7 +122,7 @@ This function is used **event title** and the **event duration**  in order to un
 
   This sketch connects to Gogole Calendar, makes a HTTP request and downloads the day events.Comparing the actual time with the one of the events actions can be programmed.
 
-  using an Arduino Wifi101 shield and Arduino Zero.
+  using an Arduino Wifi shield 101 and Arduino Zero.
 
   created 08 Sept 2015
 

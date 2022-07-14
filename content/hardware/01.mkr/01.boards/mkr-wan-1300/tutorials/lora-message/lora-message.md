@@ -8,7 +8,7 @@ tags:
   - LoRa®
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa
+  - name: LoRa®
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
   - hardware/01.mkr/01.boards/mkr-wan-1300

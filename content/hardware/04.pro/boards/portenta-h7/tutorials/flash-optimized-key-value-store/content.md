@@ -311,4 +311,4 @@ It's not recommended to use the Flash of the microcontroller as the primary stor
 
 - Learn how to retrieve a collection of keys using TDBStore iterators via [`iterator_open`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a77661adec54b9909816e7492a2c61a91) and [`iterator_next`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a5116b40a3480462b88dc3f1bb8583ad4)
 - Learn how to create an incremental TDBStore set sequence via [`set_start`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a6e882a0d4e0cbadf6269142ac3c4e693), [`set_add_data`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#adbe636bf8c05834fe68b281fc638c348) and [`set_finalize`](https://os.mbed.com/docs/mbed-os/v6.9/mbed-os-api-doxy/classmbed_1_1_k_v_store.html#a346da66252added46d3b93902066b548)
-- Learn how to use the 16MB QSPI Flash on the Portenta H7
+- Learn how to use the 16 MB QSPI Flash on the Portenta H7

@@ -5,7 +5,7 @@ title: 'WiFi101 OTA with MKR 1000 WiFi'
 tags: [WiFi101]
 ---
 
-This example shows how to use the WiFi101OTA library to update your sketch over the air. No extra hardware is required since the update is applied directly in the upper half of the  internal flash. This means that the biggest possible size of the compiled sketch is 120KB.
+This example shows how to use the WiFi101OTA library to update your sketch over the air. No extra hardware is required since the update is applied directly in the upper half of the  internal flash. This means that the biggest possible size of the compiled sketch is 120 KB.
 
 ## Hardware Required
 
@@ -29,7 +29,7 @@ Upload the example using the "classic" serial port method
 
 ![Step 4.](assets/WiFiOTA4.png)
 
-Your MKR1000 will connect to the WiFi and expose itself as a Network port with the name and password you declared in the sketch with `WiFiOTA.begin` (the defaults name is "Arduino" while the password is "password").
+Your MKR1000 will connect to the Wi-Fi and expose itself as a Network port with the name and password you declared in the sketch with `WiFiOTA.begin` (the defaults name is "Arduino" while the password is "password").
 
 At this point you are already able to update the sketch over the air! Open another sketch and make sure to add `WiFiOTA.begin()` in `setup()` and  `WiFiOTA.poll()` in your `loop()` . If you forget about this you will lose the ability to upload over the air again (but you can still upload via serial, of course)
 

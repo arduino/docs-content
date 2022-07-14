@@ -531,20 +531,20 @@ uart.write(buffer)
 
 ### WIFI
 
-To use Wifi we first need to import the relevant library.
+To use Wi-Fi we first need to import the relevant library.
 
 ```python
 import network
 ```
 
-Then we need to define the Wifi networks SSID and put that in a variable. We must do the same for the networks password.
+Then we need to define the Wi-Fi networks SSID and put that in a variable. We must do the same for the networks password.
 
 ```python
 SSID=''
 PASSWORD=''
 ```
 
-Next we can create a WLAN network interface object. In the argument we enter `network.STA_IF`, which indicates that our device will be a client and connect to a WiFi access point.
+Next we can create a WLAN network interface object. In the argument we enter `network.STA_IF`, which indicates that our device will be a client and connect to a Wi-Fi access point.
 
 ```python
 wlan = network.WLAN(network.STA_IF)
