@@ -21,7 +21,7 @@ software:
 
 In this tutorial, we will use two MKR WAN 1310's to set up a simple message service over the LoRa® network. This communication will be achieved through the Serial Monitor, where you can send and receive messages directly.  
  
-We will use the **LoRa®** library to for the communication, and we will not use any external services. Additionally, we will also create specific addresses for each board. This will help ensure that the messages that we send and receive are only displayed on the corresponding devices.
+We will use the **LoRa** library to for the communication, and we will not use any external services. Additionally, we will also create specific addresses for each board. This will help ensure that the messages that we send and receive are only displayed on the corresponding devices.
 
 Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa library](https://github.com/sandeepmistry/arduino-LoRa).
 
@@ -55,7 +55,7 @@ To do this, we basically only need to create one sketch that we will upload to e
 
 In the code, we will have to do the following to make it work: 
 
-- Initialize the **SPI** and **LoRa®** libraries.
+- Initialize the **SPI** and **LoRa** libraries.
 - Create a string to store outgoing messages.
 - Create two bytes: one for local address, one for the destination address.
 - Set the radio frequency to 868E6 (Europe) or 915E6 (North America).
@@ -69,7 +69,7 @@ In the code, we will have to do the following to make it work:
 
 **1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
 
-**2.** Now we need to download the **LoRa®** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
+**2.** Now we need to download the **LoRa** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
 
 
 ### Code Explanation

@@ -21,7 +21,7 @@ software:
   - web-editor
 ---
 
-In this tutorial, we will set up a configuration that allows two MKR WAN 1310's to send and receive sensor data. We will use the **LoRa®** library to send data, and we will not use any external service. The sensor data will be recorded through the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), a shield that can record temperature, humidity, barometric pressure & ambient light.
+In this tutorial, we will set up a configuration that allows two MKR WAN 1310's to send and receive sensor data. We will use the **LoRa** library to send data, and we will not use any external service. The sensor data will be recorded through the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), a shield that can record temperature, humidity, barometric pressure & ambient light.
 
 ___
 
@@ -100,7 +100,7 @@ int counter = 0;
 
 In the `setup()` we will begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 As we are using the MKR ENV shield, we also need to initialize the **Arduino_MKRENV** library by using the line `if (!ENV.begin())` followed by an error message in case it failed to initialize.
 

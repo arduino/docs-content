@@ -64,7 +64,7 @@ There is, of course, much more behind the GPS technology. If we want to read mor
 
 We will now go through a series of step by steps, to set up our GPS + LoRa® device. 
 
-Before starting, we will need to make sure that we have all the dependencies. For this setup, we are using **two** MKR WAN 1310 boards, two antennas and one MKR GPS Shield. We will also need to install the **Arduino_MKRGPS** library, the **LoRa®** library. The latter can be downloaded from the [LoRa® repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
+Before starting, we will need to make sure that we have all the dependencies. For this setup, we are using **two** MKR WAN 1310 boards, two antennas and one MKR GPS Shield. We will also need to install the **Arduino_MKRGPS** library, the **LoRa** library. The latter can be downloaded from the [LoRa® repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
 
 Since we are using two boards, we will also need to program them separately. 
 
