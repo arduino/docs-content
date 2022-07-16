@@ -8,7 +8,7 @@ tags:
   - LoRa®
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa®
+  - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
   - hardware/01.mkr/01.boards/mkr-wan-1300
@@ -23,7 +23,7 @@ In this tutorial, we will use two MKR WAN 1300's to set up a simple message serv
  
 We will use the **LoRa®** library to for the communication, and we will not use any external services. Additionally, we will also create specific addresses for each board. This will help ensure that the messages that we send and receive are only displayed on the corresponding devices.
 
-Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa® library](https://github.com/sandeepmistry/arduino-LoRa).
+Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa library](https://github.com/sandeepmistry/arduino-LoRa).
 
 ___
 
