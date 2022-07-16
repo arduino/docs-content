@@ -21,7 +21,7 @@ software:
 
 In this tutorial, we will use two MKR WAN 1300's to set up a simple message service over the LoRa® network. This communication will be achieved through the Serial Monitor, where you can send and receive messages directly.  
  
-We will use the **LoRa®** library to for the communication, and we will not use any external services. Additionally, we will also create specific addresses for each board. This will help ensure that the messages that we send and receive are only displayed on the corresponding devices.
+We will use the **LoRa** library to for the communication, and we will not use any external services. Additionally, we will also create specific addresses for each board. This will help ensure that the messages that we send and receive are only displayed on the corresponding devices.
 
 Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa library](https://github.com/sandeepmistry/arduino-LoRa).
 
@@ -54,7 +54,7 @@ To do this, we basically only need to create one sketch that we will upload to e
 
 In the code, we will have to do the following to make it work: 
 
-- Initialize the **SPI** and **LoRa®** libraries.
+- Initialize the **SPI** and **LoRa** libraries.
 - Create a string to store outgoing messages.
 - Create two bytes: one for local address, one for the destination address.
 - Set the radio frequency to 868E6 (Europe) or 915E6 (North America).

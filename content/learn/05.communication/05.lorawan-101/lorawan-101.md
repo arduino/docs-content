@@ -2,8 +2,8 @@
 title: 'The Arduino Guide to LoRa® and LoRaWAN®'
 description: 'Learn the basics of LoRa® and LoRaWAN® and how to use them with Arduino hardware and software.'
 tags: 
-  - LoRa
-  - LoRaWAN
+  - LoRa®
+  - LoRaWAN®
   - MKR WAN 1310
 author: 'José Bagur, Taddy Chung'
 ---
