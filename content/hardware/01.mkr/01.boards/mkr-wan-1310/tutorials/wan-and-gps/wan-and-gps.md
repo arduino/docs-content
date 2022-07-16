@@ -9,7 +9,7 @@ tags:
  - GPS
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa®
+  - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
   - name: Arduino_MKRGPS
     url: https://www.arduino.cc/en/Reference/ArduinoMKRGPS
@@ -27,7 +27,7 @@ software:
 
 In this tutorial, we will use the [MKR GPS Shield](https://store.arduino.cc/arduino-mkr-gps-shield) to record the longitude and latitude, and transmit it to another board using LoRa® technology. This setup can be very useful for scenarios involving remote areas, where tracking location might be essential. 
 
-Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa® library](https://github.com/sandeepmistry/arduino-LoRa).
+Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa library](https://github.com/sandeepmistry/arduino-LoRa).
 
 ## Goals
 
@@ -41,7 +41,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- LoRa® library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
+- LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 - [Arduino_MKRGPS](https://www.arduino.cc/en/Reference/ArduinoMKRGPS) library installed
 - 2x Arduino MKR WAN 1310  ([link to store](https://store.arduino.cc/mkr-wan-1310))
 - 2x antenna ([link to store](https://store.arduino.cc/antenna))

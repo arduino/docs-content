@@ -9,7 +9,7 @@ tags:
   - LED
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa®
+  - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
   - hardware/01.mkr/01.boards/mkr-wan-1300
@@ -32,7 +32,7 @@ ___
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- LoRa® library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
+- LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
 - 2x [Arduino MKR WAN 1300](https://store.arduino.cc/mkr-wan-1300).
 - 2x [Antenna](https://store.arduino.cc/antenna).
 - 1x Pushbutton.

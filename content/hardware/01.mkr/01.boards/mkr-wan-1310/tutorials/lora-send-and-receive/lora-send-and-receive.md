@@ -8,7 +8,7 @@ tags:
  - LoRa®
 author: 'Karl Söderby'
 libraries: 
-  - name: LoRa®
+  - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
   - hardware/01.mkr/01.boards/mkr-wan-1310
@@ -59,7 +59,7 @@ ___
 -   2x Micro USB cable 
 -   Arduino IDE (offline and online versions available)
 -   Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
--   LoRa® library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
+-   LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 
 
 ### Circuit
