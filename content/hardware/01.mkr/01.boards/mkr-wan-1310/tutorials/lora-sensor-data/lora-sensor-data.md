@@ -5,7 +5,7 @@ compatible-products: [mkr-wan-1310]
 description: 'Learn how to send environmental data with LoRa® using two MKR WAN 1310 and a MKR ENV shield.'
 tags: 
   - IoT
-  - LoRa®
+  - LoRa
   - Environmental data
 author: 'Karl Söderby'
 libraries: 
@@ -33,7 +33,7 @@ ___
 - 2x Micro USB cable
 - Arduino IDE (offline and online versions available).
 - Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010).
-- **LoRa®** library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
+- **LoRa** library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
 - **Arduino_MKRENV** installed, [click here for more documentation](https://www.arduino.cc/en/Reference/ArduinoMKRENV).
 
 
