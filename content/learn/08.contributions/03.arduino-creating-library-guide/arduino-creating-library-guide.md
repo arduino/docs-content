@@ -48,7 +48,7 @@ void dash()
 
 If you run this sketch, it will flash out the code for SOS (a distress call) on pin 13.
 
-The sketch has a few different parts that we'll need to bring into our library. First, of course, we have the `dot()` and `dash()` functions that do the actual blinking. Second, there's the **pin** variable which the functions use to determine which pin to use. Finally, there's the call to `pinMode()` that initializes the pin as an output.
+The sketch has a few different parts that we'll need to bring into our library. First, of course, we have the `dot()` and `dash()` functions that do the actual blinking. Second, there's the `pin` variable which the functions use to determine which pin to use. Finally, there's the call to `pinMode()` that initializes the pin as an output.
 
 Let's start turning the sketch into a library!
 
