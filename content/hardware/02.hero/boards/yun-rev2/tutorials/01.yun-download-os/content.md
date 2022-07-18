@@ -31,4 +31,4 @@ This procedure is only recommended to advanced users who wish to completely re-f
 
 - [Packages list for Yún](//downloads.arduino.cc/openwrtyun/1/packages/index.html)
 
-[List of changes](https://github.com/arduino/openwrt-yun/blob/master/ChangeLog)
+- [List of changes](https://github.com/arduino/openwrt-yun/blob/master/ChangeLog)
