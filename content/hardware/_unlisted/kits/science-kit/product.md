@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit
+title: Science Kit
 certifications: [CE]
 ---

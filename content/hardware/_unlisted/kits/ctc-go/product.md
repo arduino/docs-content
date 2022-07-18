@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit
+title: CTC GO!
 certifications: [CE]
 ---

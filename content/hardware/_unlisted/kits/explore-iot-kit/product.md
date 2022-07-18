@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit
+title: Explore IoT Kit
 certifications: [CE]
 ---
