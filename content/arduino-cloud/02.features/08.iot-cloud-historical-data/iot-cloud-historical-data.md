@@ -2,10 +2,8 @@
 title: 'Historical Data on Arduino IoT Cloud'
 difficulty: easy
 description: 'Learn how to download historical data from the Arduino IoT Cloud'
-tags: [IoT Cloud, Historical Data]
+tags: [IoT Cloud, Historical Data, CSV]
 author: 'Benjamin Dannegård'
-software:
-  - iot-cloud
 ---
 
 ## Introduction 
@@ -47,18 +45,22 @@ Combined with 15 days or three months of historical data, you can build a detail
 
 First, to download historical data navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards).
 
-![Arduino cloud dashboard](assets/cloud-historical-data-dashboard.png)
+![Arduino cloud dashboard.](assets/cloud-historical-data-dashboard.png)
 
-While in the dashboard press the "i" icon up in the right corner. When this icon is pressed a window will show up that allows you to download historical data. As shown in the image below.
+While inside a dashboard, press the **Download** icon up in the right corner. This will open a new window that allows you to select historical data to download.
 
-![Window with historical data inside dashboard](assets/cloud-historical-data.png)
+![Window with historical data inside dashboard.](assets/cloud-historical-data.png)
 
-Clicking “Historical Data” that gives you a list of all variables in use. From here you can select all the ones you want to download by selecting the check boxes. If your dashboard is using multiple Things, you can swap between them from the dropdown at the top.
+From here you can select all the variables you want to download by checking the boxes. If your dashboard is using multiple Things, you can swap between them from the dropdown at the top.
 
-![Selecting variables for historical data](assets/cloud-historical-data-selecting-variable.png)
+When you have selected the data, click on the **"Select Data Source"** button.
 
-Simply choose the variables and Things you want to export and click the "Select Data Source" button. You’ll be taken to a new window where you confirm that you want to download the data. You will receive an email shortly after, providing you with a link to download your data as individual CSV files. 
+![Selecting variables for historical data.](assets/cloud-historical-data-selecting-variable.png)
+
+In the next window, click on the **"Get Data"** button. The download link will now be sent directly to your email address linked to your account.
+
+![Email confirmation.](assets/cloud-historical-data-confirmation.png)
 
 ## Conclusion
 
-In this tutorial you learned what applications historical data could have. And how to extract historical data from your Arduino IoT Cloud dashboard.
+In this tutorial you learned what applications historical data could have, and how to extract historical data from your Arduino IoT Cloud dashboard.
