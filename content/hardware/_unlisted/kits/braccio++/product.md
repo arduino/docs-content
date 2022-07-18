@@ -1,4 +1,4 @@
 ---
 title: Braccio++
-certifications: [CE, UKCA]
+certifications: [CE]
 ---
