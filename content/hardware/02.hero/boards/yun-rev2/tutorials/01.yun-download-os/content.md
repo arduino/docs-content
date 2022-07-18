@@ -29,5 +29,6 @@ This procedure is only recommended to advanced users who wish to completely re-f
 
 <DownloadLink href="/openwrtyun/1/YunSysupgradeImage_v1.5.3.zip" title="Download" />
 
-[Packages list for Yún](//downloads.arduino.cc/openwrtyun/1/packages/index.html)
+- [Packages list for Yún](//downloads.arduino.cc/openwrtyun/1/packages/index.html)
+
 [List of changes](https://github.com/arduino/openwrt-yun/blob/master/ChangeLog)
