@@ -2,7 +2,7 @@
 title: 'Basics of Potentiometers with Arduino'
 description: 'Learn the fundamentals of how a potentiometers works, about the forms they come in, and how to use them in your projects.'
 tags: [Potentiometer, RGB]
-difficulty: 'beginner'
+difficulty: easy
 ---
 A potentiometer is a simple mechanical device that comes in many different forms. It provides a variable amount of resistance that changes as you manipulate it. The examples in this article uses a potentiometer with a twisting shaft, one of the more common versions of a potentiometer you will find.
 

@@ -1,6 +1,6 @@
 ---
 title: 'How To Read Arduino Power Trees'
-difficulty: medium
+difficulty: intermediate
 compatible-products: [everything]
 description: 'Learn how to read the Arduino power trees and to create our own ones.'
 tags: 

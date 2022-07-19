@@ -1,6 +1,6 @@
 ---
 title: 'MicroPython and the IMU Machine Learning Core Features'
-difficulty: beginner
+difficulty: easy
 compatible-products: [nano-rp2040-connect]
 description: 'Learn how to use the Machine Learning Core (MLC) feature of the inertial module of the Nano RP2040 Connect.'
 tags: 

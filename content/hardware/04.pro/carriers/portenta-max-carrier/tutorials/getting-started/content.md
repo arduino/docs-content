@@ -1,7 +1,7 @@
 ---
 title: Getting Started with the Portenta Max Carrier
 description: This tutorial give you an overview of the core features of the Portenta Max Carrier. 
-difficulty: Beginner 
+difficulty: easy 
 tags:
   - Getting Started
 author: José Bagur, Taddy Chung

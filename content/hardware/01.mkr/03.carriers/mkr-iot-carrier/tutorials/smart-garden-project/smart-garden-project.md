@@ -2,7 +2,7 @@
 title: "IoT Smart Garden Setup with MKR IoT Carrier"
 description: "Build a smart garden setup with the MKR IoT Carrier, a pump, and a moisture sensor."
 tags: [IoT Cloud, Water Pump, Moisture Sensor, Temperature, Humidity]
-difficulty: beginner
+difficulty: easy
 author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 ---
 
