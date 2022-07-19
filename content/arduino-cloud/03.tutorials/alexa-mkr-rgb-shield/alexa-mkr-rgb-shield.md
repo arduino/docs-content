@@ -244,5 +244,5 @@ As a result, we now have a smart light that can be controlled directly through t
 
 ## More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
 

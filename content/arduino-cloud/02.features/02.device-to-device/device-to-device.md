@@ -294,7 +294,7 @@ The connection between the boards is made through the **syncing of variables**, 
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
 
 
 

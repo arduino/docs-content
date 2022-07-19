@@ -237,4 +237,4 @@ In this tutorial, we have gone through the necessary steps to connect a MKR WiFi
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).

@@ -25,11 +25,11 @@ The Arduino IoT Cloud's dashboard feature is a really good tool for sending, rec
 
 The **sharing dashboards** feature is really easy to use, but let's take a look at how it is done!
 
-**1.** First, let's select a dashboard of your choice. In this case, we will choose the **"Temperature & Humidity"** dashboard.
+**1.** First, let's select a dashboard of your choice. In this case, we will choose the **"Smart Garden"** dashboard.
 
 ![Choose the dashboard you want to share.](assets/cloud-sharing-dashboards-img01.png)
 
-**2.** In our example, we have a **temperature** and **humidity** widget. Now, if we want to share our dashboard, we can simply click on the share icon at the top right corner, see the image below:
+**2.** In our example, we have a set of widgets displaying environmental data. If we want to share our dashboard, we can simply click on the share icon at the top right corner, see the image below:
 
 ![Click on the share button.](assets/cloud-sharing-dashboards-img02.png)
 
@@ -59,4 +59,4 @@ In this tutorial, we have learned how to **share dashboards**, a feature that ca
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).

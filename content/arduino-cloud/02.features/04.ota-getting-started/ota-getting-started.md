@@ -54,7 +54,7 @@ In order to configure the feature, we will need to create a project in the IoT C
 
 ![Selecting a device to associate.](assets/select_device.png)
 
-***Note: If it is the first time you configure the MKR WiFi 1010 or the Nano 33 IoT board to the IoT Cloud, you will need to have the latest version of the WiFi Nina firmware installed. The configuration process updates it automatically. However, if you get any error during the configuration process, you can manually update the FW version of the Nina module following [these instructions](https://support.arduino.cc/hc/en-us/articles/360018104880).***
+***Note: If it is the first time you configure the MKR WiFi 1010 or the Nano 33 IoT board to the IoT Cloud, you will need to have the latest version of the WiFi Nina firmware installed. The configuration process updates it automatically. However, if you get any error during the configuration process, you can manually update the FW version of the Nina module following [these instructions](https://support.arduino.cc/hc/en-us/articles/360013896579-Check-and-update-the-firmware-for-WiFiNINA-and-WiFi101).***
 
 
 **4.** Next step is to create a dashboard with a **Switch** widget, linked to the lights variable that you created before. Once it is set, click on the **use dashboard** button and go to **things > smart_led > Sketch**
@@ -141,4 +141,4 @@ If you want to continue learning about amazing IoT features or projects you can 
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).

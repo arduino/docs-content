@@ -216,4 +216,4 @@ You can now start thinking about how this application might work in real life. T
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
