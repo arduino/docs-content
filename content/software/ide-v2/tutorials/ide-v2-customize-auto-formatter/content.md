@@ -55,7 +55,7 @@ Or
 ```
 
 ### Sketch scope
-If you add a `.clang-format` or `_clang-format` configuration file to the root of a sketch, the Arduino IDE will use that configuration when formatting that sketch. This file has precedence over a global formatter configuration file.
+If you add a `.clang-format`  configuration file to the root of a sketch, the Arduino IDE will use that configuration when formatting that sketch. This file has precedence over a global formatter configuration file. 
 
 ![.clang-format file at the root of a sketch](assets/format-file-at-root.png)
 
