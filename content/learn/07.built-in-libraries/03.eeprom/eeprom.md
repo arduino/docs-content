@@ -289,7 +289,8 @@ void loop() {   /* Empty loop */ }
 ```
 
 ### `EEPROM[]`
-Description
+
+#### Description
 This operator allows using the identifier `EEPROM` like an array. EEPROM cells can be read and written directly using this method.
 
 #### Syntax
@@ -330,3 +331,23 @@ void setup(){
 void loop(){ /* Empty loop */ }
  
 ```
+
+### `length()`
+
+This function returns an unsigned int containing the number of cells in the EEPROM.
+
+#### Description
+
+This function returns an `unsigned int` containing the number of cells in the EEPROM.
+
+#### Syntax
+
+```
+EEPROM.length()
+```
+
+#### Returns
+
+Number of cells in the EEPROM as an `unsigned int`.
+
+
