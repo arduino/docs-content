@@ -57,7 +57,7 @@ Connection through mobile networks can be considered in remote areas where there
 
 The Arduino IoT Cloud supports a wide range of third party boards based on the ESP32 and ESP8266 microcontrollers with support for Wi-Fi. To set them up, simply choose the **third party option** in the device setup.
 
-![Configuring third party boards.](assets/3rd-party-support.png)
+![Configuring third party boards.](images/3rd-party-support.png)
 
 ***To learn more about ESP32/ESP8266 support and how to set it up, visit the [Connecting ESP32 & ESP8266 to Arduino Cloud IoT](/cloud/iot-cloud/tutorials/esp-32-cloud) guide.***
 
@@ -120,7 +120,7 @@ This feature allows for uploading sketches wirelessly to Arduino boards, without
 
 ![Connecting the device with the OTA option](./images/device_OtA.png)
 
-In order to **enable over-the-air uploads**, an initial upload should be done in the traditional way via a cable connection using the IoT Cloud interface. After such initial upload, "Over-the-Air" will appear as an option whenever the board is connected to the cloud via its network connection. For more information about this topic, check out the [tutorial about uploading sketches Over-the-Air (OTA)](https://www.arduino.cc/en/Tutorial/ota-getting-started).
+In order to **enable over-the-air uploads**, an initial upload should be done in the traditional way via a cable connection using the IoT Cloud interface. After such initial upload, "Over-the-Air" will appear as an option whenever the board is connected to the cloud via its network connection. For more information about this topic, check out the [tutorial about uploading sketches Over-the-Air (OTA)](/arduino-cloud/features/ota-getting-started).
 
 ### Variable Synchronisation
 
@@ -960,7 +960,7 @@ This can be rewritten in a non-blocking way as follows:
 
 How does this work? It gets the current execution time provided by `millis()` and divides it by 2 seconds. If the remainder is smaller than one second it will turn the LED on, and if it's greater it will turn the LED off.
 
-For a more complex and commented example, you can have a look at the [BlinkWithoutDelay example](https://www.arduino.cc/en/Tutorial/BuiltInExamples/BlinkWithoutDelay).
+For a more complex and commented example, you can have a look at the [BlinkWithoutDelay example](/built-in-examples/digital/BlinkWithoutDelay).
 
 ### Avoid waiting for Serial Monitor to initialize connection
 

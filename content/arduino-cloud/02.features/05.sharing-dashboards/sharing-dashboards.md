@@ -59,4 +59,4 @@ In this tutorial, we have learned how to **share dashboards**, a feature that ca
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).

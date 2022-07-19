@@ -163,4 +163,4 @@ We hope you enjoyed this tutorial and that it helped you to get started with you
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
