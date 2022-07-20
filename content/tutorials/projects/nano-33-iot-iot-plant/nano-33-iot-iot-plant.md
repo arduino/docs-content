@@ -12,7 +12,7 @@ Decorating your home with plants is an easy way to bring some life into your day
 
 ## How It Works
 
-Attaching an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Nano Screw Terminal Shield to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
+Attaching an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
 
 We will also connect a soil moisture sensor creating a sophisticated smart garden setup, capable of:
 
@@ -31,7 +31,7 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 OR
 
 - [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot)
-- [Arduino Nano Screw terminal Shield](URL)
+- [Arduino Nano Screw terminal Adapter](URL)
 - 5V submersible pump.
 - 1 meter watering pipe.
 - USB wall adapter
@@ -49,11 +49,11 @@ OR
 
 ## Hardware & Circuit Assembly
 
-Begin by connecting the Nano 33 IoT board to the Nano Screw Terminal Shield. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the shield are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
+Begin by connecting the Nano 33 IoT board to the Nano Screw Terminal Adapter. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the Adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
 
 Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one. 
 
-Next, take the pump and connect the negative wire (-) to GND on the Nano Screw Terminal Shield and connect the positive wire (+) to one of the screw terminals in the relay module, it doesn't matter which one. 
+Next, take the pump and connect the negative wire (-) to GND on the Nano Screw Terminal Adapter and connect the positive wire (+) to one of the screw terminals in the relay module, it doesn't matter which one. 
 
 Now connect the other screw terminal on the relay module to the VIN pin.
 
@@ -142,7 +142,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
  Components used:
 - Arduino Nano 33 IoT
-- Arduino Nano Screw terminal Shield
+- Arduino Nano Screw terminal Adapter
 - 5V submersible pump
 - 1 meter watering pipe
 - Water container
