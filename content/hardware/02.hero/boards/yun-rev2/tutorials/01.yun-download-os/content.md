@@ -27,7 +27,7 @@ Follow the steps in the [Yún Sys Upgrade tutorial](./yun-sys-upgrade).
 
 This procedure is only recommended to advanced users who wish to completely re-flash the Yún including its U-Boot bootloader. [These instructions](./yun-u-boot-reflash) on reflashing the base images are for reference only. Following them will void your Yún's warranty.
 
-<DownloadLink href="/openwrtyun/1/YunSysupgradeImage_v1.5.3.zip" title="Download" />
+- [Download](https://downloads.arduino.cc/openwrtyun/1/YunSysupgradeImage_v1.5.3.zip)
 
 - [Packages list for Yún](//downloads.arduino.cc/openwrtyun/1/packages/index.html)
 
