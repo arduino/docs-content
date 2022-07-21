@@ -11,11 +11,7 @@ source: "https://arduino.cc/en/Main/ArduinoBoardBT"
 
 ### Overview
 
-<<<<<<< Updated upstream
-The Arduino BT is a microcontroller board originally was based on the ATmega168, but now is supplied with the 328P ([datasheet](http://www.atmel.com/devices/atmega328.aspx?tab=documents)) and the Bluegiga WT11 Bluetooth® module ([details](http://www.bluegiga.com/WT11i%5FClass%5F1%5FBluetooth%5FModule) and [datasheet](http://www.bluegiga.com/files/bluegiga/Pub%20files/WT11i%5FProduct%5FBrief%5F140711%5Flores.pdf)). It supports wireless serial communication over Bluetooth® (but is not compatible with Bluetooth® headsets or other audio devices). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](content\retired\06.getting-started-guides\ArduinoBT).
-=======
 The Arduino BT is a microcontroller board originally was based on the ATmega168, but now is supplied with the 328P ([datasheet](./static/resources/datasheets/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061B.pdf)) and the Bluegiga WT11 Bluetooth® module [datasheet](./static/resources/datasheets/assets/WT11_Datasheet.pdf)). It supports wireless serial communication over Bluetooth® (but is not compatible with Bluetooth® headsets or other audio devices). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](content\retired\06.getting-started-guides\ArduinoBT).
->>>>>>> Stashed changes
 
 ### Summary
 
