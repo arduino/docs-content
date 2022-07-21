@@ -97,11 +97,7 @@ The maximum length and width of the BT are approximately 3.2 and 2.1 inches resp
 
 ## Arduino BT v1 Initialization Sketch
 
-<<<<<<< Updated upstream
-This sketch is run once on each Arduino BT v1 to initialize the Bluetooth® module before the board is shipped (you shouldn't need to run this code; it's just here for reference). For details on the commands sent to the module, see the [iWrap data sheet](http://www.bluegiga.com/iWRAP%5Fsoftware).
-=======
 This sketch is run once on each Arduino BT v1 to initialize the Bluetooth® module before the board is shipped (you shouldn't need to run this code; it's just here for reference). For details on the commands sent to the module, see the [iWrap data sheet](./static/resources/datasheets/UG218.pdf).
->>>>>>> Stashed changes
 
 ```arduino
 /* BT test 01
