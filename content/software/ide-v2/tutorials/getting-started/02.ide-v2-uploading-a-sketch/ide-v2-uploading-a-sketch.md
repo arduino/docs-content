@@ -28,7 +28,7 @@ A good practice is to use the verifying tool before attempting to upload anythin
 
 ### Uploading a Sketch
 
-Installing a core is quick and easy, but let's take a look at what we need to do. 
+Uploading a sketch is quick and easy, but let's take a look at what we need to do. 
 
 **1.** Open the Arduino IDE 2.0. 
 
