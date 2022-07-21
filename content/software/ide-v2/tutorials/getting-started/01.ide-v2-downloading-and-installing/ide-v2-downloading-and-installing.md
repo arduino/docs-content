@@ -21,7 +21,7 @@ You can easily download the editor from the [Arduino Software page](https://www.
 
 ### The Arduino IDE 2.0
 
-The Arduino IDE 2.0 is an open-source project. It is a big step from it's sturdy predecessor, Arduino IDE (1.8.13), and comes with revamped UI, improved board & library manager, autocomplete feature and much more. 
+The Arduino IDE 2.0 is an open-source project. It is a big step from it's sturdy predecessor, Arduino IDE 1.x, and comes with revamped UI, improved board & library manager, autocomplete feature and much more. 
 
 ### Download the Editor
 
