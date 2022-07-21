@@ -180,7 +180,7 @@ Let us talk more about **memory usage measurement** in Arduino® boards.
 
 Flash memory on Arduino® boards can be measured with the help of the Arduino IDE. As stated before, Flash memory is where the application code is stored; **the Arduino IDE reports Flash memory usage through its compiler output console** to let developers know how much Flash memory resources are being used. 
 
-For example, the IDE's compiler output console an AVR-based Arduino® board, the UNO, is shown in the image below:
+For example, the IDE's compiler output console an AVR-based Arduino® board, the Nano, is shown in the image below:
 
 ![Flash memory memory measurement in an AVR-based Arduino® board](assets/avr_nano.png)
 
