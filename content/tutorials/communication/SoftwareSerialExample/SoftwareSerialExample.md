@@ -17,13 +17,13 @@ In the example below, digital pins 10 and 11 on your Arduino boards are used as 
 
 There is no circuit for this example. Make sure that your Arduino board is attached to your computer via USB to enable serial communication through the serial monitor window of the Arduino Software (IDE).
 
-![](../../assets/ArduinoUNO_bb.png)
+![](assets/circuit.png)
 
 image developed using [Fritzing](http://www.fritzing.org). For more circuit examples, see the [Fritzing project page](http://fritzing.org/projects/)
 
 ## Schematics
 
-![](../../assets/ArduinoUNO_sch.png)
+![](assets/schematic.png)
 
 image developed using [Fritzing](http://www.fritzing.org). For more circuit examples, see the [Fritzing project page](http://fritzing.org/projects/)
 
