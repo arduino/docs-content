@@ -170,7 +170,7 @@ The following table summarizes a specific Arduino® board's memory allocation:
 
 ## Measuring Memory Usage in Arduino® Boards
 
-Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is design|ed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **flash storage remaining capacity** for required headroom.
+Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is designed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **flash storage remaining capacity** for required headroom.
 
 ***To avoid run-time problems, microcontroller-based systems should always run without reaching their maximum memory capacity.***
 
