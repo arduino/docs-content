@@ -68,6 +68,7 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias. 
 
 ***Connector J17***
+
 | **Pin**  | **Function** | **Type**     | **Description**                                              |
 | ---- | ------------ | ------------ | ------------------------------------------------------------ |
 | 1    | D13/SCK      | Digital            | GPIO                                                            |
