@@ -78,9 +78,9 @@ Once you have your hardware set up, we can continue to explore the Debugger tool
 
 The Debugger is a brand new tool integrated in the Arduino IDE 2.0. You can easily access it from the sidebar on the left, grouped with the **Board Manager**, **Library Manager**, **Search** and **Sketchbook Explorer**. 
 
-Mind that doing so will only show you its interface, but the real magic happens when you click the **bug icon** in the buttons menu.
-
 ![The Debugger button.](assets/debugger-img01.png)
+
+Mind that doing so will only show you its interface, but the real magic happens when you click the **bug icon** in the buttons menu.
 
 Now, in order to use the debugger, we need specific hardware instruments, the choice of which is very dependent on what kind of board/processor you are using, and you will almost always need an external debugger.
 
