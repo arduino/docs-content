@@ -32,7 +32,7 @@ Installing a core is quick and easy, but let's take a look at what we need to do
 
 **1.** Open the Arduino IDE 2.0. 
 
-**2.** With the editor open, let's take a look at the navigation bar at the top. At the very left, there is a **checkmark** and an **arrow pointing right**. The checkmark is used to **verify**, and the arrow is used to **upload.** 
+**2.** With the editor open, let's take a look at the toolbar at the top. At the very left, there is a **checkmark** and an **arrow pointing right**. The checkmark is used to **verify**, and the arrow is used to **upload.** 
 
 ![Verifying and uploading buttons.](assets/uploading-a-sketch-img01.png)
 
