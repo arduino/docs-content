@@ -14,7 +14,6 @@ LED displays are often packaged as matrixes of LEDs arranged in rows of common a
 
 ![](assets/8x8-LED-Matrix.png)
 
-
 These can be very useful displays. To control a matrix, you connect both its rows and columns to your microcontroller. The columns are connected to the LEDs cathodes (see Figure 1), so a column needs to be LOW for any of the LEDs in that column to turn on.  The rows are connected to the LEDs anodes, so the row needs to be HIGH for an individual LED to turn on. If the row and the column are both high or both low, no voltage flows through the LED and it doesn't turn on.
 
 To control an individual LED, you set its column LOW and its row HIGH.  To control multiple LEDs in a row, you set the row HIGH, then take the column high, then set the columns LOW or HIGH as appropriate; a LOW column will turn the corresponding LED ON, and a HIGH column will turn it off.
@@ -49,29 +48,26 @@ Here's a matrix of the pin connections, based on the diagram above:
 ### Hardware Required
 
 - Arduino Board
-
 - 8 x 8 LED Matrix
-
 - 2 10k ohm potentiometers
-
 - hook-up wires
-
 - breadboard
+- 8 10kΩ resistors
 
 ### Circuit
 
-The 16 pins of the matrix are hooked up to 16 pins of the Arduino board.  Four of the analog pins are used as digital inputs 16 through 19.  The order of the pins is assigned in two arrays in the code.
+The 16 pins of the matrix are hooked up to 16 pins of the Arduino board.  Four of the analog pins are used as digital inputs 16 through 19. The order of the pins is assigned in two arrays in the code.
 
 Two potentiometers, connected to analog pins 0 and 1,  control the movement of a lit LED in the matrix.
 
+To keep your LED matrix from burning, add 8 10kΩ resistors to the wires connected in yellow in the image below.
 
-![](assets/circuit.png)
+![Circuit diagram of the LED matrix.](assets/circuit.png)
 
 
 ### Schematic
 
-
-![](assets/schematic.png)
+![Schematic of the LED matrix.](assets/schematic.png)
 
 ### Code
 
@@ -82,5 +78,3 @@ Two potentiometers, connected to analog pins 0 and 1,  control the movement of a
 You can find more basic tutorials in the [built-in examples](/built-in-examples) section.
 
 You can also explore the [language reference](https://www.arduino.cc/reference/en/), a detailed collection of the Arduino programming language.
-
-*Last revision 2015/07/29 by SM*
