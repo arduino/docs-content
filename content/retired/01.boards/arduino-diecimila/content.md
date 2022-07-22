@@ -9,7 +9,7 @@ source: "https://arduino.cc/en/Main/ArduinoBoardDiecimila"
 
 ### Overview
 
-The Arduino Diecimila is a microcontroller board based on the ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)). It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
+The Arduino Diecimila is a microcontroller board based on the ATmega168 ([datasheet](https://content.arduino.cc/assets/Datasheet-ATmega48-88-168-doc2545.pdf)). It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
 
 "Diecimila" means 10,000 in Italian and was named thusly to mark the fact that over 10,000 Arduino boards have been made. The Diecimila is the latest in a series of USB Arduino boards.
 
@@ -94,7 +94,7 @@ The ATmega168 also supports I2C (TWI) and SPI communication. The Arduino softwar
 
 The Arduino Diecimila can be programmed with the Arduino software ([download](//www.arduino.cc/en/Main/Software)). For details, see the [reference](//www.arduino.cc/en/Reference/HomePage) and [tutorials](//www.arduino.cc/en/Tutorial/HomePage).
 
-The ATmega168 on the Arduino Diecimila comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod%5Fdocuments/avr061.zip)).
+The ATmega168 on the Arduino Diecimila comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](./static/resources/datasheets/doc2525.pdf), [C header files](./static/resources/datasheets/avr061.zip)).
 
 You can also bypass the bootloader and program the ATmega168 through the ICSP (In-Circuit Serial Programming) header; see [these instructions](//www.arduino.cc/en/Hacking/Programmer) for details.
 

@@ -29,7 +29,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoEthernet
 
 * Learn more on the Ethernet Shield 2 [in the Ethernet2 Library reference](https://www.arduino.cc/en/Reference/Ethernet)
 * Get assistance with your projects [in the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* Contact us through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* Contact us through [our Customer Support](https://support.arduino.cc/hc)
 
 ## Documentation
 

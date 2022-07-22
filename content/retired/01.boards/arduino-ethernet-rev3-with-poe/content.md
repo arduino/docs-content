@@ -31,9 +31,9 @@ Use the [Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software), and s
 
 ### Need Help?
 
-* On the Ethernet Shield V2 [on the Ethernet V2 Library](https://www.arduino.cc/en/Reference/EthernetV2)
+* On the Ethernet Shield V2 [on the Ethernet V2 Library](https://www.arduino.cc/reference/en/libraries/ethernet2/)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 This version has the power-over-Ethernet (PoE) module soldered to the board to provide power from a conventional twisted pair Category 5 Ethernet cable. It is IEEE802.3af compliant, and works with all compliant PoE injectors currently available.
 
@@ -73,7 +73,7 @@ The optional PoE module is designed to extract power from a conventional twisted
 * High efficiency DC/DC converter: typ 75% @ 50% load
 * 1500V isolation (input to output)
 
-*NB: the Power over Ethernet module is proprietary hardware not made by Arduino, it is a third party accessory. For more information, see the [datasheet](https://www.arduino.cc/en/uploads/Main/PoE-datasheet.pdf)* 
+*NB: the Power over Ethernet module is proprietary hardware not made by Arduino, it is a third party accessory. For more information, see the [datasheet](https://www.arduino.cc/en/uploads/Main/PoE-datasheet.pdf)*
 
 When using the power adapter, power can come either from an AC-to-DC adapter (wall-wart) or battery. The adapter can be connected by plugging a 2.1mm center-positive plug into the board's power jack. Leads from a battery can be inserted in the Gnd and Vin pin headers of the POWER connector. The board can operate on an external supply of 6 to 20 volts. If supplied with less than 7V, however, the 5V pin may supply less than five volts and the board may be unstable. If using more than 12V, the voltage regulator may overheat and damage the board. The recommended range is 7 to 12 volts.
 
@@ -136,7 +136,7 @@ If you want to use a FTDI cable to download your sketches on the Arduino Etherne
 
 |   |   |
 |-----------------------------------------------|--------------------------------------------------------|
-|Microcontroller                                |[ATmega328P](http://www.atmel.com/Images/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf)|
+|Microcontroller                                |[ATmega328P](/resources/datasheets/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf)|
 |Operating Voltage                              |5V|
 |Input Voltage Plug (recommended)               |7-12V|
 |Input Voltage Plug (limits)                    |6-20V|

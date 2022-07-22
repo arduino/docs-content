@@ -33,7 +33,7 @@ Use the [Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software), and s
 
 * On the Ethernet Shield V2 [on the Ethernet V2 Library](https://www.arduino.cc/en/Reference/Ethernet)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 A separate power-over-Ethernet (PoE) module can be soldered to the board to provide power from a conventional twisted pair Category 5 Ethernet cable. It is IEEE802.3af compliant, and works with all compliant PoE injectors currently available. Compatible with PoE Module 12V (X000002).
 
