@@ -48,11 +48,11 @@ Using the autocomplete feature is easy, but let's take a look at how it actually
 
 ![Choosing a board.](assets/autocompletion-feature-img02.png)
 
-**3.** With the board selected, we are all good to go. In the sketch, inside `void setup()`, start typing pin, then trigger the autocomplete feature by pressing `CTRL` + `spacebar` at the same time. You can now see a list of suggestions, where `pinMode(uint8_t pin, uint8_t mode)` comes up as a suggestion. By either clicking on the selection, or hitting **"Enter"**, it will autocomplete it.
+**3.** With the board selected, we are all good to go. In the sketch, inside `void setup()`, start typing pin, then trigger the autocomplete feature by pressing **CTRL** + **spacebar** at the same time. You can now see a list of suggestions, where `pinMode(uint8_t pin, uint8_t mode)` comes up as a suggestion. By either clicking on the selection, or hitting **"Enter"**, it will autocomplete it.
 
 ![Suggestion for autocompletion (pinMode).](assets/autocompletion-feature-img03.png)
 
-**4.** Now, by clicking enter, it automatically marks the first parameter, which is designed for the `pin` that we want to define. If we now start writing **LED** and once more trigger the autocomplete feature by pressing `CTRL` + `spacebar`, a suggestion for `LED_BUILTIN` will appear. If we click enter, it will also autocomplete.
+**4.** Now, by clicking enter, it automatically marks the first parameter, which is designed for the `pin` that we want to define. If we now start writing **LED** and once more trigger the autocomplete feature by pressing **CTRL** + **spacebar**, a suggestion for `LED_BUILTIN` will appear. If we click enter, it will also autocomplete.
 
 ![Suggestion for autocompletion (LED_BUILTIN).](assets/autocompletion-feature-img04.png)
 
