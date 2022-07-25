@@ -44,19 +44,19 @@ Using the autocomplete feature is easy, but let's take a look at how it actually
 
 ![An empty Arduino IDE sketch window.](assets/autocompletion-feature-img01.png)
 
-**2.** Now, to enable the autocompletion, we first need to select a board that we are going to use. We don't need to physically connect it to our computer to use the feature, but we need to select the type of board for it to work. This is done by navigating to **Tools > Boards > {Core} > {Board}**. 
+**2.** Now, to enable the autocompletion, we first need to select a board that we are going to use. This is done by selecting a connected board in the dropdown menu. If you don't have a board connected you can still use this feature, just click "Select other board and port" instead, and follow the instructions in the IDE to select the board you intend to use with your program.
 
 ![Choosing a board.](assets/autocompletion-feature-img02.png)
 
-**3.** With the board selected, we are all good to go. In the sketch, inside `void setup()`, start typing pin. You can now see a list of suggestions, where `pinMode(uint8_t pin, uint8_t mode)` comes up as a suggestion. By either clicking on the selection, or hitting **"Enter"**, it will autocomplete it.
+**3.** With the board selected, we are all good to go. In the sketch, inside `void setup()`, start typing pin, then trigger the autocomplete feature by pressing `CTRL` + `spacebar` at the same time. You can now see a list of suggestions, where `pinMode(uint8_t pin, uint8_t mode)` comes up as a suggestion. By either clicking on the selection, or hitting **"Enter"**, it will autocomplete it.
 
 ![Suggestion for autocompletion (pinMode).](assets/autocompletion-feature-img03.png)
 
-**4.** Now, by clicking enter, it automatically marks the first parameter, which is designed for the `pin` that we want to define. If we now start writing **LED**, a suggestion for `LED_BUILTIN` will appear. If we click enter, it will also autocomplete.
+**4.** Now, by clicking enter, it automatically marks the first parameter, which is designed for the `pin` that we want to define. If we now start writing **LED** and once more trigger the autocomplete feature by pressing `CTRL` + `spacebar`, a suggestion for `LED_BUILTIN` will appear. If we click enter, it will also autocomplete.
 
 ![Suggestion for autocompletion (LED_BUILTIN).](assets/autocompletion-feature-img04.png)
 
-**5.** Now if we mark the following parameter, `uint8_t mode`, delete it, and instead start writing **OUT**, we will see the suggestion for `OUTPUT` appear, which we can also autocomplete. 
+**5.** Now if we mark the following parameter, `uint8_t mode`, delete it, and instead start writing **OUT**, we will see the suggestion for `OUTPUT` appear when the autocomplete feature is triggered once more, which we can also autocomplete. 
 
 ![Suggestion for autocompletion (OUTPUT).](assets/autocompletion-feature-img05.png)
 
