@@ -50,7 +50,7 @@ Next you'll need to install the Arduino libraries that will be used, using the A
 * ArduinoMqttClient
 * Arduino Cloud Provider Examples
 
-Now insert the micro SIM card in the slot on the bottom of the MKR NB 1500 board and attach the 3.7V Lipo battery to the JST connector. Then plug in the MKR NB 1500 with the micro USB cable to your computer, select the serial port in the Arduino IDE using the **Tools -> Port "..."** menu and also select Arduino MKR NB 1500 in the **Tools -> Board "..."** menu.
+Now insert the micro SIM card in the slot on the bottom of the MKR NB 1500 board and attach the 3.7V Lipo battery to the JST PH connector. Then plug in the MKR NB 1500 with the micro USB cable to your computer, select the serial port in the Arduino IDE using the **Tools -> Port "..."** menu and also select Arduino MKR NB 1500 in the **Tools -> Board "..."** menu.
 
 ![Select Arduino MKR NB 1500](assets/screen_shot_2019-02-06_at_11_12_43_am_ydThma23S0.png)
 
