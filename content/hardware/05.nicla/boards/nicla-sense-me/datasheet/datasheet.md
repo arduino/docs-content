@@ -143,7 +143,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC  |
 | U10      | SN74LVC1T45 1Channel voltage level translator IC | U11      | TXB0108YZPR Bidirectional IC     |
 | U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and GPIO Pin headers    |
-| J2       | I2C, JTAG, Power and GPIO pin headers            | J3       | Battery headers                  |
+| J2       | I2C, JTAG, Power and GPIO pin headers            | J3       | Battery pin headers                  |
 | Y1       | SIT1532AI-J4-DCC MEMS 32.7680 kHz Oscillator     | DL1      | SMLP34RGB2W3 RGB SMD LED         |
 | PB1      | Reset button                                     |
 
@@ -153,7 +153,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | **Ref.** | **Description**                             | **Ref.** | **Description**                              |
 | -------- | ------------------------------------------- | -------- | -------------------------------------------- |
 | U1       | ATSAMD11D14A-MUT USB Bridge                 | U13      | NTS0304EUKZ 4-bit translating transceiver IC |
-| U14      | AP2112K-3.3TRG1 0.6 A 3.3 V LDO IC          | J4       | Battery Connector                            |
+| U14      | AP2112K-3.3TRG1 0.6 A 3.3 V LDO IC          | J4       | 3-pin 1.2mm ACH Battery Connector (BM03B-ACHSS-GAN-TF)                  |
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin Eslov connector | J7       | microUSB connector                           |
 
 ### Processor
