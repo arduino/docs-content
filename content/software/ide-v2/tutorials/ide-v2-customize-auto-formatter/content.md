@@ -63,9 +63,9 @@ If you add a `.clang-format` configuration file to the root of a sketch, the Ard
 
 Here you can find the default formatting file used in the Arduino IDE 2.0. If you wish to customize how your auto formatting acts in the IDE then starting with this file is a good idea.
 
-***Please note that the custom configuration file completely overrides the Arduino default configuration, rather than merging with it. Any configuration option you don't set in your custom file will be set to the ClangFormat default value.***
-
 https://raw.githubusercontent.com/arduino/tooling-project-assets/main/other/clang-format-configuration/.clang-format
+
+***Please note that the custom configuration file completely overrides the Arduino default configuration, rather than merging with it. Any configuration option you don't set in your custom file will be set to the ClangFormat default value.***
 
 ## Conclusion
 
