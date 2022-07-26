@@ -19,7 +19,7 @@ Power:
   Input Voltage (nominal): 5-5.5V
   DC Current per I/O pin: 7 mA
   Supported battery: Li-Po single cell, 3.7V, 700mAh minimum
-  Battery connector: JST
+  Battery connector: JST PH
 Clock speed:
   Processor: 48 MHz
   RTC: 32.768 kHz

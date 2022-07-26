@@ -352,7 +352,7 @@ Now that we have communication between the boards, we can do a simple test with 
 
 ### Making Sender Device Mobile
 
-As of now, we have a quite immobile setup, but this can be fixed by making the sender device mobile. A good way of testing this out is to make the sender device run on a battery instead. The MKR WAN 1310 has a battery connector that any battery with a JST connector can connect to. A standard 3.7 LiPo battery can power the MKR WAN 1310 for a longer time.
+As of now, we have a quite immobile setup, but this can be fixed by making the sender device mobile. A good way of testing this out is to make the sender device run on a battery instead. The MKR WAN 1310 has a battery connector that any battery with a JST PH connector can connect to. A standard 3.7 LiPo battery can power the MKR WAN 1310 for a longer time.
 
 ### Troubleshoot
 
