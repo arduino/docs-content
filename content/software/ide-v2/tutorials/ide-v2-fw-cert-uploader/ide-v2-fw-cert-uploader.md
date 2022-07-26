@@ -61,7 +61,7 @@ To update the Firmware, follow the below steps:
 
 ![Selecting the Firmware Updater Tool.](assets/fw-cert-img01.png)
 
-**3.** A new window will open. Select your board from the drop down menu. 
+**3.** A new window will open. Select your board from the drop down menu, and press the button to check for updates. 
 
 ![Selecting your board.](assets/fw-cert-img02.png)
 
@@ -87,12 +87,12 @@ To upload SSL Root certificates to your board, follow the below steps:
 
 **3.** A new window will open. Click on the **"Add New"** and add the URL in the field. Here you can add multiple entries. When you are finished adding certificates, you can select your board from the drop down menu. To upload the certificates, click on the **"Upload"** button.
 
-![Uploading the certificates.](assets/fw-cert-img05.png).
+![Uploading the certificates.](assets/fw-cert-img05.png)
 
 **5.** The process of uploading the certificates takes some time, and when it is finished, you will see the text: 
 
 ```
-Certificates Uploaded.
+Certificates uploaded.
 ``` 
 
 ## Conclusion
