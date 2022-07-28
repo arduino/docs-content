@@ -40,13 +40,13 @@ Uploading a sketch is quick and easy, but let's take a look at what we need to d
 
 ![Successful compilation printed in the console.](assets/uploading-a-sketch-img02.png)
 
-**4.** Now we know that our code is compiled, and that it is working. Now, before we can upload the code to our board, we will first need to select the board that we are using. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM44 (Arduino UNO)**.
+**4.** Now we know that our code is compiled, and that it is working. Now, before we can upload the code to our board, we will first need to select the board that we are using. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
 
 **5.** With the board selected, we are good to go! Click on the **upload** button, and it will start uploading the sketch to the board. 
 
-**6.** When it is finished, it will notify you in the console log. Of course, sometimes there are some complications when uploading, and these errors will be listed here as well.
+**6.** When it is finished, a notification pops up in the bottom right of your IDE window. Of course, sometimes there are some complications when uploading, and these errors will be listed here as well.
 
 ![Successful upload printed in the console.](assets/uploading-a-sketch-img04.png)
 
