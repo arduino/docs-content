@@ -29,7 +29,7 @@ A bit further down, we can see another grey component titled `VBATT`. In this ca
 
 ***For more information about Model-Based Design, check out the [Engineering Kit Rev 2](https://store.arduino.cc/products/arduino-engineering-kit-rev2) for hands on projects.***
 
-The current specification noted in the diagram tell you about the maximum amount of current that can be drawn from that specific voltage source. Consequently you can attach any sensor or actuator, so long as the maximum current draw is not exceeded. A device always only draws as much current as it needs to operate. 
+The current specification noted in the diagram tells you about the maximum amount of current that can be drawn from that specific voltage source. Consequently you can attach any sensor or actuator, so long as the maximum current draw is not exceeded. A device always only draws as much current as it needs to operate. 
 However, the case for voltage is different. As a general rule, the voltage values must match with a low tolerance and it is not possible to power a 5V sensor via a 3.3V pin or vice versa. Voltages have to match, while the currents don't have to match (just be lower).
 That said, connecting a data line from e.g. a 3.3V sensor to a 5V micro controller input pin may work depending on the defined [TTL levels](https://en.wikipedia.org/wiki/Logic_level) as long as the communication is unidirectional. If 5V are applied from the 5V micro controller to the 3.3V peripheral, it may destroy it.
 
@@ -39,7 +39,7 @@ Next, let us take a look at the block representing the MC34PF1550A0EP component.
 
 ![Portenta H7 Power Management IC](assets/PMIC_Portenta_H7.svg)
 
-The input of the power component, as stated previously, can come from either the 5V power source or the battery. The voltage and net of these two (as seen in the schematic view) is written on the turquoise box on the connecting lines. Recall that since the USB-C and VIN voltage inputs are connected (as denoted by the black dot connecting the lines together). The 5V voltage is fed to a LDO that has a maximum current capacity of 2A, producing a 4.5V rail. LDO stands for a **L**ow **D**rop**o**ut linear regulator. These are a type of linear regulator that are designed to work when the input voltage is slightly above the output voltage. The output of this LDO is a voltage rail (shown again in a turquoise box) with a voltage of 4.5V. Given that this is slightly lower than 5V input, it is important that the input voltage is stable, since if it drops below 4.7V the stability of the Portenta board may be compromised.
+The input of the power component, as stated previously, can come from either the 5V power source or the battery. The voltage and net of these two (as seen in the schematic view) is written on the turquoise box on the connecting lines. Recall that since the USB-C and VIN voltage inputs are connected (as denoted by the black dot connecting the lines together). The 5V voltage is fed to a LDO that has a maximum current capacity of 2A, producing a 4.5V rail. LDO stands for a **L**ow **D**rop**o**ut linear regulator. These are a type of linear regulator that are designed to work when the input voltage is slightly above the output voltage. The output of this LDO is a voltage rail (shown again in a turquoise box) with a voltage of 4.5V. Given that this is slightly lower than 5V input, it is important that the input voltage is stable since, if it drops below 4.7V the stability of the Portenta board may be compromised.
 
 ***Since all other system voltages go through the noted LDO, the maximum current that can pass through the PMIC is at most 2A. Losses in subsequent voltage conversion will reduce the real current available to the user. For further details, please refer to the MC34PF1550A0EP datasheet. ***
 
@@ -50,7 +50,7 @@ The generated 4.5V is then available for use by DC-DC converters. Here, DC-DC co
 To the right, we can see components that make use of these generated voltages. Note that in some cases, components may make use of multiple voltage levels to operate.
 
 ## Graphical styles
-As you may have noticed, each type of component has its own visual style. The input blocks are grey, with a turquoise label underneath showing the nominal voltage. Interconnecting power rails are shown with a black dot. The power lines themselves are marked by a turquoise box with the voltage/net.  The power conversion blocks are also grey. Under it, one or more power conversion sub-components are shown. The conversion type (LDO/CHRG/DCDC) is in yellow, while the maximum current output is in red. These sub-components are all right aligned. To the bottom left, a Legend is shown.
+As you may have noticed, each type of component has its own visual style. The input blocks are grey, with a turquoise label underneath showing the nominal voltage. Interconnecting power rails are shown with a black dot. The power lines themselves are marked by a turquoise box with the voltage/net.  The power conversion blocks are also grey. Under that, one or more power conversion sub-components are shown. The conversion type (LDO/CHRG/DCDC) is in yellow, while the maximum current output is in red. These sub-components are all right aligned. To the bottom left, a Legend is shown.
 
 ![Power Tree Components](assets/powerTreeComponents.png)
 
@@ -58,7 +58,7 @@ As you may have noticed, each type of component has its own visual style. The in
 Various IC manufacturers have material for understanding power conversion, including switch mode power supplies. These can help advanced users better understand power conversion that you see in the Power Trees included in the Arduino datasheets. See [ON Semiconductor's Switch-Mode Power Supply Reference Manual](https://www.onsemi.com/pub/Collateral/Smpsrm-D.PDF) or the [Power Topologies Handbook by Texas Instruments](https://www.ti.com/seclit/ug/slyu036/slyu036.pdf).
 
 
-In order to explain complex interactions, conceptual diagrams similar to the Power Tree are widely used by domain experts to quickly and efficiently convey information. For a survey of how conceptual diagrams are used in various disciplines see:
+In order to explain complex interactions, conceptual diagrams similar to the Power Tree are widely used by domain experts to quickly and efficiently convey information. For a survey of how conceptual diagrams are used in various disciplines, see:
 - [Ma’ayan, Dor, et al. ‘How Domain Experts Create Conceptual Diagrams and Implications for Tool Design’. Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems, ACM, 2020](https://doi.org/10.1145/3313831.3376253)
 - [Tippett, Christine D. ‘What Recent Research on Diagrams Suggests about Learning with Rather than Learning from Visual Representations in Science’. International Journal of Science Education, vol. 38, no. 5, Mar. 2016](https://doi.org/10.1080/09500693.2016.1158435)
 
