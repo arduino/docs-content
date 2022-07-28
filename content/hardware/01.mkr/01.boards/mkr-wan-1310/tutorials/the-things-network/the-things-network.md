@@ -112,9 +112,9 @@ fill in **End device ID** and **EUI**. You can click the generate button next to
 
 **Note**: The Device ID must be lowercase and without spaces. The **EUI** should be copied from the Serial Monitor.
 
-**Note**: The Frequency Plan used in Australia by ""The Things Network"" is
-""Australia 915-928 MHz, FSB 2 (used by TTN)"". The other plans are included in
-the list for other LoRaWAN deployments.
+**Note**: The Frequency Plan used in Australia by **The Things Network** is
+**"Australia 915-928 MHz, FSB 2 (used by TTN)"**. The other plans are included in
+the list for LoRaWAN deployments using other LoRaWAN Networks.
 
 ![Second step of registering device](assets/WAN1310_T6_IMG06_02.png)
 
@@ -126,7 +126,7 @@ In our device overview, we can now see three rows: Device EUI, Application EUI a
 
 **Note**: For devices using the' AU_915_928 band plan, an additional
 configuration change is required. In settings for the end device, under
-""General Settings"", expand the ""Network Layer"" options and change ""Regional Parameters version"" to ""RP001 Regional Parameters 1.0.2 revision B"". Click ""Save changes"" to commit the new setting. Without this change, the device will be unable to complete it's registration to the LoRaWAN network and transmit data.
+**General Settings**, expand the **Network Layer** options and change **Regional Parameters version** to **"RP001 Regional Parameters 1.0.2 revision B"**. Click **Save changes** to commit the new setting. Without this change, the device will be unable to complete it's registration to the LoRaWAN network and transmit data.
 
 Now, we need to open the **FirstConfiguration** sketch again. To be safe, reset your board and open the Serial Monitor again. Once the program starts, it will start asking questions in the Serial Monitor. The first one is if we are using OTAA or ABP. We will use OTAA, so we can enter a **"1"** in the monitor and hit **"send"**.
 
