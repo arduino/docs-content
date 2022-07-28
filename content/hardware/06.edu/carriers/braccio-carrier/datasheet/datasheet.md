@@ -101,7 +101,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
     
     |  USB Standard   |  USB Power Delivery Rev.   |  USB Type              |  Purpose                          |
     | --------------- | -------------------------- | ---------------------- | --------------------------------- |
-    |  3.1            |  3.0                       |  Type C (Reversible)   |  Programming & Power Supply       |
+    |  3.1            |  3.0                       |  Type C (Reversible)   |  Power Supply                     |
 
 - **ESLOV Connector** 
     - The connector provides the capability of module's automatic configuration and handle the sleep state for low power mode. Connector is designated with J2 reference, providing 5 pins for interrupt and I2C protocol at 5V. 
