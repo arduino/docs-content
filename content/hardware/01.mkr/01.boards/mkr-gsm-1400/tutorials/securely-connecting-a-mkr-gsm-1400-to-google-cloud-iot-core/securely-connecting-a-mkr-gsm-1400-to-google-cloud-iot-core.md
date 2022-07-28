@@ -49,7 +49,7 @@ Next you'll need to install the Arduino libraries that will be used, using the A
 * ArduinoMqttClient (version 0.1.3 or later)
 * Arduino Cloud Provider Examples (version 1.2.0 or later)
 
-Now insert the micro SIM card in the slot on the bottom of the MKR GSM 1400 board, connect the antenna, and attach the 3.7V Lipo battery to the JST connector. Then plug in the MKR GSM 1400 with the micro USB cable to your computer, select the serial port in the Arduino IDE using the **Tools -> Port "..."** menu and also select Arduino MKR GSM 1400 in the **Tools -> Board "..."** menu.
+Now insert the micro SIM card in the slot on the bottom of the MKR GSM 1400 board, connect the antenna, and attach the 3.7V Lipo battery to the JST PH connector. Then plug in the MKR GSM 1400 with the micro USB cable to your computer, select the serial port in the Arduino IDE using the **Tools -> Port "..."** menu and also select Arduino MKR GSM 1400 in the **Tools -> Board "..."** menu.
 
 ![Select MKR GSM 1400.](assets/screen_shot_2019-03-13_at_4_34_59_pm_AnQOUII5Jp.png)
 

@@ -31,7 +31,7 @@ Once it has finished, an _Installed_ tag should appear next to the Bridge librar
 ![](assets/LibraryManager_3.png)
 
 You can now find the new library available in the _Sketch > Include Library_ menu.
-If you want to add your own library to Library Manager, follow [these instructions](https://github.com/arduino/Arduino/wiki/Library-Manager-FAQ).
+If you want to add your own library to Library Manager, follow [these instructions](https://github.com/arduino/library-registry#adding-a-library-to-library-manager).
 
 ## Importing a .zip Library
 

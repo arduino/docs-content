@@ -1,3 +1,4 @@
 ---
-title: Arduino Engineering Kit
+title: Engineering Kit
+certifications: [CE]
 ---

@@ -33,7 +33,7 @@ ___
 ## Hardware & Software Needed
 
 - Arduino MKR WiFI 1010 
-- Li-Po battery 1024 mAh minimum, JST connector
+- Li-Po battery 1024 mAh minimum, JST PH connector
 - Pushbutton NO
 - Power source with micro-USB cable
 - Arduino IDE (offline and online versions available)
@@ -56,7 +56,7 @@ This tutorial is more of a conceptual one than a practical one, because there is
 
 The first step is to connect the board to a source of energy, this can be your computer or a phone charger. In both cases there will be a cable that ends with a micro USB that goes into the MKR WiFi 1010 socket. A standard 500 mA supply is ok and will charge your battery in a number of hours that is proportional to the capacity of the battery. The circuit is designed to provide 4.2V and 512 mAh; with a typical C/2 charge/discharge rating of the cells, this is the reason why we suggest a 1024 mAh minimum capacity. The hours taken for the charge are therefore the capacity divided by the charging current. You can find batteries with different C values depending on their chemistry and application, but the ones available for powering microcontroller boards are usually rated at C/2. Operating the Li-Po battery within its specs will grant it a long and cool (no heating) life.
 
-![LiPo battery with JST connector.](assets/mkr_tutorial_01_img_03.png)
+![LiPo battery with JST PH connector.](assets/mkr_tutorial_01_img_03.png)
 
 When the battery is charging, you will see the charging LED lit. When no charge is going on, either because the battery is full or the charging timeout has been reached, that LED is off while the Power LED stays on.
 

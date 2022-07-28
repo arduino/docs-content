@@ -12,7 +12,7 @@ Arduino Primo Core is the compact Arduino board developed in cooperation with [N
 
 For the little dimension, the Bluetooth® integrated and the Low Power the board is ideal for IoT world and in particular for the wearables.  
 
-The Microcontroller used is the same of the Arduino Primo, the Nordic microcontroller [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf).
+The Microcontroller used is the same of the Arduino Primo, the Nordic microcontroller [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf).
 
 It needs an external programmer, for example Atmel ICE, or an [Arduino Primo](https://store.arduino.cc/arduino-primo-936).
 
@@ -88,7 +88,7 @@ In particular it has a Bluetooth® interface 4.0 that allows to communicate with
   
 The board supports also the NFC communication until to 106 kbps as bit rate and 13,56 MHz of frequency. It needs only to connect the NFC antenna in the corresponding connector. The NFC is managed from NFC library and also this is contained in the nRF52 platform.  
   
-Furthermore the [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf) supports also the I2C (TWI) communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus.  
+Furthermore the [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf) supports also the I2C (TWI) communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus.  
   
 In the Arduino Primo Core is also possible to use the SPI communication, using the default configuration (MOSI=4, MISO=5, SCK=6, SS=7) or defining the pins that you use directly in the sketch. For more information visit the [SPI library](https://www.arduino.cc/en/Reference/SPI).
 
@@ -102,4 +102,3 @@ All these procedures use the [Arduino IDE](https://www.arduino.cc/en/Guide/Envir
 ### Physical Characteristics
 
 The Arduino Primo Core is characterized from small size so that can be used wearable. The length and width of board is 32 x 32 mm respectively.   
-  

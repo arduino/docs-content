@@ -48,7 +48,7 @@ void dash()
 
 If you run this sketch, it will flash out the code for SOS (a distress call) on pin 13.
 
-The sketch has a few different parts that we'll need to bring into our library. First, of course, we have the `dot()` and `dash()` functions that do the actual blinking. Second, there's the **ledPin** variable which the functions use to determine which pin to use. Finally, there's the call to `pinMode()` that initializes the pin as an output.
+The sketch has a few different parts that we'll need to bring into our library. First, of course, we have the `dot()` and `dash()` functions that do the actual blinking. Second, there's the `pin` variable which the functions use to determine which pin to use. Finally, there's the call to `pinMode()` that initializes the pin as an output.
 
 Let's start turning the sketch into a library!
 
@@ -252,6 +252,9 @@ Each line has the name of the keyword, followed by a tab (not spaces), followed 
 It's also nice to provide people with an example sketch that uses your library. To do this, create an **examples** directory inside the **Morse** directory. Then, move or copy the directory containing the sketch (let's call it **SOS**) we wrote above into the examples directory. (You can find the sketch using the **Sketch > Show Sketch Folder** command.) If you restart the Arduino environment (this is the last time, I promise) - you'll see a **Library-Morse** item inside the **File > Sketchbook > Examples** menu containing your example. You might want to add some comments that better explain how to use your library.
 
 If you'd like to check out the complete library (with keywords and example), you can download it: [Morse.zip](https://www.arduino.cc/en/uploads/Hacking/Morse.zip).
+
+If you'd like to make your library available to others in Arduino's **Library Manager** you will also have to include a **library.properties** file. Check out the [library specification](https://arduino.github.io/arduino-cli/latest/library-specification/) for more info on that.
+For general questions on the Arduino Library Manager, see the [FAQ](https://github.com/arduino/library-registry/blob/main/FAQ.md#readme).
 
 If you have any problems or suggestions, please post them to the [Software Development forum](https://forum.arduino.cc/c/development/libraries/39).
 

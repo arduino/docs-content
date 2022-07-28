@@ -170,7 +170,7 @@ The following table summarizes a specific Arduino® board's memory allocation:
 
 ## Measuring Memory Usage in Arduino® Boards
 
-Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is design|ed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **flash storage remaining capacity** for required headroom.
+Memory usage statistics help comprehend the insight of resource management affected by the designed code structure. Memory load demand is one statistic that will give you an insight into how efficient the code is designed. It is a crucial development consideration element because the resources are finite inside a microcontroller-based system; **software should always perform without reaching maximum load capacity to avoid problems or issues**. Memory load could be observed either as **available RAM** at disposal for specific tasks or **flash storage remaining capacity** for required headroom.
 
 ***To avoid run-time problems, microcontroller-based systems should always run without reaching their maximum memory capacity.***
 
@@ -180,7 +180,7 @@ Let us talk more about **memory usage measurement** in Arduino® boards.
 
 Flash memory on Arduino® boards can be measured with the help of the Arduino IDE. As stated before, Flash memory is where the application code is stored; **the Arduino IDE reports Flash memory usage through its compiler output console** to let developers know how much Flash memory resources are being used. 
 
-For example, the IDE's compiler output console an AVR-based Arduino® board, the UNO, is shown in the image below:
+For example, the IDE's compiler output console an AVR-based Arduino® board, the Nano, is shown in the image below:
 
 ![Flash memory memory measurement in an AVR-based Arduino® board](assets/avr_nano.png)
 
@@ -411,9 +411,9 @@ The following table shows basic value data types in Arduino:
 |     **Type**    | **Byte Length** |       **Range of Values**       |
 |:---------------:|:---------------:|:-------------------------------:|
 |    `boolean`    |        1        | Limited to logic true and false |
-|      `char`     |        1        |           -128 to 128           |
+|      `char`     |        1        |           -128 to 127           |
 | `unsigned char` |        1        |             0 to 255            |
-|      `byte`     |        1        |             o to 255            |
+|      `byte`     |        1        |             0 to 255            |
 |      `int`      |        2        |        -32,768 to 32,767        |
 |  `unsigned int` |        2        |           0 to 65,535           |
 |      `word`     |        2        |           0 to 65,535           |

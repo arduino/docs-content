@@ -28,11 +28,11 @@ A good practice is to use the verifying tool before attempting to upload anythin
 
 ### Uploading a Sketch
 
-Installing a core is quick and easy, but let's take a look at what we need to do. 
+Uploading a sketch is quick and easy, but let's take a look at what we need to do. 
 
 **1.** Open the Arduino IDE 2.0. 
 
-**2.** With the editor open, let's take a look at the navigation bar at the top. At the very left, there is a **checkmark** and an **arrow pointing right**. The checkmark is used to **verify**, and the arrow is used to **upload.** 
+**2.** With the editor open, let's take a look at the toolbar at the top. At the very left, there is a **checkmark** and an **arrow pointing right**. The checkmark is used to **verify**, and the arrow is used to **upload.** 
 
 ![Verifying and uploading buttons.](assets/uploading-a-sketch-img01.png)
 
@@ -40,13 +40,13 @@ Installing a core is quick and easy, but let's take a look at what we need to do
 
 ![Successful compilation printed in the console.](assets/uploading-a-sketch-img02.png)
 
-**4.** Now we know that our code is compiled, and that it is working. Now, before we can upload the code to our board, we will first need to select the board that we are using. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM44 (Arduino UNO)**.
+**4.** Now we know that our code is compiled, and that it is working. Now, before we can upload the code to our board, we will first need to select the board that we are using. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
 
 **5.** With the board selected, we are good to go! Click on the **upload** button, and it will start uploading the sketch to the board. 
 
-**6.** When it is finished, it will notify you in the console log. Of course, sometimes there are some complications when uploading, and these errors will be listed here as well.
+**6.** When it is finished, a notification pops up in the bottom right of your IDE window. Of course, sometimes there are some complications when uploading, and these errors will be listed here as well.
 
 ![Successful upload printed in the console.](assets/uploading-a-sketch-img04.png)
 

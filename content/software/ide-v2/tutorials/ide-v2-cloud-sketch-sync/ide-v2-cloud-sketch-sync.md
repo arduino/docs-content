@@ -86,8 +86,6 @@ In order for this integration to work, we will first need to [create an Arduino 
 
 Once we have created an account, we need to navigate to the [Cloud Editor](https://create.arduino.cc/editor/).
 
-![Navigate to the Online Editor](assets/cloud-sketch-sync-img04.png).
-
 ## Create a Sketch in the Arduino Cloud
 
 The next step is to create a Sketch. To do so, we need to click the **"New Sketch"** button at the top left corner. Let's name it something unique, in this case, it was `cloud_sync_sketch`.

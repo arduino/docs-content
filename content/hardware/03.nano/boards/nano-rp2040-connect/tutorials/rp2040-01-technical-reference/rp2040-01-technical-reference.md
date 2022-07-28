@@ -506,7 +506,7 @@ BLEDevice central = BLE.central();
 
 ### Tutorials
 
-- [Nano RP2040 device to device via Bluetooth®](/tutorials/nano-rp2040-connect/rp2040-bluetooth-button-led)
+- [Nano RP2040 device to device via Bluetooth®](/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device)
 
 ## USB Keyboard
 

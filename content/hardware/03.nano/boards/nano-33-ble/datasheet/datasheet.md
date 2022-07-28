@@ -150,7 +150,7 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 
 | Pin  | **Function** | **Type**     | **Description**                                              |
 | ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | D13          | Digital      | GPIO                                                         |
+| 1    | D13          | Digital      | GPIO/Built-in LED                                                          |
 | 2    | +3V3         | Power Out    | Internally generated power output to external devices        |
 | 3    | AREF         | Analog       | Analog Reference; can be used as GPIO                        |
 | 4    | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                          |

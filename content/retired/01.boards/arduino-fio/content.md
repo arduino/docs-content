@@ -1,6 +1,6 @@
 ---
 title: Arduino Fio
-source: https://edit.arduino.cc/en/Main/ArduinoBoardFio
+source: https://www.arduino.cc/en/Main/ArduinoBoardFio
 ---
 
 ![The Arduino Fio board.](./assets/ArduinoFio.jpg)
@@ -108,7 +108,7 @@ If you have to use a different baudrate for your application, consider programmi
 
 ### Use ASCII-encoded communication when possible
 
-The XBee radios have two modes, data mode, in which data is sent across them transparently, and command mode, in which they are configured serially. To switch from data mode to command mode, you send the string `+++`@. 
+The XBee radios have two modes, data mode, in which data is sent across them transparently, and command mode, in which they are configured serially. To switch from data mode to command mode, you send the string `+++`@.
 
 Sending sensor values as binary values can accidentally cause the XBees to switch from command to data mode. For example, imagine you're sending an analog reading like so:
 

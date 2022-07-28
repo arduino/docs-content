@@ -26,6 +26,8 @@ software:
 * Wi-Fi AP with Internet access.
 * Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
+***Attention: We encourage you to check every now and then if the device image version is up to date in order to have the latest bootloader, please check the tutorial [How to flash your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) for instructions.***
+
 ## Connecting to the Board
 
 Once the Portenta X8 is plugged in via USB, you can open your browser and go to http://192.168.7.1 if you use Windows and Linux or http://192.168.8.1 on MacOS. This web page is hosted on the Portenta X8, from this dashboard you will be able to:

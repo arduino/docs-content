@@ -21,7 +21,7 @@ You can easily download the editor from the [Arduino Software page](https://www.
 
 ### The Arduino IDE 2.0
 
-The Arduino IDE 2.0 is an open-source project. It is a big step from it's sturdy predecessor, Arduino IDE (1.8.13), and comes with revamped UI, improved board & library manager, autocomplete feature and much more. 
+The Arduino IDE 2.0 is an open-source project. It is a big step from it's sturdy predecessor, Arduino IDE 1.x, and comes with revamped UI, improved board & library manager, debugger, autocomplete feature and much more. 
 
 ### Download the Editor
 
@@ -51,22 +51,14 @@ You can now use the Arduino IDE 2.0 on your macOS computer!
 
 #### Linux 
 
-To install the Arduino IDE 2.0 on Linux, extract the downloaded file into a desired folder. Extracting the file can be done in Linux by right-clicking on the downloaded file and then selecting the **Extract here** option:
+To install the Arduino IDE 2.0 on Linux, first download the **AppImage 64 bits (X86-64)** from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
 
-![Extracting a file in Linux.](assets/downloading-and-installing-img04.png)
+Before we can launch the editor, we need to first make it an **executable file**. This is done by:
+- right-click the file,
+- choose **Properties**,
+- select **Permissions** tab, 
+- tick the **Allow executing file as program** box.
 
-Now, go to the folder where you extracted the contents to. Then, right-click inside the folder and then select the **Open in Terminal** option:
+![Allow execution of file.](assets/linux-installation.gif)
 
-![Opening a new terminal window in Linux.](assets/downloading-and-installing-img05.png)
-
-A new terminal window should open. To launch the IDE 2.0 editor type in the terminal:
-
-```
-$ ./arduino-ide
-```
-
-![The Arduino IDE 2.0 running in Linux.](assets/downloading-and-installing-img06.png)
-
-You can now use the Arduino IDE 2.0 on your Linux computer!
-
-***In Linux, The Arduino IDE 2.0 must be launched through the terminal.***
+You can now double click the file to launch the Arduino IDE 2 on your Linux machine.

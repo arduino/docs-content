@@ -9,7 +9,8 @@ source: "https://store.arduino.cc/arduino-101-619"
 
 ![The Arduino 101 board](./assets/ABX00005_featured_2.jpg)
 
-A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](http://www.intel.com/content/dam/support/us/en/documents/boardsandkits/curie/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth® Low Energy capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
+
+A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](/resources/datasheets/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth LE capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
 
 The module contains two tiny cores, an x86 (Quark) and a [32-bit ARC](https://en.wikipedia.org/wiki/ARC_(processor)) architecture core, both clocked at 32MHz. The Intel toolchain compiles your Arduino sketches optimally across both cores to accomplish the most demanding tasks. The Real-Time Operating Systems (RTOS) and framework developed by Intel is open sourced. See below under Firmware for the download link. The Arduino core communicates with the RTOS via static mailboxes to accomplish a predefined list of tasks (interface with PC using USB, program the sketch into flash, expose Bluetooth® Low Energy functionality to sketch, perform PWM). The RTOS for Intel Curie is still under development and new functions and features will be released in the near future.
 
@@ -25,7 +26,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/Arduino101), yo
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=103.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 ## Documentation
 
@@ -47,11 +48,11 @@ The 101 has some features in common with both UNO (connectors, available periphe
 
 ### Compatibility guide
 
-Please check out the compatibility guide [here.](http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-curie-modules/000023506.html)
+Please check out the compatibility guide [here.](/resources/datasheets/intel-curie-shield-compat-guide.pdf)
 
 ### Firmware
 
-Your 101 board might receive an update of the firmware from time to time. The Arduino Software (IDE) will incorporate the latest Firmware and an automated update procedure from the "Burn Bootloader" menu item. For people interested in compiling their own firmware, the source code and full details on how to use it are made available on the dedicated [Intel's Download Page](https://downloadcenter.intel.com/download/25832).
+Your 101 board might receive an update of the firmware from time to time. The Arduino Software (IDE) will incorporate the latest Firmware and an automated update procedure from the "Burn Bootloader" menu item. For people interested in compiling their own firmware, the source code and full details on how to use it are made available on [this Github Page](https://github.com/intel/CODK-A).
 
 ### Power
 
