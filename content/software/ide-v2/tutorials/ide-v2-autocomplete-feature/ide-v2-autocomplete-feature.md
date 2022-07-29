@@ -52,7 +52,7 @@ Using the autocomplete feature is easy, but let's take a look at how it actually
 
 ![Suggestion for autocompletion (pinMode).](assets/autocompletion-feature-img03.png)
 
-**4.** Now, by clicking enter, it automatically marks the first parameter, which is designed for the `pin` that we want to define. If we now start writing **LED** and once more trigger the autocomplete feature by pressing **CTRL** + **spacebar**, a suggestion for `LED_BUILTIN` will appear. If we click enter, it will also autocomplete.
+**4.** Now, by clicking enter, it automatically marks the first parameter, which is designed for the `pin` that we want to define. If we now start writing **led** and once more trigger the autocomplete feature by pressing **CTRL** + **spacebar**, a suggestion for `LED_BUILTIN` will appear. If we press **Enter**, it will also autocomplete.
 
 ![Suggestion for autocompletion (LED_BUILTIN).](assets/autocompletion-feature-img04.png)
 
