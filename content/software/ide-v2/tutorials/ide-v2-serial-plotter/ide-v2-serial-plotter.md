@@ -92,7 +92,7 @@ Once the sketch is uploaded, we can test out the Serial Plotter.
 
 ***Make sure the sketch has finished uploading before opening the Serial Plotter. You will see the text "upload complete" in the terminal output.***
 
-Navigate to **Tools > Serial Plotter** as shown in the image below.
+Click the button in the the top right of the IDE window to open the **Serial Plotter**.
 
 ![Opening the Serial Plotter](assets/serial-plotter-open.png)
 
