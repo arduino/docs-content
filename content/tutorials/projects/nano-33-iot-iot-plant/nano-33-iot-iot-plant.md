@@ -31,17 +31,20 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 OR
 
 - [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot)
-- [Arduino Nano Screw terminal Adapter](URL)
+- [Arduino Nano Screw terminal Adapter](https://store.arduino.cc/products /nano-screw-terminal)
 - 5V submersible pump.
 - 1 meter watering pipe.
 - USB wall adapter
 - Water container.
 - Micro-USB cable.
 - Open ended USB Cable.
-- [Soil moisture sensor](https://store.arduino.cc/products/grove-moisture-sensor).
+- Soil moisture sensor.
 - Grove LED button
 - [3D-printed enclosure](DOWNLOAD-LINK) (optional)
-- Grove cables
+- Short Grove cable (20cm)
+- Long Grove cable (50cm)
+- Long 3-pronged Grove cable (50cm)
+- A few spare jumper cables just in case you need them.
 
 ### Apps and Online Services
 
@@ -143,16 +146,18 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
  Components used:
 - Arduino Nano 33 IoT
 - Arduino Nano Screw terminal Adapter
-- 5V submersible pump
-- 1 meter watering pipe
-- Water container
+- 5V submersible pump.
+- 1 meter watering pipe.
 - USB wall adapter
-- Micro-USB cable
-- Open ended USB Cable
-- Soil moisture sensor
+- Water container.
+- Micro-USB cable.
+- Open ended USB Cable.
+- Soil moisture sensor.
 - Grove LED button
-- 3D-printed enclosure 
-- Grove cables
+- 3D-printed enclosure (optional)
+- Short Grove cable (20cm)
+- Long Grove cable (50cm)
+- Long 3-pronged Grove cable (50cm)
 */
 
 /* ------------- START CONFIG ------------- */
