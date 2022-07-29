@@ -56,7 +56,7 @@ Using the autocomplete feature is easy, but let's take a look at how it actually
 
 ![Suggestion for autocompletion (LED_BUILTIN).](assets/autocompletion-feature-img04.png)
 
-**5.** Now if we mark the following parameter, `uint8_t mode`, delete it, and instead start writing **OUT**, we will see the suggestion for `OUTPUT` appear, as the autocomplete feature is triggered once more, which we can also autocomplete. 
+**5.** Now if we mark the following parameter, `uint8_t mode`, delete it, and instead start writing **out**, we will see the suggestion for `OUTPUT` appear, as the autocomplete feature is triggered once more, which we can also autocomplete.
 
 
 ![Suggestion for autocompletion (OUTPUT).](assets/autocompletion-feature-img05.png)
