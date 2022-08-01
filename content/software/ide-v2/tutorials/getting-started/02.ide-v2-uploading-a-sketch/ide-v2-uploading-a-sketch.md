@@ -52,3 +52,34 @@ Uploading a sketch is quick and easy, but let's take a look at what we need to d
 
 Congratulations, you have now uploaded a sketch to your Arduino board!
 
+### Please Read (Only Linux Users)
+
+It might happen that when you upload a sketch - after you have selected your board and the serial port -, you get an error **"Error opening serial port ..."**. If you get this error, you need to set serial port permission.
+
+To do this, open your Terminal and type:
+
+```
+ls -l /dev/ttyACM*
+```
+
+you will get something like:
+
+```
+crw-rw---- 1 root dialout 188, 0 5 apr 23.01 ttyACM0
+```
+
+The "0" at the end of ACM might be a different number, or multiple entries might be returned. The data we need is "dialout" (is the group owner of the file).
+
+Now we just need to add our user to the group:
+
+```
+sudo usermod -a -G dialout <username>
+```
+
+where `<username>` is your Linux user name. **You will need to log out and log in again for this change to take effect.**
+
+![Adding user to the group.](assets/Ubuntu_Serial.jpeg)
+
+This is the procedure to access the serial port from the Arduino Software (IDE) if you get an error.
+
+After this procedure, you should be able to proceed normally and upload the sketch to your board or use the Serial Monitor.
