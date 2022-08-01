@@ -1,6 +1,6 @@
 ---
 identifier: ASX00026
-title: Arduino® Portenta Vision Shield - LoRa
+title: Arduino® Portenta Vision Shield - LoRa®
 type: pro
 ---
 

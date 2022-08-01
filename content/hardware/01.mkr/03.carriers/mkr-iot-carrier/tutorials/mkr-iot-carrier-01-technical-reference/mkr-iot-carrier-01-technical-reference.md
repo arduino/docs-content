@@ -56,7 +56,7 @@ The MKR IoT Carrier can be controlled through the [Arduino IoT Cloud](https://cr
 - [MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310)
 - [MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010)
 
-***Note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the Cloud, as they communicate over the mobile networks. The MKR WAN 1300 and 1310 board requires a Arduino PRO Gateway LoRa to connect to the cloud.***
+***Note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the Cloud, as they communicate over the mobile networks. The MKR WAN 1300 and 1310 board requires a Arduino PRO Gateway LoRa® to connect to the cloud.***
 
 If you need help to get started, you can go through the [Arduino IoT Cloud tutorial](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
 

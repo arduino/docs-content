@@ -54,7 +54,7 @@ void loop() {
 }
 ```
 
-Your `uploadScript()` function will create a shell script in the Linux file system that will check the network traffic of the WiFi interface. Create the file and open it by creating an instance of the `File@ class, and calling`FileSystem.open()@@ indicating where you would like to create the script. You'll store the script in "/tmp", which resides in RAM, to preserve the limited number of FLASH memory read/write cycles.
+Your `uploadScript()` function will create a shell script in the Linux file system that will check the network traffic of the Wi-Fi interface. Create the file and open it by creating an instance of the `File@ class, and calling`FileSystem.open()@@ indicating where you would like to create the script. You'll store the script in "/tmp", which resides in RAM, to preserve the limited number of FLASH memory read/write cycles.
 
 ```arduino
 void uploadScript() {
@@ -62,7 +62,7 @@ void uploadScript() {
   File script = FileSystem.open("/tmp/wlan-stats.sh", FILE_WRITE);
 ```
 
-Write the contents of the script to the file with `File.print()`. begin by printing the header, "#!/bin/s", then the utility `ifconfig`.  @ifconfig@ is a command line utility for controlling network interfaces. you'll be looking at the WiFi interface, which is referred to as "wlan0". The utility `grep` will search the output of `ifconfig`. You're looking for the number of bytes received , so search for the keywords "RX bytes" and close the file.
+Write the contents of the script to the file with `File.print()`. begin by printing the header, "#!/bin/s", then the utility `ifconfig`.  @ifconfig@ is a command line utility for controlling network interfaces. you'll be looking at the Wi-Fi interface, which is referred to as "wlan0". The utility `grep` will search the output of `ifconfig`. You're looking for the number of bytes received , so search for the keywords "RX bytes" and close the file.
 
 ```arduino
 script.print("#!/bin/sh\n");
@@ -179,7 +179,7 @@ void loop() {
 }
 
 // this function creates a file into the linux processor that contains a shell script
-// to check the network traffic of the WiFi interface
+// to check the network traffic of the Wi-Fi interface
 void uploadScript() {
 
   // Write our shell script in /tmp

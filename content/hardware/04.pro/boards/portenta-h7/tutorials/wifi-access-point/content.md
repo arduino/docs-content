@@ -4,7 +4,7 @@ description: 'In this tutorial you will configure the Portenta H7 as an access p
 coverImage: assets/por_ard_ap_cover.svg
 difficulty: easy
 tags:
-  - WiFi
+  - Wi-Fi
   - Access Point
   - HTTP
   - Web Server
@@ -37,7 +37,7 @@ Portenta H7 comes with an on-board Wi-Fi and a Bluetooth® Module that allows to
 - A smart phone
 
 ## Access Point Configuration
-The Portenta H7 features a  [Murata 1DX](https://wireless.murata.com/type-1dx.html), which is a high performance chipset which supports  Wi-Fi 802.11b/g/n + Bluetooth® 5.1 BR/EDR/LE up to 65Mbps PHY data rate on Wi-Fi and 3Mbps PHY data rate on Bluetooth®. This module helps to configure the Portenta into three different modes of operation -  an Access Point,  a Station, or both. In this tutorial we will only focus on the access point configuration.
+The Portenta H7 features a  [Murata 1DX](https://wireless.murata.com/type-1dx.html), which is a high performance chipset which supports  Wi-Fi 802.11b/g/n + Bluetooth® 5.1 BR/EDR/LE up to 65 Mbps PHY data rate on Wi-Fi and 3 Mbps PHY data rate on Bluetooth®. This module helps to configure the Portenta into three different modes of operation -  an Access Point,  a Station, or both. In this tutorial we will only focus on the access point configuration.
 
 When the  board is configured to operate as an access point, it can create its own wireless LAN (WLAN) network. In this mode, the board transmits and receives signals at 2.4 GHz allowing other electronic devices with Wi-Fi capabilities using the same bandwidth to connect to the board.
 

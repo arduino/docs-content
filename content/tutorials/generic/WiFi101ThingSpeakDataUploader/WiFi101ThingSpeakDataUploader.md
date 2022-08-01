@@ -1,13 +1,13 @@
 ---
 author: 'Arduino'
-description: 'This tutorial demonstrates how to use the Arduino Zero or Arduino Uno and the WiFi101 shield to send a live stream of the light and temperature values.'
+description: 'This tutorial demonstrates how to use the Arduino Zero or Arduino Uno and the WiFi shield 101 to send a live stream of the light and temperature values.'
 title: 'WiFi101 ThingSpeak Data Uploader Example'
 tags: [WiFi101]
 ---
 
 ## WiFi 101 ThingSpeak Data Uploader
 
-This tutorial demonstrates how to use the Arduino Zero or Arduino Uno and the WiFi101 shield to send a live stream of the light and temperature values in your environment using [ThingSpeak.com](https://www.thingspeak.com). ThingSpeak is an open data platform for the Internet of Things which allows you to collect data in a your own channel and get data from other channels using the API. In this example, we will use a photocell and a temperature sensor and send their values wirelessly to the ThingSpeak server.
+This tutorial demonstrates how to use the Arduino Zero or Arduino Uno and the WiFi Shield 101 to send a live stream of the light and temperature values in your environment using [ThingSpeak.com](https://www.thingspeak.com). ThingSpeak is an open data platform for the Internet of Things which allows you to collect data in a your own channel and get data from other channels using the API. In this example, we will use a photocell and a temperature sensor and send their values wirelessly to the ThingSpeak server.
 
 ## Hardware Required
 

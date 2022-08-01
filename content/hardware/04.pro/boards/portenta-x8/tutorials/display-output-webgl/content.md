@@ -74,7 +74,7 @@ IN-USE  BSSID              SSID             MODE   CHAN  RATE        SIGNAL  BAR
         AA:BB:CC:DD:EE:FF  <yourAP-SSID>    Infra  X     130 Mbit/s  --      *     WPA2
 ```
 
-You can save your WiFi details with these commands:
+You can save your Wi-Fi details with these commands:
 ```
 nmcli c add type wifi con-name <customName> ifname wlan0 ssid <SSID>
 nmcli con modify <customName> wifi-sec.key-mgmt wpa-psk

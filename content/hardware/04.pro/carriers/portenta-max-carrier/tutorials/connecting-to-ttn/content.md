@@ -170,10 +170,10 @@ On the registration page, click on **Manually**; you will have to add the follow
 * **LoRaWAN® version**: 1.0.2.
 * **Regional Parameters version**: 1.0.2.
 
-Click on Show advanced activation, **LoRaWAN class and cluster settings** and choose: 
+Click on Show advanced activation, **LoRaWAN® class and cluster settings** and choose: 
 
 * **Activation mode**: Over the air activation (OTAA).
-* **Additional LoRaWAN class capabilities**: None (class A only).
+* **Additional LoRaWAN® class capabilities**: None (class A only).
 * **Network defaults**: Use network's default MAC settings.
 
 Leave the **Cluster settings** option unchecked. Then continue with the following information:

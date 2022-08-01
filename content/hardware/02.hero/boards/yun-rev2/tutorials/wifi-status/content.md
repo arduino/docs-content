@@ -1,11 +1,11 @@
 ---
 tags: [Yún]
 author: Arduino
-title: 'Arduino Yún WiFi Status'
-description: 'Runs a pre-configured script that reports back the strength of the current WiFi network.'
+title: 'Arduino Yún Wi-Fi Status'
+description: 'Runs a pre-configured script that reports back the strength of the current Wi-Fi network.'
 ---
 
-This sketch runs a script called "pretty-wifi-info.lua" installed on your Yún device in the folder /usr/bin. It prints information about the status of your WiFi connection.
+This sketch runs a script called "pretty-wifi-info.lua" installed on your Yún device in the folder /usr/bin. It prints information about the status of your Wi-Fi connection.
 
 It uses Serial to print, so you need to connect your Yún device to your computer using a USB cable and select the appropriate port from the Port menu before it will run.
 
@@ -51,7 +51,7 @@ void setup() {
 }
 ```
 
-In `loop()`, initialize a new process that will run the WiFi check script. you can run the script by calling `runShellCommand()` with the path to the script.
+In `loop()`, initialize a new process that will run the Wi-Fi check script. you can run the script by calling `runShellCommand()` with the path to the script.
 
 ```arduino
 void loop() {

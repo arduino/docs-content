@@ -320,7 +320,7 @@ When it is needed, the WiFi101 library is updated to implement new features. Thi
 Here a list of tutorials that will help you in making very cool things!
 
 [Interact with Google Calendar](/en/Tutorial/Wifi101GoogleCalendar)
-This example shows you how to make requests to Google Calendar using a WiFi101 shield.
+This example shows you how to make requests to Google Calendar using a WiFi shield 101.
 
 [Weather audio notifier](/en/Tutorial/WiFi101WeatherAudioNotifier)
 In this example, weather information from openweathermap.org is used to display the current weather information.

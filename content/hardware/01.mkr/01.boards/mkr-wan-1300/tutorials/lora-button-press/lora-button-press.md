@@ -26,13 +26,13 @@ software:
 
 In this tutorial, we will set up two Arduino MKR WAN 1300 to host a remote LED control. One board will be set up as a sender with a pushbutton that when it is pressed, an LED on the other board will turn on or off. 
  
-We will use the **LoRa®** library for the communication, and we will not use any external service. 
+We will use the **LoRa** library for the communication, and we will not use any external service. 
 ___
 
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- LoRa® library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
+- LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
 - 2x [Arduino MKR WAN 1300](https://store.arduino.cc/mkr-wan-1300).
 - 2x [Antenna](https://store.arduino.cc/antenna).
 - 1x Pushbutton.
@@ -63,7 +63,7 @@ But let's take a look at what we need to include in the code. As we are using tw
 
 **To create the sender sketch, we will have to do the following steps:**
 
-- Initialize the **SPI** and **LoRa®** libraries.
+- Initialize the **SPI** and **LoRa** libraries.
 - Create a counter variable.
 - Set the radio frequency to 868E6 (Europe) or 915E6 (North America).
 - Create an if statement that checks if the button is pressed.
@@ -73,7 +73,7 @@ But let's take a look at what we need to include in the code. As we are using tw
 
 **To create the receiver sketch, we will have to do the following steps:**
 
-- Initialize the **SPI** and **LoRa®** libraries.
+- Initialize the **SPI** and **LoRa** libraries.
 - Create a string with the message "button pressed" stored.
 - Set the radio frequency to 868E6 (Europe) or 915E6 (North America).
 - Create a function to parse incoming packet.
@@ -85,11 +85,11 @@ But let's take a look at what we need to include in the code. As we are using tw
 
 **1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
 
-**2.** Now we need to download the **LoRa®** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
+**2.** Now we need to download the **LoRa** library from [this repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
 
 ### Programming the Sender
 
-In the initialization we will include the **SPI** and **LoRa®** libraries. We will then create the `counter` variable to track how many times we have pressed the button. Next, we will create the `button` and `buttonState` variables, used to assign the pushbutton to pin 2, and to read the state of it.
+In the initialization we will include the **SPI** and **LoRa** libraries. We will then create the `counter` variable to track how many times we have pressed the button. Next, we will create the `button` and `buttonState` variables, used to assign the pushbutton to pin 2, and to read the state of it.
 
 ```arduino
 #include <SPI.h>
@@ -102,7 +102,7 @@ int buttonState;
 
 In the `setup()` we will first define the `button` pin as an `INPUT_PULLUP`. We will then begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 ```arduino
 void setup() {
@@ -146,7 +146,7 @@ void loop() {
 
 ### Programming the Receiver
 
-In the initialization we will first include the **SPI** and **LoRa®** libraries. Then we will create two strings: one empty, and one with the message "button pressed" stored. The `contents` string will be used to store incoming data, and the `buttonPress` string will be used to compare the contents with the incoming data.
+In the initialization we will first include the **SPI** and **LoRa** libraries. Then we will create two strings: one empty, and one with the message "button pressed" stored. The `contents` string will be used to store incoming data, and the `buttonPress` string will be used to compare the contents with the incoming data.
 
 We then create the boolean `x`, which will switch from true to false each time `buttonPress` matches `contents`. We will also assign the `led` variable to pin 2. 
 
@@ -164,7 +164,7 @@ int led = 2;
 
 In the `setup()` we will first define the `led` pin as an output. We will then begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 ```arduino
 void setup() {
