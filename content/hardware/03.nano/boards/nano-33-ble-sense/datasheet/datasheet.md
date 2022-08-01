@@ -5,6 +5,7 @@ type: maker
 ---
 
 ![](assets/featured.jpg)
+
 # Description 
 Nano 33 BLE Sense is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing a Cortex M4F, a crypto chip which can securely store certificates and pre shared keys and a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads
 
@@ -14,11 +15,9 @@ Maker, enhancements, IoT application
 
 # Features
 - **NINA B306 Module** 
-
     - **Processor**
         - 64 MHz Arm® Cortex-M4F (with FPU)
         - 1 MB Flash + 256 KB RAM 
-
     - **Bluetooth®  5 multiprotocol radio**
         - 2 Mbps
         - CSA #2
@@ -32,7 +31,6 @@ Maker, enhancements, IoT application
         - IEEE 802.15.4 radio support
         - Thread
         - Zigbee 
-
     - **Peripherals**
         - Full-speed 12 Mbps USB
         - NFC-A tag
@@ -43,8 +41,6 @@ Maker, enhancements, IoT application
         - EasyDMA for all digital interfaces
         - 12-bit 200 ksps ADC
         - 128 bit AES/ECB/CCM/AAR co-processor
-
-
 - **LSM9DS1** (9 axis IMU)
     - 3 acceleration channels, 3 angular rate channels, 3 magnetic field channels
     - ±2/±4/±8/±16 g linear acceleration full scale
@@ -85,13 +81,15 @@ Maker, enhancements, IoT application
     - More than 85% efficiency @12V
 
 # Contents
+
 ## The Board
 As all Nano form factor boards, Nano 33 BLE Sense does not have a battery charger but can be powered through USB or headers.
 
 **NOTE:** Arduino Nano 33 BLE Sense only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Ratings
-### Recommended Operating Conditions
+
+#### Recommended Operating Conditions
 
 | Symbol | Description                                      | Min             | Max            |
 | ------ | ------------------------------------------------ | --------------- | -------------- |
@@ -105,10 +103,10 @@ As all Nano form factor boards, Nano 33 BLE Sense does not have a battery charge
 | PLP    | Power consumption in low power mode |      | TBC  |      | mW   |
 | PMAX   | Maximum Power Consumption           |      | TBC  |      | mW   |
 
-### Functional Overview
+## Functional Overview
 
 ### Board Topology 
-Top: 
+Top:
 ![Board topology top](assets/topologyTop.png)
 
 | **Ref.** | **Description**                 | **Ref.** | **Description**                  |
@@ -119,7 +117,7 @@ Top:
 | U4       | ATECC608A Crypto chip           | DL1      | Led L                            |
 | U5       | APDS-9660 Ambient Module        | DL2      | Led Power                        |
 
-Bottom: 
+Bottom:
 ![Board topology bot](assets/topologyBot.png)
 
 | **Ref.** | **Description** | **Ref.** | **Description** |
@@ -152,25 +150,25 @@ Relative humidity sensor measures ambient relative humidity. As the Barometer th
 
 Source code for the Arduino Library that supports the Humidity sensor is available **[11]**
 
-## Digital Proximity, Ambient Light, RGB and Gesture Sensor
+### Digital Proximity, Ambient Light, RGB and Gesture Sensor
 Source code for the Arduino Library that supports the Proximity/gesture/ALS sensor is available **[12]**
 
-## Gesture Detection
-    Gesture detection utilizes four directional photodiodes to sense reflected IR energy (sourced by the integrated LED) to convert physical motion information (i.e. velocity, direction and distance) to a digital information. The architecture of the gesture engine features automatic activation (based on Proximity engine results), ambient light subtraction, cross-talk cancellation, dual 8-bit data converters, power saving inter-conversion delay, 32-dataset FIFO, and interrupt driven I2C communication. The gesture engine accommodates a wide range of mobile device gesturing requirements: simple UP-DOWN-RIGHT-LEFT gestures or more complex gestures can be accurately sensed. Power consumption and noise are minimized with adjustable IR LED timing. 
+### Gesture Detection
+Gesture detection utilizes four directional photodiodes to sense reflected IR energy (sourced by the integrated LED) to convert physical motion information (i.e. velocity, direction and distance) to a digital information. The architecture of the gesture engine features automatic activation (based on Proximity engine results), ambient light subtraction, cross-talk cancellation, dual 8-bit data converters, power saving inter-conversion delay, 32-dataset FIFO, and interrupt driven I2C communication. The gesture engine accommodates a wide range of mobile device gesturing requirements: simple UP-DOWN-RIGHT-LEFT gestures or more complex gestures can be accurately sensed. Power consumption and noise are minimized with adjustable IR LED timing. 
 
-## Proximity Detection
-    The Proximity detection feature provides distance measurement (E.g. mobile device screen to user’s ear) by photodiode detection of reflected IR energy (sourced by the integrated LED). Detect/release events are interrupt driven, and occur whenever proximity result crosses upper and/ or lower threshold settings. The proximity engine features offset adjustment registers to compensate for system offset caused by unwanted IR energy reflections appearing at the sensor. The IR LED intensity is factory trimmed to eliminate the need for end-equipment calibration due to component variations. Proximity results are further improved by automatic ambient light subtraction.	
+### Proximity Detection
+The Proximity detection feature provides distance measurement (E.g. mobile device screen to user’s ear) by photodiode detection of reflected IR energy (sourced by the integrated LED). Detect/release events are interrupt driven, and occur whenever proximity result crosses upper and/ or lower threshold settings. The proximity engine features offset adjustment registers to compensate for system offset caused by unwanted IR energy reflections appearing at the sensor. The IR LED intensity is factory trimmed to eliminate the need for end-equipment calibration due to component variations. Proximity results are further improved by automatic ambient light subtraction.
 
-## Color and ALS Detection
-    The Color and ALS detection feature provides red, green, blue and clear light intensity data. Each of the R, G, B, C channels have a UV and IR blocking filter and a dedicated data converter producing16-bit data simultaneously. This architecture allows applications to accurately measure ambient light and sense color which enables devices to calculate color temperature and control display backlight.
+### Color and ALS Detection
+The Color and ALS detection feature provides red, green, blue and clear light intensity data. Each of the R, G, B, C channels have a UV and IR blocking filter and a dedicated data converter producing16-bit data simultaneously. This architecture allows applications to accurately measure ambient light and sense color which enables devices to calculate color temperature and control display backlight.
 
-## Digital Microphone
+### Digital Microphone
 The MP34DT05 is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface.
 
 The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors
 
-## Power Tree
-The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pins on headers. 
+### Power Tree
+The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pins on headers.
 
 ![Power tree](assets/powerTree.svg)
 
@@ -195,7 +193,7 @@ Sample sketches for the Arduino Nano 33 BLE can be found either in the “Exampl
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[13]**, the Arduino Library Reference **[14]** and the on line store **[15]** where you will be able to complement your board with sensors, actuators and more.
 
-### Board Recovery 
+### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
@@ -213,7 +211,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 5    | GND          | Power        | Power Ground                                                 |
 
 ### Headers
-The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias. 
+The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias.
 
 | Pin  | **Function** | **Type**     | **Description**                                              |
 | ---- | ------------ | ------------ | ------------------------------------------------------------ |
@@ -267,10 +265,10 @@ The board measures are mixed between metric and imperial. Imperial measures are 
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | Substance                              | **Maximum limit (ppm)** |
 | -------------------------------------- | ----------------------- |
@@ -309,12 +307,12 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-English: 
+English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
- (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French: 
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
@@ -326,14 +324,14 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English 
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
+This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.
 
-French: 
+French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands | Maximum output power (ERP) |
 | --------------- | -------------------------- |
