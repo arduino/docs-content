@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/arduino-nano-every
 url_guide: /software/ide-v1/installing-megaavr-core
 core: arduino:megaavr
 forumCategorySlug: '/hardware/nano-family/nano-every/158'
-certifications: [UKCA, WEEE, REACH, RoHS, CE, GB4943, RCM]
+certifications: [UKCA, WEEE, REACH, RoHS, CE, GB4943, RCM, UKCA]
 productCode: '027'
 ---
 
