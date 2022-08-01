@@ -36,7 +36,7 @@ Uploading a sketch is quick and easy, but let's take a look at what we need to d
 
 ![Verifying and uploading buttons.](assets/uploading-a-sketch-img01.png)
 
-**4.** First, we need to select the board that we are going to use. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
+**3.** First, we need to select the board that we are going to use. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
 
