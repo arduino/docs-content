@@ -1,4 +1,4 @@
 ---
 title: CTC GO! Motions
-certifications: [CE, UKCA]
+certifications: [CE, UKCA, FCC]
 ---

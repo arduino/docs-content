@@ -1,4 +1,4 @@
 ---
 title: Explore IoT Kit
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

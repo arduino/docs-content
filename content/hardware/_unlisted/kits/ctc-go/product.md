@@ -1,4 +1,4 @@
 ---
 title: CTC GO!
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

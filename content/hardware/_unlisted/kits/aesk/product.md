@@ -1,4 +1,4 @@
 ---
-title: Education Student Kit
-certifications: [CE, UKCA]
+title: Education Starter Kit
+certifications: [CE, UKCA, FCC]
 ---
