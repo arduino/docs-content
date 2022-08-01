@@ -36,13 +36,13 @@ Uploading a sketch is quick and easy, but let's take a look at what we need to d
 
 ![Verifying and uploading buttons.](assets/uploading-a-sketch-img01.png)
 
-**3.** Click on the verify tool (checkmark). Since we are verifying an empty sketch, we can be sure it is going to compile. After a few seconds, we can see the result of the action in the console (black box in the bottom). 
-
-![Successful compilation printed in the console.](assets/uploading-a-sketch-img02.png)
-
-**4.** Now we know that our code is compiled, and that it is working. Now, before we can upload the code to our board, we will first need to select the board that we are using. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
+**3.** First, we need to select the board that we are going to use. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
+
+**4.** Click on the verify tool (checkmark). Since we are verifying an empty sketch, we can be sure it is going to compile. After a few seconds, we can see the result of the action in the console (black box in the bottom). 
+
+![Successful compilation printed in the console.](assets/uploading-a-sketch-img02.png)
 
 **5.** With the board selected, we are good to go! Click on the **upload** button, and it will start uploading the sketch to the board. 
 
