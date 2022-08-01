@@ -40,7 +40,7 @@ Uploading a sketch is quick and easy, but let's take a look at what we need to d
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
 
-**3.** Click on the verify tool (checkmark). Since we are verifying an empty sketch, we can be sure it is going to compile. After a few seconds, we can see the result of the action in the console (black box in the bottom). 
+**4.** Click on the verify tool (checkmark). Since we are verifying an empty sketch, we can be sure it is going to compile. After a few seconds, we can see the result of the action in the console (black box in the bottom). 
 
 ![Successful compilation printed in the console.](assets/uploading-a-sketch-img02.png)
 
