@@ -55,7 +55,7 @@ You can either buy one commercially connected to the battery, or alternatively, 
 
 Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required.
 
-[Add graphic]
+[MUST Add graphic, associate technical name with the image]
 
 ### Electrical Properties
 
@@ -64,18 +64,39 @@ The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is comm
 
 ![Battery Discharge Curve](assets/batteryDischargeCurve.jpg)
 
-In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
+In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. This pin is used internally on the board, and is not accesssible via the MKR pins. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
 
-$$ V_{out} = \frac{V_{source} \ times R2} {R_1 + R_2} $$
+$$ V_{out} = \frac{V_{source} \times R2} {R_1 + R_2} $$
 
-In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass throught, increasing the life of the battery. 
+In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass throught, increasing the life of the battery. The capacitor acts to clean the signal.
 
-[Add graphic]
+[Add graphic like the ASCII art, but in Figma]
+```
+  //define the resistor values in the voltage divider
+  //                             ┌─────── VBatt = VSource
+  //                             │
+  //                             /
+  //                             \  R1
+  //  ┌────────────┐             /
+  //  │   SAMD21   │             \
+  //  │     uC     │             │
+  //  │       PB09 ├────┬────────┤
+  //  │       Vout │    │        │
+  //  │            │    │ 100n   /
+  //  │            │  ──┴───     \  R2
+  //  │            │  ──┬───     /
+  //  │            │    |        \
+  //  │            │    │        |
+  //  │            │    │        │
+  //  └─────┬──────┘    |        |
+  //        │           |        |
+  //        ▼           ▼        ▼ 
+```
 
 **Capacity**
-Continuing with the waterfall analogy, the volume of water passing through a waterfall represents the current. Therefore, the amount of water stored behind the waterfall is considered the capacity. It is common to discuss the capacity in terms of milliamp hours (mAh), which is the current that can be potentially extracted in an hour to discharge it. Note that changes in temperature and elevated current demands can change the effective capacity of your battery.
+Continuing with the waterfall analogy, the volume of water passing through a waterfall represents the current. Therefore, the amount of water stored behind the waterfall is considered the capacity. It is common to discuss the capacity in terms of milliamp hours (mAh), which is the current that can be potentially extracted in an hour to discharge it. Note that changes in temperature and elevated current demands can change the effective capacity of your battery. 
 
-While the MKR boards do not provide a mechanism for identifying capacity, we can get a general idea of the current status by mapping the voltage to the capacity. A more precise value can be obtained with the help of a fuel gauge IC, avaliable in the Portenta X8 and H7.
+While the MKR boards do not provide a mechanism for identifying capacity, we can get a general idea of the current status by mapping the voltage to the capacity. A more precise value can be obtained with the help of a fuel gauge IC (Integrated Circuit), avaliable in the Portenta X8 and H7.
 
 **Discharge rating**
 When the battery is fully charged, or when it is near to discharge the discharge rate changes considerably. Yet, there is a region where the discharge rate constant (change in voltage over change in discharge capacity does not flunctuate). Within this region, the maximum current draw is defined as:
@@ -84,19 +105,194 @@ $$\text{maximum current draw } = \text{ battery capacity } \times \text{ dischar
 
 The discharge rating (C) is often provided in the datasheet of the battery. If the C rating of a battery is 1, then it can discharge the maximum current for one hour before running out. As a rule of thumb, higher discharge rates lead reduce the effective capacity and lifetime of the battery. 
 
-## Measure battery locally
+## BQ94125 Power Management IC
+[explain how it works]
+[add graphic of circuit]
+[mention library as well]
 
-**0.** Test the battery voltage with a multimeter. It should be between 3.3V and 4.2V. Also, try to connect it then see what the 5V, VCC and AREF are. 
+## Multimeter battery measurements
 
-**1.** Connect a battery to the MKR Motor Carrier. We have used a 1200 mAh LiPo battery with a JST connector. Most commerical batteries have a JST connector, although the MKR board is not limited to LiPo batteries and Li-ion is also acceptable. You can also test to see the 
+**1.** Test the battery voltage with a multimeter. In this case, we have used a 1200mAh battery. It should be between 3.3V and 4.2V, regardless of the capacity. If the battery voltage is outside this range, your battery may be damaged.
+![Multimeter connected to a LiPo battery](assets/lipo-battery-multimeter.jpg)
 
-**2.** We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. . 
+***Make sure that the battery terminals do not touch each other. Short circuit can cause permenant damage to the battery and explosion.*** [ask nefeli to check]
 
-**3.** Now we will change the sketch to account for the voltage divider.
+**2.** Connect your battery to the MKR WIFI 1010 then check the voltage of VCC using your multimeter. 
+![Measurement of VCC when LiPo battery is connected](assets/lipo-vcc-multimeter.jpg)
+You should notice that the voltage of VCC is about 3.3V, regardless of the battery level. The voltage that comes out of the PMIC enters the VCC.
 
-**4.** We will try to approximate the capacity of the battery with the help of a simple mapping function. However, since the internal arduino function is limited to int, we will do it ourselves. 
+## Read battery values over Serial
+
+We will go through the lines needed to create a Sketch to read the battery values over Serial and give a short descipriotn of what part does. At the end, the full code will be provided so you can copy and paste into your IDE and upload to your Arduino board.
+
+**1.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As the first step, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
+
+```arduino
+  float rawADC;
+  float voltADC;
+  float voltBat;
+```
+
+**2.** According to the schematics for the MKR WIFI 1010, we will now define the values for the R1 and R2 resistor. These will be used to calculate `voltBat`.
+
+```arduino
+  int R1 =  330000;
+  int R2 = 1000000;
+```
+
+**3.** We will now create a variable to store the maximum source voltage `max_Source_voltage` as well as the upper (`batteryFullVoltage`) and lower (`batteryEmptyVoltage`) values for the battery.
+
+```arduino
+  int max_Source_voltage;
+
+  float batteryFullVoltage = 4.2;
+  float batteryEmptyVoltage = 3.3;
+```
+
+**4.** Now we can configure the `setup()` function. We need to initiate the Serial connection (`Serial.begin(9600)`), ensure the analog reference is set to the default value of 3.3V (`analogReference(AR_Default)`), set the ADC resolution to 12 bits (`analogReadResolution(12)`) and finally calculate the maximum output of the voltage divider (`max_Source_voltage = (3.3 * (R1 + R2))/R2`)
+
+```arduino
+void setup() {
+  Serial.begin(9600);          
+  analogReference(AR_DEFAULT); 
+  analogReadResolution(12);    
+
+  max_Source_voltage = (3.3 * (R1 + R2))/R2;
+}
+```
+
+**5.** With the variables and setup function clearly defined, we will now specify the loop function. These commands will continuously run and provide information about the battery status to the Serial Monitor in the PC. First, we read the value of PB09 (specified internall as `ADC_BATTERY`)
+
+```arduino
+void loop()
+{
+
+  rawADC = analogRead(ADC_BATTERY);
+```
+
+**6.** The valure represented by `rawADC` is a number between 0 to 4095, given that it has 12 bit resolution. In order to conver that into a voltage reading (`voltADC`) we will divide `rawADC` by 4095 and then multiply by the analog reference voltage (3.3V). 
+
+```arduino
+voltADC = rawADC * (3.3/4095.0);
+```
+
+**7.** The `voltADC` variable gives us the voltage sensed directly on the PB09 pin. This voltage is passed through the voltage divider, so it is a fraction of the actually battery voltage. We can then calculate the equivilanet battery voltage as follows.
+```arduino
+voltBat = voltADC * (max_Source_voltage/3.3);
+```
+
+**8.** We can approximate the battery voltage to be propotional to the capacity level. Since the `map()` function does not work with float variables, we manually map the values.
+```arduino
+int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - batteryEmptyVoltage);
+```
+
+**9.** We can now send the obtained values over Serial.
+```arduino
+  Serial.print("The ADC on PB09 reads a value of ");
+  Serial.print(rawADC);
+  Serial.print(" which is equivialent to ");
+  Serial.print(voltADC);
+  Serial.print("V. This means the battery voltage is ");
+  Serial.print(voltBat);
+  Serial.print("V. Which is equivalent to a charge level of ");
+  Serial.print(new_batt);
+  Serial.println("%.");
+```
+
+**10.** Finally, we will add a half second delay at the end of the `loop()` function to allow variables to come slowly through the Serial Monitor.
+```arduino
+  delay(500);
+}
+```
+
+**11.** The complete code is as follows. You can copy and paste this directly into your IDE
+```arduino
+/*
+  Read battery voltage on MKR WIFI 1010 and log values to Arduino Cloud
+
+  Author: Ali Jahangiri & Karl Soderby
+
+  Last Edit: 2nd August 2022
+*/
+
+//define variables
+  float rawADC;
+  float voltADC;
+  float voltBat;
+
+  //define the resistor values in the voltage divider
+  //                             ┌─────── VBatt
+  //                             │
+  //                             /
+  //                             \  330k
+  //  ┌────────────┐             /
+  //  │   SAMD21   │             \
+  //  │            │             │
+  //  │       PB09 ├────┬────────┤
+  //  │            │    │        │
+  //  │            │    │ 100n   /
+  //  │            │  ──┴───     \  1M
+  //  │            │  ──┬───     /
+  //  │            │    |        \
+  //  │            │    │        |
+  //  │            │    │        │
+  //  └─────┬──────┘    |        |
+  //        │           |        |
+  //        ▼           ▼        ▼ 
+  
+  int R1 =  330000; // resistor between battery terminal and SAMD pin PB09
+  int R2 = 1000000; // resistor between SAMD pin PB09 and ground
+
+  int max_Source_voltage;
+
+  // define voltage at which battery is full/empty
+  float batteryFullVoltage = 4.2;
+  float batteryEmptyVoltage = 3.3;
+
+void setup() {
+  
+  // put your setup code here, to run once:
+  
+  Serial.begin(9600);          // start series port with a buad rate of 9600bps
+  analogReference(AR_DEFAULT); // the upper value of ADC is set to 3.3V
+  analogReadResolution(12);    // this will give us 4096 (2^12) levels on the ADC
+
+  // The formula for calculating the output of a voltage divider is
+  // Vout = (Vsource x R2)/(R1 + R2)
+  // If we consider that 3.3V is the maximum that can be applied to Vout then the maximum source voltage is calculated as
+  max_Source_voltage = (3.3 * (R1 + R2))/R2;
+
+}
+
+void loop()
+{
+  
+  rawADC = analogRead(ADC_BATTERY); //the value obtained directly at the PB09 input pin
+  voltADC = rawADC * (3.3/4095.0);  //convert ADC value to the voltage read at the pin
+  voltBat = voltADC * (max_Source_voltage/3.3);                                                           //we cannot use map since it requires int inputs/outputs
+  int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - batteryEmptyVoltage);    //custom float friendly map function
+
+  Serial.print("The ADC on PB09 reads a value of ");
+  Serial.print(rawADC);
+  Serial.print(" which is equivialent to ");
+  Serial.print(voltADC);
+  Serial.print("V. This means the battery voltage is ");
+  Serial.print(voltBat);
+  Serial.print("V. Which is equivalent to a charge level of ");
+  Serial.print(new_batt);
+  Serial.println("%.");
+
+  delay(500);
+}
+
+```
+
+**12.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the ArduinoMKR WIFIF 1010 is selected and that the port is correct. Upload the code to the board. You will see a message similar to the following.
+
 
 ## Measure battery voltage via the Arduino IoT Cloud
+
+Since we had connected the board via USB, the board is charging. In order to better realise the status of the battery in a more realistic environment, we will use the Arduino IoT Cloud.
 
 **1.** In order to evaluate the performance of the device in a real world setting, we need to be able to test it remotely. To do so, we will use the Arduino Cloud to transfer data. The Arduino cloud makes it easy ton create IoT solutions. In the free plan, you have to connect the board to the cable, but in the money money tier, you can program the board wirelessley.
 
