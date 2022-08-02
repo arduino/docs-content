@@ -52,7 +52,7 @@ Here's a matrix of the pin connections, based on the diagram above:
 - 2 10k ohm potentiometers
 - hook-up wires
 - breadboard
-- 8 10kΩ resistors
+- 8x 1k ohm resistors
 
 ### Circuit
 
