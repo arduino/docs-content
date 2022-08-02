@@ -49,7 +49,7 @@ Here's a matrix of the pin connections, based on the diagram above:
 
 - Arduino Board
 - 8 x 8 LED Matrix
-- 2 10k ohm potentiometers
+- 2x 10k ohm potentiometers
 - hook-up wires
 - breadboard
 - 8x 1k ohm resistors
