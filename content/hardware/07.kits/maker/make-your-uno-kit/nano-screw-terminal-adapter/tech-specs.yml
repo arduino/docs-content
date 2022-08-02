@@ -1,0 +1,22 @@
+Kit:
+  Name: Arduino® Make Your UNO Kit
+  SKU: XXXX
+PCB:
+  Board PCB: 1x
+  Shield PCB: 1x
+  Debugger PCB: 1x
+Integrated Circuits:
+  ATmega328P: 1x
+Resistors:
+  220 Ω: 5x 
+  1K Ω: 5x
+  10K Ω: 5x
+Capacitors:
+  Capacitor XX:
+  Capacitor YY:
+  Capacitor ZZ:
+Other:
+  USB-C Module: 1x
+
+
+
