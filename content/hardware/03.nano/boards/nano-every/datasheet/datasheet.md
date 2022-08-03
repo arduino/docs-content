@@ -295,7 +295,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Reference             | **Link**                                                     |
 | --------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop) | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                       |
 | Arduino IDE (Cloud)   | https://create.arduino.cc/editor                             |
 | Forum                 | http://forum.arduino.cc/                                     |
 | SAMD21G18             | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
@@ -314,6 +314,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ |-------------------------------------- |
-| 04/27/2021 | 1            | General datasheet updates             |
 | 08/03/2022 | 2            | Reference documentation links updates |
+| 04/27/2021 | 1            | General datasheet updates             |
 

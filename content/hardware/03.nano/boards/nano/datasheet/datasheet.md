@@ -241,7 +241,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Ref                       | Link                                                                                                |
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Arduino Documentation     | https://docs.arduino.cc/hardware/nano                                                               |
@@ -252,6 +252,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 12/04/2022 | 1            | First Release | 
+| **Date**   | **Revision** | **Changes**                           |
+| ---------- | ------------ | ------------------------------------- |
+| 08/03/2022 | 2            | Reference documentation links updates |
+| 04/12/2022 | 1            | First Release                         |
