@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
     <EssentialElement title="Quickstart Guide" link="http://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box">
-        A quick guide to installing your board with the Arduino IDE.
+        A quick guide to getting started with your board.
     </EssentialElement>
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals" title="Fundamentals of Portenta X8" type="tutorial">
         This article contains information about the fundamental concepts of the Portenta X8.
