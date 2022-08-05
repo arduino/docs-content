@@ -226,6 +226,18 @@ The `loop()` is empty, as it only does one shot once the Serial monitor is open.
 
 Select the right serial port on your IDE and upload the Arduino sketch to your H7. After a successful upload.
 
+### 4. Try It Out
+
+Insert a micro SD Card into the Portenta Vision Shield.
+
+Connect the Portenta Vision shield to the Portenta H7.
+
+Once the sketch is uploaded, open the Serial monitor, you should see that everything is fine and the capture has been taken.
+
+Once the capture is saved, remove the SD Card and plug it into a computer/phone with an SD Card reader, open the storage unit and look for a bitmap called `image.bmp` then open it to check the result, you will be able to see a grayscale image on your device's image viewer.
+
+![Output bitmap example](assets/output-view.png)
+
 #### Full Sketch
 
 ```cpp
@@ -355,17 +367,6 @@ void parseData()
 }
 ```
 
-### 4. Try It Out
-
-Insert a micro SD Card into the Portenta Vision Shield.
-
-Connect the Portenta Vision shield to the Portenta H7.
-
-Once the sketch is uploaded, open the Serial monitor, you should see that everything is fine and the capture has been taken.
-
-Once the capture is saved, remove the SD Card and plug it into a computer/phone with an SD Card reader, open the storage unit and look for a bitmap called `image.bmp` then open it to check the result, you will be able to see a grayscale image on your device's image viewer.
-
-![Output bitmap example](assets/output-view.png)
 ## Conclusion
 
 In this tutorial you learned how to capture the frames from your Vision Shield's Camera in the Arduino IDE, encode it with the bitmap standards and save it to an SD Card. 
