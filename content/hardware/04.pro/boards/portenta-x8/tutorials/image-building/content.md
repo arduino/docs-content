@@ -1,6 +1,6 @@
 ---
 beta: true
-title: 'How To build a custom image to your Portenta X8'
+title: 'How To build a custom image for your Portenta X8'
 description: 'This tutorial teaches you how to compile a custom image for your Portenta X8 through USB'
 difficulty: intermediate
 tags:
@@ -14,7 +14,7 @@ hardware:
 
 ## Overview
 
-In this tutorial you will see how to build an image for the Portenta X8 with the files provided at Foundries.io.
+In this tutorial you will learn how to build an image for the Portenta X8 with the files provided at Foundries.io.
 
 ***In this tutorial we are using Ubuntu LTS 20.04 inside the Windows Subsystem for Linux (WSL) through the Windows Terminal***
 
@@ -29,6 +29,7 @@ In this tutorial you will see how to build an image for the Portenta X8 with the
 
 ### Required Hardware and Software
 
+- [Portenta X8](https://store.arduino.cc/portenta-x8)
 - Supported linux distribution compatible with Yocto (https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
 - Arduino Create account [Login](https://login.arduino.cc/login)
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
@@ -41,7 +42,7 @@ In this tutorial you will see how to build an image for the Portenta X8 with the
 
 ### Folder Structure
 
-We need to structure our directories, in this tutorial we used this structure:
+We need to structure our directories, in this tutorial we will use this structure:
 
 ```linux
 home
@@ -51,42 +52,39 @@ home
     └── repo
 ```
 
-To achieve that lets navigate to the home directory with `cd ~` and create a directory `mkdir builds`.
+To achieve that lets navigate to the home directory with `cd ~` and create a directory with `mkdir builds`.
+
 ### Setup SSH Keys and Foundries API Token
 
-It is required to have an SSH key and an API Token from **foundries** to get the needed image files
+It is required to have an SSH key and an API Token from your **Foundries.io Factory** to get the needed image files.
 
 #### SSH Key
 
-To setup your SSH Key go to the `.ssh` directory, `cd ~/.ssh`.
-
-Crete a new key with `ssh-keygen -t rsa -b 4096 -C <yourEmail>"`
+To setup your SSH Key go to the `.ssh` directory, `cd ~/.ssh`. Crete a new key with `ssh-keygen -t rsa -b 4096 -C <yourEmail>"`.
 
 Follow the instructions, after that you should have two new files in the directory, `<yourSSHkey> and <yourSSHkey>.pub`
 
-Now initialize the `ssh-agent` with `eval "$(ssh-agent -s)"`
-
-Add your key with `ssh-add ~/.ssh/<yourSSHkey>`
+Now initialize the `ssh-agent` with `eval "$(ssh-agent -s)"`. Add your key with `ssh-add ~/.ssh/<yourSSHkey>`.
 
 ***Make sure your `ssh-agent` is running, you can check the keys that your agent has with the command `ssh-add -l` if there is no key attached repeat the steps of adding the key and check if it was successfully added***
 
-#### Foundries API Token
+#### Foundries.io API Token
 
 ***This step is only mandatory if you want to get the source code from your foundries factory***
 
 To get the needed files (source code) for compiling the image we need access to our foundries factory repository.
 
 To make that happen browse to your [Foundries account > Settings > Api Tokens](https://app.foundries.io/settings/tokens/)
-![](assets/foundries_API_tokens.png)
+![API token page on Foundries.io](assets/foundries_API_tokens.png)
 
 Press the "New Token" button and follow the instructions.
-![](assets/foundries_API_token_create.png)
+![API token creation page](assets/foundries_API_token_create.png)
 
 Now make sure you select the correct Scopes to "Use for source code access" and in Factory you chose your derived factory.
-![](assets/foundries_API_token_create_scopes.png)
+![API token creation page](assets/foundries_API_token_create_scopes.png)
 
 Once it has been generated copy the token shown
-![](assets/foundries_API_token_created.png)
+![API token creation page](assets/foundries_API_token_created.png)
 
 Switch to your machine and create a variable to store that token and add it on the Git global configuration of your machine, to do so:
 ```linux
@@ -106,7 +104,7 @@ Also you can see your Git's configuration with `git config --global -l` you shou
 http.https://source.foundries.io.extraheader=Authorization: basic <yourToken on base64>
 ``` 
 
-###  Google Repo: fetch yocto layers
+###  Google Repo: Fetch Yocto Layers
 
 This application will handle the different repositories.
 
@@ -145,7 +143,7 @@ And download the files with `repo sync`
 
 ### Build the image
 
-#### Set up the environment
+#### Set Up The Environment
 
 You can set the `DISTRO` to `base`, `lmp` or `lmp-xwayland`
 * base> unsecure image without ostree and optee
@@ -162,7 +160,7 @@ It will switch automatically to a new folder, now accept the EULA
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 ```
 
-#### Bitbake (build)
+#### Bitbake (Build)
 ```
 bitbake lmp-vendor-arduino-image
 ```
@@ -173,7 +171,7 @@ In case you want to use your computer at the same time, you should lower the use
 and add:
 - `PARALLEL_MAKE = "-j 4"`
 
-### Build manufacturing tools: flash the board
+### Build Manufacturing Tools: Flash The Board
 
 In order to flash your board you need to compile the needed tools, go back with `cd ~/builds/portenta-x8` and type the following commands:
 ```linux
