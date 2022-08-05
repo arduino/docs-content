@@ -91,40 +91,19 @@ sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpat
 
 ### Setup SSH Keys and Foundries API Token
 
-It is required to have an SSH key linked with a **GitHub** account and an API Token from **foundries** to get the needed image files
+It is required to have an SSH key and an API Token from **foundries** to get the needed image files
 
 #### SSH Key
 
 To setup your SSH Key go to the `.ssh` directory, `cd ~/.ssh`.
 
-Crete a new key with `ssh-keygen -t ed25519 -C <yourEmail>"`
+Crete a new key with `ssh-keygen -t rsa -b 4096 -C <yourEmail>"`
 
 Follow the instructions, after that you should have two new files in the directory, `<yourSSHkey> and <yourSSHkey>.pub`
 
 Now initialize the `ssh-agent` with `eval "$(ssh-agent -s)"`
 
 Add your key with `ssh-add ~/.ssh/<yourSSHkey>`
-
-Now get the public key data with `cat <yourSSHkey>.pub`, copy the output.
-
-![](assets/terminal_sshKey.png)
-
-Browse to your [GitHub settings > SSH and GPG Keys](https://github.com/settings/keys) and press the "New SSH key" button, create a name to know where your key is used and in the key form the copied data from the previous step.
-![](assets/github_ssh_add.png)
-
-Now you should check the SSH connection with `ssh -T git@github.com`
-
-If the configuration is correct you should get:
-```
-Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
-On the other hand if there is something wrong you would get this:
-```
-Could not open a connection to your authentication agent.
-```
-
-![](assets/terminal_sshSuccess.png)
 
 ***Make sure your `ssh-agent` is running, you can check the keys that your agent has with the command `ssh-add -l` if there is no key attached repeat the steps of adding the key and check if it was successfully added***
 
@@ -146,7 +125,7 @@ Now make sure you select the correct Scopes to "Use for source code access" and 
 Once it has been generated copy the token shown
 ![](assets/foundries_API_token_created.png)
 
-Switch to your machine and create a variable to store that token and add it on the GitHub global configuration of your machine, to do so:
+Switch to your machine and create a variable to store that token and add it on the Git global configuration of your machine, to do so:
 ```linux
 API_TOKEN="<YourToken>"
 git config --global http.https://source.foundries.io.extraheader "Authorization: basic $(echo -n $API_TOKEN | openssl base64)"
@@ -159,7 +138,7 @@ git clone https://source.foundries.io/factories/<factory>/containers.git
 
 Make sure you clone the repository outside our `builds` folder, you can remove it after it has been cloned.
 
-Also you can see your Git's configuration with `git --global config -l` you should see:
+Also you can see your Git's configuration with `git config --global -l` you should see:
 ```
 http.https://source.foundries.io.extraheader=Authorization: basic <yourToken on base64>
 ``` 
