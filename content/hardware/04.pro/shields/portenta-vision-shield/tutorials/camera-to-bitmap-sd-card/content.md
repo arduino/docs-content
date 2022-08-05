@@ -128,7 +128,7 @@ void mountSD()
 Another function that the sketch contains is the one to generate the `.bmp` file called `parseData()`.
 This function will create the needed headers that later we will need to encode our bitmap into a file.
 
-***Take a look to the section [Bitmap File Format](#bitmap-file-format) to better understand the file headers that are created on this function***
+***Take a look at the section [Bitmap File Format](#bitmap-file-format) to better understand the file headers that are created with this function***
 
 ```cpp
 void parseData()
