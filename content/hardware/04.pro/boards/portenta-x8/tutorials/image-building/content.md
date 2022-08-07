@@ -153,13 +153,12 @@ You can now download the files you will need by running `repo sync`.
 
 #### Set Up The Environment
 
-You can set `DISTRO` to `base`, `lmp` or `lmp-xwayland`.
+You can set `DISTRO` to:
+- `base`: unsecure image without ostree and optee
+- `Lmp`: secure image without xwayland
+- `lmp-xwayland`: secure image with xwayland support
 
-- base: unsecure image without ostree and optee
-- Lmp: secure image without xwayland
-- lmp-xwayland: secure image with xwayland support
-
-> `lmp-partner-arduino-image` will be better supported in the near future.
+***`lmp-partner-arduino-image` will be better supported in the near future.***
 
 ```bash
 DISTRO=lmp-xwayland MACHINE=portenta-x8 . setup-environment
@@ -177,7 +176,7 @@ echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 To start building the image, run:
 
 ```linux
-bitbake lmp-vendor-arduino-image
+bitbake lmp-partner-arduino-image
 ```
 
 In case you want to use your computer while it builds, (the build is going to take time and resources) you should lower the used threads.
