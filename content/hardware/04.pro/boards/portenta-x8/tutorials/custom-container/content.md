@@ -144,11 +144,11 @@ Use the following command in a Linux shell, like ADB which the previously mentio
 git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
-Put the "x8-custom-test" folder in the repository. If you push the commit to "containers.git" a new target will automatically build on your Foundries.io Factory page.
+Put the "x8-custom-test" folder in the repository. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it in the "Targets" page.
 
 ### Building and Running the Container
 
-After uploading the folder to the repository. Navigate into the "x8-custom-test" folder, that should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with a ```--tag``` will let us give the container a tag so we can easily keep track of what version of the build this is.
+After the build is finished, it can take up to 10 minutes for your device to OTA update to this new version. You can inspect it via the "Devices" tab of your FoundriesFactory. After your device takes the update, navigate into the "x8-custom-test" folder, that should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with a ```--tag``` will let us give the container a tag so we can easily keep track of what version of the build this is.
 
 ```python
 docker build --tag "x8-custom-test:latest" .
