@@ -138,15 +138,13 @@ In order to pull or push repositories you have to generate an API key. This can 
 
 ![Token section in user settings](assets/token-page.png)
 
-Use the following command in a Linux shell, like ADB which the previously mentioned tutorial showed how to set up. To get the repository on your board, replace the "YOUR_FACTORY" with the name of your factory. The "-m" tag selects the manifest file within the repository. If no manifest name is selected, the default is "default.xml". And the "-b" tag specifies a revision. Running this command will get the container repository, where we will put our folder.
+Use the following command in a Linux shell, like ADB which the previously mentioned tutorial showed how to set up. To get the repository on your board, replace "YOUR_FACTORY" with the name of your factory. The "-b" parameter specifies a branch to checkout after cloning the repository. Running this command will get the container repository, where we will put our folder.
 
-```python
-repo init -u https://source.foundries.io/factories/YOUR_FACTORY/containers.git -m arduino.xml -b devel
+```
+git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
-We can also run ```repo sync``` to get the latest version of the repository. Put the "x8-custom-test" folder in the repository. If you push the commit to "container.git" a new target will automatically build on your Foundries.io Factory page.
-
-***NOTE: The "repo sync" will at some point pause. This is because it is waiting for a username and password but the prompt will be hidden. Enter the username and password to move on.***
+Put the "x8-custom-test" folder in the repository. If you push the commit to "containers.git" a new target will automatically build on your Foundries.io Factory page.
 
 ### Building and Running the Container
 
