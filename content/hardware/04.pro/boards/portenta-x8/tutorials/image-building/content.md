@@ -1,6 +1,6 @@
 ---
 beta: true
-title: 'How To build a custom image for your Portenta X8'
+title: 'How To Build a Custom Image for Your Portenta X8'
 description: 'This tutorial teaches you how to compile a custom image for your Portenta X8 through USB'
 difficulty: intermediate
 tags:
@@ -149,7 +149,7 @@ repo init -u <repository> -m arduino.xml -b <master/devel>
 
 You can now download the files you will need by running `repo sync`.
 
-### Build the image
+### Build The Image
 
 #### Set Up The Environment
 
