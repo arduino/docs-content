@@ -80,6 +80,4 @@ where `<username>` is your Linux user name. **You will need to log out and log i
 
 ![Adding user to the group.](assets/Ubuntu_Serial.jpeg)
 
-This is the procedure to access the serial port from the Arduino Software (IDE) if you get an error.
-
 After this procedure, you should be able to proceed normally and upload the sketch to your board or use the Serial Monitor.
