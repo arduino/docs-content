@@ -16,7 +16,7 @@ hardware:
 
 In this tutorial you will learn how to build an image for the Portenta X8 with the files provided from Foundries.io.
 
-***In this tutorial we are using Ubuntu LTS 20.04 inside the Windows Subsystem for Linux (WSL) through the Windows Terminal***
+***In this tutorial we are using Ubuntu LTS 22.04 inside the Windows Subsystem for Linux (WSL) through the Windows Terminal***
 
 ## Goals
 
@@ -42,7 +42,7 @@ In this tutorial you will learn how to build an image for the Portenta X8 with t
 
 First we need to structure our directories as following:
 
-```linux
+```
 home
 └── builds
   ├── portenta-x8
@@ -86,14 +86,14 @@ Once it has been generated, copy the token shown.
 
 On your machine create a variable to store the token and add it to the global configuration for Git:
 
-```linux
+```
 API_TOKEN="<YourToken>"
 git config --global http.https://source.foundries.io.extraheader "Authorization: basic $(echo -n $API_TOKEN | openssl base64)"
 ```
 
 Check that your token is properly configured by cloning the "containers" repository of your Factory:
 
-```linux
+```
 git clone https://source.foundries.io/factories/<factory>/containers.git
 ```
 
@@ -102,7 +102,7 @@ You can remove it after you finish your check.
 
 You can check your Git configuration with `git config --global -l` you should see:
 
-```linux
+```
 http.https://source.foundries.io.extraheader=Authorization: basic <yourToken on base64>
 ```
 
@@ -117,7 +117,7 @@ Use these commands to:
 3. download repo into `.bin`
 4. set permission so that all users and run it.
 
-```linux
+```
 mkdir -p ~/builds/.bin
 PATH="${HOME}/builds/.bin:${PATH}"
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/builds/.bin/repo
@@ -130,7 +130,7 @@ Now you should be able to access the command `repo` anywhere.
 
 Switch to your build directory and create a folder to store the source code:
 
-```linux
+```
 cd ~/builds/
 mkdir portenta-x8
 cd portenta-x8
@@ -143,7 +143,7 @@ Get your repository link:
 
 Now initialize the repository:
 
-```linux
+```
 repo init -u <repository> -m arduino.xml -b <master/devel>
 ```
 
@@ -175,7 +175,7 @@ echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 
 To start building the image, run:
 
-```linux
+```
 bitbake lmp-partner-arduino-image
 ```
 
@@ -189,12 +189,14 @@ And add:
 
 - `PARALLEL_MAKE = "-j 4"`
 
+![Terminal bitbake](assets/terminal_bitbake.png)
+
 ### Build Manufacturing Tools: Flash The Board
 
 To flash your board you will need to compile some tools.
 Go into the build folder with `cd ~/builds/portenta-x8` and type the following commands:
 
-```linux
+```
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
