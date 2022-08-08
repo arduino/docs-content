@@ -41,7 +41,7 @@ PINC - The Port C Input Pins Register - read only
 
 Each bit of these registers corresponds to a single pin; e.g. the low bit of DDRB, PORTB, and PINB refers to pin PB0 (digital pin 8). For a complete mapping of Arduino pin numbers to ports and bits, see the diagram for your chip: [ATmega8](//www.arduino.cc/en/Hacking/PinMapping), [ATmega168](//www.arduino.cc/en/Hacking/PinMapping168). (Note that some bits of a port may be used for things other than i/o; be careful not to change the values of the register bits corresponding to them.)
 
-#### Examples
+## Examples
 
 Referring to the pin map above, the PortD registers control Arduino digital pins 0 to 7\. 
 
