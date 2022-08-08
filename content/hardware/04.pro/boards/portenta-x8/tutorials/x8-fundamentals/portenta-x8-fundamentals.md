@@ -64,7 +64,7 @@ Containers allow for easy deployment of Linux based processes, uploaded through 
 
 Foundries.io provides a service that builds images using the Yocto Project and specifically built around the Linux microPlatform (LmP) distribution they maintain. LmP contains an extensive set of software components needed for IoT applications. 
 
-Using [fioctl](https://docs.foundries.io/82/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your Factory. When the board is online and connected to the Factory you can easily push new apps to the board. Using fioctl command lines you only need to state the Factory, board and app.
+Using [fioctl](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your Factory. When the board is online and connected to the Factory you can easily push new apps to the board. Using fioctl command lines you only need to state the Factory, board and app.
 
 ### Benefits of Containers
 
