@@ -4,6 +4,9 @@ difficulty: easy
 tags: [Camera, Bitmap, SD Card]
 description: This tutorial shows you how to capture a frame from the Portenta Vision Shield Camera module and save the output as a bitmap image.
 author: Pablo Marquínez
+libraries:
+  - name: Arduino_Pro_Tutorials
+    url: https://github.com/arduino-libraries/Arduino_Pro_Tutorials
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
