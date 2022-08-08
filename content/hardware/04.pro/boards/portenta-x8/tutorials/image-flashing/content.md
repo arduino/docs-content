@@ -101,7 +101,7 @@ Switch back the DIP switches to OFF position.
 
 Unplug and then plug in the Portenta X8 to your computer.
 
-***After flashing you will need to wait 10 secs, until the Portenta X8 blue LED starts blinking, this means the boot was successful***
+***After booting you will need to wait 10 secs, until the Portenta X8 blue LED starts blinking, this means the boot was successful***
 
 ## Troubleshooting
 
