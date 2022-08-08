@@ -57,7 +57,7 @@ To get those files:
 
 Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
 
-#### Through Foundries
+#### Through Foundries.io
 
 Open your FoundriesFactory®.
 

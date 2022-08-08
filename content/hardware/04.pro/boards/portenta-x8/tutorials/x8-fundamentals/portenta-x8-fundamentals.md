@@ -53,7 +53,7 @@ On the "source" page of your Factory, you can find the four repositories that ar
 
 - **ci-scripts.git**: Scripts that define the platform and container build jobs to the FoundriesFactory continuous integration system.
 - **lmp-manifest.git**: The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes **meta-partner-arduino**, the layer containing Arduino specific customizations (machine definition, device drivers, etc).
-- **meta-subscriber-overrides.git**: OE layer that defines what is included into your factory image. You can add board specific customizations and overrides, add and remove packages provided in the default Linux microPlatform base.
+- **meta-subscriber-overrides.git**: OE layer that defines what is included into your Factory image. You can add board specific customizations and overrides, add and remove packages provided in the default Linux microPlatform base.
 - **containers.git**: This is where containers and docker-compose apps are defined. It allows you to define what containers to build, and how to orchestrate them on the platform.
 
 While the "targets" page contains the images built by the Continuous integration system each time something is committed in the repositories. Committing to **lmp-manifest.git** or **meta-subscriber-overrides.git** repositories will create a platform target, while committing to **containers.git** will create a container target. These targets will generate the artifacts for the platforms as specified in the **ci-scripts.git**, including all the required files to program the target in case of platform builds. You can inspect your FoundriesFactory targets in the "targets" page.
