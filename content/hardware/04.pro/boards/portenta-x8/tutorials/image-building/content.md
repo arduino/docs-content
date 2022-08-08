@@ -50,7 +50,7 @@ home
     └── repo
 ```
 
-To start, lets navigate to the home directory with `cd ~`, and create the build directory with `mkdir builds`.
+To start, let's navigate to the home directory with `cd ~`, and create the build directory with `mkdir builds`.
 
 ### Setup SSH Keys and Foundries API Token
 
@@ -154,8 +154,8 @@ You can now download the files you will need by running `repo sync`.
 #### Set Up The Environment
 
 You can set `DISTRO` to:
-- `base`: unsecure image without ostree and optee
-- `Lmp`: secure image without xwayland
+- `lmp-base`: unsecure image without ostree and optee
+- `lmp`: secure image without xwayland
 - `lmp-xwayland`: secure image with xwayland support
 
 ***`lmp-partner-arduino-image` will be better supported in the near future.***
