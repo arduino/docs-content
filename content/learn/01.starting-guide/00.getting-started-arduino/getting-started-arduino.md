@@ -190,10 +190,10 @@ To control actuators, it is common to use `digitalWrite()` and `analogWrite()`.
 
 ```arduino
 digitalWrite(LED, HIGH); //turn on an LED
-digitalWrite(LED, LOW); //turn off an LED
+digitalWrite(LED, LOW);  //turn off an LED
 
 analogWrite(motor, 255); //set a motor to maximum capacity
-analogWrite(motor, 25); //set a motor to 10% of its capacity
+analogWrite(motor, 25);  //set a motor to 10% of its capacity
 ```
 
 #### Input & Output
@@ -203,13 +203,12 @@ Sensors and actuators, are typically referred to as **inputs and outputs**. When
 A basic example of this is a **button** and an **LED**. We can write a conditional that checks if a button is pressed, turn on the LED, and turn it off if the button is not pressed. In an Arduino program, it looks like this:
 
 ```arduino
-int buttonState = digitalRead(buttonPin); //read and store the button state (0 or 1)
+int buttonState = digitalRead(buttonPin);   //read and store the button state (0 or 1)
 
-if(buttonState == HIGH){ //check if state is high (button is pressed)
-    digitalWrite(LED, HIGH) //turn on LED
-}
-else {
-    digitalWrite(LED, LOW); //turn off LED
+if(buttonState == HIGH){        //check if state is high (button is pressed)
+    digitalWrite(LED, HIGH);    //turn on LED
+} else {
+    digitalWrite(LED, LOW);     //turn off LED
 }
 ```
 
@@ -523,11 +522,13 @@ unsigned long currentMillis = millis();
 
    //conditional that checks whether 1 second has passed since last event
    if (currentMillis - previousMillis_1 >= interval_1) {
+        previousMillis_1 = millis();
        //execute a piece of code, every *1 second*
    }
 
    //conditional that checks whether 2 seconds have passed since last event
    if (currentMillis - previousMillis_2 >= interval_2) {
+        previousMillis_2 = millis();
     //execute a piece of code, every *2 seconds*
    }
 
@@ -607,7 +608,7 @@ float
 int
 long
 short
-String()
+String
 ```
 
 To store data in for example an `int` (integer):
@@ -631,7 +632,7 @@ String exampleSentence = "This is a string!";
 For simple switches and true/false, we use booleans:
 
 ```arduino
-bool exampleSwitch = true/false;
+bool exampleSwitch = true; // true/false
 ```
 
 ### Serial Communication
@@ -754,10 +755,10 @@ while (variable == true) {
 }
 ```
 
-A basic use of a `for` loop is to execute a block of code a number of times (in this case, 10).
+A basic use of a `for` loop is to execute a block of code a custom number of times (in this case, 10).
 
 ```arduino
-  for (int x = 0; x <= 10; x++) {
+  for (int x = 0; x < 10; x++) {
       //do something 10 times
   }
 ```
@@ -810,9 +811,9 @@ if(value > 10) {
 
 #### Boolean Operators
 
-Boolean operators (logical not `!`, and `&&`, or `||`) can for example be used for more advanced conditionals.
+Boolean operators (logical NOT `!`, AND `&&` and OR `||`) can for example be used for more advanced conditionals.
 
-To use the and `&&` operator:
+To use the AND `&&` operator:
 
 ```arduino
 if(value > 10 && otherValue > 10){
@@ -820,7 +821,7 @@ if(value > 10 && otherValue > 10){
 }
 ```
 
-To use the or `||` operator:
+To use the OR `||` operator:
 
 ```arduino
 if(value > 10 || otherValue > 10){
@@ -828,11 +829,13 @@ if(value > 10 || otherValue > 10){
 }
 ```
 
-To use the not `!` operator:
+To use the NOT `!` operator:
 
+```arduino
 if(!value){
     //do something if value is false (!)
 }
+```
 
 #### Compound Operators
 
