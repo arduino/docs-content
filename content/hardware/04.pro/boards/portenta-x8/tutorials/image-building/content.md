@@ -20,7 +20,6 @@ In this tutorial you will learn how to build an image for the Portenta X8 with t
 
 ## Goals
 
-- Make sure your Ubuntu machine has access to internet
 - Provide your Linux machine with the needed software
 - Set up your computer with the required SSH keys and API Tokens
 - Get the required files
@@ -50,13 +49,11 @@ home
     └── repo
 ```
 
-To start, let's navigate to the home directory with `cd ~`, and create the build directory with `mkdir builds`.
+To start, lets navigate to the home directory on our machine with `cd ~`, and create the build directory with `mkdir builds`.
 
-### Setup SSH Keys and Foundries API Token
+### Setup SSH Keys and API Token
 
-To get the needed image files, you need to have an SSH key and an API Token from **FoundriesFactory**.
-
-#### SSH Key
+Next to get the needed image files, we need to setup our SSH Keys and Foundries API token from **FoundriesFactory**.
 
 To setup your SSH Key, go to the `.ssh` directory, `cd ~/.ssh`. Crete a new key with `ssh-keygen -t rsa -b 4096 -C <yourEmail>"`.
 
@@ -66,7 +63,7 @@ Now initialize the `ssh-agent` with `eval "$(ssh-agent -s)"`. Add your key with 
 
 ***Make sure your `ssh-agent` is running, you can check the keys that your agent has with the command `ssh-add -l` if there is no key attached repeat the steps of adding the key and check if it was successfully added***
 
-#### Foundries.io API Token
+### Foundries.io API Token
 
 ***This step is only mandatory if you want to get the source code from your Factory***
 
@@ -97,8 +94,7 @@ Check that your token is properly configured by cloning the "containers" reposit
 git clone https://source.foundries.io/factories/<factory>/containers.git
 ```
 
-Make sure you clone the repository outside our `builds` folder.
-You can remove it after you finish your check.
+Make sure you clone the repository outside our `builds` folder. You can remove it after you finish your check.
 
 You can check your Git configuration with `git config --global -l` you should see:
 
@@ -149,9 +145,9 @@ repo init -u <repository> -m arduino.xml -b <master/devel>
 
 You can now download the files you will need by running `repo sync`.
 
-### Build The Image
+## Build The Image
 
-#### Set Up The Environment
+### Set Up The Environment
 
 You can set `DISTRO` to:
 - `lmp-base`: unsecure image without ostree and optee
@@ -171,7 +167,7 @@ Now to accept the EULA:
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 ```
 
-#### Build With Bitbake
+### Build Image With Bitbake
 
 To start building the image, run:
 
@@ -193,8 +189,7 @@ And add:
 
 ### Build Manufacturing Tools: Flash The Board
 
-To flash your board you will need to compile some tools.
-Go into the build folder with `cd ~/builds/portenta-x8` and type the following commands:
+To flash your board you will need to compile some tools. Go into the build folder with `cd ~/builds/portenta-x8` and type the following commands:
 
 ```
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
