@@ -29,7 +29,7 @@ In this tutorial you will learn how to build an image for the Portenta X8 with t
 
 ### Required Hardware and Software
 
-- [Portenta X8](https://store.arduino.cc/portenta-x8)
+- [Arduino Portenta X8](https://store.arduino.cc/portenta-x8)
 - Linux distribution [compatible with the Yocto Project](https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
 - Arduino Create account [Login](https://login.arduino.cc/login)
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
@@ -72,7 +72,7 @@ Now initialize the `ssh-agent` with `eval "$(ssh-agent -s)"`. Add your key with 
 
 To get the needed files (source code) for compiling the image we need access to our Factory repository.
 
-To make that happen, browse to your [Foundries account > Settings > Api Tokens](https://app.foundries.io/settings/tokens/):
+To make that happen, go to your [Foundries account > Settings > Api Tokens](https://app.foundries.io/settings/tokens/):
 ![API token page on Foundries.io](assets/foundries_API_tokens.png)
 
 Press the "New Token" button and follow the instructions.
