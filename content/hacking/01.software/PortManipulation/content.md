@@ -65,7 +65,7 @@ You will only see 5 volts on these pins however if the pins have been set as out
 
 PIND is the input register variable It will read all of the digital input pins at the same time.
 
-#### Why use port manipulation?
+## Why Use Port Manipulation?
 
 From [The Bitmath Tutorial](http://www.arduino.cc/playground/Code/BitMath) 
 
