@@ -95,6 +95,7 @@ mbed::FATFileSystem fileSystem("fs");
 #include "himax.h"  // Exclusive Camera library for the Portenta Vision Shield
 HM01B0 himax;
 Camera cam(himax);
+FrameBuffer fb; // Buffer to save the capture
 ```
 
 For the bitmap headers binary file we will need some information like the resolution of the image, the bits per pixel and more, so we define our settings as shown:
@@ -244,8 +245,8 @@ Once the capture is saved, remove the SD Card and plug it into a computer/phone 
 #### Full Sketch
 
 ```cpp
-#include "SDMMCBlockDevice.h"   // Multi Media Card APIs
-#include "FATFileSystem.h"      // Mbed API for portable  and embedded systems
+#include "SDMMCBlockDevice.h" // Multi Media Card APIs
+#include "FATFileSystem.h"    // Mbed API for portable  and embedded systems
 SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
@@ -253,6 +254,8 @@ mbed::FATFileSystem fileSystem("fs");
 #include "himax.h"  // Exclusive Camera library for the Portenta Vision Shield
 HM01B0 himax;
 Camera cam(himax);
+
+FrameBuffer fb; // Buffer to save the capture
 
 // Settings for our setup
 #define RES_H (unsigned int)240
