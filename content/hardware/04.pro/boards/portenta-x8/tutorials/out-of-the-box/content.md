@@ -176,8 +176,11 @@ Make sure the name is not already being used in your Factory.
 
 `lmp-device-register -n <newDeviceName>`
 
-**Not recommended:** In case you cannot register the new device, you can erase the current device info by removing `/var/sota/sql.db`
+**Not recommended:** In case you cannot register the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
 
+`sudo systemctl stop aktualizr-lite`
+`sudo systemctl stop fioconfig.path`
+`sudo systemctl stop fioconfig.service`
 `sudo rm /var/sota/sql.db`
 
 ### Inspecting Real Time Tasks
