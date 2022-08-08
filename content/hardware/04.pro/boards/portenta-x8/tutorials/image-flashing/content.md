@@ -44,10 +44,9 @@ Required files following this structure:
 
 ```
 Root folder
-├── imx-boot
 ├── imx-boot-portenta-x8
-├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Unzipped)**
-├── mfgtool-files-portenta-x8.tar **(Unzipped)**
+├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
+├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
 ├── sit-portenta-x8.bin
 └── u-boot-portenta-x8.itb
 ```
@@ -76,7 +75,7 @@ On the "Runs" section open those collapsed labels, and download the files listed
 
 ![Foundries.io target runs section](assets/foundries-factories-target-runs.png)
 
-After downloading them, make sure you put them in a folder following the structure shown.
+After downloading them, make sure you put them in a folder following the structure shown and extract the compressed files.
 
 ### Set the Portenta X8 to Flashing Mode
 
