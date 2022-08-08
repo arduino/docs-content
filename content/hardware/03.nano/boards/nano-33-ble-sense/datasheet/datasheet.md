@@ -347,12 +347,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Reference                 | **Link**                                                     |
 | ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                           |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Forum                     | http://forum.arduino.cc/                                     |
-| Nina B306                 | [https://www.u-blox.com/sites/default/files/NINA-B3_DataSheet_%28UBX-17052099%29.pdf](https://www.u-blox.com/sites/default/files/NINA-B3_DataSheet_(UBX-17052099).pdf) |
-| ECC608                    | http://ww1.microchip.com/downloads/en/DeviceDoc/40001977A.pdf |
+| Nina B306                 | https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf |
+| ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
 | MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
 | ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
 | LSM6DSL Library           | https://github.com/adafruit/Adafruit_LSM9DS1                 |
@@ -364,6 +364,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**               |
-| ---------- | ------------ | ------------------------- |
-| 04/27/2021 | 1            | General datasheet updates |
+| Date       | **Revision** | **Changes**                           |
+| ---------- | ------------ |-------------------------------------- |
+| 08/03/2022 | 2            | Reference documentation links updates |
+| 04/27/2021 | 1            | General datasheet updates             |
