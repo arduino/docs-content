@@ -80,7 +80,7 @@ First you need to include the needed libraries
 #include "himax.h"  // Exclusive Camera library for the Portenta Vision Shield
 ```
 
-Then we define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the the file system.
+Then we define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the file system.
 
 ```cpp
 #include "SDMMCBlockDevice.h"   // Multi Media Card APIs
