@@ -41,21 +41,19 @@ You can see a comparison between these three in the table below.
 | LiPo              | Higher | higher                | lower                 | Higher    | 3.7V                          |
 | Li-ion            | Lower  | Lower                 | Higher                | Lower     | 3.7V                          |
 
-***While other battery rechargeable types exist, these two chemistries (Li-Ion and LiPo) are the most commonly relavent.***
+***Warning: Please make sure that the battery terminals do NOT touch each other. The short circuit can cause permanent damage to the battery and even explosion.***
 
 Apart from being a single cell (3.7V), a key factor to selecting the correct battery is that the connector is compatible.
 
 ### Connector
-You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector:
-- LiPo 3.7V 750mAh https://www.electrokit.com/produkt/batteri-lipo-3-7v-750mah
+You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
 
-You can either buy one commercially connected to the battery, or alternatively, connect it yourself.
-- JST-PH Female Connector Housing https://se.rs-online.com/web/p/wire-housings-plugs/8201466
-- JST-PH Female Crimp Terminal
+### Protection circuit
+A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
+![LiPo Battery Breakdown](assets/lipo-battery-breakdown.svg)
 
-Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required.
-
-[MUST Add graphic, associate technical name with the image]
+### BQ24195L Power Management IC
+The BQ24195L IC is responsible for charging the single cell lion battery, as well as boosting the battery voltage to 3.3V for use on the board internally. An Arduino library ([Arduino_BQ24165](https://github.com/arduino-libraries/Arduino_BQ24195)) has been developed, to help control the features of this battery over I2C. 
 
 ### Electrical Properties
 
@@ -70,28 +68,7 @@ $$ V_{out} = \frac{V_{source} \times R2} {R_1 + R_2} $$
 
 In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass throught, increasing the life of the battery. The capacitor acts to clean the signal.
 
-[Add graphic like the ASCII art, but in Figma]
-```
-  //define the resistor values in the voltage divider
-  //                             ┌─────── VBatt = VSource
-  //                             │
-  //                             /
-  //                             \  R1
-  //  ┌────────────┐             /
-  //  │   SAMD21   │             \
-  //  │     uC     │             │
-  //  │       PB09 ├────┬────────┤
-  //  │       Vout │    │        │
-  //  │            │    │ 100n   /
-  //  │            │  ──┴───     \  R2
-  //  │            │  ──┬───     /
-  //  │            │    |        \
-  //  │            │    │        |
-  //  │            │    │        │
-  //  └─────┬──────┘    |        |
-  //        │           |        |
-  //        ▼           ▼        ▼ 
-```
+![Voltage Divider Circuit on the MKR WIFI 1010](assets/voltage-divider-samd21.svg)
 
 **Capacity**
 Continuing with the waterfall analogy, the volume of water passing through a waterfall represents the current. Therefore, the amount of water stored behind the waterfall is considered the capacity. It is common to discuss the capacity in terms of milliamp hours (mAh), which is the current that can be potentially extracted in an hour to discharge it. Note that changes in temperature and elevated current demands can change the effective capacity of your battery. 
@@ -105,17 +82,12 @@ $$\text{maximum current draw } = \text{ battery capacity } \times \text{ dischar
 
 The discharge rating (C) is often provided in the datasheet of the battery. If the C rating of a battery is 1, then it can discharge the maximum current for one hour before running out. As a rule of thumb, higher discharge rates lead reduce the effective capacity and lifetime of the battery. 
 
-## BQ94125 Power Management IC
-[explain how it works]
-[add graphic of circuit]
-[mention library as well]
-
 ## Multimeter battery measurements
 
 **1.** Test the battery voltage with a multimeter. In this case, we have used a 1200mAh battery. It should be between 3.3V and 4.2V, regardless of the capacity. If the battery voltage is outside this range, your battery may be damaged.
 ![Multimeter connected to a LiPo battery](assets/lipo-battery-multimeter.jpg)
 
-***Make sure that the battery terminals do not touch each other. Short circuit can cause permenant damage to the battery and explosion.*** [ask nefeli to check]
+***Warning: Please make sure that the battery terminals do NOT touch each other. The short circuit can cause permanent damage to the battery and even explosion.***
 
 **2.** Connect your battery to the MKR WIFI 1010 then check the voltage of VCC using your multimeter. 
 ![Measurement of VCC when LiPo battery is connected](assets/lipo-vcc-multimeter.jpg)
@@ -125,7 +97,12 @@ You should notice that the voltage of VCC is about 3.3V, regardless of the batte
 
 We will go through the lines needed to create a Sketch to read the battery values over Serial and give a short descipriotn of what part does. At the end, the full code will be provided so you can copy and paste into your IDE and upload to your Arduino board.
 
-**1.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As the first step, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
+**0.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As a first step, we will We will call the library to be included in the sketch. 
+```
+#include <BQ24195.h>
+```
+
+**1.**  Then, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
 
 ```arduino
   float rawADC;
@@ -149,7 +126,15 @@ We will go through the lines needed to create a Sketch to read the battery value
   float batteryEmptyVoltage = 3.3;
 ```
 
-**4.** Now we can configure the `setup()` function. We need to initiate the Serial connection (`Serial.begin(9600)`), ensure the analog reference is set to the default value of 3.3V (`analogReference(AR_Default)`), set the ADC resolution to 12 bits (`analogReadResolution(12)`) and finally calculate the maximum output of the voltage divider (`max_Source_voltage = (3.3 * (R1 + R2))/R2`)
+**4.** Now we can configure the `setup()` function. We need to initiate the Serial connection (`Serial.begin(9600)`) and set the input current limit.
+```arduino
+void setup() {
+  Serial.begin(9600);          
+  PMIC.setInputCurrentLimit(2.0);
+```
+
+
+ensure the analog reference is set to the default value of 3.3V (`analogReference(AR_Default)`), set the ADC resolution to 12 bits (`analogReadResolution(12)`) and finally calculate the maximum output of the voltage divider (`max_Source_voltage = (3.3 * (R1 + R2))/R2`)
 
 ```arduino
 void setup() {
@@ -292,19 +277,41 @@ void loop()
 
 ## Measure battery voltage via the Arduino IoT Cloud
 
-Since we had connected the board via USB, the board is charging. In order to better realise the status of the battery in a more realistic environment, we will use the Arduino IoT Cloud.
+Since we had connected the board via USB, the board is charging. In order to better realise the status of the battery in a more realistic environment, we will use the Arduino IoT Cloud. We will use three different dashboard elements to display the data.
 
-**1.** In order to evaluate the performance of the device in a real world setting, we need to be able to test it remotely. To do so, we will use the Arduino Cloud to transfer data. The Arduino cloud makes it easy ton create IoT solutions. In the free plan, you have to connect the board to the cable, but in the money money tier, you can program the board wirelessley.
+**1.** In order to evaluate the performance of the device in a real world setting, we need to be able to test it remotely. To do so, we will use the Arduino Cloud to transfer data. The Arduino IoT Cloud makes it easy ton create IoT solutions. In the free plan, you have to connect the board to the cable, but in the money money tier, you can program the board wirelessley.
 
-**2.** First, we will create a simple digital output to display the value of the ADC.
+**2.** First, we will create a simple digital output to display the value of the ADC. Go to https://create.arduino.cc/iot/dashboards and click on **Create** to make a new dashboard and give it a name. Here, we are calling our dashboard MKR Remote Battery Status.
 
-**3.** Next we will use a graph to plot the voltage calues, when the voltage divider is accounted for.
+**3.** Click on the Add button and in the list select the Value widget. You can also search by entering the name in the box. Click it in order to add it. 
 
-**4.** Finally, we will display the end result with the help of a percent output thing
+**4.** Name the widget raw ADC value. Then click on **Done**. 
+
+**5.** In order for the ADC value to be shown on the widget, we need to first configure the sketch to create a linked variable. A linked variable is a variable that is sent by your Arduino device to the cloud. 
+
+**6.** Go to the Devices tab and click on Add. Then Select Setup an Arduino device. Make sure your board is connected via a USB cable. If you have not done already, you may be requested to install the Arduino Create Adgent. Install it if needed. 
+
+**7.** After you have setup the device, go the the things tab. Click on the device you linked and add the sketch as well as the rawADC varaible.
+
+**8.** Upload the sketch
+
+***If using a paid cloud account, you can send the sketch over the air. Otherwise, you will need to have the board conencted every time you upload a new sketch***
+
+**9.** Now go to the dashboard, and link the variable to the value widget you made. You should see a four digit value.
+
+**10.** Now let us link three other variables, in a similar manner. The upload again.
+
+**11.** In the dashboard, we will create two objects. First, we create a chart. Select voltADC and voltBatt as the linked variables to display on the graph.
+
+**12.** Then, add a Percentage widget and link the new_batt variable. 
+
+**13.** You now can view the battery status through a wide range of widgets.
 
 ## Extract plots
 
-**1.** Extract historical data from the online dashboard
+**1.** In the Dashboard, click on the download historical data button to the right of your screen.
+
+**2.** Clic
 
 **2.** Plot with Google Sheets
 
