@@ -15,7 +15,7 @@ software:
 
 ## Introduction
 
-While you can run your MKR board from USB , you can make best use of it when your MKR board is able to operate independantly of your computer and a USB cable. This is particulary useful for many IoT applications, use of relays with high current draw and remote sensing. Batteries can help us in this regard and a special connector is included in the MKR products for this end. In this application note, we will take a closer look at the battery capabilities of the MKR boards. 
+While you can run your MKR board from USB, you can make best use of it when your MKR board is able to operate independantly of your computer and a USB cable. This is particulary useful for many IoT applications, use of relays with high current draw and remote sensing. Batteries can help us in this regard and a special connector is included in the MKR products for this end. In this application note, we will take a closer look at the battery capabilities of the MKR boards. 
 
 ### Goals
 The goals of this project are:
@@ -97,12 +97,14 @@ You should notice that the voltage of VCC is about 3.3V, regardless of the batte
 
 We will go through the lines needed to create a Sketch to read the battery values over Serial and give a short descipriotn of what part does. At the end, the full code will be provided so you can copy and paste into your IDE and upload to your Arduino board.
 
-**0.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As a first step, we will We will call the library to be included in the sketch. 
-```
+**1.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As a first step, we will We will call the library to be included in the sketch. 
+```arduino
 #include <BQ24195.h>
 ```
 
-**1.**  Then, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
+![Calling the BQ24195 Library]()
+
+**2.**  Then, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
 
 ```arduino
   float rawADC;
@@ -110,43 +112,66 @@ We will go through the lines needed to create a Sketch to read the battery value
   float voltBat;
 ```
 
-**2.** According to the schematics for the MKR WIFI 1010, we will now define the values for the R1 and R2 resistor. These will be used to calculate `voltBat`.
+**3.** According to the schematics for the MKR WIFI 1010, we will now define the values for the R1 and R2 resistor. These will be used to calculate `voltBat`.
 
 ```arduino
   int R1 =  330000;
   int R2 = 1000000;
 ```
 
-**3.** We will now create a variable to store the maximum source voltage `max_Source_voltage` as well as the upper (`batteryFullVoltage`) and lower (`batteryEmptyVoltage`) values for the battery.
+**4.** We will now create a variable to store the maximum source voltage `max_Source_voltage` as well as the upper (`batteryFullVoltage`) and lower (`batteryEmptyVoltage`) values for the battery. We will also define the battery capacity as `batteryCapacity` so as to determine the charging current. Since we are using a 750 mAh battery in this example, we will set the value to `0.750`.
 
 ```arduino
   int max_Source_voltage;
 
   float batteryFullVoltage = 4.2;
   float batteryEmptyVoltage = 3.3;
+
+  float batteryCapacity = 0.750;
 ```
 
-**4.** Now we can configure the `setup()` function. We need to initiate the Serial connection (`Serial.begin(9600)`) and set the input current limit.
+**5.** Your IDE should look similar to the screenshot below.
+![Initial library & variable configuration code]()
+
+**6.** Now we can configure the `setup()` function. We need to initiate the Serial connection (`Serial.begin(9600)`), ensure the analog reference is set to the default value of 3.3V (`analogReference(AR_Default)`) and set the ADC resolution to 12 bits (`analogReadResolution(12)`). A 12bit ADC will provide an output from 0 (0V) to 4093 (3.3V), depending on the voltage the ADC experiences.
 ```arduino
 void setup() {
-  Serial.begin(9600);          
-  PMIC.setInputCurrentLimit(2.0);
-```
+  Serial.begin(9600);       
 
-
-ensure the analog reference is set to the default value of 3.3V (`analogReference(AR_Default)`), set the ADC resolution to 12 bits (`analogReadResolution(12)`) and finally calculate the maximum output of the voltage divider (`max_Source_voltage = (3.3 * (R1 + R2))/R2`)
-
-```arduino
-void setup() {
-  Serial.begin(9600);          
   analogReference(AR_DEFAULT); 
-  analogReadResolution(12);    
+  analogReadResolution(12); 
+```
 
+**7.** Now we can establish the SAMD21-BQ24195 connection over I2C and enable the boost mode. By default, the PMIC provides an output close to 3.3V to reduce the power loss over the 3.3V linear regulator. By enabling boost mode, we can access 5V on VCC pin.
+```arduino
+  PMIC.begin();
+  PMIC.enableBoostMode();
+```
+
+**8.** Here, we will define the minimum output voltage of the PMIC as well as the maximum level to which the battery is charged. 
+```arduino
+  PMIC.setMinimumSystemVoltage(batteryEmptyVoltage);
+  PMIC.setChargeVoltage(batteryFullVoltage);
+```
+
+**9.** As a rule of thumb, we can now set the maximum charging current to half the battery capacity. With the configurations made for the battery, we can now enable the charging circuit
+```arduino
+  PMIC.setChargeCurrent(batteryCapacity/2);
+
+  PMIC.enableCharge();
+```
+
+**10.** We will add a final line to the `setup()` function that will calculate the voltage that when applied to the input of the voltage divider will yield 3.3V at PB09. This is the upper limit for the voltage sensing capabilities.
+```arduino
   max_Source_voltage = (3.3 * (R1 + R2))/R2;
 }
 ```
 
-**5.** With the variables and setup function clearly defined, we will now specify the loop function. These commands will continuously run and provide information about the battery status to the Serial Monitor in the PC. First, we read the value of PB09 (specified internall as `ADC_BATTERY`)
+**11.** Your `setup()` function should now look as follows.
+
+![Serial & BQ24196 Setup]()
+
+**12.** With the variables and setup function clearly defined, we will now specify the loop function. These commands will continuously run and provide information about the battery status to the Serial Monitor in the PC. First, we read the value of PB09 (specified internally as `ADC_BATTERY`). The valure represented by `rawADC` is a number between 0 to 4094, given that it has 12 bit resolution.
 
 ```arduino
 void loop()
@@ -155,23 +180,23 @@ void loop()
   rawADC = analogRead(ADC_BATTERY);
 ```
 
-**6.** The valure represented by `rawADC` is a number between 0 to 4095, given that it has 12 bit resolution. In order to conver that into a voltage reading (`voltADC`) we will divide `rawADC` by 4095 and then multiply by the analog reference voltage (3.3V). 
+**13.** In order to convert `rawADC` into a voltage reading (`voltADC`) we will divide `rawADC` by 4095 and then multiply by the analog reference voltage (3.3V). 
 
 ```arduino
 voltADC = rawADC * (3.3/4095.0);
 ```
 
-**7.** The `voltADC` variable gives us the voltage sensed directly on the PB09 pin. This voltage is passed through the voltage divider, so it is a fraction of the actually battery voltage. We can then calculate the equivilanet battery voltage as follows.
+**14.** The `voltADC` variable gives us the voltage sensed directly on the PB09 pin. This voltage is passed through the voltage divider, so it is a fraction of the actually battery voltage. We can then calculate the equivilanet battery voltage as follows.
 ```arduino
 voltBat = voltADC * (max_Source_voltage/3.3);
 ```
 
-**8.** We can approximate the battery voltage to be propotional to the capacity level. Since the `map()` function does not work with float variables, we manually map the values.
+**15.** We can approximate the battery voltage to be propotional to the capacity level. Since the `map()` function does not work with float variables, we manually map the values.
 ```arduino
 int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - batteryEmptyVoltage);
 ```
 
-**9.** We can now send the obtained values over Serial.
+**16.** We can now send the obtained values over Serial.
 ```arduino
   Serial.print("The ADC on PB09 reads a value of ");
   Serial.print(rawADC);
@@ -184,63 +209,85 @@ int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - b
   Serial.println("%.");
 ```
 
-**10.** Finally, we will add a half second delay at the end of the `loop()` function to allow variables to come slowly through the Serial Monitor.
+**17.** Finally, we will add a half second delay at the end of the `loop()` function to allow variables to come slowly through the Serial Monitor.
 ```arduino
   delay(500);
 }
 ```
 
-**11.** The complete code is as follows. You can copy and paste this directly into your IDE
+**18.** You section for the `loop()` function should look as follows.
+![Battery level calculation and Serial printing]()
+
+**11.** The complete code (with the addition of comments) is as follows. You can copy and paste this directly into your IDE
 ```arduino
 /*
-  Read battery voltage on MKR WIFI 1010 and log values to Arduino Cloud
+  Read battery voltage on MKR WIFI 1010 and log values to the serial monitor
+
+
+                            ┌─────── VBatt
+                            │
+                            /
+                            \  330k
+  ┌────────────┐             /
+  │   SAMD21   │             \
+  │            │             │
+  │       PB09 ├────┬────────┤
+  │            │    │        │
+  │            │    │ 100n   /
+  │            │  ──┴───     \  1M
+  │            │  ──┬───     /
+  │            │    |        \
+  │            │    │        |
+  │            │    │        │
+  └─────┬──────┘    |        |
+        │           |        |
+        ▼           ▼        ▼ 
+
+
 
   Author: Ali Jahangiri & Karl Soderby
 
-  Last Edit: 2nd August 2022
+  Last Edit: 9th August 2022
 */
 
+// Include the library for the BQ24195 IC
+#include <BQ24195.h>
+
 //define variables
-  float rawADC;
-  float voltADC;
-  float voltBat;
+float rawADC;           //unprocessed ADC value
+float voltADC;          //ADC converted into voltage
+float voltBat;          //calculated voltage on battery
 
-  //define the resistor values in the voltage divider
-  //                             ┌─────── VBatt
-  //                             │
-  //                             /
-  //                             \  330k
-  //  ┌────────────┐             /
-  //  │   SAMD21   │             \
-  //  │            │             │
-  //  │       PB09 ├────┬────────┤
-  //  │            │    │        │
-  //  │            │    │ 100n   /
-  //  │            │  ──┴───     \  1M
-  //  │            │  ──┬───     /
-  //  │            │    |        \
-  //  │            │    │        |
-  //  │            │    │        │
-  //  └─────┬──────┘    |        |
-  //        │           |        |
-  //        ▼           ▼        ▼ 
+//define the resistor values in the voltage divider
   
-  int R1 =  330000; // resistor between battery terminal and SAMD pin PB09
-  int R2 = 1000000; // resistor between SAMD pin PB09 and ground
+int R1 =  330000;       // resistor between battery terminal and SAMD pin PB09
+int R2 = 1000000;       // resistor between SAMD pin PB09 and ground
 
-  int max_Source_voltage;
+int max_Source_voltage; // upper source voltage for the battery
 
-  // define voltage at which battery is full/empty
-  float batteryFullVoltage = 4.2;
-  float batteryEmptyVoltage = 3.3;
+// define voltage at which battery is full/empty
+float batteryFullVoltage = 4.2;   //upper voltage limit for battery
+float batteryEmptyVoltage = 3.5;  //lower voltage limit for battery
+
+float batteryCapacity = 0.750;            //set battery capacity in Ah
 
 void setup() {
+   
+  Serial.begin(9600);               // start Serial port with a buad rate of 9600bps
   
-  // put your setup code here, to run once:
+  analogReference(AR_DEFAULT);      // the upper value of ADC is set to 3.3V
+  analogReadResolution(12);         // this will give us 4096 (2^12) levels on the ADC
+
+  //configure BQ24195 PMIC
+  PMIC.begin();                                               // start the PMIC I2C connection
+  PMIC.enableBoostMode();                                     // boost battery output to 5V
   
-  Serial.begin(9600);          // start series port with a buad rate of 9600bps
-  analogReference(AR_DEFAULT); // the upper value of ADC is set to 3.3V
-  analogReadResolution(12);    // this will give us 4096 (2^12) levels on the ADC
+  PMIC.setMinimumSystemVoltage(batteryEmptyVoltage);          // set the mininum battery output to 3.5V
+  PMIC.setChargeVoltage(batteryFullVoltage);                  // set battery voltage at full charge
+
+  PMIC.setChargeCurrent(batteryCapacity/2);                   // set battery current to C/2 in amps
+
+  PMIC.enableCharge();                                        // enable charging of battery
 
   // The formula for calculating the output of a voltage divider is
   // Vout = (Vsource x R2)/(R1 + R2)
@@ -252,11 +299,13 @@ void setup() {
 void loop()
 {
   
-  rawADC = analogRead(ADC_BATTERY); //the value obtained directly at the PB09 input pin
-  voltADC = rawADC * (3.3/4095.0);  //convert ADC value to the voltage read at the pin
-  voltBat = voltADC * (max_Source_voltage/3.3);                                                           //we cannot use map since it requires int inputs/outputs
+  rawADC = analogRead(ADC_BATTERY);                     //the value obtained directly at the PB09 input pin
+  voltADC = rawADC * (3.3/4095.0);                      //convert ADC value to the voltage read at the pin
+  voltBat = voltADC * (max_Source_voltage/3.3);         //we cannot use map since it requires int inputs/outputs
+  
   int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - batteryEmptyVoltage);    //custom float friendly map function
 
+  //report information over Serial
   Serial.print("The ADC on PB09 reads a value of ");
   Serial.print(rawADC);
   Serial.print(" which is equivialent to ");
@@ -272,7 +321,11 @@ void loop()
 
 ```
 
-**12.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the ArduinoMKR WIFIF 1010 is selected and that the port is correct. Upload the code to the board. You will see a message similar to the following.
+**12.** Connect the LiPo battery to your MKR WIFI 1010, without the USB cable connected.
+
+***The battery must be connected to the MKR WIFI 1010 before connecting via USB, otherwise it may not work.***
+
+**13.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the Arduino MKR WIFI 1010 is selected and that the port is correct. Upload the code to the board. You will see a message similar to the following.
 
 
 ## Measure battery voltage via the Arduino IoT Cloud
@@ -324,11 +377,9 @@ after i the usb port, the battery is disconnected as well? I have to reconnect b
 
 ## Further Ideas
 
-- An averaging function is used to increase the stability of the values obtained
-- Evaluate the performance of a sketch and compare how the voltage falls for various loads and frequencies
-- Use the BatterySense library to get a better approximation of the battery capacity
-- Use the Arduino Portenta series to have access to a onboard fuel guage.
-- Try calculating the discharge rating in the linear region
+- Try disableing the charging circuit with `code()` in order to read the voltage via serial without a WiFi connections
+- Save the values from the IoT cloud, and plot the change in voltage over time. What shape does the discharge function have?
+- Try experimenting with different battery capacities, and see how long it can power your application.
 
 ## References
 battery charge level is tied to the voltage. don't need a table, but have explanation. depending on a battery used. from 4.2 to 4.0 and from 3.5 to 3.3 very little energy is released.
