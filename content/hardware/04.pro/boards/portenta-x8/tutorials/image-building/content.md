@@ -182,7 +182,7 @@ In case you want to use your computer while it builds, (the build is going to ta
 Do so by opening `conf/local.conf` and lower the values of the following variables:
 
 - `BB_NUMBER_PARSE_THREADS = "4"`
-- `BB_NUMBER_THREADS = "4"`  
+- `BB_NUMBER_THREADS = "4"`
 
 And add:
 
