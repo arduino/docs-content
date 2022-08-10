@@ -15,6 +15,9 @@ hardware:
 ## Overview
 
 In this tutorial you will learn how to build an image for the Portenta X8 with the files provided from Foundries.io.
+Building your image locally is helpful to quickly debug certain aspects of the systems, like bootloader or kernel support.
+Please keep in mind that images built locally cannot register to a FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.
+For FoundriesFactory subscribers, we strongly suggest to make use of the Factory continuous integration system for creating your images.
 
 ***In this tutorial we are using Ubuntu LTS 22.04 inside the Windows Subsystem for Linux (WSL) through the Windows Terminal***
 
@@ -32,8 +35,8 @@ In this tutorial you will learn how to build an image for the Portenta X8 with t
 - Linux distribution [compatible with the Yocto Project](https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
 - Arduino Create account [Login](https://login.arduino.cc/login)
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
-- Foundries.io account (linked with the Pro Cloud subscription) [Login](https://app.foundries.io/login/)
-- FoundriesFactory® ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
+- Optional: Foundries.io account (linked with the Pro Cloud subscription) [Login](https://app.foundries.io/login/)
+- Optional: FoundriesFactory® ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
 
 ## Instructions
 
@@ -132,7 +135,7 @@ mkdir portenta-x8
 cd portenta-x8
 ```
 
-Get your repository link:
+Get your repository link. If you do not have a FoundriesFactory subscription, use the Public repository link, otherwise you can use your Factory repository link:
 
 - Public repository: [lmp-manifest](https://github.com/arduino/lmp-manifest) -> https://github.com/arduino/lmp-manifest.git
 - Your Factory repository: `https://source.foundries.io/factories/<yourFactory>/lmp-manifest` -> `https://source.foundries.io/factories/<yourFactory>/lmp-manifest.git`
@@ -150,7 +153,7 @@ You can now download the files you will need by running `repo sync`.
 ### Set Up The Environment
 
 You can set `DISTRO` to:
-- `lmp-base`: unsecure image without ostree and optee
+- `lmp-base`: unsecure image without ostree, developer friendly, not OTA compatible
 - `lmp`: secure image without xwayland
 - `lmp-xwayland`: secure image with xwayland support
 
