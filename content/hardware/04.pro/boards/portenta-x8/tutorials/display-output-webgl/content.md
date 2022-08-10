@@ -40,7 +40,7 @@ The Arduino Portenta X8's processor **NXP® i.MX 8M Mini Processor** can be used
 
 There are two ways to get the container, either through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers)
 
-**With Foundries:** 
+**With Foundries.io:** 
 
 If you use [Foundries.io](https://www.foundries.io) you can switch the current `target` of your device to `x-kiosk-imx8-webgl` by switching the app from a terminal on your computer:
 
@@ -176,7 +176,7 @@ To save the changes press the **ESC** key and type `:wq` this will write and qui
 
 ## Conclusion
 
-In this tutorial we went through how to connect the board and display something on a screen. Using a container from foundriesFactories or by downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
+In this tutorial we went through how to connect the board and display something on a screen. Using a container from FoundriesFactories or by downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
 
 ### Next Steps
 

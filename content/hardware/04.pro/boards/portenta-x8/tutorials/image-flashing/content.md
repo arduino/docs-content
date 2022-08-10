@@ -44,10 +44,9 @@ Required files following this structure:
 
 ```
 Root folder
-├── imx-boot
 ├── imx-boot-portenta-x8
-├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Unzipped)**
-├── mfgtool-files-portenta-x8.tar **(Unzipped)**
+├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
+├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
 ├── sit-portenta-x8.bin
 └── u-boot-portenta-x8.itb
 ```
@@ -58,7 +57,7 @@ To get those files:
 
 Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
 
-#### Through Foundries
+#### Through Foundries.io
 
 Open your FoundriesFactory®.
 
@@ -76,7 +75,7 @@ On the "Runs" section open those collapsed labels, and download the files listed
 
 ![Foundries.io target runs section](assets/foundries-factories-target-runs.png)
 
-After downloading them, make sure you put them in a folder following the structure shown.
+After downloading them, make sure you put them in a folder following the structure shown and extract the compressed files.
 
 ### Set the Portenta X8 to Flashing Mode
 
@@ -102,7 +101,7 @@ Switch back the DIP switches to OFF position.
 
 Unplug and then plug in the Portenta X8 to your computer.
 
-***After flashing you will need to wait 10 secs, until the Portenta X8 blue LED starts blinking, this means the boot was successful***
+***After booting you will need to wait 10 secs, until the Portenta X8 blue LED starts blinking, this means the boot was successful***
 
 ## Troubleshooting
 
