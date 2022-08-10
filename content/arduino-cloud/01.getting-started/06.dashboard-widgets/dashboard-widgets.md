@@ -8,13 +8,13 @@ difficulty: easy
 
 ## Overview
 
-Dashboards in the [Arduino Cloud]() are used to easily monitor & control your Arduino board from a web interface. In this article, we will take a look at what a dashboard is, what widgets are, and learn how they interface with an Arduino board.
+Dashboards in the [Arduino Cloud](https://cloud.arduino.cc/home/) are used to easily monitor & control your Arduino board from a web interface. In this article, we will take a look at what a dashboard is, what widgets are, and learn how they interface with an Arduino board.
 
-***If you are new to the Arduino Cloud, make sure you read the [Getting Started with the Arduino Cloud]() article.***
+***If you are new to the Arduino Cloud, make sure you read the [Getting Started with the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
 
 ### What is a Dashboard?
 
-![The Arduino IoT Cloud widgets](assets/cloud-widgets.png)
+![Widgets in a dashboard.](assets/cloud-widgets.png)
 
 A dashboard consist of one or several **widgets** that are linked with your cloud variables. You can for example, set up a switch to turn on/off a light, a gauge that displays temperature, or a chart that shows data over time. 
 
