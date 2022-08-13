@@ -54,7 +54,7 @@ Congratulations, you have now uploaded a sketch to your Arduino board!
 
 ### Please Read (Only Linux Users)
 
-It might happen that when you upload a sketch - after you have selected your board and the serial port -, you get an error such as **"... Permission denied"**. If you get this error, you need to set serial port permission.
+It might happen that when you upload a sketch - after you have selected your board and the serial port - you get an error such as **"... Permission denied"**. If you get this error, you need to set serial port permission.
 
 To do this, open your Terminal and type:
 
