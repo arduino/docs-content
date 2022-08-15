@@ -320,15 +320,17 @@ InfluxDB is now ready to receive data; let's send it using an MQTT client and No
 Now, search for the `influxdb out` node and drop it in the workspace; we will use this node to send information from the MQTT client to the `test` bucket on InfluxDB. To change the node's properties, double-click on it and define the following properties:
 
 - **Name**: `InfluxDB Bucket`
-- **Server**:
-  - **Name**: `Portenta X8`
-  - **Version**: `2.0`
-  - **URL**: `http://{your-portenta-ip}:8086`
-  - **Token**: the one provided by InfluxDB
 - **Organization**: Your organization name is defined in InfluxDB
 - **Bucket**: `test`
 - **Measurement**: `counter` (the name of the measurement you want to record)
 - **Time Precision**: Milliseconds (ms)
+
+In the **Server** option, define the following properties:
+
+- **Name**: `Portenta X8`
+- **Version**: `2.0`
+- **URL**: `http://{your-portenta-ip}:8086`
+- **Token**: the one provided by InfluxDB
 
 Now, connect the nodes as shown in the image below:
 
