@@ -51,7 +51,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 
 ## IoT Architecture 101
 
-IoT applications and devices are everywhere nowadays, even where we don't think there is a device or application connected to the Internet. Rather than a single technology, **IoT is a concept** that refers to the connection of everyday devices, just like your watch, to the Internet and how that Internet connection creates more and different ways to interact with your device and your environment. Interactions between humans and devices or applications create **data** (lots) that must be communicated and processed. 
+IoT applications and devices are everywhere nowadays, even where we don't think a device or application is connected to the Internet. Rather than a single technology, **IoT is a concept** that refers to the connection of everyday devices, just like your watch, to the Internet and how that Internet connection creates more and different ways to interact with your device and your environment. Interactions between humans and devices or applications create **data** (lots) that must be communicated and processed. 
 
 How can we plan, build and deploy IoT solutions? To answer that question, we must think about **IoT architecture**. Due to the different IoT devices and applications that exist and can exist, there is not just one unique architecture for IoT devices and applications. But, we can talk about a base architecture that can be considered as a starting point for every IoT project. This base architecture consists of **three essential layers**: **perception** (or devices), **network**, and **application**. Let's talk more about these layers:
 
@@ -336,7 +336,7 @@ Now, connect the nodes as shown in the image below:
 
 ![Node-RED flow used for testing the Portenta X8 local InfluxDB instance.](assets/x8-data-logging-img_14.png)
 
-Let's use the MQTT client described before to test the MQTT broker integration with Node-RED and InfluxDB. Let's first deploy the flow in Node-RED; in the MQTT client, let's subscribe to the `test` topic and then publish any value. Now, go to Data Explorer on the InfluxDB desktop; you should now see data from the MQTT client, as shown in the image below:
+Let's use the MQTT client described before to test the MQTT broker integration with Node-RED and InfluxDB. Let's first deploy the flow in Node-RED; in the MQTT client, let's subscribe to the `test` topic and publish any value. Now, go to Data Explorer on the InfluxDB desktop; you should now see data from the MQTT client, as shown in the image below:
 
 ![Visualiazing data in a bucket of the Portenta X8 local InfluxDB instance.](assets/x8-data-logging-img_15.png)
 
@@ -344,13 +344,29 @@ Success! We can now configure now Grafana.
 
 ## Installing Grafana
 
+Grafana is an open-source, multi-platform data analytics and interactive data visualization solution. Grafana can connect with basically every possible data source, such as InfluxDB.
+
+The simplest form to run Grafana with Docker is by using the following command:
+
+```
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+```
+
+This command will run a Grafana container **locally** in our Portenta X8 board. Let's dissect the command:
+
+- `-d`: no terminal session is attached to the container
+- `--name`: the container name 
+- `-p 3000:3000`: Grafana local port `3000` connects to the exposed internal port `3000`
+
+The container should now be running in the background; let's test the local instance of Grafana!
+
 ### Testing Grafana
 
 ## Sending Data Using the MKR WiFi 1010 Board
 
 Now, it is time to test our entire data logging application. We will use an MKR WiFi 1010 board; this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
 
-First, let's ensure we have the required drivers for the MKR WiFi 1010 installed. This can be done by navigating to **Tools > Board > Board Manager...**, here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest available version. We need to install also the libraries that we are going to use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
+First, let's ensure we have the required drivers for the MKR WiFi 1010 installed. This can be done by navigating to **Tools > Board > Board Manager...**, here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest available version. We also need to install the libraries we will use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
 
 Now, let's open a new sketch and create a new header file called `arduino_secrets.h` in a separate tab; to create a separate tab in the Arduino IDE, click the arrow symbol underneath the Serial Monitor symbol, then click on the "New tab" option. In this header file, we are going to store our Wi-Fi credentials:
 
@@ -451,12 +467,10 @@ The sketch shown above connects the MKR WiFi 1010 to the local MQTT broker of th
 
 If everything is ok, you should see the following in the Serial monitor of the Arduino IDE:
 
-
 Now let's check out out Grafana dashboard, we should see data from the MKR WiFi 1010 board:
-
 
 ## Conclusion
 
 
-
 ### Next Steps
+
