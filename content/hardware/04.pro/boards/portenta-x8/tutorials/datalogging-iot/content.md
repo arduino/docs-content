@@ -471,6 +471,8 @@ Now let's check out out Grafana dashboard, we should see data from the MKR WiFi 
 
 ## Conclusion
 
+You will now be able to install, configure and run four standard building blocks, composed of MQTT broker based on Mosquitto, Node-RED, InfluxDB, and Grafana. All this will run locally in the Portenta X8 and have the capability to process data sent from an Arduino MKR WiFi 1010 board for a complete data logging application development. With this, you can further scale up your IoT development within a single Portenta X8 of the size of palm of your hand.
 
 ### Next Steps
 
+The next step will be to deploy and log the data at fields of interest having the flexibility of IoT-Quartet. Or you could also proceed with creating a data logger cluster to make such as a scalable IoT application. 
