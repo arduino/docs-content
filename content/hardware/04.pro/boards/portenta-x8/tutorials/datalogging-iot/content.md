@@ -22,20 +22,20 @@ hardware:
 
 This tutorial will set up a typical Internet of Things (IoT) application: an MQTT data logger. For this application, we are going to use what we call in the Arduino team the "IoT-Quartet," four common building blocks that are popular and regularly used in these types of applications:
 
-- Mosquitto (MQTT broker) 
-- Node-RED
-- InfluxDB
-- Grafana
+- [Mosquitto](https://mosquitto.org/) (MQTT broker) 
+- [Node-RED](https://nodered.org/)
+- [InfluxDB](https://www.influxdata.com/)
+- [Grafana](https://grafana.com/)
 
 These four blocks will be running locally on the [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8) board. We will use data from an [Arduino® MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) board to test the data logging application.
 
 ## Goals
 
 - Install, configure and run Mosquitto (MQTT broker) locally in the X8
-- Install, configure and run Node-RED locally in the X8
-- Install, configure and run InfluxDB locally in the X8
-- Install, configure and run Grafana locally in the X8
-- Send data from an Arduino® MKR WiFi 1010 board to the data logging application running locally in the X8
+- Install, configure and run Node-RED locally in the Portenta X8
+- Install, configure and run InfluxDB locally in the Portenta X8
+- Install, configure and run Grafana locally in the Portenta X8
+- Send data from an Arduino® MKR WiFi 1010 board to the data logging application running locally in the Portenta X8
 
 ## Required Hardware and Software
 
@@ -286,7 +286,7 @@ docker run --detach --name influxdb -p 8086:8086 influxdb:2.2.0
 This command will run an InfluxDB container **locally** in our Portenta X8 board. Let's dissect the command:
 
 - `--detach`: no terminal session is attached to the container
-- `-- name`: the container name 
+- `--name`: the container name 
 - `-p 1880:1880`: InfluxDB local port `8086` connects to the exposed internal port `8086`
 
 The container should now be running in the background; let's test the local instance of InfluxDB!
