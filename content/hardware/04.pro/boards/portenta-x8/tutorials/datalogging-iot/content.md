@@ -31,7 +31,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 
 ## Goals
 
-- Install, configure and run Mosquitto (MQTT broker) locally in the X8
+- Install, configure and run Mosquitto (MQTT broker) locally in the Portenta X8
 - Install, configure and run Node-RED locally in the Portenta X8
 - Install, configure and run InfluxDB locally in the Portenta X8
 - Install, configure and run Grafana locally in the Portenta X8
