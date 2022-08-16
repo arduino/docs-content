@@ -1,6 +1,6 @@
 ---
 identifier: ASX00026
-title: Arduino® Portenta Vision Shield - LoRa®
+title: Arduino® Portenta Vision Shield LoRa®
 type: pro
 ---
 
@@ -78,7 +78,7 @@ The Vision Shield is developed as an add-on shield that requires the Portenta H7
 | **Symbol** | **Description**       | **Min** | **Typ** | **Max** | **Unit** |
 | ---------- | --------------------- | ------- | ------- | ------- | -------- |
 | TST        | Storage Temperature   | -30     |         | 85      | °C       |
-| TOP        | Operating Temperature | -20     |         | 85      | °C       |
+| TOP        | Operating Temperature | -40     |         | 85      | °C       |
 
 ## Functional Overview
 
@@ -259,26 +259,18 @@ FCC RF Radiation Exposure Statement:
   <tr>
    <td>Antenna gain:
    </td>
-   <td>2.1 dBi
+   <td>-1 dBi
    </td>
   </tr>
 </table>
-
-Host product manufacturers that they need to provide a physical or e-label stating, “Contains FCC ID: 2AN9S-ASX00026” with their finished product.
-Only those antennas with same type and lesser gain filed under this FCC ID can be used with this device.
-The host product manufacturer is responsible for compliance to any other FCC rules that apply to the host not covered by the modular transmitter grant of certification. The final host product still requires Part 15 Subpart B compliance testing with the modular transmitter installed.
-The final host integrator must ensure there is no instruction provided in the user manual or customer documentation indicating how to install or remove the transmitter module except such device has implemented two-ways authentication between module and the host system.
-The final host manual shall include the following regulatory statement: This equipment has been tested and found to comply with the limits. This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
-This module has been tested and found to comply with part 15.247 requirements for Modular Approval. This module is intended for OEM integrator. The OEM integrator is responsible for the compliance to all the rules that apply to the product into which this certified RF module is integrated. Additional testing and certification may be necessary when multiple modules are used.
-
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
-| Frequency bands | Typical Output Power |
-| --------------- | -------------------- |
-| TBD             |  TBD                 |
+| Frequency bands | Maximum Output Power (ERP) |
+| --------------- | -------------------------- |
+| 863-870MHz      |  0.73dBm                   |
 
 
 ## Company Information
