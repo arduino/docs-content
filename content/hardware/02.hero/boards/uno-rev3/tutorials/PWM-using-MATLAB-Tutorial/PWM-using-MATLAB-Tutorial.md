@@ -111,7 +111,7 @@ while(1)
 end
 ```
 
-The amount assigned to `Volts` should be changing as you turn the potentiometer.
+The amount assigned to `Volts` should be changing as you rotate the potentiometer's knob.
 
 ![Voltage display](assets/Volts.PNG)
 
