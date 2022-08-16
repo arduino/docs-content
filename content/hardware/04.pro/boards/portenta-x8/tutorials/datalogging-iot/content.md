@@ -336,7 +336,7 @@ Now, connect the nodes as shown in the image below:
 
 ![Node-RED flow used for testing the Portenta X8 local InfluxDB instance.](assets/x8-data-logging-img_14.png)
 
-Let's use the MQTT client described before to test the MQTT broker integration with Node-RED and InfluxDB. Let's first deploy the flow in Node-RED; in the MQTT client, let's subscribe to the `test` topic and publish any value. Now, go to Data Explorer on the InfluxDB desktop; you should now see data from the MQTT client, as shown in the image below:
+Let's use the MQTT client described before to test the MQTT broker integration with Node-RED and InfluxDB. Remember to first deploy the flow in Node-RED and to subscribe to the `test` topic and publish any value in the MQTT client. Now, go to Data Explorer on the InfluxDB desktop; you should now see data from the MQTT client, as shown in the image below:
 
 ![Visualiazing data in a bucket of the Portenta X8 local InfluxDB instance.](assets/x8-data-logging-img_15.png)
 
@@ -364,15 +364,53 @@ The container should now be running in the background; let's test the local inst
 
 Before we can visualize data in Grafana, we must add a data source; we will add the InfluxDB bucket we created before as a data source. Select the cog icon on the side menu and then click on "Data Sources":
 
+![Adding data sources to Grafana via its GUI.](assets/x8-data-logging-img_16.png)
 
+On the "Data Sources" page, select InfluxDB; this will take you to a configuration page:
 
-In the "Data Sources" page, select InfluxDB:
+![Adding data sources to Grafana via its GUI.](assets/x8-data-logging-img_17.png)
 
+In the configuration page, enter the following information related to the data bucket we created before on InfluxDB:
 
+- **Name**: `Test Bucket`
+- **Query Language**: Flux
+- **URL**: `http://{your-portenta-ip}:8086`
+- **User**: Your defined username in InfluxDB
+- **Password**: Your defined username password in InfluxDB
+- **Organization**: Your defined organization name in InfluxDB
+- **Token**: the one provided by InfluxDB
+
+Leave the rest of the options as default. Click on the "Save & Test" button; we should see two green messages in the Grafana GUI telling us that the data source was configured correctly, as shown in the image below:
+
+![Setting up data sources in Grafana via its GUI.](assets/x8-data-logging-img_18.png)
+
+Now, let's go to the InfluxDB desktop. Go to "Data" and select the test bucket we created before; in the bucket data explorer, in the query editor, select the `test` bucket, then in `_measurement` select counter, in `_field` select value, and `WINDOW PERIOD` select last as shown in the image below:
+
+![Setting up a query in the data explorer of the InfluxDB desktop.](assets/x8-data-logging-img_19.png)
+
+Now, click on "Script Editor" and copy the generated script by InfluxDB; we are going to use this script in Grafana to retrieve information from the `test` bucket, as shown in the image below:
+
+![Setting up a query in the data explorer of the InfluxDB desktop.](assets/x8-data-logging-img_20.png)
+
+Now, in the Grafana GUI, create a new dashboard and add a new panel; in the configuration page, select as "Data source" the bucket we configured before, `Test Bucket`:
+
+![Setting up a dashboard in Grafana via its GUI.](assets/x8-data-logging-img_21.png)
+
+In the "Query inspector," paste the script we generated before with InfluxDB. You should now see data from the tests made earlier with the MQTT client: 
+
+![Setting up data visualization in a Grafana dashboard via its GUI.](assets/x8-data-logging-img_22.png)
+
+Let's change how data is visualized. Select "Visualizations" and then search for "Gauge" and select it. Now we should visualize data as a gauge in Grafana:
+
+![Visualizing data with a gauge in a Grafana dashboard.](assets/x8-data-logging-img_23.png)
+
+We can change the panel options, such as their title and description. Click on apply; we can now use the MQTT client described before to test the MQTT broker integration with Node-RED, InfluxDB, and Grafana. Remember first to deploy the flow in Node-RED, subscribe to the test topic, and publish any value in the MQTT client. Also, remember to change the dashboard time range and its refresh rate. 
+
+![Configured dashboard in Grafana.](assets/x8-data-logging-img_24.png)
 
 ## Sending Data Using the MKR WiFi 1010 Board
 
-Now, it is time to test our entire data logging application. We will use an MKR WiFi 1010 board; this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
+Now, it is time to test our entire data logging application. We will use an [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010); this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
 
 First, let's ensure we have the required drivers for the MKR WiFi 1010 installed. This can be done by navigating to **Tools > Board > Board Manager...**, here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest available version. We also need to install the libraries we will use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
 
@@ -473,9 +511,11 @@ The sketch shown above connects the MKR WiFi 1010 to the local MQTT broker of th
 
 ***Please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mqtt-device-to-device#programming-the-publisher) for more in-depth information about MQTT and the MKR WiFi 1010 board.***
 
-If everything is ok, we should see the following in the Serial monitor of the Arduino IDE:
+If everything is ok, we should see the following in the Serial monitor of the Arduino IDE :
 
-Now let's check out out Grafana dashboard; we should see data from the MKR WiFi 1010 board:
+![Debug messages in the Arduino IDE 2.0 Serial Monitor.](assets/x8-data-logging-img_25.png)
+
+Check out now the Grafana dashboard we configured earlier; we should see data coming from the MKR WiFi 1010 board. 
 
 ## Conclusion
 
@@ -484,6 +524,6 @@ In this tutorial, we went through the installation, configuration, and testing o
 ### Next Steps
 
 - What about controlling your house or office and making it "smart"?
-- Do you have a sensor network that needs to be connected to the Internet to visualize information from the sensors?
+- Do you have a sensor network that needs to be connected to the Internet to visualize sensor information?
 
 You can use a [Portenta X8](https://store.arduino.cc/products/portenta-x8) board and the IoT-Quartet tutorial for developing this and more projects.
