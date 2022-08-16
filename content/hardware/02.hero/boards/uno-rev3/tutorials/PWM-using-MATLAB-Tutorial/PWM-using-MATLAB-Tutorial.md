@@ -29,7 +29,7 @@ The goals of this project are:
 
 - [UNO R3](https://store.arduino.cc/products/arduino-uno-rev3)
 - [USB 2.0 Cable Type A/B](https://store.arduino.cc/products/usb-2-0-cable-type-a-b)
-- Any potentiometer connectable to a breadboard
+- Potentiometer trough-hole
 - Valid MATLAB® licence
 - [MATLAB® Support Package for Arduino® Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware)
 
