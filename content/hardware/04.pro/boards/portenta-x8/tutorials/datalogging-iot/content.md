@@ -362,6 +362,14 @@ The container should now be running in the background; let's test the local inst
 
 ### Testing Grafana
 
+Before we can visualize data in Grafana, we must add a data source; we will add the InfluxDB bucket we created before as a data source. Select the cog icon on the side menu and then click on "Data Sources":
+
+
+
+In the "Data Sources" page, select InfluxDB:
+
+
+
 ## Sending Data Using the MKR WiFi 1010 Board
 
 Now, it is time to test our entire data logging application. We will use an MKR WiFi 1010 board; this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
@@ -465,14 +473,17 @@ The sketch shown above connects the MKR WiFi 1010 to the local MQTT broker of th
 
 ***Please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mqtt-device-to-device#programming-the-publisher) for more in-depth information about MQTT and the MKR WiFi 1010 board.***
 
-If everything is ok, you should see the following in the Serial monitor of the Arduino IDE:
+If everything is ok, we should see the following in the Serial monitor of the Arduino IDE:
 
-Now let's check out out Grafana dashboard, we should see data from the MKR WiFi 1010 board:
+Now let's check out out Grafana dashboard; we should see data from the MKR WiFi 1010 board:
 
 ## Conclusion
 
-You will now be able to install, configure and run four standard building blocks, composed of MQTT broker based on Mosquitto, Node-RED, InfluxDB, and Grafana. All this will run locally in the Portenta X8 and have the capability to process data sent from an Arduino MKR WiFi 1010 board for a complete data logging application development. With this, you can further scale up your IoT development within a single Portenta X8 of the size of palm of your hand.
+In this tutorial, we went through the installation, configuration, and testing of four standard building blocks of Internet-connected data-logging devices and applications. Such blocks are an MQTT broker (Mosquitto), Node-RED, InfluxDB, and Grafana. All this runs locally in the Portenta X8 board and can process data sent from an MKR WiFi 1010 board for a complete data-logging application. With this, we can further scale up your IoT development within a single Portenta X8 of the size of the palm of your hand.
 
 ### Next Steps
 
-The next step will be to deploy and log the data at fields of interest having the flexibility of IoT-Quartet. Or you could also proceed with creating a data logger cluster to make such as a scalable IoT application. 
+- What about controlling your house or office and making it "smart"?
+- Do you have a sensor network that needs to be connected to the Internet to visualize information from the sensors?
+
+You can use a [Portenta X8](https://store.arduino.cc/products/portenta-x8) board and the IoT-Quartet tutorial for developing this and more projects.
