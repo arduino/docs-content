@@ -65,7 +65,7 @@ MATLAB® is an educational and industrial programming platform used to analyse d
 ![Programming successful](assets/SetupSuccess1080.PNG)
 
 
-**6.** The UNO R3 is now configured to interact with MATLAB®. Now to create the object in MATLAB®, we run the command `a=arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
+**6.** The UNO R3 is now configured to interact with MATLAB®. Now to create the object in MATLAB®, we run the command `a = arduino()`. The properties of the object, including the COM port, are displayed as shown in the example below.
 
 ![Arduino properties](assets/arduinoproperties1080.png)
 
