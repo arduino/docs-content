@@ -34,7 +34,6 @@ The goals of this project are:
 - [MATLAB® Support Package for Arduino® Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware)
 
 
-***The UNO R3, potentiometer, USB 2.0 Cable Type A/B and jumper wires are included as part of the [Arduino Starter Kit](https://store.arduino.cc/collections/kits/products/arduino-starter-kit-multi-language)***
 
 ***A valid MATLAB® licence is needed. Your workplace or education institution may have a subscription. Alternatively, a one-year trial subscription to MATLAB® is included as part of the [Arduino Engineering Kit R2](https://store.arduino.cc/products/arduino-engineering-kit-rev2).***
 
