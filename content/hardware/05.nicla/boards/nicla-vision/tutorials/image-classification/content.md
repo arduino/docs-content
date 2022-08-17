@@ -50,7 +50,7 @@ To find the right configuration for your application often requires trial and er
 
 The first step is to create a representative dataset of the objects that the ML model is supposed to identify. The key is to have as much diversity in the models as possible. If we show it for example only one specific apple that has a certain size, shape and peel, then it won't be very good at recognizing other apples that look different. This is referred to as a bias and should be avoided as much as possible. In addition you need to teach the model what an apple is not. For that purpose you feed it random image data of things that are not an apple. You could name that class of image data "unknown". If you don't have such a class and the model has only ever seen an apple, it won't know what to do if there is no apple in the image.
 
-Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Nicla Vision board. Click on the connect button in the OpenMV IDE. If you haven't set up your board for OpenMV please consult the [getting started tutorial](.\tutorials\getting-started).
+Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Nicla Vision board. Click on the connect button in the OpenMV IDE. If you haven't set up your board for OpenMV please consult the [getting started tutorial](.\tutorials\nicla-vision\getting-started).
 
 Create a new dataset by using the menu command **Tools > Dataset Editor > New Dataset** and name it `Dataset-Fruits`.
 
@@ -147,7 +147,7 @@ Deploying the ML model to your board requires a few steps. The Edge Impulse Stud
 
 ![The Edge Impulse Studio has a built-in export function for OpenMV](assets/deployment.png)
 
-Since the Nicla Vision doesn't have any on-board SRAM we need to build the machine learning model into the firmware and load it from the flash. To do so, go to https://github.com/openmv/openmv and fork the repository. In your fork click on "Actions" and enable the workflows by clicking on the green button.
+Since the Nicla Vision doesn't have any on-board SRAM we need to build the machine learning model into the firmware and load it from the flash. To do so, go to https://github.com/openmv/openmv and [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository. In your fork click on "Actions" and enable the workflows by clicking on the green button.
 
 Rename the machine learning model and the label file to fruit_detection.tflite and fruit_detection.txt respectively. In your fork, replace the built-in machine learning model under `src/lib/libtf/models` with the model you downloaded from Edge Impulse Studio. Commit the files and push the commit to the repository. It will build a new firmware automatically.
 
@@ -157,7 +157,7 @@ You can inspect the build process under "Actions".
 
 ![In the actions section you can monitor the build process once it starts.](assets/github_actions.png)
 
-Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select the firmware that you just created and flash it to the board.
+Once the firmware has been built you can download it from the releases section that you can find in the "Code" tab. Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select `firmware.bin` in the folder that you just created and flash it to the board.
 
 ![In the release section you can find the generated firmware ready to download and install.](assets/github_releases.png)
 
@@ -228,3 +228,9 @@ while(True):
 ## Conclusion
 
 You have learned about classification as a machine learning concept which categorizes a set of data into classes. You have also learned how supervised learning works and what quantization of a model means. Furthermore you have learned to train a custom TFLite machine learning model and deploy it to your board.
+
+## Troubleshooting
+
+### GitHub Workflow
+
+If you’re encountering difficulties while using the GitHub workflow in your forked repository, make sure that you chose `MobileNetV2 96x96 0.1` as model type, otherwise the model will likely be too big. Also make sure you are changing the files in your own, forked repository and not in the original OpenMV repository.
