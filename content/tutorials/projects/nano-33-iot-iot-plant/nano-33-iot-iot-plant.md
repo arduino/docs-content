@@ -25,7 +25,7 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 ## Hardware & Software Needed
 
 - [Arduino Watering Plant Kit](URL) 
-- [3D-printed enclosure (optional)](DOWNLOAD-LINK)
+- [3D-printed enclosure (optional)](assets/PlantKitCase.zip)
 - USB - wall adapter
 
 OR
@@ -40,7 +40,7 @@ OR
 - Open ended USB Cable.
 - Soil moisture sensor.
 - Grove LED button
-- [3D-printed enclosure](DOWNLOAD-LINK) (optional)
+- [3D-printed enclosure](assets/PlantKitCase.zip) (optional)
 - Short Grove cable (20cm)
 - Long Grove cable (50cm)
 - Long 3-pronged Grove cable (50cm)
