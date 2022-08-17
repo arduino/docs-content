@@ -47,7 +47,7 @@ Laboratory equipment, Computer vision
          <td style="vertical-align: middle;text-align: center;">Security  </td>
          <td style="vertical-align: middle;text-align: center;">
             <p>ATECC608 </p>
-            <p>NXP SE0502</p>
+            <p>NXP SE050C2</p>
          </td>
          <td style="text-align: center;">ATECC608</td>
          <td style="text-align: center;">ATECC608</td>
@@ -396,10 +396,38 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td style="vertical-align: top;">SE050 Secure element</td>
+         <td rowspan="8" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Ready-to-use IoT secure element solution</td>
          <td></td>
          <td><p style="text-align: right">H7 full</p></td>
+      </tr>
+      <tr>
+         <td>Securely storing and provisioning credentials and performing cryptographic operations</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>based on NXP's Integral Security Architecture 3.0™</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>CC EAL 6+ certified HW</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>FIPS 140-2 certified platform with Security Level 3</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Support for RSA and ECC asymmetric cryptography algorithms</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Support for SCP03 protocol</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>up to 100 Mio write cycles / 25 years</td>
+         <td></td>
       </tr>
       <tr>
          <td rowspan="5" style="vertical-align: top;" >MKR compatible header</td>
