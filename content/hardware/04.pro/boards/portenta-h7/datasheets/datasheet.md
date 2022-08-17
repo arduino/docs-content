@@ -47,7 +47,7 @@ Laboratory equipment, Computer vision
          <td style="vertical-align: middle;text-align: center;">Security  </td>
          <td style="vertical-align: middle;text-align: center;">
             <p>ATECC608 </p>
-            <p>NXP SE0502</p>
+            <p>NXP SE050C2</p>
          </td>
          <td style="text-align: center;">ATECC608</td>
          <td style="text-align: center;">ATECC608</td>
