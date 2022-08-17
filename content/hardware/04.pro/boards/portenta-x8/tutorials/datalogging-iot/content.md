@@ -523,7 +523,7 @@ In this tutorial, we went through the installation, configuration, and testing o
 
 ### Next Steps
 
-- What about controlling your house or office and making it "smart"?
+- What about controlling your house or office and making it domotic?
 - Do you have a sensor network that needs to be connected to the Internet to visualize sensor information?
 
 You can use a [Portenta X8](https://store.arduino.cc/products/portenta-x8) board and the IoT-Quartet tutorial for developing this and more projects.
