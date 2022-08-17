@@ -1,6 +1,6 @@
 ---
 title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat Sheet'
-description: 'Learn how to set up the Arduino® Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of the functionality. Obtain information regarding pins and how to use the different communication technologies.'
+description: 'Learn how to set up the Arduino® Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of its functionality. Obtain information regarding pins and how to use the different communication technologies.'
 tags:
   - Installation
   - Cat. M1
@@ -22,7 +22,7 @@ libraries:
 
 ![The Arduino® Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
 
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide with your choice of the GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
+The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide by choosing among GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
 
 This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino® Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino® Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
 
@@ -48,12 +48,12 @@ The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino 
 
 ### Web Editor
 
-The board can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
+The board can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plug-in, which is explained in the guide below:
 
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 ## Pins
-As a Portenta family Shield it uses the High density pins to be available for the Portenta board which is being connected.
+As a Portenta family shield, it uses High Density Connectors to interface with the Portenta board which is connected to.
 
 ![The pinout of the Portenta Cat. M1/NB IoT GNSS Shield.](assets/ASX00027-pinout.png)
 
@@ -61,29 +61,29 @@ As a Portenta family Shield it uses the High density pins to be available for th
 
 ### Requirements
 
-The GPS Feature requires:
+The GSM feature requires:
 
-* An antenna (e.g [Dipole antenna, at the Arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna) at the **RF OUT** antenna connector on the top side of the shield.
-* SIM Card capable of running with the CatM1 specifications  (check with your provider if your Card has that feature)
+* An antenna (e.g [Dipole antenna, at the Arduino store](https://store.arduino.cc/products/dipole-pentaband-waterproof-antenna) connected to the **RF OUT** antenna connector on the top side of the shield
+* SIM card capable of running according to Cat. M1 specifications (check with your provider if your SIM card has this feature)
 
-To check if our setup it's working we can open an example sketch from the GSM library inside the Mbed Portenta Core. Under **Examples > GSM > GSMClient** we open a sketch that connects to the SIM card provider, then connects to a webpage and downloads the content of it to display it inside the Serial Monitor.
+To check if your setup is properly working, you can open an example sketch from the GSM library inside the Mbed Portenta Core. Under **Examples > GSM > GSMClient**, open a sketch that allows you to connect to the SIM card provider, then connect to a webpage, download its content and display it inside the Serial Monitor.
 
 Make sure you go to the `arduino_secrets.h` tab and:
 
-* Enter the PIN of your SIM card and store it at `SECRET_PIN`.
-* Check the mobile APN of your SIM card provider, e.g "online.provider.com" and save it inside the `SECRET_APN` You can find it by searching Google for APN + provider name.
+* Enter the PIN of your SIM card and store it in the variable `SECRET_PIN`.
+* Check the mobile APN of your SIM card provider, e.g "online.provider.com", and save it inside the `SECRET_APN`. You can find this information by searching online for APN + provider name.
 
 APN stands for 'Access Point Name'. An APN is a gateway between a cellular network and the Internet.
 
-After finishing this setup compile and upload the program. If everything went fine you should see the HTML content of the web page printed in the serial monitor.
+After finishing this setup, compile and upload the program. If everything went fine, you should see the HTML content of the webpage printed in the Serial Monitor.
 
-***Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and make sure they have CAT M1 enabled on your SIM card.***
+***Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and verify whether Cat. M1 is enabled on your SIM card.***
 
 ### API
 
-To get familiar with the commands, you can have a look at the [GSM library](https://www.arduino.cc/en/Reference/GSM) which uses the same API.
+To get familiar with the commands, you can take a look at the [GSM library](https://www.arduino.cc/en/Reference/GSM) which uses the same API.
 
-This library contains some commands that are quite different, that's because it is using mbed APIs. In this case it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about their API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
+This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
 
 
@@ -94,7 +94,7 @@ This library contains some commands that are quite different, that's because it 
 | `GSM.getTime()`|Returns the time, you can set a new one with setTime()|
 | `GSM.getLocalTime()`| Returns the local time|
 | `GSM.setTime()`| Set the time, it will be saved and it can be read with getTime() |
-| `GSM.debug()`| After this command, the Serial monitor will output more detailed info about the GSM class commands, connections, etc... |
+| `GSM.debug()`| After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
 | `GSMClient.connect(server,port)` | Connect to a remote server |
 | `GSMClient.available()` | Check if the server that is connected to has some bytes ready to be read |
 | `GSMClient.read()` | Returns data from the server |
@@ -103,9 +103,9 @@ This library contains some commands that are quite different, that's because it 
 #### Connect to Your Provider
 
 You need to enter the Pin code and the APN link of your provider.
-The user name and password depend on your provider. They are required to authenticate with the APN gateway. The values can usually be found by searching Google for APN credentials + provider name. Sometimes they can be left blank.
+The user name and password depend on your provider; they are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials + provider name. Sometimes they can be left blank.
 
-This sketch will initialize the SIM card and connect to your provider's network
+This sketch will initialize the SIM card and connect to your provider network
 
 ```cpp
 #include <GSM.h>
@@ -128,7 +128,7 @@ void setup() {
 
 #### Send a HTTP GET Request and Receive Data
 
-The following sketch will connect to your provider and use a HTTP GET request to get the data from the server you connect to. In this case it connects to "example.com" and prints out the content through the Serial monitor.
+The following sketch will connect to your provider and use a HTTP GET request to get data from the server you are connected to. In this case, it connects to "example.com" and prints out the content through the Serial Monitor.
 
 ```cpp
 #include <GSM.h>
@@ -194,19 +194,19 @@ void loop() {
 
 ### Requirements
 
-The GPS Feature requires:
+The GPS feature requires:
 
-* A GPS active antenna (e.g [GPS active antenna 28dB](https://www.digikey.com/en/products/detail/adafruit-industries-llc/960/5353630)) at the **GNS ANT** antenna connector on the Top side of the shield.
+* A GPS active antenna (e.g [GPS active antenna 28dB](https://www.digikey.com/en/products/detail/adafruit-industries-llc/960/5353630)) connected to the **GNS ANT** antenna connector on the top side of the shield.
 * You may need a connector converter from the active GPS antenna, we used this one [Coaxial to SMA](https://www.digikey.com/en/products/detail/taoglas-limited/CAB.719/3664639)
 
-To check if our setup it's working we can open an example inside the GSM library from the Mbed Portenta Core, going to **Examples > GSM > GNSSClient** we will open an sketch that connects to the SIM card provider and initialize the active GPS antenna, then it will print out GPS readings.
+To check if your setup is properly working, you can open an example inside the GSM library from the Mbed Portenta Core, going to **Examples > GSM > GNSSClient**. You will open an sketch that connects to the SIM card provider and initializes the active GPS antenna. At this point, it will print out GPS readings.
 
 Make sure you go to the `arduino_secrets.h` tab and:
 
-* introduce the PIN of the SIM card you are using and store it at `SECRET_PIN`.
-* Browse to your IT provider and check the mobile APN link, e.g "online.provider.com" save it inside the `SECRET_APN`
+* Add the PIN of the SIM card you are using and store it in the variable `SECRET_PIN`.
+* Browse your IT provider and check the mobile APN link, e.g "online.provider.com" save it inside the `SECRET_APN`
 
-***Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you can not connect after that time, make sure you introduced the correct SIM pin and the APN, if the issue continues, contact with your provider and make sure they have CAT M1 enabled on your SIM card.***
+***Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you added the correct SIM pin and the APN. If the issue continues, contact your provider and verify whether Cat. M1 is enabled on your SIM card.***
 
 ### API
 
@@ -217,14 +217,14 @@ Make sure you go to the `arduino_secrets.h` tab and:
 | `GPS.end()` | Turn OFF the GPS modem. |
 | `GPS.available()` | Check if the GPS has new data to be read. |
 | `GPS.read()` | Returns a `char` with the reading from the GPS module. |
-| `GPS.readAndPrint()` | Output data on the Serial monitor, only if there is new data.|
+| `GPS.readAndPrint()` | Output data on the Serial Monitor, only if there is new data.|
 | `GPS.readAndDrop()` | Read the data and do nothing with it. |
 | `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly. |
 
 
 #### Get GPS Data
 
-The following example connects to the GSM provider, then initialize the GPS antenna, gets the data and print it out on the Serial monitor. As you previously done, you need to provide the GSM data by filling in the secrets in `arduino_secrets.h`
+The following example connects to the GSM provider, then initializes the GPS antenna, gets data and prints them out on the Serial Monitor. As done previously, you need to provide the GSM data by filling the secrets in `arduino_secrets.h`
 
 Open the example by going to **Examples > GSM > GNSSClient**.
 
@@ -262,9 +262,9 @@ Open the example by going to **Examples > GSM > GNSSClient**.
   }
 ```
 
-***Remember to connect to the GSM provider and secondly connect to the GNSS (mandatory).***
+***Remember to connect to the GSM provider first and secondly connect to the GNSS (mandatory).***
 
-You will see the **NMEA** data in the Serial monitor.
+You will see the **NMEA** data in the Serial Monitor.
 
 ![NMEA log example Serial Monitor](assets/NMEA_output.png)
 
@@ -272,11 +272,11 @@ You will see the **NMEA** data in the Serial monitor.
 
 Previously we went through how to show the GPS data in the Serial Monitor, but it was not possible to evaluate those messages (NMEA sentences).
 
-To do so you can use an **NMEA parser** this will convert the messages received from the GPS modem, parsing and saving them into variables. You can use the **107-Arduino-NMEA-Parser** library. This library can be found in the library manager inside the Arduino IDE.
+To do so, you can use an **NMEA parser**. This will convert messages received from the GPS modem, parsing and saving them into variables. You can use the **107-Arduino-NMEA-Parser** library. This library can be found in the library manager inside the Arduino IDE.
 
-This makes it possible to interact with the data that you need for your application, for example if you only want to get the latitude and longitude. You will be able to save those needed values into variables, instead of having the whole NMEA messages.
+In this way, it is possible to interact with the data that you need for your application, for instance getting only latitude and longitude. You will be able to save those values into variables, instead of having the whole NMEA messages.
 
-Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and you need to add the following: 
+Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and add the following: 
 
 Include the needed libraries.
 
@@ -316,13 +316,13 @@ Edit the loop to parse the `GPS` readings instead of the `Serial1`.
   }
 ```
 
-***You will see the output data as various "-1" until the GPS has enough visible satellites to get the correct data, make sure the GPS antenna is somewhere that can see the sky.***
+***You will see the output data as various "-1" until the GPS has enough visible satellites to get the correct data. Make sure the GPS antenna is pointing at the sky.***
 
 #### Low Power GPS
 
 The GPS antenna is active, that means that it needs power to function as it has electronics inside of it.
 
-One way to save power on your project is to enable the GPS module only when it is needed to read the data:
+One way to save power on your project is to enable the GPS module only when it needs to read data:
 
 ```cpp
   //Start the GPS module
@@ -341,7 +341,7 @@ By using this method, you don't need to initialize the GPS inside the `setup()`.
 
 ## Conclusion
 
-This cheat sheet is written as a quick reference, to look up the GSM and GPS feature of this product. For a more in-depth walk through experience please have a look at the other tutorials.
+This cheat sheet is written as a quick reference to look up the GSM and GPS feature of this product. For a more in-depth walk through experience, please have a look at the other tutorials.
 
 ## Troubleshooting
 
@@ -351,4 +351,4 @@ Make sure you included first the `GPS.h` library and then the `GSM.h`
 
 ### Can't Upload the Sketch
 
-Sometimes if the GPS module is getting readings, you will not be able to upload a new sketch, double tap the reset button on your Portenta H7 and upload the new sketch.
+Sometimes, while the GPS module is getting readings, you will not be able to upload a new sketch. Double tap the reset button on your Portenta H7 and upload the new sketch.
