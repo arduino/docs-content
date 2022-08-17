@@ -78,11 +78,11 @@ Let's start by configuring the MQTT broker!
 Let's start by creating a new directory in our Portenta X8 called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml`: 
 
 ```
-# mkdir mqtt
-# cd mqtt
-# export TERM=xterm
-# stty rows 36 cols 150
-# sudo vi docker-compose.yml
+$ mkdir mqtt
+$ cd mqtt
+$ export TERM=xterm
+$ stty rows 36 cols 150
+$ sudo vi docker-compose.yml
 ```
 
 ***The `export TERM=xterm` and `stty rows 36 cols 150` commands enable VI editor full screen.*** 
@@ -113,22 +113,22 @@ volumes:
 Save the file and exit the VI editor. Return to the `mqtt` directory and run the following command:
 
 ```
-mqtt# docker-compose up -d
+mqtt$ docker-compose up -d
 ```
 
 The Mosquitto broker should be available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command: 
 
 ```
-# ping portenta-x8-a28ba09dab6fad9
+$ ping portenta-x8-a28ba09dab6fad9
 PING portenta-x8-a28ba09dab6fad9 (192.168.1.111) 56 data bytes
 ```
 
 We should see inside the `mqtt` directory three folders (`config`, `data`, and `log`) and the `docker-compose.yml` file we created before. Go to the `config` directory and make a file named `mosquitto.conf`:
 
 ```
-mqtt# ls
+mqtt$ ls
 config  data  docker-compose.yml  log
-mqtt# cd config
+mqtt$ cd config
 /mqtt/config# sudo vi mosquitto.config
 ```
 
@@ -147,7 +147,7 @@ Save the file and exit the VI editor. Now, let's restart the Mosquitto container
 Now, let's manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before, as shown below:
 
 ```
-/mqtt/config# docker exec -it CONTAINER ID sh
+/mqtt/config$ docker exec -it CONTAINER ID sh
 / # 
 ```
 
@@ -412,7 +412,7 @@ We can change the panel options, such as their title and description. Click on a
 
 Now, it is time to test our entire data logging application. We will use an [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010); this board will periodically send the value of a counter to the Grafana dashboard via the local MQTT broker deployed in the X8.
 
-First, let's ensure we have the required drivers for the MKR WiFi 1010 installed. This can be done by navigating to **Tools > Board > Board Manager...**, here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest available version. We also need to install the libraries we will use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
+First, let's ensure we have the require core for the MKR WiFi 1010 installed, the **Arduino SAMD boards (32-bits ARM Cortex M0+)**. Please, refer to [this guide](https://docs.arduino.cc/learn/starting-guide/cores) if you are not familiar with the installation of additional cores in the Arduino IDE. We also need to install the libraries we will use to send data from the MKR WiFi 1010 board to the data logging application via MQTT. Go to **Tools > Manage libraries...**, search for **ArduinoMqttClient** and **WiFiNINA** and install the latest available version of both libraries.
 
 Now, let's open a new sketch and create a new header file called `arduino_secrets.h` in a separate tab; to create a separate tab in the Arduino IDE, click the arrow symbol underneath the Serial Monitor symbol, then click on the "New tab" option. In this header file, we are going to store our Wi-Fi credentials:
 
