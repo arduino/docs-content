@@ -60,7 +60,7 @@ If you use a local IDE you can copy & paste the following sketch:
 
   Hardware required: https://store.arduino.cc/nicla-sense-me
 
-  1) Upload this sketch to the Arduino Nano BLE sense board
+  1) Upload this sketch to the Arduino Nano Bluetooth® Low Energy sense board
 
   2) Open the following web page in the Chrome browser:
   https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
@@ -79,7 +79,7 @@ If you use a local IDE you can copy & paste the following sketch:
   #include "Arduino_BHY2.h"
   #include <ArduinoBLE.h>
 
-  #define BLE_SENSE_UUID(val) ("19b10000" val "-537e-4f6c-d104768a1214")
+  #define BLE_SENSE_UUID(val) ("19b10000-" val "-537e-4f6c-d104768a1214")
 
   const int VERSION = 0x00000000;
 
@@ -91,7 +91,7 @@ If you use a local IDE you can copy & paste the following sketch:
   BLEFloatCharacteristic pressureCharacteristic(BLE_SENSE_UUID("4001"), BLERead);
 
   BLECharacteristic accelerometerCharacteristic(BLE_SENSE_UUID("5001"), BLERead | BLENotify, 3 * sizeof(float));  // Array of 3x 2 Bytes, XY
-  BLECharacteristic gyroscopeCharacteristic(BLE_SENSE_UUID("6001"), BLERead | BLENotify, 3 * sizeof(int16_t));    // Array of 3x 2 Bytes, XYZ
+  BLECharacteristic gyroscopeCharacteristic(BLE_SENSE_UUID("6001"), BLERead | BLENotify, 3 * sizeof(float));    // Array of 3x 2 Bytes, XYZ
   BLECharacteristic quaternionCharacteristic(BLE_SENSE_UUID("7001"), BLERead | BLENotify, 4 * sizeof(float));     // Array of 4x 2 Bytes, XYZW
 
   BLECharacteristic rgbLedCharacteristic(BLE_SENSE_UUID("8001"), BLERead | BLEWrite, 3 * sizeof(byte)); // Array of 3 bytes, RGB
@@ -122,7 +122,7 @@ If you use a local IDE you can copy & paste the following sketch:
     nicla::leds.setColor(green);
 
     //Sensors initialization
-    BHY2.begin();
+    BHY2.begin(NICLA_STANDALONE);
     temperature.begin();
     humidity.begin();
     pressure.begin();
@@ -133,7 +133,7 @@ If you use a local IDE you can copy & paste the following sketch:
     gas.begin();
 
     if (!BLE.begin()){
-      Serial.println("Failed to initialized Bluetooth® Low Energy!");
+      Serial.println("Failed to initialized BLE!");
 
       while (1)
         ;
@@ -241,7 +241,7 @@ If you use a local IDE you can copy & paste the following sketch:
   }
 
   void onHumidityCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    uint8_t humidityValue = humidity.value();
+    uint8_t humidityValue = humidity.value() + 0.5f;  //since we are truncating the float type to a uint8_t, we want to round it
     humidityCharacteristic.writeValue(humidityValue);
   }
 
@@ -272,6 +272,7 @@ If you use a local IDE you can copy & paste the following sketch:
 
     nicla::leds.setColor(r, g, b);
   }
+
 ```
 
 ### Connect to the Dashboard
