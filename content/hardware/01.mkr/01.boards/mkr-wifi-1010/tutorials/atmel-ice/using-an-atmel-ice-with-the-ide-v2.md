@@ -169,7 +169,7 @@ Now, we can see the Debugger Tool menu expanded. Let's start using the debugger 
 
 We should see some text in the IDE console from the Debugger Tool. The text displayed in the console shows information about the current debugging session, the debugging hardware tool and the connected board; for example, the board's microcontroller part number should be recognized by the Debugger Tool as shown below:
 
-![Debugging sesion information in the IDE console.](assets/ide_v2_t1_img09.gif)
+![Debugging session information in the IDE console.](assets/ide_v2_t1_img09.gif)
 
 Let's set two **breakpoints** in lines 28 and 33. The breakpoints can be set in the Debugger Tool by clicking to the left of the line numbering in the editor as shown below:
 
