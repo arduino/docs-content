@@ -49,30 +49,20 @@ In this tutorial we will focus on the Arduino® Nicla Sense ME.
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
+If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
 If you use a local IDE, you can copy & paste the following sketch:
 ```arduino
   /*
-
   Arduino Nicla Sense ME WEB Bluetooth® Low Energy Sense dashboard demo
-
-
   Hardware required: https://store.arduino.cc/nicla-sense-me
-
   1) Upload this sketch to the Arduino Nano Bluetooth® Low Energy sense board
-
   2) Open the following web page in the Chrome browser:
   https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
-
   3) Click on the green button in the web page to connect the browser to the board over Bluetooth® Low Energy
-
-
   Web dashboard by D. Pajak
-
   Device sketch based on example by Sandeep Mistry and Massimo Banzi
   Sketch and web dashboard copy-fixed to be used with the Nicla Sense ME by Pablo Marquínez
-
   */
 
   #include "Nicla_System.h"
@@ -272,7 +262,6 @@ If you use a local IDE, you can copy & paste the following sketch:
 
     nicla::leds.setColor(r, g, b);
   }
-
 ```
 
 ### Connect to the Dashboard
