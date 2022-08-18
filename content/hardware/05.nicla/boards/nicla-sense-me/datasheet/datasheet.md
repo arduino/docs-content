@@ -93,7 +93,7 @@ Identify operating conditions within your machine, factory or greenhouse remotel
 - **Wireless Sensor Network Reference Design**:
 The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor network which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
-### Accessories (Not included)
+### Accessories (Not Included)
 - Single cell Li-ion/Li-Po battery
 
 ### Related Products
