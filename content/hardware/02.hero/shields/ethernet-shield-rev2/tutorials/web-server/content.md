@@ -31,7 +31,7 @@ Image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
 ### Warning
 
-This example doesn't require an SD card. If an SD card is inserted but not used, it is possbile for the sketch to hang, because pin 4 is used as SS (active low) of the SD and when not used it is configured as INPUT by default. Two possible solutions:
+This example doesn't require an SD card. If an SD card is inserted but not used, it is possible for the sketch to hang, because pin 4 is used as SS (active low) of the SD and when not used it is configured as INPUT by default. Two possible solutions:
 
 - remove the SD card;
 
