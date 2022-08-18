@@ -495,7 +495,7 @@ CURIE_IMU_ZERO_MOTION - The amount of time where the acceleration read on any of
 CURIE_IMU_DOUBLE_TAP – waiting window for the second tap to be read
 50, 100, 150, 200, 250, 275, 500, 700 ms
 
-CURIE_IMU_TAP_SHOCK - The time a phisical shocking event should happen, exceeding the set threshold, to trigger the interrupt.
+CURIE_IMU_TAP_SHOCK - The time a physical shocking event should happen, exceeding the set threshold, to trigger the interrupt.
 50, 75 ms
 
 CURIE_IMU_TAP_QUIET – The time the acceleration reading should stay low to separate two taps.

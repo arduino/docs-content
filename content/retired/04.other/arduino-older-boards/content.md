@@ -115,7 +115,7 @@ The original Arduino Mega has an ATmega1280 and an FTDI USB-to-serial chip.
 
 **LilyPad Arduino 04**
 
-This revision uses the ATmega328P instead of the ATmega168V. All other detials are identical to version 03.  
+This revision uses the ATmega328P instead of the ATmega168V. All other details are identical to version 03.  
 
 **LilyPad Arduino 03** 
 

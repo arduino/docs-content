@@ -32,7 +32,7 @@ The AI-Powered Magic Wand by Andri Yadi is a great project to undertake with you
 
 Learn how to access data from the Nano BLE Sense via the [Phyphox](https://phyphox.org/). To learn more about this project, check the link below:
 
-- [Remote sensors with a smartphone](http://hebergement.universite-paris-saclay.fr/supraconductivite/projet/arduino_nano/?lang=en) (external link).
+- [Remote sensors with a smartphone](http://hebergement.universite-paris-saclay.fr/supraconductivite/project/arduino_nano/?lang=en) (external link).
 
 ## Color Detection
 

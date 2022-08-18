@@ -91,7 +91,7 @@ Now, connect the Arduino Nano 33 BLE Sense to the computer and make sure that th
 
 ![Selecting the board.](assets/nano33BS_11_board_port.png)
 
-**3. Blink patters according to proximity**
+**3. Blink patterns according to proximity**
 
 
 Now we will need to modify the code on the example, in order to change the color of the RGB LED according to the proximity.
