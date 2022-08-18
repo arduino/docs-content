@@ -24,8 +24,8 @@ In this tutorial we will go through the steps on how to setup both the Linux and
 
 ## Goals
 
-- Build an Arduino layer script using RPC to handle bi-directional sensor readings or data traffic on Portenta X8.
-- Build a multi-protocol script to manage WiFi and LoRa connectivity to handle data traffic on the Linux layer of Portenta X8.
+- Build an Arduino layer script using RPC to handle sensor readings or data traffic on Portenta X8.
+- Build a multi-protocol script to manage MQTT protocol and LoRa connectivity to handle data traffic on the Linux layer of Portenta X8.
 - Assemble both layer scripts to build an operational multi-protocol gateway using Portenta X8 and Max Carrier.
 
 ### Required Hardware and Software
@@ -66,11 +66,10 @@ The Arduino layer is extended within the M4 Core and is the layer to develop on 
 
 ***To learn about how to exchange data using RPC between Arduino and Linux layer, please read ["Data Exchange Between Python on Linux and an Arduino Sketch"](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
-We will go through how to use RPC to expose the data received at the Linux layer to the Arduino layer, if further development requires to feed the data to devices interfaced communicating with the M4 core. We will leave the tasks running and open to be interfaced with for expanding the capability of the Portenta X8 and Max Carrier.
+We will go through how to use RPC to expose the data received at the Linux layer to the Arduino layer, if further development requires to feed the data to devices interfaced communicating with the M4 core. We will leave the tasks running and open to be interfaced with for expanding the capability of the Portenta X8 and Max Carrier. It will let you develop a gateway system where:
 
-To showcase the ability of the Arduino layer extended by M4 Core, we will explore two scenarios as example: 
-1. A scenario where the Arduino layer will be the terminal to expose the received sensor data to control a local end-device. 
-2. A scenario where a local end-device transfers data to the Linux layer for further networking process.
+1. The Arduino layer will be the terminal to expose the received sensor data to control a local end-device. 
+2. A local end-device transfers data to the Linux layer for further networking process.
 
 Hence the multi-protocol architecture will process and manage the data traffic with the desired protocol.  
 
@@ -87,6 +86,10 @@ Now that we know the roles of Arduino and Linux layer, we will need a clear pict
 ![Multi-Protocol Gateway In-Depth Architecture](assets/multi-protocol-arch.png)
 
 ## Instructions
+
+To showcase the ability of the Linux layer and Arduino layer extended by M4 Core, we will build a mult-protocol gateway that will receive MQTT protocol packets using EMQX as the broker, retrieve the data from a local sensor attached to Portenta via RPC mechanism, wrap the data altogether and send to The Things Netowork using LoRa connectivity within Cayenne Low Power Payload Encoder. 
+
+This will help you get closer to understanding how the Portenta X8 and the Portenta Max Carrier help you develop a multi-protocol gateway.
 
 ### Hardware Setup 
 
@@ -105,6 +108,7 @@ The `m4-proxy` is a service that manages data exchange between these layers. You
 ```
 sudo journalctl -fu m4-proxy
 ```
+
 We are going to implement RPC (Remote Procedure Call) to establish communication between the Arduino and Linux layer. This is a communication mechanism implemented to exchange data between these two layers. 
 
 A very important note to take into account: **you will not be able to check messages via `Serial.println()` statements** to check if the Arduino sketch is running in a desired manner. You will have to use **`py-serialrpc`**, which is a service that will assist you in listening to those messages, printing them on a console. To have the service active, please download [this compressed file](assets/py-serialrpc.zip) to build and run the container on the Linux side of Portenta X8. Please execute following commands in order to have the service running.
@@ -114,7 +118,6 @@ A very important note to take into account: **you will not be able to check mess
 adb push py-serialrpc /home/fio
 adb shell
 
-// The password is: fio
 sudo su -
 
 // Head to directory and mount the container
@@ -128,10 +131,6 @@ To access the logs of `py-serialrpc` service, while maintaining the same directo
 ```
 sudo docker-compose logs -f --tail 20
 ```
-
-You will be able to see it in the terminal as in the following image.
-
-![py-serialrpc Terminal Log](assets/serialrpc.png)
 
 ***For more detail about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
@@ -161,7 +160,7 @@ We will need the Docker files that will configure and let us build a working con
 
 ***If you are unfamiliar handling with Docker and containers, please read the tutorial on how to [Create and Upload a Custom Container to the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/custom-container)***
 
-You can access the files [here](assets/multi-protocol-gateway.zip). Meanwhile, let us take a look at some of the important details of the included files. 
+You can access the files [here](assets/Multi_Protocol_Gateway_X8.zip). Meanwhile, let us take a look at some of the important details of the included files. 
 
 ### Docker Compose
 
@@ -170,28 +169,30 @@ Beginning with the `docker-compose.yml` file. Which is where we define permissio
 ```
 ...
 extra_hosts:
-  - "m4-proxy:host-gateway"
+  - 'm4-proxy:host-gateway'
 devices:
-  - /dev/ttymxc3
+  - '/dev/ttymxc3'
+  - '/dev/gpiochip5'
 tty: true
 user: "0"
 ```
 
 ### Requirements
 
-Here we will define which additional components are required to be able to run the script built inside the container. 
+Here we will define which additional components are required to be able to run the script built inside the container. If you decide to further develop with different protocol, you will have to add the package in order to be able to use for development. 
 
 ```
 msgpack-rpc-python
 pyserial==3.4
-certifi
+python-periphery==2.3.0
+python-dotenv
+pycayennelpp
 paho-mqtt
-...
 ```
 
-### Multi-Protocol Script
+### Multi-Protocol Python Application
 
-This is the main Python script that will handle overall networking process. We will highlight important fragments of the code to help you understand how these codes pieces together to build a gateway based on multiple protocols. 
+This is the main Python script that will handle overall networking process. We will highlight important fragments of the code to help you understand how these codes pieces together to build a gateway based on multiple protocols. For full python script please refer to the files [here](assets/Multi_Protocol_Gateway_X8.zip).
 
 First up, the configuration for the M4 Proxy Server, which are the parameters that handles communication with the M4 core that extends the Arduino layer. The `m4_proxy_port` is configured to `5001`, as it is the port used by clients to send the data to the M4. 
 
@@ -217,45 +218,243 @@ def get_data_from_m4():
 
     try:
         rpc_client = RpcClient(rpc_address)
-        temperature = rpc_client.call('temperature')
+        rpc_data0 = rpc_client.call('Data_0')
 
         rpc_client = RpcClient(rpc_address)
-        humidity = rpc_client.call('humidity')
+        rpc_data1 = rpc_client.call('Data_1')
 
-        data = temperature, humidity
+        data = rpc_data0, rpc_data1
 
     except RpcError.TimeoutError:
-        print("Unable to retrieve data from the M4.")
+        print("Unable to retrive data from the M4.")
 
     return data
 ```
 
-These 3 parameters are required to establish a connection with The Things Network. Given the code provided, the `DEV_EUI` will be predefined as the device will request and apply the EUI. On the other hand, if it requires to use different `DEV_EUI`, you can make the change in this section. `APP_EUI` and `APP_KEY` are required to be configured in this case, as they are provided from The Things Network for example or from the LoRaWAN platform that you may try connecting to. 
+For MQTT configuration, you will need to set to desired parameters to be able to use the MQTT protocol as it shows in the following example we have for this build. 
+
+```
+mqtt_broker = 'broker.emqx.io'
+mqtt_port = 1883
+mqtt_topic = "multiPrGw/mqtt1"
+# generate client ID with pub prefix randomly
+mqtt_client_id = f'python-mqtt-{random.randint(0, 100)}'
+mqtt_username = 'emqx'
+mqtt_password = 'public'
+```
+
+These 2 parameters are required to establish a connection with The Things Network. The `APP_EUI` and `APP_KEY` are required to be configured, as they are provided from The Things Network for example or from the LoRaWAN platform that you may try extablishing connection to. Additionally, the `DEV_EUI` will be predefined as the device will request and apply the EUI. However, if it requires to use different `DEV_EUI`, you can make the change in this section by adding it to impose change when the The Things Network connection is being established. 
 
 ```
 # Obtained during first registration of the device
-SECRET_DEV_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
-With these parameters configured, we have secured the connection between our device and The Things Network. The Things Network would be our end-point where the sensor data is going to be sent over. And to send data, we need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it, and send it to The Things Network. On the other hand, we will need to have a mechanism that will be able to intercept data sent over WiFi connectivity using a MQTT protocol. 
+With these parameters configured, we have secured the connection between our device and The Things Network. The Things Network would be our end-point where the sensor data is going to be sent over. And to send data, we need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it, and send it to The Things Network. Meanwhile, we will also need to have a mechanism that will be able to intercept data sent over WiFi connectivity using a MQTT protocol. 
+
+Following tasks are the main processes that will be used to handle MQTT protocol. This will be able to decode incoming packet from the subscribed device and buffer the data if timeout has ocurred while waiting on the MQTT packet. This will help to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol.
 
 ```
-# WiFi - MQTT protocol handler
--> WIP
+# MQTT protocol handler
+...
+def connect_mqtt() -> mqtt_client:
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            logging.debug("Connected to MQTT Broker!")
+        else:
+            logging.debug("Failed to connect, return code %d\n", rc)
+
+    client = mqtt_client.Client(mqtt_client_id)
+    client.username_pw_set(mqtt_username, mqtt_password)
+    client.on_connect = on_connect
+    client.connect(mqtt_broker, mqtt_port)
+    
+    # Thread in the background calling loop() in an automatic manner
+    client.loop_start()
+    return client
+
+def on_message(client, userdata, msg):
+    logging.debug(f"MQTT Client: `{msg.payload.decode()}` from `{msg.topic}` topic")
+
+    decoded_mqtt_payload = json.dumps(EncodeFloat(msg.payload.decode("utf-8")))
+    print("MQTT Payload Data=%.15g" % (float(decoded_mqtt_payload)))
+    
+    # `mqtt_data` is the payload decoded within receiving MQTT packet from a remote device
+    mqtt_data.append(float(decoded_mqtt_payload))
+    client.loop_stop()
+
+    return mqtt_data
+
+def subscribe(client: mqtt_client):
+    global mqtt_data
+    mqtt_timeout = time.time() + 60
+
+    client.subscribe(mqtt_topic)
+    client.on_message = on_message
+
+    while len(mqtt_data) <= 0:
+        print(f"Awaiting MQTT packet before proceeding")
+        time.sleep(publish_interval)
+        if time.time() > mqtt_timeout:
+            print(f"No MQTT packet is received - Defaulting Data")
+            mqtt_data = [0.0]
+            break
+    else:
+        print(f"MQTT packet received")
+
+    print(f"MQTT packet: ", mqtt_data[0])
+...
 ```
 
-This will help to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol. This capability will help to increase the scalability of the multi-protocol gateway. For this to work, we will also need sketch for Arduino layer that will help us expose and retrieve the data in between Arduino and Linux layer. 
+For LoRa connectivity to establish communication with The Things Network, we are going to use the Cayenne Low Power Payload Encoder as part of the process in this build. 
+
+```
+...
+frame = LppFrame()
+frame.add_temperature(0, rpc_data[0])
+frame.add_humidity(1, rpc_data[1])
+
+# MQTT payload as Generic 4-Byte Unsigned Integer 
+frame.add_generic(2, mqtt_data[0])
+
+# Encoding packet for transmission
+payload = bytes(frame)
+lora_module.sendBytes(payload, len(payload), False)
+...
+```
+
+### Multi-Protocol Arduino (M4) Application
+
+For full Arduino scripts please refer to the files found inside [compressed file](assets/Multi_Protocol_Gateway_X8.zip).
+
+The sketch for Arduino layer that will help us retrieve the data in between Arduino and Linux layer is as follows. 
 
 ```
 # Arduino side sketch
 #include <RPC.h>
 #include <SerialRPC.h>
--> WIP
+
+const long interval = 1000;
+unsigned long previousMillis = 0;
+
+void setup(){
+    pinMode(PA_12, INPUT);
+    //RPC.begin();
+
+    Serial.begin(115200);
+    while (!Serial) {}
+
+    Serial.println("M4 Layer - Multi Protocol Gateway");
+    
+    RPC.bind("Data_0", []{ return analogRead(A0); });
+    RPC.bind("Data_1", []{ return analogRead(A1); });
+
+    Serial.println("Service Begin");
+}
+
+void loop(){
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+    //record random value from A0 and A1
+    Serial.println(analogRead(A0));
+    Serial.println(analogRead(A1));
+
+  }
+}
 ```
 
-The sketch above will help to expose and transfer the data that is processed within the Linux side. By exposing, it means you will bring forth the data received within the Linux side to the Arduino side to feed the local-device as a control input. It can be used to display the data if you wish to for instance. Transferring data to Linux side can be seen as a direct communication, as the sensor connected and monitored via Arduino side will send this data over LoRa connectivity. The sketch will have both options open to assist you on further extending the possibilities within. 
+The sketch above will help to expose and transfer the data that is processed within the Linux side. Transferring data to Linux side can be seen as a direct communication, as the sensor connected and monitored via Arduino side will send this data over LoRa connectivity. For this build, we are going to use Analog readings to emulate the functionality. 
+
+Additionally by exposing, it means you will bring forth the data received within the Linux side to the Arduino side to feed the local-device as a control input. It can be used to display the data if you wish to for instance. This can be implemented in this script if you wish to further develop your desired multi-protocol gateway. 
+
+For MQTT publisher, we have also included the sketch for use with Arduino MKR WiFi 1010 as follows to test the gateway build. Of course, the code can be extended and be modified according the requirements of the device that will collect data from a certain sensor to send over MQTT protocol. 
+
+```
+#include <ArduinoMqttClient.h>
+#include <WiFiNINA.h>
+#include "arduino_secrets.h"
+
+///////please enter your sensitive data in the Secret tab/arduino_secrets.h
+char ssid[] = SECRET_SSID;        // your network SSID (name)
+char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as key for WEP)
+
+WiFiClient wifiClient;
+MqttClient mqttClient(wifiClient);
+
+const char broker[] = "broker.emqx.io";
+int        port     = 1883;
+const char topic[]  = "multiPrGw/mqtt1";
+
+//set interval for sending messages (milliseconds)
+const long interval = 50000;
+unsigned long previousMillis = 0;
+
+int count = 0;
+
+void setup() {
+  //Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+
+  // attempt to connect to Wifi network:
+  Serial.print("Attempting to connect to WPA SSID: ");
+  Serial.println(ssid);
+  while (WiFi.begin(ssid, pass) != WL_CONNECTED) {
+    // failed, retry
+    Serial.print(".");
+    delay(5000);
+  }
+
+  Serial.println("You're connected to the network");
+  Serial.println();
+
+  Serial.print("Attempting to connect to the MQTT broker: ");
+  Serial.println(broker);
+
+  if (!mqttClient.connect(broker, port)) {
+    Serial.print("MQTT connection failed! Error code = ");
+    Serial.println(mqttClient.connectError());
+
+    while (1);
+  }
+
+  Serial.println("You're connected to the MQTT broker!");
+  Serial.println();
+}
+
+void loop() {
+  // call poll() regularly to allow the library to send MQTT keep alive which
+  // avoids being disconnected by the broker
+  mqttClient.poll();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    // save the last time a message was sent
+    previousMillis = currentMillis;
+
+    //record random value from A0, A1 and A2
+    float Rvalue = analogRead(A0);
+
+    Serial.print("Sending message to topic: ");
+    Serial.println(topic);
+    Serial.println(Rvalue/10);
+
+    // send message, the Print interface can be used to set the message contents
+    mqttClient.beginMessage(topic);
+    mqttClient.print(Rvalue/10);
+    mqttClient.endMessage();
+
+    Serial.println();
+  }
+}
+```
 
 ## Mounting the Multi-Protocol Gateway
 
@@ -274,29 +473,29 @@ adb push multi-protocol-gateway /home/fio
 adb shell
 ```
 
-We will now build the container using the following commands. The following command will tag the container with `multi-protocol-gateway` as its name. 
+We will now build the container using the following commands. The following command will tag the container with `Multi_Protocol_Gateway_X8` as its name. 
 
 ```
-cd ../home/fio/multi-protocol-gateway
-#multi-protocol-gateway sudo docker build . -t multi-protocol-gateway
+cd ../home/fio/Multi_Protocol_Gateway_X8
+#Multi_Protocol_Gateway_X8 sudo docker build . -t multi_gateway
 ```
 
 You will be able to see following results when the image is built successfully. 
 
-![Docker Build Terminal Log](assets/docker-build.png)
+![Multi-Protocol Gateway Docker Build Terminal Log](assets/docker-build.png)
 
 ***If you have created the Docker container previously and want to re-create it with new changes made outside the shell, please check that the container and its build directory is stopped and removed. This is for the convenience of having a clean working environment***
 
 After a successful container build, we will have to make the image run. To do that, we will use the following command. This command will immediately give an output in your terminal, telling you how the Python script is running. If you wish to have it run on the background, please add `-d` flag at the end of the command. 
 
 ```
-#multi-protocol-gateway sudo docker-compose up
+#Multi_Protocol_Gateway_X8 sudo docker-compose up
 ```
 
 Finally, you will have the multi-protocol gateway running, in which it uses WiFi and LoRa connectivity. And also RPC for exchanging data between its layers. However, there are cases where you wish to make changes by adding more functionalities, such as including Cat-M1 or NB-IoT to expand its communication spectrum, for this you will need to stop the image. To stop the image from running, you can use following command.
 
 ```
-#multi-protocol-gateway sudo docker-compose down
+#Multi_Protocol_Gateway_X8 sudo docker-compose down
 ```
 
 Getting to know status of the image is also crucial as it's the indicator of state of operation. The following command brings up **active** images and shows the status if the image restarted or stopped due to certain reasons. The second command lists built images, and it will show you the components that goes with the main image that you're building. 
@@ -306,13 +505,17 @@ docker ps -a
 docker images
 ```
 
-![Active Docker Images](assets/docker-state.png)
+![Multi-Protocol Gateway  Active Docker Image](assets/docker-state.png)
 
 With all this, you have built a running multi-protocol gateway based on Portenta X8 and Max Carrier. You will be able to observe the data sent by the gateway with The Things Network platform End-Device section under Applications.
 
+If you are curious about what to expect from the build we have made in this tutorial, following terminal image shows you a run of the multi-protocol gateway.
+
+![Multi-Protocol Gateway Run Log](assets/multi-protocol-gateway-example-run.png)
+
 ## Conclusion
 
-In this tutorial you have learned how to set up a Multi-Protocol Gateway composed of WiFi connectivity and LoRaWAN, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect the The Things Network to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layer using RPC, in which you have exposed the ports to be able to control a locally attached device or receive data from the local sensor to be sent directly to The Things Network. 
+In this tutorial you have learned how to set up a Multi-Protocol Gateway composed of MQTT protocol, RPC, and LoRaWAN, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect the The Things Network to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layer using RPC, in which you have exposed the ports to be able to receive data from the local sensor to be sent directly to The Things Network. 
 
 ### Next Steps
 - Now that you have established a multi-protocol gateway, using WiFi and LoRaWAN connectivity, expand the gateway's capability by adding other connectivity types such as Cat-M1 and NB-IoT
@@ -326,3 +529,4 @@ You might encounter some errors or misbehaviors while working on the code, and p
 * Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta X8 gets into bootloader mode immediately after powering-on, including when connected via USB-C, change the position of the BOOT DIP switch to OFF. This case applies to the Arduino layer.
 * If you encounter an issue regarding terminal input inconvenience, please enter `export TERM=xterm` as the command in the terminal to get readable inputs. 
 * In case internal WiFi connection cannot be established through the command input due to "unavailable" SSID, although it is in range. Please try using different SSID if available or hotspot from a different device to host network connectivity.  
+* If you encounter docker image conflict when runnning after build, please make sure you have used name tag that matches the one from the `docker-compose.yml` file. 
