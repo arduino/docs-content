@@ -79,7 +79,7 @@ It is important to understand that **all networking processes are made within th
 
 The Portenta X8 provides WiFi connectivity and the Portenta Max Carrier provides a LoRaWAN module that can help us communicate with The Things Network. We will use the MQTT protocol to receive the sensor data transmitted by an end device. 
 
-We will use a python script that will configure and handle the connectivity modules and its sensor data. The RPC calls will be used to expose the received sensor data to the Arduino layer, seting up data exchange configuration to further expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa if the Arduino layer is to transmit the data to the Linux layer from the local end-device. 
+We will use a python script that will configure and handle the connectivity modules and its sensor data. The RPC calls will be used to expose the received sensor data to the Arduino layer, setting up data exchange configuration to further expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa if the Arduino layer is to transmit the data to the Linux layer from the local end-device. 
 
 Now that we know the roles of Arduino and Linux layer, we will need a clear picture of how the multi-protocol gateway should look. The next diagram illustrates the in-depth multi-protocol gateway architecture, showing how each layer and module will cooperate.
 
@@ -226,7 +226,7 @@ def get_data_from_m4():
         data = rpc_data0, rpc_data1
 
     except RpcError.TimeoutError:
-        print("Unable to retrive data from the M4.")
+        print("Unable to retrieve data from the M4.")
 
     return data
 ```
@@ -253,7 +253,7 @@ SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 With these parameters configured, we have secured the connection between our device and The Things Network. The Things Network would be our end-point where the sensor data is going to be sent over. And to send data, we need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it, and send it to The Things Network. Meanwhile, we will also need to have a mechanism that will be able to intercept data sent over WiFi connectivity using a MQTT protocol. 
 
-Following tasks are the main processes that will be used to handle MQTT protocol. This will be able to decode incoming packet from the subscribed device and buffer the data if timeout has ocurred while waiting on the MQTT packet. This will help to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol.
+Following tasks are the main processes that will be used to handle MQTT protocol. This will be able to decode incoming packet from the subscribed device and buffer the data if timeout has occurred while waiting on the MQTT packet. This will help to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol.
 
 ```
 # MQTT protocol handler
@@ -529,4 +529,4 @@ You might encounter some errors or misbehaviors while working on the code, and p
 * Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta X8 gets into bootloader mode immediately after powering-on, including when connected via USB-C, change the position of the BOOT DIP switch to OFF. This case applies to the Arduino layer.
 * If you encounter an issue regarding terminal input inconvenience, please enter `export TERM=xterm` as the command in the terminal to get readable inputs. 
 * In case internal WiFi connection cannot be established through the command input due to "unavailable" SSID, although it is in range. Please try using different SSID if available or hotspot from a different device to host network connectivity.  
-* If you encounter docker image conflict when runnning after build, please make sure you have used name tag that matches the one from the `docker-compose.yml` file. 
+* If you encounter docker image conflict when running after build, please make sure you have used name tag that matches the one from the `docker-compose.yml` file. 
