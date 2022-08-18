@@ -57,13 +57,13 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
 Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. This shield can connect to your Portenta/MKR board enabling a wide range of applications.
 
 - **Global Asset tracking**
-<br /> The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provides connectivity to four major satellite positioning networks, allowing you to track your inventory reliably. The multi-band cellular connectivity ensures you get live updates on your inventory nearly anywhere in the world.
+  The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provides connectivity to four major satellite positioning networks, allowing you to track your inventory reliably. The multi-band cellular connectivity ensures you get live updates on your inventory nearly anywhere in the world.
 
 - **Remote node monitoring**
-<br /> The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real time insight for increasing your business revenues. 
+  The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real time insight for increasing your business revenues. 
 
 - **Fleet management**
-<br /> Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyse and dynamically manage your fleet to optimise fuel usage, increase your customers satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
+  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyse and dynamically manage your fleet to optimise fuel usage, increase your customers satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
 
 ### Accessories (Not Included)
 - Active GNSS Antenna (e.g. ECHO19/0.1M/UFL/S/S/17)
@@ -124,15 +124,18 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
 
 ### Cellular Connectivity
 The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1). Input impedance for the cellular antenna is 50Ω.
-<br /> ***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.***
+
+***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.***
 
 ### Positioning
 Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and should have a bias voltage of 3.0V. Input impedance for GNSS antenna connector is 50Ω. For compatibility with all GNSS system, the antenna should support bands over 1559 - 1606 MHz frequency range. 
-<br /> ***Note: GNSS and cellular services cannot be used simultaneously.***
+
+***Note: GNSS and cellular services cannot be used simultaneously.***
 
 ### Power Tree
 ![Portenta Cat. M1/NB IoT GNSS Shield Power Tree](assets/thalesShieldPowerTree.svg)
-<br /> Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by the host Portenta board via the high density connector. A 3.0V voltage is provided via TC1185-3.0VCT713 (U8) for the active GNSS antenna.
+
+Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by the host Portenta board via the high density connector. A 3.0V voltage is provided via TC1185-3.0VCT713 (U8) for the active GNSS antenna.
 
 ## Board Operation
 
