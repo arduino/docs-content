@@ -797,7 +797,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 27/12/2021 | 1            | First Release |
-
+| Date       | **Revision** | **Changes**                        |
+| ---------- | ------------ | ---------------------------------- |
+| 27/12/2021 | 1            | First Release                      |
+| 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |
