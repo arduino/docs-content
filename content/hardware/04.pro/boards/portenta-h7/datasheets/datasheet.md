@@ -399,7 +399,7 @@ Laboratory equipment, Computer vision
          <td rowspan="8" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Ready-to-use IoT secure element solution</td>
          <td></td>
-         <td><p style="text-align: right">H7 full</p></td>
+         <td rowspan="8" ><p style="text-align: right">H7 full</p></td>
       </tr>
       <tr>
          <td>Securely storing and provisioning credentials and performing cryptographic operations</td>
@@ -797,7 +797,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 27/12/2021 | 1            | First Release |
-
+| Date       | **Revision** | **Changes**                        |
+| ---------- | ------------ | ---------------------------------- |
+| 27/12/2021 | 1            | First Release                      |
+| 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |
