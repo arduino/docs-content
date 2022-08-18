@@ -21,7 +21,7 @@ software:
 
 ## Introduction 
 
-This tutorial will show you how to get started with your Nicla Sense ME board and how it can be utilized by itself. It will showcase the boards IMU and other sensors to get readings which we can easily display. We will go through a basic sketch for the Nicla Sense ME and see the potential of the board.
+This tutorial will show you how to get started with your Nicla Sense ME board and how it can be utilized by itself. It will showcase the board's IMU and other sensors to get readings which we can be easily displayed. We will go through a basic sketch for the Nicla Sense ME and see the potential of the board.
 
 ## Goals
 
@@ -39,20 +39,20 @@ The goals of this project are:
 
 ## Sensors on the Nicla Sense ME
 
-The Nicla Sense ME's BHI sensor includes a 6-axis IMU, we will use this IMU to give us accelerometer and gyroscope readings. An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity or, as is the case with many mobile devices, dynamic to sense movement or vibrations. A gyroscope sensor can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, as they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion.
+The Nicla Sense ME's BHI260AP sensor includes a 6-axis IMU, that we will use to give us accelerometer and gyroscope readings. An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity or, as is the case with many mobile devices, dynamic to sense movements or vibrations. On the other hand, a gyroscope sensor can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, as they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion.
 
 You can see the full list with all the needed information about the sensors [here](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids).
 
 ### Sensor Types
 
-To access the Arduino Nicla Sense ME sensor's data you will need to declare the type of the sensor you want to use (they are called constructors), which have different data functions that return data (e.g Accelerometer will have X, Y and Z values).
+To access the Arduino Nicla Sense ME sensor's data, you will need to declare the type of sensor you want to use (they are called constructors), since they have different data functions that return data (e.g Accelerometer will have X, Y and Z values).
 
 The **Arduino_BHY2** library contains these sensors:
 
 #### Sensor
 
-`value()` - Returns the data, for example if you use the Temperature sensor, it will give you the Temperature reading.  
-`toString()` - Prints the value(s) in a String, you can use it to print all the data into the serial monitor.  
+`value()` - Returns the data. For example, if you use the Temperature sensor, it will give you the Temperature reading.  
+`toString()` - Prints the value(s) in a String. You can use it to print all the data into the Serial Monitor.  
 
 **Syntax example**
 ```arduino
@@ -80,9 +80,9 @@ The **Arduino_BHY2** library contains these sensors:
 
 #### SensorXYZ
 
-`x()` - gives X axis  
-`y()` - gives Y axis  
-`z()` - gives Z axis  
+`x()` - gives X-axis  
+`y()` - gives Y-axis  
+`z()` - gives Z-axis  
 
 **Syntax example**
 ```arduino
@@ -114,9 +114,9 @@ The **Arduino_BHY2** library contains these sensors:
 
 #### SensorOrientation
 
-`heading()` - returns Z axis rotation  
-`pitch()` - returns X axis rotation  
-`roll()` - returns Y axies rotation  
+`heading()` - returns Z-axis rotation  
+`pitch()` - returns X-axis rotation  
+`roll()` - returns Y-axies rotation  
 
 **Syntax example**
 ```arduino
@@ -213,9 +213,9 @@ This are the activities:
   }
 ```
 
-The Nicla Sense ME also has environmental sensor, we will use this in the sketch to get temperature and gas readings. This sensor is also capable of reading humidity, pressure and volatile organic compound. Making this board ideal for environmental monitoring especially in and around sensitive electronic equipment.
+The Nicla Sense ME also has an environmental sensor (i.e. BME688). We will use this in the sketch to get temperature and gas readings. This sensor is also capable of reading humidity, pressure and volatile organic compound, making this board ideal for environmental monitoring especially in and around sensitive electronic equipment.
 
-Next we will go through a sketch that allows us to see the readings from the sensors.
+Next, we will go through a sketch that allows us to see the readings from the sensors.
 
 ## Instructions
 
@@ -223,7 +223,7 @@ Next we will go through a sketch that allows us to see the readings from the sen
 
 Start the Arduino IDE and install the **nicla_mbed** core. If you need help with installing the core for the Nicla Sense ME, please refer to this [guide](/content/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla/).
 
-Now we need to add the **Arduino_BHY2** library that contains the example sketch that we want, we can do this through the library manager in the Arduino IDE. After the library is installed you can access the example sketch directly through the IDE. You can find the sketch in **File > Examples > Arduino_BHY2 > Standalone**. Now you can plug in your Nicla Sense ME and upload the sketch.
+Now you need to add the **Arduino_BHY2** library that contains the example sketch that you want. You can do this through the library manager in the Arduino IDE. After the library is installed, you can access the example sketch directly through the IDE. You can find the sketch in **File > Examples > Arduino_BHY2 > Standalone**. At this point you can plug in your Nicla Sense ME and upload the sketch.
 
 ![Image of the example in list](assets/nicla-ide-example.png)
 
@@ -231,9 +231,9 @@ Next we will go through parts of the sketch and explain them.
 
 ### Programming the Board
 
-With this sketch we can get readings from the Nicla Sense ME's sensors. It includes accelerometer, gyroscope and temperature readings. This simple sketch will show how to get these readings, which can be useful for applications of the Nicla Sense ME.
+With this sketch you can get readings from the Nicla Sense ME's sensors. It includes accelerometer, gyroscope and temperature readings. This simple sketch will show how to get these readings.
 
-In the setup part of the sketch we first use:
+In the setup part of the sketch you first use:
 
 ```arduino
   #include "Arduino_BHY2.h"
@@ -243,9 +243,9 @@ In the setup part of the sketch we first use:
   Sensor temp(SENSOR_ID_TEMP);
   Sensor gas(SENSOR_ID_GAS);
 ```
-This defines the sensors that we will use later in the sketch. Giving our sensors the `accel`, `gyro`, `temp` and `gas` sensor class names.
+This defines the sensors that you will use later in the sketch. Give your sensors the `accel`, `gyro`, `temp` and `gas` sensor class names.
 
-We can then use these variable names when needed in the sketch. The next thing to do is to enable the sensors. We do that with this code that sets the sensors rate and a latency:
+You can then use these variable names when needed in the sketch. The next thing to do is to enable the sensors. You can do that with this code that sets the sensors rate and a latency:
 
 ```arduino
   accel.begin();
@@ -254,9 +254,9 @@ We can then use these variable names when needed in the sketch. The next thing t
   gas.begin();
 ```
 
-The library lets us activate the sensors with a simple call of the `begin()` function. Automatically setting the rate and latency of the sensor.
+The library lets you activate the sensors with a simple call of the `begin()` function, automatically setting the rate and latency of the sensor.
 
-To print the readings in the serial monitor we use the following code, converting the readings into strings. With the temperature and gas values we limit the output to 4 digits so that it does not clutter the serial monitor.
+To print the readings in the Serial Monitor, you can use the following code, converting the readings into strings. You can limit the output of temperature and gas values to 4 digits so that they do not clutter the Serial Monitor.
 
 ```arduino
   Serial.println(String("acceleration: ") + accel.toString());
@@ -267,14 +267,14 @@ To print the readings in the serial monitor we use the following code, convertin
 
 ### Running the Sketch
 
-After you have uploaded the sketch to the board, open the serial monitor in the Arduino IDE. You should see similar outputs to the ones shown in the image below. Make sure that the baud rate on your serial monitor is set to **115200**.
+After you have uploaded the sketch to the board, open the Serial Monitor in the Arduino IDE. You should see similar outputs to the ones shown in the image below. Make sure that the baud rate on your serial monitor is set to **115200**.
 
 ![Serial monitor output](assets/nicla-serial-monitor.png)
 
 
 ## Next Step
-In this sketch we only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, with for example the led on the board. Please take a look at our [cheat sheet](/content/hardware/05.nicla/boards/nicla-sense-me/tutorials/cheat-sheet) if you want quick references for the boards features. Take a look at the other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
+In this sketch you only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, for example on the board LED. Please take a look at our [cheat sheet](/content/hardware/05.nicla/boards/nicla-sense-me/tutorials/cheat-sheet) if you want quick references for the boards features. Test other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
 
 ## Conclusion
 
-In this tutorial you learned how to use the Nicla Sense ME on it's own, getting multiple readings from its sensors. Printing the readings in the serial monitor for easy viewing.
+In this tutorial you learned how to use the Nicla Sense ME on its own, getting multiple readings from its sensors, and how to print the readings in the Serial Monitor for easy viewing.
