@@ -82,18 +82,18 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 ## The Board
 
 ### Application Examples
-The Arduino® Nicla Sense ME is your gateway to developing wireless networking solutions with rapid development and high robustness. Get real-time insight into the operational characteristics of your processes. Take advantage of the high quality sensors and networking capabilities to evaluate novel WSN architectures. Ultra low power consumption and integrated battery management allows for deployment in various capabilities. WebBLE allows for easy OTA update to the firmware as well as remote monitoring.
+The Arduino® Nicla Sense ME is your gateway to develop wireless networking solutions with rapid development and high robustness. Get real-time insight into the operational characteristics of your processes. Take advantage of the high quality sensors and networking capabilities to evaluate novel WSN architectures. Ultra low power consumption and integrated battery management allows for deployment in various capabilities. WebBLE allows for easy OTA update of the firmware as well as remote monitoring.
 
 - **Warehouse & Inventory Management**: 
-The environmental sensing capabilities of the Arduino® Nicla Sense ME is able to detect the ripening state of fruits, vegetable and meat allowing for intelligent management of perishable assets alongside the Arduino Cloud.
+The environmental sensor of the Arduino® Nicla Sense ME is able to detect the ripening state of fruits, vegetable and meat allowing for intelligent management of perishable assets alongside the Arduino Cloud.
 
 - **Distributed Industrial Sensing**:
-Identify operating conditions within you machine, factory or greenhouse remotely and even in hard to access or hazardous areas. Detect natural gas, toxic gases or other hazardous fumes using the AI capabilities on the **Arduino® Nicla Sense ME**. Improve safety levels with remote analysis. Mesh capabilities allow for simple deployment of WSN with minimal infrastructure requirements.
+Identify operating conditions within your machine, factory or greenhouse remotely and even in hard to access or hazardous areas. Detect natural gas, toxic gases or other hazardous fumes using the AI capabilities on the **Arduino® Nicla Sense ME**. Improve safety levels with remote analysis. Mesh capabilities allow for simple deployment of WSN with minimal infrastructure requirements.
 
 - **Wireless Sensor Network Reference Design**:
-The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor network which can be adapted by partners to develop custom-designed industrial solutions. Get a head start for developing custom end-user solutions including cloud connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
+The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor network which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
-### Accessories
+### Accessories (Not included)
 - Single cell Li-ion/Li-Po battery
 
 ### Related Products
@@ -156,14 +156,14 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U14      | AP2112K-3.3TRG1 0.6 A 3.3 V LDO IC          | J4       | 3-pin 1.2mm ACH Battery Connector (BM03B-ACHSS-GAN-TF)                  |
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin Eslov connector | J7       | microUSB connector                           |
 
-### Processor
-The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
+### Microcontroller
+The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
 ### Bosch BHI260 Smart Sensor System with Built-in 6-Axis IMU
-The Bosch BHI260 is a ultra low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is the smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute in place (XiP) code as well as data storage such as Bosch sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
+The Bosch BHI260 is a ultra low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is a smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute in place (XiP) code as well as data storage, such as Bosch sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
 ### Bosch BME688 Environmental Sensor
 The **Arduino Nicla Sense ME** is able to perform environmental monitoring via the Bosch BME688 sensor (U6). This provides capabilities for pressure, humidity, temperature as well as Volatile Organic Compound (VOC) detection. The Bosch BME688 performs gas detection via an eNose metal oxide semiconductor array with a typical gas scan cycle of 10.8 seconds.
 ### Bosch BMP390 Pressure Sensor
-Industrial grade accuracy and stability in pressure measurements is provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high resolution mode. The Bosch BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low power use with a sampling rate of 1 Hz consuming less than 3.2 µA. U3 is controlled via a SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
+Industrial grade accuracy and stability in pressure measurements is provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high resolution mode. The Bosch BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via a SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
 ### Bosch BMM150 3-Axis Magnetometer
 The Bosch BMM150 (U4) provides accurate 3-axis measurements of magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high accuracy spatial orientation and motion vectors for detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
 ### RGB LED
@@ -203,7 +203,7 @@ Sample sketches for the Arduino® Nicla Sense ME can be found either in the “E
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
-All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
+All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
