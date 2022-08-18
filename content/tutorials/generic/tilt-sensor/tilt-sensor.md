@@ -15,7 +15,7 @@ software:
 author: "Arduino"
 ---
 
-The tilt sensor is a component that can detect the tilting of an object. However it is only the equivalent to a pushbutton activated through a different physical mechanism. This type of sensor is the environmental-friendly version of a mercury-switch. It contains a metallic ball inside that will commute the two pins of the device from on to off and viceversa if the sensor reaches a certain angle.
+The tilt sensor is a component that can detect the tilting of an object. However it is only the equivalent to a pushbutton activated through a different physical mechanism. This type of sensor is the environmental-friendly version of a mercury-switch. It contains a metallic ball inside that will commute the two pins of the device from on to off and vice-versa if the sensor reaches a certain angle.
 
 The code example is exactly as the one we would use for a pushbutton but substituting this one with the tilt sensor. We use a pull-up resistor (thus use active-low to activate the pins) and connect the sensor to a digital input pin that we will read when needed.
 

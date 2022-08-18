@@ -45,7 +45,7 @@ Once you are done, copy the flow you find in the sowftare section in your palett
 
 We are using the **Iot Prime MKR Bundle** to visualise **Light**, **Humidity**, **Pressure** and **Temperature** using **MQTT**. We are going to create a channel for each one of this data, as well as the two relays.
 
-We'll be using the [MQTT Library](https://github.com/256dpi/arduino-mqtt) by [Joël Gähwiler 256dpi](https://github.com/256dpi) (you should be able to run everything from your Arduino Online Editor sketch, bu adding Wifi information to have the board conneting to the internet. 
+We'll be using the [MQTT Library](https://github.com/256dpi/arduino-mqtt) by [Joël Gähwiler 256dpi](https://github.com/256dpi) (you should be able to run everything from your Arduino Online Editor sketch, by adding Wifi information to have the board conneting to the internet. 
 
 Don't forget the [MKR\_ENV Library](https://github.com/arduino-libraries/Arduino_MKRENV) you need to use the data from the board (if going with the online IDE, it's going to be impoted automatically 👌
 

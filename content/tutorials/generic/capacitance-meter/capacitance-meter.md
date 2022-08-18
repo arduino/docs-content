@@ -116,7 +116,7 @@ Additionally the pins can be HIGH (+5 volts), to charge the capacitor; or LOW (g
 #define dischargePin   11         // pin to discharge the capacitor
 #define resistorValue  10000.0F   // change this to whatever resistor value you are using
 
-                                  // F formatter tells compliler it's a floating point value
+                                  // F formatter tells compiler it's a floating point value
 
 unsigned long startTime;
 unsigned long elapsedTime;

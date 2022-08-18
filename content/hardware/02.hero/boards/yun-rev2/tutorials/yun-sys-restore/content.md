@@ -26,9 +26,7 @@ This way you enter in U-boot and the `ar7240>`  prompt is shown.
 Copy and paste the following command line:
 
 ```arduino
-
 setenv bootargs board=YUN console=ttyATH0,250000 mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot env)ro,14656k(rootfs),1280k(kernel),64k(nvram),64k(art),15936k@0x50000(firmware) rootfstype=squashfs,jffs2 noinitrd
-
 ```
 
 Then when the console ( `ar7240>` ) returns, type:

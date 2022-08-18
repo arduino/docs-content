@@ -134,7 +134,7 @@ Class C communication profile is used in applications with enough power availabl
 
 ### Authentication and Security
 
-Authentication and security are also important in LoRaWAN® networks. Any LoRaWAN® network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRaWAN® framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encription uses an **application session key** (AppSKey). 
+Authentication and security are also important in LoRaWAN® networks. Any LoRaWAN® network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRaWAN® framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encryption uses an **application session key** (AppSKey). 
 
 ***NwkSKey and AppSKey are AES-128 root keys specific to the end-device, end-devices manufacturers, or application owners assigned them.***
 
