@@ -31,7 +31,7 @@ The Arduino Portenta Breakout is a versatile tool designed for developing, testi
 ## Instructions
 
 ### 1. Get to Know the Carrier
-The Portenta Breakout is designed to reduce development time. It gives access to the Portenta's High Density connectors as well as features Ethernet, USB A, a JTAG connector and more. However, for this tutorial, we will focus on using the **Arduino_PortentaBreakout** library to get access to the High Density connectors and create some simple example use cases. 
+The Portenta Breakout is designed to reduce development time. It gives access to the Portenta's High Density connectors as well as features Ethernet, USB-A, a JTAG connector and more. However, for this tutorial, we will focus on using the **Arduino_PortentaBreakout** library to get access to the High Density connectors and create some simple example use cases. 
 
 ![Parts of the Portenta Breakout board](assets/breakout_gs_main_parts.svg)
 
@@ -49,7 +49,7 @@ In order to build this example circuit, we need our Portenta Breakout with the P
 
 For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case **PWM 9**. For the potentiometer, on the other hand, we can use one of the analog pins (A0 to A7) in order to read the potentiometer current value, in this example we use **A7**. The potentiometer also needs a 3.3V power source, which we take from the GPIO section on the Portenta Breakout, considering it being located most conveniently and close by. Eventually, potentiometer and LED have to be connected to GND to finilize the circuit. 
 
-After having connected everything, the Portenta H7 can be plugged into the computer using a USB C cable and we can start with the code.
+After having connected everything, the Portenta H7 can be plugged into the computer using a USB-C cable and we can start with the code.
 
 ### 4. The Arduino_PortentaBreakout Library
 In the Arduino IDE we create a new Sketch and make sure we have selected the Arduino Portenta H7 on the M7 core. If you haven't used the Portenta H7 before, [here](/tutorials/portenta-h7/setting-up-portenta) you can find a detailed tutorial on how to get started with it. 
