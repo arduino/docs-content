@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: 'Understanding Battery Capabilities Of The MKR 1010 WiFi'
+=======
+title: 'Understanding battery capabilities of the MKR 1010 WiFi'
+>>>>>>> 050a1815 (More edits)
 difficulty: intermediate
 description: 'Choose the correct battery for you MKR application.'
 tags:
@@ -44,10 +48,17 @@ You can see a comparison between these three in the table below.
 Apart from being a single cell (3.7V), a key factor to selecting the correct battery is that the connector is compatible.
 
 ### Connector
+<<<<<<< HEAD
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
 
 ![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
+=======
+You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
+
+![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
+You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
+>>>>>>> 050a1815 (More edits)
 
 ### Protection Circuit
 A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
