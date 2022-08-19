@@ -182,7 +182,7 @@ void setFileHeaders(unsigned char *bitmapFileHeader, unsigned char *bitmapDIBHea
 ***Take a look at the section [Bitmap File Format](#bitmap-file-format) to better understand the file headers that are created with this function***
 
 In this case that our image (320x240) is 8bits per pixel and grayscale on the bitmap rules we need to define the color table (color map) to assign an specific RGB color for our 8 bit color.
-On the follwing function it sets the color map as a grayscale of RGB colors from [R:0x00 G:0x00 B:0x00] to [R:0xFF G:0xFF B:0xFF]
+On the following function it sets the color map as a grayscale of RGB colors from [R:0x00 G:0x00 B:0x00] to [R:0xFF G:0xFF B:0xFF]
 ```cpp
 void setColorMap(unsigned char *colorMap){
     //Init the palette with zeroes
