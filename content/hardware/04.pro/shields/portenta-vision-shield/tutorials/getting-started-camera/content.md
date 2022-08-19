@@ -15,9 +15,9 @@ This tutorial shows you how to capture frames from the Arduino Portenta Vision S
 
 ## Goals
 
-- Capturing the frames from the camera.
-- Sending the frames as a byte stream through a Serial connection.
-- Visualising the frames in Processing. 
+- Capturing the frames from the camera
+- Sending the frames as a byte stream through a Serial connection
+- Visualising the frames in Processing 
 
 ### Required Hardware and Software
 
@@ -28,10 +28,10 @@ This tutorial shows you how to capture frames from the Arduino Portenta Vision S
 - Processing 3.5.4+
 
 ## Instructions
-Accessing the Vision Shield's camera data is done with the help of both Arduino and the Processing IDE. The Arduino sketch handles the capture of image data by the on-board camera while the java applet created with Processing helps to visualize this data with the help of a serial connection. The following steps will run you through how to capture, package the data through the serial port and visualize the output in Processing. 
+Accessing the Vision Shield's camera data is done with the help of both Arduino and the Processing IDE. The Arduino sketch handles the capture of image data by the on-board camera, while the java applet created with Processing helps to visualize this data with the help of a serial connection. The following steps will run you through how to capture, package the data through the serial port and visualize the output in Processing. 
 
 ### 1. The Basic Setup
-Connect the Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connecters are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB C cable. 
+Connect the Portenta Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connecters are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB C cable. 
 
 ![Connecting the Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
 
@@ -71,7 +71,7 @@ void setup() {
 }
 ```
 
-In the loop we need to capture each Frame and send it over a serial connection to the Processing sketch that will display the frames. We will use the `grab(uint8_t *buffer, uint32_t timeout=5000);` function to fetch the frame from the frame buffer and save it into our custom data buffer. 
+In the loop you need to capture each Frame and send it over a serial connection to the Processing sketch that will display the frames. You will use the `grab(uint8_t *buffer, uint32_t timeout=5000);` function to fetch the frame from the frame buffer and save it into your custom data buffer. 
 
 ```cpp
 void loop() {
@@ -102,7 +102,7 @@ Open a new processing sketch file and name it `CameraCapture.pde`.
 
 ![Create a processing sketch](assets/vs_ard_open_pde_sketch.png)
 
-Let's start by importing the libraries and initializing the variables you will need to process the captured data. To process the data sent by the Vision Shield you will need to import the following libraries:
+Let's start by importing the libraries and initializing the variables you will need to process. To process the data sent by the Vision Shield, you will need to import the following libraries:
 
 - `processing.serial.*`: a [Serial Library](https://processing.org/reference/libraries/serial/index.html)  that is used to read and write data to external devices over the serial line. 
 - `java.nio.ByteBuffer`: a java class that provides access to operations on byte buffers
@@ -112,7 +112,7 @@ import processing.serial.*;
 import java.nio.ByteBuffer;
 ```
 
-Next we initialize the following variables to process the received pixels from the serial port. We set the dimensions, pixel count, and bytes required per frame. 
+Next, you can initialize the following variables to process the received pixels from the serial port. You can set the dimensions, pixel count and bytes required per frame. 
 
 ```java
 // must match resolution used in the sketch
@@ -123,7 +123,7 @@ final int cameraPixelCount = cameraWidth * cameraHeight;
 final int bytesPerFrame = cameraWidth * cameraHeight * cameraBytesPerPixel;
 ```
 
-To receive the frames you will need a Serial port, a PImage object and an array to store the pixel values of the frame. Add the following variables to the code. 
+To receive the frames, you will need a Serial port, a PImage object and an array to store the pixel values of the frame. Add the following variables to the code. 
 
 ```java
 Serial myPort;
@@ -134,7 +134,7 @@ int lastUpdate = 0;
 boolean shouldRedraw = false;
 ```
 
-Here we will establish a connection to the serial port and prepare the buffer to store the frame pixels. Additionally we send a byte to the Arduino sketch from Processing to let it know that it's ready to receive data.
+Here, you will establish a connection to the serial port and prepare the buffer to store the frame pixels. Additionally, you can send a byte to the Arduino sketch from Processing to let it know that it is ready to receive data.
 
 ```java
 void setup() {
@@ -156,7 +156,7 @@ void setup() {
 }
 ```
 
-The draw function checks if the connection is still alive and if there is any new data that can be drawn as an image. In that case the original image gets copied into a new image object so that it can be scaled up.
+The draw function checks if the connection is still alive and if there is any new data that can be drawn as an image. In that case, the original image gets copied into a new image object so that it can be scaled up.
 
 ```java
 void draw() {
@@ -210,7 +210,7 @@ void serialEvent(Serial myPort) {
 }
 ```
 
-The first thing we do inside this method is to update the timestamp for when the last data was read. This is to detect and recover from a connection timeout. Then read the bytes from the `frameBuffer` array which you can do with the help of the [`readBytes()`](https://processing.org/reference/libraries/serial/Serial_readBytes_.html) method that returns the number of bytes read.
+The first thing you can do inside this method is to update the timestamp when the last data was read. This is to detect and recover from a connection timeout. Then read the bytes from the `frameBuffer` array which you can do with the help of the [`readBytes()`](https://processing.org/reference/libraries/serial/Serial_readBytes_.html) method that returns the number of bytes read.
 
 ```java
 lastUpdate = millis();
@@ -240,7 +240,7 @@ while (bb.hasRemaining()) {
 } 
 ```
 
-Once all the pixels have been updated, you need to tell the sketch to redraw the image. Additionally we send an acknowledgement back to the arduino sketch to ask it to send the pixels for the next frame. We update the image with `updatePixels()` and write `1` to the serial port for the acknowledgement.
+Once all the pixels have been updated, you need to tell the sketch to redraw the image. Additionally, you can send an acknowledgement back to the arduino sketch to ask it to send the pixels for the next frame. You can update the image with `updatePixels()` and write `1` to the serial port for the acknowledgement.
 
 ```cpp
 myImage.updatePixels();
@@ -255,13 +255,13 @@ myPort.write(1);
 
 ### 5. Upload the Sketch
 
-Select the right serial port on your IDE and upload the Arduino sketch to your H7. After a successful upload, run the `CameraViewer.pde` sketch in Processing. You should be able to see the rendered camera output on the Processing canvas.
+Select the right serial port on your IDE and upload the Arduino sketch to your Portenta H7. After a successful upload, run the `CameraViewer.pde` sketch in Processing. You should be able to see the rendered camera output on the Processing canvas.
 
 ![Camera output on Processing](assets/vs_ard_frames_captured.png)
 
 ## Conclusion
 
-In this tutorial you learnt how to capture the frames from your Vision Shield's Camera and to visualize the  frames through Processing. This knowledge can be useful for you to build and experiment simple computer vision applications for both outdoor and indoor environments. 
+In this tutorial you learnt how to capture the frames from your Portenta Vision Shield's Camera and to visualize the  frames through Processing. This knowledge can be useful for you to build and experiment simple computer vision applications for both outdoor and indoor environments. 
 
 ### Complete Sketch
 The `CaptureRawBytes.ino` Sketch. 
