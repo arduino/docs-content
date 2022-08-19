@@ -1,5 +1,5 @@
 ---
-title: 'Understanding battery capabilities of the MKR 1010 WiFi'
+title: 'Understanding Battery Capabilities Of The MKR 1010 WiFi'
 difficulty: intermediate
 description: 'Choose the correct battery for you MKR application.'
 tags:
@@ -30,7 +30,7 @@ The goals of this project are to:
 - IDE 2.x
 - LiPo battery with JST-PH connector
 
-### LiPo vs Fe vs Li-ion batteries
+### LiPo Vs Li-ion Batteries
 Several different chemistries of rechargeable batteries are commercially available. The two main types are Li-Po and Li-Ion. Lithium Ion batteries have been around for a longer time and are generally cheaper. Lithium Polymer batteries have a higher energy density, allowing you to run your board longer with a similar sized battery. 
 You can see a comparison between these three in the table below.
 
@@ -49,7 +49,7 @@ You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connect
 ![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
 
-### Protection circuit
+### Protection Circuit
 A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
 ![LiPo Battery Breakdown](assets/lipo-battery-breakdown.png)
 
@@ -84,7 +84,7 @@ $$\text{maximum current draw } = \text{ battery capacity } \times \text{ dischar
 
 The discharge rating (C) is often provided in the datasheet of the battery. If the C rating of a battery is 1, then it can discharge the maximum current for one hour before running out. As a rule of thumb, higher discharge rates lead to the reduction of the effective capacity and lifetime of the battery. 
 
-## Multimeter battery measurements
+## Multimeter Battery Measurements
 
 **1.** Test the battery voltage with a multimeter. In this case, we have used a 1200mAh battery. It should be between 3.3V and 4.2V, regardless of the capacity. If the battery voltage is outside this range, your battery may be damaged.
 ![Multimeter connected to a LiPo battery](assets/lipo-battery-multimeter.jpg)
@@ -95,7 +95,7 @@ The discharge rating (C) is often provided in the datasheet of the battery. If t
 ![Measurement of VCC when LiPo battery is connected](assets/lipo-vcc-multimeter.jpg)
 You should notice that the voltage of VCC is about 3.3V, regardless of the battery level. The voltage that comes out of the PMIC enters the VCC.
 
-## Read battery values over Serial
+## Read Battery Values Over Serial
 
 We will go through the lines needed to create a Sketch to read the battery values over Serial and give a short description of what each part does. At the end, the full code will be provided so you can copy and paste it into your IDE and upload it to your Arduino board.
 
