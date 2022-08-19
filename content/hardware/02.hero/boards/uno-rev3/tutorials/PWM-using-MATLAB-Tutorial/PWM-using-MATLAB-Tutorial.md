@@ -95,7 +95,7 @@ On the right breadboard we have a simple LED circuit comprised of a red output w
 
 ![Full circuit of the setup.](assets/circuit.png)
 
-***Make sure to connect the longer leg of the LED to the resistor and the shorter to GND.***
+***Make sure to connect the longer leg of the LED (anode) to the resistor and the shorter (cathode) to GND.***
 
 ## Programming the Board
 
