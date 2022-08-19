@@ -144,4 +144,4 @@ You can now control your output using variable inputs to control your devices an
 
 - You can also use the command line arguments to upload the MATLAB® server to the Arduino® UNO via the `arduino()` command. See more information on using this function in the [MathWorks® documentation](https://www.mathworks.com/help/supportpkg/arduinoio/ref/arduino.html).
 - Try writing a MATLAB® code that slowly increases and then decreases the blink speed instead of adjusting the brightness.
-- Use different sensors and parts instead of the potentiometer and LED (maybe a light sensor and a motor?)
+- Use different sensors and parts instead of the potentiometer and LED, for example a light sensor.
