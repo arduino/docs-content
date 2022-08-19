@@ -283,7 +283,7 @@ Once the capture is saved, remove the SD Card and plug it into a computer/phone 
 
 ```cpp
 #include "SDMMCBlockDevice.h" // Multi Media Card APIs
-#include "FATFileSystem.h"    // Mbed API for portable  and embedded systems
+#include "FATFileSystem.h"    // API to run operations on a FAT file system
 SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
@@ -292,7 +292,7 @@ mbed::FATFileSystem fileSystem("fs");
 HM01B0 himax;
 Camera cam(himax);
 
-FrameBuffer frameBuffer; // Buffer to save the capture
+FrameBuffer frameBuffer; // Buffer to save the camera stream
 
 // Settings for our setup
 #define IMAGE_HEIGHT (unsigned int)240
