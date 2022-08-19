@@ -173,7 +173,7 @@ while(True):
 
 ## Conclusion
 
-You have learned about classification as a machine learning concept which categorizes a set of data into classes. You have also learned how supervised learning works and what model quantization means. Furthermor,e you have learned to train a custom TFLite machine learning model and deploy it to your Portenta H7.
+You have learned about classification as a machine learning concept which categorizes a set of data into classes. You have also learned how supervised learning works and what model quantization means. Furthermore, you have learned to train a custom TFLite machine learning model and deploy it to your Portenta H7.
 
 ### Next Steps
 
