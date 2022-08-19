@@ -49,7 +49,7 @@ You will be using the **Himax HM-01B0 camera module** which has a resolution of 
 Inside the sketch, you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](hardware/nicla-vision)
 ```cpp
 #include "camera.h" // Multi Media Card APIs
-#include "himax.h"  // Mbed API for portable  and embedded systems
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
 ```
 
 #### Bitmap File Format
