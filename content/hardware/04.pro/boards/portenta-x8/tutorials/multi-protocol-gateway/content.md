@@ -231,7 +231,7 @@ def get_data_from_m4():
     return data
 ```
 
-For MQTT configuration, you will need to set the desired parameters. Below are the paramaters we use for MQTT in this tutorial.
+For MQTT configuration, you will need to set the desired parameters. Below are the parameters we use for MQTT in this tutorial.
 
 ```
 mqtt_broker = 'broker.emqx.io'
