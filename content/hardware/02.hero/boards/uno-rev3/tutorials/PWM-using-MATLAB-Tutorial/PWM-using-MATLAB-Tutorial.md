@@ -130,7 +130,6 @@ end
 
 ### Troubleshoot
 
-If the code is not working, there are some common issues we can troubleshoot:
 
 - If the code get frozen or it seems not working try to clear previous Arduino objects linked to the device. You can do this by running the command `clear <object>`, for example `clear a` will clear the Arduino object.
 - If you get the message `Unrecognized function or variable 'arduinosetup'` ensure that you have installed the [MATLAB® Support Package for Arduino Hardware](https://www.mathworks.com/matlabcentral/fileexchange/47522-matlab-support-package-for-arduino-hardware).
