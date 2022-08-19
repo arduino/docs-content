@@ -105,7 +105,7 @@ a = arduino();
 writeDigitalPin(a, 'D13', 1)
 while(1)
   Volts = readVoltage(a, 'A0');
-  display(Volts)
+  display(Volts);
   pause(0.5)
 end
 ```
@@ -122,7 +122,7 @@ writeDigitalPin(a, 'D13', 1)
 while(1)
   Volts = readVoltage(a, 'A0');
   writePWMVoltage(a, 'D11', Volts)
-  display(Volts)
+  display(Volts);
   pause(0.5)
 end
 ```
