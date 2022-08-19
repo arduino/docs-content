@@ -3,7 +3,7 @@ title: Creating a Basic Face Filter With OpenMV
 coverImage: assets/por_openmv_fd_cover.svg
 difficulty: intermediate
 tags: [OpenMV, Face Detection, Haar Cascade, Machine Vision, Machine Learning]
-description: In this tutorial you will build a MicroPython application with OpenMV that uses the Portenta Vision Shield to detect faces and overlay them with a custom bitmap image.
+description: In this tutorial you will build a MicroPython application with OpenMV, to use the Portenta Vision Shield to detect faces and overlay them with a custom bitmap image.
 author: Sebastian Romero, Lenard George
 hardware:
   - hardware/04.pro/boards/portenta-h7
@@ -13,7 +13,7 @@ software:
 ---
 
 ## Overview
-In this tutorial you will build a MicroPython application with OpenMV that uses the Portenta Vision Shield to detect faces and overlay them with a custom bitmap image. Think of it as building your own camera filter that puts a smile on every face it detects. This tutorial is based on the face detection example that comes with the OpenMV IDE.
+In this tutorial you will build a MicroPython application with OpenMV, to use the Portenta Vision Shield to detect faces and overlay them with a custom bitmap image. Think of it as building your own camera filter that puts a smile on every face it detects. This tutorial is based on the face detection example that comes with the OpenMV IDE.
 
 ## Goals
 
@@ -33,23 +33,23 @@ In this tutorial you will build a MicroPython application with OpenMV that uses 
 
 ## The Haar Cascade Algorithm
 
-By harnessing the power of machine vision algorithms objects can be detected in a camera stream. Those algorithms can be trained to detect the desired type of object. In this tutorial you will use a machine learning based approach called Haar Cascade to detect faces.
+By harnessing the power of machine vision algorithms, objects can be detected in a camera stream. Those algorithms can be trained to detect the desired type of object. In this tutorial, you will use a machine learning based approach called Haar Cascade to detect faces.
 
 ![The Haar Cascade process for detecting faces](assets/por_openmv_haar_cascade.svg)
 
-This approach uses a cascade algorithm that has multiple stages where the output from one stage acts as additional information for the next stage in the cascade. The different stages are responsible for detecting edges, lines, contrast checks and calculating pixel values in a given image. Larger areas of the image are checked first in the earlier stages followed by more numerous and smaller area checks in later stages. The Haar Cascade function provided by OpenMV allows to specify the amount of stages. Fewer stages make the detection faster while leading to more false positives.
+This approach uses a cascade algorithm that has multiple stages, where the output from one stage acts as additional information for the next stage in the cascade. The different stages are responsible for detecting edges, lines, contrast checks and calculating pixel values in a given image. Larger areas of the image are checked first in the earlier stages, followed by more numerous and smaller area checks in later stages. The Haar Cascade function provided by OpenMV allows to specify the amount of stages. Fewer stages make the detection faster, while leading to more false positives.
 
-The built-in Haar Cascade model for faces was trained with hundreds of images containing faces that are labeled as such and images that don't contain faces labeled differently. That allows the algorithm to distinguish such images after it is being trained.
+The built-in Haar Cascade model for faces was trained with hundreds of images containing faces that are labeled as such and images that do not contain faces labeled differently. That allows the algorithm to distinguish such images after it is being trained.
 
 ## Instructions
 
 ### Creating the Face Detection Script
 
-For this tutorial you will be using the OpenMV IDE along with the OpenMV firmware on your Portenta H7 to build the face detection script. If this is your first time using the Vision Carrier and OpenMV we recommend you to take a look at the "Configuring the Development Environment" section inside the [Blob Detection tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/blob-detection) to configure the development environment. 
+For this tutorial, you will be using the OpenMV IDE along with the OpenMV firmware on your Portenta H7 to build the face detection script. If this is your first time using the Portenta Vision Shield and OpenMV, we recommend you to take a look at the "Configuring the Development Environment" section inside the [Blob Detection tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/blob-detection) to configure the development environment. 
 
 ### 1. The Basic Setup
 
-Attach your Vision Carrier to your Portenta H7 and open the **OpenMV** Editor. For this tutorial, you will create a new script that is based on the face detection example provided by OpenMV. Create a new script by clicking the "New File" button in the toolbar on the left side and save it as **face_detection.py**.
+Attach your Portenta Vision Shield to your Portenta H7 and open the **OpenMV** Editor. For this tutorial, you will create a new script that is based on the face detection example provided by OpenMV. Create a new script by clicking the "New File" button in the toolbar on the left side and save it as **face_detection.py**.
 
 ### 2. Importing the Modules
 
@@ -63,7 +63,7 @@ import time # Import module for tracking elapsed time
 
 ### 3. Preparing the Sensor
 
-The next step is to calibrate the camera sensor for achieving the best results using the `sensor` module. You can use the `set_contrast()` function to set the contrast of the sensor to its highest value (3). This can help the algorithm identifying lines and edges more easily. `set_gainceiling()` controls the amplification of the signal from the camera sensor including any associated background noise. For maximizing the detection success rate it is recommended to set the camera frame size to `HQVGA`.
+The next step is to calibrate the camera sensor to achieve the best results using the `sensor` module. You can use the `set_contrast()` function to set the contrast of the sensor to its highest value (3). This can help the algorithm identifying lines and edges more easily. `set_gainceiling()` controls the amplification of the signal from the camera sensor including any associated background noise. For maximizing the detection success rate, it is recommended to set the camera frame size to `HQVGA`.
 
 ```python
 # Sensor settings
@@ -75,7 +75,7 @@ sensor.set_pixformat(sensor.GRAYSCALE)
 
 ### 4. Finding the Face Features
 
-OpenMV provides a Haar Cascade class ready to be used with the Vision Shield's camera. The function [`image.HaarCascade(path, number of stages)`](https://docs.openmv.io/library/omv.image.html#class-Haarcascade-feature-descriptor) is used to load a Haar Cascade model into memory. The `path` parameter can be used to either specify the location of a custom Haar Cascade model or to use the built-in `frontalface` model. The `stages` parameter is use to specify the desired Haar Cascade stages.
+OpenMV provides a Haar Cascade class ready to be used with the Portenta Vision Shield's camera. The function [`image.HaarCascade(path, number of stages)`](https://docs.openmv.io/library/omv.image.html#class-Haarcascade-feature-descriptor) is used to load a Haar Cascade model into memory. The `path` parameter can be used to either specify the location of a custom Haar Cascade model or to use the built-in `frontalface` model. The `stages` parameter is use to specify the desired Haar Cascade stages.
 
 ***Remember: Fewer stages make the detection faster while leading to more false positives.***
 
@@ -86,19 +86,19 @@ print(face_cascade) # Prints the Haar Cascade configuration
 
 ### 5. Displaying a Bitmap Image
 
-Once you know the location of the faces in the camera image you can overlay them with an image of your choice. OpenMV currently supports bmp, pgm or ppm image formats. Image formats with an alpha layer such as PNG are not supported yet.
+Once you know the location of the faces in the camera image, you can overlay them with an image of your choice. OpenMV currently supports bmp, pgm or ppm image formats. Image formats with an alpha layer such as PNG are not supported yet.
 
-In this tutorial you will use a preloaded smiley image in the monochrome [Portable Bitmap Image](https://en.wikipedia.org/wiki/Netpbm) (.pbm) format. This format consists of a matrix of zeroes and ones denoting black and white pixels. 1 stands for a black pixel, 0 for a white one. If you want to create your custom image make sure you save it in one of the supported bitmap formats (bmp, pgm or ppm). You may use an image editor of your choice which supports exporting images in one of these formats. For this tutorial Adobe Photoshop was used.
+In this tutorial you will use a preloaded smiley image in the monochrome [Portable Bitmap Image](https://en.wikipedia.org/wiki/Netpbm) (.pbm) format. This format consists of a matrix of zeroes and ones denoting black and white pixels. 1 stands for a black pixel, 0 for a white one. If you want to create your custom image, make sure you save it in one of the supported bitmap formats (bmp, pgm or ppm). You may use an image editor of your choice which supports exporting images in one of these formats. For this tutorial Adobe Photoshop was used.
 
-Connect your Portenta board to your computer if you haven't done so. Make sure you are running the OpenMV firmware on the Portenta. If you haven't installed the OpenMV firmware yet take a look at the "Configuring the Development Environment" section which explains how to proceed in that case. 
+Connect your Portenta board to your computer if you have not done so yet. Make sure you are running the OpenMV firmware on the Portenta. If you have not installed the OpenMV firmware yet, take a look at the "Configuring the Development Environment" section which explains how to proceed in that case. 
 
 Download [this file](assets/face.pbm) containing the smiley bitmap and copy it to the Flash drive that was mounted when you connected the Portenta running the OpenMV firmware.
 
-***The on-board memory gets mounted as a Flash drive. Therefore this will work even if you haven't inserted an SD card.***
+***The on-board memory gets mounted as a Flash drive. Therefore this will work even if you have not inserted an SD card.***
 
 ![Copy the bitmap image to the Flash drive](assets/por_openmv_fd_drive.png)
 
-Load the image into a variable called `faceImage` using the `Image()` function from the `image` module. The initial slash refers to the root directory of the Flash drive. In order to use the image as an overlay to the camera stream instead of directly displaying it set the `copy_to_fb` to False such that it doesn't get copied into the frame buffer automatically.
+Load the image into a variable called `faceImage` using the `Image()` function from the `image` module. The initial slash refers to the root directory of the Flash drive. In order to use the image as an overlay to the camera stream, instead of directly displaying it, set the `copy_to_fb` to False such that it does not get copied into the frame buffer automatically.
 
 ```python
 faceImage = image.Image("/face.pbm", copy_to_fb=False)
@@ -172,13 +172,13 @@ while (True):
     print(clock.fps())
 ```
 
-Click on the "Play" button at the bottom of the left toolbar. Point the camera on the Vision Shield towards your face check if the Portenta can detect it. Once it detects your face it should be covered with a smiley. 
+Click on the "Play" button at the bottom of the left toolbar. Point the camera on the Vision Shield towards your face and check if the Portenta can detect it. Once it detects your face, it should be covered with a smiley. 
 
 ![Copy the bitmap image to Flash drive](assets/por_openmv_fd_output.png)
 
 ## Conclusion
 
-In this tutorial you learned how to use OpenMV's built-in face detection algorithm which is based on Haar Cascade. Furthermore you learned how to copy a file to the internal flash and how to load an image from the Flash into the memory. You have also learned how to draw an image on top of a snapshot from the camera stream.
+In this tutorial you learned how to use OpenMV's built-in face detection algorithm which is based on Haar Cascade. Furthermore, you learned how to copy a file to the internal flash and how to load an image from the Flash into the memory. You have also learned how to draw an image on top of a snapshot from the camera stream.
 
 ### Next Steps
 The [HaarCascade](https://docs.openmv.io/library/omv.image.html#class-Haarcascade-feature-descriptor) class provided by OpenMV can also detect other facial features such as eyes. For example you could tweak your **face_detection.py** script to detect your eyes simply by changing the `path` parameter from `frontalface ` to `eye` which is also a built-in model. Go ahead and replace the following line in your script and try to figure out how to overlay your eyes with a bitmap image of an eye. 
@@ -191,7 +191,7 @@ face_cascade = image.HaarCascade("eye", stages=25)
 
 ### Face Detection Issues
 
-- If OpenMV can't detect your face try moving the camera further away or position yourself in front of a wall or another plain background.
+- If OpenMV cannot detect your face, try moving the camera further away or position yourself in front of a wall or another plain background.
 
 ### Bitmap Loading Issues
 
