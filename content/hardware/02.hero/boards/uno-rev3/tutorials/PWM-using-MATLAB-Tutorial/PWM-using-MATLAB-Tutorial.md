@@ -99,7 +99,7 @@ On the right breadboard we have a simple LED circuit comprised of a red output w
 
 ## Programming the Board
 
-**1.** Set your output to 1 in the previously mentioned way using `writeDigitalPin(a, 'D13', 1);`. As mentioned earlier, 1 means ON or HIGH and sends a 5V current through pin13. Check to see if A0 is actually reading an adjustable voltage using `readVoltage(a, 'A0');` in a loop and then use `display(Volts)` to print the value of `Volts`.
+**1.** Set your output to 1 in the previously mentioned way using `writeDigitalPin(a, 'D13', 1);`. As mentioned earlier, 1 means ON or HIGH and sets the digital pin 13 **D13** to 5V allowing the current flow towards the LED. Check to see if the analog pin 0 **A0** is actually reading an adjustable voltage using `readVoltage(a, 'A0');` in a loop and then use `display(Volts)` to print the value of `Volts` on the "Command Window".
 
 ```
 a = arduino();
