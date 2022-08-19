@@ -115,7 +115,7 @@ The amount assigned to `Volts` should be changing as you rotate the potentiomete
 
 ![Voltage display](assets/Volts.PNG)
 
-**2.** Set the value of `Volts` as the voltage to be sent through pin 11 using the command: `writePWMVoltage()`. This command is different from `writeDigitalPin()` as its voltage is adjustable between 1 and 5 volts. Whereas the latter is either ON(1), being **5V** or OFF(0), **0V**.
+**2.** Set the value of `Volts` as the voltage to be set on digital pin 11 **D11** using the command: `writePWMVoltage()`. This command is adjustable between 0 and 5 volts. It will convert the value to a PWM Signal on the digital pin.
 
 ```
 a = arduino();
