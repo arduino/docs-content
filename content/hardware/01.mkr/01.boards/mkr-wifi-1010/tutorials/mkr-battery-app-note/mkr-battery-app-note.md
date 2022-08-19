@@ -15,7 +15,7 @@ software:
 
 ## Introduction
 
-While you can run your MKR board from USB, you can make best use of it when your MKR board is able to operate independantly of your computer and a USB cable. This is particulary useful for many IoT applications, use of relays with high current draw and remote sensing. Batteries can help us in this regard and a special connector is included in the MKR products for this end. In this application note, we will take a closer look at the battery capabilities of the MKR boards. 
+While you can run your MKR board from USB, you can make best use of it when your MKR board is able to operate independently of your computer and a USB cable. This is particularly useful for many IoT applications, use of relays with high current draw and remote sensing. Batteries can help us in this regard and a special connector is included in the MKR products for this end. In this application note, we will take a closer look at the battery capabilities of the MKR boards. 
 
 ### Goals
 The goals of this project are to:
@@ -31,7 +31,7 @@ The goals of this project are to:
 - LiPo battery with JST-PH connector
 
 ### LiPo vs Fe vs Li-ion batteries
-Several different chemistries of rechargeable batteries are commerically avalible. The two main types are Li-Po and Li-Ion. Lithium Ion batteries have been around for a longer time and are generally cheaper. Lithium Polymer batteries have a higher energy density, allowing you to run your board longer with a similar sized battery. 
+Several different chemistries of rechargeable batteries are commercially available. The two main types are Li-Po and Li-Ion. Lithium Ion batteries have been around for a longer time and are generally cheaper. Lithium Polymer batteries have a higher energy density, allowing you to run your board longer with a similar sized battery. 
 You can see a comparison between these three in the table below.
 
 | Battery Chemistry | Cost   | Energy Density (mass) | Energy density (size) | Stability | Nominal voltage (single cell) |
@@ -44,10 +44,10 @@ You can see a comparison between these three in the table below.
 Apart from being a single cell (3.7V), a key factor to selecting the correct battery is that the connector is compatible.
 
 ### Connector
-You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
+You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
 
 ![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
-You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
+You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
 
 ### Protection circuit
 A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
@@ -59,14 +59,14 @@ The BQ24195L IC is responsible for charging the single cell lion battery, as wel
 ### Electrical Properties
 
 **Voltage**
-The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is commonly refered to as the voltage of single cell batteries. However, this is an ideal scenario since as a battery is used the voltage changes. The voltage can be considered similar to a waterfall. The higher the waterfall, the higher the voltage.
+The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is commonly referred to as the voltage of single cell batteries. However, this is an ideal scenario since as a battery is used the voltage changes. The voltage can be considered similar to a waterfall. The higher the waterfall, the higher the voltage.
 
 
-In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. This pin is used internally on the board, and is not accesssible via the MKR pins. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
+In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. This pin is used internally on the board, and is not accessible via the MKR pins. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
 
 $$ V_{out} = \frac{V_{source} \times R2} {R_1 + R_2} $$
 
-In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass throught, increasing the life of the battery. The capacitor acts to clean the signal.
+In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass through, increasing the life of the battery. The capacitor acts to clean the signal.
 
 ![Voltage Divider Circuit on the MKR WIFI 1010](assets/voltage-divider-samd21.png)
 
@@ -75,7 +75,7 @@ Continuing with the waterfall analogy, the volume of water passing through a wat
 
 ![LiPo batteries with various capacity sizes](assets/three-lipo-batteries.png)
 
-While the MKR boards do not provide a mechanism for identifying capacity, we can get a general idea of the current status by mapping the voltage to the capacity. A more precise value can be obtained with the help of a fuel gauge IC (Integrated Circuit), avaliable in the Portenta X8 and H7.
+While the MKR boards do not provide a mechanism for identifying capacity, we can get a general idea of the current status by mapping the voltage to the capacity. A more precise value can be obtained with the help of a fuel gauge IC (Integrated Circuit), available in the Portenta X8 and H7.
 
 **Discharge rating**
 When the battery is fully charged or when it is near to discharge, the discharge rate changes considerably. Yet, there is a region where the discharge rate is constant (change in voltage over change in discharge capacity does not flunctuate). Within this region, the maximum current draw is defined as:
@@ -106,7 +106,7 @@ We will go through the lines needed to create a Sketch to read the battery value
 
 ![Calling the BQ24195 Library](assets/include-BQ24195-library.png)
 
-**2.**  Then, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
+**2.**  Then, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivalent voltage expereienced by PB09 and finally the calculated battery voltage.
 
 ```arduino
   float rawADC;
@@ -193,7 +193,7 @@ voltADC = rawADC * (3.3/4095.0);
 voltBat = voltADC * (max_Source_voltage/3.3);
 ```
 
-**15.** We can approximate the battery voltage to be propotional to the capacity level. Since the `map()` function does not work with float variables, we will manually map the values.
+**15.** We can approximate the battery voltage to be proportional to the capacity level. Since the `map()` function does not work with float variables, we will manually map the values.
 ```arduino
 int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - batteryEmptyVoltage);
 ```
@@ -275,7 +275,7 @@ float batteryCapacity = 0.750;            //set battery capacity in Ah
 
 void setup() {
    
-  Serial.begin(9600);               // start Serial port with a buad rate of 9600bps
+  Serial.begin(9600);               // start Serial port with a baudrate of 9600bps
   
   analogReference(AR_DEFAULT);      // the upper value of ADC is set to 3.3V
   analogReadResolution(12);         // this will give us 4096 (2^12) levels on the ADC
@@ -284,7 +284,7 @@ void setup() {
   PMIC.begin();                                               // start the PMIC I2C connection
   PMIC.enableBoostMode();                                     // boost battery output to 5V
   
-  PMIC.setMinimumSystemVoltage(batteryEmptyVoltage);          // set the mininum battery output to 3.5V
+  PMIC.setMinimumSystemVoltage(batteryEmptyVoltage);          // set the minimum battery output to 3.5V
   PMIC.setChargeVoltage(batteryFullVoltage);                  // set battery voltage at full charge
 
   PMIC.setChargeCurrent(batteryCapacity/2);                   // set battery current to C/2 in amps
