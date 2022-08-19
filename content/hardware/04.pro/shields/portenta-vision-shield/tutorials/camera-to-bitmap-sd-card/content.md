@@ -80,7 +80,7 @@ First you need to include the needed libraries
 #include "FATFileSystem.h"    // Mbed API for portable  and embedded systems
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // Exclusive Camera library for the Portenta Vision Shield
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
 ```
 
 Then we define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the file system.
@@ -92,7 +92,7 @@ SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // Exclusive Camera library for the Portenta Vision Shield
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
 HM01B0 himax;
 Camera cam(himax);
 
@@ -288,7 +288,7 @@ SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // Exclusive Camera library for the Portenta Vision Shield
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
 HM01B0 himax;
 Camera cam(himax);
 
