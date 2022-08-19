@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Battery Selection for the MKR boards'
+title: 'Understanding battery capabilities of the MKR 1010 WiFi'
 difficulty: intermediate
 description: 'Choose the correct battery for you MKR application.'
 tags:
@@ -23,14 +23,12 @@ The goals of this project are to:
 - Distinguish between LiPo and Li-Ion batteries
 - Learn how to identify connector polarity
 - Understand how the SAMD chip reads battery voltage via a voltage divider
-- Export data to the Arduino IoT CLoud to read values in real time
 
 ### Hardware & Software Needed
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
 - Multimeter
-- IDE 2.0
+- IDE 2.x
 - LiPo battery with JST-PH connector
-- Arduino IoT Cloud
 
 ### LiPo vs Fe vs Li-ion batteries
 Several different chemistries of rechargeable batteries are commerically avalible. The two main types are Li-Po and Li-Ion. Lithium Ion batteries have been around for a longer time and are generally cheaper. Lithium Polymer batteries have a higher energy density, allowing you to run your board longer with a similar sized battery. 
@@ -46,13 +44,10 @@ You can see a comparison between these three in the table below.
 Apart from being a single cell (3.7V), a key factor to selecting the correct battery is that the connector is compatible.
 
 ### Connector
-<<<<<<< HEAD
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
 
 ![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
-=======
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
->>>>>>> 3faaafb6a75ff2500f060d68e60406d769408434
 
 ### Protection circuit
 A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
@@ -332,76 +327,14 @@ void loop()
 
 ***The battery must be connected to the MKR WIFI 1010 before connecting via USB, otherwise it may not work.***
 
-**13.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the Arduino MKR WIFI 1010 is selected and that the port is correct. Upload the code to the board and open the terminal monitor. You will see a message similar to the following.
+**13.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the Arduino MKR WIFI 1010 is selected and that the port is correct. Upload the code to the board and open the terminal monitor. You will see information about the battery level displayed in the Serial monitor
 
-![Incoming battery voltage information via the Serial Terminal]()
-
-
-## Measure battery voltage via the Arduino IoT Cloud
-
-Since we had connected the board via USB, the board is charging. In order to better realise the status of the battery in a more realistic environment, we will use the Arduino IoT Cloud. We will use three different dashboard elements to display the data.
-
-**1.** In order to evaluate the performance of the device in a real world setting, we need to be able to test it remotely. To do so, we will use the Arduino Cloud to transfer data. The Arduino IoT Cloud makes it easy to create IoT solutions. In the free plan, you have to connect the board to the cable, but in a subscription plan, you can program the board wirelessly.
-
-**2.** First, we will create a simple digital output to display the value of the ADC. Go to https://create.arduino.cc/iot/dashboards and click on **Create** to make a new dashboard and give it a name. Here, we are calling our dashboard MKR Remote Battery Status.
-
-**3.** Click on the Add button and in the list and select the Value widget. You can also search by entering the name in the box. Click it in order to add it. 
-
-**4.** Name the widget raw ADC value. Then click on **Done**. 
-
-**5.** In order for the ADC value to be shown on the widget, we first need to configure the sketch to create a linked variable. A linked variable is a variable that is sent by your Arduino device to the cloud. 
-
-**6.** Go to the Devices tab and click on Add. Then Select Setup an Arduino device. Make sure your board is connected via a USB cable. If you have not done already, you may be requested to install the Arduino Create Adgent. Install it if needed. 
-
-**7.** After you have setup the device, go the the things tab. Click on the device you linked and add the sketch as well as the rawADC variable.
-
-**8.** Upload the sketch
-
-***If using a paid cloud account, you can send the sketch over the air. Otherwise, you will need to have the board conencted every time you upload a new sketch***
-
-**9.** Now go to the dashboard, and link the variable to the value widget you made. You should see a four digit value.
-
-**10.** Now let us link three other variables, in a similar manner. The upload again.
-
-**11.** In the dashboard, we will create two objects. First, we create a chart. Select voltADC and voltBatt as the linked variables to display on the graph.
-
-**12.** Then, add a Percentage widget and link the new_batt variable. 
-
-**13.** You now can view the battery status through a wide range of widgets.
-
-<<<<<<< HEAD
-=======
-## Extract plots
-
-**1.** In the Dashboard, click on the download historical data button to the right of your screen.
-
-**2.** Click
-
-**2.** Plot with Google Sheets
-
-after i the usb port, the battery is disconnected as well? I have to reconnect battery for it to work? How are you supposed to charge it in a practical setting 
->>>>>>> 3faaafb6a75ff2500f060d68e60406d769408434
-
-### Troubleshoot
-- You cannot upload OTA with 
-
+  
 ## Conclusion
+In this Application Note, you have gained an understanding of how the batteries connect to the MKR WiFi 1010, both physically via the JST-PH connector as well as the I2C-controlled BQ24195 IC. You can now select the correct battery capacity and configure it for your application.
 
 ## Further Ideas
 
-- Try disabling the charging circuit with `code()` in order to read the voltage via serial without a WiFi connections
-- Save the values from the IoT cloud, and plot the change in voltage over time. What shape does the discharge function have?
+- Try disabling the charging circuit with `disableCharge()` in order to read the battery voltage, while it isn't charging
 - Try experimenting with different battery capacities, and see how long it can power your application.
-- ## Extract plots
-
-**1.** In the Dashboard, click on the download historical data button to the right of your screen.
-
-**2.** Clic
-
-**2.** Plot with Google Sheets
-
-after i the usb port, the battery is disconnected as well? I have to reconnect battery for it to work? How are you supposed to charge it in a practical setting 
-
-
-## References
-battery charge level is tied to the voltage. don't need a table, but have explanation. depending on a battery used. from 4.2 to 4.0 and from 3.5 to 3.3 very little energy is released.
+- Send a just the `voltBat` over the serial and use the Serial Plotter to view the values as a graph.
