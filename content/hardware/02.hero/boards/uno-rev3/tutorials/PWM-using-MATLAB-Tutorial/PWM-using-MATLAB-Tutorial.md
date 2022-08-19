@@ -86,7 +86,6 @@ while (1)
 end
 ```
 
-**9.** See what happens when you change the pause duration. Try replacing the while with an `if` statement to make it blink a certain number of times.
 
 ## Circuit
 
