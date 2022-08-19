@@ -224,6 +224,17 @@ void saveImage(unsigned char *imageData, const char* imagePath){
 }
 ```
 
+Then to have visual feedback lets add a blink function to make 3 blinks after the photo is taken, once the blue LED is ON it means the picture was taken.
+```cpp
+void countDownBlink(){
+    for (int i = 0; i < 6; i++){
+        digitalWrite(LEDG, i % 2);
+        delay(500);
+    }
+    digitalWrite(LEDG, HIGH);
+    digitalWrite(LEDB, LOW);
+}
+```
 Now that you have all the functions to be used, inside the `setup()` its call them only once after the board restarts.
 ```cpp
 void setup(){
@@ -239,6 +250,7 @@ void setup(){
         Serial.println("Unable to find the camera");
     }
 
+    countDownBlink();
     Serial.println("Fetching camera image...");
     unsigned char *imageData = captureImage();
     
