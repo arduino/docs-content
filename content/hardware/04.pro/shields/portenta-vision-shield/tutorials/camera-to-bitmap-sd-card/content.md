@@ -96,7 +96,7 @@ mbed::FATFileSystem fileSystem("fs");
 HM01B0 himax;
 Camera cam(himax);
 
-FrameBuffer frameBuffer; // Buffer to save the capture
+FrameBuffer frameBuffer; // Buffer to save the camera stream
 ```
 
 For the bitmap headers binary file you will need some information like the resolution of the image, the bits per pixel and more; so you can define your settings as shown:
