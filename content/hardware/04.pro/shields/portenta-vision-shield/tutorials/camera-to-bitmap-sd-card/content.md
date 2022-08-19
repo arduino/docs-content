@@ -87,7 +87,7 @@ Then we define the following objects with their respective constructor (`blockDe
 
 ```cpp
 #include "SDMMCBlockDevice.h" // Multi Media Card APIs
-#include "FATFileSystem.h"    // Mbed API for portable  and embedded systems
+#include "FATFileSystem.h"    // API to run operations on a FAT file system
 SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
