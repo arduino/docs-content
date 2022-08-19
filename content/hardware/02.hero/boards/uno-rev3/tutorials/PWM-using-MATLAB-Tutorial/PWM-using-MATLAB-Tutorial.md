@@ -72,7 +72,7 @@ MATLAB® is an educational and industrial programming platform used to analyse d
 **7.** Enter the command `writeDigitalPin(a, 'D13', 1);`. This command is similar to the `digitalWrite(D13, HIGH)` by the Arduino programming language. Which means that digital pin 13 **D13** is connected to the built-in LED, `a` is the Arduino object we created, and 1 represents a HIGH or ON state. Try turning the LED ON and OFF several times by changing 1 to 0 and vice-versa.
 
 
-***Unlike in the Arduino IDE, here you cannot address the built-in LED using the `LED_BUILTIN` function.***
+***Unlike in the Arduino IDE, here you cannot address the built-in LED using the `LED_BUILTIN` macro.***
 
 
 **8.** Now, you can use this command to continuously blink an LED as part of a `while` loop. Try entering the script below.
