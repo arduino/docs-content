@@ -169,7 +169,7 @@ You have retrieved the device EUI, used it to register the device in the TTN con
 ### Next Steps
 
 - Try sending uplink and downlink messages between Portenta and your TTN application with **LoraSendAndReceive** sketch from the MKRWAN library.
-- Experiment your board's capabilities with OpenMV and the examples from the dedicated library for Arduino. You can continue with [this tutorial](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython) from the Arduino DOCS site.
+- Experiment your board's capabilities with OpenMV and the examples from the dedicated library for Arduino. You can continue with [this tutorial](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython) from the Arduino Documentation site.
 -  Combine LoRaWAN® protocol with an OpenMV example to develop your own IoT application. Take advantage of the board's camera to detect, filter, classify images, read QR codes or more.     
 
 ## Troubleshooting
