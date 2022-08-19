@@ -196,7 +196,7 @@ This is the main Python script that will handle overall networking process. We w
 
 First up, the configuration for the M4 Proxy Server, which are the parameters that handles communication with the M4 core that extends the Arduino layer. The `m4_proxy_port` is configured to `5001`, as it is the port used by clients to send the data to the M4. 
 
-```
+```python
 #M4 Proxy Server Configuration
 # Fixed configuration parameters
 port = 8884
@@ -209,7 +209,7 @@ m4_proxy_port = 5001
 
 The next function is dedicated to retrieve data from the M4 (Arduino layer). It will help you set the variables, such as sensor data, to then be pulled and be exposed to the Linux layer. With this, you will have the information available to be used within the Python script. 
 
-```
+```python
 def get_data_from_m4():
 
     rpc_address = RpcAddress(m4_proxy_address, m4_proxy_port)
@@ -233,7 +233,7 @@ def get_data_from_m4():
 
 For MQTT configuration, you will need to set the desired parameters. Below are the parameters we use for MQTT in this tutorial.
 
-```
+```python
 mqtt_broker = 'broker.emqx.io'
 mqtt_port = 1883
 mqtt_topic = "multiPrGw/mqtt1"
@@ -245,7 +245,7 @@ mqtt_password = 'public'
 
 These 2 parameters are required to establish a connection with The Things Network. The `APP_EUI` and `APP_KEY` are required to be configured, as they are provided from The Things Network for example or from the LoRaWAN platform that you may try extablishing connection to. Additionally, the `DEV_EUI` will be predefined as the device will request and apply the EUI. However, if it requires to use different `DEV_EUI`, you can make the change in this section. 
 
-```
+```python
 # Obtained during first registration of the device
 SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
@@ -255,7 +255,7 @@ With these parameters configured, we have secured the connection between our dev
 
 Following tasks are the main processes that will be used to handle MQTT protocol. This will be able to decode incoming packets from the subscribed device and buffer the data if timeout has occurred while waiting on the MQTT packet. This will help to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol.
 
-```
+```python
 # MQTT protocol handler
 ...
 def connect_mqtt() -> mqtt_client:
@@ -309,7 +309,7 @@ def subscribe(client: mqtt_client):
 
 For LoRa connectivity to establish communication with The Things Network, we are going to use the Cayenne Low Power Payload Encoder as part of the process in this build. 
 
-```
+```python
 ...
 frame = LppFrame()
 frame.add_temperature(0, rpc_data[0])
@@ -330,7 +330,7 @@ For the full Arduino scripts please refer to the files found inside [this compre
 
 The following sketch is for the Arduino layer that will help us retrieve the data in between Arduino and Linux layer. 
 
-```
+```arduino
 # Arduino side sketch
 #include <RPC.h>
 #include <SerialRPC.h>
@@ -373,7 +373,7 @@ Additionally by exposing, it means you will bring forth the data received within
 
 For MQTT publishing, we have also included a sketch that can be used with Arduino MKR WiFi 1010 to test the gateway build. Of course, the code can be extended and be modified according the requirements of the device that will collect data from a certain sensor to send over MQTT protocol. 
 
-```
+```arduino
 #include <ArduinoMqttClient.h>
 #include <WiFiNINA.h>
 #include "arduino_secrets.h"
