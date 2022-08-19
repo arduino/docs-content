@@ -46,11 +46,13 @@ You can see a comparison between these three in the table below.
 Apart from being a single cell (3.7V), a key factor to selecting the correct battery is that the connector is compatible.
 
 ### Connector
-You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
+You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH varient of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
+
+![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
 
 ### Protection circuit
 A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
-![LiPo Battery Breakdown](assets/lipo-battery-breakdown.svg)
+![LiPo Battery Breakdown](assets/lipo-battery-breakdown.png)
 
 ### BQ24195L Power Management IC
 The BQ24195L IC is responsible for charging the single cell lion battery, as well as boosting the battery voltage to 3.3V for use on the board internally. An Arduino library ([Arduino_BQ24165](https://github.com/arduino-libraries/Arduino_BQ24195)) has been developed, to help control the features of this battery over I2C. 
@@ -58,9 +60,8 @@ The BQ24195L IC is responsible for charging the single cell lion battery, as wel
 ### Electrical Properties
 
 **Voltage**
-The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is commonly refered to as the voltage of single cell batteries. However, this is an ideal scenario since as a battery is used the voltage changes. We can see this represented in the image below. The voltage can be considered similar to a waterfall. The higher the waterfall, the higher the voltage.
+The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is commonly refered to as the voltage of single cell batteries. However, this is an ideal scenario since as a battery is used the voltage changes. The voltage can be considered similar to a waterfall. The higher the waterfall, the higher the voltage.
 
-![Battery Discharge Curve](assets/batteryDischargeCurve.jpg)
 
 In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. This pin is used internally on the board, and is not accesssible via the MKR pins. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
 
@@ -68,10 +69,12 @@ $$ V_{out} = \frac{V_{source} \times R2} {R_1 + R_2} $$
 
 In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass throught, increasing the life of the battery. The capacitor acts to clean the signal.
 
-![Voltage Divider Circuit on the MKR WIFI 1010](assets/voltage-divider-samd21.svg)
+![Voltage Divider Circuit on the MKR WIFI 1010](assets/voltage-divider-samd21.png)
 
 **Capacity**
-Continuing with the waterfall analogy, the volume of water passing through a waterfall represents the current. Therefore, the amount of water stored behind the waterfall is considered the capacity. It is common to discuss the capacity in terms of milliamp hours (mAh), which is the current that can be potentially extracted in an hour to discharge it. Note that changes in temperature and elevated current demands can change the effective capacity of your battery. 
+Continuing with the waterfall analogy, the volume of water passing through a waterfall represents the current. Therefore, the amount of water stored behind the waterfall is considered the capacity. It is common to discuss the capacity in terms of milliamp hours (mAh), which is the current that can be potentially extracted in an hour to discharge it. Note that changes in temperature and elevated current demands can change the effective capacity of your battery.
+
+![LiPo batteries with various capacity sizes](assets/three-lipo-batteries.png)
 
 While the MKR boards do not provide a mechanism for identifying capacity, we can get a general idea of the current status by mapping the voltage to the capacity. A more precise value can be obtained with the help of a fuel gauge IC (Integrated Circuit), avaliable in the Portenta X8 and H7.
 
@@ -102,7 +105,7 @@ We will go through the lines needed to create a Sketch to read the battery value
 #include <BQ24195.h>
 ```
 
-![Calling the BQ24195 Library]()
+![Calling the BQ24195 Library](assets/include-BQ24195-library.png)
 
 **2.**  Then, we will create variables to store the variables for the raw ADC value (from pin PB09), the equivilent voltage expereienced by PB09 and finally the calculated battery voltage.
 
@@ -131,7 +134,7 @@ We will go through the lines needed to create a Sketch to read the battery value
 ```
 
 **5.** Your IDE should look similar to the screenshot below.
-![Initial library & variable configuration code]()
+![Initial library & variable configuration code](assets/configuration-code.png)
 
 **6.** Now we can configure the `setup()` function. We need to initiate the Serial connection (`Serial.begin(9600)`), ensure the analog reference is set to the default value of 3.3V (`analogReference(AR_Default)`) and set the ADC resolution to 12 bits (`analogReadResolution(12)`). A 12bit ADC will provide an output from 0 (0V) to 4093 (3.3V), depending on the voltage the ADC experiences.
 ```arduino
@@ -169,7 +172,7 @@ void setup() {
 
 **11.** Your `setup()` function should now look as follows.
 
-![Serial & BQ24196 Setup]()
+![Serial & BQ24196 Setup](assets/serial-BQ24195-setup.png)
 
 **12.** With the variables and setup function clearly defined, we will now specify the loop function. These commands will continuously run and provide information about the battery status to the Serial Monitor in the PC. First, we read the value of PB09 (specified internally as `ADC_BATTERY`). The valure represented by `rawADC` is a number between 0 to 4094, given that it has 12 bit resolution.
 
@@ -216,7 +219,7 @@ int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - b
 ```
 
 **18.** You section for the `loop()` function should look as follows.
-![Battery level calculation and Serial printing]()
+![Battery level calculation and Serial printing](assets/calculation-serial-printing.png)
 
 **11.** The complete code (with the addition of comments) is as follows. You can copy and paste this directly into your IDE
 ```arduino
@@ -325,7 +328,9 @@ void loop()
 
 ***The battery must be connected to the MKR WIFI 1010 before connecting via USB, otherwise it may not work.***
 
-**13.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the Arduino MKR WIFI 1010 is selected and that the port is correct. Upload the code to the board. You will see a message similar to the following.
+**13.** Connect the MKR WIFI 1010 to the USB port of your PC. Make sure that the Arduino MKR WIFI 1010 is selected and that the port is correct. Upload the code to the board and open the terminal monitor. You will see a message similar to the following.
+
+![Incoming battery voltage information via the Serial Terminal]()
 
 
 ## Measure battery voltage via the Arduino IoT Cloud
@@ -360,15 +365,6 @@ Since we had connected the board via USB, the board is charging. In order to bet
 
 **13.** You now can view the battery status through a wide range of widgets.
 
-## Extract plots
-
-**1.** In the Dashboard, click on the download historical data button to the right of your screen.
-
-**2.** Clic
-
-**2.** Plot with Google Sheets
-
-after i the usb port, the battery is disconnected as well? I have to reconnect battery for it to work? How are you supposed to charge it in a practical setting 
 
 ### Troubleshoot
 - You cannot upload OTA with 
@@ -380,6 +376,16 @@ after i the usb port, the battery is disconnected as well? I have to reconnect b
 - Try disableing the charging circuit with `code()` in order to read the voltage via serial without a WiFi connections
 - Save the values from the IoT cloud, and plot the change in voltage over time. What shape does the discharge function have?
 - Try experimenting with different battery capacities, and see how long it can power your application.
+- ## Extract plots
+
+**1.** In the Dashboard, click on the download historical data button to the right of your screen.
+
+**2.** Clic
+
+**2.** Plot with Google Sheets
+
+after i the usb port, the battery is disconnected as well? I have to reconnect battery for it to work? How are you supposed to charge it in a practical setting 
+
 
 ## References
 battery charge level is tied to the voltage. don't need a table, but have explanation. depending on a battery used. from 4.2 to 4.0 and from 3.5 to 3.3 very little energy is released.
