@@ -88,7 +88,7 @@ Once the variables are created, your Thing overview should look similar to the i
 
 Now, we need to create the program for our Thing. First, let's head over to the **"Sketch"** tab in the Arduino IoT Cloud. At the top, your board should be available in the dropdown menu by default.
 
-![Board.](assets/boardfound.png)
+![Nano RP2040 Connect from board list.](assets/boardfound.png)
 
 The code can be found in the snippet below. Upload the code to your board.
 
