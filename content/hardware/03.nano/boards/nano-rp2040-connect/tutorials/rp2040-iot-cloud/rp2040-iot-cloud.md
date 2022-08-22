@@ -17,6 +17,8 @@ software:
   - iot-cloud
 ---
 
+![Nano RP2040 Connect.](assets/nano-board.png)
+
 ## Introduction
 
 In this tutorial, we will go through the steps needed to connect the [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). 
@@ -40,168 +42,127 @@ The goals of this project are:
 
 Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
->**Note:** Remember that the pinouts are different on a Nano 33 IoT board. This circuit works for the MKR WiFi 1000/1010 boards.
-
-![This tutorial requires no additional circuit.](assets/rp2040-iot-cloud-01.png)
+![This tutorial requires no additional circuit.](assets/circuit.png)
 
 ## The Arduino IoT Cloud
 
-To start, we will need to head over to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). This is also accessible through the menu at the top right.
+To start, we will need to head over to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). 
 
-![Navigate to the cloud.](assets/rp2040-iot-cloud-02.png)
+### Step 1: Configure Your Device
 
-### Step 1: Setting up the Device
+Once we are in the IoT Cloud, to configure our device, click on the **"Devices"** tab. Click on **"Add Device"** and follow the configuration to set up your board.
 
-**1.** Once we are in the IoT Cloud, we need to first create a Thing, by clicking on the **"Create a Thing"** button.
+***Make sure your device is connected to your computer via USB at this point.***
 
-![Creating a Thing.](assets/rp2040-iot-cloud-03.png)
-
-**2.** Now, we need to configure our device, by clicking on the **"Select Device"** button.
-
-![Select the device.](assets/rp2040-iot-cloud-04.png)
-
-**3.** Next we need to select the **"Set up an Arduino device"** option. After a while, your device should appear. Click on the **"Configure"** button.
-
-![Click on configure.](assets/rp2040-iot-cloud-05.png)
-
-**4.** Name the board, and click on **"Next"** which will start a configuration process. Do not disconnect the board during this process.
-
-![Choose the name of the board.](assets/rp2040-iot-cloud-06.png)
-
-**5.** After some time, the installation will complete, and your Nano RP2040 is ready for the IoT Cloud.
-
-![Installation is successful.](assets/rp2040-iot-cloud-07.png)
-
-### Step 2: Creating Variables
-
-Now, we will need to create variables that will be used to control and read data from the board. This is done by clicking on the **"Add Variable"** button.
-
-![Click on the "Add Variable" button.](assets/rp2040-iot-cloud-08.png)
-
-We will add variables to control the **RGB** and to read the **Accelerometer**.
+![Configure a device.](assets/devices.png)
 
 
-| Variable Name | Data Type | Permission   |
-| ------------- | --------- | ------------ |
-| a_x           | float     | read only    |
-| a_y           | float     | read only    |
-| a_z           | float     | read only    |
-| red           | boolean   | read & write |
-| green         | boolean   | read & write |
-| blue          | boolean   | read & write |
+### Step 2: Create a Thing
 
-The final overview should look something like this:
+The next step is to create a new Thing. Navigate to the **"Things"** tab, and click on **"Create Thing".**
 
-![The final view.](assets/rp2040-iot-cloud-09.png)
+![Create a Thing.](assets/thing.png)
 
->**Tip:** You can also name your Thing, by clicking on the "Untitled XX" tag. We renamed this Thing RP2040 Cloud Project. This makes it easier to track if you have multiple things.
+When you create a Thing, you will see a number of options:
+- **Select Device** - the device you configured can be selected here. 
+- **Select Network** - enter your network credentials (Wi-Fi name and password).
+- **Add Variables** - here we add variables that we will synchronize with our sketch.
 
-### Step 3: Network Details
+![Thing overview.](assets/variables.png)
 
-For our board to connect to our Wi-Fi network, we also need to enter the credentials. This is done by clicking the button inside the **"Network Section"**
+The variables we will add are for controlling the **RGB** and to reading the **Accelerometer**. You can create them based on the table below:
 
-![The network section.](assets/rp2040-iot-cloud-10.png)
 
-Then, enter your credentials (network and password). Remember that it is case-sensitive.
+| Variable Name | Data Type     | Permission   |
+| ------------- | ------------- | ------------ |
+| a_x           | float         | read only    |
+| a_y           | float         | read only    |
+| a_z           | float         | read only    |
+| rgb_light     | Colored Light | read & write |
 
-![Enter the credentials to your network.](assets/rp2040-iot-cloud-11.png)
+Once the variables are created, your Thing overview should look similar to the image below:
 
-### Step 4: Creating the Program
+![The final view.](assets/final-thing.png)
 
-Now, we need to create the program for our Thing. First, let's head over to the **"Sketch"** tab in the Arduino IoT Cloud. 
+### Step 3: The Sketch
 
-![Click on the "Sketch" tab to edit the sketch.](assets/rp2040-iot-cloud-12.png)
+Now, we need to create the program for our Thing. First, let's head over to the **"Sketch"** tab in the Arduino IoT Cloud. At the top, your board should be available in the dropdown menu by default.
 
-The code that is needed can be found in the snippet below. Upload the sketch to the first board.
+![Board.](assets/boardfound.png)
+
+The code can be found in the snippet below. Upload the code to your board.
 
 ```arduino
-
 #include "thingProperties.h"
 #include <Arduino_LSM6DSOX.h>
 
 void setup() {
-  // Initialize serial and wait for port to open:
+
+  Serial.begin(9600);
+  delay(1500);
+
+  //define RGB LED as outputs
   pinMode(LEDR, OUTPUT);
   pinMode(LEDG, OUTPUT);
   pinMode(LEDB, OUTPUT);
 
-  Serial.begin(9600);
-  
-  while(!Serial); // Prevents sketch from running until Serial Monitor opens.
+  initProperties();
 
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  //init IMU library
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
     while (1);
   }
-  
-  delay(1500); 
-
-  // Defined in thingProperties.h
-  initProperties();
-
-  // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-  
-  /*
-     The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
-     the higher number the more granular information you’ll get.
-     The default is 0 (only errors).
-     Maximum is 4
- */
-  setDebugMessageLevel(2);
-  ArduinoCloud.printDebugInfo();
 }
 
 void loop() {
   ArduinoCloud.update();
-  //reads acceleration
-    if (IMU.accelerationAvailable()) {
+
+  //read acceleration and store in a_x, a_y, a_z variables
+  if (IMU.accelerationAvailable()) {
     IMU.readAcceleration(a_x, a_y, a_z);
-    }
-    
-}
-
-
-void onRedChange() {
-  if(red){
-    digitalWrite(LEDR, HIGH); //turn on RED
-  }
-  else{
-    digitalWrite(LEDR, LOW); //turn off RED
   }
 }
 
+/*
+  the onRgbLightChange() function is triggered
+  when the rgb_light variable changes
+*/
 
-void onGreenChange() {
-  if(green){
-    digitalWrite(LEDG, HIGH); //turn on GREEN
-  }
-  else{
-    digitalWrite(LEDG, LOW); //turn off GREEN
-  }
-}
+void onRgbLightChange()  {
+  //create r,g,b variables
+  uint8_t r, g, b;
 
+  //retrieve values from the cloud
+  rgb_light.getValue().getRGB(r, g, b);
 
-void onBlueChange() {
-  if(blue){
-    digitalWrite(LEDB, HIGH); //turn on BLUE
+  //values on Nano RP2040 Connect are inverted
+  //so let's remap them
+  int red = map(r, 0, 255, 255, 0);
+  int green = map(g, 0, 255, 255, 0);
+  int blue = map(b, 0, 255, 255, 0);
+
+  if (rgb_light.getSwitch()) {
+    analogWrite(LEDR, red);
+    analogWrite(LEDG, green);
+    analogWrite(LEDB, blue);
   }
-  else{
-    digitalWrite(LEDB, LOW); //turn off BLUE
+  else {
+    analogWrite(LEDR, 255);
+    analogWrite(LEDG, 255);
+    analogWrite(LEDB, 255);
   }
 }
 ```
 
-### Step 5: Testing the Program
+Once the code has been uploaded to your board, it will attempt to connect to your network, and then with the Arduino Cloud. You can open the Serial Monitor to see if there are any errors.
 
-After we have successfully uploaded our sketch to our board, we need to initialize the code, by opening the Serial Monitor.
-
-![Open the Serial Monitor tab.](assets/rp2040-iot-cloud-13.png)
-
-In this window, we should after a few seconds see information regarding our connection printed.
-
-If the connection (to the network and cloud) is successful, it should print something like the following:
+If all went well, you will see a message like this: 
 
 ```
 ***** Arduino IoT Cloud - configuration info *****
@@ -214,47 +175,40 @@ Connected to "<your-network>"
 Connected to Arduino IoT Cloud
 ```
 
-This means everything is good, and we can move on the next step: creating a dashboard.
+If it went wrong, you may encounter errors such as:
 
->**Troubleshooting tip:** If you're failing to connect, check that your credentials match in the network section, and that you are uploading the right sketch to the right board. 
+```
+Connection to "<your-network>" failed. Retrying in 500 milliseconds.
+```
 
-### Step 6: Creating the Dashboard
+Which indicate that something might be wrong with your network credentials.
 
-Once our sketch is successfully uploaded and the Serial Monitor has given us the green light, we can finalize this project by creating a dashboard. To do this, we need to navigate to the **"Dashboards"** tab.
+### Step 4: Creating a Dashboard
 
-![Navigate to the Dashboards tab.](assets/rp2040-iot-cloud-14.png)
+Once our sketch is successfully uploaded we can finalize this project by creating a dashboard. To do this, we need to navigate to the **"Dashboards"** tab, and click on the **"Build Dashboard"** tab.
 
-Then, we need to click on the **"Build dashboard"** button.
+![Create a Dashboard.](assets/create-dashboard.png)
 
-![Click on "Build Dashboard" button.](assets/rp2040-iot-cloud-15.png)
+This will open an empty dashboard. At the top left corner, first click on the **Pen Symbol**. You are now in Edit Mode.
 
-We will now see a blank dashboard. Now, click on the **pen symbol** in the top left corner. This will allow you to edit the dashboard.
+Now, click on the **"ADD"** button, then **"Things"**, search and click on your Thing. You will now see a list of variables with a checkmark. Leave all marked, and click on the **"Create Widgets** button. 
 
-![Click on the "Edit button", the pen symbol.](assets/rp2040-iot-cloud-16.png)
+![Click on the "Edit button", the pen symbol.](assets/create-widgets.png)
+We should now have a pretty nice looking dashboard that displays the value of our accelerometer, and a **colored light widget** to control the built-in RGB on the Nano RP2040 Connect. 
 
-Once we are in edit mode, we can click on **"Add"**, then select the **"Things"** column, and select the Thing we created earlier. We will now be presented with a list of our variables, where we can click on the **"Add variables"** button. This will automatically create **widgets** that are linked to our variables.
+These widgets can be re-sized and adjusted to your liking. You can also select and link other types of widgets, but this is by far the quickest option.
 
-![Adding variables to our dashboard.](assets/rp2040-iot-cloud-17.png)
+![Final look of the dashboard.](assets/dashboard-final.png)
 
-After we click on the button, we be presented with the widget settings window. Just click on the **"Done"** button at the bottom right.
+## Expected Outcome
 
-![Click on the done button.](assets/rp2040-iot-cloud-18.png)
+Congratulations. You have now configured your Nano RP2040 Connect board with the Arduino Cloud service.
 
-Now, we have our widgets on the dashboard, but the dimensions etc. are not the best. If we click on the **multi-arrow** symbol, we can move around and re-size our widgets however we want to! When we are happy, we can just click on the same button.
+If your board successfully connects to the Arduino Cloud, we should be seeing values in the dashboard update continuously, and we can change the color of the RGB through the colored light widget.
 
-![Resizing and moving the widgets.](assets/rp2040-iot-cloud-19.png)
+![Control and monitor your Nano RP2040 Connect.](assets/rp2040-cloud.gif)
 
-We should now have a pretty nice looking dashboard that displays the value of our accelerometer, and three switch widgets to control the built-in RGB on the Nano RP2040 Connect.
-
-### Step 7: Testing It Out
-
-Now that everything is set up, let's test it out. We can begin by checking the data from the IMU. If we move around our board, we can see that the widgets in the dashboard is changing as well.
-
-![IMU data changing when board is moved.](assets/rp2040-iot-cloud-20.png)
-
-Now, to control the built-in RGB on the board, we need to use the **switch widgets**. These switches are labeled `red`, `green` and `blue` and can simply be turned ON / OFF. In this example, we activated the red pixel, which can be seen in the image below.
-
-![Red pixel activated on the Nano RP2040 Connect board.](assets/rp2040-iot-cloud-21.png)
+![Controlling the RGB on the Nano RP2040 Connect.](assets/nano-board.png)
 
 ## Conclusion
 
