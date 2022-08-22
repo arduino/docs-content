@@ -1,6 +1,7 @@
 ---
 title: "Arduino - PortManipulation"
 source: "https://arduino.cc/en/Reference/PortManipulation"
+description: Learn how to control pins on an Arduino through three different registers (DDR, PORT, PIN). 
 ---
 
 ## Port Registers
