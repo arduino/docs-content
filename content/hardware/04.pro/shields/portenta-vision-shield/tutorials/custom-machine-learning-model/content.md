@@ -98,7 +98,7 @@ Then click on "Generate Features". The analysis process will take a while to com
 
 ### 6. Train the Model
 
-Now that the features of your image data are ready to be used for the actual training, you can navigate to "Transfer Learning" in the menu. In this example, you can leave the settings at their default value except of "Number of training cycles" which has to be increases to 60. This defines how many times the model is being trained. The model gets better with each cycle the same way you get better when learning how to ride a bike and you practice it the first couple of times. 
+Now that the features of your image data are ready to be used for the actual training, you can navigate to "Transfer Learning" in the menu. In this example, you can leave the settings at their default value except of "Number of training cycles" which has to be increased to 60. This defines how many times the model is being trained. The model gets better with each cycle the same way you get better when learning how to ride a bike and you practice it the first couple of times. 
 
 Click on "Start Training" to train the machine learning model. A small amount of images, the **validation set**, are put aside before the training starts to validate the trained model. Do not be confused with the **test set** which can be used to evaluate the final model. Once the training finishes, you will see some statistics on how well the model performed during validation. Ideally you get an accuracy of 100% for each object. If you get poor results, you may have some images which are not representative of the objects you are trying to classify and should be removed from the data set.
 
