@@ -66,7 +66,7 @@ The Arduino layer is extended within the M4 Core and is the layer to develop on 
 
 ***To learn about how to exchange data using RPC between Arduino and Linux layer, please read ["Data Exchange Between Python on Linux and an Arduino Sketch"](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
-We will go through how to use RPC to expose the data received at the Linux layer to the Arduino layer, if further development requires you to feed the data to devices interfaced communicating with the M4 core. We will leave the tasks running and open to be interfaced with for expanding the capability of the Portenta X8 and Max Carrier. It will let you develop a gateway system where:
+We will go through how to use RPC to expose the data received at the Arduino layer to the Linux layer, if further development requires you to feed the data to devices interfaced communicating with the M4 core. We will leave the tasks running and open to be interfaced with for expanding the capability of the Portenta X8 and Max Carrier. It will let you develop a gateway system where:
 
 1. The Arduino layer will be the terminal to expose the received sensor data to control a local end-device. 
 2. A local end-device transfers data to the Linux layer for further networking process.
