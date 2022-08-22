@@ -56,7 +56,7 @@ Inside the sketch, you can use these libraries to access the camera APIs, also c
 
 The bitmap binary file needs to contain some information in order to tell the computer for example the resolution of the picture and the bit-depth (bpp). Bit depth refers to the color information stored in the image. The higher the bit depth of an image, the more colors it can store. As the bit depth increases, the file size of the image also increases, because more color information has to be stored for each pixel in the image.
 
-The following table shows all the headers, the size of its buffer, offsets, the settings that we used with their details:
+The following table shows all the headers, the size of its buffer, offsets, the settings that are being used with their details:
 
 | Name                | Size        | Details                                                      |
 | ------------------- | ----------- | ------------------------------------------------------------ |
@@ -83,7 +83,7 @@ First you need to include the needed libraries
 #include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
 ```
 
-Then we define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the file system.
+Then define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the file system.
 
 ```cpp
 #include "SDMMCBlockDevice.h" // Multi Media Card APIs
@@ -181,7 +181,7 @@ void setFileHeaders(unsigned char *bitmapFileHeader, unsigned char *bitmapDIBHea
 
 ***Take a look at the section [Bitmap File Format](#bitmap-file-format) to better understand the file headers that are created with this function***
 
-In this case that our image (320x240) is 8bits per pixel and grayscale on the bitmap rules we need to define the color table (color map) to assign an specific RGB color for our 8 bit color.
+In this case that our image (320x240) is 8bits per pixel and grayscale on the bitmap rules you need to define the color table (color map) to assign an specific RGB color for our 8 bit color.
 On the following function it sets the color map as a grayscale of RGB colors from [R:0x00 G:0x00 B:0x00] to [R:0xFF G:0xFF B:0xFF]
 ```cpp
 void setColorMap(unsigned char *colorMap){
