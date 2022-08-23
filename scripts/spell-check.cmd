@@ -17,4 +17,3 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 cls
 codespell -I scripts/resources/spell-check-ignore-list.txt --skip="*.svg,*.dxf" content
-ECHO Spell-check finished
