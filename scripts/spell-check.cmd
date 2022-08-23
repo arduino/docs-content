@@ -1,5 +1,13 @@
 @ECHO OFF
 
+pip --version || pip3 --version
+IF %ERRORLEVEL% NEQ 0 (
+    cls
+    ECHO Please install Python from https://www.python.org/downloads/ and Pip following https://pip.pypa.io/en/stable/installation/
+    EXIT /B 
+)
+
+cls
 codespell --version
 IF %ERRORLEVEL% NEQ 0 (
     ECHO Installing codespell
