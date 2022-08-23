@@ -10,7 +10,7 @@ The **Portenta H7** simultaneously runs high level code along with real time tas
 
   The Portenta H7 allows for programming with high-level languages and AI while performing low-latency operations on its customizable hardware.
 
-  <FeatureLink title="Datasheet" url="https://docs.arduino.cc/static/ae4e1c90c43489cacb98b204be87736e/ABX00042-ABX00045-ABX00046-datasheet.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf" download blank/>
 </Feature>
 
 <Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
