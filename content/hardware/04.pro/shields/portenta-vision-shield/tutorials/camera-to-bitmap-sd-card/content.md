@@ -1,5 +1,5 @@
 ---
-title: "Saving Images as Bitmaps Into the SD Card"
+title: "Saving Bitmap Camera Images to the SD Card"
 difficulty: easy
 tags: [Camera, Bitmap, SD Card]
 description: This tutorial shows you how to capture a frame from the Portenta Vision Shield Camera module and save the output as a bitmap image.
@@ -18,7 +18,7 @@ software:
 ---
 
 ## Overview
-This tutorial shows you how to capture a frame from the Portenta Vision Shield Camera module and save the output as a bitmap image. It will allow you to see the output directly on your computer without using any third party tool.
+This tutorial shows you how to capture a frame from the Portenta Vision Shield Camera module and save the output as a bitmap image. It will allow you to see the output directly on your computer without using any third party tool.  
 
 ## Goals
 
@@ -181,7 +181,7 @@ void setFileHeaders(unsigned char *bitmapFileHeader, unsigned char *bitmapDIBHea
 
 ***Take a look at the section [Bitmap File Format](#bitmap-file-format) to better understand the file headers that are created with this function***
 
-In this case that our image (320x240) is 8bits per pixel and grayscale on the bitmap rules you need to define the color table (color map) to assign an specific RGB color for our 8 bit color.
+In this case that our image (320x240) is 8 bits per pixel and grayscale on the bitmap rules you need to define the color table (color map) to assign an specific RGB color for our 8 bit color.
 On the following function it sets the color map as a grayscale of RGB colors from [R:0x00 G:0x00 B:0x00] to [R:0xFF G:0xFF B:0xFF]
 ```cpp
 void setColorMap(unsigned char *colorMap){
