@@ -79,7 +79,7 @@ This product is designed to work alongside the Portenta family. Please check the
 ## Functional Overview
 ### Board Topology 
 Front view
-![](assets/breakoutCarrierConnectors.png)
+![Top view - connectors](assets/breakoutCarrierConnectors.png)
 
 | **Ref.** |                 **Description**                  | **Ref.** |       **Description**       |
 | :------: | :----------------------------------------------: | :------: | :-------------------------: |
@@ -91,7 +91,7 @@ Front view
 |    U1    |               USBA power switch IC               |          |                             |
 
 Back view
-![](assets/breakoutCarrierConnectorsBottom.png)
+![Bottom view - connectors](assets/breakoutCarrierConnectorsBottom.png)
 
 | **Ref.** |              **Description**               | **Ref.** |              **Description**               |
 | :------: | :----------------------------------------: | :------: | :----------------------------------------: |
@@ -161,7 +161,7 @@ In case a sketch locks up the processor and the board is not reachable anymore v
 ## Connector Pinouts
 The Portenta Breakout Board provides easy access to the pins on the high density connector of the Portenta family. The Portenta Breakout Board is shipped in a headerless configuration to provide flexibility in using 2.54mm compatible connectors to meet their specific application. 
 
-![alt_text](assets/breakoutCarrierPinOut.jpg)
+![Pinouts](assets/breakoutCarrierPinOut.jpg)
 
 In cases where multiple channels are on a single header, the first channel is on the bottom part of the header and the section channel is on the top part of the header. The order of the channel is determined by the silkscreen markings.
 
@@ -349,7 +349,7 @@ Pins closer to the edge of the board are UART2. Pins closer to the center are UA
 
 ## Mechanical Information
 ### Board Outline
-![alt_text](assets/breakoutCarrierOutline.png)
+![Board outline and screw holes](assets/breakoutCarrierOutline.png)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
