@@ -6,6 +6,7 @@ description: 'Learn how to dim an LED connected to the UNO R3 with MATLAB®.'
 tags:
   - MATLAB
 author: 'Mohammed Hussain Jahangiri'
+source: 'community'
 hardware:
   - hardware/boards/arduino-uno-rev3
 software:
