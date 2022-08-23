@@ -127,7 +127,7 @@ The DIP switch allows for boot mode configuration:
 *   **BOOT**: When set to ON enables the embedded bootloader. Firmware can be uploaded via the USB port on the breakout board (DFU). USB-A to USB-A  (non-crossover) cable required. The Portenta H7 has to be powered through the USB-C connector or VIN.
 
 ### RJ-45 Connector
-The RJ-45 Connector allows to plug ethernet cables and connect to your net.
+The RJ-45 Connector allows to plug-in an ethernet cable and connect to your network.
 
 By default it is compatible with the **Arduino Portenta H7** as the jumper pads are joint with copper.
 
