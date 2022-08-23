@@ -321,9 +321,10 @@ void setup(){
     if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30)){
         Serial.println("Unable to find the camera");
     }
-
+    countDownBlink();
     Serial.println("Fetching camera image...");
     unsigned char *imageData = captureImage();
+    digitalWrite(LEDB, HIGH);
     
     Serial.println("Saving image to SD card...");
     saveImage(imageData, IMAGE_PATH);
@@ -415,6 +416,15 @@ void saveImage(unsigned char *imageData, const char* imagePath){
 
     // Close the file stream
     fclose(file);
+}
+
+void countDownBlink(){
+    for (int i = 0; i < 6; i++){
+        digitalWrite(LEDG, i % 2);
+        delay(500);
+    }
+    digitalWrite(LEDG, HIGH);
+    digitalWrite(LEDB, LOW);
 }
 ```
 
