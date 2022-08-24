@@ -554,7 +554,7 @@ To activate the network interface, you can simply call `.activate` with the argu
 wlan.active(True)
 ```
 
-Now you can decide which network to connect to. Here  itis where the `SSID` and `PASSWORD` variables come in handy.
+Now you can decide which network to connect to. Here  it is where the `SSID` and `PASSWORD` variables come in handy.
 
 ```python
 wlan.connect(SSID, PASSWORD, timeout=30000)
