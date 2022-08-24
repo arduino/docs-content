@@ -39,15 +39,15 @@ The core software of Portenta H7 is based on the Mbed OS operating system, allow
 
 Mbed OS has a rich API for managing storage on different mediums, ranging from the small internal Flash memory of a microcontroller to external SecureDigital cards with large data storage space.
 
-In this tutorial, we are going to save a value persistently inside the Flash memory. That allows to access that value even after a reset of the microcontroller. We will retrieve some information from a Flash block by using the [FlashIAPBlockDevice](https://os.mbed.com/docs/mbed-os/v6.9/apis/flashiapblockdevice.html) and the [TDBStore](https://os.mbed.com/docs/mbed-os/v6.9/apis/kvstore.html) APIs. We will use the `FlashIAPBlockDevice` class to create a block device on the free space of the Flash and we will create a Key-Value Store in it using the `TDBStore` API.
+In this tutorial, you are going to save a value persistently inside the Flash memory. That allows to access that value even after a reset of the microcontroller. You will retrieve some information from a Flash block by using the [FlashIAPBlockDevice](https://os.mbed.com/docs/mbed-os/v6.9/apis/flashiapblockdevice.html) and the [TDBStore](https://os.mbed.com/docs/mbed-os/v6.9/apis/kvstore.html) APIs. You will use the `FlashIAPBlockDevice` class to create a block device on the free space of the Flash and you will create a Key-Value Store in it using the `TDBStore` API.
 
-***Important: The TBStore API optimizes for access speed, reduce [wearing of the flash](https://en.wikipedia.org/wiki/Flash_memory#Memory_wear) and minimize storage overhead. TBStore is also resilient to power failures. If you want to use the flash memory of the microcontroller, always prefer the TDBStore approach over a direct access to the FlashIAP block device.***
+***Important: The TBStore API optimizes for access speed, reduce [wearing of the flash](https://en.wikipedia.org/wiki/Flash_memory#Memory_wear) and minimize storage overhead. TBStore is also resilient to power failures. If you want to use the Flash memory of the microcontroller, always prefer the TDBStore approach over a direct access to the FlashIAP block device.***
 
 ### 1. The Basic Setup
-Begin by plugging in your Portenta board to the computer using a USB-C cable and open the Arduino IDE or the Arduino Pro IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
+Begin by plugging in your Portenta board to the computer using a USB-C cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed.
 
 ### 2. Create the Structure of the Program
-Let's program the Portenta with a sketch. We will also define a few helper functions in a supporting header file.
+Let's program the Portenta with a sketch. You will also define a few helper functions in a supporting header file.
 
 * Create a new sketch named `FlashKeyValue.ino` 
 * Create a new file named `FlashIAPLimits.h` to store the helper functions in a reusable file.
@@ -118,7 +118,7 @@ FlashIAPLimits getFlashIAPLimits()
 ```
 
 ### 4. Make the Key Store Program
-Go to `FlashKeyValue.ino` and include the libraries that we need from **MBED** and our header helper (`FlashIAPLimits.h`) . The `getFlashIAPLimits()` function which is defined in the `FlashIAPLimits.h` header takes care of not overwriting data already stored on the Flash and aligns the start and stop addresses with the size of the Flash sector. We use those calculated limits to create a block device and a `TDBStore` on top of them.
+Go to `FlashKeyValue.ino` and include the libraries that you need from **MBED** and your header helper (`FlashIAPLimits.h`). The `getFlashIAPLimits()` function which is defined in the `FlashIAPLimits.h` header takes care of not overwriting data already stored on the Flash and aligns the start and stop addresses with the size of the Flash sector. You can use those calculated limits to create a block device and a `TDBStore` on top of them.
 
 ```cpp
 #include <FlashIAPBlockDevice.h>
@@ -144,7 +144,7 @@ struct SketchStats {
 };
 ```
 
-In the `setup()` function at the beginning we will wait until the Serial port is ready and then print some info about the FlashIAP block device (`blockDevice`).
+In the `setup()` function at the beginning you will have to wait until the Serial port is ready and then print some info about the FlashIAP block device (`blockDevice`).
 
 ```cpp
 void setup()
@@ -171,7 +171,7 @@ void setup()
 
 ```
 
-After that, initialize the TDBstore (our storage space), set the key for the store data (`stats`), initialize the value that we will save `runCount` and declare an object to fetch the previous values (`previousStats`).
+After that, initialize the TDBstore (our storage space), set the key for the store data (`stats`), initialize the value that you will save `runCount` and declare an object to fetch the previous values (`previousStats`).
 
 ```cpp
   // Initialize the key-value store
@@ -191,7 +191,7 @@ After that, initialize the TDBstore (our storage space), set the key for the sto
   SketchStats previousStats;
 ```
 
-Now that we have everything ready, lets retrieve the previous values from the store, and update the store with the new values. 
+Now that you have everything ready, let's retrieve the previous values from the store and update the store with the new values. 
 
 ```cpp
   // Get previous run stats from the key-value store
@@ -240,9 +240,9 @@ Now that we have everything ready, lets retrieve the previous values from the st
 
 To finish the sketch, create `getSketchStats` and `setSketchStats` functions at the bottom of the sketch (after the `setup()` and `loop()`). 
 
-The `getSketchStats` function tries to retrieve the stats values stored in the Flash using the key `key` and returns them via the `stats` pointer parameter. Our `SketchStats` data struct is very simple and has a fixed size. We can therefore deserialize the buffer with a simple `memcpy`.
+The `getSketchStats` function tries to retrieve the stats values stored in the Flash using the key `key` and returns them via the `stats` pointer parameter. Our `SketchStats` data struct is very simple and has a fixed size. You can therefore deserialize the buffer with a simple `memcpy`.
 
-The `setSketchStats` function stores the `stats` data and assigns the key `key` to it. The key will be created in the key-value store if it doesn't exist yet.
+The `setSketchStats` function stores the `stats` data and assigns the key `key` to it. The key will be created in the key-value store if it does not exist yet.
 
 ```cpp
 // Retrieve SketchStats from the key-value store
@@ -277,7 +277,7 @@ int setSketchStats(const char* key, SketchStats stats)
 
 ### 5. Results
 
-Upload the sketch and the output should be similar to the following:
+Upload the sketch, the output should be similar to the following:
 
 ```
 FlashIAPBlockDevice + TDBStore Test
@@ -303,9 +303,9 @@ Current Stats
 Push the reset button to restart the sketch. The values of the stats have been updated. `Previous Stats` which is retrieved from the key-value store now contains values from the previous execution.
 
 ## Conclusion
-We have learned how to use the available space in the Flash memory of the microcontroller to create a key-value store and use it to retrieve and store data.
+You have learned how to use the available space in the Flash memory of the microcontroller to create a key-value store and use it to retrieve and store data.
 
-It's not recommended to use the Flash of the microcontroller as the primary storage for data-intensive applications. It is best suited for read/write operations that are performed only once in a while such as storing and retrieving application configurations or persistent parameters.
+It is not recommended to use the Flash of the microcontroller as the primary storage for data-intensive applications. It is best suited for read/write operations that are performed only once in a while such as storing and retrieving application configurations or persistent parameters.
 
 ### Next Steps
 
