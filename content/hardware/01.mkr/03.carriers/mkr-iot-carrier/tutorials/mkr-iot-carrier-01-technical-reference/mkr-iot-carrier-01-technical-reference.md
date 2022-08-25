@@ -422,7 +422,7 @@ The `carrier.leds.show();` method is necessary for updating the new state of the
 Here are some of the useful methods used to control the LEDs on the MKR IoT Carrier:
 
 ```arduino
-carrier.leds.setPixelColor(index, green, red, blue);
+carrier.leds.setPixelColor(index, red, green, blue);
 ```
 
 Sets the color of the index’s LED.
@@ -446,7 +446,7 @@ carrier.leds.fill(color, firstLedToCount, count);
 Fill X amount of the LEDs with the same color.
 
 ```arduino
-uint32_t myColor = carrier.leds.Color(green, red, blue)
+uint32_t myColor = carrier.leds.Color(red, green, blue)
 ```
 
 Saves a custom color.
