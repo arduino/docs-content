@@ -446,7 +446,7 @@ carrier.leds.fill(color, firstLedToCount, count);
 Fill X amount of the LEDs with the same color.
 
 ```arduino
-uint32_t myColor = carrier.leds.Color(green, red, blue)
+uint32_t myColor = carrier.leds.Color(red, green, blue)
 ```
 
 Saves a custom color.
