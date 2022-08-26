@@ -24,7 +24,7 @@ IoT applications, MKR hobbyists
     * 2x analog sensor input
     * 1x I2C interface 
 
-* **ST LSM6DSOX 6-axis IMU Sensor**
+* **ST LSM6DS3 6-axis IMU Sensor**
     * 3-axis accelerometer 2/±4/±8/±16 g full scale
     * 3-axis gyroscope 125/±250/±500/±1000/±2000 dps (degrees per second)
     * I2C interface to Arduino MKR board
@@ -118,7 +118,7 @@ IoT applications, MKR hobbyists
 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                    |
 | -------- | -------------------------------------- | -------- | ---------------------------------- |
-| U1       | LSM6DSOXTR 6-axis IMU IC               | U3       | LV52204MTTBG LED Boost Driver IC   |
+| U1       | LSM6DS3 6-axis IMU IC                  | U3       | LV52204MTTBG LED Boost Driver IC   |
 | U2       | APDS-9660 RGB and Gesture Sensor IC    | HS-1     | HTS221 Humidity Sensor IC          |
 | LPS-1    | LPS22HBTR Pressure Sensor IC           | L0-L4    | APA1022020-2018 RGB LED IC         |
 | J6       | FH26W-45S-0.3SHW(60) Display Connector | J12      | SFV24R-1STBE1HLF Display Connector |
@@ -336,7 +336,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 02/24/2021 | 1            | First Release |
+| **Date**   | **Revision** | **Changes**       |
+| ---------- | ------------ | ----------------- |
+| 02/24/2021 | 1            | First Release     |
 | 05/17/2022 | 2            | Technical updates |
+| 08/26/2022 | 3            | IMU ID fix        |
