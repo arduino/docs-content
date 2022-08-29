@@ -80,4 +80,4 @@ You will be able to delete the Secret tab simply by removing the `SECRET_XX` ide
 
 ### More tutorials
 
-You can find more tutorials in the [Web Editor documentation page](/cloud/web-editor/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud).

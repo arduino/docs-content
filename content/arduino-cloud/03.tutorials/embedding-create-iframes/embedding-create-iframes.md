@@ -110,4 +110,4 @@ The Web Editor helps you keep track on all of your sketches, and with the iframe
 
 ### More tutorials
 
-You can find more tutorials in the [Web Editor documentation page](/cloud/web-editor/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud).
