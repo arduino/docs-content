@@ -1,6 +1,6 @@
 ---
 title: "Securely Connecting an Arduino MKR WiFi 1010 to AWS IoT Core"
-description: "In this tutorial, you'll learn how to connect your Arduino MKR WiFi 1010 (or MKR 1000) board securely to AWS IoT Core."
+description: "In this tutorial, you'll learn how to connect your Arduino MKR WiFi 1010 (or MKR 1000 WiFi) board securely to AWS IoT Core."
 coverImage: "assets/blob_fXIeojA4b3.png"
 tags: [aws, iot, mkr]
 author: "Arduino_Genuino"

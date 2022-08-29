@@ -1,5 +1,5 @@
 ---
-title: 'Web Server Access Point (AP) Mode with MKR 1000'
+title: 'Web Server Access Point (AP) Mode with MKR 1000 WiFi'
 difficulty: advanced
 compatible-products: [mkr-1000-wifi]
 description: 'Learn how to set up your board as an access point, allowing other devices to connect to it.'
@@ -25,7 +25,7 @@ software:
 
 ## Introduction
 
-In this tutorial, we will be creating something called an Access Point. An access point is practically a wireless local area network, which in this tutorial will **not be connected to the Internet**. This can be a practical setup for projects that have no access to the internet, but we still want to control and monitor our MKR 1000 board wirelessly. We will be using functionalities from the **WiFi101** library, and we will set up a basic configuration that allows us to control an LED (on or off) and do a reading on one of the analog pins.
+In this tutorial, we will be creating something called an Access Point. An access point is practically a wireless local area network, which in this tutorial will **not be connected to the Internet**. This can be a practical setup for projects that have no access to the internet, but we still want to control and monitor our MKR 1000 WiFi board wirelessly. We will be using functionalities from the **WiFi101** library, and we will set up a basic configuration that allows us to control an LED (on or off) and do a reading on one of the analog pins.
 
 ## Hardware & Software Needed
 
@@ -39,7 +39,7 @@ In this tutorial, we will be creating something called an Access Point. An acces
 
 ### Circuit
 
-Follow the wiring diagram below to connect the LED to the MKR 1000 board.
+Follow the wiring diagram below to connect the LED to the WiFi board.
 
 ![Circuit with board, resistor and LED.](assets/MKR1000_T5_IMG01.png)
 
@@ -55,7 +55,7 @@ ___
 
 This tutorial barely uses any external hardware: we only need an LED that we will control remotely. But the most interesting aspects lie in the library we are going to use: **WiFi101**. This library can be used for many different connectivity projects, where we can both connect to WiFi, make GET requests and - as we will explore in this tutorial - create an access point (AP) and hosting a web server that we can connect to.  
 
-We will go through the following steps in order to create a web server on our MKR 1000:
+We will go through the following steps in order to create a web server on our MKR 1000 WiFi:
 
 - First, we need to initialize the **WiFi101** library.
 - Then, we need to create the credentials of our access point by entering a name for our network.
@@ -241,7 +241,7 @@ Once we are connected to the Wi-Fi, we can enter the URL (IP address of the boar
 
 ![Different browser views.](assets/MKR1000_T5_IMG05.png)
 
-When interacting with the links, you should see the LED, connected to pin 2, turn on and off depending on what you click, and now we have successfully created a way of interacting with our MKR 1000 board remotely. Whenever we click on these links, the Serial Monitor will print information regarding the requests, as the image below shows.
+When interacting with the links, you should see the LED, connected to pin 2, turn on and off depending on what you click, and now we have successfully created a way of interacting with our MKR 1000 WiFi board remotely. Whenever we click on these links, the Serial Monitor will print information regarding the requests, as the image below shows.
 
 ![Serial Monitor output of a client connecting.](assets/MKR1000_T5_IMG06.png)
 
