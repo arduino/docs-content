@@ -24,11 +24,11 @@ For this this tutorial we will be using the Arduino Zero's built-in debugger int
 
 **2.** Select the board from the board/port list. When we select the Arduino Zero, the debugger icon close to the upload button will also become more visible.
 
-![Debugger icon available if board is supported.](assets/zero-debugger-img01.png)
+![Debugger icon available if board is supported.](assets/icon-available.png)
 
 **3.** To use the debugger, we first need to make sure the built program will be optimized for debugging, so let's enable that option by navigating to **Sketch > Optimize for Debugging** and checking it.
 
-![Enable "Optimize for Debugging" option.](assets/zero-debugger-img02.png)
+![Enable "Optimize for Debugging" option.](assets/optimize-debugger.png)
 
 **4.** Your Arduino Zero is now ready to be debugged using the Arduino IDE 2.0.
 
