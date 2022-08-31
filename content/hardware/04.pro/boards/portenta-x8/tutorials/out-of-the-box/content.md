@@ -62,7 +62,7 @@ Once it is connected, you should see the Wi-Fi status bullet in the bottom left 
 
 ### Register the Foundries Factory on Foundries.io
 
-***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, contact us at [Arduino Pro Inquiries](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
+***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
 
 Go to [https://create.arduino.cc](https://create.arduino.cc) and click on Portenta X8 Board Manager, you will get prompted to set a new `Factory` name if you did not have one before. You will not be able to be change the name later, so use one that you can remember and write easily.
 
@@ -172,7 +172,7 @@ To check your manager connection status, use this command:
 
 ### Register Device to the Foundries Factory
 
-***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, contact us at [Arduino Pro Inquiries](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
+***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
 
 Make sure the name is not already being used in your Factory.
 
