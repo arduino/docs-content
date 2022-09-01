@@ -19,7 +19,7 @@ This tutorial teaches you how to train a custom machine learning model with Edge
 
 ## Required Hardware and Software
 
-- [Nicla Vision board](https://store.arduino.cc/nicla-vision)
+- [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable
 - An [Edge Impulse](https://studio.edgeimpulse.com/) account for training the ML model
 - Fruits (or other objects) to create the classification model 🍏🍌🍐
