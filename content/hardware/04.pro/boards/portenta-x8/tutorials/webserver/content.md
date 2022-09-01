@@ -39,7 +39,7 @@ The Wordpress container we will be using also requires a webserver container. We
 
 In this section you can find the complete **docker-compose.yml** file that we will be using for this tutorial.
 
-```linux
+```
 version: "3.9"
     
 services:
