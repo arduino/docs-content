@@ -83,11 +83,11 @@ Now lets create a directory on our X8 and put this **docker-compose.yml** file o
 
 First we create a directory where we want put our **docker-compose.yml** file. Using the `mkdir` command we will create a directory named wordpress-test. Navigate into this directory with a simple `cd` command. Either copy the docker-compose.yml file into this directory or create it directly here.
 
-[cd into dir]()
+[cd into correct directory](assets/webserver-mkdir.png)
 
 When you are in the correct directory we now need to run `docker compose up`. This will start installing the **Wordpress** and **mariadb** containers. You can follow the progress in the terminal, it can take a while. Once it is done we can connect to the device and site.
 
-[progress of install]()
+[Containers install progress in the terminal](assets/webserver-container-install.png)
 
 ### Connecting to the Wordpress Site
 
@@ -97,13 +97,13 @@ To connect to the Wordpress setup site we simply need to access it with our Port
 
 When you connect you should se more text being printed in the terminal. Like shown in the image below.
 
-[Terminal with connection]()
+[Terminal printout during connection](assets/webserver-connect-terminal.png)
 
 Now you should see a webpage like on the next image.
 
-[Wordpress site]()
+[Wordpress setup site](assets/webserver-wordpress-site.png)
 
-You are now free to go through the wordpress set up process and configure it.
+You are now free to go through the Wordpress set up process and configure it.
 
 ## Conclusion
 
@@ -118,4 +118,4 @@ In this tutorial we went through how to install and run a wordpress and database
 
 - If the containers aren't installing or running correctly check if there are any other containers currently running on the same ports as the ones used by the wordpress container. You can check this with ``docker ps -a``.
 - If there is any issue running docker commands, make sure you are using ``sudo`` before the commands.
-- If you can't connect to the site when everything is running you can double check the X8s ip address. Run the command `ip s a` in the adb shell. ????
+- If you can't connect to the site when everything is running you can double check the X8s ip address. Run the command `ip s a` in the adb shell. This will display the X8s ip address via usb and wifi. Try connecting via those ip addresses if all else fails.
