@@ -32,7 +32,7 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 
 ### Creating the Docker-compose.yml File
 
-The Wordpress container we will be using also requires a webserver container. We will be using **mariadb** as our webserver container. This container can run on the Portenta X8's architecture. All we need to being installing these containers is to write a `docker-compose.yml` file. This file will contain information about what image we want to install and some important configuration information. Such as the username for the database, password, timezone and database name. The same goes for the Wordpress container, it will contain the password and username, we will also enter the database host name and which container it will use as the database. If you would like to change any password to a more secure one, feel free to replace the generic ones that are stated in the file below.
+The Wordpress container we will be using also requires a webserver container. We will be using **mariadb** as our webserver container. This container can run on the Portenta X8's architecture. All we need to being installing these containers is to write a **docker-compose.yml** file. This file will contain information about what image we want to install and some important configuration information. Such as the username for the database, password, timezone and database name. The same goes for the Wordpress container, it will contain the password and username, we will also enter the database host name and which container it will use as the database. If you would like to change any password to a more secure one, feel free to replace the generic ones that are stated in the file below.
 
 
 ### The Complete Docker-compose.yml File
