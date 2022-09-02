@@ -5,6 +5,7 @@ difficulty: easy
 tags:
   - containers
   - Docker
+  - Wordpress
 author: 'Benjamin Dannegård'
 software:
   - Terminal
