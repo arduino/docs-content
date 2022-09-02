@@ -16,7 +16,7 @@ hardware:
 
 ## Overview
 
-The Arduino Portenta X8 is a powerful board that has many features that can be easily utilized with the help of Docker containers. In this tutorial we will be using the Portenta X8 to host a webserver and run wordpress using containers. This is a relatively simple way to configure and run your own webserver and wordpress page. We can then access the wordpress site on the X8 through our web browser and begin setting it up.
+The Arduino Portenta X8 is a powerful board that has many features that can be easily utilized with the help of Docker containers. In this tutorial we will be using the Portenta X8 to host a webserver and run wordpress using containers. This is a simple way to configure and run your own webserver and wordpress page. We can then access the wordpress site on the X8 through our web browser and begin setting it up.
 
 ## Goals
 
