@@ -1,6 +1,6 @@
 ---
 title: 'Sharing dashboards'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to share your dashboards with other Arduino Cloud users.'
 tags: 
   - Dashboards

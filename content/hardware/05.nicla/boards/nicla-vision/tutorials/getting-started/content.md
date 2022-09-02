@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with Nicla Vision'
 description: 'This tutorial teaches you how to set up the board, how to use the OpenMV IDE and how to run a MicroPython sketch.'
-difficulty: easy
+difficulty: beginner
 tags:
   - Getting Started
   - OpenMV

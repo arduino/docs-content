@@ -2,7 +2,7 @@
 title: 'Getting Started with OpenMV and MicroPython'
 description: 'This tutorial teaches you how to set up the board, how to use the OpenMV IDE and how to run a MicroPython blink example with OpenMV.'
 coverImage: assets/por_openmv_gs_cover.svg
-difficulty: easy
+difficulty: beginner
 tags:
   - Getting Started
   - OpenMV

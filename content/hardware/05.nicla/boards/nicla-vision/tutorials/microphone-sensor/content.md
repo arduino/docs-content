@@ -1,6 +1,6 @@
 ---
 title: 'Reading Audio Samples With the Onboard Microphone'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to create a soundmeter using the built-in microphone with the Nicla Vision.'
 tags:
   - OpenMV

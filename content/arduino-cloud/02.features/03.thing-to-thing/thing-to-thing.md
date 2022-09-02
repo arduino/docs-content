@@ -1,7 +1,7 @@
 ---
 title: 'Thing to Thing communication with Arduino IoT Cloud'
 compatible-products: [mkr-1000-wifi, mkr-wifi-1010, nano-33-iot, nano-rp2040-connect]
-difficulty: easy
+difficulty: beginner
 description: 'Learn how two Things can communicate with each other through variable syncing.'
 tags:
   - Device to device

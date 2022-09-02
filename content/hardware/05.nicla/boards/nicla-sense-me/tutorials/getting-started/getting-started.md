@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with Nicla Sense ME'
 description: 'Tutorial for getting started with the Nicla Sense ME, getting readings from the sensor on the board'
-difficulty: easy
+difficulty: beginner
 tags: 
   - Nicla Sense ME
   - Getting Started

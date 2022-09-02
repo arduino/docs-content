@@ -1,6 +1,6 @@
 ---
 title: 'Accessing IMU Data on Nicla Vision'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nicla-vision]
 description: 'Learn how to access the data from the accelerometer and gyroscope that comes with the LSM6DSOXTR IMU module.'
 tags: 

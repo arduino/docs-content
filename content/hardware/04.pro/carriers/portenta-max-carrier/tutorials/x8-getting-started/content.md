@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Portenta Max Carrier and Portenta X8'
-difficulty: easy
+difficulty: beginner
 description: "Get started with your Portenta Max Carrier and Portenta X8"
 tags:
   - Installation

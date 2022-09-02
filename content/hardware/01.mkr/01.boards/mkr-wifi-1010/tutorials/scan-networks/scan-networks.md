@@ -1,6 +1,6 @@
 ---
 title: 'Scanning Networks with MKR WiFi 1010'
-difficulty: easy
+difficulty: beginner
 compatible-products: [mkr-wifi-1010]
 description: 'Learn how to setup your board to scan nearby Wi-Fi networks, and print them out in the Serial Monitor.'
 tags:

@@ -1,6 +1,6 @@
 ---
 title: 'UNO WiFi Rev 2 Chromebook Setup'
-difficulty: easy
+difficulty: beginner
 description: 'A quick tutorial on how to setup your UNO WiFi Rev 2 board with a Chromebook, using the Web Editor & the Arduino Chrome App.'
 tags: 
   - Chromebook

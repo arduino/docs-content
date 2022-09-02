@@ -1,6 +1,6 @@
 ---
 title: 'Connecting ESP32 & ESP8266 to Arduino Cloud IoT'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to send data between an ESP32 / ESP8266 development board and the Arduino Cloud IoT.'
 tags:
   - ESP32

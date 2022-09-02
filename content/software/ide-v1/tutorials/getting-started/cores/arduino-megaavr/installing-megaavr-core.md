@@ -1,7 +1,7 @@
 ---
 title: 'Installing the core for megaAVR boards'
 compatible-products: [nano-every, uno-wifi-rev2]
-difficulty: easy
+difficulty: beginner
 description: 'A step-by-step guide to install the core needed for the UNO WiFi Rev2 and Nano Every boards.'
 author: 'Karl Söderby'
 ---

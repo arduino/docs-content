@@ -1,6 +1,6 @@
 ---
 title: 'Using NB-IoT or Cat-M1 with the Portenta Max Carrier'
-difficulty: easy
+difficulty: beginner
 description: "Learn how to connect the Portenta Max Carrier to the internet with NB-IoT or Cat-M1 technology"
 tags:
   - Installation

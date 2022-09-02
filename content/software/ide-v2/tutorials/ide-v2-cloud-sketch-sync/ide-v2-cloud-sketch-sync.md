@@ -1,6 +1,6 @@
 ---
 title: 'Synchronizing Sketches between IDE 2.0 and Arduino Cloud'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to enable your Remote Sketchbook, and how to pull, edit and push Sketches to the Arduino Cloud.'
 tags:
  - Cloud storage

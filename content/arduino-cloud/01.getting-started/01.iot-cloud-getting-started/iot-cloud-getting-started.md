@@ -1,7 +1,7 @@
 ---
 title: "Getting Started With the Arduino IoT Cloud"
 compatible-products: [mkr-1000-wifi, mkr-wifi-1010, nano-33-iot, nano-rp2040-connect]
-difficulty: easy
+difficulty: beginner
 description: 'The Arduino IoT Cloud is a online platform that makes it easy for you to create, deploy and monitor IoT projects.'
 tags:
   - IoT Cloud

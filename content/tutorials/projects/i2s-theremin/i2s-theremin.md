@@ -4,7 +4,7 @@ description: "Discover how to make an I2S Theremin based on the new Arduino I2S 
 coverImage: "assets/1XxDkvet6xpYPKeYpUNM.png"
 tags: [audio, maker]
 author: "Arduino_Genuino"
-difficulty: easy
+difficulty: beginner
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/i2s-theremin-cec47a"
 ---
 
