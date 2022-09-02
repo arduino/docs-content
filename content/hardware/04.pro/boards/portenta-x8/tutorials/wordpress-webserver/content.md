@@ -47,7 +47,7 @@ version: "3.9"
     
 services:
   db:
-    image: lscr.io/linuxserver/mariadb:latest
+    image: mariadb:latest
     container_name: mariadb
     environment:
       - PUID=1000
@@ -84,7 +84,7 @@ Now lets create a directory on our X8 and put this **docker-compose.yml** file o
 
 ### Installing The Containers
 
-First we create a directory where we want put our **docker-compose.yml** file. Using the `mkdir` command we will create a directory named "wordpress-test". Navigate into this directory with a simple `cd` command. Either copy the docker-compose.yml file into this directory or create it directly here. To create the file we can use `cat > docker-compose.yml`, this will create the file so you can copy contents of the file from above and paste it. Hit enter once to go to a new line and press `ctrl C` to exit the file editor. To copy the file from your computer onto the device use: `adb push <path to docker-compose.yml file> fio/wordpress-test`.
+First we create a directory where we want put our **docker-compose.yml** file. Using the `mkdir` command we will create a directory named "wordpress-test". Navigate into this directory with a simple `cd` command. Either copy the docker-compose.yml file into this directory or create it directly here. To create the file we can use `cat > docker-compose.yml`, this will create the file so you can copy contents of the file from above and paste it. Hit enter once to go to a new line and press `ctrl C` to exit the file editor. To copy the file from your computer onto the device use: `adb push <path to docker-compose.yml file> /home/fio/wordpress-test`.
 
 ![cd into correct directory](assets/webserver-mkdir.png)
 
