@@ -1,7 +1,7 @@
 ---
 title: 'Joystick Mouse Control'
 compatible-products: [due, micro, leonardo]
-difficulty: easy
+difficulty: beginner
 description: 'Controls a computer cursor movement with a Joystick when a button is pressed.'
 tags: 
   - USB

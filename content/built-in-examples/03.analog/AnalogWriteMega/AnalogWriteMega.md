@@ -1,7 +1,7 @@
 ---
 title: 'Analog Write with 12 LEDs on an Arduino Mega'
 compatible-products: [mega-2560]
-difficulty: easy
+difficulty: beginner
 description: 'Fade 12 LEDs on and off, one by one, using an Arduino Mega board.'
 tags: 
   - Analog

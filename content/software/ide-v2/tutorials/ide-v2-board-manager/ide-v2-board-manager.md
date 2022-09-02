@@ -1,6 +1,6 @@
 ---
 title: 'Using the Board Manager'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how the new board manager tool works, and how to easily install the boards you want to use in the Arduino IDE 2.0.'
 tags:
  - Installation

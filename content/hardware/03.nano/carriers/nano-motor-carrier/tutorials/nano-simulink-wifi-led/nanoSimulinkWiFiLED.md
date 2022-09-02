@@ -1,6 +1,6 @@
 ---
 title: 'Controlling LED over Wi-Fi Using Simulink with Nano 33 IoT'
-difficulty: medium
+difficulty: intermediate
 compatible-products: [nano-33-iot, nano-motor-carrier]
 description: 'Learn how to control the Nano 33 IoT LED over USB and Wi-Fi with Simulink.'
 tags: 

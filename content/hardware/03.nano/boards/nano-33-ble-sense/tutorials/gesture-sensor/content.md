@@ -1,6 +1,6 @@
 ---
 title: 'Gesture Recognition with the Nano 33 BLE Sense'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-33-ble-sense]
 description: 'Learn how to use the built in gesture sensor of the Nano 33 BLE Sense to control the built in RGB LED.'
 tags:

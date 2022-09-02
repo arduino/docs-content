@@ -1,7 +1,7 @@
 ---
 title: 'Tone on Multiple Speakers'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Play tones on multiple speakers sequentially using the tone() command.'
 tags: 
   - Digital

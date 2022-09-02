@@ -3,7 +3,7 @@ title: "Control Your IoT Cloud Kit via Blynk"
 description: "Use the popular Blynk app to control and change the state of your IoT Cloud Kit through your smartphone."
 coverImage: "assets/blob_vVw5dIKQgP.png"
 tags: [arduino, blynk, iot]
-difficulty: easy
+difficulty: beginner
 author: "officine-innesto, Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/officine-innesto/control-your-iot-cloud-kit-via-blynk-ec6a16"
 ---

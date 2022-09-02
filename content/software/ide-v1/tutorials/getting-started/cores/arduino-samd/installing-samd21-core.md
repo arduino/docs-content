@@ -1,7 +1,7 @@
 ---
 title: 'Installing the SAMD21 core for MKR boards'
 compatible-products: [mkr-1000-wifi, mkr-zero, mkr-wifi-1010, mkr-fox-1200, mkr-wan-1300, mkr-wan-1310, mkr-nb-1500, mkr-vidor-4000, nano-33-iot, zero]
-difficulty: easy
+difficulty: beginner
 description: 'A step-by-step guide to install the core needed for the MKR Family, Zero and Nano 33 IoT boards.'
 author: 'Karl Söderby'
 ---

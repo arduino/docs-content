@@ -1,6 +1,6 @@
 ---
 title: 'Using the Serial Plotter Tool'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to setup and use the Serial Plotter in the Arduino IDE 2.'
 tags:
  - Serial Plotter

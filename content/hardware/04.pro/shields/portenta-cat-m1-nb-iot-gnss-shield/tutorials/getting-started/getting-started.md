@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the Portenta Cat. M1/NB IoT GNSS Shield'
-difficulty: easy
+difficulty: beginner
 description: "Learn how to use GSM networks to connect to a server and print it's content in the serial monitor."
 tags:
   - Installation

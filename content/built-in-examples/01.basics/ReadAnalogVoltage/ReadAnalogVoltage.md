@@ -1,7 +1,7 @@
 ---
 title: 'Read Analog Voltage'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Reads an analog input and prints the voltage to the Serial Monitor.'
 tags: 
   - Basics

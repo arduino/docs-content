@@ -1,7 +1,7 @@
 ---
 title: 'Arduino Nicla Sense ME Cheat Sheet'
 description: 'Learn how to set up the Arduino Nicla Sense ME and get a quick overview of the components. Obtain information regarding pins and how to use the different sensors.'
-difficulty: easy
+difficulty: beginner
 tags:
   - Installation
   - Bluetooth® Low Energy

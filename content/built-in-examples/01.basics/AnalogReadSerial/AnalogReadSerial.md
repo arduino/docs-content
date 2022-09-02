@@ -1,7 +1,7 @@
 ---
 title: 'Analog Read Serial'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Read a potentiometer, print its state out to the Arduino Serial Monitor.'
 tags: 
   - Basics

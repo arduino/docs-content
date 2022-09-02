@@ -1,6 +1,6 @@
 ---
 title: 'Downloading and installing the Arduino IDE 2.0'
-difficulty: easy
+difficulty: beginner
 description: 'A quick guide on how to install the IDE 2.0 on your operative system.'
 tags:
  - Installation

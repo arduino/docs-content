@@ -1,6 +1,6 @@
 ---
 title: 'Setting up Nano RP2040 Connect with Arduino IoT Cloud'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-rp2040-connect]
 description: 'Learn how to access the IMU data and control the built-in RGB via the Arduino IoT Cloud.'
 tags:

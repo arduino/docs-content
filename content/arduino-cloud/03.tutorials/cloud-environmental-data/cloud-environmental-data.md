@@ -1,7 +1,7 @@
 ---
 title: 'Environmental data in the Arduino IoT Cloud'
 compatible-products: [mkr-wifi-1010, mkr-env-shield]
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to collect environmental data from the MKR ENV Shield and display it in the Arduino IoT Cloud.'
 tags:
   - Environmental data

@@ -1,7 +1,7 @@
 ---
 title: 'Blink'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Turn an LED on and off every second.'
 tags: 
   - Basics

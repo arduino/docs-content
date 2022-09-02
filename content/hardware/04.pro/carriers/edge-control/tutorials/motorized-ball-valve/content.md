@@ -1,7 +1,7 @@
 ---
 title: Connecting and Controlling a Motorized Ball Valve
 coverImage: assets/ec_ard_3wirevalve_cover.svg
-difficulty: easy
+difficulty: beginner
 tags: [Edge Control, Motorised Valve, Irrigation]
 description: This tutorial will give you an overview of the core features of the board, setup the development environment and introduce the required APIs to program the board.
 author: Ernesto E. Lopez, Lenard George Swamy

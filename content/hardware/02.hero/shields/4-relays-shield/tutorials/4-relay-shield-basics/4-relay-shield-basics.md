@@ -1,6 +1,6 @@
 ---
 title: 'Arduino 4 Relays Shield Basics'
-difficulty: easy
+difficulty: beginner
 compatible-products: [4-relays-shield]
 description: 'Learn the basics of how relays work, and how to control the four relays onboard the Arduino 4 Relays Shield'
 tags:

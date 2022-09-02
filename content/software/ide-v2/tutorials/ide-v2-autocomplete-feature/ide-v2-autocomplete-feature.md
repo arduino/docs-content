@@ -1,6 +1,6 @@
 ---
 title: 'The Autocomplete Feature'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how the autocomplete feature works with Arduino IDE 2.0, and how it can help speed up your development time.'
 tags:
  - Autocompletion

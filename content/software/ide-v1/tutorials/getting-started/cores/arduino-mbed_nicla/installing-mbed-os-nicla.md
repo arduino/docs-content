@@ -2,7 +2,7 @@
 title: Installing Mbed OS Nicla boards
 description: 'A step-by-step guide to install the core needed for the Nicla board.'
 compatible-products: [nicla-sense-me]
-difficulty: easy
+difficulty: beginner
 author: 'Benjamin Dannegård'
 ---
 
