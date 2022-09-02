@@ -23,18 +23,18 @@ In this tutorial you will use the Arduino® Nicla Vision to detect the presence 
 
 ## Nicla Vision and the OpenMV IDE
 
-The OpenMV IDE was built for Machine Vision applications. It is meant to provide an Arduino like experience for simple computer vision tasks using a camera sensor. OpenMV comes with its own firmware that is built on MicroPython. Among other hardware it supports the Nicla Vision board. OpenMV allows you to easily preview the camera stream and visually inspect color ranges to define thresholds for your machine vision scripts. [Here](https://openmv.io/) you can read more about the OpenMV IDE.
+The OpenMV IDE was built for Machine Vision applications. It is meant to provide an Arduino like experience for simple computer vision tasks using a camera sensor. OpenMV comes with its own firmware that is built on MicroPython. Among other hardware, it supports the Nicla Vision board. OpenMV allows you to easily preview the camera stream and visually inspect color ranges to define thresholds for your machine vision scripts. [Here](https://openmv.io/) you can read more about the OpenMV IDE.
 
 ## Instructions
 
 ### Configuring the Development Environment
-Before you can start programming OpenMV scripts for the Portenta you need to download and install the OpenMV IDE. Open the [OpenMV download](https://openmv.io/pages/download) page in your browser and download the version that you need for your operating system. Please Follow the instructions of the installer.
+Before you can start programming OpenMV scripts for the Portenta, you need to download and install the OpenMV IDE. Open the [OpenMV download](https://openmv.io/pages/download) page in your browser and download the version that you need for your operating system. Please Follow the instructions of the installer.
 
 ***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](/tutorials/portenta-h7/updating-the-bootloader) before you proceed with the next step of this tutorial.***
 
 ### Flashing the OpenMV Firmware
 
-Connect the Nicla Vision to your computer via the USB cable if you haven't done so yet. Now open the OpenMV IDE. 
+Connect the Nicla Vision to your computer via the USB cable if you have not done so yet. Now open the OpenMV IDE. 
 
 ![The OpenMV IDE after starting it](assets/por_openmv_open_ide.png)
 
@@ -46,18 +46,18 @@ A pop-up will ask you how you would like to proceed "DFU bootloader(s) found. Wh
 
 ![Install the latest version of the OpenMV firmware](assets/por_openmv_reset_firmware.png)
 
-The board's LED will start flashing while the OpenMV firmware is being uploaded. A pop up window will open which shows you the upload progress. Wait until the LED stops flashing and fading. You will see a message saying "DFU firmware update complete!" when the process is done.
+The board's LED will start flashing while the OpenMV firmware is being uploaded. A pop-up window will open to show you the upload progress. Wait until the LED stops flashing and fading. You will see a message saying "DFU firmware update complete!" when the process is done.
 
-***Installing the OpenMV firmware will overwrite any existing sketches in the internal Flash. As a result the board's port won't be exposed in the Arduino IDE anymore. To re-flash an Arduino firmware you need to put the board into bootloader mode. To do so double press the reset button on the board. The built-in LED will start fading in and out. In bootloader mode you will see the board's port again in the Arduino IDE.***
+***Installing the OpenMV firmware will overwrite any existing sketches in the internal Flash. As a result, the board's port will not be exposed in the Arduino IDE anymore. To re-flash an Arduino firmware you need to put the board into bootloader mode. To do so double press the reset button on the board. The built-in LED will start fading in and out. In bootloader mode you will see the board's port again in the Arduino IDE.***
 
-The Nicla Vision will start flashing its blue LED when it's ready to be connected. After confirming the completion dialog the board should already be connected to the OpenMV IDE, otherwise click the "connect" button (plug icon) once again.
+The Nicla Vision will start flashing its blue LED when it is ready to be connected. After confirming the completion dialog, the board should already be connected to the OpenMV IDE, otherwise click the "connect" button (plug icon) once again.
 
 ![When the board is successfully connected to the OpenMV IDE a green play button appears in the lower left](assets/por_openmv_board_connected.png)
 
 
 ## Blob Detection
 
-In this section you will learn how to use the built-in blob detection algorithm to detect the location of objects in an image. That algorithm allows to detect areas in a digital image that differ in properties such as brightness or color compared to surrounding areas. These areas are called blobs. Think of a blob as a lump of similar pixels. 
+In this section you will learn how to use the built-in blob detection algorithm to detect the location of objects in an image. That algorithm allows to detect areas in a digital image that differ in properties, such as brightness or color compared to surrounding areas. These areas are called blobs. Think of a blob as a lump of similar pixels. 
 
 Application Examples:
 
@@ -82,7 +82,7 @@ A module in Python is a confined bundle of functionality. By importing it into t
 
 ### 2. Preparing the Sensor
 
-In order to take a snapshot with the camera it has to be configured in the script.
+In order to take a snapshot with the camera, it has to be configured in the script.
 
 ```python
 sensor.reset() # Resets the sensor
@@ -93,29 +93,29 @@ sensor.set_hmirror(True) # Mirrors the image horizontally
 sensor.skip_frames(time = 2000) # Skip some frames to let the image stabilize
 ```
 
-The most relevant functions in this snipped are `set_pixformat` and `set_framesize`. The camera that comes with the Nicla Vision supports RGB 565 images. Therefore we need to set it via the `sensor.RGB565` parameter.
+The most relevant functions in this snipped are `set_pixformat` and `set_framesize`. The camera that comes with the Nicla Vision supports RGB 565 images. Therefore you need to set it via the `sensor.RGB565` parameter.
 
 The resolution of the camera needs to be set to a supported format both by the sensor and the algorithm.  `QVGA` is a good trade-off between performance and resolution so you will use that in this tutorial.
 
-Depending on how you hold the camera you may want to play with the `set_vflip` and `set_hmirror` functions. To hold the board with the USB cable facing down you will need to call `set_vflip(True)`. If you want the image to be displayed the same way as you see it with your eyes, you need to call `sensor.set_hmirror(True)`. Otherwise elements in the image such as text would be mirrored.
+Depending on how you hold the camera, you may want to play with the `set_vflip` and `set_hmirror` functions. To hold the board with the USB cable facing down, you will need to call `set_vflip(True)`. If you want the image to be displayed the same way as you see it with your eyes, you need to call `sensor.set_hmirror(True)`. Otherwise elements in the image such as text would be mirrored.
 
 ### 3. Defining the Color Thresholds
 
-In order to feed the blob detection algorithm with an image you have to take a snapshot from the camera or load the image from memory (e.g. SD card or internal Flash). In this case you will take a snapshot using the `snapshot()` function. The resulting image needs then to be fed to the algorithm using the `find_blobs` function. You will notice that a list of tuples gets passed to the algorithm. In this list you can specify the LAB color values that are mostly contained in the object that you would like to track. If you were for example to detect purely red objects on a black background the resulting range of colors would be very narrow. The corresponding LAB value for pure red is roughly (53,80,67). A slightly brighter red could be (55,73,50). Therefore the LAB range would be L: 53-55 A: 73-80 B: 50-67. OpenMV provides a convenient tool to figure out the desired color ranges: Threshold Editor. You can find it in the OpenMV IDE in the menu under **Tools > Machine Vision > Threshold Editor**. Place the desired object in front of the camera and open the tool. When it asks you about the "Source image location?" select "Frame Buffer". In the window that opens you will see a snapshot from the camera and a few sliders to adjust the LAB color ranges. As you move the sliders you will see in the black and white image on the right hand side which of the pixels would match the set color range. White pixels denote the matching pixels. As you can see in the following example, the pixels of a nice red apple on brown background are very nicely clustered. It results in mostly one big blob.
+In order to feed the blob detection algorithm with an image, you have to take a snapshot from the camera or load the image from memory (e.g. SD card or internal Flash). In this case you will take a snapshot using the `snapshot()` function. The resulting image needs then to be fed to the algorithm using the `find_blobs` function. You will notice that a list of tuples gets passed to the algorithm. In this list you can specify the LAB color values that are mostly contained in the object that you would like to track. If you were for example to detect purely red objects on a black background, the resulting range of colors would be very narrow. The corresponding LAB value for pure red is roughly (53,80,67). A slightly brighter red could be (55,73,50). Therefore the LAB range would be L: 53-55 A: 73-80 B: 50-67. OpenMV provides a convenient tool to figure out the desired color ranges: Threshold Editor. You can find it in the OpenMV IDE in the menu under **Tools > Machine Vision > Threshold Editor**. Place the desired object in front of the camera and open the tool. When it asks you about the "Source image location?", select "Frame Buffer". In the window that opens you will see a snapshot from the camera and a few sliders to adjust the LAB color ranges. As you move the sliders you will see in the black and white image on the right hand side which of the pixels would match the set color range. White pixels denote the matching pixels. As you can see in the following example, the pixels of a red apple on brown background are very nicely clustered. It results in mostly one big blob.
 
 ![LAB thresholds for an apple in the Threshold Editor](assets/lab_thresholds_apple.png)
 
-To get a rough idea of the LAB color range of the target object you can use the histogram view in OpenMV. Make sure you have set the histogram to LAB color mode. Draw a rectangle with the mouse pointer just above the target object in the frame buffer view. In the histogram you can see which color values appear most often. You can set the target color ranges to the min and max values of the corresponding color component.
+To get a rough idea of the LAB color range of the target object, you can use the histogram view in OpenMV. Make sure you have set the histogram to LAB color mode. Draw a rectangle with the mouse pointer just above the target object in the frame buffer view. In the histogram you can see which color values appear most often. You can set the target color ranges to the min and max values of the corresponding color component.
 
 ![LAB color histogram of frame buffer](assets/histogram.png)
 
-As opposed to the example above with the apple, the clustering of the banana's pixels is slightly less coherent. This is because the banana lies on a background that has slightly similar color. That means that the algorithm is sensitive to the background pixels. In order to exclude blobs that don't belong to the target object additional filtering is necessary. You can for example set a minimum bounding box size, a blob pixel density, define the elongation of the object, its roundness or even just look for objects in a specific part of the image.
+As opposed to the example above with the apple, the clustering of the banana's pixels is slightly less coherent. This is because the banana lies on a background that has slightly similar color. That means that the algorithm is sensitive to the background pixels. In order to exclude blobs that do not belong to the target object, additional filtering is necessary. You can for example set a minimum bounding box size, a blob pixel density, define the elongation of the object, its roundness or even just look for objects in a specific part of the image.
 
 ![LAB thresholds for a banana in the Threshold Editor](assets/lab_thresholds_banana.png)
 
 ### 4. Detecting Blobs
 
-Now that you know the range of color values to be used to find the blobs you can pass these 6 tuples as a list to the `find_blobs` function:
+Now that you know the range of color values to be used to find the blobs, you can pass these 6 tuples as a list to the `find_blobs` function:
 
 ```python
 # Define the min/max LAB values we're looking for
@@ -224,7 +224,7 @@ while(True):
 
 Click on the "Play" button at the bottom of the left toolbar. Place some objects on your desk and check if the Portenta can detect them.
 
-***The MicroPython script doesn't get compiled and linked into an actual firmware. Instead it gets copied to the internal Flash of the board where it gets interpreted and executed on the fly.***
+***The MicroPython script does not get compiled and linked into an actual firmware. Instead it gets copied to the internal Flash of the board where it gets interpreted and executed on the fly.***
 
 ## Conclusion
 
@@ -232,7 +232,7 @@ In this tutorial you learned how to use the OpenMV IDE to develop MicroPython sc
 
 ### Next Steps
 
--   Familiarize yourself with the OpenMV IDE. There are many other features that didn't get mentioned in this tutorial (e.g. the Serial Terminal).
+-   Familiarize yourself with the OpenMV IDE. There are many other features that did not get mentioned in this tutorial (e.g. the Serial Terminal).
 -   Try out other machine vision examples that come with the OpenMV IDE. You can find them in the "Examples" menu.
 
 ## Troubleshooting
