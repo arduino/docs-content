@@ -1,7 +1,7 @@
 ---
 title: 'Running Wordpress and Database Containers on the Portenta X8'
 description: 'Learn how to run a database and wordpress container on the Portenta X8'
-difficulty: easy
+difficulty: beginner
 tags:
   - containers
   - Docker
