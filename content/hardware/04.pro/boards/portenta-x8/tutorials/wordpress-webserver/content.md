@@ -104,7 +104,7 @@ When you connect you should get some feedback in the terminal. Text will begin p
 
 Now you should see a webpage like on the next image in your browser.
 
-![Wordpress setup site](assets/webserver-Wordpress-site.png)
+![Wordpress setup site](assets/webserver-wordpress-site.png)
 
 You are now free to go through the Wordpress set up process and configure it however you like.
 
