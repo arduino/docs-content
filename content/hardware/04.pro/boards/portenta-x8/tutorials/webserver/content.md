@@ -22,7 +22,7 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 
 - Create the file to install docker containers
 - Install and run the containers
-- Connect to the Wordpress container running on the X8
+- Connect to the Wordpress container running on the Portenta X8
 
 ### Required Hardware and Software
 
@@ -30,6 +30,8 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 - USB-C cable (either USB-C to USB-A or USB-C to USB-C)
 
 ## Instructions
+
+First make sure your Portenta X8 is setup correctly by following the [getting started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box).
 
 ### Creating the Docker-compose.yml File
 
@@ -86,7 +88,9 @@ First we create a directory where we want put our **docker-compose.yml** file. U
 
 ![cd into correct directory](assets/webserver-mkdir.png)
 
-When you are in the correct directory we now need to run `docker compose up`. This will start installing the **Wordpress** and **mariadb** containers. You can follow the progress in the terminal, it can take a while. Once it is done we can connect to the device and site.
+Before installing the containers, make sure that no other container is running on the ports that the Wordpress container will use. You can check what containers are running and what port they are using by running the `docker ps -a` command. This will show a list of the currently installed and running containers on the Portenta X8. To remove a container first stop it with `docker stop <container id>`, then you can run `docker rm <container id>` to remove it. If you want more information about handling containers on your Portenta X8, take a look at our [managing containers with docker tutorial](https://docs.arduino.cc/tutorials/portenta-x8/docker-container).
+
+When you are in the correct directory and no other container is running on the ports that Wordpress will use, we can now run `docker compose up`. This will start installing the **Wordpress** and **mariadb** containers. You can follow the progress in the terminal, it can take a while. Once it is done we can connect to the device and site.
 
 ![Containers install progress in the terminal](assets/webserver-container-install.png)
 
