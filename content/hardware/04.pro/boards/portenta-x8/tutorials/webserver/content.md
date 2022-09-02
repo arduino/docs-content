@@ -91,7 +91,7 @@ When you are in the correct directory we now need to run `docker compose up`. Th
 
 ### Connecting to the Wordpress Site
 
-To connect to the Wordpress setup site we simply need to access it with our Portenta X8s unique id and port. So for example `http://<uuid>.local:<port>`, where you would substitute the `<uuid>` with your Portenta X8s unique id and the port chosen for the wordpress container with `<port>`. The `<uuid>` can be found on the setup page that is showed in the (Getting started tutorial)[], you can also see it in the terminal when running `adb`. Or you can go to `http://192.168.7.1:8000` if you use Windows and Linux, on MacOS use `http://192.168.8.1:8000`.
+To connect to the Wordpress setup site we simply need to access it with our Portenta X8s unique id and port. So for example `http://<uuid>.local:<port>`, where you would substitute the `<uuid>` with your Portenta X8s unique id and the port chosen for the wordpress container with `<port>`. The `<uuid>` can be found on the setup page that is showed in the [Getting started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), you can also see it in the terminal when running `adb`. Or you can go to `http://192.168.7.1:8000` if you use Windows and Linux, on MacOS use `http://192.168.8.1:8000`.
 
 When you connect you should get some feedback in the terminal. Text will begin printing in the terminal, showing you information about the connection that has just been established. Like shown in the image below.
 
