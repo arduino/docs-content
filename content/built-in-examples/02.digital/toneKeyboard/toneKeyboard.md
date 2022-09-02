@@ -1,7 +1,7 @@
 ---
 title: 'Simple keyboard using the tone() function'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'A three-key musical keyboard using force sensors and a piezo speaker.'
 tags: 
   - Digital

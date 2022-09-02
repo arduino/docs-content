@@ -1,6 +1,6 @@
 ---
 title: Portenta X8 Fundamentals
-difficulty: easy
+difficulty: beginner
 tags: [Linux, containers, factories, foundries]
 description: This article contains information about the fundamental concepts of the Portenta X8
 author: Benjamin Dannegård

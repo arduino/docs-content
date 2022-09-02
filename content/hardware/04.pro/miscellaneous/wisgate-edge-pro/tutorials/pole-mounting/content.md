@@ -1,7 +1,7 @@
 ---
 title: 'Mounting WisGate Edge PRO Gateway on a Pole'
 description: 'Tutorial for mounting the WisGate Edge Lo-Ra Gateway in an antenna Pole'
-difficulty: easy
+difficulty: beginner
 tags: 
   - Mechanical
   - Setup

@@ -2,7 +2,7 @@
 title: Connecting the Nicla Sense ME to IoT Cloud
 tags: [IoT, Cloud, IDE, Create ]
 description: This tutorial shows you how to set up the Arduino Nicla Sense ME and the Arduino Portenta H7 to connect to Arduino Cloud IoT and upload sensor data.
-difficulty: easy
+difficulty: beginner
 author: Ernesto Lopez, Pablo Marquínez
 libraries:
   - name: Arduino BHY2

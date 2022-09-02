@@ -1,6 +1,6 @@
 ---
 title: 'How to upload a sketch with the Arduino IDE 2.0'
-difficulty: easy
+difficulty: beginner
 description: 'Learn the basics of verifying and uploading sketches with the new IDE 2.0.'
 tags:
  - Uploading

@@ -1,7 +1,7 @@
 ---
 title: 'Controlling relays from the Arduino IoT Cloud'
 compatible-products: [mkr-wifi-1010, mkr-proto-relay-shield]
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to control the relays onboard the MKR Relay Shield through the Arduino IoT Cloud dashboard.'
 tags:
   - Relays

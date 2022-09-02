@@ -1,7 +1,7 @@
 ---
 title: Getting Started With the Portenta Vision Shield Camera
 coverImage: assets/vs_ard_gs_cover.svg
-difficulty: easy
+difficulty: beginner
 tags: [Getting Started, Camera, Processing, Serial]
 description: This tutorial shows you how to capture frames from the Portenta Vision Shield Camera module and visualize the video output through a Processing sketch.
 author: Lenard George, Sebastian Romero

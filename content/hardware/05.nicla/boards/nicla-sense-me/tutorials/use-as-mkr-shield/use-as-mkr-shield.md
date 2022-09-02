@@ -1,7 +1,7 @@
 ---
 title: 'Arduino Nicla Sense ME as a MKR Shield'
 description: 'Learn how to set up and use the Nicla Sense ME as a MKR Shield'
-difficulty: easy
+difficulty: beginner
 tags:
   - Shield
   - Sensors

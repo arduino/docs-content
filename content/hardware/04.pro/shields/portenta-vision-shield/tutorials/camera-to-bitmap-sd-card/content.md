@@ -1,6 +1,6 @@
 ---
 title: "Saving Bitmap Camera Images to the SD Card"
-difficulty: easy
+difficulty: beginner
 tags: [Camera, Bitmap, SD Card]
 description: This tutorial shows you how to capture a frame from the Portenta Vision Shield Camera module and save the output as a bitmap image.
 author: Pablo Marquínez

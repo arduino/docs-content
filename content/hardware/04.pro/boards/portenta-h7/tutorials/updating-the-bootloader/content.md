@@ -2,7 +2,7 @@
 title: 'Updating the Portenta Bootloader'
 description: 'This tutorial will explain what a bootloader is, why you should consider keeping it updated and how you can update it.'
 coverImage: 'assets/por_ard_bl_cover.svg'
-difficulty: easy
+difficulty: beginner
 tags:
   - Bootloader
   - Firmware

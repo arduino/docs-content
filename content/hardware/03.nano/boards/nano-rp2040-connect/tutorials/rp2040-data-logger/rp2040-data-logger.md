@@ -1,6 +1,6 @@
 ---
 title: 'Nano RP2040 Datalogger with MicroPython'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-rp2040-connect]
 description: 'Learn how to save data in .csv format on the Nano RP2040 Connect, using MicroPython.'
 tags: 

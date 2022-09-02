@@ -1,6 +1,6 @@
 ---
 title: 'Assembling the Enclosure Kit'
-difficulty: easy
+difficulty: beginner
 description: "Learn how to assemble the enclosure kit for the Edge Control"
 tags:
   - Assembly

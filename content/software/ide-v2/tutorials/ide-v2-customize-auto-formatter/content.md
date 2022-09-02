@@ -1,6 +1,6 @@
 ---
 title: 'Customizing the Auto Formatter Feature'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to configure the auto formatter feature'
 tags:
  - Auto Formatter

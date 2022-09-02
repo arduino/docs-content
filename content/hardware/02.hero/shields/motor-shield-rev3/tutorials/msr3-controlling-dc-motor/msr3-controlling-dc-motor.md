@@ -1,6 +1,6 @@
 ---
 title: 'Controlling a DC Motor with Motor Shield Rev3'
-difficulty: easy
+difficulty: beginner
 compatible-products: [motor-shield-rev3]
 description: 'Learn how to connect a DC motor to the shield, and how to control the speed and direction of the motor.'
 tags:

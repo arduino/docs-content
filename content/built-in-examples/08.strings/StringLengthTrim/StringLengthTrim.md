@@ -1,7 +1,7 @@
 ---
 title: 'String length() and trim() Commands'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Get and trim the length of a string.'
 tags: 
   - Strings

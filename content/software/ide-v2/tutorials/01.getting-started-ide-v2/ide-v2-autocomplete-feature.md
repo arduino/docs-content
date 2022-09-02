@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Arduino IDE 2.0'
-difficulty: easy
+difficulty: beginner
 description: 'An introductory guide to the Arduino IDE 2.0.'
 tags:
  - Arduino IDE 2

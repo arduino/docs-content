@@ -1,7 +1,7 @@
 ---
 title: Getting Started With the Arduino Edge Control
 coverImage: assets/ec_ard_gs_cover.svg
-difficulty: easy
+difficulty: beginner
 tags: [Getting Started, Setup, Blink]
 description: This tutorial will give you an overview of the core features of the board, setup the development environment and introduce the APIs required to program the board.
 author: Lenard George

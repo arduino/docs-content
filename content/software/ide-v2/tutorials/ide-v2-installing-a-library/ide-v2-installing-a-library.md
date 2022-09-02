@@ -1,6 +1,6 @@
 ---
 title: 'Installing libraries'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to install software libraries with the new library manager tool in the Arduino IDE 2.0.'
 tags:
  - Libraries

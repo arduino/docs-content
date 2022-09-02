@@ -1,7 +1,7 @@
 ---
 title: 'Tilt Sensor'
 description: 'The tilt sensor is a component that can detect the tilting of an object.'
-difficulty: easy
+difficulty: beginner
 tags: 
   - tilt
   - sensor

@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with WisGate Edge Gateway'
 description: 'Tutorial for setting up the WisGate Edge Lo-Ra Gateway'
-difficulty: easy
+difficulty: beginner
 tags: [Getting Started, Setup]
 author: 'Pablo Marquínez'
 hardware:

@@ -1,7 +1,7 @@
 ---
 title: 'If Statement (Conditional Statement)'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Use an if statement to change the output conditions based on changing the input conditions.'
 tags: 
   - Control structures

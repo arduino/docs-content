@@ -1,7 +1,7 @@
 ---
 title: Installing Mbed OS Portenta boards
 compatible-products: [portenta-h7, portenta-h7-lite, portenta-h7-lite-connected]
-difficulty: easy
+difficulty: beginner
 description: 'A step-by-step guide to install the core needed for the Portenta boards.'
 author: 'Benjamin Dannegård'
 ---

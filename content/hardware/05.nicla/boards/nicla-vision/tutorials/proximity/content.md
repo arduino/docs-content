@@ -1,6 +1,6 @@
 ---
 title: Proximity Detection with Arduino Nicla Vision
-difficulty: easy
+difficulty: beginner
 tags: [Proximity, Time Of Flight, Blink]
 description: Learn how to use the proximity sensor to vary the speed of the LED's blink.
 author: Pablo Marquínez

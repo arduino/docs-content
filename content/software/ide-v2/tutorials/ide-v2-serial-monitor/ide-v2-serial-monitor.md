@@ -1,6 +1,6 @@
 ---
 title: 'Using the Serial Monitor tool'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to use the new Serial Monitor tool in the Arduino IDE 2.0, and how it works differently from older versions.'
 tags:
  - Serial Monitor

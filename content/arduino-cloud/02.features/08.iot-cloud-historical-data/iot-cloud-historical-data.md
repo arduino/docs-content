@@ -1,6 +1,6 @@
 ---
 title: 'Historical Data on Arduino IoT Cloud'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to download historical data from the Arduino IoT Cloud'
 tags: [IoT Cloud, Historical Data, CSV]
 author: 'Benjamin Dannegård'

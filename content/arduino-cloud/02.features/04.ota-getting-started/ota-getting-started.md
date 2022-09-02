@@ -1,6 +1,6 @@
 ---
 title: "Uploading sketches Over-The-Air (OTA)"
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to utilize Over-The-Air (OTA), a feature that allows you to upload sketches remotely.'
 tags:
   - OTA

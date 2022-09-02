@@ -1,7 +1,7 @@
 ---
 title: 'Switch (case) Statement, used with sensor input'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'How to choose between a discrete number of values.'
 tags: 
   - Control structures

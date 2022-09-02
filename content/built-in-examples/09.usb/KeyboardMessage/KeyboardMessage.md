@@ -1,7 +1,7 @@
 ---
 title: 'Keyboard Message'
 compatible-products: [due, micro, leonardo]
-difficulty: easy
+difficulty: beginner
 description: 'Sends a text string when a button is pressed.'
 tags: 
   - USB

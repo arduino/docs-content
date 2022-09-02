@@ -2,7 +2,7 @@
 title: 'Portenta H7 as a Wi-Fi Access Point'
 description: 'In this tutorial you will configure the Portenta H7 as an access point and build a simple web server that will allow you to control the built-in RGB LEDs from your mobile device.'
 coverImage: assets/por_ard_ap_cover.svg
-difficulty: easy
+difficulty: beginner
 tags:
   - Wi-Fi
   - Access Point
