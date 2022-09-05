@@ -13,7 +13,7 @@ Based on the ARM® Cortex®-M3 processor, this 32-bit microcontroller has 84 MHz
 
 <Feature title="54 digital pins" image="hw-pin">
 
-The Due has 54 digital pins, whereas 12 supports PWM (Pulse Width Modulation).
+The Due has 54 digital pins, 12 of which support PWM (Pulse Width Modulation).
 
 </Feature>
 
