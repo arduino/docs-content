@@ -20,15 +20,15 @@ software:
 
 ## Overview
 
-In this tutorial, we will learn how to access the gyroscope and accelerometer that is on the Nicla Vision board. For this, we will be using the [Arduino_LSMDS63](https://www.arduino.cc/en/Reference/ArduinoLSM6DSOX) library and the Arduino IDE. Printing the values in the serial monitor of the Arduino IDE.
+In this tutorial, you will learn how to access the gyroscope and accelerometer that are placed on the Nicla Vision board. For this, you will be using the [Arduino_LSMDS63](https://www.arduino.cc/en/Reference/ArduinoLSM6DSOX) library and the Arduino IDE, printing the values in the Serial Monitor of the Arduino IDE.
 
 ## Goals
 
 The goals of this project are:
 
-- Read accelerometer data.
-- Read gyroscope data.
-- Print the data in the Serial Monitor.
+- Read accelerometer data
+- Read gyroscope data
+- Print the data in the Serial Monitor
 
 ### Hardware & Software Needed
 
@@ -38,33 +38,33 @@ The goals of this project are:
 
 ## IMU (Inertial Measurement Unit)
 
-An IMU is a component that exists of different sensors that records data such as specific force, angular rate, orientation. The Nicla Visions IMU has a **gyroscope** and a **accelerometer.** On the image below you can see exactly where on the board the IMU is located.
+An IMU is a component that consists of different sensors and can record data such as specific force, angular rate, orientation. The Nicla Visions IMU has a **gyroscope** and a **accelerometer.** On the image below you can see exactly where the IMU is located on the board.
 
 ![Placement of IMU on the Nicla Vision](assets/nicla-vision-imu.png)
 
 ### Accelerometer & Gyroscope
 
-An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity or, as is the case with many mobile devices, dynamic to sense movement or vibrations.
+An accelerometer is an electromechanical device used to measure acceleration forces. Such forces may be static, like the continuous force of gravity, or, as in the case of many mobile devices, dynamic to sense movement or vibrations.
 
 ![Illustration of Nicla Vision accelerometer axis.](assets/nicla_vision_acceleration.png)
 
-A gyroscope sensor is a device that can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, as they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion. Gyroscope sensors are also called "Angular Rate Sensors" or "Angular Velocity Sensors". Measured in degrees per second, angular velocity is the change in the rotational angle of the object per unit of time.
+A gyroscope sensor is a device that can measure and maintain the orientation and angular velocity of an object. Gyroscopes are more advanced than accelerometers, since they can measure the tilt and lateral orientation of an object, whereas an accelerometer can only measure its linear motion. Gyroscope sensors are also called "Angular Rate Sensors" or "Angular Velocity Sensors". Measured in degrees per second, angular velocity is the change in the rotational angle of the object per unit of time.
 
 ![Illustration of Nicla Vision gyroscope axis.](assets/nicla_vision_gyroscope.png)
 
-In this tutorial, we will use the gyroscope as an indicator for the direction of the force that is applied to the board. We will also use the accelerometer as a "level" that will provide information about the position of the board. With this application we will be able to read what the relative position of the board is, as well as the degrees by tilting the board up, down, left or right. The results will be visible through the Serial Monitor.
+In this tutorial, you will use the gyroscope as an indicator for the direction of the force that is applied to the board. You will also use the accelerometer as a "level" that will provide information about the position of the board. With this application you will be able to read what the relative position of the board is as well as its orientation, by tilting the board up, down, left or right. The results will be visible through the Serial Monitor.
 
 ## Instructions
 
 ### Setting up the Arduino IDE
 
-Make sure the latest Nicla Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here we need to look for the **Arduino Mbed OS Nicla Boards** and install it. Now we need to install the library needed for the IMU. Go to **Tools > Manage libraries..**, and search for **Arduino_LSM6DS3** and install it.
+Make sure the latest Nicla Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Nicla Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_LSM6DS3** and install it.
 
 ### IMU Sketch
 
 The full sketch can be found at the end of the **Instructions** section. Upload the sketch to the board.
 
-To use the IMU we first include the library. To make it easier with the values from the IMU, we create a variable for each axis. 
+To use the IMU you first need to include the library. To simplify the values coming from the IMU, you can create a variable for each axis. 
 
 ```arduino
 #include <Arduino_LSM6DSOX.h>
@@ -74,7 +74,7 @@ float Gx, Gy, Gz;
 
 ```
 
-To initializes the library we need to call `IMU.begin()`. When the IMU is initialized, we can quickly check the sample rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
+To initializes the library you need to call `IMU.begin()`. When the IMU is initialized, you can quickly check the sample rates of the sensors. Calling `IMU.accelerationSampleRate()` and `IMU.gyroscopeSampleRate()` will read the sampling rate of the respective sensor in Hz. 
 
 ```arduino
 void setup() {
@@ -100,7 +100,7 @@ void setup() {
 }
 ```
 
-In the loop of the sketch we can check the sensors to see if there is data available on the IMU sensors, using `IMU.accelerationAvailable()` and `IMU.gyroscopeAvailable()`. Then we can call `IMU.readAcceleration(Ax, Ay, Az)` to read the accelerometer. It will return the value of the **x**, **y** and **z** axis and update the variables `Ax`, `Ay` and `Az`. We do the same for the gyroscope, formatting it in the serial monitor so it will be a bit easier to read the data. The data is being printed with an interval of 500 milliseconds. This can be adjusted by changing the line `delay(500)` at the bottom of the sketch.
+In the loop of the sketch you can check the sensors to see if there is data available on the IMU sensors, using `IMU.accelerationAvailable()` and `IMU.gyroscopeAvailable()`. Then you can call `IMU.readAcceleration(Ax, Ay, Az)` to read the accelerometer. It will return the value of the **x**, **y** and **z** axis and update the variables `Ax`, `Ay` and `Az`. You can do the same for the gyroscope, formatting it in the Serial Monitor so it will be a bit easier to read the data. The data is being printed with an interval of 500 milliseconds. This can be adjusted by changing the line `delay(500)` at the bottom of the sketch.
 
 ```arduino
 void loop() {
@@ -136,7 +136,7 @@ delay(500);
 
 ### Testing It Out
 
-After successfully uploading the code to the board, we will need to open the Serial Monitor to initialize the program. Once we open it, data will start printing. 
+After successfully uploading the code to the board, you will need to open the Serial Monitor to initialize the program. Once you open it, data will start printing. 
 
 ### Complete Sketch
 
@@ -201,4 +201,4 @@ delay(500);
 
 ## Conclusion
 
-In this tutorial we have learned how to use the **Arduino_LSM6DSOX** library to access the IMU on the Nicla Vision. With this we learned how to print the gyroscope and accelerometer data in the Arduino IDE serial monitor. 
+In this tutorial you have learned how to use the **Arduino_LSM6DSOX** library to access the IMU on the Nicla Vision. With this you learned how to print the gyroscope and accelerometer data in the Arduino IDE Serial Monitor. 
