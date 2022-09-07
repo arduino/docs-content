@@ -151,7 +151,7 @@ You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilit
 ### QSPI Storage Mode
 
 #### Setting Up
-To use internal **QSPI** storage for downloading the binary file via OTA (Over-The-Air), you will only need the Arduino Portenta H7 board connected to the computer with the [Arduino IDE](https://www.arduino.cc/en/software). With it, you will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1MB M4** for the purpose of this tutorial and the corresponding port. 
+To use internal **QSPI** storage for downloading the binary file via OTA (Over-The-Air), you will only need the Arduino Portenta H7 board connected to the computer with the [Arduino IDE](https://www.arduino.cc/en/software). With it, you will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1 MB M7 + 1 MB M4** for the purpose of this tutorial and the corresponding port. 
 
 ![Arduino Portenta H7 Board Connection](assets/portenta_h7_board_selection.png)
 

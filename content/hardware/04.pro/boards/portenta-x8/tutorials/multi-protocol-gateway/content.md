@@ -4,8 +4,8 @@ description: 'This tutorial shows how to setup a multi-protocol gateway environm
 tags:
   - Containers
   - Docker
-  - LoRa
-  - WiFi
+  - LoRa®
+  - Wi-Fi
   - Sensor
   - RPC
 author: 'Taddy Ho Chung, José Bagur'
@@ -18,14 +18,14 @@ hardware:
 
 ## Overview
 
-Portenta X8 has the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino) stacked together and can be used to design different work loads for these two different microprocessors. We will use the Portenta Max Carriers onboard CMWX1ZZABZ-078 LoRaWAN® module from Murata® and the WiFi connectivity from Portenta X8 to build a Multi-Protocol Gateway.
+Portenta X8 has the NXP® i.MX 8M Mini MPU (Linux) and STM32H747XI dual Cortex®-M7+M4 32bit low power ARM® MCU (Arduino) stacked together and can be used to design different work loads for these two different microprocessors. We will use the Portenta Max Carriers onboard CMWX1ZZABZ-078 LoRaWAN® module from Murata® and the Wi-Fi connectivity from Portenta X8 to build a Multi-Protocol Gateway.
 
-In this tutorial we will go through the steps on how to setup both the Linux and Arduino side. A device collecting sensor data will transfer the data via WiFi, receive the data and exchange them between the Arduino and Linux layers, for finally using LoRaWAN to send the information to The Things Network. We will also configure and expose a local communication lane to further expand its capability if a local sensor is desired. 
+In this tutorial we will go through the steps on how to setup both the Linux and Arduino side. A device collecting sensor data will transfer the data via Wi-Fi, receive the data and exchange them between the Arduino and Linux layers, for finally using LoRaWAN® to send the information to The Things Network. We will also configure and expose a local communication lane to further expand its capability if a local sensor is desired. 
 
 ## Goals
 
 - Build an Arduino layer script using RPC to handle sensor readings or data traffic on Portenta X8.
-- Build a multi-protocol script to manage MQTT protocol and LoRa connectivity to handle data traffic on the Linux layer of Portenta X8.
+- Build a multi-protocol script to manage MQTT protocol and LoRa® connectivity to handle data traffic on the Linux layer of Portenta X8.
 - Assemble both layer scripts to build an operational multi-protocol gateway using Portenta X8 and Max Carrier.
 
 ### Required Hardware and Software
@@ -47,9 +47,9 @@ This means that the gateway can receive the data transmitted in certain protocol
 
 The Portenta X8 paired with the Portenta Max Carrier has the potential to create synergy, and you will have following connectivity tools at your disposal:
 
-- WiFi (MQTT Protocol)
-- Bluetooth Low Energy
-- LoRaWAN (The Things Network)
+- Wi-Fi (MQTT Protocol)
+- Bluetooth® Low Energy
+- LoRaWAN® (The Things Network)
 - NB-IoT & Cat-M1
 
 The following image illustrates how a overall multi-protocol gateway works with Portenta X8 and Max Carrier as the gateway system.
@@ -75,9 +75,9 @@ Hence the multi-protocol architecture will process and manage the data traffic w
 
 ### Linux Layer
 
-It is important to understand that **all networking processes are made within the Linux layer**. All network processes that are WiFi, Bluetooth Low Energy, LoRa, NB-IoT and Cat. M1. We will focus on using WiFi with MQTT protocol and LoRa connectivities to establish a multiple protocol gateway.
+It is important to understand that **all networking processes are made within the Linux layer**. All network processes that are Wi-Fi, Bluetooth® Low Energy, LoRa®, NB-IoT and Cat. M1. We will focus on using Wi-Fi with MQTT protocol and LoRa® connectivities to establish a multiple protocol gateway.
 
-The Portenta X8 provides WiFi connectivity and the Portenta Max Carrier provides a LoRaWAN module that can help us communicate with The Things Network. We will use the MQTT protocol to receive sensor data transmitted by an end device. 
+The Portenta X8 provides Wi-Fi connectivity and the Portenta Max Carrier provides a LoRaWAN® module that can help us communicate with The Things Network. We will use the MQTT protocol to receive sensor data transmitted by an end device. 
 
 We will use a Python script that will configure and handle the connectivity modules and its sensor data. The RPC calls will be used to expose the received sensor data to the Arduino layer, setting up data exchange configuration to further expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa and makes use of the Arduino layer to transmit the data to the Linux layer from the local end-device. 
 
@@ -87,13 +87,13 @@ Now that we know the roles of Arduino and Linux layer, we will need a clear pict
 
 ## Instructions
 
-To showcase the ability of the Linux layer and Arduino layer extended by M4 Core, we will build a multi-protocol gateway that will receive MQTT protocol packages using EMQX as the broker, retrieve the data from a local sensor attached to Portenta via RPC mechanism, wrap the data together and send to The Things Netowork using LoRa connectivity within Cayenne Low Power Payload Encoder. 
+To showcase the ability of the Linux layer and Arduino layer extended by M4 Core, we will build a multi-protocol gateway that will receive MQTT protocol packages using EMQX as the broker, retrieve the data from a local sensor attached to Portenta via RPC mechanism, wrap the data together and send to The Things Netowork using LoRa® connectivity within Cayenne Low Power Payload Encoder. 
 
 This will help you get a better understanding on how the Portenta X8 and the Portenta Max Carrier can help you develop a multi-protocol gateway.
 
 ### Hardware Setup 
 
-First things first, you will need to configure the hardware to be able to develop and work on the Multi-Protocol gateway. We will attach the Portenta X8 to the Portenta Max Carrier with High-Density Connectors and you will have to make sure to attach an antenna for LoRa connectvity. The Portenta X8 also needs to have the WiFi antenna attached to it. 
+First things first, you will need to configure the hardware to be able to develop and work on the Multi-Protocol gateway. We will attach the Portenta X8 to the Portenta Max Carrier with High-Density Connectors and you will have to make sure to attach an antenna for LoRa® connectvity. The Portenta X8 also needs to have the Wi-Fi antenna attached to it. 
 
 ![Multi-Protocol Gateway Hardware Setup](assets/multi-protocol-hardware.png)
 
@@ -134,21 +134,21 @@ sudo docker-compose logs -f --tail 20
 
 ***For more details about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
-In case you have not configured internal WiFi connectivity within the system, please use following command line.
+In case you have not configured internal Wi-Fi connectivity within the system, please use following command line.
 
 ```
-nmcli device wifi connect "SSID" password "PASSWORD"
+nmcli device Wi-Fi connect "SSID" password "PASSWORD"
 ```
 
 ### Setting Up The Things Network
 
-You now have the pre-requisites for the Portenta X8 ready, but, since you are using the LoRa connectivity, you will need a platform that has the capability to receive data transmitted from the Portenta X8 and Max Carrier. **The Things Network** will be the platform you are going to use communicate using LoRaWAN. On the platform, you will need to create an application to add the Portenta Max Carrier as an End-Device. 
+You now have the pre-requisites for the Portenta X8 ready, but, since you are using the LoRa® connectivity, you will need a platform that has the capability to receive data transmitted from the Portenta X8 and Max Carrier. **The Things Network** will be the platform you are going to use communicate using LoRaWAN®. On the platform, you will need to create an application to add the Portenta Max Carrier as an End-Device. 
 
-When adding the End-Device, at the moment you will have to use the **Manual** option. The Portenta Max Carrier will be added under Arduino SA in the near future to be included in the LoRaWAN Device Repository. The LoRaWAN version and parameters compatible with the Portenta Max Carrier are as follows. The frequency plan will depend on the region in which you are going install the device. 
+When adding the End-Device, at the moment you will have to use the **Manual** option. The Portenta Max Carrier will be added under Arduino SA in the near future to be included in the LoRaWAN® Device Repository. The LoRaWAN® version and parameters compatible with the Portenta Max Carrier are as follows. The frequency plan will depend on the region in which you are going install the device. 
 
 ![General End-Device Configuration](assets/ttn-end-device.png)
 
-***To learn more about LoRa and LoRaWAN, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn on how to properly setup the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
+***To learn more about LoRa® and LoRaWAN®, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn on how to properly setup the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
 
 Let's now dive into developing a multi-protocol gateway using Portenta X8 and Max Carrier!
 
@@ -243,7 +243,7 @@ mqtt_username = 'emqx'
 mqtt_password = 'public'
 ```
 
-These 2 parameters are required to establish a connection with The Things Network. The `APP_EUI` and `APP_KEY` are required to be configured, as they are provided from The Things Network or from the LoRaWAN platform that you may try extablishing connection to. Additionally, the `DEV_EUI` will be predefined as the device will request and apply the EUI. However, if it requires to use different `DEV_EUI`, you can make the change in this section. 
+These 2 parameters are required to establish a connection with The Things Network. The `APP_EUI` and `APP_KEY` are required to be configured, as they are provided from The Things Network or from the LoRaWAN® platform that you may try extablishing connection to. Additionally, the `DEV_EUI` will be predefined as the device will request and apply the EUI. However, if it requires to use different `DEV_EUI`, you can make the change in this section. 
 
 ```python
 # Obtained during first registration of the device
@@ -251,9 +251,9 @@ SECRET_APP_EUI = 'XXXXXXXXXXXXXXXX'
 SECRET_APP_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
-With these parameters configured, you have secured the connection between your device and The Things Network. The Things Network would be your end-point where the sensor data is going to be sent over. And to send data, you need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it and send it to The Things Network. Meanwhile, you will also need to have a mechanism that will be able to intercept data sent over WiFi connectivity using a MQTT protocol. 
+With these parameters configured, you have secured the connection between your device and The Things Network. The Things Network would be your end-point where the sensor data is going to be sent over. And to send data, you need to begin by gathering this data, which can be from sensors or modules with status feedback. A sensor can be attached directly communicating via Arduino layer to receive the data, wrap it and send it to The Things Network. Meanwhile, you will also need to have a mechanism that will be able to intercept data sent over Wi-Fi connectivity using a MQTT protocol. 
 
-Following tasks are the main processes that will be used to handle MQTT protocol. This will allow to decode incoming packets from the subscribed device and buffer the data if timeout has occurred while waiting on the MQTT packet. In this way you will be able to receive sensor data from any external device, for example using Arduino MKR WiFi 1010 with a sensor attached, using MQTT protocol.
+Following tasks are the main processes that will be used to handle MQTT protocol. This will allow to decode incoming packets from the subscribed device and buffer the data if timeout has occurred while waiting on the MQTT packet. In this way you will be able to receive sensor data from any external device, for example using Arduino MKR Wi-Fi 1010 with a sensor attached, using MQTT protocol.
 
 ```python
 # MQTT protocol handler
@@ -307,7 +307,7 @@ def subscribe(client: mqtt_client):
 ...
 ```
 
-For LoRa connectivity, to establish communication with The Things Network, we are going to use the Cayenne Low Power Payload Encoder as part of the process in this build. 
+For LoRa® connectivity, to establish communication with The Things Network, we are going to use the Cayenne Low Power Payload Encoder as part of the process in this build. 
 
 ```python
 ...
@@ -367,11 +367,11 @@ void loop(){
 }
 ```
 
-The sketch above will help to expose and transfer the data that is processed within the Linux side. Transferring data to Linux side can be seen as a direct communication, as the sensor connected and monitored via Arduino side will send this data over LoRa connectivity. For this build, we are going to use Analog readings to emulate the functionality. 
+The sketch above will help to expose and transfer the data that is processed within the Linux side. Transferring data to Linux side can be seen as a direct communication, as the sensor connected and monitored via Arduino side will send this data over LoRa® connectivity. For this build, we are going to use Analog readings to emulate the functionality. 
 
 Additionally by exposing, it means you will bring forth the data received within the Linux side to the Arduino side to feed the local-device as a control input. It can be used to display the data if you wish to for instance. This can be implemented in this script if you wish to further develop your desired multi-protocol gateway. 
 
-For MQTT publishing, we have also included a sketch that can be used with Arduino MKR WiFi 1010 to test the gateway build. Of course, the code can be extended and be modified according the requirements of the device that will collect data from a certain sensor to send over MQTT protocol. 
+For MQTT publishing, we have also included a sketch that can be used with Arduino MKR Wi-Fi 1010 to test the gateway build. Of course, the code can be extended and be modified according the requirements of the device that will collect data from a certain sensor to send over MQTT protocol. 
 
 ```arduino
 #include <ArduinoMqttClient.h>
@@ -402,7 +402,7 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
-  // attempt to connect to Wifi network:
+  // attempt to connect to Wi-Fi network:
   Serial.print("Attempting to connect to WPA SSID: ");
   Serial.println(ssid);
   while (WiFi.begin(ssid, pass) != WL_CONNECTED) {
@@ -492,7 +492,7 @@ After a successful container build, you will have to make the image run. To do t
 #Multi_Protocol_Gateway_X8 sudo docker-compose up
 ```
 
-Finally, you will have the multi-protocol gateway running, in which it uses WiFi and LoRa connectivity. And also RPC for exchanging data between its layers. However, there are cases where you wish to make changes by adding more functionalities, such as including Cat. M1 or NB-IoT to expand its communication spectrum and for this you will need to stop the image. To stop the image from running, you can use following command.
+Finally, you will have the multi-protocol gateway running, in which it uses Wi-Fi and LoRa® connectivity. And also RPC for exchanging data between its layers. However, there are cases where you wish to make changes by adding more functionalities, such as including Cat. M1 or NB-IoT to expand its communication spectrum and for this you will need to stop the image. To stop the image from running, you can use following command.
 
 ```
 #Multi_Protocol_Gateway_X8 sudo docker-compose down
@@ -515,10 +515,10 @@ If you are curious about what to expect from the build you have made in this tut
 
 ## Conclusion
 
-In this tutorial you have learned how to set up a Multi-Protocol Gateway composed of MQTT protocol, RPC and LoRaWAN, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect to The Things Network to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layer using RPC, in which you have exposed the ports to be able to receive data from the local sensor to be sent directly to The Things Network. 
+In this tutorial you have learned how to set up a Multi-Protocol Gateway composed of MQTT protocol, RPC and LoRaWAN®, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect to The Things Network to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layer using RPC, in which you have exposed the ports to be able to receive data from the local sensor to be sent directly to The Things Network. 
 
 ### Next Steps
-- Now that you have developed a multi-protocol gateway, using WiFi and LoRaWAN connectivity, expand the gateway's capability by adding other connectivity types such as Cat. M1 and NB-IoT
+- Now that you have developed a multi-protocol gateway, using Wi-Fi and LoRaWAN® connectivity, expand the gateway's capability by adding other connectivity types such as Cat. M1 and NB-IoT
 - Expand functionalities for data processing using RPC while using multi-protocol architecture. 
 
 ## Troubleshooting
@@ -528,5 +528,5 @@ You might encounter some errors or misbehaviors while working on the code, preve
 * If the sketch upload process fails, check if your Portenta X8 is in bootloader mode. To put the Portenta X8 into Bootloader mode, double-press its RESET button and verify that the green LED is blinking. After this, you can try re-uploading the sketch for the Arduino layer.
 * Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta X8 gets into bootloader mode immediately after powering-on, including when connected via USB-C, change the position of the BOOT DIP switch to OFF. This case applies to the Arduino layer.
 * If you encounter an issue regarding terminal input inconvenience, please enter `export TERM=xterm` as the command in the terminal to get readable inputs. 
-* In case internal WiFi connection cannot be established through the command input due to "unavailable" SSID, although it is in range. Please try using different SSID if available or hotspot from a different device to host network connectivity.  
+* In case internal Wi-Fi connection cannot be established through the command input due to "unavailable" SSID, although it is in range. Please try using different SSID if available or hotspot from a different device to host network connectivity.  
 * If you encounter docker image conflict when running after building, please make sure you have used name tag that matches the one from the `docker-compose.yml` file. 
