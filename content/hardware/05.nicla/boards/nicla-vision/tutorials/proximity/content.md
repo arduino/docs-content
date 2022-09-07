@@ -20,7 +20,7 @@ software:
 
 In this tutorial you will use the Nicla Vision to detect proximity, thanks to the Time of Flight (ToF) sensor **VL53L1X**.
 
-This tutorial goes through how to create a sketch that will blink the built-in RGB LED and control the speed of its blink with the proximity values. It can be useful for future projects where there is a need to control the camera only when something is detected in front of the sensor. 
+This tutorial teaches you how to create a sketch that will blink the built-in RGB LED and control the speed of its blink with the proximity values. It can be useful for future projects where there is the need to control the camera only when something is detected in front of the sensor. 
 
 ***The Arduino sketch shown is available inside the `Arduino_Pro_Tutorials` library by going to Examples > Nicla Vision > Proximity_Blink***
 
@@ -56,7 +56,7 @@ If you are using version 1.6.2 or later of the Arduino software (IDE), you can u
 
 ### Include the Needed Libraries and Objects Declaration
 
-First of all declare the sensor's class so you can access it later on in your sketch. We use variables to control the time elements in the sketch. This will make sure that the readings stay accurate over time.
+First of all, declare the sensor's class so you can access it later on in your sketch. You can use variables to control the time elements in the sketch. This will make sure that the readings stay accurate over time.
 
 ```cpp
 #include "VL53L1X.h"
@@ -70,7 +70,7 @@ int blinkTime = 2000;
 
 ### Initialize the Proximity Sensor and the LED
 
-Inside the setup you need to initialize and configure the proximity sensor. Also the RGB LED needs to be set as an output to make it light up and enable us to change its behavior.
+Inside the setup you need to initialize and configure the proximity sensor. Also the RGB LED needs to be set as an output to make it light up and enable you to change its behavior.
 
 ***The LEDs are accessed in the same way as on the Portenta H7: LEDR, LEDG and LEDB.***
 
@@ -95,7 +95,7 @@ Inside the setup you need to initialize and configure the proximity sensor. Also
   }
 ```
 
-***Make sure you initialize `Wire1`, set the clock speed to 400 kHz and set the bus pointer to `Wire1`, it won't work if you don't add these setting.***
+***Make sure you initialize `Wire1`, set the clock speed to 400 kHz and set the bus pointer to `Wire1`. It will not work if you do not add these setting.***
 
 ### Control the Speed of the Blink
 
@@ -181,4 +181,4 @@ void loop() {
 
 ## Conclusion
 
-In this tutorial we went through how to get readings from the ToF sensor. And how use these readings to change how the built-in LED behaves. At the end of the tutorial you can also find a reference list for the ToF library.
+In this tutorial we went through how to get readings from the ToF sensor and how use these readings to change how the built-in LED behaves. At the end of the tutorial you can also find a reference list for the ToF library.
