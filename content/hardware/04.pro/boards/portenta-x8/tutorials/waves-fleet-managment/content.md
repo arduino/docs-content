@@ -1,5 +1,5 @@
 ---
-title: 'Using Foundries.io Factory Waves fleet managment'
+title: 'Using FoundriesFactory Waves fleet managment'
 description: 'Learn how to use Foundries.io Factory fleet managment tool Waves to manage multiple Portenta X8 devices'
 difficulty: easy
 tags:
@@ -13,11 +13,13 @@ hardware:
 
 ## Overview
 
-Using Foundries factory with our Arduino Portenta X8 it is possible to use a fleet managing tool called "Waves". This is useful if you have multiple Portenta X8 devices that you need to push software to. (05:00)
+In a production environment it is convenient to plan updates, and have control over when and which devices are updated. FoundriesFactory Waves is the feature for this. It allows you to easily define a group of Portenta X8s and then push updates to that specific group. This tutorial will show you how to define that group and how to construct a Wave that can then be pushed to a group.
 
 ## Goals
 
 - Learn how to use Waves fleet manager
+- Learn how to assign a target to a Wave
+- Learn how to push a Wave to a group of devices
 
 ### Required Hardware and Software
 
@@ -33,77 +35,77 @@ Using Foundries factory with our Arduino Portenta X8 it is possible to use a fle
 
 ### Setting up the terminal
 
-To use Waves fleet managment we need to have the X8 setup with FoundriesFactory and be able to access it through the adb terminal with fioctl. If you have not done this please take a look at some of our other tutorials [][].
+Waves fleet managment requires us to have the X8 setup with a FoundriesFactory. If you have not done this please take a look our other tutorial [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), it will walk you through how to set up the X8 with your FoundriesFactory. To use Waves we also need to have fioctl installed and configured, you can follow this guide [here](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) for setting up fioctl. Creating waves and device groups will be done via the host, which is your factory, so the following commands will be in a terminal using fioctl connected to your FoundriesFactory.
 
+### Rotating our Keys
 
-### Commands
+For security purposes we recommend that you rotate the keys of your FoundriesFactory. Rotation of the key will convert the root role's online-key, generated during the bootstrap of a Factory, to an offline key.
 
-Rotate offline keys
+First we will rotate the root keys. These are the most important keys, they can be used to create new target keys. We will rotate them with this command:
 ```
 fioctl keys rotate-root --initial /absolute/path/to/root.keys.tgz
 ```
 
-Rotate target keys
+Now we can rotate the target only keys. With this command:
 ```
 fioctl keys rotate-targets /aboslute/path/to/root.keys.tgz
 ```
 
-Copy target keys to root
+And finally we copy the target keys to root using:
 ```
 fioctl keys copy-targets /absolute/path/to/root.keys.tgz /path/to/target.only.key.tgz
 ```
 
-Initialize the Wave
+Now we can move on to creating our Wave.
+
+### Creating the Wave
+
+The command below will create a wave that can then be pushed to our devices. To create a Wave we will have to sign it with a key, here we will use the targets only key. Then we can give the wave a name, target number and tag. The `target number` needs to correspond to the target that we want the wave to contain for our devices. The `tag` can be set as production or development. 
 ```
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target number> <tag>
 ```
 
-Finalize the Wave
+And then we can complete the wave by calling this function with the waves name.
 ```
 fioctl wave complete <wave-name>
 ```
 
-Configure device group
+Or we can cancel it if we wish with:
 ```
-fioctl config device-group create canary "early adopters"
-```
-
-Configure device?
-```
-fioctl device config group deviceA canary
+fioctl waves cancel <wave name>
 ```
 
-Initialize the Wave with wave name, target number and tag
-```
-fioctl wave init -k /absolute/path/to/targets.only.key.tgz v2.0-update 42 production
-```
+When you create the wave you should be able to see it on your factory page. Here it should also be marked as complete once you call the wave complete command.
 
-Rollout wave
-```
-fioctl waves rollout v2.0-update canary
-```
+![The wave page on your FoundriesFactory](assets/foundriesfactory-waves-page.png)
 
-Complete wave rollout or cancel it
+### Create the Device Group
+
+With this command we create our group. We give it a name and we can also give it a short description. 
 ```
-fioctl waves complete v2.0-update
-```
-**or**
-```
-fioctl waves cancel v2.0-update
+fioctl config device-group create <group name> <"short description here">
 ```
 
+Now to assign a device to our group we use:
+```
+fioctl device config group <device name> <group name>
+```
 
-### Setting up Device Groups for Waves
+On your FoundriesFactory page you can sort devices by group on the device page.
 
-Waves will let you push a target to a group of X8 devices, a group that you can define to suit your needs. 
+![Device group sorting on the FoundriesFactory page](assets/foundriesfactory-device-group.png)
 
-### Pushing software to a Device Group
+And now to rollout our wave to our device group we use:
+```
+fioctl waves rollout <wave name> <device group name>
+```
 
-We will push our software with the help of "tags". This is where we will assign a certain target a tag so we can easily tell what target it is we want to use when pushing to our group. 
-
+Now every device in the device group should have the target specified in the wave creation.
 
 ### Conclusion
 
-In this tutorial we showed you how to create a group for your devices. Now you know how to manage a fleet of Portenta X8s using Foundies.io's Waves tool. 
+In this tutorial we first looked at what is required to use the Wave tool. We then went through the process of creating a wave and device group. Then we pushed a target to the device group using the Wave tool. 
 
 ## Troubleshooting
+
+- If you are having trouble with any fioctl commands you can use `fioctl wave --help` or `fioctl wave rollout --help` depending on the context.
