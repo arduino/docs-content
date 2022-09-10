@@ -56,7 +56,7 @@ void loop() {
 
   Serial.print("Variable 1:");
   Serial.print(potentiometer);
-  Serial.print(",");
+  Serial.print(","); // You can also use "\t" or " " as delimiter apart from ",".
   Serial.print("Variable 2:");
   Serial.println(static_variable);
 }
@@ -80,11 +80,12 @@ void loop() {
 
   Serial.print("Variable 1:");
   Serial.print(random_variable);
-  Serial.print(",");
+  Serial.print(","); // You can also use "\t" or " " as a delimiter apart from ",".
   Serial.print("Variable 2:");
   Serial.println(static_variable);
 }
 ```
+- The Serial Plotter recognizes only CRLF`(\r\n)` & LF`(\n)` as linebreak characters. So ensure that the either there is a linebreak character after the last variable. You can use `Serial.print("\n")` or `Serial.print("\r\n")` to introduce a linebreak character at the end. Conversely, `Serial.println()` introduces a CRLF character automatically.
 
 ## The Serial Plotter
 
