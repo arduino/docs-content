@@ -51,7 +51,7 @@ Now we can rotate the target only keys. With this command:
 fioctl keys rotate-targets /absolute/path/to/root.keys.tgz
 ```
 
-And finally we copy the target keys to root using:
+And finally, for security reasons, we separate the target keys from root using:
 ```
 fioctl keys copy-targets /absolute/path/to/root.keys.tgz /path/to/target.only.key.tgz
 ```
