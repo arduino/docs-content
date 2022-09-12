@@ -1,7 +1,7 @@
 ---
-title: 'Using FoundriesFactory Waves fleet managment'
-description: 'Learn how to use Foundries.io Factory fleet managment tool Waves to manage multiple Portenta X8 devices'
-difficulty: easy
+title: 'Using FoundriesFactory Waves Fleet Management'
+description: 'Learn how to use Foundries.io Factory fleet management tool Waves to manage multiple Portenta X8 devices'
+difficulty: intermediate
 tags:
   - Embedded Linux
   - Flashing
@@ -33,11 +33,11 @@ In a production environment it is convenient to plan updates, and have control o
     
 ## Instructions
 
-### Setting up the terminal
+### Setting Up the Terminal
 
-Waves fleet managment requires us to have the X8 setup with a FoundriesFactory. If you have not done this please take a look our other tutorial [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), it will walk you through how to set up the X8 with your FoundriesFactory. To use Waves we also need to have fioctl installed and configured, you can follow this guide [here](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) for setting up fioctl. Creating waves and device groups will be done via the host, which is your factory, so the following commands will be in a terminal using fioctl connected to your FoundriesFactory.
+Waves fleet management requires us to have the X8 setup with a FoundriesFactory. If you have not done this please take a look our other tutorial [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), it will walk you through how to set up the X8 with your FoundriesFactory. To use Waves we also need to have fioctl installed and configured, you can follow this guide [here](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) for setting up fioctl. Creating waves and device groups will be done via the host, which is your factory, so the following commands will be in a terminal using fioctl connected to your FoundriesFactory.
 
-### Rotating our Keys
+### Rotating Our Keys
 
 For security purposes we recommend that you rotate the keys of your FoundriesFactory. Rotation of the key will convert the root role's online-key, generated during the bootstrap of a Factory, to an offline key.
 
@@ -48,7 +48,7 @@ fioctl keys rotate-root --initial /absolute/path/to/root.keys.tgz
 
 Now we can rotate the target only keys. With this command:
 ```
-fioctl keys rotate-targets /aboslute/path/to/root.keys.tgz
+fioctl keys rotate-targets /absolute/path/to/root.keys.tgz
 ```
 
 And finally we copy the target keys to root using:
