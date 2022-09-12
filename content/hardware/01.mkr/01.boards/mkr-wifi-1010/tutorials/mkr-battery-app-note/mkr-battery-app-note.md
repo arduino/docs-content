@@ -75,7 +75,7 @@ The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is comm
 
 In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. This pin is used internally on the board, and is not accessible via the MKR pins. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
 
-\[ V_{out} = \frac{V_{source} \times R2} {R_1 + R_2} \]
+![Output voltage formula](assets/vout.svg)
 
 In the MKR WIFI 1010, $R_1$ and $R_2$ are 330k ohm and 1M ohm respectively. Therefore, for a resolution of 12 bits, the board is subject to 3.3V that corresponds to about 4.39V on the battery side. Therefore, we can cover the operating value of a whole battery. The high values reduce the leakage current that may pass through, increasing the life of the battery. The capacitor acts to clean the signal.
 
@@ -93,7 +93,7 @@ While the MKR boards do not provide a mechanism for identifying capacity, we can
 **Discharge rating**
 When the battery is fully charged or when it is near to discharge, the discharge rate changes considerably. Yet, there is a region where the discharge rate is constant (change in voltage over change in discharge capacity does not flunctuate). Within this region, the maximum current draw is defined as:
 
-$$\text{maximum current draw } = \text{ battery capacity } \times \text{ discharge rating} $$
+![Maximum current draw](assets/maxCurrentDraw.svg)
 
 The discharge rating (C) is often provided in the datasheet of the battery. If the C rating of a battery is 1, then it can discharge the maximum current for one hour before running out. As a rule of thumb, higher discharge rates lead to the reduction of the effective capacity and lifetime of the battery. 
 
