@@ -95,7 +95,7 @@ On your FoundriesFactory page you can sort devices by group on the device page.
 
 ![Device group sorting on the FoundriesFactory page](assets/foundriesfactory-device-group.png)
 
-And now to rollout our wave to our device group we use:
+To rollout our Wave to our device group, use:
 ```
 fioctl waves rollout <wave name> <device group name>
 ```
