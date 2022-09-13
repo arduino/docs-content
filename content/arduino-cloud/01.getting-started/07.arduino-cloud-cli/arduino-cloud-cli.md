@@ -40,8 +40,8 @@ With the Arduino Cloud CLI tool, you can not only automate the initial setup of 
 ## Requirements
 
 - [Arduino account](https://cloud.arduino.cc/home/).
-- [Arduino Cloud CLI](https://nodejs.org/en/) installed.
-- A [cloud compatible board](https://github.com/arduino/arduino-cloud-cli).\*
+- [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) installed.
+- A [cloud compatible board](/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware)
 
 ***\*This is needed only for certain commands, like OTA uploads.***
 
