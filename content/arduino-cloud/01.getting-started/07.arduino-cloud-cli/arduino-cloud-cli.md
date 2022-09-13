@@ -20,7 +20,7 @@ It can be used as an automation tool to:
 
 ### What is the Arduino Cloud CLI?
 
-This tool was primarily designed to reduce time spent duplicating projects in the Arduino IoT Cloud. Working with the CLI allows you to quickly make 10+ copies of a Thing, or update sketches on 50+ boards simulatenously. 
+This tool was primarily designed to reduce time spent duplicating projects in the Arduino IoT Cloud. Working with the CLI allows you to quickly make 10+ copies of a Thing, or update sketches on 50+ boards simultaneously. 
 
 An example of a workflow using this tool can be:
 
