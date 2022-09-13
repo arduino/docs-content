@@ -1,6 +1,6 @@
 ---
 title: 'Using FoundriesFactory Waves Fleet Management'
-description: 'Learn how to use Foundries.io Factory fleet management tool Waves to manage multiple Portenta X8 devices'
+description: 'Learn how to manage multiple Portenta X8 devices using FoundriesFactory fleet management tool, *Waves*'
 difficulty: intermediate
 tags:
   - Embedded Linux
