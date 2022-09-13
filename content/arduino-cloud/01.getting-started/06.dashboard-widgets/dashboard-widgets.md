@@ -307,4 +307,4 @@ locationChart = analogRead(A0);
 
 The sticky note widget can be used as an informative tool for dashboards. You can for example explain what a button does, or where a value is from, or simply leave an important note for a friend/colleague.
 
-The sticky note 
+The sticky note **cannot** be linked with a variable. 
