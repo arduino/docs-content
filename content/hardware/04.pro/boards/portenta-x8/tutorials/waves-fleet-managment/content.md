@@ -100,7 +100,7 @@ And now to rollout our wave to our device group we use:
 fioctl waves rollout <wave name> <device group name>
 ```
 
-Now every device in the device group should have the target specified in the wave creation.
+Every device in the device group should now have the target specified in the Wave creation.
 
 ### Conclusion
 
