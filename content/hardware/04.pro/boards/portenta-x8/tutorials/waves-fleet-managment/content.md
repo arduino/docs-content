@@ -104,7 +104,7 @@ Now every device in the device group should have the target specified in the wav
 
 ### Conclusion
 
-In this tutorial we first looked at what is required to use the Wave tool. We then went through the process of creating a wave and device group. Then we pushed a target to the device group using the Wave tool. 
+In this tutorial we first looked at what is required to use the Wave tool. We then went through the process of creating a Wave and device group. Then we pushed a target to the device group using the Wave tool. 
 
 ## Troubleshooting
 
