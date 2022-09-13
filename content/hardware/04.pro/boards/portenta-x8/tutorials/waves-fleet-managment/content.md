@@ -81,7 +81,7 @@ When you create the wave you should be able to see it on your factory page. Here
 
 ### Create the Device Group
 
-With this command we create our group. We give it a name and we can also give it a short description. 
+With this command, we create our group, giving it a name and a short description:
 ```
 fioctl config device-group create <group name> <"short description here">
 ```
