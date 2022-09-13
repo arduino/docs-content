@@ -41,7 +41,7 @@ With the Arduino Cloud CLI tool, you can not only automate the initial setup of 
 
 - [Arduino account](https://cloud.arduino.cc/home/).
 - [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) installed.
-- A [cloud compatible board](/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware)
+- A [cloud compatible board](/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware)\*
 
 ***\*This is needed only for certain commands, like OTA uploads.***
 
@@ -427,4 +427,4 @@ You can also compile a file through any version of the Arduino IDE (not online).
 - In the IDE, with your sketch open, navigate to **Sketch > Export Compiled Binary**. In your sketch folder, a new folder called `build` will appear. The binary needed is located inside of this folder.
 - To navigate to your sketch folder, navigate to **Sketch > Show Sketch Folder**. You will see the `<sketchname>.bin` file, which is the file we can use to perform OTA.
 
-![Compile binaries using Arduino IDE](assets/export-ide.png).
+![Compile binaries using Arduino IDE](assets/export-ide.png)
