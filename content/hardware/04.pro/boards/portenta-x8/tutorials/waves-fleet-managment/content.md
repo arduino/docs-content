@@ -91,7 +91,7 @@ Now to assign a device to our group we use:
 fioctl device config group <device name> <group name>
 ```
 
-On your FoundriesFactory page you can sort devices by group on the device page.
+On your FoundriesFactory device page you can sort and view devices by group.
 
 ![Device group sorting on the FoundriesFactory page](assets/foundriesfactory-device-group.png)
 
