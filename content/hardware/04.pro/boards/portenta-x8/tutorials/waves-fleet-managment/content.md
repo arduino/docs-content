@@ -46,7 +46,7 @@ First we will rotate the root keys. These are the most important keys, they can 
 fioctl keys rotate-root --initial /absolute/path/to/root.keys.tgz
 ```
 
-Now we can rotate the target only keys. With this command:
+Now we can rotate the target only keys with:
 ```
 fioctl keys rotate-targets /absolute/path/to/root.keys.tgz
 ```
