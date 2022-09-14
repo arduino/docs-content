@@ -192,4 +192,4 @@ This tutorial introduces the idea of dual core processing and illustrates the co
 
 ### Next Steps
 
-- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.
+- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](/content/hardware/04.pro/boards/portenta-h7/tutorials/wifi-access-point/) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.
