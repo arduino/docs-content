@@ -75,7 +75,7 @@ Or we can cancel it if we wish with:
 fioctl waves cancel <wave name>
 ```
 
-When you create the wave you should be able to see it on your factory page. Here it should also be marked as complete once you call the wave complete command.
+After creating the Wave, you should see it on your Factory page. It should also be marked as complete after you call the Wave complete command.
 
 ![The wave page on your FoundriesFactory](assets/foundriesfactory-waves-page.png)
 
