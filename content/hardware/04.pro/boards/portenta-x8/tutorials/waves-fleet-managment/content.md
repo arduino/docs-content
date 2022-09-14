@@ -35,7 +35,7 @@ In a production environment it is convenient to plan updates, and have control o
 
 ### Setting Up the Terminal
 
-Waves fleet management requires us to have the X8 setup with a FoundriesFactory. If you have not done this please take a look our other tutorial [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), it will walk you through how to set up the X8 with your FoundriesFactory. To use Waves we also need to have fioctl installed and configured, you can follow this guide [here](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) for setting up fioctl. Creating waves and device groups will be done via the host, which is your factory, so the following commands will be in a terminal using fioctl connected to your FoundriesFactory.
+Waves fleet management requires us to have the X8 setup with FoundriesFactory. If you have not done so, please follow our [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box),  as it will walk you through setting up the X8 with your Factory. To use Waves, you need to have fioctl installed and configured. Follow this [guide](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) to do so. Creating Waves and device groups will be done via the host, which is your factory. As such, the following commands will be entered in a terminal using fioctl  to connect to your Factory.
 
 ### Rotating Our Keys
 
