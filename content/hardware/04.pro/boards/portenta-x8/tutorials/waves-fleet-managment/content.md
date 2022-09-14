@@ -65,7 +65,7 @@ fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target n
 ```
 We can use `populate-targets` as the Wave name. The `target number` needs to correspond to a target that exists in our Factory. The `tag` should be set as `production`. Then complete the Wave with:
 ```
-fioctl wave  complete populate-targets
+fioctl wave complete populate-targets
 ```
 This creates a new targets.json file for production devices subscribing to the production tag. It will include a single Target from CI build.
 
