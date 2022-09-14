@@ -70,7 +70,7 @@ And then we can complete the wave by calling this function with the waves name.
 fioctl wave complete <wave-name>
 ```
 
-Or we can cancel it if we wish with:
+Or we can cancel it with:
 ```
 fioctl waves cancel <wave name>
 ```
