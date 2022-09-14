@@ -39,7 +39,7 @@ Waves fleet management requires us to have the X8 setup with a FoundriesFactory.
 
 ### Rotating Our Keys
 
-For security purposes we recommend that you rotate the keys of your FoundriesFactory. Rotation of the key will convert the root role's online-key, generated during the bootstrap of a Factory, to an offline key.
+For security purposes, we recommend that you rotate your FoundriesFactory keys. Rotation of the key will convert the root role's online-key, which was generated during the bootstrap of your Factory, to an [offline key](https://docs.foundries.io/latest/reference-manual/security/offline-keys.html).
 
 First we will rotate the root keys. These are the most important keys, as they can be used to create new target keys. Rotate them with the command:
 ```
