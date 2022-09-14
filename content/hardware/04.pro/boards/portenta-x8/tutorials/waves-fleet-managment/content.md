@@ -60,7 +60,7 @@ Now we can move on to creating our Wave.
 
 ### Creating the Wave
 
-The command below will create a wave that can then be pushed to our devices. To create a Wave we will have to sign it with a key, here we will use the targets only key. Then we can give the wave a name, target number and tag. The `target number` needs to correspond to the target that we want the wave to contain for our devices. The `tag` can be set as production or development. 
+The command below will create a Wave that can then be pushed to our devices. To create a Wave, we will sign it with a key, here we will use the targets only key. Then we give the Wave a name, target number, and tag. The `target number` needs to correspond to the target that we want the Wave to contain for our devices. The `tag` can be set as production or development. 
 ```
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target number> <tag>
 ```
