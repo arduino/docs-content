@@ -61,9 +61,8 @@ Now we can move on to creating our Wave.
 
 Before a Factory can start doing production OTAs, an initial production Targets file must be created. More information can be found [here](https://docs.foundries.io/latest/reference-manual/ota/production-targets.html). This can be done by creating a dummy wave with the command:
 ```
-fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target number> <tag>
-```
-We can use `populate-targets` as the Wave name. The `target number` needs to correspond to a target that exists in our Factory. The `tag` should be set as `production`. Then complete the Wave with:
+fioctl wave init -k /absolute/path/to/targets.only.key.tgz populate-targets
+Then complete the Wave with:
 ```
 fioctl wave complete populate-targets
 ```
