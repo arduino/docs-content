@@ -65,7 +65,7 @@ The command below will create a wave that can then be pushed to our devices. To 
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target number> <tag>
 ```
 
-And then we can complete the wave by calling this function with the waves name.
+And then we can complete the Wave by passing the name to the "complete" function:
 ```
 fioctl wave complete <wave-name>
 ```
