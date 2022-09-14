@@ -29,7 +29,7 @@ This tutorial will explain what a bootloader is, why you should consider keeping
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB C cable (either USB A to USB C or USB C to USB C)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+- Arduino IDE 1.8.10+
 
 ## What Is a Firmware?
 
