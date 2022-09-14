@@ -17,7 +17,7 @@ A debugger is a software tool which is used to test and debug programs, hence th
 
 It basically goes through a program in a controlled manner, with the help of a hardware interface which can help navigate through the program's execution. This can be of aid in better understanding the program as well as helping spot potential flaws and code errors.
 
-*** You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). ***
+*** You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). ***
 
 ### Compatible Boards
 

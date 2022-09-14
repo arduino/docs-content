@@ -10,7 +10,7 @@ author: 'Karl Söderby'
 
 The board manager is a great tool for installing the necessary cores to use your Arduino boards. In this quick tutorial, we will take a look at how to install one, and choosing the right core for your board! 
 
-You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
 You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tutorial/getting-started-with-ide-v2/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
