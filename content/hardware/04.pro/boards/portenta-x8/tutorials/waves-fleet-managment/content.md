@@ -1,6 +1,6 @@
 ---
 title: 'Using FoundriesFactory Waves Fleet Management'
-description: 'Learn how to manage multiple Portenta X8 devices using FoundriesFactory fleet management tool, *Waves*'
+description: 'Learn how to manage multiple Portenta X8 devices using FoundriesFactory fleet management tool, Waves'
 difficulty: intermediate
 tags:
   - Embedded Linux
@@ -29,12 +29,12 @@ In a production environment it is convenient to plan updates, and have control o
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 - Foundries.io™ account (linked with the Pro Cloud subscription)
 - FoundriesFactory® and devices already attached to your Factory. ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
-    
+
 ## Instructions
 
 ### Setting Up the Terminal
 
-Waves fleet management requires us to have the X8 setup with FoundriesFactory. If you have not done so, please follow our [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box),  as it will walk you through setting up the X8 with your Factory. To use Waves, you need to have fioctl installed and configured. Follow this [guide](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) to do so. Creating Waves and device groups will be done via the host, which is your factory. As such, the following commands will be entered in a terminal using fioctl  to connect to your Factory.
+Waves fleet management requires us to have the X8 setup with FoundriesFactory. If you have not done so, please follow our [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), as it will walk you through setting up the X8 with your Factory. To use Waves, you need to have fioctl installed and configured. Follow this [guide](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) to do so.Creating Waves and device groups will be done via the host, which is your factory. As such, the following commands will be entered in a terminal using fioctl to connect to your Factory.
 
 ### Rotating Our Keys
 
@@ -62,6 +62,8 @@ Now we can move on to creating our Wave.
 Before a Factory can start doing production OTAs, an initial production Targets file must be created. More information can be found [here](https://docs.foundries.io/latest/reference-manual/ota/production-targets.html). This can be done by creating a dummy wave with the command:
 ```
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz populate-targets
+```
+
 Then complete the Wave with:
 ```
 fioctl wave complete populate-targets
@@ -70,7 +72,7 @@ This creates a new targets.json file for production devices subscribing to the p
 
 ### Creating a Wave
 
-Now we can start creating our Wave. The command below will create a Wave that can then be pushed to our devices. To create a Wave, we will sign it with a key, here we will use the targets only key. Then we give the Wave a name, target number, and tag. The `target number` needs to correspond to the target that we want the Wave to contain for our devices. The `tag` can be set as production or development. 
+Now we can start creating our Wave. The command below will create a Wave that can then be pushed to our devices. To create a Wave, we will sign it with a key, here we will use the targets only key. Then we give the Wave a name, target number, and tag. The `target number` needs to correspond to the target that we want the Wave to contain for our devices. The `tag` can be set as production or development.
 ```
 fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target number> <tag>
 ```
@@ -114,7 +116,7 @@ Every device in the device group should now have the target specified in the Wav
 
 ### Conclusion
 
-In this tutorial we first looked at what is required to use the Wave tool. We then went through the process of creating a Wave and device group. Then we pushed a target to the device group using the Wave tool. 
+In this tutorial we first looked at what is required to use the Wave tool. We then went through the process of creating a Wave and device group. Then we pushed a target to the device group using the Wave tool.
 
 ## Troubleshooting
 
