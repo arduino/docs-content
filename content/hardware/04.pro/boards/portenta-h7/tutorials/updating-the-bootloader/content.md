@@ -64,7 +64,7 @@ New versions of the bootloader normally get shipped together with the core. That
 
 ![Open the Boards Manager from the Tools menu](assets/por_ard_bl_boards_manager.png)
 
-In the board manager and search for "portenta".  Find the Arduino mbed-enabled Boards package and click on "Install" to install the latest version of the mbed core (1.3.0 at the time of writing this tutorial).
+In the board manager and search for "portenta". Find the Arduino mbed-enabled Boards package and click on "Install" to install the latest version of the mbed core (1.3.0 at the time of writing this tutorial).
 
 ![A search for "portenta" reveals the core that needs to be updated to get the latest bootloader](assets/por_ard_bl_update_core.png)
 
