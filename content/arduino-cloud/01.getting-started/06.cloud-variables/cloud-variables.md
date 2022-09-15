@@ -1,5 +1,5 @@
 ---
-title: 'IoT Cloud Dashboards & Widgets'
+title: 'IoT Cloud Variables'
 description: 'Learn about dashboards and the different widgets that can be used to monitor & control your board.'
 tags: [IoT Cloud, Widgets, Dashboards]
 author: 'Karl Söderby'
