@@ -48,7 +48,7 @@ To best illustrate the idea of dual core processing, you will be running two sep
 ![Running two different sketch files on the different cores.](assets/por_ard_dcp_tutorial_overview.svg)
 
 ### 1. The Basic Setup
-Begin by plugging-in your Portenta board to your computer using an appropriate USB-C cable and have the  Arduino IDE open. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [Setting Up Portenta H7 For Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed.
+Begin by plugging-in your Portenta board to your computer using an appropriate USB-C cable and have the  Arduino IDE open. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [Setting Up Portenta H7 For Arduino](setting-up-portenta) before you proceed.
 
 ![A Basic setup of the board attached to your computer](../setting-up-portenta/assets/por_ard_gs_basic_setup.svg)
 
@@ -192,4 +192,4 @@ This tutorial introduces the idea of dual core processing and illustrates the co
 
 ### Next Steps
 
-- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](/content/hardware/04.pro/boards/portenta-h7/tutorials/wifi-access-point/) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.
+- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](wifi-access-point) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.
