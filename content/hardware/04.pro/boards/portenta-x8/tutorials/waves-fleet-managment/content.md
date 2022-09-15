@@ -74,17 +74,17 @@ This creates a new targets.json file for production devices subscribing to the p
 
 Now we can start creating our Wave. The command below will create a Wave that can then be pushed to our devices. To create a Wave, we will sign it with a key, here we will use the targets only key. Then we give the Wave a name, target number, and tag. The `target number` needs to correspond to the target that we want the Wave to contain for our devices. The `tag` can be set as production or development.
 ```
-fioctl wave init -k /absolute/path/to/targets.only.key.tgz <wave-name> <target number> <tag>
+fioctl wave init -k /absolute/path/to/targets.only.key.tgz <waveName> <targetNumber> <tag>
 ```
 
 And then we can complete the Wave by passing the name to the "complete" function:
 ```
-fioctl wave complete <wave-name>
+fioctl wave complete <waveName>
 ```
 
 Or we can cancel it with:
 ```
-fioctl waves cancel <wave name>
+fioctl waves cancel <waveName>
 ```
 
 After creating the Wave, you should see it on your Factory page. It should also be marked as complete after you call the Wave complete command.
@@ -95,12 +95,12 @@ After creating the Wave, you should see it on your Factory page. It should also 
 
 With this command, we create our group, giving it a name and a short description:
 ```
-fioctl config device-group create <group name> <"short description here">
+fioctl config device-group create <groupName> "<shortDescription>"
 ```
 
 Now to assign a device to our group we use:
 ```
-fioctl device config group <device name> <group name>
+fioctl device config group <deviceName> <groupName>
 ```
 
 On your FoundriesFactory device page you can sort and view devices by group.
@@ -109,7 +109,7 @@ On your FoundriesFactory device page you can sort and view devices by group.
 
 To rollout our Wave to our device group, use:
 ```
-fioctl waves rollout <wave name> <device group name>
+fioctl waves rollout <waveName> <deviceGroupName>
 ```
 
 Every device in the device group should now have the target specified in the Wave creation.
