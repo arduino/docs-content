@@ -69,7 +69,7 @@ In the board manager and search for "portenta".  Find the Arduino mbed-enabled B
 ![A search for "portenta" reveals the core that needs to be updated to get the latest bootloader](assets/por_ard_bl_update_core.png)
 
 ### 2. Updating the Bootloader
-To update the bootloader, you can use the **STM32H747_updateBootloader** sketch. You can find the sketch file under **File > Examples > STM32H747_System**
+To update the bootloader, you can use the **STM32H747_manageBootloader** sketch. You can find the sketch file under **File > Examples > STM32H747_System**
 
 ![Finding the bootloader updater sketch](assets/por_ard_bl_find_sketch_file.png)
 
