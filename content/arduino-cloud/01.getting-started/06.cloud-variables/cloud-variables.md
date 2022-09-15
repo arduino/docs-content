@@ -1,7 +1,7 @@
 ---
 title: 'IoT Cloud Variables'
-description: 'Learn about dashboards and the different widgets that can be used to monitor & control your board.'
-tags: [IoT Cloud, Widgets, Dashboards]
+description: 'Learn how to configure and use variables in your Arduino IoT Cloud sketches.'
+tags: [IoT Cloud, Variables]
 author: 'Karl Söderby'
 difficulty: beginner
 ---
@@ -20,13 +20,11 @@ This means that at any given time, you are able to read and send data to and fro
 - How to structure a sketch for optimal variable synchronization.
 - How to synchronize variables between devices.
 
-`ArduinoCloud.update()`
-
 ## Create and Configure Variables
 
 Creating and configuring variables are done inside **Thing**, starting with the **"Add Variable"** button.
 
-![Click on "Add Variable"]()
+![Click on "Add Variable"](assets/add-vars.png)
 
 ### Variable Configuration
 
@@ -35,9 +33,9 @@ Inside a variable configuration, we have several options:
 - **Name:** a friendly name for your variable. No spaces or special characters allowed.
 - **(optional) Sync With Other Things:** sync a variable with a variable from another Thing. Whenever one variable updates, the other will follow.
 - **Type:** type of variable. Choose between three categories.
-  - [**Basic:**]() e.g. `float`, `int`, `String`.
-  - [**Specialized:**]() e.g. `CloudAcceleration`, `CloudTemperature`, `CloudFrequency`.
-  - [**Complex:**]() e.g. `CloudColor`, `CloudTelevision`.
+  - [**Basic:**](#basic-types) e.g. `float`, `int`, `String`.
+  - [**Specialized:**](#specialized-types) e.g. `CloudAcceleration`, `CloudTemperature`, `CloudFrequency`.
+  - [**Complex:**](#complex-types) e.g. `CloudColor`, `CloudTelevision`.
 - **Declaration:** the declaration of your variable. This is what you will use in a sketch.
 - **Variable Permission:** 
   - **Read & Write:** variable can be updated from board and cloud.
@@ -61,6 +59,63 @@ sensor_value = analogRead(A0);
 Note that we do not need to define the variable anywhere, as it has already been configured in `thingProperties.h`.
 
 ***Note that if you change a variable, you will need to upload the code to your board for the effects to come in change.***
+
+### Generated Functions
+
+When creating a variable with a **Read & Write** permission, a function is also generated in your sketch.
+
+For example, a boolean variable named `button_switch` will generate a function called `void onButtonSwitch(){}`. This function executes every time the variable is changed from the cloud (through a dashboard).
+
+You can for example implement an ON/OFF switch with the following code:
+
+```arduino
+void onButtonSwitch(){
+  if(button_switch){
+    digitalWrite(LED, HIGH);
+  }
+  else{
+    digitalWrite(LED, LOW);
+  }
+}
+```
+
+## How is Data Synchronized?
+
+Data between a board and the cloud synchronizes whenever the `ArduinoCloud.update()` function is executed. This is automatically included in your sketch, inside the `void loop()`. 
+
+It is a good practice to **not** use the `delay()` function in a cloud sketch. Please refer to the [millis()](https://www.arduino.cc/reference/en/language/functions/time/millis/) function that can be used to create non-blocking delays.
+
+A variable's sync between a board and the cloud is limited to **two message per second (500ms)**.  
+
+Below is an example on how to use the `millis()` function.
+
+```arduino
+unsigned long previousMillis = 0;
+const long interval = 1000; //milliseconds
+
+void setup(){
+
+}
+
+void loop(){
+  unsigned long currentMillis = millis();
+  
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+    //code here will update every 1 second
+    //without blocking the program (and cloud update)
+  }
+
+```
+
+## Sync Variables Between Things
+
+It is possible to sync one or many variables with each other, between Things. This is the easiest method available to connect two Arduino board devices, wirelessly.
+
+This is done in the configuration of a variable, in the **Sync With Other Things** option.
+
+***To learn how to use this feature, read the [Device to Device]() tutorial.***
 
 ## List of Variables
 
@@ -86,7 +141,6 @@ You can use them just like a normal variable of the wrapped type, since they sup
 | Angle                | `CloudAngle variableName;`               | `float`           |
 | Area                 | `CloudArea variableName;`                | `float`           |
 | Capacitance          | `CloudCapacitance variableName;`         | `float`           |
-| Color                | `CloudColor variableName;`               | `float`           |
 | Contact Sensor       | `CloudContactSensor variableName;`       | `bool`            |
 | Counter              | `CloudCounter variableName;`             | `int`             |
 | Data Rate            | `CloudDataRate variableName;`            | `float`           |
@@ -101,7 +155,6 @@ You can use them just like a normal variable of the wrapped type, since they sup
 | Information Content  | `CloudInformationContent variableName;`  | `int`             |
 | Length               | `CloudLength variableName;`              | `float`           |
 | Light                | `CloudLight variableName;`               | `bool`            |
-| Location             | `CloudLocation variableName;`            | `float`           |
 | Logarithmic Quantity | `CloudLogarithmicQuantity variableName;` | `float`           |
 | Luminance            | `CloudLuminance variableName;`           | `float`           |
 | Luminous Flux        | `CloudLuminousFlux variableName;`        | `float`           |
@@ -185,3 +238,251 @@ Declared as `CloudTelevision x;`
 | Input            | `InputValue` ([Up to 60 values](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/property/types/automation/CloudTelevision.h) such as HDMI1, HDMI2, DVD, GAME...etc.) | `x.getInput()`           | `x.setInput()`           |
 | Channel          | `int`                                                                                                                                                                                     | `x.getChannel()`         | `x.setChannel()`         |
 
+## Examples
+
+Here are some examples of how to use the variables in a sketch:
+
+### Basic Types
+
+The below example shows how to use some of the basic types. Remember that cloud variables are configured in the Arduino IoT cloud, and generated into your Thing's `thingProperties.h` file.
+
+In this example, we are using the following cloud variables:
+
+- `buttonSwitch` - boolean.
+- `sensorVal` - int.
+- `messageString` - string. 
+
+```arduino
+#include "thingProperties.h"
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial mood without blocking if none is found
+  delay(1500); 
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+  ArduinoCloud.update();
+
+  sensorVal = analogRead(A0); //int example
+
+  if(buttonSwitch){ //bool example
+    digitalWrite(LED_BUILTIN, HIGH);
+    messageString = "LED ON!"; //String example
+  }
+  else{
+    digitalWrite(LED_BUILTIN, LOW);
+    messageString = "LED OFF!";  
+  }
+}
+```
+
+### Colored Light
+
+ColoredLight is a complex variable declared automatically in the `thingProperties.h` file as `CloudColoredLight variableName;`. The example below shows how the ColoredLight variable (declared with the variableName `cLight`) can be used and modified in the sketch. Note that the `onCLightChange()` function is automatically added and is triggered whenever the value of the Light variable is updated in the Cloud.
+
+```arduino
+#include <ArduinoGraphics.h> 
+#include <Arduino_MKRRGB.h> // Arduino_MKRRGB depends on ArduinoGraphics
+
+#include "thingProperties.h"
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial mood without blocking if none is found
+  delay(1500); 
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+  
+  if (!MATRIX.begin()) {
+    Serial.println("Failed to initialize MKR RGB shield!");
+    while (1);
+  }
+  
+  // set the brightness, supported values are 0 - 255
+  MATRIX.brightness(10);
+}
+
+void loop() {
+  ArduinoCloud.update();
+}
+
+void onCLightChange() {
+  uint8_t r, g, b;
+  cLight.getValue().getRGB(r, g, b);
+  
+  MATRIX.beginDraw();
+  
+  if (cLight.getSwitch()) {
+    Serial.println("R:"+String(r)+" G:"+String(g)+ " B:"+String(b));
+    MATRIX.fill(r, g, b);
+    MATRIX.rect(0, 0, MATRIX.width(), MATRIX.height());
+  }else{
+    MATRIX.clear();
+  }
+  
+  MATRIX.endDraw();
+}
+    
+```
+
+### Television
+
+CloudTelevision is an automation variable declared automatically in the `thingProperties.h` file as `CloudTelevision variableName;`. The example below shows how the CloudTelevision variable (declared with the variableName `tv`) can be used and modified in the sketch. The example simulates a remote controller by using an IR receiver to read the signals sent from the a remote controller and save them in arrays of unsigned integers. An IR transmitter is then used to send IR signals using the Arduino IoT Cloud. To view the full documentation of the project, [you can check this page](https://create.arduino.cc/projecthub/313276/full-control-of-your-tv-using-alexa-and-arduino-iot-cloud-9e7c4d). 
+
+Note that the `onTvChange()` function is automatically added and is triggered whenever the value of the tv variable is updated in the Cloud.
+
+```arduino
+#include "thingProperties.h"
+#include <IRremote.h>
+
+/******* SAVE DATA FROM IR RECEIVER ********/
+const unsigned int chan[9][67] = {};
+const unsigned int volUp[67] = {};
+const unsigned int chanUp[67] = {};
+const unsigned int onoff[67] = {};
+                        
+IRsend irsend;
+const int freq = 38;
+bool first;
+
+int prevChannel;
+int prevVolume;
+bool prevSwitch;
+bool prevMute;
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500); 
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+ 
+  first = true;
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  ArduinoCloud.update();
+}
+
+/******* HANDLING THE IR TRANSMITTER********/
+void sendIR(const unsigned int buf[]) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  irsend.sendRaw(buf, 67, freq);
+  delay(300);
+  digitalWrite(LED_BUILTIN, LOW);
+}
+
+void onTvChange() {
+  
+  Serial.println("==================");
+  Serial.println("Switch:"+String(tv.getSwitch()));
+  Serial.println("Volume:"+String(tv.getVolume()));
+  Serial.println("Channel:"+String(tv.getChannel()));
+  Serial.println("Mute:"+String(tv.getMute()));
+  Serial.println("==================");
+  
+  if (first){
+      prevSwitch = tv.getSwitch();
+      prevVolume = tv.getVolume();
+      prevChannel = tv.getChannel();
+      prevMute = tv.getMute();
+      first = false;
+      return;
+  } 
+  
+  
+  // Volume changed
+  if (tv.getVolume() > prevVolume) {
+    tv.setMute(false);
+    prevMute = false;
+    for (int k = prevVolume + 1 ; k<=tv.getVolume(); k++) {
+      sendIR(volUp);
+      Serial.println("Volume requested:"+String(tv.getVolume())+" Set:"+String(k));  
+    }
+    prevVolume = tv.getVolume();
+  }
+  else if (tv.getVolume() < prevVolume) {
+    tv.setMute(false);
+    prevMute = false;
+    for (int k = prevVolume - 1; k>=tv.getVolume(); k--) {
+      sendIR(volDown);
+      Serial.println("Volume changed:"+String(tv.getVolume())+" Set:"+String(k));  
+    }
+    prevVolume = tv.getVolume();
+  }
+  
+  
+  // Mute changed
+  if (tv.getMute() != prevMute && tv.getMute()) {
+    prevMute = tv.getMute();
+    sendIR(mute);
+    Serial.println("Mute changed:"+String(tv.getMute()));
+  }
+  else if (tv.getMute() != prevMute && !tv.getMute()) {
+    prevMute = tv.getMute();
+    sendIR(mute);
+    Serial.println("Mute changed:"+String(tv.getMute()));
+  }
+  
+  
+  // Channel changed
+  if (tv.getChannel() != prevChannel) {
+    int newChannel = tv.getChannel();
+    if (newChannel > 0 && newChannel < 10) {
+      sendIR(chan[newChannel-1]);
+    } else if (newChannel > 9) {
+      if (newChannel > prevChannel) {
+        for (int ch = prevChannel; ch < newChannel; ch++) {
+          sendIR(chanUp);
+          Serial.println("Chan requested:"+String(newChannel)+" Set:"+String(ch));  
+        }  
+      } else if (newChannel < prevChannel) {
+          for (int ch = prevChannel; ch > newChannel; ch--) {
+            sendIR(chanDown);
+            Serial.println("Chan requested:"+String(newChannel)+" Set:"+String(ch));  
+          }
+      }
+    }
+    prevChannel = newChannel;
+    Serial.println("Channel changed:"+String(tv.getChannel()));
+  }
+  
+  
+  // On/Off changed
+  if (tv.getSwitch() != prevSwitch) {
+    prevSwitch = tv.getSwitch();
+    if (tv.getSwitch()) {
+      sendIR(chan[6]);
+    } else {
+      sendIR(onoff);
+    }
+    Serial.println("Switch changed:"+String(tv.getSwitch()));
+  }
+}
+
+```
