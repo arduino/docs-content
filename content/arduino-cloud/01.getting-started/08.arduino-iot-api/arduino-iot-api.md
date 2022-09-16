@@ -1,9 +1,9 @@
 ---
-title: 'Arduino Cloud API & SDK'
+title: 'Arduino Cloud REST API & SDK'
 difficulty: advanced
-description: 'Learn how to authenticate with the Arduino IoT Cloud API to make requests using HTTP Client, JavaScript and Python.'
+description: 'Learn how to authenticate with the Arduino IoT Cloud REST API to make requests using HTTP Client, JavaScript and Python.'
 tags:
-  - IoT Cloud API
+  - IoT Cloud REST API
   - JavaScript
   - Python
   - node.js
@@ -11,7 +11,7 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/) can be accessed through a set of endpoints to manage **Devices, Things, Properties** and more. It can be accessed via any HTTP client, and is supported by JavaScript, Python and Golang clients.
+The [Arduino IoT Cloud REST API](https://www.arduino.cc/reference/en/iot/api/) can be accessed through a set of endpoints to manage **Devices, Things, Properties** and more. It can be accessed via any HTTP client, and is supported by JavaScript, Python and Golang clients.
 
 In this article you will find some useful examples to get started with the Arduino IoT Cloud API, and an understanding of what the API offers.
 
@@ -54,33 +54,49 @@ To authenticate, you will need to generate a `clientId` and `clientSecret`. This
 
 ![API Keys in the Arduino Cloud](assets/api-keys.png)
 
+## Obtaining IDs
+
+All main components of the Arduino IoT Cloud have an `id` associated. You can access your **device, Thing & variable** `id` from the web interface.
+
+For example, your Thing ID is stored in the **"Metadata"** tab of your Thing.
+
+![Your Thing ID in the Metadata tab.](assets/thing-id.png)
+
+You can also make a request that will return a list of the component and all information about it:
+- `https://api2.arduino.cc/iot/v2/things` - lists all Things and associated properties/variables.
+- `https://api2.arduino.cc/iot/v2/device` - lists all devices.
+- `https://api2.arduino.cc/iot/v2/dashboards` - lists all dashboard and associated widgets.
+
+You can make more specific requests to obtain only the information on a specific Thing, or a specific variable.
+
+***Note that you will need to pass the authentication token in the body when making any request to the Arduino Cloud REST API. The examples in this guide includes the generation of such token. For testing the API, you can follow the Postman setup just below.***
+
 ## Postman
 
-[Postman](https://www.postman.com/) is a service that allows you to construct and make HTTP requests. In the panel, you can create a **workspace**.
+[Postman](https://www.postman.com/) is a service that allows you to construct and make HTTP requests. In the panel, you can create a **workspace**, and a new **HTTP request**.
 
-First, to authenticate, click on the **"Import > Raw Text"**, then add the following commands, replacing `YOUR_CLIENT_ID` and `YOUR_SECRET_ID` with your credentials.
+Before we can make requests to the API, we will need to generate an **access token**. To do so, you will need to configure the **"Authorization"** tab, according to the images shown below:
 
-```
-curl --request POST \
-  --url 'https://api2.arduino.cc/iot/v1/clients/token' \
-  --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=client_credentials' \
-  --data 'client_id=YOUR_CLIENT_ID' \
-  --data 'client_secret=YOUR_SECRET_ID' \
-  --data 'audience=https://api2.arduino.cc/iot'
-```
+![Authorization (step 1).](assets/postman-1.png)
 
-This will import all necessary configurations. Click on **"Send"** and you will receive an access token (note that it has an expiry time, 300 seconds). Copy it.
+Now, click on the **"Advanced Options"** tab, and add `https://api2.arduino.cc/iot` to the **"Audience"** field.
 
-We can now create a new request to e.g. list out properties by first importing the following command (note that you need to replace `{id}` with a Thing ID).
+![Authorization (step 2).](assets/postman-2.png)
 
-```
-curl -X GET "https://api2.arduino.cc/iot/v2/things/{id}/properties
-```
+Finally, click on the **"Get New Access Token"**.
 
-Then, in the **Authorization** tab, select **"Type > OAuth 2.0"** and paste the access token in the field.
+![Token button.](assets/access-token.png)
 
-![Adding access token.](assets/postman.png)
+You now have an access token that has an expiry of `300` seconds, and we can make requests to the API.
+
+You can for example try 
+- **GET** | `https://api2.arduino.cc/iot/v2/dashboards` 
+
+Which should look like this in the Postman UI:
+
+![GET Request for dashboards.](assets/get-request.png)
+
+***Note that your access token expires after `300` seconds. After that, you will need to re-generate it by clicking the button again.***
 
 ## JavaScript (node.js)
 
