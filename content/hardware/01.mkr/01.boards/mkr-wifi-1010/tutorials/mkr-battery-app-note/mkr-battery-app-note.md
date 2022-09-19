@@ -234,7 +234,8 @@ int new_batt = (voltBat - batteryEmptyVoltage) * (100) / (batteryFullVoltage - b
 **18.** You section for the `loop()` function should look as follows.
 ![Battery level calculation and Serial printing](assets/calculation-serial-printing.png)
 
-**11.** The complete code (with the addition of comments) is as follows. You can copy and paste this directly into your IDE
+**19.** The complete code (with the addition of comments) is as follows. You can copy and paste this directly into your IDE
+
 ```arduino
 /*
   Read battery voltage on MKR WIFI 1010 and log values to the serial monitor
