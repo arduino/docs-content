@@ -433,7 +433,7 @@ You can also compile a file through any version of the Arduino IDE (not online).
 
 ## Summary
 
-The Arduino Cloud CLI is a tool that can primarly be used to extract a template from a single Thing or dashboard, and deploy it to several devices. It is also a tool for managing your fleet of devices, such as providing mass OTA uploads (such as firmware updates). 
+The Arduino Cloud CLI is a tool that can primarily be used to extract a template from a single Thing or dashboard, and deploy it to several devices. It is also a tool for managing your fleet of devices, such as providing mass OTA uploads (such as firmware updates). 
 
 It is intended to be used as a supplementary tool for the [Arduino IoT Cloud](https://cloud.arduino.cc/home/) web interface, but can well be used as a standalone tool to manage your devices, Things properties and dashboards. 
 
