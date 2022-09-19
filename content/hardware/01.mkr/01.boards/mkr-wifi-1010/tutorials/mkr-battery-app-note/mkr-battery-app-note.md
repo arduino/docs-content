@@ -27,7 +27,8 @@ While you can run your MKR board from USB, you can make best use of it when your
 
 ### Goals
 The goals of this project are to:
-- Understand what the terms `charging capacity` and `charging current`
+- Understand what the terms **charging capacity** and **charging current** mean.
+
 - Distinguish between LiPo and Li-Ion batteries
 - Learn how to identify connector polarity
 - Understand how the SAMD chip reads battery voltage via a voltage divider
