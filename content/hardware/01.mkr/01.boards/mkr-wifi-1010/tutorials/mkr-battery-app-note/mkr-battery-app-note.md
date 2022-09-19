@@ -36,7 +36,8 @@ The goals of this project are to:
 ### Hardware & Software Needed
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
 - Multimeter
-- IDE 2.x
+- [Arduino IDE](https://www.arduino.cc/en/software)
+
 - LiPo battery with JST-PH connector
 
 ### LiPo Vs Li-ion Batteries
