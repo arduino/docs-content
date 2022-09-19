@@ -19,8 +19,6 @@ tags:
 author: 'Ali Jahangiri'
 hardware:
   - hardware/01.mkr/01.boards/mkr-wifi-1010
-software:
-  - Arduino IDE 2.x
 ---
 
 ## Introduction
