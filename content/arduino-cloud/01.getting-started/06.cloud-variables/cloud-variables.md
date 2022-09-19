@@ -8,21 +8,21 @@ difficulty: beginner
 
 ## Overview
 
-An essential component of the [Arduino Cloud](https://create.arduino.cc/iot/) is a **cloud variable**. A cloud variable is the same as a regular variable that you use in an Arduino sketch, but with some additional functionality.
+An essential component of the [Arduino Cloud](https://create.arduino.cc/iot/) is a **cloud variable**.
 
-A cloud variable is synced between your Arduino board and the Arduino Cloud. So if a variable is updated on your board (like a sensor reading), the Arduino Cloud will also receive this value. Similarly, if you update a variable from the cloud, it also updates on your board. 
+A cloud variable is synced between your Arduino board and the Arduino IoT Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if you update a variable from the cloud, it also updates on your board. 
 
-This means that at any given time, you are able to read and send data to and from your board, as long as your board is connected to the Arduino IoT Cloud.
+As long as your board maintains connection to the Arduino IoT Cloud, variables can be updated. 
 
 **In this article, we will cover:**
 - How to sync variables between your board and the Arduino IoT Cloud.
-- What variables are available to use.
+- Types of variables and list of available ones.
 - How to structure a sketch for optimal variable synchronization.
 - How to synchronize variables between devices.
 
 ## Create and Configure Variables
 
-Creating and configuring variables are done inside **Thing**, starting with the **"Add Variable"** button.
+Creating and configuring variables are done inside a **Thing**, starting with the **"Add Variable"** button.
 
 ![Click on "Add Variable"](assets/add-vars.png)
 
@@ -50,19 +50,19 @@ Whenever you add, change or remove a variable, a file called `thingProperties.h`
 
 Since it is defined in `thingProperties.h`, you do not need to declare it in your `.ino` file. 
 
-Let's say we create a integer variable called `sensor_value`. To use this in a sketch, to for example read a sensor, we can use:
+Let's say we create an integer variable called `sensor_value`. To use this in a sketch, we simply use:
 
 ```arduino
 sensor_value = analogRead(A0);
 ```
 
-Note that we do not need to define the variable anywhere, as it has already been configured in `thingProperties.h`.
+We do not need to define the variable anywhere, as it has already been configured in `thingProperties.h`.
 
 ***Note that if you change a variable, you will need to upload the code to your board for the effects to come in change.***
 
 ### Generated Functions
 
-When creating a variable with a **Read & Write** permission, a function is also generated in your sketch.
+When creating a variable with a **Read & Write** permission, a function is generated at the bottom of your sketch.
 
 For example, a boolean variable named `button_switch` will generate a function called `void onButtonSwitch(){}`. This function executes every time the variable is changed from the cloud (through a dashboard).
 
@@ -85,9 +85,7 @@ Data between a board and the cloud synchronizes whenever the `ArduinoCloud.updat
 
 It is a good practice to **not** use the `delay()` function in a cloud sketch. Please refer to the [millis()](https://www.arduino.cc/reference/en/language/functions/time/millis/) function that can be used to create non-blocking delays.
 
-A variable's sync between a board and the cloud is limited to **two message per second (500ms)**.  
-
-Below is an example on how to use the `millis()` function.
+Below is an example on how to use the `millis()` function:
 
 ```arduino
 unsigned long previousMillis = 0;
@@ -104,22 +102,28 @@ void loop(){
     previousMillis = currentMillis;
 
     //code here will update every 1 second
-    //without blocking the program (and cloud update)
+    //without blocking the program and the cloud update
   }
 
 ```
 
-## Sync Variables Between Things
+***Note that a variable's sync between a board and the cloud is limited to two message per second (500ms)***
+
+### Sync Variables Between Things
 
 It is possible to sync one or many variables with each other, between Things. This is the easiest method available to connect two Arduino board devices, wirelessly.
 
 This is done in the configuration of a variable, in the **Sync With Other Things** option.
 
-***To learn how to use this feature, read the [Device to Device]() tutorial.***
+***To learn how to use this feature, read the [Device to Device](https://docscontent-karlsoderbyvariablesarticle.gtsb.io/arduino-cloud/features/device-to-device) tutorial.***
 
 ## List of Variables
 
+Cloud variables are divided into three categories: **basic, specialized** and **complex** types. 
+
 ### Basic Types
+
+All available basic variables are listed below:
 
 | Type                  | Declaration            |
 | --------------------- | ---------------------- |
@@ -131,7 +135,7 @@ This is done in the configuration of a variable, in the **Sync With Other Things
 
 ### Specialized Types
 
-For your convenience, IoT Cloud provides specialized types which are just wrappers around basic types but declare the variable semantics more explicitly. This enables smarter integrations with third-party services (such as Alexa) and better visualization of widgets in dashboards.
+Specialized types are wrappers around basic types but declare the variable semantics more explicitly. This enables smarter integrations with third-party services (such as Alexa) and better visualization of widgets in dashboards.
 
 You can use them just like a normal variable of the wrapped type, since they support assignment and comparison operators.
 
@@ -486,3 +490,11 @@ void onTvChange() {
 }
 
 ```
+
+## Summary
+
+In this article, we have covered how to use variables in the Arduino IoT Cloud, and what variables are available.
+
+We have also shown some code examples and good practices to keep variable synchronization optimal, such as using the `millis()` function.
+
+The use of cloud variables is almost identical to how you use variables in a regular sketch, with the exception that they are synchronized with the Arduino IoT Cloud. 
