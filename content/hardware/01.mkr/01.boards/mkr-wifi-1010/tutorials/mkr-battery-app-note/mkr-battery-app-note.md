@@ -5,7 +5,8 @@ title: 'Understanding Battery Capabilities Of The MKR 1010 WiFi'
 title: 'Understanding battery capabilities of the MKR 1010 WiFi'
 >>>>>>> 050a1815 (More edits)
 difficulty: intermediate
-description: 'Choose the correct battery for you MKR application.'
+description: 'Learn about different topics related to batteries, and how to choose the correct battery for you MKR application.'
+
 tags:
   - Battery
   - MKR
