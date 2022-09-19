@@ -1,9 +1,14 @@
 ---
 <<<<<<< HEAD
+<<<<<<< HEAD
 title: 'Understanding Battery Capabilities Of The MKR 1010 WiFi'
 =======
 title: 'Understanding battery capabilities of the MKR 1010 WiFi'
 >>>>>>> 050a1815 (More edits)
+=======
+title: 'MKR WiFi 1010 Battery Application Note'
+
+>>>>>>> e1ad1595 (Update content/hardware/01.mkr/01.boards/mkr-wifi-1010/tutorials/mkr-battery-app-note/mkr-battery-app-note.md)
 difficulty: intermediate
 description: 'Learn about different topics related to batteries, and how to choose the correct battery for you MKR application.'
 
