@@ -1,4 +1,5 @@
 ---
+identifier: ABX00023
 title: Arduino® MKR WiFi 1010
 type: maker
 ---
