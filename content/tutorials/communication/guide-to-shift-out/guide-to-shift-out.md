@@ -50,7 +50,7 @@ Make the following connections:
 
 This set up makes all of the output pins active and addressable all the time.  The one flaw of this set up is that you end up with the lights turning on to their last state or something arbitrary every time you first power up the circuit before the program starts to run. You can get around this by controlling the MR and OE pins from your Arduino board too, but this way will work and leave you with more open pins.
 
-![](assets/ShftOutExmp1_1.gif)
+![](assets/ShftOutExmp1_1.png)
 
 ### 2. Connect to Arduino
 
@@ -62,17 +62,17 @@ This set up makes all of the output pins active and addressable all the time.  T
 
 From now on those will be referred to as the dataPin, the clockPin and the latchPin respectively.  Notice the 0.1"f capacitor on the latchPin, if you have some flicker when the latch pin pulses you can use a capacitor to even it out.
 
-![](assets/ShftOutExmp1_2.gif)
+![](assets/ShftOutExmp1_2.png)
 
 ### 3. Add 8 LEDs.
 
 In this case you should connect the cathode (short pin) of each LED to a common ground, and the anode (long pin) of each LED to its respective shift register output pin.  Using the shift register to supply power like this is called *sourcing current.* Some shift registers can't source current, they can only do what is called *sinking current.*  If you have one of those it means you will have to flip the direction of the LEDs, putting the anodes directly to power and the cathodes (ground pins) to the shift register outputs. You should check the your specific datasheet if you aren't using a 595 series chip. Don't forget to add a 470-ohm resistor in series to protect the LEDs from being overloaded.
 
-![](assets/ShftOutExmp1_3.gif)
+![](assets/ShftOutExmp1_3.png)
 
 ### Circuit Diagram
 
-![](assets/ShftOut_Schm1.jpg)
+![](assets/ShftOut_Schm1.png)
 
 ## The Code
 
@@ -80,10 +80,10 @@ Here are three code examples. The first is just some "hello world" code that sim
 
 
 - 595 logic table:
-[![logic table](./595_logic_table.png)](https://www.arduino.cc/en/uploads/Tutorial/595_logic_table.png)
+[![logic table](./595_logic_table.png)](assets/595_logic_table.png)
 
 - 595 timing diagram:
-[![logic table](./595_timing_diagram.png)](https://www.arduino.cc/en/uploads/Tutorial/595_timing_diagram.png)
+[![logic table](./595_timing_diagram.png)](assets/595_timing_diagram.png)
 
 
 The code is based on  two pieces of information in the datasheet: the timing diagram and the logic table.  The logic table is what tells you that basically everything important happens on an up beat. When the clockPin goes from low to high, the shift register reads the state of the data pin. As the data gets shifted in it is saved in an internal memory register. When the latchPin goes from low to high the sent data gets moved from the shift registers aforementioned memory register into the output pins, lighting the LEDs.
@@ -102,23 +102,23 @@ In this example you'll add a second shift register, doubling the number of outpu
 
 Starting from the previous example, you should put a second shift register on the board. It should have the same leads to power and ground.
 
-![](assets/ShftOutExmp2_1.gif)
+![](assets/ShftOutExmp2_1.png)
 
 ### 2. Connect  the 2 registers.
 
 Two of these connections simply extend the same clock and latch signal from the Arduino to the second shift register (yellow and green wires).  The blue wire is going from the serial out pin (pin 9) of the first shift register to the serial data input (pin 14) of the second register.
 
-![](assets/ShftOutExmp2_2.gif)
+![](assets/ShftOutExmp2_2.png)
 
 ### 3. Add a second set of LEDs.
 
 In this case I added green ones so when reading the code it is clear which byte is going to which set of LEDs
 
-![](assets/ShftOutExmp2_3.gif)
+![](assets/ShftOutExmp2_3.png)
 
 ## Circuit Diagram
 
-![](assets/ShftOut_Schm2.jpg)
+![](assets/ShftOut_Schm2_3.png)
 
 ## The Code
 
