@@ -1,5 +1,4 @@
 ---
-identifier: 
 title: Arduino® MKR WiFi 1010
 type: maker
 ---
@@ -131,12 +130,12 @@ Communication with  NINA Module W102 happens through  UART and a SPI through the
 | 38  | PB23    | 22       | UART\_RXD | Serial1\_RX |
 | 37  | PA22    | 23       | UART\_TXD | Serial1\_TX |
 
-### WiFi module
+### WiFi Module
 
 WiFi connectivity is provided by a Nina W102 Module. This module contains a STM32L0 processor along with a Semtech SX1276 Radio. The processor is running on Arduino open source firmware based on Semtech code.
 NOTE: Although Firmware is open source, modifying it will require recertification of the radio stack.
 
-### Crypto chips
+### Crypto Chips
 The crypto chip in Arduino IoT boards is what makes the difference with other less secure boards as it provides a secure way to store secrets such as certificates and it also allows accelerating secure protocols while never exposing secrets in plain text.
 
 
@@ -232,9 +231,9 @@ Board measures are mixed between metric and imperial. Metric measures are used t
 
 ### Board Outline
 ![MKR WiFi 1010 Board Outline](assets/mkrwifif1010_outline.png)
-### Mounting holes
+### Mounting Holes
 ![MKR WiFi 1010 Mounting Holes](assets/mkrwifif1010_mountingHoles.png)
-### Connector positions
+### Connector Positions
 ![MKR WiFi 1010 Connector Positions](assets/mkrwifif1010_connectorPositions.png)
 
 ## Certifications
