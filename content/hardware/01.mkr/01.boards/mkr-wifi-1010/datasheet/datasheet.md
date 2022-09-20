@@ -3,7 +3,7 @@ title: Arduino® MKR WiFi 1010
 type: maker
 ---
 
-![Arduino® MKR WiFi 1010](assets/mkrwifi1010_feature_image.png)
+![Arduino® MKR WiFi 1010](assets/featured.png)
 
 # Description
 The MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor, the Nina W102 Module and  a crypto chip (the ATECC508). 
