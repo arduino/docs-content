@@ -60,7 +60,7 @@ Once it is connected, you should see the Wi-Fi status bullet in the bottom left 
 
 ## Connect to FoundriesFactory
 
-### Register the Foundries Factory on Foundries.io
+### Register a Factory on Foundries.io
 
 ***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
 
