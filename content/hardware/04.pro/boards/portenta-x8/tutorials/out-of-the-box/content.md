@@ -108,7 +108,7 @@ Once it is completed, the Factory button on the Portenta X8 dashboard will turn 
 
 ![Successful connection](assets/x8-oob-factory-success.png)
 
-#### Check Your Foundries Factory
+#### Check Your Factory
 
 Have a look to your factories by going to [Foundries.io factories page](https://app.foundries.io/factories)
 
