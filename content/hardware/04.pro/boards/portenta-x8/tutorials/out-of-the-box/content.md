@@ -34,7 +34,7 @@ Once the Portenta X8 is plugged in via USB, you can open your browser and go to 
 ![Board set up page](assets/x8-oob-main.png)
 
 * [Configure Wi-Fi](#connecting-to-your-wi-fi)
-* [Add your device to a Foundries Factory (OTA)](#add-a-new-device-to-your-factory)
+* [Add your device to FoundriesFactory (OTA)](#add-a-new-device-to-your-factory)
 * Board details
 * Shell (alpine python)
 
