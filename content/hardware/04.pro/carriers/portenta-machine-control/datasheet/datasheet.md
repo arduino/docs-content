@@ -18,10 +18,10 @@ Industry 4.0,  system integrators
 - **STM32H747XI dual Cortex®**
   - **Processor**
     - M7+M4 32 bit low power Arm® MCU
-    - 8 MB SDRAM
-    - 16 MB Flash QSPI
-    - 480 Mhz clock
-    - Cryptochip NXP SE0502 security
+      - 8 MB SDRAM
+      - 16 MB Flash QSPI
+      - 480 Mhz clock
+      - Cryptochip NXP SE0502 security
 
 - **Input voltage 24**
 
@@ -145,6 +145,7 @@ Industry 4.0,  system integrators
 | J7       | Temperature probes                              | J15      | USB A           |
 | J8       | Digital programmable                            | J16      | USB micro       |
 | J9       | Analog in                                       | J17      | Grove I2C       |
+| PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
 
 ### Digital Input 
 8 channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
