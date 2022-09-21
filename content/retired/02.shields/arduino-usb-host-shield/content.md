@@ -54,12 +54,12 @@ The Arduino USB Host Shield can be used with the "USB Host Library for Arduino" 
 
 ### Tutorials
 
-With an Arduino HSB Host Shield you can even [control an RC car using an XBOX wireless game controller](https://create.arduino.cc/projecthub/Arduino_Scuola/joystick-controlled-rc-car-076b7f). Many tutorials are available online, here you can find some tutorials developed by [circuits@home](https://circuitsathome.com/).
+With an Arduino HSB Host Shield you can even [control an RC car using an XBOX wireless game controller](https://create.arduino.cc/projecthub/Arduino_Scuola/joystick-controlled-rc-car-076b7f). Many tutorials are available online, here you can find some tutorials developed by [circuits@home](https://chome.nerpa.tech/).
 
-* [Bluetooth® HID devices](https://www.circuitsathome.com/mcu/arduino/bluetooth-hid-devices-now-supported-by-the-usb-host-library)
-* [PS4 controller](https://www.circuitsathome.com/mcu/arduino/ps4-controller-support-for-the-usb-host-library)
-* [Adding a display to a digital scale using Arduino and USB Host shield](https://www.circuitsathome.com/mcu/adding-a-display-to-a-digital-scale-using-arduino-and-usb-host-shield)
-* [Mass Storage](https://www.circuitsathome.com/mcu/mass-storage-support-for-usb-host-library-2-0-released)
+* [Bluetooth® HID devices](https://chome.nerpa.tech/mcu/arduino/bluetooth-hid-devices-now-supported-by-the-usb-host-library/)
+* [PS4 controller](https://chome.nerpa.tech/mcu/arduino/ps4-controller-support-for-the-usb-host-library/)
+* [Adding a display to a digital scale using Arduino and USB Host shield](https://chome.nerpa.tech/mcu/adding-a-display-to-a-digital-scale-using-arduino-and-usb-host-shield/)
+* [Mass Storage](https://chome.nerpa.tech/mcu/mass-storage-support-for-usb-host-library-2-0-released/comment-page-1/)
 
 ### Power
 
