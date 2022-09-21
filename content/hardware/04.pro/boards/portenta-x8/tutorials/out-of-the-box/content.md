@@ -58,7 +58,7 @@ Once it is connected, you should see the Wi-Fi status bullet in the bottom left 
 
 ***You can change your network by clicking on the button again and repeat the above steps***
 
-## Connect to a Foundries Factory
+## Connect to FoundriesFactory
 
 ### Register the Foundries Factory on Foundries.io
 
