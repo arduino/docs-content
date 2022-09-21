@@ -134,7 +134,7 @@ Industry 4.0,  system integrators
 
 
 ### Board Topology 
-![Machine Control topology](assets/MachineControlOutline.png)
+![Machine Control topology](assets/MachineControlOutline.svg)
 
 | **Ref.** | **Description**                                 | **Ref.** | **Description** |
 | -------- | ----------------------------------------------- | -------- | --------------- |
