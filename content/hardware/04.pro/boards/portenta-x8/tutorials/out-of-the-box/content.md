@@ -170,7 +170,7 @@ To check your manager connection status, use this command:
 
 `nmcli de`
 
-### Register Device to the Foundries Factory
+### Register Device to the FoundriesFactory
 
 ***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
 
