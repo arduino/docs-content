@@ -68,7 +68,7 @@ Go to [https://create.arduino.cc](https://create.arduino.cc) and click on Porten
 
 ![Arduino Cloud integration](assets/cloud-main.png)
 
-It will redirect you to the Foundries Factory registration page.
+It will redirect you to FoundriesFactory registration page.
 
 ![Foundries Factory creation](assets/foundries-create-factory.png)
 
