@@ -50,11 +50,11 @@ Arduino USB Host Shield is open-source hardware! You can build your own board us
 
 ### Arduino Library
 
-The Arduino USB Host Shield can be used with the "USB Host Library for Arduino" hosted by Oleg Mazurov and Alexei Glushchenko from [circuits@home](http://www.circuitsathome.com/), Kristian Lauszus and Andrew Kroll on [GitHub](https://github.com/felis/USB_Host_Shield_2.0) ([download](https://github.com/felis/USB_Host_Shield_2.0/archive/master.zip)).
+The Arduino USB Host Shield can be used with the "USB Host Library for Arduino" hosted by Oleg Mazurov and Alexei Glushchenko from [circuits@home](https://circuitsathome.com/), Kristian Lauszus and Andrew Kroll on [GitHub](https://github.com/felis/USB_Host_Shield_2.0) ([download](https://github.com/felis/USB_Host_Shield_2.0/archive/master.zip)).
 
 ### Tutorials
 
-With an Arduino HSB Host Shield you can even [control an RC car using an XBOX wireless game controller](https://create.arduino.cc/projecthub/Arduino_Scuola/joystick-controlled-rc-car-076b7f). Many tutorials are available online, here you can find some tutorials developed by [circuits@home](http://www.circuitsathome.com/).
+With an Arduino HSB Host Shield you can even [control an RC car using an XBOX wireless game controller](https://create.arduino.cc/projecthub/Arduino_Scuola/joystick-controlled-rc-car-076b7f). Many tutorials are available online, here you can find some tutorials developed by [circuits@home](https://circuitsathome.com/).
 
 * [Bluetooth® HID devices](https://www.circuitsathome.com/mcu/arduino/bluetooth-hid-devices-now-supported-by-the-usb-host-library)
 * [PS4 controller](https://www.circuitsathome.com/mcu/arduino/ps4-controller-support-for-the-usb-host-library)
