@@ -7,7 +7,7 @@ type: maker
 ![Arduino® MKR WiFi 1010](assets/featured.png)
 
 # Description
-The MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor, the Nina W102 Module and  a crypto chip (the ATECC508). 
+The MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor, the Nina W102 Module and a crypto chip (the ATECC508). 
 
 
 # Target Areas 
@@ -19,7 +19,7 @@ Prototyping, IoT application examples
   - ARM Cortex M0+ at up to 48 MHz
   - 256KB Flash
   - 32KB SRAM
-  - Power On Reset POR and Brown Out Detection (BOD)
+  - Power On Reset (POR) and Brown Out Detection (BOD)
 
   - **Peripherals**
   - 12 channel DMA
@@ -88,7 +88,7 @@ Also the 5V pin does NOT supply voltage but is rather connected, through a jumpe
 
 ### Application Examples
 
-**Bluetooth:** The communications chipset on the MKR WiFi 1010 is something pretty unique. In the world of microcontroller platforms, since this can be both a BLE and Bluetooth® client and host device. 
+**Bluetooth:** The communications chipset on the MKR WiFi 1010 is something pretty unique in the world of microcontroller platforms, since this can be both a BLE and Bluetooth® client and host device. 
 
 **WiFi:**  The WiFi connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. 
 
@@ -115,7 +115,7 @@ Also the 5V pin does NOT supply voltage but is rather connected, through a jumpe
 
 The Main Processor is a ARM Cortex M0+  running at up to 48 MHz
 Most of its pins are connected to the external headers, however some are reserved for internal communication to the communication module and to the internal SPI and  I2C peripherals (Crypto).
-Communication with  NINA Module W102 happens through  UART and a SPI through the following pins.
+Communication with  NINA Module W102 happens through UART and SPI through the following pins.
 
 | Pin | Acronym | NINA Pin | Acronym   | Description |
 | --- | ------- | -------- | --------- | ----------- |
@@ -156,10 +156,10 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Arduino Forum
-Discussions and  ideas for the Arduino MKR WiFi 1010 can be found in the Arduino Forum [4].
+Discussions and ideas for the Arduino MKR WiFi 1010 can be found in the Arduino Forum [4].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [5], the Arduino Library Reference [6] and the online store [7] where you will be able to complement your board with sensors, actuators and more
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [5], the Arduino Library Reference [6] and the online store [7] where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -171,7 +171,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 | Pin | Function | Type         | Description                                                         |
 | --- | -------- | ------------ | ------------------------------------------------------------------- |
-| 1   | VUSB     | Power        | Power Supply Input. Output is board is powered via VUSB from header |
+| 1   | VUSB     | Power        | Power Supply Input. Output is powered via VUSB from header          |
 | 2   | D-       | Differential | USB differential data -                                             |
 | 3   | D+       | Differential | USB differential data +                                             |
 | 4   | ID       | Analog       | Selects Host/Device functionality                                   |
@@ -181,7 +181,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Headers
 
-Board exposes two 28 pin connectors  assembled with pin headers.
+Board exposes two 28 pin connectors assembled with pin headers.
 
 
 | Pin | Function | Type      | Description                                       |
@@ -213,7 +213,7 @@ Board exposes two 28 pin connectors  assembled with pin headers.
 | 25  | GND      | Power     | Power Ground                                      |
 | 26  | +3V3     | Power Out |                                                   |
 | 27  | VIN      | Power In  | Vin Power input                                   |
-| 28  | +5V      | Power Out | Power Ground                                      |
+| 28  | +5V      | Power Out |                                                   |
 
 ### Debug
 
@@ -228,7 +228,7 @@ Board exposes two 28 pin connectors  assembled with pin headers.
 
 ## Mechanical Information
 
-Board measures are mixed between metric and imperial. Metric measures are used to maintain 100 mil pitch grid between pin rows to allow them to fit a breadboard.
+Board measures are mixed between metric and imperial. Metric measures are used to maintain 100 mil pitch grid between pin rows to allow them to fit in a breadboard.
 
 ### Board Outline
 ![MKR WiFi 1010 Board Outline](assets/mkrwifif1010_outline.png)
@@ -345,5 +345,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
-|20/09/2022|2|Migration to Markdown|
+|20/09/2022|2|Migration to Markdown, links updated, small typos fixed|
 |22/03/2021|1|First Release|
