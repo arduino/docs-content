@@ -133,9 +133,11 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ![Install Nano BLE board](assets/BoardsManager.png)
 
-**2.** Also, let's make sure we have all the libraries we need installed. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino_TensorFlowLite** and **Arduino:LSM9DS1**, and install them both. 
+**2.** Also, let's make sure we have all the libraries we need installed. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino:LSM9DS1**, and install it. 
 
 ![Install the necessary libraries](assets/libManager.png)
+
+**3.** Lastly the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) needs to be installed. You can find the installation instructions on the libraries github page [here](https://github.com/tensorflow/tflite-micro-arduino-examples#how-to-install).
 
 There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://www.arduino.cc/en/Guide/Troubleshooting) guides on the Arduino site if you need help.
 
