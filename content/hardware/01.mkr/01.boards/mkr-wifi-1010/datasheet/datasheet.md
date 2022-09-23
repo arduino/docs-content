@@ -335,7 +335,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Documentation     | https://docs.arduino.cc/hardware/nano                                                               |
+| Arduino Documentation     | https://docs.arduino.cc/hardware/mkr-wifi-1010                                                               |
 | Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
 | Library Reference         | https://www.arduino.cc/reference/en/libraries/                                                      |
 | Online Store              | https://store.arduino.cc/                                                                           |
