@@ -94,7 +94,9 @@ For more background on the examples you can take a look at the source in the [Te
 ## How to Run the Examples Using Arduino Create Web Editor. 
 Once you connect your Arduino Nano 33 BLE Sense to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) web editor:
 
-![Compiling an example from the Arduino_TensorFlowLite library.](assets/create-lib.gif)
+![Compiling an example from the Arduino_TensorFlowLite library.](assets/tensorflow-online-ide.png)
+
+Download the library in .zip format and click on the "uploaded as a .Zip file" box as shown in the image above to upload and use it in the Arduino Create Web Editor.
 
 ## Focus On The Speech Recognition Example
 One of the first steps with an Arduino board is getting the LED to flash. Here, we’ll do it with a twist by using TensorFlow Lite Micro to recognise voice keywords. It has a simple vocabulary of “yes” and “no.” Remember this model is running locally on a microcontroller with only 256 KB of RAM, so don’t expect commercial ‘voice assistant’ level accuracy – it has no Internet connection and on the order of 2000x less local RAM available.
