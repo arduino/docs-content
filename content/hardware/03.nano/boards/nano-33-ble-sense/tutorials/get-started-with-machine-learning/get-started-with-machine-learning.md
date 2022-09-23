@@ -22,7 +22,7 @@ software:
 ***This post was originally published by Sandeep Mistry and Dominic Pajak on the [TensorFlow blog](https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157).*** 
 ## Introduction
 
-[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
+[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples).
 
 The first tutorial below shows you how to install a neural network on your Arduino board to recognize simple voice commands.
 
@@ -42,7 +42,7 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 
 ## Goals 
 - Learn the fundamentals of TinyML implementation and training.
-- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [Arduino_TensorFlowLite](https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/) libraries
+- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) libraries
 
 ## Hardware & Software Needed
 - An [Arduino Nano 33 BLE Sense](https://store.arduino.cc/nano-33-ble-sense) board
@@ -83,7 +83,7 @@ On the machine learning side, there are techniques you can use to fit neural net
 TinyML is an emerging field and there is still work to do – but what’s exciting is there’s a vast unexplored application space out there. Billions of microcontrollers combined with all sorts of sensors in all sorts of places which can lead to some seriously creative and valuable TinyML applications in the future.
 
 ## TensorFlow Lite for Microcontrollers Examples 
-The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available through the Arduino Library Manager making it possible to include and run them on Arduino in a few clicks. In this section we’ll show you how to run them. The examples are:
+The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available in the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) making it possible to include and run them on Arduino. In this section we’ll show you how to run them. The examples are:
 
 - micro_speech – speech recognition using the onboard microphone
 - magic_wand – gesture recognition using the onboard IMU
