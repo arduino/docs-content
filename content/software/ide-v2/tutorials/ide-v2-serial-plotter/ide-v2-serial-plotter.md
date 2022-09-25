@@ -56,7 +56,7 @@ void loop() {
 
   Serial.print("Variable 1:");
   Serial.print(potentiometer);
-  Serial.print(","); // You can also use "\t" or " " as delimiter apart from ",".
+  Serial.print(",");
   Serial.print("Variable 2:");
   Serial.println(static_variable);
 }
