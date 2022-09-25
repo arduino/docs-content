@@ -11,20 +11,20 @@ author: 'José Bagur'
 
 ## Introduction
 
-In this tutorial, we will learn how to use the [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software) for debugging SAM-based Arduino® boards. Using an [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board and a simple program, we will learn about the debugging functionalities that are integrated with the debugger tool of the new IDE 2.0.
+In this tutorial, we will learn how to use the [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software) for debugging SAM-based Arduino® boards. Using an [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board and a simple program, we will learn about the debugging functionalities that are integrated with the debugger tool of the new IDE 2.0.
 
 ## Goals
 
 The goals with this tutorial are: 
 
-- Learn how to use an [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software) and a SAM-based Arduino® board.
-- Learn about the debugging functionalities of the new [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software).
+- Learn how to use an [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software) and a SAM-based Arduino® board.
+- Learn about the debugging functionalities of the new [Arduino IDE 2.0](https://www.arduino.cc/en/software).
 
 ## Hardware and Software Needed
 
 The hardware and software used in this tutorial:
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software).
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software).
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board.
 - [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool.
 - 10-pin mini-squid cable (included with the Atmel-ICE development tool)

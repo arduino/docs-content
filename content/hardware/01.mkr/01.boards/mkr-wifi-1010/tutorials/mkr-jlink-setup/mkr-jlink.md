@@ -9,7 +9,7 @@ description: This tutorial teaches you how to set up a MKR board with the Segger
 This tutorial will show you how to debug an Arduino sketch using an Arduino MKR board and the Segger J-Link probe. It will go through how to connect these and use the Arduino IDE 2.0 to then debug a sketch.
 
 ### Required Hardware and Software
--   [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software)
+-   [Arduino IDE 2.0](https://www.arduino.cc/en/software)
 -   Segger J-link device ([EDU](https://store.arduino.cc/j-link-edu) or [BASE](https://store.arduino.cc/j-link-base))
 -   [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (other boards from the MKR family works as well).
 -   Soldering equipment

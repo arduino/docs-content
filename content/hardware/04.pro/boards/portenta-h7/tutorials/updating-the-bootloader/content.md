@@ -29,7 +29,7 @@ This tutorial will explain what a bootloader is, why you should consider keeping
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB C cable (either USB A to USB C or USB C to USB C)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+- Arduino IDE 1.8.10+
 
 ## What Is a Firmware?
 
@@ -64,12 +64,12 @@ New versions of the bootloader normally get shipped together with the core. That
 
 ![Open the Boards Manager from the Tools menu](assets/por_ard_bl_boards_manager.png)
 
-In the board manager and search for "portenta".  Find the Arduino mbed-enabled Boards package and click on "Install" to install the latest version of the mbed core (1.3.0 at the time of writing this tutorial).
+In the board manager and search for "portenta". Find the Arduino mbed-enabled Boards package and click on "Install" to install the latest version of the mbed core (1.3.0 at the time of writing this tutorial).
 
 ![A search for "portenta" reveals the core that needs to be updated to get the latest bootloader](assets/por_ard_bl_update_core.png)
 
 ### 2. Updating the Bootloader
-To update the bootloader, you can use the **STM32H747_updateBootloader** sketch. You can find the sketch file under **File > Examples > STM32H747_System**
+To update the bootloader, you can use the **STM32H747_manageBootloader** sketch. You can find the sketch file under **File > Examples > STM32H747_System**
 
 ![Finding the bootloader updater sketch](assets/por_ard_bl_find_sketch_file.png)
 
