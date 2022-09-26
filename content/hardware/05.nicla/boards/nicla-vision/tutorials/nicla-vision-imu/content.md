@@ -20,7 +20,7 @@ software:
 
 ## Overview
 
-In this tutorial, you will learn how to access the gyroscope and accelerometer that are placed on the Nicla Vision board. For this, you will be using the [Arduino_LSMDS63](https://www.arduino.cc/en/Reference/ArduinoLSM6DSOX) library and the Arduino IDE, printing the values in the Serial Monitor of the Arduino IDE.
+In this tutorial, you will learn how to access the gyroscope and accelerometer that are placed on the Nicla Vision board. For this, you will be using the [Arduino_LSM6DSOX](https://www.arduino.cc/en/Reference/ArduinoLSM6DSOX) library and the Arduino IDE, printing the values in the Serial Monitor of the Arduino IDE.
 
 ## Goals
 
@@ -58,7 +58,7 @@ In this tutorial, you will use the gyroscope as an indicator for the direction o
 
 ### Setting up the Arduino IDE
 
-Make sure the latest Nicla Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Nicla Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_LSM6DS3** and install it.
+Make sure the latest Nicla Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Nicla Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_LSM6DSOX** and install it.
 
 ### IMU Sketch
 
