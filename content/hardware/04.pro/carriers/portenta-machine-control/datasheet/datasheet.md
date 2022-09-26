@@ -71,7 +71,7 @@ Industry 4.0,  system integrators
 
 - **I2C**
   - Grove connector 
-  - 10kΩ pullups on board 
+  - 10kΩ pull-ups on board 
 
 - **Ethernet**
   - On board transformer 
@@ -301,7 +301,7 @@ Connect a three wire RTD to channel 2:
 
 ### Encoders 
   - Two independent ABZ encoders channels are available. 
-  - Each channel is pulled up to the board 24V supply with a 10 kΩ pullup resistor.
+  - Each channel is pulled up to the board 24V supply with a 10 kΩ pull-up resistor.
 
 ### CAN 
 The on board transceiver is the TJA1049T/3J and implements the CAN physical layer as defined in ISO 11898-2:2016 and SAE J2284-1 to SAE J2284-5. It is compatible with 12V or 24V bus. 
@@ -322,7 +322,7 @@ The on board transceiver is the TJA1049T/3J, which can be SW configured for RS23
 
 ### I2C 
   - Grove connector
-  - 10kΩ pullups on board 
+  - 10kΩ pull-ups on board 
 
 ### Ethernet 
   - On board transformer 
