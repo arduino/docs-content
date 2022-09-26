@@ -306,9 +306,10 @@ Connect a three wire RTD to channel 2:
 ### CAN 
 The on board transceiver is the TJA1049T/3J and implements the CAN physical layer as defined in ISO 11898-2:2016 and SAE J2284-1 to SAE J2284-5. It is compatible with 12V or 24V bus. 
 
-- **Nominal** maximum data rate 5Mbit/s 
+  - **Nominal** maximum data rate 5Mbit/s 
   - Integrated ESD protection 
-  - 60Ω termination resistors are on board, with 4.7nF to GND 
+  - 60Ω termination resistors are on board, with 4.7nF to GND
+
 A 500mA PTC resettable fuse protects the 24V OUT pin. 
 
 ### RS232/RS422/RS485 
@@ -612,4 +613,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | ------------- |
 | 04/13/2021 | 1            | First Release |
 | 05/09/2022 | 2            | Remove PT1000, not compatible |
-| 09/21/2022 | 3            | Fix features indentation, update analog output diagram and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
+| 09/26/2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
