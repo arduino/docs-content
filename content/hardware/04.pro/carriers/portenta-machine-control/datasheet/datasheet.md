@@ -612,4 +612,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | ------------- |
 | 04/13/2021 | 1            | First Release |
 | 05/09/2022 | 2            | Remove PT1000, not compatible |
-| 09/21/2022 | 3            | Fix features indentation, update analog output diagram and update images reflecting the lcoation change of the MAX31855KASA+T converter (top side) |
+| 09/21/2022 | 3            | Fix features indentation, update analog output diagram and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
