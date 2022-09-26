@@ -58,12 +58,12 @@ Industry 4.0,  system integrators
   - Thermocouple J, non grounded, front-end **MAX31855KASA+T** with SW multiplication coefficient
   - PT100, front end **MAX31865ATP+T**
 
-    - **2 encoder channels ABZ**
-      - 0-24V input  
+- **2 encoder channels ABZ**
+  - 0-24V input  
 
-  - **High speed CAN**
-    - **TJA1049T/3J** able to work at 12V/24V 
-    - On board termination resistors 
+- **High speed CAN**
+  - **TJA1049T/3J** able to work at 12V/24V 
+  - On board termination resistors 
 
 - **RS232/RS422/RS485 software configurable**
   - **SP335ECR1-L** with on board termination resistors 
@@ -612,4 +612,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | ------------- |
 | 04/13/2021 | 1            | First Release |
 | 05/09/2022 | 2            | Remove PT1000, not compatible |
-| 09/21/2022 | 3            | Update images, MAX31855KASA+T converter is now on the top side |
+| 09/21/2022 | 3            | Fix features indentation and update images reflecting the lcoation change of the MAX31855KASA+T converter (top side) |
