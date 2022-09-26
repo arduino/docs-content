@@ -211,7 +211,7 @@ An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protect
 ### Analog Output 
 Four independent analog output channels are available. Each of them a double low pass filter and a high current op amp arranged in a non-inverting topology with gain 3.3.
 
-![AnalogOutput](assets/MachineControlAnalogOutputScheme.png)
+![AnalogOutput](assets/MachineControlAnalogOutputScheme.svg)
 
 At each input of each channel a PWM from Portenta is provided filtered by a double low pass filter, obtaining a DC output with a small AC ripple. The signal is then fed to the channel non inverting amplifier which amplifies it by 3.3. 
 
