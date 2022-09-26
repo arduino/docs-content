@@ -4,7 +4,7 @@ title: Arduino® Portenta Machine Control
 type: pro
 ---
 
-![](assets/MachineControlPCB.png)
+![](assets/featured.png)
 
 # Description
 
@@ -15,76 +15,76 @@ The Arduino® Portenta Machine Control is powered with a 24V DC power supply and
 Industry 4.0,  system integrators
 
 # Features
--   **STM32H747XI dual Cortex®**
-    -   **Processor**
-    -   M7+M4 32 bit low power Arm® MCU
-    -   8 MB SDRAM
-    -   16 MB Flash QSPI
-    -   480 Mhz clock
-    -   Cryptochip NXP SE0502 security
- 
--   **Input voltage 24**
-    
--   **Reverse polarity protection**
-    
--   **8 digital input channels**
-    
--   **0-24V input** 
-    
--   **8 digital output channels**
-    -   Non-galvanic isolated 24V power input 
-    -   8 High side switches with current limit and inductive load kick-back protection
+- **STM32H747XI dual Cortex®**
+  - **Processor**
+    - M7+M4 32 bit low power Arm® MCU
+      - 8 MB SDRAM
+      - 16 MB Flash QSPI
+      - 480 Mhz clock
+      - Cryptochip NXP SE0502 security
 
--  **3 analog input channels**
+- **Input voltage 24**
 
-    Each channel is SW configurable to be:
-    -   0-10V input
-    -   4-20mA input
-    -   NTC input with 3V voltage reference **REF3330AIRSER**
+- **Reverse polarity protection**
 
--   **4 analog output channels**
-    -   DC Voltage output SW configurable 0-10V
-    -   Max 20 mA per channel
+- **8 digital input channels**
 
--   **12 digital programmable channels**
-    -   Non-galvanic isolated 24V power input 
-    -   12 High side switches with current 
-        limit and inductive load kick-back protection
-    -   12 Digital inputs
+- **0-24V input** 
 
--   **3 temperature channels**
-    Each channel is SW configurable to measure: 
-    -   Thermocouple K, non grounded, front-end **MAX31855KASA+T**
-    -   Thermocouple J, non grounded, front-end **MAX31855KASA+T** with SW multiplication coefficient
-        -   PT100, front end **MAX31865ATP+T**
+- **8 digital output channels**
+  - Non-galvanic isolated 24V power input 
+  - 8 High side switches with current limit and inductive load kick-back protection
 
-    -   **2 encoder channels ABZ**
-        -   0-24V input  
+- **3 analog input channels**
 
-    -   **High speed CAN**
-        -   **TJA1049T/3J** able to work at 12V/24V 
-        -   On board termination resistors 
+  Each channel is SW configurable to be:
+  - 0-10V input
+  - 4-20mA input
+  - NTC input with 3V voltage reference **REF3330AIRSER**
 
--   **RS232/RS422/RS485 software configurable**
-    -   **SP335ECR1-L** with on board termination resistors 
-    -   RS485 configurable half duplex or full duplex 
+- **4 analog output channels**
+  - DC Voltage output SW configurable 0-10V
+  - Max 20 mA per channel
 
--   **I2C**
-    -    Grove connector 
-    -    10kΩ pullups on board 
+- **12 digital programmable channels**
+  - Non-galvanic isolated 24V power input
+  - 12 High side switches with current
+      limit and inductive load kick-back protection
+  - 12 Digital inputs
 
--   **Ethernet**
-    -   On board transformer 
+- **3 temperature channels**
+  Each channel is SW configurable to measure: 
+  - Thermocouple K, non grounded, front-end **MAX31855KASA+T**
+  - Thermocouple J, non grounded, front-end **MAX31855KASA+T** with SW multiplication coefficient
+  - PT100, front end **MAX31865ATP+T**
 
--   **Full speed USB A connector**
+- **2 encoder channels ABZ**
+  - 0-24V input  
 
--   **Half speed micro USB connector**
+- **High speed CAN**
+  - **TJA1049T/3J** able to work at 12V/24V 
+  - On board termination resistors 
 
--   **RTC**
-    -   At least 48h memory retention 
-    
--   **Wi-Fi/BLE**
-    -   SMA connector 50Ω 
+- **RS232/RS422/RS485 software configurable**
+  - **SP335ECR1-L** with on board termination resistors 
+  - RS485 configurable half duplex or full duplex 
+
+- **I2C**
+  - Grove connector 
+  - 10kΩ pull-ups on board 
+
+- **Ethernet**
+  - On board transformer 
+
+- **Full speed USB A connector**
+
+- **Half speed micro USB connector**
+
+- **RTC**
+  - At least 48h memory retention
+
+- **Wi-Fi/BLE**
+  - SMA connector 50Ω
 
 ***Note: ESD protection on all inputs/outputs***
 
@@ -93,14 +93,14 @@ Industry 4.0,  system integrators
 ## The Board
 
 ### Application Examples
--  **Food processing** The Portenta Machine Control scales up to meet your needs by providing control to your lab, pilot and industrial food processing demands across the beverage, drying and fermentation fields. Access professional support from Arduino or tap into the vast amount of community support to reduce the time to market. Gain real-time information about the process status and utilise edge computing capabilities to adjust the food processing parameters for improved yield and minimal waste.
+- **Food processing** The Portenta Machine Control scales up to meet your needs by providing control to your lab, pilot and industrial food processing demands across the beverage, drying and fermentation fields. Access professional support from Arduino or tap into the vast amount of community support to reduce the time to market. Gain real-time information about the process status and utilise edge computing capabilities to adjust the food processing parameters for improved yield and minimal waste.
 
--  **Glass bottle manufacturing** Make use of the fast edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increase the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute (BPM).
+- **Glass bottle manufacturing** Make use of the fast edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increase the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute (BPM).
 
--   **Packaging** Develop and control machines that fill, freeze, wrap, seal, label and much more to ensure that your product is safely packaged to reach your consumer. Achieve interconnects between various processes with Arduino's advanced technologies such as the Arduino Cloud infrastructure. Reduce labour costs and achieve a fully automated line with minimal human interaction to meet the stringiest hygiene and quality standards
+- **Packaging** Develop and control machines that fill, freeze, wrap, seal, label and much more to ensure that your product is safely packaged to reach your consumer. Achieve interconnects between various processes with Arduino's advanced technologies such as the Arduino Cloud infrastructure. Reduce labour costs and achieve a fully automated line with minimal human interaction to meet the stringiest hygiene and quality standards
 
 ### Related Products
--   Portenta H7
+- Portenta H7
 
 ### Solution Overview
 
@@ -134,7 +134,7 @@ Industry 4.0,  system integrators
 
 
 ### Board Topology 
-![Machine Control topology](assets/MachineControlOutline.png)
+![Machine Control topology](assets/MachineControlOutline.svg)
 
 | **Ref.** | **Description**                                 | **Ref.** | **Description** |
 | -------- | ----------------------------------------------- | -------- | --------------- |
@@ -145,6 +145,7 @@ Industry 4.0,  system integrators
 | J7       | Temperature probes                              | J15      | USB A           |
 | J8       | Digital programmable                            | J16      | USB micro       |
 | J9       | Analog in                                       | J17      | Grove I2C       |
+| PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
 
 ### Digital Input 
 8 channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
@@ -191,6 +192,7 @@ Internal inductive loads kick-back protection plus external 60V, 2A Schottky dio
 
 
 ### Analog Input 
+The internal A/D converter of the microcontroller has a resolution of max 16 bit (12-16 bit range) and delivers values from 0 to 65535, configurable by the user via sketch. 
 
 Three independent analog input channels are available. Each of them has an analog switch TS12A44514PWR which is switching between three modes: 
 
@@ -209,7 +211,7 @@ An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protect
 ### Analog Output 
 Four independent analog output channels are available. Each of them a double low pass filter and a high current op amp arranged in a non-inverting topology with gain 3.3.
 
-![AnalogOutput](assets/MachineControlAnalogOutputScheme.png)
+![AnalogOutput](assets/MachineControlAnalogOutputScheme.svg)
 
 At each input of each channel a PWM from Portenta is provided filtered by a double low pass filter, obtaining a DC output with a small AC ripple. The signal is then fed to the channel non inverting amplifier which amplifies it by 3.3. 
 
@@ -299,14 +301,15 @@ Connect a three wire RTD to channel 2:
 
 ### Encoders 
   - Two independent ABZ encoders channels are available. 
-  - Each channel is pulled up to the board 24V supply with a 10 kΩ pullup resistor.
+  - Each channel is pulled up to the board 24V supply with a 10 kΩ pull-up resistor.
 
 ### CAN 
 The on board transceiver is the TJA1049T/3J and implements the CAN physical layer as defined in ISO 11898-2:2016 and SAE J2284-1 to SAE J2284-5. It is compatible with 12V or 24V bus. 
 
-- **Nominal** maximum data rate 5Mbit/s 
+  - **Nominal** maximum data rate 5Mbit/s 
   - Integrated ESD protection 
-  - 60Ω termination resistors are on board, with 4.7nF to GND 
+  - 60Ω termination resistors are on board, with 4.7nF to GND
+
 A 500mA PTC resettable fuse protects the 24V OUT pin. 
 
 ### RS232/RS422/RS485 
@@ -320,7 +323,7 @@ The on board transceiver is the TJA1049T/3J, which can be SW configured for RS23
 
 ### I2C 
   - Grove connector
-  - 10kΩ pullups on board 
+  - 10kΩ pull-ups on board 
 
 ### Ethernet 
   - On board transformer 
@@ -609,4 +612,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
 | 04/13/2021 | 1            | First Release |
-| 05/09/2020 | 2            | Remove PT1000, not compatible |
+| 05/09/2022 | 2            | Remove PT1000, not compatible |
+| 09/26/2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
