@@ -14,10 +14,10 @@ hardware:
 
 ## Overview
 
-In this tutorial you will learn how to build an image for the Portenta X8 with the files provided from Foundries.io.
+In this tutorial you will learn how to build an image for the Portenta X8 with the source code provided from Foundries.io.
 Building your image locally is helpful to quickly debug certain aspects of the systems, like bootloader or kernel support.
 Please keep in mind that images built locally cannot register to a FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.
-For FoundriesFactory subscribers, we strongly suggest to make use of the Factory continuous integration system for creating your images.
+This tutorial targets the customers that are not FoundriesFactory subscribers and want to extend the functionality provided by the Arduino pre-built sources by building their own images. For FoundriesFactory subscribers, we strongly suggest to make use of the Factory continuous integration system for creating your images.
 
 ***In this tutorial we are using Ubuntu LTS 22.04 inside the Windows Subsystem for Linux (WSL) through the Windows Terminal***
 
@@ -35,8 +35,6 @@ For FoundriesFactory subscribers, we strongly suggest to make use of the Factory
 - Linux distribution [compatible with the Yocto Project](https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
 - Arduino Create account [Login](https://login.arduino.cc/login)
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
-- Optional: Foundries.io account (linked with the Pro Cloud subscription) [Login](https://app.foundries.io/login/)
-- Optional: FoundriesFactory® ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
 
 ## Instructions
 
@@ -66,44 +64,6 @@ Now initialize the `ssh-agent` with `eval "$(ssh-agent -s)"`. Add your key with 
 
 ***Make sure your `ssh-agent` is running, you can check the keys that your agent has with the command `ssh-add -l` if there is no key attached repeat the steps of adding the key and check if it was successfully added***
 
-### Foundries.io API Token
-
-***This step is only mandatory if you want to get the source code from your Factory***
-
-To get the needed files (source code) for compiling the image we need access to our Factory repository.
-
-To make that happen, go to your [Foundries account > Settings > Api Tokens](https://app.foundries.io/settings/tokens/):
-![API token page on Foundries.io](assets/foundries_API_tokens.png)
-
-Press the "New Token" button and follow the instructions.
-![API token creation page](assets/foundries_API_token_create.png)
-
-Now make sure you select the correct scopes to "Use for source code access" and choose your derived Factory.
-![API token creation page](assets/foundries_API_token_create_scopes.png)
-
-Once it has been generated, copy the token shown.
-![API token creation page](assets/foundries_API_token_created.png)
-
-On your machine create a variable to store the token and add it to the global configuration for Git:
-
-```
-API_TOKEN="<YourToken>"
-git config --global http.https://source.foundries.io.extraheader "Authorization: basic $(echo -n $API_TOKEN | openssl base64)"
-```
-
-Check that your token is properly configured by cloning the "containers" repository of your Factory:
-
-```
-git clone https://source.foundries.io/factories/<factory>/containers.git
-```
-
-Make sure you clone the repository outside our `builds` folder. You can remove it after you finish your check.
-
-You can check your Git configuration with `git config --global -l` you should see:
-
-```
-http.https://source.foundries.io.extraheader=Authorization: basic <yourToken on base64>
-```
 
 ### Google Repo: Fetch Yocto Project Layers
 
@@ -133,18 +93,10 @@ Switch to your build directory and create a folder to store the source code:
 cd ~/builds/
 mkdir portenta-x8
 cd portenta-x8
-```
+repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
 
-Get your repository link. If you do not have a FoundriesFactory subscription, use the Public repository link, otherwise you can use your Factory repository link:
-
-- Public repository: [lmp-manifest](https://github.com/arduino/lmp-manifest) -> https://github.com/arduino/lmp-manifest.git
-- Your Factory repository: `https://source.foundries.io/factories/<yourFactory>/lmp-manifest` -> `https://source.foundries.io/factories/<yourFactory>/lmp-manifest.git`
-
-Now initialize the repository:
-
-```
-repo init -u <repository> -m arduino.xml -b <master/devel>
-```
+NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.
+- Your Factory repository: `https://source.foundries.io/factories/<yourFactory>/lmp-manifest.git`
 
 You can now download the files you will need by running `repo sync`.
 
