@@ -20,64 +20,65 @@ Building your image locally is helpful to quickly debug certain aspects of the s
 ***Please keep in mind that images built locally cannot register to a FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.  This tutorial targets the customers that are not FoundriesFactory subscribers and want to extend the functionality provided by the Arduino pre-built sources by building their own images. For FoundriesFactory subscribers, we strongly suggest to make use of the Factory continuous integration system for creating your images.***
 
 ## Goals
-
-- Provide your Linux machine with the needed software
+- Build a "builder" Docker image
 - Get the required files
 - Configure the building settings
 - Build the image
 
 ### Required Hardware and Software
-
 - [Arduino Portenta X8](https://store.arduino.cc/portenta-x8)
 - Linux distribution [compatible with the Yocto Project](https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
 - [Docker Engine](https://docs.docker.com/engine/install/)
+
 ## Instructions
-
 ### Folder Structure Overview
-
-First we need to structure our directories as following:
 
 To start, create a new directory on your machine to store all the data on your home directory `cd ~`.
 Make a new directory called **myNewImage** with `mkdir myNewImage`
 
-### Google Repo: Fetch Yocto Project Layers
+### Docker
+#### Build the Docker Image
 
-Google's Repo application handles fetching the repositories (Yocto Project layers) that will be used in the build process.
+You will create an image with all the needed dependencies so it will be ready to build your image.
 
-Use these commands to:
+To do so:
+1. Clone the lmp-manifest repository
+  ```
+  git clone https://github.com/arduino/lmp-manifest.git
+  ```
+2. Build the Docker Image:
+  ```
+  docker build -t yocto-build ./lmp-manifest
+  ```
 
-1. create a `.bin` folder to install the `repo` application in
-2. add it to the system `PATH` so you will be able to use the `repo` command anywhere
-3. download repo into `.bin`
-4. set permission so that all users and run it.
+#### Run the Docker Image (builder)
+You will be running the image with the `-v` argument to add a volume, this will make a second drive storage available inside the image, so we will be able to store all the data safely.
+
+***If you dont use a volume running the image, you will lose the data when the image stops***
+
+Run the `yocto-build` builder image with:
+```
+docker run -v <target>:<source> -it yocto-build bash
+```
+
+### Setup and Build
+
+***You can download a bash script that wraps all the upcoming steps here***
+
+#### Setup the environment
+Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been isntalled on the image building proccess, this was the providing proccess on the previous section.
+
+You can change the directory to home, and initialize the **git-repo** repository and pull the needed files:
 
 ```
-mkdir -p ~/myNewImage/.bin
-PATH="${HOME}/myNewImage/.bin:${PATH}"
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/myNewImage/.bin/repo
-chmod a+rx ~/myNewImage/.bin/repo
-```
-
-Now you should be able to access the command `repo` anywhere because it has been added to your **PATH**.
-
-### Set up Your Repository
-
-Create a **build** directory to store the source code and initialize the repository:
-
-```
-mkdir ~/myNewImage/build/
-cd ~/myNewImage/build/
-
+cd ~
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
+repo sync
 ```
 
-NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.
+***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.***
 
-You can now download the files you will need by running `repo sync`.
-
-## Build The Image
-
-### Set Up The Environment
+#### Set Up The Distribution
 
 You can set `DISTRO` to:
 - `lmp-base`: unsecure image without ostree, developer friendly, not OTA compatible
@@ -97,7 +98,7 @@ Now to accept the EULA:
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 ```
 
-### Build Image With Bitbake
+#### Build Image With Bitbake
 
 To start building the image, run:
 
@@ -117,7 +118,7 @@ And add:
 
 ![Terminal bitbake](assets/terminal_bitbake.png)
 
-### Build Manufacturing Tools: Flash The Board
+#### Build Manufacturing Tools: Flash The Board
 
 To flash your board you will need to compile some tools. Go into the build folder with `cd ~/myNewImage/build` and type the following commands:
 
@@ -139,3 +140,26 @@ Keep in mind you will need to use the files provided from this build, not the on
 
 - If you are having `do_fetch` issues, try to check your system's DNS and change it.
 - If you lack build dependencies on your system, checkout the needed dependencies at [Yocto Project build host dependencies](https://docs.yoctoproject.org/ref-manual/system-requirements.html#required-packages-for-the-build-host).
+
+
+////////// OLD
+
+### Google Repo: Fetch Yocto Project Layers
+
+Google's Repo application handles fetching the repositories (Yocto Project layers) that will be used in the build process.
+
+Use these commands to:
+
+1. create a `.bin` folder to install the `repo` application in
+2. add it to the system `PATH` so you will be able to use the `repo` command anywhere
+3. download repo into `.bin`
+4. set permission so that all users and run it.
+
+```
+mkdir -p ~/myNewImage/.bin
+PATH="${HOME}/myNewImage/.bin:${PATH}"
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/myNewImage/.bin/repo
+chmod a+rx ~/myNewImage/.bin/repo
+```
+
+Now you should be able to access the command `repo` anywhere because it has been added to your **PATH**.
