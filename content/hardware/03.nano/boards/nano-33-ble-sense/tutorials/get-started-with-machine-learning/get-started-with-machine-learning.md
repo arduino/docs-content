@@ -139,7 +139,7 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ![Install the necessary libraries](assets/libManager.png)
 
-**3.** Lastly the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) needs to be installed. You can find the installation instructions on the libraries github page [here](https://github.com/tensorflow/tflite-micro-arduino-examples#how-to-install).
+**3.** Lastly the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) needs to be installed. You can find the installation instructions on the library's GitHub page [here](https://github.com/tensorflow/tflite-micro-arduino-examples#how-to-install).
 
 There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://www.arduino.cc/en/Guide/Troubleshooting) guides on the Arduino site if you need help.
 
