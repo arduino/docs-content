@@ -61,6 +61,11 @@ Run the `yocto-build` builder image with:
 docker run -v <target>:<source> -it yocto-build bash
 ```
 
+Switch to the `builder` user the password is **builder**:
+```
+su builder
+```
+
 ### Setup and Build
 
 ***You can download a bash script that wraps all the upcoming steps [here](assets/portenta-x8_build.sh)***
