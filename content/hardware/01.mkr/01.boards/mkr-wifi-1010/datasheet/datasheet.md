@@ -12,7 +12,7 @@ The MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor,
 
 # Target Areas
 Prototyping, IoT application examples
-<div style="page-break-after: always"></div>
+
 
 # Features
 - **SAMD21G18A**
