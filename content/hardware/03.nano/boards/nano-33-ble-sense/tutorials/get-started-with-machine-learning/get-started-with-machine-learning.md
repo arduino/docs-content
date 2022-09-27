@@ -135,7 +135,7 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ![Install Nano BLE board](assets/BoardsManager.png)
 
-**2.** Also, let's make sure we have all the libraries we need installed. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino:LSM9DS1**, and install it. 
+**2.** Also, let's make sure we have the **Arduino_LSM9DS1** library installed. If we are using the online IDE, it is pre-installed. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino_LSM9DS1**, and install it. 
 
 ![Install the necessary libraries](assets/libManager.png)
 
