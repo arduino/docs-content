@@ -120,7 +120,8 @@ And add:
 
 #### Build Manufacturing Tools: Flash The Board
 
-To flash your board you will need to compile some tools. Go into the build folder with `cd ~/myNewImage/build` and type the following commands:
+To flash your board you will need to compile another `DISTRO`.
+To get those tools go into the build folder with `cd ~/myNewImage/build` and type the following commands:
 
 ```
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
