@@ -3,6 +3,8 @@ software:
   - arduino-cli
   - web-editor
 hardware:
-  shields: ~
+  shields:
+  - 4-relays-shield
+  - motor-shield-rev3
   carriers: ~
   boards: ~
