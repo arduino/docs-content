@@ -1,4 +1,4 @@
 ---
 title: Tiny Machine Learning Kit
-certifications: [UKCA]
+certifications: [UKCA, CE]
 ---
