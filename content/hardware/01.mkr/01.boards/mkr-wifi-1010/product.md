@@ -5,7 +5,7 @@ url_guide: /software/ide-v1/installing-samd21-core
 draft: true
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrwifi1010/147'
-certifications: [FCC,UKCA, IC, REACH, RED, RoHS, WEEE, RCM, CE, MIC]
+certifications: [FCC,UKCA, IC, REACH, RED, RoHS, WEEE, RCM, ,MIC, CE]
 productCode: '025'
 ---
 
