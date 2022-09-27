@@ -3,7 +3,7 @@ title: "Intel Math Kernel Library on Arduino"
 description: "Learn how to integrate Intel MKL library with a very streamlined Arduino workflow."
 coverImage: "assets/intel_math_j5NKlynvAk.png"
 tags: [embedded]
-difficulty: easy
+difficulty: beginner
 author: "Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/intel-math-kernel-library-on-arduino-1d0be4"
 ---

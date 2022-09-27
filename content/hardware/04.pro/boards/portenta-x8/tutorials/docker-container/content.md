@@ -1,7 +1,7 @@
 ---
 title: 'Managing Containers with Docker on Portenta X8'
 description: 'This tutorial shows how to install and manage your containers using Docker.'
-difficulty: easy
+difficulty: beginner
 tags:
   - containers
   - Docker

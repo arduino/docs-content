@@ -1,6 +1,6 @@
 ---
 title: 'Gesture Recognition with the Nano 33 BLE Sense'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-33-ble-sense]
 description: 'Learn how to use the built in gesture sensor of the Nano 33 BLE Sense to control the built in RGB LED.'
 tags:
@@ -90,7 +90,7 @@ Now, connect the Arduino Nano 33 BLE Sense to the computer and make sure that th
 
 ![Selecting the board.](assets/nano33BS_07_board_port.png)
 
-**3. Blink patters according to hand gestures**
+**3. Blink patterns according to hand gestures**
 
 Now we will need to modify the code on the example, in order to change the color of the RGB LED and the built-in LED respectively according to the direction of our hand gesture.
 

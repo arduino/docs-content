@@ -20,16 +20,9 @@ These instructions show you how to get two Arduino boards talking to each other 
 
 ![](assets/ArduinoUno_XBeeS2.png)
 
-To configure a ZB module as coordinator, router, or end device, you'll need to change the firmware. You need Digi's configuration software, X-CTU, to do this. Unfortunately it's only available for Windows.
-Download it from this [link](http://www.digi.com/support/kbase/kbaseresultdetl?id=2125).
+To configure a ZB module as coordinator, router, or end device, you'll need to change the firmware. You need Digi's configuration software, X-CTU, to do this.
+Download it from this [link](https://hub.digi.com/support/products/xctu/).
 
-If you are running a Linux, you can install X-CTU through Wine. You'll need to create a link from the Arduino device on which the radio is mounted to the Wine dosdevice directory. To do so, open a terminal windows and type:
-
-`ln -s /dev/ttyUSBx ~/.wine/dosdevices/com1`
-
-or
-
-`ln -s /dev/ttyACMx ~/.wine/dosdevices/com1`
 
 To configure the modules from the computer, put the serial switch to the USB position and upload an empty sketch, like this:
 

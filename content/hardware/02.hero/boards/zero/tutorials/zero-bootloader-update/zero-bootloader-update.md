@@ -3,7 +3,7 @@ title: 'Update the Bootloader on the Arduino Zero'
 description: 'How to update the Arduino Zero bootloader.'
 tags: 
   - Bootloader 
-difficulty: easy
+difficulty: beginner
 hardware:
   - hardware/02.hero/boards/zero
 software:

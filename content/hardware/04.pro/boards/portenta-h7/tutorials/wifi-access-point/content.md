@@ -2,7 +2,7 @@
 title: 'Portenta H7 as a Wi-Fi Access Point'
 description: 'In this tutorial you will configure the Portenta H7 as an access point and build a simple web server that will allow you to control the built-in RGB LEDs from your mobile device.'
 coverImage: assets/por_ard_ap_cover.svg
-difficulty: easy
+difficulty: beginner
 tags:
   - Wi-Fi
   - Access Point
@@ -21,7 +21,7 @@ software:
 ---
 
 ## Overview
-Portenta H7 comes with an on-board Wi-Fi and a Bluetooth® Module that allows to develop IoT applications that require wireless connectivity and Internet access. Turning the board into an access point allows it to create a Wi-Fi network on its own and allows other devices to connect to it. In  this tutorial you will learn to set up your board as an access point web server and remotely control the red, green and blue LEDs on the built-in RGB LED by accessing an HTML page on your mobile device’s browser. 
+Portenta H7 comes with an on-board Wi-Fi and a Bluetooth® Module that allows to develop IoT applications that require wireless connectivity and Internet access. Turning the board into an access point allows to create a Wi-Fi network on its own and allows other devices to connect to it. In  this tutorial you will learn to set up your board as an access point web server and remotely control the red, green and blue LEDs on the built-in RGB LED by accessing an HTML page on your mobile device’s browser. 
 
 ## Goals
 
@@ -37,28 +37,28 @@ Portenta H7 comes with an on-board Wi-Fi and a Bluetooth® Module that allows to
 - A smart phone
 
 ## Access Point Configuration
-The Portenta H7 features a  [Murata 1DX](https://wireless.murata.com/type-1dx.html), which is a high performance chipset which supports  Wi-Fi 802.11b/g/n + Bluetooth® 5.1 BR/EDR/LE up to 65 Mbps PHY data rate on Wi-Fi and 3 Mbps PHY data rate on Bluetooth®. This module helps to configure the Portenta into three different modes of operation -  an Access Point,  a Station, or both. In this tutorial we will only focus on the access point configuration.
+The Portenta H7 features a  [Murata 1DX](https://wireless.murata.com/type-1dx.html), which is a high performance chipset which supports Wi-Fi 802.11b/g/n + Bluetooth® 5.1 BR/EDR/LE, up to 65 Mbps PHY data rate on Wi-Fi and 3 Mbps PHY data rate on Bluetooth®. This module helps to configure the Portenta into three different modes of operation -  an Access Point,  a Station, or both. In this tutorial we will only focus on the access point configuration.
 
-When the  board is configured to operate as an access point, it can create its own wireless LAN (WLAN) network. In this mode, the board transmits and receives signals at 2.4 GHz allowing other electronic devices with Wi-Fi capabilities using the same bandwidth to connect to the board.
+When the board is configured to operate as an access point, it can create its own wireless LAN (WLAN) network. In this mode, the board transmits and receives signals at 2.4 GHz allowing other electronic devices with Wi-Fi capabilities using the same bandwidth to connect to the board.
 
-With the access point set up you create a client server architecture where the board provides a web server communicating with the client devices over HTTP. The connected devices can then make HTTP GET requests to the server to retrieve web pages served by the web server on the board. This makes the Portenta H7 an ideal board for developing IoT solutions where external client devices can send and receive information while more complex processing tasks take place on the server.
+With the access point set up, you create a client server architecture where the board provides a web server communicating with the client devices over HTTP. The connected devices can then make HTTP GET requests to the server to retrieve web pages served by the web server on the board. This makes the Portenta H7 an ideal board for developing IoT solutions where external client devices can send and receive information while more complex processing tasks take place on the server.
 
 ![A client device communicating with the Portenta H7 through HTTP ](assets/por_ard_ap_tutorial_core_topic.svg)
 
 ## Instructions
 
 ### Setting Up the Web Server
-In this tutorial you are going to convert the board into an access point and use it to set up a web server which provides a HTML webpage. This page contains buttons to toggle the red, green and blue color of the built-in LED.  You will then connect your mobile device to this access point and access this web page through the browser on your mobile phone. Once retrieved, you will be able to control the state of the red, green and blue LED on the built-in RGB LED from your mobile device. 
+In this tutorial you are going to convert the board into an access point and use it to set up a web server which provides a HTML webpage. This page contains buttons to toggle the red, green and blue color of the built-in LED. You will then connect your mobile device to this access point and access this web page through the browser on your mobile phone. Once retrieved, you will be able to control the state of the red, green and blue LED on the built-in RGB LED from your mobile device. 
 
 ![A mobile device controlling the different LEDs on the board ](assets/por_ard_ap_tutorial_overview.svg)
 
 ### 1. The Basic Setup
-Begin by plugging in your Portenta board to your computer using a USB-C cable and open the  Arduino IDE or the Arduino Pro IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](./setting-up-portenta) before you proceed. 
+Begin by plugging in your Portenta board to your computer using a USB-C cable and open the  Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed. 
 
 ![The Portenta H7 can be connected to the computer using an appropriate USB-C cable](assets/por_tut1_im1.png)
 
 ### 2. Create the Web Server Sketch
-Next we need to create a web server sketch that will handle the HTTP GET requests and provide the client devices with the HTML web page. The [Wi-Fi](https://www.arduino.cc/en/Reference/WiFi) library provides all necessary methods that allows Arduino boards to use their Wi-Fi features provided by the on-board Wi-Fi module. To set up the web server copy the following code, paste it into a new sketch file and name it **SimpleWebServer.ino**. 
+Next you need to create a web server sketch that will handle the HTTP GET requests and provide the client devices with the HTML web page. The [Wi-Fi](https://www.arduino.cc/en/Reference/WiFi) library provides all necessary methods that allows Arduino boards to use their Wi-Fi features provided by the on-board Wi-Fi module. To set up the web server copy the following code, paste it into a new sketch file and name it **SimpleWebServer.ino**. 
 
 **Note:** You can access the final sketch inside the library: **Examples > Arduino_Pro_Tutorials > Portenta H7 as a Wi-Fi Access Point > SimpleWebServer**
 
@@ -234,11 +234,11 @@ void printWiFiStatus() {
 
 This sketch describes how the server will handle an incoming HTTP GET request from a client, both to request the HTML web page from the server and the requests to change the LED states using dedicated URLs. 
 
-Here the web page is just a simple HTML page with buttons to toggle the LED states.  The way in which the web page works is: Whenever a button on the web page is pressed, the client device (in this case your phone) sends a HTTP GET request to a URL denoted by a letter, in this case H or L (H stands for HIGH, L stands for LOW) followed by the LED color that should be turned on or off r, g or b. For example to turn on the red LED the URL is /Hr . Once the server receives this request it changes the corresponding LED state, closes the connection and continues to listen to next requests. 
+Here the web page is just a simple HTML page with buttons to toggle the LED states.  The way in which the web page works is: whenever a button on the web page is pressed, the client device (in this case your phone) sends a HTTP GET request to a URL denoted by a letter, in this case H or L (H stands for HIGH, L stands for LOW) followed by the LED color that should be turned on or off r, g or b. For example, to turn on the red LED the URL is /Hr . Once the server receives this request, it changes the corresponding LED state, closes the connection and continues to listen to next requests. 
 
 ![The sequence of actions in the tutorial’s client-server model](assets/por_ard_ap_sketch_explanation.svg)
 
-***Remember that the built-in RGB LEDs  on the Portenta H7 need to be pulled to ground to make them light up. This means that a voltage level of __LOW__ on each of their pins will turn the specific color of the LED on, a voltage level of __HIGH__ will turn them off.***
+***Remember that the built-in RGB LEDs on the Portenta H7 need to be pulled to ground to make them light up. This means that a voltage level of __LOW__ on each of their pins will turn the specific color of the LED on, a voltage level of __HIGH__ will turn them off.***
 
 ### 3. Create the arduino_secrets.h Tab
 
@@ -250,7 +250,7 @@ Name the file **arduino_secrets.h** and click OK.
 
 ![Naming the new tab arduino_secrets.h in the IDE](assets/por_ard_ap_new_tab_name.png)
 
-Once you’ve created the new tab, you will see an empty page in the IDE. Define two constants `SECRET_SSID`  and `SECRET_PASS` that will hold the name of the Wi-Fi network and the corresponding password. Add the following lines to your **arduino_secrets.h** file:
+Once you have created the new tab, you will see an empty page in the IDE. Define two constants `SECRET_SSID`  and `SECRET_PASS` that will hold the name of the Wi-Fi network and the corresponding password. Add the following lines to your **arduino_secrets.h** file:
 
 ```cpp
 # define SECRET_SSID "PortentaAccessPoint"
@@ -259,7 +259,7 @@ Once you’ve created the new tab, you will see an empty page in the IDE. Define
 
 ***The SSID (PortentaAccessPoint) and password (123Qwerty) are placeholder strings made for this tutorial. For security reasons you should rename them to something memorable but not easy to guess. Keep in mind that the password must be at least 8 characters long.*** 
 
-In order to access the `SECRET_SSID` and `SECRET_PASS` constants in the **simpleWebServer.ino** sketch file, the header file that you’ve just created needs to be included. In your sketch file this has already been taken care of by the following line at the beginning of the sketch: 
+In order to access the `SECRET_SSID` and `SECRET_PASS` constants in the **simpleWebServer.ino** sketch file, the header file that you have just created needs to be included. In your sketch file this has already been taken care of by the following line at the beginning of the sketch: 
 
 ```cpp
 # include “arduino_secrets.h”
@@ -273,7 +273,7 @@ Select the **Arduino Portenta H7 (M7 core)** from the **Board** menu and the por
 
 ![Uploading the SimpleWebServer.ino to the Portenta](assets/por_ard_ap_upload_code_m7.png)
 
-Once you've uploaded the code, open the serial monitor. You will be able to see the IP address of the access point. You will also see the message, `Device disconnected from AP` which means there are no devices connected to the Access point yet.  
+Once you have uploaded the code, open the Serial Monitor. You will be able to see the IP address of the access point. You will also see the message, `Device disconnected from AP` which means there are no devices connected to the Access point yet.  
 
 ![Serial monitor displaying the details of the Access point](assets/por_ard_ap_open_serial_monitor.png)
 
@@ -287,13 +287,13 @@ Now open a browser window on your mobile device and copy & paste the URL contain
 
 ![The URL containing the IP address of the access point displayed in the serial monitor](assets/por_ard_ap_copy_ip_address.png)
 
-Once you’ve entered the URL, the client sends a GET request to the web server to fetch the HTML web page specified in the code. Once loaded you will see the web page in your mobile browser. 
+Once you have entered the URL, the client sends a GET request to the web server to fetch the HTML web page specified in the code. Once loaded, you will see the web page in your mobile browser. 
 
 ![The HTML web page accessed on your mobile browser](assets/por_ard_ap_access_webpage.png)
 
 ### 6. Access the Board From Your Mobile Device
 
-If you take a look at the serial monitor, you can see the details of the HTTP GET request and other details of the device connected to the access point. The GET request is always in the following format: 
+If you take a look at the Serial Monitor, you can see the details of the HTTP GET request and other details of the device connected to the access point. The GET request is always in the following format: 
 
 ```
 GET URL HTTP/1.1
@@ -309,7 +309,7 @@ Once the server has responded to this request, it closes the connection and cont
 
 ![The client details displayed on the serial monitor](assets/por_ard_ap_client_details.png)
 
-You’re now be able to toggle the states of the red, green and blue LED through the buttons displayed on your mobile browser. Every time you press a button, the client sends a GET request to a URL in the format /Hx or /Lx ,where x can be ‘r’, ‘g’ or ‘b’, depending on the button pressed on the HTML page. The web server then reads the URL requested by the client, changes the state of the LED corresponding to the URL and closes the connection. 
+You are now be able to toggle the states of the red, green and blue LED through the buttons displayed on your mobile browser. Every time you press a button, the client sends a GET request to a URL in the format /Hx or /Lx ,where x can be ‘r’, ‘g’ or ‘b’, depending on the button pressed on the HTML page. The web server then reads the URL requested by the client, changes the state of the LED corresponding to the URL and closes the connection. 
 
 ![The GET request details displayed in the serial monitor](assets/por_ard_ap_toggle_LEDS.png)
 
@@ -319,4 +319,4 @@ This tutorial shows one of the several capabilities of the on-board WiFi+Bluetoo
 
 ### Next Steps 
 
-Now that you've learnt how to set up a board as an access point and understand the client-server model, start experimenting with the **simpleWebServer.ino** sketch. This sketch can be tweaked in a variety of ways based on your needs. For example, you can add a slider to the HTML page that changes the blink rate of the built-in RGB LED from your mobile device.
+Now that you have learnt how to set up a board as an access point and understand the client-server model, start experimenting with the **simpleWebServer.ino** sketch. This sketch can be tweaked in a variety of ways based on your needs. For example, you can add a slider to the HTML page that changes the blink rate of the built-in RGB LED from your mobile device.

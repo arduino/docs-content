@@ -23,9 +23,9 @@ software:
 ---
 
 ## Overview
-In this tutorial, you will learn how to use and allow firmware updates via **OTA (Over-The-Air)** feature with the **Arduino Portenta H7**. With this tutorial, you will be able to create a binary file to be used with the OTA feature, and use the internal **QSPI** or a external **SD card** to accomplish the OTA (Over-The-Air) process. 
+In this tutorial, you will learn how to use and allow firmware updates via **OTA (Over-The-Air)** feature with the **Arduino Portenta H7**. With this tutorial, you will be able to create a binary file to be used with the OTA feature and use the internal **QSPI** or a external **SD card** to accomplish the OTA (Over-The-Air) process. 
 
-***To proceed with OTA using a SD Card, you will need to use a carrier or shield with a SD card slot, e.g Portenta Breakout, Portenta Vision shield.***
+***To proceed with OTA using a SD Card, you will need to use a carrier or shield with a SD card slot, e.g Portenta Breakout, Portenta Max Carrier, Portenta Vision shield.***
 
 ## Goals
 The goals of this tutorial are: 
@@ -38,17 +38,17 @@ The goals of this tutorial are:
 - USB-C type cable (either USB-A to USB-C or USB-C to USB-C)
 - Arduino IoT Cloud and Arduino_Portenta_OTA libraries
 - SD card (optional, you can use QSPI instead)
-- Carrier or shield compatible with the Portenta H7 with a SD Card slot, in case you chose to use the SD Card.
+- Carrier or shield compatible with the Portenta H7 with a SD Card slot, in case you choose to use the SD Card.
 
 ## What OTA Means
-**OTA** (Over-The-Air) is a method of distributing wirelessly to end devices to update their firmware, configuration, or security-related protocols. The purpose of this method is to change a device’s behavior or its settings for better performance, for adding new features, or to change its targeted usage. 
+**OTA** (Over-The-Air) is a method of distributing wirelessly to end devices to update their firmware, configuration or security-related protocols. The purpose of this method is to change a device’s behavior or its settings for better performance, for adding new features or to change its targeted usage. 
 
 ## Instructions 
 
-We will explain briefly the steps required to be able to use OTA (Over-The-Air) process with Arduino Portenta H7, in which will consist of firmware OTA file creation and use of preferred storage mode (QSPI or SD card). 
+We will explain briefly the steps required to be able to use OTA (Over-The-Air) process with Arduino Portenta H7. It will consist of firmware OTA file creation and use of preferred storage mode (QSPI or SD card). 
 
 ### Firmware OTA File Creation
-We will create the binary file required for the OTA (Over-The-Air) process to be able to be used with either storage option stated previously. For the purpose of this tutorial, we will use the following script to create the binary file. 
+You will need to create the binary file required for the OTA (Over-The-Air) process to be able use it with either storage option stated previously. For the purpose of this tutorial, you will have to use the following script to create the binary file. 
 
 ```cpp
 /*
@@ -94,15 +94,15 @@ void loop()
 }
 ```
 
-This script will light up the RGB LED with 3 different colors in sequence. This code will need to be uploaded to the Arduino Portenta H7 firsthand. This is to verify the sketch compiles and is working correctly. After verifying this, in Arduino IDE, you will search for **Sketch > Export Compiled Binary**. 
+This script will light up the RGB LED with 3 different colors in sequence. This code will need to be uploaded to the Arduino Portenta H7 firsthand. This is to verify whether the sketch compiles and is working correctly. After verifying this, in Arduino IDE, you will search for **Sketch > Export Compiled Binary**. 
 
 ![Exporting Binary for the Sketch](assets/binary_export.png)
 
-With the binary file created, we can now create the ota file needed to complete the process. For this, you will need to have an extra tool which can be found at the following link.
+With the binary file ready, you can now create the OTA file needed to complete the process. For this, you will need to have an extra tool which can be found at the following link.
 
 ***Arduino IoT Cloud Library - Over-The-Air Tools: https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools***
 
-You will have to have to extract the library at a preferred location to be able to use the tools. Then you will need to run on the terminal following commands in sequence to be able to create the ota file. 
+You will have to extract the library at a preferred location to be able to use the tools. Then, you will need to run on the terminal the following commands in sequence to be able to create the OTA file. 
 
 Copy the binary file into the library tool's folder 
 
@@ -144,30 +144,30 @@ Convert your encoded file into `.ota` format
 bin2ota.py [PORTENTA_H7_M7] OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
 ```
 
-We are using `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name and for facilitated identification of the file. After this you will have the `.ota` file of the sketch that we would like to use with the OTA process. 
+You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilitated identification of the file. After this, you will have the `.ota` file of the sketch that you will use with the OTA process. 
 
-***Now you have two options to choose, use QSPI, or use an SD Card to storage your OTA file. You can use the left side index to jump to the option that you may need.***
+***Now you have two options to choose, use QSPI or use an SD Card to storage your OTA file. You can use the left side index to jump to the option that you may need.***
 
 ### QSPI Storage Mode
 
 #### Setting Up
-To use internal **QSPI** storage for downloading the binary file via OTA (Over-The-Air), you will only need the Arduino Portenta H7 board connected to the computer with the [Arduino IDE](https://www.arduino.cc/en/software). With it, you will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1MB M4** for the purpose of this tutorial and the corresponding port. 
+To use internal **QSPI** storage for downloading the binary file via OTA (Over-The-Air), you will only need the Arduino Portenta H7 board connected to the computer with the [Arduino IDE](https://www.arduino.cc/en/software). With it, you will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1 MB M7 + 1 MB M4** for the purpose of this tutorial and the corresponding port. 
 
 ![Arduino Portenta H7 Board Connection](assets/portenta_h7_board_selection.png)
 
 #### Writing the Script
 To proceed with a OTA using the QSPI flash, you can open the sketch from **Examples >Arduino_Portenta_OTA > OTA_Qspi_Flash**.
 
-***Do not forget to fill your Wi-Fi AP SSID, and password on the `arduino_secrets.h` tab.***
+***Do not forget to fill your Wi-Fi AP SSID and password on the `arduino_secrets.h` tab.***
 
-This sketch will connect to your Wi-Fi, check if the OTA feature is available by checking the installed firmware on your Portenta.
+This sketch will connect to your Wi-Fi, verify whether the OTA feature is available by checking the installed firmware on your Portenta.
 
-Then prepare the OTA storage, download the .ota file from the internet, decompress it, reset the board so after the reboot it will swipe the new firmware, and you will notice it by checking the Built-in LED flashing on red, green and blue.
+Then prepare the OTA storage, download the .ota file from the internet, decompress it, reset the board so after the reboot it will swipe the new firmware and you will notice it by checking the Built-in LED flashing on red, green and blue.
 
 ### SD Card Storage Mode
 
 #### Setting Up
-To use the **SD card** as the preferred OTA (Over-The-Air) storage device, we will use the Arduino Portenta Vision Shield and Portenta H7 connected via **HD (High-Density)** Connectors.  
+To use the **SD card** as the preferred OTA (Over-The-Air) storage device, you can use the Arduino Portenta Vision Shield and Portenta H7 connected via **HD (High-Density)** Connectors.  
 
 ![Arduino Portenta H7 with Vision Shield (Ethernet)](assets/portenta_h7_plus_vision_shield.svg)
 
@@ -176,14 +176,14 @@ With this, you will need the Arduino Portenta H7 board connected to the computer
 #### Writing the Script
 As same as QSPI storage mode, to proceed with a OTA using the SD Card, you can open the sketch from **Examples > Arduino_Portenta_OTA > OTA_SD_Portenta**.
 
-***Do not forget to fill your Wi-Fi AP SSID, and password on the `arduino_secrets.h` tab.***
+***Do not forget to fill your Wi-Fi AP SSID and password on the `arduino_secrets.h` tab.***
 
-This sketch will connect to your Wi-Fi, check if the OTA feature is available by checking the installed firmware on your Portenta.
+This sketch will connect to your Wi-Fi, verify whether the OTA feature is available by checking the installed firmware on your Portenta.
 
-Then prepare the OTA storage, download the .ota file from the internet, decompress it, reset the board so after the reboot it will swipe the new firmware, and you will notice it by checking the Built-in LED flashing on red, green and blue.
+Then prepare the OTA storage, download the .ota file from the internet, decompress it, reset the board so after the reboot it will swipe the new firmware and you will notice it by checking the Built-in LED flashing on red, green and blue.
 
 ## Testing the Code
-Having successfully uploaded the code and completed the OTA process, you will be able to see the Arduino Portenta H7 blinking LED with Red, Blue, Green in a cyclic manner. You will also be able to see in the Serial monitor provided by Arduino IDE process log for more details.
+Having successfully uploaded the code and completed the OTA process, you will be able to see the Arduino Portenta H7 blinking LED Red, Blue, Green in a cyclic manner. You will also be able to see process log in the Serial Monitor provided by Arduino IDE for more details.
 
 ![Arduino Portenta H7 OTA Completion with Cyclic RGB Blink](assets/portenta_h7_ota_blink_cycle.svg)
 
@@ -192,10 +192,10 @@ Having successfully uploaded the code and completed the OTA process, you will be
 ![Arduino Portenta H7 OTA SD Card Serial Monitor Log](assets/portenta_ota_sd_result.png)
 
 ## Conclusion
-You have now learned how to use the OTA feature provided by the Arduino Portenta H7, by updating its firmware. You will now be able to create the OTA file with the sketch designed by yourself, and use this to update Arduino Portenta H7’s firmware via OTA (Over-The-Air) feature with either QSPI or SD card storage mechanism. 
+You have now learned how to use the OTA feature provided by the Arduino Portenta H7, by updating its firmware. You will now be able to create the OTA file with the sketch designed by yourself and use this to update Arduino Portenta H7’s firmware via OTA (Over-The-Air) feature with either QSPI or SD card storage mechanism. 
 
 ### Next Steps 
-Now with the OTA capability in place, you can now design future-proof system based on Arduino Portenta H7 or try different system disciplines using the OTA capability. 
+Now, with the OTA capability in place, you can design future-proof system based on Arduino Portenta H7 or try different system disciplines using the OTA capability. 
 
 ## Full Sketches
 The complete script is as follows.
@@ -400,5 +400,5 @@ void loop()
 ## Troubleshooting
 For troubleshooting the issues that might have arose following the tutorial, you can use following tips to solve the issue. 
 
-- If it logs there has been an issue with Wi-Fi module, means the device may have suffered from losing the Wi-Fi firmware partition. To solve this, you will have to use **PortentaWiFiFirmwareupdater** sketch found on Arduino IDE examples to fix the issue. 
-- QSPI storage may throw error -3 while running Portenta H7 OTA QSPI example. To fix this you can use this guide of [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory) in the section **Programming the QSPI Flash**. After this, run the example and it should have been solved by eliminating error -3 (OTA Storage initialization error). 
+- If there has been an issue with Wi-Fi module, it means the device may have suffered from losing the Wi-Fi firmware partition. To solve this, you will have to use **PortentaWiFiFirmwareupdater** sketch found on Arduino IDE examples to fix the issue. 
+- QSPI storage may throw error -3 while running Portenta H7 OTA QSPI example. To fix this, you can use this guide of [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory) in the section **Programming the QSPI Flash**. At this point, run the example and it should have been solved by eliminating error -3 (OTA Storage initialization error). 

@@ -1,7 +1,7 @@
 ---
 title: 'Button Mouse Control'
 compatible-products: [due, micro, leonardo]
-difficulty: easy
+difficulty: beginner
 description: 'Control cursor movement with 5 pushbuttons.'
 tags: 
   - USB

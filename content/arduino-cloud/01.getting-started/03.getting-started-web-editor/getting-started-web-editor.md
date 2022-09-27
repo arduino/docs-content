@@ -88,4 +88,4 @@ If we look at the board we uploaded the code to, we should see the onboard LED b
 
 #### More tutorials
 
-You can find more tutorials in the [Web Editor documentation page](/cloud/web-editor/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud).

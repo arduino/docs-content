@@ -1,6 +1,6 @@
 ---
 title: 'Downloading and installing the Arduino IDE 2.0'
-difficulty: easy
+difficulty: beginner
 description: 'A quick guide on how to install the IDE 2.0 on your operative system.'
 tags:
  - Installation
@@ -11,7 +11,7 @@ author: 'Karl Söderby'
 
 In this tutorial, we will show how to download and install the Arduino IDE 2.0 on your Windows, Mac, or Linux computer.
 
-You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
 ### Requirements
 
@@ -21,11 +21,11 @@ You can easily download the editor from the [Arduino Software page](https://www.
 
 ### The Arduino IDE 2.0
 
-The Arduino IDE 2.0 is an open-source project. It is a big step from it's sturdy predecessor, Arduino IDE 1.x, and comes with revamped UI, improved board & library manager, debugger, autocomplete feature and much more. 
+The Arduino IDE 2.0 is an open-source project. It is a big step from its sturdy predecessor, Arduino IDE 1.x, and comes with revamped UI, improved board & library manager, debugger, autocomplete feature and much more. 
 
 ### Download the Editor
 
-Downloading the Arduino IDE 2.0 is done through the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). Here you will also find information on the other editors available to use. 
+Downloading the Arduino IDE 2.0 is done through the [Arduino Software page](https://www.arduino.cc/en/software). Here you will also find information on the other editors available to use. 
 
 ### Installation
 
@@ -51,7 +51,7 @@ You can now use the Arduino IDE 2.0 on your macOS computer!
 
 #### Linux 
 
-To install the Arduino IDE 2.0 on Linux, first download the **AppImage 64 bits (X86-64)** from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+To install the Arduino IDE 2.0 on Linux, first download the **AppImage 64 bits (X86-64)** from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
 Before we can launch the editor, we need to first make it an **executable file**. This is done by:
 - right-click the file,

@@ -23,15 +23,15 @@ software:
 ---
 
 ## Overview
-The Arduino Nicla Sense ME can give you information about the environment such as pressure, temperature and gas readings. Sometimes, we may have to place the sensor in a hard-to-reach area and therefore want to access the data wirelessly.
+The Arduino Nicla Sense ME can give you information about the environment such as pressure, temperature and gas readings. Sometimes, you may have to place the sensor in a hard-to-reach area and therefore want to access the data wirelessly.
 
-Thanks to the ANNA B112 Bluetooth® chip and the libraries developed for the Nicla sense, you can easily stream data over Bluetooth® to a device of your choice. By using WebBLE, no additional software other than a compatible browser (Google Chrome is recommended) is required.
+Thanks to the ANNA B112 Bluetooth® chip and the libraries developed for the Nicla Sense ME, you can easily stream data over Bluetooth® to a device of your choice. By using WebBLE, no additional software other than a compatible browser (Google Chrome is recommended) is required.
 
-To demonstrate this, we have prepared a simple sketch and hosted a dashboard so you can try it yourself. 
+To demonstrate this, we prepared a simple sketch and hosted a dashboard so you can try it yourself. 
 
-A [previous version](https://arduino.github.io/ArduinoAI/BLESense-test-dashboard/) of this dashboard was developed  to be used with the Arduino® Nano 33 BLE. You can see a video that shows how it looks [here](https://www.facebook.com/official.arduino/videos/ble-sense-test-dashboard/336762167617547/). 
+A [previous version](https://arduino.github.io/ArduinoAI/BLESense-test-dashboard/) of this dashboard was developed to be used with the Arduino® Nano 33 BLE. You can see a video that shows how it looks [here](https://www.facebook.com/official.arduino/videos/ble-sense-test-dashboard/336762167617547/). 
 
-In this tutorial we will focus on the version for the Arduino® Nicla Sense ME.
+In this tutorial we will focus on the Arduino® Nicla Sense ME.
 
 ## Goals
 
@@ -49,9 +49,9 @@ In this tutorial we will focus on the version for the Arduino® Nicla Sense ME.
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI: you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
+If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
-If you use a local IDE you can copy & paste the following sketch:
+If you use a local IDE, you can copy & paste the following sketch:
 ```arduino
   /*
 
@@ -60,7 +60,7 @@ If you use a local IDE you can copy & paste the following sketch:
 
   Hardware required: https://store.arduino.cc/nicla-sense-me
 
-  1) Upload this sketch to the Arduino Nano BLE sense board
+  1) Upload this sketch to the Arduino Nano Bluetooth® Low Energy sense board
 
   2) Open the following web page in the Chrome browser:
   https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
@@ -79,7 +79,7 @@ If you use a local IDE you can copy & paste the following sketch:
   #include "Arduino_BHY2.h"
   #include <ArduinoBLE.h>
 
-  #define BLE_SENSE_UUID(val) ("19b10000" val "-537e-4f6c-d104768a1214")
+  #define BLE_SENSE_UUID(val) ("19b10000-" val "-537e-4f6c-d104768a1214")
 
   const int VERSION = 0x00000000;
 
@@ -91,7 +91,7 @@ If you use a local IDE you can copy & paste the following sketch:
   BLEFloatCharacteristic pressureCharacteristic(BLE_SENSE_UUID("4001"), BLERead);
 
   BLECharacteristic accelerometerCharacteristic(BLE_SENSE_UUID("5001"), BLERead | BLENotify, 3 * sizeof(float));  // Array of 3x 2 Bytes, XY
-  BLECharacteristic gyroscopeCharacteristic(BLE_SENSE_UUID("6001"), BLERead | BLENotify, 3 * sizeof(int16_t));    // Array of 3x 2 Bytes, XYZ
+  BLECharacteristic gyroscopeCharacteristic(BLE_SENSE_UUID("6001"), BLERead | BLENotify, 3 * sizeof(float));    // Array of 3x 2 Bytes, XYZ
   BLECharacteristic quaternionCharacteristic(BLE_SENSE_UUID("7001"), BLERead | BLENotify, 4 * sizeof(float));     // Array of 4x 2 Bytes, XYZW
 
   BLECharacteristic rgbLedCharacteristic(BLE_SENSE_UUID("8001"), BLERead | BLEWrite, 3 * sizeof(byte)); // Array of 3 bytes, RGB
@@ -122,7 +122,7 @@ If you use a local IDE you can copy & paste the following sketch:
     nicla::leds.setColor(green);
 
     //Sensors initialization
-    BHY2.begin();
+    BHY2.begin(NICLA_STANDALONE);
     temperature.begin();
     humidity.begin();
     pressure.begin();
@@ -133,7 +133,7 @@ If you use a local IDE you can copy & paste the following sketch:
     gas.begin();
 
     if (!BLE.begin()){
-      Serial.println("Failed to initialized Bluetooth® Low Energy!");
+      Serial.println("Failed to initialized BLE!");
 
       while (1)
         ;
@@ -241,7 +241,7 @@ If you use a local IDE you can copy & paste the following sketch:
   }
 
   void onHumidityCharacteristicRead(BLEDevice central, BLECharacteristic characteristic){
-    uint8_t humidityValue = humidity.value();
+    uint8_t humidityValue = humidity.value() + 0.5f;  //since we are truncating the float type to a uint8_t, we want to round it
     humidityCharacteristic.writeValue(humidityValue);
   }
 
@@ -272,6 +272,7 @@ If you use a local IDE you can copy & paste the following sketch:
 
     nicla::leds.setColor(r, g, b);
   }
+
 ```
 
 ### Connect to the Dashboard
@@ -280,13 +281,13 @@ Once you uploaded the sketch to your board you can open the [Nicla Sense ME Dash
 
 ![Preview of the dashboard](assets/arduinoAI_Nicla_dashboard.png)
 
-To connect your board to the dashboard, you will need to click on the top left button which says "Connect Board". A pop up will be displayed in your browser and it starts searching for Bluetooth® devices. This application is using the WebBLE functionality of your browser.
+To connect your board to the dashboard, you will need to click on the top left button which says "Connect Board". A pop up will be displayed in your browser and it starts searching for Bluetooth® devices. This application leverages the WebBLE functionality of your browser.
 
 ![Popup message to connect the device to the browser](assets/arduinoAI_Nicla_dashboard_connectDevice.png)
 
 ***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to <chrome://flags> and enable "Experimental Web Platform features". Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
 
-Once it's connected, the button will change its color to green, and the graphs will start to show data in real time.
+Once it is connected, the button will change its color to green, and the graphs will start to show data in real time.
 
 Try to rotate the board and see the 3D model of the board spin.
 
@@ -297,4 +298,4 @@ Breathe onto the board and see the humidity and temperature values changing.
 
 ## Conclusion
 
-The Nicla Sense ME supports a lot of use cases through its on-board sensors and the Bluetooth® Low Energy functionality. By leveraging the WebBLE API you don't need to install or run any application from your computer as shown in this tutorial. You can read more about WebBLE technology [here](https://web.dev/bluetooth/).
+The Nicla Sense ME supports a lot of use cases through its on-board sensors and the Bluetooth® Low Energy functionality. By leveraging the WebBLE API you do not need to install or run any application from your computer as shown in this tutorial. You can read more about WebBLE technology [here](https://web.dev/bluetooth/).

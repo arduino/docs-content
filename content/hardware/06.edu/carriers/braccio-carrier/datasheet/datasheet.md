@@ -14,23 +14,23 @@ Robotics, Automation, Education, Gaming, Communication
 
 # Features
 - **MaxLinear SP335 Transceiver**
-    - Multiprotocol transceiver supporting RS-232, RS-485, and RS-422 serial standards
-    - Data rates of 20 Mbps in RS-485/422 modes and up to 1Mbps in RS-232
-    - ±15kV ESD protection
-    - Supply voltage from 3V to 5.5V
+  - Multiprotocol transceiver supporting RS-232, RS-485, and RS-422 serial standards
+  - Data rates of 20 Mbps in RS-485/422 modes and up to 1Mbps in RS-232
+  - ±15kV ESD protection
+  - Supply voltage from 3V to 5.5V
 - **Display Connector**
-    - Flexible flat cable and flexible printed circuit connector with 0.5mm spacing
-    - Operating temperature up to 105°C
-    - Max current for one contact is 0.5A
-    - Robust, reliable and easy to operate for automatic mounting and SMT processes
-    - Right angle mounting
-    - Plastic tape packaging
+  - Flexible flat cable and flexible printed circuit connector with 0.5mm spacing
+  - Operating temperature up to 105°C
+  - Max current for one contact is 0.5A
+  - Robust, reliable and easy to operate for automatic mounting and SMT processes
+  - Right angle mounting
+  - Plastic tape packaging
 - **Mini Joystick Connector**
 - **Programmable USB Type-C Connector**
 - **ESD Protection**
-    - 4- and 5-line unidirectional transil function for electrostatic discharge protection
-    - Low-leakage current: < 500 nA
-    - PCB Area: < 2.6 mm2
+  - 4- and 5-line unidirectional transil function for electrostatic discharge protection
+  - Low-leakage current: < 500 nA
+  - PCB Area: < 2.6 mm2
 
 # Contents 
 
@@ -56,60 +56,51 @@ Following information outlines the technical overview of the Arduino® Braccio C
 ### Peripherals
 
 - **JAX133T-IF05** 
-    - Display module to allow Braccio ++ to deploy visual information. The module is based on 240RGBX240 Dot-Matrix TFT LCD via FPC interface. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
-    
-    | Compatible Connector |
-    | :------------------: |
-    |  J1 (Display CONN)   |
+  - Display module to allow Braccio ++ to deploy visual information. The module is based on 240RGBX240 Dot-Matrix TFT LCD via FPC interface. It is possible to interconnect via Display Connector J1 found on Arduino® Braccio Carrier.
+  | Compatible Connector |
+  | :------------------: |
+  |  J1 (Display CONN)   |
 
 - **Switronic IT-1501-G** 
-    - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
-    
-    | Compatible Connector |
-    | :------------------: |
-    |  J3 & J4 Board CONN  |
-    
+  - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
+  | Compatible Connector |
+  | :------------------: |
+  |  J3 & J4 Board CONN  |
+
 ### Connectors & I/O Port 
 
 - **Display Connector J1**
-    - Connector available to interface the JAX133T-IF05 display module.
-
-    |  Connector Ref.     |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
-    | ------------------- | ------------------------------------ | ------------------------------------- |
-    |  J1                 |  0.5A per Contact                    |  105°C                                |
+  - Connector available to interface the JAX133T-IF05 display module.
+  |  Connector Ref.     |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
+  | ------------------- | ------------------------------------ | ------------------------------------- |
+  |  J1                 |  0.5A per Contact                    |  105°C                                |
 
 - **J3 & J4 Board Connector**
-    
-- Board splitter which allows to interface display and joystick at a distance, from which all the motor wire interfaces arrive.
-    
-- **Molex 44914-0601**
-    - Rectangular power connector with 6 contacts. Available for external power supply and for servo line.
+  - Board splitter which allows to interface display and joystick at a distance, from which all the motor wire interfaces arrive.
 
-    |  No. Connectors  |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
-    | ---------------- | ------------------------------------ | ------------------------------------- |
-    |  2               |  600V @ 8.5A                         |  -40°C ~ +105°C                       |
+- **Molex 44914-0601**
+  - Rectangular power connector with 6 contacts. Available for external power supply and for servo line.
+  |  No. Connectors  |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
+  | ---------------- | ------------------------------------ | ------------------------------------- |
+  |  2               |  600V @ 8.5A                         |  -40°C ~ +105°C                       |
 
 - **Adam Equipment LHA-04-TS**
-    - Connectors available to interface with motors. RS485 smart motors compatible, derived by configuration of 4x SR418D and 2x SR312 models. Lead free and RoHS Compliant. 
-    
-    |  No. Connectors  |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
-    | ---------------- | ------------------------------------ | ------------------------------------- |
-    |  6               |  250VAC @ 3A                         |  -25°C ~ +85°C                        |
+  - Connectors available to interface with motors. RS485 smart motors compatible, derived by configuration of 4x SR418D and 2x SR312 models. Lead free and RoHS Compliant. 
+  |  No. Connectors  |  Maximum Electrical Operating Range  |  Maximum Temperature Operating Range  |
+  | ---------------- | ------------------------------------ | ------------------------------------- |
+  |  6               |  250VAC @ 3A                         |  -25°C ~ +85°C                        |
 
 - **USB-C Port**
-    - USB Type C port available to enable programming, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier. 
-    
-    |  USB Standard   |  USB Power Delivery Rev.   |  USB Type              |  Purpose                          |
-    | --------------- | -------------------------- | ---------------------- | --------------------------------- |
-    |  3.1            |  3.0                       |  Type C (Reversible)   |  Power Supply                     |
+  - USB Type C port available to enable programming, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier.
+  |  USB Standard   |  USB Power Delivery Rev.   |  USB Type              |  Purpose                          |
+  | --------------- | -------------------------- | ---------------------- | --------------------------------- |
+  |  3.1            |  3.0                       |  Type C (Reversible)   |  Power Supply                     |
 
-- **ESLOV Connector** 
-    - The connector provides the capability of module's automatic configuration and handle the sleep state for low power mode. Connector is designated with J2 reference, providing 5 pins for interrupt and I2C protocol at 5V. 
-
-    |  Connector Ref.     |  Operating Voltage     |  Line Feature                |
-    | ------------------- | ---------------------- | ---------------------------- |
-    |  J2                 |  5V                    |  I2C Protocol + Interrupt    |
-
+- **ESLOV Connector**
+  - The connector provides the capability of module's automatic configuration and handle the sleep state for low power mode. Connector is designated with J2 reference, providing 5 pins for interrupt and I2C protocol at 5V.
+  |  Connector Ref.     |  Operating Voltage     |  Line Feature                |
+  | ------------------- | ---------------------- | ---------------------------- |
+  |  J2                 |  5V                    |  I2C Protocol + Interrupt    |
 
 ## Ratings
 

@@ -9,3 +9,5 @@ extint
 dout
 synopsys
 trun
+complies
+ro

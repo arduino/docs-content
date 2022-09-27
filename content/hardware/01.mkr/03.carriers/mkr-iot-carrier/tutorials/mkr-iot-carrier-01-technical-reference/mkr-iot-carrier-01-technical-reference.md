@@ -157,11 +157,11 @@ Returns pressure value in Kilopascal (kPa).
 
 ![The IMU on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-imu.png)
 
-The **LSM6DSOXTR** from STM is an IMU (Inertial Measurement Unit) that features a 3D digital accelerometer and a 3D digital gyroscope. It features among many other things, a machine learning core, which is useful for any motion detection projects, such as free fall, step detector, step counter, pedometer. The unit is placed underneath the MKR IoT Carrier's display, connects to the mounted Arduino MKR board through an I2C interface, and acquires Low power consumption (0.55mA max).
+The **LSM6DS3** from STM is an IMU (Inertial Measurement Unit) that features a 3D digital accelerometer and a 3D digital gyroscope.
 
 ### Code
 
-To access the data from the **LSM6DSOX module**, the **MKRIoTCarrier** library needs to be included. The carrier's library includes the **Arduino_LSM6DS3** and functions similarly. The 3-axis values from the **accelerometer** and **gyroscope** sensors can be stored in **float** variables as shown below:
+To access the data from the **LSM6DS3 module**, the **MKRIoTCarrier** library needs to be included. The carrier's library includes the **Arduino_LSM6DS3** and functions similarly. The 3-axis values from the **accelerometer** and **gyroscope** sensors can be stored in **float** variables as shown below:
 
 ```arduino
 float x, y, z;
@@ -422,7 +422,7 @@ The `carrier.leds.show();` method is necessary for updating the new state of the
 Here are some of the useful methods used to control the LEDs on the MKR IoT Carrier:
 
 ```arduino
-carrier.leds.setPixelColor(index, green, red, blue);
+carrier.leds.setPixelColor(index, red, green, blue);
 ```
 
 Sets the color of the index’s LED.
@@ -446,7 +446,7 @@ carrier.leds.fill(color, firstLedToCount, count);
 Fill X amount of the LEDs with the same color.
 
 ```arduino
-uint32_t myColor = carrier.leds.Color(green, red, blue)
+uint32_t myColor = carrier.leds.Color(red, green, blue)
 ```
 
 Saves a custom color.

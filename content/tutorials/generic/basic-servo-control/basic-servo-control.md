@@ -1,7 +1,7 @@
 ---
 title: Basic servo control
 description: In this tutorial, we will learn how to control a standard servo motor, to go back and forth across 180 degrees, using a `for loop()`. This is done with the help of the Servo library, which is pre-installed library in the Arduino IDE (both offline and online versions).
-difficulty: easy
+difficulty: beginner
 featuredImage: 'clip'
 ---
 

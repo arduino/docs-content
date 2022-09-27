@@ -1,7 +1,7 @@
 ---
 title: 'How to Use Arrays'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'A variation on the For Loop example that demonstrates how to use an array.'
 tags: 
   - Control structures

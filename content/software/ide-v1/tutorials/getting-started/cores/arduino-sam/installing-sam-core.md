@@ -1,7 +1,7 @@
 ---
 title: 'Installing the SAM core for the Arduino Due'
 compatible-products: [due]
-difficulty: easy
+difficulty: beginner
 description: 'A step-by-step guide to install the core needed for the Arduino Due board.'
 author: 'Karl Söderby'
 ---

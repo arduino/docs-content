@@ -1,6 +1,6 @@
 ---
 title: 'MKR RGB Shield Fading'
-difficulty: easy
+difficulty: beginner
 compatible-products: [mkr-rgb-shield]
 description: 'Learn how to gradually increase and decrease the brightness of the LEDs on the shield.'
 tags:

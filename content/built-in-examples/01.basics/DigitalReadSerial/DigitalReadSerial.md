@@ -1,7 +1,7 @@
 ---
 title: 'Digital Read Serial'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Read a switch, print the state out to the Arduino Serial Monitor.'
 tags: 
   - Basics

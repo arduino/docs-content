@@ -1,4 +1,4 @@
 ---
-title: Starter Kit
-certifications: [CE, UKCA]
+title: Starter Kit 6-pack
+certifications: [CE]
 ---

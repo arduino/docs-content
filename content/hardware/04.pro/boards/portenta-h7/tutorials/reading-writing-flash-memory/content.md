@@ -19,7 +19,7 @@ software:
   - web-editor
 ---
 ## Overview 
-This tutorial demonstrates how to use the on-board Flash memory of the Portenta H7 to read and write data using the BlockDevice API provided by Mbed OS. As the internal memory is limited in size we will also take a look at saving data to the QSPI Flash memory.
+This tutorial demonstrates how to use the on-board Flash memory of the Portenta H7 to read and write data using the BlockDevice API provided by Mbed OS. As the internal memory is limited in size, we will also take a look at saving data to the QSPI Flash memory.
 
 ## Goals
 
@@ -38,25 +38,25 @@ Portenta's core is based on the Mbed operating system, allowing for Arduino APIs
 
 Mbed OS has a rich API for managing storage on different mediums, ranging from the small internal Flash memory of a microcontroller to external SecureDigital cards with large data storage space.
 
-In this tutorial, we are going to save a value persistently inside the Flash memory. That allows to access that value even after rebooting the board. We will retrieve some information from a Flash block by using the [FlashIAPBlockDevice](https://os.mbed.com/docs/mbed-os/v6.9/apis/flashiapblockdevice.html) API and create a block device object within the available space of the memory. In case of the internal memory it's the space which is left after uploading a sketch to the board.
+In this tutorial, you are going to save a value persistently inside the Flash memory. That allows to access that value even after rebooting the board. You will retrieve some information from a Flash block by using the [FlashIAPBlockDevice](https://os.mbed.com/docs/mbed-os/v6.9/apis/flashiapblockdevice.html) API and create a block device object within the available space of the memory. In case of the internal memory, it corresponds to the space which is left after uploading a sketch to the board.
 
 ***Be aware of the Flash r/w limits: Flash memories have a limited amount of read/write cycles. Typical Flash memories can perform about 10000 writes cycles to the same block before starting to "wear out" and begin to lose the ability to retain data. You can render your board useless with improper use of this example and described APIs.***
 
 ## Block Device Blocks
 
-Blocks of Flash memory can be accessed through the block device APIs. They are byte addressable but operate in units of blocks. There are three types of blocks for the different block device operations: read blocks, erase blocks and program blocks. The recommended procedure for programming data is to first erase a block and then programming it in units of the program block size. The sizes of the erase, program and read blocks may not be the same but they must be multiples of each another. Keep in mind that the state of an erased block is undefined until you program it with data.
+Blocks of Flash memory can be accessed through the block device APIs. They are byte addressable but operate in units of blocks. There are three types of blocks for the different block device operations: read blocks, erase blocks and program blocks. The recommended procedure for programming data is to first erase a block and then programming it in units of the program block size. The sizes of the erase, program and read blocks may not be the same, but they must be multiples of each another. Keep in mind that the state of an erased block is undefined until you program it with data.
 
 ![Conceptual view of how the block sizes relate to one another](assets/por_ar_flash_memory.svg)
 
 ## Programming the Internal Flash
 
 ### 1. Create the Structure of the Program
-Before we start it's important to keep the above mentioned **Flash r/w limits** in mind! Therefore this method should only be used for **once-in-a-while** read and write **operations** such as reading a user setting in the `setup()`. It is not a good idea to use it for constantly updated values such as sensor data.
+Before we start it's important to keep the above mentioned **Flash r/w limits** in mind! Therefore this method should only be used for **once-in-a-while** read and write **operations**, such as reading a user setting in the `setup()`. It is not a good idea to use it for constantly updated values such as sensor data.
 
-Having this in mind, it's time to create a sketch to program the Portenta. After creating new sketch and giving it a fitting name (in our case `FlashStorage.ino`) we need to create one more file to be used by the sketch, called `FlashIAPLimits.h`, that we will use to define some helper functions. This allows us to reuse the helper file later for other sketches.
+Having this in mind, it is time to create a sketch to program the Portenta. After creating new sketch and giving it a fitting name (in this case `FlashStorage.ino`), you need to create one more file to be used by the sketch, called `FlashIAPLimits.h`, that you will use to define some helper functions. This allows you to reuse the helper file later for other sketches.
 
 ### 2. The Helper Functions
-Within the `FlashIAPLimits.h` file we start by including necessary libraries and defining the namespace. 
+Within the `FlashIAPLimits.h` file, you can start by including necessary libraries and defining the namespace. 
 
 ```cpp
 // Ensures that this file is only included once
@@ -69,7 +69,7 @@ Within the `FlashIAPLimits.h` file we start by including necessary libraries and
 using namespace mbed;
 ```
 
-After that we create a struct which will later be used to save the storage's properties.
+After that, you can create a struct which will later be used to save the storage's properties.
 
 ```cpp
 // An helper struct for FlashIAP limits
@@ -124,7 +124,7 @@ FlashIAPLimits getFlashIAPLimits()
 ```
 
 ### 3. Reading & Writing Data
-Going back to the `FlashStorage.ino` file some more files need to be included in order to implement reading add writing to the flash. The `FlashIAPBlockDevice.h` API will be used to create a block device in the empty part of the memory. Additionally we include the helper file `FlashIAPLimits.h` to have access to the address and size calculation function that we just created. We also reference the `mbed` namespace for better readability.
+Going back to the `FlashStorage.ino` file, some more files need to be included in order to implement reading and writing to the Flash. The `FlashIAPBlockDevice.h` API will be used to create a block device in the empty part of the memory. Additionally, you can include the helper file `FlashIAPLimits.h` to have access to the address and size calculation function that you just created. You can also reference the `mbed` namespace for better readability.
 
 ```cpp
 #include <FlashIAPBlockDevice.h>
@@ -147,7 +147,7 @@ void setup() {
   randomSeed(analogRead(0));
 ```
 
-Next the helper function, defined in the `FlashIAPLimits.h` file, is called to calculate the memory properties that are then used to create a block device using the `FlashIAPBlockDevice.h` library.
+Next the helper function, defined in the `FlashIAPLimits.h` file is called to calculate the memory properties, which are then used to create a block device using the `FlashIAPBlockDevice.h` library.
 
 ```cpp
 // Get limits of the the internal flash of the microcontroller
@@ -166,9 +166,9 @@ Serial.println(" MB");
 FlashIAPBlockDevice blockDevice(startAddress, iapSize);
 ```
 
-Before using the block device the first step is to initialize it using `blockDevice.init()`. Once initialized it can provide the sizes of the blocks for programming the Flash. In terms of reading and writing Flash memory blocks there is a distinction between the size of a readable block in bytes, a programmable block, which size is always a multiple of the read size and an erasable block which is always a multiple of a programmable block.
+Before using the block device, the first step is to initialize it using `blockDevice.init()`. Once initialized, it can provide the sizes of the blocks for programming the Flash. In terms of reading and writing Flash memory blocks, there is a distinction between the size of a readable block in bytes, a programmable block, which size is always a multiple of the read size, and an erasable block, which is always a multiple of a programmable block.
 
-When reading and writing directly from and to the Flash memory we need to always allocate a buffer with a multiple of the program block size. The amount of required program blocks can be determined by dividing the data size by the program block size. The final buffer size is equal to the amount of program blocks multiplied by the program block size.
+When reading and writing directly from and to the Flash memory, you need to always allocate a buffer with a multiple of the program block size. The amount of required program blocks can be determined by dividing the data size by the program block size. The final buffer size is equal to the amount of program blocks multiplied by the program block size.
 
 ```cpp
 // Initialize the Flash IAP block device and print the memory layout
@@ -193,7 +193,7 @@ const auto dataSize = requiredProgramBlocks * programBlockSize;
 char buffer[dataSize] {};
 ```
 
-In the last part of the `setup()` function we can now use the block device to read and write data. First the buffer is used to read what was stored within the previous execution, then the memory gets erased and reprogrammed with the new content. At the end of the reading and writing process the block device needs to be de-initialized again using `blockDevice.deinit()`.
+In the last part of the `setup()` function you can now use the block device to read and write data. First the buffer is used to read what was stored within the previous execution, then the memory gets erased and reprogrammed with the new content. At the end of the reading and writing process, the block device needs to be de-initialized again using `blockDevice.deinit()`.
 
 ```cpp
 // Read back what was stored at previous execution
@@ -356,14 +356,14 @@ void loop() {}
 ```
 
 ### 5. Results
-After uploading the sketch open the serial monitor to start the Flash reading and writing process. The first time you start the script the block device will be filled randomly. Now try to reset or disconnect the Portenta and reconnect it. You should see a message with the random number written to the Flash storage in the previous execution.
+After uploading the sketch open the Serial Monitor to start the Flash reading and writing process. The first time you start the script, the block device will be filled randomly. Now try to reset or disconnect the Portenta and reconnect it, you should see a message with the random number written to the Flash storage in the previous execution.
 
-***Note that the value written to the Flash storage will persist if the board is reset or disconnected. However the Flash storage will be reprogrammed once a new sketch is uploaded to the Portenta and may overwrite the data stored in the Flash.***
+***Note that the value written to the Flash storage will persist if the board is reset or disconnected. However, the Flash storage will be reprogrammed once a new sketch is uploaded to the Portenta and may overwrite the data stored in the Flash.***
 
 ## Programming the QSPI Flash
 
-One issue with the internal Flash is that it's limited in size and the erase blocks are pretty large. This leaves very little space for your sketch and you may quickly run into issues with more complex applications. Therefore we can use the external QSPI Flash which has plenty of space to store data.
-For that the block device needs to be initialized differently but the rest of the sketch remains the same. To initialize the device we use the [QSPIFBlockDevice](https://os.mbed.com/docs/mbed-os/v6.9/apis/qspifblockdevice.html) class which is a block device driver for NOR-based QSPI Flash devices.
+One issue with the internal Flash is that it is limited in size and the erase blocks are pretty large. This leaves very little space for your sketch and you may quickly run into issues with more complex applications. Therefore, you can use the external QSPI Flash which has plenty of space to store data.
+For that, the block device needs to be initialized differently, but the rest of the sketch remains the same. To initialize the device you can use the [QSPIFBlockDevice](https://os.mbed.com/docs/mbed-os/v6.9/apis/qspifblockdevice.html) class which is a block device driver for NOR-based QSPI Flash devices.
 
 ```cpp
 #define BLOCK_DEVICE_SIZE 1024 * 8 // 8 KB
@@ -383,7 +383,7 @@ if(blockDevice.init() != 0 || blockDevice.size() != BLOCK_DEVICE_SIZE) {
 }
 ```
 
-While the QSPI block device memory can be used directly, it's better to use a partition table as the QSPI storage is also filled with other data such as the Wi-Fi firmware. For that we use the [MBRBlockDevice](https://os.mbed.com/docs/mbed-os/v6.8/apis/mbrblockdevice.html) class and allocate a 8 KB partition which can then be used to read and write data.
+While the QSPI block device memory can be used directly, it is better to use a partition table as the QSPI storage is also filled with other data, such as the Wi-Fi firmware. For that you use the [MBRBlockDevice](https://os.mbed.com/docs/mbed-os/v6.8/apis/mbrblockdevice.html) class and allocate a 8 KB partition, which can then be used to read and write data.
 
 The full QSPI version of the sketch is as follows:
 
@@ -460,7 +460,8 @@ void loop() {}
 ```
 
 ## Conclusion
-We have learned how to use the available space in the Flash memory of the microcontroller to read and save custom data. It's not recommended to use the Flash of the microcontroller as the primary storage for data-intensive applications. It is better suited for read/write operations that are performed only once in a while such as storing and retrieving application configurations or persistent parameters.
+We have learned how to use the available space in the Flash memory of the microcontroller to read and save custom data. It is not recommended to use the Flash of the microcontroller as the primary storage for data-intensive applications. It is better suited for read/write operations that are performed only once in a while such as storing and retrieving application configurations or persistent parameters.
 
 ## Next Steps
-Now that you know how to use block device to perform reading and writing Flash memory you can look into the [next tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/flash-optimized-key-value-store) on how to use the [TDBStore API](https://os.mbed.com/docs/mbed-os/v6.9/apis/kvstore.html) to create a [key value store](https://en.wikipedia.org/wiki/Key%E2%80%93value_database) in the Flash memory.
+Now that you know how to use block device to perform reading and writing Flash memory, you can look into the [next tutorial](https://docs.arduino.cc/tutorials/portenta-h7/flash-optimized-key-value-store) on how to use the [TDBStore API](https://os.mbed.com/docs/mbed-os/latest/apis/kvstore.html) to create a [key value store](https://en.wikipedia.org/wiki/Key%E2%80%93value_database) in the Flash memory.
+

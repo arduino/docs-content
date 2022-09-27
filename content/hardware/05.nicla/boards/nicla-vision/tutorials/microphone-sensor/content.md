@@ -1,6 +1,6 @@
 ---
 title: 'Reading Audio Samples With the Onboard Microphone'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to create a soundmeter using the built-in microphone with the Nicla Vision.'
 tags:
   - OpenMV
@@ -29,10 +29,10 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 ## Goals
 
-- Get the microphone data.
-- Use the PDM(Pulse-density modulation) library.
-- Print the microphone values in the Serial Monitor.
-- Change RGB blinking speed with the last microphone reading. (Arduino IDE)
+- Get the microphone data
+- Use the PDM(Pulse-density modulation) library
+- Print the microphone values in the Serial Monitor
+- Change RGB blinking speed with the last microphone reading (Arduino IDE)
 - Show the values on a spectrum analyzer (only with openMV)
 
 ### Required Hardware and Software
@@ -43,7 +43,7 @@ In this tutorial you will use the **Arduino Nicla Vision** board to get the micr
 
 ## Set Up
 
-To check that you correctly set up the board please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** instructions.
+To check that you correctly set up the board, please visit our [Getting Started Guide](https://docs.arduino.cc/tutorials/nicla-vision/getting-started) for both **OpenMV** and **Arduino** instructions.
 
 ## Instructions
 
@@ -53,9 +53,9 @@ Open the script by going to **Examples > Arduino > NanoRP2040 > Audio > Audio_ff
 
 ***Using the same sketch as the NanoRP2040, because both boards access the microphone in the same way***
 
-Make sure the board is connected, if the board is connected to OpenMV you should see a green play button in the bottom left corner of the window. If you do not see this icon, try pressing the connect button in the bottom left corner. If there still is some issue to connect the board take another look at the getting started guide.
+Make sure the board is connected, if the board is connected to OpenMV you should see a green play button in the bottom left corner of the window. If you do not see this icon, try pressing the connect button in the bottom left corner. If there still is some issue to connect the board, take another look at the getting started guide.
 
-When the script is running, you will see an spectrum analyzer in the top right panel that reflects the audio readings input. Try making some noise and see how it reacts.
+When the script is running, you will see a spectrum analyzer in the top right panel that reflects the audio readings input. Try making some noise and see how it reacts.
 
 ![OpenMV IDE - Spectrum analyzer](assets/OpenMV_spectrumAnalyzer.png)
 
@@ -63,13 +63,13 @@ When the script is running, you will see an spectrum analyzer in the top right p
 
 #### Setting Up the Sketch
 
-We will edit the example from the mbed Core, go to **Examples > PDM > PDMSerialPlotter** and save it into your sketchbook.
+You will edit the example from the mbed Core, go to **Examples > PDM > PDMSerialPlotter** and save it into your sketchbook.
 
 You can run the sketch to see the result, it will show the data that the microphone is getting on the **Serial Plotter**.
 
 #### Controlling the Blinking LED 
 
-Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values by changing the blinking time to the last reading of the microphone, the blink will be slow if the sound is loud, and fast if it is quiet.
+Now that you can get the microphone data, let's control the built-in RGB LED and change the speed of its blinking depending on the values, by changing the blinking time to the last reading of the microphone; the blink will be slow if the sound is loud, and fast if it is quiet.
 
 You can access the example sketch at **Examples > PDM > PDMSerialPlotter** and then edit as shown in this tutorial.
 Or find the full edited sketch in our **Arduino_Pro_Tutorials** library.
@@ -184,7 +184,7 @@ If you want to test it, the only thing you need to do is to speak or play some s
 
 ### Troubleshoot
 
-- In case the Serial Monitor freezes, unplug and then plug the board into your computer again, now try to upload the sketch
+- In case the Serial Monitor freezes, unplug and then plug the board into your computer again. Now try to upload the sketch.
 - If the sketch is not working, try to double tap the reset button and upload the sketch once again.
   
 ## Conclusion

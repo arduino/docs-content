@@ -137,6 +137,9 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
+            "windows": {
+                "command": ".\\scripts\\spell-check.cmd"                
+            },
             "group": "none",
             "presentation": {
                 "reveal": "always",

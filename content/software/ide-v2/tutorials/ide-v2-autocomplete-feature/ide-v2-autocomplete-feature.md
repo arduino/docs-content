@@ -1,6 +1,6 @@
 ---
 title: 'The Autocomplete Feature'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how the autocomplete feature works with Arduino IDE 2.0, and how it can help speed up your development time.'
 tags:
  - Autocompletion
@@ -12,7 +12,7 @@ Autocompletion when writing code is great. Not only does it save you time, but i
 
 The Arduino IDE 2.0 comes equipped with this tool, to make your code-writing experience, a pleasant one. In this tutorial, we will go through some basics on how to use it.
 
-You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
 You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tutorial/getting-started-with-ide-v2/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 

@@ -35,7 +35,7 @@ In this article, we will cover three methods to upgrade your NINA module's firmw
 ## Hardware & Software Needed
 
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
-- [Arduino IDE 2](https://www.arduino.cc/en/software#experimental-software)
+- [Arduino IDE 2](https://www.arduino.cc/en/software)
 - [arduino-fwuploader tool](https://github.com/arduino/arduino-fwuploader/releases)
 - [Arduino Cloud IoT](https://create.arduino.cc/iot/)
 

@@ -1,7 +1,7 @@
 ---
 title: 'While Loop'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'How to use a while loop to calibrate a sensor while a button is being read.'
 tags: 
   - Control structures

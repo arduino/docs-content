@@ -2,7 +2,7 @@
 title: Connecting the Nicla Sense ME to IoT Cloud
 tags: [IoT, Cloud, IDE, Create ]
 description: This tutorial shows you how to set up the Arduino Nicla Sense ME and the Arduino Portenta H7 to connect to Arduino Cloud IoT and upload sensor data.
-difficulty: easy
+difficulty: beginner
 author: Ernesto Lopez, Pablo Marquínez
 libraries:
   - name: Arduino BHY2
@@ -20,29 +20,29 @@ software:
 
 ## Overview
 
-In this tutorial you will learn how to upload data from the Nicla module to the IoT Cloud. You will use the **Portenta H7** to interface with the **Nicla Sense ME** using the eslov connector and upload the data using the Portenta Wireless capabilities.
+In this tutorial you will learn how to upload data from the Nicla module to the IoT Cloud. You will use the **Portenta H7** to interface with the **Nicla Sense ME** using the ESLOV connector and upload the data using the Portenta Wireless capabilities.
 
 ## Goals
 
-- How to configure the Portenta H7 to read temperature values from the Nicla Sense using the ESLOV connector.
-- How to Connect the Portenta H7 to the IoT cloud
-- Publish the temperature values that we obtained from the Nicla board to the Arduino IoT Cloud.
+- How to configure the Portenta H7 to read temperature values from the Nicla Sense ME using the ESLOV connector.
+- How to Connect the Portenta H7 to the Arduino IoT Cloud
+- Publish the temperature values that you obtained from the Nicla board to the Arduino IoT Cloud.
 
 ### Required Hardware and Software
 
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
-- Eslov cable (included with the Nicla Sense ME)
+- ESLOV cable (included with the Nicla Sense ME)
 - USB-C to USB-A / C depending on your hardware (Portenta H7)
 - USB-A to micro USB-A (Nicla Sense ME)
 - Wi-Fi Access point with access to the internet
-- [Arduino Create](https://create.arduino.cc/) account
+- [Arduino Cloud](https://create.arduino.cc/) account
 
 ## Instructions
 
 ### Hardware Connection
 
-For the hardware setup just connect the Nicla board to the Portenta H7 using the Eslov cable like in the illustration below. Then connect the Portenta H7 to your computer using an USB-C cable.
+For the hardware setup, just connect the Nicla board to the Portenta H7 using the ESLOV cable like in the illustration below. Then connect the Portenta H7 to your computer using an USB-C cable.
 
 ![Nicla connection](assets/eslov-connection.svg)
 
@@ -58,11 +58,11 @@ For further tips on how to operate the Nicla module check the [cheat sheet](http
 
 ### Client Board (Nicla Sense ME)
 
-The **Nicla Sense ME** will be listening to the Host board to send back the required data, this is all automated by the libraries **Arduino_BHY2** and **Arduino_BHY2Host**
+The **Nicla Sense ME** will be listening to the Host board to send back the required data, this is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**
 
-The code its available inside the examples provided with the **Arduino_BHY2** Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**
+The code is available inside the examples provided with the **Arduino_BHY2** Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**
 
-This is the code, which initialize the sensors, and maintain the communication
+This is the code, which initialize the sensors, and maintain the communication:
 
 ```cpp
 /* 
@@ -85,22 +85,22 @@ void loop(){
 }
 ```
 
-### Set up the IoT Cloud
+### Set up the Arduino IoT Cloud
 
-To configure the IoT cloud you can follow this [tutorial](content/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
+To configure the Arduino IoT cloud you can follow this [tutorial](content/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
 
 
-Create a new thing at <https://create.arduino.cc/iot/things>, we called it "PRO - Portenta and Nicla". You will need to attach the Portenta H7 as a new device to your **Thing setup.** After that go to **Variables** and click the **add** button and select a float variable called **temperature** to store the temperature readings.
+Create a new Thing at <https://create.arduino.cc/iot/things>, you can call it "PRO - Portenta and Nicla". You will need to attach the Portenta H7 as a new device to your **Thing setup.** After that, go to **Variables**, click the **add** button and select a float variable called **temperature** to store the temperature readings.
 
 ![Arduino IoT Cloud - Thing Setup](assets/IoTCloud-thingSetup.png)
 
-***Remember to add your Wi-Fi SSID name, and its password (you can do that inside the Thing setup tab) to be able to connect to the Arduino IoT Cloud.***
+***Remember to add your Wi-Fi SSID name and its password (you can do that inside the Thing setup tab) to be able to connect to the Arduino IoT Cloud.***
 
 ### Host Board: Edit the Cloud Sketch
 
-You can edit the sketch by clicking the **sketch tab** inside your **Thing page**. The sketch is automatically generated with the enough code to upload it and connect to the cloud. 
+You can edit the sketch by clicking the **sketch tab** inside your **Thing page**. The sketch is automatically generated with enough code to upload it and connect it to the Cloud. 
 
-Before uploading you should add the following code:
+Before uploading, you should add the following code:
 
 First include the headers that you need and declare the temperature sensor by adding the **temperature sensor ID**.
 
@@ -114,7 +114,7 @@ Sensor tempSensor(SENSOR_ID_TEMP);
 
 ***You can find all the Sensor IDs at <https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids>.***
 
-Inside `void setup()` initialize the `Serial` communication, configure the variables and configuration for the Arduino IoT Cloud(properties), wait until the **Portenta H7** is connected to the Wi-Fi and IoT Cloud and after that it will setup the communication with the **Nicla Sense ME** and configure the temperature sensor.
+Inside `void setup()` initialize the `Serial` communication, set up the variables and configuration for the Arduino IoT Cloud (properties) and wait until the **Portenta H7** is connected to the Wi-Fi and IoT Cloud. At this point, the communication with the **Nicla Sense ME** will be set up and you can start configuring the temperature sensor.
 
 ***Note: Now we are using "NICLA_VIA_ESLOV". In case you mount it as a shield use "NICLA_AS_SHIELD" as the second parameter of the `begin()` function, or "NICLA_VIA_BLE" if you use Bluetooth® Low Energy.***
 
@@ -150,11 +150,11 @@ Inside `void setup()` initialize the `Serial` communication, configure the varia
   }
 ```
 
-***If you use `yourSensor.begin()` it will be configured the same as with `yourSensor.configure(1,0)`.***
+***If you use `yourSensor.begin()`, it will be configured the same as with `yourSensor.configure(1,0)`.***
 
-If the Nicla Sense ME shall communicate through Bluetooth® Low Energy, we recommend wrapping `BHY2Host.begin(false, NICLA_VIA_BLE)` in a `while` clause to make sure the connection is established before the sketch continues.
+If the Nicla Sense ME communicates through Bluetooth® Low Energy, we recommend wrapping `BHY2Host.begin(false, NICLA_VIA_BLE)` in a `while` clause to make sure the connection is established before the sketch continues.
 
-Inside the `void loop()` function you will make the **Portenta H7**  get all the needed data from the **Nicla Sense ME**, store and print the temperature sensor's value and update the data to the IoT Cloud.
+Inside the `void loop()` function you will make the **Portenta H7**  get all the needed data from the **Nicla Sense ME**, store and print the temperature sensor value and update the data to the Arduino IoT Cloud.
 
 ```cpp
 void loop(){
@@ -168,7 +168,7 @@ void loop(){
 }
 ```
 
-Upload the sketch from the **sketch tab** by clicking the second button at the top left of the left side of the sketch bar. Once it has been uploaded you can see the temperature value that it is being uploaded by going to your **Thing Setup** tab, and looking at the last value of the **temperature**'s value, you can also open the serial monitor to see the live data.
+Upload the sketch from the **sketch tab** by clicking the second button at the top left of the left side of the sketch bar. Once it has been uploaded, you can see the temperature value just uploaded by going to your **Thing Setup** tab and looking at the last value of the **temperature** variable. You can also open the Serial Monitor to see your data live.
 
 ![Arduino IoT Cloud - Sketch tab](assets/IoTCloud-thingSketch.png)
 
@@ -242,11 +242,11 @@ void onTemperatureChange()  {
 
 ## Conclusion
 
-In this tutorial you learned how to upload the temperature values from the Nicla sense to the IoT cloud. You followed the process to set up the Nicla board to send data via the Eslov connection, and you configured the IoT cloud to receive the temperature data.
+In this tutorial you learned how to upload the temperature values from the Nicla Sense ME to the Arduino IoT Cloud. You followed the process to set up the Nicla board in order to send data via ESLOV connection and you configured the Arduino IoT Cloud to receive the temperature data.
 
 ### Next Steps
 
-- Try to upload other sensor data from he Nicla sense. You can see the available sensors in the [cheat sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov).
+- Try to upload other sensor data from he Nicla Sense ME. You can see the available sensors in the [cheat sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-data-over-eslov).
 - Experiment with the dashboard to add more data for a more sophisticated project.
 
 ## Troubleshooting

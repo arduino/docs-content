@@ -67,4 +67,4 @@ Now your code is ready to be shared across a variety of platforms! Do you know w
 
 ### More tutorials
 
-You can find more tutorials in the [Web Editor documentation page](/cloud/web-editor/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud).
