@@ -58,7 +58,7 @@ You will be running the image with the `-v` argument to add a volume, this will 
 
 Run the `yocto-build` builder image with:
 ```
-docker run -v <target>:<source> -it yocto-build bash
+docker run -v ~/myNewImage:/dockerVolume -it yocto-build bash
 ```
 
 Switch to the `builder` user the password is **builder**:
@@ -134,6 +134,29 @@ echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
 bitbake mfgtool-files
 ```
+
+#### Save Your Image For Flashing
+
+After the built was successful you need to save the needed files to your physical store unit, you set that up before on `docker run` setting the volume pointing to the **myNewImage** directory
+
+Use the following commands to copy the files to your storage unit:
+(You need to be on `~/myNewImage` directory)
+
+```
+mkdir flashing
+DEPLOY_FOLDER=./flashing
+
+cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.gz $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/imx-boot-portenta-x8 $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/u-boot-portenta-x8.itb $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/sit-portenta-x8.bin $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-image-portenta-x8.wic $DEPLOY_FOLDER
+
+cd $DEPLOY_FOLDER
+tar xvf mfgtool-files-portenta-x8.tar.gz
+```
+
+Now you have all the needed files to flash your Portenta X8 with your custom image, to do so follow the [How to flash the Portenta X8](image-flashing) tutorial.
 
 ## Conclusion
 

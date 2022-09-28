@@ -49,5 +49,7 @@ cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz
 
 echo finished
-echo
+echo REMEMBER TO COPY THE DEPLOY FOLDER TO A SAFE VOLUME
+echo (If you are inside Docker, it will delete the files once it does shut down)
+echo 
 echo Read more at https://docs.arduino.cc/hardware/portenta-x8
