@@ -31,7 +31,7 @@ The goals of this project are to:
 
 - LiPo battery with JST-PH connector
 
-### LiPo Vs Li-ion Batteries
+### LiPo Vs Li-Ion Batteries
 Several different chemistries of rechargeable batteries are commercially available. The two main types are Li-Po and Li-Ion. Lithium Ion batteries have been around for a longer time and are generally cheaper. Lithium Polymer batteries have a higher energy density, allowing you to run your board longer with a similar sized battery. 
 You can see a comparison between these three in the table below.
 
