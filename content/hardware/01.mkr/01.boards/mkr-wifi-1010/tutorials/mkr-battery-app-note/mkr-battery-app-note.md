@@ -1,14 +1,5 @@
 ---
-<<<<<<< HEAD
-<<<<<<< HEAD
-title: 'Understanding Battery Capabilities Of The MKR 1010 WiFi'
-=======
-title: 'Understanding battery capabilities of the MKR 1010 WiFi'
->>>>>>> 050a1815 (More edits)
-=======
 title: 'MKR WiFi 1010 Battery Application Note'
-
->>>>>>> e1ad1595 (Update content/hardware/01.mkr/01.boards/mkr-wifi-1010/tutorials/mkr-battery-app-note/mkr-battery-app-note.md)
 difficulty: intermediate
 description: 'Learn about different topics related to batteries, and how to choose the correct battery for you MKR application.'
 
@@ -54,17 +45,10 @@ You can see a comparison between these three in the table below.
 Apart from being a single cell (3.7V), a key factor to selecting the correct battery is that the connector is compatible.
 
 ### Connector
-<<<<<<< HEAD
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
 
 ![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
 You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
-=======
-You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2 mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left.
-
-![JST-PH connector connected to the MKR WiFi 1010. Note that the positive terminal (red wire) is to the left, towards the PMIC](assets/battery-in-mkr.png)
-You can connect a battery to the MKR WIFI 1010 via a 2-pin JST-PH female connector. The PH variant of JST connectors are identified by a pin-to-pin distance of 2mm. Here are several examples of LiPo batteries with a 2-pin JST-PH connector. Each individual connector is made of one plastic housing and two metal crimp terminals. A crimping device may be required. Note that when looking from above (with the notch facing you), the red (positive) wire should be on your left. 
->>>>>>> 050a1815 (More edits)
 
 ### Protection Circuit
 A protection circuit cuts off the battery if overcurrent or under/over voltage is detected. This adds an additional layer of safety.
@@ -77,7 +61,6 @@ The BQ24195L IC is responsible for charging the single cell lion battery, as wel
 
 **Voltage**
 The nominal voltage of both LiPo and Li-Ion batteries is around 3.7V and is commonly referred to as the voltage of single cell batteries. However, this is an ideal scenario since as a battery is used the voltage changes. The voltage can be considered similar to a waterfall. The higher the waterfall, the higher the voltage.
-
 
 In the MKR boards, the battery terminal is connected to the SAMD21 via a reserved pin (PB09) known as `ADC_BATTERY` within the Arduino Core. This pin is used internally on the board, and is not accessible via the MKR pins. Since the voltage of a Li-ion battery exceeds 3.3V (the AREF value), a voltage divider must be used to extend the range while also ensure that only safe voltages are applied to the microcontroller. We can calculate the output voltage using the following formula
 
@@ -92,7 +75,6 @@ Continuing with the waterfall analogy, the volume of water passing through a wat
 
 ![LiPo batteries with various capacity sizes](assets/three-lipo-batteries.png)
 
-![LiPo batteries with various capacity sizes](assets/three-lipo-batteries.png)
 
 While the MKR boards do not provide a mechanism for identifying capacity, we can get a general idea of the current status by mapping the voltage to the capacity. A more precise value can be obtained with the help of a fuel gauge IC (Integrated Circuit), available in the Portenta X8 and H7.
 
@@ -118,7 +100,8 @@ You should notice that the voltage of VCC is about 3.3V, regardless of the batte
 
 We will go through the lines needed to create a Sketch to read the battery values over Serial and give a short description of what each part does. At the end, the full code will be provided so you can copy and paste it into your IDE and upload it to your Arduino board.
 
-**1.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As a first step, we will call the library to be included in the sketch. 
+**1.** Open a new sketch in the Arduino IDE. We will create a sketch to read the ADC voltage that is sensed by the SAMD controller. As a first step, we will call the library to be included in the sketch.
+
 ```arduino
 #include <BQ24195.h>
 ```
