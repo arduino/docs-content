@@ -71,7 +71,7 @@ su builder
 ***You can download a bash script that wraps all the upcoming steps [here](assets/portenta-x8_build.sh)***
 
 #### Setup the environment
-Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been isntalled on the image building proccess, this was the providing proccess on the previous section.
+Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been isntalled on the image building process, this was the providing process on the previous section.
 
 You can change the directory to home, and initialize the **git-repo** repository and pull the needed files:
 
