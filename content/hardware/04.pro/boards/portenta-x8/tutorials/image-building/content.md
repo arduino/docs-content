@@ -68,6 +68,13 @@ docker run -v <source>:/dockerVolume -it yocto-build bash
 #### Setup the environment
 Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been isntalled on the image building process, this was the providing process on the previous section.
 
+First of all set up the git config with your credentials, they don't need to be the real ones, they are just needed to pull the data from the git-repo.
+Copy paste the following:
+```
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
 You can change the directory to home, and initialize the **git-repo** repository and pull the needed files:
 
 ```
