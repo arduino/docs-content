@@ -17,59 +17,59 @@ Prototyping, IoT application examples
 # Features
 - **SAMD21G18A**
   - **Processor**
-  - ARM Cortex M0+ at up to 48 MHz
-  - 256KB Flash
-  - 32KB SRAM
-  - Power On Reset (POR) and Brown Out Detection (BOD)
+      - ARM Cortex M0+ at up to 48 MHz
+      - 256KB Flash
+      - 32KB SRAM
+      - Power On Reset (POR) and Brown Out Detection (BOD)
 
   - **Peripherals**
-  - 12 channel DMA
-  - 12 channel event system
-  - 5x 16 bit Timer/Counter
-  - 3x 24 bit timer/counter with extended functions
-  - 32 bit RTC
-  - Watchdog Timer
-  - CRC-32 generator
-  - Full speed Host/Device USB with 8 end points
-  - 6x SERCOM (USART, I2C, SPI, LIN)
-  - Two channel I2S
-  - 12 bit 350ksps ADC (up to 16 bit with oversampling)
-  - 10 bit 350ksps DAC
-  - External Interrupt Controller (up to 16 lines)
+      - 12 channel DMA
+      - 12 channel event system
+      - 5x 16 bit Timer/Counter
+      - 3x 24 bit timer/counter with extended functions
+      - 32 bit RTC
+      - Watchdog Timer
+      - CRC-32 generator
+      - Full speed Host/Device USB with 8 end points
+      - 6x SERCOM (USART, I2C, SPI, LIN)
+      - Two channel I2S
+      - 12 bit 350ksps ADC (up to 16 bit with oversampling)
+      - 10 bit 350ksps DAC
+      - External Interrupt Controller (up to 16 lines)
 
-  - **ATECC508 Crypto Chip**
-  - Cryptographic co-processor with secure hardware based key storage
-  - Protected storage for up to 16 keys, certificates or data
-  - ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman
-  - ECDSA: FIPS186-3 Elliptic Curve Digital Signature Algorithm
-  - NIST standard P256 elliptic curve support
-  - SHA-256 & HMAC hash including off-chip context save/restore
+- **ATECC508 Crypto Chip**
+    - Cryptographic co-processor with secure hardware based key storage
+    - Protected storage for up to 16 keys, certificates or data
+    - ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman
+    - ECDSA: FIPS186-3 Elliptic Curve Digital Signature Algorithm
+    - NIST standard P256 elliptic curve support
+    - SHA-256 & HMAC hash including off-chip context save/restore
 
-  - **Nina W102 Module**
-  - Dual Core Tensilica LX6 CPU at up to 240MHz
+- **Nina W102 Module**
+    - Dual Core Tensilica LX6 CPU at up to 240MHz
 
   - **WiFi**
-  - IEEE 802.11b up to 11Mbit
-  - IEEE 802.11g up to 54MBit
-  - IEEE 802.11n up to 72MBit
-  - 2.4 GHz, 13 channels
-  - 96 dBm sensitivity
+      - IEEE 802.11b up to 11Mbit
+      - IEEE 802.11g up to 54MBit
+      - IEEE 802.11n up to 72MBit
+      - 2.4 GHz, 13 channels
+      - 96 dBm sensitivity
 
   - **Bluetooth BR/EDR**
-  - Max 7 Clients
-  - 2.4 GHz, 79 channels
-  - Up to 3 Mbit/s
-  - -88 dBm sensitivity
-  - Bluetooth Low Energy
-  - Bluetooth 5.0 dual mode
-  - 2.4GHz 40 channels
-  - -88 dBm sensitivity
-  - Up to 1 Mbit/s
+      - Max 7 Clients
+      - 2.4 GHz, 79 channels
+      - Up to 3 Mbit/s
+      - -88 dBm sensitivity
+      - Bluetooth Low Energy
+      - Bluetooth 5.0 dual mode
+      - 2.4GHz 40 channels
+      - -88 dBm sensitivity
+      - Up to 1 Mbit/s
 
-  - **BQ24125L I2C Controlled USB/Adapter Charger**
-  - 92% Charge Efficiency at 2 A, 90% at 4 A
-  - Autonomous Battery Charging
-  - 2.5-A Fast Charging
+- **BQ24125L I2C Controlled USB/Adapter Charger**
+    - 92% Charge Efficiency at 2 A, 90% at 4 A
+    - Autonomous Battery Charging
+    - 2.5-A Fast Charging
 
 # Contents
 
