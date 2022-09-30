@@ -17,7 +17,7 @@ author: "Arduino Community"
 
 ---
 
-1-Wire communication is a protocol operating through one wire between the controller device and the peripheral device. This article covers the basics of using the 1-Wire prototcol with an arduino with the help of the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) library. The following sections provide information about the 1-Wire protocol, interface, power, adressing devices, reading devices and finally a short glimse into the library's history.
+1-Wire communication is a protocol operating through one wire between the controller device and the peripheral device. This article covers the basics of using the 1-Wire prototcol with an arduino with the help of the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) library. The following sections provide information about the 1-Wire protocol, interface, power, addressing devices, reading devices and finally a short glimse into the library's history.
 
 ## Latest version
 
@@ -25,7 +25,7 @@ The [latest version of the library](https://github.com/PaulStoffregen/OneWire) i
 
 OneWire is currently maintained by Paul Stoffregen. If you find a bug or have an improvement (to the library), email paul at pjrc dot com. Please be sure you are using the latest version of OneWire.
 
-[Bus](https://github.com/alexandrecuer/Bus) is a subclass of the OneWire library. Bus class scans the 1 wire Bus connected to an arduino UNO analog pin and stores the ROMs in an array. Several methods are available in the Bus class to acquire datas from by different 1wire sensors (DS18B20, DS2438).
+[Bus](https://github.com/alexandrecuer/Bus) is a subclass of the OneWire library. Bus class scans the 1 wire Bus connected to an arduino UNO analog pin and stores the ROMs in an array. Several methods are available in the Bus class to acquire data from different 1wire sensors (DS18B20, DS2438).
 
 ## The 1-Wire Protocol
 
@@ -340,7 +340,7 @@ This block of code converts the temperature to deg C and prints it to the Serial
 
 ### A Code Snippet for the DS 1820 with 0.5 Degree Resolution
 
-Above example works only for the B-type of the DS1820. Here is a code example that works with the lower resolution DS1820 and with multiple sensors diplaying their values on a LCD. Example is working with Arduino pin 9\. Feel free to change that to an appropriate pin for your use. Pin 1 and 3 of the DS1820 has to be put to ground! In the example a 5k resistor is put from pin 2 of DS1820 to Vcc (+5V). See LiquidCrystal documentation for connecting the LCD to the Arduino.
+Above example works only for the B-type of the DS1820. Here is a code example that works with the lower resolution DS1820 and with multiple sensors displaying their values on a LCD. Example is working with Arduino pin 9\. Feel free to change that to an appropriate pin for your use. Pin 1 and 3 of the DS1820 has to be put to ground! In the example a 5k resistor is put from pin 2 of DS1820 to Vcc (+5V). See LiquidCrystal documentation for connecting the LCD to the Arduino.
 
 ```
 #include <OneWire.h>

@@ -196,7 +196,7 @@ Here's some minor tweaks to the above to extend it just a bit. The above untouch
 
 ## Smoothstep
 
-This example is made by [Dan Thompson](https://danthompsonsblog.blogspot.com/) in 2009 for smooth interpolation between two values. Smoothstep is a common formula used for many different applictions such as Animation and Audio. This sketch includes a Serial Printout to help you visualise the formula. Visit [danthompsonsblog.blogspot.com](https://danthompsonsblog.blogspot.com/2009/02/smoothstep-interpolation-with-arduino.html) for the full smoothstep tutorial as well as many others. For a comprehensive overview of interpolation as well as some great Tips and Tricks [visit this page](http://sol.gfxile.net/interpolation/).
+This example is made by [Dan Thompson](https://danthompsonsblog.blogspot.com/) in 2009 for smooth interpolation between two values. Smoothstep is a common formula used for many different applications such as Animation and Audio. This sketch includes a Serial Printout to help you visualise the formula. Visit [danthompsonsblog.blogspot.com](https://danthompsonsblog.blogspot.com/2009/02/smoothstep-interpolation-with-arduino.html) for the full smoothstep tutorial as well as many others. For a comprehensive overview of interpolation as well as some great Tips and Tricks [visit this page](http://sol.gfxile.net/interpolation/).
 
 ![](assets/smoothstep.gif)
 
@@ -225,7 +225,7 @@ This example is made by [Dan Thompson](https://danthompsonsblog.blogspot.com/) i
 // 1. Upload the sketch to the Arduino.
 // 2. Click on the Serial monitor to see some visual feed back of the SMOOTHSTEP function.
 // 3. Scroll through the print out to see the SMOOTHSTEP curve.
-// 4. Play with the code and addapt it to your needs! ;)
+// 4. Play with the code and adapt it to your needs! ;)
 
 #define SMOOTHSTEP(x) ((x) _ (x) _ (3 - 2 \* (x))) //SMOOTHSTEP expression.
 
@@ -1314,5 +1314,7 @@ digitalWrite(ledPin, statePin);
 digitalWrite(speakerOut, LOW);
 delay(1000);
 }
+
+```
 
 ```
