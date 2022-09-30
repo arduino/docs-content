@@ -50,7 +50,7 @@ To do so you will need to clone our [lmp-manifest repository](https://github.com
   ```
   ![Building a Docker Image](assets/docker_build.png)
 
-#### Run the Docker Image (builder)
+#### Run The Docker Image (Builder)
 You will be running the image with the `-v` argument to add a volume, this will make the second drive storage unit available inside the virtual machine, so we will be able to store all the data safely.
 
 ***If you do not use a volume while running the image, you will lose the data when the image stops***
@@ -69,7 +69,7 @@ su builder
 
 ***You can download a bash script that wraps all the upcoming steps [here](assets/portenta-x8_build.sh)***
 
-#### Setup the environment
+#### Setup the Environment
 Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been installed on the image building process, this was the providing process on the previous section.
 
 First of all set up the git config with your credentials, they don't need to be the real ones, they are just needed to pull the data from the git-repo.
