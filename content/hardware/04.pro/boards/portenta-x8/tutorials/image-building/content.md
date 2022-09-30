@@ -42,13 +42,13 @@ To do so you will need to clone our [lmp-manifest repository](https://github.com
   ```
   git clone https://github.com/arduino/lmp-manifest.git
   ```
-  ![](assets/git_clone_lmp-manifest.png)
+  ![Cloning lmp-manifest repository](assets/git_clone_lmp-manifest.png)
 2. Build the Docker Image:
   ```
   cd lmp-manifest
   docker build -t yocto-build ./lmp-manifest
   ```
-  ![](assets/docker_build.png)
+  ![Building a Docker Image](assets/docker_build.png)
 
 #### Run the Docker Image (builder)
 You will be running the image with the `-v` argument to add a volume, this will make the second drive storage unit available inside the virtual machine, so we will be able to store all the data safely.
@@ -78,24 +78,24 @@ Copy paste the following:
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
-![](assets/git_config.png)
+![Adding credentials to git config](assets/git_config.png)
 
 You can change the directory to home, and initialize the **git-repo** repository:
 ```
 cd ~
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
 ```
-![](assets/repo_init.png)
+![Git-repo initialization](assets/repo_init.png)
 
 and pull the needed files:
 ```
 sudo repo sync
 ```
-![](assets/repo_sync.png)
+![Git-repo pulling all the repositories](assets/repo_sync.png)
 
 After completion:
 
-![](assets/repo_sync_finished.png)
+![Git-repo finished sync](assets/repo_sync_finished.png)
 
 ***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.***
 
@@ -119,7 +119,7 @@ Now to accept the EULA:
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 ```
 
-![](assets/x8_distro_setup.png)
+![Setup Portenta X8 DISTRO](assets/x8_distro_setup.png)
 
 #### Build Image With Bitbake
 
@@ -130,7 +130,7 @@ bitbake lmp-partner-arduino-image
 ```
 ***This process takes ~7h depending on the HW***
 
-![](assets/x8_build.png)
+![Compile Portenta X8 image](assets/x8_build.png)
 
 In case you want to use your computer while it builds, (the build is going to take time and resources) you should lower the used threads.
 Do so by opening `conf/local.conf` and lower the values of the following variables:
@@ -154,17 +154,17 @@ DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
 ```
-![](assets/tools_distro_setup.png)
+![Flashing tools DISTRO setup](assets/tools_distro_setup.png)
 
 #### Build Manufacturing Tools: Flash The Board
 To compile and get the tools you will need to type:
 ```
 bitbake mfgtool-files
 ```
-![](assets/tools_build.png)
+![Compiling flashing tools](assets/tools_build.png)
 
 After completion:
-![](assets/tools_finished.png)
+![Tools compilation finished](assets/tools_finished.png)
 
 ***This process takes ~2h depending on the HW***
 
@@ -189,10 +189,10 @@ cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz
 ```
 
-![](assets/copy_files.png)
+![Copying compiled files](assets/copy_files.png)
 
 You will be able to see the copied files on your OS file explorer
-![](assets/docker_volume_explorer.png)
+![Checking copied files with file explorer](assets/docker_volume_explorer.png)
 
 Now you have all the needed files to flash your Portenta X8 with your custom image, to do so follow the [How to flash the Portenta X8](image-flashing) tutorial.
 
