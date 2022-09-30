@@ -68,24 +68,35 @@ docker run -v <source>:/dockerVolume -it yocto-build bash
 #### Setup the environment
 Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been isntalled on the image building process, this was the providing process on the previous section.
 
+Switch to the `builder` user the password is **builder**:
+```
+su builder
+```
+
 First of all set up the git config with your credentials, they don't need to be the real ones, they are just needed to pull the data from the git-repo.
 Copy paste the following:
 ```
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
+![](assets/git_config.png)
 
-You can change the directory to home, and initialize the **git-repo** repository and pull the needed files:
-
+You can change the directory to home, and initialize the **git-repo** repository:
 ```
 cd ~
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
-repo sync
 ```
+![](assets/repo_init.png)
+
+and pull the needed files:
+```
+sudo repo sync
+```
+![](assets/repo_sync.png)
 
 ***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.***
 
-#### Set Up The Distribution
+#### Set Up The Portenta X8 Distribution
 
 You can set `DISTRO` to:
 - `lmp-base`: insecure image without ostree, developer friendly, not OTA compatible
@@ -93,11 +104,6 @@ You can set `DISTRO` to:
 - `lmp-xwayland`: secure image with xwayland support
 
 ***`lmp-partner-arduino-image` will be better supported in the near future.***
-
-Switch to the `builder` user the password is **builder**:
-```
-su builder
-```
 
 ```bash
 DISTRO=lmp-xwayland MACHINE=portenta-x8 . setup-environment
@@ -110,6 +116,8 @@ Now to accept the EULA:
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 ```
 
+![](assets/x8_distro_setup.png)
+
 #### Build Image With Bitbake
 
 To start building the image, run:
@@ -117,6 +125,8 @@ To start building the image, run:
 ```
 bitbake lmp-partner-arduino-image
 ```
+
+![](assets/x8_build.png)
 
 In case you want to use your computer while it builds, (the build is going to take time and resources) you should lower the used threads.
 Do so by opening `conf/local.conf` and lower the values of the following variables:
@@ -128,29 +138,36 @@ And add:
 
 - `PARALLEL_MAKE = "-j 4"`
 
-![Terminal bitbake](assets/terminal_bitbake.png)
+Once it finishes you will see something similar to:
+![Portenta X8 Image finished compilation](assets/x8_build_finished.png)
 
-#### Build Manufacturing Tools: Flash The Board
-
+#### Setup Manufacturing Tools
 To flash your board you will need to compile another `DISTRO`.
-To get those tools go into the build folder with `cd ~/myNewImage/build` and type the following commands:
-
+To get those tools go into the home folder and setup your distro.
 ```
+cd ..
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
 echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
+```
+![](assets/tools_distro_setup.png)
+
+#### Build Manufacturing Tools: Flash The Board
+To compile and get the tools you will need to type:
+```
 bitbake mfgtool-files
 ```
+![](assets/tools_build.png)
 
 #### Save Your Image For Flashing
 
 After the built was successful you need to save the needed files to your physical store unit, you have set that up before on `docker run` setting the volume pointing to the **dockerVolume** directory
 
 Use the following commands to copy the files to your storage unit:
-(You need to be on `~/myNewImage` directory)
 
 ```
-mkdir flashing
+cd ..
+mkdir ../../dockerVolume/flashing
 DEPLOY_FOLDER=../../dockerVolume/flashing
 
 cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.gz $DEPLOY_FOLDER
@@ -162,6 +179,11 @@ cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-partner-arduino-image-por
 cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz
 ```
+
+![](assets/copy_files.png)
+
+You will be able to see the copied files on your OS file explorer
+![](assets/docker_volume_explorer.png)
 
 Now you have all the needed files to flash your Portenta X8 with your custom image, to do so follow the [How to flash the Portenta X8](image-flashing) tutorial.
 
