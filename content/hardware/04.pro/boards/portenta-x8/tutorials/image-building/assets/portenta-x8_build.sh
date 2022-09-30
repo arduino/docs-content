@@ -2,12 +2,20 @@
 # More info at https://docs.arduino.cc/hardware/portenta-x8
 # Script by Massimo Pennazio and Pablo Marquínez (@Arduino)
 
-# Git-repo tool installation
-echo installing git-repo
-mkdir -p ~/.bin
-PATH="${HOME}/.bin:${PATH}"
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
-chmod a+rx ~/.bin/repo
+echo --------------------------------------------------------------------------
+echo Starting wrapper script to setup and build an Image and the Flashing tools
+echo @arduino Portenta-X8
+echo 1 Oct 2022
+echo
+
+# Make sure its on the home directory
+echo Changing directory to home
+cd ~
+
+# Git config
+echo Git config to example credentials
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 
 # Initialize the git-repo and pull all the repos
 echo Starting git-repo initialization
@@ -36,16 +44,16 @@ cd ..
 
 # Copy files to the deploy folder
 echo copying files
-mkdir deploy
-DEPLOY_FOLDER=./deploy
+mkdir ../../dockerVolume/flashing
+DEPLOY_FOLDER=../../dockerVolume/flashing
 
 cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.gz $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/imx-boot-portenta-x8 $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/u-boot-portenta-x8.itb $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/sit-portenta-x8.bin $DEPLOY_FOLDER
-cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-image-portenta-x8.wic $DEPLOY_FOLDER
-cd $DEPLOY_FOLDER
+cp -L build-lmp-xwayland/deploy/images/portenta-x8/lmp-partner-arduino-image-portenta-x8.wic $DEPLOY_FOLDER
 
+cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz
 
 echo finished
