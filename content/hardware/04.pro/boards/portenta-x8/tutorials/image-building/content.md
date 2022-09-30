@@ -24,41 +24,45 @@ Building your image locally is helpful to quickly debug certain aspects of the s
 - Get the required files
 - Configure the building settings
 - Build the image
+- Save the needed files to flash
 
 ### Required Hardware and Software
-- [Arduino Portenta X8](https://store.arduino.cc/portenta-x8)
-- Linux distribution [compatible with the Yocto Project](https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
+
 - [Docker Engine](https://docs.docker.com/engine/install/)
 
 ## Instructions
-### Folder Structure Overview
-
-To start, create a new directory on your machine to store all the data on your home directory `cd ~`.
-Make a new directory called **myNewImage** with `mkdir myNewImage`
 
 ### Docker
 #### Build the Docker Image
 
 You will create an image with all the needed dependencies so it will be ready to build your image.
 
-To do so:
+To do so you will need to clone our [lmp-manifest repository](https://github.com/arduino/lmp-manifest):
 1. Clone the lmp-manifest repository
   ```
   git clone https://github.com/arduino/lmp-manifest.git
   ```
+  ![](assets/git_clone_lmp-manifest.png)
 2. Build the Docker Image:
   ```
+  cd lmp-manifest
   docker build -t yocto-build ./lmp-manifest
   ```
+  ![](assets/docker_build.png)
 
 #### Run the Docker Image (builder)
-You will be running the image with the `-v` argument to add a volume, this will make a second drive storage available inside the image, so we will be able to store all the data safely.
+You will be running the image with the `-v` argument to add a volume, this will make the second drive storage unit available inside the virtual machine, so we will be able to store all the data safely.
 
-***If you dont use a volume running the image, you will lose the data when the image stops***
+***If you do not use a volume while running the image, you will lose the data when the image stops***
 
 Run the `yocto-build` builder image with:
 ```
 docker run -v <source>:/dockerVolume -it yocto-build bash
+```
+
+Switch to the `builder` user, the password is **builder**:
+```
+su builder
 ```
 
 ### Setup and Build
@@ -66,12 +70,7 @@ docker run -v <source>:/dockerVolume -it yocto-build bash
 ***You can download a bash script that wraps all the upcoming steps [here](assets/portenta-x8_build.sh)***
 
 #### Setup the environment
-Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been isntalled on the image building process, this was the providing process on the previous section.
-
-Switch to the `builder` user the password is **builder**:
-```
-su builder
-```
+Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been installed on the image building process, this was the providing process on the previous section.
 
 First of all set up the git config with your credentials, they don't need to be the real ones, they are just needed to pull the data from the git-repo.
 Copy paste the following:
@@ -125,6 +124,7 @@ To start building the image, run:
 ```
 bitbake lmp-partner-arduino-image
 ```
+***This process takes ~7h depending on the HW***
 
 ![](assets/x8_build.png)
 
@@ -158,6 +158,8 @@ To compile and get the tools you will need to type:
 bitbake mfgtool-files
 ```
 ![](assets/tools_build.png)
+
+***This process takes ~2h depending on the HW***
 
 #### Save Your Image For Flashing
 
@@ -196,28 +198,4 @@ Keep in mind you will need to use the files provided from this build, not the on
 
 ## Troubleshooting
 
-- If you are having `do_fetch` issues, try to check your system's DNS and change it.
-- If you lack build dependencies on your system, checkout the needed dependencies at [Yocto Project build host dependencies](https://docs.yoctoproject.org/ref-manual/system-requirements.html#required-packages-for-the-build-host).
-
-
-////////// OLD
-
-### Google Repo: Fetch Yocto Project Layers
-
-Google's Repo application handles fetching the repositories (Yocto Project layers) that will be used in the build process.
-
-Use these commands to:
-
-1. create a `.bin` folder to install the `repo` application in
-2. add it to the system `PATH` so you will be able to use the `repo` command anywhere
-3. download repo into `.bin`
-4. set permission so that all users and run it.
-
-```
-mkdir -p ~/myNewImage/.bin
-PATH="${HOME}/myNewImage/.bin:${PATH}"
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/myNewImage/.bin/repo
-chmod a+rx ~/myNewImage/.bin/repo
-```
-
-Now you should be able to access the command `repo` anywhere because it has been added to your **PATH**.
+- If you are having `do_fetch` issues, try to check your system's and virtual machine's DNS settings.
