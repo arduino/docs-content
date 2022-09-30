@@ -93,6 +93,10 @@ sudo repo sync
 ```
 ![](assets/repo_sync.png)
 
+After completion:
+
+![](assets/repo_sync_finished)
+
 ***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.***
 
 #### Set Up The Portenta X8 Distribution
@@ -158,6 +162,9 @@ To compile and get the tools you will need to type:
 bitbake mfgtool-files
 ```
 ![](assets/tools_build.png)
+
+After completion:
+![](assets/tools_finished.png)
 
 ***This process takes ~2h depending on the HW***
 
