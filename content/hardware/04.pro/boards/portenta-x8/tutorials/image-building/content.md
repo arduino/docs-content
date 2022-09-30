@@ -24,7 +24,7 @@ Building your image locally is helpful to quickly debug certain aspects of the s
 - Get the required files
 - Configure the building settings
 - Build the image
-- Save the needed files to flash
+- Save the needed files for flashing
 
 ### Required Hardware and Software
 
@@ -95,7 +95,7 @@ sudo repo sync
 
 After completion:
 
-![](assets/repo_sync_finished)
+![](assets/repo_sync_finished.png)
 
 ***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.***
 
