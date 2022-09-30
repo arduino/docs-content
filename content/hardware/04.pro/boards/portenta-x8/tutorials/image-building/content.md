@@ -88,7 +88,7 @@ repo sync
 #### Set Up The Distribution
 
 You can set `DISTRO` to:
-- `lmp-base`: unsecure image without ostree, developer friendly, not OTA compatible
+- `lmp-base`: insecure image without ostree, developer friendly, not OTA compatible
 - `lmp`: secure image without xwayland
 - `lmp-xwayland`: secure image with xwayland support
 
