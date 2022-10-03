@@ -1,7 +1,7 @@
 ---
 title: "Audio"
 description: "An article from the Arduino Playground."
-source: "https://playground.arduino.cc/Main/Freqout/, https://playground.arduino.cc/Code/MusicalAlgoFun/, https://playground.arduino.cc/Code/PCMAudio/, https://playground.arduino.cc/Main/RickRoll/, https://playground.arduino.cc/Main/Smoothstep/"
+source: ["https://playground.arduino.cc/Main/Freqout/", "https://playground.arduino.cc/Code/MusicalAlgoFun/", "https://playground.arduino.cc/Code/PCMAudio/", "https://playground.arduino.cc/Main/RickRoll/", "https://playground.arduino.cc/Main/Smoothstep/"]
 author: "Arduino Community"
 ---
 
