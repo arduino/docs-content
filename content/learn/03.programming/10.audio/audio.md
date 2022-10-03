@@ -439,8 +439,7 @@ void loop()
 }
 ```
 
-<details>
-  <summary>Sounddata.h (press to show)</summary>
+The above sketch also requires the `sounddata.h` file which you can find below:
   
 ```
 // sounddata sound made by wav2c
@@ -953,7 +952,7 @@ const unsigned char sounddata_data[] PROGMEM = {
 };
 
 ```
-</details>
+
 
 ## Rick Roll
 The following example was created by Samantha Lagestee in 2017. Inspired by the popular meme, this code rickrolls people by playing the song "Never Gonna Give You Up" by Rick Astley on a piezo buzzer. Open the serial port to see the lyrics and sing along.
@@ -1314,7 +1313,5 @@ digitalWrite(ledPin, statePin);
 digitalWrite(speakerOut, LOW);
 delay(1000);
 }
-
-```
 
 ```
