@@ -14,15 +14,17 @@ hardware:
 
 ## Overview
 
-In this tutorial you will learn how to build an image for the Portenta X8 with the source code provided at our GitHub repository lmp-manifest.
-Building your image locally is helpful to quickly debug certain aspects of the systems, like bootloader or kernel support.
+In this tutorial you will learn how to build an image for the Portenta X8 with the source code provided at our [GitHub repository for lmp-manifest](https://github.com/arduino/lmp-manifest).
+Building your image locally can help debug certain aspects of the system, such as the bootloader or kernel support.
 
-***Please keep in mind that images built locally cannot register to a FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.  This tutorial targets the customers that are not FoundriesFactory subscribers and want to extend the functionality provided by the Arduino pre-built sources by building their own images. For FoundriesFactory subscribers, we strongly suggest to make use of the Factory continuous integration system for creating your images.***
+***Keep in mind that images built locally cannot register with FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.
+This tutorial targets customers that are not FoundriesFactory subscribers, but still want to extend the functionality of the Arduino pre-built sources by building their own images. For FoundriesFactory subscribers, we strongly suggest making use of your Factory's continuous integration system for creating images.***
 
 ## Goals
+
 - Build a "builder" Docker image
 - Get the required files
-- Configure the building settings
+- Configure the build settings
 - Build the image
 - Save the needed files for flashing
 
@@ -33,11 +35,13 @@ Building your image locally is helpful to quickly debug certain aspects of the s
 ## Instructions
 
 ### Docker
+
 #### Build the Docker Image
 
-You will create an image with all the needed dependencies so it will be ready to build your image.
+You will create a Docker image that has the dependencies needed to build your device image.
 
 To do so you will need to clone our [lmp-manifest repository](https://github.com/arduino/lmp-manifest):
+
 1. Clone the lmp-manifest repository
   ```
   git clone https://github.com/arduino/lmp-manifest.git
@@ -51,7 +55,8 @@ To do so you will need to clone our [lmp-manifest repository](https://github.com
   ![Building a Docker Image](assets/docker_build.png)
 
 #### Run The Docker Image (Builder)
-You will be running the image with the `-v` argument to add a volume, this will make the second drive storage unit available inside the virtual machine, so we will be able to store all the data safely.
+
+Run the image with the `-v` argument to mount a volume. This allows you to use a host directory inside the Docker image, so you can store all the data and build artifacts safely.
 
 ***If you do not use a volume while running the image, you will lose the data when the image stops***
 
@@ -67,12 +72,13 @@ su builder
 
 ### Setup and Build
 
-***You can download a bash script that wraps all the upcoming steps [here](assets/portenta-x8_build.sh)***
+***You can download a [bash script](assets/portenta-x8_build.sh) that wraps all the upcoming steps.***
 
 #### Setup the Environment
-Now that you are running inside the Docker Image you are already provided with some tools like **git-repo** which has been installed on the image building process, this was the providing process on the previous section.
 
-First of all set up the git config with your credentials, they don't need to be the real ones, they are just needed to pull the data from the git-repo.
+Now that you are running inside the Docker Image, you can use tools like **git-repo**, which is already installed.
+
+First configure git with your credentials. They don't need to be the real ones, but are required by `git-repo` to pull.
 Copy paste the following:
 ```
 git config --global user.email "you@example.com"
@@ -80,14 +86,14 @@ git config --global user.name "Your Name"
 ```
 ![Adding credentials to git config](assets/git_config.png)
 
-You can change the directory to home, and initialize the **git-repo** repository:
+Change to the home directory, and initialize the repository using **repo**:
 ```
 cd ~
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
 ```
 ![Git-repo initialization](assets/repo_init.png)
 
-and pull the needed files:
+Then pull the needed files:
 ```
 sudo repo sync
 ```
@@ -97,7 +103,7 @@ After completion:
 
 ![Git-repo finished sync](assets/repo_sync_finished.png)
 
-***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images build locally cannot register to the Factory and receive OTAs.***
+***NOTE: If you are a FoundriesFactory subscriber and want to build your Factory sources locally, please use the manifest link for your Factory as below. This is not recommended as images built locally cannot register to the Factory and receive OTAs.***
 
 #### Set Up The Portenta X8 Distribution
 
@@ -132,7 +138,7 @@ bitbake lmp-partner-arduino-image
 
 ![Compile Portenta X8 image](assets/x8_build.png)
 
-In case you want to use your computer while it builds, (the build is going to take time and resources) you should lower the used threads.
+In case you want to use your computer while it builds, (which is going to take time and resources) you should lower the threads used.
 Do so by opening `conf/local.conf` and lower the values of the following variables:
 
 - `BB_NUMBER_PARSE_THREADS = "4"`
@@ -146,8 +152,9 @@ Once it finishes you will see something similar to:
 ![Portenta X8 Image finished compilation](assets/x8_build_finished.png)
 
 #### Setup Manufacturing Tools
-To flash your board you will need to compile another `DISTRO`.
-To get those tools go into the home folder and setup your distro.
+
+To flash your board you will need to compile another distro to get additional tools. 
+First go into your home folder and change `DISTRO`:
 ```
 cd ..
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
@@ -157,6 +164,7 @@ echo "MFGTOOL_FLASH_IMAGE = \"lmp-partner-arduino-image\"" >> conf/local.conf
 ![Flashing tools DISTRO setup](assets/tools_distro_setup.png)
 
 #### Build Manufacturing Tools: Flash The Board
+
 To compile and get the tools you will need to type:
 ```
 bitbake mfgtool-files
@@ -166,11 +174,11 @@ bitbake mfgtool-files
 After completion:
 ![Tools compilation finished](assets/tools_finished.png)
 
-***This process takes ~2h depending on the HW***
+***This process takes ~2h depending on your build host***
 
 #### Save Your Image For Flashing
 
-After the built was successful you need to save the needed files to your physical store unit, you have set that up before on `docker run` setting the volume pointing to the **dockerVolume** directory
+After a successful build,  save the needed files to the host volume you mounted with `docker run`. 
 
 Use the following commands to copy the files to your storage unit:
 
@@ -194,7 +202,6 @@ tar xvf mfgtool-files-portenta-x8.tar.gz
 You will be able to see the copied files on your OS file explorer
 ![Checking copied files with file explorer](assets/docker_volume_explorer.png)
 
-Now you have all the needed files to flash your Portenta X8 with your custom image, to do so follow the [How to flash the Portenta X8](image-flashing) tutorial.
 
 ## Conclusion
 
