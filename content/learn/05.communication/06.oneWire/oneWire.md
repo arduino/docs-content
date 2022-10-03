@@ -1,5 +1,5 @@
 ---
-title: "Dallas Semiconductor's 1-Wire Protocol"
+title: "1-Wire Protocol"
 description: "An article from the Arduino Playground."
 source: "https://playground.arduino.cc/Learning/OneWire/"
 author: "Arduino Community"
