@@ -368,7 +368,7 @@ display.print("text");
 
 This method will print the text inside the string at the current cursor position.
 
-#### More resources
+#### More Resources
 
 In order to develop a graphical user interface with the MKR IoT Carrier, the **[Arduino_OplaUI](https://www.arduino.cc/reference/en/libraries/arduino_oplaui/)** library can be used. This library uses the color LEDs, the buzzer and the touch buttons to build an interactive user interface featuring multiple pages. It also includes a few predefined gauges to display values. See the library examples to get started.
 
