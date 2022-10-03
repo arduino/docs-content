@@ -7,9 +7,9 @@ author: "Arduino Community"
 
 > This article was revised on 2022/09/28 by Hannes Siebeneicher.
 
-This article highlights different approaches to making sounds and even entire songs with an arduino. In 2013 Brett Hagman created the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library which is a good starting point for creating different types of sounds using an arduino. As the examples in this article are gathered from the arduino playground and were mostly created before 2013 the differences in the code should be noted. The examples are nevertheless still relevant as they explain some basic concepts of generating tone frequencies, interpolation and even provide you with some songs to try out. If you want to see an example for a simple melody using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library and familiarize yourself with the concept of external sounddata files, you can check out [this example](https://docs.arduino.cc/built-in-examples/digital/toneMelody).
+This article highlights different approaches to making sounds and even entire songs with an Arduino. In 2013 Brett Hagman created the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library which is a good starting point for creating different types of sounds using an Arduino. As the examples in this article are gathered from the Arduino playground and were mostly created before 2013 the differences in the code should be noted. The examples are nevertheless still relevant as they explain some basic concepts of generating tone frequencies, interpolation and even provide you with some songs to try out. If you want to see an example for a simple melody using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library and familiarize yourself with the concept of external sound data files, you can check out [this example](https://docs.arduino.cc/built-in-examples/digital/toneMelody).
 
-Most sketches in this aticle use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your arduino. Only the **PCMAudio** examples uses pin 11 as it is making us of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
+Most sketches in this article use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your Arduino. Only the **PCMAudio** example uses pin 11 as it is making us of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
 
 ## Hardware Required
 
@@ -27,9 +27,9 @@ Most sketches in this aticle use pin 8 as output for the piezo buzzer or speaker
 
 ## Basics
 
-Most times a piezo buzzer is used to produce sounds with an arduino. When voltage is applied to a piezoeletric ceramic material it causes it to vibrate rapidly, resulting in the generation of sound waves. Every wave has an associated property called frequency which measures how many cycles happen every second. This unit of cycles is called Hertz (Hz). E.g. A middle C on the piano has a frequency of 262 Hz which means that the air oscillates back and forth 262 times every second.
+Most times a piezo buzzer is used to produce sounds with an Arduino. When voltage is applied to a piezoelectric ceramic material it causes it to vibrate rapidly, resulting in the generation of sound waves. Every wave has an associated property called frequency which measures how many cycles happen every second. This unit of cycles is called Hertz (Hz). E.g., A middle C on the piano has a frequency of 262 Hz which means that the air oscillates back and forth 262 times every second.
 
-Another property of a wave is its period, which equals to one divided by the frequency, measuring the length and time of the wave. So for that middle C on the piano the cycle repeats every 3.8 milliseconds. While a normal pure tone is a sine wave, it is much easier to create a square wave using an arduino by turning the pin on, waiting for a certain amount of time, then turning the pin off and waiting again.
+Another property of a wave is its period, which equals to one divided by the frequency, measuring the length and time of the wave. So, for that middle C on the piano the cycle repeats every 3.8 milliseconds. While a normal pure tone is a sine wave, it is much easier to create a square wave using an Arduino by turning the pin on, waiting for a certain amount of time, then turning the pin off and waiting again.
 
 ## Freqout
 
@@ -196,7 +196,7 @@ Here's some minor tweaks to the above to extend it just a bit. The above untouch
 
 ## Smoothstep
 
-This example is made by [Dan Thompson](https://danthompsonsblog.blogspot.com/) in 2009 for smooth interpolation between two values. Smoothstep is a common formula used for many different applications such as Animation and Audio. This sketch includes a Serial Printout to help you visualise the formula. Visit [danthompsonsblog.blogspot.com](https://danthompsonsblog.blogspot.com/2009/02/smoothstep-interpolation-with-arduino.html) for the full smoothstep tutorial as well as many others. For a comprehensive overview of interpolation as well as some great Tips and Tricks [visit this page](http://sol.gfxile.net/interpolation/).
+This example is made by [Dan Thompson](https://danthompsonsblog.blogspot.com/) in 2009 for smooth interpolation between two values. Smoothstep is a common formula used for many different applications such as Animation and Audio. This sketch includes a Serial Printout to help you visualize the formula. Visit [danthompsonsblog.blogspot.com](https://danthompsonsblog.blogspot.com/2009/02/smoothstep-interpolation-with-arduino.html) for the full smoothstep tutorial as well as many others. For a comprehensive overview of interpolation as well as some great Tips and Tricks [visit this page](http://sol.gfxile.net/interpolation/).
 
 ![](assets/smoothstep.gif)
 

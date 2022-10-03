@@ -23,7 +23,7 @@ In the familiar decimal system (_base ten_), a number like 572 means 5\*102 \+ 7
 
 It is crucial that you understand how the binary system works in order to follow the remainder of this tutorial. If you need help in this area, one good place to start is the [Wikipedia article on the binary system](https://en.wikipedia.org/wiki/Binary%5Fnumeral%5Fsystem).
 
-Arduino allows you to specify binary numbers by prefixing them with `0b`, e.g. `0b11 == 3`. For legacy reasons, it also defines the constants `B0` through `B11111111`, which can be used in the same way.
+Arduino allows you to specify binary numbers by prefixing them with `0b`, e.g., `0b11 == 3`. For legacy reasons, it also defines the constants `B0` through `B11111111`, which can be used in the same way.
 
 ## Bitwise AND
 
@@ -335,7 +335,7 @@ This code takes advantage of the fact that the control registers `DDRD` and `DDR
 
 Generally speaking, doing this sort of thing is **not** a good idea. Why not? Here are a few reasons:
 
-- The code is much more difficult for you to debug and maintain, and is a lot harder for other people to understand. It only takes a few microseconds for the processor to execute code, but it might take hours for you to figure out why it isn't working right and fix it! Your time is valuable, right? But the computer's time is very cheap, measured in the cost of the electricity you feed it. Usually it is much better to write code the most obvious way.
+- The code is much more difficult for you to debug and maintain and is a lot harder for other people to understand. It only takes a few microseconds for the processor to execute code, but it might take hours for you to figure out why it isn't working right and fix it! Your time is valuable, right? But the computer's time is very cheap, measured in the cost of the electricity you feed it. Usually, it is much better to write code the most obvious way.
 - The code is less portable. If you use digitalRead() and digitalWrite(), it is much easier to write code that will run on all of the Atmel microcontrollers, whereas the control and port registers can be different on each kind of microcontroller.
 - It is a lot easier to cause unintentional malfunctions with direct port access. Notice how the line `DDRD = B11111110;` above mentions that it must leave pin 0 as an input pin. Pin 0 is the receive line on the serial port. It would be very easy to accidentally cause your serial port to stop working by changing pin 0 into an output pin! Now that would be very confusing when you suddenly are unable to receive serial data, wouldn't it?
 
@@ -392,7 +392,7 @@ In the case where INT0 has been defined to 0 for your particular microcontroller
     GICR = GICR & B11111110;
 ```
 
-which turns off the lowest bit in the GICR register, but leaves the other bits as they were. This is an example of how the Arduino environment can support a wide variety of microcontrollers with a single line of runtime library source code.
+which turns off the lowest bit in the GICR register but leaves the other bits as they were. This is an example of how the Arduino environment can support a wide variety of microcontrollers with a single line of runtime library source code.
 
 ### Saving memory by packing multiple data items in a single byte
 

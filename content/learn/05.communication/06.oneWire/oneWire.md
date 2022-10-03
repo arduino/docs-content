@@ -17,15 +17,15 @@ author: "Arduino Community"
 
 ---
 
-1-Wire communication is a protocol operating through one wire between the controller device and the peripheral device. This article covers the basics of using the 1-Wire prototcol with an arduino with the help of the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) library. The following sections provide information about the 1-Wire protocol, interface, power, addressing devices, reading devices and finally a short glimse into the library's history.
+1-Wire communication is a protocol operating through one wire between the controller device and the peripheral device. This article covers the basics of using the 1-Wire protocol with an Arduino with the help of the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) library. The following sections provide information about the 1-Wire protocol, interface, power, addressing devices, reading devices and finally a short glimpse into the library's history.
 
 ## Latest version
 
 The [latest version of the library](https://github.com/PaulStoffregen/OneWire) is on [Paul Stoffregen](https://www.pjrc.com/teensy/td%5Flibs%5FOneWire.html)'s site. The rest of this page is a work in progress.
 
-OneWire is currently maintained by Paul Stoffregen. If you find a bug or have an improvement (to the library), email paul at pjrc dot com. Please be sure you are using the latest version of OneWire.
+OneWire is currently maintained by Paul Stoffregen. If you find a bug or have an improvement (to the library), email paul at pjrc dot com. Please be sure you are using the latest version of 1-Wire.
 
-[Bus](https://github.com/alexandrecuer/Bus) is a subclass of the OneWire library. Bus class scans the 1 wire Bus connected to an arduino UNO analog pin and stores the ROMs in an array. Several methods are available in the Bus class to acquire data from different 1wire sensors (DS18B20, DS2438).
+[Bus](https://github.com/alexandrecuer/Bus) is a subclass of the OneWire library. Bus class scans the 1 wire Bus connected to an Arduino UNO analog pin and stores the ROMs in an array. Several methods are available in the Bus class to acquire data from different 1wire sensors (DS18B20, DS2438).
 
 ## The 1-Wire Protocol
 
@@ -43,7 +43,7 @@ Dallas/Maxim and a number of other companies manufacture dedicated bus controlle
 
 [http://owfs.org/index.php?page=bus-masters](https://owfs.org/index.php?page=bus-masters)
 
-These devices are specifically designed and optimized to read and write efficiently to 1Wire devices and networks. Similar to UART/USART controller, they handle clocked operations natively with the use of a buffer, offloading the processing load from the host processor (e.g. sensor gateway or microcontroller) and increase accuracy. External pull-up resistors are also often not required.
+These devices are specifically designed and optimized to read and write efficiently to 1Wire devices and networks. Similar to UART/USART controller, they handle clocked operations natively with the use of a buffer, offloading the processing load from the host processor (e.g., sensor gateway or microcontroller) and increase accuracy. External pull-up resistors are also often not required.
 
 Many of the chips provide error-handling that specifically deals with loss of signal integrity, level variation, reflections, and other bus issues that may cause problems, particularly on large networks. Many of the devices have additional features, and are offered on a large variety of interfaces. They range in price from $1 to $30.
 
@@ -94,9 +94,9 @@ Alternatively, you can address a command to all peripheral devices by issuing a 
 
 Please see the [DS18S20](https://datasheets.maxim-ic.com/en/ds/DS18S20.pdf) or [DS18B20](http://datasheets.maxim-ic.com/en/ds/DS18B20.pdf) datasheets for more detailed information.
 
-## Reading a OneWire device
+## Reading a 1-Wire device
 
-Reading a 1Wire device requires multiple steps. The details are device-dependent, in that devices are capable of reporting different measurables. The popular DS18B20, for example, reads and reports temperature, while a DS2438 reads voltage, current, and temperature.
+Reading a 1-Wire device requires multiple steps. The details are device-dependent, in that devices are capable of reporting different measurables. The popular DS18B20, for example, reads and reports temperature, while a DS2438 reads voltage, current, and temperature.
 
 ### Two Main Read Process Steps:
 
