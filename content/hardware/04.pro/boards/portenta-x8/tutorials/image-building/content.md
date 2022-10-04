@@ -95,7 +95,7 @@ repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b relea
 
 Then pull the needed files:
 ```
-sudo repo sync
+repo sync
 ```
 ![Git-repo pulling all the repositories](assets/repo_sync.png)
 
@@ -153,7 +153,7 @@ Once it finishes you will see something similar to:
 
 #### Setup Manufacturing Tools
 
-To flash your board you will need to compile another distro to get additional tools. 
+To flash your board you will need to compile **lmp-mfgtool distro** to get additional tools. 
 First go into your home folder and change `DISTRO`:
 ```
 cd ..
