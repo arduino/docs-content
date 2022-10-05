@@ -1,6 +1,6 @@
 ---
 title: "1-Wire Protocol"
-description: "Learn about the communication between devices or sensors using the OneWire protocol. "
+description: "Learn about the communication between devices or sensors using the OneWire protocol."
 source: "https://playground.arduino.cc/Learning/OneWire/"
 author: "Arduino Community"
 ---

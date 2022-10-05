@@ -9,7 +9,7 @@ source:
     "https://playground.arduino.cc/Main/RickRoll/",
     "https://playground.arduino.cc/Main/Smoothstep/",
   ]
-author: "Arduino Community"
+author: "Paul Badger, Alexandre Quessy, Michael Smith, Samantha Lagestee, Dan Thompson"
 ---
 
 > This article was revised on 2022/09/28 by Hannes Siebeneicher.

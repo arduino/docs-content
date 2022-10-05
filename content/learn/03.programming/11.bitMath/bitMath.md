@@ -2,7 +2,7 @@
 title: "BitMath with Arduino"
 description: "Learn about bit math and how to manipulate individual bits in your Arduino sketches."
 source: "https://playground.arduino.cc/Code/BitMath/"
-author: "Arduino Community"
+author: "Don Cross"
 ---
 
 > This article was revised on 2022/09/28 by Hannes Siebeneicher.
