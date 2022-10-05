@@ -1,5 +1,5 @@
 ---
-title: "BitMath with Arduino"
+title: "Bit Math with Arduino"
 description: "Learn about bit math and how to manipulate individual bits in your Arduino sketches."
 source: "https://playground.arduino.cc/Code/BitMath/"
 author: "Don Cross"

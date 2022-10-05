@@ -7,7 +7,7 @@ author: "Arduino Community"
 
 > This article was revised on 2022/09/28 by Hannes Siebeneicher.
 
-**_Controller/peripheral is formerly known as master/slave. Arduino no longer supports the use of this terminology. Devices formerly known as master are referred to as controller and devices formerly known as slaves are referred to as peripheral._**
+**Controller/peripheral is formerly known as master/slave. Arduino no longer supports the use of this terminology. Devices formerly known as master are referred to as controller and devices formerly known as slaves are referred to as peripheral.**
 
 1-Wire communication is a protocol operating through one wire between the controller device and the peripheral device. This article covers the basics of using the 1-Wire protocol with an Arduino with the help of the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) library. The following sections provide information about the 1-Wire protocol, interface, power, addressing devices, reading devices and finally a short glimpse into the library's history.
 
@@ -69,7 +69,7 @@ With an external supply, three wires are required: the bus wire, ground, and pow
 
 ### Note on resistors:
 
-**_For larger networks, you can try smaller resistors._**  
+**For larger networks, you can try smaller resistors.**  
 The ATmega328/168 datasheet indicates starting at 1k6 and a number of users have found smaller to work better on larger networks.
 
 ## Addressing a 1-Wire device
@@ -90,23 +90,23 @@ Reading a 1-Wire device requires multiple steps. The details are device-dependen
 
 ### Two Main Read Process Steps:
 
-**_Conversion_**  
+**Conversion**  
 A command is issued to the device to perform an internal conversion operation. With a DS18B20, this is the Convert T (0x44) byte command. In the OneWire library, this is issued as ds.write(0x44), where ds is an instance of the OneWire class. After this command is issued, the device reads the internal ADC, and when this process is complete, it copies the data into the Scratchpad registers. The length of this conversion process varies depending on the resolution and is listed in the device datasheet. a DS18B20 takes from 94 (9-bit resolution) to 750ms (12-bit resolution) to convert temperature. While the conversion is taking place, the device may be polled, e.g. using in the ds.read() command in OneWire, to see if it has successfully performed a conversion.
 
-**_Read Scratchpad_**  
+**Read Scratchpad**  
 Once the data has been converted, it is copied into the Scratchpad memory, where it may be read. Note that the Scratchpad may be read at any time without a conversion command to recall the most previous reading, as well as the resolution of the device and other device-dependent configuration options.
 
 ### Asynchronous vs. Synchronous read/write
 
 The majority of existing code for 1-Wire devices, particularly that written for Arduino, uses a very basic "Convert, Wait, Read" algorithm, even for multiple devices. This creates several problems:
 
-**_Program timing for other functions_**  
+**Program timing for other functions**  
 Arguably the biggest problem with using the above methodology is that unless threading measures are undertaken, the device must sit (hang) and wait for the conversion to take place if a hardcoded wait time is included. This presents a serious problem if other timed processes exist, and even if they don't -- many programs wait for user input, process data, and perform many other functions that cannot be put on hold for the time necessary for a temperature conversion process. As noted, a 12-bit conversion process for a DS18B20 can take as long as 750ms. There is no reason to use the wait method, unless it is desired that the controller does nothing (at all) until the measurement conversion is complete. It is far more efficient to issue a conversion command and return later to pick up the measurement with a Read Scratchpad command once the conversion is complete.
 
-**_Scaling for Poll Speed with multiple devices_**  
+**Scaling for Poll Speed with multiple devices**  
 Another major problem with the "Convert, Wait, Read" method is that it scales very poorly, and for no good reason. All conversion commands can be issued in series (or simultaneously) by issuing a Skip ROM and then converting the command so the result can then be read back in succession. See discussion here: [http://interfaceinnovations.org/onewireoptimization.html](https://interfaceinnovations.org/onewireoptimization.html).
 
-**_Adjustment of wait time to required conversion time_**  
+**Adjustment of wait time to required conversion time**  
 The most efficient and expeditious read of 1-Wire devices explicitly takes the conversion time of the device being read into account, which is typically a function of read resolution. In the example below, for example, 1000ms is given, while the datasheet lists 750ms as the maximum conversion time, and typical conversion takes place in 625ms or less. Most important, the value should be adjusted for the resolution that is currently being polled. A 9-bit conversion, for example, will take 94ms or less, and waiting for 1000ms simply does not make sense. As noted above, the most efficient way to poll is the use a read time slot to poll the device. This way one can know exactly when the result is ready and pick it up immediately.
 
 ## History
