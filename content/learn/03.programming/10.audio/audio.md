@@ -1,13 +1,22 @@
 ---
-title: "Audio"
-description: "An article from the Arduino Playground."
-source: ["https://playground.arduino.cc/Main/Freqout/", "https://playground.arduino.cc/Code/MusicalAlgoFun/", "https://playground.arduino.cc/Code/PCMAudio/", "https://playground.arduino.cc/Main/RickRoll/", "https://playground.arduino.cc/Main/Smoothstep/"]
+title: "Audio basics with Arduino"
+description: "Learn how to create tones and even entire songs using an Arduino."
+source:
+  [
+    "https://playground.arduino.cc/Main/Freqout/",
+    "https://playground.arduino.cc/Code/MusicalAlgoFun/",
+    "https://playground.arduino.cc/Code/PCMAudio/",
+    "https://playground.arduino.cc/Main/RickRoll/",
+    "https://playground.arduino.cc/Main/Smoothstep/",
+  ]
 author: "Arduino Community"
 ---
 
 > This article was revised on 2022/09/28 by Hannes Siebeneicher.
 
-This article highlights different approaches to making sounds and even entire songs with an Arduino. In 2013 Brett Hagman created the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library which is a good starting point for creating different types of sounds using an Arduino. As the examples in this article are gathered from the Arduino playground and were mostly created before 2013 the differences in the code should be noted. The examples are nevertheless still relevant as they explain some basic concepts of generating tone frequencies, interpolation and even provide you with some songs to try out. If you want to see an example for a simple melody using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library and familiarize yourself with the concept of external sound data files, you can check out [this example](https://docs.arduino.cc/built-in-examples/digital/toneMelody).
+This article highlights different approaches to making sounds and even entire songs with an Arduino. In 2013 Brett Hagman created the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library which is a good starting point for creating different types of sounds using an Arduino. As the examples in this article are gathered from the Arduino playground and were mostly created before 2013 a lot of steps are still done manually, which can be skipped when using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library.
+
+The examples are nevertheless still relevant as they explain some basic concepts of generating tone frequencies, interpolation and even provide you with some songs to try out. If you want to see an example for a simple melody using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library and familiarize yourself with the concept of external sound data files, you can check out [this example](https://docs.arduino.cc/built-in-examples/digital/toneMelody).
 
 Most sketches in this article use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your Arduino. Only the **PCMAudio** example uses pin 11 as it is making us of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
 
@@ -154,7 +163,7 @@ pinMode(outpin, INPUT);                // shut off pin to avoid noise from other
 
 ### Duration extension
 
-Here's some minor tweaks to the above to extend it just a bit. The above untouched is left out because its simplicity is great. Basically, the array has been changed to have durations and a sentinel was added to mark the end.
+In the example below some minor tweaks have been made, mostly changing the array to have durations and a sentinel was added to mark the end. The example shown above remains as it shows a great simplistic structure.
 
 ```
   float EIGHTH = 1;
@@ -275,7 +284,6 @@ Takes over Timer 1 (16-bit) for the 8000 Hz timer. This breaks PWM (analogWrite(
 
 - http://tet.pub.ro/Documente/Proiect%20final/Documentatie/Difuzor/Arduino%20Sound%20%E2%80%93%20Part%201%20%E2%80%93%20uCHobby.pdf
 - https://www.evilmadscientist.com/article.php/avrdac
-- https://gonium.net/md/2006/12/27/i-will-think-before-i-code/
 - https://www.gamedev.net/reference/articles/article442.asp
 
 ### Code
@@ -440,7 +448,7 @@ void loop()
 ```
 
 The above sketch also requires the `sounddata.h` file which you can find below:
-  
+
 ```
 // sounddata sound made by wav2c
 // (wav2c modified to use unsigned samples)
@@ -950,14 +958,14 @@ const unsigned char sounddata_data[] PROGMEM = {
 16, 26, 33, 42, 55, 61, 67, 77, 91, 107, 118, 120, 125, 128, 130, 134, 140, 145, 146, 143,
 142, 136, 124, 111, 96, 80, 69, 62, 59, 57, 52, 50, 56, 65, 74, 86, 96, 109, 116,
 };
-
 ```
 
-
 ## Rick Roll
+
 The following example was created by Samantha Lagestee in 2017. Inspired by the popular meme, this code rickrolls people by playing the song "Never Gonna Give You Up" by Rick Astley on a piezo buzzer. Open the serial port to see the lyrics and sing along.
 
 ### Code
+
 ```
 
 /\* Rick Roll Code
@@ -980,14 +988,14 @@ Copyright 2017 samilagestee at gmail dot com
 #define b3 247 // 247 Hz
 #define c4 261 // 261 Hz MIDDLE C
 #define c4s 277 // 277 Hz
-#define e4f 311 // 311 Hz  
+#define e4f 311 // 311 Hz
 #define f4 349 // 349 Hz
-#define a4f 415 // 415 Hz  
+#define a4f 415 // 415 Hz
 #define b4f 466 // 466 Hz
 #define b4 493 // 493 Hz
 #define c5 523 // 523 Hz
 #define c5s 554 // 554 Hz
-#define e5f 622 // 622 Hz  
+#define e5f 622 // 622 Hz
 #define f5 698 // 698 Hz
 #define f5s 740 // 740 Hz
 #define a5f 831 // 831 Hz
@@ -1164,13 +1172,14 @@ if (a == 7) { // loop back around to beginning of song
 a = 1;
 }
 }
-
 ```
 
 ## MusicalAlgoFun
+
 This is a simple song with the Arduino created by Alexandre Quessy in 2006.
 
 ### Code
+
 ```
 
 /\*
@@ -1213,7 +1222,7 @@ pinMode(speakerOut, OUTPUT);
 }
 
 void loop() {
-digitalWrite(speakerOut, LOW);  
+digitalWrite(speakerOut, LOW);
  for (beat = 0; beat < MAXCOUNT; beat++) {
 statePin = !statePin;
 digitalWrite(ledPin, statePin);
@@ -1238,6 +1247,7 @@ delay(1000);
 ```
 
 ### Improved version
+
 ```
 
 /\*
@@ -1289,7 +1299,7 @@ timeUpDown[i] = 1000000 / (pow(2, (i - 69) / 12.0) \* 880);
 }
 
 void loop() {
-digitalWrite(speakerOut, LOW);  
+digitalWrite(speakerOut, LOW);
  for (beat = 0; beat < MAXCOUNT; beat++) {
 statePin = !statePin;
 digitalWrite(ledPin, statePin);
@@ -1313,5 +1323,4 @@ digitalWrite(ledPin, statePin);
 digitalWrite(speakerOut, LOW);
 delay(1000);
 }
-
 ```
