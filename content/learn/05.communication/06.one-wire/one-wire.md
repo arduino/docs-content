@@ -262,7 +262,7 @@ First, you need to define some variables, (put right under loop() above)
 int HighByte, LowByte, TReading, SignBit, Tc_100, Whole, Fract;
 ```
 
-Then for a DS18B20 series you will need to add the following code below the **_*Serial.println();*_**
+Then for a DS18B20 series you will need to add the following code below the **Serial.println();**
 
 ```
 LowByte = data[0];
