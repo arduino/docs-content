@@ -472,7 +472,7 @@ The expression `(1<<y)` selects a given bit inside `data` that we want to access
 
 In this quick reference, we refer to the bits in a 16-bit integer starting with the least significant bit as bit 0, and the most significant bit (the sign bit if the integer is signed) as bit 15, as illustrated in this diagram:
 
-![](assets/bitInteger.png)
+![](assets/bit-integer.png)
 
 Whenever you see the variable `n`, its value is assumed to be 0 through 15.
 
