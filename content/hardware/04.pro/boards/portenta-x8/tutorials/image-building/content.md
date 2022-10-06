@@ -31,7 +31,8 @@ This tutorial targets customers that are not FoundriesFactory subscribers, but s
 ### Required Hardware and Software
 
 - [Docker Engine](https://docs.docker.com/engine/install/)
-
+- [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
+  
 ## Instructions
 
 ### Docker
@@ -40,14 +41,15 @@ This tutorial targets customers that are not FoundriesFactory subscribers, but s
 
 You will create a Docker image that has the dependencies needed to build your device image.
 
-To do so you will need to clone our [lmp-manifest repository](https://github.com/arduino/lmp-manifest):
+To do so you will need to clone our [lmp-manifest repository](https://github.com/arduino/lmp-manifest), follow these steps to do so:
 
-1. Clone the lmp-manifest repository
+First, clone the lmp-manifest repository with this command:
   ```
   git clone https://github.com/arduino/lmp-manifest.git
   ```
   ![Cloning lmp-manifest repository](assets/git_clone_lmp-manifest.png)
-2. Build the Docker Image:
+
+Then build the Docker Image using:
   ```
   cd lmp-manifest
   docker build -t yocto-build ./lmp-manifest
@@ -65,7 +67,7 @@ Run the `yocto-build` builder image with:
 docker run -v <source>:/dockerVolume -it yocto-build bash
 ```
 
-Switch to the `builder` user, the password is **builder**:
+Switch to the `builder` user with the following command, the password is **builder**:
 ```
 su builder
 ```
@@ -79,7 +81,7 @@ su builder
 Now that you are running inside the Docker Image, you can use tools like **git-repo**, which is already installed.
 
 First configure git with your credentials. They don't need to be the real ones, but are required by `git-repo` to pull.
-Copy paste the following:
+Copy and paste the following:
 ```
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
@@ -93,13 +95,13 @@ repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b relea
 ```
 ![Git-repo initialization](assets/repo_init.png)
 
-Then pull the needed files:
+Then pull the needed files with:
 ```
 repo sync
 ```
 ![Git-repo pulling all the repositories](assets/repo_sync.png)
 
-After completion:
+After completion it should look like the following image:
 
 ![Git-repo finished sync](assets/repo_sync_finished.png)
 
@@ -118,8 +120,7 @@ You can set `DISTRO` to:
 DISTRO=lmp-xwayland MACHINE=portenta-x8 . setup-environment
 ```
 
-It will then switch automatically to a new folder.
-Now to accept the EULA:
+It will then switch automatically to a new folder. Now to accept the EULA with:
 
 ```bash
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
@@ -153,8 +154,7 @@ Once it finishes you will see something similar to:
 
 #### Setup Manufacturing Tools
 
-To flash your board you will need to compile **lmp-mfgtool distro** to get additional tools. 
-First go into your home folder and change `DISTRO`:
+To flash your board you will need to compile **lmp-mfgtool distro** to get additional tools. First go into your home folder and change `DISTRO`:
 ```
 cd ..
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
@@ -178,9 +178,7 @@ After completion:
 
 #### Save Your Image For Flashing
 
-After a successful build,  save the needed files to the host volume you mounted with `docker run`. 
-
-Use the following commands to copy the files to your storage unit:
+After a successful build,  save the needed files to the host volume you mounted with `docker run`. Use the following commands to copy the files to your storage unit:
 
 ```
 cd ..
@@ -199,7 +197,7 @@ tar xvf mfgtool-files-portenta-x8.tar.gz
 
 ![Copying compiled files](assets/copy_files.png)
 
-You will be able to see the copied files on your OS file explorer
+You will be able to see the copied files in your OS file explorer.
 ![Checking copied files with file explorer](assets/docker_volume_explorer.png)
 
 
