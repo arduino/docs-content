@@ -136,7 +136,7 @@ To start building the image, run:
 ```
 bitbake lmp-partner-arduino-image
 ```
-***This process takes ~7h depending on the HW***
+***This process takes ~7h depending on the build host***
 
 ![Compile Portenta X8 image](assets/x8_build.png)
 
