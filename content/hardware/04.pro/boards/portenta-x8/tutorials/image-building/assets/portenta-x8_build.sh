@@ -43,9 +43,10 @@ echo Exit tools folder
 cd ..
 
 # Copy files to the deploy folder
+todaysDate=$(date +%d-%b-%H_%M)
 echo copying files
-mkdir ../../dockerVolume/flashing
-DEPLOY_FOLDER=../../dockerVolume/flashing
+mkdir ../../dockerVolume/$todaysDate
+DEPLOY_FOLDER=../../dockerVolume/$todaysDate
 
 cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.gz $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/imx-boot-portenta-x8 $DEPLOY_FOLDER
@@ -57,7 +58,6 @@ cd $DEPLOY_FOLDER
 tar xvf mfgtool-files-portenta-x8.tar.gz
 
 echo finished
-echo REMEMBER TO COPY THE DEPLOY FOLDER TO A SAFE VOLUME
-echo (If you are inside Docker, it will delete the files once it does shut down)
-echo 
+echo Output folder called $todaysDate
+echo
 echo Read more at https://docs.arduino.cc/hardware/portenta-x8
