@@ -117,14 +117,14 @@ arduino-cloud-cli device create --name <deviceName> --port <port> --fqbn <device
 
 Currently, the following devices are supported:
 
-* `arduino:samd:nano_33_iot`
-* `arduino:samd:mkrwifi1010`
-* `arduino:mbed_nano:nanorp2040connect`
-* `arduino:mbed_portenta:envie_m7`
-* `arduino:mbed_nicla:nicla_vision`
-* `arduino:samd:mkr1000`
-* `arduino:samd:mkrgsm1400`
-* `arduino:samd:mkrnb1500`
+* `arduino:samd:nano_33_iot` [Arduino Nano 33 IoT](https://github.com/arduino/arduino-cloud-cli)
+* `arduino:samd:mkrwifi1010` [Arduino MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010)
+* `arduino:mbed_nano:nanorp2040connect` [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect)
+* `arduino:mbed_portenta:envie_m7` [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7) / [Arduino Portenta H7 Lite connected](https://docs.arduino.cc/hardware/portenta-h7-lite-connected)
+* `arduino:mbed_nicla:nicla_vision` [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
+* `arduino:samd:mkr1000` [Arduino MKR1000](https://docs.arduino.cc/hardware/mkr-1000-wifi)
+* `arduino:samd:mkrgsm1400` [Arduino MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
+* `arduino:samd:mkrnb1500` [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) 
 
 ### LoRaWAN® Devices
 
