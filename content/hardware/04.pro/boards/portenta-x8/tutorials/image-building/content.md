@@ -32,7 +32,8 @@ This tutorial targets customers that are not FoundriesFactory subscribers, but s
 
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-  
+- ~60GB available space on your machine's drive
+
 ## Instructions
 
 ### Docker
