@@ -20,7 +20,7 @@ Industry 4.0,  system integrators
   - 2 MB of Flash Memory with read-while-write support
   - 1 MB of RAM
  
--** Onboard memory**
+- **On-board memory**
   - 8 MB SDRAM
   - 16 MB Flash QSPI
   
