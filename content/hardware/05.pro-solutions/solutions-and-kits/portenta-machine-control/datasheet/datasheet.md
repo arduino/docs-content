@@ -151,7 +151,7 @@ Industry 4.0,  system integrators
 | PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
 
 ### Digital Input 
-8 channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
+8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
 
 ### Digital Output 
 The digital output connector has a 24V IN pin which must be supplied with 24V DC. 
