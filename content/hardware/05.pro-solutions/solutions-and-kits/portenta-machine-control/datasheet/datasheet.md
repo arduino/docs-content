@@ -15,76 +15,79 @@ The Arduino® Portenta Machine Control is powered with a 24V DC power supply and
 Industry 4.0,  system integrators
 
 # Features
-- **STM32H747XI dual Cortex®**
-  - **Processor**
-    - M7+M4 32 bit low power Arm® MCU
-      - 8 MB SDRAM
-      - 16 MB Flash QSPI
-      - 480 Mhz clock
-      - Cryptochip NXP SE0502 security
+- **STM32H747XI dual Cortex® Microcontroller**
+  - Arm® Cortex®-M7 core at up to 480 MHz + Arm® 32-bit Cortex®-M4 core at up to 240 MHz
+  - 2 MB of Flash Memory with read-while-write support
+  - 1 MB of RAM
+ 
+-** Onboard memory**
+  - 8 MB SDRAM
+  - 16 MB Flash QSPI
+  
+- **NXP SE0502 secure element**
 
-- **Input voltage 24**
+- **Power**
+    - Input voltage: 24V DC +/- 20%
+    - Output voltage: 24V DC
+    - Reverse polarity protection
+     
+- **8x digital input channels**
+    - 0-24V DC input
 
-- **Reverse polarity protection**
-
-- **8 digital input channels**
-
-- **0-24V input** 
-
-- **8 digital output channels**
+- **8x Digital output channels**
   - Non-galvanic isolated 24V power input 
-  - 8 High side switches with current limit and inductive load kick-back protection
+  - 8x High-side switches with current limit and inductive load kick-back protection
 
-- **3 analog input channels**
+- **3x Analog input channels**
 
-  Each channel is SW configurable to be:
+  Each channel is software configurable to be:
   - 0-10V input
   - 4-20mA input
   - NTC input with 3V voltage reference **REF3330AIRSER**
 
-- **4 analog output channels**
-  - DC Voltage output SW configurable 0-10V
-  - Max 20 mA per channel
+- **4x Analog output channels**
+  - DC Voltage output software configurable: 0-10V DC
+  - Max 20mA per channel
 
-- **12 digital programmable channels**
+- **12x Digital programmable channels**
   - Non-galvanic isolated 24V power input
-  - 12 High side switches with current
+  - 12x High-side switches with current
       limit and inductive load kick-back protection
-  - 12 Digital inputs
+  - 12x Digital inputs
 
-- **3 temperature channels**
-  Each channel is SW configurable to measure: 
-  - Thermocouple K, non grounded, front-end **MAX31855KASA+T**
-  - Thermocouple J, non grounded, front-end **MAX31855KASA+T** with SW multiplication coefficient
-  - PT100, front end **MAX31865ATP+T**
+- **3x Temperature channels**
+  Each channel is software configurable to measure: 
+  - Thermocouple K, non-grounded, front-end **MAX31855KASA+T**
+  - Thermocouple J, non-grounded, front-end **MAX31855KASA+T** with software multiplication coefficient
+  - PT100, front-end **MAX31865ATP+T**
 
-- **2 encoder channels ABZ**
-  - 0-24V input  
+- **2x Encoder channels ABZ**
+  - 0-24V DC input  
 
-- **High speed CAN**
-  - **TJA1049T/3J** able to work at 12V/24V 
-  - On board termination resistors 
+- **High-speed CAN**
+  - **TJA1049T/3J** able to work at 12V/24V DC
+  - On-board termination resistors 
 
 - **RS232/RS422/RS485 software configurable**
   - **SP335ECR1-L** with on board termination resistors 
-  - RS485 configurable half duplex or full duplex 
+  - RS485 configurable to be half duplex or full duplex 
 
 - **I2C**
   - Grove connector 
   - 10kΩ pull-ups on board 
 
 - **Ethernet**
-  - On board transformer 
+  - On-board LAN transformer 
 
-- **Full speed USB A connector**
+- **Full-speed USB-A connector**
 
-- **Half speed micro USB connector**
+- **Half-speed micro-USB Type B connector**
 
 - **RTC**
-  - At least 48h memory retention
+  - At least 48 hours of memory retention
 
 - **Wi-Fi/BLE**
-  - SMA connector 50Ω
+  - SMA connector-50Ω
 
 ***Note: ESD protection on all inputs/outputs***
 
@@ -93,11 +96,11 @@ Industry 4.0,  system integrators
 ## The Board
 
 ### Application Examples
-- **Food processing** The Portenta Machine Control scales up to meet your needs by providing control to your lab, pilot and industrial food processing demands across the beverage, drying and fermentation fields. Access professional support from Arduino or tap into the vast amount of community support to reduce the time to market. Gain real-time information about the process status and utilise edge computing capabilities to adjust the food processing parameters for improved yield and minimal waste.
+- **Food processing:** The Portenta Machine Control is the perfect solution to meet your food processing needs by providing control to your lab and industrial food processing demands across the beverage, drying, and fermentation fields. Access professional support from Arduino or take advantage of the community support to reduce your time-to-market. With the Portenta Machine Control you will have real-time information about the status of your process being also possible to improve the yield and minimal waste by adjusting the food processing parameters using edge computing.
 
-- **Glass bottle manufacturing** Make use of the fast edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increase the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute (BPM).
+- **Glass bottle manufacturing:** Make use of the fast edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increase the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute ratio (BPM).
 
-- **Packaging** Develop and control machines that fill, freeze, wrap, seal, label and much more to ensure that your product is safely packaged to reach your consumer. Achieve interconnects between various processes with Arduino's advanced technologies such as the Arduino Cloud infrastructure. Reduce labour costs and achieve a fully automated line with minimal human interaction to meet the stringiest hygiene and quality standards
+- **Packaging:** Develop and control machines that fill, freeze, wrap, seal, label, and much more to ensure that your product is safely packaged to reach your consumer. Interconnect different processes of your manufacturing line with Arduino's advanced technologies such as the Arduino Cloud infrastructure. Reduce labour costs and achieve a fully automated line with minimal human interaction to meet the strongest hygiene and quality standards.
 
 ### Related Products
 - Portenta H7
