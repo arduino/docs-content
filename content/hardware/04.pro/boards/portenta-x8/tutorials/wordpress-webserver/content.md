@@ -117,4 +117,4 @@ In this tutorial we went through how to install and run a Wordpress and database
 
 - If the containers are not installing or running correctly, check if there are any other containers currently running on the same ports as the ones used by the Wordpress container. You can check this with ``docker ps -a``.
 - If there is any issue running docker commands, make sure you are using ``sudo`` before the commands.
-- If you cannot connect to the site when everything is running, you can double check the X8s ip address. Run the command `ip s a` in the adb shell. This will display the X8's ip address via usb and WiFi. Try connecting via those ip addresses if all the rest fails.
+- If you cannot connect to the site when everything is running, you can double check the X8s IP address. Run the command `ip s a` in the **adb shell**. This will display the X8's IP address via USB and WiFi. Try connecting via those IP addresses if all the rest fails.
