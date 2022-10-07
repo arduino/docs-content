@@ -102,7 +102,7 @@ When you connect, you should get some feedback in the terminal. Text will begin 
 
 ![Terminal printout during connection](assets/webserver-connect-terminal.png)
 
-Now you should see a webpage like the following on the next image in your browser.
+Now you should see a webpage, like the following image, in your browser.
 
 ![Wordpress setup site](assets/webserver-wordpress-site.png)
 
