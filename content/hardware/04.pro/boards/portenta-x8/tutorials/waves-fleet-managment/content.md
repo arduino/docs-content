@@ -13,7 +13,7 @@ hardware:
 
 ## Overview
 
-In a production environment it is convenient to plan updates, and have control over when and which devices are updated. FoundriesFactory® Waves is the feature for this. It allows you to easily define a group of Portenta X8s and then push updates to that specific group. The difference between standard updates and using Waves to update, is that the Wave update will promote targets to production by double signing them, which makes the updates more manageable and controllable. This tutorial will show you how to define that group and how to construct a Wave that can then be pushed to a group.
+In a production environment it is convenient to plan updates and have control over when and which devices are updated. FoundriesFactory® Waves is the feature for this. It allows you to easily define a group of Portenta X8s and then push updates to that specific group. The difference between standard updates and using Waves to update is that the Wave update will promote targets to production by double signing them, which makes the updates more manageable and controllable. This tutorial will show you how to define that group and how to construct a Wave that can then be pushed to a group.
 
 ## Goals
 
@@ -26,8 +26,8 @@ In a production environment it is convenient to plan updates, and have control o
 - USB-C to USB-A or USB-C to USB-C
 - Portenta X8
 - Arduino Create account
-- Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
-- Foundries.io™ account (linked with the Pro Cloud subscription)
+- Arduino Cloud for business subscription with Portenta X8 Manager add-on. [Learn more about it](https://cloud.arduino.cc/plans#business).
+- Foundries.io™ account (linked with the Arduino Cloud for business subscription)
 - FoundriesFactory® and devices already attached to your Factory. ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
 
 ## Instructions
@@ -55,7 +55,7 @@ And finally, for security reasons, we separate the target keys from root using:
 fioctl keys copy-targets /absolute/path/to/root.keys.tgz /path/to/target.only.key.tgz
 ```
 
-Now we can move on to creating our Wave.
+Now we can move on creating our Wave.
 
 ### Creating a Dummy Wave for Production Targets
 
@@ -68,7 +68,7 @@ Then complete the Wave with:
 ```
 fioctl wave complete populate-targets
 ```
-This creates a new targets.json file for production devices subscribing to the production tag. It will include a single Target from CI build.
+This creates a new targets.json file for production devices, subscribing to the production tag. It will include a single Target from CI build.
 
 ### Creating a Wave
 
