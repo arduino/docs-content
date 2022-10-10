@@ -142,8 +142,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U5       | BHI260AP 6 axis IMU and AI core IC               | U6       | BME688 Environmental Sensor IC   |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC  |
 | U10      | SN74LVC1T45 1Channel voltage level translator IC | U11      | TXB0108YZPR Bidirectional IC     |
-| U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and GPIO Pin headers    |
-| J2       | I2C, JTAG, Power and GPIO pin headers            | J3       | Battery pin headers                  |
+| U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and LPIO Pin headers    |
+| J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery pin headers                  |
 | Y1       | SIT1532AI-J4-DCC MEMS 32.7680 kHz Oscillator     | DL1      | SMLP34RGB2W3 RGB SMD LED         |
 | PB1      | Reset button                                     |
 
@@ -212,7 +212,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 | Pin | **Function** | **Type** | **Description**                    |
 | --- | ------------ | -------- | ---------------------------------- |
-| 1   | GPIO0_EXT    | Digital  | GPIO Pin 0                         |
+| 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 |
 | 2   | NC           | N/A      | N/A                                |
 | 3   | CS           | Digital  | SPI Cable Select                   |
 | 4   | COPI         | Digital  | SPI Controller Out / Peripheral In |
@@ -227,13 +227,15 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | --- | ------------ | -------- | --------------------- |
 | 1   | SDA          | Digital  | I2C Data Line         |
 | 2   | SCL          | Digital  | I2C Clock             |
-| 3   | GPIO1_EXT    | Digital  | GPIO Pin 1            |
-| 4   | GPIO2_EXT    | Digital  | GPIO Pin 2            |
-| 5   | GPIO3_EXT    | Digital  | GPIO Pin 3            |
+| 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    |
+| 4   | LPIO2_EXT    | Digital  | Low Power IO Pin 2    |
+| 5   | LPIO3_EXT    | Digital  | Low Power IO Pin 3    |
 | 6   | GND          | Power    | Ground                |
 | 7   | VDDIO_EXT    | Digital  | Logic Level Reference |
 | 8   | N/C          | N/A      | N/A                   |
 | 9   | VIN          | Digital  | Input Voltage         |
+
+**Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
 ### J3 Fins
 
@@ -250,6 +252,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 **Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
 **Note 2:** All JTAG logic levels operate at 1.8V apart from the SAMD11 pins (P6 and P8) which are 3.3V. All these JTAG pins are 1.8V only and don't scale with VDDIO.
+
 ## Mechanical Information
 ![](assets/niclaSenseMEMech.png)
 
