@@ -1,6 +1,6 @@
 Kit:
   Name: Arduino® Make Your UNO Kit
-  SKU: XXXX
+  SKU: AKX00037
 PCB:
   Board PCB Sheet: 1x
   Shield PCB Sheet: 1x
@@ -28,6 +28,7 @@ Other Electronics:
   Crystal 16mHz, 20pF: 1x 
   Diode: 1x
   Potentiometer 10K Ω: 6x
+  Potentiometer Knob: 6x
   Pushbutton: 1x
   LDO (3.3V): 1x
   LDO (5V): 1x
@@ -35,8 +36,16 @@ Other Electronics:
 Connectors: 
   UNO I/O Connector: 2x
   ICPS Connector: 1x
-  ATmega328P Socket: 1x 
+  ATmega328P Socket: 1x
+  1x10 Pin Header: 1x
+  1x8 Pin Header: 2x
+  1x6 Pin Header: 1x
 Mechanical Components:
+  M3 Spacer 12 mm: 5x
+  M3 Screw 6 mm: 11x
+  M3 Screw 12 mm: 2x
+  M3 Bolt: 5x
+
 
 
 
