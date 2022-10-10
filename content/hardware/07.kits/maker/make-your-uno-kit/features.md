@@ -12,13 +12,13 @@ This kit includes instructions for you who have never soldered before! But don't
 
 </Feature>
 
-<Feature title="The Classic UNO" image="hw-pin">
+<Feature title="The Classic UNO" image="uno-form-factor">
 
 Includes all electronic components needed to build the popular Arduino UNO board from scratch!
 
 </Feature>
 
-<Feature title="Synthesiser Shield" image="hw-pin">
+<Feature title="Synthesiser Shield" image="mcu">
 
 This kit also includes components to build a Synthesiser Shield for producing funky tunes!
 
