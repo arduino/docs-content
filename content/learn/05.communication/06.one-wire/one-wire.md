@@ -7,7 +7,7 @@ author: "Arduino Community"
 
 > This article was revised on 2022/09/28 by Hannes Siebeneicher.
 
-**Controller/peripheral is formerly known as master/slave. Arduino no longer supports the use of this terminology. Devices formerly known as master are referred to as controller and devices formerly known as slaves are referred to as peripheral.**
+***Controller/peripheral is formerly known as master/slave. Arduino no longer supports the use of this terminology. Devices formerly known as master are referred to as controller and devices formerly known as slaves are referred to as peripheral.***
 
 1-Wire communication is a protocol operating through one wire between the controller device and the peripheral device. This article covers the basics of using the 1-Wire protocol with an Arduino with the help of the [OneWire](https://www.arduino.cc/reference/en/libraries/onewire/) library. The following sections provide information about the 1-Wire protocol, interface, power, addressing devices, reading devices and finally a short glimpse into the library's history.
 

@@ -1,5 +1,5 @@
 ---
-title: "Audio basics with Arduino"
+title: "Audio Basics with Arduino"
 description: "Learn how to create tones and even entire songs using an Arduino."
 source:
   [
@@ -282,7 +282,7 @@ Takes over Timer 1 (16-bit) for the 8000 Hz timer. This breaks PWM (analogWrite(
 
 ### References:
 
-- http://tet.pub.ro/Documente/Proiect%20final/Documentatie/Difuzor/Arduino%20Sound%20%E2%80%93%20Part%201%20%E2%80%93%20uCHobby.pdf
+- [http://tet.pub.ro/](http://tet.pub.ro/Documente/Proiect%20final/Documentatie/Difuzor/Arduino%20Sound%20%E2%80%93%20Part%201%20%E2%80%93%20uCHobby.pdf) (PDF).
 - https://www.evilmadscientist.com/article.php/avrdac
 - https://www.gamedev.net/reference/articles/article442.asp
 
