@@ -130,8 +130,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | U14      | DSC6151HI2B 25 MHz MEMS Oscillator               | U15      | DSC6151HI2B 27 MHz MEMS Oscillator         |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC           |
 | U10      | SN74LVC1T45 1-channel voltage level translator IC| U11      | TXB0108YZPR Bidirectional IC              |
-| U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and GPIO Pin headers             |
-| J2       | I2C, JTAG, Power and GPIO pin headers            | J3       | Battery headers                           |
+| U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and LPIO Pin headers             |
+| J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery headers                           |
 | DL1      | SMLP34RGB2W3 RGB SMD LED                         | DL2      | KPHHS-1005SURCK Red LED                   |
 | PB1      | Reset button                                     | J6       | U.FL-R-SMT-1(60) Male micro UFL connector |
 
@@ -215,7 +215,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 | Pin | **Function** | **Type** | **Description**                    |
 | --- | ------------ | -------- | ---------------------------------- |
-| 1   | GPIO0_EXT    | Digital  | GPIO Pin 0                         |
+| 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 |
 | 2   | NC           | N/A      | N/A                                |
 | 3   | CS           | Digital  | SPI Cable Select                   |
 | 4   | COPI         | Digital  | SPI Controller Out / Peripheral In |
@@ -230,13 +230,15 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | --- | ------------ | -------- | --------------------- |
 | 1   | SDA          | Digital  | I2C Data Line         |
 | 2   | SCL          | Digital  | I2C Clock             |
-| 3   | GPIO1_EXT    | Digital  | GPIO Pin 1            |
-| 4   | GPIO2_EXT    | Digital  | GPIO Pin 2            |
-| 5   | GPIO3_EXT    | Digital  | GPIO Pin 3            |
+| 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    |
+| 4   | LPIO2_EXT    | Digital  | Low Power IO Pin 2    |
+| 5   | LPIO3_EXT    | Digital  | Low Power IO Pin 3    |
 | 6   | GND          | Power    | Ground                |
 | 7   | VDDIO_EXT    | Digital  | Logic Level Reference |
 | 8   | N/C          | N/A      | N/A                   |
 | 9   | VIN          | Digital  | Input Voltage         |
+
+**Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
 ### J3 Fins
 
