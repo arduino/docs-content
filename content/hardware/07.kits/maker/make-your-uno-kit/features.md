@@ -6,6 +6,12 @@ The Make Your UNO Kit includes all components for you to make your own UNO, such
 
 
 <FeatureList>
+<Feature title="Beginner Friendly" image="led">
+
+This kit includes instructions for you who have never soldered before! But don't worry if you're an expert. You can also cut right to the chase!
+
+</Feature>
+
 <Feature title="The Classic UNO" image="hw-pin">
 
 Includes all electronic components needed to build the popular Arduino UNO board from scratch!
@@ -14,13 +20,13 @@ Includes all electronic components needed to build the popular Arduino UNO board
 
 <Feature title="Synthesiser Shield" image="hw-pin">
 
-This kit also includes components to build a Synthesiser Shield for creating funky tunes!
+This kit also includes components to build a Synthesiser Shield for producing funky tunes!
 
 </Feature>
 
-<Feature title="3D Interactive Model" image="configurability">
+<Feature title="3D Interactive Guide" image="configurability">
 
-The 3D interactive model is a new way of learning how to assemble a board.
+A 3D Interactive Guide is included in this kit, that allows you to follow soldering instructions in detail.
 
 </Feature>
 
