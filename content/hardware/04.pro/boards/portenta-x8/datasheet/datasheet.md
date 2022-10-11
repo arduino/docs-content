@@ -274,8 +274,11 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 - **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
 ## Accessories (Not Included)
-- USB-C Hub
-- USB-C to HDMI Adapter
+A reference list of validated USB-C Hubs is provided below to support customer applications:
+- [WJOY](https://www.carousell.sg/p/wjoy-usb-c-hub-laptop-docking-station-wireless-charger-14-in-1-usb-c-adapter-with-ethernet-power-delivery-laptop-with-4k-hdmi-output-2-1000m-rj45-ethernet-75w-pd-vga-5-usb-3-0-ports-sd-tf-card-reader-1073737877/)
+- [SSK](https://www.amazon.it/SSK-adattatore-multiporta-Ethernet-dispositivi/dp/B08Q36HB3G/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=230KZXXRI0F7M&keywords=B08Q36HB3G&qid=1661955485&s=pc&sprefix=b08q36hb3g%2Ccomputers%2C59&sr=1-1)
+- [Lemorele](https://www.amazon.it/dp/B09XXRLY4W/)
+- [Tuwejia](https://www.amazon.it/Multiport-Tuwejia-Thumderbolt-convertitore-proiezione/dp/B07G44M4S3/ref=sr_1_1?keywords=Tuwejia&qid=1661956111&sr=8-1)
 
 ## Related Products
 - Arduino® Portenta Breakout Board (ASX00031)
