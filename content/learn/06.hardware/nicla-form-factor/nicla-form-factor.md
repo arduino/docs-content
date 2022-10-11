@@ -138,7 +138,7 @@ Any input device operating with a voltage less or equal to 3.3V can be connected
 Any Low Power device can be directly connected to the Low-Power pins in case it does not absorb any current. The Voltage-Level shifter will automatically detect that an output device has been connected to the pin and switch the port accordingly. The output voltage is digital and its value depends on how VDDIO_EXT has been programmed via software: VDDIO_EXT can be switched off or switched on either at 1.8V or 3.3V. 
 On the other hand, if the connected output device needs to absorb current (e.g. LEDs, resistive loads, buzzers etc.), the user should connect a MOSFET or a buffer to guarantee the required current flow. A reference schematics showing how to connect an LED to a Low-Power pin through a MOSFET is reported below. 
 
-![Reference schematics for LED connection](assets/reference_schematics_LED.png)
+![Reference schematics for LED connection](assets/reference_schematics_LED.svg)
 
 ### Fins
 
