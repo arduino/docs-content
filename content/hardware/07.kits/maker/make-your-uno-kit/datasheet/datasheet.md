@@ -82,7 +82,7 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 
 | Symbol  | Description                              | Min  | Typ  | Max  | Unit |
 | ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from Jack connector/VIN pad       | 7    | -    | 25   | V    |
+| VINMax  | Maximum input voltage from Jack connector/VIN pad       | 6    | -    | 20   | V    |
 | VUSBMax | Maximum input voltage from USB connector |      | -    | 5.5  | V    |
 | PMax    | Maximum Power Consumption                | -    | -    | xx   | mA   |
 
@@ -91,9 +91,9 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 ### Board Topology and Bill of Materials
 Top view
 
-![Board topology](assets/boardTopology.png) TODO: CHANGE IMAGE TO THE KIT AND UPDATE TABLE ->put the photo with the board near the table should be enough, the silkscreen is self-explanatory
+![Board topology](assets/featured.png)
 
-The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary.
+The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the PCB source file.
 
 
 | **Ref.** | **Quantity** | **Description**                             | **Designator**               |
