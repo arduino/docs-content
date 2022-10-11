@@ -1,31 +1,35 @@
 ---
-title: 'Guide to 3.3V and 5V Logic Level Differences'
-description: 'Learn about the difference of 5V and 3.3V in world of electronics, with protective measures to help you design & build robust electronics.'
-tags: [5V, 3.3V, Electronics, Power]
-author: 'José Bagur, Taddy Chung'
+title: 'Guide to 3V3 and 5V Power Supplies Differences'
+description: 'Design and build robust electronic circuits and devices by learning the main characteristics and differences between 3V3 and 5V power supplies levels.'
+tags: [3V3, 5V, Electronics, Power Supply]
+author: 'Taddy Chung, José Bagur'
 ---
 
-## 5.0V vs. 3.3V
+## 3V3 vs. 5V
 
-Most electronic devices, when designed, tends to choose between 5.0V or 3.3V that will feed voltage to its designed system. Voltage design selection can be usually either due to its convenience of availability of the power source, or the need of power efficiency that the system itself has as a requirement.
+When designed, most electronic circuits and devices must choose a **power supply**. The **voltage** of the power supply is usually determined either by convenience or the need for power efficiency that the electronic circuit or device itself has as a requirement.
 
-Although 5.0V and 3.3V in numerical difference only have a 1.7V of difference it is sufficient enough to provide major power difference in electronic systems. In this guide, we will show you why 3.3V is the modern standard voltage level, and general tips when designing and handling these voltage levels. 
+**3V3** and **5V** are standard voltage levels nowadays in power supplies. Although there is only a 1V7 difference between both voltages, it is enough to provide a significant difference in power efficiency. This guide will show you why 3V3 is the current standard voltage level for power supplies in electronic circuits and devices and some general tips when designing and handling these voltage levels in your circuits or devices powered by Arduino.
 
-## 3.3V, the Standard Voltage Level
+## 3V3, the Standard Voltage Level
 
-So, why is the **3.3V** level a standard voltage level? There are several reasons that contributes for standardising the 3.3V level, and in world of electronics, we are in constant search for more efficient and performant yet density-low package devices or machines. 
+So, why is the **3.3V** a standard power supply voltage level? Because power consumption has always been a concern for designers, lower power supply voltage levels were introduced to make more power-efficient circuits and devices. For over 30 years, powering electronic circuits and devices using a 5V level was common practice; today, most electronic circuits and devices use a 3V3 power supply voltage level, and some are even migrating to a 2V5 level! 
 
-The industry is always moving forward, and in electronics, the transistors have reduced in its size than previous years and due to its reduced size, voltage threshold also follows the trend by going lower. The industry continuously is working to develop faster electronic devices, and one general way to achieve this is to lower the applied voltage level. Lowering applied voltage level implies much faster logic level changes. Power usage is a concerning topic if we discuss about power efficiency, and lower voltage levels will help us achieve this goal. 
+***Reducing the power supply voltage yields an exponential decrease in power consumption.***
 
-In the end, the industry has moved from 5V TTL by achieving lower optimal voltage level due to chip development improvement and introduction of CMOS (Complementary Metal-Oxide Semiconductor). Also, it is always better to have a clear working standard which ensures compatibility of device development and operation. To manage this standard, **JEDEC Standard** made **JESD8 standard** which defines 3.3V level as the standard voltage level. 
+A standard exists for defining the voltage levels of input and output voltages for every power supply voltage level; this standard was developed by The Joint Electron Device Engineering Council (JEDEC); it is the JEDEC Standard 8-A for LV interface levels. The JEDEC Standard 8-A for LV interface levels is described in the image shown below for 3V3 and 5V logic families:
 
-***For more in-depth information about current microelectronic standards, please look into [JEDEC](https://www.jedec.org/)***
+![Simple Reverse Polarity Protection](assets/3v3-5v_img01.png)
 
-Usually, such broad classification given to **low power** electronic devices are usually defined at voltage of 3.3V to 5V with current at 0.5A to 3A for example. **High power** electronic devices can be designated for devices requiring 12V of voltage and 10A of current, and beyond. Although, in this two types of device classification, a common factor usually relies within by using 3.3V level internally. 
+In the image shown above:
 
-The power inputs and outputs may vary, depending on the requirement of the electronic design. Which it also means it could use ambiguous voltage levels mostly for power inputs, implying to drive the voltage down in most cases. In contrast, most of the electronic components and modules are regulated by its electrical specification. The electrical specification for these components used internally, in exception for specialized components for specific cases, are designed to have 3.3V as a operating voltage level, otherwise specified in range. 
+* V<sub>OL</sub>: maximum output voltage level an electronic device will provide for a LOW signal
+* V<sub>IL</sub>: maximum input voltage level an electronic device will still considered as a LOW signal
+* V<sub>t</sub>: threshold voltage at wich an electronic device will switch its interpretation of a signal from low or high or vice vers
+* V<sub>IH</sub>: minimum input voltage level an electronic device will still considered as a HIGH signal.
+* V<sub>OH</sub>: minimum output voltage level an electronic device will still considered as a HIGH signal
 
-***Fun Fact of 3.3V - The number 3.3 dates by going back to early days of IC (Integrated Circuit) development of semiconductor technology, and it is rumoured that it is the result of RTL (Register-Transfer Level) designs.***
+***For more in-depth information about current microelectronic standards, please look at the [JEDEC](https://www.jedec.org/) website.***
 
 ## How to Avoid Burning Circuits 101
 
