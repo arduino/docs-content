@@ -6,7 +6,7 @@ type: maker
 
 ![](assets/featured.png)
 
-# Description 
+# Description
 The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electronics and coding by assembling your own *Arduino Uno*. Become familiar with soldering by mounting every single component, unleash your creativity with the audio synth kit, and learn how to code using your new **Arduino Uno** board to create amazing projects!
 
 # Target areas:
@@ -47,7 +47,7 @@ Maker, introduction, education
             * 16 KB ISP Flash
             * 512B EEPROM
             * 512B SRAM
-            * debugWIRE interface for on-chip debugging and programming 
+            * debugWIRE interface for on-chip debugging and programming
 
         * **Power**
             * 2.7-5.5 volts
@@ -88,29 +88,50 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 
 ## Functional Overview
 
-### Board Topology 
+### Board Topology and Bill of Materials
 Top view
 
-![Board topology](assets/boardTopology.png) TODO: CHANGE IMAGE TO THE KIT AND UPDATE TABLE
+![Board topology](assets/boardTopology.png) TODO: CHANGE IMAGE TO THE KIT AND UPDATE TABLE ->put the photo with the board near the table should be enough, the silkscreen is self-explanatory
 
-| **Ref.** | **Description**                | **Ref.** | **Description**                       |
-| -------- | ------------------------------ | -------- | ------------------------------------- |
-| X1       | Power jack 2.1x5.5mm           | U1       | SPX1117M3-L-5 Regulator               |
-| X2       | USB B Connector                | U3       | ATMEGA16U2 Module                     |
-| PC1      | EEE-1EA470WP 25V SMD Capacitor | U5       | LMV358LIST-A.9 IC                     |
-| PC2      | EEE-1EA470WP 25V SMD Capacitor | F1       | Chip Capacitor, High Density          |
-| D1       | CGRA4007-G Rectifier           | ICSP     | Pin header connector (through hole 6) |
-| J-ZU4    | ATMEGA328P Module              | ICSP1    | Pin header connector (through hole 6) |
-| Y1       | ECS-160-20-4X-DU Oscillator    |          |                                       |
+The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary.
+
+
+| **Ref.** | **Quantity** | **Description**                             | **Designator**               |
+| -------- | -------------| ------------------------------------------- | ---------------------------- |
+| A5215        | 7            | RES FIXED THD 1K OHM 1/4W 5%            | R1, R4, R5, R6, R7, R8, R11  |
+| A5213        | 2            | RES THD 10K 1/4W 5%                     | R2, R9                       |
+| A5217        | 2            | RES THD 1M OHM 1/4w  5%                 | R3, R10                      |
+| 0066         | 1            | Diodes \[1N4007\]                       | D1                           |
+| 0019         | 1            | CRYSTAL 16.0000MHZ 20PF THD             | Y1                           |
+| C0124        | 3            | CAP THD 22pF 50V C0G 5%                 | C2, C4, C5                   |
+| L0021        | 4            | LED THD YELLOW DIFFUSED T-1, 3mm        | LD1, LD2, LD3, LD4           |
+| L0023        | 1            | LED THD GREEN DIFFUSED T-1, 3mm         | LD5                          |
+| 0089         | 1            | PUSHBUTTON. 6x6 CS                      | PB1                          |
+| T0035        | 1            | TRANSISTOR NMOS 0.2A                    | Q1                           |
+| U0246        | 1            | IC REG LDO FIXED 3.3V, 0.2V TO-92-3     | R3                           |
+| C0125        | 3            | CAP ALUM POL THD 47uF 25V               | C1, C12, C13                 |
+| U0239        | 1            | IC REG LINEAR 5V 1.5A TO220AB           | U3                           |
+| 0080         | 7            | CAP THD 100NF 63V POLIESTER             | C3, C6, C7, C8, C9, C10, C11 |
+| 0064         | 1            | CONN DIP 28 SOCKET                      | J7                           |
+| 3648         | 1            | CONN STRIP F/1/D 18v SER.NERA           | J2                           |
+| 3649         | 1            | CONN STRIP F/1/D 14v SER.NERA           | J3                           |
+| 0114         | 1            | CONN Header Through Hole 6 position     | J4                           |
+| 0018         | 1            | CONN PWR JACK 2.1X5.5MM                 | J1                           |
+| SL-ABX00068  | 1            | SL USB-C SERIAL V 1.0                   |                              |
+| PCB_ASX00040 | 1            | PCB ARDUINO UNO DIY                     |                              |
+| AKB 00037    | 1            | Bustine Avana 98x67                     |                              |
+| A5681        | 1            | Jumper standed wire Red 15CM            |                              |
+| A5680        | 1            | Jumper standed wire BLK 15CM            |                              |
+
+
+
 
 ### Processor
 The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the USB Bridge coprocessor.
 
 ### Power Tree
 
-![Power tree](assets/powerTree.png) TODO: update power tree ? I thing this power tree should be the same
-
-### Bill of materials (BOM) TODO: MAKE A TABLE HERE WITH THE BOM
+![Power tree](assets/powerTree.png) TODO: update power tree ? I thingks power tree should be the same
 
 
 ## Board Operation
@@ -183,7 +204,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Board Outline & Mounting Holes
 
-The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located at the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the UNO board.
+The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
 ![Board outline](assets/boardOutline.png)
 
