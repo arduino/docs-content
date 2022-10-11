@@ -25,7 +25,7 @@ In the image shown above:
 
 * V<sub>OL</sub>: maximum output voltage level an electronic device will provide for a LOW signal
 * V<sub>IL</sub>: maximum input voltage level an electronic device will still considered as a LOW signal
-* V<sub>t</sub>: threshold voltage at wich an electronic device will switch its interpretation of a signal from low or high or vice vers
+* V<sub>t</sub>: threshold voltage at which an electronic device will switch its interpretation of a signal from low or high or vice vers
 * V<sub>IH</sub>: minimum input voltage level an electronic device will still considered as a HIGH signal.
 * V<sub>OH</sub>: minimum output voltage level an electronic device will still considered as a HIGH signal
 
