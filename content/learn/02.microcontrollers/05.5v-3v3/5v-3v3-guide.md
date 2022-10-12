@@ -25,7 +25,7 @@ In the image shown above:
 
 * V<sub>OL</sub>: maximum output voltage level an electronic device will provide for a LOW signal
 * V<sub>IL</sub>: maximum input voltage level an electronic device will still considered as a LOW signal
-* V<sub>t</sub>: threshold voltage at which an electronic device will switch its interpretation of a signal from low or high or vice vers
+* V<sub>t</sub>: tthreshold voltage at which an electronic device switches its interpretation of a signal from low to high or vice versa
 * V<sub>IH</sub>: minimum input voltage level an electronic device will still considered as a HIGH signal.
 * V<sub>OH</sub>: minimum output voltage level an electronic device will still considered as a HIGH signal
 
@@ -33,17 +33,15 @@ In the image shown above:
 
 ## How to Avoid Burning Circuits 101
 
-Every electronic designer and developers driving the power lines of the electronic devices always keeps its effort to avoid frying the system. Depending on the power design integrated to the electronic device, it might be a slip of a hand to short the electronic or it could be an all-out effort to short the system. In the end, it is inevitable not to short the electronic if the misimplementation is made. So, how do we avoid frying the electronics? 
-
-The simple answer to this is to **keep an eye** on it. The electronic devices, still at the moment, are not intelligent enough to avoid circuit short, and it is designed all by human engineers. Decoding further this present answer, it can be listed to following tips to take it into account. 
+Every electronic designer driving the power lines of electronic circuits and devices can cause, accidentally or on purpose, a short circuit and, therefore, damage the electronic circuits or devices. Accidents and mistakes always happen, but we can follow some tips and tricks to avoid them. Let's check it out!
 
 ### Color Coded Power Lines
 
-Color coding the power lines is the easiest yet effective visual method of avoiding incorrectly connecting the power lines. One common issue for shorting the electronic device is often due to connecting the power lines inverted. When prototyping an electronic device, common mistake made by some developers is to use same color on every cable while being jumbled all over the places, making it impossible to identify which is which. This applies also to power lines. 
+**Color coding** the power lines is the easiest yet most effective visual method to avoid an incorrect connection in the power lines of electronic circuits or devices. When prototyping an electronic circuit or device, some developers make the common mistake of using the same color on every cable while being jumbled all over the place, making it impossible to identify which. 
 
-Color coding the power lines, the voltage and the Ground lines, makes much easier to identify which is the voltage cable and which is the Ground cable. Given the industry regulation, normally color Red is used to indicate Voltage line; while the color Black is used to indicate Ground line. The colors can be varied depending on the regulation that is applied given organization if required. For example, instead of Red for Voltage line, it can be either Brown or bright Orange. 
+Color coding power lines makes it much easier to identify the v oltage and Ground (GND) lines. According to industry regulations and standards, the color red is typically used to indicate a voltage line, while the color black is used to indicate a GND line; colors vary depending on the regulation or standard. 
 
-***For more information on electrical code, please have a look at [NFPA 70®](https://www.nfpa.org/NEC/electrical-codes-and-standards/NFPA-70?code=70) and [IEEE NESC®](https://standards.ieee.org/products-programs/nesc/)***
+***For more information on electrical regulations and standards, please check out the [National Electrical Safety Code®](https://standards.ieee.org/products-programs/nesc/) from the Institute of Electrical and Electronics Engineers (IEEE).***
 
 ### Fuse Integration
 
