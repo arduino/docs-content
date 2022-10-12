@@ -13,19 +13,19 @@ When designed, most electronic circuits and devices must choose a **power supply
 
 ## 3V3, the Standard Voltage Level
 
-So, why is the **3.3V** a standard power supply voltage level? Because power consumption has always been a concern for designers, lower power supply voltage levels were introduced to make more power-efficient circuits and devices. For over 30 years, powering electronic circuits and devices using a 5V level was common practice; today, most electronic circuits and devices use a 3V3 power supply voltage level, and some are even migrating to a 2V5 level! 
+So, why is the **3.3V** a standard power supply voltage level? Because power consumption has always been a concern for designers, lower power supply voltage levels were introduced to make more power-efficient circuits and devices. For over 30 years, powering electronic circuits and devices using a 5V level was common practice; today, most electronic circuits and devices use a 3V3 power supply voltage level, some are even migrating to a 2V5 level (or even to lower voltages!).
 
 ***Reducing the power supply voltage yields an exponential decrease in power consumption.***
 
 A standard exists for defining the voltage levels of input and output voltages for every power supply voltage level; this standard was developed by The Joint Electron Device Engineering Council (JEDEC); it is the JEDEC Standard 8-A for LV interface levels. The JEDEC Standard 8-A for LV interface levels is described in the image shown below for 3V3 and 5V logic families:
 
-![Simple Reverse Polarity Protection](assets/3v3-5v_img01.png)
+![The JEDEC Standard 8-A for LV interface levels.](assets/3v3-5v_img01.png)
 
 In the image shown above:
 
 * V<sub>OL</sub>: maximum output voltage level an electronic device will provide for a LOW signal
 * V<sub>IL</sub>: maximum input voltage level an electronic device will still considered as a LOW signal
-* V<sub>t</sub>: tthreshold voltage at which an electronic device switches its interpretation of a signal from low to high or vice versa
+* V<sub>t</sub>: threshold voltage at which an electronic device switches its interpretation of a signal from low to high or vice versa
 * V<sub>IH</sub>: minimum input voltage level an electronic device will still considered as a HIGH signal.
 * V<sub>OH</sub>: minimum output voltage level an electronic device will still considered as a HIGH signal
 
@@ -39,25 +39,19 @@ Every electronic designer driving the power lines of electronic circuits and dev
 
 **Color coding** the power lines is the easiest yet most effective visual method to avoid an incorrect connection in the power lines of electronic circuits or devices. When prototyping an electronic circuit or device, some developers make the common mistake of using the same color on every cable while being jumbled all over the place, making it impossible to identify which. 
 
-Color coding power lines makes it much easier to identify the v oltage and Ground (GND) lines. According to industry regulations and standards, the color red is typically used to indicate a voltage line, while the color black is used to indicate a GND line; colors vary depending on the regulation or standard. 
+Color coding power lines makes it much easier to identify the voltage and Ground (GND) lines. According to industry regulations and standards, red is typically used to indicate a voltage line, while black is used to indicate a GND line; colors vary depending on the regulation or standard. 
 
 ***For more information on electrical regulations and standards, please check out the [National Electrical Safety Code®](https://standards.ieee.org/products-programs/nesc/) from the Institute of Electrical and Electronics Engineers (IEEE).***
 
 ### Fuse Integration
 
-The smart way of protecting the electronic devices is to integrate an on-board power protection circuit. There are several designs to achieve this, and one common way to do is to use the **Fuse**. Using the fuse as part of the electronic offers inexpensive cost and power protection at certain extent. 
+One easy way to protect electronic devices is to integrate an onboard power protection circuit into the device. Several circuit designs can be implemented to achieve this; one of the easiest circuits to implement is using a fuse. 
 
-Fuse integration to electronic devices is not a difficult design process either. Usually it is found as bridge between operation circuit, and it requires using an intervention of a diode to complete the circuit protection. Following simple schematic shows a simple reverse polarity protection circuit that can be applied for DC electronic applications. 
+Fuse integration to electronic devices is not a complicated design process. The following schematic shows a **simple reverse polarity protection** circuit that can be used in low-power DC circuits:
 
-![Simple Reverse Polarity Protection](assets/SimpleRPP.png)
+![Simple reverse polarity protection circuit.](assets/SimpleRPP.png)
 
-This simple reverse polarity protection circuit uses a fuse and a diode, that later connects to the circuit, which we can refer as the **Protected Load**. 
-
-For the low power applications, if the power supply is connected with the polarities reversed, the diode will clamp the voltage to relatively low negative voltage. While, there will be a large current passing through to blow the fuse as the result of shorting the supply. The Load is protected and the user will have to change the fuse. 
-
-As the simplicity of the circuit might work for low power applications, it is different for high power applications. For high power applications, where the nominal operating current is matched to a fuse rated at much higher current, the fuse must receive higher than specified current to be broken in time. When it passes through the general diode, it will clamp to relatively high negative voltage. 
-
-As a result, this will **damage the load**, resulting in a useless protection circuit for high power applications; on the other hand, typically good implementations for low power circuits. Although, it is good practice to implement better protection design to keep the electronic as robust as possible and this is where a proper reverse polarity protection comes into play.
+This simple reverse polarity protection circuit uses a fuse and a diode that later connects to the electronic circuit, which can be referred to as the **load**.
 
 ### Reverse Polarity Protection
 
