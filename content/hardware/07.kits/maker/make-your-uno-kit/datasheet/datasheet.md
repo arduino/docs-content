@@ -1,5 +1,5 @@
 ---
-identifier: ASX00040, ASX00045
+identifier: ASX00040-ASX00045
 title: Arduino® MAKE YOUR UNO KIT
 type: maker
 ---
@@ -206,7 +206,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
-![Board outline](assets/boardOutline.png)
+![Board outline](assets/boardOutline.svg)
 
 ## Certifications
 
