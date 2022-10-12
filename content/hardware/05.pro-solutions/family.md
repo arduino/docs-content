@@ -1,4 +1,4 @@
 ---
-title: Pro Family
-description: The Arduino Pro Family consists of a range of high performance industry-rated products.
+title: Pro Solutions and Kits
+description: Ready-to-use professional devices to boost your productivity, from lab prototyping to field installation
 ---

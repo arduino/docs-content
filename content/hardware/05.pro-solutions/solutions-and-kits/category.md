@@ -1,3 +1,3 @@
 ---
-title: Miscellaneous
+title: Solutions and Kits
 ---
