@@ -16,7 +16,7 @@ The IDE 2 comes with two really useful tools: the **Firmware Updater for WiFi bo
 
 Only Wi-Fi enabled boards can be updated through these tools, and you can find the full list in the compatible boards section just below.
 
-***You can download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software).***
+***You can download the editor from the [Arduino Software page](https://www.arduino.cc/en/software).***
 
 ## Compatible Boards
 

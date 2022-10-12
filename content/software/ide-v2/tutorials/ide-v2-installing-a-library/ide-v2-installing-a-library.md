@@ -13,9 +13,9 @@ A large part of the Arduino programming experience is the **use of libraries.** 
 
 In this tutorial, we will go through how to install a library using the library manager in the Arduino IDE 2.0. We will also show how to access examples from a library that you have installed.
 
-You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
-You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tutorial/getting-started-with-ide-v2/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
+You can also follow the [downloading and installing the Arduino IDE 2.0](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
 ## Requirements
 
