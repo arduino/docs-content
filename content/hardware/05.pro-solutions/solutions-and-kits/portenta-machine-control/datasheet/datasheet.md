@@ -131,7 +131,7 @@ Industry 4.0,  system integrators
 
 ## Functional Overview
 
-## Block Diagram
+### Block Diagram
 ![Block Diagram of Portenta Machine Control](assets/MachineControlBlockDiagram.svg)
 
 
@@ -340,18 +340,18 @@ The on-board real-time clock/calendar is the **PCF8563T/F4,118** which clock is 
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your *Arduino Machine Control* while being offline you need to install the Arduino Desktop IDE [\[1\]][1] To connect the *Arduino Machine Control* to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your *Arduino Machine Control* while being offline you need to install the Arduino Desktop IDE [1] To connect the *Arduino Machine Control* to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [\[2\]][2], by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [\[3\]][3] to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
 All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [\[4\]][4], the Arduino Library Reference [\[5\]][5] and the online store [\[6\]][6] where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
 
 
@@ -604,9 +604,3 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 10/13/2022 | 4            | Big improvements & Fixes |
 
 
-[1]: https://www.arduino.cc/en/software
-[2]: https://create.arduino.cc/
-[3]: https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a
-[4]: https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending
-[5]: https://www.arduino.cc/reference/en/
-[6]: https://store.arduino.cc/
