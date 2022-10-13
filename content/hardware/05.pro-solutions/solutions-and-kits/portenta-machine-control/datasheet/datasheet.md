@@ -8,7 +8,7 @@ type: pro
 
 # Description
 
-The Arduino® Portenta Machine Control is powered with a 24V DC power supply and provides several input/output digital and analog pins. This makes the board capable of driving high power relays, sample analog signals and measure temperature with different probes.
+The Arduino® Portenta Machine Control is powered with a 24V DC power supply and provides several input/output digital and analog pins. This makes the board capable of driving high-power relays, sampling analog signals and measuring temperature with different probes.
 
 
 # Target Areas
@@ -56,7 +56,7 @@ Industry 4.0,  system integrators
   - 12x Digital inputs
 
 - **3x Temperature channels**
-  Each channel is software configurable to measure: 
+  Each channel is software configurable to measure:
   - Thermocouple K, non-grounded, front-end **MAX31855KASA+T**
   - Thermocouple J, non-grounded, front-end **MAX31855KASA+T** with software multiplication coefficient
   - PT100, front-end **MAX31865ATP+T**
@@ -66,15 +66,14 @@ Industry 4.0,  system integrators
 
 - **High-speed CAN**
   - **TJA1049T/3J** able to work at 12V/24V DC
-  - On-board termination resistors 
+  - On-board termination resistors
 
 - **RS232/RS422/RS485 software configurable**
-  - **SP335ECR1-L** with on board termination resistors 
-  - RS485 configurable to be half duplex or full duplex 
+  - **SP335ECR1-L** with onboard termination resistors RS485 is configurable to be half duplex or full duplex 
 
 - **I2C**
-  - Grove connector 
-  - 10kΩ pull-ups on board 
+  - Grove connector
+  - 10kΩ pull-ups on board
 
 - **Ethernet**
   - On-board LAN transformer 
@@ -96,11 +95,11 @@ Industry 4.0,  system integrators
 ## The Board
 
 ### Application Examples
-- **Food processing:** The Portenta Machine Control is the perfect solution to meet your food processing needs by providing control to your lab and industrial food processing demands across the beverage, drying, and fermentation fields. Access professional support from Arduino or take advantage of the community support to reduce your time-to-market. With the Portenta Machine Control you will have real-time information about the status of your process being also possible to improve the yield and minimal waste by adjusting the food processing parameters using edge computing.
+- **Food processing:** The Portenta Machine Control is the perfect solution to meet your food processing needs by providing control to your lab and industrial operation's demands across the beverage, drying, and fermentation fields. Access professional support from Arduino or take advantage of the community support to reduce your time-to-market. With the Portenta Machine Control you will have real-time information about the status of your process being able to improve the yield and minimize waste by adjusting the food processing parameters using edge computing.
 
-- **Glass bottle manufacturing:** Make use of the fast edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increase the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute ratio (BPM).
+- **Glass bottle manufacturing:** Make use of the fast-edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increasing the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute ratio (BPM).
 
-- **Packaging:** Develop and control machines that fill, freeze, wrap, seal, label, and much more to ensure that your product is safely packaged to reach your consumer. Interconnect different processes of your manufacturing line with Arduino's advanced technologies such as the Arduino Cloud infrastructure. Reduce labour costs and achieve a fully automated line with minimal human interaction to meet the strongest hygiene and quality standards.
+- **Packaging:** Develop and control machines that fill, freeze, wrap, seal, label, and much more to ensure that your product is safely packaged to reach your consumer. Interconnect different processes of your manufacturing line with Arduino's advanced technologies such as the Arduino Cloud infrastructure. Reduce labor costs and achieve a fully automated line with minimal human interaction to meet the strongest hygiene and quality standards.
 
 ### Related Products
 - Portenta H7
@@ -150,21 +149,21 @@ Industry 4.0,  system integrators
 | J9       | Analog in                                       | J17      | Grove I2C       |
 | PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
 
-### Digital Input 
-8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
+### Digital Input
+8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
 
-### Digital Output 
-The digital output connector has a 24V IN pin which must be supplied with 24V DC. 
+### Digital Output
+The digital output connector has a 24V IN pin which must be supplied with 24V DC.
 
-The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board. 
+The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board.
 
-The supply voltage can be the same 24V which is powering the board. 
+The supply voltage can be the same 24V which is powering the board.
 
 - 8 high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel Current limit
-- Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
-- The 12 channels behavior when the current limit is reached can be selected: 
-  - **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again. 
-  - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically. 
+- Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A.
+- The 12 channels behavior when the current limit is reached can be selected:
+  - **Latch**: when the current limit is reached the channel is shut down and the co-respective channel enable pin must be toggled to activate it again.
+  - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time. If the current limit is reached again the process repeats periodically.
   
     Internal inductive loads kick-back protection plus external 60V, 2A Schottky diode **PMEG6020ER,115**
 
@@ -172,11 +171,9 @@ The supply voltage can be the same 24V which is powering the board.
 ### Digital Programmable 
 The **digital programmable** connector has a 24V IN pin which must be supplied with 24V DC.
 
-The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board. 
+The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board.
 
-The supply voltage can be the same 24V which is powering the board. 
-
-- 12 high side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
+The supply voltage can be the same 24V which is powering the board. 12 high-side switches (3x **TPS4H160AQPWPRQ1**), one for each channel
 
 Current limit 
 - Nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be higher, up to 0.9A. 
@@ -190,8 +187,8 @@ Internal inductive loads kick-back protection plus external 60V, 2A Schottky dio
 
 - 12 digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V. 
 
-  The digital input channels are independent of the high side switches.
-  **The digital input channels can read the status of the high side switches if needed.**
+  The digital input channels are independent of the high-side switches.
+  **The digital input channels can read the status **of the **high-side** switches if** needed.**
 
 
 ### Analog Input 
@@ -212,23 +209,23 @@ The input is connected to a 3V voltage reference (REF3330AIRSER) with a 100kΩ r
 An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protects the 24V output pin. 
 
 ### Analog Output 
-Four independent analog output channels are available. Each of them a double low pass filter and a high current op amp arranged in a non-inverting topology with gain 3.3.
+Four independent analog output channels are available. Each of them has a double low-pass filter and a high-current op-amp arranged in a non-inverting topology with a gain of 3.3.
 
 ![AnalogOutput](assets/MachineControlAnalogOutputScheme.svg)
 
-At each input of each channel a PWM from Portenta is provided filtered by a double low pass filter, obtaining a DC output with a small AC ripple. The signal is then fed to the channel non inverting amplifier which amplifies it by 3.3. 
+At each input of each channel a PWM from Portenta is provided filtered by a double low pass filter, obtaining a DC output with a small AC ripple. The signal is then fed to the channel non-inverting amplifier which amplifies it by 3.3. 
 
-The output signal is a DC which amplitude is a function of the PWM duty cycle. 
+The output signal is a DC whose amplitude is a function of the PWM duty cycle.
 
-Maximum output current is 20mA per channel. 
+The maximum output current is 20mA per channel.
 
-### Temperature Measurements 
+### Temperature Measurements
 Three independent temperature measurement channels are available. 
 
-Each channel can measure non grounded thermocouples **OR** PT100, but cannot measure them at the same time.
+Each channel can measure non-grounded thermocouples **OR**** PT100, but cannot measure them at the same time.
 
-**NOTE**: do not connect both a thermocouple and a PT100 to one channel. 
-Only a single channel at a time is available to be read, according to the analog switches position. 
+**NOTE**: Do not connect both a thermocouple and a PT100 to one channel.
+Only a single channel at a time is available to be read, according to the analog switch's position.
 
 ### Front-Ends 
 There are two front ends on this board:
@@ -266,57 +263,57 @@ Connect a thermocouple to channel 2:
 **NOTE**: Do not connect the thermocouple negative pin to GND 
 
 ### Connect Two Wires RTDs (PT100)
-Connect a two wire RTD to channel 0: 
-  - Connect one RTD pin to TP0 
-  - Connect the other RTD pin to TN0 
-  - Connect a jumper between TP0 and RTD0 
+Connect a two-wire RTD to channel 0:
+  - Connect one RTD pin to TP0
+  - Connect the other RTD pin to TN0
+  - Connect a jumper between TP0 and RTD0
 
-Connect a two wire RTD to channel 1: 
-  -  Connect one RTD pin to TP1 
+Connect a two-wire RTD to channel 1:
+  -  Connect one RTD pin to TP1
   - Connect the other RTD pin to TN1
   - Connect a jumper between TP1 and RTD1
 
-Connect a two wire RTD to channel 2: 
-  - Connect one RTD pin to TP2 
-  - Connect the other RTD pin to TN2 
+Connect a two-wire RTD to channel 2:
+  - Connect one RTD pin to TP2
+  - Connect the other RTD pin to TN2
   - Connect a jumper between TP2 and RTD2
 
-### Connect Three Wires RTDs (PT100) 
+### Connect Three Wires RTDs (PT100)
 
-Connect a three wire RTD to channel 0: 
-  - Connect one RTD pin to TP0 
-  - Connect a second RTD pin to TN0 
-**Note:** Do not connect this pin to GND 
+Connect a three-wire RTD to channel 0:
+  - Connect one RTD pin to TP0
+  - Connect a second RTD pin to TN0
+**Note:** Do not connect this pin to GND
   - Connect the third RTD pin to RTD0
 
-Connect the third RTD pin to RTDN0 
-  - Connect a three wire RTD to channel 1: 
-  - Connect one RTD pin to TP1 
-  - Connect a second RTD pin to TN1 
+Connect the third RTD pin to RTDN0
+  - Connect a three-wire RTD to channel 1:
+  - Connect one RTD pin to TP1
+  - Connect a second RTD pin to TN1
   **Note:** Do not connect this pin to GND
-  - Connect the third RTD pin to RTD1 
+  - Connect the third RTD pin to RTD1
 
-Connect a three wire RTD to channel 2: 
-  - Connect one RTD pin to TP2 
-  - Connect a second RTD pin to TN2 
+Connect a three-wire RTD to channel 2:
+  - Connect one RTD pin to TP2
+  - Connect a second RTD pin to TN2
   **Note:** Do not connect this pin to GND
-  - Connect the third RTD pin to RTD2 
+  - Connect the third RTD pin to RTD2
 
-### Encoders 
-  - Two independent ABZ encoders channels are available. 
+### Encoders
+  - Two independent ABZ encoder channels are available. 
   - Each channel is pulled up to the board 24V supply with a 10 kΩ pull-up resistor.
 
 ### CAN 
-The on board transceiver is the TJA1049T/3J and implements the CAN physical layer as defined in ISO 11898-2:2016 and SAE J2284-1 to SAE J2284-5. It is compatible with 12V or 24V bus. 
+The on-board transceiver is the TJA1049T/3J and implements the CAN physical layer as defined in ISO 11898-2:2016 and SAE J2284-1 to SAE J2284-5. It is compatible with a 12V or 24V bus.
 
-  - **Nominal** maximum data rate 5Mbit/s 
+  - **Nominal** maximum data rate 5Mbit/s
   - Integrated ESD protection 
   - 60Ω termination resistors are on board, with 4.7nF to GND
 
-A 500mA PTC resettable fuse protects the 24V OUT pin. 
+A 500mA PTC resettable fuse protects the 24V OUT pin.
 
-### RS232/RS422/RS485 
-The on board transceiver is the TJA1049T/3J, which can be SW configured for RS232, RS442 or RS485 half/full duplex. 
+### RS232/RS422/RS485
+The on-board transceiver is the TJA1049T/3J, which can be SW configured for RS232, RS442 or RS485 half/full duplex.
 
   - **Nominal** data rates 20Mbps RS485 and 1Mbps RS232 Data Rates 
   - Selectable 250kbps Slew Limiting 
@@ -324,34 +321,32 @@ The on board transceiver is the TJA1049T/3J, which can be SW configured for RS23
   - Integrated ESD protection 
   - A 500mA PTC resettable fuse protects the 24V output pin. 
 
-### I2C 
+### I2C
   - Grove connector
-  - 10kΩ pull-ups on board 
+  - 10kΩ pull-ups on board
 
-### Ethernet 
-  - On board transformer 
-  - 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. 
-  - The Wake On Lan functionality allows reducing power consumption when in sleep mode. 
+### Ethernet
+  - On board transformer
+  - 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support.
+  - The Wake On Lan functionality allows the reduction of power consumption when the board is in sleep mode.
 
-### USB A Full Speed USB 
-  - Portenta High Speed USB Phy is connected to the USB A connector 
-  - Transfer rates of up to 480 Mbps. 
-  - It can be used both as a host and as a device. 
+### USB A Full Speed USB Portenta High-Speed USB Phy is connected to the USB A connector
+  - Transfer rates of up to 480 Mbps.
+  - It can be used both as a host and as a device.
   *ESD protection
 
-### Half Speed Micro USB 
-  - Portenta half speed USB is connected to the micro USB connector. 
-  - Useful to program portenta via a micro usb cable 
-  - It can be use to power Portenta while the 24V power supply is off. 
+### Half Speed Micro USB Portenta half-speed USB is connected to the micro USB connector.
+  - Useful to program Portenta via a micro-usb cable.
+  - It can be used to power Portenta while the 24V power supply is off.
   *ESD protection
 
-### RTC 
-The on board real time clock/calendar is the PCF8563T/F4,118 which clock is provided by a dedicated external crystal oscillator. 
+### RTC
+The on-board real-time clock/calendar is the PCF8563T/F4,118 which clock is provided by a dedicated external crystal oscillator. 
 
-  - A 100mF supercapacitor (FC0V104ZFTBR24) provides power to the PCF8563T/F4,118 when the board power supply is disconnected. PCF8563T/F4,118 will be powered by the supercapacitor for at least 48h. 
-  - 32,768kHz clock crystal (Q13FC1350000400) 
+  - A 100mF supercapacitor (FC0V104ZFTBR24) provides power to the PCF8563T/F4,118 when the board power supply is disconnected. PCF8563T/F4,118 will be powered by the supercapacitor for at least 48h.
+  - 32,768kHz clock crystal (Q13FC1350000400)
 
-### Power Tree 
+### Power Tree
 ![Power Tree Machine Control](assets/MachineControlPowerTree.png)
 
 ## Board Operation
@@ -364,7 +359,7 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]** and the online store **[6]** where you will be able to complement your board with sensors, actuators and more
@@ -396,7 +391,7 @@ Now that you have gone through the basics of what you can do with the board you 
 
 
 ### Temperature Probes (J7)
-**NOTE**: RTD (**R**esistance **T**emperature **D**etector) are PT100. 
+**NOTE**: RTD (**R**esistance **T**emperature **D**etector) is a PT100 sensor.
 
 | Pin | **Type** | **Channel** | **Description**                                                |
 | --- | -------- | ----------- | -------------------------------------------------------------- |
@@ -552,7 +547,7 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 ## FCC Caution
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
 (1) This device may not cause harmful interference
 
@@ -566,14 +561,14 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-**English**: 
+**English**:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-**French**: 
+**French**:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
