@@ -13,44 +13,69 @@ The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electr
 Maker, introduction, education
 
 # Features
-* **ATMega328P** Processor
-    * **Memory**
-        * AVR CPU at up to 16 MHz
-        * 32KB Flash
-        * 2KB SRAM
-        * 1KB EEPROM
 
-    * **Security**
-        * Power On Reset (POR) 
-        * Brown Out Detection (BOD) 
-
-    * **Peripherals**
-        * 2x 8-bit Timer/Counter with a dedicated period register and compare channels
-        * 1x 16-bit Timer/Counter with a dedicated period register, input capture and compare channels
-        * 1x USART with fractional baud rate generator and start-of-frame detection
-        * 1x controller/peripheral Serial Peripheral Interface (SPI)
-        * 1x Dual mode controller/peripheral I2C
-        * 1x Analog Comparator (AC) with a scalable reference input
-        * Watchdog Timer with separate on-chip oscillator
-        * Six PWM channels
-        * Interrupt and wake-up on pin change
-
-
-* **USB_C Serial PCB** Board
-
-    The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.
-
-    * **ATMega16U2 Processor**
-        *  8-bit AVR® RISC-based microcontroller 
-
-        * **Memory**
-            * 16 KB ISP Flash
-            * 512B EEPROM
-            * 512B SRAM
-            * debugWIRE interface for on-chip debugging and programming
-
-        * **Power**
-            * 2.7-5.5 volts
+<table style="page-break-before: always;">
+     <thead>
+      <tr>
+         <th>Component</th>
+         <th colspan="2">Details</th>
+      </tr>
+   </thead>
+    <tbody>
+        <tr>
+         <td rowspan="3">ATMega328P Processor</td>
+         <td>Memory</td>
+         <td>
+            <p>AVR CPU at up to 16 MHz</p>
+            <p>32KB Flash</p>
+            <p>2KB SRAM</p>
+            <p>1KB EEPROM</p>
+         </td>
+      </tr>
+      <tr>
+         <td>Security</td>
+         <td>
+            <p>Power On Reset (POR)</p>
+            <p>Brown Out Detection (BOD)</p>
+         </td>
+      </tr>
+      <tr>
+        <td>Peripherals</td>
+        <td>
+            <p>2x 8-bit Timer/Counter with a dedicated period register and compare channels</p>
+            <p>1x 16-bit Timer/Counter with a dedicated period register, input capture and compare channels </p>
+            <p> 1x USART with fractional baud rate generator and start-of-frame detection</p>
+            <p>1x controller/peripheral Serial Peripheral Interface (SPI)</p>
+            <p>1x Dual mode controller/peripheral I2C</p>
+            <p>1x Analog Comparator (AC) with a scalable reference input</p>
+            <p>Watchdog Timer with separate on-chip oscillator</p>
+            <p>Six PWM channels</p>
+            <p>Interrupt and wake-up on pin change</p>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="4">USB_C Serial PCB Board</td>
+        <td colspan="2"> The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</td>
+    </tr>
+    <tr>
+        <td>ATMega16U2 Processor</td>
+        <td>8-bit AVR® RISC-based microcontroller</td>
+    </tr>
+    <tr>
+        <td>Memory</td>
+            <td>
+                <p>16 KB ISP Flash</p>
+                <p>512B EEPROM</p>
+                <p>512B SRAM</p>
+                <p>debugWIRE interface for on-chip debugging and programming</p>
+            </td>
+    </tr>
+    <tr>
+        <td>Power</td>
+        <td>2.7V-5.5V</td>
+    </tr>
+    </tbody>
+</table>
 
 # CONTENTS
 ## The Board
@@ -80,11 +105,11 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 
 ### Power Consumption
 
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from Jack connector/VIN pad       | 6    | -    | 20   | V    |
-| VUSBMax | Maximum input voltage from USB connector |      | -    | 5.5  | V    |
-| PMax    | Maximum Power Consumption                | -    | -    | xx   | mA   |
+| Symbol  | Description                                       | Min | Typ | Max | Unit |
+| ------- | ------------------------------------------------- | --- | --- | --- | ---- |
+| VINMax  | Maximum input voltage from Jack connector/VIN pad | 6   | -   | 20  | V    |
+| VUSBMax | Maximum input voltage from USB connector          |     | -   | 5.5 | V    |
+| PMax    | Maximum Power Consumption                         | -   | -   | xx  | mA   |
 
 ## Functional Overview
 
@@ -96,32 +121,32 @@ Top view
 The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the PCB source file.
 
 
-| **Ref.** | **Quantity** | **Description**                             | **Designator**               |
-| -------- | -------------| ------------------------------------------- | ---------------------------- |
-| A5215        | 7            | RES FIXED THD 1K OHM 1/4W 5%            | R1, R4, R5, R6, R7, R8, R11  |
-| A5213        | 2            | RES THD 10K 1/4W 5%                     | R2, R9                       |
-| A5217        | 2            | RES THD 1M OHM 1/4w  5%                 | R3, R10                      |
-| 0066         | 1            | Diodes \[1N4007\]                       | D1                           |
-| 0019         | 1            | CRYSTAL 16.0000MHZ 20PF THD             | Y1                           |
-| C0124        | 3            | CAP THD 22pF 50V C0G 5%                 | C2, C4, C5                   |
-| L0021        | 4            | LED THD YELLOW DIFFUSED T-1, 3mm        | LD1, LD2, LD3, LD4           |
-| L0023        | 1            | LED THD GREEN DIFFUSED T-1, 3mm         | LD5                          |
-| 0089         | 1            | PUSHBUTTON. 6x6 CS                      | PB1                          |
-| T0035        | 1            | TRANSISTOR NMOS 0.2A                    | Q1                           |
-| U0246        | 1            | IC REG LDO FIXED 3.3V, 0.2V TO-92-3     | R3                           |
-| C0125        | 3            | CAP ALUM POL THD 47uF 25V               | C1, C12, C13                 |
-| U0239        | 1            | IC REG LINEAR 5V 1.5A TO220AB           | U3                           |
-| 0080         | 7            | CAP THD 100NF 63V POLIESTER             | C3, C6, C7, C8, C9, C10, C11 |
-| 0064         | 1            | CONN DIP 28 SOCKET                      | J7                           |
-| 3648         | 1            | CONN STRIP F/1/D 18v SER.NERA           | J2                           |
-| 3649         | 1            | CONN STRIP F/1/D 14v SER.NERA           | J3                           |
-| 0114         | 1            | CONN Header Through Hole 6 position     | J4                           |
-| 0018         | 1            | CONN PWR JACK 2.1X5.5MM                 | J1                           |
-| SL-ABX00068  | 1            | SL USB-C SERIAL V 1.0                   |                              |
-| PCB_ASX00040 | 1            | PCB ARDUINO UNO DIY                     |                              |
-| AKB 00037    | 1            | Bustine Avana 98x67                     |                              |
-| A5681        | 1            | Jumper standed wire Red 15CM            |                              |
-| A5680        | 1            | Jumper standed wire BLK 15CM            |                              |
+| **Ref.**     | **Quantity** | **Description**                     | **Designator**               |
+| ------------ | ------------ | ----------------------------------- | ---------------------------- |
+| A5215        | 7            | RES FIXED THD 1K OHM 1/4W 5%        | R1, R4, R5, R6, R7, R8, R11  |
+| A5213        | 2            | RES THD 10K 1/4W 5%                 | R2, R9                       |
+| A5217        | 2            | RES THD 1M OHM 1/4w  5%             | R3, R10                      |
+| 0066         | 1            | Diodes \[1N4007\]                   | D1                           |
+| 0019         | 1            | CRYSTAL 16.0000MHZ 20PF THD         | Y1                           |
+| C0124        | 3            | CAP THD 22pF 50V C0G 5%             | C2, C4, C5                   |
+| L0021        | 4            | LED THD YELLOW DIFFUSED T-1, 3mm    | LD1, LD2, LD3, LD4           |
+| L0023        | 1            | LED THD GREEN DIFFUSED T-1, 3mm     | LD5                          |
+| 0089         | 1            | PUSHBUTTON. 6x6 CS                  | PB1                          |
+| T0035        | 1            | TRANSISTOR NMOS 0.2A                | Q1                           |
+| U0246        | 1            | IC REG LDO FIXED 3.3V, 0.2V TO-92-3 | R3                           |
+| C0125        | 3            | CAP ALUM POL THD 47uF 25V           | C1, C12, C13                 |
+| U0239        | 1            | IC REG LINEAR 5V 1.5A TO220AB       | U3                           |
+| 0080         | 7            | CAP THD 100NF 63V POLIESTER         | C3, C6, C7, C8, C9, C10, C11 |
+| 0064         | 1            | CONN DIP 28 SOCKET                  | J7                           |
+| 3648         | 1            | CONN STRIP F/1/D 18v SER.NERA       | J2                           |
+| 3649         | 1            | CONN STRIP F/1/D 14v SER.NERA       | J3                           |
+| 0114         | 1            | CONN Header Through Hole 6 position | J4                           |
+| 0018         | 1            | CONN PWR JACK 2.1X5.5MM             | J1                           |
+| SL-ABX00068  | 1            | SL USB-C SERIAL V 1.0               |                              |
+| PCB_ASX00040 | 1            | PCB ARDUINO UNO DIY                 |                              |
+| AKB 00037    | 1            | Bustine Avana 98x67                 |                              |
+| A5681        | 1            | Jumper standed wire Red 15CM        |                              |
+| A5680        | 1            | Jumper standed wire BLK 15CM        |                              |
 
 
 
@@ -159,45 +184,45 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ![Pinout](assets/pinout.png)
 
 ### JANALOG
-| Pin  | **Function** | **Type**         | **Description**                                 |
-| ---- | ------------ | ---------------- | ----------------------------------------------- |
-| 1    | NC           | NC               | Not connected                                   |
-| 2    | IOREF        | IOREF            | Reference for digital logic V - connected to 5V |
-| 3    | Reset        | Reset            | Reset                                           |
-| 4    | +3V3         | Power            | +3V3 Power Rail                                 |
-| 5    | +5V          | Power            | +5V Power Rail                                  |
-| 6    | GND          | Power            | Ground                                          |
-| 7    | GND          | Power            | Ground                                          |
-| 8    | VIN          | Power            | Voltage Input                                   |
-| 9    | A0           | Analog/GPIO      | Analog input 0 /GPIO                            |
-| 10   | A1           | Analog/GPIO      | Analog input 1 /GPIO                            |
-| 11   | A2           | Analog/GPIO      | Analog input 2 /GPIO                            |
-| 12   | A3           | Analog/GPIO      | Analog input 3 /GPIO                            |
-| 13   | A4/SDA       | Analog input/I2C | Analog input 4/I2C Data line                    |
-| 14   | A5/SCL       | Analog input/I2C | Analog input 5/I2C Clock line                   |
+| Pin | **Function** | **Type**         | **Description**                                 |
+| --- | ------------ | ---------------- | ----------------------------------------------- |
+| 1   | NC           | NC               | Not connected                                   |
+| 2   | IOREF        | IOREF            | Reference for digital logic V - connected to 5V |
+| 3   | Reset        | Reset            | Reset                                           |
+| 4   | +3V3         | Power            | +3V3 Power Rail                                 |
+| 5   | +5V          | Power            | +5V Power Rail                                  |
+| 6   | GND          | Power            | Ground                                          |
+| 7   | GND          | Power            | Ground                                          |
+| 8   | VIN          | Power            | Voltage Input                                   |
+| 9   | A0           | Analog/GPIO      | Analog input 0 /GPIO                            |
+| 10  | A1           | Analog/GPIO      | Analog input 1 /GPIO                            |
+| 11  | A2           | Analog/GPIO      | Analog input 2 /GPIO                            |
+| 12  | A3           | Analog/GPIO      | Analog input 3 /GPIO                            |
+| 13  | A4/SDA       | Analog input/I2C | Analog input 4/I2C Data line                    |
+| 14  | A5/SCL       | Analog input/I2C | Analog input 5/I2C Clock line                   |
 
 ### JDIGITAL
 
-| Pin  | **Function** | **Type**     | **Description**                            |
-| ---- | ------------ | ------------ | ------------------------------------------ |
-| 1    | D0           | Digital/GPIO | Digital pin 0/GPIO                         |
-| 2    | D1           | Digital/GPIO | Digital pin 1/GPIO                         |
-| 3    | D2           | Digital/GPIO | Digital pin 2/GPIO                         |
-| 4    | D3           | Digital/GPIO | Digital pin 3/GPIO                         |
-| 5    | D4           | Digital/GPIO | Digital pin 4/GPIO                         |
-| 6    | D5           | Digital/GPIO | Digital pin 5/GPIO                         |
-| 7    | D6           | Digital/GPIO | Digital pin 6/GPIO                         |
-| 8    | D7           | Digital/GPIO | Digital pin 7/GPIO                         |
-| 9    | D8           | Digital/GPIO | Digital pin 8/GPIO                         |
-| 10   | D9           | Digital/GPIO | Digital pin 9/GPIO                         |
-| 11   | SS           | Digital      | SPI Chip Select                            |
-| 12   | MOSI         | Digital      | SPI1 Main Out Secondary In                 |
-| 13   | MISO         | Digital      | SPI Main In Secondary Out                  |
-| 14   | SCK          | Digital      | SPI serial clock output                    |
-| 15   | GND          | Power        | Ground                                     |
-| 16   | AREF         | Digital      | Analog reference voltage                   |
-| 17   | A4/SD4       | Digital      | Analog input 4/I2C Data line (duplicated)  |
-| 18   | A5/SD5       | Digital      | Analog input 5/I2C Clock line (duplicated) |
+| Pin | **Function** | **Type**     | **Description**                            |
+| --- | ------------ | ------------ | ------------------------------------------ |
+| 1   | D0           | Digital/GPIO | Digital pin 0/GPIO                         |
+| 2   | D1           | Digital/GPIO | Digital pin 1/GPIO                         |
+| 3   | D2           | Digital/GPIO | Digital pin 2/GPIO                         |
+| 4   | D3           | Digital/GPIO | Digital pin 3/GPIO                         |
+| 5   | D4           | Digital/GPIO | Digital pin 4/GPIO                         |
+| 6   | D5           | Digital/GPIO | Digital pin 5/GPIO                         |
+| 7   | D6           | Digital/GPIO | Digital pin 6/GPIO                         |
+| 8   | D7           | Digital/GPIO | Digital pin 7/GPIO                         |
+| 9   | D8           | Digital/GPIO | Digital pin 8/GPIO                         |
+| 10  | D9           | Digital/GPIO | Digital pin 9/GPIO                         |
+| 11  | SS           | Digital      | SPI Chip Select                            |
+| 12  | MOSI         | Digital      | SPI1 Main Out Secondary In                 |
+| 13  | MISO         | Digital      | SPI Main In Secondary Out                  |
+| 14  | SCK          | Digital      | SPI serial clock output                    |
+| 15  | GND          | Power        | Ground                                     |
+| 16  | AREF         | Digital      | Analog reference voltage                   |
+| 17  | A4/SD4       | Digital      | Analog input 4/I2C Data line (duplicated)  |
+| 18  | A5/SD5       | Digital      | Analog input 5/I2C Clock line (duplicated) |
 
 ### Mechanical Information
 
@@ -304,14 +329,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
+| Reference                 | **Link**                                                                                            |
+| ------------------------- | --------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
+| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/                         |
-| Online Store              | https://store.arduino.cc/                                    |
+| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Library Reference         | https://www.arduino.cc/reference/en/                                                                |
+| Online Store              | https://store.arduino.cc/                                                                           |
 
 ## Revision History
 
