@@ -131,8 +131,7 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 
 ### Power Tree
 
-![Power tree](assets/powerTree.png) TODO: update power tree ? I thingks power tree should be the same
-
+![Power tree](assets/powerTree.svg)
 
 ## Board Operation
 
