@@ -76,13 +76,13 @@ The MKR IoT Carrier comes with **three grove connectors** (2 analog and 1 I2C) t
 
 ## Carrier Library
 
-To program the MKR IoT Carrier, the **Arduino_MKRIoTCarrier** library needs to be included. This library allows us to control and read all the components of the MKR IoT Carrier. Setting up the MKRIoTCarrier library requires an addition of few code lines in the **initialization** and **setup**. Practically speaking, the code used in the initialization and setup is rarely changed, and it is required in every sketch.
+To program the MKR IoT Carrier, the **[Arduino_MKRIoTCarrier](https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/)** library needs to be included. This library allows us to control and read all the components of the MKR IoT Carrier. Setting up the MKRIoTCarrier library requires an addition of few code lines in the **initialization** and **setup**. Practically speaking, the code used in the initialization and setup is rarely changed, and it is required in every sketch.
 
 ### Initialization
 
 In the initialization (the very top) of every sketch, the **MKRIoTCarrier** library needs to be included, which includes the individual libraries of the components mounted onto the carrier.
 
-Next, an object, which is always named `carrier` needs to be added.
+Next, an object of type `MKRIoTCarrier` needs to be created. We'll call it `carrier` for simplicity.
 
 ```arduino
 #include <Arduino_MKRIoTCarrier.h>
@@ -91,15 +91,29 @@ MKRIoTCarrier carrier;
 
 ### Setup
 
-Inside the `setup()` of every sketch that created, 2 lines of code needs to added:
+Inside the `setup()` of every sketch that created, 2 lines of code needs to added.
 
-The boolean `CARRIER_CASE` refers to the **plastic casing** in the kit, and the capacitive buttons on the carrier. It is set to `true` when the plastic casing is used, and to `false` when not. This is not mandatory, as it is set to `false` by default.
+First, we need to tell the library whether the carrier is being used inside the **plastic enclosure** included in the Oplà IoT Kit or not. The library uses this information in order to calibrate the sensitivity of the capacitive buttons.
 
-The `carrier.begin();` command is essential to initializing the carrier and must be added.
+If you use the plastic enclosure, add this line:
+
+```
+carrier.withCase();
+```
+
+Otherwise, add this line:
+
+```
+carrier.noCase();
+```
+
+After that, the `carrier.begin();` command is needed. Final example is:
 
 ```arduino
-  CARRIER_CASE = false;
+void setup() {
+  carrier.noCase();
   carrier.begin();
+}
 ```
 
 ## Humidity & Temperature Sensor
@@ -110,26 +124,16 @@ The **HTS221 Humidity Sensor** is mounted on the top side of the carrier under t
 
 ### Code
 
-The **ArduinoHTS221** library is included in the **MKRIoTCarrier**, meaning that it does not need to include it separately. The values from the **temperature** and **humidity** sensors can be stored in **float** variables as shown below.
+The values from the **temperature** and **humidity** sensors can be retrieved and stored in **float** variables as shown below.
 
 ```arduino
 float temperature = carrier.Env.readTemperature();
 float humidity = carrier.Env.readHumidity();
 ```
 
-The following methods can be used to get the temperature and humidity values:
+Temperature is returned in degrees Celsius, while relative humidity is returned in percentage.
 
-```arduino
-carrier.Env.readTemperature();
-```
-
-Returns temperature value in Celsius.
-
-```arduino
-carrier.Env.readHumidity();
-```
-
-Returns relative humidity (rH) in percentage.
+The underlying library used to read the sensor is **[Arduino_HTS221](https://www.arduino.cc/reference/en/libraries/arduino_hts221/)**.
 
 ## Pressure Sensor
 
@@ -139,29 +143,23 @@ The **LPS22HBTR Pressure Sensor** is mounted on the top side of the carrier unde
 
 ### Code
 
-The **ArduinoLPS22HB** library is included in the **MKRIoTCarrier**, meaning that it does not need to include it separately. The values from the **pressure** sensor can be stored in **float** variables as shown below.
+The value from the **pressure** sensor, expressed in kiloPascal (kPa) can be retrieved and stored in a **float** variable as shown below.
 
 ```arduino
 float pressure = carrier.Pressure.readPressure();
 ```
 
-The following methods can be used to get the pressure values:
-
-```arduino
-carrier.Pressure.readPressure();
-```
-
-Returns pressure value in Kilopascal (kPa).
+The underlying library used to read the sensor is **[Arduino_LPS22HB](https://www.arduino.cc/reference/en/libraries/arduino_lps22hb/)**.
 
 ## IMU Accelerometer & Gyroscope Sensors
 
 ![The IMU on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-imu.png)
 
-The **LSM6DS3** from STM is an IMU (Inertial Measurement Unit) that features a 3D digital accelerometer and a 3D digital gyroscope.
+The carrier includes a **LSM6DS3** sensor from STM which is an IMU (Inertial Measurement Unit) featuring a 3D digital accelerometer and a 3D digital gyroscope.
 
 ### Code
 
-To access the data from the **LSM6DS3 module**, the **MKRIoTCarrier** library needs to be included. The carrier's library includes the **Arduino_LSM6DS3** and functions similarly. The 3-axis values from the **accelerometer** and **gyroscope** sensors can be stored in **float** variables as shown below:
+The 3-axis values from the **accelerometer** and **gyroscope** sensors can be retrieved and stored in **float** variables as shown below:
 
 ```arduino
 float x, y, z;
@@ -188,7 +186,9 @@ Returns 0 if no new acceleration data sample is available, 1 if new acceleration
 carrier.IMUmodule.readAcceleration(x, y, z);
 ```
 
-Allows as to access the acceleration data on the three axis (x, y & z).
+Reads acceleration data from the sensor on the three axis and assigns it to the provided variables.
+
+The underlying library used to read the sensor is **[Arduino_LSM6DS3](https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/)**.
 
 ## RGB and Gesture Sensor
 
@@ -198,7 +198,7 @@ The MKR IoT Carrier contains a Broadcom **APDS-9660 RGB and Gesture sensors**, s
 
 ### Code
 
-The **ArduinoAPDS9960** library is included in the **MKRIoTCarrier**, meaning that it does not need to include it separately. The color values from the **RGB** sensor can be stored in **int** variables as shown below.
+The color values from the **RGB** sensor can be retrieved and stored in **int** variables as shown below.
 
 The `carrier.Light.readColor(r, g, b);` method can be used to detect colors.
 
@@ -255,6 +255,8 @@ The code example below shows the gesture value in a fixed width integer `uint8_t
 
 ```
 
+The underlying library used to read the sensor is **[Arduino_APDS9960](https://www.arduino.cc/reference/en/libraries/arduino_apds9960/)**.
+
 ## Relays
 
 ![The relays on the MKR IoT Carrier](assets/mkrIotCarrier-relays-01.png)
@@ -304,27 +306,37 @@ The screen on the MKR IoT Carrier is a **rounded 1.3” TFT display**, with a 24
 
 #### Code
 
-The display is controlled through the Adafruit-ST7735-Library, which is included in the carrier's library, meaning that it does not need to be added it separately.
+The display is controlled through the `carrier.display` object which is an instance of the **Adafruit_ST7789** class, based on the more general **Adafruit_GFX** interface. Most tutorials mentioning **Adafruit_GFX** should be usable on your MKR IoT Carrier.
 
-Below are some methods to configure the MKR IoT Carrier's display, these include basic configurations, background and text colors, font size, position of the cursor and a loading animation.
+To get started, check the [Adafruit_GFX documentation](https://learn.adafruit.com/adafruit-gfx-graphics-library) and see the examples included in the Arduino_MKTIoTCarrier library.
+
+
+
+](https://www.arduino.cc/reference/en/libraries/adafruit-st7735-and-st7789-library/), which is included in the carrier's library, meaning that it does not need to be added it separately.
+
+We'll list here some of the most useful methods to configure the MKR IoT Carrier's display, including basic configurations, background and text colors, font size, position of the cursor and a loading animation.
 
 ```arduino
 carrier.display.fillScreen(color);
 ```
 
-This method sets the color of the background of the display using hex codes.
+This method sets the color of the background of the display using hex codes. Example values are:
+
+* `0xFFFF` for white
+* `0x0000` for black
+* `0xF800` for red
+* `0x07E0` for green
+* `0x001F` for blue
+* `0x07FF` for cyan
+* `0xF81F` for magenta
+* `0xFFE0` for yellow
+* `0xFC00` for orange
 
 ```arduino
 carrier.display.setRotation(0);
 ```
 
-This method sets the angle of the screen, 0 is the starting position with no rotation.The screen can only be rotated 90, 180 or 270 degrees by replacing the 0 with 1, 2 or 3.
-
-```arduino
-display.print("text");
-```
-
-This method will print the text inside the string at the current cursor position.
+This method sets the angle of the screen. 0 is the starting position with no rotation.The screen can only be rotated 90, 180 or 270 degrees by replacing the 0 with 1, 2 or 3.
 
 ```arduino
 carrier.display.drawBitmap(x, y, bitmap_visual, w, h, color);
@@ -350,47 +362,55 @@ carrier.display.setCursor(x, y);
 
 This method is very important, as it indicates where on the printing starts on the display. It is indicated by pixels, so, if **0, 0** are used for example, it will start printing in the top left corner.
 
+```arduino
+display.print("text");
+```
+
+This method will print the text inside the string at the current cursor position.
+
+#### More Resources
+
+In order to develop a graphical user interface with the MKR IoT Carrier, the **[Arduino_OplaUI](https://www.arduino.cc/reference/en/libraries/arduino_oplaui/)** library can be used. This library uses the color LEDs, the buzzer and the touch buttons to build an interactive user interface featuring multiple pages. It also includes a few predefined gauges to display values. See the library examples to get started.
+
 ### Buttons
 
 ![The MKR IoT Carrier's buttons](assets/mkrIotCarrier-buttons.png)
 
-The carrier has five **capacitive qTouch buttons** on its top side, numbered from 00 to 04. The buttons are sensitive to direct touch and detect wireless touch.
+The carrier has five **capacitive touch buttons** on its top side, numbered from 0 to 4. The buttons are sensitive to direct touch and can also detect wireless touch.
 
 #### Code
 
-The **Button class** can be controlled using the following methods:
-
 ```arduino
-Buttons.update();
+carrier.Buttons.update();
 ```
 
 Reads the state of the pads and save them to be used in the different types of touch events.
 
 ```arduino
-Buttons.getTouch(TOUCHX);
+carrier.Buttons.getTouch(TOUCH0);
 ```
 
 Get if the pad is getting touched, true until it gets released.
 
 ```arduino
-Buttons.onTouchDown(TOUCHX);
+carrier.Buttons.onTouchDown(TOUCH0);
 ```
 
 Get when have been a touch down.
 
 ```arduino
-Buttons.onTouchUp(TOUCHX);
+carrier.Buttons.onTouchUp(TOUCH0);
 ```
 
 Get when the button has been released.
 
 ```arduino
-Buttons.onTouchChange(TOUCHX);
+carrier.Buttons.onTouchChange(TOUCH0);
 ```
 
 Get both, touched and released.
 
-`TOUCH0`, `TOUCH1`, `TOUCH2`, `TOUCH3`, `TOUCH4` can be used to access each individual button. The code example below shows how the status of a button can be checked.
+Replace `TOUCH0` with `TOUCH1`, `TOUCH2`, `TOUCH3`, `TOUCH4` in the examples above to access the other buttons. The code example below shows how the status of a button can be checked.
 
 ```arduino
 
@@ -428,13 +448,13 @@ carrier.leds.setPixelColor(index, red, green, blue);
 Sets the color of the index’s LED.
 
 ```arduino
-carrier.leds.setBrightness(0-255)
+carrier.leds.setBrightness(255);
 ```
 
 Set the overall brightness, from 0 (no brightness) to 255 (maximum brightness).
 
 ```arduino
-carrier.leds.clear()
+carrier.leds.clear();
 ```
 
 Clear the buffer of the LEDs.
@@ -460,8 +480,8 @@ MKRIoTCarrier carrier;
 
 uint32_t myCustomColor = carrier.leds.Color(255,100,50);
 
-void setup(){
-   CARRIER_CASE = false;
+void setup() {
+   carrier.noCase();
    carrier.begin();
    carrier.leds.fill(myCustomColor, 0, 5);
    carrier.leds.show();
@@ -480,26 +500,33 @@ The MKR IoT Carrier is equipped with a **sound buzzer** on the bottom side of th
 The buzzer can be controlled with the following methods:
 
 ```arduino
-carrier.Buzzer.sound(freq)
+carrier.Buzzer.sound(freq);
 ```
 
 Equivalent to tone(), it will make the tone with the selected frequency.
 
 ```arduino
-carrier.Buzzer.noSound()
+carrier.Buzzer.noSound();
 ```
 
 Equivalent to noTone(), it will stop the tone signal.
 
+```arduino
+carrier.Buzzer.beep();
+carrier.Buzzer.beep(800, 20);
+```
+
+This method is a handy shortcut generating a beep. The two arguments are optional and can be set to customize the frequency and the duration (in milliseconds);
+
 ## Memory
 
-The MKR IoT Carrier contains a **SD Card slot** that accepts a Micro SD, which allows for three times the amount of data storage locally.
+The MKR IoT Carrier contains a **SD card slot** that accepts a Micro SD.
 
 ### Code
 
-The memory can be used with the SD library commands that is already included in the `MKRIoTCarrier` library
+The memory can be used with the SD library commands that is already included in the `MKRIoTCarrier` library.
 
-The SD class initialized in the main `carrier.begin()`. In order to save our data on a specific file, the method `SD.open("file-name", FILE_WRITE))` can be used. The code below demonstrates how to save data on a file on a SD card.
+The SD class initialized in the main `carrier.begin()` so you don't need to do it yourself. The code below demonstrates how to save data on a file on a SD card.
 
 ```arduino
 #include <Arduino_MKRIoTCarrier.h>
@@ -507,21 +534,23 @@ MKRIoTCarrier carrier;
 
 File myFile;
 
-setup(){
-   CARRIER_CASE = false;
+void setup() {
+   carrier.noCase();
    carrier.begin();  //SD card initialized here
 
    myFile = SD.open("test.txt", FILE_WRITE);
 }
 ```
 
+In order to learn more, check any of the many tutorials about using the `SD` library on Arduino.
+
 ## Power
 
 ![JST battery connector on the MKR IoT Carrier.](assets/mkriotcarrier-battery.png)
 
-The MKR IoT Carrier can be either powered through a USB cable connected to the mounted MKR board, or through a battery. The battery used should be a LI-ION 18650 3.7 v battery, which can be mounted to the carrier via the battery holder on the bottom side. 
+The MKR IoT Carrier can be either powered through a USB cable connected to the mounted MKR board, or through a battery. The battery used should be a LI-ION 18650 3.7v battery, which can be mounted to the carrier via the battery holder on the bottom side. 
 
-A cable with JST connectors on both ends are needed to connect the MKR IoT Carrier and the MKR board. The Battery can then be recharged via a USB connection through the MKR Board (Runs up to 48h with a 3.7v 2500mAh).
+In order to use the USB power to charge the battery, a little cable with JST connectors on both ends is needed between the MKR IoT Carrier and the MKR board. The bBattery can then be recharged via a USB connection through the MKR Board (runs up to 48h with a 3.7v 2500mAh).
 
 <video width="100%" controls="true">
 <source src="assets/mkrIoTCarrier-battery-assembly.mp4" type="video/mp4"/>
