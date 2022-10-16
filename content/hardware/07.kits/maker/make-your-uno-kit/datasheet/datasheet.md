@@ -7,7 +7,7 @@ type: maker
 ![](assets/featured.png)
 
 # Description
-The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electronics and coding by assembling your own *Arduino Uno*. Become familiar with soldering by mounting every single component, unleash your creativity with the audio synth kit, and learn how to code using your new **Arduino Uno** board to create amazing projects!
+The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electronics and coding by assembling your own *Arduino Uno*. Become familiar with soldering by mounting every single component, unleash your creativity with the *Audio synth Shield*, and learn how to code using your new *Arduino Uno* board to create amazing projects!
 
 # Target areas:
 Maker, introduction, education
@@ -78,9 +78,9 @@ Maker, introduction, education
 </table>
 
 # CONTENTS
-## The Board
+## The kit
 ### Application Examples
-The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by yourself. The UNO board is the flagship product of Arduino. Regardless if you are new to the world of electronics or will use the UNO as a tool for education purposes or industry-related tasks.
+The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by yourself. The *UNO* board is the flagship product of Arduino. Regardless if you are new to the world of electronics or will use the *UNO* as a tool for education purposes or industry-related tasks.
 
 **First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board; *Arduino Uno* and create one by yourself using the *Arduino Make Your UNO kit* is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
 
@@ -89,7 +89,7 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 **Audio synthesizer for educational and artistic performances**: The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers, being a perfect device to play and experiment in the classroom and at the same time a great instrument for artistic performances.
 
 ### Related Products
-* *Arduino Uno* R3 and *Arduino Uno* R3 SMD
+* Arduino Uno R3 and Arduino Uno R3 SMD
 * Starter Kit
 * Tinkerkit Braccio Robot
 
@@ -114,11 +114,10 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 ## Functional Overview
 
 ### Board Topology and Bill of Materials
-Top view
 
-![Board topology](assets/featured.png)
+![Board topology](assets/make-uno-crop-1663838450-kit-components.png)
 
-The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the PCB source file.
+The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
 
 | **Ref.**     | **Quantity** | **Description**                     | **Designator**               |
@@ -144,7 +143,7 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 | 0018         | 1            | CONN PWR JACK 2.1X5.5MM             | J1                           |
 | SL-ABX00068  | 1            | SL USB-C SERIAL V 1.0               |                              |
 | PCB_ASX00040 | 1            | PCB ARDUINO UNO DIY                 |                              |
-| AKB 00037    | 1            | Bustine Avana 98x67                 |                              |
+| AKB 00037    | 1            | Bag Avana 98x67                     |                              |
 | A5681        | 1            | Jumper standed wire Red 15CM        |                              |
 | A5680        | 1            | Jumper standed wire BLK 15CM        |                              |
 
@@ -152,7 +151,7 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 
 
 ### Processor
-The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the USB Bridge coprocessor.
+The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor.
 
 ### Power Tree
 
@@ -226,11 +225,59 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Mechanical Information
 
-### Board Outline & Mounting Holes
+#### Board Outline & Mounting Holes
 
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
 ![Board outline](assets/boardOutline.svg)
+
+
+
+## The Audio Synth Shield
+
+The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signals parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
+
+![Audio Synth Shield Assembled](assets/featured-audiosynth.png)
+
+<br><div style="page-break-after:always;"></div>
+
+### Functional Overview
+
+#### Board Topology and Bill of Materials
+
+![Audio Synth Shield BOM](assets/audio-bom-kit-components.png)
+
+The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
+
+| **Ref.**     | **Quantity** | **Description**                     | **Designator**         |
+| ------------ | ------------ | ----------------------------------- | ---------------------- |
+| C0131        | 1            | CAP THD 47nF 50V C0G 5%             | C1                     |
+| A5213        | 1            | CAP ALUM POL THD 47uF 25V           | C2                     |
+| C0125        | 1            | CAP THD 100NF 63V POLIESTER         | C3                     |
+| 0080         | 1            | CAP ALUM POL THD 220uF 25V          | C4                     |
+| C0129        | 1            | CAP ALUM POL THD 220uF 25V          | J1                     |
+| J0306        | 1            | CONN STRIP 2.54 PIN HEADER 1X8      | J2                     |
+| J0305        | 1            | CONN STRIP 2.54 PIN HEADER 1X6      | J3                     |
+| J0307        | 1            | CONN STRIP 2.54 PIN HEADER 1X10     | LD5                    |
+| J0308        | 1            | CONN STRIP 2.54 PIN HEADER 1X8      | J4                     |
+| 0147         | 6            | KNOB TRIMMER D6/9mm                 | K1, K2, K3, K4, K5, K6 |
+| R0230        | 1            | RES FIXED THD 1/4W 5% 10R           | R1                     |
+| R0231        | 1            | RES FIXED THD 1/4W 5% 100K          | R2                     |
+| 0086         | 6            | Potentiometer 10 kilohm - TRIMMER   | R3, R4, R5, R6, R7, R8 |
+| A5205        | 1            | Paper Speaker 8Ω 1W + Grid  PCB     | S1                     |
+| U0251        | 1            | Audio Amplifier, 0.325W, 1 ChannelT | U1                     |
+| PCB_ASX00045 | 1            | PCB ASX00045 V1.0 Synth Audio KIT   |                        |
+
+### Mechanical Information
+
+#### Board Outline & Mounting Holes
+
+TODO: DO THIS PART FOR THE ARDUINO AUDIO SHIELD
+The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
+
+![Board outline](assets/boardOutline.svg)
+
+
 
 ## Certifications
 
