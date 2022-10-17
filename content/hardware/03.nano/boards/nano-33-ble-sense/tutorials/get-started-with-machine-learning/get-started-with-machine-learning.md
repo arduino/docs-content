@@ -284,29 +284,10 @@ To capture data as a CSV log to upload to TensorFlow, you can use **Arduino IDE 
 
 ![Data recorded by your movements](assets/trainingData.png)
 
-***Linux tip:*** *If you prefer you can redirect the sensor log outputform the Arduino straight to  .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
+***Linux tip:*** *If you prefer you can redirect the sensor log outputform the Arduino straight to .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
 ```
  $ cat /dev/cu.usbmodem[nnnnn] > sensorlog.csv
 ```
-
-## Training in TensorFlow
-We’re going to use [Google Colab](https://colab.research.google.com/) to train our machine learning model using the data we collected from the Arduino board in the previous section. Colab provides a Jupyter notebook that allows us to run our TensorFlow training in a web browser.
-
-![Arduino gesture recognition training colab.](assets/colab.png)
-
-
-- Set up Python environment
-- Upload the punch.csv and flex.csv data 
-- Parse and prepare the data
-- Build and train the model
-- Convert the trained model to TensorFlow Lite
-- Encode the model in an Arduino header file
-
-The final step of the colab is generates the model.h file to download and include in our Arduino IDE gesture classifier project in the next section:
-
-![Gesture classifier](assets/gestureClassifier.png)
-
-Let’s open the notebook in Colab and run through the steps in the cells – [arduino_tinyml_workshop.ipynb](https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/GestureToEmoji/arduino_tinyml_workshop.ipynb)
 
 ## Conclusion
 It’s an exciting time with a lot to learn and explore in TinyML. We hope this blog has given you some idea of the potential and a starting point to start applying it in your own projects. Be sure to let us know what you build and [share it](https://create.arduino.cc/projecthub) with the Arduino community.
