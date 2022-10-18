@@ -72,7 +72,7 @@ Unzipped folder
 
 ### Set the Portenta X8 to Flashing Mode
 
-Plug your Porenta X8 into your carrier (e.g. Portenta Breakout carrier or Portenta Max Carrier).
+Plug your Portenta X8 into your carrier (e.g. Portenta Breakout carrier or Portenta Max Carrier).
 
 Place both DIP switches to the ON position.
 
