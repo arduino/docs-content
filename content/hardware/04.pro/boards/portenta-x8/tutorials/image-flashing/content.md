@@ -45,12 +45,25 @@ Click on the file `456.tar.gz` (or newer) and download it to your computer.
 
 ![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
 
-After downloading it, uncompress it and uncompress the file `mfgtool-files-portenta-x8.tar.gz`. 
-You will get a structure like the following:
+Then After downloading it, unzip it, you will get a structure like the following:
 
 ```
-Root folder
+Unzipped folder
 ├── imx-boot-portenta-x8
+├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
+├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
+├── sit-portenta-x8.bin
+└── u-boot-portenta-x8.itb
+```
+
+Then unzip `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz` make sure the .wic is on the unzipped folder in the main directory.
+
+It needs to be like:
+```
+Unzipped folder
+├── mfgtool-files-portenta-x8/
+├── imx-boot-portenta-x8
+├── lmp-partner-arduino-image-portenta-x8.wic
 ├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
 ├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
 ├── sit-portenta-x8.bin
@@ -61,7 +74,7 @@ Root folder
 
 Plug your Porenta X8 into your carrier (e.g. Portenta Breakout carrier or Portenta Max Carrier).
 
-Place both DIP switches to the ON position. 
+Place both DIP switches to the ON position.
 
 On the Portenta Max Carrier the DIP switches are identified by a label `BOOT SEL` and `BOOT` as shown in figure.
 
@@ -77,7 +90,7 @@ You will see a new connected device called `SE Blank M845S`.
 
 ### Flash the Device
 
-Open a terminal and change the directory (`cd`) to your root folder where `mfgtool-files-portenta-x8` file is located.
+Open a terminal and change the directory (`cd`) to the folder where `mfgtool-files-portenta-x8` file is located.
 
 Use the `uuu full_image.uuu` command.
 
