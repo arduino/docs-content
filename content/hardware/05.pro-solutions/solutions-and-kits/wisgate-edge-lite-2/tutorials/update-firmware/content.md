@@ -30,13 +30,13 @@ The goals of this article are:
 
 We assume that you already connected the gateway to your local network, and you can connect to it using your favourite method.   
 
-You can check out the needed steps on the [Getting Started tutorial](/getting-started).
+You can check out the needed steps on the [Getting Started tutorial](./getting-started).
 
 ## Instructions
 
 ### Download the Latest Firmware Version
 
-Go to your gateway's [Arduino Docs Product Page](../../product) go to the Essentials section and click the button with the Latest Firmware Version.
+Go to your gateway's([WisGate Edge Lite 2](../../hardware/wisgate-edge-lite-2#essentials) or [WisGate Edge Pro](../../hardware/wisgate-edge-pro#essentials)) Arduino Docs Product Page go to the Essentials section and click the button with the Latest Firmware Version.
 
 ![Product Page Essentials section](assets/wisgate-essentials.png)
 
