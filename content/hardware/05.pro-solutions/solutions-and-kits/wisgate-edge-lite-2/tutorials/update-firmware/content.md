@@ -5,8 +5,8 @@ difficulty: beginner
 tags: [Maintenance, Firmware, WisGate]
 author: 'Pablo Marquínez'
 hardware:
-  - hardware/04.pro/miscellaneous/wisgate-edge-lite-2
-  - hardware/04.pro/miscellaneous/wisgate-edge-pro
+  - hardware/05.pro-solutions/wisgate-edge-lite-2
+  - hardware/05.pro-solutions/wisgate-edge-pro
 ---
 
 ## Introduction 
