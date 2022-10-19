@@ -80,11 +80,10 @@ Here are three code examples. The first is just some "hello world" code that sim
 
 
 - 595 logic table:
-[![logic table](./595_logic_table.png)](assets/595_logic_table.png)
+![logic table](assets/595_logic_table.png)
 
 - 595 timing diagram:
-[![logic table](./595_timing_diagram.png)](assets/595_timing_diagram.png)
-
+![logic table](assets/595_timing_diagram.png)
 
 The code is based on  two pieces of information in the datasheet: the timing diagram and the logic table.  The logic table is what tells you that basically everything important happens on an up beat. When the clockPin goes from low to high, the shift register reads the state of the data pin. As the data gets shifted in it is saved in an internal memory register. When the latchPin goes from low to high the sent data gets moved from the shift registers aforementioned memory register into the output pins, lighting the LEDs.
 
