@@ -159,7 +159,7 @@
         {
             "label": "Fix misspellings",
             "type": "shell",
-            "command": "(pip install codespell > /dev/null 2>&1 || pip3 install codespell > /dev/null 2>&1) && codespell -w -I 'scripts${pathSeparator}resources${pathSeparator}spell-check-ignore-list.txt' --skip='*.svg,*.dxf' .${pathSeparator}content${pathSeparator}",
+            "command": "(pip install codespell > /dev/null 2>&1 || pip3 install codespell > /dev/null 2>&1) && codespell -w -I 'scripts${pathSeparator}resources${pathSeparator}spell-check-ignore-list.txt' --skip='*.svg,*.dxf,*.pdf' .${pathSeparator}content${pathSeparator}",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
