@@ -42,6 +42,8 @@ Go to your gateway's [Arduino Docs Product Page](../../product) go to the Essent
 
 You will get a zip file called `WisGateOS_<version>_ARDUINO_RAK.zip`
 
+Unzip it and you will have the firmware files.
+
 ### Connect to the WisGate Dashboard
 
 There are different ways to access the WisGate (default values):
@@ -57,7 +59,7 @@ Open the Settings page and click on the "Firmware" tab.
 
 ![WisGate dashboard Settings page](assets/wisgate-firmware-settings.png)
 
-Now drag and drop or open the browse file option to select the zip file downloaded previously.   
+Now drag and drop or open the browse file option to select the firmware file downloaded previously with the format end `.bin.rwi` as you can see on the screenshot we uploaded the file called `WisGateOS_2.0.1_ARDUINO_b30_RAK636.bin.rwi`
 
 ![WisGate firmware zip uploaded](assets/wisgate-firmware-update.png)
 
