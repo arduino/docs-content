@@ -10,79 +10,75 @@ type: maker
 The MKR WiFi 1010 is a miniature sized module containing a SAMD21G18A Processor, the Nina W102 Module and a crypto chip (the ATECC508). 
 
 
-# Target Areas 
+# Target Areas
 Prototyping, IoT application examples
+
 
 # Features
 - **SAMD21G18A**
   - **Processor**
-  - ARM Cortex M0+ at up to 48 MHz
-  - 256KB Flash
-  - 32KB SRAM
-  - Power On Reset (POR) and Brown Out Detection (BOD)
+      - ARM Cortex M0+ at up to 48 MHz
+      - 256KB Flash
+      - 32KB SRAM
+      - Power On Reset (POR) and Brown Out Detection (BOD)
 
   - **Peripherals**
-  - 12 channel DMA
-  - 12 channel event system
-  - 5x 16 bit Timer/Counter
-  - 3x 24 bit timer/counter with extended functions
-  - 32 bit RTC
-  - Watchdog Timer
-  - CRC-32 generator
-  - Full speed Host/Device USB with 8 end points
-  - 6x SERCOM (USART, I2C, SPI, LIN)
-  - Two channel I2S
-  - 12 bit 350ksps ADC (up to 16 bit with oversampling)
-  - 10 bit 350ksps DAC
-  - External Interrupt Controller (up to 16 lines)
+      - 12 channel DMA
+      - 12 channel event system
+      - 5x 16 bit Timer/Counter
+      - 3x 24 bit timer/counter with extended functions
+      - 32 bit RTC
+      - Watchdog Timer
+      - CRC-32 generator
+      - Full speed Host/Device USB with 8 end points
+      - 6x SERCOM (USART, I2C, SPI, LIN)
+      - Two channel I2S
+      - 12 bit 350ksps ADC (up to 16 bit with oversampling)
+      - 10 bit 350ksps DAC
+      - External Interrupt Controller (up to 16 lines)
 
-  - **ATECC508 Crypto Chip**
-  - Cryptographic co-processor with secure hardware based key storage
-  - Protected storage for up to 16 keys, certificates or data
-  - ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman
-  - ECDSA: FIPS186-3 Elliptic Curve Digital Signature Algorithm
-  - NIST standard P256 elliptic curve support
-  - SHA-256 & HMAC hash including off-chip context save/restore
+- **ATECC508 Crypto Chip**
+    - Cryptographic co-processor with secure hardware based key storage
+    - Protected storage for up to 16 keys, certificates or data
+    - ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman
+    - ECDSA: FIPS186-3 Elliptic Curve Digital Signature Algorithm
+    - NIST standard P256 elliptic curve support
+    - SHA-256 & HMAC hash including off-chip context save/restore
 
-  - **Nina W102 Module**
-  - Dual Core Tensilica LX6 CPU at up to 240MHz
+- **Nina W102 Module**
+    - Dual Core Tensilica LX6 CPU at up to 240MHz
 
   - **WiFi**
-  - IEEE 802.11b up to 11Mbit
-  - IEEE 802.11g up to 54MBit
-  - IEEE 802.11n up to 72MBit
-  - 2.4 GHz, 13 channels
-  - 96 dBm sensitivity
+      - IEEE 802.11b up to 11Mbit
+      - IEEE 802.11g up to 54MBit
+      - IEEE 802.11n up to 72MBit
+      - 2.4 GHz, 13 channels
+      - 96 dBm sensitivity
 
   - **Bluetooth BR/EDR**
-  - Max 7 Clients
-  - 2.4 GHz, 79 channels
-  - Up to 3 Mbit/s
-  - -88 dBm sensitivity
-  - Bluetooth Low Energy
-  - Bluetooth 5.0 dual mode
-  - 2.4GHz 40 channels
-  - -88 dBm sensitivity
-  - Up to 1 Mbit/s
+      - Max 7 Clients
+      - 2.4 GHz, 79 channels
+      - Up to 3 Mbit/s
+      - -88 dBm sensitivity
+      - Bluetooth Low Energy
+      - Bluetooth 5.0 dual mode
+      - 2.4GHz 40 channels
+      - -88 dBm sensitivity
+      - Up to 1 Mbit/s
 
-  - **BQ24125L I2C Controlled USB/Adapter Charger**
-  - 92% Charge Efficiency at 2 A, 90% at 4 A
-  - Autonomous Battery Charging
-  - 2.5-A Fast Charging
+- **BQ24125L I2C Controlled USB/Adapter Charger**
+    - 92% Charge Efficiency at 2 A, 90% at 4 A
+    - Autonomous Battery Charging
+    - 2.5-A Fast Charging
 
-
-
-
-
-
-# Contents 
+# Contents
 
 ## The Board
 
 Like most Arduino MKR form factor boards the MKR WiFi 1010  can be powered via USB, via headers or connecting a Lithium or Lithium Polymer battery to the embedded battery charger (the BQ24195L).
-**NOTE:** Arduino MKR WiFi 1010 battery charger has a minimum of 512 mA charge current. Please ensure this charging is compatible with the battery you will be using. 
+**NOTE:** Arduino MKR WiFi 1010 battery charger has a minimum of 512 mA charge current. Please ensure this charging is compatible with the battery you will be using.
 **NOTE:** Arduino MKR WiFi 1010 only supports 3.3V I/Os and is NOT 5V tolerant.
-Please make sure you are not directly connecting 5V signals to this board, or it will be damaged. 
+Please make sure you are not directly connecting 5V signals to this board, or it will be damaged.
 Also the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 
@@ -99,7 +95,7 @@ Also the 5V pin does NOT supply voltage but is rather connected, through a jumpe
 
 ### Recommended Operating Conditions
 | Symbol | Description                                       | Min        | Max     |
-| ------ | ------------------------------------------------- | ---------- | ------- | 
+| ------ | ------------------------------------------------- | ---------- | ------- |
 |        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
 
 ### Power Consumption
@@ -251,7 +247,7 @@ Conforms to: EN 60950-1:2006/A11:2009/A1:2010/A12:2011/AC:2011
 Conforms to: EN 62311:2008
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
 | -------------------------------------- | ----------------------- |
@@ -266,17 +262,17 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed. 
+Exemptions : No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-### Conflict Minerals Declaration 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
+### Conflict Minerals Declaration
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ### FCC Caution
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
 (1) This device may not cause harmful interference
 
@@ -290,14 +286,14 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-English: 
+English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-French: 
+French:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
@@ -306,10 +302,10 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 **IC SAR Warning:**
 
-English 
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
+English
+This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.
 
-French: 
+French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 80℃ and shouldn’t be lower than -20℃.
@@ -345,5 +341,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+|27/09/2022|3|Rendering problems fixed|
 |20/09/2022|2|Migration to Markdown, links updated, small typos fixed|
 |22/03/2021|1|First Release|

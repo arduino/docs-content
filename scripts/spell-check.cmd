@@ -16,4 +16,4 @@ IF %ERRORLEVEL% NEQ 0 (
     ECHO Codespell already installed
 )
 cls
-codespell -I scripts/resources/spell-check-ignore-list.txt --skip="*.svg,*.dxf" content
+codespell -I scripts/resources/spell-check-ignore-list.txt --skip="*.svg,*.dxf,*.pdf" content

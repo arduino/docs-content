@@ -18,7 +18,7 @@ jobs:
       - name: Run spell check
         run: |
           pip install codespell
-          codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf" ./content/
+          codespell -I "scripts/resources/spell-check-ignore-list.txt" --skip="*.svg,*.dxf,*.pdf" ./content/
 
   lint:
     name: Content Linter
