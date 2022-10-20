@@ -1,5 +1,5 @@
 ---
-title: 'Build Multi-Protocol Gateway With Portenta X8 & Max Carrier'
+title: 'Build a Multi-Protocol Gateway With Portenta X8 & Max Carrier'
 description: 'This tutorial shows how to setup a multi-protocol gateway environment on Portenta X8 using Max Carrier'
 tags:
   - Containers
