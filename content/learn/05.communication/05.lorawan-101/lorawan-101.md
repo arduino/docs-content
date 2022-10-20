@@ -417,7 +417,8 @@ The LoRaWAN® specification has **three** different communication profiles betwe
 
 ***All LoRaWAN devices must implement Class A; Class B, and Class C are extensions of Class A profile.***
 
- #### Class A: "Aloha"
+#### Class A: "Aloha"
+
 
 Class A devices implement a **bi-directional communication profile** where two short downlinks follow the end-device uplink transmission receive windows, usually referred to as RX1 and RX2. If the server does not respond in either RX1 or RX2 windows, the next opportunity will be after the next uplink transmission. Class A devices are often battery-powered and spend most of the time in sleep mode; therefore, they have the lowest energy consumption, keep long intervals between uplinks, and have high downlink latency.
 
