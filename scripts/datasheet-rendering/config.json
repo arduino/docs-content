@@ -4,6 +4,7 @@
     "defaultSourcePath" : "../../content/hardware",
     "relativeBuildPath" : "../downloads",
     "datasheetsFolder" : "datasheets",
+    "styleSheetsPath" : "./styles",
     "previousDocumentationFolder" : "previous-documentation",
     "subtitle" : "Product Reference Manual",
     "datasheetSuffix": "-datasheet.pdf",
