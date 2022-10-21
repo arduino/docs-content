@@ -11,7 +11,7 @@ libraries:
   - name: Arduino BHY2
     url: https://www.github.com/Arduino-libraries/Arduino_BHY2
   - name: Arduino BHY2Host
-    url: https://www.github.com/Arduino-libraries/Arduino_BHY2
+    url: https://github.com/arduino-libraries/Arduino_BHY2Host
   - name: Arduino PDM
     url: https://www.arduino.cc/en/Reference/PDM
   - name: Arduino SPI
@@ -197,7 +197,7 @@ In the following section, you can see how these ID's are used in an Arduino sket
 
 ### Sensor Classes
 
-- **Sensor**: This class handles all the other sensors which have a single value to be read, like temperature, gas, pressure, etc. And also the event sensors, like the step detector. This generic sensor class provides the sensor data through the `value` property.
+- **Sensor**: This class handles all the other sensors which have a single value to be read, like temperature, gas, pressure, etc. And also the event sensors, like the step detector. This generic sensor class provides the sensor data through the `value` property that returns a **float**.
 - **SensorOrientation**: This class handles sensors with the Euler format, used for example with orientation. It allows you to read the `pitch`, `roll` and `heading` property.
 - **SensorXYZ**: This class handles sensors with the XYZ format, like the accelerometer and the gyroscope. It contains `x` `y` and `z` values
 - **SensorQuaternion**: Can be used to handle sensors with the quaternion format, can be used to calculate rotation vector, game rotation vector and geomagnetic rotation vector. You can access the `x`, `y`, `z` and `w` property using this class.
