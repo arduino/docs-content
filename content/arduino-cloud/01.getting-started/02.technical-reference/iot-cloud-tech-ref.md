@@ -133,14 +133,15 @@ For example, one button could set three smart bulbs to the same color by just se
 
 ### Local Time
 
-To retrieve local time, use the `ArduinoCloud.getLocalTime()` function in a sketch. The value returned is the Unix timestamp, which is time passed in seconds since 1970. 
+To retrieve local time, use the `ArduinoCloud.getLocalTime()` function in a sketch. The value returned is the Unix timestamp or UTC, and automatically adjusts based DST (Daylight Time Savings) and the configured time zone. This is changed inside your Thing configuration.
 
-This data can be stored in a `CloudTime` variable, and can be visualed using the [Time Picker widget](/arduino-cloud/getting-started/technical-reference#time-picker) in a dashboard.
-
+This data can be stored in a `CloudTime` variable, and can be visualed using the [Time Picker widget](/arduino-cloud/getting-started/technical-reference#time-picker).
 
 ```arduino
 myTimeVariable = ArduinoCloud.getLocalTime()
 ```
+
+***Note that the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library creates an instance of `rtc`, using the [RTCZero](https://github.com/arduino-libraries/RTCZero) library. As there is only one hardware instance, you cannot have multiple `rtc` instances.*** 
 
 ## Things
 
