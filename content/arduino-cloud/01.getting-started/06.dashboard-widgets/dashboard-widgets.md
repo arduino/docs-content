@@ -126,6 +126,22 @@ else if(stepperVariable == 11){
 Serial.println(stepperVariable);
 ```
 
+### Time Picker
+
+![Time Picker Widget](assets/time-picker.png)
+
+The time picker widget is used to retrieve the local time on your board.
+
+Can be linked with the **CloudTime** variable.
+
+An example of how it is used in a sketch:
+
+```
+CloudTimeVariable = ArduinoCloud.getLocalTime();
+```
+
+***`ArduinoCloud.getLocalTime()` returns the Unix Time Stamp (counted in seconds).***
+
 ### Messenger
 
 ![Messenger Widget](assets/widget-messenger.png)

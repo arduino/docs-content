@@ -131,6 +131,17 @@ This feature allows Arduino devices to communicate with each other by sharing va
 Using this feature you can link variables of the same data type between **two or more cloud-enabled devices**, and Arduino IoT Cloud will automatically ensure any change to their value is propagated among all linked boards.
 For example, one button could set three smart bulbs to the same color by just setting a variable on one device and reading it on the others. Or you could turn on a heater when temperature sensors in your room or outside in your weather station drop below a certain level.
 
+### Local Time
+
+To retrieve local time, use the `ArduinoCloud.getLocalTime()` function in a sketch. The value returned is the Unix timestamp, which is time passed in seconds since 1970. 
+
+This data can be stored in a `CloudTime` variable, and can be visualed using the [Time Picker widget](/arduino-cloud/getting-started/technical-reference#time-picker) in a dashboard.
+
+
+```arduino
+myTimeVariable = ArduinoCloud.getLocalTime()
+```
+
 ## Things
 
 In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of the variables and other settings, as well as the history of the data collected for the variables.
@@ -153,7 +164,7 @@ The steps below can be used as guidance when **setting up a Thing**:
 
 ## Variables
 
-***Visit the main article on [Cloud Variables](arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
+***Visit the main article on [Cloud Variables](/arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
 
 A thing can have one or more variables. A variable can be used for multiple purposes:
 
