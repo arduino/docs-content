@@ -140,7 +140,7 @@ An example of how it is used in a sketch:
 CloudTimeVariable = ArduinoCloud.getLocalTime();
 ```
 
-***`ArduinoCloud.getLocalTime()` returns the Unix Time Stamp (counted in seconds).***
+In this example, the variable named `CloudTimeVariable` is populated with `ArduinoCloud.getLocalTime()` which returns the Unix time stamp (in seconds) of the local time zone.
 
 ### Messenger
 
