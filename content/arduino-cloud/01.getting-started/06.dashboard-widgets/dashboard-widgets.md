@@ -132,7 +132,7 @@ Serial.println(stepperVariable);
 
 The time picker widget is used to represent and set a time and/or a date.
 
-Can be linked with the **CloudTime** variable.
+Can be linked with a **CloudTime** variable.
 
 An example of how it is used in a sketch:
 
