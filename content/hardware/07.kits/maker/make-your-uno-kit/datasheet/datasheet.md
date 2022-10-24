@@ -248,6 +248,7 @@ The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino 
 ![Audio Synth Shield BOM](assets/audio-bom-kit-components.png)
 
 The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
+![Components Topology]C(assets/synthTopology.svg)
 
 | **Ref.**     | **Quantity** | **Description**                     | **Designator**         |
 | ------------ | ------------ | ----------------------------------- | ---------------------- |
@@ -275,9 +276,41 @@ The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of commo
 TODO: DO THIS PART FOR THE ARDUINO AUDIO SHIELD
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
-![Board outline](assets/boardOutline.svg)
+![Board outline](assets/synthOutline.svg)
 
 
+### Connector Pinouts
+
+#### JANALOG
+| Pin | **Function** | **Type**         | **Description**                                 |
+| --- | ------------ | ---------------- | ----------------------------------------------- |
+| 5   | +5V          | Power            | +5V Power Rail                                  |
+| 9   | A0           | Analog Input     | Analog input 0 /GPIO                            |
+| 10  | A1           | Analog Input     | Analog input 1 /GPIO                            |
+| 11  | A2           | Analog Input     | Analog input 2 /GPIO                            |
+| 12  | A3           | Analog Input     | Analog input 3 /GPIO                            |
+| 13  | A4/SDA       | Analog Input     | Analog input 4/I2C Data line                    |
+
+#### JDIGITAL
+
+| Pin | **Function** | **Type**     | **Description**                            |
+| --- | ------------ | ------------ | ------------------------------------------ |
+| 10  | D9           | OUTPUT       | Audio output to Amplifier's AUX IN         |
+| 15  | GND          | GND          | Ground                                     |
+
+### Mechanical Information
+
+### Board Outline & Mounting Holes
+
+The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
+
+#### Board Outline
+
+![Board outline measures](assets/synthOutline.svg)
+
+#### Potentiometers Outline
+
+![Potentiometers measures](assets/synthPotentiometers.svg)
 
 ## Certifications
 
