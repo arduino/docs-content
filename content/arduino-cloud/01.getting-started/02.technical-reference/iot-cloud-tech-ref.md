@@ -133,7 +133,7 @@ For example, one button could set three smart bulbs to the same color by just se
 
 ### Local Time
 
-To retrieve local time, use the `ArduinoCloud.getLocalTime()` function in a sketch. The value returned is the Unix timestamp or UTC, and automatically adjusts based DST (Daylight Time Savings) and the configured time zone. This is changed inside your Thing configuration.
+To retrieve local time, use the `ArduinoCloud.getLocalTime()` method in your sketch. The value returned represents the current local time expressed as a Unix timestamp (i.e. seconds from the epoch), and it automatically takes your time zone settings and DST (Daylight Saving Time) into account. Time zone can be set in the Thing configuration page within the Arduino IoT Cloud platform.
 
 This data can be stored in a `CloudTime` variable, and can be visualed using the [Time Picker widget](/arduino-cloud/getting-started/technical-reference#time-picker).
 
