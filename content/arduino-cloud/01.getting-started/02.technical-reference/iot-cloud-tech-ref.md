@@ -141,7 +141,7 @@ The returned timestamp can be displayed in a dashboard using a `CloudTime` varia
 myTimeVariable = ArduinoCloud.getLocalTime()
 ```
 
-***Note that when using a board equipped with a hardware Real-Time Clock (RTC) the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library will use it automatically, thus communicating with the RTC from within your sketch or other libaries is not recommended. You can use the `getLocalTime()` and `getInternalTime()` methods provided by Arduino_IoTCloud instead.
+***Note that when using a board equipped with a hardware Real-Time Clock (RTC) the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library will use it automatically, thus communicating with the RTC from within your sketch or other libraries is not recommended. You can use the `getLocalTime()` and `getInternalTime()` methods provided by Arduino_IoTCloud instead.
 *** 
 
 ## Things
