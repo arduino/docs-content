@@ -153,7 +153,7 @@ The steps below can be used as guidance when **setting up a Thing**:
 
 ## Variables
 
-***Visit the main article on [Cloud Variables](arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
+***Visit the main article on [Cloud Variables](/arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
 
 A thing can have one or more variables. A variable can be used for multiple purposes:
 
