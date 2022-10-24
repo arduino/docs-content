@@ -141,7 +141,8 @@ This data can be stored in a `CloudTime` variable, and can be visualed using the
 myTimeVariable = ArduinoCloud.getLocalTime()
 ```
 
-***Note that the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library creates an instance of `rtc`, using the [RTCZero](https://github.com/arduino-libraries/RTCZero) library. As there is only one hardware instance, you cannot have multiple `rtc` instances.*** 
+***Note that when using a board equipped with a hardware Real-Time Clock (RTC) the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library will use it automatically, thus communicating with the RTC from within your sketch or other libaries is not recommended. You can use the `getLocalTime()` and `getInternalTime()` methods provided by Arduino_IoTCloud instead.
+*** 
 
 ## Things
 
