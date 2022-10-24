@@ -130,7 +130,7 @@ Serial.println(stepperVariable);
 
 ![Time Picker Widget](assets/time-picker.png)
 
-The time picker widget is used to retrieve the local time on your board.
+The time picker widget is used to represent and set a time and/or a date.
 
 Can be linked with the **CloudTime** variable.
 
