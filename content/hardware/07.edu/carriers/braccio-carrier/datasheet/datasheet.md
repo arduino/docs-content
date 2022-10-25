@@ -1,10 +1,10 @@
 ---
 identifier: ASX00032
 title: Arduino® Braccio Carrier
-revision: Rev. 01
 type: edu
 ---
-![Braccio Carrier Featured Image](assets/featured.png)
+
+![](assets/featured.png)
 
 # Description
 Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Arduino® Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
