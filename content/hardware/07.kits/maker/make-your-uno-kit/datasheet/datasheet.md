@@ -18,14 +18,14 @@ Maker, introduction, education
      <thead>
       <tr>
          <th>Component</th>
-         <th colspan="2">Details</th>
+         <th colspan="3">Details</th>
       </tr>
    </thead>
     <tbody>
         <tr>
          <td rowspan="3">ATMega328P Processor</td>
          <td>Memory</td>
-         <td>
+         <td colspan="2">
             <p>AVR CPU at up to 16 MHz</p>
             <p>32KB Flash</p>
             <p>2KB SRAM</p>
@@ -34,14 +34,14 @@ Maker, introduction, education
       </tr>
       <tr>
          <td>Security</td>
-         <td>
+         <td colspan="2">
             <p>Power On Reset (POR)</p>
             <p>Brown Out Detection (BOD)</p>
          </td>
       </tr>
       <tr>
         <td>Peripherals</td>
-        <td>
+        <td colspan="2">
             <p>2x 8-bit Timer/Counter with a dedicated period register and compare channels</p>
             <p>1x 16-bit Timer/Counter with a dedicated period register, input capture and compare channels </p>
             <p> 1x USART with fractional baud rate generator and start-of-frame detection</p>
@@ -55,15 +55,15 @@ Maker, introduction, education
     </tr>
     <tr>
         <td rowspan="4">USB_C Serial PCB Board</td>
-        <td colspan="2"> The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</td>
+        <td colspan="3"> <p>The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</p></td>
     </tr>
     <tr>
         <td>ATMega16U2 Processor</td>
-        <td>8-bit AVR® RISC-based microcontroller</td>
+        <td colspan="2">8-bit AVR® RISC-based microcontroller</td>
     </tr>
     <tr>
         <td>Memory</td>
-            <td>
+            <td colspan="2">
                 <p>16 KB ISP Flash</p>
                 <p>512B EEPROM</p>
                 <p>512B SRAM</p>
@@ -72,8 +72,40 @@ Maker, introduction, education
     </tr>
     <tr>
         <td>Power</td>
-        <td>2.7V-5.5V</td>
+        <td colspan="2">2.7V-5.5V</td>
     </tr>
+     <tr>
+            <td rowspan="4">Synth Audio Shield</td>
+            <td colspan="1">Potentiometers</td>
+            <td colspan="2">
+                <p>x5 user programmable 10K</p>
+                <p>x1 directly connected to the audio amplifier</p>
+            </td>
+            <tr>
+            <td rowspan="2">Audio</td>
+            <td>
+                <p>Amplifier: LM386</p>
+            </td>
+            <td>
+                <p>Class-AB</p>
+                <p>Mono</p>
+                <p>4 Ω Load</p>
+                <p>0.325W</p>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Speaker: L50EJ</p>
+                </td>
+                <td>
+                    <p>Impedance @2kHz: 8 Ω</p>
+                    <p>Max Power 0.5W</p>
+                    <p>Output: 81dB +-3dB</p>
+                    <p>Diameter 45mm</p>
+                    <p>Weight: 48g</p>
+                </td>
+            </tr>
+        </tr>
     </tbody>
 </table>
 
@@ -283,21 +315,21 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 ### Connector Pinouts
 
 #### JANALOG
-| Pin | **Function** | **Type**         | **Description**                                 |
-| --- | ------------ | ---------------- | ----------------------------------------------- |
-| 5   | +5V          | Power            | +5V Power Rail                                  |
-| 9   | A0           | Analog Input     | Analog input 0 /GPIO                            |
-| 10  | A1           | Analog Input     | Analog input 1 /GPIO                            |
-| 11  | A2           | Analog Input     | Analog input 2 /GPIO                            |
-| 12  | A3           | Analog Input     | Analog input 3 /GPIO                            |
-| 13  | A4/SDA       | Analog Input     | Analog input 4/I2C Data line                    |
+| Pin | **Function** | **Type**     | **Description**              |
+| --- | ------------ | ------------ | ---------------------------- |
+| 5   | +5V          | Power        | +5V Power Rail               |
+| 9   | A0           | Analog Input | Analog input 0 /GPIO         |
+| 10  | A1           | Analog Input | Analog input 1 /GPIO         |
+| 11  | A2           | Analog Input | Analog input 2 /GPIO         |
+| 12  | A3           | Analog Input | Analog input 3 /GPIO         |
+| 13  | A4/SDA       | Analog Input | Analog input 4/I2C Data line |
 
 #### JDIGITAL
 
-| Pin | **Function** | **Type**     | **Description**                            |
-| --- | ------------ | ------------ | ------------------------------------------ |
-| 10  | D9           | OUTPUT       | Audio output to Amplifier's AUX IN         |
-| 15  | GND          | GND          | Ground                                     |
+| Pin | **Function** | **Type** | **Description**                    |
+| --- | ------------ | -------- | ---------------------------------- |
+| 10  | D9           | OUTPUT   | Audio output to Amplifier's AUX IN |
+| 15  | GND          | GND      | Ground                             |
 
 ### Mechanical Information
 
@@ -319,8 +351,8 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
-| Directive                                               | Conforms To                                       |
-| ------------------------------------------------------- | ------------------------------------------------- |
+| Directive                                           | Conforms To                                       |
+| --------------------------------------------------- | ------------------------------------------------- |
 | ROHS 2 Directive 2011/65/EU                         | EN50581:2012                                      |
 | Directive 2014/35/EU. (LVD)                         | EN 60950-1:2006/A11:2009/A1:2010/A12:2011/AC:2011 |
 | Directive 2004/40/EC & 2008/46/EC & 2013/35/EU, EMF | EN 62311:2008                                     |
