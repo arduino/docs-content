@@ -171,7 +171,7 @@ The supply voltage can be the same 24V which is powering the board. There are 12
 
 The supply voltage can be the same 24V which is powering the board. There are 3x **TPS4H160AQPWPRQ1** chipsets, one for each channel, having a total of 12x high-side switches.
 
-#### Current limit
+#### Current Limit
 - The nominal value is 0.6A per channel, however, due to the internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be reach up to 0.9A.
 - It is possible to change the behavior of the 12 channels when the current limit is reached:
 
@@ -179,7 +179,7 @@ The supply voltage can be the same 24V which is powering the board. There are 3x
 
   **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time.
 
-#### Kick-back protection
+#### Kick-back Protection
 
 There is an internal inductive loads kick-back protection with an additional external protection of a 60V, 2A Schottky diode **PMEG6020ER,115**:
 
@@ -319,12 +319,12 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
   - The 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic *MDIX* support.
   - The *Wake-On-Lan* functionality allows the reduction of power consumption when the board is in sleep mode.
 
-### USB-A connector
+### USB-A Connector
   - Transfer rates of up to 480 Mbps.
   - It can be used both as a host and as a device.
   - ESD protection.
 
-### Half Speed micro-USB Portenta half-speed USB is connected to the micro-USB connector
+### Half Speed Micro-USB Portenta Half-speed USB is Connected to the Micro-USB Connector
   - Useful to program the Portenta board via a micro-usb cable.
   - It can be used to power the Portenta board while the 24V power supply is off.
   - ESD protection.
