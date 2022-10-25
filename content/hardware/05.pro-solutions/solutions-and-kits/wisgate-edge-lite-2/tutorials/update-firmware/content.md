@@ -36,13 +36,11 @@ You can check out the needed steps on the [Getting Started tutorial](./getting-s
 
 ### Download the Latest Firmware Version
 
-Go to your gateway's([WisGate Edge Lite 2](../../hardware/wisgate-edge-lite-2#essentials) or [WisGate Edge Pro](../../hardware/wisgate-edge-pro#essentials)) Arduino Docs Product Page go to the Essentials section and click the button with the Latest Firmware Version.
+Go to your gateway's([WisGate Edge Lite 2](../../hardware/wisgate-edge-lite-2#essentials) or [WisGate Edge Pro](../../hardware/wisgate-edge-pro#essentials)) Arduino Docs Product Page. On the page go to the Essentials section and click the **Latest Firmware Version** link.
 
 ![Product Page Essentials section](assets/wisgate-essentials.png)
 
-You will get a zip file called `WisGateOS_<version>_ARDUINO_RAK.zip`
-
-Unzip it and you will have the firmware files.
+You will get a zip file called `WisGateOS_<version>_ARDUINO_RAK.zip`. Unzip it and you will have the required firmware files.
 
 ### Connect to the WisGate Dashboard
 
@@ -55,23 +53,23 @@ There are different ways to access the WisGate (default values):
 
 ### Upload the Firmware
 
-Open the Settings page and click on the "Firmware" tab.
+On the WisGate Dashboard, open the Settings page and click on the "Firmware" tab.
 
 ![WisGate dashboard Settings page](assets/wisgate-firmware-settings.png)
 
-Now drag and drop or open the browse file option to select the firmware file downloaded previously with the format end `.bin.rwi` as you can see on the screenshot we uploaded the file called `WisGateOS_2.0.1_ARDUINO_b30_RAK636.bin.rwi`
+Now drag and drop or open the browse file option to select the firmware file downloaded in the previous step, it is the file with the `.bin.rwi` format, as you can see in the screenshot we uploaded the file called `WisGateOS_2.0.1_ARDUINO_b30_RAK636.bin.rwi`
 
 ![WisGate firmware zip uploaded](assets/wisgate-firmware-update.png)
 
 ### Flash the Firmware
 
-Click update and you will flash the gateway with the new version.
+Click update and you will flash the gateway with the new firmware version.
 
 ***To not erase the settings remember to check the box "Keep settings after updating"***
 
 ![WisGate firmware flashing](assets/wisgate-firmware-flashing.png)
 
-After flashing the gateway will reboot itself, it may be for some minutes unavailable.
+After flashing the new firmware the gateway will reboot itself, it may be unavailable for some minutes.
 
 ## Next Step
 
