@@ -324,7 +324,7 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
   - It can be used both as a host and as a device.
   - ESD protection.
 
-### Half Speed Micro-USB Portenta Half-speed USB Is Connected To The Micro-USB Connector
+### Half Speed Micro-USB Portenta Half-Speed USB Is Connected To The Micro-USB Connector
   - Useful to program the Portenta board via a micro-usb cable.
   - It can be used to power the Portenta board while the 24V power supply is off.
   - ESD protection.
