@@ -10,7 +10,6 @@ type: pro
 
 The Arduino® Portenta Machine Control is powered with a 24V DC power supply and provides several input/output digital and analog pins. This makes the board capable of driving high-power relays, sampling analog signals and measuring temperature with different probes.
 
-
 # Target Areas
 Industry 4.0,  system integrators
 
@@ -19,11 +18,11 @@ Industry 4.0,  system integrators
   - Arm® Cortex®-M7 core at up to 480 MHz + Arm® 32-bit Cortex®-M4 core at up to 240 MHz
   - 2 MB of Flash Memory with read-while-write support
   - 1 MB of RAM
- 
+
 - **On-board memory**
   - 8 MB SDRAM
   - 16 MB Flash QSPI
-  
+
 - **NXP SE0502 secure element**
 
 - **Power**
@@ -91,9 +90,7 @@ Industry 4.0,  system integrators
 ***Note: ESD protection on all inputs/outputs***
 
 # Contents
-
 ## The Board
-
 ### Application Examples
 - **Food processing:** The Portenta Machine Control is the perfect solution to meet your food processing needs by providing control to your lab and industrial operation's demands across the beverage, drying, and fermentation fields. Access professional support from Arduino or take advantage of the community support to reduce your time-to-market. With the Portenta Machine Control you will have real-time information about the status of your process being able to improve the yield and minimize waste by adjusting the food processing parameters using edge computing.
 
@@ -110,6 +107,7 @@ Industry 4.0,  system integrators
 
 ## Ratings
 ### Recommended Operating Conditions
+
 | Symbol          | Description                                      | Min            | Max            |
 | --------------- | ------------------------------------------------ | -------------- | -------------- |
 | T<sub>Max</sub> | Conservative thermal limits for the whole board: | -40 °C (-40°F) | 85 °C (185 °F) |
@@ -130,10 +128,8 @@ Industry 4.0,  system integrators
 | I<sub>OUT_ENC</sub>     | Maximum output current from any ENCODERS pin                                                                                                                                                                       | 0   | -   | 2   | mA   |
 
 ## Functional Overview
-
 ### Block Diagram
 ![Block Diagram of Portenta Machine Control](assets/MachineControlBlockDiagram.svg)
-
 
 ### Board Topology 
 ![Machine Control topology](assets/MachineControlOutline.svg)
@@ -174,13 +170,10 @@ The supply voltage can be the same 24V which is powering the board. There are 3x
 #### Current Limit
 - The nominal value is 0.6A per channel, however, due to the internal **TPS4H160AQPWPRQ1** circuit tolerances the real value can be reach up to 0.9A.
 - It is possible to change the behavior of the 12 channels when the current limit is reached:
-
-  **Latch**: when the current limit is reached the channel is shut down and the co-respective channel *enable* pin must be toggled to activate the channel again.
-
-  **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time.
+  - **Latch**: when the current limit is reached the channel is shut down and the co-respective channel *enable* pin must be toggled to activate the channel again.
+  - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time.
 
 #### Kick-Back Protection
-
 There is an internal inductive loads kick-back protection with an additional external protection of a 60V, 2A Schottky diode **PMEG6020ER,115**:
 
 - 12x digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
@@ -224,17 +217,14 @@ Only a single channel at a time is available to be read, according to the analog
 
 ### Front-Ends
 There are two front ends on the board:
-
 - MAX31855KASA+T dedicated to thermocouples.
 - MAX31865ATP+T dedicated to PT100.
 
 The front ends are multiplexed to the three channels via:
-
   - A single low-ohmic single-pole double-throw analog switch **NX3L4053HR,115** which is switching between one front end or the other.
   - Three quadruple single pole single throw analog switches **TMUX1511RSVR** which are switching the active channel between the three available. 
 
 ### Connecting Thermocouples
-
 **NOTE**: Connect only **non-grounded** thermocouples. Do not connect a thermocouple and a PT100 to the same channel.
 
 Connect a thermocouple to channel 0:
@@ -272,7 +262,6 @@ Connect a two-wire RTD to channel 2:
   - Connect a jumper between TP2 and RTD2.
 
 ### Connecting Three Wires RTDs (PT100)
-
 Connect a three-wire RTD to channel 0:
   - Connect one RTD pin to TP0.
   - Connect a second RTD pin to TN0. **Do not connect this pin to GND**.
@@ -294,7 +283,6 @@ Connect a three-wire RTD to channel 2:
 
 ### CAN
 The on-board transceiver is the **TJA1049T/3J** and implements the CAN physical layer as defined in *ISO 11898-2:2016* and *SAE J2284-1* to *SAE J2284-5*. It is compatible with a 12V or 24V bus:
-
   - **Nominal** maximum data rate: 5Mbit/s.
   - Integrated ESD protection.
   - 60Ω termination resistors are on board, with 4.7nF to GND
@@ -331,7 +319,6 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
 
 ### RTC
 The on-board real-time clock/calendar is the **PCF8563T/F4,118** which clock is provided by a dedicated external crystal oscillator:
-
   - A 100mF supercapacitor (**FC0V104ZFTBR24**) provides power to the **PCF8563T/F4,118** when the board power supply is disconnected. The RTC chipset will be powered by the supercapacitor for at least 48 hours.
   - 32,768kHz clock crystal (**Q13FC1350000400**).
 
@@ -353,10 +340,9 @@ All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
-
-
 ## Connector Pinouts
 ### Power Supply (J4)
+
 | Pin | **Type** | **Description**                                  |
 | --- | -------- | ------------------------------------------------ |
 | 1   | 24V IN   | Board input voltage, reverse polarity protected. |
@@ -365,6 +351,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 4   | GND      | GND                                              |
 
 ### HMI - Communication Protocols (J5)
+
 | Pin | **Type** | **Description**                                                                  |
 | --- | -------- | -------------------------------------------------------------------------------- |
 | 1   | 24V OUT  | Output voltage connected to the board input voltage. PTC protected, nominal 0.5A |
@@ -377,7 +364,6 @@ Now that you have gone through the basics of what you can do with the board you 
 | 8   | TX CAN   | CAN TX                                                                           |
 | 9   | RX CAN   | CAN RX                                                                           |
 | 10  | GND      | GND                                                                              |
-
 
 ### Temperature Probes (J7)
 **NOTE**: RTD (**R**esistance **T**emperature **D**etector) is a PT100 sensor.
@@ -395,6 +381,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 9   | RTD2     | 02          | RTD P third wire                                               |
 
 ### Analog in (J9)
+
 | Pin | **Type** | **Channel** | **Description**                                                                                                |
 | --- | -------- | ----------- | -------------------------------------------------------------------------------------------------------------- |
 | 1   | 24V OUT  | -           | Output voltage connected to the board input voltage. A single PTC protects pins 1, 4, 7. PTC nominal value 0.5A |
@@ -408,6 +395,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 9   | GND      | -           | GND                                                                                                            |
 
 ### Analog Out (J11)
+
 | Pin | **Type** | **Channel** | **Description** |
 | --- | -------- | ----------- | --------------- |
 | 1   | A0       | 00          | Analog output   |
@@ -420,6 +408,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 8   | GND      | -           | GND             |
 
 ### Digital Inputs (J3)
+
 | Pin | **Type** | **Channel** | **Description** |
 | --- | -------- | ----------- | --------------- |
 | 1   | 00       | 00          | Digital input   |
@@ -433,6 +422,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 9   | GND      | -           | GND             |
 
 ### Digital Outputs (J6)
+
 | Pin | **Type** | **Channel** | **Description**                                                                                     |
 | --- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
 | 1   | 24V IN   | -           | Input voltage: this voltage is (non galvanically) isolated with respect to the board input voltage. |
@@ -447,6 +437,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 10  | GND      | -           | GND                                                                                                 |
 
 ### Programmable Digital I/O (J8)
+
 | Pin | **Type** | **Channel** | **Description**                                                                                     |
 | --- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
 | 1   | 24V IN   | -           | Input voltage: this voltage is (non galvanically) isolated with respect to the board input voltage. |
@@ -465,6 +456,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 14  | GND      | -           | GND                                                                                                 |
 
 ### Encoders (J10)
+
 | Pin | **Type** | **Channel** | **Description**                                                                            |
 | --- | -------- | ----------- | ------------------------------------------------------------------------------------------ |
 | 1   | 24V OUT  | -           | Output voltage connected to the board input voltage. PTC protected with nominal value 0.5A |
@@ -477,6 +469,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 8   | GND      | -           | GND                                                                                        |
 
 ### USB A (J15)
+
 | Pin | **Description** |
 | --- | --------------- |
 | 1   | VBUS            |
@@ -485,6 +478,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 4   | GND             |
 
 ### USB Micro (J16)
+
 | Pin | **Description** |
 | --- | --------------- |
 | 1   | VBUS            |
@@ -495,11 +489,12 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ## Mechanical Information
 ### Board Outline
+
 ![Machine Control Outline](assets/MachineControlRail.svg)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 **ROHS 2 Directive 2011/65/EU**
 Conforms to:    EN50581:2012
@@ -602,5 +597,3 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 05/09/2022 | 2            | Remove PT1000, not compatible |
 | 09/26/2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
 | 10/13/2022 | 4            | Big improvements & Fixes |
-
-
