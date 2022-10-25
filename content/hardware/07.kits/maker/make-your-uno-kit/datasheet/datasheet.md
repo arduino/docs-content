@@ -14,7 +14,7 @@ Maker, introduction, education
 
 # Features
 
-<table style="page-break-before: always;">
+<table>
      <thead>
       <tr>
          <th>Component</th>
@@ -248,7 +248,8 @@ The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino 
 ![Audio Synth Shield BOM](assets/audio-bom-kit-components.png)
 
 The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
-![Components Topology]C(assets/synthTopology.svg)
+
+![Components Topology](assets/synthTopology.svg)
 
 | **Ref.**     | **Quantity** | **Description**                     | **Designator**         |
 | ------------ | ------------ | ----------------------------------- | ---------------------- |
@@ -318,19 +319,11 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
-|                                                         |                                                   |
+| Directive                                               | Conforms To                                       |
 | ------------------------------------------------------- | ------------------------------------------------- |
-| **ROHS 2 Directive 2011/65/EU**                         |                                                   |
-| Conforms to:                                            | EN50581:2012                                      |
-| **Directive 2014/35/EU. (LVD)**                         |                                                   |
-| Conforms to:                                            | EN 60950-1:2006/A11:2009/A1:2010/A12:2011/AC:2011 |
-| **Directive 2004/40/EC & 2008/46/EC & 2013/35/EU, EMF** |                                                   |
-| Conforms to:                                            | EN 62311:2008                                     |
-
-
-
-
-
+| ROHS 2 Directive 2011/65/EU                         | EN50581:2012                                      |
+| Directive 2014/35/EU. (LVD)                         | EN 60950-1:2006/A11:2009/A1:2010/A12:2011/AC:2011 |
+| Directive 2004/40/EC & 2008/46/EC & 2013/35/EU, EMF | EN 62311:2008                                     |
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
