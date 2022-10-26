@@ -156,7 +156,6 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 
 ![](assets/lowAudioSynth.png)
 
-
 ## Ratings
 
 ### Recommended Operating Conditions
@@ -181,7 +180,6 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 ![](assets/make-uno-crop-1663838450-kit-components.png)
 
 The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
-
 
 | **Ref.**     | **Quantity** | **Description**                     | **Designator**               |
 | ------------ | ------------ | ----------------------------------- | ---------------------------- |
@@ -210,9 +208,6 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 | A5681        | 1            | Jumper standed wire Red 15CM        |                              |
 | A5680        | 1            | Jumper standed wire BLK 15CM        |                              |
 
-
-
-
 ### Processor
 The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (*ATMega16U2*) inside the *USB_C Serial PCB Board*.
 
@@ -221,7 +216,6 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 ![Make Your Uno main board power tree](assets/powerTree.svg)
 
 ## Board Operation
-
 ### Getting Started - IDE
 If you want to program your *Arduino Uno* while offline you need to install the Arduino Desktop IDE [1]. To connect the *Arduino Uno* to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
 
@@ -246,6 +240,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ![Make Your Uno main board pinout](assets/pinout.png)
 
 ### JANALOG
+
 | Pin | **Function** | **Type**         | **Description**                                 |
 | --- | ------------ | ---------------- | ----------------------------------------------- |
 | 1   | NC           | NC               | Not connected                                   |
@@ -287,15 +282,12 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 18  | A5/SD5       | Digital      | Analog input 5/I2C Clock line (duplicated) |
 
 ## Mechanical Information
-
 ### Board Outline & Mounting Holes
-
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
 ![Make Your Uno boards outline](assets/boardOutline.svg)
 
 ## The Audio Synth Shield
-
 The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signals parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
 ![Audio Synth Shield assembled](assets/featured-audiosynth.png)
@@ -303,7 +295,6 @@ The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino 
 <br><div style="page-break-after:always;"></div>
 
 ### Functional Overview
-
 #### Board Topology and Bill of Materials
 
 ![Audio Synth Shield BOM](assets/audio-bom-kit-components.png)
@@ -332,8 +323,8 @@ The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of commo
 | PCB_ASX00045 | 1            | PCB ASX00045 V1.0 Synth Audio KIT   |                        |
 
 ### Connector Pinouts
-
 #### JANALOG
+
 | Pin | **Function** | **Type**     | **Description**              |
 | --- | ------------ | ------------ | ---------------------------- |
 | 5   | +5V          | Power        | +5V Power Rail               |
@@ -351,10 +342,9 @@ The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of commo
 | 15  | GND          | GND      | Ground                             |
 
 <br><div style="page-break-after:always;"></div>
+
 ### Mechanical Information
-
 #### Board Outline & Mounting Holes
-
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
 ![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
@@ -363,11 +353,11 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 
 ![ Arduino Synth Shield potentiometers measures](assets/synthPotentiometers.svg)
 
-<br><div style="page-break-after:always;"></div>
+<br>
+<div style="page-break-after:always;"></div>
+
 ## Certifications
-
 ### Declaration of Conformity CE DoC (EU)
-
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 | Directive                                           | Conforms To                                       |
@@ -377,7 +367,6 @@ We declare under our sole responsibility that the products above are in conformi
 | Directive 2004/40/EC & 2008/46/EC & 2013/35/EU, EMF | EN 62311:2008                                     |
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | Substance                              | **Maximum limit (ppm)** |
@@ -398,11 +387,9 @@ Exemptions: No exemptions are claimed.
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
-
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
-
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
