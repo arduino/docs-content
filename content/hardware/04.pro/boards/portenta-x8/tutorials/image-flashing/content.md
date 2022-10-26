@@ -27,7 +27,7 @@ The instructions below are meant to be used with a Windows Operating System.
 
 ### Required Hardware and Software
 
-- USB-C to USB-A or USB-C to USB-C
+- USB-A to USB-C cable
 - Portenta X8
 - Portenta Breakout Board or Portenta Max Carrier
     
