@@ -227,55 +227,23 @@ The front ends are multiplexed to the three channels via:
 ### Connecting Thermocouples
 **NOTE**: Connect only **non-grounded** thermocouples. Do not connect a thermocouple and a PT100 to the same channel.
 
-Connect a thermocouple to channel 0:
-  - Connect the thermocouple positive pin to TP0.
-  - Connect the thermocouple negative pin to TN0.
-
-**NOTE**: Do not connect the thermocouple negative pin to GND.
-
-Connect a thermocouple to channel 1:
-  - Connect the thermocouple positive pin to TP1.
-  - Connect the thermocouple negative pin to TN1.
-
-**NOTE**: Do not connect the thermocouple negative pin to GND.
-
-Connect a thermocouple to channel 2:
-  - Connect the thermocouple positive pin to TP2
-  - Connect the thermocouple negative pin to TN2.
+Connect a **thermocouple** to a channel `CH` (0-2):
+  - Connect the thermocouple positive pin to **TP**`CH`.
+  - Connect the thermocouple negative pin to **TN**`CH`.
 
 **NOTE**: Do not connect the thermocouple negative pin to GND.
 
 ### Connecting Two Wires RTDs (PT100)
-Connect a two-wire RTD to channel 0:
-  - Connect one RTD pin to TP0.
-  - Connect the other RTD pin to TN0.
-  - Connect a jumper between TP0 and RTD0.
-
-Connect a two-wire RTD to channel 1:
-  -  Connect one RTD pin to TP1.
-  - Connect the other RTD pin to TN1.
-  - Connect a jumper between TP1 and RTD1.
-
-Connect a two-wire RTD to channel 2:
-  - Connect one RTD pin to TP2.
-  - Connect the other RTD pin to TN2.
-  - Connect a jumper between TP2 and RTD2.
+Connect a **two-wire RTD** to a channel `CH` (0-2):
+  - Connect one RTD pin to **TP**`CH`.
+  - Connect the other RTD pin to **TN**`CH`.
+  - Connect a jumper between TP0 and **RTD**`CH`.
 
 ### Connecting Three Wires RTDs (PT100)
-Connect a three-wire RTD to channel 0:
-  - Connect one RTD pin to TP0.
-  - Connect a second RTD pin to TN0. **Do not connect this pin to GND**.
-  - Connect the third RTD pin to RTD0.
-
-Connect a three-wire RTD to channel 1:
-  - Connect one RTD pin to TP1.
-  - Connect a second RTD pin to TN1. **Do not connect this pin to GND**.
-  - Connect the third RTD pin to RTD1.
-
-Connect a three-wire RTD to channel 2:
-  - Connect one RTD pin to TP2.
-  - Connect a second RTD pin to TN2. **Do not connect this pin to GND**.
-  - Connect the third RTD pin to RTD2.
+Connect a **three-wire RTD** to a channel `CH` (0-2):
+  - Connect one RTD pin to **TP**`CH`.
+  - Connect a second RTD pin to **TN**`CH`. **Do not connect this pin to GND**.
+  - Connect the third RTD pin to **RTD**`CH`.
 
 ### Encoders
   - Two independent ABZ encoder channels are available.
