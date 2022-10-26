@@ -65,7 +65,7 @@ Industry 4.0, system integrators
 - **RTC**
   - At least 48 hours of memory retention
 - **Wi-Fi/BLE**
-  - SMA connector-50Ω
+  - SMA connector 50Ω
 
 ***Note: ESD protection on all inputs/outputs***
 
@@ -126,7 +126,7 @@ Industry 4.0, system integrators
 | PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
 
 ### Digital Input
-8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
+8x channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
 
 ### Digital Output
 The digital output connector has a 24V IN pin which must be supplied with 24V DC.
@@ -224,7 +224,7 @@ Connect a **three-wire RTD** to a channel `CH` (0-2):
 
 ### Encoders
   - Two independent ABZ encoder channels are available.
-  - Each channel is pulled-up to the board 24V supply with a 10 kΩ pull-up resistor.
+  - Each channel is pulled-up to the board 24V supply with a 10kΩ pull-up resistor.
 
 ### CAN
 The on-board transceiver is the **TJA1049T/3J** and implements the CAN physical layer as defined in *ISO 11898-2:2016* and *SAE J2284-1* to *SAE J2284-5*. It is compatible with a 12V or 24V bus:
@@ -265,25 +265,25 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
 ### RTC
 The on-board real-time clock/calendar is the **PCF8563T/F4,118** which clock is provided by a dedicated external crystal oscillator:
   - A 100mF supercapacitor (**FC0V104ZFTBR24**) provides power to the **PCF8563T/F4,118** when the board power supply is disconnected. The RTC chipset will be powered by the supercapacitor for at least 48 hours.
-  - 32,768kHz clock crystal (**Q13FC1350000400**).
+  - 32,768kHz crystal clock (**Q13FC1350000400**).
 
 ### Power Tree
 ![Power Tree Machine Control](assets/MachineControlPowerTree.png)
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your *Arduino Machine Control* while being offline you need to install the Arduino Desktop IDE [1] To connect the *Arduino Machine Control* to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your *Arduino Machine Control* while being offline you need to install the Arduino Desktop IDE [[1]](#11-reference-documentation) To connect the *Arduino Machine Control* to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [[2]](#11-reference-documentation), by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [[3]](#11-reference-documentation) to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
 All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [[4]](#11-reference-documentation), the Arduino Library Reference [[5]](#11-reference-documentation) and the online store [[6]](#11-reference-documentation) where you will be able to complement your board with sensors, actuators and more.
 
 ## Connector Pinouts
 ### Power Supply (J4)
