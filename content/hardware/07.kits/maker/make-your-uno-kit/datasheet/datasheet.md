@@ -5,7 +5,7 @@ type: maker
 ---
 
 ![](assets/featured.png)
-
+connect nihilo.pracc.club:28511; password NihiloEsports
 # Description
 The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electronics and coding by assembling your own *Arduino Uno*. Become familiar with soldering by mounting every single component, unleash your creativity with the *Audio synth Shield*, and learn how to code using your new *Arduino Uno* board to create amazing projects!
 
@@ -127,7 +127,7 @@ Maker, introduction, education
 </table>
 
 # CONTENTS
-## The kit
+## The Kit
 ### Application Examples
 The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by yourself. The *UNO* board is the flagship product of Arduino. Regardless if you are new to the world of electronics or will use the *UNO* as a tool for education purposes or industry-related tasks.
 
@@ -146,7 +146,7 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 * Ethernet Shield Rev2
 * Motor Shield Rev3
 
-### Solution overview
+### Solution Overview
 
 The *Arduino Make Your UNO kit* contains different boards. Besides the *Arduino Uno* board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
@@ -399,17 +399,17 @@ Arduino Boards are fully compliant with the related requirements of European Uni
 
 ### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
 (1) This device may not cause harmful interference
 
- (2) this device must accept any interference received, including interference that may cause undesired operation.
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
 **FCC RF Radiation Exposure Statement:**
 
@@ -419,14 +419,14 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-English: 
+English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
- (2) this device must accept any interference, including interference that may cause undesired operation of the device.
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-French: 
+French:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
 
 (1) l’ appareil nedoit pas produire de brouillage
@@ -443,8 +443,8 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
- 
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
+
 ## Company Information
 
 | Company name    | Arduino S.r.l                           |
@@ -467,4 +467,3 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Date       | **Revision** | **Changes**       |
 | ---------- | ------------ | ----------------- |
 | xx/10/2022 | 1            | Datasheet release |
-
