@@ -11,79 +11,59 @@ type: pro
 The Arduino® Portenta Machine Control is powered with a 24V DC power supply and provides several input/output digital and analog pins. This makes the board capable of driving high-power relays, sampling analog signals and measuring temperature with different probes.
 
 # Target Areas
-Industry 4.0,  system integrators
+Industry 4.0, system integrators
 
 # Features
 - **STM32H747XI dual Cortex® Microcontroller**
   - Arm® Cortex®-M7 core at up to 480 MHz + Arm® 32-bit Cortex®-M4 core at up to 240 MHz
   - 2 MB of Flash Memory with read-while-write support
   - 1 MB of RAM
-
 - **On-board memory**
   - 8 MB SDRAM
   - 16 MB Flash QSPI
-
 - **NXP SE0502 secure element**
-
 - **Power**
     - Input voltage: 24V DC +/- 20%
     - Output voltage: 24V DC
     - Reverse polarity protection
-     
 - **8x digital input channels**
     - 0-24V DC input
-
 - **8x Digital output channels**
-  - Non-galvanic isolated 24V power input 
+  - Non-galvanic isolated 24V power input
   - 8x High-side switches with current limit and inductive load kick-back protection
-
 - **3x Analog input channels**
-
   Each channel is software configurable to be:
   - 0-10V input
   - 4-20mA input
   - NTC input with 3V voltage reference **REF3330AIRSER**
-
 - **4x Analog output channels**
   - DC Voltage output software configurable: 0-10V DC
   - Max 20mA per channel
-
 - **12x Digital programmable channels**
   - Non-galvanic isolated 24V power input
-  - 12x High-side switches with current
-      limit and inductive load kick-back protection
+  - 12x High-side switches with current limit and inductive load kick-back protection
   - 12x Digital inputs
-
 - **3x Temperature channels**
   Each channel is software configurable to measure:
   - Thermocouple K, non-grounded, front-end **MAX31855KASA+T**
   - Thermocouple J, non-grounded, front-end **MAX31855KASA+T** with software multiplication coefficient
   - PT100, front-end **MAX31865ATP+T**
-
 - **2x Encoder channels ABZ**
-  - 0-24V DC input  
-
+  - 0-24V DC input
 - **High-speed CAN**
   - **TJA1049T/3J** able to work at 12V/24V DC
   - On-board termination resistors
-
 - **RS232/RS422/RS485 software configurable**
-  - **SP335ECR1-L** with onboard termination resistors RS485 is configurable to be half duplex or full duplex 
-
+  - **SP335ECR1-L** with onboard termination resistors RS485 is configurable to be half duplex or full duplex
 - **I2C**
   - Grove connector
   - 10kΩ pull-ups on board
-
 - **Ethernet**
-  - On-board LAN transformer 
-
+  - On-board LAN transformer
 - **Full-speed USB-A connector**
-
 - **Half-speed micro-USB Type B connector**
-
 - **RTC**
   - At least 48 hours of memory retention
-
 - **Wi-Fi/BLE**
   - SMA connector-50Ω
 
@@ -131,18 +111,18 @@ Industry 4.0,  system integrators
 ### Block Diagram
 ![Block Diagram of Portenta Machine Control](assets/MachineControlBlockDiagram.svg)
 
-### Board Topology 
+### Board Topology
 ![Machine Control topology](assets/MachineControlOutline.svg)
 
-| **Ref.** | **Description**                                 | **Ref.** | **Description** |
-| -------- | ----------------------------------------------- | -------- | --------------- |
-| J3       | Digital inputs                                  | J10      | Encoders        |
-| J4       | Power supply 24V                                | J11      | Analog out      |
-| J5       | HMI - Comm protocols (RS232, RS422, RS485, CAN) | J13      | Ethernet        |
-| J6       | Digital outputs                                 | J14      | WI-FI / Bluetooth® Low Energy SMA |
-| J7       | Temperature probes                              | J15      | USB A           |
-| J8       | Digital programmable                            | J16      | USB micro       |
-| J9       | Analog in                                       | J17      | Grove I2C       |
+| **Ref.** | **Description**                                 | **Ref.** | **Description**                       |
+| -------- | ----------------------------------------------- | -------- | ------------------------------------- |
+| J3       | Digital inputs                                  | J10      | Encoders                              |
+| J4       | Power supply 24V                                | J11      | Analog out                            |
+| J5       | HMI - Comm protocols (RS232, RS422, RS485, CAN) | J13      | Ethernet                              |
+| J6       | Digital outputs                                 | J14      | WI-FI / Bluetooth® Low Energy SMA     |
+| J7       | Temperature probes                              | J15      | USB A                                 |
+| J8       | Digital programmable                            | J16      | USB micro                             |
+| J9       | Analog in                                       | J17      | Grove I2C                             |
 | PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
 
 ### Digital Input
@@ -177,7 +157,6 @@ The supply voltage can be the same 24V which is powering the board. There are 3x
 There is an internal inductive loads kick-back protection with an additional external protection of a 60V, 2A Schottky diode **PMEG6020ER,115**:
 
 - 12x digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
-
   Although the high-side switches are independent of the digital input channels, it is possible to read the status of the high-side switches through the digital input channels.
 
 ### Analog Input
@@ -187,10 +166,8 @@ There are three independent analog input channels available. Each of them has an
 
 - **0-10V**:
 The input is connected to a 100kΩ and 39kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V. The input impedance is approximately 28kΩ.
-
 - **4-20mA**:
 The input is connected to a 120Ω resistor. Having 4-20mA current input for a 0.48V-2.4V voltage.
-
 - **NTC**:
 The input is connected to a 3V voltage reference (**REF3330AIRSER**) with a 100kΩ resistor in series, becoming part of a resistor divider powered by the voltage reference.
 
@@ -222,7 +199,7 @@ There are two front ends on the board:
 
 The front ends are multiplexed to the three channels via:
   - A single low-ohmic single-pole double-throw analog switch **NX3L4053HR,115** which is switching between one front end or the other.
-  - Three quadruple single pole single throw analog switches **TMUX1511RSVR** which are switching the active channel between the three available. 
+  - Three quadruple single pole single throw analog switches **TMUX1511RSVR** which are switching the active channel between the three available.
 
 ### Connecting Thermocouples
 **NOTE**: Connect only **non-grounded** thermocouples. Do not connect a thermocouple and a PT100 to the same channel.
@@ -503,7 +480,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 (1) This device may not cause harmful interference
 
- (2) this device must accept any interference received, including interference that may cause undesired operation.
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
 **FCC RF Radiation Exposure Statement:**
 
@@ -537,7 +514,7 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 ## Company Information
 
