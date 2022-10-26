@@ -13,14 +13,16 @@ The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electr
 Maker, introduction, education
 
 # Features
-
 <table>
-     <thead>
-      <tr>
-         <th>Component</th>
-         <th colspan="3">Details</th>
-      </tr>
-   </thead>
+    <thead>
+        <tr>
+            <th colspan="3" style="width:auto;text-align:center">Make Your UNO board</th>
+        </tr>
+        <tr>
+            <th>Component</th>
+            <th colspan="3">Details</th>
+        </tr>
+    </thead>
     <tbody>
         <tr>
          <td rowspan="3">ATMega328P Processor</td>
@@ -31,55 +33,70 @@ Maker, introduction, education
             <p>2KB SRAM</p>
             <p>1KB EEPROM</p>
          </td>
-      </tr>
-      <tr>
-         <td>Security</td>
-         <td colspan="2">
-            <p>Power On Reset (POR)</p>
-            <p>Brown Out Detection (BOD)</p>
-         </td>
-      </tr>
-      <tr>
-        <td>Peripherals</td>
-        <td colspan="2">
-            <p>2x 8-bit Timer/Counter with a dedicated period register and compare channels</p>
-            <p>1x 16-bit Timer/Counter with a dedicated period register, input capture and compare channels </p>
-            <p> 1x USART with fractional baud rate generator and start-of-frame detection</p>
-            <p>1x controller/peripheral Serial Peripheral Interface (SPI)</p>
-            <p>1x Dual mode controller/peripheral I2C</p>
-            <p>1x Analog Comparator (AC) with a scalable reference input</p>
-            <p>Watchdog Timer with separate on-chip oscillator</p>
-            <p>Six PWM channels</p>
-            <p>Interrupt and wake-up on pin change</p>
-        </td>
-    </tr>
-    <tr>
-        <td rowspan="4">USB_C Serial PCB Board</td>
-        <td colspan="3"> <p>The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</p></td>
-    </tr>
-    <tr>
-        <td>ATMega16U2 Processor</td>
-        <td colspan="2">8-bit AVR® RISC-based microcontroller</td>
-    </tr>
-    <tr>
-        <td>Memory</td>
+        </tr>
+        <tr>
+            <td>Security</td>
             <td colspan="2">
-                <p>16 KB ISP Flash</p>
-                <p>512B EEPROM</p>
-                <p>512B SRAM</p>
-                <p>debugWIRE interface for on-chip debugging and programming</p>
+                <p>Power On Reset (POR)</p>
+                <p>Brown Out Detection (BOD)</p>
             </td>
-    </tr>
-    <tr>
-        <td>Power</td>
-        <td colspan="2">2.7V-5.5V</td>
-    </tr>
-     <tr>
-            <td rowspan="4">Synth Audio Shield</td>
+        </tr>
+        <tr>
+            <td>Peripherals</td>
+            <td colspan="2">
+                <p>2x 8-bit Timer/Counter with a dedicated period register and compare channels</p>
+                <p>1x 16-bit Timer/Counter with a dedicated period register, input capture and compare channels </p>
+                <p>1x USART with fractional baud rate generator and start-of-frame detection</p>
+                <p>1x controller/peripheral Serial Peripheral Interface (SPI)</p>
+                <p>1x Dual mode controller/peripheral I2C</p>
+                <p>1x Analog Comparator (AC) with a scalable reference input</p>
+                <p>Watchdog Timer with separate on-chip oscillator</p>
+                <p>6x PWM channels</p>
+                <p>Interrupt and wake-up on pin change</p>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="4">USB_C Serial PCB Board</td>
+            <td colspan="3"> <p>The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</p></td>
+        </tr>
+        <tr>
+            <td>ATMega16U2 Processor</td>
+            <td colspan="2">8-bit AVR® RISC-based microcontroller</td>
+        </tr>
+        <tr>
+            <td>Memory</td>
+                <td colspan="2">
+                    <p>16 KB ISP Flash</p>
+                    <p>512B EEPROM</p>
+                    <p>512B SRAM</p>
+                    <p>debugWIRE interface for on-chip debugging and programming</p>
+                </td>
+        </tr>
+        <tr>
+            <td>Power</td>
+            <td colspan="2">2.7V-5.5V</td>
+        </tr>
+    </tbody>
+</table>
+
+<br><div style="page-break-after:always;"></div>
+<table>
+    <thead>
+        <tr>
+            <th colspan="4" style="width:auto;text-align:center">Audio Synth Shield</th>
+        </tr>
+        <tr>
+            <th>Component</th>
+            <th colspan="3">Details</th>
+        </tr>
+    </thead>
+    </tbody>
+        <tr>
+            <td rowspan="4">Audio Synth Shield</td>
             <td colspan="1">Potentiometers</td>
             <td colspan="2">
-                <p>x5 user programmable 10K</p>
-                <p>x1 directly connected to the audio amplifier</p>
+                <p>5x 10K - User programmable</p>
+                <p>1x directly connected to the audio amplifier</p>
             </td>
             <tr>
             <td rowspan="2">Audio</td>
@@ -89,7 +106,7 @@ Maker, introduction, education
             <td>
                 <p>Class-AB</p>
                 <p>Mono</p>
-                <p>4 Ω Load</p>
+                <p>4Ω Load</p>
                 <p>0.325W</p>
             </td>
             </tr>
@@ -98,7 +115,7 @@ Maker, introduction, education
                     <p>Speaker: L50EJ</p>
                 </td>
                 <td>
-                    <p>Impedance @2kHz: 8 Ω</p>
+                    <p>Impedance @2kHz: 8Ω</p>
                     <p>Max Power 0.5W</p>
                     <p>Output: 81dB +-3dB</p>
                     <p>Diameter 45mm</p>
@@ -124,16 +141,31 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 * Arduino Uno R3 and Arduino Uno R3 SMD
 * Starter Kit
 * Tinkerkit Braccio Robot
+* 4 Relays Shield
+* 9 Axis Motion Shield
+* Ethernet Shield Rev2
+* Motor Shield Rev3
+
+### Solution overview
+
+The *Arduino Make Your UNO kit* contains different boards. Besides the *Arduino Uno* board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
+
+![](assets/uno_kit_perspective.png)
+
+Once the kit is assembled, the user can solder and assemble the *Audio Synth Shield* board and connect it on top of the *Arduino Uno* board to use the kit as an audio synthesizer.
+
+![](assets/lowAudioSynth.png)
+
 
 ## Ratings
 
 ### Recommended Operating Conditions
 
-| Symbol | Description                                      | Min            | Max            |
-| ------ | ------------------------------------------------ | -------------- | -------------- |
-|        | Conservative thermal limits for the whole board: | -40 °C (-40°F) | 85 °C ( 185°F) |
+| Description                                      | Min            | Max            |
+| ------------------------------------------------ | -------------- | -------------- |
+| Conservative thermal limits for the whole board | -40 °C (-40°F) | 85 °C ( 185°F) |
 
->**NOTE:** In extreme temperatures, EEPROM, voltage regulator, and the crystal oscillator, might not work as expected due to the extreme temperature conditions 
+**NOTE:** In extreme temperatures, the EEPROM, voltage regulator, and the crystal oscillator, might not work as expected due to the temperature conditions.
 
 ### Power Consumption
 
@@ -144,10 +176,9 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 | PMax    | Maximum Power Consumption                         | -   | -   | xx  | mA   |
 
 ## Functional Overview
-
 ### Board Topology and Bill of Materials
 
-![Board topology](assets/make-uno-crop-1663838450-kit-components.png)
+![](assets/make-uno-crop-1663838450-kit-components.png)
 
 The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
@@ -183,21 +214,21 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 
 
 ### Processor
-The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor.
+The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (*ATMega16U2*) inside the *USB_C Serial PCB Board*.
 
 ### Power Tree
 
-![Power tree](assets/powerTree.svg)
+![Make Your Uno main board power tree](assets/powerTree.svg)
 
 ## Board Operation
 
 ### Getting Started - IDE
-If you want to program your *Arduino Uno* while offline you need to install the Arduino Desktop IDE [\[1\]][1]. To connect the *Arduino Uno* to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
+If you want to program your *Arduino Uno* while offline you need to install the Arduino Desktop IDE [1]. To connect the *Arduino Uno* to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [\[2\]][2] by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2] by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [\[3\]][3] to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
 All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
@@ -206,13 +237,13 @@ All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows
 Sample sketches for the *Arduino Uno* can be found either in the “Examples” menu in the Arduino IDE.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [\[4\]][4], the Arduino Library Reference [\[5\]][5] and the online store [\[6\]][6] where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after a power-up.
 
 ## Connector Pinouts
-![Pinout](assets/pinout.png)
+![Make Your Uno main board pinout](assets/pinout.png)
 
 ### JANALOG
 | Pin | **Function** | **Type**         | **Description**                                 |
@@ -255,21 +286,19 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 17  | A4/SD4       | Digital      | Analog input 4/I2C Data line (duplicated)  |
 | 18  | A5/SD5       | Digital      | Analog input 5/I2C Clock line (duplicated) |
 
-### Mechanical Information
+## Mechanical Information
 
-#### Board Outline & Mounting Holes
+### Board Outline & Mounting Holes
 
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
-![Board outline](assets/boardOutline.svg)
-
-
+![Make Your Uno boards outline](assets/boardOutline.svg)
 
 ## The Audio Synth Shield
 
 The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signals parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
-![Audio Synth Shield Assembled](assets/featured-audiosynth.png)
+![Audio Synth Shield assembled](assets/featured-audiosynth.png)
 
 <br><div style="page-break-after:always;"></div>
 
@@ -281,7 +310,7 @@ The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino 
 
 The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
-![Components Topology](assets/synthTopology.svg)
+![Arduino Synth Shield components topology](assets/synthTopology.svg)
 
 | **Ref.**     | **Quantity** | **Description**                     | **Designator**         |
 | ------------ | ------------ | ----------------------------------- | ---------------------- |
@@ -302,16 +331,6 @@ The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of commo
 | U0251        | 1            | Audio Amplifier, 0.325W, 1 ChannelT | U1                     |
 | PCB_ASX00045 | 1            | PCB ASX00045 V1.0 Synth Audio KIT   |                        |
 
-### Mechanical Information
-
-#### Board Outline & Mounting Holes
-
-TODO: DO THIS PART FOR THE ARDUINO AUDIO SHIELD
-The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
-
-![Board outline](assets/synthOutline.svg)
-
-
 ### Connector Pinouts
 
 #### JANALOG
@@ -331,20 +350,20 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 | 10  | D9           | OUTPUT   | Audio output to Amplifier's AUX IN |
 | 15  | GND          | GND      | Ground                             |
 
+<br><div style="page-break-after:always;"></div>
 ### Mechanical Information
 
-### Board Outline & Mounting Holes
+#### Board Outline & Mounting Holes
 
 The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
-#### Board Outline
-
-![Board outline measures](assets/synthOutline.svg)
+![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
 
 #### Potentiometers Outline
 
-![Potentiometers measures](assets/synthPotentiometers.svg)
+![ Arduino Synth Shield potentiometers measures](assets/synthPotentiometers.svg)
 
+<br><div style="page-break-after:always;"></div>
 ## Certifications
 
 ### Declaration of Conformity CE DoC (EU)
@@ -449,10 +468,3 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ------------ | ----------------- |
 | xx/10/2022 | 1            | Datasheet release |
 
-
-[1]: https://www.arduino.cc/en/software
-[2]: https://create.arduino.cc/
-[3]: https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a
-[4]: https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending
-[5]: https://www.arduino.cc/reference/en/
-[6]: https://store.arduino.cc/
