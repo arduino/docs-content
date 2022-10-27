@@ -325,7 +325,6 @@ However you may change this write resolution if you need to, to up to 12-bits:
 analogWriteResolution(12);
 ```
 
-
 ### OFF Pin
 On the **Arduino GIGA R1** you will find a pin labelled **"OFF"**. If you connect this pin to ground, the board will power down even if power is supplied to the board.
 
