@@ -42,7 +42,7 @@ Now that you have learned about the basics and functionalities of Modbus it is t
 Looking at the hardware side of things a lot of our boards are Modbus compatible especially if you consider Ethernet type messages but if you want to communicate via RS485 there is the MKR 485 Shield (LINK!!!) which can convert any MKR board into a Modbus compatible device. You can check out this tutorial (KARLS TUTORIAL) to learn about communication between two Arduinos using the Modbus protocol and RS485. 
 When using the Modbus library sending messages is fairly straight forward as you can see in the request format function below.
 
-| Device Adress | Function Code | Starting Register |  Register Count | CRC Code |  
+| Device Address | Function Code | Starting Register |  Register Count | CRC Code |  
 | ----------- | ----------- |----------- |----------- |----------- |
 | 0x21      | INPUT REGISTERS       | 0x0011       | 2       |
 
