@@ -9,7 +9,7 @@ IF %ERRORLEVEL% NEQ 0 (
     cls
 
     ::Only install the modules if npm list return an Error
-    npm list --depth=0 || npm install && cls && ECHO Modules installed
+    npm list --depth=0 || npm config set @arduino:registry https://npm.pkg.github.com && npm install && cls && ECHO Modules installed
 
     :: argument %* only used with "Current directory" option
     npx datasheet-renderer config.json %*
