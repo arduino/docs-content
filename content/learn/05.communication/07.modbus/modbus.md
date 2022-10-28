@@ -28,7 +28,5 @@ The Modbus data model has a simple structure described in four basic data types:
 
 The service request area of the message or Modbus Protocol Data Unit or PDU is comprised of a function code and a number of data bytes requested by the controller. The Modbus memory registers of a device are organized around the four basic data reference types and this data type is further identified by the leading number used in the devices memory address, such as, a 0 based register referencing a message to Read or Write discrete outputs or coils, or a 1 based register referencing Reading discrete inputs, or a 3 based register referencing Reading input registers, and a 4 based register referencing Reading or Writing to output or holding registers. The function code field specifies which register data group it reads or writes to and from the peripheral.
 
-Dependend on the 
-
 ![](assets/modbusStructure.png)
 
