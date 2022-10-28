@@ -24,7 +24,7 @@ if [ -n "$RENDER_DATASHEETS" ]; then
 
     echo "Running on Node version: `node -v`"
     npm install
-    node generate-datasheets.js
+    npx datasheet-renderer config.json
     exit 0
 fi
 
