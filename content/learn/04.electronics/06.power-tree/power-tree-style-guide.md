@@ -17,13 +17,13 @@ Lets take a look together at one of our power trees. The Portenta H7 was one of 
 
 ![Portenta H7 Power Tree](assets/Power_Tree_Portenta_H7.svg)
 
-To the left, you will see three grey boxes. Each one of these represents a voltage input. In the case of the Arduino Portenta H7, we can either provide power via the USB-C cable, the VIN pin on the high density connector or a battery.
+To the left, you will see three grey boxes. Each one of these represents a voltage input. In the case of the Arduino Portenta H7, we can either provide power via the USB-C® cable, the VIN pin on the high density connector or a battery.
 
 ![Portenta H7 Input Sources](assets/Power_Inputs_Portenta_H7.svg)
 
 ***You can see more information about the precise schematic location and pins in the schematic diagram and pinout graphics respectively. The Power Tree is there to provide a visual aid to better understanding the product and some intermediate components may not be displayed. If in doubt, refer to the schematics or contact us.***
 
-We can also see that the USB-C and the VIN are connected together. Under each grey box, we can see that the voltage is listed as 5V. This is the nominal value (see the datasheet for the allowed voltage ranges). In general, you can expect there to be no difference in the operation between each approach. 
+We can also see that the USB-C® and the VIN are connected together. Under each grey box, we can see that the voltage is listed as 5V. This is the nominal value (see the datasheet for the allowed voltage ranges). In general, you can expect there to be no difference in the operation between each approach. 
 
 A bit further down, we can see another grey component titled `VBATT`. In this case, we see two distinct features: first of all, the arrows are bi-directional. Secondly, the voltage (in the turquoise box underneath it) is lower. While this can be difficult to understand from a text based table, having this information can be beneficial to the user when trying to understand the product from a Model-Based Design approach.
 
@@ -39,7 +39,7 @@ Next, let us take a look at the block representing the MC34PF1550A0EP component.
 
 ![Portenta H7 Power Management IC](assets/PMIC_Portenta_H7.svg)
 
-The input of the power component, as stated previously, can come from either the 5V power source or the battery. The voltage and net of these two (as seen in the schematic view) is written on the turquoise box on the connecting lines. Recall that since the USB-C and VIN voltage inputs are connected (as denoted by the black dot connecting the lines together). The 5V voltage is fed to a LDO that has a maximum current capacity of 2A, producing a 4.5V rail. LDO stands for a **L**ow **D**rop**o**ut linear regulator. These are a type of linear regulator that are designed to work when the input voltage is slightly above the output voltage. The output of this LDO is a voltage rail (shown again in a turquoise box) with a voltage of 4.5V. Given that this is slightly lower than 5V input, it is important that the input voltage is stable since, if it drops below 4.7V the stability of the Portenta board may be compromised.
+The input of the power component, as stated previously, can come from either the 5V power source or the battery. The voltage and net of these two (as seen in the schematic view) is written on the turquoise box on the connecting lines. Recall that since the USB-C® and VIN voltage inputs are connected (as denoted by the black dot connecting the lines together). The 5V voltage is fed to a LDO that has a maximum current capacity of 2A, producing a 4.5V rail. LDO stands for a **L**ow **D**rop**o**ut linear regulator. These are a type of linear regulator that are designed to work when the input voltage is slightly above the output voltage. The output of this LDO is a voltage rail (shown again in a turquoise box) with a voltage of 4.5V. Given that this is slightly lower than 5V input, it is important that the input voltage is stable since, if it drops below 4.7V the stability of the Portenta board may be compromised.
 
 ***Since all other system voltages go through the noted LDO, the maximum current that can pass through the PMIC is at most 2A. Losses in subsequent voltage conversion will reduce the real current available to the user. For further details, please refer to the MC34PF1550A0EP datasheet. ***
 

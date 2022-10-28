@@ -580,9 +580,9 @@ void startSerialTerminal() {
 bool commandMode = false;
 void loopSerialTerminal() {
 
-  // copy from USB-CDC to UART
+  // copy from USB-C®DC to UART
 
-  int c = SERIAL_PORT_USBVIRTUAL.read();    // read from USB-CDC
+  int c = SERIAL_PORT_USBVIRTUAL.read();    // read from USB-C®DC
 
   if (c != -1) {                            // got anything?
 
@@ -644,13 +644,13 @@ void loopSerialTerminal() {
 
   }
 
-  // copy from UART to USB-CDC
+  // copy from UART to USB-C®DC
 
   c = SERIAL_PORT_HARDWARE.read();          // read from UART
 
   if (c != -1) {                            // got anything?
 
-    SERIAL_PORT_USBVIRTUAL.write(c);        //    write to USB-CDC
+    SERIAL_PORT_USBVIRTUAL.write(c);        //    write to USB-C®DC
 
   }
 }

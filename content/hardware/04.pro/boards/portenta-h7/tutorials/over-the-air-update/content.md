@@ -35,7 +35,7 @@ The goals of this tutorial are:
 ## Hardware and Software Needed 
 - [Arduino Portenta H7](https://store.arduino.cc/portenta-h7)
 - Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+
-- USB-C type cable (either USB-A to USB-C or USB-C to USB-C)
+- USB-C® type cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Arduino IoT Cloud and Arduino_Portenta_OTA libraries
 - SD card (optional, you can use QSPI instead)
 - Carrier or shield compatible with the Portenta H7 with a SD Card slot, in case you choose to use the SD Card.

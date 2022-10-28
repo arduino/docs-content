@@ -26,7 +26,7 @@ Robotics, Automation, Education, Gaming, Communication
   - Right angle mounting
   - Plastic tape packaging
 - **Mini Joystick Connector**
-- **Programmable USB Type-C Connector**
+- **Programmable USB Type-C® Connector**
 - **ESD Protection**
   - 4- and 5-line unidirectional transil function for electrostatic discharge protection
   - Low-leakage current: < 500 nA
@@ -78,8 +78,8 @@ Following information outlines the technical overview of the Arduino® Braccio C
     | No. Connectors   | Maximum Electrical Operating Range   | Maximum Temperature Operating Range   |
     | ---------------- | ------------------------------------ | ------------------------------------- |
     |  6               |  250VAC @ 3A                         |  -25°C ~ +85°C                        |
-- **USB-C Port**
-  - USB Type C port available to enable programming, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier.
+- **USB-C® Port**
+  - USB Type-C® port available to enable programming, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier.
     | USB Standard    | USB Power Delivery Rev.    | USB Type               | Purpose                           |
     | --------------- | -------------------------- | ---------------------- | --------------------------------- |
     |  3.1            |  3.0                       |  Type C (Reversible)   |  Power Supply                     |
@@ -99,7 +99,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
 ### Block Diagram
 ![Arduino Braccio Carrier System Block Diagram](assets/System_Block_Diagram_Braccio_Carrier.jpg)
 
-The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C powers the connected motors which constitute the entire robotics functionality the system. RS485 Transceiver signals the motor connector for the precise motihe motors according to the input given by the user.
+The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C® powers the connected motors which constitute the entire robotics functionality the system. RS485 Transceiver signals the motor connector for the precise motihe motors according to the input given by the user.
 
 ![Arduino® Braccio Carrier Block Diagram](assets/Block_Diagram_Braccio_Carrier.svg)
 
