@@ -26,7 +26,27 @@ The Modbus data model has a simple structure described in four basic data types:
 | Holding Registers | (Output Data) |
 
 
-The service request area of the message or Modbus Protocol Data Unit or PDU is comprised of a function code and a number of data bytes requested by the controller. The Modbus memory registers of a device are organized around the four basic data reference types and this data type is further identified by the leading number used in the devices memory address, such as, a 0 based register referencing a message to Read or Write discrete outputs or coils, or a 1 based register referencing Reading discrete inputs, or a 3 based register referencing Reading input registers, and a 4 based register referencing Reading or Writing to output or holding registers. The function code field specifies which register data group it reads or writes to and from the peripheral.
+The Modbus memory registers of a device are organized around the four basic data reference types and this data type is further identified by the leading number used in the devices memory address, such as, 
+- 0 based register referencing a message to Read or Write discrete outputs or coils, 
+- 1 based register referencing Reading discrete inputs,
+- 3 based register referencing Reading input registers,
+- 4 based register referencing Reading or Writing to output or holding registers. 
 
 ![](assets/modbusStructure.png)
 
+The function code field specifies which register data group it reads or writes to and from the peripheral. Many of the data types are named from its use in driving relays, for example, a single-bit physical output is called a coil, and a single-bit physical input is called a discrete input or a contact. 
+For example, the Read Holding Registers command has the function code with 1 byte containing 8 bits is binary 0000 0011. If the peripheral device accepts the request without error, it will return the same code in its response. However, if an error occurs, the peripheral will return 1 byte containing 8 binary bits 1000 0011 in the function code field and appends a unique code in the data field of the response message that tells the controller device what kind of error occurred, or the reason for the error.
+
+## Use Modbus with Arduino
+Now that you have learned about the basics and functionalities of Modbus it is time to talk about how you can use your Arduino to establish Modbus communication across devices. You can use your Arduino either as Controller or as peripheral device depending on the setup. To make your life easier you can use the ArduinoModbus library which allows you to implement the Modbus protocol over two different types of transport: serial communication over RS485 with RTU or Ethernet and WiFi communication using with TCP protocol. You can read more about the library here (LINK)!!!
+Looking at the hardware side of things a lot of our boards are Modbus compatible especially if you consider Ethernet type messages but if you want to communicate via RS485 there is the MKR 485 Shield (LINK!!!) which can convert any MKR board into a Modbus compatible device. You can check out this tutorial (KARLS TUTORIAL) to learn about communication between two Arduinos using the Modbus protocol and RS485. 
+When using the Modbus library sending messages is fairly straight forward as you can see in the request format function below.
+
+| Device Adress | Function Code | Starting Register |  Register Count | CRC Code |  
+| ----------- | ----------- |----------- |----------- |----------- |
+| 0x21      | INPUT REGISTERS       | 0x0011       | 2       |
+
+### Example
+```
+(!ModbusRTUClient.requestFrom(0x21, INPUT_REGISTERS, 30017, 2))
+```
