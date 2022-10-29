@@ -1,6 +1,6 @@
 ---
 identifier: ASX00040-ASX00045
-title: Arduino® Make Your UNO kit
+title: Arduino® MAKE YOUR UNO KIT
 type: maker
 ---
 
