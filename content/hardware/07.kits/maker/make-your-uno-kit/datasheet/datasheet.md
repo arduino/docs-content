@@ -56,8 +56,8 @@ Maker, introduction, education
             </td>
         </tr>
         <tr>
-            <td rowspan="4">USB_C Serial PCB Board</td>
-            <td colspan="3"> <p>The USB_C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</p></td>
+            <td rowspan="4">USB-C Serial PCB Board</td>
+            <td colspan="3"> <p>The USB-C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</p></td>
         </tr>
         <tr>
             <td>ATMega16U2 Processor</td>
@@ -105,7 +105,7 @@ Maker, introduction, education
             </td>
             <td>
                 <p>Class-AB</p>
-                <p>Mono</p>
+                <p>Channel: Mono</p>
                 <p>4Ω Load</p>
                 <p>0.325W</p>
             </td>
@@ -137,14 +137,14 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 
 **Audio synthesizer for educational and artistic performances**: The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers, being a perfect device to play and experiment in the classroom and at the same time a great instrument for artistic performances.
 
-### Related Products
-* Arduino Uno R3 and Arduino Uno R3 SMD
-* Starter Kit
-* Tinkerkit Braccio Robot
-* 4 Relays Shield
-* 9 Axis Motion Shield
-* Ethernet Shield Rev2
-* Motor Shield Rev3
+### Related Products (Not Included)
+* Arduino UNO R3 (A000066) and Arduino UNO R3 SMD (A000066)
+* Arduino Starter Kit (K000007)
+* Tinkerkit Braccio Robot (T050000)
+* Arduino 4 Relays Shield (A000110)
+* Arduino 9 Axis Motion Shield (A000070)
+* Arduino Ethernet Shield 2 (A000024)
+* Arduino Motor Shield Rev3 (A000079)
 
 ### Solution Overview
 
@@ -175,7 +175,7 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 | PMax    | Maximum Power Consumption                         | -   | -   | xx  | mA   |
 
 ## Functional Overview
-### Board Topology and Bill of Materials
+### Board Topology And Bill Of Materials
 
 ![](assets/make-uno-crop-1663838450-kit-components.png)
 
@@ -213,7 +213,7 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 
 ### Power Tree
 
-![Make Your Uno main board power tree](assets/powerTree.svg)
+![Make Your UNO main board power tree](assets/powerTree.svg)
 
 ## Board Operation
 ### Getting Started - IDE
@@ -288,7 +288,7 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 ![Make Your Uno boards outline](assets/boardOutline.svg)
 
 ## The Audio Synth Shield
-The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signals parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
+The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
 ![Audio Synth Shield assembled](assets/featured-audiosynth.png)
 
