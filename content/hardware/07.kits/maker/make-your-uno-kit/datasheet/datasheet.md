@@ -151,7 +151,7 @@ The *Arduino Make Your UNO kit* contains different boards. Besides the *Arduino 
 
 ![](assets/uno_kit_perspective.png)
 
-Once the kit is assembled, the user can solder and assemble the *Audio Synth Shield* board and connect it on top of the *Arduino Uno* board to use the kit as an audio synthesizer.
+Once the kit is assembled, the user can solder and assemble the *Audio Synth Shield* board and connect it on top of the *Make Your UNO* board to use the kit as an audio synthesizer.
 
 ![](assets/lowAudioSynth.png)
 
@@ -179,6 +179,8 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 ![](assets/make-uno-crop-1663838450-kit-components.png)
 
 The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
+
+![](assets/fusionOutline.png)
 
 | **Ref.**     | **Quantity** | **Description**                     | **Designator**               |
 | ------------ | ------------ | ----------------------------------- | ---------------------------- |
@@ -210,7 +212,6 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 ### Processor
 The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (*ATMega16U2*) inside the *USB-C Serial PCB Board*.
 
-<br><div style="page-break-after:always;"></div>
 ### Power Tree
 
 ![Make Your UNO main board power tree](assets/powerTree.svg)
