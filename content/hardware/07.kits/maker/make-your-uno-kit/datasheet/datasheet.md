@@ -1,13 +1,12 @@
 ---
 identifier: ASX00040-ASX00045
-title: Arduino® MAKE YOUR UNO KIT
+title: Arduino® Make Your UNO kit
 type: maker
 ---
 
 ![](assets/featured.png)
-connect nihilo.pracc.club:28511; password NihiloEsports
 # Description
-The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electronics and coding by assembling your own *Arduino Uno*. Become familiar with soldering by mounting every single component, unleash your creativity with the *Audio synth Shield*, and learn how to code using your new *Arduino Uno* board to create amazing projects!
+The *Arduino Make Your UNO kit* is the perfect kit to learn the basics of electronics and coding by assembling your own *Arduino Uno*. Become familiar with soldering by mounting every single component, unleash your creativity with the *Audio Synth Shield*, and learn how to code using your new *Arduino Uno* board to create amazing projects!
 
 # Target areas:
 Maker, introduction, education
@@ -57,7 +56,7 @@ Maker, introduction, education
         </tr>
         <tr>
             <td rowspan="4">USB-C Serial PCB Board</td>
-            <td colspan="3"> <p>The USB-C Serial PCB contains the ATMega16U2 processor and a USB Type-C socket to program and power the board.</p></td>
+            <td colspan="3"> <p>The USB-C Serial PCB contains the ATMega16U2 processor and a USB-C socket to program and power the board.</p></td>
         </tr>
         <tr>
             <td>ATMega16U2 Processor</td>
@@ -95,8 +94,8 @@ Maker, introduction, education
             <td rowspan="4">Audio Synth Shield</td>
             <td colspan="1">Potentiometers</td>
             <td colspan="2">
-                <p>5x 10K - User programmable</p>
-                <p>1x directly connected to the audio amplifier</p>
+                <p>5x 10K - Trimmer potentiometer - User programmable</p>
+                <p>1x 10K - Trimmer potentiometer - Directly connected to the audio amplifier</p>
             </td>
             <tr>
             <td rowspan="2">Audio</td>
@@ -209,15 +208,16 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 | A5680        | 1            | Jumper standed wire BLK 15CM        |                              |
 
 ### Processor
-The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (*ATMega16U2*) inside the *USB_C Serial PCB Board*.
+The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (*ATMega16U2*) inside the *USB-C Serial PCB Board*.
 
+<br><div style="page-break-after:always;"></div>
 ### Power Tree
 
 ![Make Your UNO main board power tree](assets/powerTree.svg)
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your *Arduino Uno* while offline you need to install the Arduino Desktop IDE [1]. To connect the *Arduino Uno* to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
+If you want to program your *Arduino Uno* while offline you need to install the Arduino Desktop IDE [1]. To connect the *Arduino Uno* to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2] by just installing a simple plugin.
@@ -225,7 +225,7 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the *Arduino UNO* and the *Make Your UNO* boards, you will need additional hardware to connect them to the cloud.
 
 ### Sample Sketches
 Sample sketches for the *Arduino Uno* can be found either in the “Examples” menu in the Arduino IDE.
@@ -283,7 +283,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Mechanical Information
 ### Board Outline & Mounting Holes
-The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
+The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
 ![Make Your Uno boards outline](assets/boardOutline.svg)
 
@@ -345,7 +345,7 @@ The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of commo
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB Type-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
+The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
 
 ![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
 
