@@ -182,32 +182,32 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 
 ![](assets/fusionOutline.png)
 
-| **Ref.**     | **Quantity** | **Description**                     | **Designator**               |
-| ------------ | ------------ | ----------------------------------- | ---------------------------- |
-| A5215        | 7            | RES FIXED THD 1K OHM 1/4W 5%        | R1, R4, R5, R6, R7, R8, R11  |
-| A5213        | 2            | RES THD 10K 1/4W 5%                 | R2, R9                       |
-| A5217        | 2            | RES THD 1M OHM 1/4w  5%             | R3, R10                      |
-| 0066         | 1            | Diodes \[1N4007\]                   | D1                           |
-| 0019         | 1            | CRYSTAL 16.0000MHZ 20PF THD         | Y1                           |
-| C0124        | 3            | CAP THD 22pF 50V C0G 5%             | C2, C4, C5                   |
-| L0021        | 4            | LED THD YELLOW DIFFUSED T-1, 3mm    | LD1, LD2, LD3, LD4           |
-| L0023        | 1            | LED THD GREEN DIFFUSED T-1, 3mm     | LD5                          |
-| 0089         | 1            | PUSHBUTTON. 6x6 CS                  | PB1                          |
-| T0035        | 1            | TRANSISTOR NMOS 0.2A                | Q1                           |
-| U0246        | 1            | IC REG LDO FIXED 3.3V, 0.2V TO-92-3 | R3                           |
-| C0125        | 3            | CAP ALUM POL THD 47uF 25V           | C1, C12, C13                 |
-| U0239        | 1            | IC REG LINEAR 5V 1.5A TO220AB       | U3                           |
-| 0080         | 7            | CAP THD 100NF 63V POLIESTER         | C3, C6, C7, C8, C9, C10, C11 |
-| 0064         | 1            | CONN DIP 28 SOCKET                  | J7                           |
-| 3648         | 1            | CONN STRIP F/1/D 18v SER.NERA       | J2                           |
-| 3649         | 1            | CONN STRIP F/1/D 14v SER.NERA       | J3                           |
-| 0114         | 1            | CONN Header Through Hole 6 position | J4                           |
-| 0018         | 1            | CONN PWR JACK 2.1X5.5MM             | J1                           |
-| SL-ABX00068  | 1            | SL USB-C SERIAL V 1.0               |                              |
-| PCB_ASX00040 | 1            | PCB ARDUINO UNO DIY                 |                              |
-| AKB 00037    | 1            | Bag Avana 98x67                     |                              |
-| A5681        | 1            | Jumper standed wire Red 15CM        |                              |
-| A5680        | 1            | Jumper standed wire BLK 15CM        |                              |
+| **Quantity** | **Description**                                  | **Designator**                |
+| ------------ | ------------------------------------------------ | ----------------------------- |
+| 7            | Capacitor THD 100nF 63V                          | C3, C8, C9, C10, C11, C12, C13|
+| 3            | Capacitor THD 22pF 50V C0G 5%                    | C1, C4, C5                    |
+| 3            | Capacitor ALUM POL THD 47µF 25V                  | C2, C6, C7                    |
+| 1            | Rectifier diode \[1N4007\]                       | D1                            |
+| 1            | UNO header connector - analog I/Os 14 positions  | J1                            |
+| 1            | UNO header connector - digital I/Os 18 positions | J2                            |
+| 1            | SPI header                                       | J3                            |
+| 1            | Power supply jack, 6 position                    | J4                            |
+| 1            | IC socket connector dual in place 28 positions   | J7                            |
+| 4            | LED Yellow diffused, 3mm                         | LD1, LD2, LD3, LD4            |
+| 1            | LED Green diffused, 3mm                          | LD5                           |
+| 1            | Push-Button                                      | PB1                           |
+| 1            | N-Channel Mosfet Transistor 0.2A                 | Q1                            |
+| 7            | Axial resistor 1kΩ, 1/4W, 5%                     | R1, R4, R5, R6, R7, R8, R11   |
+| 2            | Axial resistor 10kΩ, 1/4W, 5%                    | R2, R9                        |
+| 2            | Axial resistor 1MΩ, 1/4w, 5%                     | R3, R10                       |
+| 1            | LDO Regulator 3.3V                               | U2                            |
+| 1            | Quartz crystal oscillator 16MHz 20pF THD         | Y1                            |
+| 1            | USB-C to Serial breakout board                   |                               |
+| 1            | PCB ARDUINO UNO DIY                              |                               |
+| 1            | Jumper wire Red 15cm                             |                               |
+| 1            | Jumper wire Black 15cm                           |                               |
+
+Some of the components listed above are available in a replacement pack on the <ins>[Arduino Store](https://store.arduino.cc/products/arduino-replacements-pack)</ins>.
 
 ### Processor
 The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (*ATMega16U2*) inside the *USB-C Serial PCB Board*.
@@ -304,24 +304,23 @@ The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of commo
 
 ![Arduino Synth Shield components topology](assets/synthTopology.svg)
 
-| **Ref.**     | **Quantity** | **Description**                     | **Designator**         |
-| ------------ | ------------ | ----------------------------------- | ---------------------- |
-| C0131        | 1            | CAP THD 47nF 50V C0G 5%             | C1                     |
-| A5213        | 1            | CAP ALUM POL THD 47uF 25V           | C2                     |
-| C0125        | 1            | CAP THD 100NF 63V POLIESTER         | C3                     |
-| 0080         | 1            | CAP ALUM POL THD 220uF 25V          | C4                     |
-| C0129        | 1            | CAP ALUM POL THD 220uF 25V          | J1                     |
-| J0306        | 1            | CONN STRIP 2.54 PIN HEADER 1X8      | J2                     |
-| J0305        | 1            | CONN STRIP 2.54 PIN HEADER 1X6      | J3                     |
-| J0307        | 1            | CONN STRIP 2.54 PIN HEADER 1X10     | LD5                    |
-| J0308        | 1            | CONN STRIP 2.54 PIN HEADER 1X8      | J4                     |
-| 0147         | 6            | KNOB TRIMMER D6/9mm                 | K1, K2, K3, K4, K5, K6 |
-| R0230        | 1            | RES FIXED THD 1/4W 5% 10R           | R1                     |
-| R0231        | 1            | RES FIXED THD 1/4W 5% 100K          | R2                     |
-| 0086         | 6            | Potentiometer 10 kilohm - TRIMMER   | R3, R4, R5, R6, R7, R8 |
-| A5205        | 1            | Paper Speaker 8Ω 1W + Grid  PCB     | S1                     |
-| U0251        | 1            | Audio Amplifier, 0.325W, 1 ChannelT | U1                     |
-| PCB_ASX00045 | 1            | PCB ASX00045 V1.0 Synth Audio KIT   |                        |
+| **Quantity** | **Description**                             | **Designator**         |
+| ------------ | ------------------------------------------- | ---------------------- |
+| 1            | Capacitor 47nF 50V 5%                       | C1                     |
+| 1            | Capacitor 47µF 25V                          | C2                     |
+| 1            | Capacitor 100nF 63V                         | C3                     |
+| 1            | Capacitor 220µF 25V                         | C4                     |
+| 1            | Axial resistor 10Ω, 1/4W, 5%                | R1                     |
+| 1            | Axial resistor100kΩ, 1/4W, 5%               | R2                     |
+| 6            | Potentiometer 10kΩ - TRIMMER                | R3, R4, R5, R6, R7, R8 |
+| 1            | UNO header digital connector A 8 positions  | J1                     |
+| 1            | UNO header digital connector B 10 positions | J2                     |
+| 1            | UNO header analog connector A 6 positions   | J3                     |
+| 1            | UNO header analog connector B 8 positions   | J4                     |
+| 6            | Potentiometer's KNOB D6/9mm                 | K1, K2, K3, K4, K5, K6 |
+| 1            | Paper Speaker 8Ω 1W                         | S1                     |
+| 1            | Audio Amplifier, 0.325W                     | U1                     |
+| 1            | PCB Synth Audio shield                      |                        |
 
 ### Connector Pinouts
 #### JANALOG
