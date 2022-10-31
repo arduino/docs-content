@@ -9,7 +9,8 @@ source: "https://arduino.cc/en/Main/ArduinoBoardBluetoothNew"
 
 ### Overview
 
-The Arduino BT (Bluetooth) is a microcontroller board based on the ATmega168 ([datasheet](/static/resources/datasheets/Datasheet-ATmega48-88-168-doc2545.pdf)) and the Bluegiga WT11 Bluetooth® module [datasheet](/static/resources/datasheets/WT11_Datasheet.pdf) \[pdf\]). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](//www.arduino.cc/en/Guide/ArduinoBT).
+The Arduino BT (Bluetooth®) is a microcontroller board based on the ATmega168 ([datasheet](./static/resources/datasheets/Datasheet-ATmega48-88-168-doc2545.pdf)) and the Bluegiga WT11 Bluetooth® module [datasheet](./static/resources/datasheets/WT11_Datasheet.pdf) \[pdf\]). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](//www.arduino.cc/en/Guide/ArduinoBT).
+
 
 ### Summary
 

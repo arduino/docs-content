@@ -18,8 +18,8 @@ Each Nano Family board has a dedicated documentation page, see the list below:
 - [Nano](/hardware/nano)
 - [Nano Every](/hardware/nano-every)
 - [Nano 33 BLE](/hardware/nano-33-ble)
-- [Nano 33 BLE Sense](/nano-33-ble-sense)
-- [Nano 33 IoT](/nano-33-iot)
+- [Nano 33 BLE Sense](/hardware/nano-33-ble-sense)
+- [Nano 33 IoT](/hardware/nano-33-iot)
 - [Nano RP2040 Connect](/hardware/nano-rp2040-connect)
 
 Inside the documentation page, you will find design files such as full pinout, CAD and Fritzing files. You will also find tutorials and compatible libraries with the respective boards in this page.
