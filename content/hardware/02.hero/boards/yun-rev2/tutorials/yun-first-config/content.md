@@ -644,7 +644,7 @@ void loopSerialTerminal() {
 
   }
 
-  // copy from UART to USB-C®DC
+  // copy from UART to USB-CDC
 
   c = SERIAL_PORT_HARDWARE.read();          // read from UART
 

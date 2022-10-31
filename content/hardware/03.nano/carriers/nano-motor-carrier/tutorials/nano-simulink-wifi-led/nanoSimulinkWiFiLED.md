@@ -33,7 +33,7 @@ The goals of this project are:
 
 - [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot)
 - [Arduino Nano Motor Carrier](https://store.arduino.cc/products/arduino-nano-motor-carrier)
-- [Micro USB Cable](https://store.arduino.cc/products/USB-C®able-type-a-male-to-micro-type-b-male)
+- [Micro USB Cable](https://store.arduino.cc/products/USB-Cable-type-a-male-to-micro-type-b-male)
 - Single cell LiPo/Li-ion 18650 battery and holder with XT30 connector
 - Valid MATLAB® and Simulink® license
 - [Simulink® Support Package for Arduino® Hardware](https://www.mathworks.com/matlabcentral/fileexchange/40312-simulink-support-package-for-arduino-hardware)
