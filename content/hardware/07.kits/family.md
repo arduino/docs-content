@@ -1,4 +1,5 @@
 ---
 title: Kits
-description: Everything you need, packed in a box.
+description: Pre-packaged kits with components, creative projects & dedicated content.
+
 ---
