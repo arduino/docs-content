@@ -180,7 +180,7 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 
 The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
-![](assets/fusionOutline.png)
+![](assets/fusionOutline.svg)
 
 | **Quantity** | **Description**                                  | **Designator**                |
 | ------------ | ------------------------------------------------ | ----------------------------- |
