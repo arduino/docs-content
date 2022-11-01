@@ -149,7 +149,7 @@ The *Arduino Make Your UNO kit* is like any *Arduino Uno* board but created by y
 
 The *Arduino Make Your UNO kit* contains different boards. Besides the *Arduino Uno* board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
-![](assets/uno_kit_perspective.png)
+![](assets/unoOverview.png)
 
 Once the kit is assembled, the user can solder and assemble the *Audio Synth Shield* board and connect it on top of the *Make Your UNO* board to use the kit as an audio synthesizer.
 
@@ -176,7 +176,7 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 ## Functional Overview
 ### Board Topology And Bill Of Materials
 
-![](assets/make-uno-crop-1663838450-kit-components.png)
+![](assets/unoComponentsView.png)
 
 The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
@@ -291,14 +291,14 @@ The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards th
 ## The Audio Synth Shield
 The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
-![Audio Synth Shield assembled](assets/featured-audiosynth.png)
+![Audio Synth Shield assembled](assets/synthMounted.png)
 
 <br><div style="page-break-after:always;"></div>
 
 ### Functional Overview
 #### Board Topology and Bill of Materials
 
-![Audio Synth Shield BOM](assets/audio-bom-kit-components.png)
+![Audio Synth Shield BOM](assets/audioComponentsView.png)
 
 The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
