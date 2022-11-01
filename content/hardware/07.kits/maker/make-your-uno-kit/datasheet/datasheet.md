@@ -104,7 +104,6 @@ Maker, introduction, education
             </td>
             <td>
                 <p>Class-AB</p>
-                <p>Channel: Mono</p>
                 <p>4Ω Load</p>
                 <p>0.325W</p>
             </td>
