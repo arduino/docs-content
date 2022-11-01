@@ -45,13 +45,13 @@ Now that you have learned about the basics and functionalities of Modbus it is t
 
 A lot of Arduino boards are Modbus compatible especially if you consider Ethernet-type messages but if you want to communicate via RS485 there is the [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield) which can convert any MKR board into a Modbus compatible device. Check out [this Tutorial](https://docs.arduino.cc/tutorials/mkr-485-shield/mkr-485-communication) to learn more about sending data between two [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield). 
 
-When using the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) sending messages is fairly straightforward as you can see in the request format function below.
+When using the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) sending messages is fairly straightforward as you can see in the xamplary request format function below
 
-| Device Address | Function Code | Starting Register |  Register Count | 
-| ----------- | ----------- |----------- |----------- |
-|       |        |        |        |
+| Device Address |  Function Code  | Starting Register |  Register Count | 
+|   -----------  |   -----------   |    -----------    |   -----------   |
+|       0x21     | INPUT REGISTERS |       30107       |        2        |
 
-***Note that this request form is specific to the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and only works with boards compatible with this library. Especially when using Arduino's Pro boards make sure to check the specifications for the board you are using.***
+***Note that this request form is specific to the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and only works with boards compatible with this library. Make sure to check the specifications for the board you are using!***
 
 You have to check the device-specific documentation to attain the right address, function code, starting registers and register count. The CRC error check is taken care of by the Modbus library. To make it easier to understand the example below shows how to use the Modbus library.
 
