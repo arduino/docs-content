@@ -78,7 +78,6 @@ Maker, introduction, education
     </tbody>
 </table>
 
-<br><div style="page-break-after:always;"></div>
 <table>
     <thead>
         <tr>
@@ -173,8 +172,9 @@ Once the kit is assembled, the user can solder and assemble the *Audio Synth Shi
 | VUSBMax | Maximum input voltage from USB connector          |     | -   | 5.5 | V    |
 | PMax    | Maximum Power Consumption                         | -   | -   | xx  | mA   |
 
-## Functional Overview
-### Board Topology And Bill Of Materials
+## Make Your Uno Board
+### Functional Overview
+#### Board Topology And Bill Of Materials
 
 ![](assets/unoComponentsView.png)
 
@@ -203,7 +203,7 @@ The *BOM* or *Bill Of Materials* of the *Arduino Make Your UNO kit* is made up o
 | 1            | LDO Regulator 3.3V                               | U2                            |
 | 1            | Quartz crystal oscillator 16MHz 20pF THD         | Y1                            |
 | 1            | USB-C to Serial breakout board                   |                               |
-| 1            | PCB ARDUINO UNO DIY                              |                               |
+| 1            | PCB Arduino Make Your UNO                        |                               |
 | 1            | Jumper wire Red 15cm                             |                               |
 | 1            | Jumper wire Black 15cm                           |                               |
 
@@ -216,31 +216,31 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 
 ![Make Your UNO main board power tree](assets/powerTree.svg)
 
-## Board Operation
-### Getting Started - IDE
+### Board Operation
+#### Getting Started - IDE
 If you want to program your *Arduino Uno* while offline you need to install the Arduino Desktop IDE [1]. To connect the *Arduino Uno* to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+#### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2] by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+#### Getting Started - Arduino IoT Cloud
 All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the *Arduino UNO* and the *Make Your UNO* boards, you will need additional hardware to connect them to the cloud.
 
-### Sample Sketches
+#### Sample Sketches
 Sample sketches for the *Arduino Uno* can be found either in the “Examples” menu in the Arduino IDE.
 
-### Online Resources
+#### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
-### Board Recovery
+#### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after a power-up.
 
-## Connector Pinouts
-![Make Your Uno main board pinout](assets/pinout.png)
+### Connector Pinouts
+![Make Your UNO main board pinout](assets/pinout.png)
 
-### JANALOG
+#### JANALOG
 
 | Pin | **Function** | **Type**         | **Description**                                 |
 | --- | ------------ | ---------------- | ----------------------------------------------- |
@@ -259,7 +259,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 13  | A4/SDA       | Analog input/I2C | Analog input 4/I2C Data line                    |
 | 14  | A5/SCL       | Analog input/I2C | Analog input 5/I2C Clock line                   |
 
-### JDIGITAL
+#### JDIGITAL
 
 | Pin | **Function** | **Type**     | **Description**                            |
 | --- | ------------ | ------------ | ------------------------------------------ |
@@ -282,14 +282,14 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 17  | A4/SD4       | Digital      | Analog input 4/I2C Data line (duplicated)  |
 | 18  | A5/SD5       | Digital      | Analog input 5/I2C Clock line (duplicated) |
 
-## Mechanical Information
-### Board Outline & Mounting Holes
-The *Arduino Make Your UNO kit* shares with the standard *Arduino Uno* boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard _Arduino Uno_* board, being compatible with most of the shields and peripheral devices done for the *Arduino Uno* board.
+### Mechanical Information
+#### Board Outline & Mounting Holes
+The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
 
-![Make Your Uno boards outline](assets/boardOutline.svg)
+![Make Your UNO boards outline](assets/boardOutline.svg)
 
 ## The Audio Synth Shield
-The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino Make Your UNO* to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
+The kit comes with an **Audio Synth Shield** that can be attached to the **Arduino Make Your UNO** to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
 ![Audio Synth Shield assembled](assets/synthMounted.png)
 
@@ -300,7 +300,7 @@ The kit comes with an *Audio Synth Shield* that can be attached to the *Arduino 
 
 ![Audio Synth Shield BOM](assets/audioComponentsView.png)
 
-The *BOM* or *Bill Of Materials* of the *Audio Synth Shield* is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
+The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
 ![Arduino Synth Shield components topology](assets/synthTopology.svg)
 
