@@ -171,10 +171,9 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 | VUSBMax | Maximum input voltage from USB connector          |     | -   | 5.5 | V    |
 | PMax    | Maximum Power Consumption                         | -   | -   | xx  | mA   |
 
-## Make Your Uno Board
-
 <div style="page-break-after:always;"></div>
 
+## Make Your Uno Board
 ### Functional Overview
 #### Board Topology And Bill Of Materials
 
@@ -244,45 +243,47 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 #### JANALOG
 
-| Pin | **Function** | **Type**         | **Description**                                 |
-| --- | ------------ | ---------------- | ----------------------------------------------- |
-| 1   | NC           | NC               | Not connected                                   |
-| 2   | IOREF        | IOREF            | Reference for digital logic V - connected to 5V |
-| 3   | Reset        | Reset            | Reset                                           |
-| 4   | +3V3         | Power            | +3V3 Power Rail                                 |
-| 5   | +5V          | Power            | +5V Power Rail                                  |
-| 6   | GND          | Power            | Ground                                          |
-| 7   | GND          | Power            | Ground                                          |
-| 8   | VIN          | Power            | Voltage Input                                   |
-| 9   | A0           | Analog/GPIO      | Analog input 0 /GPIO                            |
-| 10  | A1           | Analog/GPIO      | Analog input 1 /GPIO                            |
-| 11  | A2           | Analog/GPIO      | Analog input 2 /GPIO                            |
-| 12  | A3           | Analog/GPIO      | Analog input 3 /GPIO                            |
-| 13  | A4/SDA       | Analog input/I2C | Analog input 4/I2C Data line                    |
-| 14  | A5/SCL       | Analog input/I2C | Analog input 5/I2C Clock line                   |
+| Pin | **Function** | **Type**         | **Description**                                       |
+| --- | ------------ | ---------------- | ----------------------------------------------------- |
+| 1   | NC           | NC               | Not connected                                         |
+| 2   | IOREF        | IOREF            | Reference for digital logic voltage - connected to 5V |
+| 3   | Reset        | Reset            | Reset                                                 |
+| 4   | +3V3         | Power            | +3.3V Power Rail                                      |
+| 5   | +5V          | Power            | +5V Power Rail                                        |
+| 6   | GND          | Power            | Ground                                                |
+| 7   | GND          | Power            | Ground                                                |
+| 8   | VIN          | Power            | Voltage Input                                         |
+| 9   | A0           | Analog/GPIO      | Analog input 0 / GPIO                                 |
+| 10  | A1           | Analog/GPIO      | Analog input 1 / GPIO                                 |
+| 11  | A2           | Analog/GPIO      | Analog input 2 / GPIO                                 |
+| 12  | A3           | Analog/GPIO      | Analog input 3 / GPIO                                 |
+| 13  | A4/SDA       | Analog input/I2C | Analog input 4 / I2C Data line                        |
+| 14  | A5/SCL       | Analog input/I2C | Analog input 5 /I2C Clock line                        |
 
 #### JDIGITAL
 
-| Pin | **Function** | **Type**     | **Description**                            |
-| --- | ------------ | ------------ | ------------------------------------------ |
-| 1   | D0           | Digital/GPIO | Digital pin 0/GPIO                         |
-| 2   | D1           | Digital/GPIO | Digital pin 1/GPIO                         |
-| 3   | D2           | Digital/GPIO | Digital pin 2/GPIO                         |
-| 4   | D3           | Digital/GPIO | Digital pin 3/GPIO                         |
-| 5   | D4           | Digital/GPIO | Digital pin 4/GPIO                         |
-| 6   | D5           | Digital/GPIO | Digital pin 5/GPIO                         |
-| 7   | D6           | Digital/GPIO | Digital pin 6/GPIO                         |
-| 8   | D7           | Digital/GPIO | Digital pin 7/GPIO                         |
-| 9   | D8           | Digital/GPIO | Digital pin 8/GPIO                         |
-| 10  | D9           | Digital/GPIO | Digital pin 9/GPIO                         |
-| 11  | SS           | Digital      | SPI Chip Select                            |
-| 12  | MOSI         | Digital      | SPI1 Main Out Secondary In                 |
-| 13  | MISO         | Digital      | SPI Main In Secondary Out                  |
-| 14  | SCK          | Digital      | SPI serial clock output                    |
-| 15  | GND          | Power        | Ground                                     |
-| 16  | AREF         | Digital      | Analog reference voltage                   |
-| 17  | A4/SD4       | Digital      | Analog input 4/I2C Data line (duplicated)  |
-| 18  | A5/SD5       | Digital      | Analog input 5/I2C Clock line (duplicated) |
+| Pin | **Function** | **Type**     | **Description**                              |
+| --- | ------------ | ------------ | -------------------------------------------- |
+| 1   | D0           | Digital/GPIO | Digital pin 0 / GPIO                         |
+| 2   | D1           | Digital/GPIO | Digital pin 1 / GPIO                         |
+| 3   | D2           | Digital/GPIO | Digital pin 2 / GPIO                         |
+| 4   | D3           | Digital/GPIO | Digital pin 3 / GPIO                         |
+| 5   | D4           | Digital/GPIO | Digital pin 4 / GPIO                         |
+| 6   | D5           | Digital/GPIO | Digital pin 5 / GPIO                         |
+| 7   | D6           | Digital/GPIO | Digital pin 6 / GPIO                         |
+| 8   | D7           | Digital/GPIO | Digital pin 7 / GPIO                         |
+| 9   | D8           | Digital/GPIO | Digital pin 8 / GPIO                         |
+| 10  | D9           | Digital/GPIO | Digital pin 9 / GPIO                         |
+| 11  | SS           | Digital      | SPI Chip Select                              |
+| 12  | MOSI         | Digital      | SPI1 Main Out Secondary In                   |
+| 13  | MISO         | Digital      | SPI Main In Secondary Out                    |
+| 14  | SCK          | Digital      | SPI serial clock output                      |
+| 15  | GND          | Power        | Ground                                       |
+| 16  | AREF         | Digital      | Analog reference voltage                     |
+| 17  | A4/SD4       | Digital      | Analog input 4 / I2C Data line (duplicated)  |
+| 18  | A5/SD5       | Digital      | Analog input 5 / I2C Clock line (duplicated) |
+
+<div style="page-break-after:always;"></div>
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
@@ -294,6 +295,8 @@ The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** board
 The kit comes with an **Audio Synth Shield** that can be attached to the **Arduino Make Your UNO** to learn about and experiment with audio synthesizers. The shield has six trimmers to control different audio signal parameters plus a mono amplifier that can be connected to the 8 ohm speaker that comes with the kit or to any other audio output.
 
 ![Audio Synth Shield assembled](assets/synthMounted.png)
+
+<div style="page-break-after:always;"></div>
 
 ### Functional Overview
 #### Board Topology and Bill of Materials
@@ -340,6 +343,8 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 | --- | ------------ | -------- | ---------------------------------- |
 | 10  | D9           | OUTPUT   | Audio output to Amplifier's AUX IN |
 | 15  | GND          | GND      | Ground                             |
+
+<div style="page-break-after:always;"></div>
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
