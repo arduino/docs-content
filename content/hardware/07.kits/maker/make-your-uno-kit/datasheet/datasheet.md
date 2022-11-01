@@ -218,6 +218,9 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 ![Make Your UNO main board power tree](assets/powerTree.svg)
 
 ### Board Operation
+#### Official Step-by-step Guide
+The official documentation provided by Arduino to solder the entire kit is hosted at <ins>[https://makeyouruno.arduino.cc](https://makeyouruno.arduino.cc/)</ins>
+
 #### Getting Started - IDE
 If you want to program your **Arduino UNO** while offline you need to install the Arduino Desktop IDE [1]. To connect the **Arduino UNO** to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.
 
