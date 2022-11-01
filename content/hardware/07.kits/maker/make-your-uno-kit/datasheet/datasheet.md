@@ -1,6 +1,6 @@
 ---
 identifier: AKX00037
-title: Arduino® MAKE YOUR UNO KIT
+title: Arduino® Make Your UNO KIT
 type: maker
 ---
 
@@ -28,9 +28,9 @@ Maker, introduction, education
          <td>Memory</td>
          <td colspan="2">
             <p>AVR CPU at up to 16 MHz</p>
-            <p>32KB Flash</p>
-            <p>2KB SRAM</p>
-            <p>1KB EEPROM</p>
+            <p>32kB Flash</p>
+            <p>2kB SRAM</p>
+            <p>1kB EEPROM</p>
          </td>
         </tr>
         <tr>
@@ -94,8 +94,8 @@ Maker, introduction, education
             <td rowspan="4">Audio Synth Shield</td>
             <td colspan="1">Potentiometers</td>
             <td colspan="2">
-                <p>5x 10K - Trimmer potentiometer - User programmable</p>
-                <p>1x 10K - Trimmer potentiometer - Directly connected to the audio amplifier</p>
+                <p>5x 10kΩ - Trimmer potentiometer - User programmable</p>
+                <p>1x 10kΩ - Trimmer potentiometer - Directly connected to the audio amplifier</p>
             </td>
             <tr>
             <td rowspan="2">Audio</td>
@@ -127,9 +127,10 @@ Maker, introduction, education
 # CONTENTS
 ## The Kit
 ### Application Examples
-The **Arduino Make Your UNO kit** is like any **Arduino UNO** board but created by yourself. The **UNO** board is the flagship product of Arduino. Regardless if you are new to the world of electronics or will use the **UNO** as a tool for education purposes or industry-related tasks.
+The **Arduino Make Your UNO kit** is like any **Arduino UNO** board but created by yourself. The **UNO** board is the flagship product of Arduino
+Regardless if you are new to the world of electronics or will use the **UNO** as a tool for education purposes or industry-related tasks.
 
-**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board; **Arduino UNO** and create one by yourself using the **Arduino Make Your UNO kit** is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
+**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board **Arduino UNO** and create one by yourself using the **Arduino Make Your UNO kit** is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
 
 **Education purposes:** Although the UNO board has been with us for about ten years, it is still widely used for various educational purposes and scientific projects. The **Arduino Make Your UNO kit** is the perfect way to teach and learn about basic circuits, electronics components, soldering and coding microcontrollers, being the perfect board to create basic and advanced projects of all kinds.
 
@@ -147,11 +148,11 @@ The **Arduino Make Your UNO kit** is like any **Arduino UNO** board but created 
 ### Solution Overview
 The **Arduino Make Your UNO kit** contains different boards. Besides the **Arduino UNO** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
-![Make your UNO overview](assets/unoOverview.png)
+![Make Your UNO overview](assets/unoOverview.png)
 
 Once the kit is assembled, the user can solder and assemble the **Audio Synth Shield** board and connect it on top of the **Make Your UNO** board to use the kit as an audio synthesizer.
 
-![Make your UNO and synth audio shield mounted](assets/lowAudioSynth.png)
+![Make Your UNO and synth audio shield mounted](assets/lowAudioSynth.png)
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -176,11 +177,11 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 ### Functional Overview
 #### Board Topology And Bill Of Materials
 
-![Make your UNO components showcase](assets/unoComponentsView.png)
+![Make Your UNO components showcase](assets/unoComponentsView.png)
 
 The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
-![Make your UNO board topology](assets/fusionOutline.svg)
+![Make Your UNO board topology](assets/fusionOutline.svg)
 
 | **Designator**                | **Quantity** | **Description**                                  |
 | ----------------------------- | ------------ | ------------------------------------------------ |
