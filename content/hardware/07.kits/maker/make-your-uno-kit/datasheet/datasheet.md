@@ -148,11 +148,11 @@ The **Arduino Make Your UNO kit** is like any **Arduino Uno** board but created 
 
 The **Arduino Make Your UNO kit** contains different boards. Besides the **Arduino Uno** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
-![](assets/unoOverview.png)
+![Make your UNO overview](assets/unoOverview.png)
 
 Once the kit is assembled, the user can solder and assemble the **Audio Synth Shield** board and connect it on top of the **Make Your UNO** board to use the kit as an audio synthesizer.
 
-![](assets/lowAudioSynth.png)
+![Make your UNO and synth audio shield mounted](assets/lowAudioSynth.png)
 
 ## Ratings
 
@@ -176,11 +176,11 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 ### Functional Overview
 #### Board Topology And Bill Of Materials
 
-![](assets/unoComponentsView.png)
+![Make your UNO components showcase](assets/unoComponentsView.png)
 
 The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
-![](assets/fusionOutline.svg)
+![Make your UNO board topology](assets/fusionOutline.svg)
 
 | **Quantity** | **Description**                                  | **Designator**                |
 | ------------ | ------------------------------------------------ | ----------------------------- |
