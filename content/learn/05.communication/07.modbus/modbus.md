@@ -38,18 +38,20 @@ The Function code tells the peripheral device if it should read or write data fr
 The data field contains the requested or send data. In the request form used by the Arduino Modbus library, the data field requires you to enter the starting registers and register count.
 
 ### CRC Error Check
-The error checking is a value the controller or peripheral creates at the beginning of the transmission or response which is then checked when the message is received, to verify if the contents are correct. If the peripheral device accepts the request without error, it will return the same code in its response. However, if an error occurs, the peripheral will return 1 byte containing 8 binary bits 1000 0011 in the function code field and append a unique code in the data field of the response message, that tells the controller device what kind of error occurred or the reason for the error.
+The error checking is a value the controller or peripheral creates at the beginning of the transmission or response which is then checked when the message is received, to verify if the contents are correct. If the peripheral device accepts the request without error, it will return the same code in its response. However, if an error occurs, the peripheral will return 1 byte containing 8 binary bits `1000 0011` in the function code field and append a unique code in the data field of the response message, that tells the controller device what kind of error occurred or the reason for the error.
 
 ## Use Modbus with Arduino
 Now that you have learned about the basics and functionalities of Modbus it is time to talk about how you can use your Arduino to establish Modbus communication across devices. You can use your Arduino either as a controller or as a peripheral device depending on the setup. To make your life easier you can use the [Arduino Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) which allows you to implement the Modbus protocol over two different types of transport: serial communication over RS485 with RTU or Ethernet and WiFi communication using the TCP protocol. Because the Modbus library is based on the [RS-485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/) you must include both of them in your code.
 
 A lot of Arduino boards are Modbus compatible especially if you consider Ethernet-type messages but if you want to communicate via RS485 there is the [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield) which can convert any MKR board into a Modbus compatible device. Check out [this Tutorial](https://docs.arduino.cc/tutorials/mkr-485-shield/mkr-485-communication) to learn more about sending data between two [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield). 
 
-When using the Modbus library sending messages is fairly straightforward as you can see in the request format function below.
+When using the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) sending messages is fairly straightforward as you can see in the request format function below.
 
 | Device Address | Function Code | Starting Register |  Register Count | 
 | ----------- | ----------- |----------- |----------- |
-| 0x21      | INPUT REGISTERS       | 0x0011       | 2       |
+|       |        |        |        |
+
+***Note that this request form is specific to the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and only works with boards compatible with this library. Especially when using Arduino's Pro boards make sure to check the specifications for the board you are using.***
 
 You have to check the device-specific documentation to attain the right address, function code, starting registers and register count. The CRC error check is taken care of by the Modbus library. To make it easier to understand the example below shows how to use the Modbus library.
 
