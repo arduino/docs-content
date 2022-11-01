@@ -275,8 +275,8 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 9   | D8           | Digital/GPIO | Digital pin 8 / GPIO                         |
 | 10  | D9           | Digital/GPIO | Digital pin 9 / GPIO                         |
 | 11  | SS           | Digital      | SPI Chip Select                              |
-| 12  | MOSI         | Digital      | SPI1 Main Out Secondary In                   |
-| 13  | MISO         | Digital      | SPI Main In Secondary Out                    |
+| 12  | COPI         | Digital      | SPI1 Controller Out Peripheral In            |
+| 13  | CIPO         | Digital      | SPI Controller In Controller Out             |
 | 14  | SCK          | Digital      | SPI serial clock output                      |
 | 15  | GND          | Power        | Ground                                       |
 | 16  | AREF         | Digital      | Analog reference voltage                     |
