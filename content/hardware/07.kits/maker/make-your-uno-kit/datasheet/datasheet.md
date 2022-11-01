@@ -89,7 +89,7 @@ Maker, introduction, education
             <th colspan="3">Details</th>
         </tr>
     </thead>
-    </tbody>
+    <tbody>
         <tr>
             <td rowspan="4">Audio Synth Shield</td>
             <td colspan="1">Potentiometers</td>
@@ -137,13 +137,13 @@ The **Arduino Make Your UNO kit** is like any **Arduino Uno** board but created 
 **Audio synthesizer for educational and artistic performances**: The kit comes with an **Audio Synth Shield** that can be attached to the **Arduino Make Your UNO** to learn about and experiment with audio synthesizers, being a perfect device to play and experiment in the classroom and at the same time a great instrument for artistic performances.
 
 ### Related Products (Not Included)
-* Arduino UNO R3 (A000066) and Arduino UNO R3 SMD (A000066)
-* Arduino Starter Kit (K000007)
-* Tinkerkit Braccio Robot (T050000)
-* Arduino 4 Relays Shield (A000110)
-* Arduino 9 Axis Motion Shield (A000070)
-* Arduino Ethernet Shield 2 (A000024)
-* Arduino Motor Shield Rev3 (A000079)
+* [Arduino UNO R3 (A000066)](https://store.arduino.cc/products/arduino-uno-rev3) and [Arduino UNO R3 SMD (A000066)](https://store.arduino.cc/products/arduino-uno-rev3-smd)
+* [Arduino Starter Kit (K000007)](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+* [Tinkerkit Braccio Robot (T050000)](https://store.arduino.cc/products/tinkerkit-braccio-robot)
+* [Arduino 4 Relays Shield (A000110)](https://store.arduino.cc/products/arduino-4-relays-shield)
+* [Arduino 9 Axis Motion Shield (A000070)](https://store.arduino.cc/products/arduino-9-axis-motion-shield)
+* [Arduino Ethernet Shield 2 (A000024)](https://store.arduino.cc/products/arduino-ethernet-shield-2)
+* [Arduino Motor Shield Rev3 (A000079)](https://store.arduino.cc/products/arduino-motor-shield-rev3)
 
 ### Solution Overview
 The **Arduino Make Your UNO kit** contains different boards. Besides the **Arduino Uno** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
@@ -172,6 +172,9 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 | PMax    | Maximum Power Consumption                         | -   | -   | xx  | mA   |
 
 ## Make Your Uno Board
+
+<div style="page-break-after:always;"></div>
+
 ### Functional Overview
 #### Board Topology And Bill Of Materials
 
