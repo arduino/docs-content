@@ -78,6 +78,7 @@ Maker, introduction, education
     </tbody>
 </table>
 
+<div style="page-break-after:always;"></div>
 <table>
     <thead>
         <tr>
@@ -145,7 +146,6 @@ The **Arduino Make Your UNO kit** is like any **Arduino Uno** board but created 
 * Arduino Motor Shield Rev3 (A000079)
 
 ### Solution Overview
-
 The **Arduino Make Your UNO kit** contains different boards. Besides the **Arduino Uno** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
 ![Make your UNO overview](assets/unoOverview.png)
@@ -155,7 +155,6 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 ![Make your UNO and synth audio shield mounted](assets/lowAudioSynth.png)
 
 ## Ratings
-
 ### Recommended Operating Conditions
 
 | Description                                      | Min            | Max            |
@@ -182,30 +181,30 @@ The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is mad
 
 ![Make your UNO board topology](assets/fusionOutline.svg)
 
-| **Quantity** | **Description**                                  | **Designator**                |
-| ------------ | ------------------------------------------------ | ----------------------------- |
-| 7            | Capacitor THD 100nF 63V                          | C3, C8, C9, C10, C11, C12, C13|
-| 3            | Capacitor THD 22pF 50V C0G 5%                    | C1, C4, C5                    |
-| 3            | Capacitor ALUM POL THD 47µF 25V                  | C2, C6, C7                    |
-| 1            | Rectifier diode \[1N4007\]                       | D1                            |
-| 1            | UNO header connector - analog I/Os 14 positions  | J1                            |
-| 1            | UNO header connector - digital I/Os 18 positions | J2                            |
-| 1            | SPI header                                       | J3                            |
-| 1            | Power supply jack, 6 position                    | J4                            |
-| 1            | IC socket connector dual in place 28 positions   | J7                            |
-| 4            | LED Yellow diffused, 3mm                         | LD1, LD2, LD3, LD4            |
-| 1            | LED Green diffused, 3mm                          | LD5                           |
-| 1            | Push-Button                                      | PB1                           |
-| 1            | N-Channel Mosfet Transistor 0.2A                 | Q1                            |
-| 7            | Axial resistor 1kΩ, 1/4W, 5%                     | R1, R4, R5, R6, R7, R8, R11   |
-| 2            | Axial resistor 10kΩ, 1/4W, 5%                    | R2, R9                        |
-| 2            | Axial resistor 1MΩ, 1/4w, 5%                     | R3, R10                       |
-| 1            | LDO Regulator 3.3V                               | U2                            |
-| 1            | Quartz crystal oscillator 16MHz 20pF THD         | Y1                            |
-| 1            | USB-C to Serial breakout board                   |                               |
-| 1            | PCB Arduino Make Your UNO                        |                               |
-| 1            | Jumper wire Red 15cm                             |                               |
-| 1            | Jumper wire Black 15cm                           |                               |
+| **Designator**                | **Quantity** | **Description**                                  |
+| ----------------------------- | ------------ | ------------------------------------------------ |
+| C3, C8, C9, C10, C11, C12, C13| 7            | Capacitor THD 100nF 63V                          |
+| C1, C4, C5                    | 3            | Capacitor THD 22pF 50V C0G 5%                    |
+| C2, C6, C7                    | 3            | Capacitor ALUM POL THD 47µF 25V                  |
+| D1                            | 1            | Rectifier diode \[1N4007\]                       |
+| J1                            | 1            | UNO header connector - analog I/Os 14 positions  |
+| J2                            | 1            | UNO header connector - digital I/Os 18 positions |
+| J3                            | 1            | SPI header                                       |
+| J4                            | 1            | Power supply jack, 6 position                    |
+| J5                            | 1            | USB-C to Serial breakout board                   |
+| J7                            | 1            | IC socket connector dual in place 28 positions   |
+| LD1, LD2, LD3, LD4            | 4            | LED Yellow diffused, 3mm                         |
+| LD5                           | 1            | LED Green diffused, 3mm                          |
+| PB1                           | 1            | Push-Button                                      |
+| Q1                            | 1            | N-Channel Mosfet Transistor 0.2A                 |
+| R1, R4, R5, R6, R7, R8, R11   | 7            | Axial resistor 1kΩ, 1/4W, 5%                     |
+| R2, R9                        | 2            | Axial resistor 10kΩ, 1/4W, 5%                    |
+| R3, R10                       | 2            | Axial resistor 1MΩ, 1/4w, 5%                     |
+| U2                            | 1            | LDO Regulator 3.3V                               |
+| Y1                            | 1            | Quartz crystal oscillator 16MHz 20pF THD         |
+|                               | 1            | PCB Arduino Make Your UNO                        |
+|                               | 1            | Jumper wire Red 15cm                             |
+|                               | 1            | Jumper wire Black 15cm                           |
 
 Some of the components listed above are available in a replacement pack on the <ins>[Arduino Store](https://store.arduino.cc/products/arduino-replacements-pack)</ins>.
 
@@ -293,8 +292,6 @@ The kit comes with an **Audio Synth Shield** that can be attached to the **Ardui
 
 ![Audio Synth Shield assembled](assets/synthMounted.png)
 
-<br><div style="page-break-after:always;"></div>
-
 ### Functional Overview
 #### Board Topology and Bill of Materials
 
@@ -304,23 +301,23 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 
 ![Arduino Synth Shield components topology](assets/synthTopology.svg)
 
-| **Quantity** | **Description**                             | **Designator**         |
-| ------------ | ------------------------------------------- | ---------------------- |
-| 1            | Capacitor 47nF 50V 5%                       | C1                     |
-| 1            | Capacitor 47µF 25V                          | C2                     |
-| 1            | Capacitor 100nF 63V                         | C3                     |
-| 1            | Capacitor 220µF 25V                         | C4                     |
-| 1            | Axial resistor 10Ω, 1/4W, 5%                | R1                     |
-| 1            | Axial resistor100kΩ, 1/4W, 5%               | R2                     |
-| 6            | Potentiometer 10kΩ - TRIMMER                | R3, R4, R5, R6, R7, R8 |
-| 1            | UNO header digital connector A 8 positions  | J1                     |
-| 1            | UNO header digital connector B 10 positions | J2                     |
-| 1            | UNO header analog connector A 6 positions   | J3                     |
-| 1            | UNO header analog connector B 8 positions   | J4                     |
-| 6            | Potentiometer's KNOB D6/9mm                 | K1, K2, K3, K4, K5, K6 |
-| 1            | Paper Speaker 8Ω 1W                         | S1                     |
-| 1            | Audio Amplifier, 0.325W                     | U1                     |
-| 1            | PCB Synth Audio shield                      |                        |
+| **Designator**         | **Quantity** | **Description**                             |
+| ---------------------- | ------------ | ------------------------------------------- |
+| C1                     | 1            | Capacitor 47nF 50V 5%                       |
+| C2                     | 1            | Capacitor 47µF 25V                          |
+| C3                     | 1            | Capacitor 100nF 63V                         |
+| C4                     | 1            | Capacitor 220µF 25V                         |
+| R1                     | 1            | Axial resistor 10Ω, 1/4W, 5%                |
+| R2                     | 1            | Axial resistor100kΩ, 1/4W, 5%               |
+| R3, R4, R5, R6, R7, R8 | 6            | Potentiometer 10kΩ - TRIMMER                |
+| J1                     | 1            | UNO header digital connector A 8 positions  |
+| J2                     | 1            | UNO header digital connector B 10 positions |
+| J3                     | 1            | UNO header analog connector A 6 positions   |
+| J4                     | 1            | UNO header analog connector B 8 positions   |
+| K1, K2, K3, K4, K5, K6 | 6            | Potentiometer's KNOB D6/9mm                 |
+| S1                     | 1            | Paper Speaker 8Ω 1W                         |
+| U1                     | 1            | Audio Amplifier, 0.325W                     |
+|                        | 1            | PCB Synth Audio shield                      |
 
 ### Connector Pinouts
 #### JANALOG
@@ -341,19 +338,18 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 | 10  | D9           | OUTPUT   | Audio output to Amplifier's AUX IN |
 | 15  | GND          | GND      | Ground                             |
 
-<br><div style="page-break-after:always;"></div>
-
 ### Mechanical Information
 #### Board Outline & Mounting Holes
 The **Arduino Make Your UNO kit** shares with the standard **Arduino Uno** boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino Uno** board, being compatible with most of the shields and peripheral devices done for the **Arduino Uno** board.
 
 ![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
 
+<div style="page-break-after:always;"></div>
+
 #### Potentiometers Outline
 
 ![ Arduino Synth Shield potentiometers measures](assets/synthPotentiometers.svg)
 
-<br>
 <div style="page-break-after:always;"></div>
 
 ## Certifications
