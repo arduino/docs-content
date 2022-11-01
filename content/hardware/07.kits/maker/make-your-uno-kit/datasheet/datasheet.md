@@ -55,8 +55,8 @@ Maker, introduction, education
             </td>
         </tr>
         <tr>
-            <td rowspan="4">USB-C Serial PCB Board</td>
-            <td colspan="3"> <p>The USB-C Serial PCB contains the ATMega16U2 processor and a USB-C socket to program and power the board.</p></td>
+            <td rowspan="4">USB-C® Serial PCB Board</td>
+            <td colspan="3"> <p>The USB-C® Serial PCB contains the ATMega16U2 processor and a USB-C® socket to program and power the board.</p></td>
         </tr>
         <tr>
             <td>ATMega16U2 Processor</td>
@@ -290,7 +290,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
+The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
 
 ![Make Your UNO boards outline](assets/boardOutline.svg)
 
