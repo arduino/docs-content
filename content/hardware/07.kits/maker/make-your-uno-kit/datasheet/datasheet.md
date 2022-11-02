@@ -6,7 +6,7 @@ type: maker
 
 ![](assets/featured.png)
 # Description
-The **Arduino Make Your UNO kit** is the perfect kit to learn the basics of electronics and coding by assembling your own **Arduino UNO**. Become familiar with soldering by mounting every single component, unleash your creativity with the **Audio Synth Shield**, and learn how to code using your new **Arduino UNO** board to create amazing projects!
+The **Arduino Make Your UNO Kit** is the perfect kit to learn the basics of electronics and coding by assembling your own **Arduino UNO**. Become familiar with soldering by mounting every single component, unleash your creativity with the **Audio Synth Shield**, and learn how to code using your new **Arduino UNO** board to create amazing projects!
 
 # Target areas:
 Maker, introduction, education
