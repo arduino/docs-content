@@ -13,7 +13,7 @@ type: pro
 # Description
 The Portenta H7 is the first member of the Portenta family, dedicated to industrial use cases but with the traditional Arduino openness and ready for the most demanding Pro applications. The Portenta H7 is ready for machine learning and real-time applications thanks to the dual core STM32H747 processor including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly for real multitasking. By harnessing the computational power of both Portenta H7's cores, machine learning algorithms can run simultaneously alongside low latency sensor/actuator interaction. 
 
-Arduino's expertise in producing high quality PCB in house has been leveraged to ensure that the Portenta H7 can meet the vibrations and temperatures met in daily industrial, automotive and agriculture applications. The various interfaces give the developers freedom in how they interact with the Portenta H7 and include MKR-compatible pins, USB-C enabled HDMI output and Arduino's open connector (ESLOV). Developers will receive the support they need from Arduino to build their custom solution.
+Arduino's expertise in producing high quality PCB in house has been leveraged to ensure that the Portenta H7 can meet the vibrations and temperatures met in daily industrial, automotive and agriculture applications. The various interfaces give the developers freedom in how they interact with the Portenta H7 and include MKR-compatible pins, USB-C® enabled HDMI output and Arduino's open connector (ESLOV). Developers will receive the support they need from Arduino to build their custom solution.
 
 Portenta H7 offers several customization possibilities that allow tailoring board functionality to specific applications for high volume use cases.
 
@@ -29,7 +29,7 @@ Available assembly options that can be configured for high volume applications a
 | Crypto     | Crypto Chip                   | 0 - NoneM - ATECC608AN - SE050C2B - Both                        |
 | Wireless   | Wireless Module               | 0 - NoneW - Fitted                                              |
 | Antenna    | Antenna option                | 0 - NoneA - on board ceramic antennaC - U.FL connector          |
-| Video      | DisplayPort output over USB-C | 0 - NoneD - Fitted                                              |
+| Video      | DisplayPort output over USB-C® | 0 - NoneD - Fitted                                              |
 
 Standard configurations are:
 *   Arduino Portenta H7-0000000 (barebones version)
@@ -41,7 +41,7 @@ Standard configurations are:
     *   NXP SE050C2 Crypto
     *   Wi-Fi/BT Module
     *   U.FL Antenna
-    *   DisplayPort over USB-C
+    *   DisplayPort over USB-C®
 
 
 # Target Areas
@@ -103,7 +103,7 @@ Standard configurations are:
 *   **External Memories**
     *   up to 64 MByte SDRAM (optional)
     *   up to 128 MByte QSPI Flash (optional)
-*   **USB-C**
+*   **USB-C®**
     *   High Speed (optional)/Full Speed USB 
     *   DisplayPort output (optional)
     *   Host and Device operation
@@ -233,7 +233,7 @@ The [Portenta H7 Vision Shield](https://www.arduino.cc/pro/hardware/product/port
 | U3       | USB HS PHY                          | U12, U13, U14   | ESD protection            |
 | U4       | SDRAM                               | U16             | Crypto Chip (Microchip)   |
 | U5       | Ethernet PHY                        | J1, J2          | High Density Connectors   |
-| U6       | MIPI to USB-C/DisplayPort converter | ANT1            | Antenna or U.FL Connector |
+| U6       | MIPI to USB-C®/DisplayPort converter | ANT1            | Antenna or U.FL Connector |
 | U7       | Level Shifter                       | JANALOGJDIGITAL | MKR compatible headers    |
 | U8       | I2C level shifter                   | J4              | Battery connector         |
 | U9       | Wi-Fi/BT Module                     | J5              | ESLOV connector           |
@@ -277,21 +277,21 @@ Portenta H7 provides two different optional Crypto Chip choices. The classic ATE
 The optional 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. The Wake On Lan functionality allows reducing power consumption when in sleep mode.  
 
 ### High Speed USB Phy
-The optional High Speed USB Phy is one of the two USB interfaces available on the high speed connectors and is also available on the USB-C connector. High Speed USB PHY allows transfer rates of up to 480 Mbps and can be used both as a host and as a device.
+The optional High Speed USB Phy is one of the two USB interfaces available on the high speed connectors and is also available on the USB-C® connector. High Speed USB PHY allows transfer rates of up to 480 Mbps and can be used both as a host and as a device.
 
-When using the USB-C connector only one USB port is usable on high speed connectors.
+When using the USB-C® connector only one USB port is usable on high speed connectors.
 
-When the High Speed USB Phy option is not assembled the USB-C port only one Full Speed port is available and is shared between USB-C and High Density connectors  
+When the High Speed USB Phy option is not assembled the USB-C® port only one Full Speed port is available and is shared between USB-C® and High Density connectors  
 
-### USB-C Connector 
-USB-C connector supports multiple use case scenarios and provides the following functions:
+### USB-C® Connector 
+USB-C® connector supports multiple use case scenarios and provides the following functions:
 
 *   Provide board power supply in both DFP and DRP mode
 *   Source power to external peripherals when board is powered through VIN
 *   expose High Speed (480Mbps) or Full Speed (12 Mbps) USB Host/Device interface
 *   expose DisplayPort output interface (optional)
 
-The DisplayPort interface is usable in conjunction with USB and can be either used with a simple cable adapter when board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting DisplayPort and USB. Such dongles usually provide an ethernet over USB port, a 2 port USB hub and a USB-C port that can be used to provide power to the system. 
+The DisplayPort interface is usable in conjunction with USB and can be either used with a simple cable adapter when board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting DisplayPort and USB. Such dongles usually provide an ethernet over USB port, a 2 port USB hub and a USB-C® port that can be used to provide power to the system. 
 
 ### Power Tree
 All power conversion on the Portenta H7 is handled by the PF1550 PMIC. Current is drawn by VUSB, VIN or VBATT automatically according to rules specified by the PMIC. The VCC is driven by a buck converter configured to provide 3V3 that is accessible on both the MKR headers and the HDR connector. Two other buck converters provide 3V1 and 2V8 outputs. Additionally, three precision LDO provide low-ripple outputs of 1V0, 1V2 and 1V8.  Voltage range and max current are provided as a general guideline only. Consult the PF1550 datasheet for specific details.
@@ -301,7 +301,7 @@ All power conversion on the Portenta H7 is handled by the PF1550 PMIC. Current i
 ## Board Operation
 ### Getting Started – IDE
 
-If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1].** To connect the Arduino Portenta H7 to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.  
+If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1].** To connect the Arduino Portenta H7 to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.  
 
 ### Getting Started – Arduino Web Editor (Create) 
 All Arduino and Genuino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
@@ -321,8 +321,8 @@ Now that you have gone through the basics of what you can do with the board you 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.  
 
 ## Connector Pinouts
-### USB-C
-![USB-C Pinout](assets/portentaH7_PinoutUSB-C.png)
+### USB-C®
+![USB-C® Pinout](assets/portentaH7_PinoutUSB-C.png)
 
 ### High Density Connector
 

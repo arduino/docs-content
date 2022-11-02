@@ -60,7 +60,7 @@ Follow the instructions of the installer.
 
 ### 2. Flashing the OpenMV Firmware
 
-Connect the Portenta to your computer via the USB-C cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch in the examples menu in the Arduino IDE. 
+Connect the Portenta to your computer via the USB-C® cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch in the examples menu in the Arduino IDE. 
 
 Instructions on how to update the bootloader can be found in the [Updating the Portenta Bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) tutorial.
 

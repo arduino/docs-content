@@ -125,7 +125,7 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 ### DIP Switch
 The DIP switch allows for boot mode configuration:
 *   **BOOT SEL**: When set to ON, keeps the Portenta in Boot mode.
-*   **BOOT**: When set to ON enables the embedded bootloader. Firmware can be uploaded via the USB port on the breakout board (DFU). USB-A to USB-A  (non-crossover) cable required. The Portenta H7 has to be powered through the USB-C connector or VIN.
+*   **BOOT**: When set to ON enables the embedded bootloader. Firmware can be uploaded via the USB port on the breakout board (DFU). USB-A to USB-A  (non-crossover) cable required. The Portenta H7 has to be powered through the USB-C® connector or VIN.
 
 ### RJ-45 Connector
 The RJ-45 Connector allows to plug-in an ethernet cable and connect to your network.
