@@ -318,7 +318,7 @@ The use of a USB 3.0 compatible port will ensure that current requirements for t
 | **Ref.** | **Description**                                | **Ref.**        | **Description**                                              |
 | -------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------ |
 | U1       | BD71847AMWV i.MX 8M Mini  PMIC                 | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
-| U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C®™ Bridge IC                |
+| U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C® Bridge IC                |
 | U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth® Combo IC                      |
 | U12      | PCMF2USB3B/CZ Bidirectional EMI Protection IC  | U16,U21,U22,U23 | FXL4TD245UMX 4-Bit Bidirectional Voltage-level Translator IC |
 | U17      | DSC6151HI2B 25MHz MEMS Oscillator              | U18             | DSC6151HI2B 27MHz MEMS Oscillator                            |

@@ -15,7 +15,7 @@ source: "https://create.arduino.cc/projecthub/407590/iot-air-quality-checker-c8d
 - [Seeed Grove - Dust Sensor（PPD42NS）](https://www.seeedstudio.com/Grove-Dust-Sensor%EF%BC%88PPD42NS%EF%BC%89-p-1050.html)
 - [Arduino Seeed Seed - Grove - Oled Display 0.96"](https://store.arduino.cc/grove-oled-display-0-96)
 - [Seeed Grove - Air quality sensor v1.3](https://www.seeedstudio.com/Grove-Air-quality-sensor-v1.3-p-2439.html)
-- [Arduino USB cable type A male to micro type B male](https://store.arduino.cc/USB-Cable-type-a-male-to-micro-type-b-male)
+- [Arduino USB cable type A male to micro type B male](https://store.arduino.cc/usb-cable-type-a-male-to-micro-type-b-male)
 
 ## About This Project
 
