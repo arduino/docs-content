@@ -84,10 +84,57 @@ The **STM32H747XI** is a powerful dual core chip, capable of being programmed wi
 
 The microcontroller operates on a voltage of 3.3V, applying a higher voltage than that, such as 5V, to a pin might damage the microcontroller.
 
+## RAM
+The **Arduino GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
+
+To access the SDRAM you need to use the SDRAM library, include it in your sketch with:
+```
+#include "SDRAM.h"
+```
+
+Before writing to the SDRAM, you need to allocate it, the following code will create an array that reserves 7MB of the SDRAM for you to write to.
+```
+ uint8_t* myVeryBigArray = (uint8_t*)SDRAM.malloc(7 * 1024 * 1024);
+```
+If you now store any data in this array, it will be written to SDRAM.
+```
+for (int i = 0; i<128; i++) {
+        myVeryBigArray[i] = i;
+    }
+```
+
+When you no longer need to use the SDRAM, you can free it, so it can be used for other things.
+```
+SDRAM.free(myVeryBigArray);
+```
+
+
+## Flash Memory
+The **Arduino GIGA R1** has 2MB of internal, and 16MB of external Flash storage.
+The external Flash storage on the **Arduino GIGA R1** is QSPI and can be accessed and used to store data. If you need to, you can configure the board to act as a USB flash drive, so you can store files such as images, audio, and more.
+
+The GIGA firmware has full support for FATFS and littleFS.
+
+To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA core.
+
+Firstly, navigate in the IDE menu to `File > Examples > STM32H747_System > WiFiFirmwareUpdater` and upload the sketch to your board. 
+
+In the Serial monitor you will now be able to interface with the board. Follow the instructions by sending a "**y**" in the monitor. You will now see the progress of the firmware update, don't power off the board until you see a message telling you that it is safe.
+
+After completing this, the next step is to partition the flash storage. Navigate to `File > Examples > STM32H747_System > QSPIFormat` and upload the sketch. From here, your interaction with the board will be very similar to when you updated the WiFi firmware. In the serial monitor, you will get the option to choose from two partition schemes. For this purpose, partition scheme 1 is good. Again, send "**y**" in the serial monitor and wait for confirmation before powering the board off. 
+
+Lastly, navigate to `File > Examples > USB Mass Storage > AccessFlashAsUSBDisk` and upload the sketch. 
+
+Once this is completed, you should now see a new storage device connected as a portable storage device in your computer.
+
+>**Note:** In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches.** To upload a new sketch you need to put the **Arduino GIGA R1** in DFU mode by double pressing the RST button.
+
 ## Audio Jack
 The **Arduino GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, meaning that it is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
 ![Audio Jack](assets/audiojack.png)
+
+The Audio jack is connected to pins A12 and A13, also labelled DAC0 and DAC1.
 
 Both of these come with caveats, though. As there is no amplifier circuit on the board itself, driving a high impedance speaker directly without an amplifier circuit could cause damage to the board, and microphone input without an amplifier circuit between the microphone and the board may sound dim. 
 
