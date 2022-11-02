@@ -13,7 +13,7 @@ if [ -n "$RENDER_DATASHEETS" ]; then
     cp -a ./styles/fonts/OpenSans*.ttf /usr/share/fonts/truetype/open-sans
     cp -a ./styles/fonts/RobotoMono*.ttf /usr/share/fonts/truetype/roboto-mono
     fc-cache /usr/share/fonts
-    
+
     echo "Font info:"
     fc-list | grep "OpenSans"
     fc-list | grep "RobotoMono"
@@ -46,7 +46,7 @@ npm list --depth=0 > /dev/null 2>&1
 
 if [ $? -ne 0 ]; then
     echo "Installing node modules..."
-    npm install    
+    npm install
 fi
 
 npx datasheet-renderer config.json $@

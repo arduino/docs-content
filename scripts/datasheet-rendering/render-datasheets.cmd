@@ -4,7 +4,7 @@ node -v
 IF %ERRORLEVEL% NEQ 0 (
     cls
     ECHO Please install Node.js from here https://nodejs.org/en/download/
-    EXIT /B 
+    EXIT /B
 ) else (
     cls
 
