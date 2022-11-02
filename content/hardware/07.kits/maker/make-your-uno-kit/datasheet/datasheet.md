@@ -218,7 +218,7 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 ![Make Your UNO main board power tree](assets/powerTree.svg)
 
 ### Board Operation
-#### Official Step-by-step Guide
+#### Official Instructions
 The official documentation provided by Arduino to solder the entire kit is hosted at <ins>[https://makeyouruno.arduino.cc](https://makeyouruno.arduino.cc/)</ins>
 
 #### Getting Started - IDE
