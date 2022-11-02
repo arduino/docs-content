@@ -193,7 +193,7 @@ The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is mad
 | J2                            | 1            | UNO header connector - digital I/Os 18 positions |
 | J3                            | 1            | SPI header                                       |
 | J4                            | 1            | Power supply jack, 6 position                    |
-| J5                            | 1            | USB-C to Serial breakout board                   |
+| J5                            | 1            | USB-C® to Serial breakout board                   |
 | J7                            | 1            | IC socket connector dual in place 28 positions   |
 | LD1, LD2, LD3, LD4            | 4            | LED Yellow diffused, 3mm                         |
 | LD5                           | 1            | LED Green diffused, 3mm                          |
@@ -211,7 +211,7 @@ The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is mad
 Some of the components listed above are available in a replacement pack on the <ins>[Arduino Store](https://store.arduino.cc/products/arduino-replacements-pack)</ins>.
 
 ### Processor
-The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (**ATMega16U2**) inside the **USB-C Serial PCB Board**.
+The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins are connected to the external headers, however, some are reserved for internal communication with the USB Bridge coprocessor (**ATMega16U2**) inside the **USB-C® Serial PCB Board**.
 
 ### Power Tree
 
@@ -222,7 +222,7 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 The official documentation provided by Arduino to solder the entire kit is hosted at <ins>[https://makeyouruno.arduino.cc](https://makeyouruno.arduino.cc/)</ins>
 
 #### Getting Started - IDE
-If you want to program your **Arduino UNO** while offline you need to install the Arduino Desktop IDE [1]. To connect the **Arduino UNO** to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.
+If you want to program your **Arduino UNO** while offline you need to install the Arduino Desktop IDE [1]. To connect the **Arduino UNO** to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.
 
 #### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2] by just installing a simple plugin.
@@ -351,7 +351,7 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
+The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
 
 ![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
 
