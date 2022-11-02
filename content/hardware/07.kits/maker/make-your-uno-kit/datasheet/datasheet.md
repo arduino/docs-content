@@ -127,10 +127,10 @@ Maker, introduction, education
 # CONTENTS
 ## The Kit
 ### Application Examples
-The **Arduino Make Your UNO kit** is like any **Arduino UNO** board but created by yourself. The **UNO** board is the flagship product of Arduino
+The **Arduino Make Your UNO kit** is like any **Arduino UNO** board but created by yourself. The **Arduino UNO** (from here on referred to as UNO) board is the flagship product of Arduino
 Regardless if you are new to the world of electronics or will use the **UNO** as a tool for education purposes or industry-related tasks.
 
-**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board **Arduino UNO** and create one by yourself using the **Arduino Make Your UNO kit** is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
+**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board **UNO** and create one by yourself using the **Arduino Make Your UNO kit** is a great choice. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and a reset button. This board includes everything you will need for a great first experience with Arduino.
 
 **Education purposes:** Although the UNO board has been with us for about ten years, it is still widely used for various educational purposes and scientific projects. The **Arduino Make Your UNO kit** is the perfect way to teach and learn about basic circuits, electronics components, soldering and coding microcontrollers, being the perfect board to create basic and advanced projects of all kinds.
 
@@ -146,7 +146,7 @@ Regardless if you are new to the world of electronics or will use the **UNO** as
 * [Arduino Motor Shield Rev3 (A000079)](https://store.arduino.cc/products/arduino-motor-shield-rev3)
 
 ### Solution Overview
-The **Arduino Make Your UNO kit** contains different boards. Besides the **Arduino UNO** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
+The **Arduino Make Your UNO kit** contains different boards. Besides the **UNO** board, the kit contains two additional small boards that helps the user to learn to solder its first components before starting to solder the main board. The small board with the heart shape is just for practising and it does not have any circuit or utility while the small board that contains the LED and the resistor can be powered with a 9V battery to turn on the LED.
 
 ![Make Your UNO overview](assets/unoOverview.png)
 
@@ -222,7 +222,7 @@ The Main Processor is an ATmega328P running at up to 20 MHz. Most of its pins ar
 The official documentation provided by Arduino to solder the entire kit is hosted at <ins>[https://makeyouruno.arduino.cc](https://makeyouruno.arduino.cc/)</ins>
 
 #### Getting Started - IDE
-If you want to program your **Arduino UNO** while offline you need to install the Arduino Desktop IDE [1]. To connect the **Arduino UNO** to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.
+If you want to program your **UNO** while offline you need to install the Arduino Desktop IDE [1]. To connect the **UNO** to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.
 
 #### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2] by just installing a simple plugin.
@@ -230,10 +230,10 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
 #### Getting Started - Arduino IoT Cloud
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the **Arduino UNO** and the **Make Your UNO** boards, you will need additional hardware to connect them to the cloud.
+All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the **UNO** and the **Make Your UNO** boards, you will need additional hardware to connect them to the cloud.
 
 #### Sample Sketches
-Sample sketches for the **Arduino UNO** can be found either in the “Examples” menu in the Arduino IDE.
+Sample sketches for the **UNO** can be found either in the “Examples” menu in the Arduino IDE.
 
 #### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
@@ -290,7 +290,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
+The **Arduino Make Your UNO kit** shares with the standard **UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **UNO** board, being compatible with most of the shields and peripheral devices done for the **UNO** board.
 
 ![Make Your UNO boards outline](assets/boardOutline.svg)
 
@@ -351,7 +351,7 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 
 ### Mechanical Information
 #### Board Outline & Mounting Holes
-The **Arduino Make Your UNO kit** shares with the standard **Arduino UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **Arduino UNO** board, being compatible with most of the shields and peripheral devices done for the **Arduino UNO** board.
+The **Arduino Make Your UNO kit** shares with the standard **UNO** boards the same shape and external mechanical board outline. The most important difference is the new USB-C® connector instead of the classical USB Type-B one. The external shape and dimensions, pin headers, mounting holes and jack barrel connector are located in the same place as a standard **UNO** board, being compatible with most of the shields and peripheral devices done for the **UNO** board.
 
 ![Arduino Synth Shield board outline measures](assets/synthOutline.svg)
 
