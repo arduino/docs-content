@@ -1,6 +1,6 @@
 ---
 identifier: AKX00037
-title: Arduino® Make Your UNO KIT
+title: Arduino® Make Your UNO Kit
 type: maker
 ---
 
