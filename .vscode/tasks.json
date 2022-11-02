@@ -87,7 +87,7 @@
                 "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
             },
             "windows": {
-                "command": "node .\\fix-issues.js -p ..\\..\\content\\hardware\\"               
+                "command": "node .\\fix-issues.js -p '..\\..\\content\\hardware\\'"
             },
             "group": "none",
             "presentation": {
@@ -138,7 +138,7 @@
                 "cwd": "${workspaceFolder}"
             },
             "windows": {
-                "command": ".\\scripts\\spell-check.cmd"                
+                "command": ".\\scripts\\spell-check.cmd"
             },
             "group": "none",
             "presentation": {
@@ -162,6 +162,9 @@
             "command": "(pip install codespell > /dev/null 2>&1 || pip3 install codespell > /dev/null 2>&1) && codespell -w -I 'scripts${pathSeparator}resources${pathSeparator}spell-check-ignore-list.txt' --skip='*.svg,*.dxf,*.pdf' .${pathSeparator}content${pathSeparator}",
             "options": {
                 "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": ".\\scripts\\spell-check-fix.cmd"
             },
             "group": "none",
             "presentation": {
