@@ -1,6 +1,6 @@
 ---
 title: Make Your UNO Kit
-url_shop: https://store.arduino.cc/make-your-uno
+url_shop: https://store.arduino.cc/products/make-your-uno-kit
 url_guide: https://makeyouruno.arduino.cc/
 ---
 
