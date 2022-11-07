@@ -11,7 +11,7 @@ The Arduino Ethernet Shield 2 connects your Arduino to the internet in mere minu
 
 The W550 is an Ethernet controller that provides Internet connection to your devices and systems.
 
-<FeatureLink title="Datasheet" url="http://wizwiki.net/wiki/lib/exe/fetch.php?media=products:w5500:w5500_ds_v106e_141230.pdf" download blank/>
+<FeatureLink title="Datasheet" url="/resources/datasheets/W5500_datasheet.pdf" download blank/>
 </Feature>
 
 <Feature title="UNO Form Factor" image="uno-form-factor">

@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/arduino-mkr-nb-1500
 url_guide: /software/ide-v1/installing-samd21-core
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrnb1500/156'
-certifications: [RCM]
+certifications: [RCM, CE, UKCA]
 productCode: '022'
 ---
 

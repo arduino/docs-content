@@ -7,7 +7,7 @@ Connectors: 3x Grove connectors
 Sensors:
   HTS221: Temperature & humidity
   LPS22HB: Barometric pressure 
-  LSM6DSOX: Accelerometer & gyroscope
+  LSM6DS3: Accelerometer & gyroscope
   APDS-9960: Ambient light, gesture and proximity
   Capacitive buttons: 5x
 Actuators:

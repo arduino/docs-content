@@ -31,7 +31,7 @@ The Portenta H7 uses the [Arduino Mbed OS Portenta Boards core](https://github.c
 
 Arduino supports the OpenMV build of MicroPython to be used with the Portenta H7. To install it on your board, you can check out the guide below:
 
-- [Installing the Arduino Portenta H7 with MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/por-openmv-gs)
+- [Installing the Arduino Portenta H7 with MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython)
 
 ### Potential Issues
 
@@ -39,18 +39,16 @@ Sometimes the board is not detected even when the board is connected to your com
 
 1. Disconnect the board from your computer by removing the USB cable.  
 2. Reconnect the board to your computer.   
-
 3. If it still doesn't show up, double-press the reset button, to activate the bootloader mode.  
-
 4. Re-install the OpenMV firmware
 
 ### Libraries
 
-Some really useful MicroPython libraries in OpenMV are `pyb` and `machine`. Within these two libraries there are plenty of modules that will help make MicroPython scripting easier. These libraries don't need to be downloaded, they are installed with OpenMV, they only need to be included in your script.
+Some really useful MicroPython libraries in OpenMV are `pyb` and `machine`. Within these two libraries, there are plenty of modules that will help make MicroPython scripting easier. These libraries do not need to be downloaded, they are installed with OpenMV. They only need to be included in your script.
 
 ## Pins
 
-The below graphic shows the MKR pins available on the board. For a more detailed view that also shows the pins available through the high density connector, please visit the [product page](/hardware/portenta-h7).
+The below graphic shows the MKR pins available on the board. For a more detailed view that also shows the pins available through the high density connector, please visit the [product page](https://docs.arduino.cc/hardware/portenta-h7).
 
 ![Pinout for the Portenta H7.](assets/ABX00042-pinout.png)
 
@@ -295,13 +293,13 @@ Most of the pins are referred to via their port name or their function in OpenMV
 
 ### I/O Pins
 
-To access the I/O pins we will use the `Pin` module from the `pyb` library.
+To access the I/O pins, you can use the `Pin` module from the `pyb` library.
 
 ```python
 from pyb import Pin
 ```
 
-To reference a pin on the Portenta, we use the `Pin()` constructor. The first argument we provide is the pin we want to use. The second parameter, `mode`, can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, `Pin.AF_OD` or `Pin.ANALOG`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter, `pull`,  represents the pull mode. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`. E.g.:
+To reference a pin on the Portenta, you can use the `Pin()` constructor. The first argument you have to provide is the pin you want to use. The second parameter, `mode`, can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, `Pin.AF_OD` or `Pin.ANALOG`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter, `pull`,  represents the pull mode. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`. E.g.:
 
 ```python
 pin0 = Pin('P0', mode, pull)
@@ -315,7 +313,7 @@ pin0.value()
 
 ### PWM
 
-To use PWM we import the `pyb`, `time`, `Pin`, `Timer` modules.
+To use PWM, you import the `pyb`, `time`, `Pin`, `Timer` modules.
 
 ```python
 import pyb
@@ -323,19 +321,19 @@ import time
 from pyb import Pin, Timer
 ```
 
-First we need to choose the pin we want to use PWM with.
+First you need to choose the pin you want to use PWM with.
 
 ```python
 pin1 = Pin("PC6", Pin.OUT_PP, Pin.PULL_NONE)
 ```
 
-Create a timer for the PWM, where we set the ID and the frequency.
+Create a timer for the PWM, where you set the ID and the frequency.
 
 ```python
 timer1 = Timer(3, freq=1000)
 ```
 
-Then we need to start a PWM channel with the timer object. 
+Then you need to start a PWM channel with the timer object. 
 
 ```python
 channel1 = timer1.channel(1, Timer.PWM, pin=pin1, pulse_width=0)
@@ -349,15 +347,15 @@ channel1.pulse_width(Width)
 
 ### RGB LED
 
-The Portenta H7 has built-in RGB that can be used as feedback for applications. Using the `pyb` library we can easily define the different LED colors on the Portenta.
+The Portenta H7 has built-in RGB that can be used as feedback for applications. Using the `pyb` library, you can easily define the different LED colors on the Portenta.
 
-For this we will use the `pyb` library.
+For this you will use the `pyb` library.
 
 ```python
 import pyb
 ```
 
-Now we can easily define the different colors of the built in LED.
+Now you can easily define the different colors of the built in LED.
 
 ```python
 redLED = pyb.LED(1)
@@ -378,7 +376,7 @@ blueLED.on()
 blueLED.off()
 ```
 
-We could also set a custom intensity for our LED lights. This ranges between the values 0 (off) and 255 (full on). Below you can see an example of how to set the intensity on our different LED lights.
+You could also set a custom intensity for our LED lights. This ranges between the values 0 (off) and 255 (full on). Below you can see an example of how to set the intensity on our different LED lights.
 
 ```python
 redLED.intensity(128)
@@ -406,19 +404,19 @@ The pins used for SPI on the Portenta H7 are the following:
 
 You can refer to the [pinout](#pins) above to find them on the board.
 
-First we import the relevant module from `pyb`.
+First, you have to import the relevant module from `pyb`.
 
 ```python
 from pyb import SPI
 ```
 
-When we initialize SPI the only thing we need to state is the bus, which will always be `2` on the Portenta H7, this is the only available bus. The rest of the arguments are optional. But if it is needed we can state the mode of the SPI device as either `SPI.MASTER` or `SPI.SLAVE`, we can also manually set the `baudrate` of the device. `Polarity` can be set to 0 or 1, and is the logic level the idle clock line sits at (HIGH or LOW). `Phase` can be 0 or 1 to sample data on the first (0) or second (1) clock edge.
+When you initialize SPI, the only thing you need to state is the bus, which will always be `2` on the Portenta H7; this is the only available bus. The rest of the arguments are optional. But if it is needed, you can state the mode of the SPI device as either `SPI.MASTER` or `SPI.SLAVE`, you can also manually set the `baudrate` of the device. `Polarity` can be set to 0 or 1, and is the logic level the idle clock line sits at (HIGH or LOW). `Phase` can be 0 or 1 to sample data on the first (0) or second (1) clock edge.
 
 ```python
 spi = SPI(2, SPI.MASTER, baudrate=100000, polarity=0, phase=0)
 ```
 
-Now if we want to send data over SPI, we simply call `.send()`, inside the arguments we indicate what we want to send. `data` is the data to send, which could be an integer (dataInt) or a buffer object (dataBuffer). It is optional to set the `timeout`, it indicates the timeout in milliseconds to wait for the send.
+Now, if you want to send data over SPI, you simply call `.send()` inside the arguments you want to send. `data` is the data to send, which could be an integer (dataInt) or a buffer object (dataBuffer). It is optional to set the `timeout`, it indicates the timeout in milliseconds to wait for the send.
 
 ```python
 dataInt = 21
@@ -426,7 +424,7 @@ dataBuffer = bytearray(4)
 spi.send(data, timeout=5000)
 ```
 
-Similarly, if we want to receive data over SPI, we call `.recv()`. `data` indicates the number of bytes to receive, this can be an integer (dataInt) or a buffer (dataBuffer), which will be filled with received bytes.  It is optional to set the `timeout`, which is the time in milliseconds to wait for the receive.
+Similarly, if you want to receive data over SPI, you call `.recv()`. `data` indicates the number of bytes to receive, this can be an integer (dataInt) or a buffer (dataBuffer), which will be filled with received bytes.  It is optional to set the `timeout`, which is the time in milliseconds to wait for the receive.
 
 ```python
 dataInt = 0
@@ -445,25 +443,25 @@ The pins used for I2C (Inter-Integrated Circuit) on the Portenta H7 are the foll
 
 You can refer to the [pinout](#pins) above to find them on the board.
 
-To use the I2C we import the relevant module.
+To use the I2C, you import the relevant module.
 
 ```python
 from pyb import I2C
 ```
 
-We can now create the I2C object. To create an I2C object we need to state the bus, this indicates what pins we will use for I2C. Giving bus a value of `3`, starts I2C on the SCL and SDA pins on the Portenta H7. There are 4 I2C buses on the Portenta H7.
+You can now create the I2C object. To create an I2C object you need to state the bus, this indicates what pins you will use for I2C. Giving bus a value of `3` starts I2C on the SCL and SDA pins on the Portenta H7. There are 4 I2C buses on the Portenta H7.
 
 ```python
 i2c = I2C(3)
 ```
 
-Now that the object is created we can initialize it. We need to decide if our device is going to be a controller (I2C.MASTER) or a reader (I2C.SLAVE). If it is a reader device, we also need to set the `address`. We can then set a baudrate if we need to.
+Now that the object is created, you can initialize it. You need to decide if your device is going to be a controller (I2C.MASTER) or a reader (I2C.SLAVE). If it is a reader device, you also need to set the `address`. You can then set a baudrate if you need to.
 
 ```python
 i2c.init(I2C.MASTER, addr=address, baudrate=100000)
 ```
 
-To receive data on the bus, we call the `.recv()` function. In the functions arguments `data` is the number of bytes to receive, it can be an integer (dataInt) or a buffer (dataBuffer), which will be filled with received bytes. `addr` is the address to receive from, this is only required in controller mode. `timeout` indicates how many milliseconds to wait for the receive. The code below shows how to receive and print your data in the OpenMV serial terminal.
+To receive data on the bus, you call the `.recv()` function. In the functions arguments `data` is the number of bytes to receive, it can be an integer (dataInt) or a buffer (dataBuffer), which will be filled with received bytes. `addr` is the address to receive from, this is only required in controller mode. `timeout` indicates how many milliseconds to wait for the receive. The code below shows how to receive and print your data in the OpenMV serial terminal.
 
 ```python
 dataInt = 0
@@ -472,7 +470,7 @@ receivedData = i2c.recv(data, addr=0, timeout=5000)
 Print(receivedData)
 ```
 
-To send data on the bus, we call the `.send()` function. In the functions arguments `data` is the data to send, an integer (dataInt) or a buffer object (dataBuffer). `addr` is the address to send to, this is only required in controller mode. `timeout` indicates how many milliseconds to wait for the send.
+To send data on the bus, you can call the `.send()` function. In the functions arguments `data` is the data to send, an integer (dataInt) or a buffer object (dataBuffer). `addr` is the address to send to, this is only required in controller mode. `timeout` indicates how many milliseconds to wait for the send.
 
 ```python
 dataInt = 412
@@ -480,7 +478,7 @@ dataBuffer = bytearray(4)
 i2c.send(data, addr=0, timeout=5000)
 ```
 
-If you need to make sure that devices are connected to the I2C bus, you can use the `.scan()` function. It will scan all I2C addresses from 0x01 to 0x7f and return a list of those that respond. Only works when in controller mode.
+If you need to make sure that devices are connected to the I2C bus, you can use the `.scan()` function. It will scan all I2C addresses from 0x01 to 0x7f and return a list of those that respond. It only works when in controller mode.
 
 ```python
 i2c.scan()
@@ -497,25 +495,25 @@ The pins used for UART on the Portenta H7 are the following:
 
 You can refer to the [pinout](#pins) above to find them on the board.
 
-To use the UART we import the relevant module.
+To use the UART, you need to import the relevant module.
 
 ```python
 from pyb import UART
 ```
 
-To create the UART object we need to indicate the UART bus, the Portenta has 3 UART buses, but there is only on UART bus available to use with OpenMV through the boards pins.
+To create the UART object, you need to indicate the UART bus, the Portenta has 3 UART buses, but there is only on UART bus available to use with OpenMV through the boards pins.
 
 ```python
 uart = UART(1)
 ```
 
-With the object created we can initialize it with `init`. When initilazing we can set the `baudrate`. `bits` is the number of bits per character (7, 8 or 9). `parity` can be set to `None`, `0` (even) or `1` (odd). `stop` is the number of stop bits, 1 or 2. `flow` sets the flow control type, can be 0, UART.RTS, UART.CTS or UART.RTS | UART.CTS. More information on this can be found [here](https://docs.openmv.io/library/pyb.UART.html#flow-control). `timeout` is the time in milliseconds to wait for writing/reading the first character. `timeout_char` is the timeout in milliseconds to wait between characters while writing or reading. `read_buf_len` is the character length of the read buffer (0 to disable).
+With the object created, you can initialize it with `init`. When initilazing, you can set the `baudrate`. `bits` is the number of bits per character (7, 8 or 9). `parity` can be set to `None`, `0` (even) or `1` (odd). `stop` is the number of stop bits, 1 or 2. `flow` sets the flow control type, can be 0, UART.RTS, UART.CTS or UART.RTS | UART.CTS. More information on this can be found [here](https://docs.openmv.io/library/pyb.UART.html#flow-control). `timeout` is the time in milliseconds to wait for writing/reading the first character. `timeout_char` is the timeout in milliseconds to wait between characters while writing or reading. `read_buf_len` is the character length of the read buffer (0 to disable).
 
 ```python
 uart.init(baudrate, bits=8, parity=None, stop=1, timeout=0, flow=0, timeout_char=0, read_buf_len=64)
 ```
 
-To read from UART we call `.read()`. If `bytes` is specified then read at most that many bytes. If `bytes` is not given then the method reads as much data as possible. It returns after the timeout has elapsed. The example code below will read bytes received through uart into an array and then print it in the serial terminal.
+To read from UART, you can call `.read()`. If `bytes` is specified then read at most that many bytes. If `bytes` is not given then the method reads as much data as possible. It returns after the timeout has elapsed. The example code below will read bytes received through uart into an array and then print it in the serial terminal.
 
 ```python
 array = bytearray(5)
@@ -523,7 +521,7 @@ uart.read(array)
 print(array)
 ```
 
-If we intend to write over UART, we call `.write()`. The function writes `buffer` of bytes to the bus. If characters are 7 or 8 bits wide then each byte is one character. If characters are 9 bits wide then two bytes are used for each character, and `buffer` must contain an even number of bytes.
+If you intend to write over UART, you can call `.write()`. The function writes `buffer` of bytes to the bus. If characters are 7 or 8 bits wide then each byte is one character. If characters are 9 bits wide then two bytes are used for each character and `buffer` must contain an even number of bytes.
 
 ```python
 uart.write(buffer)
@@ -531,38 +529,38 @@ uart.write(buffer)
 
 ### WIFI
 
-To use Wifi we first need to import the relevant library.
+To use Wi-Fi you first need to import the relevant library.
 
 ```python
 import network
 ```
 
-Then we need to define the Wifi networks SSID and put that in a variable. We must do the same for the networks password.
+Then you need to define the Wi-Fi networks SSID and put that in a variable. You must do the same for the networks password.
 
 ```python
 SSID=''
 PASSWORD=''
 ```
 
-Next we can create a WLAN network interface object. In the argument we enter `network.STA_IF`, which indicates that our device will be a client and connect to a WiFi access point.
+Next, you can create a WLAN network interface object. In the argument you can enter `network.STA_IF`, which indicates that your device will be a client and connect to a Wi-Fi access point.
 
 ```python
 wlan = network.WLAN(network.STA_IF)
 ```
 
-To activate the network interface, we simply call `.activate` with the argument `True`.
+To activate the network interface, you can simply call `.activate` with the argument `True`.
 
 ```python
 wlan.active(True)
 ```
 
-Now we can decide what network to connect to. Here is where the `SSID` and `PASSWORD` variables come in handy.
+Now you can decide which network to connect to. Here  it is where the `SSID` and `PASSWORD` variables come in handy.
 
 ```python
 wlan.connect(SSID, PASSWORD, timeout=30000)
 ```
 
-If you need to troubleshoot the connection `.status()` can be used. This function will return a value that describes the connection status. It will also let you know what went wrong with the connection in case it failed.
+If you need to troubleshoot, the connection `.status()` can be used. This function will return a value that describes the connection status. It will also let you know what went wrong with the connection in case it failed.
 
 ```python
 wlan.status()
@@ -570,37 +568,37 @@ wlan.status()
 
 ### Audio
 
-If we want to use audio with the Portenta H7 we first need to include the `audio` module. Another helpful module is `micro_speech`, this runs Google's TensorFlow Lite for Microcontrollers Micro Speech framework for voice recognition.
+If you want to use audio with the Portenta H7, you first need to include the `audio` module. Another helpful module is `micro_speech`, this runs Google's TensorFlow Lite for Microcontrollers Micro Speech framework for voice recognition.
 
 ```python
 import audio, micro_speech
 ```
 
-Next we need to initialize the audio object. In the initialization we can decide how many `channels` to use, it is possible to use either 1 or 2 channels. Frequency decides the sample frequency. Using a higher sample frequency results in a higher noise flow, meaning less effective bits per sample. By default audio samples are 8-bits with 7-bits of effective dynamic range. `gain_db` sets the microphone gain to use. `highpass` is the high pass filter cut off given the target sample frequency.
+Next you need to initialize the audio object. In the initialization you can decide how many `channels` to use, it is possible to use either 1 or 2 channels. Frequency decides the sample frequency. Using a higher sample frequency results in a higher noise flow, meaning less effective bits per sample. By default audio samples are 8-bits with 7-bits of effective dynamic range. `gain_db` sets the microphone gain to use. `highpass` is the high pass filter cut off given the target sample frequency.
 
 ```python
 audio.init(channels=2, frequency=16000, gain_db=24, highpass=0.9883)
 ```
 
-If we need to deinitialize the audio object, we simply call `deint()`.
+If you need to deinitialize the audio object, you can simply call `deint()`.
 
 ```python
 audio.deint()
 ```
 
-To use micro_speech, we first need to create a micro_speech object. We create this object in the variable `speech`.
+To use micro_speech, you first need to create a micro_speech object. You can create this object in the variable `speech`.
 
 ```python
 speech = micro_speech.MicroSpeech()
 ```
 
-Next we can start streaming audio into the `micro_speech` object, to do this we call `audio.start_streaming()`. Here we pass the `micro_speech` object as the argument. This will fill the object with audio samples. The MicroSpeech module will compute the FFT of the audio samples and keep a sliding window internally of the FFT the last 100ms or so of audio samples received as features for voice recognition. 
+Next you can start streaming audio into the `micro_speech` object, to do this you can call `audio.start_streaming()`. Here you can pass the `micro_speech` object as the argument, this will fill the object with audio samples. The MicroSpeech module will compute the FFT of the audio samples and keep a sliding window internally of the FFT the last 100ms or so of audio samples received as features for voice recognition. 
 
 ```python
 audio.start_streaming(speech.audio_callback)
 ```
 
-If we need to stop the audio streaming, we can call `.stop_streaming()`.
+If you need to stop the audio streaming, you can call `.stop_streaming()`.
 
 ```python
 audio.stop_streaming()

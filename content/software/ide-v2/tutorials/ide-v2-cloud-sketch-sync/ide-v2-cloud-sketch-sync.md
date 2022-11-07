@@ -1,6 +1,6 @@
 ---
 title: 'Synchronizing Sketches between IDE 2.0 and Arduino Cloud'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to enable your Remote Sketchbook, and how to pull, edit and push Sketches to the Arduino Cloud.'
 tags:
  - Cloud storage
@@ -55,7 +55,7 @@ In a nutshell, the steps required to make this integration are the following:
 
 ### Requirements
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software)
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software)
 - Arduino account, [click here to register](https://login.arduino.cc/login).
 
 ## Understanding the Remote Sketchbook Concept
@@ -85,8 +85,6 @@ In order for this integration to work, we will first need to [create an Arduino 
 ***If you already have an Arduino account, you will only need to login.***
 
 Once we have created an account, we need to navigate to the [Cloud Editor](https://create.arduino.cc/editor/).
-
-![Navigate to the Online Editor](assets/cloud-sketch-sync-img04.png).
 
 ## Create a Sketch in the Arduino Cloud
 
@@ -119,7 +117,7 @@ void loop() {
 
 After we have created a Sketch in the Arduino Cloud, we can move on to **authenticating the Cloud and the IDE 2.0**. To continue, you need to have installed the Arduino IDE 2.0.
 
->You can download the IDE 2.0 from the [software page](https://www.arduino.cc/en/software#experimental-software). If you need help installing it, you can visit [this installation guide](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).
+>You can download the IDE 2.0 from the [software page](https://www.arduino.cc/en/software). If you need help installing it, you can visit [this installation guide](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).
 
 **1.** Open the Arduino IDE 2.0, and click on the folder at the top left corner. This is your **Sketchbook**.
 

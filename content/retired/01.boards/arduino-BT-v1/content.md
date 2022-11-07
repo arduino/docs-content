@@ -3,13 +3,14 @@ title: "Arduino BT v1"
 source: "https://arduino.cc/en/Main/ArduinoBoardBluetoothNew"
 ---
 
-## Arduino BT (Bluetooth)
+## Arduino BT (Bluetooth®)
 
 ![](assets/ArduinoBT400.jpg)
 
 ### Overview
 
-The Arduino BT (Bluetooth) is a microcontroller board based on the ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)) and the Bluegiga WT11 Bluetooth® module ([details](http://www.bluegiga.com/wt11-1) and [datasheet](http://www.bluegiga.com/files/bluegiga/Pub%20files/WT11%5Fdatasheet.pdf) \[pdf\]). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](//www.arduino.cc/en/Guide/ArduinoBT).
+The Arduino BT (Bluetooth®) is a microcontroller board based on the ATmega168 ([datasheet](./static/resources/datasheets/Datasheet-ATmega48-88-168-doc2545.pdf)) and the Bluegiga WT11 Bluetooth® module [datasheet](./static/resources/datasheets/WT11_Datasheet.pdf) \[pdf\]). It has 14 digital input/output pins (of which 6 can be used as PWM outputs and one can be used to reset the WT11 module), 6 analog inputs, a 16 MHz crystal oscillator, screw terminals for power, an ICSP header, and a reset button. It contains everything needed to support the microcontroller and can be programmed wirelessly over the Bluetooth® connection. Instructions are available for [getting started with the Arduino BT](//www.arduino.cc/en/Guide/ArduinoBT).
+
 
 ### Summary
 
@@ -85,7 +86,7 @@ The ATmega168 also supports I2C (TWI) and SPI communication. The Arduino softwar
 
 The Arduino BT can be programmed with the Arduino software ([download](//www.arduino.cc/en/Main/Software)). For details, see the [reference](//www.arduino.cc/en/Reference/HomePage) and [tutorials]((https://docs.arduino.cc/tutorials/).
 
-The ATmega168 on the Arduino BT comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod%5Fdocuments/avr061.zip)).
+The ATmega168 on the Arduino BT comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](/resources/datasheets/doc2525.pdf), [C header files](/resources/datasheets/assets/avr061.zip)).
 
 You can also bypass the bootloader and program the ATmega168 through the ICSP (In-Circuit Serial Programming) header; see [these instructions](https://docs.arduino.cc/hacking/software/Programmer) for details.
 
@@ -97,7 +98,7 @@ The maximum length and width of the BT are approximately 3.2 and 2.1 inches resp
 
 ## Arduino BT v1 Initialization Sketch
 
-This sketch is run once on each Arduino BT v1 to initialize the Bluetooth® module before the board is shipped (you shouldn't need to run this code; it's just here for reference). For details on the commands sent to the module, see the [iWrap data sheet](http://www.bluegiga.com/iWRAP%5Fsoftware).
+This sketch is run once on each Arduino BT v1 to initialize the Bluetooth® module before the board is shipped (you shouldn't need to run this code; it's just here for reference). For details on the commands sent to the module, see the [iWrap data sheet](./static/resources/datasheets/UG218.pdf).
 
 ```arduino
 /* BT test 01

@@ -1,7 +1,7 @@
 ---
 title: Getting Started with the Portenta Max Carrier
 description: This tutorial give you an overview of the core features of the Portenta Max Carrier. 
-difficulty: Beginner 
+difficulty: beginner 
 tags:
   - Getting Started
 author: José Bagur, Taddy Chung
@@ -27,7 +27,7 @@ The Arduino® Portenta Max Carrier provides developers an unlimited range of app
 
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7).
 - [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
-- USB-C cable (either USB-A to USB-C or USB-C to USB-C).
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®).
 - LoRa® antenna (868-915MHz) with SMA connector.
 - LTE antenna (698-960/1710-2690MHz) with SMA connector. 
 - 3.7V 2600mAh 18650 Li-Ion battery.
@@ -52,7 +52,7 @@ In this tutorial, we will describe the following features of the Portenta Max Ca
 
 #### 1.1. Power Distribution
 
-The Portenta Max Carrier provides several peripherals and modules to cover a wide spectrum of applications. For these peripherals and modules to be powered up and run, the Portenta Max Carrier bases on a sophisticated electric power distribution architecture. To power the Portenta Max Carrier, you can use the **barrel jack** connector (X1) or a **3.7V 18650 Li-Ion battery** connected to the Portenta Max Carrier's battery clips (J16 and J18). You can also power the Portenta Max Carrier directly from the USB-C connector of the Portenta H7 board.
+The Portenta Max Carrier provides several peripherals and modules to cover a wide spectrum of applications. For these peripherals and modules to be powered up and run, the Portenta Max Carrier bases on a sophisticated electric power distribution architecture. To power the Portenta Max Carrier, you can use the **barrel jack** connector (X1) or a **3.7V 18650 Li-Ion battery** connected to the Portenta Max Carrier's battery clips (J16 and J18). You can also power the Portenta Max Carrier directly from the USB-C® connector of the Portenta H7 board.
 
 You can see the detailed Portenta Max Carrier's power tree in the image below:
 
@@ -62,7 +62,7 @@ The Portenta Max Carrier's power inputs are indicated in the following image:
 
 ![Portenta Max Carrier Power Input](assets/mc_ard_power.png)
 
-These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger while it is also possible to upload the Code. This power line use case will be useful to develop and debug the code.
+These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C® cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger while it is also possible to upload the Code. This power line use case will be useful to develop and debug the code.
 
 **If the Arduino IDE throws an error failing to upload the Code, please put the Portenta H7 in Bootloader Mode before uploading.**
 
@@ -113,7 +113,7 @@ The Portenta Max Carrier equips two different memory units on-board: Flash Memor
 
 **On-Board Flash Memory**
 
-- The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI (Quad Serial Peripheral Interface).
+- The Flash memory on-board the Portenta Max Carrier has 2 MB of storage via QSPI (Quad Serial Peripheral Interface).
 
 ***For more information on how to use the Flash Memory storage, please follow this [guide](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory) to get most out of the Flash Memory.***
 
@@ -209,7 +209,7 @@ For all the information detailed as above for it to be used, we will need to dev
 
 #### 4.1. Using Arduino® IDE 2
 
-The Arduino® IDE 2 allows the developers to design and upload the code to Portenta H7 in offline. It will also help you with organizing packages needed to program the Portenta H7. It will require a USB-C Type cable that will allow to connect and program the Portenta H7. In [here](https://www.arduino.cc/en/software), you will be able to find the latest version of the Arduino IDE 2.
+The Arduino® IDE 2 allows the developers to design and upload the code to Portenta H7 in offline. It will also help you with organizing packages needed to program the Portenta H7. It will require a USB-C® Type cable that will allow to connect and program the Portenta H7. In [here](https://www.arduino.cc/en/software), you will be able to find the latest version of the Arduino IDE 2.
 
 ***If you want to know how to setup the Arduino® IDE 2 adequately, please look into [Quick Guide to Arduino® IDE 2.0](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).***
 

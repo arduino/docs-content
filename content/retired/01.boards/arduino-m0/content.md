@@ -21,7 +21,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=63.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 ## Documentation
 
@@ -71,7 +71,7 @@ The Arduino M0 has a number of facilities for communicating with a computer, wit
 
 ### Programming
 
-The Arduino M0 can be programmed with the Arduino software ([download](https://www.arduino.cc/en/Main/Software)). If you use Linux-based OS follow the guide [Arduino IDE](http://www.arduino.org/learning/getting-started/arduino-ide-on-linux-based-os) on Linux-based OS. Uploading sketches to the SAMD21 is different from how it works with the AVR microcontrollers found in other Arduino boards: the flash memory needs to be erased before being re-programmed. Upload operation is managed by a dedicated ROM area on the SAMD21\. USB port: To use this port, select "Arduino M0 (Native USB Port)" as your board in the Arduino IDE. The Native USB port is connected directly to the SAMD21\. Connect the M0 Native USB port (the one closest to the reset button) to your computer. Opening and closing the Native port at 1200bps triggers a 'soft erase' procedure: the flash memory is erased and the board is restarted with the boot loader. Opening and closing the native port at a different baudrate will not reset the SAMD21.
+The Arduino M0 can be programmed with the Arduino software ([download](https://www.arduino.cc/en/Main/Software)). If you use Linux-based OS follow the guide [Arduino IDE](https://docs.arduino.cc/software/ide-v1/tutorials/Linux) on Linux-based OS. Uploading sketches to the SAMD21 is different from how it works with the AVR microcontrollers found in other Arduino boards: the flash memory needs to be erased before being re-programmed. Upload operation is managed by a dedicated ROM area on the SAMD21\. USB port: To use this port, select "Arduino M0 (Native USB Port)" as your board in the Arduino IDE. The Native USB port is connected directly to the SAMD21\. Connect the M0 Native USB port (the one closest to the reset button) to your computer. Opening and closing the Native port at 1200bps triggers a 'soft erase' procedure: the flash memory is erased and the board is restarted with the boot loader. Opening and closing the native port at a different baudrate will not reset the SAMD21.
 
 ### USB Overcurrent Protection
 

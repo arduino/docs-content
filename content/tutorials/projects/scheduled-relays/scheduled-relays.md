@@ -4,7 +4,7 @@ description: "This project will show you how to schedule to drive the outputs on
 coverImage: "assets/tsx00003_iso_YCZrEamvd2.jpg"
 tags: [relay]
 author: "Arduino_Genuino"
-difficulty: easy
+difficulty: beginner
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/scheduled-relays-3c4ad2"
 ---
 

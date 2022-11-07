@@ -74,7 +74,7 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 ### Recommended Operating Conditions
 | Symbol | Description                                       | Min        | Max     |
 | ------ | ------------------------------------------------- | ---------- | ------- | 
-|        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
+|   TOP  |  Operating temperature:                           |  -40 °C    | 85 °C   |
 
 
 

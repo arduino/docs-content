@@ -1,6 +1,6 @@
 ---
 title: 'Accessing IMU Data on Nano RP2040 Connect'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-rp2040-connect]
 description: 'Learn how to access the data from the accelerometer and gyroscope that comes with the LSM6DSOX IMU module.'
 tags: 

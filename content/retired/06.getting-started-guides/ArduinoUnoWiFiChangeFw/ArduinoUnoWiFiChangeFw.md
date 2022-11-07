@@ -188,7 +188,7 @@ USB2SerialArduino Uno WiFiRXRXTXTXGNDGND
 
 - Select the second row and insert the user1.bin file and set the address: 0x40000.
 
-- Select the third row and insert the esp_init_data_default.bin_rep fileand set the address: 0x7C000.
+- Select the third row and insert the esp_init_data_default.bin_rep file and set the address: 0x7C000.
 
 - Select the quarter row and insert the blank.bin file and set the address: 0x7E000, as shown in the picture.
 

@@ -7,7 +7,7 @@ sku: "A000069"
 source: "https://store.arduino.cc/arduino-mega-adk-rev3"
 ---
 
-![The Arduino Meda ADK Rev3 board](./assets/A000069_front_2.jpg)
+![The Arduino Mega ADK Rev3 board](./assets/A000069_front_2.jpg)
 
 The **Arduino MEGA ADK** is a microcontroller board based on the ATmega2560\. It has a USB host interface to connect with Android based phones, based on the MAX3421e IC. It has 54 digital input/output pins (of which 15 can be used as PWM outputs), 16 analog inputs, 4 UARTs(hardware serial ports), a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button.
 
@@ -30,12 +30,10 @@ You can find your board warranty information [here](https://www.arduino.cc/en/Ma
 
 In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoADK), you can find all the information you need to configure your board, use the [Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software), and start to tinker with coding and electronics.
 
-[Google's ADK documentation](https://developer.android.com/adk/index.html).
-
 ### Need Help?
 
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 ### Documentation
 
@@ -76,7 +74,7 @@ Each of the 50 digital pins on the MEGA ADK can be used as an input or output, u
 * Serial: 0 (RX) and 1 (TX); Serial 1: 19 (RX) and 18 (TX); Serial 2: 17 (RX) and 16 (TX); Serial 3: 15 (RX) and 14 (TX). Used to receive (RX) and transmit (TX) TTL serial data. Pins 0 and 1 are also connected to the corresponding pins of the ATmega8U2 USB-to-TTL Serial chip.
 * External Interrupts: 2 (interrupt 0), 3 (interrupt 1), 18 (interrupt 5), 19 (interrupt 4), 20 (interrupt 3), and 21 (interrupt 2). These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/en/Reference/AttachInterrupt) function for details.
 * PWM: 2 to 13 and 44 to 46\. Provide 8-bit PWM output with the [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function.
-* SPI: 50 (MISO), 51 (MOSI), 52 (SCK), 53 (SS). These pins support SPI communication using the[SPI library](https://www.arduino.cc/en/Reference/SPI). The SPI pins are also broken out on the ICSP header, which is physically compatible with the Uno, Duemilanove and Diecimila.
+* SPI: 50 (MISO), 51 (MOSI), 52 (SCK), 53 (SS). These pins support SPI communication using the [SPI library](https://www.arduino.cc/en/Reference/SPI). The SPI pins are also broken out on the ICSP header, which is physically compatible with the Uno, Duemilanove and Diecimila.
 * USB Host: MAX3421E.
 
 The MAX3421E communicate with Arduino with the SPI bus. So it uses the following pins:

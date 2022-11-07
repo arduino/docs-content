@@ -1,8 +1,8 @@
 ---
 title: 'LoRaWAN® Regional Parameters in the Arduino® MKRWAN 1310'
-description: 'Learn how to set up specific LoRaWAN regional parameters in the LoRa® module of the Arduino® MKR WAN 1310 board using the Arduino MKRWAN library.'
+description: 'Learn how to set up specific LoRaWAN® regional parameters in the LoRa® module of the Arduino® MKR WAN 1310 board using the Arduino MKRWAN library.'
 tags: 
-  - LoRaWAN
+  - LoRaWAN®
   - Regional parameters
   - MKR WAN 1310
   - MKRWAN
@@ -17,7 +17,7 @@ In this tutorial, we will learn how to set up specific LoRaWAN® regional parame
 
 - Learn LoRaWAN® networking protocol basics. 
 - Learn about the [LoRaWAN® Regional Parameters](https://lora-alliance.org/wp-content/uploads/2020/11/RP_2-1.0.2.pdf) specification.
-- Use the Arduino [MKRWAN library](https://github.com/arduino-libraries/MKRWAN) for setting up specific LoRaWAN® regional parameters in the LoRa module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) board.
+- Use the Arduino [MKRWAN library](https://github.com/arduino-libraries/MKRWAN) for setting up specific LoRaWAN® regional parameters in the LoRa® module (Murata CMWX1ZZABZ-078) of the [Arduino® MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310) board.
 
 ### Required Hardware and Software
 
@@ -32,12 +32,12 @@ LoRaWAN® is a "Low Power Wide Area (LPWA) end-to-end system architecture design
 
 LoRaWAN® **fundamental characteristics** are the following:
 
-* **Long-range**: typically two to 5 km in urban areas (obstacles) and 5 to 15 km in rural areas. 
-* **Long battery duration**: up to 10 years without a replacement (note that long battery duration will require an increased downlink latency configuration). 
-* **Low cost**: regarding sensors and maintenance. 
+* **Long-range**: typically two to 5 km in urban areas (obstacles) and 5 to 15 km in rural areas.
+* **Long battery duration**: up to 10 years without a replacement (note that long battery duration will require an increased downlink latency configuration).
+* **Low cost**: regarding sensors and maintenance.
 * **License-free spectrum**: LoRaWAN® networks operates on license-free and cost-​free ISM (Industrial, Scientific, Medical) bands; however, **region-specific regulations apply**. 
-* **Limited payload**: 51 to 256 bytes (depending on data rate). 
-* **Limited data rate**: 0.3 to 27 kbps. 
+* **Limited payload**: 51 to 256 bytes (depending on data rate).
+* **Limited data rate**: 0.3 to 27 Kbps.
 
 The LoRa Alliance® specifies the LoRaWAN® networking protocol in the **LoRaWAN® specification** documents. These documents are developed and maintained by the LoRa® Alliance, an open association of collaborating members. As stated before, though LoRaWAN® operates on **license-free and cost-​free ISM bands**, **manufacturers and operators of LoRaWAN® devices still have to fulfill various country-specific regulations**. 
 

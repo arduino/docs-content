@@ -1,5 +1,5 @@
 ---
-title: 'Host a Web Server on the MKR 1000'
+title: 'Host a Web Server on the MKR 1000 WiFi'
 difficulty: advanced
 compatible-products: [mkr-1000-wifi]
 description: 'Learn how to access your board through a browser on the same Wi-Fi network.'
@@ -21,7 +21,7 @@ software:
 
 ## Introduction
 
-In this tutorial, we will use the MKR 1000 board to set up a simple web server, using the **WiFi101** library. The web server will be used as an interface for our board, where we will create two buttons to remotely turn ON or OFF an LED.
+In this tutorial, we will use the MKR 1000 WiFi board to set up a simple web server, using the **WiFi101** library. The web server will be used as an interface for our board, where we will create two buttons to remotely turn ON or OFF an LED.
 
 This tutorial is a great starting point for any maker interested in making applications connected to the Internet.
 
@@ -37,7 +37,7 @@ This tutorial is a great starting point for any maker interested in making appli
 
 ### Circuit
 
-Follow the wiring diagram below to connect the LED to the MKR 1000 board.
+Follow the wiring diagram below to connect the LED to the MKR 1000 WiFi board.
 
 ![Circuit with board, resistor and LED.](assets/MKR1000_T2_IMG01.png)
 
@@ -223,7 +223,7 @@ Copy the IP address and enter it in a browser. Now, we should see a very empty p
 
 ![Accessing the board from the browser.](assets/MKR1000_T2_IMG04.png)
 
-When interacting with the links, you should see the LED, connected to pin 2, turn on and off depending on what you click. Now we have successfully created a way of interacting with our MKR 1000 board remotely.
+When interacting with the links, you should see the LED, connected to pin 2, turn on and off depending on what you click. Now we have successfully created a way of interacting with our MKR 1000 WiFi board remotely.
 
 ### Troubleshoot
 

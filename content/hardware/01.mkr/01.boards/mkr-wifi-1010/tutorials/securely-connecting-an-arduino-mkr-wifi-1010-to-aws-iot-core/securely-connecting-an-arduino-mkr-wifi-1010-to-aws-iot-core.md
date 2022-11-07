@@ -1,6 +1,6 @@
 ---
 title: "Securely Connecting an Arduino MKR WiFi 1010 to AWS IoT Core"
-description: "In this tutorial, you'll learn how to connect your Arduino MKR WiFi 1010 (or MKR 1000) board securely to AWS IoT Core."
+description: "In this tutorial, you'll learn how to connect your Arduino MKR WiFi 1010 (or MKR 1000 WiFi) board securely to AWS IoT Core."
 coverImage: "assets/blob_fXIeojA4b3.png"
 tags: [aws, iot, mkr]
 author: "Arduino_Genuino"
@@ -134,9 +134,9 @@ Now that we have a CSR to identify the board, we need to login into the AWS cons
 
 ## Connecting the Board to AWS IoT Core
 
-1) Open the AWS IoT WiFi sketch in the Arduino IDE using the **File -> Examples -> Arduino Cloud Provider Examples -> AWSIoT-> AWS_IoT_WiFi.**
+1) Open the AWS IoT Wi-Fi sketch in the Arduino IDE using the **File -> Examples -> Arduino Cloud Provider Examples -> AWSIoT-> AWS_IoT_WiFi.**
 
-2) In the arduino_secrets.h tab. update the WiFi settings with the SSID and password of your WiFi network.
+2) In the arduino_secrets.h tab. update the Wi-Fi settings with the SSID and password of your Wi-Fi network.
 
 ```arduino
 // Fill in  your WiFi networks SSID and password
@@ -161,7 +161,7 @@ const char SECRET_CERTIFICATE[] = R"(
 )";
 ```
 
-5) Upload the sketch to your board and open the serial monitor. The board will attempt to connect to the WiFi network and if successful try to connect to AWS IoT using MQTT.
+5) Upload the sketch to your board and open the serial monitor. The board will attempt to connect to the Wi-Fi network and if successful try to connect to AWS IoT using MQTT.
 
 ### Interacting with the Board on AWS IoT Core
 

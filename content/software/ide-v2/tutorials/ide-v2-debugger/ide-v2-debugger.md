@@ -17,7 +17,7 @@ A debugger is a software tool which is used to test and debug programs, hence th
 
 It basically goes through a program in a controlled manner, with the help of a hardware interface which can help navigate through the program's execution. This can be of aid in better understanding the program as well as helping spot potential flaws and code errors.
 
-*** You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). ***
+*** You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). ***
 
 ### Compatible Boards
 
@@ -78,9 +78,9 @@ Once you have your hardware set up, we can continue to explore the Debugger tool
 
 The Debugger is a brand new tool integrated in the Arduino IDE 2.0. You can easily access it from the sidebar on the left, grouped with the **Board Manager**, **Library Manager**, **Search** and **Sketchbook Explorer**. 
 
-Mind that doing so will only show you its interface, but the real magic happens when you click the **crossed out bug icon** in the buttons menu at the top.
-
 ![The Debugger button.](assets/debugger-img01.png)
+
+Mind that doing so will only show you its interface, but the real magic happens when you click the **bug icon** in the buttons menu.
 
 Now, in order to use the debugger, we need specific hardware instruments, the choice of which is very dependent on what kind of board/processor you are using, and you will almost always need an external debugger.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Reading Data From the MKR ENV Shield'
-difficulty: easy
+difficulty: beginner
 compatible-products: [mkr-env-shield]
 description: 'Learn how to access the different sensors, such as temperature, humidity & pressure.'
 tags:

@@ -5,7 +5,7 @@ compatible-products: [mkr-wan-1310]
 description: 'Learn how to send environmental data with LoRa® using two MKR WAN 1310 and a MKR ENV shield.'
 tags: 
   - IoT
-  - LoRa®
+  - LoRa
   - Environmental data
 author: 'Karl Söderby'
 libraries: 
@@ -21,7 +21,7 @@ software:
   - web-editor
 ---
 
-In this tutorial, we will set up a configuration that allows two MKR WAN 1310's to send and receive sensor data. We will use the **LoRa®** library to send data, and we will not use any external service. The sensor data will be recorded through the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), a shield that can record temperature, humidity, barometric pressure & ambient light.
+In this tutorial, we will set up a configuration that allows two MKR WAN 1310's to send and receive sensor data. We will use the **LoRa** library to send data, and we will not use any external service. The sensor data will be recorded through the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), a shield that can record temperature, humidity, barometric pressure & ambient light.
 
 ___
 
@@ -33,7 +33,7 @@ ___
 - 2x Micro USB cable
 - Arduino IDE (offline and online versions available).
 - Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010).
-- **LoRa®** library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
+- **LoRa** library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
 - **Arduino_MKRENV** installed, [click here for more documentation](https://www.arduino.cc/en/Reference/ArduinoMKRENV).
 
 
@@ -100,7 +100,7 @@ int counter = 0;
 
 In the `setup()` we will begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 As we are using the MKR ENV shield, we also need to initialize the **Arduino_MKRENV** library by using the line `if (!ENV.begin())` followed by an error message in case it failed to initialize.
 
@@ -228,7 +228,7 @@ Now that we have communication between the boards, we can do a simple test with 
 
 ### Making Sender Device Mobile
 
-As of now, we have a quite immobile setup, but this can be fixed by making the sender device mobile. A good way of testing this out is to make the sender device run on a battery instead. The MKR WAN 1310 has a battery connector that any battery with a JST connector can connect to. A standard 3.7 LiPo battery can power the MKR WAN 1310 for a longer time.
+As of now, we have a quite immobile setup, but this can be fixed by making the sender device mobile. A good way of testing this out is to make the sender device run on a battery instead. The MKR WAN 1310 has a battery connector that any battery with a JST PH connector can connect to. A standard 3.7 LiPo battery can power the MKR WAN 1310 for a longer time.
 
 ### Troubleshoot
 

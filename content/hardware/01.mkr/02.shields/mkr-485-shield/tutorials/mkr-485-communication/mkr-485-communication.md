@@ -37,7 +37,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino RS485](https://www.arduino.cc/en/Reference/ArduinoRS485) library installed
-- 2x MKR 485 Shield ([link to store](https://store.arduino.cc/arduino-mkr-gps-shield))
+- 2x MKR 485 Shield ([link to store](https://store.arduino.cc/arduino-mkr-485-shield))
 - 2x Arduino MKR family board ([link to store](https://store.arduino.cc/arduino-genuino/arduino-genuino-mkr-family))
 - Flathead screwdriver
 - Jumper wires
@@ -46,7 +46,7 @@ The goals of this project are:
 
 RS485 is used as a physical layer for many industrial automation protocols, such as the **Modbus** protocol. It was created for the purpose of transferring data at high speeds in noisy electrical environments, typically industrial facilities. It is also commonly known as TIA-485 and EIA-485, whose names derive from the **Telecommunications Industry Association** and **Electronic Industries Alliance**. These organizations also collaborate on publishing the standard. 
 
-RS485 is able to provide speeds of up to 10 Mbps for short distances (15 meters, 50 feet), but distances can be extended if the speed is reduced to around 100 kbps (1200 meters, 4000 feet). A common setup is to have one controller* device, with several peripheral* devices.
+RS485 is able to provide speeds of up to 10 Mbps for short distances (15 meters, 50 feet), but distances can be extended if the speed is reduced to around 100 Kbps (1200 meters, 4000 feet). A common setup is to have one controller* device, with several peripheral* devices.
 
 >**Note:** Controller/peripheral is formerly known as **master/slave**. Arduino no longer supports the use of this terminology. 
 

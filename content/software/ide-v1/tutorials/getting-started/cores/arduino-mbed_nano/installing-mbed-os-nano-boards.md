@@ -1,7 +1,7 @@
 ---
 title: Installing Mbed OS Nano boards
 compatible-products: [nano-33-ble, nano-33-ble-sense, nano-rp2040-connect]
-difficulty: easy
+difficulty: beginner
 description: 'A step-by-step guide to install the core needed for the Nano 33 BLE, Nano 33 BLE Sense and Nano RP2040 Connect boards.'
 author: 'Karl Söderby'
 ---

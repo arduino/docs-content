@@ -8,10 +8,10 @@ author: Ali Jahangiri
 ![](assets/featured.png)
 
 # Description
-The Arduino® Portenta X8 is a high performance single board computer designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini hosting an embedded Linux OS with the STM32H7 to leverage Arduino libraries/skills. Shield and carrier boards are available to extend the functionality of the X8 or alternatively can be used as reference designs to develop your own custom solutions.
+The Arduino® Portenta X8 is a high performance system on module designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini hosting an embedded Linux OS with the STM32H7 to leverage Arduino libraries/skills. Shield and carrier boards are available to extend the functionality of the X8 or alternatively can be used as reference designs to develop your own custom solutions.
 
 # Target Areas
-Edge computing, industrial internet of things, single board computer, artificial intelligence
+Edge computing, industrial internet of things, system on module, artificial intelligence
 
 # Features 
 <table>
@@ -120,7 +120,7 @@ Edge computing, industrial internet of things, single board computer, artificial
          <td>16GB Foresee® eMMC Flash module</td>
       </tr>
       <tr>
-         <td rowspan="4" ><strong>USB-C</strong></td>
+         <td rowspan="4" ><strong>USB-C®</strong></td>
          <td>High Speed USB</td>
          <td></td>
       </tr>
@@ -274,8 +274,8 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 - **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
 ## Accessories (Not Included)
-- USB-C Hub
-- USB-C to HDMI Adapter
+- USB-C® Hub
+- USB-C® to HDMI Adapter
 
 ## Related Products
 - Arduino® Portenta Breakout Board (ASX00031)
@@ -318,14 +318,14 @@ The use of a USB 3.0 compatible port will ensure that current requirements for t
 | **Ref.** | **Description**                                | **Ref.**        | **Description**                                              |
 | -------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------ |
 | U1       | BD71847AMWV i.MX 8M Mini  PMIC                 | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
-| U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C™ Bridge IC                |
+| U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C® Bridge IC                |
 | U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth® Combo IC                      |
 | U12      | PCMF2USB3B/CZ Bidirectional EMI Protection IC  | U16,U21,U22,U23 | FXL4TD245UMX 4-Bit Bidirectional Voltage-level Translator IC |
 | U17      | DSC6151HI2B 25MHz MEMS Oscillator              | U18             | DSC6151HI2B 27MHz MEMS Oscillator                            |
 | U19      | NT6AN512T32AV 2GB LP-DDR4 DRAM                 | IC1,IC2,IC3,IC4 | SN74LVC1G125DCKR 3-state 1.65-V to 5.5-V buffer IC           |
 | PB1      | PTS820J25KSMTRLFS Reset Push Button            | Dl1             | KPHHS-1005SURCK Power On SMD LED                             |
 | DL2      | SMLP34RGB2W3 RGB Common Anode SMD LED          | Y1              | CX3225GB24000P0HPQCC 24MHz crystal                           |
-| Y3       | DSC2311KI2-R0012 Dual-Output MEMS Oscillator   | J3              | CX90B1-24P USB Type-C connector                              |
+| Y3       | DSC2311KI2-R0012 Dual-Output MEMS Oscillator   | J3              | CX90B1-24P USB Type-C® connector                              |
 | J4       | U.FL-R-SMT-1(60) UFL Connector                 |
 
 
@@ -362,14 +362,14 @@ The Arduino® Portenta X8 enables IC level edge-to-cloud security capability thr
 ## Gigabit Ethernet
 The NXP® i.MX 8M Mini Quad includes a 10/100/1000 Ethernet controller with support for Energy Efficient Ethernet (EEE), Ethernet AVB, and IEEE 1588. An external physical connector is required to complete the interface. This can be accessed via a high density connector with an external component such as the Arduino® Portenta Breakout board.
 
-## USB-C Connector
-![USB-C Pinout](assets/usbCPinout.png)
-The USB-C connector provides multiple connectivity options over a single physical interface:
+## USB-C® Connector
+![USB-C® Pinout](assets/usbCPinout.png)
+The USB-C® connector provides multiple connectivity options over a single physical interface:
 - Provide board power supply in both DFP and DRP mode
 - Source power to external peripherals when board is powered through VIN
 - Expose High Speed (480 Mbps) or Full Speed (12 Mbps) USB Host/Device interface
 - Expose Displayport output interface 
-The Displayport interface is usable in conjunction with USB and can be either used with a simple cable adapter when board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting Displayport and USB. Such dongles usually provide an ethernet over USB port, a 2 port USB hub and a USB-C port that can be used to provide power to the system.
+The Displayport interface is usable in conjunction with USB and can be either used with a simple cable adapter when board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting Displayport and USB. Such dongles usually provide an ethernet over USB port, a 2 port USB hub and a USB-C® port that can be used to provide power to the system.
 
 ## Real Time Clock
 The Real Time clock allows keeping time of day with a very low power consumption.

@@ -95,7 +95,7 @@ Now that we learned the basics of ML, let's use the Arduino Nano 33 BLE Sense bo
 
 An **edge device** is any kind of hardware that controls data flow at the boundary between two networks. Edge devices work, essentially, as entry or exit points in networks. **Edge Impulse** is one of the leading development platforms for ML on edge devices, their mission is to enable developers and device makers from all over the world to solve real world problems using ML models on edge devices. Let's use Edge Impulse to create a ML system or model and deploy it on your Nano 33 BLE Sense board.
 
-First, create an [Edge Impulse account](https://www.edgeimpulse.com/) and create a new project called **speech_detection**. 
+First, create an [Edge Impulse account](https://mltools.arduino.cc/studio/144605) through the Arduino platform, and create a new project called **speech_recognition**. 
 
 ![Create a project.](./assets/nano33BS_TML_3.png)
 
@@ -120,11 +120,17 @@ Now, open a command prompt or terminal and run:
 $ edge-impulse-daemon
 ```
 
-This will start a wizard that will ask you to log in into your Edge Impulse account and choose a project. If you have several projects in your account, and you want to switch between them, run:
+This will start a wizard that will ask you to log in into your Edge Impulse account and choose a project. 
+
+>**Note:** If you created your Edge Impulse account by logging in with another service such as Google, this step may give you an error as your account technically does not have a password. To fix this, reset the password of your account by clicking "Forgot your password?" and following the instructions.
+
+If you have several projects in your account, and you want to switch between them, run:
 
 ```
 $ edge-impulse-daemon --clean
 ```
+
+If you didn't already create a project, a new project will be automatically created for you in another platform, and you may not be able to find it. So make sure that you did create the speech_recognition project.
 
 ![Connecting to Edge Impulse.](./assets/nano33BS_TML_5.png)
 
@@ -139,11 +145,13 @@ Now, in your Edge Impulse account, navigate to **Devices** on the left menu. You
 
 We are ready to start acquiring data for our model! Let's train a ML model that would let you identify keywords in speech, with the keywords: **red**, **green** and **yellow**. 
 
-The first step is to create a representative dataset of the selected keywords that the ML model is supposed to identify. On Edge Impulse, navigate to **Data acquisition** on the left menu and then go to **Record new data**. On the **Device** option select the device you just have set up, on the **Sensor** option select the **built-in microphone**. Leave the **sample length** (in milliseconds) as 2,500 and the **Frequency** (in Hz) as 16,000.
+The first step is to create a representative dataset of the selected keywords that the ML model is supposed to identify. On Edge Impulse, navigate to **Data acquisition** on the left menu and then go to **Record new data**. On the **Device** option select the device you just have set up, on the **Sensor** option select the **built-in microphone**. Set the **sample length** (in milliseconds) to 2,500 and leave the **Frequency** (in Hz) as 16,000.
 
 ![Collecting new data.](./assets/nano33BS_TML_7.png)
 
 Now, in the **Label** write **red** and click on the **Start sampling** button. This will start sampling your Nano 33 BLE Sense board built-in microphone for 2500 milliseconds. In this period of time say the keyword **red**, but remember to have the microphone close to you. Record at least 50 samples and repeat this also for the other keywords, **green** and **yellow**. You should now start seeing the collected data (each recorded sample) and a graph of each recorded sample on Edge Impulse. 
+
+After recording your first sample you can listen back to it to make sure the recording is clear and there is no disturbing background noise.
 
 ![Recording a sample.](./assets/nano33BS_TML_8.png)
 
@@ -163,7 +171,7 @@ This is a very basic example of data collection with Edge Impulse. If you want t
 
 ## Creating an Impulse 
 
-Now that we have all the data samples, it's time to design an **impulse**. An impulse, in a nutshell, is how your ML model is being trained, is where you define the actions that are going to be performed on your input data to make them better suited for ML and a learning block that defines the algorithm for the data classification. Navigate to **Impulse design** on the left menu and then select **Add a processing block** and add **Audio (MFCC)**, then select **Add learning block** and add **Neural Network (Keras)**. Keep all of the settings at their defaults for each block. Click on the **Save impulse** button.
+Now that we have all the data samples, it's time to design an **impulse**. An impulse, in a nutshell, is how your ML model is being trained, is where you define the actions that are going to be performed on your input data to make them better suited for ML and a learning block that defines the algorithm for the data classification. Navigate to **Impulse design** on the left menu and then select **Add a processing block** and add **Audio (MFCC)**, then select **Add learning block** and add **Classification (Keras)**. Keep all of the settings at their defaults for each block. Click on the **Save impulse** button.
 
 ![Designing an impulse.](./assets/nano33BS_TML_10.png)
 
@@ -173,15 +181,15 @@ Now, let's generate the features from the input data. With **features** we are r
 
 Click on the **Save parameters** button and then go to the **Generate features** tab and click on the **Generate features** button. This process might take some time to complete depending on the size of your dataset. When the process is done you can inspect the obtained results. 
 
-On the right side you can see a 3D representation of your dataset features. In my dataset, the red and green keywords features are somewhat overlapping, while the yellow keyword features seems to be far away from the red and green features. This might change on your dataset. 
+On the right side you can see a representation of your dataset features.
 
 ![Click on generate features.](./assets/nano33BS_TML_11.png)
 
 ## Training the ML Model
 
-Now that you have your dataset features ready to be used, navigate to **NN Classifier** on the left menu. Change the **Minimum confidence rating** setting from 0.60 to 0.70 and keep the rest of the settings at their defaults. 
+Now that you have your dataset features ready to be used, navigate to **NN Classifier** on the left menu. Keep the settings at their defaults. 
 
-Next, click on **Start training** to train the ML model, this might take some time to complete depending on the size of your dataset. Once it's done, you will see some statistical parameters that tell you how good the model performed during the validation process. You should see a high accuracy for each parameter, something near to 100%. If the statistical parameters results are poor, something far form 100%, you should take a look into your dataset and cure it by removing the not representative recordings.
+Next, click on **Start training** to train the ML model, this might take some time to complete depending on the size of your dataset. Once it's done, you will see some statistical parameters that tell you how good the model performed during the validation process. You should see a high accuracy for each parameter, something near to 100%. If the statistical parameters results are poor, something far from 100%, you should take a look into your dataset and cure it by removing the not representative recordings.
 
 ![The training output.](./assets/nano33BS_TML_12.png)
 
@@ -200,8 +208,6 @@ Now, open the Arduino library you just created with Edge Impulse. Remember to di
 ![Importing the library (the .zip file).](./assets/nano33BS_TML_15.png)
 
 Navigate to **File**, select **Examples** and navigate to **Examples from Custom Libraries**. Here you should see an example named **"speech_detection Inferencing"**. Select the **nano_ble_33_sense_microphone_continuous**. This should open a sketch with the code that will let you test the ML model you trained before with Edge Impulse. Compile it and upload it to your Nano 33 BLE Sense board. Remember to select the **Arduino Nano 33 BLE Sense** as your board and associated serial port.  
-
-![Select the microphone.](./assets/nano33BS_TML_16.png)
 
 Open the **Serial Monitor**, you should now see the ML model working. In order to make sure its working properly, after the keyword labels (green, noise, red and yellow) you should see the predictions being printed to the screen. When the ML model detects the keywords green, red or yellow on speech, one of the predictions output, or probability, should go up and get closer to one.
 
@@ -240,4 +246,4 @@ Nowadays, ML is all around us in the world. From social media to maps for naviga
 
 - [The Future of ML is Tiny and Bright](https://www.edx.org/professional-certificate/harvardx-tiny-machine-learning) - In this exciting Professional Certificate program offered by Harvard University and Google TensorFlow, you will learn about the emerging field of Tiny Machine Learning (TinyML), its real-world applications, and the future possibilities of this transformative technology.
 
-- [Training a Custom Machine Learning Model for Portenta H7](https://www.arduino.cc/pro/tutorials/portenta-h7/vs-openmv-ml) - Sebastian Romero teaches you how to train a custom machine learning model with Edge Impulse and to run it using the Portenta Vision Shield. This tutorial was based on Sebastian's work with Edge Impulse and the Portenta H7. 
+- [Training a Custom Machine Learning Model for Portenta H7](https://www.arduino.cc/pro/tutorials/portenta-vision-shield/custom-machine-learning-model) - Sebastian Romero teaches you how to train a custom machine learning model with Edge Impulse and to run it using the Portenta Vision Shield. This tutorial was based on Sebastian's work with Edge Impulse and the Portenta H7. 

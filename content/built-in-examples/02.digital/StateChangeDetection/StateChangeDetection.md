@@ -1,7 +1,7 @@
 ---
 title: 'State Change Detection (Edge Detection) for pushbuttons'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Count the number of button pushes.'
 tags: 
   - Digital

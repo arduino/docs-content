@@ -1,0 +1,24 @@
+Kit:
+  Name: Arduino® Edge Control Enclosure Kit
+  SKU: AKX00031
+Standards:
+  Ingress Protection: IP40
+  Mounting System: DIN rail
+Operating Temperatures:
+  Min: -40º C (104º F)
+  Max: 85º C (185º F)
+Weight: 165 g
+Dimensions:
+  Width: 11 mm
+  Length: 9 mm
+  Height: 6 mm
+Included components:
+  Breakout:
+    LCD:
+      ID: NDS1602A
+      Rows: 2
+      Columns: 16
+    Push-button:
+      Included
+    Flat cable: IDC Cable wired both Display and Push-button
+Not included: Edge Control 

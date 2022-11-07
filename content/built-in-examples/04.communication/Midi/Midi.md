@@ -20,7 +20,7 @@ MIDI bytes are divided into two types: **command bytes** and **data bytes**. Com
 
 MIDI data is usually notated in hexadecimal because MIDI banks and instruments are grouped in groups of 16.
 
-For more see this [introduction to MIDI](http://www.tigoe.net/pcomp/code/communication/midi) or this [example](https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-midi-output-using-an-arduino/).
+For more see this [introduction to MIDI](https://web.archive.org/web/20220331023548/https://www.tigoe.com/pcomp/code/communication/midi/) (web archive link) or this [example](https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-midi-output-using-an-arduino/).
 
 ### Hardware Required
 

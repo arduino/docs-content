@@ -3,7 +3,7 @@ title: "Download and Store Web Data © GPL3+"
 description: "How to use the Arduino HTTP Client library to download a raw text page and store its content on an SD card."
 coverImage: "assets/mkr1000_-_mkr_sd_proto_shield_pWAhuqrpzk.jpg"
 tags: [http, mkr1000, wifi]
-difficulty: easy
+difficulty: beginner
 author: "Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/download-and-store-web-data-37ef55"
 ---

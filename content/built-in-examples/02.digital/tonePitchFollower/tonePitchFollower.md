@@ -1,7 +1,7 @@
 ---
 title: 'Pitch follower using the tone() function'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Play a pitch on a piezo speaker depending on an analog input.'
 tags: 
   - Digital

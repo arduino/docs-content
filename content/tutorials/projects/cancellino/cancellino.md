@@ -3,7 +3,7 @@ title: "Cancellino"
 description: "Control everything with a SINGLE phone call."
 coverImage: "assets/blob_c9oY2qvB4r.png"
 tags: [home automation, internet of things, remote control]
-difficulty: easy
+difficulty: beginner
 author: "FabLab_CastelfrancoVeneto, Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/133225/cancellino-003d6e"
 ---

@@ -42,7 +42,7 @@ When an SMS is received, the content is checked to find out if it contains the l
 
 The GSM module does not have a GPS receiver, but the manufacturer has a database of the location of each cell of the GSM network and therefore it provides coordinates for each cell ID supplied. This system is quite accurate in urban areas, where each cell covers a small areas. In rural areas the coverage of each cell is much bigger and the location provided is with coarser approximation. 
 
-To create the link for Google Maps we use a standard URL where we just concatenate the proper Long and Lat values at the end. This URL looks like "https://www.google.com/maps/place/latvalue,longvalue". The position shown on the map will be the one where the cell is phisically based; our board is within the radius covered by the cell. 
+To create the link for Google Maps we use a standard URL where we just concatenate the proper Long and Lat values at the end. This URL looks like "https://www.google.com/maps/place/latvalue,longvalue". The position shown on the map will be the one where the cell is physically based; our board is within the radius covered by the cell. 
 
 ### The Sketch
 

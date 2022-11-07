@@ -248,7 +248,7 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 In this tutorial, we have combined the use of the GSM technology, the MQTT communication protocol and environmental sensors. Practically speaking, we have created a tiny weather station that can provide accurate weather conditions which can be deployed anywhere with GSM coverage.
 
->**Tip:** As the hardware (MKR GSM 1400 + MKR ENV shield) are both designed to consume little power, we can get creative with the [ArduinoLowPower](https://www.arduino.cc/en/Reference/ArduinoLowPower) library to deploy a complete standalone weather station. The MKR GSM 1400 can be directly powered with a 3.7V LiPo battery with a JST connector. 
+>**Tip:** As the hardware (MKR GSM 1400 + MKR ENV shield) are both designed to consume little power, we can get creative with the [ArduinoLowPower](https://www.arduino.cc/en/Reference/ArduinoLowPower) library to deploy a complete standalone weather station. The MKR GSM 1400 can be directly powered with a 3.7V LiPo battery with a JST PH connector. 
 
 Feel free to explore the [MKRGSM](https://www.arduino.cc/en/Reference/GSM) library further, and try out some of the many cool functions in this library. You can also check out the [MQTT](https://github.com/256dpi/arduino-mqtt) repository on GitHub. 
 

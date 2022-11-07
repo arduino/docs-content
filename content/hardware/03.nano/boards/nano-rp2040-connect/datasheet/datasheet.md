@@ -334,28 +334,18 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-**IC SAR Warning:**
-
-English 
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
-
-French: 
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
-
-**Important:** The operating temperature of the EUT can’t exceed 80℃ and shouldn’t be lower than -20℃.
-
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
 
 | Frequency bands | Maximum Effective Isotropic Radiated Power (EIRP) |
 | --------------- | -------------------------- |
-| TBC | TBC                     |
+| TBC             | TBC                        |
 
 
 ## Company Information
 
-| Company name    | Arduino S.r.l.                                                |
-| --------------- | ------------------------------------------------------------- |
-| Company Address | Via Ferruccio Pelli 14, 6900 Lugano, TI (Ticino), Switzerland |
+| Company name    | Arduino S.r.l.                       |
+| --------------- | ------------------------------------ |
+| Company Address | Via Andrea Appiani, 2520900 MONZA    |
 
 ## Reference Documentation
 
@@ -376,5 +366,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
+| 12/07/2022 | 3            | General maintenance updates |
 | 02/12/2021 | 2            | Changes requested for certification |
 | 14/05/2020 | 1            | First Release |

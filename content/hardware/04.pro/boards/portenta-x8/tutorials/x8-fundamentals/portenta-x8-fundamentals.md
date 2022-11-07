@@ -1,6 +1,6 @@
 ---
 title: Portenta X8 Fundamentals
-difficulty: easy
+difficulty: beginner
 tags: [Linux, containers, factories, foundries]
 description: This article contains information about the fundamental concepts of the Portenta X8
 author: Benjamin Dannegård
@@ -39,7 +39,7 @@ A ready-made Linux distribution that packages everything seems most attractive f
 
 Foundries.io™ basically created their generic-but-not-too-generic distribution based on Yocto with minimal software installed, by default implementing top level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for professional applications. A custom OTA system update mechanism which is based on a client running on target and a robust cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container which may contain a whole distribution or a minimal distribution running only our app or our set of apps.
 
-In addition to that they developed the cloud side as well. In a nutshell you can use what's called FoundriesFactory, a cloud DevSecOps subscription service to build, test, deploy, and maintain secure, updatable IoT and Edge products. It provides a unique id and automatic builds of the base system and containers for this system in one place. When you flash a device (i.e. Portenta X8 board) with their image and connect it to the Internet it automatically registers itself, generating a random RSA key to your Factory. Let's now take a look at the Foundries.io Factory page.
+In addition to that they developed the cloud side as well. In a nutshell you can use what's called FoundriesFactory, a cloud DevSecOps subscription service to build, test, deploy, and maintain secure, updatable IoT and Edge products. It provides a unique id and automatic builds of the base system and containers for this system in one place. Let's now take a look at the Foundries.io Factory page.
 
 ### Foundries.io Factory
 
@@ -51,12 +51,12 @@ Your Factory page allows you to add members, so that you can easily keep track o
 
 On the "source" page of your Factory, you can find the four repositories that are used to customize the images. These are:
 
-- **ci-scripts.git**: CI scripts to build images for all the machines that need to be built.
-- **lmp-manifest.git**: Index of the repositories to be downloaded by repository to create the source work tree.
-- **meta-subscriber-overrides.git**: Yocto layer containing Arduino specific customizations (machine definition, device drivers, etc). 
-- **containers.git**: Container recipes
+- **ci-scripts.git**: Scripts that define the platform and container build jobs to the FoundriesFactory continuous integration system.
+- **lmp-manifest.git**: The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes **meta-partner-arduino**, the layer containing Arduino specific customizations (machine definition, device drivers, etc).
+- **meta-subscriber-overrides.git**: OE layer that defines what is included into your Factory image. You can add board specific customizations and overrides, add and remove packages provided in the default Linux microPlatform base.
+- **containers.git**: This is where containers and docker-compose apps are defined. It allows you to define what containers to build, and how to orchestrate them on the platform.
 
-While the "targets" page contains the images built by the Continuous integration system each time something is committed in the repositories. Committing to a repository will trigger building a target which can then be inspected in the "targets" page. Each target will compile for multiple platforms (as specified in the ci-scripts.git) and will generate all the required files to program the target.
+While the "targets" page contains the images built by the Continuous integration system each time something is committed in the repositories. Committing to **lmp-manifest.git** or **meta-subscriber-overrides.git** repositories will create a platform target, while committing to **containers.git** will create a container target. These targets will generate the artifacts for the platforms as specified in the **ci-scripts.git**, including all the required files to program the target in case of platform builds. You can inspect your FoundriesFactory targets in the "targets" page.
 
 ## Containers
 
@@ -64,7 +64,7 @@ Containers allow for easy deployment of Linux based processes, uploaded through 
 
 Foundries.io provides a service that builds images using the Yocto Project and specifically built around the Linux microPlatform (LmP) distribution they maintain. LmP contains an extensive set of software components needed for IoT applications. 
 
-Using [fioctl](https://docs.foundries.io/82/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your Factory. When the board is online and connected to the Factory you can easily push new apps to the board. Using fioctl command lines you only need to state the Factory, board and app.
+Using [fioctl](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. This will make it possible for you to easily upload containers to a board that is linked to your Factory. When the board is online and connected to the Factory you can easily push new apps to the board. Using fioctl command lines you only need to state the Factory, board and app.
 
 ### Benefits of Containers
 

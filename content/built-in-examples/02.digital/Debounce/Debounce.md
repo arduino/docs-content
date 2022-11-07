@@ -1,7 +1,7 @@
 ---
 title: 'Debounce on a Pushbutton'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Read a pushbutton, filtering noise.'
 tags: 
   - Digital

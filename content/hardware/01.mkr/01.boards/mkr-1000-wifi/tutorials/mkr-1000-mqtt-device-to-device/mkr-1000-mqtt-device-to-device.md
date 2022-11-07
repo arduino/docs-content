@@ -2,7 +2,7 @@
 title: 'Sending Data over MQTT'
 difficulty: advanced
 compatible-products: [mkr-1000-wifi]
-description: 'Learn how to use the MQTT protocol to send data between two MKR 1000 boards.'
+description: 'Learn how to use the MQTT protocol to send data between two MKR 1000 WiFi boards.'
 tags:
   - IoT
   - MQTT
@@ -23,9 +23,9 @@ software:
 
 ## Introduction 
 
-In this tutorial, we will create a setup that allows a MKR 1000 board to send data to another MKR1000 board, using MQTT (Message Queuing Telemetry Transport). The sender device, simply publishes a message to a broker service, which then can be subscribed to by a receiver device. 
+In this tutorial, we will create a setup that allows a MKR 1000 WiFi board to send data to another MKR1000 board, using MQTT (Message Queuing Telemetry Transport). The sender device, simply publishes a message to a broker service, which then can be subscribed to by a receiver device. 
 
-The data we will send is simply random readings from the analog inputs on the MKR 1000 board, but can easily be replaced by any sensor. This tutorial uses the broker [test.mosquitto.org](https://test.mosquitto.org/), an open-source service, free to use by anyone.
+The data we will send is simply random readings from the analog inputs on the MKR 1000 WiFi board, but can easily be replaced by any sensor. This tutorial uses the broker [test.mosquitto.org](https://test.mosquitto.org/), an open-source service, free to use by anyone.
 
 This tutorial uses the [ArduinoMqttClient](https://github.com/arduino-libraries/ArduinoMqttClient) and [WiFi101](https://www.arduino.cc/en/Reference/WiFi101) libraries.
 
@@ -331,7 +331,7 @@ void onMqttMessage(int messageSize) {
 
 If everything was successful during the upload, we now have a **publisher** and **subscriber** device. Next, we need to open the Serial Monitor for each board, one at a time. This will initialize the sketch. Since we can only have one Serial Monitor open at one time, we will need to switch the ports manually. Using only one computer can be a bit tedious, as we can never view the Serial Monitor of both devices at the same time. 
 
-In this tutorial, we are using two MKR 1000 boards. When switching between the ports, we can see them listed as COM12 and COM3.
+In this tutorial, we are using two MKR 1000 WiFi boards. When switching between the ports, we can see them listed as COM12 and COM3.
 
 ![Selecting the right port.](assets/MKR1000_T3_IMG06.png)
 

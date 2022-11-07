@@ -1,6 +1,6 @@
 ---
 title: 'Using the Serial Plotter Tool'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to setup and use the Serial Plotter in the Arduino IDE 2.'
 tags:
  - Serial Plotter
@@ -18,7 +18,7 @@ In this tutorial, we will take a quick look on how to enable this feature (works
 
 ## Requirements
 
-- [Arduino IDE 2.0 installed](https://www.arduino.cc/en/software#experimental-software).
+- [Arduino IDE 2.0 installed](https://www.arduino.cc/en/software).
 - [Core installed](/software/ide-v2/tutorials/ide-v2-board-manager) for the board used.
 - Arduino board.
 - Potentiometer (optional).
@@ -54,10 +54,10 @@ void setup() {
 void loop() {
   potentiometer = analogRead(A1);
 
-  Serial.print("Variable 1:");
+  Serial.print("Variable_1:");
   Serial.print(potentiometer);
   Serial.print(",");
-  Serial.print("Variable 2:");
+  Serial.print("Variable_2:");
   Serial.println(static_variable);
 }
 ```
@@ -78,13 +78,14 @@ void setup() {
 void loop() {
   random_variable = random(0, 1000);
 
-  Serial.print("Variable 1:");
+  Serial.print("Variable_1:");
   Serial.print(random_variable);
   Serial.print(",");
-  Serial.print("Variable 2:");
+  Serial.print("Variable_2:");
   Serial.println(static_variable);
 }
 ```
+***The Serial Plotter recognizes only CRLF`(\r\n)` & LF`(\n)` as linebreak characters. So ensure that the either there is a linebreak character after the last variable. You can use `Serial.print("\n")` or `Serial.print("\r\n")` to introduce a linebreak character at the end. Conversely, `Serial.println()` introduces a CRLF character automatically. Further, you can also use `\t`(tab) or ` `(space) as a delimiter instead of `,`(comma) in the above example.***
 
 ## The Serial Plotter
 
@@ -92,7 +93,7 @@ Once the sketch is uploaded, we can test out the Serial Plotter.
 
 ***Make sure the sketch has finished uploading before opening the Serial Plotter. You will see the text "upload complete" in the terminal output.***
 
-Navigate to **Tools > Serial Plotter** as shown in the image below.
+Click the button in the the top right of the IDE window to open the **Serial Plotter**.
 
 ![Opening the Serial Plotter](assets/serial-plotter-open.png)
 

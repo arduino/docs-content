@@ -12,8 +12,8 @@ The Arduino Primo is the first board developed in cooperation with [Nordic Semic
   
 There are three onboard microcontrollers: 
 
-* [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf), the main Arduino microcontroller with integrated Bluetooth® Low Energy and NFC
-* [STM32f103](http://www.st.com/content/ccc/resource/technical/document/datasheet/33/d4/6f/1d/df/0b/4c/6d/CD00161566.pdf/files/CD00161566.pdf/jcr:content/translations/en.CD00161566.pdf), a service microcontroller used for advanced debugging and programming of the other microcontrollers
+* [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf), the main Arduino microcontroller with integrated Bluetooth® Low Energy and NFC
+* [STM32f103](/resources/datasheets/en.CD00161566.pdf), a service microcontroller used for advanced debugging and programming of the other microcontrollers
 * [ESP8266](https://espressif.com/en/products/hardware/esp8266ex/overview), for Wi-Fi and related internet connectivity functions.
 
 The board has: 
@@ -96,7 +96,7 @@ The easiest method to communicate is to use a USB cable between the micro-USB po
   
 A [SoftwareSerial library](https://www.arduino.cc/en/Reference/SoftwareSerial) allows for serial communication over any of the digital pins.  
   
-The [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf) also supports I2C (TWI) and SPI communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus and the [SPI library](https://www.arduino.cc/en/Reference/SPI) for the SPI communication.  
+The [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf) also supports I2C (TWI) and SPI communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus and the [SPI library](https://www.arduino.cc/en/Reference/SPI) for the SPI communication.  
   
 The board allows wireless communication with other devices via Bluetooth, NFC, WiFi and IR, using specific libraries for each protocol.  
   

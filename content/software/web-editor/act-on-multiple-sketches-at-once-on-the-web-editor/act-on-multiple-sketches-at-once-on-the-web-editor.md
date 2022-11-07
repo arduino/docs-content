@@ -1,7 +1,7 @@
 ---
 title: "Act on Multiple Sketches at Once on the Web Editor! "
 description: "Want to clean up or better organize your online sketchbook? Do it in just a few clicks on the Arduino Web Editor!"
-difficulty: easy
+difficulty: beginner
 coverImage: "assets/3BZEBNijceWf0Bz68jvI.png"
 tags: [arduino create, organize, sketchbook]
 author: "Arduino_Genuino"

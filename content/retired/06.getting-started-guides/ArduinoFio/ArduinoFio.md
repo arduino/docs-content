@@ -74,16 +74,16 @@ The settings for the two radios are as follows:
 ||||
 |-|-|-|
 |**Parameter**|**Programming Radio**|**Fio Radio**|
-|BD|4 (Atmega168) or 6 (Atmega328P)|4 (Atmega168) or 6 (Atmega328P)|
-|ID|user's preference (0000 to FFFF)|user's preference (0000 to FFFF)|
-|MY|User's preference, e.g. 0000|user's preference, e.g. 0001|
-|DL|FFFF or Fio's MY value |programmer's MY value|
-|D3|3|5| 
-|IC|8|not set|
-|RR|3|not set|
-|IU|not set|0|
-|IA|not set|FFFF|
-|RO|10|10 
+|`BD`|4 (Atmega168) or 6 (Atmega328P)|4 (Atmega168) or 6 (Atmega328P)|
+|`ID`|user's preference (0000 to FFFF)|user's preference (0000 to FFFF)|
+|`MY`|User's preference, e.g. 0000|user's preference, e.g. 0001|
+|`DL`|FFFF or Fio's MY value |programmer's MY value|
+|`D3`|3|5| 
+|`IC`|8|not set|
+|`RR`|3|not set|
+|`IU`|not set|0|
+|`IA`|not set|FFFF|
+|`RO`|10|10 
 
 **Note:** If you set the programmer's destination address (DL) to FFFF, it will re-program all Fios in its PAN ID. To program one Fio at a time wirelessly while others are on, set the programmer's DL to that Fio's MY address.
 
