@@ -7,8 +7,8 @@ author: Linnea Åkerberg, Pablo Marquínez
 
 ![Nicla Voice](assets/featured.png)
 
-# Description 
-The **Arduino® Nicla Voice** packs machine learning capabilities on the edge into a tiny fingerprint. 
+# Description
+The **Arduino® Nicla Voice** packs machine learning capabilities on the edge into a tiny fingerprint.
 
 Implement always-on speech recognition with Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to  run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module,  6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
@@ -50,12 +50,12 @@ noise and vibration detection, low-power speech recognition, contactless operati
       - 2ms for Gyroscope with fast start mode
       - 2ms for Accelerometer
     - <1μs of HW synchronization
-    - Wide voltage supply range 
+    - Wide voltage supply range
     - Low Power
       - Current consumption: typ. 685 μA (full ODR and aliasing free operation)
       - Built in PMU
   - Magnetometer 3-axis (BMM150)
-    - Low voltage operation 
+    - Low voltage operation
     - Ultra low power, current consumption 170μA @ 10 Hz in low power preset
     - Interrupt signal generation for magnetic Low-/High-Threshold detection
     - Magnetic field range typical of ±1300μT (x, y-axis), ±2500μT (z-axis)
@@ -88,13 +88,13 @@ noise and vibration detection, low-power speech recognition, contactless operati
 ## The Board
 
 ### Application Examples
-The Arduino® Nicla Voice is your cutting edge development and deployment solution taking advantage of Syntiant NDP120, a neural decision processor that will let you run multiple AI algorithms. Deploy predictive maintenance, gesture and speech recognition, and contactless applications in a miniaturized form factor. A 6-axis motion sensor, a magnetometer, and always-on speech recognition on the edge are at your disposal for unrestricted research and development. On-board Bluetooth® Low Energy connectivity grants compatibility with Nicla, Portenta, and MKR devices for scalability. Ultra-low power consumption enables long lasting device life-time and wide range of spectrum in deployment capabilities. 
+The Arduino® Nicla Voice is your cutting edge development and deployment solution taking advantage of Syntiant NDP120, a neural decision processor that will let you run multiple AI algorithms. Deploy predictive maintenance, gesture and speech recognition, and contactless applications in a miniaturized form factor. A 6-axis motion sensor, a magnetometer, and always-on speech recognition on the edge are at your disposal for unrestricted research and development. On-board Bluetooth® Low Energy connectivity grants compatibility with Nicla, Portenta, and MKR devices for scalability. Ultra-low power consumption enables long lasting device life-time and wide range of spectrum in deployment capabilities.
 
-- **Automated Intruder Detection System**: 
+- **Automated Intruder Detection System**:
 Nicla Voice’s edge capabilities enables faster identification of critical and time-sensitive events, including glass-breaking or motion sensing. Multiple voice, sound and sensor applications can run simultaneously with low power consumption, all in a tiny battery-powered size, allowing long period of usage without intervention.
 
-- **Smart Personal Protective Equipment (PPE) Headphones**: 
-Nicla Voice enables noise suppression and acoustic echo cancellation, allowing the user to work in noisy environments without risks. However, the integrated deep learning algorithms are able to classify and avoid filtering machine or line alarm signals, preserving overall safety. 
+- **Smart Personal Protective Equipment (PPE) Headphones**:
+Nicla Voice enables noise suppression and acoustic echo cancellation, allowing the user to work in noisy environments without risks. However, the integrated deep learning algorithms are able to classify and avoid filtering machine or line alarm signals, preserving overall safety.
 
 - **Predictive Maintenance**:
 Nicla Voice can be used to predict wear of industrial equipment, machinery and automation devices. It can detect vibrations, noises coming from motors or coils and gather the information needed for the Neural Decision Network to output an aligned maintenance with the received inputs.
@@ -148,7 +148,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 | ------------------- | ------------------------------------- | ------------------- | -------------------------------- |
 | J1 (Nicla Header A) |                                       | J2 (Nicla Header B) |                                  |
 | J3                  | Battery Pads                          | J4                  | Battery Connector (BM03B-ACHSS)  |
-| J5                  | ESLOV Connector (SM05B-SRSS)          | J6                  | External Microphone (FH33J-4S)   | 
+| J5                  | ESLOV Connector (SM05B-SRSS)          | J6                  | External Microphone (FH33J-4S)   |
 | J7                  | Micro USB-A (ZX62-AB)                 |
 
 
@@ -176,22 +176,22 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 
 
 ### Neural Decision Processor
-The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3).The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with capacity to run multiple application simultaneously with minial power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.   
+The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3).The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with capacity to run multiple application simultaneously with minial power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.
 ### Microcontroller
-The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
+The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal.
 ### Bosch BMM150 3-Axis Magnetometer
 The Bosch BMM150 (U4) provides accurate 3-axis measurements of magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high accuracy spatial orientation and motion vectors for detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
 ### RGB LED
-An I2C LED driver (U8) drives the RGB LED (DL1), and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller. 
+An I2C LED driver (U8) drives the RGB LED (DL1), and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller.
 ### USB Bridge
 The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3V logic to 1.8V for the ANNA-B112. The 3.3V voltage is generated from the USB voltage by a LDO (U14).
 
 ### Power Tree
 ![Nicla Voice Power Tree](assets/niclaVoice_Power_Tree.png)
 
-The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the microUSB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>. 
+The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the microUSB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>.
 
-Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing use of the board as a wireless sensor network. 
+Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing use of the board as a wireless sensor network.
 
 ## Connector Pinouts
 
@@ -241,7 +241,7 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 | P7  | +1V8          | Power    | +1.8V Voltage Rail                  |
 | P8  | SAMD11_SWDCLK | Digital  | SAMD11 JTAG Serial Wire Debug Clock |
 
-**Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.  
+**Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
 **Note 2:** All JTAG logic levels operate at 1.8V apart from the SAMD11 pins (P6 and P8) which are 3.3V. All these JTAG pins are 1.8V only and don't scale with VDDIO.
 
 ### J3 Battery Pads
@@ -278,10 +278,10 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
 | -------------------------------------- | ----------------------- |
@@ -296,17 +296,17 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed. 
+Exemptions : No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-### Conflict Minerals Declaration 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
+### Conflict Minerals Declaration
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
-This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
 (1) This device may not cause harmful interference
 
@@ -320,14 +320,14 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-English: 
+English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-French: 
+French:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
 
 (1) l’appareil nedoit pas produire de brouillage
@@ -336,15 +336,15 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 **IC SAR Warning:**
 
-English 
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
+English
+This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.
 
-French: 
+French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands      | Typical Output Power |
 | -------------------- | -------------------- |
@@ -393,7 +393,7 @@ ARDUINO DOES NOT ALWAYS ENCRYPT COMMUNICATIONS BETWEEN PRODUCTS AND THEIR PERIPH
 
 THE ABILITY OF ARDUINO PRODUCTS AND SOFTWARE TO WORK PROPERLY DEPENDS ON A NUMBER OF PRODUCTS AND SERVICES MADE AVAILABLE BY THIRD PARTIES OVER WHICH ARDUINO HAS NO CONTROL INCLUDING, BUT NOT LIMITED TO, INTERNET, CELLULAR AND LANDLINE CONNECTIVITY; MOBILE DEVICE AND OPERATING SYSTEM COMPATIBILITY; AND PROPER INSTALLATION AND MAINTENANCE. ARDUINO SHALL NOT BE LIABLE FOR ANY DAMAGES CAUSED BY ACTIONS OR OMISSIONS OF THIRD PARTIES.
 
-BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE.  WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES.  PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY. 
+BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE.  WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES.  PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY.
 
 CERTAIN SENSORS, DEVICES AND OTHER PANEL ACCESSORIES MAY BE PROGRAMMED INTO PANEL AS “SUPERVISORY” SO THAT THE PANEL WILL INDICATE IF IT DOES NOT RECEIVE A REGULAR SIGNAL FROM THE DEVICE WITHIN A CERTAIN PERIOD OF TIME.  CERTAIN DEVICES CANNOT BE PROGRAMMED AS SUPERVISORY. DEVICES CAPABLE OF BEING PROGRAMMED AS SUPERVISORY MAY NOT BE PROPERLY PROGRAMMED AT INSTALLATION, RESULTING IN A FAILURE TO REPORT TROUBLE WHICH COULD RESULT IN DEATH, SERIOUS INJURY AND/OR PROPERTY DAMAGE.
 
@@ -403,7 +403,7 @@ BUYER SHALL PASS ON THE FOREGOING INFORMATION ON PRODUCT RISKS, WARNINGS AND DIS
 
 **WARRANTY DISCLAIMERS AND OTHER DISCLAIMERS**
 
-ARDUINO HEREBY DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING (BUT NOT LIMITED TO) ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO ITS PRODUCTS AND RELATED SOFTWARE.   
+ARDUINO HEREBY DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING (BUT NOT LIMITED TO) ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO ITS PRODUCTS AND RELATED SOFTWARE.
 
 ARDUINO MAKES NO REPRESENTATION, WARRANTY, COVENANT OR PROMISE THAT  ITS PRODUCTS AND/OR RELATED SOFTWARE (I) WILL NOT BE HACKED, COMPROMISED AND/OR CIRCUMVENTED; (II) WILL PREVENT, OR PROVIDE ADEQUATE WARNING OR PROTECTION FROM, BREAK-INS, BURGLARY, ROBBERY, FIRE; OR (III) WILL WORK PROPERLY IN ALL ENVIRONMENTS AND APPLICATIONS.
 
