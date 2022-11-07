@@ -53,7 +53,7 @@ Fuse integration to electronic devices is not a complicated design process. The 
 
 This simple reverse polarity protection circuit uses a fuse and a diode that later connects to the electronic circuit, which can be referred to as the **load**.
 
-### Reverse Polarity Protection
+### A Better Reverse Polarity Protection Circuit
 
 Implementing complicated power protection circuit does not mean the load is absolutely protected. Depending on the component selection and cost for implementation, the solution can become much more elegant, and the same applies for reverse polarity protection. The following reverse polarity protection is designed by Mehdi Sadaghdar.
 
