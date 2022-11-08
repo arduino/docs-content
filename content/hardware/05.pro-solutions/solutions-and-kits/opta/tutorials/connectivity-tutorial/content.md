@@ -50,7 +50,9 @@ If you want to take a deeper look at what features the **WiFi** library has to o
 
 ### Ethernet
 
-The files necessary for using Ethernet on the Opta are included in the core. To try it out we can go to **File > Examples**, under **Examples for Opta** we can find the **Ethernet** section, inside there is an example sketch **WebClient**. Connect the Ethernet cable to the Arduino Opta then try and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website stated in the sketch and print the websites HTML content in the serial monitor.
+The files necessary for using Ethernet on the Opta are included in the core. To try it out we can go to **File > Examples**, under **Examples for Opta** we can find the **Ethernet** section, inside there is an example sketch **WebClient**. Connect the Ethernet cable to the Arduino Opta then try and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website stated in the sketch and print the websites HTML content in the serial monitor. If the sketch ran successfully the output should look like the image below.
+
+![Running the Ethernet sketch on the Opta in the Arduino IDE](assets/opta-ethernet.png)
 
 If you want to take a deeper look at what features the **Ethernet** library has to offer, please go [here](https://www.arduino.cc/reference/en/libraries/ethernet/).
 
