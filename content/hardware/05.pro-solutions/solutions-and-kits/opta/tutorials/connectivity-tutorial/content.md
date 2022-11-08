@@ -2,7 +2,7 @@
 title: 'Using BLE, WiFi and Ethernet on the Arduino Opta'
 description: 'Learn how to make use of the Arduino Opta's connectivity features'
 tags:
-  - Wi-Fi
+  - WiFi
   - Ethernet
   - BLE
 author: 'Benjamin Dannegård'
