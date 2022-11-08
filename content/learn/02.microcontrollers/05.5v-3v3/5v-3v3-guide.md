@@ -1,63 +1,59 @@
 ---
-title: 'Guide to 3.3V and 5V Logic Level Differences'
-description: 'Learn about the difference of 5V and 3.3V in world of electronics, with protective measures to help you design & build robust electronics.'
-tags: [5V, 3.3V, Electronics, Power]
-author: 'José Bagur, Taddy Chung'
+title: 'Guide to 3V3 and 5V Power Supplies Differences'
+description: 'Design and build robust electronic circuits and devices by learning the main characteristics and differences between 3V3 and 5V power supplies levels.'
+tags: [3V3, 5V, Electronics, Power Supply]
+author: 'Taddy Chung, José Bagur'
 ---
 
-## 5.0V vs. 3.3V
+## 3V3 vs. 5V
 
-Most electronic devices, when designed, tends to choose between 5.0V or 3.3V that will feed voltage to its designed system. Voltage design selection can be usually either due to its convenience of availability of the power source, or the need of power efficiency that the system itself has as a requirement.
+When designed, most electronic circuits and devices must choose a **power supply**. The **voltage** of the power supply is usually determined either by convenience or the need for power efficiency that the electronic circuit or device itself has as a requirement.
 
-Although 5.0V and 3.3V in numerical difference only have a 1.7V of difference it is sufficient enough to provide major power difference in electronic systems. In this guide, we will show you why 3.3V is the modern standard voltage level, and general tips when designing and handling these voltage levels. 
+**3V3** and **5V** are standard voltage levels nowadays in power supplies. Although there is only a 1V7 difference between both voltages, it is enough to provide a significant difference in power efficiency. This guide will show you why 3V3 is the current standard voltage level for power supplies in electronic circuits and devices and some general tips when designing and handling these voltage levels in your circuits or devices powered by Arduino.
 
-## 3.3V, the Standard Voltage Level
+## 3V3, the Standard Voltage Level
 
-So, why is the **3.3V** level a standard voltage level? There are several reasons that contributes for standardising the 3.3V level, and in world of electronics, we are in constant search for more efficient and performant yet density-low package devices or machines. 
+So, why is the **3.3V** a standard power supply voltage level? Because power consumption has always been a concern for designers, lower power supply voltage levels were introduced to make more power-efficient circuits and devices. For over 30 years, powering electronic circuits and devices using a 5V level was common practice; today, most electronic circuits and devices use a 3V3 power supply voltage level, some are even migrating to a 2V5 level (or even to lower voltages!).
 
-The industry is always moving forward, and in electronics, the transistors have reduced in its size than previous years and due to its reduced size, voltage threshold also follows the trend by going lower. The industry continuously is working to develop faster electronic devices, and one general way to achieve this is to lower the applied voltage level. Lowering applied voltage level implies much faster logic level changes. Power usage is a concerning topic if we discuss about power efficiency, and lower voltage levels will help us achieve this goal. 
+***Reducing the power supply voltage yields an exponential decrease in power consumption.***
 
-In the end, the industry has moved from 5V TTL by achieving lower optimal voltage level due to chip development improvement and introduction of CMOS (Complementary Metal-Oxide Semiconductor). Also, it is always better to have a clear working standard which ensures compatibility of device development and operation. To manage this standard, **JEDEC Standard** made **JESD8 standard** which defines 3.3V level as the standard voltage level. 
+A standard exists for defining the voltage levels of input and output voltages for every power supply voltage level; this standard was developed by The Joint Electron Device Engineering Council (JEDEC); it is the JEDEC Standard 8-A for LV interface levels. The JEDEC Standard 8-A for LV interface levels is described in the image shown below for 3V3 and 5V logic families:
 
-***For more in-depth information about current microelectronic standards, please look into [JEDEC](https://www.jedec.org/)***
+![The JEDEC Standard 8-A for LV interface levels.](assets/3v3-5v_img01.png)
 
-Usually, such broad classification given to **low power** electronic devices are usually defined at voltage of 3.3V to 5V with current at 0.5A to 3A for example. **High power** electronic devices can be designated for devices requiring 12V of voltage and 10A of current, and beyond. Although, in this two types of device classification, a common factor usually relies within by using 3.3V level internally. 
+In the image shown above:
 
-The power inputs and outputs may vary, depending on the requirement of the electronic design. Which it also means it could use ambiguous voltage levels mostly for power inputs, implying to drive the voltage down in most cases. In contrast, most of the electronic components and modules are regulated by its electrical specification. The electrical specification for these components used internally, in exception for specialized components for specific cases, are designed to have 3.3V as a operating voltage level, otherwise specified in range. 
+* V<sub>OL</sub>: maximum output voltage level an electronic device will provide for a LOW signal
+* V<sub>IL</sub>: maximum input voltage level an electronic device will still considered as a LOW signal
+* V<sub>t</sub>: threshold voltage at which an electronic device switches its interpretation of a signal from low to high or vice versa
+* V<sub>IH</sub>: minimum input voltage level an electronic device will still considered as a HIGH signal.
+* V<sub>OH</sub>: minimum output voltage level an electronic device will still considered as a HIGH signal
 
-***Fun Fact of 3.3V - The number 3.3 dates by going back to early days of IC (Integrated Circuit) development of semiconductor technology, and it is rumoured that it is the result of RTL (Register-Transfer Level) designs.***
+***For more in-depth information about current microelectronic standards, please look at the [JEDEC](https://www.jedec.org/) website.***
 
 ## How to Avoid Burning Circuits 101
 
-Every electronic designer and developers driving the power lines of the electronic devices always keeps its effort to avoid frying the system. Depending on the power design integrated to the electronic device, it might be a slip of a hand to short the electronic or it could be an all-out effort to short the system. In the end, it is inevitable not to short the electronic if the misimplementation is made. So, how do we avoid frying the electronics? 
-
-The simple answer to this is to **keep an eye** on it. The electronic devices, still at the moment, are not intelligent enough to avoid circuit short, and it is designed all by human engineers. Decoding further this present answer, it can be listed to following tips to take it into account. 
+Every electronic designer driving the power lines of electronic circuits and devices can cause, accidentally or on purpose, a short circuit and, therefore, damage the electronic circuits or devices. Accidents and mistakes always happen, but we can follow some tips and tricks to avoid them. Let's check it out!
 
 ### Color Coded Power Lines
 
-Color coding the power lines is the easiest yet effective visual method of avoiding incorrectly connecting the power lines. One common issue for shorting the electronic device is often due to connecting the power lines inverted. When prototyping an electronic device, common mistake made by some developers is to use same color on every cable while being jumbled all over the places, making it impossible to identify which is which. This applies also to power lines. 
+**Color coding** the power lines is the easiest yet most effective visual method to avoid an incorrect connection in the power lines of electronic circuits or devices. When prototyping an electronic circuit or device, some developers make the common mistake of using the same color on every cable while being jumbled all over the place, making it impossible to identify which. 
 
-Color coding the power lines, the voltage and the Ground lines, makes much easier to identify which is the voltage cable and which is the Ground cable. Given the industry regulation, normally color Red is used to indicate Voltage line; while the color Black is used to indicate Ground line. The colors can be varied depending on the regulation that is applied given organization if required. For example, instead of Red for Voltage line, it can be either Brown or bright Orange. 
+Color coding power lines makes it much easier to identify the voltage and Ground (GND) lines. According to industry regulations and standards, red is typically used to indicate a voltage line, while black is used to indicate a GND line; colors vary depending on the regulation or standard. 
 
-***For more information on electrical code, please have a look at [NFPA 70®](https://www.nfpa.org/NEC/electrical-codes-and-standards/NFPA-70?code=70) and [IEEE NESC®](https://standards.ieee.org/products-programs/nesc/)***
+***For more information on electrical regulations and standards, please check out the [National Electrical Safety Code®](https://standards.ieee.org/products-programs/nesc/) from the Institute of Electrical and Electronics Engineers (IEEE).***
 
 ### Fuse Integration
 
-The smart way of protecting the electronic devices is to integrate an on-board power protection circuit. There are several designs to achieve this, and one common way to do is to use the **Fuse**. Using the fuse as part of the electronic offers inexpensive cost and power protection at certain extent. 
+One easy way to protect electronic devices is to integrate an onboard power protection circuit into the device. Several circuit designs can be implemented to achieve this; one of the easiest circuits to implement is using a fuse. 
 
-Fuse integration to electronic devices is not a difficult design process either. Usually it is found as bridge between operation circuit, and it requires using an intervention of a diode to complete the circuit protection. Following simple schematic shows a simple reverse polarity protection circuit that can be applied for DC electronic applications. 
+Fuse integration to electronic devices is not a complicated design process. The following schematic shows a **simple reverse polarity protection** circuit that can be used in low-power DC circuits:
 
-![Simple Reverse Polarity Protection](assets/SimpleRPP.png)
+![Simple reverse polarity protection circuit.](assets/SimpleRPP.png)
 
-This simple reverse polarity protection circuit uses a fuse and a diode, that later connects to the circuit, which we can refer as the **Protected Load**. 
+This simple reverse polarity protection circuit uses a fuse and a diode that later connects to the electronic circuit, which can be referred to as the **load**.
 
-For the low power applications, if the power supply is connected with the polarities reversed, the diode will clamp the voltage to relatively low negative voltage. While, there will be a large current passing through to blow the fuse as the result of shorting the supply. The Load is protected and the user will have to change the fuse. 
-
-As the simplicity of the circuit might work for low power applications, it is different for high power applications. For high power applications, where the nominal operating current is matched to a fuse rated at much higher current, the fuse must receive higher than specified current to be broken in time. When it passes through the general diode, it will clamp to relatively high negative voltage. 
-
-As a result, this will **damage the load**, resulting in a useless protection circuit for high power applications; on the other hand, typically good implementations for low power circuits. Although, it is good practice to implement better protection design to keep the electronic as robust as possible and this is where a proper reverse polarity protection comes into play.
-
-### Reverse Polarity Protection
+### A Better Reverse Polarity Protection Circuit
 
 Implementing complicated power protection circuit does not mean the load is absolutely protected. Depending on the component selection and cost for implementation, the solution can become much more elegant, and the same applies for reverse polarity protection. The following reverse polarity protection is designed by Mehdi Sadaghdar.
 
