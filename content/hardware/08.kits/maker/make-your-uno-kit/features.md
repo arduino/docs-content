@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Make Your UNO Kit includes all components for you to make your own UNO, such as the ATmega328P chip, a USB-C module, header rows and more. This kit also features a step-by-step 3D interactive model that will guide you through the soldering steps.
+The Make Your UNO Kit includes all components for you to make your own UNO, such as the ATmega328P chip, a USB-C® module, header rows and more. This kit also features a step-by-step 3D interactive model that will guide you through the soldering steps.
 
 </FeatureDescription>
 
