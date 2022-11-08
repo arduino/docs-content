@@ -53,9 +53,9 @@ In this tutorial you are going to convert the board into an access point and use
 ![A mobile device controlling the different LEDs on the board ](assets/por_ard_ap_tutorial_overview.svg)
 
 ### 1. The Basic Setup
-Begin by plugging in your Portenta board to your computer using a USB-C cable and open the  Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed. 
+Begin by plugging in your Portenta board to your computer using a USB-C® cable and open the  Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed. 
 
-![The Portenta H7 can be connected to the computer using an appropriate USB-C cable](assets/por_tut1_im1.png)
+![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_tut1_im1.png)
 
 ### 2. Create the Web Server Sketch
 Next you need to create a web server sketch that will handle the HTTP GET requests and provide the client devices with the HTML web page. The [Wi-Fi](https://www.arduino.cc/en/Reference/WiFi) library provides all necessary methods that allows Arduino boards to use their Wi-Fi features provided by the on-board Wi-Fi module. To set up the web server copy the following code, paste it into a new sketch file and name it **SimpleWebServer.ino**. 

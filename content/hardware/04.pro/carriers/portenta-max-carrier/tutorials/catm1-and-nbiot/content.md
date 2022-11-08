@@ -43,7 +43,7 @@ The goals of this project are:
 
 ### Circuit
 
-For this tutorial we need to plug the Portenta H7 into the Max Carrier, like shown in the image below. By attaching the Portenta H7 board to the HD connectors on top of the carrier, press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB-C cable.
+For this tutorial we need to plug the Portenta H7 into the Max Carrier, like shown in the image below. By attaching the Portenta H7 board to the HD connectors on top of the carrier, press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB-C® cable.
 
 ![Connecting the Portenta H7 and Max Carrier](assets/Connect-H7-to-Max-carrier.svg)
 

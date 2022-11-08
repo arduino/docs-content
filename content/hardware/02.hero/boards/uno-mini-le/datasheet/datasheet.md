@@ -8,7 +8,7 @@ variant: Limited Edition
 ![](assets/featured.png)
 
 # Description 
-We are celebrating the anniversary of our flagship board, Arduino UNO, by producing a just as effective and versatile miniature: The Arduino UNO Mini. This board is, just as its big brother, equipped with the ATMega328P and the ATMega 16U2 Processor, but is updated with USB-C connector. 
+We are celebrating the anniversary of our flagship board, Arduino UNO, by producing a just as effective and versatile miniature: The Arduino UNO Mini. This board is, just as its big brother, equipped with the ATMega328P and the ATMega 16U2 Processor, but is updated with USB-C® connector. 
 
 # Target Areas:
 Hobby-making, future-shaping, engineering, designing, problem-solving

@@ -27,7 +27,7 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 
 ## Instructions
 
