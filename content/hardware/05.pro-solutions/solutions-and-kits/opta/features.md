@@ -31,7 +31,7 @@ Arduino Opta is available in three variants:
 
 <Feature title="Industrial temperature range" image="temperature-sensor">
 
-  The Arduino Opta runs the same microcontroller as the Portenta H7 board, a highly reliable design operating at industrial temperature ranges (-20 °C to +50 °C) with a dual-core architecture that doesn’t require any external cooling.
+  The Arduino Opta has a highly reliable design operating at industrial temperature ranges (-20 °C to +50 °C) thanks to a dual-core architecture that doesn’t require any external cooling.
 
 </Feature>
 
