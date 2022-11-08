@@ -1,7 +1,7 @@
 Board:
   SKUs:
     Arduino® Opta RS485: AFX00001
-    Arduino® Opta Wi-Fi: AFX00002
+    Arduino® Opta WiFi: AFX00002
     Arduino® Opta Lite: AFX00003
 Microcontroller:
   ID: STM32H747XI Dual ARM® Cortex®
@@ -16,11 +16,11 @@ Connectivity:
   Ethernet:
     TCP/IP: Yes
     ModBus TCP: Yes
-  Bluetooth® Low Energy: Opta Wi-Fi
-  Wi-Fi: Opta Wi-Fi
+  Bluetooth® Low Energy: Opta WiFi
+  Wi-Fi: Opta WiFi
 Communication protocols:
   RS485: Opta RS485
-  Programmable Serial ports: 485
+  Programmable Serial ports: RS485
 Power:
   Input voltage: 12-24V DC
   Output voltage: 24V
