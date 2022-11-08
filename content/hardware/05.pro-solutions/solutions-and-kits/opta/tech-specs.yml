@@ -20,7 +20,7 @@ Connectivity:
   Wi-Fi: Opta WiFi
 Communication protocols:
   RS485: Opta RS485
-  Programmable Serial ports: 485
+  Programmable Serial ports: RS485
 Power:
   Input voltage: 12-24V DC
   Output voltage: 24V
