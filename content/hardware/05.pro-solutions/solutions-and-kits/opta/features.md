@@ -9,7 +9,7 @@ Quickly put it to work, leveraging the many available software libraries. The on
 Arduino Opta is available in three variants:
 * Opta Lite: on-board Ethernet and USB-C® ports
 * Opta RS485: on-board Ethernet and USB-C® ports, plus RS485 connectivity
-* Opta Wi-Fi: on-board Ethernet and USB-C® ports, plus RS485 and Wi-Fi/Bluetooth® Low Energy
+* Opta WiFi: on-board Ethernet and USB-C® ports, plus RS485 and Wi-Fi/Bluetooth® Low Energy
 
 </FeatureDescription>
 
