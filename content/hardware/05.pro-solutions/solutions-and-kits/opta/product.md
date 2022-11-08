@@ -1,6 +1,6 @@
 ---
 title: Opta
-url_shop: https://store.arduino.cc/products/opta-lite
+url_shop: https://store.arduino.cc/pages/opta
 core: arduino:mbed_portenta
 certifications: [cULus listed, ENEC, CE]
 ---
