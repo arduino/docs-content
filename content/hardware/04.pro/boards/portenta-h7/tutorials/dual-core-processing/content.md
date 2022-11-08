@@ -32,7 +32,7 @@ The Portenta H7 is equipped with a processor that has two processing units calle
 ### Required Hardware and Software
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
-- USB C cable (either USB A to USB C or USB C to USB C)
+- USB-C® cable (either USB A to USB-C® or USB-C® to USB-C®)
 - Arduino IDE 1.8.10+ 
 
 ## Cortex® M7 & M4 
