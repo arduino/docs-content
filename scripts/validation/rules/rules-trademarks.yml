@@ -1,5 +1,6 @@
 # Bluetooth® rule
-- regex: "(?:[bB]luetooth(?!®)|bluetooth)(?![-\\/]|\\.?\\S)"
+- regex: "(?<![-/]\\S*)(?:bluetooth(?!®))(?![-/])\\b"
+  regexModifiers: "gi"
   shouldMatch: false
   format: markdown
   type: warning
