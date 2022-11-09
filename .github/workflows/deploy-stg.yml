@@ -39,7 +39,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-public-gatsby-
 
-      - run: npm install --legacy-peer-deps
+      - run: npm install
 
       - run: GENERATE_DATASHEETS=true npm run build
 
