@@ -1,18 +1,18 @@
 ---
-title: "IoT Smart Garden Setup with Nano 33 IoT"
-description: "Build a smart garden setup with the Nano 33 IoT, a pump, and a moisture sensor."
+title: "IoT Smart Garden Setup with Nano RP2040"
+description: "Build a smart garden setup with the Nano RP2040, a pump, and a moisture sensor."
 tags: [IoT Cloud, Water Pump, Moisture Sensor]
 difficulty: beginner
 author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
 ---
 
-![Smart garden setup with Arduino Nano 33 IoT](assets/coverpage.jpg)
+![Smart garden setup with Arduino Nano RP2040](assets/coverpage.jpg)
 
 Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why not spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
 ## How It Works
 
-Attaching an external relay to the Nano 33 IoT screwterminal lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). 
+Attaching an external relay to the [Arduino Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal) lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect). 
 
 We will also connect a soil moisture sensor creating a sophisticated smart garden setup, capable of:
 
@@ -30,8 +30,8 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 
 OR
 
-- [Arduino Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot)
-- [Arduino Nano Screw terminal Adapter](https://store.arduino.cc/products /nano-screw-terminal)
+- [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+- [Arduino Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - 5V submersible pump.
 - 1 meter watering pipe.
 - USB wall adapter
@@ -52,7 +52,7 @@ OR
 
 ## Hardware & Circuit Assembly
 
-Begin by connecting the Nano 33 IoT board to the Nano Screw Terminal Adapter. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the Adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
+Begin by connecting the Nano RP2040 IoT board to the Nano Screw Terminal Adapter. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the Adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
 
 Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one. 
 
@@ -117,7 +117,7 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud. 
 
-**1.** Create a new Thing, and select/configure the Nano 33 IoT board. Note that the board needs to be connected to your computer during this setup.
+**1.** Create a new Thing, and select/configure the Nano RP2040 board. Note that the board needs to be connected to your computer during this setup.
 
 **2.** Create variables according to the table below:
 
@@ -144,7 +144,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
  Built using the Arduino IoT Cloud service
 
  Components used:
-- Arduino Nano 33 IoT
+- Arduino Nano RP2040
 - Arduino Nano Screw terminal Adapter
 - 5V submersible pump.
 - 1 meter watering pipe.
