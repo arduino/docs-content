@@ -46,7 +46,7 @@ The files necessary for using the Wi-Fi® on the Opta are included in the core. 
 
 ![Running WiFi sketch on the Opta in the Arduino IDE](assets/opta-wifi.png)
 
-If you want to take a deeper look at what features the **WiFi** library has to offer, please go [here](https://www.arduino.cc/reference/en/libraries/wifi/).
+If you want to take a deeper look at what features the **WiFi** library has to offer, [take a look at the API reference page](https://www.arduino.cc/reference/en/libraries/wifi/).
 
 ### Ethernet
 
@@ -54,7 +54,7 @@ The files necessary for using Ethernet on the Opta are included in the core. To 
 
 ![Running the Ethernet sketch on the Opta in the Arduino IDE](assets/opta-ethernet.png)
 
-If you want to take a deeper look at what features the **Ethernet** library has to offer, please go [here](https://www.arduino.cc/reference/en/libraries/ethernet/).
+If you want to take a deeper look at what features the **Ethernet** library has to offer, [take a look at the API reference page](https://www.arduino.cc/reference/en/libraries/ethernet/).
 
 ### Bluetooth® Low Energy
 
@@ -62,7 +62,7 @@ To use the Bluetooth® feature, download the **ArduinoBLE** library in the Ardui
 
 ![Bluetooth® sketch running on the Opta](assets/opta-ble.png)
 
-If you want to take a deeper look at what features the **ArduinoBLE** library has to offer, please go [here](https://www.arduino.cc/reference/en/libraries/arduinoble/).
+If you want to take a deeper look at what features the **ArduinoBLE** library has to offer, [take a look at the API reference page](https://www.arduino.cc/reference/en/libraries/arduinoble/).
 
 ## Conclusion
 
