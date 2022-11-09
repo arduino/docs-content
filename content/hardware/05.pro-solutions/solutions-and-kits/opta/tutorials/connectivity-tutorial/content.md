@@ -50,11 +50,15 @@ If you want to take a deeper look at what features the **WiFi** library has to o
 
 ### Ethernet
 
-The files necessary for using Ethernet on the Opta are included in the core. To try it out we can go to **File > Examples**, under **Examples for Opta** we can find the **Ethernet** section, inside there is an example sketch **WebClient**. Connect the Ethernet cable to the Arduino Opta then try and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website stated in the sketch and print the websites HTML content in the serial monitor. If the sketch ran successfully the output should look like the image below.
+The Arduino Opta has a RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet on the Opta are included in the core. To try it out we can go to **File > Examples**, under **Examples for Opta** we can find the **Ethernet** section, inside there is an example sketch **WebClient**. Connect the Ethernet cable to the Arduino Opta then try and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website stated in the sketch and print the websites HTML content in the serial monitor. If the sketch ran successfully the output should look like the image below.
 
 ![Running the Ethernet sketch on the Opta in the Arduino IDE](assets/opta-ethernet.png)
 
 If you want to take a deeper look at what features the **Ethernet** library has to offer, [take a look at the API reference page](https://www.arduino.cc/reference/en/libraries/ethernet/).
+
+### Modbus TCP via Ethernet port
+
+The Arduino Opta uses the RS485 protocol for Modbus communication, enabling Modbus TCP via the Ethernet port. Modbus TCP is a variant of the Modbus family of simple, vendor-neutral communication protocols intended for supervision and control of automation equipment. Specifically, it covers the use of Modbus messaging in an intranet or internet environment using the TCP/IP protocols. The most common use of the protocols at this time is for Ethernet attachment of PLCs, I/O modules and gateways to other simple field buses or I/O networks.
 
 ### Bluetooth® Low Energy
 
