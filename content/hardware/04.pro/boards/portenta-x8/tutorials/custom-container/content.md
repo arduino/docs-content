@@ -144,7 +144,7 @@ Use the following command in git on your machine. To get the repository on your 
 git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
-Put the "x8-custom-test" folder in the repository and push it with git. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it in the "Targets" page.
+Put the "x8-custom-test" folder in the repository and push it with git. When you have put the folder into the git folder, use `git status` to see the changes made to the folder, it will show the unadded changes in red, then use `git add` to add the changes you want to your git commit. Then use `git commit` and `git push` to finaly push the changes to the repo. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it in the "Targets" page.
 
 ### Building and Running the Container
 
