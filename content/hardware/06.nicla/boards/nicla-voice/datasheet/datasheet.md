@@ -2,7 +2,7 @@
 identifier: ABX00061
 title: Arduino® Nicla Voice
 type: pro
-author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri
+author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri, Taddy Chung
 ---
 
 ![Nicla Voice](assets/featured.png)
@@ -10,14 +10,14 @@ author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri
 # Description
 The **Arduino® Nicla Voice** packs machine learning capabilities on the edge into a tiny fingerprint.
 
-Implement always-on speech recognition with Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to  run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module,  6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
+Implement always-on speech recognition with Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
 # Target areas:
 noise and vibration detection, low-power speech recognition, contactless operations, gesture recognition
 
 # Features
 
-- **ANNA-B112** Bluetooth®  Module
+- **ANNA-B112** Bluetooth® Module
   - **nRF52832** System-on-chip
     - 64 MHz Arm® Cortex M4 with FPU
     - 512 KB Flash + 64 KB SRAM
@@ -120,7 +120,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 | V<sub>IL</sub>       | Input low-level voltage          | 0                        |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
 | T<sub>OP</sub>       | Operating Temperature            | 0                        | 25  | 85                       | °C   |
 
-**Note** : V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to x.xV, the maximum value is at the ANNA B112 operating voltage.
+**Note** : V<sub>DDIO_EXT</sub> is software programmable. While the ADC inputs can accept up to x.xV, the maximum value is at the ANNA B112 operating voltage.
 
 **<sup>1</sup>** : All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
 - ADC1 and ADC2 - 1V8
@@ -133,6 +133,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 ## Functional Overview
 
 ### Block Diagram
+
 ![Nicla Voice Block Diagram](assets/niclaVoice_Block_Diagram.svg)
 
 ### Board Topology
@@ -141,14 +142,12 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 
 ![Nicla Voice Topology- Components](assets/connectors.svg)
 
-
 | **Ref.** | **Description**                                  | **Ref.**            | **Description**                  |
 | ------------------- | ------------------------------------- | ------------------- | -------------------------------- |
 | J1 (Nicla Header A) |                                       | J2 (Nicla Header B) |                                  |
 | J3                  | Battery Pads                          | J4                  | Battery Connector (BM03B-ACHSS)  |
 | J5                  | ESLOV Connector (SM05B-SRSS)          | J6                  | External Microphone (FH33J-4S)   |
 | J7                  | Micro USB-A (ZX62-AB)                 |
-
 
 #### Components Topology
 
@@ -167,20 +166,22 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 | U13      | Level shifter, NTS0304           | U14      | LDO regulator, 3V3 AP2112K          |
 | U15      | IMU 6 Axis Low Power BMI270      |
 
-
 #### Front
 
 ![Nicla Voice Front View](assets/front.svg)
 
-
 ### Neural Decision Processor
 The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3).The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with capacity to run multiple application simultaneously with minial power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.
+
 ### Microcontroller
 The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal.
+
 ### Bosch BMM150 3-Axis Magnetometer
 The Bosch BMM150 (U4) provides accurate 3-axis measurements of magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high accuracy spatial orientation and motion vectors for detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
+
 ### RGB LED
 An I2C LED driver (U8) drives the RGB LED (DL1), and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller.
+
 ### USB Bridge
 The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3V logic to 1.8V for the ANNA-B112. The 3.3V voltage is generated from the USB voltage by a LDO (U14).
 
@@ -192,7 +193,6 @@ The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing use of the board as a wireless sensor network.
 
 ## Connector Pinouts
-
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
 
 ### J1 Nicla Header A
@@ -250,6 +250,7 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 | 2   | NTC           | Analog   | NTC Thermistor                      |
 
 ### J4 Battery Connector
+
 | Pin | **Function** | **Type** | **Description** |
 | --- | ------------ | -------- | --------------- |
 | 1   | VBAT         | Power    | Battery input   |
@@ -257,6 +258,7 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 | 3   | GND          | Power    | Ground          |
 
 ### J5 ESLOV
+
 | Pin | **Function** |
 | --- | ------------ |
 | 1   | 5V           |
@@ -348,7 +350,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | -------------------- | -------------------- |
 | 2.4GHz, 40 channels  | +4dBm                |
 
-
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
@@ -391,9 +392,9 @@ ARDUINO DOES NOT ALWAYS ENCRYPT COMMUNICATIONS BETWEEN PRODUCTS AND THEIR PERIPH
 
 THE ABILITY OF ARDUINO PRODUCTS AND SOFTWARE TO WORK PROPERLY DEPENDS ON A NUMBER OF PRODUCTS AND SERVICES MADE AVAILABLE BY THIRD PARTIES OVER WHICH ARDUINO HAS NO CONTROL INCLUDING, BUT NOT LIMITED TO, INTERNET, CELLULAR AND LANDLINE CONNECTIVITY; MOBILE DEVICE AND OPERATING SYSTEM COMPATIBILITY; AND PROPER INSTALLATION AND MAINTENANCE. ARDUINO SHALL NOT BE LIABLE FOR ANY DAMAGES CAUSED BY ACTIONS OR OMISSIONS OF THIRD PARTIES.
 
-BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE.  WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES.  PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY.
+BATTERY OPERATED SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES HAVE A LIMITED BATTERY LIFE. WHILE THESE PRODUCTS MAY BE DESIGNED TO PROVIDE SOME WARNING OF IMMINENT BATTERY DEPLETION, THE ABILITY TO DELIVER SUCH WARNINGS IS LIMITED AND SUCH WARNINGS MAY NOT BE PROVIDED IN ALL CIRCUMSTANCES. PERIODIC TESTING OF THE SYSTEM IN ACCORDANCE WITH PRODUCT DOCUMENTATION IS THE ONLY WAY TO DETERMINE IF ALL SENSORS, DETECTORS, KEYFOBS, DEVICES AND OTHER PANEL ACCESSORIES ARE FUNCTIONING PROPERLY.
 
-CERTAIN SENSORS, DEVICES AND OTHER PANEL ACCESSORIES MAY BE PROGRAMMED INTO PANEL AS “SUPERVISORY” SO THAT THE PANEL WILL INDICATE IF IT DOES NOT RECEIVE A REGULAR SIGNAL FROM THE DEVICE WITHIN A CERTAIN PERIOD OF TIME.  CERTAIN DEVICES CANNOT BE PROGRAMMED AS SUPERVISORY. DEVICES CAPABLE OF BEING PROGRAMMED AS SUPERVISORY MAY NOT BE PROPERLY PROGRAMMED AT INSTALLATION, RESULTING IN A FAILURE TO REPORT TROUBLE WHICH COULD RESULT IN DEATH, SERIOUS INJURY AND/OR PROPERTY DAMAGE.
+CERTAIN SENSORS, DEVICES AND OTHER PANEL ACCESSORIES MAY BE PROGRAMMED INTO PANEL AS “SUPERVISORY” SO THAT THE PANEL WILL INDICATE IF IT DOES NOT RECEIVE A REGULAR SIGNAL FROM THE DEVICE WITHIN A CERTAIN PERIOD OF TIME. CERTAIN DEVICES CANNOT BE PROGRAMMED AS SUPERVISORY. DEVICES CAPABLE OF BEING PROGRAMMED AS SUPERVISORY MAY NOT BE PROPERLY PROGRAMMED AT INSTALLATION, RESULTING IN A FAILURE TO REPORT TROUBLE WHICH COULD RESULT IN DEATH, SERIOUS INJURY AND/OR PROPERTY DAMAGE.
 
 PURCHASED PRODUCTS CONTAIN SMALL PARTS THAT COULD BE A CHOCKING HAZARD TO CHILDREN OR PETS. KEEP ALL SMALL PARTS AWAY FROM CHILDREN AND PETS.
 
@@ -403,7 +404,7 @@ BUYER SHALL PASS ON THE FOREGOING INFORMATION ON PRODUCT RISKS, WARNINGS AND DIS
 
 ARDUINO HEREBY DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE INCLUDING (BUT NOT LIMITED TO) ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO ITS PRODUCTS AND RELATED SOFTWARE.
 
-ARDUINO MAKES NO REPRESENTATION, WARRANTY, COVENANT OR PROMISE THAT  ITS PRODUCTS AND/OR RELATED SOFTWARE (I) WILL NOT BE HACKED, COMPROMISED AND/OR CIRCUMVENTED; (II) WILL PREVENT, OR PROVIDE ADEQUATE WARNING OR PROTECTION FROM, BREAK-INS, BURGLARY, ROBBERY, FIRE; OR (III) WILL WORK PROPERLY IN ALL ENVIRONMENTS AND APPLICATIONS.
+ARDUINO MAKES NO REPRESENTATION, WARRANTY, COVENANT OR PROMISE THAT ITS PRODUCTS AND/OR RELATED SOFTWARE (I) WILL NOT BE HACKED, COMPROMISED AND/OR CIRCUMVENTED; (II) WILL PREVENT, OR PROVIDE ADEQUATE WARNING OR PROTECTION FROM, BREAK-INS, BURGLARY, ROBBERY, FIRE; OR (III) WILL WORK PROPERLY IN ALL ENVIRONMENTS AND APPLICATIONS.
 
 ARDUINO WILL NOT BE LIABLE FOR UNAUTHORIZED ACCESS (I.E. HACKING) INTO THE CLOUD SERVERS OR TRANSMISSION FACILITIES, PREMISES OR EQUIPMENT, OR FOR UNAUTHORIZED ACCESS TO DATA FILES, PROGRAMS, PROCEDURES OR INFORMATION THEREON, UNLESS AND ONLY TO THE EXTENT THAT THIS DISCLAIMER IS PROHIBITED BY APPLICABLE LAW.
 
