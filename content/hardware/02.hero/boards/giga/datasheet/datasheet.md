@@ -1,6 +1,6 @@
 ---
 identifier: ABX00067
-title: Arduino® Giga R1 WiFi
+title: Arduino® GIGA R1 WiFi
 type: maker
 author: Ali Jahangiri
 ---
@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![](assets/featured.png)
 
 # Description
-The Arduino Giga R1 WiFi brings the power of the STM32H7 to the Mega form factor, the first to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital input/output (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessibly via pin headers. The STM32 microprocessor with dual core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
+The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor, the first to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital input/output (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessibly via pin headers. The STM32 microprocessor with dual core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
 
 # Target Areas
 3D printing, Signal Processing, Maker, Robotics
@@ -47,11 +47,11 @@ The Arduino Giga R1 WiFi brings the power of the STM32H7 to the Mega form factor
 # The Board
 ## Application Examples
 
-The Arduino Giga R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
+The Arduino GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
 
 - **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth or from anywhere in the world with the Arduino IoT Cloud.
 
-- **Audio Processing:** The Arduino Giga R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument, and change the note through the various inputs. Create a online concert with the Arduino IoT Cloud and connect with people all over the world.
+- **Audio Processing:** The Arduino GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument, and change the note through the various inputs. Create a online concert with the Arduino IoT Cloud and connect with people all over the world.
 
 - **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
@@ -65,7 +65,7 @@ The Arduino Giga R1 WiFi combines the best of the Portenta H7 and the Mega 2560.
 
 <!--
 ### Solution Overview
-![Example of a Arduino Giga connected to a external audio source and micro UFL antenna](assets/gigaSolutionOverview.png)
+![Example of a Arduino GIGA connected to a external audio source and micro UFL antenna](assets/gigaSolutionOverview.png)
 -->
 
 # Rating
@@ -91,11 +91,11 @@ The Arduino Giga R1 WiFi combines the best of the Portenta H7 and the Mega 2560.
 
 
 ## Block Diagram
-![Arduino Giga R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
+![Arduino GIGA R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
 
 ## Board Topology
 ### Front View
-![Top View of Arduino Giga R1 WiFi](assets/gigaR1Top.png)
+![Top View of Arduino GIGA R1 WiFi](assets/gigaR1Top.png)
 
 | **Ref.** | **Description**                       | **Ref.** | **Description**                     |
 | -------- | ------------------------------------- | -------- | ----------------------------------- |
@@ -112,31 +112,31 @@ The Arduino Giga R1 WiFi combines the best of the Portenta H7 and the Mega 2560.
 | DL2      | RGB SMLP34RGB2W3 Common anode LED     | J12      | CX90B-16P USB-c connector           |
 
 ### Back View
-![Back View of Arduino Giga R1 WiFi](assets/gigaR1Bottom.png)
+![Back View of Arduino GIGA R1 WiFi](assets/gigaR1Bottom.png)
 
 ## Processor
-The Arduino Giga R1 WiFi's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The Arduino GIGA R1 WiFi's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 
 ## Wi-Fi®/Bluetooth® Connectivity
 The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J14) to be shared between Wi-Fi® and Bluetooth®.
 
 ## Onboard Memories
-The Arduino Giga R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
+The Arduino GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
 
 ## USB Connector
-Two USB ports are provided on the Arduino Giga R1 WiFi. One USB 2.0 type A (J2) and a USB-c (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-c connector allows the Giga board to be connected as a peripheral. Note that super speed pins on J12 are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4,D2) for ESD protection.
+Two USB ports are provided on the Arduino GIGA R1 WiFi. One USB 2.0 type A (J2) and a USB-c (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-c connector allows the GIGA board to be connected as a peripheral. Note that super speed pins on J12 are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4,D2) for ESD protection.
 
 ## Audio
 The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the stereo audio output on the 3.5 mm connector J15. The DAC has a resolution of up to 12 bits. The right and left channel are also accessible via pins DAC0 and DAC1 respectively. A microphone input is also present on J15, which is shared with analog pin A7. Buffered mode in the STM32H7 can allow for low impedance output. Sample and hold functionality can reduce the power requirements. Up to 10 mega samples per second is supported. 
 
 ## Power Tree
-![Arduino Giga R1 WiFi Power Tree](assets/GIGA_R1_WiFi_Power_Tree.png)
+![Arduino GIGA R1 WiFi Power Tree](assets/GIGA_R1_WiFi_Power_Tree.png)
 
-Power can either be supplied via the VIN pins, or the 5V of the USB connectors (J2, J12). If power is supplied via VIN, the MP2269GD-Z (U7) buck converter steps the voltage down to 5V. The 5V power rail is then stepped down to 3.3V by the MP2322GQH (U6) buck converter. The logic level of components on the Arduino Giga is 3.3V.
+Power can either be supplied via the VIN pins, or the 5V of the USB connectors (J2, J12). If power is supplied via VIN, the MP2269GD-Z (U7) buck converter steps the voltage down to 5V. The 5V power rail is then stepped down to 3.3V by the MP2322GQH (U6) buck converter. The logic level of components on the Arduino GIGA is 3.3V.
 ## Board Operation
 
 ### Getting Started - IDE
-If you want to program your Arduino® Giga R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a Type-c USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Arduino® GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]** To connect the GIGA R1 WiFi control to your computer, you’ll need a Type-c USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
@@ -170,7 +170,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 -->
 
 ## Mounting Holes And Board Outline
-![Back View of Arduino Giga R1 WiFi](assets/gigaMechanical.png)
+![Back View of Arduino GIGA R1 WiFi](assets/gigaMechanical.png)
 # Certifications
 
 ## Declaration of Conformity CE DoC (EU)
