@@ -89,10 +89,9 @@ The Arduino Giga R1 WiFi combines the best of the Portenta H7 and the Mega 2560.
 | P<sub>MAX</sub>   | Maximum power consumption                          |     | TBC |     | mW   |
 # Functional Overview
 
-<!--
+
 ## Block Diagram
-![Arduino Giga Block Diagram](assets/gigaBlockDiagram.png)
--->
+![Arduino Giga R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
 
 ## Board Topology
 ### Front View
@@ -131,9 +130,8 @@ Two USB ports are provided on the Arduino Giga R1 WiFi. One USB 2.0 type A (J2) 
 The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the stereo audio output on the 3.5 mm connector J15. The DAC has a resolution of up to 12 bits. The right and left channel are also accessible via pins DAC0 and DAC1 respectively. A microphone input is also present on J15, which is shared with analog pin A7. Buffered mode in the STM32H7 can allow for low impedance output. Sample and hold functionality can reduce the power requirements. Up to 10 mega samples per second is supported. 
 
 ## Power Tree
-<!--
-![Arduino Giga R1 WiFi Power Tree](assets/gigaPowerTree.png)
--->
+![Arduino Giga R1 WiFi Power Tree](assets/GIGA_R1_WiFi_Power_Tree.png)
+
 Power can either be supplied via the VIN pins, or the 5V of the USB connectors (J2, J12). If power is supplied via VIN, the MP2269GD-Z (U7) buck converter steps the voltage down to 5V. The 5V power rail is then stepped down to 3.3V by the MP2322GQH (U6) buck converter. The logic level of components on the Arduino Giga is 3.3V.
 ## Board Operation
 
