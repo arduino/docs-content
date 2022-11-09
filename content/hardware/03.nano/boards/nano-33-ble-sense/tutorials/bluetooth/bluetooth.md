@@ -16,7 +16,7 @@ software:
   - web-editor
 ---
 
-In this tutorial we will use an Arduino Nano 33 BLE Sense, to turn on an RGB LED over Bluetooth, made possible by the communications chipset embedded on the board.
+In this tutorial we will use an Arduino Nano 33 BLE Sense, to turn on an RGB LED over Bluetooth®, made possible by the communications chipset embedded on the board.
 
 ## Goals
 The goals of this project are:

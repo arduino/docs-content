@@ -1,6 +1,8 @@
 # Bluetooth® rule
-- regex: "(?:[bB]luetooth(?!®)|bluetooth)(?![-\\/]|\\.?\\S)"
+- regex: "(?<![-/]\\S*)(?:bluetooth(?!®))(?![-/])\\b"
+  regexModifiers: "gi"
   shouldMatch: false
+  includeCodeBlocks: false
   format: markdown
   type: warning
   errorMessage: The Bluetooth® trademark is not used correctly.
