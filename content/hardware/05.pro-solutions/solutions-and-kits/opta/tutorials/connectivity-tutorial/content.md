@@ -56,7 +56,7 @@ The Arduino Opta has a RJ45 ethernet port with a LED that will indicate the stat
 
 If you want to take a deeper look at what features the **Ethernet** library has to offer, [take a look at the API reference page](https://www.arduino.cc/reference/en/libraries/ethernet/).
 
-### Modbus TCP via Ethernet port
+### Modbus TCP Via Ethernet Port
 
 The Arduino Opta uses the RS485 protocol for Modbus communication, enabling Modbus TCP via the Ethernet port. Modbus TCP is a variant of the Modbus family of simple, vendor-neutral communication protocols intended for supervision and control of automation equipment. Specifically, it covers the use of Modbus messaging in an intranet or internet environment using the TCP/IP protocols. The most common use of the protocols at this time is for Ethernet attachment of PLCs, I/O modules and gateways to other simple field buses or I/O networks.
 
