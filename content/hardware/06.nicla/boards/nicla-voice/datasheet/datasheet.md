@@ -2,7 +2,7 @@
 identifier: ABX00061
 title: Arduino® Nicla Voice
 type: pro
-author: Linnea Åkerberg, Pablo Marquínez
+author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri
 ---
 
 ![Nicla Voice](assets/featured.png)
@@ -27,10 +27,8 @@ noise and vibration detection, low-power speech recognition, contactless operati
     - Bluetooth 5.0 via cordio stack, 4.2 via ArduinoBLE
     - Typical +4dBm TX
       - +5dBm Max radiated TX with internal antenna (EIRP)
-      - +9dBm Max radiated TX with external antenna (EIRP)
     - -91 dBm sensitivity (conducted)
       - -92 dBm sensitivity with internal antenna (EIRP)
-      - -96 dBm sensitivity with external antenna (EIRP)
     - Data rates of 1 and 2 Mbps GFSK
 - **Syntiant® NDP120** Neural Decision Processor™ (Microprocessor)
   - 1x Syntiant Core 2™ ultra low power deep neural network inference engine
