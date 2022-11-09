@@ -42,7 +42,7 @@ Using the Arduino IDE we can easily work with these peripherals. Some features h
 
 ### Wi-Fi®
 
-The files necessary for using the Wi-Fi® on the Opta are included in the core. To try it out we can go to **File > Examples**, under **Examples for Opta** we can find the **WiFi** section, inside there is an example sketch **WiFiWebClient**. Open this example sketch and fill out the WiFi details in the **arduino_secrets.h** tab. The sketch will make the Opta connect to whatever website is entered into the ``char server[] = "example.com";`` variable. If the connection is successful it will then print the websites HTML content to the serial monitor. If the sketch ran successfully the output should look like the image below.
+The files necessary for using the Wi-Fi® on the Opta are included in the core. To try it out we can go to **File > Examples**, under **Examples for Opta** we can find the **WiFi** section, inside there is an example sketch **WiFiWebClient**. Open this example sketch and fill out the WiFi details in the **arduino_secrets.h** tab. The sketch will make the Opta connect to whatever website is entered into the `char server[] = "example.com";` variable. If the connection is successful it will then print the websites HTML content to the serial monitor. If the sketch ran successfully the output should look like the image below.
 
 ![Running WiFi sketch on the Opta in the Arduino IDE](assets/opta-wifi.png)
 
@@ -66,8 +66,8 @@ If you want to take a deeper look at what features the **ArduinoBLE** library ha
 
 ## Conclusion
 
-Now you have a better overview of the connectivity features on the Arduino Opta and how to use them. We went through how to use the different connectivity features and what libraries are required for them. By running all the example sketches on our device we have made sure that the modules are all working and everything is up to date. 
+Now you have a better overview of the connectivity features on the Arduino Opta and how to use them. We went through how to use the different connectivity features and what libraries are required for them. By running all the example sketches on our device we have made sure that the modules are all working and everything is up to date.
 
 ### Next Steps
 
-Now that you know how to use the connectivity features of the device, have a look at our other tutorials and try to combine the different features. The Opta uses the same architecture as the Portanta H7, it could therefore be a good idea to take a look at the Portenta H7 tutorials. Such as the using your [device as a Wi-Fi® access point tutorial](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) or the (Bluetooth® Low Energy connectivity with a phone tutorial)[https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity].
+Now that you know how to use the connectivity features of the device, have a look at our other tutorials and try to combine the different features. The Opta uses the same architecture as the Portanta H7, it could therefore be a good idea to take a look at the Portenta H7 tutorials. Such as the using your [device as a Wi-Fi® access point tutorial](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) or the [Bluetooth® Low Energy connectivity with a phone tutorial](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity).
