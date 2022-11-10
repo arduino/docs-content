@@ -24,3 +24,12 @@
   format: markdown
   type: warning
   errorMessage: The USB-C® / USB Type-C® / USB4® trademark is not used correctly.
+
+  # NXP® rule
+- regex: "(?<!http[s]?:\\/\\/\\S*)(?:NXP)(?!®)\\b"
+  regexModifiers: "gi"
+  shouldMatch: false
+  includeCodeBlocks: false
+  format: markdown
+  type: warning
+  errorMessage: The NXP® trademark is not used correctly.
