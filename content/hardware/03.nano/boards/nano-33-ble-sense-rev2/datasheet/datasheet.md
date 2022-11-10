@@ -10,7 +10,7 @@ type: maker
 
 The Arduino Nano 33 BLE Sense Rev2 is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing a Cortex M4F. The BMI270 and BMM150 jointly provide a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
-# Target areas
+# Target Areas
 
 Maker, enhancements, IoT application
 
