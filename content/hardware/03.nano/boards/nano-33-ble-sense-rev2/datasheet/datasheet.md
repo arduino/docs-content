@@ -20,7 +20,7 @@ Maker, enhancements, IoT application
   - **Processor**
     - 64 MHz Arm® Cortex-M4F (with FPU)
     - 1 MB Flash + 256 KB RAM
-  - **Bluetooth®  5 multiprotocol radio**
+  - **Bluetooth® 5 multiprotocol radio**
     - 2 Mbps
     - CSA #2
     - Advertising Extensions
