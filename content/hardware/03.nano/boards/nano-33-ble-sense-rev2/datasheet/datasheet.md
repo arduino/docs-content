@@ -360,9 +360,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a>                                                                  |
 | Forum                     | <http://forum.arduino.cc/>                                                                                                                                             |
 | Nina B306                 | <https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf>                                                                                    |
-| ECC608                    | <https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf> |
-pdf                                                                                                 |
-| ECC608 Library            | <https://github.com/arduino-libraries/ArduinoECCX08>                                                                                                                   |
 | LPS22HB                   | <https://github.com/stm32duino/LPS22HB>                                                                                                                                |
 | APDS9960 Library          | <https://github.com/adafruit/Adafruit_APDS9960>                                                                                                                        |
 | ProjectHub                | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                                                                                             |
@@ -372,6 +369,6 @@ pdf                                                                             
 
 | Date       | **Revision** | **Changes**                           |
 |------------|--------------|---------------------------------------|
-| xx/11/2022 | 3            | Updated to account for Rev2 changes   |
+| 10/11/2022 | 3            | Updated to account for Rev2 changes:  LSM9DS1 -> BMI270+Bmm150, HTS221 -> HS3003, MPM3610 -> MP2322, PCB modification   |
 | 08/03/2022 | 2            | Reference documentation links updates |
 | 04/27/2021 | 1            | General datasheet updates             |
