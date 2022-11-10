@@ -1,6 +1,6 @@
 Board:
-  Name: Arduino® Nano 33 BLE Sense
-  SKU: ABX00031
+  Name: Arduino® Nano 33 BLE Sense Rev2
+  SKU: ABX00069
 Microcontroller: nRF52840
 USB connector: Micro USB
 Pins:
@@ -12,11 +12,11 @@ Pins:
 Connectivity:
   Bluetooth®: NINA-B306
 Sensors:
-  IMU: LSM9DS
+  IMU: BMI270 (3-axis accelerometer + 3-axis gyroscope) + BMM150 (3-axis Magnetometer)
   Microphone: MP34DT05
   Gesture, light, proximity: APDS9960
   Barometric pressure: LPS22HB
-  Temperature, humidity: HTS221
+  Temperature, humidity: HS3003
 Communication:
   UART: RX/TX 
   I2C: A4 (SDA), A5 (SCL)

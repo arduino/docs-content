@@ -1,5 +1,5 @@
 ---
-identifier: ABX00070
+identifier: ABX00069
 title: Arduino® Nano 33 BLE Sense Rev2
 type: maker
 ---
@@ -111,7 +111,7 @@ Top:
 |----------|---------------------------------------------------|----------|----------------------------------|
 | U1       | NINA-B306 Module Bluetooth® Low Energy 5.0 Module | U6       | MP2322GQH Step Down Converter    |
 | U2       | BMI270 Sensor IMU                              | PB1      | IT-1185AP1C-160G-GTR Push button |
-| U3       | MP34DT06JTR Mems Microphone                       | HS-1     | HTS221 Humidity Sensor           |
+| U3       | MP34DT06JTR Mems Microphone                       | U8     | H3003 Humidity Sensor           |
 | U7       | BMM150 Magnetometer IC                             | DL1      | Led L                            |
 | U5       | APDS-9660 Ambient Module                          | DL2      | Led Power                        |
 

@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or professional to get started with embedded machine learning. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Sense not only features the possibility to connect via **Bluetooth® Low Energy** but also comes equipped with **sensors** to detect color, proximity, motion, temperature, humidity, audio and more.
+The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or professional to get started with embedded machine learning. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Sense not only features the possibility to connect via **Bluetooth® Low Energy** but also comes equipped with **sensors** to detect color, proximity, motion, temperature, humidity, audio and more.
 
 </FeatureDescription>
 
@@ -16,9 +16,9 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
 
 <Feature title="IMU for Motion Detection" image="imu">
 
-  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
+  The combined BMI270 and BMM150 provides a 9-axis inertial measurement unit featuring a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_lsm9ds1.pdf" download blank/>
+  <FeatureLink title="Library" url="https://github.com/arduino-libraries/Arduino_BMI270_BMM150" download blank/>
 </Feature>
 
 <Feature title="Python Support" image="python">
@@ -51,7 +51,7 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
 
 <Feature title="Temperature and Humidity Detection" image="temperature-sensor">
 
-  The HTS221 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.5 °C (between 15-40 °C) and is thereby perfectly suited to detect ambient temperature.
+  The HS3003 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.2 °C suited to detect ambient temperature.
 
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_HTS221.pdf" download blank/>
 </Feature>
