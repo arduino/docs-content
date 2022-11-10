@@ -8,7 +8,7 @@ Pins:
   Analog input pins: 8
   PWM pins: 10
 Connectivity:
-  Secure element: NXP SE0502
+  Secure element: NXP® SE0502
 Communication:
   UART: Yes
   I2C: Yes

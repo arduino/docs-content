@@ -12,7 +12,7 @@ Pins:
 Connectivity:
   Bluetooth: Bluetooth® 4.2 (Murata 1DX module)
   Wi-Fi®: 11b/g/n (Murata 1DX module)
-  Secure element: NXP SE050C2 Crypto chip
+  Secure element: NXP® SE050C2 Crypto chip
 Communication:
   UART: Yes
   I2C: 1
