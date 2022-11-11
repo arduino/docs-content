@@ -16,7 +16,7 @@ author: "Jacob Hylén"
 ### Introduction
 For some time you have been able to program certain Arduino boards using the OpenMV IDE, writing programs in MicroPython to be run on your board, giving you access to powerful tools such as machine learning with Edge Impulse. But with the release of the (still experimental) Arduino Lab for MicroPython, you have another option for programming your boards in MicroPython! 
 
-To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board
+To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board.
 
 ### Goals
 At the end of this guide you will have flashed a new firmware to your Arduino board, letting you connect to it with the Arduino Lab for MicroPython 
