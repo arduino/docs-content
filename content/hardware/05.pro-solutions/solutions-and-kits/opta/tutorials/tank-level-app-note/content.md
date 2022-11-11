@@ -38,9 +38,9 @@ This application note aims to show a system based on the Arduino Opta, capable o
 
 A graphical representation of the intended application is shown below:
 
-## Hardware and software requirements
+## Hardware and Software Requirements
 
-### Hardware requirements
+### Hardware Requirements
 
 - [Arduino Opta](https://store.arduino.cc/products/nicla-sense-me)
 - USB-A to USB-C cable (x2)
@@ -50,19 +50,19 @@ A graphical representation of the intended application is shown below:
 - [12VDC liquid pump](https://www.sparkfun.com/products/10455) (x1)
 - [12VDC DIN rail power supply](https://uk.rs-online.com/web/p/din-rail-power-supplies/2411620) (x1)
 
-### Software requirements
+### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose the offline Arduino IDE, you must install the following libraries: `ArduinoModbus`, `ArduinoRS485`, and `Scheduler`.
 - For the wireless connectivity feature, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
 
-## Demonstration setup
+## Demonstration Setup
 
 The electrical connections of the intended application are shown in the diagram below; notice that the Optas communicate with each other using Modbus RTU over RS-485:
 
 
 
-## Demonstration description
+## Demonstration Description
 
 BT is at least 2.5 times bigger than ST in the experimental setup shown before. ST and BT each have a specific monitoring routine to control their liquid level, the Optas in charge of ST and BT will communicate with each other using Modbus RTU over RS-485. Both Optas will exchange important states and parameters of each tank to understand and execute appropriate actions to maintain both tank levels as expected.
 
