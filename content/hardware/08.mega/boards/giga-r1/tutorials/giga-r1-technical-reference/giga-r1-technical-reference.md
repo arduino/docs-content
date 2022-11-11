@@ -32,7 +32,7 @@ software:
   - web-editor
 ---
 
-![The Arduino GIGA R1](assets/hero.png)
+<!-- ![The Arduino GIGA R1](assets/hero.png) -->
 
 The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date, supported by the same powerful, ML-capable, dual-core microcontroller found in the Pro family's Portenta H7. It features support for display connectors, USB-host, an Audio Jack, an Arducam connector, a CAN bus, 4 UART Serial Ports, 2 I2C buses, dedicated DAC Pins, and much, much more. 
 
@@ -82,7 +82,7 @@ The Arduino GIGA R1 boards feature the powerful dual core **STM32H747XI** microc
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
 
-![STM32H747XI](assets/STM32H747XI.png)
+![Microcontroller](assets/STM32H747XI.png)
 
 The microcontroller operates on a voltage of 3.3V, applying a higher voltage than that, such as 5V, to a pin might damage the microcontroller.
 
@@ -178,7 +178,7 @@ To learn more about dual core processing on the **Arduino GIGA R1**, check out t
 
 - [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)
 
-## Camera interface
+## Camera Interface
 The Arduino GIGA features an onboard arducam compatible connector, with support for **parallel**. 
 
 Programming the board in the **MicroPython** language using the **OpenMV IDE** easily lets you get started with a neural network analysing a realtime camera feed with ML. 
