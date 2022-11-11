@@ -69,7 +69,7 @@ In this step you will be diving into the core files you downloaded in the first 
 #### Windows
 The file you will need to access can be found in `C:\Users\{your-username}\AppData\Local\Arduino15\staging\packages\bossac-1.9.1-arduino2-windows.tar.gz\bossac-1.9.1-arduino2-windows.tar\bin\` and is named `bossac.exe`.
 
-One you've found the file, exract it from the .tar archive and copy it somewhere else, your desktop for example. 
+One you've found the file, extract it from the .tar archive and copy it somewhere else, your desktop for example. 
 
 Open a command terminal and start typing in `start `, now drag and drop the bossac.exe file you've found into the terminal, and press enter.
 
@@ -116,4 +116,4 @@ and you're done!
 
  
 ### Conclusion
-You have by now flashed your Arduino board with the firmware required to program it with the MicroPython language, which opens the door to many exciting projects! Have fun exploring the new possiblities of your Arduino board!
+You have by now flashed your Arduino board with the firmware required to program it with the MicroPython language, which opens the door to many exciting projects! Have fun exploring the new possibilities of your Arduino board!
