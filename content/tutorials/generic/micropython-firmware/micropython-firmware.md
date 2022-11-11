@@ -14,7 +14,7 @@ software:
 author: "Jacob Hylén"
 ---
 ### Introduction
-For some time you have been able to program certain Arduino boards using the OpenMV IDE, writing programs in MicroPython to be run on your board, giving you access to powerful tools such as machine learning with Edge Impulse. But with the release of the (still experimental) Arduino Lab for MicroPython, you have another option for programming your boards in python! 
+For some time you have been able to program certain Arduino boards using the OpenMV IDE, writing programs in MicroPython to be run on your board, giving you access to powerful tools such as machine learning with Edge Impulse. But with the release of the (still experimental) Arduino Lab for MicroPython, you have another option for programming your boards in MicroPython! 
 
 To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board
 
@@ -25,7 +25,7 @@ At the end of this guide you will have flashed a new firmware to your Arduino bo
 To follow along with this article and get up and running with MicroPython on your board you are gonna require the following material:
 - [An Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) / [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect) / [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7)
 - [Arduino Lab for MicroPython IDE](https://docs.arduino.cc/micropython/)
-- [Firmware binary file](https://docs.arduino.cc/micropython/)
+- [Firmware file](https://docs.arduino.cc/micropython/)
 
 ### Arduino Nano 33 BLE & Portenta H7
 The process for flashing the firmware on the Nano 33 BLE and the Portenta H7 are very similar, and you can for the most part follow the same steps to achieve your goal. The only difference is that with the Nano 33 BLE you need to first update the bootloader and SoftDevice, this step can be skipped on the Portenta H7. 
@@ -59,7 +59,7 @@ When this bar fills and the SoftDevice update completes, the board will restart,
 >**Note:** An important thing to do at this point which is easily forgotten is to close the serial monitor, we will need to use the serial port for other things very soon and if you leave the monitor open it will be busy and won't be able to receive any new interactions.
 
 #### Downloading firmware
-Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/Microython/) documentation site. 
+Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. 
 
 Download the .bin file that corresponds to the board you have. 
 
