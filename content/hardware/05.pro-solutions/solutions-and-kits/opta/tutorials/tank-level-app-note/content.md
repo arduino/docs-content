@@ -64,7 +64,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical conenctions of the application.](assets/electrical_connections.png)
+![Electrical connections of the application.](assets/electrical_connections.png)
 
 Notice that the Optas communicate with each other using Modbus RTU over RS-485. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of the Optas; the pump and the gate valve are controlled using the built-in relay outputs of the Optas.
 
