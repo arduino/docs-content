@@ -47,14 +47,14 @@ The full datasheets are available as a downloadable PDF from the link below:
 
 ## Installation
 
-The **Arduino GIGA R1** can be programmed through the:
+The **Arduino GIGA R1** can be programmed through:
 
--  **Classic Arduino IDE 1.8.X**, 
+- The **Classic Arduino IDE 1.8.X**, 
 - the **Arduino IDE 2.0.X**, 
 - the OpenMV IDE,
 - and the Web-editor. 
 
-To set the board up to be programmed with the OpenMV IDE in MicroPython, check out the [Boot0 section]() of this article.
+To set the board up to be programmed with the OpenMV IDE in MicroPython, check out the [Boot0 section](#Boot0) of this article.
 
 ### Core
 The Arduino GIGA R1 uses the [GIGA core]().
@@ -81,6 +81,8 @@ If you need help to get started, you can go through the [Arduino IoT Cloud getti
 The Arduino GIGA R1 boards feature the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO familys Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
+
+![STM32H747XI](assets/STM32H747XI.png)
 
 The microcontroller operates on a voltage of 3.3V, applying a higher voltage than that, such as 5V, to a pin might damage the microcontroller.
 
@@ -132,7 +134,7 @@ Once this is completed, you should now see a new storage device connected as a p
 ## Audio Jack
 The **Arduino GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, meaning that it is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
-![Audio Jack](assets/audiojack.png)
+![Audio Jack](assets/AudioJack.png)
 
 The Audio jack is connected to pins A12 and A13, also labelled DAC0 and DAC1.
 
@@ -147,8 +149,6 @@ In the coming sections we will provide resources and basic information on how to
 
 ## MIPI Display Interface
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **Arduino GIGA R1** to boast a 2 lane MIPI display interface. 
-
-![Display interface](assets/MIPI.png)
 
 This means that the **Arduino GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build a responsive interface.
 
@@ -174,14 +174,12 @@ at the beginning of the sketch for your primary core, in the board selector you 
 
 It is also possible to program both cores with just one sketch, though this quickly becomes an unwieldy, inefficient and **difficult** way to work.
 
-To learn more about dual core processing on the **Arduino GIGA R1** and **GIGA R1 WiFi**, check out the tutorial below:
+To learn more about dual core processing on the **Arduino GIGA R1**, check out the tutorial below:
 
 - [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)
 
 ## Camera interface
 The Arduino GIGA features an onboard arducam compatible connector, with support for **parallel**. 
-
-![Camera interface](assets/camerainterface.png)
 
 Programming the board in the **MicroPython** language using the **OpenMV IDE** easily lets you get started with a neural network analysing a realtime camera feed with ML. 
 
@@ -363,7 +361,7 @@ The **Arduino GIGA R1** also has two DAC pins, A12 & A13, that can act as genuin
 analogWrite(pin, value);
 ```
 
-![DAC Pins](assets/dacpins.png)
+![DAC Pins](assets/AudioJack.png)
 
 These DAC pins have a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
