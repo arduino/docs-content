@@ -18,7 +18,7 @@ libraries:
   - name: Arduino ECCX08
     url: https://github.com/arduino-libraries/ArduinoECCX08
   - name: RTC by Giampalo Mancini
-    url: Havent found yet
+    url: Haven't found yet
   - name: USBHostMbed5
     url: https://github.com/facchinm/USBHostMbed5/tree/test_hs_in_fs        WILL PROBABLY CHANGE
   - name: AdvancedAnalogRedux
@@ -34,7 +34,7 @@ software:
 
 ![The Arduino GIGA R1](assets/hero.png)
 
-The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date, supported by the same powerful, ML-capable, dual-core microcontroller found in the Pro family's Portenta H7. It features support for display connectors, USB-host, an Audio Jack, an Arducam connector, a CAN bus, 4 UART Serial Ports, 2 I2C busses, dedicated DAC Pins, and much, much more. 
+The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date, supported by the same powerful, ML-capable, dual-core microcontroller found in the Pro family's Portenta H7. It features support for display connectors, USB-host, an Audio Jack, an Arducam connector, a CAN bus, 4 UART Serial Ports, 2 I2C buses, dedicated DAC Pins, and much, much more. 
 
 This article is a collection of resources and guides to make use of every great feature of this powerful hardware.
 
@@ -195,7 +195,7 @@ The **Arduino GIGA R1** features a dedicated CAN bus.
 
 ![CAN Bus](assets/canpins.png)
 
->**Note:** the CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transciever as a breakout board.
+>**Note:** the CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transceiver as a breakout board.
 
 CAN, or **Controller Area Network**, is a communication standard that allows microcontroller-based devices to communicate with each other without the need for a host computer. This means that building a complex system with many different subsystems within becomes much easier. 
 
@@ -208,7 +208,7 @@ For more information on how to use the CAN bus on your **Arduino GIGA R1**, chec
 - [Using the CAN bus on the Arduino GIGA]()
 
 ## SPI 
-The **Arduino GIGA R1** features two separate SPI (Serial Peripheral Interface) busses, one is configured on the 6 pin header labelled SPI, and the other is broken out into pin connections on the board. 
+The **Arduino GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header labelled SPI, and the other is broken out into pin connections on the board. 
 
 The pins used for SPI on the **Arduino GIGA R1** are the following:
 
@@ -231,7 +231,7 @@ SPI.begin()
 ## I2C Pins
 I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7 bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
-The **Arduino GIGA R1** has three separate I2C busses of which two are usable without external components, letting you control more devices.
+The **Arduino GIGA R1** has three separate I2C buses of which two are usable without external components, letting you control more devices.
 
 The pins used for I2C on the **Arduino GIGA R1** are the following:
 - SDA - D20
