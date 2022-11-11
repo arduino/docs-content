@@ -26,7 +26,7 @@ from machine import Pin
 
 led = Pin(6, Pin.OUT)
 
-while (True):
+while True:
     led.on()
     time.sleep_ms(250)
     led.off()
@@ -207,7 +207,7 @@ import utime
 
 p2 = Pin(25, Pin.OUT)
 
-while(True):
+while True:
     p2.value(0)
     print("off")
     utime.sleep(1)  
@@ -226,7 +226,7 @@ import utime
 
 p2 = Pin(25, Pin.IN, Pin.PULL_UP)
 
-while(True):
+while True:
     print(p2.value())
     utime.sleep(1)
 ```
@@ -241,7 +241,7 @@ import utime
 
 p2 = Pin(25, Pin.IN, Pin.PULL_DOWN)
 
-while(True):
+while True:
     print(p2.value())
     utime.sleep(1)
 ```
