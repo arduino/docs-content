@@ -109,7 +109,7 @@ If you are want to program your Arduino board using MicroPython, and have an Ard
 
 All you need to do is to:
 download the .uf2 firmware file from the MicroPython [documentation website](docs.arduino.cc/MicroPython), 
-Connect your board to the computer and double tap the reset button to put it in bootloader mode,
+connect your board to the computer and double tap the reset button to put it in bootloader mode,
 on your computer, drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer,
 
 and you're done!
