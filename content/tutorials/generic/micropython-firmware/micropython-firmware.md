@@ -105,7 +105,7 @@ Again, don't disconnect or power off your board during this part of the process,
 Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
 
 ### Arduino Nano RP2040 Connect
-If you are want to program your Arduino board using MicroPython, and have an Arduino Nano RP2040 to use for this purpose, congratulations! You have chosen the easiest board to flash with the MicroPython firmware!
+If you want to program your Arduino board using MicroPython, and have an Arduino Nano RP2040 to use for this purpose, congratulations! You have chosen the easiest board to flash with the MicroPython firmware!
 
 All you need to do is to:
 download the .uf2 firmware file from the MicroPython [documentation website](docs.arduino.cc/MicroPython), 
