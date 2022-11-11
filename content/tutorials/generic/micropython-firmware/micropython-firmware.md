@@ -19,7 +19,7 @@ For some time you have been able to program certain Arduino boards using the Ope
 To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board.
 
 ### Goals
-At the end of this guide you will have flashed a new firmware to your Arduino board, letting you connect to it with the Arduino Lab for MicroPython 
+At the end of this guide you will have flashed a new firmware to your Arduino board, letting you connect to it with the Arduino Lab for MicroPython. 
 
 ### Requirements
 To follow along with this article and get up and running with MicroPython on your board you are gonna require the following material:
