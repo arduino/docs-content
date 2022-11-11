@@ -13,36 +13,36 @@ software:
   - Arduino Lab for MicroPython
 author: "Jacob Hylén"
 ---
-### Introduction
+## Introduction
+
 For some time you have been able to program selected Arduino boards using the OpenMV IDE and MicroPython. This gives you easy access to powerful technologies such as machine vision and machine learning. 
 With the release of the official MicroPython firmwares for the compatible Arduino boards, you have another option for programming your boards in MicroPython for when you don't need machine vision!
-To run this firmware you can use the (experimental) Arduino Lab for MicroPython editor. This tutorial explains how to get started.
+To run this firmware you can use the (experimental) Arduino Lab for MicroPython editor. This tutorial explains how to get started. To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board.
 
-To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board.
+## Goals
 
-### Goals
 At the end of this guide you will have flashed a new firmware to your Arduino board, letting you connect to it with the Arduino Lab for MicroPython. 
 
-### Requirements
+## Requirements
+
 To follow along with this article and get up and running with MicroPython on your board you are gonna require the following material:
 - [An Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) / [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect) / [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7)
 - [Arduino Lab for MicroPython IDE](https://docs.arduino.cc/micropython/)
 - [Firmware file](https://docs.arduino.cc/micropython/)
 
-### Arduino Nano 33 BLE & Portenta H7
-The process for flashing the firmware on the Nano 33 BLE and the Portenta H7 are very similar, and you can for the most part follow the same steps to achieve your goal. The only difference is that with the Nano 33 BLE you need to first update the bootloader and SoftDevice, this step can be skipped on the Portenta H7. 
+## Arduino Nano 33 BLE
 
-It will be made very clear by the article which step can be skipped or not, so don't worry about it too much.
+The process for flashing the firmware on the Nano 33 BLE requires to first update the bootloader and SoftDevice. Once this is done you can flash the MicroPython firmware to your board.
 
-#### Installing the core
+### Installing the core
+
 Start by making sure that you have the respective core installed. Open the IDE and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. 
 
 ![Board manager](assets/boardmanager.png)
 
 This is not only needed to upload the next sketch, but you're also going to dive into the core files themselves to find a specific tool in an upcoming step.
 
-#### Update bootloader
-This step is only for the Nano 33 BLE, if you're using a Portenta H7, you can safely skip this step.
+### Update bootloader
 
 In the Nano 33 BLE core is an example sketch that you will use to update the bootloader and SoftDevice of your board. Navigate to `File > Examples > Nano33BLE_System > Nano33_updateBLandSoftDevice` and open the sketch.
 
@@ -60,15 +60,18 @@ When this bar fills and the SoftDevice update completes, the board will restart,
 
 >**Note:** An important thing to do at this point which is easily forgotten is to close the serial monitor, we will need to use the serial port for other things very soon and if you leave the monitor open it will be busy and won't be able to receive any new interactions.
 
-#### Downloading firmware
+### Downloading firmware
+
 Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. 
 
 Download the .bin file that corresponds to the board you have. 
 
-#### Finding BOSSAC
+### Finding BOSSAC
+
 In this step you will be diving into the core files you downloaded in the first step. This process will be different for you depending on if you're on a Windows or MacOS computer.
 
 #### Windows
+
 The file you will need to access can be found in `C:\Users\{your-username}\AppData\Local\Arduino15\staging\packages\bossac-1.9.1-arduino2-windows.tar.gz\bossac-1.9.1-arduino2-windows.tar\bin\` and is named `bossac.exe`.
 
 One you've found the file, extract it from the .tar archive and copy it somewhere else, your desktop for example. 
@@ -88,6 +91,7 @@ Again, don't disconnect or power off your board during this part of the process,
 Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
 
 #### MacOS
+
 The file you will need to access can be found in `Users/{your-user}/Library/Arduino15/packages/arduino/tools/bossac/1.9.1-arduino2`, the file you are after is `bossac.exe`
 
 >**Note:** The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories. 
@@ -106,16 +110,33 @@ Again, don't disconnect or power off your board during this part of the process,
 
 Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
 
-### Arduino Nano RP2040 Connect
+## Arduino Nano RP2040 Connect
+
 If you want to program your Arduino board using MicroPython, and have an Arduino Nano RP2040 to use for this purpose, congratulations! You have chosen the easiest board to flash with the MicroPython firmware!
 
 All you need to do is to:
-download the .uf2 firmware file from the MicroPython [documentation website](docs.arduino.cc/MicroPython), 
-connect your board to the computer and double tap the reset button to put it in bootloader mode,
-on your computer, drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer,
 
-and you're done!
+1. Download the .uf2 firmware file from the MicroPython [documentation website](docs.arduino.cc/MicroPython).
+2. Connect your board to the computer and double tap the reset button to put it in bootloader mode,
+   on your computer.
+3. Drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer, and you're done!
 
- 
+## Arduino Portenta H7
+
+To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool . Open the IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
+
+This board can programmed via DFU bootloader, using [dfu-util](http://dfu-util.sourceforge.net/). To enter the DFU bootloader, double tap the reset button on the board.
+
+### Finding dfu-util
+
+Once the core is installed you will find the dfu-util tool in the following locations:
+
+**macOS:** `Users/{your-user}/Library/Arduino15/packages/arduino/tools/dfu-util/0.10.0-arduino1/dfu-util`
+
+### Flashing The Firmware
+
+With the tool installed execute the following command `dfu-util -a 0 -d 0x2341:0x035b -D firmware.dfu`
+
 ### Conclusion
+
 You have by now flashed your Arduino board with the firmware required to program it with the MicroPython language, which opens the door to many exciting projects! Have fun exploring the new possibilities of your Arduino board!
