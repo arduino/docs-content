@@ -72,7 +72,12 @@ In this step you will be diving into the core files you downloaded in the first 
 
 #### Windows
 
-The file you will need to access can be found in `C:\Users\{your-username}\AppData\Local\Arduino15\staging\packages\bossac-1.9.1-arduino2-windows.tar.gz\bossac-1.9.1-arduino2-windows.tar\bin\` and is named `bossac.exe`.
+The file you will need to access can be found in 
+```
+C:\Users\{your-username}\AppData\Local\Arduino15\staging\packages\bossac-1.9.1-arduino2-windows.tar.gz\bossac-1.9.1-arduino2-windows.tar\bin\` 
+```
+
+and is named `bossac.exe`.
 
 One you've found the file, extract it from the .tar archive and copy it somewhere else, your desktop for example. 
 
@@ -92,7 +97,11 @@ Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose 
 
 #### MacOS
 
-The file you will need to access can be found in `Users/{your-user}/Library/Arduino15/packages/arduino/tools/bossac/1.9.1-arduino2`, the file you are after is `bossac.exe`
+The file you will need to access can be found in 
+```
+Users/{your-user}/Library/Arduino15/packages/arduino/tools/bossac/1.9.1-arduino2
+```
+ the file you are after is `bossac.exe`
 
 >**Note:** The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories. 
 
@@ -123,20 +132,74 @@ All you need to do is to:
 
 ## Arduino Portenta H7
 
-To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool . Open the IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
+To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool. Open the IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
+
+![Installing the Portenta core](assets/boardmanager-portenta.png)
 
 This board can programmed via DFU bootloader, using [dfu-util](http://dfu-util.sourceforge.net/). To enter the DFU bootloader, double tap the reset button on the board.
 
+### Downloading firmware
+
+Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. 
+
+Download the .dfu file for the Portenta H7.
+
 ### Finding dfu-util
 
-Once the core is installed you will find the dfu-util tool in the following locations:
+In this step you will be diving into the core files you downloaded in the first step. This process will be different for you depending on if you're on a Windows or MacOS computer.
 
-**macOS:** `Users/{your-user}/Library/Arduino15/packages/arduino/tools/dfu-util/0.10.0-arduino1/dfu-util`
+#### Windows
+
+The file you will need to access can be found in 
+```     
+C:\Users\{your username}\AppData\Local\Arduino15\staging\packages\dfu-util-0.10.0-arduino1-windows.tar.bz2\dfu-util-0.10.0-arduino1-windows.tar\windows\ 
+```
+and is named `dfu-util.exe`.
+
+One you've found the file, extract it from the .tar archive and copy it somewhere else, your desktop for example. 
+
+Open a command terminal and start typing in `start `, now drag and drop the dfu-util.exe file you've found into the terminal, and press enter.
+
+If successful, another command terminal window should open in which you are able to execute the command that will flash your board with the MicroPython firmware.
+
+Double tap the reset button on your board to put it in DFU mode, and execute the following command, but replace the path of the firmware file with the directory where you have placed the firmware you downloaded previously:
+
+```
+dfu-util -a 0 -d 0x2341:0x035b -D {firmware.dfu}
+```
+
+Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
+
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
+
+#### MacOS
+
+The file you will need to access can be found in 
+```
+Users/{your-user}/Library/Arduino15/packages/arduino/tools/dfu-util/0.10.0-arduino1/dfu-util
+```
+the file you are after is `dfu-util.exe`
+
+>**Note:** The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories. 
+
+Open a terminal window and drag and drop the dfu-util.exe file into the terminal window.
+
+Now, you should be able to execute the command that will flash your board with the MicroPython firmware.
+
+Double tap the reset button on your board to put it in DFU mode, and execute the following command, but replace the path of the firmware file with the directory where you have placed the firmware you downloaded previously:
+
+```
+dfu-util -a 0 -d 0x2341:0x035b -D {firmware.dfu}
+```
+
+Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
+
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
 
 ### Flashing The Firmware
 
 With the tool installed execute the following command `dfu-util -a 0 -d 0x2341:0x035b -D firmware.dfu`
 
-### Conclusion
+## Conclusion
 
 You have by now flashed your Arduino board with the firmware required to program it with the MicroPython language, which opens the door to many exciting projects! Have fun exploring the new possibilities of your Arduino board!
