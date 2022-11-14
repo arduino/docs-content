@@ -22,7 +22,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 <Feature title="Dual Core 32-bit Arm® Cortex®-M0+" image="core">
 
-  Get started with machine learning with TinyML, TensorFlow Lite or Edge Impulse thanks to the high performance energy efficient microprocessor clocked at 133 MHz.
+  Get started with machine learning with TinyML, TensorFlow Lite or Edge Impulse® thanks to the high performance energy efficient microprocessor clocked at 133 MHz.
 
   <FeatureLink title="Datasheet" url="https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Processor%20Datasheets/Arm%20Cortex-M0%20plus%20Processor%20Datasheet.pdf?revision=76cf8aff-b8fc-4897-b144-ee2858c3398f&la=en&hash=6AF26D8B8C9A0404181234E5612C872619072765" download/>
 </Feature>

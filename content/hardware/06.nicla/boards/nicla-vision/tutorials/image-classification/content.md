@@ -1,19 +1,19 @@
 ---
-title: Image Classification with Edge Impulse
+title: Image Classification with Edge Impulse®
 difficulty: intermediate
-tags: [Machine Learning, Edge Impulse, TinyML, Tensorflow]
-description: This tutorial teaches you how to train a custom machine learning model with Edge Impulse and to do image classification on the Arduino Nicla Vision.
+tags: [Machine Learning, Edge Impulse®, TinyML, Tensorflow]
+description: This tutorial teaches you how to train a custom machine learning model with Edge Impulse® and to do image classification on the Arduino Nicla Vision.
 author: Sebastian Romero
 ---
 
 ## Overview 
 
-This tutorial teaches you how to train a custom machine learning model with Edge Impulse and to do image classification on the Arduino Nicla Vision. The Machine Learning (ML) model will use the TensorFlow Lite format and the classification example will run on OpenMV.
+This tutorial teaches you how to train a custom machine learning model with Edge Impulse® and to do image classification on the Arduino Nicla Vision. The Machine Learning (ML) model will use the TensorFlow Lite format and the classification example will run on OpenMV.
 
 ## Goals
 
 - Learn how to create datasets to be used for classification
-- Learn how to train a ML model in Edge Impulse
+- Learn how to train a ML model in Edge Impulse®
 - Learn how to use OpenMV to run a classification example
 - Learn how to embed a ML model in the OpenMV firmware
 
@@ -21,16 +21,16 @@ This tutorial teaches you how to train a custom machine learning model with Edge
 
 - [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable
-- An [Edge Impulse](https://studio.edgeimpulse.com/) account for training the ML model
+- An [Edge Impulse®](https://studio.edgeimpulse.com/) account for training the ML model
 - Fruits (or other objects) to create the classification model 🍏🍌🍐
 
 ## Machine Learning on the Edge
 
 Machine learning on powerful computers has been around for a while. On microcontrollers this is a rather new territory. Microcontrollers might not be able to run ML models to process high resolution images at high frame rates but there are some interesting aspects. On the one hand microcontrollers can run at very low power on batteries for a long time. You could even put the processor to sleep and only wake it up when the camera or the on-board proximity sensor registers activity. On the other hand ML models on a microcontroller can run without internet connection as they don't need to upload data to the cloud. This means that you can install distributed ML solutions in places where there is no Internet connection (Edge Computing). Additionally processing data locally means that the data stays on the device which ensures data privacy.
 
-## The Edge Impulse Platform
+## The Edge Impulse® Platform
 
-Edge Impulse is a platform that simplifies the process of creating machine learning models by choosing reasonable defaults for the countless parameters you could set when creating a ML model. It provides a simple user interface that not only allows to train a ML model but also to inspect the data and test the model.
+Edge Impulse® is a platform that simplifies the process of creating machine learning models by choosing reasonable defaults for the countless parameters you could set when creating a ML model. It provides a simple user interface that not only allows to train a ML model but also to inspect the data and test the model.
 
 ## Training the ML Model
 
@@ -44,7 +44,7 @@ One thing to consider is overfitting. If a machine learning model is overfitting
 
 You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart and makes the classification based on that but you rather want the model to learn the concept of an object. Luckily in the real world this rarely ever happens. In machine learning however, it's a common pitfall. 
 
-To find the right configuration for your application often requires trial and error. Edge Impulse shows in [this article](https://docs.edgeimpulse.com/docs/increasing-model-performance) how to improve poorly performing machine learning models.
+To find the right configuration for your application often requires trial and error. Edge Impulse® shows in [this article](https://docs.edgeimpulse.com/docs/increasing-model-performance) how to improve poorly performing machine learning models.
 
 ### 1. Creating a Data Set
 
@@ -73,23 +73,23 @@ You may have also noticed that there is a labels text file. This file is used to
 
 ***Please note that creating a machine learning model with training data based around just one specific piece of fruit while always using the same background does not create a robust model. It will perform well in the controlled environment but will struggle when being presented with new data.***
 
-### 2. Uploading the Data to Edge Impulse
-Now that all data is ready to be uploaded you need to create a new Edge Impulse project. If you haven't registered an Edge Impulse account yet, you may create one on [their website](https://studio.edgeimpulse.com/login). Log in to the Edge Impulse Studio and create a new project named `Fruit-Detector`.
+### 2. Uploading the Data to Edge Impulse®
+Now that all data is ready to be uploaded you need to create a new Edge Impulse® project. If you haven't registered an Edge Impulse® account yet, you may create one on [their website](https://studio.edgeimpulse.com/login). Log in to the Edge Impulse® Studio and create a new project named `Fruit-Detector`.
 
-After that you can go back to the OpenMV IDE and select **Tools > Dataset Editor > Export > Log in to Edge Impulse Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it hasn't seen yet.
+After that you can go back to the OpenMV IDE and select **Tools > Dataset Editor > Export > Log in to Edge Impulse® Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse® login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it hasn't seen yet.
 
-![You need to log in with your Edge Impulse account when uploading a dataset for the first time](assets/edge_impulse_login.png)
+![You need to log in with your Edge Impulse® account when uploading a dataset for the first time](assets/edge_impulse_login.png)
 
 
 ### 3. Acquire Data
 
-Open your project in the Edge Impulse studio and navigate to "Data Acquisition". You can see that the images have been uploaded and labeled according to the classes that you created. With this tool you can browse through the image samples and remove the ones which you don't deem valuable for the training (e.g. if one of the images is too blurry). You could also do that in the OpenMV IDE before you upload the data.
+Open your project in the Edge Impulse® studio and navigate to "Data Acquisition". You can see that the images have been uploaded and labeled according to the classes that you created. With this tool you can browse through the image samples and remove the ones which you don't deem valuable for the training (e.g. if one of the images is too blurry). You could also do that in the OpenMV IDE before you upload the data.
 
 ![The Data Acquisition tool allows to inspect the uploaded assets](assets/vs_openmv_ml_edge_impulse_data.png)
 
 
 
-Make sure to have a good training / test data split ratio of around 80/20. The test data is used to test the model with "unseen" data after the training has finished. If you have an overfitting model you may see high accuracy in the training results but poor performance in the testing results. If that's the case you may have to tweak the parameters or collect more / better training data. More information on this can be found in the Edge Impulse documentation referenced above.
+Make sure to have a good training / test data split ratio of around 80/20. The test data is used to test the model with "unseen" data after the training has finished. If you have an overfitting model you may see high accuracy in the training results but poor performance in the testing results. If that's the case you may have to tweak the parameters or collect more / better training data. More information on this can be found in the Edge Impulse® documentation referenced above.
 
 
 
@@ -129,7 +129,7 @@ Click on "Start Training" to train the machine learning model. A small amount of
 
 ## 7. Test the Model
 
-After training the model, you will have an idea of how well the model performs on the data that it knows from the training. That is only half of the story. You also need to know how well it performs on unseen data. In almost any real-world application a model will be confronted only with unseen data. Being able to cope with that is crucial. Edge Impulse studio provides a tool to easily test the model. You can find it under "Model Testing". The model testing results will give you an insight on the performance. If the model gets bad results while testing, but had a good accuracy after training it may be overfitting. 
+After training the model, you will have an idea of how well the model performs on the data that it knows from the training. That is only half of the story. You also need to know how well it performs on unseen data. In almost any real-world application a model will be confronted only with unseen data. Being able to cope with that is crucial. Edge Impulse® studio provides a tool to easily test the model. You can find it under "Model Testing". The model testing results will give you an insight on the performance. If the model gets bad results while testing, but had a good accuracy after training it may be overfitting. 
 
 You may ask yourself why this model performs so well even if the model is not robust at all. It's because the data used for testing comes from the same controlled environment as the learning data. The test images have the same background and feature the exact same fruits as the training images. If you wait a few days until the banana becomes brown, you will see a decrease in performance.
 
@@ -143,13 +143,13 @@ The ML model is trained and already optimized to be used with microcontrollers. 
 
 ### Deploy
 
-Deploying the ML model to your board requires a few steps. The Edge Impulse Studio provides an export feature for OpenMV. Switch to the deployment section in the menu, select OpenMV under "Build firmware" and click "build". This will create an OpenMV compatible library and download it as a zip file. Unzip it.
+Deploying the ML model to your board requires a few steps. The Edge Impulse® Studio provides an export feature for OpenMV. Switch to the deployment section in the menu, select OpenMV under "Build firmware" and click "build". This will create an OpenMV compatible library and download it as a zip file. Unzip it.
 
-![The Edge Impulse Studio has a built-in export function for OpenMV](assets/deployment.png)
+![The Edge Impulse® Studio has a built-in export function for OpenMV](assets/deployment.png)
 
 Since the Nicla Vision doesn't have any on-board SRAM we need to build the machine learning model into the firmware and load it from the flash. To do so, go to https://github.com/openmv/openmv and [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository. In your fork click on "Actions" and enable the workflows by clicking on the green button.
 
-Rename the machine learning model and the label file to fruit_detection.tflite and fruit_detection.txt respectively. In your fork, replace the built-in machine learning model under `src/lib/libtf/models` with the model you downloaded from Edge Impulse Studio. Commit the files and push the commit to the repository. It will build a new firmware automatically.
+Rename the machine learning model and the label file to fruit_detection.tflite and fruit_detection.txt respectively. In your fork, replace the built-in machine learning model under `src/lib/libtf/models` with the model you downloaded from Edge Impulse® Studio. Commit the files and push the commit to the repository. It will build a new firmware automatically.
 
 ![The model that shall be baked into the firmware needs to be stored under src/lib/libtf/models](assets/github_model_path.png)
 
