@@ -1,16 +1,16 @@
 ---
 author: 'Karl Söderby'
-title: 'Python with Arduino Boards'
-description: 'Learn about compatibility between the popular Python language and Arduino boards, how to set up your environment, and discover in-depth tutorials and useful links.'
+title: 'Python® with Arduino Boards'
+description: 'Learn about compatibility between the popular Python® language and Arduino boards, how to set up your environment, and discover in-depth tutorials and useful links.'
 tags: 
-  - Python
+  - Python®
   - OpenMV
 hero_position: 1
 ---
 
 ## Overview
 
-[MicroPython](https://micropython.org/) is an implementation of the [Python programming language](https://www.python.org/) that comes with a subset of the Python standard library, and is designed **to run on microcontrollers**. A great advantage of using MicroPython is that it is easy to learn and has [great documentation](http://docs.micropython.org/en/latest/) for a number of boards. At the moment, there are four boards that can be used together with MicroPython, you can read more about them in the [compatible boards section](#compatible-boards).
+[MicroPython](https://micropython.org/) is an implementation of the [Python® programming language](https://www.python.org/) that comes with a subset of the Python® standard library, and is designed **to run on microcontrollers**. A great advantage of using MicroPython is that it is easy to learn and has [great documentation](http://docs.micropython.org/en/latest/) for a number of boards. At the moment, there are four boards that can be used together with MicroPython, you can read more about them in the [compatible boards section](#compatible-boards).
 
 Arduino officially supports [OpenMV's branch of MicroPython](https://github.com/openmv/micropython), and through the [OpenMV IDE](https://openmv.io/pages/download) you can install MicroPython, connect/disconnect your board and upload your scripts 
 
@@ -39,7 +39,7 @@ As MicroPython is already running on the board, we don't need to compile and upl
 
 ## OpenMV Editor
 
-The Arduino IDE does not yet support Python. Instead, we can use [OpenMV](https://openmv.io/), a platform that supports programming Arduino boards with MicroPython. Through the OpenMV editor, we can install MicroPython, and upload scripts directly to the board. There's also a number of examples available directly in the editor. 
+The Arduino IDE does not yet support Python®. Instead, we can use [OpenMV](https://openmv.io/), a platform that supports programming Arduino boards with MicroPython. Through the OpenMV editor, we can install MicroPython, and upload scripts directly to the board. There's also a number of examples available directly in the editor. 
 
 ![The OpenMV editor.](assets/placeholder-openmv.png)
 
@@ -67,7 +67,7 @@ All of above are also compatible with the **OpenMV IDE.**
 If you need help getting started with MicroPython on the **Nano 33 BLE** board, you can check out the tutorial below:
 
 - [Getting started with MicroPython with Nano 33 BLE](/tutorials/nano-33-ble/getting-started-omv) (setting up your environment).
-- [Nano 33 BLE Python API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
+- [Nano 33 BLE Python® API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE board, double tap the reset button quickly. This will reset your board to factory setting.***
 
@@ -78,7 +78,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE** board, 
 If you need help getting started with MicroPython on the **Nano 33 BLE Sense** board, you can check out the tutorials below: 
 
 - [Getting started with MicroPython with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv) (setting up your environment).
-- [Nano 33 BLE Sense Python guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
+- [Nano 33 BLE Sense Python® guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE Sense board, double tap the reset button quickly. This will reset your board to factory setting.***
 
@@ -89,7 +89,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE Sense** b
 If you need help getting started with MicroPython on the **Nano RP2040 Connect** board, you can check out the tutorials below:
 
 - [Getting Started with OpenMV and MicroPython on Nano RP2040 Connect](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)
-- [Nano RP2040 Connect Python guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
+- [Nano RP2040 Connect Python® guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
 
 ***To reset the bootloader, you will need to short to connect a jumper wire between the REC and GND pin, and press the reset button. More detailed instructions are available in the [Nano RP2040 Connect technical reference](/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#board-not-detected).***
 
@@ -101,9 +101,9 @@ If you need help getting started with  MicroPython on the **Portenta H7** board,
 
 - [Getting Started with OpenMV and MicroPython on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-openmv-gs)
 
-## Learn Python
+## Learn Python®
 
-As MicroPython is an implementation of the Python language, you can also run a lot of Python scripts directly on the board. For example, running this python script on your computer also works when running it on your board.
+As MicroPython is an implementation of the Python® language, you can also run a lot of Python® scripts directly on the board. For example, running this Python® script on your computer also works when running it on your board.
 
 ```python
 value1 = 2
@@ -112,23 +112,23 @@ value2 = 5
 print(value1 + value2)
 ```
 
-This means it's time to learn the **Python** language, which there is a lot of resources for. We recommend taking a look at the following resources to better understand the Python language:
+This means it's time to learn the **Python®** language, which there is a lot of resources for. We recommend taking a look at the following resources to better understand the Python® language:
 
 - [python.org](https://www.python.org/)
 - [learnpython.org](https://www.learnpython.org/)
-- [w3schools guide to Python](https://www.w3schools.com/python/default.asp)
+- [w3schools guide to Python®](https://www.w3schools.com/python/default.asp)
 
 ### MicroPython Docs
 
-Visit the [MicroPython documentation](https://docs.micropython.org/en/latest/) for an understanding on how Python runs on microcontrollers.
+Visit the [MicroPython documentation](https://docs.micropython.org/en/latest/) for an understanding on how Python® runs on microcontrollers.
 
-***Note that many examples will not work directly with Arduino boards, but will provide an understanding of how Python can run on a microcontroller.***
+***Note that many examples will not work directly with Arduino boards, but will provide an understanding of how Python® can run on a microcontroller.***
 
 ## API
 
 Below you will find some useful examples that can be used by any Arduino board. For more specific features, such as on-board sensors, connectivity and communication, please refer to the individual guides:
 
-- [Nano RP2040 Connect Python API guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
+- [Nano RP2040 Connect Python® API guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
 - [Nano BLE API guide](/tutorials/nano-33-ble/ble-python-api)
 - [Nano BLE Sense API guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 

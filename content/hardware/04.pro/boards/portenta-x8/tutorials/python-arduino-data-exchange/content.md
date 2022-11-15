@@ -1,9 +1,9 @@
 ---
-title: 'Data Exchange Between Python on Linux and an Arduino Sketch'
-description: 'This tutorial will show you how to run a python application that exchanges data with an Arduino Sketch.'
+title: 'Data Exchange Between Python® on Linux and an Arduino Sketch'
+description: 'This tutorial will show you how to run a Python® application that exchanges data with an Arduino Sketch.'
 tags: 
   - RPC
-  - Python
+  - Python®
 author: 'Sebastian Romero'
 hardware:
   - hardware/04.pro/boards/portenta-x8
@@ -11,7 +11,7 @@ hardware:
 
 ## Overview
 
-The container infrastructure provided by Arduino contains a pre-built Python image that you can use to run python applications on the Portenta X8. In this tutorial we're going to build a container based on a provided one. While all the peripherals can be accessed from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and just exchange the required data between the microcontroller and the Python application. In this tutorial you will learn how to do that. If you haven't done so, read through the [foundations article](/tutorials/portenta-x8/x8-fundamentals) to understand the fundamental concepts of the X8 and the provided infrastructure.
+The container infrastructure provided by Arduino contains a pre-built Python® image that you can use to run Python® applications on the Portenta X8. In this tutorial we're going to build a container based on a provided one. While all the peripherals can be accessed from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and just exchange the required data between the microcontroller and the Python® application. In this tutorial you will learn how to do that. If you haven't done so, read through the [foundations article](/tutorials/portenta-x8/x8-fundamentals) to understand the fundamental concepts of the X8 and the provided infrastructure.
 
 ## Goals
 
@@ -26,13 +26,13 @@ The container infrastructure provided by Arduino contains a pre-built Python ima
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout) board
 - Any sensor (in this example we'll use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
 
-## Python on the X8
+## Python® on the X8
 
-Python is a modern and powerful scripting language that can be used for all sorts of use cases. In this tutorial we only read sensor data from an Arduino sketch without doing anything interesting with it, but you could extend the example and process the data further.
+Python® is a modern and powerful scripting language that can be used for all sorts of use cases. In this tutorial we only read sensor data from an Arduino sketch without doing anything interesting with it, but you could extend the example and process the data further.
 
 ### Communication Between Linux and Arduino Sketches
 
-The python script will run on the Linux side and therefore on the iMX8 processor. The Arduino sketch on the other hand will run on the STM32H747 microcontroller. That allows for real-time processing on the Arduino side while running a fully fledged operating system on iMX8. However the two processors need a communication mechanism to exchange data with one another. The communication mechanism that is being used is referred to as RPC (Remote Procedure Call). To facilitate the communication the M7 core on the STM32H747 microcontroller is used which hands over any data / request to the M4 core. That means your Arduino sketch will solely run on the M4 core. Dual core processing on the Arduino side is currently not supported.
+The Python® script will run on the Linux side and therefore on the iMX8 processor. The Arduino sketch on the other hand will run on the STM32H747 microcontroller. That allows for real-time processing on the Arduino side while running a fully fledged operating system on iMX8. However the two processors need a communication mechanism to exchange data with one another. The communication mechanism that is being used is referred to as RPC (Remote Procedure Call). To facilitate the communication the M7 core on the STM32H747 microcontroller is used which hands over any data / request to the M4 core. That means your Arduino sketch will solely run on the M4 core. Dual core processing on the Arduino side is currently not supported.
 
 On the Linux side there is a service that takes care of sending data between the two worlds. It's called `m4-proxy`. You can check if the service is running by logging into the X8 via `adb shell` and then executing `sudo journalctl -fu m4-proxy`. If, for whatever reason, the service has stopped, you can restart it with `sudo systemctl restart m4-proxy`
 
