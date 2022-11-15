@@ -1,6 +1,6 @@
 ---
 title: Guide to Arduino GIGA USB Features
-description: Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and how to send MIDI signals.
+description: 'Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and how to send MIDI signals.'
 author: Karl Söderby
 ---
 
