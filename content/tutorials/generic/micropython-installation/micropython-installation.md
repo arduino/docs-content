@@ -58,7 +58,7 @@ Once this bar completes, you will be prompted with another choice. This time it 
 
 When this bar fills and the SoftDevice update completes, the board will restart, and you've successfully made it through the procedure. 
 
->**Note:** An important thing to do at this point which is easily forgotten is to close the serial monitor, we will need to use the serial port for other things very soon and if you leave the monitor open it will be busy and won't be able to receive any new interactions.
+***Note: An important thing to do at this point which is easily forgotten is to close the serial monitor, we will need to use the serial port for other things very soon and if you leave the monitor open it will be busy and won't be able to receive any new interactions.***
 
 ### Downloading firmware
 
