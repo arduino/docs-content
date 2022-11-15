@@ -1,13 +1,13 @@
 ---
 identifier: ABX00073
-title: Arduino® MKR IoT Carrier - R2
+title: Arduino® MKR IoT Carrier - Rev2
 type: maker
 ---
 
-![](assets/featured.jpg)
+![](assets/featured.png)
 
 # Description
-The MKR IoT Carrier R2 provides infinite possibilities for IoT projects.
+The MKR IoT Carrier Rev2 provides infinite possibilities for IoT projects.
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
@@ -154,12 +154,12 @@ The MKR IoT Carrier makes use of the power management features of the Arduino MK
 
 ![Solution overview](assets/solution_overview.png)
 
-The MKR IoT Carrier R2 is also a part of the Arduino® Oplá IoT Kit, that in addition to the carrier contains an Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.
+The MKR IoT Carrier Rev2 is also a part of the Arduino® Oplá IoT Kit, that in addition to the carrier contains an Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.
 
 ## Board Operation
 
 ### Getting Started - IDE
-If you want to program your MKR IoT Carrier R2 while offline you need to install the Arduino Desktop IDE **[1]**. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your MKR IoT Carrier Rev2 while offline you need to install the Arduino Desktop IDE **[1]**. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
@@ -170,7 +170,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the MKR IoT Carrier R2 can be found either in the “Examples” menu in the Arduino IDE or in the Oplá IoT Kit platform **[4]** and further documentation can be found in Arduino Documentation **[8]** which also contains links to the troubleshooting articles.
+Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the Oplá IoT Kit platform **[4]** and further documentation can be found in Arduino Documentation **[8]** which also contains links to the troubleshooting articles.
 
 ### Online Resources
 
@@ -183,7 +183,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ![Pinout](assets/Pinout.png)
 
-Detailed information on the MKR IoT Carrier’s pinouts are available in a separate document: [Docs Arduino - MKR IoT Carrier pinout](https://docs.arduino.cc/resources/pinouts/ABX00047-full-pinout.pdf)
+Detailed information on the pinouts are available in a separate document: [Docs Arduino - MKR IoT Carrier Rev2 pinout](https://docs.arduino.cc/resources/pinouts/ABX00073-full-pinout.pdf)
 
 ### Battery Clips
 
