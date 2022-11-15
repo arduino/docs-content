@@ -13,8 +13,8 @@ The AND (&) operator will result in a 1 at each bit position where both input va
 For example:
 
 ```arduino
-x:  10001101
-
+    x:  10001101
+    
     y:  01010111
 
 x & y:  00000101
@@ -24,7 +24,7 @@ The OR (|) operator (also known as Inclusive Or) will result in a 1 at each bit 
 For example:
 
 ```arduino
-x:  10001101
+    x:  10001101
 
     y:  01010111
 
@@ -35,7 +35,7 @@ The Left Shift (<<) operator will shift a value to the left the specified number
 For example:
 
 ```arduino
-y = 1010
+        y = 1010
 
         x = y << 1
 
@@ -48,7 +48,7 @@ The Right Shift (>>) operator works identically to left shift except that it shi
 For example:
 
 ```arduino
-y = 1010
+        y = 1010
 
         x = y >> 1
 
@@ -97,7 +97,7 @@ void loop()
 Here we use a FOR loop to iterate through a bit mask value, shifting the value one position left each time through the loop. In this example we use the <<= operator which is exactly like the << operator except that it compacts the statement
 
 ```arduino
-00000001
+  00000001
 & 10101010
 
   ________
@@ -109,7 +109,7 @@ And our output pin gets set to 0.
 Second time through the loop the mask = 00000010, so our operation looks like:
 
 ```arduino
-00000010
+  00000010
 & 10101010
 
   ________
