@@ -24,3 +24,11 @@
   format: markdown
   type: warning
   errorMessage: The USB-C® / USB Type-C® / USB4® trademark is not used correctly.
+
+# Python® rule
+- regex: "(?<!http[s]?:\\/\\/\\S*)(?:[pP]ython)(?!®)\\b"
+  shouldMatch: false
+  includeCodeBlocks: false
+  format: markdown
+  type: warning
+  errorMessage: The Python® trademark is not used correctly.
