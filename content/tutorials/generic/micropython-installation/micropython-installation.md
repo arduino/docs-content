@@ -123,13 +123,12 @@ Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose 
 
 ## Arduino Nano RP2040 Connect
 
-If you want to program your Arduino board using MicroPython, and have an Arduino Nano RP2040 to use for this purpose, congratulations! You have chosen the easiest board to flash with the MicroPython firmware!
+To program your Arduino Nano RP2040 board with MicroPython, follow the instructions just below. The Nano RP2040 is the easiest board to get started with MicroPython, as the installation requires no additional software tools for installation.
 
 All you need to do is to:
 
 1. Download the `.uf2` firmware file from the [MicroPython page](/micropython).
-2. Connect your board to the computer and double tap the reset button to put it in bootloader mode,
-   on your computer.
+2. Connet the `REC` pin to ground to expose the boards file system to your computer, this is easier if you put the board in a breadboard.
 3. Drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer, and you're done!
 
 ## Arduino Portenta H7
@@ -168,7 +167,11 @@ Double tap the reset button on your board to put it in DFU mode, and execute the
 dfu-util -a 0 -d 0x2341:0x035b -D {firmware.dfu}
 ```
 
-Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
+Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board.
+
+You should now see **two** progress bars appear in one after the other. The first one is showing the progress of erasing the firmware that was previously on the board, and the second one is showing the progress of flashing the new firmware. 
+
+Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
 Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
 
@@ -192,7 +195,11 @@ Double tap the reset button on your board to put it in DFU mode, and execute the
 dfu-util -a 0 -d 0x2341:0x035b -D {firmware.dfu}
 ```
 
-Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
+Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. 
+
+You should now see **two** progress bars appear in one after the other. The first one is showing the progress of erasing the firmware that was previously on the board, and the second one is showing the progress of flashing the new firmware. 
+
+Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
 Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
 
