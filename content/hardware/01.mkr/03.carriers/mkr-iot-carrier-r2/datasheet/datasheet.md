@@ -1,7 +1,9 @@
 ---
 identifier: ABX00073
-title: Arduino® MKR IoT Carrier - Rev2
+title: Arduino® MKR IoT Carrier
 type: maker
+revision: Rev2
+variant: Rev2
 ---
 
 ![](assets/featured.png)
@@ -123,7 +125,7 @@ IoT applications, MKR hobbyists
 
 #### Front View
 
-![Front view](assets/front_view.png)
+![Front view](assets/front_view.svg)
 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                      |
 | -------- | -------------------------------------- | -------- | ------------------------------------ |
@@ -134,7 +136,7 @@ IoT applications, MKR hobbyists
 
 #### Back View
 
-![Bottom view](assets/bottom_view.png)
+![Bottom view](assets/bottom_view.svg)
 
 | **Ref.**  | **Description**                       | **Ref.** | **Description**                   |
 | --------- | ------------------------------------- | -------- | --------------------------------- |
@@ -231,7 +233,7 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 
 ### Board Outline / Mounting Holes
 
-![Mechanical view](assets/mechanical.png)
+![Mechanical view](assets/mechanical.svg)
 
 ## Ratings
 
