@@ -15,8 +15,10 @@ author: "Jacob Hylén"
 ---
 ## Introduction
 
-For some time you have been able to program selected Arduino boards using the OpenMV IDE and MicroPython. This gives you easy access to powerful technologies such as machine vision and machine learning. 
+For some time you have been able to program selected Arduino boards using the OpenMV IDE and MicroPython. This gives you easy access to powerful technologies such as machine vision and machine learning.
+
 With the release of the official MicroPython firmwares for the compatible Arduino boards, you have another option for programming your boards in MicroPython for when you don't need machine vision!
+
 To run this firmware you can use the (experimental) Arduino Lab for MicroPython editor. This tutorial explains how to get started. To do this, you will need to flash a MicroPython firmware to your board that is specifically developed for each board.
 
 ## Goals
@@ -34,7 +36,7 @@ To follow along with this article and get up and running with MicroPython on you
 
 The process for flashing the firmware on the Nano 33 BLE requires to first update the bootloader and SoftDevice. Once this is done you can flash the MicroPython firmware to your board.
 
-### Installing the core
+### Installing the Core
 
 Start by making sure that you have the respective core installed. Open the IDE and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. 
 
@@ -42,7 +44,7 @@ Start by making sure that you have the respective core installed. Open the IDE a
 
 This is not only needed to upload the next sketch, but you're also going to dive into the core files themselves to find a specific tool in an upcoming step.
 
-### Update bootloader
+### Update Bootloader
 
 In the Nano 33 BLE core is an example sketch that you will use to update the bootloader and SoftDevice of your board. Navigate to `File > Examples > Nano33BLE_System > Nano33_updateBLandSoftDevice` and open the sketch.
 
@@ -62,9 +64,9 @@ When this bar fills and the SoftDevice update completes, the board will restart,
 
 ### Downloading firmware
 
-Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. 
+Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython page](/micropython). 
 
-Download the .bin file that corresponds to the board you have. 
+Download the `.bin` file that corresponds to the board you have. 
 
 ### Finding BOSSAC
 
@@ -93,7 +95,7 @@ bossac -e -w --offset=0x16000 --port={port} -i -d -U -R {firmware}
 
 Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
-Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano BLE Sense.
 
 #### MacOS
 
@@ -117,7 +119,7 @@ bossac -e -w --offset=0x16000 --port={port} -i -d -U -R {firmware}
 
 Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
-Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and code away!
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano BLE Sense.
 
 ## Arduino Nano RP2040 Connect
 
@@ -125,7 +127,7 @@ If you want to program your Arduino board using MicroPython, and have an Arduino
 
 All you need to do is to:
 
-1. Download the .uf2 firmware file from the MicroPython [documentation website](docs.arduino.cc/MicroPython).
+1. Download the `.uf2` firmware file from the [MicroPython page](/micropython).
 2. Connect your board to the computer and double tap the reset button to put it in bootloader mode,
    on your computer.
 3. Drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer, and you're done!
@@ -136,7 +138,7 @@ To install MicroPython on the Portenta H7 you will need to install the correspon
 
 ![Installing the Portenta core](assets/boardmanager-portenta.png)
 
-This board can programmed via DFU bootloader, using [dfu-util](http://dfu-util.sourceforge.net/). To enter the DFU bootloader, double tap the reset button on the board.
+This board can programmed via a DFU bootloader, using [dfu-util](http://dfu-util.sourceforge.net/). To enter the DFU bootloader, double tap the reset button on the board.
 
 ### Downloading firmware
 
