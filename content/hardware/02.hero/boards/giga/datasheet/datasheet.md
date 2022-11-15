@@ -51,7 +51,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 ## Application Examples
 
-The Arduino GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
+The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
 
 - **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth or from anywhere in the world with the Arduino IoT Cloud.
 
