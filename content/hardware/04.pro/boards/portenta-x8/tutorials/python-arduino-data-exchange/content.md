@@ -73,9 +73,9 @@ Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder.
 
 Check if the container is running by executing `sudo docker ps`. You can then access the log of this service at any time by executing `sudo docker-compose logs -f --tail 20` from the **same directory**. If you don't run the container in the background (skip the `-d` flag), you will get the console output directly in the executing shell. Once the container is running you will see the messages that are being sent from the M4.
 
-## The Python Application
+## The Python® Application
 
-The Python application requests the sensor data from the M4 over RPC and unpacks the message. Data can be requested by calling the function exposed over RPC on the M4 e.g.:
+The Python® application requests the sensor data from the M4 over RPC and unpacks the message. Data can be requested by calling the function exposed over RPC on the M4 e.g.:
 
 ```python
 m4_proxy_address = 'm4-proxy'
@@ -85,7 +85,7 @@ rpc_client = RpcClient(rpc_address)
 temperature = rpc_client.call('temperature')
 ```
 
-The files for the complete Python application can be found in the same package as the Arduino sketch (see above). Upload the `python-sensor-rpc` folder to the X8 via `adb push python-sensor-rpc /home/fio`. Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute `sudo docker build . -t python-sensor-rpc`. When it's done you can run the container with `sudo docker-compose up`. After a few seconds you should see the output from the Python application featuring the sensor readings on the M4 that were piped through the RPC mechanism. The output should look similar to the following:
+The files for the complete Python® application can be found in the same package as the Arduino sketch (see above). Upload the `python-sensor-rpc` folder to the X8 via `adb push python-sensor-rpc /home/fio`. Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute `sudo docker build . -t python-sensor-rpc`. When it's done you can run the container with `sudo docker-compose up`. After a few seconds you should see the output from the Python® application featuring the sensor readings on the M4 that were piped through the RPC mechanism. The output should look similar to the following:
 
 ```
 python-sensor-rpc_1  | ============================================
@@ -99,7 +99,7 @@ python-sensor-rpc_1  | Gas:  136.496
 python-sensor-rpc_1  | Altitude:  311.0769348144531
 ```
 
- Keep in mind that, whenever you change anything in the Python script on your computer you will have to sync it back to the X8 and re-build the container:
+ Keep in mind that, whenever you change anything in the Python® script on your computer you will have to sync it back to the X8 and re-build the container:
 
 ```
 # On your computer
@@ -111,11 +111,11 @@ sudo docker build . -t python-sensor-rpc
 sudo docker-compose up
 ```
 
-Alternatively you could modify the files directly on the X8 using an editor such as VIM so you don't need to upload the files all the time. Re-building the container will be necessary in any case though. In case you wonder how to specify the python script that is executed when running a container, have a look at the `Dockerfile` file. There you'll find the `ENTRYPOINT` command that takes multiple arguments. In our example: `ENTRYPOINT [ "python3", "m4_to_python.py"]`
+Alternatively you could modify the files directly on the X8 using an editor such as VIM so you don't need to upload the files all the time. Re-building the container will be necessary in any case though. In case you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you'll find the `ENTRYPOINT` command that takes multiple arguments. In our example: `ENTRYPOINT [ "python3", "m4_to_python.py"]`
 
 ## Conclusion
 
-In this tutorial you learned how to use the docker infrastructure to build a container that runs a python application. You have also learned how to use the RPC mechanism to exchange data between the microcontroller and the iMX8 which runs the Linux operating system.
+In this tutorial you learned how to use the docker infrastructure to build a container that runs a Python® application. You have also learned how to use the RPC mechanism to exchange data between the microcontroller and the iMX8 which runs the Linux operating system.
 
 ### Next Steps
 
