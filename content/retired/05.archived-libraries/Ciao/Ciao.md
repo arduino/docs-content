@@ -13,7 +13,7 @@ Arduino Ciao - from now-on simply "Ciao" has been designed and developed to be m
 Ciao is made of two main parts:
 
 - Ciao Library: developed in C;
-- Ciao Core: developed in Python;
+- Ciao Core: developed in Python®;
 
 ![](assets/CiaoArchitecture.png)
 
@@ -25,7 +25,7 @@ This architecture is currently available on the following products:
 - [Arduino Yún Mini](https://www.arduino.cc/en/Main/ArduinoBoardYunMini)
 
 ## Ciao Core
-To communicate with the "outside world" the Ciao Library interacts with Ciao Core: the key component of the Ciao technology on the MPU (microprocessor) side. Ciao Core runs over Linino OS, it is developed in python and it has been designed to enable communication with "outside world" via several modules called Connectors. Such connectors communicate with Ciao Core using JSON strings sent over a TCP socket.
+To communicate with the "outside world" the Ciao Library interacts with Ciao Core: the key component of the Ciao technology on the MPU (microprocessor) side. Ciao Core runs over Linino OS, it is developed in Python® and it has been designed to enable communication with "outside world" via several modules called Connectors. Such connectors communicate with Ciao Core using JSON strings sent over a TCP socket.
 
 Ciao Core, thanks to this smart and effective design, is able to:
 

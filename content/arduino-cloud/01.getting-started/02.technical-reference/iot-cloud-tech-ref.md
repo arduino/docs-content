@@ -358,7 +358,7 @@ We provide two Arduino Iot Cloud APIs:
 
  The Arduino IoT Cloud REST API can be called just with any **HTTP Client**, or using one of these clients:
   - [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client).
-  - [Python PYPI Package](https://pypi.org/project/arduino-iot-client/).
+  - [Python® PYPI Package](https://pypi.org/project/arduino-iot-client/).
   - [Golang Module](https://github.com/arduino/iot-client-go).
   
 **2.** The second is the **Data API (MQTT)** which allows you to send/receive Variables' data. An example of this API's use is sending IoT Cloud Variables' updates to the browser. A full [documentation of the Arduino IoT Cloud Data API (MQTT)](https://www.npmjs.com/package/arduino-iot-js) is available for advanced users.
