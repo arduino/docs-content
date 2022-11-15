@@ -140,9 +140,7 @@ This board can programmed via DFU bootloader, using [dfu-util](http://dfu-util.s
 
 ### Downloading firmware
 
-Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. 
-
-Download the .dfu file for the Portenta H7.
+Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. The firmware is available as a `.dfu` file for the Portenta H7.
 
 ### Finding dfu-util
 
