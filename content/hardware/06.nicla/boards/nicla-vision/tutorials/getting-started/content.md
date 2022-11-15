@@ -28,7 +28,7 @@ The OpenMV IDE is meant to provide an Arduino like experience for simple machine
 ### Required Hardware and Software
 
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
-- Micro USB cable (either USB A to Micro USB or USB C to Micro USB)
+- Micro USB cable (either USB-A to Micro USB or USB-C® to Micro USB)
 - OpenMV IDE 2.6.4+
 
 ## Instructions

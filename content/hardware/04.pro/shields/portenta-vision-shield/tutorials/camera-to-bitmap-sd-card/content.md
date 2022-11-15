@@ -38,7 +38,7 @@ This tutorial shows you how to capture a frame from the Portenta Vision Shield C
 ## Instructions
 
 ### 1. The Setup
-Connect the Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connectors are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB C cable.
+Connect the Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connectors are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB-C® cable.
 
 ![Connecting the Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
 

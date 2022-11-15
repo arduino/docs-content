@@ -37,7 +37,7 @@ This tutorial focuses on the Arduino core which allows you to benefit from the t
 ### Required Hardware and Software
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
-- USB C cable (either USB A to USB C or USB C to USB C)
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 
 ## Portenta and The Arduino Core
 The Portenta H7 is equipped with two Arm Cortex ST processors (Cortex-M4 and Cortex-M7) which run the Mbed OS. Mbed OS is an embedded real time operating system (RTOS) designed specifically for microcontrollers to run IoT applications on low power. A real-time operating system is an operating system designed to run real-time applications that process data as it comes in, typically without buffer delays. [Here you can read more about real time operating systems](https://www.ni.com/en-us/innovations/white-papers/07/what-is-a-real-time-operating-system--rtos--.html).
@@ -54,7 +54,7 @@ In this section, we will guide you through a step-by-step process of setting up 
 ***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](updating-the-bootloader) before you proceed with the next step of this tutorial.***
 
 ### 1. The Basic Setup
-Let's begin by Plug-in your Portenta to your computer using the appropriate USB C cable. Next, open your IDE and make sure that you have the right version of the Arduino IDE downloaded on to your computer.
+Let's begin by Plug-in your Portenta to your computer using the appropriate USB-C® cable. Next, open your IDE and make sure that you have the right version of the Arduino IDE downloaded on to your computer.
 
 ![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_ard_gs_basic_setup.svg)
 

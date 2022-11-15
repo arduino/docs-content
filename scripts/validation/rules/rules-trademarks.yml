@@ -17,7 +17,7 @@
   errorMessage: The LoRa® / LoRaWAN® trademark is not used correctly.
 
 # USB-C® / USB Type-C® / USB4® rule
-- regex: "(?<!http[s]?:\\/\\/\\S*)(?:USB-C|USB Type[ -]C|USB4)(?!®)\\b"
+- regex: "(?<!http[s]?:\\/\\/\\S*)(?:USB[ -]C|USB Type[ -]C|USB4)(?!®)\\b"
   regexModifiers: "gi"
   shouldMatch: false
   includeCodeBlocks: false

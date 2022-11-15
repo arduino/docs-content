@@ -32,7 +32,7 @@ Portenta H7 comes with an on-board Wi-Fi and a Bluetooth® Module that allows to
 ### Required Hardware and Software
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected) 
-- One USB C cable (either USB A to USB C or USB C to USB C)
+- One USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4 +
 - A smart phone
 
