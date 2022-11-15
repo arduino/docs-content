@@ -105,7 +105,7 @@ Users/{your-user}/Library/Arduino15/packages/arduino/tools/bossac/1.9.1-arduino2
 ```
  the file you are after is `bossac.exe`
 
->**Note:** The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories. 
+***Note: The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories.***
 
 Open a terminal window and drag and drop the bossac.exe file into the terminal window.
 
@@ -183,7 +183,7 @@ Users/{your-user}/Library/Arduino15/packages/arduino/tools/dfu-util/0.10.0-ardui
 ```
 the file you are after is `dfu-util.exe`
 
->**Note:** The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories. 
+***Note: The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories.*** 
 
 Open a terminal window and drag and drop the dfu-util.exe file into the terminal window.
 
