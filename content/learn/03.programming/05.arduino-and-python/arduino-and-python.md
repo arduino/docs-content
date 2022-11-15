@@ -1,7 +1,7 @@
 ---
 author: 'Karl Söderby'
-title: 'Python with Arduino Boards'
-description: 'Learn about compatibility between the popular Python language and Arduino boards, how to set up your environment, and discover in-depth tutorials and useful links.'
+title: 'MicroPython with Arduino Boards'
+description: 'Learn about compatibility between the popular MicroPython implementation and Arduino boards, how to set up your environment, and discover in-depth tutorials and useful links.'
 tags: 
   - Python
   - OpenMV
@@ -12,7 +12,9 @@ hero_position: 1
 
 [MicroPython](https://micropython.org/) is an implementation of the [Python programming language](https://www.python.org/) that comes with a subset of the Python standard library, and is designed **to run on microcontrollers**. A great advantage of using MicroPython is that it is easy to learn and has [great documentation](http://docs.micropython.org/en/latest/) for a number of boards. At the moment, there are four boards that can be used together with MicroPython, you can read more about them in the [compatible boards section](#compatible-boards).
 
-Arduino officially supports [OpenMV's branch of MicroPython](https://github.com/openmv/micropython), and through the [OpenMV IDE](https://openmv.io/pages/download) you can install MicroPython, connect/disconnect your board and upload your scripts 
+
+
+Arduino also supports [OpenMV's branch of MicroPython](https://github.com/openmv/micropython), and through the [OpenMV IDE](https://openmv.io/pages/download) you can install MicroPython, connect/disconnect your board and upload your scripts.
 
 ![Arduino boards officially supporting MicroPython.](assets/micropython-supported-boards.png)
 
@@ -36,6 +38,10 @@ while True:
 As MicroPython is already running on the board, we don't need to compile and upload the code, we only need to provide the instructions (which is done via serial communication).
 
 ***When installing MicroPython on a board, it can only run MicroPython scripts, until we "uninstall" it. To put the board back in "normal mode" we need to reset the bootloader, which is a unique process for each board. These instructions are available in the [compatible boards](#micropython-compatible-boards) section in this article. Basically, you have to put the board in bootloader mode and upload any .ino sketch. ***
+
+## Arduino Lab for MicroPython Editor
+
+The [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) is a lightweight editor designed for simple interaction between your computer and board. With it, you can select your port, load scripts, and use the REPL shell and more.  
 
 ## OpenMV Editor
 
