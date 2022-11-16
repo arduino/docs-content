@@ -237,11 +237,11 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 
 ### Connectors
 
-![Connectors positionning](assets/connectors.svg)
+![Connectors positioning](assets/connectors.svg)
 
 ### Relays Connectors
 
-![Left Side Relay positionning](assets/mechanical_left.svg)
+![Left Side Relay positioning](assets/mechanical_left.svg)
 
 ## Ratings
 
