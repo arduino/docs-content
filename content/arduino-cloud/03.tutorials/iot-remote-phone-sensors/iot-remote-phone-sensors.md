@@ -70,7 +70,7 @@ At the very top of the sketch we want to do three things, the first one is to in
 
 So start by including and initialising the servo library, and creating an empty integer variable at the top of your sketch.
 
-```
+```arduino
 #include <Servo.h>
 
 Servo myServo;
