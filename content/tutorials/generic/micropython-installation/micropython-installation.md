@@ -135,7 +135,7 @@ Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose 
 
 ## Arduino Portenta H7
 
-To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool. For now, wait with the new Arduino Lab for MicroPython, instead open the usual Arduino IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
+To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool. Open Arduino IDE (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
 
 ![Installing the Portenta core](assets/boardmanager-portenta.png)
 
