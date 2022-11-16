@@ -127,12 +127,12 @@ IoT applications, MKR hobbyists
 
 ![Front view](assets/front_view.svg)
 
-| **Ref.** | **Description**                        | **Ref.** | **Description**                      |
-| -------- | -------------------------------------- | -------- | ------------------------------------ |
-| U1       | LSM6DSOXTR 6-axis IMU IC               | U3       | LV52204MTTBG LED Boost Driver IC     |
-| U2       | APDS-9660 RGB and Gesture Sensor IC    | U4       | Bosch BME688 Environmental Sensor IC |
-| U5       | IC EXTENDED I/O EXPANDER I2C 8-bit     | L0-L4    | APA1022020-2018 RGB LED IC           |
-| J6       | FH26W-45S-0.3SHW(60) Display Connector | J12      | SFV24R-1STBE1HLF Display Connector   |
+| **Ref.** | **Description**                        | **Ref.** | **Description**                        |
+| -------- | -------------------------------------- | -------- | -------------------------------------- |
+| U1       | LSM6DSOXTR 6-axis IMU IC               | U3       | LV52204MTTBG LED Boost Driver IC       |
+| U2       | APDS-9660 RGB and Gesture Sensor IC    | U4       | Bosch BME688 Environmental Sensor IC   |
+| L0-L4    | APA1022020-2018 RGB LED IC             | J6       | FH26W-45S-0.3SHW(60) Display Connector |
+| J12      | SFV24R-1STBE1HLF Display Connector     |    -     |                     -                  |
 
 #### Back View
 
@@ -188,7 +188,8 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 |  1   |     GND      |  Power   | Ground                          |
 |  2   |     VBAT     |  Power   | Positive 18650 Battery Terminal |
 
-### A0
+### Grove Connectors
+#### A0
 
 | Pin  | **Function** | **Type** | **Description**  |
 | :--: | :----------: | :------: | ---------------- |
@@ -197,7 +198,7 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 |  3   |     +5V      |  Power   | +5.0V power rail |
 |  4   |     GND      |  Power   | Ground           |
 
-### A6
+#### A6
 
 | Pin  | **Function** | **Type** | **Description**  |
 | :--: | :----------: | :------: | ---------------- |
@@ -206,7 +207,7 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 |  3   |     +5V      |  Power   | +5.0V power rail |
 |  4   |     GND      |  Power   | Ground           |
 
-### I<sub>2</sub>C
+#### I<sub>2</sub>C
 
 | Pin  | **Function** | **Type** | **Description**  |
 | :--: | :----------: | :------: | ---------------- |
@@ -215,7 +216,12 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 |  3   |     +5V      |  Power   | +5.0V power rail |
 |  4   |     GND      |  Power   | Ground           |
 
-### Relay 1 / Relay 2
+### Relays
+#### Relay 1 and 2
+
+* Relay 1 driven by digital pin 1
+* Relay 2 driven by digital pin 2
+
 
 | Pin  | **Function** | **Type** | **Description** |
 | :--: | :----------: | :------: | --------------- |
