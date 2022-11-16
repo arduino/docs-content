@@ -19,23 +19,18 @@ Create graphical UIs with a 240x240 resolution display.
 </Feature>
 
 
-<Feature title="LSM6DS3" image="imu">
+<Feature title="LSM6DSOX" image="imu">
 
-The LSM6DS3 is a low power IMU that features a 3D digital accelerometer and a 3D digital gyroscope. 
+Combined accelerometer and gyroscope with a dedicated machine learning core.
 
-<FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/LSM6DS3-datasheet.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6dsox.pdf" download blank/>
 </Feature>
 
-<Feature title="LPS22HB" image="pressure-sensor">
-A compact absolute pressure sensor with a range between 260 hPa and 1260 hPa, with power consumption as low as 3 μA.
+<Feature title="BME688" image="temperature-sensor">
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/dm00140895.pdf"download blank/>
-</Feature>
+  An Environmental sensor that can measure pressure, humidity and temperature. Additionally, the onboard smart gas sensor can also help in determining the air quality index by detecting a broad range of gases, including Volatile Organic Compounds (VOC).
 
-<Feature title="HTS221" image="temperature-sensor">
-A relative humidity and temperature sensor with high accuracy.
-
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/hts221.pdf"download blank/>
+<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf" download blank/>
 </Feature>
 
 <Feature title="APDS-9960" image="color-sensor">
