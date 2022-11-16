@@ -9,7 +9,7 @@ variant: Rev2
 ![](assets/featured.png)
 
 # Description
-The MKR IoT Carrier Rev2 provides infinite possibilities for IoT projects.
+The MKR IoT Carrier Rev2 provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors. 
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
