@@ -117,7 +117,7 @@ IoT applications, MKR hobbyists
 ### Related Products
 
 * Arduino® MKR WiFi 1010 (SKU: ABX00023)
-* Arduino® MKR Zero
+* Arduino® MKR Zero (SKU: ABX00012)
 
 ## Functional Overview
 
