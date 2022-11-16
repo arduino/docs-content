@@ -9,7 +9,7 @@ variant: Rev2
 ![](assets/featured.png)
 
 # Description
-The MKR IoT Carrier Rev2 provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors. 
+The **MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors. 
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
@@ -112,12 +112,12 @@ IoT applications, MKR hobbyists
 ### Accessories (Not included)
 
 * 18650 Li-ion battery
-* Grove sensors
+* <u>[Grove sensors](https://search.arduino.cc/search/?q=Grove%20Sensors&tab=store)</u>
 
 ### Related Products
 
-* Arduino® MKR WiFi 1010 (SKU: ABX00023)
-* Arduino® MKR Zero (SKU: ABX00012)
+* <u>[Arduino® MKR WiFi 1010 (SKU: ABX00023)](https://store.arduino.cc/products/arduino-mkr-wifi-1010)</u>
+* <u>[Arduino® MKR Zero (SKU: ABX00012)](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)</u>
 
 ## Functional Overview
 
@@ -132,7 +132,6 @@ IoT applications, MKR hobbyists
 | U1       | LSM6DSOXTR 6-axis IMU IC               | U3       | LV52204MTTBG LED Boost Driver IC       |
 | U2       | APDS-9660 RGB and Gesture Sensor IC    | U4       | Bosch BME688 Environmental Sensor IC   |
 | L0-L4    | APA1022020-2018 RGB LED IC             | J6       | FH26W-45S-0.3SHW(60) Display Connector |
-| J12      | SFV24R-1STBE1HLF Display Connector     |    -     |                     -                  |
 
 #### Back View
 
@@ -335,14 +334,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Ref**                   | **Link**                                                     |
 | ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino® Oplà IoT Kit              | https://opla.arduino.cc/                                     |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/ |
-| Online Store              | https://store.arduino.cc/mkr-iot-carrier                     |
-| Arduino Documentation               | https://docs.arduino.cc/hardware/mkr-iot-carrier             |
+| Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                      |
+| Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                             |
+| Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
+| Arduino® Oplà IoT Kit              | <u>https://opla.arduino.cc/</u>                                     |
+| Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u> |
+| Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u> |
+| Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                     |
+| Arduino Documentation               | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier</u>             |
 
 ## Revision History
 
