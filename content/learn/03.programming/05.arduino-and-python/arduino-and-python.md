@@ -3,7 +3,8 @@ author: 'Karl Söderby'
 title: 'MicroPython with Arduino Boards'
 description: 'Learn about compatibility between the popular MicroPython implementation and Arduino boards, how to set up your environment, and discover in-depth tutorials and useful links.'
 tags: 
-  - Python
+  - MicroPython
+  - Arduino Lab
   - OpenMV
 hero_position: 1
 ---
@@ -77,9 +78,10 @@ All of above are also compatible with the **OpenMV IDE.**
 
 ![The Nano 33 BLE](assets/hero-nano-ble.png)
 
-If you need help getting started with MicroPython on the **Nano 33 BLE** board, you can check out the tutorial below:
+If you need help getting started with MicroPython on the **Nano 33 BLE** board, you can check out the tutorials below:
 
-- [Getting started with MicroPython with Nano 33 BLE](/tutorials/nano-33-ble/getting-started-omv) (setting up your environment).
+- [Install MicroPython on your Nano BLE](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
+- [Getting started with OpenMV and Nano 33 BLE](/tutorials/nano-33-ble/getting-started-omv) 
 - [Nano 33 BLE Python API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE board, double tap the reset button quickly. This will reset your board to factory setting.***
@@ -90,7 +92,8 @@ If you need help getting started with MicroPython on the **Nano 33 BLE** board, 
 
 If you need help getting started with MicroPython on the **Nano 33 BLE Sense** board, you can check out the tutorials below: 
 
-- [Getting started with MicroPython with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv) (setting up your environment).
+- [Install MicroPython on your Nano BLE Sense](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
+- [Getting started with OpenMV and Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv)
 - [Nano 33 BLE Sense Python guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE Sense board, double tap the reset button quickly. This will reset your board to factory setting.***
@@ -101,8 +104,10 @@ If you need help getting started with MicroPython on the **Nano 33 BLE Sense** b
 
 If you need help getting started with MicroPython on the **Nano RP2040 Connect** board, you can check out the tutorials below:
 
-- [Getting Started with OpenMV and MicroPython on Nano RP2040 Connect](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)
+- [Install MicroPython on your Nano RP2040 Connect](/tutorials/nano-rp2040-connect/micropython-installation#arduino-nano-rp2040-connect) 
 - [Nano RP2040 Connect Python guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
+- [Getting Started with OpenMV and MicroPython on Nano RP2040 Connect](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)
+
 
 ***To reset the bootloader, you will need to short to connect a jumper wire between the REC and GND pin, and press the reset button. More detailed instructions are available in the [Nano RP2040 Connect technical reference](/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#board-not-detected).***
 
@@ -112,6 +117,7 @@ If you need help getting started with MicroPython on the **Nano RP2040 Connect**
 
 If you need help getting started with  MicroPython on the **Portenta H7** board, you can check out the tutorial below:
 
+- [Install MicroPython on Portenta H7](/tutorials/portenta-h7/micropython-installation#arduino-portenta-h7).
 - [Getting Started with OpenMV and MicroPython on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-openmv-gs)
 
 ## Learn Python
@@ -135,7 +141,7 @@ This means it's time to learn the **Python** language, which there is a lot of r
 
 Visit the [MicroPython documentation](https://docs.micropython.org/en/latest/) for an understanding on how Python runs on microcontrollers.
 
-***Note that many examples will not work directly with Arduino boards, but will provide an understanding of how Python can run on a microcontroller.***
+***Note that many examples in the MicroPython Docs will not work directly with Arduino boards, but will provide an understanding of how Python can run on your board.***
 
 ## API
 
@@ -179,7 +185,7 @@ while True:
     time.sleep(1)
 ```
 
-### For loop
+### For Loop
 
 Simple use of a for loop and functions. This script counts to 10, and then back to 0.
 
