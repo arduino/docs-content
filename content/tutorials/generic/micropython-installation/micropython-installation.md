@@ -40,7 +40,7 @@ The process for flashing the firmware on the Nano 33 BLE requires to first updat
 
 ### Installing the Core
 
-Start by making sure that you have the respective core installed. Open the [Arduino IDE](https://www.arduino.cc/en/main/software) (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. More detailed information about this step can be found [here](/software/ide-v2/tutorials/ide-v2-board-manager) 
+Start by making sure that you have the respective core installed. Open the [Arduino IDE](https://www.arduino.cc/en/main/software) (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. More detailed information about this step can be found [here](/software/ide-v2/tutorials/ide-v2-board-manager).
 
 ![Board manager](assets/boardmanager.png)
 
