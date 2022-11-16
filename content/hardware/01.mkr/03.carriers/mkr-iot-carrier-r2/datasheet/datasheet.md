@@ -354,8 +354,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**       |
-| ---------- | ------------ | ----------------- |
-| 02/24/2021 | 1            | First Release     |
-| 05/17/2022 | 2            | Technical updates |
-| 08/26/2022 | 3            | IMU ID fix        |
+| **Date DD/MM/YY** | **Revision** | **Changes**       |
+| ----------------- | ------------ | ----------------- |
+| XX/XX/2022        | 1            | First Release     |
