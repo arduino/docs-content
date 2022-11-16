@@ -131,6 +131,8 @@ All you need to do is to:
 2. Connet the `REC` pin to ground to expose the boards file system to your computer, this is easier if you put the board in a breadboard.
 3. Drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer, and you're done!
 
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano RP2040 Connect.
+
 ## Arduino Portenta H7
 
 To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool. For now, wait with the new Arduino Lab for MicroPython, instead open the usual Arduino IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
