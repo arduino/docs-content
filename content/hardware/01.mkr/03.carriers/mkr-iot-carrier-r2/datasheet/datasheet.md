@@ -103,11 +103,11 @@ IoT applications, MKR hobbyists
 
 ### Application Examples
 
-**Light controller:** Control your house lightning with the MKR IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi,  you can manage and control your device remotely on a smartphone via the IoT Cloud.
+**Light controller:** Control your house lightning with the MKR IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi, you can manage and control your device remotely on a smartphone via the IoT Cloud.
 
 **Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays.
 
-**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors,  you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather.
+**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors, you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather.
 
 ### Accessories
 
@@ -117,7 +117,6 @@ IoT applications, MKR hobbyists
 ### Related Products
 
 * Arduino® MKR WiFi 1010 (SKU: ABX00023)
-* Protective case
 * Arduino® MKR Zero
 
 ## Functional Overview
@@ -152,12 +151,6 @@ IoT applications, MKR hobbyists
 The MKR IoT Carrier makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery.
 
 ![Power tree](assets/Power_Tree_MKR_IoT_Carrier.png)
-
-### Solution Overview
-
-![Solution overview](assets/solution_overview.png)
-
-The MKR IoT Carrier Rev2 is also a part of the Arduino® Oplá IoT Kit, that in addition to the carrier contains an Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.
 
 ## Board Operation
 
