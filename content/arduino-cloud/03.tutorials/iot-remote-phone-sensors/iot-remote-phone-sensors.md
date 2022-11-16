@@ -4,7 +4,7 @@ description: 'Stream sensordata from your phone live to the Arduino IoT Cloud'
 author: 'Jacob Hylén'
 ---
 
-The Arduino IoT Cloud is already a powerful platform that can help you with setting up your own IoT devices within minutes. 
+The Arduino IoT Cloud is a powerful platform that can help you with setting up your own IoT devices within minutes. 
 
 It just got even more powerful with the addition of a new feature - to let you stream sensordata from your phone to the Arduino IoT Cloud.
 
