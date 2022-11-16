@@ -109,8 +109,9 @@ IoT applications, MKR hobbyists
 
 **Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors, you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather.
 
-### Accessories (Not included)
+### Accessories
 
+***(Not Included)***
 * 18650 Li-ion battery
 * <u>[Grove sensors](https://search.arduino.cc/search/?q=Grove%20Sensors&tab=store)</u>
 
@@ -233,6 +234,14 @@ Detailed information on the pinouts are available in a separate document: [Docs 
 ### Board Outline / Mounting Holes
 
 ![Mechanical view](assets/mechanical.svg)
+
+### Connectors
+
+![Connectors positionning](assets/connectors.svg)
+
+### Relays Connectors
+
+![Left Side Relay positionning](assets/mechanical_left.svg)
 
 ## Ratings
 
