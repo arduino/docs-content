@@ -38,7 +38,7 @@ The process for flashing the firmware on the Nano 33 BLE requires to first updat
 
 ### Installing the Core
 
-Start by making sure that you have the respective core installed. Open the IDE and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. 
+Start by making sure that you have the respective core installed. For now, wait with the new Arduino Lab for MicroPython, instead open the usual Arduino IDE and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. 
 
 ![Board manager](assets/boardmanager.png)
 
@@ -46,7 +46,7 @@ This is not only needed to upload the next sketch, but you're also going to dive
 
 ### Update Bootloader
 
-In the Nano 33 BLE core is an example sketch that you will use to update the bootloader and SoftDevice of your board. Navigate to `File > Examples > Nano33BLE_System > Nano33_updateBLandSoftDevice` and open the sketch.
+In the Nano 33 BLE core is an example sketch that you will use to update the bootloader and SoftDevice of your board. Go back to the Arduino IDE and navigate to `File > Examples > Nano33BLE_System > Nano33_updateBLandSoftDevice` and open the sketch.
 
 ![Example sketch](assets/examplesketch.png)
 
@@ -133,7 +133,7 @@ All you need to do is to:
 
 ## Arduino Portenta H7
 
-To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool. Open the IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
+To install MicroPython on the Portenta H7 you will need to install the corresponding core which in turn installs the required command line tool. For now, wait with the new Arduino Lab for MicroPython, instead open the usual Arduino IDE and navigate to the boards manager. Search for "Portenta H7", and make sure you have the latest version of the core installed.
 
 ![Installing the Portenta core](assets/boardmanager-portenta.png)
 
