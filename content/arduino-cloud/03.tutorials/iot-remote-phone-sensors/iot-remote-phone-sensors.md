@@ -1,6 +1,12 @@
 ---
 title: 'Use Sensordata From Your Phone'
 description: 'Stream sensordata from your phone live to the Arduino IoT Cloud'
+tags:
+- Arduino IoT Cloud
+- Remote app
+- Mobile sensors
+- Android
+- iOS
 author: 'Jacob Hylén'
 ---
 
