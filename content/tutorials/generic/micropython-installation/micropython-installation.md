@@ -10,7 +10,8 @@ hardware:
   - hardware/03.nano/boards/nano-rp2040-connect
   - hardware/04.pro/boards/portenta-h7
 software:
-  - Arduino Lab for MicroPython
+  - ide-v2
+
 author: "Jacob Hylén"
 ---
 ## Introduction
@@ -28,8 +29,9 @@ At the end of this guide you will have flashed a new firmware to your Arduino bo
 ## Requirements
 
 To follow along with this article and get up and running with MicroPython on your board you are gonna require the following material:
-- [An Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) / [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect) / [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7)
-- [Arduino Lab for MicroPython IDE](https://docs.arduino.cc/micropython/)
+- [An Arduino Nano 33 BLE](/hardware/nano-33-ble) / [Arduino Nano RP2040 Connect](/hardware/nano-rp2040-connect) / [Arduino Portenta H7](/hardware/portenta-h7)
+- [Arduino IDE](https://www.arduino.cc/en/main/software)
+- [Arduino Lab for MicroPython IDE](https://labs.arduino.cc/en/labs/micropython)
 - [Firmware file](https://docs.arduino.cc/micropython/)
 
 ## Arduino Nano 33 BLE
@@ -38,7 +40,7 @@ The process for flashing the firmware on the Nano 33 BLE requires to first updat
 
 ### Installing the Core
 
-Start by making sure that you have the respective core installed. Open Arduino IDE (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. 
+Start by making sure that you have the respective core installed. Open the [Arduino IDE](https://www.arduino.cc/en/main/software) (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for your board, and make sure you have the latest version of the core installed. More detailed information about this step can be found [here](/software/ide-v2/tutorials/ide-v2-board-manager) 
 
 ![Board manager](assets/boardmanager.png)
 
