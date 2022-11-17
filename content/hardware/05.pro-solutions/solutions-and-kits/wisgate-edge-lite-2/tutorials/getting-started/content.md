@@ -5,8 +5,8 @@ difficulty: beginner
 tags: [Getting Started, Setup]
 author: 'Pablo Marquínez'
 hardware:
-  - hardware/04.pro/miscellaneous/wisgate-edge-lite-2
-  - hardware/04.pro/miscellaneous/wisgate-edge-pro
+  - hardware/05.pro-solutions/solutions-and-kits/wisgate-edge-lite-2
+  - hardware/05.pro-solutions/solutions-and-kits/wisgate-edge-pro
 ---
 
 ## Introduction 
