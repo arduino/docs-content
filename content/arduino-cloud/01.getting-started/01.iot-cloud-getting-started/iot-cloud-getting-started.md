@@ -96,6 +96,20 @@ The Arduino IoT Cloud supports a wide range of third party boards based on the E
 
 ***To learn more about ESP32/ESP8266 support and how to set it up, visit the [Connecting ESP32 & ESP8266 to Arduino Cloud IoT](/cloud/iot-cloud/tutorials/esp-32-cloud) guide.***
 
+### Ethernet
+
+The Arduino IoT Cloud supports connection via Ethernet on a number of devices.
+
+To connect via Ethernet, you need a [Portenta H7](https://store.arduino.cc/products/portenta-h7) board, in combination with one of the following shields/carriers:
+- [Portenta Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
+- [Portenta Machine Control](https://store.arduino.cc/portenta-machine-control)
+
+To enable communication via Ethernet with the Portenta H7, while configuring your device, you need to select the "Ethernet" option. If your device is already configured as a Wi-Fi device, you need to remove it before configuring it to Ethernet communication.
+
+![Choose the Ethernet option.](assets/ethernet.png)
+
+***Please note that older hardware such as the [Ethernet Shield Rev2](https://store.arduino.cc/products/arduino-ethernet-shield-2) and [MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-eth-shield) are currently not supported by the Arduino IoT Cloud.***
+
 ## Support
 
 If you have any problems with the Arduino IoT Cloud, you can browse through common troubleshooting issues and find information on different features in the **Arduino Help Center**. If you don’t find the answer you are looking for, we are always happy to help you with any question regarding our products!
