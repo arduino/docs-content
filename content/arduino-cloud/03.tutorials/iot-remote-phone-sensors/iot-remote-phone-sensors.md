@@ -1,5 +1,5 @@
 ---
-title: 'Use Sensor data From Your Phone'
+title: 'Use Sensor Data From Your Phone'
 description: 'Stream sensor data from your phone live to the Arduino IoT Cloud'
 tags:
 - Arduino IoT Cloud
