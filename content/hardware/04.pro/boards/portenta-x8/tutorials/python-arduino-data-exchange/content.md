@@ -1,5 +1,6 @@
 ---
 title: 'Data Exchange Between Python on Linux and an Arduino Sketch'
+position: 6
 description: 'This tutorial will show you how to run a python application that exchanges data with an Arduino Sketch.'
 tags: 
   - RPC

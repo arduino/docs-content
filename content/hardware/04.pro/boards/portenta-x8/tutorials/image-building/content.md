@@ -1,6 +1,7 @@
 ---
 beta: true
 title: 'How To Build a Custom Image for Your Portenta X8'
+position: 11
 description: 'This tutorial teaches you how to compile a custom image for your Portenta X8'
 difficulty: advanced
 tags:

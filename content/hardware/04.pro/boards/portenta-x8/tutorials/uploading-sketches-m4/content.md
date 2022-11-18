@@ -1,5 +1,6 @@
 ---
 title: 'Uploading Sketches to the M4 Core on Arduino Portenta X8'
+position: 15
 description: 'This tutorial explains how to upload Arduino sketches to the M4 core.'
 difficulty: intermediate
 tags:

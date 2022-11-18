@@ -1,5 +1,6 @@
 ---
 title: 'Data Logging with MQTT, Node-RED, InfluxDB and Grafana'
+position: 12
 description: 'This tutorial will show you how to set up a local data logging application using an MQTT broker, Node-RED, InfluxDB, Grafana, and the Arduino® Portenta X8.'
 difficulty: intermediate
 tags:

@@ -1,6 +1,6 @@
 ---
-title: Portenta X8 Fundamentals
-position: 3
+title: How to use Portenta X8 board manager
+position: 7
 difficulty: beginner
 tags: [Linux, containers, factories, foundries]
 description: This article contains information about the fundamental concepts of the Portenta X8

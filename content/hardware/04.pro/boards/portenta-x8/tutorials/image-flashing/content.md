@@ -1,6 +1,7 @@
 ---
 beta: true
 title: 'How To Flash Your Portenta X8'
+position: 16
 description: 'This tutorial teaches you how to flash your Portenta X8 through USB'
 difficulty: intermediate
 tags:

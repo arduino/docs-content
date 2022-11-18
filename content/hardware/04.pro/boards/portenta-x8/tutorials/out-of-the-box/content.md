@@ -1,6 +1,7 @@
 ---
 beta: true
 title: 'Portenta X8 Getting Started'
+position: 2
 description: 'Learn how to set up the Portenta X8'
 difficulty: intermediate
 tags:

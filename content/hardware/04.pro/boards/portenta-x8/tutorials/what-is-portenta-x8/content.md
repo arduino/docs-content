@@ -1,9 +1,9 @@
 ---
-title: Create and Upload a Custom Container to the Portenta X8
-position: 9
+title: What is Portenta X8
+position: 1
 difficulty: intermediate
 tags: [Linux, Python, Containers, ADB]
-description: This tutorial will show you how to create and upload your custom container to your Portenta X8
+description: Dummy tutorial until we have the right version
 author: Benjamin Dannegård
 hardware:
   - hardware/04.pro/boards/portenta-x8

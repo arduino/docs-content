@@ -1,5 +1,6 @@
 ---
 title: 'Using FoundriesFactory Waves Fleet Management'
+position: 4
 description: 'Learn how to manage multiple Portenta X8 devices using FoundriesFactory fleet management tool, Waves'
 difficulty: intermediate
 tags:
