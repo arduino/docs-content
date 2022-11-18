@@ -1,5 +1,5 @@
 ---
-title: 'Getting started with the Arduino Opta'
+title: 'Getting Started With the Arduino Opta'
 description: 'Get started with the Arduino Opta'
 tags:
   - Getting started
@@ -12,7 +12,7 @@ hardware:
 
 ## Overview
 
-The Arduino Opta is a robust PLC solution with many features. In this tutorial we will go through how to set up the Opta with the Arduino IDE and how to use some of the devices features. We will take a look at how to program the LEDs on the device, how to use the programable button, as well as using inputs and outputs.
+The Arduino Opta is a robust PLC solution with many features. In this tutorial we will go through how to set up the Opta with the Arduino IDE and how to use some of the devices features. We will take a look at how to program the LEDs on the device, how to use the programmable button, as well as using inputs and outputs.
 
 ## Goals
 
@@ -39,7 +39,7 @@ First make sure the latest version of the Arduino IDE is installed. Download the
 
 Now we are ready to upload sketches to the Opta via the Arduino IDE.
 
-### Trying the Blink sketch
+### Trying a Blink Sketch
 
 With the IDE and core are installed, lets try and upload a sketch to our device. We will be creating a classic version of the Arduino blink sketch to see if everything is working with the IDE and our device. Lets create a simple blink sketch that will blink the four LEDs on the Opta. All the LEDs on the device are defined in the core, so we can easily use them as stated in the sketch below. Copy the sketch below into a Arduino IDE sketch, select the correct board and port in the **Tools** section, then upload the sketch. When the sketch is uploaded you should see the LEDs on top of the Opta blink in sequence, the LEDs are highlighted in the image below.
 
@@ -73,9 +73,9 @@ void loop() {
 
 ![The blinking LEDs on the Opta](assets/opta-device-LED.png)
 
-### Configuring the button on the Opta
+### Configuring the Programmable Button on the Opta
 
-On the Arduino Opta there is a programmable button that we can make use of, shown on the image below. Using the Arduino IDE we can easily programm this button to fit our needs. Lets take a look at a simple use case for the button. Expanding on the blink sketch we tried earlier. Lets use the button as our trigger for when the LED should blink. The button is already defined in the core, so using it is a simple case of using `BTN_USER` as the button pin in your code. The we can modify the Blink sketch we used earlier. The new sketch will reverse the blink sequence when the button is pressed. The `BTN_USER` will continously read `HIGH`, when it is pressed it will read `LOW`. We will put the blink sequences in seperate functions to easier control the event change when the button is pressed. Below you can find the entire sketch and an image highlighting the button on the device. 
+On the Arduino Opta there is a programmable button that we can make use of, shown on the image below. Using the Arduino IDE we can easily program this button to fit our needs. Lets take a look at a simple use case for the button. Expanding on the blink sketch we tried earlier. Lets use the button as our trigger for when the LED should blink. The button is already defined in the core, so using it is a simple case of using `BTN_USER` as the button pin in your code. The we can modify the Blink sketch we used earlier. The new sketch will reverse the blink sequence when the button is pressed. The `BTN_USER` will continuously read `HIGH`, when it is pressed it will read `LOW`. We will put the blink sequences in separate functions to easier control the event change when the button is pressed. Below you can find the entire sketch and an image highlighting the button on the device. 
 
 ```arduino
 bool reversed = false;
@@ -246,14 +246,14 @@ void loop() {
 }
 ```
 
-### Connecting the Opta to the cloud
+### Connecting the Opta to the Cloud
 
 It is possible to use the Arduino Opta with the Arduino Cloud. To set up the Arduino Opta to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started). We also have a number of other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/).
 
 ## Conclusion
 
-This tutorial went throught the basics of the Arduino Opta. Now you should know how to program the LEDs on the board. We also showed how to program the programmable button on the device. The analog inputs and the out relays were also covered. After going through this tutorial you should be ready to go into the other Opta tutorials and learn more about the device and its features. 
+This tutorial went through the basics of the Arduino Opta. Now you should know how to program the LEDs on the board. We also showed how to program the programmable button on the device. The analog inputs and the out relays were also covered. After going through this tutorial you should be ready to go into the other Opta tutorials and learn more about the device and its features. 
 
 ### Next Steps
 
-Now that you know the basics of the Arduino Opta it could be a good idea to combine these features with other features on the Opta. For example, if you want to add connectivity to your solution, take a look at the [Getting started with connectivty on the Opta tutorial](). It is also possible to use the Opta with the LogicLab IDE, for a guide on how to set this up check out our [Setting up the Opta with LogicLab tutorial](). For a better view of what LogicLab with Opta can offer take a look at our [LogicLab tutorial]()
+Now that you know the basics of the Arduino Opta it could be a good idea to combine these features with other features on the Opta. For example, if you want to add connectivity to your solution, take a look at the [Getting started with connectivity on the Opta tutorial](). It is also possible to use the Opta with the LogicLab IDE, for a guide on how to set this up check out our [Setting up the Opta with LogicLab tutorial](). For a better view of what LogicLab with Opta can offer take a look at our [LogicLab tutorial]()
