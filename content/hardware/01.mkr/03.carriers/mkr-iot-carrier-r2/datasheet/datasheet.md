@@ -160,7 +160,7 @@ The MKR IoT Carrier makes use of the power management features of the Arduino MK
 ## Board Operation
 
 ### Getting Started - IDE
-If you want to program your MKR IoT Carrier Rev2 while offline you need to install the Arduino Desktop IDE <sup>[**[1]**](#10-reference-documentation)</sup>. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your **MKR IoT Carrier Rev2** while offline you need to install the Arduino Desktop IDE <sup>[**[1]**](#10-reference-documentation)</sup>. To connect the **MKR IoT Carrier Rev2** to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor <sup>[**[2]**](#10-reference-documentation)</sup>, by just installing a simple plugin.
@@ -171,7 +171,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation <sup>[**[7]**](#10-reference-documentation)</sup> which also contains links to the troubleshooting articles.
+Sample sketches for the **MKR IoT Carrier Rev2** can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation <sup>[**[7]**](#10-reference-documentation)</sup> which also contains links to the troubleshooting articles.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub <sup>[**[4]**](#10-reference-documentation)</sup>, the Arduino Library Reference <sup>[**[5]**](#10-reference-documentation)</sup> and the online store <sup>[**[6]**](#10-reference-documentation)</sup> where you will be able to complement your board with sensors, actuators and more.
