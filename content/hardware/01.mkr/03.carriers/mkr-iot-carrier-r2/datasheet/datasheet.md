@@ -163,7 +163,7 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation **[7]** which also contains links to the troubleshooting articles.
