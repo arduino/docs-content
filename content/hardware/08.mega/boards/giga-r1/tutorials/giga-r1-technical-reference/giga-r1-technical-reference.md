@@ -24,7 +24,7 @@ libraries:
   - name: AdvancedAnalogRedux
     url: https://github.com/bcmi-labs/AdvancedAnalogRedux 
 hardware:
-  - hardware/    //TBD
+  - hardware/giga-r1
 software:
   - ide-v1
   - ide-v2
@@ -32,18 +32,28 @@ software:
   - web-editor
 ---
 
-<!-- ![The Arduino GIGA R1](assets/hero.png) -->
+![The Arduino GIGA R1](assets/hero.png)
 
 The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date, supported by the same powerful, ML-capable, dual-core microcontroller found in the Pro family's Portenta H7. It features support for display connectors, USB-host, an Audio Jack, an Arducam connector, a CAN bus, 4 UART Serial Ports, 2 I2C buses, dedicated DAC Pins, and much, much more. 
 
 This article is a collection of resources and guides to make use of every great feature of this powerful hardware.
 
-You can also visit the documentation platform for the [Arduino GIGA R1](http://docs.arduino.cc)
+You can also visit the documentation platform for the [Arduino GIGA R1](/hardware/giga-r1)
 
 ## Datasheet
 The full datasheets are available as a downloadable PDF from the link below:
 
-- [Download the Arduino GIGA R1 datasheet](http//docs.arduino.cc)
+- [Download the Arduino GIGA R1 datasheet](/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf)
+
+## Power Supply
+
+To power the **Arduino GIGA R1** you may either use a USB-C cable, or the VIN pin. 
+
+If you're using the USB-C connector you must power it with 5V.
+
+Powering the board with the VIN pin gives you more options, as you can safely power the board with any voltage between 6-24V.
+
+It should however be noted that the internal operating voltage of the microcontroller is 3.3V, and you should not apply voltages higher than that to the GPIO pins.
 
 ## Installation
 
@@ -90,23 +100,23 @@ The microcontroller operates on a voltage of 3.3V, applying a higher voltage tha
 The **Arduino GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
 
 To access the SDRAM you need to use the SDRAM library, include it in your sketch with:
-```
+```arduino
 #include "SDRAM.h"
 ```
 
 Before writing to the SDRAM, you need to allocate it, the following code will create an array that reserves 7MB of the SDRAM for you to write to.
-```
+```arduino
  uint8_t* myVeryBigArray = (uint8_t*)SDRAM.malloc(7 * 1024 * 1024);
 ```
 If you now store any data in this array, it will be written to SDRAM.
-```
+```arduino
 for (int i = 0; i<128; i++) {
         myVeryBigArray[i] = i;
     }
 ```
 
 When you no longer need to use the SDRAM, you can free it, so it can be used for other things.
-```
+```arduino
 SDRAM.free(myVeryBigArray);
 ```
 
@@ -129,7 +139,9 @@ Lastly, navigate to `File > Examples > USB Mass Storage > AccessFlashAsUSBDisk` 
 
 Once this is completed, you should now see a new storage device connected as a portable storage device in your computer.
 
->**Note:** In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches.** To upload a new sketch you need to put the **Arduino GIGA R1** in DFU mode by double pressing the RST button.
+This can be very useful, as this flash storage **does not get deleted when you upload a new sketch to the board.** Meaning that you can store files on the board, and then upload a new sketch that can access and use those files without the need for an SD card and card reader.
+
+***Note: In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches.** To upload a new sketch you need to put the **Arduino GIGA R1** in DFU mode by double pressing the RST button.***
 
 ## Audio Jack
 The **Arduino GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, meaning that it is capable of reading input from a microphone, as well as outputting sound through a speaker. 
@@ -167,7 +179,7 @@ As mentioned previously, the microcontroller on the **Arduino GIGA R1** is a dua
 When writing a program that is supposed to use both cores, you will be required to forcefully boot the second core. For most programs there really is no reason to use both, and for that reason it is by default unbooted. However it is a powerful option to have, and one that you can easily make use of if you want to continuously monitor and process sensor values. 
 
 You boot the second core by adding the function:
-```
+```arduino
 bootM4();
 ```
 at the beginning of the sketch for your primary core, in the board selector you choose to program either the primary M7 core, or the secondary M4 core.
@@ -177,6 +189,57 @@ It is also possible to program both cores with just one sketch, though this quic
 To learn more about dual core processing on the **Arduino GIGA R1**, check out the tutorial below:
 
 - [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)
+
+## RTC
+
+The **Arduino GIGA R1** features an RTC pin, giving you the ability to power the timekeeping circuitry with a coin cell battery to keep the time even when your board is turned off. 
+
+The following sketch will continuously print the time in the Serial monitor.
+```arduino
+#include "mbed.h"
+#include <mbed_mktime.h>
+
+constexpr unsigned long printInterval { 1000 };
+unsigned long printNow {};
+
+void setup() {
+  Serial.begin(9600);
+  RTCset();
+}
+
+void loop() {
+      if (millis() > printNow) {
+        Serial.print("System Clock:          ");
+        Serial.println(getLocaltime());
+        printNow = millis() + printInterval;
+    }
+}
+
+void RTCset()  // Set cpu RTC
+{    
+  tm t;
+            t.tm_sec = (0);       // 0-59
+            t.tm_min = (52);        // 0-59
+            t.tm_hour = (14);         // 0-23
+            t.tm_mday = (18);   // 1-31
+            t.tm_mon = (11);       // 0-11  "0" = Jan, -1 
+            t.tm_year = ((22)+100);   // year since 1900,  current year + 100 + 1900 = correct year
+            set_time(mktime(&t));       // set RTC clock                                 
+}
+
+String getLocaltime()
+{
+    char buffer[32];
+    tm t;
+    _rtc_localtime(time(NULL), &t, RTC_4_YEAR_LEAP_YEAR_SUPPORT);
+    strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
+    return String(buffer);
+}
+```
+
+To get accurate time, you'll want to change the values in `void RTCset()` to whatever time it is when you're starting this clock. As long as the VRTC pin is connected to power, the clock will keep ticking and time will be kept accurately.
+
+To learn more about the Arduino GIGA R1's RTC capabilities, check out [this tutorial]() for an in-depth guide
 
 ## Camera Interface
 The Arduino GIGA features an onboard arducam compatible connector, with support for **parallel**. 
@@ -220,11 +283,11 @@ The pins used for SPI on the **Arduino GIGA R1** are the following:
 ![SPI Pins](assets/spipins.png)
 
 To use SPI, we first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
-```
+```arduino
 #include <SPI.h>
 ```
 Inside `void setup()` we need to initialize the library
-```
+```arduino
 SPI.begin()
 ```
 
@@ -244,17 +307,17 @@ The pins used for I2C on the **Arduino GIGA R1** are the following:
 ![I2C Pins](assets/i2cpins.png)
 
 To connect I2C devices you will need to include the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library at the top of your sketch.
-```
+```arduino
 #include <Wire.h>
 ```
 
 Inside `void setup()` you need to initialize the library.
-```
+```arduino
 Wire.begin()
 ```
 
 And to write something to a device connected via I2C, we can use the following commands:
-```
+```arduino
 Wire.beginTransmission(1); //begin transmit to device 1
 Wire.write(byte(0x00)); //send instruction byte 
 Wire.write(val); //send a value
@@ -282,7 +345,7 @@ The pins used for UART on the **Arduino GIGA R1** are the following:
 - TX3 - 14
 
 Each Serial port works in the same way as the one you're used to, but you use different functions to target them:
-```
+```arduino
 Serial.begin(9600);
 Serial1.begin(9600);
 Serial2.begin(9600);
@@ -291,13 +354,13 @@ Serial3.begin(9600);
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
 
-```
+```arduino
 Serial1.begin(9600);
 ```
 
 To read incoming data, we can use a while loop() to read each individual character and add it to a string.
 
-```
+```arduino
   while(Serial1.available()){
     delay(2);
     char c = Serial1.read();
@@ -307,7 +370,7 @@ To read incoming data, we can use a while loop() to read each individual charact
 
 And to write something, we can use the following command:
 
-```
+```arduino
 Serial1.write("Hello world!");
 ```
 
@@ -316,7 +379,7 @@ The **Arduino GIGA R1** gives you access to more pins than any other Arduino boa
 
 ### Analog Pins
 The **Arduino GIGA R1** has 12 analog input pins that can be read with a resolution of 16 Bits, by using the `analogRead()` function.
-```
+```arduino
 value = analogRead(pin, value);
 ```
 
@@ -329,7 +392,7 @@ Pins A8, A9, A10 and A11 can not be used as GPIO, but are limited to use as anal
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
 On the **Arduino GIGA R1** all digital pins are PWM capable, and to make use of them you use:
-```
+```arduino
 analogWrite(pin, value);
 ```
 
@@ -357,7 +420,7 @@ The reference voltage of all digital pins is 3.3V.
 
 ### DAC Pins
 The **Arduino GIGA R1** also has two DAC pins, A12 & A13, that can act as genuine analog output pins which means they are even more capable than PWM pins.
-```
+```arduino
 analogWrite(pin, value);
 ```
 
@@ -366,7 +429,7 @@ analogWrite(pin, value);
 These DAC pins have a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
 However you may change this write resolution if you need to, to up to 12-bits:
-```
+```arduino
 analogWriteResolution(12);
 ```
 
@@ -378,3 +441,43 @@ You can install a flip-switch to the board to let you turn your device on and of
 Read more about this feature, and learn when and how to use it by checking out this [this tutorial.]()
 
 ## Miscellaneous 
+
+### Interrupts 
+If you're creating a project that relies heavily on accurate sensordata, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function. 
+
+This feature might be extra valuable to the maker with an **Arduino GIGA R1**, as their circuit gets more and more complex.
+
+The syntax for creating an interrupt function should be included in `void setup()` and is as follows:
+```arduino
+attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
+```
+
+- `pin` represents the pin number of the pin your input sensor is connected to, 
+- `ISR` is the function that is called whenever the interrupt is triggered, and should be defined bt you somewhere in your sketch.
+- `mode` defines when the interrupt should be triggered, and can be one of four pre-defined modes.
+  - `LOW` triggers the interrupt when the pin is low.
+  - `CHANGE` triggers whenever the pin changes values.
+  - `RISING` triggers when the pin goes from low to high. 
+  - `FALLING` triggers when the pin goes from high to low.
+
+This example sketch will turn on or off an LED connected to pin 13 whenever a pushbutton connected to pin 2 is pressed or released:
+
+```arduino
+const byte ledPin = 13;
+const byte interruptPin = 2;
+volatile byte state = LOW;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), blink, CHANGE);
+}
+
+void loop() {
+  digitalWrite(ledPin, state);
+}
+
+void blink() {
+  state = !state;
+}
+```
