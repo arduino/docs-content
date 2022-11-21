@@ -135,9 +135,10 @@ IoT applications, MKR hobbyists
 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 | -------- | -------------------------------------- | -------- | -------------------------------------- |
-| U1       | LSM6DSOXTR 6-axis IMU IC               | U3       | LV52204MTTBG LED Boost Driver IC       |
-| U2       | APDS-9660 RGB and Gesture Sensor IC    | U4       | Bosch BME688 Environmental Sensor IC   |
-| L0-L4    | APA1022020-2018 RGB LED IC             | J6       | FH26W-45S-0.3SHW(60) Display Connector |
+| U1       | LSM6DSOXTR 6-axis IMU IC               | U2       | APDS-9660 RGB and Gesture Sensor IC    |
+| U4       | Bosch BME688 Environmental Sensor IC   | L0-L4    | APA1022020-2018 RGB LED IC             |
+| J6       | FH26W-45S-0.3SHW(60) Display Connector | PB1      | Reset push-button                      |
+
 
 #### Bottom View
 
