@@ -166,11 +166,11 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the Oplá IoT Kit platform **[4]** and further documentation can be found in Arduino Documentation **[8]** which also contains links to the troubleshooting articles.
+Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation **[7]** which also contains links to the troubleshooting articles.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]** and the online store **[6]** where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -346,7 +346,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                      |
 | Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                             |
 | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
-| Arduino® Oplà IoT Kit              | <u>https://opla.arduino.cc/</u>                                     |
+<!-- | Arduino® Oplà IoT Kit              | <u>https://opla.arduino.cc/</u>                                     | -->
 | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u> |
 | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u> |
 | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                     |
