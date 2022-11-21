@@ -114,6 +114,7 @@ IoT applications, MKR hobbyists
 ***(Not Included)***
 * 18650 Li-ion battery
 * <u>[Grove sensors](https://search.arduino.cc/search/?q=Grove%20Sensors&tab=store)</u>
+* SD Card
 
 ### Related Products
 
