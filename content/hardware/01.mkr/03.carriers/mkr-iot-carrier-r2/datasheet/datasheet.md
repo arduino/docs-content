@@ -120,6 +120,10 @@ IoT applications, MKR hobbyists
 
 * <u>[Arduino® MKR WiFi 1010 (SKU: ABX00023)](https://store.arduino.cc/products/arduino-mkr-wifi-1010)</u>
 * <u>[Arduino® MKR Zero (SKU: ABX00012)](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)</u>
+* <u>[Arduino® MKR WAN 1310 (SKU: MKRWAN1310WANT)](https://store.arduino.cc/products/arduino-mkr-wan-1310)</u>
+* <u>[Arduino® MKR GSM 1400 (SKU: MKRGSM1400WANT)](https://store.arduino.cc/products/arduino-mkr-gsm-1400)</u>
+* <u>[Arduino® MKR NB 1500 (SKU: MKRNB1500WANT)](https://store.arduino.cc/products/arduino-mkr-nb-1500)</u>
+
 
 ## Functional Overview
 
