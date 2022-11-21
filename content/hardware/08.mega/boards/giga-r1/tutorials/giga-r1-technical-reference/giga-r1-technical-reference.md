@@ -92,7 +92,7 @@ The Arduino GIGA R1 boards feature the powerful dual core **STM32H747XI** microc
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
 
-![Microcontroller](assets/STM32H747XI.png)
+![Microcontroller on the Arduino GIGA R1](assets/STM32H747XI.png)
 
 The microcontroller operates on a voltage of 3.3V, applying a higher voltage than that, such as 5V, to a pin might damage the microcontroller.
 
@@ -455,10 +455,12 @@ attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
 - `pin` represents the pin number of the pin your input sensor is connected to, 
 - `ISR` is the function that is called whenever the interrupt is triggered, and should be defined bt you somewhere in your sketch.
 - `mode` defines when the interrupt should be triggered, and can be one of four pre-defined modes.
-  - `LOW` triggers the interrupt when the pin is low.
-  - `CHANGE` triggers whenever the pin changes values.
-  - `RISING` triggers when the pin goes from low to high. 
-  - `FALLING` triggers when the pin goes from high to low.
+
+The different modes that can be used are: 
+- `LOW` triggers the interrupt when the pin is low.
+- `CHANGE` triggers whenever the pin changes values.
+- `RISING` triggers when the pin goes from low to high. 
+- `FALLING` triggers when the pin goes from high to low.
 
 This example sketch will turn on or off an LED connected to pin 13 whenever a pushbutton connected to pin 2 is pressed or released:
 
