@@ -340,14 +340,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Reference Documentation
 
 | **Id** | **Ref**                   | **Link**                                                                                                   |
-| 1      | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 2      | Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                                                             |
-| 3      | Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                          []                                          |
-| 4      | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
-| 5      | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u>                            |
-| 6      | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u>                                |
-| 7      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                                                            |
-| 8      | Arduino Documentation     | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier</u>                                                    |
+| ------ | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1      | Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                                                             |
+| 2      | Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                                                                    |
+| 3      | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
+| 4      | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u>                            |
+| 5      | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u>                                |
+| 6      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                                                            |
+| 7      | Arduino Documentation     | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier</u>                                                    |
 
 ## Revision History
 
