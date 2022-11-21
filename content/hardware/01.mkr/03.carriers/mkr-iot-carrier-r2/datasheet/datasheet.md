@@ -124,9 +124,9 @@ IoT applications, MKR hobbyists
 
 ### Board Topology
 
-#### Front View
+#### Top View
 
-![Front view](assets/front_view.svg)
+![Top view - components](assets/front_view.svg)
 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 | -------- | -------------------------------------- | -------- | -------------------------------------- |
@@ -134,7 +134,7 @@ IoT applications, MKR hobbyists
 | U2       | APDS-9660 RGB and Gesture Sensor IC    | U4       | Bosch BME688 Environmental Sensor IC   |
 | L0-L4    | APA1022020-2018 RGB LED IC             | J6       | FH26W-45S-0.3SHW(60) Display Connector |
 
-#### Back View
+#### Bottom View
 
 ![Bottom view](assets/bottom_view.svg)
 
@@ -147,7 +147,6 @@ IoT applications, MKR hobbyists
 | J1        | Micro SD Module                       | J7, J8   | Li-Ion 18650 Holder               |
 
 ### Power Tree
-
 The MKR IoT Carrier makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery.
 
 ![Power tree](assets/Power_Tree_MKR_IoT_Carrier.png)
