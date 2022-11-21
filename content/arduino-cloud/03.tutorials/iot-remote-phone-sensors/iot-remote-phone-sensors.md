@@ -18,7 +18,11 @@ Your smartphone is absolutely **packed** with sophisticated sensors that constan
 
 That is changed by the Arduino IoT Remote app - as you are able to, with the latest version of the app for [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) and [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431), set up a dashboard in the Arduino IoT Cloud that tracks and displays all your sensor data in a neat dashboard within a minute.
 
-The goal with this project is to learn about how you can use your smartphone as a remote, sending sensor data to the Arduino IoT Cloud. You'll also learn how this sensor data can be used by other Things in your Arduino Cloud account, essentially letting you control your IoT devices depending on your variables such as GPS position, compass orientation, or any of the other in the long list of variables the IoT Remote app can stream live to the cloud.
+The goal with this project is to learn about how you can use your smartphone as a remote, sending sensor data to the Arduino IoT Cloud. You'll also learn how this sensor data can be used by other Things in your Arduino Cloud account, essentially letting you control your IoT devices depending on your variables such as GPS position, compass orientation, or any of the other in the long list of variables the IoT Remote app can stream live to the cloud. 
+
+You will learn this by making a small project where a servo motor reacts to where you point your phone, as shown below.
+
+![Expected Outcome](assets/expected-outcome.gif)
 
 ## Requirements
 To Follow along with this article, you will need the following:
@@ -162,8 +166,6 @@ void onCompassChange()  {
 ```
 
 Once the sketch is uploaded to your board, wait for it to connect to your network, then open the IoT Remote app on your phone and watch as the Servo reacts when you rotate your phone.
-
-![Expected Outcome](assets/expected-outcome.gif)
 
 ## Conclusion
 With this tutorial, you have learned how to connect your android or iOS smartphone to the Arduino IoT Cloud and send all sorts of sensor data from your device, and how to integrate this sensor data with your other Arduino IoT Cloud Things.
