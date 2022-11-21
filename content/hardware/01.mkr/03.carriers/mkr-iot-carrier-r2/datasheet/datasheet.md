@@ -155,22 +155,21 @@ The MKR IoT Carrier makes use of the power management features of the Arduino MK
 ## Board Operation
 
 ### Getting Started - IDE
-If you want to program your MKR IoT Carrier Rev2 while offline you need to install the Arduino Desktop IDE **[1]**. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your MKR IoT Carrier Rev2 while offline you need to install the Arduino Desktop IDE <sup>[**[1]**](#10-reference-documentation)</sup>. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor <sup>[**[2]**](#10-reference-documentation)</sup>, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow <sup>[**[3]**](#10-reference-documentation)</sup> to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation **[7]** which also contains links to the troubleshooting articles.
+Sample sketches for the MKR IoT Carrier Rev2 can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation <sup>[**[7]**](#10-reference-documentation)</sup> which also contains links to the troubleshooting articles.
 
 ### Online Resources
-
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]** and the online store **[6]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub <sup>[**[4]**](#10-reference-documentation)</sup>, the Arduino Library Reference <sup>[**[5]**](#10-reference-documentation)</sup> and the online store <sup>[**[6]**](#10-reference-documentation)</sup> where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -341,16 +340,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| **Ref**                   | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                      |
-| Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                             |
-| Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
-<!-- | Arduino® Oplà IoT Kit              | <u>https://opla.arduino.cc/</u>                                     | -->
-| Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u> |
-| Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u> |
-| Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                     |
-| Arduino Documentation               | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier</u>             |
+| **Id** | **Ref**                   | **Link**                                                                                                   |
+| 1      | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 2      | Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                                                             |
+| 3      | Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                          []                                          |
+| 4      | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
+| 5      | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u>                            |
+| 6      | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u>                                |
+| 7      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                                                            |
+| 8      | Arduino Documentation     | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier</u>                                                    |
 
 ## Revision History
 
