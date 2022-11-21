@@ -161,7 +161,9 @@ void onCompassChange()  {
 
 ```
 
-Once the sketch is uploaded to your board, wait for it to connect to your network, then open the IoT Remote app on your phone and watch as the Servo follows your phone as you rotate it.
+Once the sketch is uploaded to your board, wait for it to connect to your network, then open the IoT Remote app on your phone and watch as the Servo reacts when you rotate your phone.
+
+![Expected Outcome](assets/expected-outcome.gif)
 
 ## Conclusion
 With this tutorial, you have learned how to connect your android or iOS smartphone to the Arduino IoT Cloud and send all sorts of sensor data from your device, and how to integrate this sensor data with your other Arduino IoT Cloud Things.
