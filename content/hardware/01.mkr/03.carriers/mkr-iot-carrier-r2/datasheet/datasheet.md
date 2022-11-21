@@ -103,7 +103,7 @@ IoT applications, MKR hobbyists
 
 ### Application Examples
 
-**Light controller:** Control your house lightning with the MKR IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi®, you can manage and control your device remotely on a smartphone via the IoT Cloud.
+**Light controller:** Control your house lightning with the **MKR IoT Carrier Rev2**, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi®, you can manage and control your device remotely on a smartphone via the IoT Cloud.
 
 **Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays.
 
@@ -153,7 +153,7 @@ IoT applications, MKR hobbyists
 | J1        | Micro SD Module                       | J7, J8   | Li-Ion 18650 Holder               |
 
 ### Power Tree
-The MKR IoT Carrier makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery.
+The **MKR IoT Carrier Rev2** makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery.
 
 ![Power tree](assets/Power_Tree_MKR_IoT_Carrier.png)
 
