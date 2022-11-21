@@ -131,7 +131,7 @@ IoT applications, MKR hobbyists
 
 #### Top View
 
-![Top view - components](assets/front_view.svg)
+![Top view - components](assets/top_view.svg)
 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 | -------- | -------------------------------------- | -------- | -------------------------------------- |
