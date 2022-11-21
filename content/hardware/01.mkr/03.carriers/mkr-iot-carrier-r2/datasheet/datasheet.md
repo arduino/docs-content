@@ -9,7 +9,7 @@ variant: Rev2
 ![](assets/featured.png)
 
 # Description
-The **MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors. 
+The **MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors.
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
@@ -183,7 +183,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ![Pinout](assets/Pinout.png)
 
-Detailed information on the pinouts are available in a separate document: [Docs Arduino - MKR IoT Carrier Rev2 pinout](https://docs.arduino.cc/resources/pinouts/ABX00073-full-pinout.pdf)
+Detailed information on the pinouts are available in a separate document: <u>[Docs Arduino - MKR IoT Carrier Rev2 pinout](https://docs.arduino.cc/resources/pinouts/ABX00073-full-pinout.pdf)</u>
 
 ### Battery Clips
 
