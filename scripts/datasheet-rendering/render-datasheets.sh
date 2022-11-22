@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# RENDER_DATASHEETS is set to true by CI
-if [ -n "$RENDER_DATASHEETS" ]; then
+if [ -n "$CI" ]; then
     echo "Current system:"
     uname -a
     # Fix for SSL problem in phantom.js
@@ -37,7 +36,7 @@ fi
 VERSION=`node -v | grep -o 'v\d*'| cut -d "v" -f2`
 MIN_VERSION=14
 
-if [ $VERSION -lt $MIN_VERSION ]; then
+if [ "$VERSION" -lt $MIN_VERSION ]; then
     echo "You're using an old version of Node.js ($VERSION). Please update to $MIN_VERSION or newer."
     exit -1
 fi
