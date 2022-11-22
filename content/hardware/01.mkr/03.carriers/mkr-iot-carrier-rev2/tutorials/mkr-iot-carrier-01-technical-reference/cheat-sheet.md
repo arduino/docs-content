@@ -1,7 +1,7 @@
 ---
-title: 'MKR IoT Carrier Cheat Sheet'
-description: 'Learn how to set up the MKR IoT Carrier, get a quick overview of the compatible boards, components, and the library.'
-author: 'Liam Aljundi'
+title: 'MKR IoT Carrier Rev2 Cheat Sheet'
+description: 'Learn how to set up the MKR IoT Carrier Rev2, get a quick overview of the compatible boards, components, and the library.'
+author: 'Liam Aljundi, Karl Söderby'
 tags: 
   - API
   - Installation
@@ -10,16 +10,16 @@ libraries:
   - name: Arduino MKRIoTCarrier
     url: https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/
 hardware:
-  - hardware/01.mkr/03.carriers/mkr-iot-carrier
+  - hardware/01.mkr/03.carriers/mkr-iot-carrier-rev2
 ---
 
-![The Arduino MKR IoT Carrier](assets/mkrIotCarrier-overview.png)
+![The Arduino MKR IoT Carrier Rev2](assets/mkrIotCarrier-overview.png)
 
-The Arduino® MKR IoT Carrier is equipped with different sensors, actuators and with a display to leave you free to focus on prototyping and programming your next IoT projects. The carrier does not come equipped with a microcontroller, meaning it only works in combination with an Arduino board. The MKR IoT Carrier comes equipped with 5 RGB LEDs, 5 capacitive touch buttons, a colored display, IMU and a variety of quality sensors. It also features a battery holder for a 18650 Li-Ion battery, SD card holder and Grove connectors.
+The Arduino® MKR IoT Carrier Rev2 is equipped with different sensors, actuators and with a display to leave you free to focus on prototyping and programming your next IoT projects. The carrier does not come equipped with a microcontroller, meaning it only works in combination with an Arduino board. The MKR IoT Carrier Rev2 comes equipped with 5 RGB LEDs, 5 capacitive touch buttons, a colored display, IMU and a variety of quality sensors. It also features a battery holder for a 18650 Li-Ion battery, SD card holder and Grove connectors.
 
 ## Compatible Boards
 
-The MKR family of boards share a common pinout, meaning that they can all be easily connected to the MKR IoT Carrier. Here is a list of the MKR boards:
+The MKR family of boards share a common pinout, meaning that they can all be easily connected to the MKR IoT Carrier Rev2. Here is a list of the MKR boards:
 
 - [MKR 1000 WiFi](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 - [MKR FOX 1200](https://docs.arduino.cc/hardware/mkr-fox-1200)
@@ -35,19 +35,19 @@ The MKR family boards offer different features that can be useful for your proje
 
 ### Assembly
 
-The chosen Arduino MKR board needs to be mounted on top of the MKR IoT Carrier and connected to a computer. The board can be connected as shown in the image below, matching the pin numbers on the board to the ones on the carrier.
+The chosen Arduino MKR board needs to be mounted on top of the MKR IoT Carrier Rev2 and connected to a computer. The board can be connected as shown in the image below, matching the pin numbers on the board to the ones on the carrier.
 
-![Mounting board on the MKR IoT Carrier](assets/mkrIotCarrier-mounting-board.png)
+![Mounting board on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-mounting-board.png)
 
 ## Datasheet
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Download the Arduino MKR IoT Carrier datasheet](https://content.arduino.cc/assets/MKR%20IoT%20Carrier%20-%20Datasheet.pdf?_gl=1*13zil78*_ga*MTgzMTI1MTI1Mi4xNjE3ODc1MzM2*_ga_NEXN8H46L5*MTYzMDQwMTY0OS4xMzAuMS4xNjMwNDA2MTcwLjA.)
+- [Download the Arduino MKR IoT Carrier Rev2 datasheet](https://content.arduino.cc/assets/MKR%20IoT%20Carrier%20-%20Datasheet.pdf?_gl=1*13zil78*_ga*MTgzMTI1MTI1Mi4xNjE3ODc1MzM2*_ga_NEXN8H46L5*MTYzMDQwMTY0OS4xMzAuMS4xNjMwNDA2MTcwLjA.)
 
 ## Arduino IoT Cloud
 
-The MKR IoT Carrier can be controlled through the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows us to create IoT applications in just minutes, if combined with an Arduino IoT Cloud compatible board. Here's a list of the Arduino MKR family boards that are compatible with the Arduino IoT Cloud:
+The MKR IoT Carrier Rev2 can be controlled through the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows us to create IoT applications in just minutes, if combined with an Arduino IoT Cloud compatible board. Here's a list of the Arduino MKR family boards that are compatible with the Arduino IoT Cloud:
 
 - [MKR 1000 WiFi](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 - [MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
@@ -62,25 +62,23 @@ If you need help to get started, you can go through the [Arduino IoT Cloud tutor
 
 ## Pinout
 
-![The pinout for MKR IoT Carrier](assets/mkrIoTCarrier-pinout.png)
+![The pinout for MKR IoT Carrier Rev2](assets/mkrIoTCarrier-pinout.png)
 
-To see the full pinout, you can download the PDF from the link below.
-
-- [The MKR IoT Carrier full pinout (PDF)](https://content.arduino.cc/assets/Pinout-MKRIOTCARRIER_latest.pdf)
+The full pinout is available in the [resources section](/hardware/mkr-iot-carrie-rev2#resources).
 
 ## Grove Connectors
 
-![Grove connectors on the MKR IoT Carrier](assets/mkriotcarrier-grove-connectors.png)
+![Grove connectors on the MKR IoT Carrier Rev2](assets/mkriotcarrier-grove-connectors.png)
 
-The MKR IoT Carrier comes with **three grove connectors** (2 analog and 1 I2C) that enables us to easily connect external sensors. The type of the connector is labeled clearly on the back of the carrier.
+The MKR IoT Carrier Rev2 comes with **three grove connectors** (2 analog and 1 I2C) that enables us to easily connect external sensors. The type of the connector is labeled clearly on the back of the carrier.
 
 ## Carrier Library
 
-To program the MKR IoT Carrier, the **[Arduino_MKRIoTCarrier](https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/)** library needs to be included. This library allows us to control and read all the components of the MKR IoT Carrier. Setting up the MKRIoTCarrier library requires an addition of few code lines in the **initialization** and **setup**. Practically speaking, the code used in the initialization and setup is rarely changed, and it is required in every sketch.
+To program the MKR IoT Carrier Rev2, the **[Arduino_MKRIoTCarrier](https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/)** library needs to be included. This library allows us to control and read all the components of the MKR IoT Carrier Rev2. Setting up the **Arduino_MKRIoTCarrier** library requires an addition of few code lines in the **initialization** and **setup**. Practically speaking, the code used in the initialization and setup is rarely changed, and it is required in every sketch.
 
 ### Initialization
 
-In the initialization (the very top) of every sketch, the **MKRIoTCarrier** library needs to be included, which includes the individual libraries of the components mounted onto the carrier.
+In the initialization (the very top) of every sketch, the **Arduino_MKRIoTCarrier** library needs to be included, which includes the individual libraries of the components mounted onto the carrier.
 
 Next, an object of type `MKRIoTCarrier` needs to be created. We'll call it `carrier` for simplicity.
 
@@ -116,46 +114,46 @@ void setup() {
 }
 ```
 
-## Humidity & Temperature Sensor
+## BME680 Environmental Sensor
 
-![The HTS221 Humidity Sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-temp&humi.png)
+![The HTS221 Humidity Sensor on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-temp&humi.png)
 
-The **HTS221 Humidity Sensor** is mounted on the top side of the carrier under the display, marked with a drop icon. The sensor uses capacitive sensing with a **humidity sensing range** of **0-100%** and **accuracy** of **± 3.5% rH (20 to +80% rH)**, and a **temperature sensing range** of **-40 to 120° C**, with an **accuracy** of **± 0.5 °C,15 to +40 °C**. The sensor uses a low power consumption (2μA at 1 Hz sampling rate) and connects to the mounted Arduino MKR board through a I2C interface.
+The **[BME680 Environmental Sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf)** is a 4 in 1 sensor capable of providing the following measurements:
+- **Humidity**, 0‒100% r.H.
+- **Temperature**, -40 to +85 °C.
+- **Pressure**, 300-1100 hPa.
+- **Gas**, IAQ, VOC, CO2. 
+
+BME680 is a low-power sensor with current consumption as low as **2.1 µA at 1 Hz**. It communicates over the I²C bus as other sensors onboard this carrier.
 
 ### Code
 
-The values from the **temperature** and **humidity** sensors can be retrieved and stored in **float** variables as shown below.
+The values from the **temperature, humidity & pressure** can be retrieved and stored in **float** variables as shown below. For this, we need to use the `Env` class. 
 
 ```arduino
 float temperature = carrier.Env.readTemperature();
+float temperature = carrier.Env.readTemperature(FAHRENHEIT);
 float humidity = carrier.Env.readHumidity();
+float pressure = carrier.Env.readPressure(); //returns value in kPa
 ```
 
-Temperature is returned in degrees Celsius, while relative humidity is returned in percentage.
+***Temperature is returned in degrees Celsius, while relative humidity is returned in percentage.***
 
-The underlying library used to read the sensor is **[Arduino_HTS221](https://www.arduino.cc/reference/en/libraries/arduino_hts221/)**.
-
-## Pressure Sensor
-
-![The LPS22HBTR Pressure Sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-pressure.png)
-
-The **LPS22HBTR Pressure Sensor** is mounted on the top side of the carrier under the display, marked with a meter icon. The sensor measures **absolute pressure range** of **260 to 1260 hPa (0.25 to 1.24 atm)** and connects to the mounted Arduino MKR board through a I2C interface.
-
-### Code
-
-The value from the **pressure** sensor, expressed in kiloPascal (kPa) can be retrieved and stored in a **float** variable as shown below.
+To access **gas** various values, we need to use the `AirQuality` class.
 
 ```arduino
-float pressure = carrier.Pressure.readPressure();
+float gasResistor = carrier.AirQuality.readGasResistor();
+float volatileOrganicCompounds = carrier.AirQuality.readVOC();
+float co2 = carrier.AirQuality.readCO2();
 ```
-
-The underlying library used to read the sensor is **[Arduino_LPS22HB](https://www.arduino.cc/reference/en/libraries/arduino_lps22hb/)**.
 
 ## IMU Accelerometer & Gyroscope Sensors
 
-![The IMU on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-imu.png)
+![The IMU on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-imu.png)
 
-The carrier includes a **LSM6DS3** sensor from STM which is an IMU (Inertial Measurement Unit) featuring a 3D digital accelerometer and a 3D digital gyroscope.
+### LSM6DSOXTR
+
+The [LSM6DSOX](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf) from STM is an IMU (Inertial Measurement Unit) that features a 3D digital **accelerometer** and a 3D digital **gyroscope**.
 
 ### Code
 
@@ -188,13 +186,13 @@ carrier.IMUmodule.readAcceleration(x, y, z);
 
 Reads acceleration data from the sensor on the three axis and assigns it to the provided variables.
 
-The underlying library used to read the sensor is **[Arduino_LSM6DS3](https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/)**.
+The underlying library used to read the sensor is **[LSM6DSOX](https://github.com/arduino-libraries/Arduino_LSM6DSOX)**. 
 
 ## RGB and Gesture Sensor
 
-![The APDS-9660 sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-rgb.png)
+![The APDS-9660 sensor on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-rgb.png)
 
-The MKR IoT Carrier contains a Broadcom **APDS-9660 RGB and Gesture sensors**, situated under the display and marked with a bulb icon. The sensor is useful for **ambient light** and **RGB** color sensing, **proximity** sensing, and **gesture** detection.
+The MKR IoT Carrier Rev2 contains a Broadcom **APDS-9660 RGB and Gesture sensors**, situated under the display and marked with a bulb icon. The sensor is useful for **ambient light** and **RGB** color sensing, **proximity** sensing, and **gesture** detection.
 
 ### Code
 
@@ -259,9 +257,9 @@ The underlying library used to read the sensor is **[Arduino_APDS9960](https://w
 
 ## Relays
 
-![The relays on the MKR IoT Carrier](assets/mkrIotCarrier-relays-01.png)
+![The relays on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-relays-01.png)
 
-The MKR IoT Carrier is equipped with two 5V Coil voltage **KEMET EE2-5NU-L relays**, located on the back side of the carrier. The relays are non-latching with a **COM** (common), **NO** (Normally open) and **NC** (normally closed) contacts, and can take up a max of **2A** Current and **24 V** of input each.
+The MKR IoT Carrier Rev2 is equipped with two 5V Coil voltage **KEMET EE2-5NU-L relays**, located on the back side of the carrier. The relays are non-latching with a **COM** (common), **NO** (Normally open) and **NC** (normally closed) contacts, and can take up a max of **2A** Current and **24 V** of input each.
 
 The connections between a high power circuit and the relays will be done through these connectors.
 
@@ -300,13 +298,13 @@ carrier.Relay2.getStatus();
 
 ### Display
 
-![The MKR IoT Carrier's display](assets/mkrIotCarrier-display.png)
+![The MKR IoT Carrier Rev2's display](assets/mkrIotCarrier-display.png)
 
-The screen on the MKR IoT Carrier is a **rounded 1.3” TFT display**, with a 240 x 240 resolution and a diameter of 36 x 40 mm.
+The screen on the MKR IoT Carrier Rev2 is a **rounded 1.3” TFT display**, with a 240 x 240 resolution and a diameter of 36 x 40 mm.
 
 #### Code
 
-The display is controlled through the `carrier.display` object which is an instance of the **Adafruit_ST7789** class, based on the more general **Adafruit_GFX** interface. Most tutorials mentioning **Adafruit_GFX** should be usable on your MKR IoT Carrier.
+The display is controlled through the `carrier.display` object which is an instance of the **Adafruit_ST7789** class, based on the more general **Adafruit_GFX** interface. Most tutorials mentioning **Adafruit_GFX** should be usable on your MKR IoT Carrier Rev2.
 
 To get started, check the [Adafruit_GFX documentation](https://learn.adafruit.com/adafruit-gfx-graphics-library) and see the examples included in the Arduino_MKTIoTCarrier library.
 
@@ -314,7 +312,7 @@ To get started, check the [Adafruit_GFX documentation](https://learn.adafruit.co
 
 ](https://www.arduino.cc/reference/en/libraries/adafruit-st7735-and-st7789-library/), which is included in the carrier's library, meaning that it does not need to be added it separately.
 
-We'll list here some of the most useful methods to configure the MKR IoT Carrier's display, including basic configurations, background and text colors, font size, position of the cursor and a loading animation.
+We'll list here some of the most useful methods to configure the MKR IoT Carrier Rev2's display, including basic configurations, background and text colors, font size, position of the cursor and a loading animation.
 
 ```arduino
 carrier.display.fillScreen(color);
@@ -370,11 +368,11 @@ This method will print the text inside the string at the current cursor position
 
 #### More Resources
 
-In order to develop a graphical user interface with the MKR IoT Carrier, the **[Arduino_OplaUI](https://www.arduino.cc/reference/en/libraries/arduino_oplaui/)** library can be used. This library uses the color LEDs, the buzzer and the touch buttons to build an interactive user interface featuring multiple pages. It also includes a few predefined gauges to display values. See the library examples to get started.
+In order to develop a graphical user interface with the MKR IoT Carrier Rev2, the **[Arduino_OplaUI](https://www.arduino.cc/reference/en/libraries/arduino_oplaui/)** library can be used. This library uses the color LEDs, the buzzer and the touch buttons to build an interactive user interface featuring multiple pages. It also includes a few predefined gauges to display values. See the library examples to get started.
 
 ### Buttons
 
-![The MKR IoT Carrier's buttons](assets/mkrIotCarrier-buttons.png)
+![The MKR IoT Carrier Rev2's buttons](assets/mkrIotCarrier-buttons.png)
 
 The carrier has five **capacitive touch buttons** on its top side, numbered from 0 to 4. The buttons are sensitive to direct touch and can also detect wireless touch.
 
@@ -429,9 +427,9 @@ Replace `TOUCH0` with `TOUCH1`, `TOUCH2`, `TOUCH3`, `TOUCH4` in the examples abo
 
 ### LEDs
 
-![The LEDs on the MKR IoT Carrier](assets/mkrIotCarrier-leds.png)
+![The LEDs on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-leds.png)
 
-The MKR IoT Carrier comes with 5 **digital RGB LEDs** placed on the top side of the carrier in front of the buttons.
+The MKR IoT Carrier Rev2 comes with 5 **digital RGB LEDs** placed on the top side of the carrier in front of the buttons.
 
 #### Code
 
@@ -439,7 +437,7 @@ The LEDs are controlled with the Adafruit’s DotStar library, which is included
 
 The `carrier.leds.show();` method is necessary for updating the new state of the LEDs and needs to be called after any change of the state of the LEDs (turning on & off or change of color).
 
-Here are some of the useful methods used to control the LEDs on the MKR IoT Carrier:
+Here are some of the useful methods used to control the LEDs on the MKR IoT Carrier Rev2:
 
 ```arduino
 carrier.leds.setPixelColor(index, red, green, blue);
@@ -491,9 +489,9 @@ void setup() {
 
 ### Buzzer
 
-![The buzzer on the MKR IoT Carrier](assets/mkriotcarrier-buzzer.png)
+![The buzzer on the MKR IoT Carrier Rev2](assets/mkriotcarrier-buzzer.png)
 
-The MKR IoT Carrier is equipped with a **sound buzzer** on the bottom side of the carrier, under the MKR board.
+The MKR IoT Carrier Rev2 is equipped with a **sound buzzer** on the bottom side of the carrier, under the MKR board.
 
 #### Code
 
@@ -520,7 +518,7 @@ This method is a handy shortcut generating a beep. The two arguments are optiona
 
 ## Memory
 
-The MKR IoT Carrier contains a **SD card slot** that accepts a Micro SD.
+The MKR IoT Carrier Rev2 contains a **SD card slot** that accepts a Micro SD.
 
 ### Code
 
@@ -546,11 +544,11 @@ In order to learn more, check any of the many tutorials about using the `SD` lib
 
 ## Power
 
-![JST battery connector on the MKR IoT Carrier.](assets/mkriotcarrier-battery.png)
+![JST battery connector on the MKR IoT Carrier Rev2.](assets/mkriotcarrier-battery.png)
 
-The MKR IoT Carrier can be either powered through a USB cable connected to the mounted MKR board, or through a battery. The battery used should be a LI-ION 18650 3.7v battery, which can be mounted to the carrier via the battery holder on the bottom side. 
+The MKR IoT Carrier Rev2 can be either powered through a USB cable connected to the mounted MKR board, or through a battery. The battery used should be a LI-ION 18650 3.7v battery, which can be mounted to the carrier via the battery holder on the bottom side. 
 
-In order to use the USB power to charge the battery, a little cable with JST connectors on both ends is needed between the MKR IoT Carrier and the MKR board. The bBattery can then be recharged via a USB connection through the MKR Board (runs up to 48h with a 3.7v 2500mAh).
+In order to use the USB power to charge the battery, a little cable with JST connectors on both ends is needed between the MKR IoT Carrier Rev2 and the MKR board. The bBattery can then be recharged via a USB connection through the MKR Board (runs up to 48h with a 3.7v 2500mAh).
 
 <video width="100%" controls="true">
 <source src="assets/mkrIoTCarrier-battery-assembly.mp4" type="video/mp4"/>
