@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-public-gatsby-
 
       - run: npm install
-      - run: cd scripts/datasheet-rendering;./render-datasheets.sh
+      - run: cd ${{ github.workspace }}/scripts/datasheet-rendering;./render-datasheets.sh
       - run: npm run build
 
       - name: Configure AWS Credentials
