@@ -166,7 +166,7 @@ The Arduino® Web Editor is hosted online, therefore it will always be up-to-dat
 
 ### Getting Started - Arduino IoT Cloud
 
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
