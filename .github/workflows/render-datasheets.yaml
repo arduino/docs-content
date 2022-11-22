@@ -1,13 +1,7 @@
 name: Render datasheets
 
 on:
-  repository_dispatch:
-    types: deploy
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, ready_for_review, reopened]
+  workflow_dispatch:
 
 jobs:
   render-datasheets:
