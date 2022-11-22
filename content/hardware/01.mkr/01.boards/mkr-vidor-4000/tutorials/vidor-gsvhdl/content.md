@@ -11,7 +11,7 @@ author: Daniel Hertz
 
 **Tutorial by [Daniel Hertz](https://www.nerdhut.de/)**, originally published on [Maker.pro](https://maker.pro/arduino/tutorial/getting-started-with-fpgas-using-the-arduino-mkr-vidor-4000)
 
-Intimidated by FPGAs? Don't be! Learn about Arduino's most programmable board with this Arduino MKR Vidor 4000 tutorial. The [Arduino MKR Vidor 4000](https://store.arduino.cc/arduino-vidor-4000) is an interesting Arduino development board for many reasons. It not only contains a 32-Bit MCU, Wi-Fi, Bluetooth, a camera interface, and built-in HDMI support but it also features an on-board [Intel Cyclone 10 FPGA](https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/hb/cyclone-10/c10lp-51001.pdf).
+Intimidated by FPGAs? Don't be! Learn about Arduino's most programmable board with this Arduino MKR Vidor 4000 tutorial. The [Arduino MKR Vidor 4000](https://store.arduino.cc/arduino-vidor-4000) is an interesting Arduino development board for many reasons. It not only contains a 32-Bit MCU, Wi-Fi, Bluetooth®, a camera interface, and built-in HDMI support but it also features an on-board [Intel Cyclone 10 FPGA](https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/hb/cyclone-10/c10lp-51001.pdf).
 
 ![MKR Vidor 4000 mapping.](./assets/Vidor_Mappa.jpg)
 

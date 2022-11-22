@@ -13,7 +13,7 @@ type: pro
 # Description
 The Portenta H7 Lite Connected is dedicated to industrial use cases but with the traditional Arduino openness and ready for the most demanding Pro applications. The Portenta H7 Lite Connected is ready for machine learning and real-time applications thanks to the dual core STM32H747 processor including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly for real multitasking. By harnessing the computational power of both Portenta H7's cores, machine learning algorithms can run simultaneously alongside low latency sensor/actuator interaction. 
 
-Arduino's expertise in producing high quality PCB in house has been leveraged to ensure that the Portenta H7 Lite Connected can meet the vibrations and temperatures met in daily industrial, automotive and agriculture applications. The various interfaces give the developers freedom in how they interact with the Portenta H7 and include MKR-compatible pins, USB-C enabled HDMI output and Arduino's open connector (ESLOV). As a pioneer in Open Source electronics, developers will receive the support they need from Arduino to build their solution free from technological lock-in.  
+Arduino's expertise in producing high quality PCB in house has been leveraged to ensure that the Portenta H7 Lite Connected can meet the vibrations and temperatures met in daily industrial, automotive and agriculture applications. The various interfaces give the developers freedom in how they interact with the Portenta H7 and include MKR-compatible pins, USB-C® enabled HDMI output and Arduino's open connector (ESLOV). As a pioneer in Open Source electronics, developers will receive the support they need from Arduino to build their solution free from technological lock-in.  
 
 Portenta H7 Lite Connected offers several customization possibilities that allow tailoring board functionality to specific applications for high volume use cases.
 
@@ -102,7 +102,7 @@ AI applications, low-latency control solutions
 *   **External Memories**
     *   up to 64 MByte SDRAM (optional)
     *   up to 128 MByte QSPI Flash (optional)
-*   **USB-C**
+*   **USB-C®**
     *   High Speed (optional)/Full Speed USB 
     *   Host and Device operation
     *   Power Delivery support (optional)
@@ -264,14 +264,14 @@ Portenta H7 Lite Connected runs the classic ATECC608A.
 The optional 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. The Wake On Lan functionality allows reducing power consumption when in sleep mode.  
 
 ### High Speed USB Phy
-The optional High Speed USB Phy is one of the two USB interfaces available on the high speed connectors and is also available on the USB-C connector. High Speed USB PHY allows transfer rates of up to 480 Mbps and can be used both as a host and as a device.
+The optional High Speed USB Phy is one of the two USB interfaces available on the high speed connectors and is also available on the USB-C® connector. High Speed USB PHY allows transfer rates of up to 480 Mbps and can be used both as a host and as a device.
 
-When using the USB-C connector only one USB port is usable on high speed connectors.
+When using the USB-C® connector only one USB port is usable on high speed connectors.
 
-When the High Speed USB Phy option is not assembled the USB-C port only one Full Speed port is available and is shared between USB-C and High Density connectors  
+When the High Speed USB Phy option is not assembled the USB-C® port only one Full Speed port is available and is shared between USB-C® and High Density connectors  
 
-### USB-C Connector 
-USB-C connector supports multiple use case scenarios and provides the following functions:
+### USB-C® Connector 
+USB-C® connector supports multiple use case scenarios and provides the following functions:
 
 *   Provide board power supply in both DFP and DRP mode
 *   Source power to external peripherals when board is powered through VIN
@@ -285,7 +285,7 @@ All power conversion on the Portenta H7 Lite Connected is handled by the PF1550 
 ## Board Operation
 ### Getting Started – IDE
 
-If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1].** To connect the Arduino Portenta H7 to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.  
+If you want to program your Arduino Portenta H7 while offline you need to install the Arduino Desktop IDE **[1].** To connect the Arduino Portenta H7 to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.  
 
 ### Getting Started – Arduino Web Editor (Create) 
 All Arduino and Genuino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
@@ -305,7 +305,7 @@ Now that you have gone through the basics of what you can do with the board you 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.  
 
 ## Connector Pinouts
-### USB-C
+### USB-C®
 ![alt_text](assets/portentaH7_PinoutUSB-C.png)
 
 ### High Density Connector

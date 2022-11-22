@@ -33,7 +33,7 @@ In this tutorial you will learn how to upload data from the Nicla module to the 
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
 - ESLOV cable (included with the Nicla Sense ME)
-- USB-C to USB-A / C depending on your hardware (Portenta H7)
+- USB-C® to USB-A / C depending on your hardware (Portenta H7)
 - USB-A to micro USB-A (Nicla Sense ME)
 - Wi-Fi Access point with access to the internet
 - [Arduino Cloud](https://create.arduino.cc/) account
@@ -42,7 +42,7 @@ In this tutorial you will learn how to upload data from the Nicla module to the 
 
 ### Hardware Connection
 
-For the hardware setup, just connect the Nicla board to the Portenta H7 using the ESLOV cable like in the illustration below. Then connect the Portenta H7 to your computer using an USB-C cable.
+For the hardware setup, just connect the Nicla board to the Portenta H7 using the ESLOV cable like in the illustration below. Then connect the Portenta H7 to your computer using an USB-C® cable.
 
 ![Nicla connection](assets/eslov-connection.svg)
 

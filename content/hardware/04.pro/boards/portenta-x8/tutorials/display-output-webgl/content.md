@@ -29,8 +29,8 @@ The Arduino Portenta X8's processor **NXP® i.MX 8M Mini Processor** can be used
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
-- USB-C hub with HDMI
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- USB-C® hub with HDMI
 - External monitor 
 - HDMI cable
 

@@ -27,7 +27,7 @@ The instructions below are meant to be used with a Windows Operating System.
 
 ### Required Hardware and Software
 
-- USB-C to USB-A or USB-C to USB-C
+- USB-A to USB-C® cable
 - Portenta X8
 - Portenta Breakout Board or Portenta Max Carrier
     
@@ -84,7 +84,7 @@ On the Portenta Breakout the DIP switches are identified by a label `BT_SEL` and
 
 ![Breakout DIP switches](assets/breakout-dip-switches.png)
 
-Plug one USB-C end into the Portenta X8 and the other end (USB-C or USB-A) to your computer.
+Plug one USB-C® end into the Portenta X8 and the other end (USB-C® or USB-A) to your computer.
 
 You will see a new connected device called `SE Blank M845S`.
 

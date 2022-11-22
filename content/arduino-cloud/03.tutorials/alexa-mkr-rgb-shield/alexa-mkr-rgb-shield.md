@@ -1,5 +1,5 @@
 ---
-title: 'Arduino IoT Cloud, MKR RGB Shield and Alexa integration'
+title: 'Alexa & Arduino IoT Cloud Integration'
 compatible-products: [mkr-wifi-1010, mkr-rgb-shield]
 difficulty: intermediate
 description: 'Learn how to build a smart lamp by integrating the Arduino IoT Cloud and Alexa.'
@@ -12,7 +12,15 @@ featuredImage: 'cloud'
 
 ## Introduction
 
-In this tutorial, we will find out how to create a smart colored light with the help of Arduino IoT Cloud and the Alexa app. We will set it up so that we can control the brightness and color of the pixels onboard the [MKR RGB Shield](https://store.arduino.cc/arduino-mkr-rgb-shield).
+<iframe width="100%" height="400" src="https://www.youtube.com/watch?v=OMvZjwFYimo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+In this tutorial you will learn how to integrate the [Arduino IoT Cloud](https://create.arduino.cc/iot/) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix, using only voice commands in the Alexa app. 
+
+This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/products/arduino-mkr-rgb-shield) but can easily be modified to use other matrices. 
+
+***While this tutorial focuses on creating a smart lamp, it also shows the steps needed to integrate the two services, so you can essentially follow this tutorial to create other cool projects!***
+
+***You can also find all variables that can be synchronized between Arduino Cloud and Alexa in the [IoT Cloud Variables guide](/arduino-cloud/tutorials/alexa-mkr-rgb-shield#alexa-variables).***
 
 ## Goals
 

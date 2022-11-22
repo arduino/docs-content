@@ -34,8 +34,8 @@ It is possible to configure the Portenta H7 to act as a USB host in a way that a
 ### Required Hardware and Software
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
-- USB-C cable (either USB-A to USB-C or USB-C to USB-C)
-- Active USB-C hub (optional)
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- Active USB-C® hub (optional)
 - External keyboard
 - Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
 - Power supply for the USB hub (if a USB hub is used)
@@ -75,9 +75,9 @@ Thanks to USB OTG (On The Go) specification the Portenta H7 can switch between h
 
 ### 1. The Basic Setup
 
-Begin by plugging in your Portenta board to the computer using a USB-C  cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you to check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed.
+Begin by plugging in your Portenta board to the computer using a USB-C®  cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you to check out how to [set up the Portenta H7 for Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed.
 
-![The Portenta H7 can be connected to the computer using an appropriate USB-C cable](assets/por_ard_usbh_basic_setup.svg)
+![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_ard_usbh_basic_setup.svg)
 
 ### 2. Creating the Keyboard Controller
 
@@ -178,16 +178,16 @@ When you connect the Portenta board to the computer to program it, the computer 
 
 In the image above you can see that:
 
-- The Portenta is connected to the "HOST" port of the USB hub (USB-C adapter)
-- The USB Hub (USB-C adapter) needs to be powered externally with a power supply. This is required to provide power to Portenta.
-- You should connect the keyboard to the USB Hub (USB-C adapter) in the same way you would connect it to your PC.
+- The Portenta is connected to the "HOST" port of the USB hub (USB-C® adapter)
+- The USB Hub (USB-C® adapter) needs to be powered externally with a power supply. This is required to provide power to Portenta.
+- You should connect the keyboard to the USB Hub (USB-C® adapter) in the same way you would connect it to your PC.
 
 ### Alternative Configuration (No USB Hub Required)
 
-If you do not have a USB-C type hub, you may complete this tutorial with a USB-C type keyboard or with a USB A type keyboard and a USB A to C adapter. To do so, proceed as follows:
+If you do not have a USB-C® type hub, you may complete this tutorial with a USB-C® type keyboard or with a USB A type keyboard and a USB A to C adapter. To do so, proceed as follows:
 
 - Power the Portenta H7 through the VIN pin with 5V. (Check [pinout diagram](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf))
-- Connect the keyboard directly to the Portenta's USB-C connector (use a USB-A to USB-C adapter if your keyboard's connector is USB type A)
+- Connect the keyboard directly to the Portenta's USB-C® connector (use a USB-A to USB-C® adapter if your keyboard's connector is USB type A)
 - Add the following line of code in your sketch to enable power supply through Portenta's USB connector: `usb.supplyPowerOnVBUS(true);`
 
 ### 7. Toggling the LEDs

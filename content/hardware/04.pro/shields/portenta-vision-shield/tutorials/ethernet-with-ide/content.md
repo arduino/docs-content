@@ -36,7 +36,7 @@ The goals of this project are:
 - [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
 - Arduino [offline IDE](https://www.arduino.cc/en/main/software) or Arduino [Web Editor](https://create.arduino.cc/)
 - Ethernet cable
-- USB-C cable
+- USB-C® cable
 
 ## Ethernet Connection
 
@@ -52,7 +52,7 @@ Now let's look at how to connect everything we need.
 
 ### Connecting the Board
 
-Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the USB-C cable to the Portenta H7 and your computer. Lastly connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
+Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
 
 ### Programming the Board
 
