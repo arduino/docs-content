@@ -40,8 +40,8 @@ jobs:
             ${{ runner.os }}-public-gatsby-
 
       - run: npm install
-
-      - run: RENDER_DATASHEETS=true npm run build
+      - run: cd scripts/datasheet-rendering;./render-datasheets.sh
+      - run: npm run build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
