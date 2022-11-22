@@ -36,7 +36,7 @@ fi
 VERSION=`node -v | grep -o 'v\d*'| cut -d "v" -f2`
 MIN_VERSION=14
 
-if [ "$VERSION" -lt $MIN_VERSION ]; then
+if [ -n "$VERSION" ] && [ "$VERSION" -lt $MIN_VERSION ]; then
     echo "You're using an old version of Node.js ($VERSION). Please update to $MIN_VERSION or newer."
     exit -1
 fi
