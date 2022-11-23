@@ -13,7 +13,7 @@ hardware:
   - hardware/01.mkr/03.carriers/mkr-iot-carrier-rev2
 ---
 
-![The Arduino MKR IoT Carrier Rev2](assets/mkrIotCarrier-overview.png)
+![The Arduino MKR IoT Carrier Rev2](assets/hero.png)
 
 The Arduino® MKR IoT Carrier Rev2 is equipped with different sensors, actuators and with a display to leave you free to focus on prototyping and programming your next IoT projects. The carrier does not come equipped with a microcontroller, meaning it only works in combination with an Arduino board. The MKR IoT Carrier Rev2 comes equipped with 5 RGB LEDs, 5 capacitive touch buttons, a colored display, IMU and a variety of quality sensors. It also features a battery holder for a 18650 Li-Ion battery, SD card holder and Grove connectors.
 
@@ -37,7 +37,7 @@ The MKR family boards offer different features that can be useful for your proje
 
 The chosen Arduino MKR board needs to be mounted on top of the MKR IoT Carrier Rev2 and connected to a computer. The board can be connected as shown in the image below, matching the pin numbers on the board to the ones on the carrier.
 
-![Mounting board on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-mounting-board.png)
+![Mounting board on the MKR IoT Carrier Rev2](assets/mkr-mount.png)
 
 ## Datasheet
 
@@ -68,7 +68,7 @@ The full pinout is available in the [resources section](/hardware/mkr-iot-carrie
 
 ## Grove Connectors
 
-![Grove connectors on the MKR IoT Carrier Rev2](assets/mkriotcarrier-grove-connectors.png)
+![Grove connectors on the MKR IoT Carrier Rev2](assets/grove-connector.png)
 
 The MKR IoT Carrier Rev2 comes with **three grove connectors** (2 analog and 1 I2C) that enables us to easily connect external sensors. The type of the connector is labeled clearly on the back of the carrier.
 
@@ -116,7 +116,7 @@ void setup() {
 
 ## BME688 Environmental Sensor
 
-![The HTS221 Humidity Sensor on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-temp&humi.png)
+![The HTS221 Humidity Sensor on the MKR IoT Carrier Rev2](assets/bme-688.png)
 
 The **[BME688 Environmental Sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf)** is a 4 in 1 sensor capable of providing the following measurements:
 - **Humidity**, 0‒100% r.H.
@@ -149,7 +149,7 @@ float co2 = carrier.AirQuality.readCO2();
 
 ## IMU Accelerometer & Gyroscope Sensors
 
-![The IMU on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-imu.png)
+The IMU (Inertial Measurement Unit) used on the MKR IoT Carrier Rev2 is the located **behind the display**. 
 
 ### LSM6DSOX
 
@@ -190,7 +190,7 @@ The underlying library used to read the sensor is **[LSM6DSOX](https://github.co
 
 ## RGB and Gesture Sensor
 
-![The APDS-9660 sensor on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-rgb.png)
+![The APDS-9660 sensor on the MKR IoT Carrier Rev2](assets/apds-9660.png)
 
 The MKR IoT Carrier Rev2 contains a Broadcom **APDS-9660 RGB and Gesture sensors**, situated under the display and marked with a bulb icon. The sensor is useful for **ambient light** and **RGB** color sensing, **proximity** sensing, and **gesture** detection.
 
@@ -257,17 +257,15 @@ The underlying library used to read the sensor is **[Arduino_APDS9960](https://w
 
 ## Relays
 
-![The relays on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-relays-01.png)
+![The relays on the MKR IoT Carrier Rev2](assets/relay-specs.png)
 
 The MKR IoT Carrier Rev2 is equipped with two 5V Coil voltage **KEMET EE2-5NU-L relays**, located on the back side of the carrier. The relays are non-latching with a **COM** (common), **NO** (Normally open) and **NC** (normally closed) contacts, and can take up a max of **2A** Current and **24 V** of input each.
 
-The connections between a high power circuit and the relays will be done through these connectors.
-
-![The relays connectors](assets/mkrIotCarrier-relays-02.png)
+The connections between a high power circuit and the relays will be done through these connectors (marked **"high power pins"** in the image above).
 
 Once the cables are introduced inside the connectors, they will automatically be locked inside. To unlock a cable and remove it from the connector, a tool is needed to be inserted through the top square hole (it can be a flat screwdriver, a hard piece of plastic, etc.).
 
-![The L1 and L2 LEDs indicators](assets/mkrIotCarrier-relays-lights.png)
+![The L1 and L2 LEDs indicators](assets/relay-lights.png)
 
 The **L1 and L2 LEDs** on the carrier are visual indicators of the state of the relays. If the LED is ON, it means that the **COM** and the **NO** terminal of the relay are **connected**, and if the LED is OFF it means that **COM** and **NC** are **connected**.
 
@@ -298,7 +296,7 @@ carrier.Relay2.getStatus();
 
 ### Display
 
-![The MKR IoT Carrier Rev2's display](assets/mkrIotCarrier-display.png)
+![The MKR IoT Carrier Rev2's display](assets/display.png)
 
 The screen on the MKR IoT Carrier Rev2 is a **rounded 1.3” TFT display**, with a 240 x 240 resolution and a diameter of 36 x 40 mm.
 
@@ -372,7 +370,7 @@ In order to develop a graphical user interface with the MKR IoT Carrier Rev2, th
 
 ### Buttons
 
-![The MKR IoT Carrier Rev2's buttons](assets/mkrIotCarrier-buttons.png)
+![The MKR IoT Carrier Rev2's buttons](assets/buttons.png)
 
 The carrier has five **capacitive touch buttons** on its top side, numbered from 0 to 4. The buttons are sensitive to direct touch and can also detect wireless touch.
 
@@ -489,7 +487,7 @@ void setup() {
 
 ### Buzzer
 
-![The buzzer on the MKR IoT Carrier Rev2](assets/mkriotcarrier-buzzer.png)
+![The buzzer on the MKR IoT Carrier Rev2](assets/buzzer.png)
 
 The MKR IoT Carrier Rev2 is equipped with a **sound buzzer** on the bottom side of the carrier, under the MKR board.
 
@@ -544,11 +542,11 @@ In order to learn more, check any of the many tutorials about using the `SD` lib
 
 ## Power
 
-![JST battery connector on the MKR IoT Carrier Rev2.](assets/mkriotcarrier-battery.png)
+![JST battery connector on the MKR IoT Carrier Rev2.](assets/battery-connector.png)
 
 The MKR IoT Carrier Rev2 can be either powered through a USB cable connected to the mounted MKR board, or through a battery. The battery used should be a LI-ION 18650 3.7v battery, which can be mounted to the carrier via the battery holder on the bottom side. 
 
-In order to use the USB power to charge the battery, a little cable with JST connectors on both ends is needed between the MKR IoT Carrier Rev2 and the MKR board. The bBattery can then be recharged via a USB connection through the MKR Board (runs up to 48h with a 3.7v 2500mAh).
+In order to use the USB power to charge the battery, a little cable with JST connectors on both ends is needed between the MKR IoT Carrier Rev2 and the MKR board. The battery can then be recharged via a USB connection through the MKR Board (runs up to 48h with a 3.7v 2500mAh).
 
 <video width="100%" controls="true">
 <source src="assets/mkrIoTCarrier-battery-assembly.mp4" type="video/mp4"/>
