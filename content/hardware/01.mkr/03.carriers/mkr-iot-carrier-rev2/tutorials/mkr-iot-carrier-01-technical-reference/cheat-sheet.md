@@ -114,17 +114,17 @@ void setup() {
 }
 ```
 
-## BME680 Environmental Sensor
+## BME688 Environmental Sensor
 
 ![The HTS221 Humidity Sensor on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-temp&humi.png)
 
-The **[BME680 Environmental Sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf)** is a 4 in 1 sensor capable of providing the following measurements:
+The **[BME688 Environmental Sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf)** is a 4 in 1 sensor capable of providing the following measurements:
 - **Humidity**, 0‒100% r.H.
 - **Temperature**, -40 to +85 °C.
 - **Pressure**, 300-1100 hPa.
 - **Gas**, IAQ, VOC, CO2. 
 
-BME680 is a low-power sensor with current consumption as low as **2.1 µA at 1 Hz**. It communicates over the I²C bus as other sensors onboard this carrier.
+BME688 is a low-power sensor with current consumption as low as **2.1 µA at 1 Hz**. It communicates over the I²C bus as other sensors onboard this carrier.
 
 ### Code
 
@@ -151,7 +151,7 @@ float co2 = carrier.AirQuality.readCO2();
 
 ![The IMU on the MKR IoT Carrier Rev2](assets/mkrIotCarrier-sensor-imu.png)
 
-### LSM6DSOXTR
+### LSM6DSOX
 
 The [LSM6DSOX](https://www.st.com/resource/en/datasheet/lsm6dsox.pdf) from STM is an IMU (Inertial Measurement Unit) that features a 3D digital **accelerometer** and a 3D digital **gyroscope**.
 
