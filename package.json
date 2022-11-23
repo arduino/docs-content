@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-    "@arduino/docs-arduino-cc": "^1.6.20",
+    "@arduino/docs-arduino-cc": "^1.6.22",
     "gatsby": "^4.9.2"
   },
   "volta": {
-    "node": "14.21.1"
+    "node": "14.17.3",
+    "npm": "6.14.13"
   }
 }
