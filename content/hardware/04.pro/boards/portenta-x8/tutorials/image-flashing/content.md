@@ -6,7 +6,6 @@ difficulty: intermediate
 tags:
   - Embedded Linux
   - Flashing
-  - Foundries.io
 author: 'Pablo Marquínez'
 hardware:
   - hardware/04.pro/boards/portenta-x8
@@ -14,9 +13,10 @@ hardware:
 
 ## Overview
 
-In this tutorial you will see how to manually flash your Portenta X8 with the image that is provided by Foundries.io through USB using the Terminal.
+In this tutorial you will see how to manually flash your Portenta X8 with the image that is provided by Arduino. You will flash your board through USB using the Terminal.
+The instructions below are meant to be used with a Windows Operating System.
 
-***Attention: We encourage you to check every now and then if the device image version is up to date in order to have the latest bootloader, please check the release section of the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/releases) and compare the target version number***
+***Attention: We encourage you to check every now and then if the device image version is up-to-date in order to have the latest bootloader. Please check the release section of the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/releases) and compare the target version number***
 
 ## Goals
 
@@ -27,23 +27,28 @@ In this tutorial you will see how to manually flash your Portenta X8 with the im
 
 ### Required Hardware and Software
 
-- USB-C to USB-A or USB-C to USB-C
+- USB-A to USB-C® cable
 - Portenta X8
 - Portenta Breakout Board or Portenta Max Carrier
-- Arduino Create account
-- Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
-- Foundries.io account (linked with the Pro Cloud subscription)
-- FoundriesFactory® ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
-- 1 Device already attached to your factory ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
     
 ## Instructions
 
 ### Get the Required Files
 
-Required files following this structure:
+#### Arduino's GitHub Repository
+
+Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
+
+While we were writing this tutorial the available version was `456`, but you will probably find a more recent version in the future.
+
+Click on the file `456.tar.gz` (or newer) and download it to your computer.
+
+![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
+
+Then After downloading it, unzip it, you will get a structure like the following:
 
 ```
-Root folder
+Unzipped folder
 ├── imx-boot-portenta-x8
 ├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
 ├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
@@ -51,45 +56,41 @@ Root folder
 └── u-boot-portenta-x8.itb
 ```
 
-To get those files:
+Then unzip `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz` make sure the .wic is on the unzipped folder in the main directory.
 
-#### Arduino's GitHub Repository
-
-Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
-
-#### Through Foundries.io
-
-Open your FoundriesFactory®.
-
-![Foundries.io factories dashboard](assets/foundries-factories.png)
-
-Switch to the targets tab.
-
-![Foundries.io factory targets tab](assets/foundries-factories-targets.png)
-
-Click on the platform-master version.
-
-![Foundries.io tag dashboard](assets/foundries-factories-targets-dashboard.png)
-
-On the "Runs" section open those collapsed labels, and download the files listed above by clicking on their text (like a normal link).
-
-![Foundries.io target runs section](assets/foundries-factories-target-runs.png)
-
-After downloading them, make sure you put them in a folder following the structure shown and extract the compressed files.
+It needs to be like:
+```
+Unzipped folder
+├── mfgtool-files-portenta-x8/
+├── imx-boot-portenta-x8
+├── lmp-partner-arduino-image-portenta-x8.wic
+├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
+├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
+├── sit-portenta-x8.bin
+└── u-boot-portenta-x8.itb
+```
 
 ### Set the Portenta X8 to Flashing Mode
 
-Plug your Porenta X8 into your carrier (Portenta Breakout carrier <!-- or Portenta Max Carrier-->).
+Plug your Portenta X8 into your carrier (e.g. Portenta Breakout carrier or Portenta Max Carrier).
 
-Switch both DIP switches to the ON position.
+Place both DIP switches to the ON position.
 
-Plug the USB-C end into the Portenta X8 and the other end (USB-C or USB-A) to your computer.
+On the Portenta Max Carrier the DIP switches are identified by a label `BOOT SEL` and `BOOT` as shown in figure.
 
-You will see a new device connected called `SE Blank M845S`.
+![Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
+
+On the Portenta Breakout the DIP switches are identified by a label `BT_SEL` and `BOOT` as shown in figure.
+
+![Breakout DIP switches](assets/breakout-dip-switches.png)
+
+Plug one USB-C® end into the Portenta X8 and the other end (USB-C® or USB-A) to your computer.
+
+You will see a new connected device called `SE Blank M845S`.
 
 ### Flash the Device
 
-Open a terminal and change the directory (`cd`) to your root folder as shown in the beginning.
+Open a terminal and change the directory (`cd`) to the folder where `mfgtool-files-portenta-x8` file is located.
 
 Use the `uuu full_image.uuu` command.
 
@@ -97,12 +98,15 @@ Wait until it gets flashed.
 
 ![uuu tool flashing success output](assets/uuu-flashing-success.png)
 
-Switch back the DIP switches to OFF position.
+At this point, set back the DIP switches to OFF position.
 
-Unplug and then plug in the Portenta X8 to your computer.
+Unplug and then plug-in again the Portenta X8 to your computer.
 
-***After booting you will need to wait 10 secs, until the Portenta X8 blue LED starts blinking, this means the boot was successful***
+***After booting you will need to wait 10 secs until the Portenta X8 blue LED starts blinking. This means the boot was successful.***
+
+Now you can start using your Portenta X8 with the latest updates.
 
 ## Troubleshooting
 
-- If you get an error while its flashing, make sure your USB is correctly plugged in. Re-plug your board and try to flash again, you may need few tries before the flashing is successful.
+- If you get an error while it is flashing, make sure your USB is correctly plugged in. Re-plug your board and try to flash it again. You may need few trials before the flashing is successful.
+- If you get an error related to permissions, try to launch the `uuu` command as Super User (`sudo`). 

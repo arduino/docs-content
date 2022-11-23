@@ -30,7 +30,7 @@ This tutorial explains how to connect your [Arduino® Max Carrier](http://store.
 - [Portena H7](https://store.arduino.cc/products/portenta-h7).
 - [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
 - 868-915 MHz antenna with SMA connector.
-- USB-C cable (either USB-A to USB-C or USB-C to USB-C).
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®).
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Arduino MKRWAN library](https://github.com/arduino-libraries/MKRWAN).  
 - An active account in [TTN](https://www.thethingsnetwork.org/).
@@ -65,13 +65,13 @@ Begin by attaching the Arduino® Portenta H7 board to the high-density connector
 
 ![CMWX1ZZABZ-078 LoRaWAN® module in the Portenta Max Carrier.](assets/mc_ard_hd_ttn_connectors.png)
 
-To power the CMWX1ZZABZ-078 LoRaWAN® module of the Portenta Max Carrier, you can use the **DC power jack** (with a 4.5V to 36V external DC power supply) of the Portenta Max Carrier or a **18650 3.7V Li-Ion battery**, connected to the Portenta Max Carrier battery clips; you can power the module also directly from the USB-C connector of the Portenta H7 board. **Also, do not forget to attach an 868-915 MHz antenna to the SMA connector (J9) on the Max Carrier**.
+To power the CMWX1ZZABZ-078 LoRaWAN® module of the Portenta Max Carrier, you can use the **DC power jack** (with a 4.5V to 36V external DC power supply) of the Portenta Max Carrier or a **18650 3.7V Li-Ion battery**, connected to the Portenta Max Carrier battery clips; you can power the module also directly from the USB-C® connector of the Portenta H7 board. **Also, do not forget to attach an 868-915 MHz antenna to the SMA connector (J9) on the Max Carrier**.
 
 ![Power sources and LoRa® antenna connector in the Portenta Max Carrier.](assets/mc_ard_ttn_power.png)
 
 ***Using the LoRaWAN® module of the Portenta Max Carrier without an antenna may damage it. Please, do not forget to connect a suitable antenna to the dedicated SMA connector (J9) on the Portenta Max Carrier.***
 
-Now you can connect the Portenta H7 board to your computer using a USB-C cable. **Don't forget to change the position of the BOOT DIP switch (SW1) to OFF** ; otherwise, you will not be able to program your Portenta H7 board when attached to the Portenta Max Carrier.
+Now you can connect the Portenta H7 board to your computer using a USB-C® cable. **Don't forget to change the position of the BOOT DIP switch (SW1) to OFF** ; otherwise, you will not be able to program your Portenta H7 board when attached to the Portenta Max Carrier.
 
 ![Power sources and LoRa® antenna connector in the Portenta Max Carrier.](assets/mc_ard_ttn_boot_sel.png)
 
@@ -276,5 +276,5 @@ You have now successfully configured and used the onboard LoRaWAN® module of yo
 While working on the sketch or when tried to upload the sketch, the Arduino IDE might show some errors preventing to proceed on the development. You can try the following troubleshooting tips to solve the commonly known issues:
 
 * If the sketch upload process fails, check if your Portenta H7 is in bootloader mode. To put the Portenta H7 into Bootloader mode, double-press its RESET button and verify that the green LED is waving. After this, you can try re-uploading the sketch.
-* Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta H7 gets into bootloader mode immediately after power-on, including when connected via USB-C, change the position of the BOOT DIP switch to OFF.
+* Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta H7 gets into bootloader mode immediately after power-on, including when connected via USB-C®, change the position of the BOOT DIP switch to OFF.
 * If the Arduino IDE fails to compile the sketch, check if you have defined `PORTENTA_CARRIER` before the MKRWAN library inclusion.
