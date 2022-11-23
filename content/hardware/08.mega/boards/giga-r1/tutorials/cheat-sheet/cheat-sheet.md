@@ -43,7 +43,7 @@ You can also visit the documentation platform for the [Arduino GIGA R1](/hardwar
 ## Datasheet
 The full datasheets are available as a downloadable PDF from the link below:
 
-- [Download the Arduino GIGA R1 datasheet](/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf)
+- [Download the Arduino GIGA R1 datasheet]()
 
 ## Power Supply
 
@@ -52,6 +52,8 @@ To power the **Arduino GIGA R1** you may either use a USB-C cable, or the VIN pi
 If you're using the USB-C connector you must power it with 5V.
 
 Powering the board with the VIN pin gives you more options, as you can safely power the board with any voltage between 6-24V.
+
+By connecting the OFF pin to GND you can cut the power supply to the board, turning it off completely. Read more about this feature in the [OFF-pin](#off-pin) section of this article
 
 It should however be noted that the internal operating voltage of the microcontroller is 3.3V, and you should not apply voltages higher than that to the GPIO pins.
 
@@ -64,7 +66,7 @@ The **Arduino GIGA R1** can be programmed through:
 - the OpenMV IDE,
 - and the Web-editor. 
 
-To set the board up to be programmed with the OpenMV IDE in MicroPython, check out the [Boot0 section](#Boot0) of this article.
+To set the board up to be programmed with the OpenMV IDE in MicroPython, check out the [Boot0 section](#boot0) of this article.
 
 ### Core
 The Arduino GIGA R1 uses the [GIGA core]().
@@ -192,7 +194,7 @@ To learn more about dual core processing on the **Arduino GIGA R1**, check out t
 
 ## RTC
 
-The **Arduino GIGA R1** features an RTC pin, giving you the ability to power the timekeeping circuitry with a coin cell battery to keep the time even when your board is turned off. 
+The **Arduino GIGA R1** features an RTC pin, giving you the ability to power the timekeeping circuitry with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
 
 The following sketch will continuously print the time in the Serial monitor.
 ```arduino
@@ -328,7 +330,7 @@ If you pay close attention you may notice that there are three sets of I2C pins.
 
 If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use external pullup resistors.
 
-## UART Pins
+## Serial/UART Pins
 The **Arduino GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **Arduino GIGA R1** board features 4 separate serial ports. 
 
 This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **4 different serial enabled devices** simultaneously. 
@@ -377,6 +379,105 @@ Serial1.write("Hello world!");
 ## Pins
 The **Arduino GIGA R1** gives you access to more pins than any other Arduino board that is this accessible for makers. Many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
 
+If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **Arduino GIGA R1**  
+
+| Pin  | Function | Notes                   |
+| ---- | -------- | ----------------------- |
+| 0    | TX       | Serial communication    |
+| 1    | RX       | Serial communication    |
+| 2    | PWM      | PWM, Digital IO pin     |
+| 3    | PWM      | PWM, Digital IO pin     |
+| 4    | PWM      | PWM, Digital IO pin     |
+| 5    | PWM      | PWM, Digital IO pin     |
+| 6    | PWM      | PWM, Digital IO pin     |
+| 7    | PWM      | PWM, Digital IO pin     |
+| 8    | PWM/SCL2 | PWM, Digital IO, I2C    |
+| 9    | PWM/SDA2 | PWM, Digital IO, I2C    |
+| 10   | PWM/CS   | PWM, Digital IO, SPI    |
+| 11   | PWM/COPI | PWM, Digital IO, SPI    |
+| 12   | PWM/CIPO | PWM, Digital IO, SPI    |
+| 13   | PWM/SCK  | PWM, Digital IO, SPI    |
+| 14   | TX3      | Serial communication    |
+| 15   | RX3      | Serial communication    |
+| 16   | TX2      | Serial communication    |
+| 17   | RX2      | Serial communication    |
+| 18   | TX1      | Serial communication    |
+| 19   | RX1      | Serial communication    |
+| 20   | SDA      | Digital IO, I2C         |
+| 21   | SCL      | Digital IO, I2C         |
+| 22   | GPIO     | Digital IO pin          |
+| 23   | GPIO     | Digital IO pin          |
+| 24   | GPIO     | Digital IO pin          |
+| 25   | GPIO     | Digital IO pin          |
+| 26   | GPIO     | Digital IO pin          |
+| 27   | GPIO     | Digital IO pin          |
+| 28   | GPIO     | Digital IO pin          |
+| 29   | GPIO     | Digital IO pin          |
+| 30   | GPIO     | Digital IO pin          |
+| 31   | GPIO     | Digital IO pin          |
+| 32   | GPIO     | Digital IO pin          |
+| 33   | GPIO     | Digital IO pin          |
+| 34   | GPIO     | Digital IO pin          |
+| 35   | GPIO     | Digital IO pin          |
+| 36   | GPIO     | Digital IO pin          |
+| 37   | GPIO     | Digital IO pin          |
+| 38   | GPIO     | Digital IO pin          |
+| 39   | GPIO     | Digital IO pin          |
+| 40   | GPIO     | Digital IO pin          |
+| 41   | GPIO     | Digital IO pin          |
+| 42   | GPIO     | Digital IO pin          |
+| 43   | GPIO     | Digital IO pin          |
+| 44   | GPIO     | Digital IO pin          |
+| 45   | GPIO     | Digital IO pin          |
+| 46   | GPIO     | Digital IO pin          |
+| 47   | GPIO     | Digital IO pin          |
+| 48   | GPIO     | Digital IO pin          |
+| 49   | GPIO     | Digital IO pin          |
+| 50   | GPIO     | Digital IO pin          |
+| 51   | GPIO     | Digital IO pin          |
+| 52   | GPIO     | Digital IO pin          |
+| 53   | GPIO     | Digital IO pin          |
+| 54   | GPIO     | Digital IO pin          |
+| 55   | GPIO     | Digital IO pin          |
+| 56   | GPIO     | Digital IO pin          |
+| 57   | GPIO     | Digital IO pin          |
+| 58   | GPIO     | Digital IO pin          |
+| 59   | GPIO     | Digital IO pin          |
+| 60   | GPIO     | Digital IO pin          |
+| 61   | GPIO     | Digital IO pin          |
+| 62   | GPIO     | Digital IO pin          |
+| 63   | GPIO     | Digital IO pin          |
+| 64   | GPIO     | Digital IO pin          |
+| 65   | GPIO     | Digital IO pin          |
+| 66   | GPIO     | Digital IO pin          |
+| 67   | GPIO     | Digital IO pin          |
+| 68   | GPIO     | Digital IO pin          |
+| 69   | GPIO     | Digital IO pin          |
+| 70   | GPIO     | Digital IO pin          |
+| 71   | GPIO     | Digital IO pin          |
+| 72   | GPIO     | Digital IO pin          |
+| 73   | GPIO     | Digital IO pin          |
+| 74   | GPIO     | Digital IO pin          |
+| 75   | GPIO     | Digital IO pin          |
+| A0   | Analog in| Analog In               |
+| A1   | Analog in| Analog In               |
+| A2   | Analog in| Analog In               |
+| A3   | Analog in| Analog In               |
+| A4   | Analog in| Analog In               |
+| A5   | Analog in| Analog In               |
+| A6   | Analog in| Analog In               |
+| A7   | Analog in| Analog In               |
+| A8   | Analog in| Analog In               |
+| A9   | Analog in| Analog In               |
+| A10  | Analog in| Analog In               |
+| A11  | Analog in| Analog In               |
+| A12  | DAC0     | Analog In, DAC          |
+| A13  | DAC1     | Analog In, DAC          |
+| A14  | CANRX    | Analog In, CAN          |
+| A15  | CANTX    | Analog In, CAN          |
+
+
+
 ### Analog Pins
 The **Arduino GIGA R1** has 12 analog input pins that can be read with a resolution of 16 Bits, by using the `analogRead()` function.
 ```arduino
@@ -391,13 +492,13 @@ Pins A8, A9, A10 and A11 can not be used as GPIO, but are limited to use as anal
 ### PWM Pins
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-On the **Arduino GIGA R1** all digital pins are PWM capable, and to make use of them you use:
+The **Arduino GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-12. You may use them as analog output pins with the function: 
 ```arduino
 analogWrite(pin, value);
 ```
 
 ### Digital Pins
-The **Arduino GIGA R1** features more pins than any other Arduino board for makers, a full 76 digital pins. Though many of them serve a purpose and shouldn't be used for GPIO if you have other pins available.
+The **Arduino GIGA R1** features more pins than any other Arduino board for makers, a full 76 digital pins. Though many of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
 
 - 0 - RX0
 - 1 - TX0
@@ -446,6 +547,8 @@ Read more about this feature, and learn when and how to use it by checking out t
 If you're creating a project that relies heavily on accurate sensordata, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function. 
 
 This feature might be extra valuable to the maker with an **Arduino GIGA R1**, as their circuit gets more and more complex.
+
+All GPIO pins on the **Arduino GIGA R1** can be used for interrupts. 
 
 The syntax for creating an interrupt function should be included in `void setup()` and is as follows:
 ```arduino
