@@ -20,13 +20,13 @@ Modbus requests follow a simple structure:
 ![](assets/requestFrame.png)
 
 ### Device Address
-Every peripheral device has its own address which it responds to when addressed by the controller, while all other devices ignore the message if the address doesn't match their own. Devices addresses are assigned in the range of 1 - 247.
+Every peripheral device has its own address which it responds to when addressed by the controller, while all other devices ignore the message if the address doesn't match their own. Device addresses are assigned in the range of 1 - 247, but without additional hardware the maximum number of devices should be limited to 32 as data loss is too significant when attaching more devices. 
 
 ### Function Code
 The Function code tells the peripheral device if it should read or write data from the internal memory registers. Many of the data types are named from their use in driving relays, for example, a single-bit physical output is called a coil, and a single-bit physical input is called a discrete input or a contact. The following functions are supported by the Modbus poll:
 
-- 01 READ COIL STATUS
-- 02 READ INPUT STATUS
+- 01 READ COIL
+- 02 READ DISCRETE INPUT
 - 03 READ HOLDING REGISTERS
 - 04 READ INPUT REGISTERS
 - 05 WRITE SINGLE COIL
@@ -38,7 +38,13 @@ The Function code tells the peripheral device if it should read or write data fr
 The data field contains the requested or send data. In the request form used by the Arduino Modbus library, the data field requires you to enter the starting registers and register count.
 
 ### CRC Error Check
-The error checking is a value the controller or peripheral creates at the beginning of the transmission or response which is then checked when the message is received, to verify if the contents are correct. If the peripheral device accepts the request without error, it will return the same code in its response. However, if an error occurs, the peripheral will return 1 byte containing 8 binary bits `1000 0011` in the function code field and append a unique code in the data field of the response message, that tells the controller device what kind of error occurred or the reason for the error.
+CRC stands for Cyclic Redundancy check and is an error detecting code commonly used in digital networks to detect accidental changes in digital data. CRC’s have their name because the check (data verification) value is a redundancy (it expands the message without adding information) and the algorithm is based on cyclic codes. They are simple to implement in binary hardware, easy to analyze mathematically, and particularly good at detecting common errors caused by noise in transmission channels. 
+
+Two bytes are added to the end of every Modbus message for error detection and every byte in the message is used to calculate the CRC. The receiving device then also calculates the CRC and compares it to the CRC from the sending device. If even one bit in the message is received incorrectly, the CRC’s will be different resulting in an error.
+
+### Byte and word ordering
+The Modbus specification doesn't define exactly how the data is stored in the registers. Therefore, some manufacturers implemented Modbus in their equipment to store and transmit the higher byte first followed by the lower byte.  Alternatively, others store and transmit the lower byte first. Similarly, when registers are combined to represent 32-bit data types, some devices store the higher 16 bits (high word) in the first register and the remaining low word in the second while others do the opposite. It doesn't matter which order the bytes or words are sent in, as long as the receiving device knows which way to expect it.
+
 
 ## Use Modbus with Arduino
 Now that you have learned about the basics and functionalities of Modbus it is time to talk about how you can use your Arduino to establish Modbus communication across devices. You can use your Arduino either as a controller or as a peripheral device depending on the setup. To make your life easier you can use the [Arduino Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) which allows you to implement the Modbus protocol over two different types of transport: serial communication over RS485 with RTU or Ethernet and WiFi communication using the TCP protocol. Because the Modbus library is based on the [RS-485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/) you must include both of them in your code.
@@ -105,3 +111,9 @@ float readVoltage() {
 ### Libraries
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
 - [ArduinoModbus](https://www.arduino.cc/reference/en/libraries/arduinomodbus/)
+
+### Read more
+- https://www.se.com/us/en/faqs/FA168406/
+- https://modbus.org/
+- https://www.csimn.com/CSI_pages/Modbus101.html
+- https://en.wikipedia.org/wiki/Modbus
