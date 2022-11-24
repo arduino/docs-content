@@ -26,7 +26,7 @@ The Arduino Opta is a robust PLC solution with many features. In this tutorial w
 
 - USB-C cable (either USB-C to USB-A or USB-C to USB-C)
 - Power supply (optional)
-- [Arduino Opta]()
+- [Arduino Opta](https://store.arduino.cc/pages/opta)
 - Arduino IDE
 
 ## Instructions
@@ -83,10 +83,6 @@ int buttonState = 0;
 
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
-  Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
   pinMode(LED_D0, OUTPUT);
   pinMode(LED_D1, OUTPUT);
   pinMode(LED_D2, OUTPUT);
@@ -167,7 +163,7 @@ The OPTA output contacts are "clean" contacts, they are contacts that are not li
 In this way, when the contact is closed by the logic set via IDE, that power supply signal will cross the contact and will switch on or in any case carry the signal up to the reference load.
 The “clean” contact also allows to carry a different power system or type of load for each output contact.
 
-Lets run a simple sketch to test out the out relays on the Opta. For this sketch you need to Supply a voltage from 5.5 to 32V on PIN 1 (VIN) and PIN 3 (GND). Internally the signal is conditioned to 5V and the relays are driven. Between relays 2 and 3 there is a status led to check power supply on VIN. to ensure that the board is correctly powered, verify the led is on. 
+Lets run a simple sketch to test out the out relays on the Opta. For this sketch you need to Supply a voltage from 5.5 to 32V on PIN 1 (VIN) and PIN 3 (GND). Internally the signal is conditioned to 5V and the relays are driven. Inside the case there is a led to check power supply on VIN. If you are uncertain to wether the device is powered correctly, check the LED. 
 
 ```arduino
 void setup() {
@@ -192,7 +188,7 @@ This choice must be made through IDE, setting the low value (0 = 0 V) or the hig
 
 ![Analog inputs on the Arduino Opta](assets/opta-analog-inputs.png)
 
-Now lets try a sketch that will read the analog inputs on the Opta. The terminal board can be supplied with a maximum of 12V. The voltage that is read by the micro is proportional and rescaled with a factor of 0.3 in the sketch. The resolution is up to 16bit (65535), at 12bit (4095). The sketch will read the inputs on the analog pins A0, A1 and A2. Then printing the result in the serial monitor.
+Now lets try a sketch that will read the analog inputs on the Opta. The sketch can read between 0-12V, keep that in mind when connecting power to the device. The voltage that is read by the micro is proportional and rescaled with a factor of 0.3 in the sketch. The resolution is up to 16bit (65535), at 12bit (4095). The sketch will read the inputs on the analog pins A0, A1 and A2. Then printing the result in the serial monitor.
 
 ```arduino
 void setup() {
