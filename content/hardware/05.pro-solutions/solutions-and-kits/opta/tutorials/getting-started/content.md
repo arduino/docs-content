@@ -163,7 +163,7 @@ The OPTA output contacts are "clean" contacts, they are contacts that are not li
 In this way, when the contact is closed by the logic set via IDE, that power supply signal will cross the contact and will switch on or in any case carry the signal up to the reference load.
 The “clean” contact also allows to carry a different power system or type of load for each output contact.
 
-Lets run a simple sketch to test out the out relays on the Opta. For this sketch you need to Supply a voltage from 5.5 to 32V on PIN 1 (VIN) and PIN 3 (GND). Internally the signal is conditioned to 5V and the relays are driven. Inside the case there is a led to check power supply on VIN. If you are uncertain to wether the device is powered correctly, check the LED. 
+Lets run a simple sketch to test out the out relays on the Opta. For this sketch you need to Supply a voltage from 5.5 to 32V on PIN 1 (VIN) and PIN 3 (GND). Internally the signal is conditioned to 5V and the relays are driven. Inside the case there is a led to check power supply on VIN. If you are uncertain to whether the device is powered correctly, check the LED. 
 
 ```arduino
 void setup() {
