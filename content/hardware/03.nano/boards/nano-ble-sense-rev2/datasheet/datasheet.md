@@ -18,7 +18,7 @@ Maker, enhancements, IoT application
 
 - **NINA B306 Module**
   - **Processor**
-    - 64 MHz Arm® Cortex-M4F (with FPU)
+    - 64 MHz Arm® Cortex®-M4F (with FPU)
     - 1 MB Flash + 256 KB RAM
   - **Bluetooth® 5 multiprotocol radio**
     - 2 Mbps
@@ -60,7 +60,7 @@ Maker, enhancements, IoT application
 - **HS3003** Temperature & humidity sensor
   - 0-100% relative humidity range
   - Humidity accuracy: ±1.5%RH, typical (HS3001, 10 to 90%RH,25°C)
-  - Temperature sensor accuracy: ±0.2°C, typical
+  - Temperature sensor accuracy: ±0.1°C, typical
   - Up to 14-bit humidity and temperature output data
 - **APDS-9960** (Digital proximity, Ambient light, RGB and Gesture Sensor)
   - Ambient Light and RGB Color Sensing with UV and IR blocking filters
@@ -105,15 +105,16 @@ As all Nano form factor boards, Nano 33 BLE Sense Rev2 does not have a battery c
 ### Board Topology
 
 Top:
-![Board topology top](assets/topologyTop.png)
+![Board topology top](assets/blesenseRev2_topo.png)
 
 | **Ref.** | **Description**                                   | **Ref.** | **Description**                  |
 |----------|---------------------------------------------------|----------|----------------------------------|
 | U1       | NINA-B306 Module Bluetooth® Low Energy 5.0 Module | U6       | MP2322GQH Step Down Converter    |
 | U2       | BMI270 Sensor IMU                              | PB1      | IT-1185AP1C-160G-GTR Push button |
-| U3       | MP34DT06JTR Mems Microphone                       | U8     | H3003 Humidity Sensor           |
+| U3       | MP34DT06JTR MEMS Microphone                       | U8     | HS3003 Humidity Sensor           |
 | U7       | BMM150 Magnetometer IC                             | DL1      | Led L                            |
 | U5       | APDS-9660 Ambient Module                          | DL2      | Led Power                        |
+|U9|LPS22HBTR Pressure Sensor IC|||
 
 Bottom:
 ![Board topology bot](assets/topologyBot.png)
@@ -125,7 +126,7 @@ Bottom:
 
 ### Processor
 
-The Main Processor is a Cortex M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
+The Main Processor is an Arm® Cortex®-M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
 
 **NOTE**: As opposed to other Arduino Nano boards, pins A4 and A5 have an internal pull up and default to be used as an I<sup>2</sup>C Bus so usage as analog inputs is not recommended.
 
@@ -133,13 +134,15 @@ The Main Processor is a Cortex M4F running at up to 64MHz. Most of its pins are 
 
 The Arduino Nano 33 BLE Sense Rev2 provides IMU capabilities with 9-axis, by combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three axis gryroscope as well as an three axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
 
-### Barometer and Temperature Sensor
+### LPS22HB (U9) Barometer and Temperature Sensor
 
-The embedded Barometer and temperature sensor allow measuring ambient pressure. The temperature sensor integrated with the barometer can be used to compensate the pressure measurement.
+The LPS22HB pressure sensor IC (U9) includes both a piezoresistive absolute pressure sensor together with a temperature sensor integrated into a small chip. The pressure sensor (U9) interfaces with the main microcontroller (U1) via an I2C interface. The sensing element is composed of a micromachined suspended membrane for measuring absolute pressure, and includes a Wheatstone bridge internally for measuring the the piezoresistive elements. The temperature pertubations are compensated via an included temperature sensor on-chip. The absolute pressure can range from 260 to 1260 hPa. Pressure data can be polled via I2C at up to 24-bits, while temperature data can be polled at up to 16-bits. 
+The Arduino_LPS22HB library provides a ready to use implementation of the I2C protocol with this chip. 
 
-### Relative Humidity and Temperature Sensor
+### HS3003 (U8) Relative Humidity and Temperature Sensor
 
-Relative humidity sensor measures ambient relative humidity. As the Barometer this sensor has an integrated temperature sensor that can be used to compensate for the measurement.
+The HS3003 (U8) is a MEMS sensors, designed to provide accurate readings of relative humidity and temperature in a small package. Temperature-compensation and calibration is performed on-chip, without requiring external circuitry. The HS3003 can measure the relative humidity from 0% to 100%RH with fast response times (under 4 seconds). The included on-chip temperature sensor (used for compensation) is has a temperature accuracy of ±0.1°C.
+U8 communicates via the main microcontroller via an I2C bus. 
 
 #### Gesture Detection
 
@@ -360,8 +363,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a>                                                                  |
 | Forum                     | <http://forum.arduino.cc/>                                                                                                                                             |
 | Nina B306                 | <https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf>                                                                                    |
-| LPS22HB                   | <https://github.com/stm32duino/LPS22HB>                                                                                                                                |
-| APDS9960 Library          | <https://github.com/adafruit/Adafruit_APDS9960>                                                                                                                        |
+| Arduino_LPS22HB Library                   | <https://github.com/arduino-libraries/Arduino_LPS22HB>                                                                                                                                |
+| Arduino_APDS9960 Library          | <https://github.com/arduino-libraries/Arduino_APDS9960>                                                                                                                        |
 | ProjectHub                | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                                                                                             |
 | Library Reference         | <https://www.arduino.cc/reference/en/>                                                                                                                                 |
 
