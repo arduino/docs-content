@@ -80,7 +80,7 @@ The Opta in the ST performs the following actions:
 
 In addition to the functionalities explained before, both Optas are connected to Arduino IoT Cloud via Wi-Fi. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
 
-### Example code for Small Tank
+### Example Code for Small Tank (ST)
 
 The following code is an example of how can Opta in ST can achieve the actions described before:
 
