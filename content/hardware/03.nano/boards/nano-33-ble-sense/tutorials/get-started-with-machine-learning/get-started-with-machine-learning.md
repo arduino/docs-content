@@ -22,7 +22,7 @@ software:
 ***This post was originally published by Sandeep Mistry and Dominic Pajak on the [TensorFlow blog](https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157).*** 
 ## Introduction
 
-[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
+[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples).
 
 The first tutorial below shows you how to install a neural network on your Arduino board to recognize simple voice commands.
 
@@ -42,7 +42,9 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 
 ## Goals 
 - Learn the fundamentals of TinyML implementation and training.
-- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [Arduino_TensorFlowLite](https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/) libraries
+- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) libraries
+
+***This tutorial was tested with [this version of the TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples/archive/4056e5f13aafb4dd3eda46cec273133a1d5e9593.zip).***
 
 ## Hardware & Software Needed
 - An [Arduino Nano 33 BLE Sense](https://store.arduino.cc/nano-33-ble-sense) board
@@ -83,7 +85,7 @@ On the machine learning side, there are techniques you can use to fit neural net
 TinyML is an emerging field and there is still work to do – but what’s exciting is there’s a vast unexplored application space out there. Billions of microcontrollers combined with all sorts of sensors in all sorts of places which can lead to some seriously creative and valuable TinyML applications in the future.
 
 ## TensorFlow Lite for Microcontrollers Examples 
-The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available through the Arduino Library Manager making it possible to include and run them on Arduino in a few clicks. In this section we’ll show you how to run them. The examples are:
+The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available in the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) making it possible to include and run them on Arduino. In this section we’ll show you how to run them. The examples are:
 
 - micro_speech – speech recognition using the onboard microphone
 - magic_wand – gesture recognition using the onboard IMU
@@ -94,7 +96,9 @@ For more background on the examples you can take a look at the source in the [Te
 ## How to Run the Examples Using Arduino Create Web Editor. 
 Once you connect your Arduino Nano 33 BLE Sense to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) web editor:
 
-![Compiling an example from the Arduino_TensorFlowLite library.](assets/create-lib.gif)
+![Compiling an example from the Arduino_TensorFlowLite library.](assets/tensorflow-online-ide.png)
+
+Download the library in .zip format and click on the "uploaded as a .Zip file" box as shown in the image above to upload and use it in the Arduino Create Web Editor.
 
 ## Focus On The Speech Recognition Example
 One of the first steps with an Arduino board is getting the LED to flash. Here, we’ll do it with a twist by using TensorFlow Lite Micro to recognise voice keywords. It has a simple vocabulary of “yes” and “no.” Remember this model is running locally on a microcontroller with only 256 KB of RAM, so don’t expect commercial ‘voice assistant’ level accuracy – it has no Internet connection and on the order of 2000x less local RAM available.
@@ -131,9 +135,11 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ![Install Nano BLE board](assets/BoardsManager.png)
 
-**2.** Also, let's make sure we have all the libraries we need installed. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino_TensorFlowLite** and **Arduino:LSM9DS1**, and install them both. 
+**2.** Also, let's make sure we have the **Arduino_LSM9DS1** library installed. If we are using the online IDE, it is pre-installed. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino_LSM9DS1**, and install it. 
 
 ![Install the necessary libraries](assets/libManager.png)
+
+**3.** Lastly the [TensorFlow Lite Micro Library for Arduino](https://github.com/tensorflow/tflite-micro-arduino-examples) needs to be installed. You can find the installation instructions on the library's GitHub page [here](https://github.com/tensorflow/tflite-micro-arduino-examples#how-to-install).
 
 There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://www.arduino.cc/en/Guide/Troubleshooting) guides on the Arduino site if you need help.
 
@@ -278,207 +284,10 @@ To capture data as a CSV log to upload to TensorFlow, you can use **Arduino IDE 
 
 ![Data recorded by your movements](assets/trainingData.png)
 
-***Linux tip:*** *If you prefer you can redirect the sensor log outputform the Arduino straight to  .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
+***Linux tip:*** *If you prefer you can redirect the sensor log outputform the Arduino straight to .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
 ```
  $ cat /dev/cu.usbmodem[nnnnn] > sensorlog.csv
 ```
-
-## Training in TensorFlow
-We’re going to use [Google Colab](https://colab.research.google.com/) to train our machine learning model using the data we collected from the Arduino board in the previous section. Colab provides a Jupyter notebook that allows us to run our TensorFlow training in a web browser.
-
-![Arduino gesture recognition training colab.](assets/colab.png)
-
-
-- Set up Python environment
-- Upload the punch.csv and flex.csv data 
-- Parse and prepare the data
-- Build and train the model
-- Convert the trained model to TensorFlow Lite
-- Encode the model in an Arduino header file
-
-The final step of the colab is generates the model.h file to download and include in our Arduino IDE gesture classifier project in the next section:
-
-![Gesture classifier](assets/gestureClassifier.png)
-
-Let’s open the notebook in Colab and run through the steps in the cells – [arduino_tinyml_workshop.ipynb](https://colab.research.google.com/github/arduino/ArduinoTensorFlowLiteTutorials/blob/master/GestureToEmoji/arduino_tinyml_workshop.ipynb)
-
-## Classifying IMU Data
-Next we will use model.h file we just trained and downloaded from Colab in the previous section in our Arduino IDE project:
-
-We will be starting a new sketch, you will find the complete code below:
-```
-/*
-  IMU Classifier
-  This example uses the on-board IMU to start reading acceleration and gyroscope
-  data from on-board IMU, once enough samples are read, it then uses a
-  TensorFlow Lite (Micro) model to try to classify the movement as a known gesture.
-  Note: The direct use of C/C++ pointers, namespaces, and dynamic memory is generally
-        discouraged in Arduino examples, and in the future the TensorFlowLite library
-        might change to make the sketch simpler.
-  The circuit:
-  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense board.
-  Created by Don Coleman, Sandeep Mistry
-  Modified by Dominic Pajak, Sandeep Mistry
-  This example code is in the public domain.
-*/
-
-#include <Arduino_LSM9DS1.h>
-
-#include <TensorFlowLite.h>
-#include <tensorflow/lite/micro/all_ops_resolver.h>
-#include <tensorflow/lite/micro/micro_error_reporter.h>
-#include <tensorflow/lite/micro/micro_interpreter.h>
-#include <tensorflow/lite/schema/schema_generated.h>
-#include <tensorflow/lite/version.h>
-
-#include "model.h"
-
-const float accelerationThreshold = 2.5; // threshold of significant in G's
-const int numSamples = 119;
-
-int samplesRead = numSamples;
-
-// global variables used for TensorFlow Lite (Micro)
-tflite::MicroErrorReporter tflErrorReporter;
-
-// pull in all the TFLM ops, you can remove this line and
-// only pull in the TFLM ops you need, if would like to reduce
-// the compiled size of the sketch.
-tflite::AllOpsResolver tflOpsResolver;
-
-const tflite::Model* tflModel = nullptr;
-tflite::MicroInterpreter* tflInterpreter = nullptr;
-TfLiteTensor* tflInputTensor = nullptr;
-TfLiteTensor* tflOutputTensor = nullptr;
-
-// Create a static memory buffer for TFLM, the size may need to
-// be adjusted based on the model you are using
-constexpr int tensorArenaSize = 8 * 1024;
-byte tensorArena[tensorArenaSize] __attribute__((aligned(16)));
-
-// array to map gesture index to a name
-const char* GESTURES[] = {
-  "punch",
-  "flex"
-};
-
-#define NUM_GESTURES (sizeof(GESTURES) / sizeof(GESTURES[0]))
-
-void setup() {
-  Serial.begin(9600);
-  while (!Serial);
-
-  // initialize the IMU
-  if (!IMU.begin()) {
-    Serial.println("Failed to initialize IMU!");
-    while (1);
-  }
-
-  // print out the samples rates of the IMUs
-  Serial.print("Accelerometer sample rate = ");
-  Serial.print(IMU.accelerationSampleRate());
-  Serial.println(" Hz");
-  Serial.print("Gyroscope sample rate = ");
-  Serial.print(IMU.gyroscopeSampleRate());
-  Serial.println(" Hz");
-
-  Serial.println();
-
-  // get the TFL representation of the model byte array
-  tflModel = tflite::GetModel(model);
-  if (tflModel->version() != TFLITE_SCHEMA_VERSION) {
-    Serial.println("Model schema mismatch!");
-    while (1);
-  }
-
-  // Create an interpreter to run the model
-  tflInterpreter = new tflite::MicroInterpreter(tflModel, tflOpsResolver, tensorArena, tensorArenaSize, &tflErrorReporter);
-
-  // Allocate memory for the model's input and output tensors
-  tflInterpreter->AllocateTensors();
-
-  // Get pointers for the model's input and output tensors
-  tflInputTensor = tflInterpreter->input(0);
-  tflOutputTensor = tflInterpreter->output(0);
-}
-
-void loop() {
-  float aX, aY, aZ, gX, gY, gZ;
-
-  // wait for significant motion
-  while (samplesRead == numSamples) {
-    if (IMU.accelerationAvailable()) {
-      // read the acceleration data
-      IMU.readAcceleration(aX, aY, aZ);
-
-      // sum up the absolutes
-      float aSum = fabs(aX) + fabs(aY) + fabs(aZ);
-
-      // check if it's above the threshold
-      if (aSum >= accelerationThreshold) {
-        // reset the sample read count
-        samplesRead = 0;
-        break;
-      }
-    }
-  }
-
-  // check if the all the required samples have been read since
-  // the last time the significant motion was detected
-  while (samplesRead < numSamples) {
-    // check if new acceleration AND gyroscope data is available
-    if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
-      // read the acceleration and gyroscope data
-      IMU.readAcceleration(aX, aY, aZ);
-      IMU.readGyroscope(gX, gY, gZ);
-
-      // normalize the IMU data between 0 to 1 and store in the model's
-      // input tensor
-      tflInputTensor->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
-      tflInputTensor->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
-      tflInputTensor->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
-      tflInputTensor->data.f[samplesRead * 6 + 3] = (gX + 2000.0) / 4000.0;
-      tflInputTensor->data.f[samplesRead * 6 + 4] = (gY + 2000.0) / 4000.0;
-      tflInputTensor->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
-
-      samplesRead++;
-
-      if (samplesRead == numSamples) {
-        // Run inferencing
-        TfLiteStatus invokeStatus = tflInterpreter->Invoke();
-        if (invokeStatus != kTfLiteOk) {
-          Serial.println("Invoke failed!");
-          while (1);
-          return;
-        }
-
-        // Loop through the output tensor values from the model
-        for (int i = 0; i < NUM_GESTURES; i++) {
-          Serial.print(GESTURES[i]);
-          Serial.print(": ");
-          Serial.println(tflOutputTensor->data.f[i], 6);
-        }
-        Serial.println();
-      }
-    }
-  }
-}
-```
-
-- Create a new tab in the IDE. When asked name it model.h
-- Open the model.h tab and paste in the version you downloaded from Colab
-
-![Opening a new tab in your sketch](assets/modelTab.png)
-
-- Upload the sketch: Sketch > Upload
-- Open the Serial Monitor: Tools > Serial Monitor
-- Perform some gestures
-- The confidence of each gesture will be printed to the Serial Monitor (0 = low confidence, 1 =  high confidence)
-- Congratulations you’ve just trained your first ML application for Arduino!
-
-![Guessing the gesture with a confidence score](assets/Untitled-2-1024x578.png)
-
-For added fun the [Emoji_Button.ino](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/blob/master/GestureToEmoji/ArduinoSketches/Emoji_Button/Emoji_Button.ino) example shows how to create a USB keyboard that prints an emoji character in Linux and macOS. Try combining the [Emoji_Button.ino](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/blob/master/GestureToEmoji/ArduinoSketches/Emoji_Button/Emoji_Button.ino) example with the [IMU_Classifier.ino](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/blob/master/GestureToEmoji/ArduinoSketches/IMU_Classifier/IMU_Classifier.ino) sketch to create a gesture controlled emoji keyboard.
 
 ## Conclusion
 It’s an exciting time with a lot to learn and explore in TinyML. We hope this blog has given you some idea of the potential and a starting point to start applying it in your own projects. Be sure to let us know what you build and [share it](https://create.arduino.cc/projecthub) with the Arduino community.
