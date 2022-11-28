@@ -45,7 +45,9 @@ CRC stands for Cyclic Redundancy check and is an error detecting code commonly u
 Two bytes are added to the end of every Modbus message for error detection and every byte in the message is used to calculate the CRC. The receiving device then also calculates the CRC and compares it to the CRC from the sending device. If even one bit in the message is received incorrectly, the CRC’s will be different resulting in an error.
 
 ### Byte and word ordering
-The Modbus specification doesn't define exactly how the data is stored in the registers. Therefore, some manufacturers implemented Modbus in their equipment to store and transmit the higher byte first followed by the lower byte.  Alternatively, others store and transmit the lower byte first. Similarly, when registers are combined to represent 32-bit data types, some devices store the higher 16 bits (high word) in the first register and the remaining low word in the second while others do the opposite. It doesn't matter which order the bytes or words are sent in, as long as the receiving device knows which way to expect it.
+The Modbus specification doesn't define exactly how the data is stored in the registers. Therefore, some manufacturers implemented Modbus in their equipment to store and transmit the higher byte first followed by the lower byte.  Alternatively, others store and transmit the lower byte first. Similarly, when registers are combined to represent 32-bit data types, some devices store the higher 16 bits (high word) in the first register and the remaining low word in the second while others do the opposite. It doesn't matter which order the bytes or words are sent in, as long as the receiving device knows which way to expect it. 
+
+[1]
 
 
 ## Use Modbus with Arduino
@@ -64,7 +66,7 @@ When using the [Modbus library](https://www.arduino.cc/reference/en/libraries/ar
 You have to check the device-specific documentation to attain the right address, function code, starting registers and register count. The CRC error check is taken care of by the Modbus library. To make it easier to understand the example below shows how to use the Modbus library.
 
 ### Example
-Let's say you have a Modbus-compatible energy meter working with RS-485. In our case, we use a model from [Finder](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf) but you can use a different one.
+Let's say you have a Modbus-compatible energy meter working with RS-485. In our case, we use a model from [Finder](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf) which uses Modbus RTU protocol but you can use a different one. 
 
 Take a look at the request frame inside the Finder documentation:
 
@@ -103,6 +105,7 @@ float readVoltage() {
 }
 ```
 
+You have now learned about Modbus and how it can be used to transmit data in a network. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on how you use Modbus and what hardware you are using you might need different libraries but the core functionality stays the same. 
 
 ### Modbus compatible Boards
 - all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
@@ -114,8 +117,8 @@ float readVoltage() {
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
 - [ArduinoModbus](https://www.arduino.cc/reference/en/libraries/arduinomodbus/)
 
-### Read more
-- https://www.se.com/us/en/faqs/FA168406/
-- https://modbus.org/
-- https://www.csimn.com/CSI_pages/Modbus101.html
-- https://en.wikipedia.org/wiki/Modbus
+### References
+- [1] https://www.se.com/us/en/faqs/FA168406/
+- [2] https://modbus.org/
+- [3] https://www.csimn.com/CSI_pages/Modbus101.html
+- [4] https://en.wikipedia.org/wiki/Modbus
