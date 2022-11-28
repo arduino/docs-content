@@ -42,7 +42,15 @@ Now we are ready to upload sketches to the Opta via the Arduino IDE.
 
 ### Trying a Blink Sketch
 
-With the IDE and core are installed, lets try and upload a sketch to our device. We will be creating a classic version of the Arduino blink sketch to see if everything is working with the IDE and our device. Lets create a simple blink sketch that will blink the four LEDs on the Opta. All the LEDs on the device are defined in the core, so we can easily use them as stated in the sketch below. Copy the sketch below into a Arduino IDE sketch, select the correct board and port in the **Tools** section, then upload the sketch. When the sketch is uploaded you should see the LEDs on top of the Opta blink in sequence, the LEDs are highlighted in the image below.
+When the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta. We will be using a classic version of the Arduino blink sketch to put your device to work and test everything is set properly. 
+Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta, highlighted in the image below.
+All the LEDs on the device are defined in the core, so you can easily use them as stated in the sketch below. 
+The STATUS LEDs are identified on Opta with numbers; here the correspondence of each of them with the definition in the core:
+LED_D0 --> STATUS 1
+LED_D1 --> STATUS 2
+LED_D2 --> STATUS 3
+LED_D3 --> STATUS 4
+Copy the sketch below into the Arduino IDE sketch editor, select the correct board and port in the **Tools** section, then upload it to Opta. When the sketch is uploaded you should see the Opta's STATUS LEDs blinking in sequence. 
 
 ```arduino
 void setup() {
