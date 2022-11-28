@@ -24,6 +24,14 @@ jobs:
       - name: Render Datasheets
         run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
 
+      - name: Copy Static Files
+        run: | 
+          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts
+          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
+          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
+          find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
+
       - name: Gatsby main cache
         uses: actions/cache@v2
         id: gatsby-cache-folder
