@@ -151,7 +151,7 @@ void reverseSequence(){
 
 ![The button and LEDs that will blink on the Opta](assets/opta-device-button.png)
 
-Now the blink sequence should switch direction when the button is pressed.
+Now the blink sequence should reverse its direction when the button is pressed.
 
 ### Using Out Relays
 
