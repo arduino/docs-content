@@ -1,5 +1,5 @@
 ---
-title: 'Displaying on-Board Sensor Values on a WebBLE Dashboard.'
+title: 'Displaying on-Board Sensor Values on a WebBLE Dashboard'
 coverImage: hero-banner.svg
 tags: 
   - Bluetooth®
