@@ -84,7 +84,11 @@ void loop() {
 
 ### Configuring the Programmable Button on the Opta
 
-On the Arduino Opta there is a programmable button that we can make use of, shown on the image below. Using the Arduino IDE we can easily program this button to fit our needs. Lets take a look at a simple use case for the button. Expanding on the blink sketch we tried earlier. Lets use the button as our trigger for when the LED should blink. The button is already defined in the core, so using it is a simple case of using `BTN_USER` as the button pin in your code. The we can modify the Blink sketch we used earlier. The new sketch will reverse the blink sequence when the button is pressed. The `BTN_USER` will continuously read `HIGH`, when it is pressed it will read `LOW`. We will put the blink sequences in separate functions to easier control the event change when the button is pressed. Below you can find the entire sketch and an image highlighting the button on the device. 
+Opta has a programmable button, shown on the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs.  
+To show how much simple is to use it, let's expand the former sketch and program the button as a trigger to modify the behavior of the blink for the STATUS LEDs. 
+The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed), 'LOW' when pressed. 
+The new sketch will reverse the blink sequence when the button is pressed. 
+The blink sequences is placed in separate functions to control more easily the event change when the button is pressed. Below the entire sketch and an image highlighting the button on the device. 
 
 ```arduino
 bool reversed = false;
