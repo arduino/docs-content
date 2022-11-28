@@ -167,7 +167,11 @@ Now the blink sequence should reverse its direction when the button is pressed.
 
 ### Using Out Relays
 
-The Arduino Opta has 4 out relays, corresponding to pins D0-D3. These four electromechanical relay outputs, each of which consists of 1 NO (SPST) contact with a capacity of 10 A at 250 V AC
+Opta has 4 outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10 A at 250 V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta as shown in the image. They correspond to pins D0 to D3 as follows:
+OUTPUT 1 --> D0
+OUTPUT 2 --> D1
+OUTPUT 3 --> D3
+OUTPUT 4 --> D4
 This value refers to an applied resistive load (AC1), at a nominal voltage of 250 V AC. If the load is not resitive, or if the voltage on the contacts is different from 250 V AC, the nominal values can also change significantly.
 
 ![Out relays on the Arduino Opta](assets/opta-out-relays.png)
