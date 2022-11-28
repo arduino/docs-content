@@ -83,7 +83,9 @@ symbolic link created for AnalogInput <<===>> ..\..\..\..\..\built-in-examples\0
 ### Including Code Snippets
 
 Code snippets can be included by using the triple backticks syntax e.g. ` ```arduino` followed by the code and three closing backticks. The following syntaxes are supported:
+```
 arduino, bash, markup, clike, c, cpp, css, css-extras, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml
+```
 
 
 ## Previewing Changes

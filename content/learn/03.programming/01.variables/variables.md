@@ -93,4 +93,4 @@ Why, you might be wondering, wouldn't you make all your variables global?  After
 [block scope]
 [size of variables]
 
-[1] In some languages, like Python, types are associated with values, not variable names, and you can assign values of any type to a variable.  This is referred to as *dynamic typing*.
+[1] In some languages, like Python®, types are associated with values, not variable names, and you can assign values of any type to a variable.  This is referred to as *dynamic typing*.

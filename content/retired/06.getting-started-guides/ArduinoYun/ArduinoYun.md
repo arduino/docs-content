@@ -58,7 +58,7 @@ Now that you have set up and programmed your Yún board, you may find inspiratio
 
 ![](./assets/YunParts.png)
 
-In addition to the 32U4 chip, the Yún has an additional processor, an Atheros AR9331, which runs a distribution of Linux for embedded systems named OpenWrt-Yun, based on OpenWrt. A full install of Python 2.7 is included as well.
+In addition to the 32U4 chip, the Yún has an additional processor, an Atheros AR9331, which runs a distribution of Linux for embedded systems named OpenWrt-Yun, based on OpenWrt. A full install of Python® 2.7 is included as well.
 
 The Yún has a number of different physical characteristics and connectors than the Leonardo. There is an on-board SD slot, Ethernet jack, and a USB-A Host connector. There is no power barrel connector on the Yún; it can be powered from the micro-USB connector.
 
@@ -90,11 +90,11 @@ When interfacing with the OpenWrt-Yun system, you have to use a command line, ei
 
 Due to continuous improvements and suggestions coming from both the OpenWrt community and the Arduino community, **version of OpenWrt-Yun installed on your Yún may be out of date**. Please check the [upgrade tutorial](http://arduino.cc/en/Tutorial/YunSysupgrade) and be sure you're running the latest version available.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with OpenWrt-Yun, with which you can write applications or scripts. For more on Python, visit the [Python 2.7 documentation pages](http://docs.python.org/2/).
+An installation of Python® 2.7 is included with OpenWrt-Yun, with which you can write applications or scripts. For more on Python®, visit the [Python® 2.7 documentation pages](http://docs.python.org/2/).
 
-If you're getting started with Python for the first time, there are a number of excellent resources on-line. ["Learn Python the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
+If you're getting started with Python® for the first time, there are a number of excellent resources on-line. ["Learn Python® the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
 
 #### External storage on the Yún
 
@@ -675,7 +675,7 @@ You can find more details on this example on the [Bridge Example](/en/Tutorial/B
 
 #### Install additional software on Linux
 
-The Yún comes with several pieces of software pre-installed on OpenWrt-Yun, including "curl" and "python". You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "package management system". For more information, refer to the [package manager tutorial](/en/Tutorial/YunPackageManager).
+The Yún comes with several pieces of software pre-installed on OpenWrt-Yun, including `curl` and `python`. You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "package management system". For more information, refer to the [package manager tutorial](/en/Tutorial/YunPackageManager).
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

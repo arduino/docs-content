@@ -24,7 +24,7 @@ Congratulations on your purchase of one of our most powerful microcontroller boa
 
 One of the benefits of the Portenta H7 is that it supports different types of software cores. A core is the software API for a particular set of processors. It is the API that provides functions such as digitalRead(), analogWrite(), millis() etc. which directly operate on the hardware.
 
-At the moment of writing the tutorial, there is an Arduino core and a MicroPython core available for working with Portenta. The latter one allows you to write sketches in the popular programming language Python rather than C or C++ and run them on the Portenta H7.
+At the moment of writing the tutorial, there is an Arduino core and a MicroPython core available for working with Portenta. The latter one allows you to write sketches in the popular programming language Python® rather than C or C++ and run them on the Portenta H7.
 
 This tutorial focuses on the Arduino core which allows you to benefit from the thousands of existing Arduino libraries and code examples written in C and C++ which are compatible with the Arduino core. A tutorial about setting the Portenta H7 up for development with the MicroPython core will be released soon.
 
