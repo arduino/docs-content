@@ -2,6 +2,7 @@
 title: Guide to Arduino GIGA USB Features
 description: 'Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and how to send MIDI signals.'
 author: Karl Söderby
+tags: [USB HID, USBHost, Mass Storage]
 ---
 
 ## USB Mass Storage
@@ -11,7 +12,7 @@ The USB-A connector onboard the GIGA R1 can be used to connect **USB mass storag
 - Logging large amounts of data,
 - Storing images or videos captured with a camera.
 
-USB mass storage devices connected needs to be formatted with the **FAT32** as a file system, using the **MBR partioning scheme**. This is a requirement, and reading & writing will not work otherwise.
+USB mass storage devices connected needs to be formatted with the **FAT32** as a file system, using the **MBR partitioning scheme**. This is a requirement, and reading & writing will not work otherwise.
 
 ### USB Designation
 
@@ -294,7 +295,7 @@ Among other things, you can:
 
 ### Keyboard
 
-***Important! When using the GIGA as a keyboard, make sure to include some sort of delay. Otherwise, you may end up printing things very fast, which can be very annoying. If this happens nontheless, double tap the reset button and upload a blank sketch to reset the board.*** 
+***Important! When using the GIGA as a keyboard, make sure to include some sort of delay. Otherwise, you may end up printing things very fast, which can be an annoyance. If this happens nonetheless, double tap the reset button and upload a blank sketch to reset the board.*** 
 
 To emulate a keyboard, we need to include `PluggableUSBHID.h` and `USBKeyboard.h`, and create an object using the `USBkeyboard` constructor. 
 
