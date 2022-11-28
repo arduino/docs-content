@@ -59,6 +59,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Opta](https://docs.arduino.cc/hardware/opta).\* 
 
