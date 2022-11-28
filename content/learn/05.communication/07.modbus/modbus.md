@@ -13,7 +13,7 @@ Several versions of the Modbus protocol exist for serial port and Ethernet and t
 
 On simple interfaces like RS-485 and RS-232, the Modbus messages are sent in plain form over the network and the network will be dedicated to only Modbus communication. However, if your network requires multiple heterogeneous devices using a more versatile system like TCP/IP over ethernet is recommended. In this case, Modbus and other types of mixed protocols can co-exist in the same physical interface at the same time. The main Modbus message structure is peer-to-peer, but it can also function on point-to-point and multidrop networks. As mentioned, the Modbus protocol communicates using a controller-peripheral technique in which only one device can initiate transactions, called queries.
 
-![](assets/Modbus%20Protocol.png)
+![](assets/ModbusProtocol.png)
 
 ## How does Modbus work?
 Each Modbus message has the same structure, consisting of four basic elements which are present in each message and the sequence and order of these elements are the same for all messages. This allows for easy parsing of the content. The conversation is always started by the controller and when a message is sent the peripheral interprets the message and responds to it. Modbus sends functions which communicate read and write instructions to the peripheral’s internal memory registers to configure, monitor and control the peripheral’s inputs and outputs. Modbus devices will typically include a register map outlining where the configuration input and output data can be written and read from. You should always refer to the peripheral’s register map of your device to gain a better understanding of its overall operation.  
@@ -103,7 +103,7 @@ float readVoltage() {
 }
 ```
 
-You have now learned about Modbus and how it can be used to transmit data in a network. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on how you use Modbus and what hardware you are using you might need different libraries but the core functionality stays the same.
+The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on what hardware you are using the libraries might vary, therefore it is important to always check your device specifications. As this article does not cover all types of Modbus implementation but focuses on Modbus RTU the following section also includes some more references to read about the different types of implementation in more detail.
 
 ### Modbus compatible Boards
 - all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
