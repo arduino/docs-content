@@ -20,25 +20,27 @@ The Arduino Comic was created by Jody Culkin and published during 2011. You can 
 
 ## Translations
 
-**PORTUGUESE / PORTUGUÊS**
+**ARABIC/عربي**
 
-- **Translated by:** Rodrigo Caitano
-- **Email/url:** rodrigocaett@gmail.com
-- [Comic em Português](https://content.arduino.cc/assets/arduino_comic_pt.pdf)
-- [Translated text in .doc format](https://content.arduino.cc/assets/arduino_comic_pt.doc)
+- **Translated by:** Ahmad Y. Saleh
+- **Email/url:** ahmad.y.saleh@gmail.com
+- [Arabic PDF Version ملف اللغة العربية](https://content.arduino.cc/assets/arduino_comic_arabic.pdf)
 
-**SPANISH / ESPAÑOL**
-
-- **Translated by:** Josemanu (Ardumania.es)
-- **Email/url:** josemescuder@gmail.com
-- [Comic en Español](https://content.arduino.cc/assets/arduino_comic_ESPA%C3%91OL.pdf)
-- [Translated text in .doc format](https://content.arduino.cc/assets/arduino_comic_espanol_text_doc.doc)
+Work files:
+- [Right-to-left SVGs](https://content.arduino.cc/assets/RtL_blank.rar)
+- [Arabic work files](https://content.arduino.cc/assets/arabic_svgs.rar)
 
 **CATALAN / CATALÀ**
 
 - **Translated by:** Antoni Ubieto
 - **Email/url:** antoni DOT ubieto@gmail.om
 - [BETA Catalan PDF version](https://content.arduino.cc/assets/arduino_comic_v004_cat_BETA.pdf)
+
+**Chinese/中文**
+
+- **Translated by:** Lukas Riad
+- **Email/url:** luksury@gmail.com
+- [Simplified Mandarin PDF version](https://content.arduino.cc/assets/Comic_CN.pdf)
 
 **DUTCH / NEDERLANDS**
 
@@ -62,6 +64,13 @@ Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/Arduin
 - **Email/url:** rottyfish@yahoo.com
 - [Greek PDF version](https://content.arduino.cc/assets/arduino_comic_v0004_GREEK.pdf)
 
+**INDONESIAN/BAHASA INDONESIA**
+
+- **Translated by:** Moriano Mordekhai
+- **Email/url:** 'mor.d.khai013@gmail.com'
+- [Indinesian PDF version](https://content.arduino.cc/assets/arduino_comic_id.pdf)
+
+
 **KOREAN/한국어**
 
 - **Translated by:** [kocoafab](https://www.kocoafab.cc/)
@@ -69,30 +78,30 @@ Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/Arduin
 - [Arduino comic 한국어 버전](https://content.arduino.cc/assets/Introduction%20to%20Arduino_%ED%95%9C%EA%B8%80.pdf)
 - [translated text file: Arduino comic 한국어 텍스트 .docx](https://content.arduino.cc/assets/Introduction%20to%20Arduino_%ED%95%9C%EA%B8%80.docx)
 
-**ARABIC/عربي**
-
-- **Translated by:** Ahmad Y. Saleh
-- **Email/url:** ahmad.y.saleh@gmail.com
-- [Arabic PDF Version ملف اللغة العربية](https://content.arduino.cc/assets/arduino_comic_arabic.pdf)
-
-Work files:
-- [Right-to-left SVGs](https://content.arduino.cc/assets/RtL_blank.rar)
-- [Arabic work files](https://content.arduino.cc/assets/arabic_svgs.rar)
-
-**INDONESIAN/BAHASA INDONESIA**
-
-- **Translated by:** Moriano Mordekhai
-- **Email/url:** 'mor.d.khai013@gmail.com'
-- [Indinesian PDF version](https://content.arduino.cc/assets/arduino_comic_id.pdf)
-
-**Chinese/中文**
-
-- **Translated by:** Lukas Riad
-- **Email/url:** luksury@gmail.com
-- [Simplified Mandarin PDF version](https://content.arduino.cc/assets/Comic_CN.pdf)
 
 **Nepali**
 
 - **Translated by:** Niraj Pradhan
 - **Email/url:** nirajpradhan299@gmail.com
 - [Nepali PDF version](https://content.arduino.cc/assets/COMIC%20%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80%E0%A4%AE%E0%A4%BE.pdf)
+
+**Persian/ فارسی**
+
+- **Translated by:** Hossein Ahmadi (حسین احمدی)
+- **Email/url:** 4hmadi.ho55ein@gmail.com
+- [Persian PDF version](docs.arduino.cc/resources/arduino-comics/Arduino-comic-Persian.pdf )
+
+**PORTUGUESE / PORTUGUÊS**
+
+- **Translated by:** Rodrigo Caitano
+- **Email/url:** rodrigocaett@gmail.com
+- [Comic em Português](https://content.arduino.cc/assets/arduino_comic_pt.pdf)
+- [Translated text in .doc format](https://content.arduino.cc/assets/arduino_comic_pt.doc)
+
+**SPANISH / ESPAÑOL**
+
+- **Translated by:** Josemanu (Ardumania.es)
+- **Email/url:** josemescuder@gmail.com
+- [Comic en Español](https://content.arduino.cc/assets/arduino_comic_ESPA%C3%91OL.pdf)
+- [Translated text in .doc format](https://content.arduino.cc/assets/arduino_comic_espanol_text_doc.doc)
+
