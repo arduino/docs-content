@@ -69,7 +69,7 @@ Take a look at the request frame inside the Finder documentation:
 
 ![](assets/finderRequestFrame.png)
 
-We can see that the device address is 21 (or 0x21).
+We can see that the device address is 33 (or 0x21).
 
 The function code states 04 which we know that it stands for INPUT REGISTERS ([see Function Code](#function-code)).
 
