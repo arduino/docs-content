@@ -120,3 +120,4 @@ The following section gives an overview of Modbus compatible Arduino boards and 
 - https://modbus.org/
 - https://www.csimn.com/CSI_pages/Modbus101.html
 - https://en.wikipedia.org/wiki/Modbus
+- https://docs.arduino.cc/tutorials/mkr-485-shield/mkr-485-communication
