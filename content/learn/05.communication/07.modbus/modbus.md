@@ -6,7 +6,7 @@ author: "Hannes Siebeneicher"
 
 This article contains information about the Modbus serial communication protocol and how it can be used together with Arduino hardware. The different elements are highlighted and compatible libraries and boards are shown together with code examples. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary, therefore it is important to always check your device specifications.
 
-### Modbus Compatible Hardware
+### Modbus compatible hardware
 - all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
 - all boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
 - [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
@@ -118,7 +118,7 @@ float readVoltage() {
 
 As this article does not cover all types of Modbus implementation and mostly focuses on Modbus RTU, the following section includes more references to read about the different types of implementation in more detail.
 
-### Read More
+### Read more
 - https://www.se.com/us/en/faqs/FA168406/
 - https://modbus.org/
 - https://www.csimn.com/CSI_pages/Modbus101.html
