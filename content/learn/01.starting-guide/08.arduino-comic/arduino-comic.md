@@ -20,7 +20,7 @@ The Arduino Comic was created by Jody Culkin and published during 2011. You can 
 
 ## Translations
 
-**ARABIC/عربي**
+**ARABIC /عربي**
 
 - **Translated by:** Ahmad Y. Saleh
 - **Email/url:** ahmad.y.saleh@gmail.com
@@ -36,7 +36,7 @@ Work files:
 - **Email/url:** antoni DOT ubieto@gmail.om
 - [BETA Catalan PDF version](https://content.arduino.cc/assets/arduino_comic_v004_cat_BETA.pdf)
 
-**Chinese/中文**
+**Chinese / 中文**
 
 - **Translated by:** Lukas Riad
 - **Email/url:** luksury@gmail.com
@@ -64,32 +64,31 @@ Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/Arduin
 - **Email/url:** rottyfish@yahoo.com
 - [Greek PDF version](https://content.arduino.cc/assets/arduino_comic_v0004_GREEK.pdf)
 
-**INDONESIAN/BAHASA INDONESIA**
+**INDONESIAN / BAHASA INDONESIA**
 
 - **Translated by:** Moriano Mordekhai
 - **Email/url:** 'mor.d.khai013@gmail.com'
 - [Indinesian PDF version](https://content.arduino.cc/assets/arduino_comic_id.pdf)
 
 
-**KOREAN/한국어**
+**KOREAN / 한국어**
 
 - **Translated by:** [kocoafab](https://www.kocoafab.cc/)
 - **Email/url:** webmaster@kocoafab.cc
 - [Arduino comic 한국어 버전](https://content.arduino.cc/assets/Introduction%20to%20Arduino_%ED%95%9C%EA%B8%80.pdf)
 - [translated text file: Arduino comic 한국어 텍스트 .docx](https://content.arduino.cc/assets/Introduction%20to%20Arduino_%ED%95%9C%EA%B8%80.docx)
 
-
-**Nepali**
+**Nepali / नेपाली**
 
 - **Translated by:** Niraj Pradhan
 - **Email/url:** nirajpradhan299@gmail.com
 - [Nepali PDF version](https://content.arduino.cc/assets/COMIC%20%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80%E0%A4%AE%E0%A4%BE.pdf)
 
-**Persian/ فارسی**
+**Persian / فارسی**
 
 - **Translated by:** Hossein Ahmadi (حسین احمدی)
 - **Email/url:** 4hmadi.ho55ein@gmail.com
-- [Persian PDF version](docs.arduino.cc/resources/arduino-comics/Arduino-comic-Persian.pdf )
+- [Persian PDF version](/resources/arduino-comics/Arduino-comic-Persian.pdf)
 
 **PORTUGUESE / PORTUGUÊS**
 
