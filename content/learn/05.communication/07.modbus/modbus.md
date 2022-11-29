@@ -4,6 +4,18 @@ description: "Modbus is an open serial communication protocol used for transmitt
 author: "Hannes Siebeneicher"
 ---
 
+This article contains information about the Modbus serial communication protocol and how it can be used together with Arduino hardware. The different elements are highlighted and compatible libraries and boards are shown together with code examples. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary, therefore it is important to always check your device specifications.
+
+### Modbus Compatible Hardware
+- all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
+- all boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
+- [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
+- [Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
+
+### Libraries
+- [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
+- [ArduinoModbus](https://www.arduino.cc/reference/en/libraries/arduinomodbus/)
+
 ***Controller/peripheral is formerly known as master/slave. Arduino no longer supports the use of this terminology. Devices formerly known as master are referred to as controller and devices formerly known as slaves are referred to as peripheral.***
 
 ## What is Modbus?
@@ -104,17 +116,7 @@ float readVoltage() {
 }
 ```
 
-The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary, therefore it is important to always check your device specifications. As this article does not cover all types of Modbus implementation and mostly focuses on Modbus RTU, the following section includes more references to read about the different types of implementation in more detail.
-
-### Modbus Compatible Hardware
-- all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
-- all boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
-- [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
-- [Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
-
-### Libraries
-- [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
-- [ArduinoModbus](https://www.arduino.cc/reference/en/libraries/arduinomodbus/)
+As this article does not cover all types of Modbus implementation and mostly focuses on Modbus RTU, the following section includes more references to read about the different types of implementation in more detail.
 
 ### Read More
 - https://www.se.com/us/en/faqs/FA168406/
