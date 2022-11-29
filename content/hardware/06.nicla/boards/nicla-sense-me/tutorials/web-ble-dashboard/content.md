@@ -280,7 +280,7 @@ To connect your board to the dashboard, you will need to click on the top left b
 
 ***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to <chrome://flags> and enable "Experimental Web Platform features". Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
 
-Once it is connected, the button will change its color to green, and the graphs will start to show data in real time. You will be able to verify its operation by trying out following actions:
+Once it is connected, the button will change its color to green, and the graphs will start to show data in real time. You will be able to verify its operation by trying out the following actions:
 
 - Try to rotate the board and see the 3D model of the board spin.
 
