@@ -1,5 +1,5 @@
 ---
-title: "Modbus"
+title: "Arduino & Modbus Protocol"
 description: "Modbus is an open serial communication protocol used for transmitting information over serial lines between electronic devices."
 author: "Hannes Siebeneicher"
 ---
