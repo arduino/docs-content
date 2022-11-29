@@ -266,7 +266,7 @@ If you use a local IDE, you can copy & paste the following sketch:
   }
 ```
 
-With this, having selected Nicla Sense ME as target board and its corresponding port, you can now upload the sketch. 
+Once you have these tools, you can select the Nicla Sense ME as target board and its corresponding port. Now you are ready to upload the sketch. 
 
 ### Connect to the Dashboard
 
