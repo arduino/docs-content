@@ -80,7 +80,9 @@ In this example, the starting register is stated as hexadecimal but if we scroll
 
 We can also see that the register for U1 takes up 30107 and 30108 which means that the register count is 2.
 
-Using the `readVoltage()` function, defined within the parameters we discussed, will retrieve the voltage measurement from the Finder energy meter. Inside you can see how the `requestFrom()` is being called with `Device Address`, `Function Code`, `Starting Register` and `Register Count` as parameters.
+Using the `readVoltage()` function, defined within the parameters we discussed, will retrieve the voltage measurement from the Finder energy meter. 
+
+Inside you can see how the `requestFrom()` is being called with *Device Address*, *Function Code*, *Starting Register* and *Register Count* as parameters.
 
 ```
 float readVoltage() {
