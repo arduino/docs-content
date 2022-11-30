@@ -126,6 +126,22 @@ else if(stepperVariable == 11){
 Serial.println(stepperVariable);
 ```
 
+### Time Picker
+
+![Time Picker Widget](assets/time-picker.png)
+
+The time picker widget is used to represent and set a time and/or a date.
+
+Can be linked with a **CloudTime** variable.
+
+An example of how it is used in a sketch:
+
+```
+CloudTimeVariable = ArduinoCloud.getLocalTime();
+```
+
+In this example, the variable named `CloudTimeVariable` is populated with `ArduinoCloud.getLocalTime()` which returns the Unix time stamp (in seconds) of the local time zone.
+
 ### Messenger
 
 ![Messenger Widget](assets/widget-messenger.png)

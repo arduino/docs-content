@@ -9,8 +9,7 @@ source: "https://store.arduino.cc/arduino-101-619"
 
 ![The Arduino 101 board](./assets/ABX00005_featured_2.jpg)
 
-
-A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](/resources/datasheets/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth LE capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
+A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](/resources/datasheets/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth® Low Energy capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
 
 The module contains two tiny cores, an x86 (Quark) and a [32-bit ARC](https://en.wikipedia.org/wiki/ARC_(processor)) architecture core, both clocked at 32MHz. The Intel toolchain compiles your Arduino sketches optimally across both cores to accomplish the most demanding tasks. The Real-Time Operating Systems (RTOS) and framework developed by Intel is open sourced. See below under Firmware for the download link. The Arduino core communicates with the RTOS via static mailboxes to accomplish a predefined list of tasks (interface with PC using USB, program the sketch into flash, expose Bluetooth® Low Energy functionality to sketch, perform PWM). The RTOS for Intel Curie is still under development and new functions and features will be released in the near future.
 

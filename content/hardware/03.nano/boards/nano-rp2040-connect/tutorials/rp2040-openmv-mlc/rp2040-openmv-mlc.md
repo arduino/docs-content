@@ -46,7 +46,7 @@ An Inertial Measurement Unit (IMU) is a device that can measure an object's spec
 
 IMU's are typically used to capture **movement** data of a device or a system. The onboard IMU of the Nano RP2040 Connect, the LSM6DSOX from STMicroelectronics®, has an embedded hardware processing engine dedicated to real-time machine learning computing; this means that some machine learning algorithms were moved from the application processor to the LSM6DSOX directly. STMicroelectronics named this embedded processing engine of the LSM6DSOX **Machine Learning Core** (MLC).
 
-![The LSM6DSOX Inertial Measurement Unit (IMU).](assets/rp2040-openmv-mlc_img01.png)
+![The LSM6DSOX Inertial Measurement Unit (IMU).](assets/rp2040-imu-basics-img-02.png)
 
 In the MLC, machine learning processing is implemented through a **decision-tree** logic. A decision tree is a mathematical tool composed of a series of configurable nodes; each node is characterized by an "if-then-else" condition where an input signal (represented by statistical parameters calculated from the sensor data) is evaluated against a certain threshold. The decision tree results can be read from the application processor at any time and there is also the possibility to generate an interrupt for every change in the result in the decision tree.
 

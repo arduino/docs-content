@@ -131,6 +131,19 @@ This feature allows Arduino devices to communicate with each other by sharing va
 Using this feature you can link variables of the same data type between **two or more cloud-enabled devices**, and Arduino IoT Cloud will automatically ensure any change to their value is propagated among all linked boards.
 For example, one button could set three smart bulbs to the same color by just setting a variable on one device and reading it on the others. Or you could turn on a heater when temperature sensors in your room or outside in your weather station drop below a certain level.
 
+### Local Time
+
+To retrieve local time, use the `ArduinoCloud.getLocalTime()` method in your sketch. The value returned represents the current local time expressed as a Unix timestamp (i.e. seconds from the epoch), and it automatically takes your time zone settings and DST (Daylight Saving Time) into account. Time zone can be set in the Thing configuration page within the Arduino IoT Cloud platform.
+
+The returned timestamp can be displayed in a dashboard using a `CloudTime` variable and the [Time Picker widget](/arduino-cloud/getting-started/technical-reference#time-picker), or can be parsed with a third-party library such as [Time](https://www.arduino.cc/reference/en/libraries/time/) in case you want to show it on a display.
+
+```arduino
+myTimeVariable = ArduinoCloud.getLocalTime()
+```
+
+***Note that when using a board equipped with a hardware Real-Time Clock (RTC) the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library will use it automatically, thus communicating with the RTC from within your sketch or other libraries is not recommended. You can use the `getLocalTime()` and `getInternalTime()` methods provided by Arduino_IoTCloud instead.
+*** 
+
 ## Things
 
 In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of the variables and other settings, as well as the history of the data collected for the variables.
@@ -153,7 +166,7 @@ The steps below can be used as guidance when **setting up a Thing**:
 
 ## Variables
 
-***Visit the main article on [Cloud Variables](arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
+***Visit the main article on [Cloud Variables](/arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
 
 A thing can have one or more variables. A variable can be used for multiple purposes:
 

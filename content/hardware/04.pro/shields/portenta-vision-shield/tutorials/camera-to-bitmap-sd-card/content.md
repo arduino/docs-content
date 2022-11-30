@@ -31,7 +31,7 @@ This tutorial shows you how to capture a frame from the Portenta Vision Shield C
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
-- 1x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
+- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Micro SD card
 - Arduino IDE or Arduino-cli
 

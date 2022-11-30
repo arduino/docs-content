@@ -1,5 +1,5 @@
 ---
-title: 'Build Multi-Protocol Gateway With Portenta X8 & Max Carrier'
+title: 'Multi-Protocol Gateway With Portenta X8 & Max Carrier'
 description: 'This tutorial shows how to setup a multi-protocol gateway environment on Portenta X8 using Max Carrier'
 tags:
   - Containers
@@ -32,7 +32,7 @@ In this tutorial we will go through the steps on how to setup both the Linux and
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Wi-Fi Access Point with Internet Access
 - 868-915 MHz antenna with SMA connector
 - ADB or SSH. [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal)
@@ -526,7 +526,7 @@ In this tutorial you have learned how to set up a Multi-Protocol Gateway compose
 You might encounter some errors or misbehaviors while working on the code, preventing you from progressing on the development. You can try the following troubleshooting tips to solve the commonly known issues:
 
 * If the sketch upload process fails, check if your Portenta X8 is in bootloader mode. To put the Portenta X8 into Bootloader mode, double-press its RESET button and verify that the green LED is blinking. After this, you can try re-uploading the sketch for the Arduino layer.
-* Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta X8 gets into bootloader mode immediately after powering-on, including when connected via USB-C, change the position of the BOOT DIP switch to OFF. This case applies to the Arduino layer.
+* Check the position of the BOOT DIP switch of the Portenta Max Carrier. If the Portenta X8 gets into bootloader mode immediately after powering-on, including when connected via USB-C®, change the position of the BOOT DIP switch to OFF. This case applies to the Arduino layer.
 * If you encounter an issue regarding terminal input inconvenience, please enter `export TERM=xterm` as the command in the terminal to get readable inputs. 
 * In case internal Wi-Fi connection cannot be established through the command input due to "unavailable" SSID, although it is in range. Please try using different SSID if available or hotspot from a different device to host network connectivity.  
 * If you encounter docker image conflict when running after building, please make sure you have used name tag that matches the one from the `docker-compose.yml` file. 

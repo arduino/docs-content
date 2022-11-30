@@ -22,6 +22,9 @@ jobs:
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
 
+      - name: Render Datasheets
+        run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
+
       - name: Gatsby main cache
         uses: actions/cache@v2
         id: gatsby-cache-folder
@@ -41,8 +44,7 @@ jobs:
             ${{ runner.os }}-public-gatsby-
 
       - run: npm install
-
-      - run: GENERATE_DATASHEETS=true npm run build
+      - run: npm run build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1

@@ -129,9 +129,6 @@ Sample sketches for the Arduino® MEGA 2560 can be found either in the “Exampl
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
 
-### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
-
 ## Connector Pinouts
 
 ![Arduino Mega Pinout](./assets/ArduinoMEGAPinOut.png)

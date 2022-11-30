@@ -32,7 +32,7 @@ In this tutorial we will go through the steps of how to install, run and remove 
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Wi-Fi Access Point with Internet Access
 - ADB or SSH. [Check how to connect to your Portenta X8](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal)
 

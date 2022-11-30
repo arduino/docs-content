@@ -483,4 +483,4 @@ For added fun the [Emoji_Button.ino](https://github.com/arduino/ArduinoTensorFlo
 ## Conclusion
 It’s an exciting time with a lot to learn and explore in TinyML. We hope this blog has given you some idea of the potential and a starting point to start applying it in your own projects. Be sure to let us know what you build and [share it](https://create.arduino.cc/projecthub) with the Arduino community.
 
-For a comprehensive background on TinyML and the example applications in this article, we recommend Pete Warden and Daniel Situnayake’s new O’Reilly book “[TinyML: Machine Learning with TensorFlow on Arduino and Ultra-Low Power Microcontrollers](https://books.google.com/books/about/TinyML.html?id=sB3mxQEACAAJ&source=kp_book_description).”
+For a comprehensive background on TinyML and the example applications in this article, we recommend Pete Warden and Daniel Situnayake’s new O’Reilly book “[TinyML: Machine Learning with TensorFlow on Arduino and Ultra-Low Power Microcontrollers](https://www.oreilly.com/library/view/tinyml/9781492052036/).”

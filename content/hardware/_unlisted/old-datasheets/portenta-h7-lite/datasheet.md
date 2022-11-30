@@ -184,7 +184,7 @@ The [Portenta H7 Vision Shield](https://www.arduino.cc/pro/hardware/product/port
 | U3       | USB HS PHY                          | U12, U13, U14   | ESD protection            |
 | U4       | SDRAM                               | U16             | Crypto Chip (Microchip)   |
 | U5       | Ethernet PHY                        | J1, J2          | High Density Connectors   |
-| U6       | MIPI to USB-C                       | ANT1            | Antenna or U.FL Connector |
+| U6       | MIPI to USB-C®                       | ANT1            | Antenna or U.FL Connector |
 | U7       | Level Shifter                       | JANALOGJDIGITAL | MKR compatible headers    |
 | U8       | I2C level shifter                   | J4              | Battery connector         |
 | U9       | WiFi/BT Module                      | J5              | ESLOV connector           |
@@ -226,14 +226,14 @@ Portenta H7 lite provides the classic ATECC608A from Microchip that provides low
 The optional 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. The Wake On Lan functionality allows reducing power consumption when in sleep mode.  
 
 ### High Speed USB Phy
-The optional High Speed USB Phy is one of the two USB interfaces available on the high speed connectors and is also available on the USB-C connector. High Speed USB PHY allows transfer rates of up to 480 Mbps and can be used both as a host and as a device.
+The optional High Speed USB Phy is one of the two USB interfaces available on the high speed connectors and is also available on the USB-C® connector. High Speed USB PHY allows transfer rates of up to 480 Mbps and can be used both as a host and as a device.
 
-When using the USB-C connector only one USB port is usable on high speed connectors.
+When using the USB-C® connector only one USB port is usable on high speed connectors.
 
-When the High Speed USB Phy option is not assembled the USB-C port only one Full Speed port is available and is shared between USB-C and High Density connectors  
+When the High Speed USB Phy option is not assembled the USB-C® port only one Full Speed port is available and is shared between USB-C® and High Density connectors  
 
-### USB-C Connector 
-USB-C connector supports multiple use case scenarios and provides the following functions:
+### USB-C® Connector 
+USB-C® connector supports multiple use case scenarios and provides the following functions:
 
 *   Provide board power supply in both DFP and DRP mode
 *   Source power to external peripherals when board is powered through VIN
@@ -247,7 +247,7 @@ All power conversion on the Portenta H7 lite is handled by the PF1550 PMIC. Curr
 ## Board Operation
 ### Getting Started – IDE
 
-If you want to program your Arduino Portenta H7 Lite while offline you need to install the Arduino Desktop IDE **[1].** To connect the Arduino Portenta H7 Lite to your computer, you’ll need a USB-C cable. This also provides power to the board, as indicated by the LED.  
+If you want to program your Arduino Portenta H7 Lite while offline you need to install the Arduino Desktop IDE **[1].** To connect the Arduino Portenta H7 Lite to your computer, you’ll need a USB-C® cable. This also provides power to the board, as indicated by the LED.  
 
 ### Getting Started – Arduino Web Editor (Create) 
 All Arduino and Genuino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
@@ -267,7 +267,7 @@ Now that you have gone through the basics of what you can do with the board you 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.  
 
 ## Connector Pinouts
-### USB-C
+### USB-C®
 ![alt_text](assets/portentaH7_PinoutUSB-C.png)
 
 ### High Density Connector
