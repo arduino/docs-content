@@ -41,7 +41,7 @@ When we talk about audio, you probably imagine a speaker playing some sounds or 
 - 8Ω speaker (x1)
 - Audio cable (x1)
 
-## Digital-to-analog Converters
+## Digital-to-Analog Converters
 
 A digital-to-analog converter, commonly referred to as DAC, is a device that converts digital values (binary values that can be 0 or 1) to analog voltages. DACs can be found as peripherals of microcontrollers, but only some have one inside. If a microcontroller does not have an integrated DAC, you can build one using different techniques and approaches or buy one already available. 
 
