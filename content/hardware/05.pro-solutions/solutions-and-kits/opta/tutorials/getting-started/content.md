@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started With the Arduino Opta'
-description: 'Get started with the Arduino Opta'
+title: 'Getting Started With the Opta'
+description: 'Get started with the Opta'
 tags:
   - Getting started
 author: 'Benjamin Dannegård'
@@ -16,7 +16,7 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 
 ## Goals
 
-- Get the Arduino Opta working with the Arduino IDE
+- Get the Opta working with the Arduino IDE
 - Blinking the LEDs on the device
 - Programming the button on the device
 - Test the inputs and outputs on the device
@@ -172,15 +172,21 @@ OUTPUT 1 --> D0
 OUTPUT 2 --> D1
 OUTPUT 3 --> D3
 OUTPUT 4 --> D4
-This value refers to an applied resistive load (AC1), at a nominal voltage of 250 V AC. If the load is not resitive, or if the voltage on the contacts is different from 250 V AC, the nominal values can also change significantly.
+If the load is not resitive, or if the voltage on the contacts is different from 250 V AC, the nominal values can also change significantly.
 
-![Out relays on the Arduino Opta](assets/opta-out-relays.png)
+![Out relays on the Opta](assets/opta-out-relays.png)
 
 The OPTA output contacts are "clean" contacts, they are contacts that are not live in a non-connection situation. This type of contact allows it to be used in any system and with any type of voltage. To function, the outputs must therefore be connected by bringing, for example a power cable to a terminal, and exiting the terminal on the side, go towards the load to be managed.
 In this way, when the contact is closed by the logic set via IDE, that power supply signal will cross the contact and will switch on or in any case carry the signal up to the reference load.
 The “clean” contact also allows to carry a different power system or type of load for each output contact.
 
-Lets run a simple sketch to test out the out relays on the Opta. For this sketch you need to Supply a voltage from 5.5 to 32V on PIN 1 (VIN) and connect GND to PIN 3, as shown in the image below. Internally the signal is conditioned to 5V and the relays are driven. Inside the case there is a led to check power supply on VIN. If you are uncertain to whether the device is powered correctly, check the LED.
+Let's run a simple sketch to test the output relays on Opta. To activate the relays and run this sketch you need to provide Opta with a voltage from 12 to 24 V DC by connecting it a proper power supply.
+
+Opta has dedicated terminals for power supply, located in the upper part of Opta next to the Inputs. They are doubled to help the user to connect the power supply and any common part for the input terminals but are at the same potential (upon polarity) and equivalent.
+
+These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-".
+
+Inside the case there is a led to check power supply. If you are uncertain to whether the device is powered correctly, check the LED.
 
 ![Connect these pins to drive the relays on the Opta](assets/opta-voltage-pins.png)
 
@@ -202,10 +208,20 @@ void loop() {
 
 ### Using Analog Inputs
 
-The Arduino Opta has 8 analog in pins, corresponding to pins A0-A7. OPTA is equipped with 8 inputs that can work both in digital mode (0 or 1) and in analog mode (from 0 to 10 V DC)
+The Opta has 8 analog in pins, corresponding to pins A0-A7. The inputs are identified as I1 to I8 and mapped as described below:
+I1 --> A0
+I2 --> A1
+I3 --> A2
+I4 --> A3
+I5 --> A4
+I6 --> A5
+I7 --> A6
+I8 --> A7
+
+OPTA is equipped with 8 inputs that can work both in digital mode (0 or 1) and in analog mode (from 0 to 10 V DC)
 This choice must be made through IDE, setting the low value (0 = 0 V) or the high value (1 = 10 V) in the programming phase if we intend to set a digital type input. If the value is analogue (temperature, speed, position sensor), the low value (0 = 0 V) and the reference reading value will be set in the range between 0 and 10 V DC.
 
-![Analog inputs on the Arduino Opta](assets/opta-analog-inputs.png)
+![Analog inputs on the Opta](assets/opta-analog-inputs.png)
 
 Now lets try a sketch that will read the analog inputs on the Opta. The sketch can read between 0-12V, keep that in mind when connecting power to the device. The voltage that is read by the microcontroller is proportional and rescaled with a factor of 0.3 in the sketch. The resolution is up to 16bit (65535), at 12bit (4095). The sketch will read the inputs on the analog pins A0, A1 and A2. Then printing the result in the serial monitor.
 
@@ -263,12 +279,12 @@ void loop() {
 
 ### Connecting Opta to the Cloud
 
-It is possible to use the Arduino Opta with the Arduino Cloud. To set up the Arduino Opta to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started). We also have a number of other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/).
+It is possible to use the Opta with the Arduino Cloud. To set up the Opta to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started). We also have a number of other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/).
 
 ## Conclusion
 
-This tutorial went through the basics of the Arduino Opta. Now you should know how to program the LEDs on the board. We also showed how to program the programmable button on the device. The analog inputs and the out relays were also covered. After going through this tutorial you should be ready to go into the other Opta tutorials and learn more about the device and its features. 
+This tutorial went through the basics of the Opta. Now you should know how to program the LEDs on the board. We also showed how to program the programmable button on the device. The analog inputs and the out relays were also covered. After going through this tutorial you should be ready to go into the other Opta tutorials and learn more about the device and its features. 
 
 ### Next Steps
 
-Now that you know the basics of the Arduino Opta it could be a good idea to combine these features with other features on the Opta. For example, if you want to add connectivity to your solution, take a look at the [Getting started with connectivity on the Opta tutorial](). It is also possible to use the Opta with the LogicLab IDE, for a guide on how to set this up check out our [Setting up the Opta with LogicLab tutorial](). For a better view of what LogicLab with Opta can offer take a look at our [LogicLab tutorial]()
+Now that you know the basics of the Opta it could be a good idea to combine these features with other features on the Opta. For example, if you want to add connectivity to your solution, take a look at the [Getting started with connectivity on the Opta tutorial]().
