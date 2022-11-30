@@ -55,7 +55,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 - **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth or from anywhere in the world with the Arduino IoT Cloud.
 
-- **Audio Processing:** The Arduino GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument, and change the note through the various inputs. Create a online concert with the Arduino IoT Cloud and connect with people all over the world.
+- **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud and connect with people all over the world.
 
 - **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
@@ -128,7 +128,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 ## Processor
 
-The Arduino GIGA R1 WiFi's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The GIGA R1 WiFi's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 
 ## Wi-Fi®/Bluetooth® Connectivity
 
@@ -136,7 +136,7 @@ The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi®
 
 ## Onboard Memories
 
-The Arduino GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
+The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
 
 ## USB Connector
 
@@ -156,21 +156,21 @@ Power can either be supplied via the VIN pins, or the 5V of the USB connectors (
 
 ### Getting Started - IDE
 
-If you want to program your Arduino® GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]** To connect the GIGA R1 WiFi control to your computer, you’ll need a Type-c USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]** To connect the GIGA R1 WiFi control to your computer, you’ll need a Type-c USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
 
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino® Library Reference **[5]** and the online store **[6]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]** and the online store **[6]** where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
