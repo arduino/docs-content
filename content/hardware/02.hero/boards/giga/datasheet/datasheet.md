@@ -215,7 +215,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 |  20  | A11        | Analog    | Analog input 11 /GPIO                           |
 |  21  | DAC0       | Analog    | Digital to Analog Converter 0                   |
 |  22  | DAC1       | Analog    | Digital to Analog Converter 1                   |
-|  23  | CANRX      | Digital   | CAN Bus Recieve                                 |
+|  23  | CANRX      | Digital   | CAN Bus Receive                                 |
 |  24  | CANTX      | Digital   | CAN Bus Transfer                                |
 
 ### Digital
