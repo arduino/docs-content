@@ -172,13 +172,14 @@ OUTPUT 1 --> D0
 OUTPUT 2 --> D1
 OUTPUT 3 --> D3
 OUTPUT 4 --> D4
-If the load is not resitive, or if the voltage on the contacts is different from 250 V AC, the nominal values can also change significantly.
 
 ![Out relays on the Opta](assets/opta-out-relays.png)
 
 The OPTA output contacts are "clean" contacts, they are contacts that are not live in a non-connection situation. This type of contact allows it to be used in any system and with any type of voltage. To function, the outputs must therefore be connected by bringing, for example a power cable to a terminal, and exiting the terminal on the side, go towards the load to be managed.
 In this way, when the contact is closed by the logic set via IDE, that power supply signal will cross the contact and will switch on or in any case carry the signal up to the reference load.
 The “clean” contact also allows to carry a different power system or type of load for each output contact.
+
+![Clean contact on the Opta](assets/opta-clean-contact.png)
 
 Let's run a simple sketch to test the output relays on Opta. To activate the relays and run this sketch you need to provide Opta with a voltage from 12 to 24 V DC by connecting it a proper power supply.
 
