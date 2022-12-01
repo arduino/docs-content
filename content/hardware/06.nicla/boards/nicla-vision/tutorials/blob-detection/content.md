@@ -222,7 +222,7 @@ while(True):
     print(clock.fps()) # Prints the framerate to the serial console
 ```
 
-Click on the "Play" button at the bottom of the left toolbar. Place some objects on your desk and check if the Portenta can detect them.
+Click on the "Play" button at the bottom of the left toolbar. Place some objects on your desk and check if the Nicla Vision can detect them.
 
 ***The MicroPython script does not get compiled and linked into an actual firmware. Instead it gets copied to the internal Flash of the board where it gets interpreted and executed on the fly.***
 
