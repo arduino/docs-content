@@ -105,11 +105,11 @@ The file you will need to access can be found in
 ```
 Users/{your-user}/Library/Arduino15/packages/arduino/tools/bossac/1.9.1-arduino2
 ```
- the file you are after is `bossac.exe`
+ the file you are after is `bossac`
 
 ***Note: The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories.***
 
-Open a terminal window and drag and drop the bossac.exe file into the terminal window.
+Open a terminal window and drag and drop the bossac file into the terminal window.
 
 Now, you should be able to execute the command that will flash your board with the MicroPython firmware.
 
@@ -185,11 +185,11 @@ The file you will need to access can be found in
 ```
 Users/{your-user}/Library/Arduino15/packages/arduino/tools/dfu-util/0.10.0-arduino1/dfu-util
 ```
-the file you are after is `dfu-util.exe`
+the file you are after is `dfu-util`
 
 ***Note: The `"Library"` directory is hidden, press `Shift + Command + . ` to reveal hidden directories.*** 
 
-Open a terminal window and drag and drop the dfu-util.exe file into the terminal window.
+Open a terminal window and drag and drop the dfu-util file into the terminal window.
 
 Now, you should be able to execute the command that will flash your board with the MicroPython firmware.
 
