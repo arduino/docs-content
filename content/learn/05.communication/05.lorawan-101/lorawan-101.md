@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ---
 title: 'The Arduino Guide to LoRa® and LoRaWAN®'
 description: 'Learn the basics of LoRa® and LoRaWAN® and how to use them with Arduino hardware and software.'
@@ -301,6 +302,8 @@ LoRa® and LoRaWAN® are pretty extensive but exciting topics to study. If you w
 - [LoRa Developer Portal from Semtech](https://lora-alliance.org/resource-hub/). Here you can find technical papers and user guides as well as specifications and datasheets from Semtech. 
 - [The Things Network documentation](https://www.thethingsnetwork.org/docs/). Here you can learn all about LoRaWAN® and The Things Network!
 =======
+=======
+>>>>>>> d77e3ac40806d9370d9f66bccf13e3f3cb722e1f
 ---
 title: 'The Arduino Guide to LoRa® and LoRaWAN®'
 description: 'Learn the basics of LoRa® and LoRaWAN® and how to use them with Arduino hardware and software.'
@@ -607,5 +610,8 @@ LoRa® and LoRaWAN® are pretty extensive but exciting topics to study. If you w
 - [The LoRa Alliance® Resource Hub](https://lora-alliance.org/resource-hub/). Here you can access LoRaWAN® technical documents and Whitepapers from The LoRa Alliance®.
 - [LoRa Developer Portal from Semtech](https://lora-alliance.org/resource-hub/). Here you can find technical papers and user guides as well as specifications and datasheets from Semtech. 
 - [The Things Network documentation](https://www.thethingsnetwork.org/docs/). Here you can learn all about LoRaWAN® and The Things Network!
+<<<<<<< HEAD
 >>>>>>> 3b9dfe7b (Update tutorial content)
+=======
+>>>>>>> d77e3ac40806d9370d9f66bccf13e3f3cb722e1f
 - [The Things Academy online course in Udemy](https://www.udemy.com/course/lorawan-fundamentals/). A free online course where you'll learn all about LoRa® and LoRaWAN®, and get ready to start building your own Low Power Wide Area Network applications.
