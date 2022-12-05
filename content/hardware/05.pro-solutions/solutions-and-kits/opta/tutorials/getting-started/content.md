@@ -193,19 +193,52 @@ Inside the case there is a led to check power supply. If you are uncertain to wh
 
 ```arduino
 void setup() {
+ // initialize Relays outputs.
  pinMode(D0, OUTPUT); // sets the rele pin D0 as output
  pinMode(D1, OUTPUT); // sets the rele pin D1 as output
  pinMode(D2, OUTPUT); // sets the rele pin D2 as output
  pinMode(D3, OUTPUT); // sets the rele pin D3 as output
-
+ 
+ // initialize digital pin LED_BUILTIN as an output.
+ pinMode(LED_D0, OUTPUT);
+ pinMode(LED_D1, OUTPUT);
+ pinMode(LED_D2, OUTPUT);
+ pinMode(LED_D3, OUTPUT);
 }
+
 void loop() {
+ // closes and opens the contcat of the relay 1 and turns on led 1.
  digitalWrite(D0, HIGH); // sets the Rele 1 on
+ digitalWrite(LED_D0, HIGH);
  delay(1000); // waits for a second
  digitalWrite(D0, LOW); // sets the Rele 1 off
+ digitalWrite(LED_D0, LOW);
+ delay(1000); // waits for a second
+ 
+ // closes and opens the contcat of the relay 2 and turns on led 2
+ digitalWrite(D1, HIGH); // sets the Rele 1 on
+ digitalWrite(LED_D1, HIGH);
+ delay(1000); // waits for a second
+ digitalWrite(D1, LOW); // sets the Rele 1 off
+ digitalWrite(LED_D1, LOW);
+ delay(1000); // waits for a second
+ 
+ // closes and opens the contcat of the relay 3 and turns on led 3
+ digitalWrite(D2, HIGH); // sets the Rele 1 on
+ digitalWrite(LED_D2, HIGH);
+ delay(1000); // waits for a second
+ digitalWrite(D2, LOW); // sets the Rele 1 off
+ digitalWrite(LED_D2, LOW);
+ delay(1000); // waits for a second
+
+ // closes and opens the contcat of the relay 4 and turns on led 4
+ digitalWrite(D3, HIGH); // sets the Rele 1 on
+ digitalWrite(LED_D3, HIGH);
+ delay(1000); // waits for a second
+ digitalWrite(D3, LOW); // sets the Rele 1 off
+ digitalWrite(LED_D3, LOW);
  delay(1000); // waits for a second
 }
-```
 
 ### Using Opta's Inputs
 
