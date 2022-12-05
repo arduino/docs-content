@@ -49,15 +49,15 @@ Common MIDI messages are 3-byte messages that consist of a control byte that def
 
 Although MIDI use in the music production industry is still widespread, it has some limitations. MIDI 1.0 does not provide any feedback to the sequencer from the MIDI devices, for example, from a synthesizer; communication was proposed in the specification just in one direction. To address this issue, the MIDI Manufacturers Association (MMA) recently introduced a major MIDI 1.0 protocol revision: the MIDI 2.0 specification. In MIDI 2.0 specification, device profiling and bi-directional communication are the most significant changes. 
 
-## MIDI and Arduino
+## MIDI and the Arduino Ecosystem
 
-There are two ways to implement a MIDI control system using the Arduino ecosystem. The first is to implement MIDI over Serial through a 5-pin DIN connector; the second is to implement MIDI over USB using the MIDIUSB library and a USB-native Arduino board. We will discuss both ways in the sections below. But before we discuss MIDI over Serial and MIDI over USB, let's talk about the standard MIDI out interface described in the image below:
+There are two ways to implement a MIDI control system using the Arduino ecosystem. The first is to implement MIDI over Serial through a 5-pin DIN connector; the second is to implement MIDI over USB using the MIDIUSB library and a USB-native Arduino board. We will discuss both ways in the sections below. But before we discuss MIDI over Serial and MIDI over USB, let's talk about the standard MIDI out hardware interface described in the image below:
 
-![Standard MIDI out interface.](assets/midi-introduction_003.png)
+![Standard MIDI out hardware interface.](assets/midi-introduction_003.png)
 
-The schematic above describes the standard MIDI out interface published by the MMA in 1985. The interface consists of a UART transmitter sending data at 31250 baud through two operational amplifiers and a 220-ohm current limiting resistor (defined by the MIDI specification) to pin 5 of a DIN connector. Pin 4 of the DIN connector is set to +5VDC (also using a 220-ohm current limiting resistor), while pin 2 of the DIN connector is set to GND. Pin 1 and 3 are not used in the standard MIDI out interface. This information is essential to design and implementing MIDI control systems from scratch.
+The schematic above describes the standard MIDI out hardware interface published by the MMA in 1985. The interface consists of a UART transmitter sending data at 31250 baud through two operational amplifiers and a 220Ω current limiting resistor (this resistor is defined in the MIDI specification) to pin 5 of a DIN connector. Pin 4 of the DIN connector is set to +5VDC (also using a 220Ω current limiting resistor), while pin 2 of the DIN connector is set to GND. Pin 1 and 3 are not used in the standard MIDI out hardware interface. This information is essential to design and implementing MIDI control systems from scratch.
 
-Now let's talk about MIDI over Serial!
+Now that we now the standard MIDI out hardware interface, let's talk about MIDI over Serial!
 
 ### MIDI Serial
 
