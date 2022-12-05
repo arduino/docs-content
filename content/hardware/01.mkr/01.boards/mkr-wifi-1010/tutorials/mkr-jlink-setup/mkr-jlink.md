@@ -74,7 +74,7 @@ Now go to the folder where the sketch is located. Add a `.json` file in the same
   "servertype": "jlink",
   "device": "ATSAMD21G18",
   "interface": "SWD",
-  "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServer"
+  "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL"
 }
 ```
 
