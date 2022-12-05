@@ -19,7 +19,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 - **STM32H747XIH6** Microcontroller
   - Dual core
-    - 32-bit Arm® Cortex®-M7 core with double-precision FPU and L1 cache up to 480 MHz
+    - 32-bit Arm® Cortex[®](https://github.com/arduino/docs-content-private/tree/karlsoderby/ble-sense-rev2-launch)-M7 core with double-precision FPU and L1 cache up to 480 MHz
     - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
@@ -53,7 +53,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
 
-- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth or from anywhere in the world with the Arduino IoT Cloud.
+- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud.
 
 - **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud and connect with people all over the world.
 
@@ -79,7 +79,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ## Recommended Operating Conditions
 
 | Symbol          | Description                      | Min                | Typ | Max                | Unit |
-| --------------- | -------------------------------- | ------------------ | --- | ------------------ | ---- |
+|-----------------|----------------------------------|--------------------|-----|--------------------|------|
 | V<sub>IN</sub>  | Input voltage from VIN pad       | 6                  | 7.0 | 32                 | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
 | V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
@@ -91,7 +91,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ## Power Consumption
 
 | Symbol            | Description                                        | Min | Typ | Max | Unit |
-| ----------------- | -------------------------------------------------- | --- | --- | --- | ---- |
+|-------------------|----------------------------------------------------|-----|-----|-----|------|
 | P<sub>STDBY</sub> | Average power consumption in standby               |     | TBC |     | mW   |
 | P<sub>BLINK</sub> | Average power consumption with blink sketch sketch |     | TBC |     | mW   |
 | P<sub>MAX</sub>   | Maximum power consumption                          |     | TBC |     | mW   |
@@ -108,19 +108,19 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 ![Top View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiTop.png)
 
-| **Ref.** | **Description**                       | **Ref.** | **Description**                     |
-| -------- | ------------------------------------- | -------- | ----------------------------------- |
-| U1       | STM32H7 Dual Core Microcontroller IC  | U2       | MX25L12833FZ2I 16 MB Flash IC       |
-| U3       | AS4C4M16SA 8MB SDRAM IC               | U4       | ATECC608A-MAHDA-T Secure Element IC |
+| **Ref.** | **Description**                         | **Ref.** | **Description**                     |
+|----------|-----------------------------------------|----------|-------------------------------------|
+| U1       | STM32H7 Dual Core Microcontroller IC    | U2       | MX25L12833FZ2I 16 MB Flash IC       |
+| U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
 | U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
-| U7       | MP2269GD-Z Buck Converter 5V IC       | JANALOG  | Analog input/output headers         |
-| JDIGITAL | Digital input/output headers          | JSIDE    | Digital input/output headers        |
-| SPI      | SPI headers                           | JTAG     | JTAG Headers                        |
-| J2       | USB 2.0 A Host                        | J15      | 3.5 mm audio in/out                 |
-| PB1      | RESET Button                          | PB2      | BOOT0 button                        |
-| J14      | Micro UFL connector                   | J5       | Camera                              |
-| J6       | Camera                                | DL1      | Power LED                           |
-| DL2      | RGB SMLP34RGB2W3 Common anode LED     | J12      | CX90B-16P USB-C® connector           |
+| U7       | MP2269GD-Z Buck Converter 5V IC         | JANALOG  | Analog input/output headers         |
+| JDIGITAL | Digital input/output headers            | JSIDE    | Digital input/output headers        |
+| SPI      | SPI headers                             | JTAG     | JTAG Headers                        |
+| J2       | USB 2.0 A Host                          | J15      | 3.5 mm audio in/out                 |
+| PB1      | RESET Button                            | PB2      | BOOT0 button                        |
+| J14      | Micro UFL connector                     | J5       | Camera                              |
+| J6       | Camera                                  | DL1      | Power LED                           |
+| DL2      | RGB SMLP34RGB2W3 Common anode LED       | J12      | CX90B-16P USB-C® connector          |
 
 ### Back View
 
@@ -182,129 +182,129 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ## Pinout
 
 ### J1
-| Pin  | Function   | Type      | Description           |
-| ---- | ---------- | --------- | ----------------------|
-|  1   | OFF        | Digital   | 3V3 Enable Pin        |
-|  2   | GND        | Power     | Ground                |
-|  3   | VRTC       | Reset     | Real Time Clock Battery                  |
+| Pin | Function | Type    | Description             |
+|-----|----------|---------|-------------------------|
+| 1   | OFF      | Digital | 3V3 Enable Pin          |
+| 2   | GND      | Power   | Ground                  |
+| 3   | VRTC     | Reset   | Real Time Clock Battery |
 
 
 ### Analog
 
-| Pin  | Function   | Type      | Description                                     |
-| ---- | ---------- | --------- | ----------------------------------------------- |
-|  1   | NC         | NC        | Not Connected                                   |
-|  2   | IOREF      | IOREF     | Reference for digital logic V - connected to 3.3V |
-|  3   | Reset      | Reset     | Reset                                           |
-|  4   | +3V3       | Power     | +3V3 Power Rail                                 |
-|  5   | +5V        | Power     | +5V Power Rail                                  |
-|  6   | GND        | Power     | Ground                                          |
-|  7   | GND        | Power     | Ground                                          |
-|  8   | VIN        | Power     | Voltage Input                                   |
-|  9   | A0         | Analog    | Analog input 0 /GPIO                            |
-|  10  | A1         | Analog    | Analog input 1 /GPIO                            |
-|  11  | A2         | Analog    | Analog input 2 /GPIO                            |
-|  12  | A3         | Analog    | Analog input 3 /GPIO                            |
-|  13  | A4         | Analog    | Analog input 4 /GPIO                            |
-|  14  | A5         | Analog    | Analog input 5 /GPIO                            |
-|  15  | A6         | Analog    | Analog input 6 /GPIO                            |
-|  16  | A7         | Analog    | Analog input 7 /GPIO                            |
-|  17  | A8         | Analog    | Analog input 8 /GPIO                            |
-|  18  | A9         | Analog    | Analog input 9 /GPIO                            |
-|  19  | A10        | Analog    | Analog input 10 /GPIO                           |
-|  20  | A11        | Analog    | Analog input 11 /GPIO                           |
-|  21  | DAC0       | Analog    | Digital to Analog Converter 0                   |
-|  22  | DAC1       | Analog    | Digital to Analog Converter 1                   |
-|  23  | CANRX      | Digital   | CAN Bus Recieve                                 |
-|  24  | CANTX      | Digital   | CAN Bus Transfer                                |
+| Pin | Function | Type    | Description                                       |
+|-----|----------|---------|---------------------------------------------------|
+| 1   | NC       | NC      | Not Connected                                     |
+| 2   | IOREF    | IOREF   | Reference for digital logic V - connected to 3.3V |
+| 3   | Reset    | Reset   | Reset                                             |
+| 4   | +3V3     | Power   | +3V3 Power Rail                                   |
+| 5   | +5V      | Power   | +5V Power Rail                                    |
+| 6   | GND      | Power   | Ground                                            |
+| 7   | GND      | Power   | Ground                                            |
+| 8   | VIN      | Power   | Voltage Input                                     |
+| 9   | A0       | Analog  | Analog input 0 /GPIO                              |
+| 10  | A1       | Analog  | Analog input 1 /GPIO                              |
+| 11  | A2       | Analog  | Analog input 2 /GPIO                              |
+| 12  | A3       | Analog  | Analog input 3 /GPIO                              |
+| 13  | A4       | Analog  | Analog input 4 /GPIO                              |
+| 14  | A5       | Analog  | Analog input 5 /GPIO                              |
+| 15  | A6       | Analog  | Analog input 6 /GPIO                              |
+| 16  | A7       | Analog  | Analog input 7 /GPIO                              |
+| 17  | A8       | Analog  | Analog input 8 /GPIO                              |
+| 18  | A9       | Analog  | Analog input 9 /GPIO                              |
+| 19  | A10      | Analog  | Analog input 10 /GPIO                             |
+| 20  | A11      | Analog  | Analog input 11 /GPIO                             |
+| 21  | DAC0     | Analog  | Digital to Analog Converter 0                     |
+| 22  | DAC1     | Analog  | Digital to Analog Converter 1                     |
+| 23  | CANRX    | Digital | CAN Bus Recieve                                   |
+| 24  | CANTX    | Digital | CAN Bus Transfer                                  |
 
 ### Digital
 
-| Pin  | Function  | Type    | Description                    |
-| ---- | --------- | --------| ------------------------------ |
-|  1   | D21/SCL1  | Digital | GPIO 21/I2C 1 Clock            |
-|  2   | D20/SDA1  | Digital | GPIO 20/I2C 1 Dataline         |
-|  3   | AREF      | Digital | Analog Reference Voltage       |
-|  4   | GND       | Power   | Ground                         |
-|  5   | D13/SCK   | Digital | GPIO 13/SPI Clock              |
-|  6   | D12/CIPO  | Digital | GPIO 12/SPI Controller In Peripheral Out     |
-|  7   | D11/COPI  | Digital | GPIO 11/SPI Controller Out Peripheral In          |
-|  8   | D10/CS    | Digital | GPIO 10/SPI Chip Select          |
-|  9   | D9/SDA2   | Digital | GPIO 9/I2C 2 Dataline             |
-|  10  | D8/SCL2   | Digital | GPIO 8/I2C 2 Clockline           |
-|  11  | D7        | Digital | GPIO 7           |
-|  12  | D6        | Digital | GPIO 6           |
-|  13  | D5        | Digital | GPIO 5           |
-|  14  | D4        | Digital | GPIO 4           |
-|  15  | D3        | Digital | GPIO 3           |
-|  16  | D2        | Digital | GPIO 2           |
-|  17  | D1/TX0    | Digital | GPIO 1 / Serial 0 Transmitter|
-|  18  | D0/TX0    | Digital | GPIO 0 / Serial 0 Receiver          |
-|  19  | D14/TX3   | Digital | GPIO 14 / Serial 3 Transmitter         |
-|  20  | D15/RX3   | Digital | GPIO 15 / Serial 3 Receiver         |
-|  21  | D16/TX2   | Digital | GPIO 16 / Serial 2 Transmitter         |
-|  22  | D17/RX2   | Digital | GPIO 17 / Serial 2 Receiver         |
-|  23  | D18/TX1   | Digital | GPIO 18 / Serial 1 Transmitter         |
-|  24  | D19/RX1   | Digital | GPIO 19 / Serial 1 Receiver         |
-|  25  | D20/SDA   | Digital | GPIO 20 / I2C 0 Dataline        |
-|  26  | D21/SCL   | Digital | GPIO 21 / I2C 0 Clock         |
+| Pin | Function | Type    | Description                              |
+|-----|----------|---------|------------------------------------------|
+| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                      |
+| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                   |
+| 3   | AREF     | Digital | Analog Reference Voltage                 |
+| 4   | GND      | Power   | Ground                                   |
+| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock                        |
+| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out |
+| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In |
+| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select                  |
+| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline                    |
+| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline                   |
+| 11  | D7       | Digital | GPIO 7                                   |
+| 12  | D6       | Digital | GPIO 6                                   |
+| 13  | D5       | Digital | GPIO 5                                   |
+| 14  | D4       | Digital | GPIO 4                                   |
+| 15  | D3       | Digital | GPIO 3                                   |
+| 16  | D2       | Digital | GPIO 2                                   |
+| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter            |
+| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver               |
+| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter           |
+| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver              |
+| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter           |
+| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver              |
+| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter           |
+| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver              |
+| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                 |
+| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                    |
 
 ### STM32 ICSP
 
-| Pin  | Function | Type         | Description                   |
-| ---- | -------- | ------------ | ----------------------------- |
-|  1   | CIPO     | Internal     | Controller In Peripheral Out  |
-|  2   | +5V      | Internal     | Power Supply of 5V            |
-|  3   | SCK      | Internal     | Serial Clock                  |
-|  4   | COPI     | Internal     | Controller Out Peripheral In  |
-|  5   | RESET    | Internal     | Reset                         |
-|  6   | GND      | Internal     | Ground                        |
+| Pin | Function | Type     | Description                  |
+|-----|----------|----------|------------------------------|
+| 1   | CIPO     | Internal | Controller In Peripheral Out |
+| 2   | +5V      | Internal | Power Supply of 5V           |
+| 3   | SCK      | Internal | Serial Clock                 |
+| 4   | COPI     | Internal | Controller Out Peripheral In |
+| 5   | RESET    | Internal | Reset                        |
+| 6   | GND      | Internal | Ground                       |
 
 ### Digital Pins D22 - D53 LHS
 
-| Pin  | Function    | Type    | Description           |
-| ---- | ----------- | ------- | --------------------- |
-|  1   | +5V         | Power   | +5V Power Rail    |
-|  2   | D22         | Digital | GPIO 22 |
-|  3   | D24         | Digital | GPIO 24 |
-|  4   | D26         | Digital | GPIO 26 |
-|  5   | D28         | Digital | GPIO 28 |
-|  6   | D30         | Digital | GPIO 30 |
-|  7   | D32         | Digital | GPIO 32 |
-|  8   | D34         | Digital | GPIO 34 |
-|  9   | D36         | Digital | GPIO 36 |
-|  10  | D38         | Digital | GPIO 38 |
-|  11  | D40         | Digital | GPIO 40 |
-|  12  | D42         | Digital | GPIO 42 |
-|  13  | D44         | Digital | GPIO 44 |
-|  14  | D46         | Digital | GPIO 46 |
-|  15  | D48         | Digital | GPIO 48 |
-|  16  | D50         | Digital | GPIO 50 |
-|  17  | D52         | Digital | GPIO 52 |
-|  18  | GND         | Power   | Ground                |
+| Pin | Function | Type    | Description    |
+|-----|----------|---------|----------------|
+| 1   | +5V      | Power   | +5V Power Rail |
+| 2   | D22      | Digital | GPIO 22        |
+| 3   | D24      | Digital | GPIO 24        |
+| 4   | D26      | Digital | GPIO 26        |
+| 5   | D28      | Digital | GPIO 28        |
+| 6   | D30      | Digital | GPIO 30        |
+| 7   | D32      | Digital | GPIO 32        |
+| 8   | D34      | Digital | GPIO 34        |
+| 9   | D36      | Digital | GPIO 36        |
+| 10  | D38      | Digital | GPIO 38        |
+| 11  | D40      | Digital | GPIO 40        |
+| 12  | D42      | Digital | GPIO 42        |
+| 13  | D44      | Digital | GPIO 44        |
+| 14  | D46      | Digital | GPIO 46        |
+| 15  | D48      | Digital | GPIO 48        |
+| 16  | D50      | Digital | GPIO 50        |
+| 17  | D52      | Digital | GPIO 52        |
+| 18  | GND      | Power   | Ground         |
 
 ### Digital Pins D22 - D53 RHS
 
-| Pin  | Function    | Type    | Description           |
-| ---- | ----------- | ------  | --------------------- |
-|  1   | +5V         | Power   | +5V Power Rail    |
-|  2   | D23         | Digital | GPIO 23 |
-|  3   | D25         | Digital | GPIO 25 |
-|  4   | D27         | Digital | GPIO 27 |
-|  5   | D29         | Digital | GPIO 29 |
-|  6   | D31         | Digital | GPIO 31 |
-|  7   | D33         | Digital | GPIO 33 |
-|  8   | D35         | Digital | GPIO 35 |
-|  9   | D37         | Digital | GPIO 37 |
-|  10  | D39         | Digital | GPIO 39 |
-|  11  | D41         | Digital | GPIO 41 |
-|  12  | D43         | Digital | GPIO 43 |
-|  13  | D45         | Digital | GPIO 45 |
-|  14  | D47         | Digital | GPIO 47 |
-|  15  | D49         | Digital | GPIO 49 |
-|  16  | D51         | Digital | GPIO 51 |
-|  17  | D53         | Digital | GPIO 53 |
-|  18  | GND         | Power   | Ground                |
+| Pin | Function | Type    | Description    |
+|-----|----------|---------|----------------|
+| 1   | +5V      | Power   | +5V Power Rail |
+| 2   | D23      | Digital | GPIO 23        |
+| 3   | D25      | Digital | GPIO 25        |
+| 4   | D27      | Digital | GPIO 27        |
+| 5   | D29      | Digital | GPIO 29        |
+| 6   | D31      | Digital | GPIO 31        |
+| 7   | D33      | Digital | GPIO 33        |
+| 8   | D35      | Digital | GPIO 35        |
+| 9   | D37      | Digital | GPIO 37        |
+| 10  | D39      | Digital | GPIO 39        |
+| 11  | D41      | Digital | GPIO 41        |
+| 12  | D43      | Digital | GPIO 43        |
+| 13  | D45      | Digital | GPIO 45        |
+| 14  | D47      | Digital | GPIO 47        |
+| 15  | D49      | Digital | GPIO 49        |
+| 16  | D51      | Digital | GPIO 51        |
+| 17  | D53      | Digital | GPIO 53        |
+| 18  | GND      | Power   | Ground         |
 
 ## Mounting Holes And Board Outline
 
@@ -321,7 +321,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -386,19 +386,19 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands      | Maximum output power (ERP) |
-| -------------------- | -------------------------- |
+|----------------------|----------------------------|
 | 2.4 GHz, 40 channels | TBD                        |
 
 ## Company Information
 
 | Company name    | Arduino SRL                                   |
-| --------------- | --------------------------------------------- |
+|-----------------|-----------------------------------------------|
 | Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                          |
-| ------------------------- | --------------------------------------------------------------------------------------------- |
+| Ref                       | Link                                                                                            |
+|---------------------------|-------------------------------------------------------------------------------------------------|
 | Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
 | Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
@@ -409,5 +409,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Change Log
 
 | **Date**   | **Changes** |
-| ---------- | ----------- |
+|------------|-------------|
 | xx/11/2022 | Release     |
