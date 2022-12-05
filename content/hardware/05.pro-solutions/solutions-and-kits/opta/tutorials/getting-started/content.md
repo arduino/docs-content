@@ -45,8 +45,8 @@ Now you are ready to upload sketches to the Opta via the Arduino IDE.
 
 When the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta. We will be using a classic version of the Arduino blink sketch to put your device to work and test everything is set properly. 
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta, highlighted in the image below.
-All the LEDs on the device are defined in the core, so you can easily use them as stated in the sketch below. 
-The STATUS LEDs are identified on Opta with numbers; here the correspondence of each of them with the definition in the core:
+All the STATUS LEDs on the device are defined in the core. 
+Hereafter you can see the correspondence between each of them as identified on the front panel and their definition in the core:
 LED_D0 --> STATUS 1
 LED_D1 --> STATUS 2
 LED_D2 --> STATUS 3
