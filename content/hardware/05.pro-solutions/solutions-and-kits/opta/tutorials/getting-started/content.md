@@ -51,7 +51,9 @@ LED_D0 --> STATUS 1
 LED_D1 --> STATUS 2
 LED_D2 --> STATUS 3
 LED_D3 --> STATUS 4
-Copy the sketch below into the Arduino IDE sketch editor, select the correct board and port in the **Tools** section, then upload it to Opta. When the sketch is uploaded you should see the Opta's STATUS LEDs blinking in sequence. 
+Select the correct **board** and **port** in the **Tools** section.
+Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta. 
+When the sketch is uploaded you will see the Opta's STATUS LEDs blinking in sequence. 
 
 ```arduino
 void setup() {
