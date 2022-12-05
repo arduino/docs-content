@@ -45,7 +45,14 @@ MIDI control messages are described in the image below:
 
 ![A common 3-byte MIDI message example.](assets/midi-introduction_002.png)
 
-Common MIDI messages are 3-byte messages that consist of a control byte that defines the type of the message (`note ON` or `note OFF`) and the channel used (1-16), and one or more data bytes that provide specific information about a particular note (note number and note velocity). Notice that the status byte starts with a binary `1`, and the data bytes begin with a binary `0`. Notice that a single MIDI control system can be connected to up to 16 devices! 
+Common MIDI messages are 3-byte messages that consist of a control byte and two data bytes configured as follows:
+
+- **`STATUS`**: four bits that define the MIDI message type, where `1000` (decimal 8) is `note OFF`, and `1001` (decimal 9) is `note ON`
+- **`CHANNEL`**: four bits (1-16) that define the MIDI message channel is intended for; the count starts from binary 0.
+- **`DATA 1`**: defines a 7-bit note number from C-2 (0) to G8 (127)
+- **`DATA 2`**: defines the velocity of a note (from 0 to 127)
+
+> A single MIDI control system can be connected to up to 16 devices! 
 
 Although MIDI use in the music production industry is still widespread, it has some limitations. MIDI 1.0 does not provide any feedback to the sequencer from the MIDI devices, for example, from a synthesizer; communication was proposed in the specification just in one direction. To address this issue, the MIDI Manufacturers Association (MMA) recently introduced a major MIDI 1.0 protocol revision: the MIDI 2.0 specification. In MIDI 2.0 specification, device profiling and bi-directional communication are the most significant changes. 
 
