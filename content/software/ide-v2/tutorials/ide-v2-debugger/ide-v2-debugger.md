@@ -107,9 +107,9 @@ In this example, we are going to set a breakpoint for **line 33** and **line 35*
 ![Navigating the Debugger.](assets/debugger-img03.png)
 
 We can now go through our code, step by step.
-The first (automatic) stop will be triggered by the **Debugger** itself, and it will be a standard entry-point, ignore that for now.
+The debugger will automatically stop at the first breakpoint it reached.
 
-Let's continue, by clicking on the **Play/pause** button (**Continue**). The program will now run to the first breakpoint, line 33. If we click it again, it will jump to line 35 (line 34 will still be executed but we won't see that). Clicking the **Play/pause** button again will continue running the program which will pause at its next breakpoint, line 33. We're in the main loop, after all.
+Let's continue, by clicking on the **Play/pause** button (**Continue**). The program will now run to the next breakpoint (e.g., line 35). If we click it again, it will jump to line 33 (the other lines in the program sequence will still be executed but we won't see that). Clicking the **Play/pause** button again will continue running the program which will pause at its next breakpoint, line 35. We're in the main loop, after all.
 
 ![Going between breakpoints.](assets/playpause.gif)
 
