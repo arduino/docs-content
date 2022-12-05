@@ -58,7 +58,7 @@ LED_D3 --> STATUS 4
 
 LED_RESET --> LED above the reset button
 
-LED_USER --> LED above the user button
+LED_USER --> LED above the user button (only available on Opta WiFi (AFX00002))
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta. 
