@@ -32,7 +32,7 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 
 ## Instructions
 
-### Setting up with the Arduino IDE
+### Setup with the Arduino IDE
 
 First make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software). 
 Within the Arduino IDE install the core for the Opta. Go to **Tools > Board > Boards Manager**, in the boards manager search for **Opta mbed** and install it.
