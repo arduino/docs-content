@@ -12,7 +12,7 @@ hardware:
 
 ## Overview
 
-Opta is a robust micro PLC solution with many engaging features. In this tutorial we will go through how to set up Opta with the Arduino IDE and how to use its basic features. We will take a look at how to program the LEDs on the device, how to use the programmable button, as well as using inputs and outputs.
+Opta is a robust micro PLC solution with many engaging features. In this tutorial we will go through how the setup of Opta with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as using inputs and outputs.
 
 ## Goals
 
