@@ -37,11 +37,13 @@ The Musical Instrument Digital Interface (MIDI) is a widely used digital control
 
 A MIDI controller, usually called a sequencer, controls an audio synthesizer. The sequencer sends MIDI data into the synthesizer that tells it what to do, precisely what notes to generate, and when to do it. Notice that the MIDI controller, the sequencer, does not generate any audio signal or produce any sound. The synthesizer is in charge of generating audio signals at the command of the MIDI controller data. 
 
+> MIDI does not produce any sound; it just describes it.
+
 ### MIDI Control Messages
 
 MIDI control messages are described in the image below:
 
-![MIDI message example.](assets/midi-introduction_002.png)
+![A common 3-byte MIDI message example.](assets/midi-introduction_002.png)
 
 Common MIDI messages are 3-byte messages that consist of a control byte that defines the type of the message (`note ON` or `note OFF`) and the channel used (1-16), and one or more data bytes that provide specific information about a particular note (note number and note velocity). Notice that the status byte starts with a binary `1`, and the data bytes begin with a binary `0`. Notice that a single MIDI control system can be connected to up to 16 devices! 
 
@@ -49,4 +51,18 @@ Although MIDI use in the music production industry is still widespread, it has s
 
 ## MIDI and Arduino
 
-There are two ways to implement a MIDI control system using the Arduino ecosystem. The first is to implement MIDI over Serial through a 5-pin DIN connector; the second is to implement MIDI over USB using the MIDIUSB library and a USB-native Arduino board. We will discuss both ways below.
+There are two ways to implement a MIDI control system using the Arduino ecosystem. The first is to implement MIDI over Serial through a 5-pin DIN connector; the second is to implement MIDI over USB using the MIDIUSB library and a USB-native Arduino board. We will discuss both ways in the sections below. But before we discuss MIDI over Serial and MIDI over USB, let's talk about the standard MIDI out interface described in the image below:
+
+![Standard MIDI out interface.](assets/midi-introduction_003.png)
+
+The schematic above describes the standard MIDI out interface published by the MMA in 1985. The interface consists of a UART transmitter sending data at 31250 baud through two operational amplifiers and a 220-ohm current limiting resistor (defined by the MIDI specification) to pin 5 of a DIN connector. Pin 4 of the DIN connector is set to +5VDC (also using a 220-ohm current limiting resistor), while pin 2 of the DIN connector is set to GND. Pin 1 and 3 are not used in the standard MIDI out interface. This information is essential to design and implementing MIDI control systems from scratch.
+
+Now let's talk about MIDI over Serial!
+
+### MIDI Serial
+
+### MIDI USB
+
+## Conclusion
+
+## References
