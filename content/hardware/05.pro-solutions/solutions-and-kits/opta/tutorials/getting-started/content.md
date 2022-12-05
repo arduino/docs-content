@@ -219,8 +219,9 @@ I6 --> A5
 I7 --> A6
 I8 --> A7
 
-OPTA is equipped with 8 inputs that can work both in digital mode (0 or 1) and in analog mode (from 0 to 10 V DC)
-This choice must be made through IDE, setting the low value (0 = 0 V) or the high value (1 = 10 V) in the programming phase if we intend to set a digital type input. If the value is analogue (temperature, speed, position sensor), the low value (0 = 0 V) and the reference reading value will be set in the range between 0 and 10 V DC.
+The 8 inputs pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V). 
+* To use them as digital inputs, add the Arduino command *pinMode(pinName, INPUT);* inside the setup(). 
+* To use them as analog inputs, add the command *analogReadResolution();* with the bit resolution that you want to use.
 
 ![Analog inputs on the Opta](assets/opta-analog-inputs.png)
 
