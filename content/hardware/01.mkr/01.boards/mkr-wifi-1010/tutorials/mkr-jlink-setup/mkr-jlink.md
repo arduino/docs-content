@@ -78,7 +78,12 @@ Now go to the folder where the sketch is located. Add a `.json` file in the same
 }
 ```
 
-The `"serverpath"` needs to be changed to the location where you installed the J-link package in the previous step. When this is done, click on the debugging icon.
+The `"serverpath"` field needs to be set to the path of the "J-Link GDB Server CL" tool executable file that is located under the folder of the J-Link package you installed in the previous step. The file is named:
+
+- **If you are using Windows:** `JLinkGDBServerCL.exe`
+- **If you are using Linux or macOS:** `JLinkGDBServer`
+
+When you have finished creating the `debug_custom.json` file, click on the debugging icon.
 
 ![Start debug feature in Arduino IDE 2.0](assets/mkr_jlink_IDE_debugging_button.png)
 
