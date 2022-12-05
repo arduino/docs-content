@@ -56,6 +56,10 @@ LED_D2 --> STATUS 3
 
 LED_D3 --> STATUS 4
 
+LED_RESET --> LED above the reset button
+
+LED_USER --> LED above the user button
+
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta. 
 When the sketch is uploaded you will see the Opta's STATUS LEDs blinking in sequence. 
