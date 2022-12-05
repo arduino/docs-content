@@ -207,7 +207,7 @@ void loop() {
 }
 ```
 
-### Using Analog Inputs
+### Using Opta's Inputs
 
 The Opta has 8 analog in pins, corresponding to pins A0-A7. The inputs are identified as I1 to I8 and mapped as described below:
 I1 --> A0
