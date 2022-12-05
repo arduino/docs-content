@@ -102,14 +102,14 @@ Once your program has been uploaded, we can start using the debugger.
 
 Let's begin by creating something called a **breakpoint**. Breakpoints are used to stop the program execution at a specific line (or when a specific condition is verified). We can use multiple of these in a program (the number is variable depending on the processor). 
 
-In this example, we are going to set a breakpoint for **line 33** and **line 36**. These are set by clicking to the left of the line numbering in the editor. 
+In this example, we are going to set a breakpoint for **line 33** and **line 35**. These are set by clicking to the left of the line numbering in the editor. 
 
 ![Navigating the Debugger.](assets/debugger-img03.png)
 
 We can now go through our code, step by step.
 The first (automatic) stop will be triggered by the **Debugger** itself, and it will be a standard entry-point, ignore that for now.
 
-Let's continue, by clicking on the **Play/pause** button (**Continue**). The program will now run to the first breakpoint, line 33. If we click it again, it will jump to line 36 (the lines 34 and 35 will still be executed but we won't see that). Clicking the **Play/pause** button again will continue running the program which will pause at its next breakpoint, line 33. We're in the main loop, after all.
+Let's continue, by clicking on the **Play/pause** button (**Continue**). The program will now run to the first breakpoint, line 33. If we click it again, it will jump to line 35 (line 34 will still be executed but we won't see that). Clicking the **Play/pause** button again will continue running the program which will pause at its next breakpoint, line 33. We're in the main loop, after all.
 
 ![Going between breakpoints.](assets/playpause.gif)
 
