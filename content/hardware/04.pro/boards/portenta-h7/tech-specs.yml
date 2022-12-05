@@ -8,7 +8,7 @@ Pins:
   Analog input pins: 8
   PWM pins: 10
 Connectivity: Murata Type 1DX shielded ultra small Wi-Fi® 11b/g/n + Bluetooth® 5.1 module
-Secure element: ATECC608 and NXP SE050C2
+Secure element: NXP SE050C2 and ATECC608
 Communication:
   UART: Yes
   I2C: Yes
