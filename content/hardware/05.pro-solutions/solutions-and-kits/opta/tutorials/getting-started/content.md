@@ -209,7 +209,7 @@ void loop() {
 
 ### Using Opta's Inputs
 
-The Opta has 8 analog in pins, corresponding to pins A0-A7. The inputs are identified as I1 to I8 and mapped as described below:
+Opta has 8 input pins, that can be programmed to be used as analog or digital. The mapping between the marking on the Opta physical terminals (I1 to I8) and their definition in the core can be found below:
 I1 --> A0
 I2 --> A1
 I3 --> A2
