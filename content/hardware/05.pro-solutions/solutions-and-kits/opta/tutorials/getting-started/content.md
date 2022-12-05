@@ -88,14 +88,14 @@ void loop() {
 ### Configuring the Programmable Button on the Opta
 
 Opta has a programmable button, shown on the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs.  
-To show how much simple is to use it, let's expand the former sketch and program the button as a trigger to modify the behavior of the blink for the STATUS LEDs. 
+To show how much simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs. 
 The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed), 'LOW' when pressed. 
-The new sketch will reverse the blink sequence when the button is pressed. 
-The blink sequences is placed in separate functions to control more easily the event change when the button is pressed. Below the entire sketch and an image highlighting the button on the device. 
+The new sketch will turn on more of the LEDs when the button is pressed, and then start over when all the lights have been turned on.
+Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device. 
 
 ```arduino
-bool reversed = false;
 int buttonState = 0;
+int counter = 0;
 
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
@@ -109,64 +109,51 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   buttonState = digitalRead(BTN_USER);
-    if(buttonState == LOW){
-    if (reversed == true){
-      reversed = false;
+  if(buttonState == LOW){
+    if(counter < 4){
+      counter++;
     }
-    else if (reversed == false){
-      reversed = true;
+    else{
+      counter = 0;
     }
+    delay(100);
   }
-  if (reversed == true){
-    reverseSequence();
-  }
-  else{
-    sequence();
-  }
+  changeLights();
 }
 
-void sequence() {
-  digitalWrite(LED_D0, HIGH);
+void changeLights() {
+  switch(counter){
+    case 0:
+      digitalWrite(LED_D0, LOW);
+      digitalWrite(LED_D1, LOW);
+      digitalWrite(LED_D2, LOW);
+      digitalWrite(LED_D3, LOW);
+      break;
+    case 1:
+      digitalWrite(LED_D0, HIGH);
+      break;
+    case 2:
+      digitalWrite(LED_D1, HIGH);
+      break;
+    case 3:
+      digitalWrite(LED_D2, HIGH);
+      break;
+    case 4:
+      digitalWrite(LED_D3, HIGH);
+      break;
+  }
   delay(100);
-  digitalWrite(LED_D0, LOW);
-  delay(100);
-  digitalWrite(LED_D1, HIGH);
-  delay(100);
-  digitalWrite(LED_D1, LOW);
-  delay(100);
-  digitalWrite(LED_D2, HIGH);
-  delay(100);
-  digitalWrite(LED_D2, LOW);
-  delay(100);
-  digitalWrite(LED_D3, HIGH);
-  delay(100);
-  digitalWrite(LED_D3, LOW);
-  delay(100);  
-}
-
-void reverseSequence(){
-  digitalWrite(LED_D3, HIGH);
-  delay(100);
-  digitalWrite(LED_D3, LOW);
-  delay(100);
-  digitalWrite(LED_D2, HIGH);
-  delay(100);
-  digitalWrite(LED_D2, LOW);
-  delay(100);
-  digitalWrite(LED_D1, HIGH);
-  delay(100);
-  digitalWrite(LED_D1, LOW);
-  delay(100);
-  digitalWrite(LED_D0, HIGH);
-  delay(100);
-  digitalWrite(LED_D0, LOW);
-  delay(100);  
 }
 ```
 
-![The button and LEDs that will blink on the Opta](assets/opta-device-button.png)
+![The button and LEDs that will light up on the Opta](assets/opta-device-button.png)
 
-Now the blink sequence should reverse its direction when the button is pressed.
+Now the more lights should turn on when the button is pressed, the rest turn on in sequence as the button is pressed. This is the sequence the lights should follow:
+First press --> LED 1 ON.
+Second press --> LEDs 1 and 2 ON.
+Third press --> LEDS 1, 2 and 3 ON.
+Fourth press --> LEDS 1, 2, 3 and 4 ON. 
+Fifth press --> All leds off and back.
 
 ### Using Out Relays
 
@@ -191,8 +178,6 @@ In this sketch all the 4 relays are closing and reopening their contacts and aft
 Opta has dedicated terminals for power supply, located in the upper part of Opta next to the Inputs. They are doubled to help the user to connect the power supply and any common part for the input terminals but are at the same potential (upon polarity) and equivalent.
 
 These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-".
-
-Inside the case there is a led to check power supply. If you are uncertain to whether the device is powered correctly, check the LED.
 
 ![Connect these pins to drive the relays on the Opta](assets/opta-voltage-pins.png)
 
@@ -244,6 +229,7 @@ void loop() {
  digitalWrite(LED_D3, LOW);
  delay(1000); // waits for a second
 }
+```
 
 ### Using Opta's Inputs
 
@@ -313,6 +299,8 @@ float voltageA0 = sensorValueA0 * (3.0 / 4095.0)/ 0.3;
  delay(1000);
 }
 ```
+
+You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the max value with 12 bits resolution; this is because there is a precautional margin taken on the max voltage level applicable to the inputs to preserve the microcontroller.
 
 ### Connecting Opta to the Cloud
 
