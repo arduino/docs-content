@@ -369,7 +369,7 @@ For a more complex and commented example, you can have a look at the [BlinkWitho
 
 Components connected via I²C (including the sensors onboard the [MKR IoT Carrier](https://store.arduino.cc/products/arduino-mkr-iot-carrier)) uses the same bus as the **ECCX08** cryptochip. As the crypto chip is an essential part of establishing a connection to the IoT Cloud (it contains the credentials), it is important that other I²C peripherals are initialized after the connection has been made.
 
-For example, if you are initalizing a library such as [Arduino_MKRENV](https://www.arduino.cc/reference/en/libraries/arduino_mkrenv), your `setup()` should be implemented as:
+For example, if you are initializing a library such as [Arduino_MKRENV](https://www.arduino.cc/reference/en/libraries/arduino_mkrenv), your `setup()` should be implemented as:
 
 ```arduino
 void setup() {
