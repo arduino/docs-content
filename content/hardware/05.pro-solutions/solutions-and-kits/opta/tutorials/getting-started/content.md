@@ -16,11 +16,11 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 
 ## Goals
 
-- Get the Opta working with the Arduino IDE
+- Putting Opta to work with the Arduino IDE
 - Blinking the LEDs on the device
 - Programming the button on the device
-- Test the inputs and outputs on the device
-- How to connect the device to the cloud
+- Testing the inputs and outputs on the device
+- Connecting the device to the cloud
 
 ### Required Hardware and Software
 
