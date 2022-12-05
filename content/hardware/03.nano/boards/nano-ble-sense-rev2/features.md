@@ -53,7 +53,8 @@ The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or 
 
   The HS3003 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.2 °C suited to detect ambient temperature.
 
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_HTS221.pdf" download blank/>
+<FeatureLink title="Datasheet" url="https://www.renesas.com/document/dst/hs300x-datasheet" download blank/>
+
 </Feature>
 
 <Feature title="Lauterbach TRACE32 debugger" image="file-icon">
