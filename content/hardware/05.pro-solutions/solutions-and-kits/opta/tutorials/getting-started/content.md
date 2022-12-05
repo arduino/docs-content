@@ -47,10 +47,15 @@ When the IDE and the core are installed, let's warm up by uploading a first sket
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta, highlighted in the image below.
 All the STATUS LEDs on the device are defined in the core. 
 Hereafter you can see the correspondence between each of them as identified on the front panel and their definition in the core:
+
 LED_D0 --> STATUS 1
+
 LED_D1 --> STATUS 2
+
 LED_D2 --> STATUS 3
+
 LED_D3 --> STATUS 4
+
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta. 
 When the sketch is uploaded you will see the Opta's STATUS LEDs blinking in sequence. 
@@ -149,18 +154,28 @@ void changeLights() {
 ![The button and LEDs that will light up on the Opta](assets/opta-device-button.png)
 
 Now the more lights should turn on when the button is pressed, the rest turn on in sequence as the button is pressed. This is the sequence the lights should follow:
+
 First press --> LED 1 ON.
+
 Second press --> LEDs 1 and 2 ON.
+
 Third press --> LEDS 1, 2 and 3 ON.
+
 Fourth press --> LEDS 1, 2, 3 and 4 ON. 
+
 Fifth press --> All leds off and back.
+
 
 ### Using Out Relays
 
 Opta has 4 outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10 A at 250 V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta as shown in the image. They correspond to pins D0 to D3 as follows:
+
 OUTPUT 1 --> D0
+
 OUTPUT 2 --> D1
+
 OUTPUT 3 --> D3
+
 OUTPUT 4 --> D4
 
 ![Out relays on the Opta](assets/opta-out-relays.png)
@@ -234,13 +249,21 @@ void loop() {
 ### Using Opta's Inputs
 
 Opta has 8 input pins, that can be programmed to be used as analog or digital. The mapping between the marking on the Opta physical terminals (I1 to I8) and their definition in the core can be found below:
+
 I1 --> A0
+
 I2 --> A1
+
 I3 --> A2
+
 I4 --> A3
+
 I5 --> A4
+
 I6 --> A5
+
 I7 --> A6
+
 I8 --> A7
 
 The 8 inputs pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V). 
