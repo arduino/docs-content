@@ -37,7 +37,7 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 ## Instructions
 
-![Welcome screen](assets/IdeDownloadPage.png)
+![Arduino IDE Download page](assets/IdeDownloadPage.png)
 
 To use the Arduino PLC IDE software, go to the [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide) and click on the download button. Download the following two executables:
 
@@ -69,8 +69,6 @@ Open the Arduino PLC IDE program to see the welcome screen.
 Create a new project by clicking the middle **New project ...** button or **File > New Project**
 
 ![Create new project](assets/newProjectFullScreen.png)
-
-![Create new project](assets/newProject.png)
 
 After creating the project, there are some new windows on the screen, click on the left panel and switch it to the **Resources tab**, inside the window on the tree structure. Now click on your board and it will open the **Boards configuration page**.
 
