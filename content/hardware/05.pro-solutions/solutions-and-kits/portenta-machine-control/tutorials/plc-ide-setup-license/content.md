@@ -21,29 +21,41 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 ## Goals
 
-- Install the Arduino PLC IDE
-- Upload the PLC IDE bootloader to the board.
-- Connect to the device through the IDE
-- Activate the product license
+- Install the Arduino PLC IDE and the Arduino PLC IDE Tools
+- Upload the PLC IDE bootloader to the board
+- Connect the computer to the device through the IDE
+- Activate the device license
 - Test the connection
 
 ### Required Hardware and Software
 
 - Board compatible with the PLC IDE (Portenta Machine Control)
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
-- Unique PLC IDE License key for your device
+- Unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-contro)
 
-***To get the Arduino PLC IDE and the PLC IDE License, please visit https://www.arduino.cc/pro/software-plc-ide, and  the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
+***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/pro/software-plc-ide), and  the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
 
 ## Instructions
 
-### 1. Arduino PLC IDE Installation
+![Welcome screen](assets/IdeDownloadPage.png)
 
-Go to the [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide), click the download button, download the two executables, ones is to get the needed libraries and cores, the other one is the program installer, as usual follow the instructions to install it on your computer. Once the installation is done, run the program, you will see the welcome screen.
+To use the Arduino PLC IDE software, go to the [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide) and click on the download button. Download the following two executables:
+
+  * The Arduino PLC IDE Tools
+  * The Arduino PLC IDE
+
+The first one will install all the required drivers, libraries and cores that you are going to need, while the second one will install the IDE software.
+
+### 1. Arduino PLC IDE Tools
+
+TODO
+### 2. Arduino PLC IDE Installation
+
+TODO
 
 ![Welcome screen](assets/welcome.png)
 
-### 2. Project Setup
+### 3. Project Setup
 
 Create a new project by clicking the middle **New project ...** button or **File > New Project**
 
@@ -55,7 +67,7 @@ After creating the project, there are some new windows on the screen, click on t
 
 ![Board configuration page](assets/projectWelcome.png)
 
-### 3. Download the Runtime
+### 4. Download the Runtime
 
 The board needs to run a program (runtime) in order to interact with the **PLC IDE**. Go to the **"Other"** section below the **"Device Info"** block.
 
@@ -63,7 +75,7 @@ Plug your device and select the Serial Port of your board and click the **Downlo
 
 ***The device will show up two Serial Ports, the default one (generally with lowest number) is the usual Serial Port, the secondary one (usually with highest number) is a virtual port for ModBus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
 
-### 4. Connect to the Device
+### 5. Connect to the Device
 
 After the runtime is up and running, set up the communication by going to **On-line > Set up communication**.
 
@@ -81,7 +93,7 @@ Click ok to save the settings and press the connect button on **On-line > connec
 
 ![Connect to the board](assets/connect.png)
 
-### 5. License Activation
+### 6. License Activation
 
 If the communication is successful the main panel will show the license section to be filled in and a status indicator.
 
@@ -99,20 +111,20 @@ Once the board has been activated:
 - Go to **Tools** > **Port** to select the proper port (the default one shown before in the PLC IDE inside the **Arduino PMC Configuration** > **Other** section)
 - Go to **Tools** > **Serial Monitor** and reset the board. Look at the end of the boot report to find the "Hardware-ID" and store it in a safe place
 
-### 6. Download A Program
+### 7. Download a Program
 
 The default program that is included on a project is a counter, to upload that program to your PLC, it is needed to compile the program and send it to the target device.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 
-### 7. Communication Test
+### 8. Communication Test
 
 Open the **Watch** window by clicking on "View > Tool Windows > Watch", it will attach a new window on the right side called **Watch**, this window shows the real time variables value.
 
 To add a new variable to be watched you can click the **Insert new item** button inside the window, it will open a popup window, on the name label insert "cnt", and on the location "main", click OK and it will add the variable `cnt` from the `main` program on the table or drag and drop the cnt variable from the **Project** tree or from the **Main** program.
 Select the **Watch** window and click on the **Start/Stop watch button** unless if the value of the variable is already getting updated.
 
-## Conclusion
+## Conclusions
 
 In this tutorial we went through how to setup the Portenta Machine Control with the Arduino IDE lab, learning how to connect the board to the program though MODBUS, activating the hardware license of your product, and creating a simple sketch with on variable that went compiled and downloaded inside the board. Finally we learned how to see the  values of the variables in real-time using the **Watch** windows.
 
