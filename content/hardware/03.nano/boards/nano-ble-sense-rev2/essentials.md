@@ -3,8 +3,8 @@
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
-  <EssentialElement title="BLE Sense Rev 2 Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">
-    Learn about the Nano 33 BLE Sense Rev 2 onboard sensors, supported serial & wireless protocols, pins and much more.
+  <EssentialElement title="BLE Sense Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">
+    Learn about the Nano 33 BLE Sense's onboard sensors, supported serial & wireless protocols, pins and much more.
   </EssentialElement>
 
   <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
@@ -23,15 +23,13 @@
 The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
   </EssentialElement>
 
-  <EssentialElement title="Combined Bosch BMI270 and BMM150" type="library" link="https://github.com/arduino-libraries/Arduino_BMI270_BMM150">
-The Combined Bosch BMI270 and BMM150 Library is designed to be used with the BMI270 and BMM150 ICs onboard, together acting as a 9-axis IMU including a 3-axis accelerometer, 3-axis gyroscope and a 3-axis magnetometer. 
+  <EssentialElement title="Arduino_BMI270_BMM150" type="library" link="https://www.arduino.cc/reference/en/arduino-libraries/arduino_bmi270_bmm150">
+The Arduino_BMI270_BMM150 library is designed to be used with the BMI270_BMM150 IMU system, which includes a 3-axis accelerometer, 3-axis gyroscope and a 3-axis magnetometer. 
   </EssentialElement>
 
-<!--
-  <EssentialElement title="Arduino_HS3003" type="library" link="???">
-The Arduino_HTS221 library is designed for reading temperature and humidity values from the HTS221 sensor.
+  <EssentialElement title="Arduino_HS300x" type="library" link="https://www.arduino.cc/en/Reference/ArduinoHS300x">
+The HS300x library is designed for reading temperature and humidity values from the HS300x sensor.
   </EssentialElement>
--->
 
   <EssentialElement title="PDM" type="library" link="https://www.arduino.cc/en/Reference/PDM">
 The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT05 onboard the Arduino Nano 33 BLE Sense.
