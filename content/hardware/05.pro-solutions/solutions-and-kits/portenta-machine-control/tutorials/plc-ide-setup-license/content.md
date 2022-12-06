@@ -50,7 +50,7 @@ The first one will install all the required drivers, libraries and cores that yo
 
 Before installing the Arduino PLC IDE you need to install all the required tools to make it work on your computer. Once you have downloaded the Arduino PLC IDE Tools executable, double-click on it and follow the installation instructions.
 
-Once the installation is finished, all the required drivers, libraries and arduino cores will be installed and ready to be used. Your computer is now ready to install the Arduino PLC IDE.
+Once the installation is finished, all the required drivers, libraries and Arduino cores will be installed and ready to be used. Your computer is now ready to install the Arduino PLC IDE.
 
 ***It is possible that during the installation some windows terminals will be opened and closed by the installation program. Do not worry about it, those windows are required by the program to install all the tools that your computer needs**
 
@@ -114,7 +114,7 @@ After you click the **Activate** button, it will use the license and attach it t
 
 ![Activation succeed](assets/connectedAndActivated.png)
 
-### 7. Getting the Hardware-ID of your device
+### 7. Getting the Hardware-ID of your Device
 
 Once the board has been activated, it is recommended to get the **Hardware-ID** of your device. To do it follow the next steps:
 - Be sure that your device is disconnected from the Arduino PLC IDE.
@@ -134,8 +134,6 @@ Let's download and run the first program on your device. We are going to use the
 Open the **Watch** window by clicking on "View > Tool Windows > Watch", it will attach a new window on the right side called **Watch**. This window shows the real-time variables value.
 
 To add a new variable to be watched you can click the **Insert new item** button inside the window, it will open a popup window, on the name label insert "cnt", and on the location "main", click OK and it will add the variable `cnt` from the `main` program on the table or drag and drop the `cnt` variable from the **Project** tree or from the **Main** program.
-
-TODO: ADD SCREEN SHOT(check folder) or GIF animation
 
 Select the **Watch** window and click on the **Start/Stop watch button** unless the value of the variable is already getting updated.
 
