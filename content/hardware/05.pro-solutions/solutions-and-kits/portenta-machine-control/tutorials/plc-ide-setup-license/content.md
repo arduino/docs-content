@@ -112,20 +112,24 @@ After you click the **Activate** button, it will use the license and attach it t
 
 ![Activation succeed](assets/connectedAndActivated.png)
 
-Once the board has been activated, it is recommended to get the **Hardware-ID** of your device. To do it follow the next steps:
+Once the board has been activated, it is recommended to get the **Hardware-ID** of your device. 
+
+### 7. Getting the Hardware-ID of Your Device
+
+To do it follow the next steps:
 - Be sure that your device is disconnected from the Arduino PLC IDE.
 - Open the **Arduino IDE** software
 - Go to **Tools** > **Board** > **Arduino Mbed OS Portenta Boards** > **Arduino Portenta H7 (M7 Core)**
 - Go to **Tools** > **Port** to select the proper port (the default one shown before in the PLC IDE inside the **Arduino PMC Configuration** > **Other** section)
 - Go to **Tools** > **Serial Monitor** and reset the board. Look at the end of the boot report to find the "Hardware-ID" and store it in a safe place.
 
-### 7. Download a Program
+### 8. Download a Program
 
 Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter. To upload that program to your PLC, it is needed to compile the program and send it to the target device.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 
-### 8. Communication Test
+### 9. Communication Test
 
 Open the **Watch** window by clicking on "View > Tool Windows > Watch", it will attach a new window on the right side called **Watch**. This window shows the real-time variables value.
 
