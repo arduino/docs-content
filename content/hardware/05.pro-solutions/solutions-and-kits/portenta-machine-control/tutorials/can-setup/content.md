@@ -7,6 +7,8 @@ tags:
 author: 'Pablo Marquínez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
+software:
+  - plc-ide
 ---
 
 ## Overview
@@ -43,12 +45,22 @@ CAN has built-in error detection so the application can handle its own errors in
 
 ## Set Up
 
+### Software
+
 In order to configure the Portenta Machine Control you will need to connect to the device through the Arduino PLC IDE:
 
 1. Connect the device to the computer through USB
 2. Click "Connects to the target" button on the PLC IDE
 
 ***The device needs to be activated with a license, check the steps on the [PLC IDE Set-up tutorial](./plc-ide-setup-license)***
+
+### Hardware
+
+In order to use the CAN communication, you will need to:
+1. Supply the board with 24V DC, through the 24VIn and GND
+2. Connecting the CANH, CANL, and GND with a CAN Device
+
+![Header pinout for CAN communication](assets/PMC-CAN-pins.svg)
 
 ## Enable The CAN Communication
 

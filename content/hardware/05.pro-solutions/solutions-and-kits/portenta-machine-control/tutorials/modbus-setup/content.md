@@ -43,11 +43,9 @@ In order to configure the Portenta Machine Control you will need to connect to t
 
 Inside the Arduino PLC IDE navigate to the left side panel and click on the "Resources" tab.
 
-![Arduino PLC IDE Resources panel, -> RS485 settings](assets/PLC-IDE-ModBus.png)
-
 To configure the ModBus communication click on the "RS485 Serialport" label, it will open a new window on the middle to customize:
 
-![ModBus configuration window](assets/ModBus-setup.png)
+![Arduino PLC IDE Resources panel, -> RS485 settings](assets/PLC-IDE-ModBus.png)
 
 Then you can attach some functions to the Generic Modbus item, they will appear also in the **Catalog Tile Window**, you need to select first the **Generic Modbus_01**
 
