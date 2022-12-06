@@ -36,7 +36,7 @@ The microcontroller of the board has a circuit inside called an *analog-to-digit
 
 ### Code
 
-In the program below, the very first thing that you do will in the setup function is to begin serial communications, at 9600 bits of data per second, between your board and your computer with the line:
+In the program below, the very first thing you'll do will be in the setup function, to begin serial communication at 9600 bits of data per second, between your board and your computer with the line:
 
 `Serial.begin(9600);`
 
@@ -48,7 +48,7 @@ To change the values from 0-1023 to a range that corresponds to the voltage the 
 
 `float voltage= sensorValue * (5.0 / 1023.0);`
 
-Finally, you need to print this information to your serial window as. You can do this with the command [Serial.println](https://www.arduino.cc/en/Serial/Println)()  in your last line of code:
+Finally, you need to print this information to your serial monitor. You can do this with the command [Serial.println](https://www.arduino.cc/en/Serial/Println)()  in your last line of code:
 
 `Serial.println(voltage)`
 
@@ -62,4 +62,4 @@ You can find more basic tutorials in the [built-in examples](/built-in-examples)
 
 You can also explore the [language reference](https://www.arduino.cc/reference/en/), a detailed collection of the Arduino programming language.
 
-*Last revision 2015/07/29 by SM*
+*Last revision Nov. 20, 2022 by Killaship*

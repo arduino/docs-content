@@ -289,7 +289,7 @@ We’re going to use [Google Colab](https://colab.research.google.com/) to train
 ![Arduino gesture recognition training colab.](assets/colab.png)
 
 
-- Set up Python environment
+- Set up Python® environment
 - Upload the punch.csv and flex.csv data 
 - Parse and prepare the data
 - Build and train the model

@@ -1,4 +1,4 @@
 ---
 title: Oplà IoT Kit
-certifications: [CE, FCC, IC, RCM, UKCA, WEEE]
+certifications: [CE, FCC, IC, RCM, UKCA, WEEE, RoHS]
 ---
