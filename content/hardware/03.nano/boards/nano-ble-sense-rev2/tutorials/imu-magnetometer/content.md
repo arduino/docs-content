@@ -9,7 +9,7 @@ tags:
 author: 'Nefeli Alushi'
 libraries: 
   - name: Arduino_BMI270_BMM150
-   url: https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/
+    url: https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/
 hardware:
   - hardware/03.nano/boards/nano-33-ble-sense-rev2
 software:

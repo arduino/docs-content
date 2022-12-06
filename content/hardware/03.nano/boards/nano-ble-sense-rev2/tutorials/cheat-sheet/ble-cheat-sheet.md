@@ -147,7 +147,7 @@ To avoid such risk with existing projects, where you should be able to pull out 
 
 ### BMI270 and BMM150
 
-The Arduino Nano BLE Sense Rev2 Intertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
+The Arduino Nano BLE Sense Rev2 Inertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
 
 ### BMI270 and BMM150 Library
 
