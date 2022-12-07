@@ -1,6 +1,6 @@
 ---
 title: Arduino IoT Cloud APIs
-description: A summary of the three API's available in the Arduino IoT Cloud
+description: A summary of the three APIs available in the Arduino IoT Cloud
 author: Karl Söderby
 tags: IoT Cloud, API, JavaScript
 ---
