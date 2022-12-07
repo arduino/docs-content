@@ -100,6 +100,9 @@ As all Nano form factor boards, Nano 33 BLE Sense Rev2 does not have a battery c
 | PLP    | Power consumption in low power mode |     | TBC |     | mW   |
 | PMAX   | Maximum Power Consumption           |     | TBC |     | mW   |
 
+
+<div style="page-break-after: always;"> </div>
+
 ## Functional Overview
 
 ### Board Topology
