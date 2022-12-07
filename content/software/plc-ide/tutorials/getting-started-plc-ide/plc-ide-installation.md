@@ -5,6 +5,8 @@ description: 'A quick guide on how to install the Arduino PLC IDE on your Window
 tags:
  - Installation
 author: 'Pablo Marquínez'
+software:
+  - plc-ide
 ---
 
 ## Downloading and Installing the Arduino PLC IDE 1.0
