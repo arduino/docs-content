@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-    "@arduino/docs-arduino-cc": "github:arduino/docs.arduino.cc#marqdevx/plc-ide-fix",
+    "@arduino/docs-arduino-cc": "git+ssh://git@github.com/arduino/docs.arduino.cc.git#marqdevx/plc-ide-fix",
     "gatsby": "^4.9.2"
   },
   "volta": {
