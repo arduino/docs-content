@@ -13,6 +13,8 @@ In the graphic below, the green lines represent a regular time period. This dura
 
 ![](./pwm.gif)
 
+PWM is only available on digital output pins 3, 5, 6, 9, 10 and 11. The other digital pins cannot be used for PWM.
+
 Once you get this example running, grab your Arduino and shake it back and forth. What you are doing here is essentially mapping time across the space. To our eyes, the movement blurs each LED blink into a line. As the LED fades in and out, those little lines will grow and shrink in length. Now you are seeing the pulse width.
 
 *Written by Timothy Hirzel*
