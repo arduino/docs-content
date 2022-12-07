@@ -470,7 +470,14 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
-English: 
+Note: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+* Reorient or relocate the receiving antenna.
+* Increase the separation between the equipment and receiver.
+* Connect the equipment into an outlet on a circuit different from that to which the 
+receiver is connected.
+* Consult the dealer or an experienced radio/TV technician for help
+
+English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
@@ -492,20 +499,33 @@ This equipment should be installed and operated with minimum distance 20 cm betw
 French: 
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
+Radio apparatus containing digital circuitry which can function separately from the operation of a transmitter or an associated transmitter, shall comply with ICES-003. In such cases, the labelling requirements of the applicable RSS apply, rather than the labelling requirements in ICES-003. This Class B digital apparatus complies with Canadian ICES-003.
+
+Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canada.
+
+This radio transmitter [IC:26792-ABX00049] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device.
+
+| Antenna Manufacturer |                                         |
+| ---------------------| --------------------------------------- |
+| Antenna Model        |                                         |
+| Antenna type         | External omnidirectional dipole antenna |
+| Antenna gain:        | 3.6dBi                                  |
+
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
-| Frequency bands      | Maximum output power (ERP) |
-| -------------------- | -------------------------- |
-| 2.4 GHz, 40 channels | +6dBm                      |
-
+| Frequency bands          | Maximum output power (EIRP) |
+| ------------------------ | --------------------------- |
+| 2402-2480 MHz(EDR)       | 12.18 dBm                   |
+| 2402-2480 MHz(BLE)       | 7.82 dBm                    |
+| 2412-2472 MHz(2.4G Wifi) | 15.99 dBm                   |
 
 ## Company Information
 
 | Company name    | Arduino SRL                                   |
 | --------------- | --------------------------------------------- |
-| Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy)  |
 
 ## Reference Documentation
 
@@ -521,6 +541,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 24/03/2022 | Release     |
+| **Date**   | **Changes**                |
+| ---------- | -------------------------- |
+| 30/11/2022 | Additional information     |
+| 24/03/2022 | Release                    |

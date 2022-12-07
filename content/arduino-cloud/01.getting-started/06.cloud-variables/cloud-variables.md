@@ -491,6 +491,24 @@ void onTvChange() {
 
 ```
 
+## Alexa Variables
+
+The integration between Alexa & Arduino IoT Cloud supports a limited amount of variables, see the list below:
+
+- [Colored Light](#coloredlight) - `bool` and `float` (complex type).
+- [Dimmed Light](#dimmedlight) - `bool` and `float` (complex type).
+- [Television](#television) - `bool` and `int` (complex type)
+- [Contact Sensor](#specialized-types) - `bool`
+- [Light](#specialized-types) - `bool`
+- [Motion Sensor](#specialized-types) - `bool`
+- [Smart Plug](#specialized-types) - `bool`
+- [Switch](#specialized-types) - `bool`
+- [Temperature Sensor](#specialized-types) - `float`
+
+Other variables used will not appear in the Amazon Alexa app.
+
+***To synchronize your Arduino Cloud with the Amazon Alexa service, you can check out the [Arduino Cloud Alexa Tutorial](/arduino-cloud/tutorials/alexa-mkr-rgb-shield).***
+
 ## Summary
 
 In this article, we have covered how to use variables in the Arduino IoT Cloud, and what variables are available.

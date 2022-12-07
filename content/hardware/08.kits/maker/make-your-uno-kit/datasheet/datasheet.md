@@ -238,9 +238,6 @@ Sample sketches for the **UNO** can be found either in the “Examples” menu i
 #### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
-#### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after a power-up.
-
 ### Connector Pinouts
 ![Make Your UNO main board pinout](assets/pinout.png)
 

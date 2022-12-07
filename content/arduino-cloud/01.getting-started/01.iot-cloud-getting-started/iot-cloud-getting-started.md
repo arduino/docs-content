@@ -59,8 +59,11 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+- [Opta](https://docs.arduino.cc/hardware/opta).\* 
 
+\* The Opta is scheduled to be released soon, along with documentation how to use it. Read more at the [Opta communications page](https://store.arduino.cc/pages/opta).
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
@@ -98,9 +101,13 @@ The Arduino IoT Cloud supports a wide range of third party boards based on the E
 
 ### Ethernet
 
-The Arduino IoT Cloud supports connection via Ethernet on a number of devices.
+The Arduino IoT Cloud supports connection via Ethernet on a number of devices. The options to connect via Ethernet are the following:
+- Connect with the [Portenta H7](https://store.arduino.cc/products/portenta-h7) in combination with an Ethernet compatible carrier/shield (see below).
+- Connect with the [Opta](https://docs.arduino.cc/hardware/opta).\* 
 
-To connect via Ethernet, you need a [Portenta H7](https://store.arduino.cc/products/portenta-h7) board, in combination with one of the following shields/carriers:
+\* The Opta is scheduled to be released soon, along with documentation how to use it. Read more at the [Opta communications page](https://store.arduino.cc/pages/opta).
+
+To connect with the **Portenta H7** board, you will need one of the following shields/carriers:
 - [Portenta Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
 - [Portenta Machine Control](https://store.arduino.cc/portenta-machine-control)
 
