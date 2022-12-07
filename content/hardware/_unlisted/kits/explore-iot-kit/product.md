@@ -1,4 +1,4 @@
 ---
 title: Explore IoT Kit
-certifications: [CE, UKCA, FCC, IC, RCM, UKCA, RoHS]
+certifications: [CE, UKCA, FCC, IC, RCM, UKCA, RoHS, WEEE]
 ---
