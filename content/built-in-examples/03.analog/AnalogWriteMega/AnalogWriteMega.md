@@ -37,7 +37,7 @@ Connect the longer, positive legs (anodes) of 12 LEDs to digital pins 2-13 throu
 
 ### Code
 
-In the `setup()` function of the code below, a [`for()`](https://www.arduino.cc/en/Reference/For) loop is used to assign digital pins 2-13 of the Mega as outputs.
+In the `setup()` function of the code below, a [`for()`](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) loop is used to assign digital pins 2-13 of the Mega as outputs.
 
 Next, in the `loop()` function of the program below, a trio of nested `for()` loops are used.
 

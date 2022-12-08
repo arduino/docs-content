@@ -3,11 +3,11 @@ title: 'Getting Started with the LilyPad Arduino USB'
 description: 'The first steps to setting up the LilyPad Arduino USB'
 ---
 
-Like the other LilyPad Arduino boards, the [LilyPad Arduino USB](/en/Main/ArduinoBoardLilyPadUSB) is designed to be sewn into clothing and other fabric with conductive thread. The LilyPad Arduino can be powered either from the USB connection or a 3.7V LiPo battery. **The board runs at 3.3V; applying more voltage (e.g. 5V) to its pins may damage it.** If you connect a USB cable from a computer and a LiPo battery to the LilyPad, it will charge the battery. The switch on the LilyPad allows you to turn the board on or off (use the "CHG" position to turn the board off).
+Like the other LilyPad Arduino boards, the [LilyPad Arduino USB](https://arduino.cc/en/Main/ArduinoBoardLilyPadUSB) is designed to be sewn into clothing and other fabric with conductive thread. The LilyPad Arduino can be powered either from the USB connection or a 3.7V LiPo battery. **The board runs at 3.3V; applying more voltage (e.g. 5V) to its pins may damage it.** If you connect a USB cable from a computer and a LiPo battery to the LilyPad, it will charge the battery. The switch on the LilyPad allows you to turn the board on or off (use the "CHG" position to turn the board off).
 
 Similar to the Arduino Leonardo and Micro, the LilyPad Arduino uses only a single microcontroller (the Atmel ATmega32U4) to both run your sketches and communicate over USB with the computer. This means that you only need a USB cable to program the LilyPad Arduino USB (as opposed to an FTDI USB-serial adaptor as with other LilyPads) but it also means that there are some differences in the way that the USB communication works.
 
-The LilyPad Arduino USB is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The LilyPad Arduino USB is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your LilyPad Arduino USB on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your LilyPad Arduino USB on the Arduino Desktop IDE
 
-If you want to program your LilyPad Arduino USB while offline you need to install the [Arduino Desktop IDE](/en/Main/Software).
+If you want to program your LilyPad Arduino USB while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software).
 
 #### Connect the board
 
@@ -57,7 +57,7 @@ Now that you have set up and programmed your LilyPad Arduino USB board, you may 
 
 The LilyPad Arduino USB uses a single processor (the ATmega32U4) to both run your sketches and communicate over USB with the computer. This provides more flexibility - for example, the board can emulate a keyboard or mouse - but it also means that the USB connection resets whenever the processor does (e.g. when you upload a new sketch).
 
-For details on these differences, see the [guide to the Arduino Leonardo and Micro](/en/Guide/ArduinoLeonardoMicro). In addition, see the following section for a few differences between the LilyPad USB and the Leonardo or Micro.
+For details on these differences, see the [guide to the Arduino Leonardo and Micro](https://arduino.cc/en/Guide/ArduinoLeonardoMicro). In addition, see the following section for a few differences between the LilyPad USB and the Leonardo or Micro.
 
 #### Differences from the Leonardo and Micro
 
@@ -71,7 +71,7 @@ Sometimes, however, this automatic reset fails. This can happen, for example, if
 
 #### Additional Resources
 
-[LilyPad Arduino USB product page](/en/Main/ArduinoBoardLilyPadUSB): details about the board's hardware and software
+[LilyPad Arduino USB product page](https://arduino.cc/en/Main/ArduinoBoardLilyPadUSB): details about the board's hardware and software
 [LilyPad Category on SparkFun](https://www.sparkfun.com/categories/135): sensors, actuators, and other boards for use with the LilyPad Arduino
 
 The text of the Arduino getting started guide is licensed under a

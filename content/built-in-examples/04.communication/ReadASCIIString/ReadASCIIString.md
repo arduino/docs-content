@@ -43,7 +43,7 @@ RGB LEDs with a common anode share a common power pin. Instead of turning a pin 
 
 ### Code
 
-You'll first set up some [global variables](/referencehttps://www.arduino.cc/en/language/variables/variable-scope-qualifiers/scope/) for the pins your LED will connect to. This will make it easier to differentiate which one is red, green, and blue in the main part of your program:
+You'll first set up some [global variables](/reference/en/language/variables/variable-scope-qualifiers/scope/) for the pins your LED will connect to. This will make it easier to differentiate which one is red, green, and blue in the main part of your program:
 
 ```arduino
 const int redPin = 3;
@@ -65,7 +65,7 @@ pinMode(greenPin, OUTPUT);
 pinMode(bluePin, OUTPUT);
 ```
 
-In the [loop](https://www.arduino.cc/en/Reference/Loop)(), check to see if there is any data in the serial buffer. By making this a [while()](https://www.arduino.cc/en/Reference/While) statement, it will run as long as there is information waiting to be read :
+In the [loop](https://www.arduino.cc/en/Reference/Loop)(), check to see if there is any data in the serial buffer. By making this a [while()](https://www.arduino.cc/reference/en/language/structure/control-structure/while/) statement, it will run as long as there is information waiting to be read :
 
 ```arduino
 while (Serial.available() > 0) {
@@ -109,7 +109,7 @@ Serial.print(green, HEX);
 Serial.println(blue, HEX);
 ```
 
-Finally, close up your brackets from the [if](https://www.arduino.cc/en/Reference/If) statement, while statement, and main loop :
+Finally, close up your brackets from the [if](https://www.arduino.cc/reference/en/language/structure/control-structure/if/) statement, while statement, and main loop :
 
 ```arduino
 }

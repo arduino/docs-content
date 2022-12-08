@@ -47,7 +47,7 @@ The Arduino IDE does not yet support Python. Instead, we can use [OpenMV](https:
 
 Further down this article, you can find a lot of useful code examples that will help you to get started. 
 
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/Arduino).***
+***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
 
 ## Compatible Boards
 

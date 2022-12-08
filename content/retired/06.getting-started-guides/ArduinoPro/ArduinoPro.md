@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Pro'
 
 The [Arduino Pro](https://store.arduino.cc/arduino-pro) is intended for advanced users who require flexibility and low-cost. It comes with the minimum of components (no on-board USB or pin headers) to keep the cost down. It's a good choice for a board you want to leave embedded in a project. Please note that there are multiple variants of the board which operate at different voltages and clock speeds. You need to know if you have the 3.3V / 8 MHz version or the 5V / 16 MHz version.
 
-The Arduino Pro is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Pro is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Pro on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Pro on the Arduino Desktop IDE
 
-If you want to program your Arduino Pro while offline you need to install the [Arduino Desktop IDE](/en/Main/Software)
+If you want to program your Arduino Pro while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software)
 
 The board comes without built-in USB circuitry, so an off-board USB-to-TTL serial converter must be used to upload sketches. For the 3.3V Arduino Pro boards, this can be a [FTDI TTL-232R-3V3 USB - TTL Level Serial Converter Cable](http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3.htm) or the SparkFun[FTDI Basic Breakout Board (3.3V)](http://www.sparkfun.com/commerce/product_info.php?products_id=8772). For the 5V Arduino Pro boards, use a [TTL-232R USB - TTL Level Serial Converter](http://www.ftdichip.com/Products/EvaluationKits/TTL-232R.htm) or the SparkFun[FTDI Basic Breakout Board (5V)](http://www.sparkfun.com/commerce/product_info.php?products_id=9115). (You can probably also get away with using a 5V USB-to-serial converter with a 3.3V board and vice-versa, but it's not recommended.)
 

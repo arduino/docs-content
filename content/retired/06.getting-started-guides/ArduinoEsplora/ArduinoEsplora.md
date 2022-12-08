@@ -9,9 +9,9 @@ The Arduino Esplora is a device that has a tiny computer called a microcontrolle
 
 With the Esplora, you can write software that takes information from the inputs and use that to control the outputs on the board, or control your computer, just like a mouse or keyboard would.
 
-The Esplora is different from all previous Arduino boards, in that it has inputs and outputs already connected to the board. This means that you don't need to know how to connect electronic sensors or actuators to use it as a result. As a result, programming for it is a bit different than for other Arduino boards. It has its own library that makes it easier to read from the input sensors and write to the output actuators. You'll see how to use the library in this guide and in the [Esplora library](/en/Reference/EsploraLibrary) reference pages as well.
+The Esplora is different from all previous Arduino boards, in that it has inputs and outputs already connected to the board. This means that you don't need to know how to connect electronic sensors or actuators to use it as a result. As a result, programming for it is a bit different than for other Arduino boards. It has its own library that makes it easier to read from the input sensors and write to the output actuators. You'll see how to use the library in this guide and in the [Esplora library](https://arduino.cc/en/Reference/EsploraLibrary) reference pages as well.
 
-The Arduino Esplora is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Esplora is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Esplora on the Arduino Web IDE
 
@@ -27,7 +27,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Esplora on the Arduino Desktop IDE
 
-If you want to program your Arduino Esplora while offline you need to install the [Arduino Desktop IDE](/en/Main/Software).
+If you want to program your Arduino Esplora while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software).
 
 #### Connect the board
 
@@ -87,13 +87,13 @@ A few seconds after the upload finishes, you should see the yellow RGB LED on th
 
 ### Tutorials
 
-Now that you have set up and programmed your Esplora board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-esplora) tutorial platform, or learn how to use the specific features of the Esplora with the Esplora library examples. You should look at the [Esplora library](/en/Reference/EsploraLibrary) reference pages for using various sensors and actuators with the Esplora library. You can see more examples on the [examples](/en/Tutorial/HomePage) page.
+Now that you have set up and programmed your Esplora board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-esplora) tutorial platform, or learn how to use the specific features of the Esplora with the Esplora library examples. You should look at the [Esplora library](https://arduino.cc/en/Reference/EsploraLibrary) reference pages for using various sensors and actuators with the Esplora library. You can see more examples on the [examples](https://arduino.cc/en/Tutorial/HomePage) page.
 
 ### Please Read...
 
 #### Esplora library
 
-The Esplora has input sensors, which you get information from using **read** commands, and output actuators, which you control using **write** commands using the [specific library](/en/Reference/EsploraLibrary). The RGB LED and the buzzer are the two main output actuators. The joystick, linear potentiometer slider, microphone, accelerometer, temperature sensor, and pushbuttons are the input sensors. You can also add your own inputs and outputs using the TinkerKit input and output connectors.
+The Esplora has input sensors, which you get information from using **read** commands, and output actuators, which you control using **write** commands using the [specific library](https://arduino.cc/en/Reference/EsploraLibrary). The RGB LED and the buzzer are the two main output actuators. The joystick, linear potentiometer slider, microphone, accelerometer, temperature sensor, and pushbuttons are the input sensors. You can also add your own inputs and outputs using the TinkerKit input and output connectors.
 
 #### Drive the onboard RGB LED
 
@@ -210,9 +210,9 @@ void loop() {
 
 There are a number of example sketches in the **File -> Examples -> Esplora** that show you more of what you can do with your Esplora. They're divided into examples for programming Beginners or Experts. If you're just getting started in programming, or you want to see how to use one input or output at a time, start with the Beginners examples. If you're an experienced programmer, then the Advanced examples will give you some more ideas.
 
-If you've never programmed before at all, there are more examples included with the IDE to show you some of the basic programming structures. Note that these examples will need to be modified a bit to work with the Esplora, however. You'll need to include the Esplora library by choosing Import Library... -> Esplora from the Tools menu, and you'll need to change the general Arduino inputs and outputs for the Esplora inputs and outputs. For more on this, see the [Guide to using Esplora with the Arduino Examples](/en/Guide/ArduinoEsploraExamples)
+If you've never programmed before at all, there are more examples included with the IDE to show you some of the basic programming structures. Note that these examples will need to be modified a bit to work with the Esplora, however. You'll need to include the Esplora library by choosing Import Library... -> Esplora from the Tools menu, and you'll need to change the general Arduino inputs and outputs for the Esplora inputs and outputs. For more on this, see the [Guide to using Esplora with the Arduino Examples](https://arduino.cc/en/Guide/ArduinoEsploraExamples)
 
-If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

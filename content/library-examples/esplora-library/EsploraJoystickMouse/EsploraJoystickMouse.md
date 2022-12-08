@@ -39,7 +39,7 @@ Only your Arduino Esplora is needed for this example.  Connect the Esplora to yo
 
 ## Code
 
-To send data to your computer, you need to open a serial connection. Use [Serial.begin](/en/Serial/Begin)() to open a serial port at 9600 baud on the Esplora.
+To send data to your computer, you need to open a serial connection. Use [Serial.begin](https://arduino.cc/en/Serial/Begin)() to open a serial port at 9600 baud on the Esplora.
 
 To start communication as a mouse, call [Mouse.begin](https://www.arduino.cc/en/Reference/MouseBegin)(). This makes the Esplora appear as a mouse to your computer.
 
@@ -47,10 +47,10 @@ To read the position of the joystick, call [Esplora.readJoystickX](https://www.a
 
 The joystick also acts as a switch when pressed. To read the button, call [Esplora.readJoystickSwitch](https://www.arduino.cc/en/Reference/EsploraReadJoystickSwitch)(). This will give you a value of 1 when pressed, and 0 when it is not.
 
-To send the values to the Serial Monitor, you call [Serial.print](/en/Serial/Print)(). When the Esplora is connected, and the Serial Monitor is open, you should start to see values reported like this :
+To send the values to the Serial Monitor, you call [Serial.print](https://arduino.cc/en/Serial/Print)(). When the Esplora is connected, and the Serial Monitor is open, you should start to see values reported like this :
 `Joystick X: 0   Joystick Y: 0   Button: 0`
 
-To get numbers appropriate for moving the mouse, use the [map](https://www.arduino.cc/en/Reference/Map)() function to scale the joystick values, saving these numbers into new variables.
+To get numbers appropriate for moving the mouse, use the [map](https://www.arduino.cc/reference/en/language/functions/math/map/)() function to scale the joystick values, saving these numbers into new variables.
 
 To actually move the cursor, call [Mouse.move](https://www.arduino.cc/en/Reference/MouseMove)(). It takes three arguments, the numbers represent the amount of movement on the x-axis, the y-axis, and the mouse wheel. This example only moves the mouse around on the x and y axes, use the new mapped numbers to move the cursor.
 

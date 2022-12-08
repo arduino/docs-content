@@ -123,7 +123,7 @@ The Yún also has USB host capabilities through Linino OS. You can connect perip
 
 ### Programming
 
-The Yún can be programmed with the Arduino software ([download](https://www.arduino.cc/software "Download Arduino Yun software")). Select "Arduino Yún from the Tools > Board menu (according to the microcontroller on your board). 
+The Yún can be programmed with the Arduino software ([download](https://www.arduino.cc/en/software "Download Arduino Yun software")). Select "Arduino Yún from the Tools > Board menu (according to the microcontroller on your board). 
 
 The ATmega32U4 on the Arduino Yún comes preburned with a bootloader that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the AVR109 protocol.
 

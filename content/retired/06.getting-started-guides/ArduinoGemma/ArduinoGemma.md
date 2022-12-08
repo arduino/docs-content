@@ -5,13 +5,13 @@ description: 'THe first steps to setting up your Arduino Gemma'
 
 ## Overview
 
-Like the LilyPad Arduino boards, the [Arduino Gemma](/en/Main/ArduinoGemma) is designed to be sewn into clothing and other fabric with conductive thread. The Arduino Gemma can be powered either from the USB connection or a 3.7V Li-Ion battery. **The board runs at 3.3V; applying more voltage (e.g. 5V) to its pins may damage it**.
+Like the LilyPad Arduino boards, the [Arduino Gemma](https://arduino.cc/en/Main/ArduinoGemma) is designed to be sewn into clothing and other fabric with conductive thread. The Arduino Gemma can be powered either from the USB connection or a 3.7V Li-Ion battery. **The board runs at 3.3V; applying more voltage (e.g. 5V) to its pins may damage it**.
 
-The Arduino Gemma is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Gemma is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Gemma on the Arduino Desktop IDE
 
-If you want to program your Arduino Gemma you need to install the [Arduino Desktop IDE](/en/Main/Software). This board does not work on [Arduino Web Editor](https://create.arduino.cc/editor).
+If you want to program your Arduino Gemma you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software). This board does not work on [Arduino Web Editor](https://create.arduino.cc/editor).
 
 #### Open your first sketch
 
@@ -39,7 +39,7 @@ Now that you have set up and programmed your Arduino Gemma board, you may find i
 
 ### Please Read...
 
-Like the LilyPad Arduino boards, the [Arduino Gemma](/en/Main/ArduinoGemma) is designed to be sewn into clothing and other fabric with conductive thread. The Arduino Gemma can be powered either from the USB connection or a 3.7V Li-Ion battery. **The board runs at 3.3V; applying more voltage (e.g. 5V) to its pins may damage it**.
+Like the LilyPad Arduino boards, the [Arduino Gemma](https://arduino.cc/en/Main/ArduinoGemma) is designed to be sewn into clothing and other fabric with conductive thread. The Arduino Gemma can be powered either from the USB connection or a 3.7V Li-Ion battery. **The board runs at 3.3V; applying more voltage (e.g. 5V) to its pins may damage it**.
 
 Arduino Gemma uses only a single microcontroller (the Atmel ATtiny85) to run your sketches, but it cannot communicate over USB with the computer. This means that you only need a USB cable to program the Arduino Gemma, but you cannot use the Serial Monitor. This is the reason why you don't have to select a Serial port from the Serial port menu.
 
@@ -49,7 +49,7 @@ The Arduino Gemma doesn't allow you to use the serial monitor on the Arduino IDE
 
 #### Additional Resources
 
-- [Arduino Gemma product page](/en/Main/ArduinoGemma): details about the board's hardware and software
+- [Arduino Gemma product page](https://arduino.cc/en/Main/ArduinoGemma): details about the board's hardware and software
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

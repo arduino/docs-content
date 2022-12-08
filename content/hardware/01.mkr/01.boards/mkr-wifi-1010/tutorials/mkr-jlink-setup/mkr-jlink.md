@@ -10,7 +10,7 @@ This tutorial will show you how to debug an Arduino sketch using an Arduino MKR 
 
 ### Required Hardware and Software
 -   [Arduino IDE 2.0](https://www.arduino.cc/en/software)
--   Segger J-link device ([EDU](https://store.arduino.cc/j-link-edu) or [BASE](https://store.arduino.cc/j-link-base))
+-   Segger J-link device ([EDU](https://store.arduino.cc/products/j-link-edu) or [BASE](https://store.arduino.cc/products/j-link-base-compact))
 -   [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (other boards from the MKR family works as well).
 -   Soldering equipment
 -   [MKR Proto shield](https://store.arduino.cc/mkr-proto-shield)
