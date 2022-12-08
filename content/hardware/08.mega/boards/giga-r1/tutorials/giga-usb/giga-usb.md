@@ -1,9 +1,21 @@
 ---
 title: Guide to Arduino GIGA USB Features
-description: 'Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and how to send MIDI signals.'
+description: 'Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and connecting a keyboard via the USB-A connector.'
 author: Karl Söderby
-tags: [USB HID, USBHost, Mass Storage]
+tags: [USB, USB HID, USBHost, Mass Storage, Keyboard, Mouse]
 ---
+
+The GIGA R1 comes with a great range of supported USB features, including **USB HID, USB Host** and **Mass Storage**. It also comes with a USB-A connector that allow you to plug devices directly to your GIGA R1 board.
+
+It can easily be configured to act as a mouse or keyboard (HID device) or as a USB Host (connect a keyboard, USB stick). This makes it possible to create powerful interfaces, and build complex interactive projects.
+
+In this guide, we will take a look at the available features, how to enable them in a sketch and what circuit (if any) is required.
+
+***To get inspired on what you can do with the USB features, please see [use cases](#use-cases) at the end of this article.***
+
+## Hardware Overview
+
+
 
 ## USB Mass Storage
 
@@ -284,6 +296,33 @@ void loop() {
 }
 ```
 
+## USB Host Keyboard
+
+It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry. This library is included in the core, so it does not require any additional installation.
+
+```arduino
+#include "HIDHost.h"
+
+Keyboard keyb; //create object
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  while (!Serial);
+  pinMode(PA_15, OUTPUT); //enable the USB-A connector
+  keyb.begin(); //init the library
+}
+
+
+void loop() {
+  if (keyb.available()) {
+    Serial.println(keyb.read()); //print any incoming character
+  }
+}
+```
+
+***Please note that he `PA15` pin must be configured as an `OUTPUT`.***
+
 ## USB HID
 
 It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA core. 
@@ -377,8 +416,6 @@ delay(1000);
 Mouse.release(); 
 ```
 
-## USB Host
-
 ## GIGA R1 as a USB Stick
 
 It is possible to expose the external flash (16MB) on the GIGA R1 as a USB device. This makes it possible to store smaller files directly on the GIGA R1, which can be accessed through the sketch.
@@ -439,3 +476,6 @@ void loop() {
   delay(1000);
 }
 ```
+
+## Use Cases
+
