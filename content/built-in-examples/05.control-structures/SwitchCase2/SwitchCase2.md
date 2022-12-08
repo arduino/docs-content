@@ -19,6 +19,7 @@ This tutorial shows you how to use switch to turn on one of several different LE
 - Arduino Board
 
 - 5 LEDs
+
 - 5 220 ohm resistors
 
 - hook-up wires

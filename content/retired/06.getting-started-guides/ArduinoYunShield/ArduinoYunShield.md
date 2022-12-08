@@ -167,11 +167,11 @@ When interfacing with the OpenWRT system, you have to use a command line, either
 
 Due to continuous improvements and suggestions coming from both the OpenWrt community and the Arduino community, **version of OpenWRT installed on your Yún Shield may be out of date**. Please check the [upgrade tutorial](http://arduino.cc/en/Tutorial/YunSysupgrade) and be sure you're running the latest version available.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with OpenWRT, with which you can write applications or scripts. For more on Python, visit the [Python 2.7 documentation pages](http://docs.python.org/2/).
+An installation of Python® 2.7 is included with OpenWRT, with which you can write applications or scripts. For more on Python®, visit the [Python® 2.7 documentation pages](http://docs.python.org/2/).
 
-If you're getting started with Python for the first time, there are a number of excellent resources on-line. ["Learn Python the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
+If you're getting started with Python® for the first time, there are a number of excellent resources on-line. ["Learn Python® the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
 
 #### Web services
 

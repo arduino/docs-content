@@ -17,7 +17,7 @@ software:
 
 ## Introduction 
 
-Using the Portenta X8 with the Portenta Max Carrier enables a large suite of peripherals and features. With the Portenta X8 it is possible to use Linux containers and python scripts, it is also possible to use the M4 core on the board to interface with the Portenta Max Carrier. In this tutorial we will focus on the peripherals and features that are available to us.
+Using the Portenta X8 with the Portenta Max Carrier enables a large suite of peripherals and features. With the Portenta X8 it is possible to use Linux containers and Python® scripts, it is also possible to use the M4 core on the board to interface with the Portenta Max Carrier. In this tutorial we will focus on the peripherals and features that are available to us.
 
 ## Goals
 
@@ -85,7 +85,7 @@ The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out ta
 
 ![LoRa® and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
 
-If you want to use this feature with python scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
+If you want to use this feature with Python® scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
 
 ### LoRa®
 
@@ -116,8 +116,7 @@ The Portenta Max Carrier and the Portenta X8 are connected with High Density con
 
 If you wish to use the Portenta X8 and Max Carrier with the Arduino IDE, please follow our [Uploading sketches to Arduino Portenta X8 tutorial](/tutorials/portenta-x8/uploading-sketches-m4). Also, make sure that you have the latest version of the Portenta Core installed. Go to **Tools > Boards > board manager...** and search for **Arduino Mbed OS Portenta boards**. When this is installed and your Portenta X8 board is connected to the computer, the board should be assigned a port in the Arduino IDE.
 
-If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, python scripts and Linux containers, Please take a look at our [Portenta X8 Getting started tutorial](/tutorials/portenta-x8/out-of-the-box). You may also find our tutorial on how to [manage dockers on the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container) useful.
-
+If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Python® scripts and Linux containers, Please take a look at our [Portenta X8 Getting started tutorial](./tutorials/portenta-x8/out-of-the-box). You may also find our tutorial on how to [manage dockers on the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container) useful.
 
 ## Quick Reference Tables for the Portenta Max Carrier
 

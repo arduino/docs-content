@@ -83,7 +83,7 @@ This procedure is **recommended** for all **Operating System** and it is usable 
 
 **5** - Test the esptool, for example, inserting the below command to read the MAC address:
 
-- python esptool.py -p your port -b baudrate read_mac
+- `python esptool.py -p your port -b baudrate read_mac`
 
 - Set the baudrate at **9600**.
 

@@ -77,7 +77,7 @@ or you can dig in deeper with the [Bridge library and examples](https://arduino.
 
 ![](./assets/YunParts.png)
 
-In addition to the 32U4 chip, the Yún or Yún mini has an additional processor, an Atheros AR9331, which runs a distribution of Linux for embedded systems named LininoOS, based on OpenWrt. A full install of Python 2.7 is included as well.
+In addition to the 32U4 chip, the Yún or Yún mini has an additional processor, an Atheros AR9331, which runs a distribution of Linux for embedded systems named LininoOS, based on OpenWrt. A full install of Python® 2.7 is included as well.
 
 The Yún or Yún mini has a number of different physical characteristics and connectors than the Leonardo. There is an on-board SD slot, Ethernet jack, and a USB-A Host connector. There is no power barrel connector on the Yún; it can be powered from the micro-USB connector.
 
@@ -101,7 +101,7 @@ There are several status LEDs on the Yún, indicating power, WLAN connection, WA
 
 LininoOS is based on OpenWRT distribution with about 3000 package built and available. LininoOS provides a fully writable filesystem with package management with GPG signature. Integrated with LininoIO it is a complete linux system for IoT space. LininoOS features many innovations for your Arduino Yun.
 
-- LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
+- LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python®, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
 
 - Node.js with Ideino Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. Ideino is an embedded editor to write and debug your node.js application.
 
@@ -113,16 +113,16 @@ Accessing the web interface is described below.
 
 #### Install additional software on Linux
 
-The Yún comes with several pieces of software pre-installed on LininoOS, including "curl" and "python". You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "opkg".
+The Yún comes with several pieces of software pre-installed on LininoOS, including `curl` and `python`. You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "opkg".
 You can find pre-compiled packages for LininoOS on their latest version, [here](http://download.linino.org/linino_distro/lininoIO/latest/packages/).
 
 When interfacing with the LininoOS system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](https://arduino.cc/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with LininoOS, with which you can write applications or scripts. For more on Python, visit the [Python 2.7 documentation pages](http://docs.python.org/2/).
+An installation of Python® 2.7 is included with LininoOS, with which you can write applications or scripts. For more on Python®, visit the [Python® 2.7 documentation pages](http://docs.python.org/2/).
 
-If you're getting started with Python for the first time, there are a number of excellent resources on-line. ["Learn Python the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
+If you're getting started with Python® for the first time, there are a number of excellent resources on-line. ["Learn Python® the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
 
 #### External storage on the Yún
 

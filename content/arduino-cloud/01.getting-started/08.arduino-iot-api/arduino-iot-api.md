@@ -1,17 +1,17 @@
 ---
 title: 'Arduino Cloud REST API & SDK'
 difficulty: advanced
-description: 'Learn how to authenticate with the Arduino IoT Cloud REST API to make requests using HTTP Client, JavaScript and Python.'
+description: 'Learn how to authenticate with the Arduino IoT Cloud REST API to make requests using HTTP Client, JavaScript and Python®.'
 tags:
   - IoT Cloud REST API
   - JavaScript
-  - Python
+  - Python®
   - node.js
   - Golang
 author: 'Karl Söderby'
 ---
 
-The [Arduino IoT Cloud REST API](https://www.arduino.cc/reference/en/iot/api/) can be accessed through a set of endpoints to manage **Devices, Things, Properties** and more. It can be accessed via any HTTP client, and is supported by JavaScript, Python and Golang clients.
+The [Arduino IoT Cloud REST API](https://www.arduino.cc/reference/en/iot/api/) can be accessed through a set of endpoints to manage **Devices, Things, Properties** and more. It can be accessed via any HTTP client, and is supported by JavaScript, Python® and Golang clients.
 
 In this article you will find some useful examples to get started with the Arduino IoT Cloud API, and an understanding of what the API offers.
 
@@ -25,14 +25,14 @@ To see the full API, follow the link below:
 To connect with the Arduino Cloud API, we will need one of the following clients:
 
 - [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client)
-- [Python PYPI Package](https://pypi.org/project/arduino-iot-client/)
+- [Python® PYPI Package](https://pypi.org/project/arduino-iot-client/)
 - [Golang Module](https://github.com/arduino/iot-client-go)
 
 ***You can also use services such as [Postman](https://www.postman.com/) to create HTTP requests.***
 
 ## Usage
 
-With the Arduino Cloud API, you are able to interface with the Arduino Cloud service through JavaScript, Python and Golang.
+With the Arduino Cloud API, you are able to interface with the Arduino Cloud service through JavaScript, Python® and Golang.
 
 You can for example write custom scripts that can: 
 
@@ -203,12 +203,12 @@ console.log(data[0].last_value);
 
 This is one of many examples of how to interact with the API. Now that you are setup, you can go on to explore the rest of the [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/).
 
-## Python
+## Python®
 
 **Requirements:**
 
-- [Python 3.7+](https://www.python.org/downloads/)
-- [arduino-iot-client](https://pypi.org/project/arduino-iot-client/) (python)
+- [Python® 3.7+](https://www.python.org/downloads/)
+- [arduino-iot-client](https://pypi.org/project/arduino-iot-client/) (Python®)
 
 To install, use the following command:
 
@@ -395,5 +395,5 @@ See the full example on [GitHub](https://github.com/arduino/iot-client-go/tree/m
 
 ## Summary
 
-This document covers the overall usage of the [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/), and how to use it with different clients (JavaScript, Python, Golang).
+This document covers the overall usage of the [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/), and how to use it with different clients (JavaScript, Python®, Golang).
 

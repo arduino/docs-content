@@ -24,5 +24,5 @@ hardware:
     - mkr-env-shield
   carriers:
     - portenta-breakout
-  miscellaneous:
+  05.pro-solutions:
     - enclosure-kit

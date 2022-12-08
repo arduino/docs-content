@@ -5,7 +5,7 @@
     <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference" title="Cheat Sheet" type="tutorial">
         Learn about the Nano RP2040 Connect's onboard sensors, supported serial & wireless protocols, pins and much more. 
     </EssentialElement>
-    <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-python-api" title="Python API Guide" type="tutorial">
+    <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-python-api" title="Python® API Guide" type="tutorial">
         Learn how to install MicroPython and how to load scripts to your Nano RP2040 Connect.
     </EssentialElement>
 <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">

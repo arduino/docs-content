@@ -104,7 +104,7 @@ import image # Import module containing machine vision algorithms
 import time # Import module for tracking elapsed time
 ```
 
-A module in Python is a confined bundle of functionality. By importing it into the script, it gets made available.
+A module in Python® is a confined bundle of functionality. By importing it into the script, it gets made available.
 
 ### 2. Preparing the Sensor
 

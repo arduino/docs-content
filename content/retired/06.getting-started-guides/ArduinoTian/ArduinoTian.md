@@ -136,20 +136,20 @@ There are eight status LEDs on the Tian that indicate:TX UART SAMD21, RX UART SA
 
 LininoOS is based on OpenWRT distribution with about 3000 package built and available. LininoOS provides a fully writable filesystem with package management with GPG signature. Integrated with LininoIO it is a complete linux system for IoT space. LininoOS features many innovations for your Arduino Tian.
 
-LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
+LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python®, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
 
 Node.js with Ideino Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. Ideino is an embedded editor to write and debug your node.js application.
 
 All Joyn supported, which is an open source project which provides a universal software framework and core set of system services that enable interoperability among connected products and software applications to create dynamic proximal networks.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with LininoOS, which you can use to write applications or scripts.
-For more on Python, visit the Python 2.7 [documentation pages](https://docs.python.org/2/).
+An installation of Python® 2.7 is included with LininoOS, which you can use to write applications or scripts.
+For more on Python®, visit the Python® 2.7 [documentation pages](https://docs.python.org/2/).
 
 #### Install additional software on Linux
 
-The Tian comes with several pieces of software pre-installed on LininoOS, including "curl" and "python". You may want to install other software on the Tian. On Linux systems, additional software can be installed using a tool called the "opkg".
+The Tian comes with several pieces of software pre-installed on LininoOS, including `curl` and `python`. You may want to install other software on the Tian. On Linux systems, additional software can be installed using a tool called the `opkg`.
 You can find pre-compiled packages for LininoOS on their latest version, [here](http://download.linino.org/linino_distro/lininoIO/latest/packages/).
 
 #### Resetting the processors (AR9342, WiFi, and SAMD21)
