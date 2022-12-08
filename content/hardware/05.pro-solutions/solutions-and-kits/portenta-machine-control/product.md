@@ -1,6 +1,7 @@
 ---
 title: Portenta Machine Control
 url_shop: https://store.arduino.cc/portenta-machine-control
+hasSetupGuide: true
 core: arduino:mbed_portenta
 certifications: [REACH, RoHS, WEEE, UKCA, CE, FCC, RCM]
 ---
