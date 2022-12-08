@@ -15,6 +15,13 @@ In this guide, we will take a look at the available features, how to enable them
 
 ## Hardware Overview
 
+The GIGA R1 have two USB connectors:
+- **USB-C** - for powering, programming & HID communication.
+- **USB-A** - for USBHost (connecting keyboards, USB sticks etc).
+
+![USB ports on GIGA R1.](assets/usb-connectors.png)
+
+***Note: do NOT connect the USB-A connector to your computer. This is not a programming port and if the `PA15` pin is enabled, it can damage your computer's USB port.***
 
 
 ## USB Mass Storage
