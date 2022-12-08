@@ -67,7 +67,7 @@ void noteOn(int cmd, int pitch, int velocity) {
   Serial.write(velocity);
 }
 ```
-Program your Arduino, and prepare to program the 8U2 chip. Follow the instructions on the [Programming 8U2](hacking/software/DFUProgramming8U2/) page, replacing the Arduino firmware with the [MocoLUFA](http://web.mac.com/kuwatay/morecat_lab./MocoLUFA.html) firmware.
+Program your Arduino, and prepare to program the 8U2 chip. Follow the instructions on the [Programming 8U2](/hacking/software/DFUProgramming8U2/) page, replacing the Arduino firmware with the [MocoLUFA](http://web.mac.com/kuwatay/morecat_lab./MocoLUFA.html) firmware.
 
 After the 8U2 has been updated with the MIDI firmware, disconnect and reconnect the USB cable.
 

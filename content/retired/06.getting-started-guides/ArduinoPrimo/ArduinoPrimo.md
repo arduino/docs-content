@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Primo'
 
 The Arduino Primo combines the processing power from the Nordic nRF52 processor, an Espressif ESP8266 for WiFi, as well as several on-board sensors and a battery charger. The nRF52 includes NFC (Near Field Communication) and Bluetooth® Smart. The sensors include an on-board button, LED and infrared receiver and transmitter.
 
-The Arduino Primo is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Primo is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Primo on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Primo on the Arduino Desktop IDE
 
-If you want to program your Arduino Primo while offline you need to install the [Arduino Desktop IDE](/en/Main/Software) and add the Arduino NRF52 Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](/en/Guide/Cores) page.
+If you want to program your Arduino Primo while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software) and add the Arduino NRF52 Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](https://arduino.cc/en/Guide/Cores) page.
 
 ![](./assets/BoardMgr_Arduino_Primo1.jpg)
 
@@ -33,7 +33,7 @@ If you want to program your Arduino Primo while offline you need to install the 
 No driver installation is necessary for these operating system after core installation.
 
 **Linux**
-Before you can use the board on Linux machines you needs to execute the [following script](/en/Sh/Txt).
+Before you can use the board on Linux machines you needs to execute the [following script](https://arduino.cc/en/Sh/Txt).
 
 #### Open your first sketch
 
@@ -61,7 +61,7 @@ Wait a few seconds - you should see the RX and TX LEDs on the board flashing. If
 
 ![](./assets/First_Sketch_Arduino_Primo_3.jpg)
 
-A few seconds after the upload finishes, you should see the on-board LED L9 start to blink. If it does, congratulations! You've gotten your Primo board up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED L9 start to blink. If it does, congratulations! You've gotten your Primo board up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 

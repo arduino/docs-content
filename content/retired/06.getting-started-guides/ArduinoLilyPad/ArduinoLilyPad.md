@@ -5,9 +5,9 @@ description: 'The first steps to setting up the LilyPad Arduino, LilyPad Arduino
 
 The LilyPad Arduino family of boards has been designed for wearable applications. It works on rechargeable batteries and allows easy connection with sensors and actuators developed for an easy integration in clothes and fabrics.
 
-The LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap are different from the usual Arduino boards because they need a USB to Serial interface to be programmed. The [Arduino USB 2 Serial](/en/Main/USBSerial) interface is the one we recommend, but any standard FTDI compatible interface is suitable. The Arduino USB 2 Serial interface behaves as an Arduino UNO and shares the same drivers.
+The LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap are different from the usual Arduino boards because they need a USB to Serial interface to be programmed. The [Arduino USB 2 Serial](https://arduino.cc/en/Main/USBSerial) interface is the one we recommend, but any standard FTDI compatible interface is suitable. The Arduino USB 2 Serial interface behaves as an Arduino UNO and shares the same drivers.
 
-The LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap are programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline.
+The LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap are programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline.
 
 ### Use your LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap on the Arduino Web IDE
 
@@ -18,7 +18,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap on the Arduino Desktop IDE
 
-If you want to program your LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap while offline you need to install the [Arduino Desktop IDE](/en/Main/Software).
+If you want to program your LilyPad Arduino, LilyPad Arduino Simple and LilyPad Arduino Simple Snap while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software).
 
 #### Connect the board
 

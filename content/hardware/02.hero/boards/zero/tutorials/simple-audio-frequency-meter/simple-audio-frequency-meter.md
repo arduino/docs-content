@@ -6,7 +6,7 @@ tags: [Frequency Meter]
 ---
 
 This tutorial explains how to use the [Audio Frequency Meter Library](https://github.com/agdl/AudioFrequencyMeter) for Arduino Zero boards. The code uses a method of the library to measure the frequency of a signal connented to A0 and amplified through an electronic circuit, in order to get the frequency of a generic input signal. The range currently measured by the library spans from 60 to 1500 Hz and it can be narrowed by the setBandwidth() method.
-The library can be installed using the [arduino library manager](/en/Guide/Libraries#toc3)
+The library can be installed using the [arduino library manager](https://arduino.cc/en/Guide/Libraries#toc3)
 
 ## Hardware Required
 

@@ -5,11 +5,11 @@ description: 'The first steps to setting up the Arduino Yún'
 
 **This is a retired product.**
 
-The Arduino Yún is an Arduino board unlike any other. While programming it is very similar to the Arduino Leonardo and uses the same processor, the Atmel ATmega32U4, it also has an additional processor, an Atheros AR9331, running Linux and the OpenWrt wireless stack. Programming the 32U4 via USB is identical to the [Arduino Leonardo](/en/Guide/ArduinoLeonardo). Once you've configured the Yún to connect to your WiFi network, you can program the 32U4 via WiFi as well.
+The Arduino Yún is an Arduino board unlike any other. While programming it is very similar to the Arduino Leonardo and uses the same processor, the Atmel ATmega32U4, it also has an additional processor, an Atheros AR9331, running Linux and the OpenWrt wireless stack. Programming the 32U4 via USB is identical to the [Arduino Leonardo](https://arduino.cc/en/Guide/ArduinoLeonardo). Once you've configured the Yún to connect to your WiFi network, you can program the 32U4 via WiFi as well.
 
 ### Quick Start
 
-The Arduino Yún is programmed using the Arduino Software (IDE), our Integrated Development Environment common to all our boards. You should have already it installed on your PC, as explained in the home page of our [Getting Started](/en/Guide/HomePage).
+The Arduino Yún is programmed using the Arduino Software (IDE), our Integrated Development Environment common to all our boards. You should have already it installed on your PC, as explained in the home page of our [Getting Started](https://arduino.cc/en/Guide/HomePage).
 
 #### Installing Drivers for the Yún
 
@@ -46,11 +46,11 @@ Now, simply click the "Upload" button in the environment. Wait a few seconds - y
 
 ![](./assets/UNO_Upload.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Arduino Yún up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Arduino Yún up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Get inspired
 
-Now that you have set up and programmed your Yún board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-yun) tutorial platform, or you can dig in deeper with the [Bridge library and examples](/en/Reference/YunBridgeLibrary). You can also check out the [Yún hardware page](/en/Products/ArduinoYUN) for additional technical information.
+Now that you have set up and programmed your Yún board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-yun) tutorial platform, or you can dig in deeper with the [Bridge library and examples](https://arduino.cc/en/Reference/YunBridgeLibrary). You can also check out the [Yún hardware page](https://arduino.cc/en/Products/ArduinoYUN) for additional technical information.
 
 ### Please Read...
 
@@ -84,9 +84,9 @@ The Yún runs a distribution of Linux called OpenWrt-Yun, based on [OpenWrt](htt
 
 Accessing the web interface is described below.
 
-To install additional software on OpenWrt-Yun, you need to use the the Linux package manager **opkg**. For more information on the manager and some common commands, see [the Yún package manager page](/en/Tutorial/YunPackageManager).
+To install additional software on OpenWrt-Yun, you need to use the the Linux package manager **opkg**. For more information on the manager and some common commands, see [the Yún package manager page](https://arduino.cc/en/Tutorial/YunPackageManager).
 
-When interfacing with the OpenWrt-Yun system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
+When interfacing with the OpenWrt-Yun system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](https://arduino.cc/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
 
 Due to continuous improvements and suggestions coming from both the OpenWrt community and the Arduino community, **version of OpenWrt-Yun installed on your Yún may be out of date**. Please check the [upgrade tutorial](http://arduino.cc/en/Tutorial/YunSysupgrade) and be sure you're running the latest version available.
 
@@ -243,7 +243,7 @@ _NB: the ethernet interface is eth1, not eth0_
 
 #### Communicating with OpenWrt-Yun via Bridge
 
-The Bridge library enables communication between Arduino and OpenWrt-Yun. There are several different utility classes that facilitate different kinds of communication between the two, described below, and more in depth on the [Bridge library reference](/en/Reference/YunBridgeLibrary) pages.
+The Bridge library enables communication between Arduino and OpenWrt-Yun. There are several different utility classes that facilitate different kinds of communication between the two, described below, and more in depth on the [Bridge library reference](https://arduino.cc/en/Reference/YunBridgeLibrary) pages.
 
 ![](./assets/BridgeBlockDiag.png)
 
@@ -671,11 +671,11 @@ String mode = client.readStringUntil('\r');
 }
 ```
 
-You can find more details on this example on the [Bridge Example](/en/Tutorial/Bridge) page.
+You can find more details on this example on the [Bridge Example](https://arduino.cc/en/Tutorial/Bridge) page.
 
 #### Install additional software on Linux
 
-The Yún comes with several pieces of software pre-installed on OpenWrt-Yun, including `curl` and `python`. You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "package management system". For more information, refer to the [package manager tutorial](/en/Tutorial/YunPackageManager).
+The Yún comes with several pieces of software pre-installed on OpenWrt-Yun, including "curl" and "python". You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "package management system". For more information, refer to the [package manager tutorial](https://arduino.cc/en/Tutorial/YunPackageManager).
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

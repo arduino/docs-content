@@ -50,7 +50,7 @@ To find the right configuration for your application often requires trial and er
 
 The first step is to create a representative dataset of the objects that the ML model is supposed to identify. The key is to have as much diversity in the models as possible. If we show it for example only one specific apple that has a certain size, shape and peel, then it won't be very good at recognizing other apples that look different. This is referred to as a bias and should be avoided as much as possible. In addition you need to teach the model what an apple is not. For that purpose you feed it random image data of things that are not an apple. You could name that class of image data "unknown". If you don't have such a class and the model has only ever seen an apple, it won't know what to do if there is no apple in the image.
 
-Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Nicla Vision board. Click on the connect button in the OpenMV IDE. If you haven't set up your board for OpenMV please consult the [getting started tutorial](.\tutorials\nicla-vision\getting-started).
+Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Nicla Vision board. Click on the connect button in the OpenMV IDE. If you haven't set up your board for OpenMV please consult the [getting started tutorial](/tutorials/nicla-vision/getting-started).
 
 Create a new dataset by using the menu command **Tools > Dataset Editor > New Dataset** and name it `Dataset-Fruits`.
 

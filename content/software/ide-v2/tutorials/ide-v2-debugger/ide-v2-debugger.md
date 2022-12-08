@@ -42,7 +42,7 @@ The debugger is compatible with all SAMD boards. Boards using the SAMD architect
 
 You will also need one of the following hardware setups:
 - [Arduino Zero](https://store.arduino.cc/arduino-zero) or
-- [Segger J-Link BASE](https://store.arduino.cc/j-link-base) / [Segger J-Link EDU](https://store.arduino.cc/j-link-edu) + [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) or
+- [Segger J-Link BASE](https://store.arduino.cc/products/j-link-base-compact) / [Segger J-Link EDU](https://store.arduino.cc/products/j-link-edu) + [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) or
 - [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) + [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 
 

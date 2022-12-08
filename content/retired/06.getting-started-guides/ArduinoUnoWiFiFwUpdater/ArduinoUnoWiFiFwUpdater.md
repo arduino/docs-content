@@ -8,7 +8,7 @@ This tutorial will guide you in the process of updating the firmware of your Ard
 
 ## Hardware required
 
-- [Arduino UNO WiFi](https://store.arduino.cc/arduino-uno-wifi)
+- [Arduino UNO WiFi](https://store.arduino.cc/products/arduino-uno-wifi-rev2)
 
 ## Circuit
 
@@ -112,8 +112,8 @@ The process could last several minutes.
 
 ## See also
 
-- [Getting started with Arduino Uno WiFi](/en/Guide/ArduinoUnoWiFi)
-- [How to change the firmware](/en/Guide/ArduinoUnoWiFiChangeFw)
+- [Getting started with Arduino Uno WiFi](https://arduino.cc/en/Guide/ArduinoUnoWiFi)
+- [How to change the firmware](https://arduino.cc/en/Guide/ArduinoUnoWiFiChangeFw)
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

@@ -5,9 +5,9 @@ description: 'The first steps to setting up the Arduino WiFi Shield 101'
 
 **This is a retired product.**
 
-The [Arduino WiFi 101 shield](/en/Main/ArduinoWiFiShield101) allows an Arduino board to connect to the internet using the [WiFi101 library](/en/Reference/WiFi101).
-The WiFi101 library can be downloaded using the [Arduino Library Manager](/en/Guide/Libraries#toc3).
-The [WiFI101 library](/en/Reference/WiFi101) is similar to the [Ethernet library](/en/Reference/Ethernet) and many of the function calls are the same.
+The [Arduino WiFi 101 shield](https://arduino.cc/en/Main/ArduinoWiFiShield101) allows an Arduino board to connect to the internet using the [WiFi101 library](https://arduino.cc/en/Reference/WiFi101).
+The WiFi101 library can be downloaded using the [Arduino Library Manager](https://arduino.cc/en/Guide/Libraries#toc3).
+The [WiFI101 library](https://arduino.cc/en/Reference/WiFi101) is similar to the [Ethernet library](https://arduino.cc/en/Reference/Ethernet) and many of the function calls are the same.
 
 ### Connecting the Shield
 
@@ -313,24 +313,24 @@ Arduino communicates with the shield using the SPI bus. This is on digital pins 
 
 ### Upgrading Firmware and uploading SSL certificates
 
-When it is needed, the WiFi101 library is updated to implement new features. This usually requires an update of the WiFi firmware with a specific tool. The shield comes with a number of root certificates that allow the secure connection with a wide variety of websites. If you need to use different certificates, you need to use the same tool. Please refer to the Firmware Updater sketch and plug-in documentation, available from the [WiFi101 library page](/en/Reference/WiFi101).
+When it is needed, the WiFi101 library is updated to implement new features. This usually requires an update of the WiFi firmware with a specific tool. The shield comes with a number of root certificates that allow the secure connection with a wide variety of websites. If you need to use different certificates, you need to use the same tool. Please refer to the Firmware Updater sketch and plug-in documentation, available from the [WiFi101 library page](https://arduino.cc/en/Reference/WiFi101).
 
 ### Tutorial
 
 Here a list of tutorials that will help you in making very cool things!
 
-[Interact with Google Calendar](/en/Tutorial/Wifi101GoogleCalendar)
+[Interact with Google Calendar](https://arduino.cc/en/Tutorial/Wifi101GoogleCalendar)
 This example shows you how to make requests to Google Calendar using a WiFi shield 101.
 
-[Weather audio notifier](/en/Tutorial/WiFi101WeatherAudioNotifier)
+[Weather audio notifier](https://arduino.cc/en/Tutorial/WiFi101WeatherAudioNotifier)
 In this example, weather information from openweathermap.org is used to display the current weather information.
 
-[Upload data to Thingspeak](/en/Tutorial/WiFi101ThingSpeakDataUploader)
+[Upload data to Thingspeak](https://arduino.cc/en/Tutorial/WiFi101ThingSpeakDataUploader)
 Send a live stream of the light and temperature values in your environment using ThingSpeak.com.
 
 ### Next steps
 
-Refer to the [WiFi 101 library page](/en/Reference/WiFi101) for more information on the functionality of the shield, as well as further examples.
+Refer to the [WiFi 101 library page](https://arduino.cc/en/Reference/WiFi101) for more information on the functionality of the shield, as well as further examples.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

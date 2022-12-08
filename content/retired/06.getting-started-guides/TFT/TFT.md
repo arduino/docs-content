@@ -5,13 +5,13 @@ description: 'The first steps to setting up the Arduino TFT Screen'
 
 **This is a retired product.**
 
-The Arduino TFT screen is a backlit TFT LCD screen with a micro SD card slot in the back. You can draw text, images, and shapes to the screen with the [TFT library](/en/Reference/TFTLibrary).
+The Arduino TFT screen is a backlit TFT LCD screen with a micro SD card slot in the back. You can draw text, images, and shapes to the screen with the [TFT library](https://arduino.cc/en/Reference/TFTLibrary).
 
 ![](./assets/ImageOnTFT.jpg)
 
-The screen's pin layout is designed to easily fit into the socket of an [Arduino Esplora](/en/Main/ArduinoBoardEsplora) and [Arduino Robot](/en/Main/Robot), but it can be used with any Arduino board.
+The screen's pin layout is designed to easily fit into the socket of an [Arduino Esplora](https://arduino.cc/en/Main/ArduinoBoardEsplora) and [Arduino Robot](https://arduino.cc/en/Main/Robot), but it can be used with any Arduino board.
 
-The [TFT library](/en/Reference/TFTLibrary) is included with [Arduino IDE 1.0.5 or later](/en/Main/Software).
+The [TFT library](https://arduino.cc/en/Reference/TFTLibrary) is included with [Arduino IDE 1.0.5 or later](https://arduino.cc/en/Main/Software).
 
 ### Library
 
@@ -19,7 +19,7 @@ The Arduino TFT library extends the [Adafruit GFX](https://github.com/adafruit/A
 
 The library is backwards compatible, which means you can still use the Adafruit functions [described here](http://learn.adafruit.com/adafruit-gfx-graphics-library/overview).
 
-The TFT library relies on the [SPI library](/en/Reference/SPI), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](/en/Reference/SD) as well.
+The TFT library relies on the [SPI library](https://arduino.cc/en/Reference/SPI), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](https://arduino.cc/en/Reference/SD) as well.
 
 ### Screen layout
 
@@ -354,7 +354,7 @@ The TFT library includes a basic font for drawing text on screen. By default, ch
 
 In this example, you'll create a basic counter that will update a number on screen every half second. As in the earlier examples, include the necessary libraries and variables before `setup()`.
 
-In `setup()` send the static text that won't change to the screen. With `setTextSize()` you can increase the font size to make important parts stand out. Dynamic text for the screen should be stored in a char array. The [String class](/en/Reference/StringObject) makes it easy to update the text over time in the array.
+In `setup()` send the static text that won't change to the screen. With `setTextSize()` you can increase the font size to make important parts stand out. Dynamic text for the screen should be stored in a char array. The [String class](https://arduino.cc/en/Reference/StringObject) makes it easy to update the text over time in the array.
 
 ```c
 #include <TFT.h> // Hardware-specific library
@@ -753,7 +753,7 @@ To connect the lcd screen to an Arduino Due, use this pin configuration and don'
 
 ### Next steps
 
-Now that you have tested the basic functionality of the screen, see the [TFT library](/en/Reference/TFTLibrary) pages for information about the library's API and additional examples. It's also recommended to visit the Adafruit graphics library page for additional information on functions not covered.
+Now that you have tested the basic functionality of the screen, see the [TFT library](https://arduino.cc/en/Reference/TFTLibrary) pages for information about the library's API and additional examples. It's also recommended to visit the Adafruit graphics library page for additional information on functions not covered.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

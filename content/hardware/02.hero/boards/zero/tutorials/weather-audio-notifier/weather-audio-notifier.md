@@ -35,7 +35,7 @@ This tutorial demonstrates how to use the Arduino Zero and the WiFi Shield 101 t
 
 ## The Circuit
 
-The red wire of the piezo is connected to digital pin 8, and the black wire to ground. Optionally, the audio can be improved by using preloaded .wav files instead of the `tone()` function, in which case the circuit from [this audio player example](/en/Tutorial/SimpleAudioPlayerZero) can be substituted (with the addition of the WiFi Shield 101).
+The red wire of the piezo is connected to digital pin 8, and the black wire to ground. Optionally, the audio can be improved by using preloaded .wav files instead of the `tone()` function, in which case the circuit from [this audio player example](https://arduino.cc/en/Tutorial/SimpleAudioPlayerZero) can be substituted (with the addition of the WiFi Shield 101).
 
 ![The circuit for this tutorial.](assets/ArduinoWiFi101Piezo.png)
 

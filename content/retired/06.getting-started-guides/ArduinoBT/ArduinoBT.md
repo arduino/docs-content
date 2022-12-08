@@ -5,7 +5,7 @@ description: 'The first steps to setting up your Arduino BT'
 
 **This is a retired product.**
 
-The Arduino BT is an Arduino board with built-in Bluetooth® module, allowing for wireless communication. To get started with the Arduino BT, follow the directions for the Arduino NG on your operating system ([Windows](/en/Guide/Windows), [MacOS](/en/Guide/macOS), [Linux](/playground/Learning/Linux)), with the following modifications:
+The Arduino BT is an Arduino board with built-in Bluetooth® module, allowing for wireless communication. To get started with the Arduino BT, follow the directions for the Arduino NG on your operating system ([Windows](https://arduino.cc/en/Guide/Windows), [MacOS](https://arduino.cc/en/Guide/macOS), [Linux](https://playground.arduino.cc/Learning/Linux)), with the following modifications:
 
 - First, pair the Arduino BT with your computer and create a virtual serial port for it. Look for a Bluetooth® device called **ARDUINOBT** and the pass code is **12345**.
 
@@ -27,7 +27,7 @@ In most respects, the Arduino BT is similar to the Arduino Diecimila. Here are t
 
 - Pin 7 is connected to the reset pin of the Bluetooth® module; **don't use it for anything** (except resetting the module).
 
-For more details, see the [Arduino BT hardware page](/en/Main/ArduinoBoardBluetooth).
+For more details, see the [Arduino BT hardware page](https://arduino.cc/en/Main/ArduinoBoardBluetooth).
 
 ### Using the Arduino BT
 

@@ -61,7 +61,7 @@ OpenMV is a great platform for computer vision and machine learning projects.
 
 Further down this article, you can find a lot of useful code examples that will help you to get started. 
 
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/Arduino).***
+***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
 
 ## Compatible Boards
 
