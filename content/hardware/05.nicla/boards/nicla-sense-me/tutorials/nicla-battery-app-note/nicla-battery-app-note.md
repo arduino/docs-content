@@ -16,7 +16,7 @@ software:
 
 ## Introduction
 
-We have developed the Nicla Sense ME for low-power operation, and it really shines when you can use it independantly of a USB cable, especially for wireless sensing applications. The Nicla Sense ME includes a low-profile connector that will allow you to connect a LiPo battery. In this application note, we will take a closer look at the battery capabilities of the Nicla boards and how you can use it effectively.
+We have developed the Nicla Sense ME for low-power operation, and it really shines when you can use it independantly of a USB cable, especially for wireless sensing applications. The Nicla Sense ME includes a low-profile connector that will allow you to connect a Li-Ion battery. In this application note, we will take a closer look at the battery capabilities of the Nicla boards and how you can use it effectively.
 
 ### Goals
 The goals of this project are to:
