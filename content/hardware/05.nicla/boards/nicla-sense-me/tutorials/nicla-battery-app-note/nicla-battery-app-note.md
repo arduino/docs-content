@@ -33,6 +33,7 @@ The goals of this project are to:
 
 ### NTC Battery protection
 You can learn about Li-Ion batteries in the [MKR Battery Application Note](/tutorials/mkr-wifi-1010/mkr-battery-app-note). Briefly, the Nicla Sense ME uses a single cell Li-Ion battery. However, this must include a NTC cable, and also comes with a different connector to save space.
+*** While a battery without a NTC sensor will work, it should be connected for enhanced safety. ***
 
 ![Nicla Battery Breakdown](assets/3-pin-lipo-battery-breakdown.png)
 
@@ -52,11 +53,11 @@ Power management, including battery charging, is handled by the BQ25120. The BQ2
 
 Input voltage for charging the battery can be supplied either via the ESLOV connector or (more commonly) via the USB connector. An I2C connection between the BQ25120 and the on-board microcontroller allows for control of the charging parameters. The BQ25120 can output power via a switching regulator (more efficent) as well as a linear regulator (less noise). The NTC pin is connected to the middle of a voltage divider which has a default value of 0.9V when nothing is connected. As the temperature increases, the NTC resistance decreases. This reduces the voltage felt on the TS pin.
 
-Unlike the MKR WiFi 1010, there is no need for a voltage divider. The BQ25120 can read the battery voltage directly and send the information via I2C to the microcontroller if needed.
+The BQ25120 can read the battery voltage directly and send the information via I2C to the microcontroller if needed.
 
 ## Multimeter Battery Measurements
 
-**1.** Test the battery voltage with a multimeter. A suitable battery would be about 150mAh. It should be between 3.3V and 4.2V, regardless of the capacity. If the battery voltage is outside this range, your battery may be damaged.
+**1.** Test the battery voltage with a multimeter. A suitable battery would be about 150mAh (which is the about the same size as the Nicla Sense ME board). It should be between 3.3V and 4.2V, regardless of the capacity. If the battery voltage is outside this range, your battery may be damaged.
 
 ***Warning: Please make sure that the battery terminals do NOT touch each other. The short circuit can cause permanent damage to the battery and even explosion.***
 
