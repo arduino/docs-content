@@ -42,7 +42,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - PWM pins: 12
   - Analog output (DAC): 2
   - USB Host: USB 2.0 A
-  - USB Peripheral: USB-c
+  - USB Peripheral: USB-C®
   - Logic level: 3.3V
 
 # Contents
@@ -62,7 +62,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ## Accessories (Not Included)
 
 - Micro UFL antenna
-- USB-C cable
+- USB-C® cable
 - USB 2.0 A cable
 
 ## Related Products
