@@ -38,7 +38,7 @@ The goals of this project are:
 
 
 
-## The HTS221 Sensor 
+## The HS3003 Sensor 
 
 ![The HS3003 sensor.](assets/nano33BS_01_temp_sensor.png)
 
