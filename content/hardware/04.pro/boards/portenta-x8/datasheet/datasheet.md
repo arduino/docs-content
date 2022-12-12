@@ -254,7 +254,7 @@ Edge computing, industrial internet of things, system on module, artificial inte
          <td><strong>Temperature range</strong></td>
          <td> -40°C to +85°C</td>
          <td> It is user’s sole responsibility to test board's operation in full temperature
-         range</td>
+         range. To improve board performance in critical conditions, it is possible to attach external heatsinks on the processor and on the memory.</td>
       </tr>
       <tr>
          <td><strong>Safety information</strong></td>
@@ -276,9 +276,11 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 ## Accessories (Not Included)
 - USB-C® Hub
 - USB-C® to HDMI Adapter
+- Heatsink (if required)
 
 ## Related Products
 - Arduino® Portenta Breakout Board (ASX00031)
+- Arduino® Portenta Max Carrier (ABX00043)
 
 # Rating
 
