@@ -16,12 +16,14 @@ A reference to all technical features on this board, with pointers to additional
 Discover the Audio features of the GIGA R1 Wi-Fi board.
 <FeatureLink title="Audio Guide" url=""/>
 <FeatureLink title="Library" url=""/>
+</Feature>
 
 <Feature title="Camera Support" image="camera">
 Learn how to connect a camera via the dedicated connector.
 <FeatureLink title="Camera Guide" url=""/>
+</Feature>
 
-<Feature title="Wi-Fi / BLE">
+<Feature title="Wi-Fi / BLE" image="wifi-bluetooth">
 The built-in Murata LBEE5KL1DX module enables Wi-Fi & BLE communication, and is out of the box compatible with the Arduino IoT Cloud.
 
 <FeatureLink title="Wi-Fi Documentation" url=""/>
@@ -30,13 +32,13 @@ The built-in Murata LBEE5KL1DX module enables Wi-Fi & BLE communication, and is 
 
 </Feature>
 
-<Feature title="USB">
+<Feature title="USB" image="usb">
 This board has USB-C for power/programming/communication line, and a USB-A for connecting USB devices (keyboards, mass storage).
 
 <FeatureLink title="USB Guide" url=""/>
 </Feature>
 
-<Feature title="Connectors">
+<Feature title="Connectors" image="connection">
 The following connectors are available on the GIGA R1:
 <ul>
 <li><FeatureLink title="USB-C & USB-A" url=""/></li>
@@ -48,14 +50,14 @@ The following connectors are available on the GIGA R1:
 </ul>
 </Feature>
 
-<Feature title="Special Pins">
-The GIGA R1 features two new special pins, the VRTC and OFF pin.
+<Feature title="Special Pins" image="hw-pin">
+The GIGA R1 features two new special pins, the VRTC power and OFF pin.
 
 <FeatureLink title="VRTC pin" url=""/>
 <FeatureLink title="OFF pin" url=""/>
 </Feature>
 
-<Feature title="MicroPython">
+<Feature title="MicroPython" image="python">
 The GIGA R1 has support for MicroPython via OpenMV.
 
 <FeatureLink title="MicroPython Documentation" url=""/>
