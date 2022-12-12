@@ -37,7 +37,7 @@ The Musical Instrument Digital Interface (MIDI) is a widely used digital control
 
 A MIDI controller, usually called a sequencer, controls an audio synthesizer. The sequencer sends MIDI data into the synthesizer that tells it what to do, precisely what notes to generate, and when to do it. Notice that the MIDI controller, the sequencer, does not generate any audio signal or produce any sound. The synthesizer is in charge of generating audio signals at the command of the MIDI controller data. 
 
-> MIDI does not produce any sound; it just describes it.
+***MIDI does not produce any sound; it just describes it.***
 
 ### MIDI Control Messages
 
@@ -80,7 +80,7 @@ The following sketch implements a simple MIDI player over USB using the `MIDIUSB
 
 ```arduino 
 /*
-  Simple MIDI player
+  Simple MIDI player over USB
   This sketch generates a melody over MIDI 
 
   Created by Tom Igoe
@@ -131,9 +131,74 @@ void midiCommand(byte cmd, byte data1, byte  data2) {
 
 If everything is ok, you should be able to upload the sketch into your GIGA R1 board. You will notice that nothing happens. This is because this sketch is only sending MIDI commands. To hear the melody, you need a MIDI sound module, in this case sforzando software. Open the software, the first thing we need to do is to set up the MIDI input preferences. This can be done by navigating to **Tools > Preferences...**, in the **Input MIDI Devices** box, select your GIGA R1 board as a MIDI input device. 
 
+***If you are using sforzando in Windows, you must run it as administrator.***
+
 Now, we must add an instrument file. The instrument file can be added by navigating to Instrument > import, then select the .sfz file of the sound bank downloaded before. In this example, we will use the [clean electric guitar sound bank](https://freepats.zenvoid.org/ElectricGuitar/clean-electric-guitar.html) from the [Free Banks Project](https://freepats.zenvoid.org/about.html); you can find more instrument files in the Free Banks Project. That's it! You should be hearing the melody now.
 
 ### MIDI Serial
+
+Since MIDI is an asynchronous serial data protocol, it can also be implemented without any dedicated library like the `MIDIUSB` library from Arduino by sending the MIDI commands via the board's Serial port. This can be helpful when you send MIDI commands to MIDI sound modules that do not have a built-in USB port but a 5-pin DIN connector. In that case, remember you must implement the hardware interface described before to avoid any damage to your board or the sound module. 
+
+The following sketch implements the simple MIDI player shown before over Serial1:
+
+```arduino 
+/*
+  Simple MIDI player over Serial1
+  This sketch generates a melody over MIDI 
+
+  Created by Tom Igoe
+*/
+
+// Beats per minute, duration of a beat in ms
+int bpm = 72;
+float beatDuration = 60.0 / bpm * 1000;
+
+// Melody sequence array (Piano Phase by Steve Reich)
+int melody[] = {64, 66, 71, 73, 74, 66, 64, 73, 71, 66, 74, 73};
+
+// Note in the melody array to play
+int noteCounter = 0;
+
+void setup() {
+  // Initialize debug Serial port at 9600 bauds
+  Serial.begin(9600);
+
+  // Initialize MIDI Serial port at 31250 bauds
+  Serial1.begin(31250);
+
+}
+
+void loop() {
+  // Play a note of the melody array
+  // 0x90 = note on command, channel 0
+  // 127 = full volume
+  midiCommand(0x90, melody[noteCounter], 127);
+  int noteDuration = beatDuration/4;
+  delay(noteDuration);
+
+  // Turn the note off and increment noteCounter to play the following note in the melody array
+  // 0x90 = note off command, channel 0
+  // 127 = no volume
+  midiCommand(0x80, melody[noteCounter], 0);
+  noteCounter++;
+
+  // Keep noteCounter between 0 and 11
+  noteCounter = noteCounter % 12;
+}
+
+// midiCommand function
+// This function send a MIDI command using the MIDIUSB library
+// First parameter of the function is the event type (top 4 bits of the command byte)
+// Second parameter is the complete command byte (event type and channel)
+// Third and fourth parameter are the first and second data bytes
+void midiCommand(byte cmd, byte data1, byte  data2) {
+  Serial1.write(cmd);     
+  Serial1.write(data1);   
+  Serial1.write(data2);   
+}
+```
+
+Follow the same steps described before with the sforzando software, you should be hearing now the melody. 
 
 ## Conclusion
 
