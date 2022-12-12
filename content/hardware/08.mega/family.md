@@ -1,4 +1,4 @@
 ---
 title: Mega
-description: Meet the giants!
+description: The largest Arduino form factor with a lot of GPIOs.
 ---
