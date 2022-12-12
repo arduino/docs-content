@@ -5,6 +5,8 @@ author: José Bagur and Taddy Chung
 tags: [ADC, DAC, MIDI, Playback]
 ---
 
+![The Arduino GIGA R1](assets/hero.png)
+
 The GIGA R1 is one of the most feature-packed boards from Arduino up to date. In the GIGA R1, you can find the powerful, dual-core STM32H747XI microcontroller from STMicroelectronics; this is the same microcontroller found in the Arduino Portenta H7 family boards. This guide will show you how to use the Arduino ecosystem to turn a versatile and powerful board like the GIGA R1 into a professional audio tool suitable for everyone, from hobbyists to professionals.
 
 ## Digital-to-Analog Converters 

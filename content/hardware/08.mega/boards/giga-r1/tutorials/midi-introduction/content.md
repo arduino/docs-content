@@ -58,17 +58,82 @@ Although MIDI use in the music production industry is still widespread, it has s
 
 ## MIDI and the Arduino Ecosystem
 
-There are two ways to implement a MIDI control system using the Arduino ecosystem. The first is to implement MIDI over Serial through a 5-pin DIN connector; the second is to implement MIDI over USB using the MIDIUSB library and a USB-native Arduino board. We will discuss both ways in the sections below. But before we discuss MIDI over Serial and MIDI over USB, let's talk about the standard MIDI out hardware interface described in the image below:
+There are two ways to implement a MIDI control system using the Arduino ecosystem. The first is to implement MIDI over USB using the `MIDIUSB` library from Arduino and a USB-native Arduino board; the second one is MIDI over Serial through a 5-pin DIN connector. We will discuss both ways in the sections below. But before we discuss MIDI over USB and MIDI over Serial, let's talk about the standard MIDI out hardware interface described in the image below:
 
 ![Standard MIDI out hardware interface.](assets/midi-introduction_003.png)
 
-The schematic above describes the standard MIDI out hardware interface published by the MMA in 1985. The interface consists of a UART transmitter sending data at 31250 baud through two operational amplifiers and a 220Ω current limiting resistor (this resistor is defined in the MIDI specification) to pin 5 of a DIN connector. Pin 4 of the DIN connector is set to +5VDC (also using a 220Ω current limiting resistor), while pin 2 of the DIN connector is set to GND. Pin 1 and 3 are not used in the standard MIDI out hardware interface. This information is essential to design and implementing MIDI control systems from scratch.
+The schematic above describes the standard MIDI output hardware interface published by the MMA in 1985. The interface consists of a UART transmitter sending data at 31250 baud through two operational amplifiers and a 220Ω current limiting resistor (defined in the MIDI specification) to pin 5 of a 5-pin DIN connector. Pin 4 of the DIN connector is set to +5VDC (also using a 220Ω current limiting resistor), while pin 2 of the DIN connector is set to GND. Pin 1 and 3 are not used in the standard MIDI output hardware interface. This information is essential to design and implementing MIDI control systems from scratch and for using MIDI sound modules that use a 5-pin DIN connector; MIDI can also be found over USB, Ethernet, and Bluetooth®; in those cases, the hardware interface changes accordingly to each technology. 
 
-Now that we now the standard MIDI out hardware interface, let's talk about MIDI over Serial!
-
-### MIDI Serial
+Now that we know the standard MIDI out hardware interface, let's talk about MIDI over USB!
 
 ### MIDI USB
+
+One of the most straightforward ways to send MIDI commands is over USB since you don't have to worry about the hardware interface. In this example, we will use the `MIDIUSB` library from Arduino and a USB-native Arduino board, the GIGA R1. As a MIDI sound module, we will use the free, cross-platform sample player software [sforzando](https://www.plogue.com/products/sforzando.html); install it and check out its [user manual](https://s3.amazonaws.com/sforzando/sforzando_guide.pdf). 
+
+The example we will implement is a simple melody player based on Tom Igoe's work on sound and Arduino. The implemented melody is Piano Phase, a minimalist composition by the American composer Steve Reich, written in 1967 for two pianos. The characteristics of this melody are the following:
+
+- Twelve notes long, each note is a sixteenth note 
+- Repeated indefinitely on two pianos, with each piano shifting its tempo slightly to create phase shifting
+- Written to be played at 72 beats per minute (BPM) in common time
+
+The following sketch implements a simple MIDI player over USB using the `MIDIUSB` library from Arduino; if you are using the offline Arduino IDE, remember to install this library, this can be done using the IDE's Library Manager:
+
+```arduino 
+/*
+  Simple MIDI player
+  This sketch generates a melody over MIDI 
+
+  Created by Tom Igoe
+*/
+
+#include <MIDIUSB.h>
+
+// Beats per minute, duration of a beat in ms
+int bpm = 72;
+float beatDuration = 60.0 / bpm * 1000;
+
+// Melody sequence array (Piano Phase by Steve Reich)
+int melody[] = {64, 66, 71, 73, 74, 66, 64, 73, 71, 66, 74, 73};
+
+// Note in the melody array to play
+int noteCounter = 0;
+
+void setup() {}
+
+void loop() {
+  // Play a note of the melody array
+  // 0x90 = note on command, channel 0
+  // 127 = full volume
+  midiCommand(0x90, melody[noteCounter], 127);
+  int noteDuration = beatDuration/4;
+  delay(noteDuration);
+
+  // Turn the note off and increment noteCounter to play the following note in the melody array
+  // 0x90 = note off command, channel 0
+  // 127 = no volume
+  midiCommand(0x80, melody[noteCounter], 0);
+  noteCounter++;
+
+  // Keep noteCounter between 0 and 11
+  noteCounter = noteCounter % 12;
+}
+
+// midiCommand function
+// This function send a MIDI command using the MIDIUSB library
+// First parameter of the function is the event type (top 4 bits of the command byte)
+// Second parameter is the complete command byte (event type and channel)
+// Third and fourth parameter are the first and second data bytes
+void midiCommand(byte cmd, byte data1, byte  data2) {
+  midiEventPacket_t midiMsg = {cmd >> 4, cmd, data1, data2};
+  MidiUSB.sendMIDI(midiMsg);
+}
+```
+
+If everything is ok, you should be able to upload the sketch into your GIGA R1 board. You will notice that nothing happens. This is because this sketch is only sending MIDI commands. To hear the melody, you need a MIDI sound module, in this case sforzando software. Open the software, the first thing we need to do is to set up the MIDI input preferences. This can be done by navigating to **Tools > Preferences...**, in the **Input MIDI Devices** box, select your GIGA R1 board as a MIDI input device. 
+
+Now, we must add an instrument file. The instrument file can be added by navigating to Instrument > import, then select the .sfz file of the sound bank downloaded before. In this example, we will use the [clean electric guitar sound bank](https://freepats.zenvoid.org/ElectricGuitar/clean-electric-guitar.html) from the [Free Banks Project](https://freepats.zenvoid.org/about.html); you can find more instrument files in the Free Banks Project. That's it! You should be hearing the melody now.
+
+### MIDI Serial
 
 ## Conclusion
 
