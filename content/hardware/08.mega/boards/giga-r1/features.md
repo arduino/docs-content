@@ -11,6 +11,7 @@ With USB-C, USB-A, Audio, Camera, JTAG & MIPI connectors, this board enables a l
 <Feature title="Cheat Sheet" image="mega-form-factor">
 A reference to all technical features on this board, with pointers to additional documents.
 <FeatureLink title="Cheat Sheet" url=""/>
+</Feature>
 
 <Feature title="Audio" image="microphone">
 Discover the Audio features of the GIGA R1 Wi-Fi board.
