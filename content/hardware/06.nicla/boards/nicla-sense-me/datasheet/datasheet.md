@@ -101,19 +101,19 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 - Arduino® Portenta H7 (SKU: ABX00042)
 
 ### Assembly Overview
-![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Arduino® Portenta H7 and LiPo battery.](assets/niclaSenseMESolutionOverview.png)
+![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME and battery.](assets/niclaSenseMEBattery.png)
 
 
 ## Ratings
 ### Recommended Operating Conditions
-| Symbol               | Description                      | Min                      | Typ | Max                      | Unit |
-| -------------------- | -------------------------------- | ------------------------ | --- | ------------------------ | ---- |
-| V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                      | 5.0 | 5.5                      | V    |
-| V<sub>USB</sub>      | Input voltage from USB connector | 4.8                      | 5.0 | 5.5                      | V    |
-| V<sub>DDIO_EXT</sub> | Level Translator Voltage         | 1.8                      | 3.3 | 3.3                      | V    |
-| V<sub>IH</sub>       | Input high-level voltage         | 0.7V<sub>DDIO_EXT</sub><sup>1</sup> |     | V<sub>DDIO_EXT</sub>     | V    |
-| V<sub>IL</sub>       | Input low-level voltage          | 0                        |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
-| T<sub>OP</sub>       | Operating Temperature            | -40                      | 25  | 85                       | °C   |
+| Symbol               | Description                      | Min                                 | Typ | Max                                 | Unit |
+|----------------------|----------------------------------|-------------------------------------|-----|-------------------------------------|------|
+| V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                                 | 5.0 | 5.5                                 | V    |
+| V<sub>USB</sub>      | Input voltage from USB connector | 4.8                                 | 5.0 | 5.5                                 | V    |
+| V<sub>DDIO_EXT</sub> | Level Translator Voltage         | 1.8                                 | 3.3 | 3.3                                 | V    |
+| V<sub>IH</sub>       | Input high-level voltage         | 0.7V<sub>DDIO_EXT</sub><sup>1</sup> |     | V<sub>DDIO_EXT</sub>                | V    |
+| V<sub>IL</sub>       | Input low-level voltage          | 0                                   |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
+| T<sub>OP</sub>       | Operating Temperature            | -40                                 | 25  | 85                                  | °C   |
 
 **Note** : V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
 
@@ -136,25 +136,25 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 
 | **Ref.** | **Description**                                  | **Ref.** | **Description**                  |
-| -------- | ------------------------------------------------ | -------- | -------------------------------- |
-| MD1      | ANNA B112 Bluetooth®  Module                       | U2, U7   | MX25R1635FZUIH0 2 MB FLASH IC    |
+|----------|--------------------------------------------------|----------|----------------------------------|
+| MD1      | ANNA B112 Bluetooth®  Module                     | U2, U7   | MX25R1635FZUIH0 2 MB FLASH IC    |
 | U3       | BMP390 Pressure Sensor IC                        | U4       | BMM150 3-axis Magnetic Sensor IC |
 | U5       | BHI260AP 6 axis IMU and AI core IC               | U6       | BME688 Environmental Sensor IC   |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC  |
 | U10      | SN74LVC1T45 1Channel voltage level translator IC | U11      | TXB0108YZPR Bidirectional IC     |
 | U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and LPIO Pin headers    |
-| J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery pin headers                  |
+| J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery pin headers              |
 | Y1       | SIT1532AI-J4-DCC MEMS 32.7680 kHz Oscillator     | DL1      | SMLP34RGB2W3 RGB SMD LED         |
 | PB1      | Reset button                                     |
 
 **Back View**
 ![Nicla Sense ME Back View](assets/niclaSenseMEBackTopology.png)
 
-| **Ref.** | **Description**                             | **Ref.** | **Description**                              |
-| -------- | ------------------------------------------- | -------- | -------------------------------------------- |
-| U1       | ATSAMD11D14A-MUT USB Bridge                 | U13      | NTS0304EUKZ 4-bit translating transceiver IC |
-| U14      | AP2112K-3.3TRG1 0.6 A 3.3 V LDO IC          | J4       | 3-pin 1.2mm ACH Battery Connector (BM03B-ACHSS-GAN-TF)                  |
-| J5       | SM05B-SRSS-TB(LF)(SN) 5-pin Eslov connector | J7       | microUSB connector                           |
+| **Ref.** | **Description**                             | **Ref.** | **Description**                                        |
+|----------|---------------------------------------------|----------|--------------------------------------------------------|
+| U1       | ATSAMD11D14A-MUT USB Bridge                 | U13      | NTS0304EUKZ 4-bit translating transceiver IC           |
+| U14      | AP2112K-3.3TRG1 0.6 A 3.3 V LDO IC          | J4       | 3-pin 1.2mm ACH Battery Connector (BM03B-ACHSS-GAN-TF) |
+| J5       | SM05B-SRSS-TB(LF)(SN) 5-pin Eslov connector | J7       | microUSB connector                                     |
 
 ### Microcontroller
 The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
@@ -211,7 +211,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ### J1 Pin Connector
 
 | Pin | **Function** | **Type** | **Description**                    |
-| --- | ------------ | -------- | ---------------------------------- |
+|-----|--------------|----------|------------------------------------|
 | 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 |
 | 2   | NC           | N/A      | N/A                                |
 | 3   | CS           | Digital  | SPI Cable Select                   |
@@ -224,7 +224,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ### J2 Pin Header
 
 | Pin | **Function** | **Type** | **Description**       |
-| --- | ------------ | -------- | --------------------- |
+|-----|--------------|----------|-----------------------|
 | 1   | SDA          | Digital  | I2C Data Line         |
 | 2   | SCL          | Digital  | I2C Clock             |
 | 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    |
@@ -240,7 +240,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ### J3 Fins
 
 | Pin | **Function**  | **Type** | **Description**                     |
-| --- | ------------- | -------- | ----------------------------------- |
+|-----|---------------|----------|-------------------------------------|
 | P1  | BHI_SWDIO     | Digital  | BHI260 JTAG Serial Wire Debug Data  |
 | P2  | BHI_SWDCLK    | Digital  | BHI260 JTAG Serial Wire Debug Clock |
 | P3  | ANNA_SWDIO    | Digital  | ANNA JTAG Serial Wire Debug Data    |
@@ -257,12 +257,12 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ![](assets/niclaSenseMEMech.png)
 
 ### Power Consumption
-| Description                                                     | Min  | Typ   | Max  | Unit |
-| ----------------------------------------------------------------| ---- | ----- | ---- | ---- |
-| Power consumption in standby                                    |      | 460   |      | uA   |
-| Power consumption with blink sketch                             |      | 960   |      | uA   |
-| Power consumption advertising with sensor polling at 1Hz        |      | 2.5   |      | mA   |
-| Power consumption advertising with sensor polling once per hour |      | 1.15  |      | mA   |
+| Description                                                     | Min | Typ  | Max | Unit |
+|-----------------------------------------------------------------|-----|------|-----|------|
+| Power consumption in standby                                    |     | 460  |     | uA   |
+| Power consumption with blink sketch                             |     | 960  |     | uA   |
+| Power consumption advertising with sensor polling at 1Hz        |     | 2.5  |     | mA   |
+| Power consumption advertising with sensor polling once per hour |     | 1.15 |     | mA   |
 
 **Note:** The measurements have been performed by activating temperature sensor, accelerometer and gyroscope, which have been configured with 1Hz sample rate and 1ms latency.
 
@@ -274,7 +274,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -337,20 +337,20 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
 | Frequency bands      | Typical Output Power |
-| -------------------- | -------------------- |
+|----------------------|----------------------|
 | 2.4 GHz, 40 channels | +6dBm                |
 
 
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
-| --------------- | -------------------------------------------- |
+|-----------------|----------------------------------------------|
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
 
 | Ref                                | Link                                                                                                |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------- |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Arduino® IDE (Desktop)             | https://www.arduino.cc/en/Main/Software                                                             |
 | Arduino® IDE (Cloud)               | https://create.arduino.cc/editor                                                                    |
 | Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
@@ -361,10 +361,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**         |
-| ---------- | ------------ | ------------------- |
-| 27-05-2021 | 01           | Initial Version     |
-| 20-07-2021 | 02           | Technical Revisions |
+| **Date**   | **Revision** | **Changes**                    |
+|------------|--------------|--------------------------------|
+| 27-05-2021 | 01           | Initial Version                |
+| 20-07-2021 | 02           | Technical Revisions            |
+| 13-12-2022 | 03           | Change Solution Overview Image |
 
 ## Product Warnings and Disclaimers
 
