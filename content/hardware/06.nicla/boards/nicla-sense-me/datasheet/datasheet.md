@@ -101,7 +101,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 - Arduino® Portenta H7 (SKU: ABX00042)
 
 ### Assembly Overview
-![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME and battery.](assets/niclaSenseMEBattery.png)
+![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery.](assets/niclaSenseMEBattery.png)
 
 
 ## Ratings
