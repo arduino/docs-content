@@ -1,7 +1,7 @@
 ---
 title: MKR WiFi 1010
 url_shop: https://store.arduino.cc/arduino-mkr-wifi-1010
-url_guide: /software/ide-v1/installing-samd21-core
+url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
 draft: true
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrwifi1010/147'

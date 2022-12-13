@@ -25,11 +25,11 @@ Only your Arduino Esplora is needed for this example. Connect the Esplora to you
 
 ## Code
 
-To send data to your computer, you need to open a serial connection. use [Serial.begin](/en/Serial/Begin)() to open a serial port at 9600 baud on the Esplora.
+To send data to your computer, you need to open a serial connection. use [Serial.begin](https://arduino.cc/en/Serial/Begin)() to open a serial port at 9600 baud on the Esplora.
 
 The [Esplora.readMicrophone](https://www.arduino.cc/en/Reference/EsploraReadMicrophone)() function gets the value from the microphone. It will give you a value between 0 and 1023.
 
-To send the values to the Serial Monitor, you call [Serial.print](/en/Serial/Print)(). When the Esplora is connected, and the Serial Monitor is open, you should start to see values reported like this:
+To send the values to the Serial Monitor, you call [Serial.print](https://arduino.cc/en/Serial/Print)(). When the Esplora is connected, and the Serial Monitor is open, you should start to see values reported like this:
 
 ```arduino
 sound level: 172 Green brightness: 42

@@ -26,9 +26,9 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
   <FeatureLink title="Link to Mbed OS documentation" url="https://os.mbed.com/docs/mbed-os" blank/>
 </Feature>
 
-<Feature title="Python Support" image="python">
+<Feature title="Python® Support" image="python">
 
-  This board can be programmed with the Python programming language via the OpenMV IDE.
+  This board can be programmed with the Python® programming language via the OpenMV IDE.
 
   <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>

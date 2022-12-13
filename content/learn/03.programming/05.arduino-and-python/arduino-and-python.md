@@ -11,7 +11,7 @@ hero_position: 1
 
 ***To download the firmware required to run MicroPython on your Arduino board, visit the [Arduino MicroPython downloads page](/micropython).***
 
-[MicroPython](https://micropython.org/) is an implementation of the [Python programming language](https://www.python.org/) that comes with a subset of the Python standard library, and is designed **to run on microcontrollers**. 
+[MicroPython](https://micropython.org/) is an implementation of the [Python® programming language](https://www.python.org/) that comes with a subset of the Python® standard library, and is designed **to run on microcontrollers**. 
 
 A great advantage of using MicroPython is that it is easy to learn and has [great documentation](http://docs.micropython.org/en/latest/) for a number of boards. At the moment, there are four boards that can be used together with MicroPython, you can read more about them in the [compatible boards section](#compatible-boards).
 
@@ -61,7 +61,7 @@ OpenMV is a great platform for computer vision and machine learning projects.
 
 Further down this article, you can find a lot of useful code examples that will help you to get started. 
 
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/Arduino).***
+***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
 
 ## Compatible Boards
 
@@ -82,7 +82,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE** board, 
 
 - [Install MicroPython on your Nano BLE](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
 - [Getting started with OpenMV and Nano 33 BLE](/tutorials/nano-33-ble/getting-started-omv) 
-- [Nano 33 BLE Python API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
+- [Nano 33 BLE Python® API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE board, double tap the reset button quickly. This will reset your board to factory setting.***
 
@@ -94,7 +94,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE Sense** b
 
 - [Install MicroPython on your Nano BLE Sense](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
 - [Getting started with OpenMV and Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv)
-- [Nano 33 BLE Sense Python guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
+- [Nano 33 BLE Sense Python® guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE Sense board, double tap the reset button quickly. This will reset your board to factory setting.***
 
@@ -105,7 +105,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE Sense** b
 If you need help getting started with MicroPython on the **Nano RP2040 Connect** board, you can check out the tutorials below:
 
 - [Install MicroPython on your Nano RP2040 Connect](/tutorials/nano-rp2040-connect/micropython-installation#arduino-nano-rp2040-connect) 
-- [Nano RP2040 Connect Python guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
+- [Nano RP2040 Connect Python® guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
 - [Getting Started with OpenMV and MicroPython on Nano RP2040 Connect](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)
 
 
@@ -120,9 +120,9 @@ If you need help getting started with  MicroPython on the **Portenta H7** board,
 - [Install MicroPython on Portenta H7](/tutorials/portenta-h7/micropython-installation#arduino-portenta-h7).
 - [Getting Started with OpenMV and MicroPython on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/por-openmv-gs)
 
-## Learn Python
+## Learn Python®
 
-As MicroPython is an implementation of the Python language, you can also run a lot of Python scripts directly on the board. For example, running this python script on your computer also works when running it on your board.
+As MicroPython is an implementation of the Python® language, you can also run a lot of Python® scripts directly on the board. For example, running this Python® script on your computer also works when running it on your board.
 
 ```python
 value1 = 2
@@ -131,23 +131,23 @@ value2 = 5
 print(value1 + value2)
 ```
 
-This means it's time to learn the **Python** language, which there is a lot of resources for. We recommend taking a look at the following resources to better understand the Python language:
+This means it's time to learn the **Python®** language, which there is a lot of resources for. We recommend taking a look at the following resources to better understand the Python® language:
 
 - [python.org](https://www.python.org/)
 - [learnpython.org](https://www.learnpython.org/)
-- [w3schools guide to Python](https://www.w3schools.com/python/default.asp)
+- [w3schools guide to Python®](https://www.w3schools.com/python/default.asp)
 
 ### MicroPython Docs
 
-Visit the [MicroPython documentation](https://docs.micropython.org/en/latest/) for an understanding on how Python runs on microcontrollers.
+Visit the [MicroPython documentation](https://docs.micropython.org/en/latest/) for an understanding on how Python® runs on microcontrollers.
 
-***Note that many examples in the MicroPython Docs will not work directly with Arduino boards, but will provide an understanding of how Python can run on your board.***
+***Note that many examples in the MicroPython Docs will not work directly with Arduino boards, but will provide an understanding of how Python® can run on your board.***
 
 ## API
 
 Below you will find some useful examples that can be used by any Arduino board. For more specific features, such as on-board sensors, connectivity and communication, please refer to the individual guides:
 
-- [Nano RP2040 Connect Python API guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
+- [Nano RP2040 Connect Python® API guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
 - [Nano BLE API guide](/tutorials/nano-33-ble/ble-python-api)
 - [Nano BLE Sense API guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 

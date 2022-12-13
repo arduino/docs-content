@@ -64,7 +64,7 @@ Foremost, you will get to know how the multi-protocol gateway will be implemente
 
 The Arduino layer is extended within the M4 Core and it is the layer dedicated to the development of real time operations. Thus, you can use the Arduino layer to perform PID tasks and make the RPC calls to exchange data with the Linux layer. 
 
-***To learn about how to exchange data using RPC between Arduino and Linux layer, please read ["Data Exchange Between Python on Linux and an Arduino Sketch"](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
+***To learn about how to exchange data using RPC between Arduino and Linux layer, please read ["Data Exchange Between Python® on Linux and an Arduino Sketch"](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
 We will go through how to use RPC to expose data received from the Arduino layer to the Linux layer, if further development requires you to feed data to devices interfaced communicating with the M4 core. We will leave the tasks running and open to be interfaced with for expanding the capability of the Portenta X8 and Max Carrier. It will let you develop a gateway system where:
 
@@ -79,7 +79,7 @@ It is important to understand that **all networking processes are made within th
 
 The Portenta X8 provides Wi-Fi connectivity and the Portenta Max Carrier provides a LoRaWAN® module that can help us communicate with The Things Network. We will use the MQTT protocol to receive sensor data transmitted by an end device. 
 
-We will use a Python script that will configure and handle the connectivity modules and its sensor data. The RPC calls will be used to expose the received sensor data to the Arduino layer, setting up data exchange configuration to further expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa and makes use of the Arduino layer to transmit the data to the Linux layer from the local end-device. 
+We will use a Python® script that will configure and handle the connectivity modules and its sensor data. The RPC calls will be used to expose the received sensor data to the Arduino layer, setting up data exchange configuration to further expand the capability of the Portenta X8 and Max Carrier. The process can also be done vice-versa and makes use of the Arduino layer to transmit the data to the Linux layer from the local end-device. 
 
 Now that we know the roles of Arduino and Linux layer, we will need a clear picture on how the multi-protocol gateway should look. The next diagram illustrates the in-depth multi-protocol gateway architecture, showing how each layer and module will cooperate.
 
@@ -132,7 +132,7 @@ To access the logs of `py-serialrpc` service, while maintaining the same directo
 sudo docker-compose logs -f --tail 20
 ```
 
-***For more details about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
+***For more details about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
 In case you have not configured internal Wi-Fi connectivity within the system, please use following command line.
 
@@ -190,9 +190,9 @@ pycayennelpp
 paho-mqtt
 ```
 
-### Multi-Protocol Python Application
+### Multi-Protocol Python® Application
 
-This is the main Python script that will handle overall networking process. We will highlight important fragments of the code to help you understand how these codes pieces work together to build a gateway based on multiple protocols. For full Python script please refer to the files [here](assets/Multi_Protocol_Gateway_X8.zip).
+This is the main Python® script that will handle overall networking process. We will highlight important fragments of the code to help you understand how these codes pieces work together to build a gateway based on multiple protocols. For full Python® script please refer to the files [here](assets/Multi_Protocol_Gateway_X8.zip).
 
 First up, the configuration for the M4 Proxy Server, which are the parameters that handles communication with the M4 core that extends the Arduino layer. The `m4_proxy_port` is configured to `5001`, as it is the port used by clients to send the data to the M4. 
 
@@ -207,7 +207,7 @@ m4_proxy_address = 'm4-proxy'
 m4_proxy_port = 5001
 ```
 
-The next function is dedicated to retrieve data from the M4 (Arduino layer). It will help you set the variables, such as sensor data, to then be pulled and be exposed to the Linux layer. With this, you will have the information available to be used within the Python script. 
+The next function is dedicated to retrieve data from the M4 (Arduino layer). It will help you set the variables, such as sensor data, to then be pulled and be exposed to the Linux layer. With this, you will have the information available to be used within the Python® script.
 
 ```python
 def get_data_from_m4():
@@ -486,7 +486,7 @@ You will be able to see following results when the image is built successfully.
 
 ***If you have created the Docker container previously and want to re-create it with new changes made outside the shell, please check that the container and its build directory is stopped and removed. This is for the convenience of having a clean working environment***
 
-After a successful container build, you will have to make the image run. To do that, you can use the following command. This command will immediately give an output in your terminal, telling you how the Python script is running. If you wish to have it running in the background, please add `-d` flag at the end of the command. 
+After a successful container build, you will have to make the image run. To do that, you can use the following command. This command will immediately give an output in your terminal, telling you how the Python® script is running. If you wish to have it running in the background, please add `-d` flag at the end of the command. 
 
 ```
 #Multi_Protocol_Gateway_X8 sudo docker-compose up

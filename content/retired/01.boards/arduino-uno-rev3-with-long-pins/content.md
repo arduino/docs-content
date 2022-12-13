@@ -92,7 +92,7 @@ See the mapping between Arduino pins and ATmega328P ports. The mapping for the A
 
 [PIN MAPPING ATmega328P](https://www.arduino.cc/en/Hacking/PinMapping168)
 
-Each of the 14 digital pins on the UNO can be used as an input or output, using [pinMode()](https://www.arduino.cc/en/Reference/PinMode),[digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 5 volts. Each pin can provide or receive 20 mA as recommended operating condition and has an internal pull-up resistor (disconnected by default) of 20-50k ohm. A maximum of 40mA is the value that must not be exceeded on any I/O pin to avoid permanent damage to the microcontroller.
+Each of the 14 digital pins on the UNO can be used as an input or output, using [pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/),[digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 5 volts. Each pin can provide or receive 20 mA as recommended operating condition and has an internal pull-up resistor (disconnected by default) of 20-50k ohm. A maximum of 40mA is the value that must not be exceeded on any I/O pin to avoid permanent damage to the microcontroller.
 
 In addition, some pins have specialized functions:
 

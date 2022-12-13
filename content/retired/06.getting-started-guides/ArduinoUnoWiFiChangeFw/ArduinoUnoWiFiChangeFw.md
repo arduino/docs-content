@@ -18,13 +18,13 @@ All these ways are shown in below paragraphs.
 
 ## Burn the firmware using UNO WiFi Firmware Updater tool
 
-If you are using the **Arduino 1.8.x** or later then you can upgrade the Esp firmware using the [UNO WiFi Firmware Updater tool](https://github.com/arduino-libraries/UnoWiFi-FirmwareUpdater-Plugin/releases). The complete guide is in this [link](/en/Guide/ArduinoUnoWiFiFwUpdater).
+If you are using the **Arduino 1.8.x** or later then you can upgrade the Esp firmware using the [UNO WiFi Firmware Updater tool](https://github.com/arduino-libraries/UnoWiFi-FirmwareUpdater-Plugin/releases). The complete guide is in this [link](https://arduino.cc/en/Guide/ArduinoUnoWiFiFwUpdater).
 
 **Note:** This procedure is **recommended** for all **Operating System** and it is usable via serial.
 
 ## Burn the Firmware using the Arduino Software (IDE)
 
-If you want burn the firmware using the file into **Arduino Software (IDE) 1.7.x**, then continue to follow the guide, if instead you are using the **Arduino Software (IDE) 1.8.x** then follow the [Arduino UNO WiFi Firmware Updater guide](/en/Guide/ArduinoUnoWiFiFwUpdater).
+If you want burn the firmware using the file into **Arduino Software (IDE) 1.7.x**, then continue to follow the guide, if instead you are using the **Arduino Software (IDE) 1.8.x** then follow the [Arduino UNO WiFi Firmware Updater guide](https://arduino.cc/en/Guide/ArduinoUnoWiFiFwUpdater).
 
 **Note:** This procedure is **recommended** for all **Operating System** and it is usable only via **OTA**.
 
@@ -77,13 +77,13 @@ This procedure is **recommended** for all **Operating System** and it is usable 
 
 **3** - Open your terminal as Administrator.
 
-**4** - Download the **ESPtool**, you can download from [here](/en/uploads/Guide/esptool.zip) or you can use the command:
+**4** - Download the **ESPtool**, you can download from [here](https://arduino.cc/en/uploads/Guide/esptool.zip) or you can use the command:
 
 `sudo pip install esptool`
 
 **5** - Test the esptool, for example, inserting the below command to read the MAC address:
 
-- python esptool.py -p your port -b baudrate read_mac
+- `python esptool.py -p your port -b baudrate read_mac`
 
 - Set the baudrate at **9600**.
 
@@ -139,7 +139,7 @@ C:\Users\xxxxx\Desktop\esptool\esptool\20151223/blank.bin
 
 If you are a **Windows user** and you want to upgrade the firmware using a **baudrate higher than 9600** then follow the procedure below:
 
-**Note:** This method allows to burn the firmware quickly (baudrate to 115200) but it needs an [USB2Serial](/en/Main/MiniUSB) and some welding.
+**Note:** This method allows to burn the firmware quickly (baudrate to 115200) but it needs an [USB2Serial](https://arduino.cc/en/Main/MiniUSB) and some welding.
 
 **1** - First you must upload the Blink sketch on your Arduino UNO WiFi:
 
@@ -174,7 +174,7 @@ USB2SerialArduino Uno WiFiRXRXTXTXGNDGND
 
 ![](assets/arduino217-2.png)
 
-**5** - Open the **ESP FLASH DOWNLOAD TOOL**, you can download it from [here](/en/Guide/ArduinoUnoWiFiChangeFw?action=upload&upname=FLASH_DOWNLOAD_TOOLS_v1.2_150512.zip)[ &#x394;](/en/Guide/ArduinoUnoWiFiChangeFw?action=upload&upname=FLASH_DOWNLOAD_TOOLS_v1.2_150512.zip).
+**5** - Open the **ESP FLASH DOWNLOAD TOOL**, you can download it from [here](https://arduino.cc/en/Guide/ArduinoUnoWiFiChangeFw?action=upload&upname=FLASH_DOWNLOAD_TOOLS_v1.2_150512.zip)[ &#x394;](https://arduino.cc/en/Guide/ArduinoUnoWiFiChangeFw?action=upload&upname=FLASH_DOWNLOAD_TOOLS_v1.2_150512.zip).
 
 - Extract it;
 
@@ -212,8 +212,8 @@ USB2SerialArduino Uno WiFiRXRXTXTXGNDGND
 
 ## See also
 
-- [Getting started with Arduino Uno WiFi](/en/Guide/ArduinoUnoWiFi)
-- [Firmware updater](/en/Guide/ArduinoUnoWiFiFwUpdater)
+- [Getting started with Arduino Uno WiFi](https://arduino.cc/en/Guide/ArduinoUnoWiFi)
+- [Firmware updater](https://arduino.cc/en/Guide/ArduinoUnoWiFiFwUpdater)
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

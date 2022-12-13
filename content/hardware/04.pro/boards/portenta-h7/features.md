@@ -30,12 +30,6 @@ The **Portenta H7** simultaneously runs high level code along with real time tas
 <Feature title="Chrom-ART graphical hardware Accelerator™" image="mcu">
 
   Probably one of the most exciting features of the Portenta H7 is the possibility of connecting an external monitor to build your own dedicated embedded computer with a user interface. This is possible thanks to the STM32H747 processor's on-chip GPU, the Chrom-ART Accelerator™. Besides the GPU, the chip includes a dedicated JPEG encoder and decoder.
-
-</Feature>
-
-<Feature title="Special Configuration Request" image="configurability">
-
-  The Portenta H7 is a highly configurable design, it is possible to order boards with different configurations of memory, crypto chip, antenna, etc. These request will be channeled through Arduino's sales team and will require a minimum amount order. We recommend you to try the default H7 configuration and, if you need specific features for your solution, then contact us to discuss the terms.
   
 </Feature>
 

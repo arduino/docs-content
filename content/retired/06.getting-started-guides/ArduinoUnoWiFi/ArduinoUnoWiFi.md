@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Uno WiFi'
 
 The Arduino Uno WiFi is an Arduino Uno with an integrated WiFi module. The board is based on the ATmega328P with an ESP8266WiFi Module integrated. The ESP8266WiFi Module is a self contained SoC with integrated TCP/IP protocol stack that can give access to your WiFi network (or the device can act as an access point). One useful feature of Uno WiFi is support for OTA (over-the-air) programming, either for transfer of Arduino sketches or WiFi firmware.
 
-The Arduino Uno WiFi is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Uno WiFi is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Uno WiFi on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Uno WiFi on the Arduino Desktop IDE
 
-If you want to program your Arduino Uno WiFi while offline you need to install the [Arduino Desktop IDE](/en/Main/Software). Full instructions on how to install it can be found in our [Getting Started page](/en/Guide/HomePage).
+If you want to program your Arduino Uno WiFi while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software). Full instructions on how to install it can be found in our [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 #### Installing Drivers for the Uno WiFi
 
@@ -64,7 +64,7 @@ Wait a few seconds - you should see the RX and TX LEDs on the board flashing. If
 
 ![](./assets/Arduino_UNO_WiFi_sketch_completed.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Uno WiFi board up-and-running for the USB programming. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Uno WiFi board up-and-running for the USB programming. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Programming via OTA
 
@@ -96,11 +96,11 @@ Wait a few seconds - you should see the RX and TX LEDs on the board flashing. If
 
 ![](./assets/Arduino_UNO_WiFi_sketch_completed.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Uno WiFi board up-and-running for the USB programming. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Uno WiFi board up-and-running for the USB programming. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 
-Now that you have set up and programmed your Uno WiFi board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/) tutorial platform, or have a look to the tutorial pages that explain how to use the various features of your board. We suggest that you visit the [Ciao Library page](/en/Reference/Ciao) that explains the peculiar functions of this and a few other Arduino boards like the Yún family and the Industrial 101..
+Now that you have set up and programmed your Uno WiFi board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/) tutorial platform, or have a look to the tutorial pages that explain how to use the various features of your board. We suggest that you visit the [Ciao Library page](https://arduino.cc/en/Reference/Ciao) that explains the peculiar functions of this and a few other Arduino boards like the Yún family and the Industrial 101..
 
 ### Please Read...
 
@@ -202,8 +202,8 @@ Finally in the **DEBUG LOG** it is shown the debug log and it is possible to reb
 
 ### See also
 
-- [Firmware updater](/en/Guide/ArduinoUnoWiFiFwUpdater)
-- [How to change Arduino Uno WiFi Firmware](/en/Guide/ArduinoUnoWiFiChangeFw)
+- [Firmware updater](https://arduino.cc/en/Guide/ArduinoUnoWiFiFwUpdater)
+- [How to change Arduino Uno WiFi Firmware](https://arduino.cc/en/Guide/ArduinoUnoWiFiChangeFw)
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

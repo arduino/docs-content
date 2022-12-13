@@ -38,7 +38,7 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HzCRZsGJLbI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**Note:** The following projects are based on TensorFlow Lite for Microcontrollers which is currently experimental within the [TensorFlow repo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro). This is still a new and emerging field!
+**Note:** The following projects are based on TensorFlow Lite for Microcontrollers which is currently experimental within the [TensorFlow repo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro). This is still a new and emerging field!
 
 ## Goals 
 - Learn the fundamentals of TinyML implementation and training.
@@ -89,7 +89,7 @@ The inference examples for TensorFlow Lite for Microcontrollers are now packaged
 - magic_wand – gesture recognition using the onboard IMU
 - person_detection – person detection using an external ArduCam camera
 
-For more background on the examples you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/micro). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino. In the next section, we’ll discuss training.
+For more background on the examples you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino. In the next section, we’ll discuss training.
 
 ## How to Run the Examples Using Arduino Create Web Editor. 
 Once you connect your Arduino Nano 33 BLE Sense to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) web editor:
@@ -289,7 +289,7 @@ We’re going to use [Google Colab](https://colab.research.google.com/) to train
 ![Arduino gesture recognition training colab.](assets/colab.png)
 
 
-- Set up Python environment
+- Set up Python® environment
 - Upload the punch.csv and flex.csv data 
 - Parse and prepare the data
 - Build and train the model

@@ -9,7 +9,7 @@ The digital IOs and analog pins can be configured to operate at either 5V or 3.3
 
 In this guide it is assumed that you are using theIntel® Edison kit for Arduino, but the same explanation is valid for the Intel® Edison Breakout Board. It is also assumed that you have connected the Intel® Edison to the Breakout Board. If not please make reference to the [Intel® Tutorial](https://software.intel.com/en-us/articles/intel-edison-arduino-expansion-board-assembly) about how to do that.
 
-The Intel® Edison is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Intel® Edison is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Intel® Edison on the Arduino Web IDE
 
@@ -25,7 +25,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Intel® Edison on the Arduino Desktop IDE
 
-If you want to program your Intel® Edison while offline you need to install the [Arduino Desktop IDE](/en/Main/Software) and add the Intel Edison Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](/en/Guide/Cores) page.
+If you want to program your Intel® Edison while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software) and add the Intel Edison Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](https://arduino.cc/en/Guide/Cores) page.
 
 This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**. Select _Arduino Certified_ as type and then click on the _Intel i686 boards by Intel_. Select the latest core and then Install.
 

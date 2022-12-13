@@ -22,7 +22,7 @@ This library allows you to communicate with I2C / TWI devices.
   <EssentialElement title="Built-in Examples" type="tutorial" link="/built-in-examples/">
     Built-in Examples are sketches included in the Arduino IDE and demonstrate all basic Arduino commands. 
   </EssentialElement>
-  <EssentialElement title="Learn" type="resource" link="https://www.arduino.cc/en/Tutorial/learn">
+  <EssentialElement title="Learn" type="resource" link="https://docs.arduino.cc/learn/">
     Discover interesting articles, principles and techniques related to the Arduino ecosystem.
   </EssentialElement>
   <EssentialElement title="Language References" type="resource" link="https://www.arduino.cc/reference/en/">

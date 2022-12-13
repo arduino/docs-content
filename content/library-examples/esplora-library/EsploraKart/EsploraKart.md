@@ -40,13 +40,13 @@ The default keys to play with the SuperTuxKart game are:
 | Nitro       | N               |
 | Look back   | B               |
 
-You need to map these keyboard keystrokes to the available inputs on your Esplora board. To handle the eight different buttons, you'll use [arrays](https://www.arduino.cc/en/Reference/Array), ordered lists of variables with a fixed size. Each array has an index (counting from 0) to keep track of the position you're reading in the array, and each position can contain a number.
+You need to map these keyboard keystrokes to the available inputs on your Esplora board. To handle the eight different buttons, you'll use [arrays](https://www.arduino.cc/reference/en/language/variables/data-types/array/), ordered lists of variables with a fixed size. Each array has an index (counting from 0) to keep track of the position you're reading in the array, and each position can contain a number.
 
 This code uses three different arrays: one for the buttons you'll read, a second to hold the current state of the buttons, and a third to hold the keystrokes associated with each button.
 
 The Esplora has the ability to appear to a connected computer as a USB keyboard, so when you press the buttons and move the joystick, it's just like pressing keys on your keyboard.
 
-The [for](https://www.arduino.cc/en/Reference/For)() loop checks the state of all the buttons and the joystick. If the button's state has changed, then the corresponding keypress or release is sent to the computer.  See the [keyboard library reference](https://www.arduino.cc/en/Reference/MouseKeyboard) for more information on using the Esplora as a keyboard or mouse.
+The [for](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)() loop checks the state of all the buttons and the joystick. If the button's state has changed, then the corresponding keypress or release is sent to the computer.  See the [keyboard library reference](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) for more information on using the Esplora as a keyboard or mouse.
 
 ```arduino
 
