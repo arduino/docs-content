@@ -94,7 +94,7 @@ Identify operating conditions within your machine, factory or greenhouse remotel
 The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
 ### Accessories (Not Included)
-Single-cell Li-ion/Li-Po battery
+- Single-cell Li-ion/Li-Po battery
 
 ### Related Products
 - ESLOV connector
@@ -129,6 +129,9 @@ Single-cell Li-ion/Li-Po battery
 
 ### Block Diagram
 ![Nicla Sense ME Block Diagram](assets/niclaSenseMEBlockDiagram.svg)
+
+<div style="page-break-after:always;"></div>
+
 ### Board Topology
 **Top View**
 
@@ -146,6 +149,8 @@ Single-cell Li-ion/Li-Po battery
 | J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery pin headers              |
 | Y1       | SIT1532AI-J4-DCC MEMS 32.7680 kHz Oscillator     | DL1      | SMLP34RGB2W3 RGB SMD LED         |
 | PB1      | Reset button                                     |
+
+<div style="page-break-after:always;"></div>
 
 **Back View**
 ![Nicla Sense ME Back View](assets/niclaSenseMEBackTopology.png)
