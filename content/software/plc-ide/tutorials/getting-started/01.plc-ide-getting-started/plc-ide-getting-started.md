@@ -41,11 +41,11 @@ Now to install the Arduino PLC IDE 1.0 on a Windows computer, simply run the fil
 
 Follow the instructions in the installation guide. The installation may take several minutes.
 
-You can now use the **Arduino PLC IDE 1.0** on your Windows computer!
-
-You can now double click the file to launch the Arduino PLC IDE on your machine.
+Once is finished. You can now double click the file to launch the Arduino PLC IDE on your machine.
 
 ![Installed Arduino PLC IDE](assets/plc-ide-windows.png)
+
+Now you are ready to use the **Arduino PLC IDE 1.0** on your Windows computer!
 
 ### Licence activation procedure
 
