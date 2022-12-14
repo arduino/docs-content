@@ -1,6 +1,6 @@
 ---
 title: Arduino IoT Cloud APIs
-description: A summary of the three APIs available in the Arduino IoT Cloud
+description: A summary of the different sets of APIs available for the Arduino IoT Cloud
 author: Karl Söderby, Fabrizio Mirabito
 tags: [IoT Cloud, API, JavaScript]
 ---
@@ -21,10 +21,11 @@ There are two different API types to consider when working with the Arduino IoT 
 
 **1. Applications API** - a set of powerful and flexible APIs that allows you to create and manage IoT resources like dashboards, devices, things, and variables, along with the retrieval and handling of historical data coming from your IoT Devices. The core of those APIs is organized around  [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable resource-oriented URLs, accepts  [form-encoded](https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms)  request bodies, returns  [JSON-encoded](http://www.json.org/) responses, and uses standard HTTP response codes, authentication, and verbs. You can use those APIs, both directly calling our HTTP endpoints or using our clients that wrap those calls into easy-to-use abstractions like objects and functions. We have Applications API clients available in `javascript`, `golang`, and `python`.
 
-**2. Monitor and Control API** - a set of libraries that allow sending and receiving any kind of data (sensors' values, commands for actuators, configuration changes...) from and to IoT Devices and the Cloud. Under the hood, they 
-	- take care of the data exchange with our MQTT broker
-	- handle best in class authentication & security 
-	- manage compression, data format, and transport protocols
+**2. Monitor and Control API** - a set of libraries that allow sending and receiving any kind of data (sensors' values, commands for actuators, configuration changes...) from and to IoT Devices and the Cloud. Under the hood, they
+
+- take care of the data exchange with our MQTT broker
+- handle best in class authentication & security 
+- manage compression, data format, and transport protocols
 
 Inside this set of API, we have:
 	
