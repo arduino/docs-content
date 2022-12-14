@@ -41,7 +41,9 @@ For more examples and detailed instructions, visit the links below:
 
 - [Arduino IoT Cloud Applications API Guide](/arduino-cloud/getting-started/arduino-iot-api) - a guide to using the API with JavaScript, Python & Golang.
 
-## Arduino IoT Cloud Sketch library
+## Monitor and Control API
+
+### Arduino IoT Cloud Sketch library
 As described above, is the Arduino library that allows your Arduino devices to connect and exchange data with the IoT Cloud. If you edit your sketch directly inside IoT Cloud or Cloud Editor, you don't need to install it: it comes out of the box.
 
 You can find more details at:
@@ -49,7 +51,7 @@ You can find more details at:
 - The [official repository](https://github.com/arduino-libraries/ArduinoIoTCloud)
 - The [cheat sheet](https://docs.arduino.cc/arduino-cloud/getting-started/technical-reference)
 
-## Arduino IoT JS
+### Arduino IoT JS
 The `arduino-iot-js` NPM module is designed for communicating with the Arduino IoT Cloud broker using the MQTT over Websocket protocol. It is primarily used to send and receive variable values.
 
 Example:
