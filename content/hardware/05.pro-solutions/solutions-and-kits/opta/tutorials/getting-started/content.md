@@ -1,13 +1,17 @@
 ---
 title: 'Getting Started With the Opta'
-description: 'Get started with the Opta'
+description: 'Get started with the Opta and get to know some of its features.'
+difficulty: beginner
 tags:
   - Getting started
+  - Relays
+  - Analog Input
 author: 'Benjamin Dannegård'
 software:
-  - Arduino IDE
+  - ide-v1
+  - ide-v2
 hardware:
-  - hardware/
+  - hardware/05.pro-solutions/solutions-and-kits/opta
 ---
 
 ## Overview
