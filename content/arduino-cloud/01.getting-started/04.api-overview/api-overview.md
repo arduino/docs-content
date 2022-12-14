@@ -50,7 +50,7 @@ You can find more details at:
 - The [cheat sheet](https://docs.arduino.cc/arduino-cloud/getting-started/technical-reference)
 
 ## Arduino IoT JS
-The `arduino-iot-js` NPM mobile is designed for communicating with the Arduino IoT Cloud broker using the MQTT over Websocket protocol. It is primarily used to send and receive variable values.
+The `arduino-iot-js` NPM module is designed for communicating with the Arduino IoT Cloud broker using the MQTT over Websocket protocol. It is primarily used to send and receive variable values.
 
 Example:
 
