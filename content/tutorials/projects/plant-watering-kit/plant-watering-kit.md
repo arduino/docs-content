@@ -24,9 +24,9 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 
 ## Hardware & Software Needed
 
-- [Arduino Watering Plant Kit](URL) 
-- [3D-printed enclosure (optional)](assets/PlantKitCase.zip)
-- USB - wall adapter
+- [Arduino Plant Watering Kit](URL) 
+- [3D-printed enclosure](assets/PlantKitCase.zip) (optional)
+- USB - wall adapter (not included in the kit)
 
 OR
 
@@ -39,11 +39,11 @@ OR
 - Micro-USB cable.
 - Open ended USB Cable.
 - Soil moisture sensor.
-- Grove LED button
-- [3D-printed enclosure](assets/PlantKitCase.zip) (optional)
-- Short Grove cable (20cm)
-- Long Grove cable (50cm)
-- Long 3-pronged Grove cable (50cm)
+- Grove LED button.
+- [3D-printed enclosure](assets/PlantKitCase.zip) (optional).
+- Short Grove cable (20cm).
+- Long Grove cable (50cm).
+- Long 3-pronged Grove cable (50cm).
 - A few spare jumper cables just in case you need them.
 
 ### Apps and Online Services
@@ -63,6 +63,8 @@ Now connect the other screw terminal on the relay module to the VIN pin.
 There are cases were multiple wires are going into the same screw terminal, you may find it easier to get them in at the same time if you twist them together before trying to insert them.
 
 ![Twisting cables together](assets/cabletwisting.gif)
+
+In case you want to place your plant further away from the electronics, we've included a loose set of extra screw terminals, that you can use to add more length to your cables. Just use wire cutters to clip off as many as you need and screw down the cables you want to connect together.
 
 <br />
 
@@ -289,7 +291,7 @@ Depending on what type of plant you decide to use this device with, you may need
 We have now assembled the hardware + configured the Arduino IoT Cloud, and we are ready to start using our setup. Now, let's start using it.
 
 1. If you have confirmed that the connection works, we can unplug the setup from the computer, and move it to the plant we want to monitor.
-2. Place the moisture sensor into the soil of the plant.![Moisture sensor in a plant.](assets/plantwithmoisturesensor.jpg)
+2. Place the moisture sensor into the soil of the plant.
 3. Place the pump inside a water container. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the enclosure with your electronics next to the plant. Your setup could now look like this: ![Plant setup.](assets/completesetup.jpg)
 4. Finally, plug in a USB adapter into the wall. This will now power the entire setup, which should now connect to the IoT Cloud, via your Wi-Fi network. And that is it, you now have a Smart Garden setup! 
 
