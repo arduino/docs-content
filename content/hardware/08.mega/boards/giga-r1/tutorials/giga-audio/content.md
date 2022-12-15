@@ -5,15 +5,32 @@ author: José Bagur and Taddy Chung
 tags: [ADC, DAC, MIDI, Playback]
 ---
 
-![The Arduino GIGA R1](assets/hero-banner.png)
+![The Arduino GIGA R1 audio guide](assets/audio-banner.png)
 
-The GIGA R1 is one of the most feature-packed boards from Arduino up to date. In the GIGA R1, you can find the powerful, dual-core STM32H747XI microcontroller from STMicroelectronics; this is the same microcontroller found in the Arduino Portenta H7 family boards. This guide will show you how to use the Arduino ecosystem to turn a versatile and powerful board like the GIGA R1 into a professional audio tool suitable for everyone, from hobbyists to professionals.
+The GIGA R1 is one of the most feature-packed boards from Arduino up to date. In the GIGA R1, you can find the powerful STM32H747XI, a dual-core 32-bit Arm® Cortex® microcontroller from STMicroelectronics; this is the same microcontroller found in the Arduino Portenta H7 family boards. This guide will show you how to use the Arduino ecosystem to turn a versatile and powerful board like the GIGA R1 into a professional audio tool suitable for everyone, from hobbyists to professionals.
 
 ## Digital-to-Analog Converters 
 
-A digital-to-analog converter (DAC) is a device that has a function opposite to that of the analog-to-digital converter (ADC); it converts digital data to an analog voltage. The GIGA R1 microcontroller, the STM32H747XI, features two 12-bit, 2-channel DACs that support audio features useful for audio applications such as man-machine interfaces and low-cost music players. Analog waveform generation can also be achieved with the GIGA's R1 DACs. The GIGA R1 DACs are named `DAC0` and `DAC1`; they can be found on pins `A12` and `A13` correspondingly.
+A digital-to-analog converter (DAC) is a device that has a function opposite to that of the analog-to-digital converter (ADC); a DAC converts digital data to an analog voltage. The GIGA R1 microcontroller, the STM32H747XI, features two 12-bit buffered DAC channels that can convert two digital signals into two analog voltage signals. Some of the features of the DACs found in the GIGA R1 are the following:
 
-To use all of the capabilities of the DACs from the GIGA R1, we can use de `AdvancedAnalogRedux` library from Arduino. Here is an example that generates an 8kHz square wave on `DAC0` (`A12`):
+- 8-bit or 12-bit monotonic output
+- Left or right data alignment in 12-bit mode
+- Dual DAC channel independent or simultaneous conversions 
+- DMA capability for each channel
+- External triggers for conversion
+- Input voltage reference or internal voltage reference
+- Analog waveform generation
+
+The GIGA R1 DACs are named `DAC0` and `DAC1`; they can be found on pins `A12` and `A13` correspondingly, as shown in the image below:
+
+![DAC0, DAC1 and the 3.5mm input jack of the GIGA R1](assets/dacs-and-jack.png)
+
+Besides pins `A12` and `A13`, `DAC0` and `DAC1` can also be accessed via the built-in 3.5mm input jack. `DAC0` is connected to the right channel (tip), while `DAC1` is connected to the left channel (ring) of the input jack as shown in the schematic below:
+
+![GIGA R1 3.mm input jack connections](assets/jack-schematic.png)
+
+The GIGA R1 DACs can be used with the built-in analog input/output functions of the Arduino programming language, though they only provide the basic functionalities of the DACs. To use all of the capabilities of the DACs from the GIGA R1, we can use the `AdvancedAnalogRedux` library from Arduino. Let's check some interesting examples that show some capabilities of the GIGA R1 DACs!
+### Waveform Generation with the GIGA R1 DACs
 
 ```arduino
 #include "AdvancedDAC.h"
