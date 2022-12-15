@@ -13,6 +13,8 @@ In the graphic below, the green lines represent a regular time period. This dura
 
 ![](./pwm.gif)
 
+On some microcontrollers PWM is only available on selected pins. Please consider the pinout diagram of your board to find out which ones you can use for PWM. They are denoted with a tilde sign (~).
+
 Once you get this example running, grab your Arduino and shake it back and forth. What you are doing here is essentially mapping time across the space. To our eyes, the movement blurs each LED blink into a line. As the LED fades in and out, those little lines will grow and shrink in length. Now you are seeing the pulse width.
 
 *Written by Timothy Hirzel*
