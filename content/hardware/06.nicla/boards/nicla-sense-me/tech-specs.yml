@@ -21,8 +21,8 @@ Power:
   Microcontroller operating voltage: 1.8V translated to 3.3V on external pins
   Board Power Supply (USB/VIN): 5V
   Supported battery: Li-ion/Li-Po Single Cell, 3.7V
-  Battery connector: JST 3-pin 1.2 mm pitch 
-  DC Current per I/O pin: 4.7 mA
+  Battery connector: JST 3-pin 1.2mm pitch 
+  DC Current per I/O pin: 4.7mA
 Clock speed:
   Processor: 64MHz
   RTC: On board of the ANNA-B112
@@ -30,6 +30,7 @@ Memory:
   nRF52832 System-on-chip: 64kB SRAM, 512kB flash
   2x MX25R1635FZUIH0: 2MB for data logging, 2MB storage for BHI260AP
 Dimensions:
-  Weight: 2 g
-  Width: 22.86 mm (900mils)
-  Length: 22.86 mm (900mils)
+  Weight: 2g
+  Width: 22.86mm (900mils)
+  Length: 22.86mm (900mils)
+  PCB Thickness: 1mm (39.3701mils)
