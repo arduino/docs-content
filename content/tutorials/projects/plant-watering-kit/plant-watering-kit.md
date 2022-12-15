@@ -24,7 +24,7 @@ We will also connect a soil moisture sensor creating a sophisticated smart garde
 
 ## Hardware & Software Needed
 
-- [Arduino Plant Watering Kit](URL) 
+- [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit) 
 - [3D-printed enclosure](assets/PlantKitCase.zip) (optional)
 - USB - wall adapter (not included in the kit)
 
