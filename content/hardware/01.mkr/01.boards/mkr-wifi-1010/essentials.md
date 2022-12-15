@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-  <EssentialElement title="Quickstart Guide" link="/software/ide-v1/installing-samd21-core" type="getting-started">
+  <EssentialElement title="Quickstart Guide" link="/software/ide-v1/tutorials/getting-started/cores/arduino-samd" type="getting-started">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
     <EssentialElement title="Updating the NINA Firmware" link="https://docs.arduino.cc/tutorials/generic/WiFiNINAFirmwareUpdater" type="tutorial">

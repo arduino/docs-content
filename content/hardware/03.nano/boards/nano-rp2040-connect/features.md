@@ -13,9 +13,9 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
   <FeatureLink title="Datasheet" url="https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf" download blank/>
 </Feature>
 
-<Feature title="Python Support" image="python">
+<Feature title="Python® Support" image="python">
 
-  This board can be programmed with the Python programming language via the OpenMV IDE.
+  This board can be programmed with the Python® programming language via the OpenMV IDE.
 
   <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>

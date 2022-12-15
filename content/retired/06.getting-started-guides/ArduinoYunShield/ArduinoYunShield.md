@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Yún Shield'
 
 ### Quick Setup
 
-We have prepared a [first configuration sketch](/en/Tutorial/LibraryExamples/YunFirstConfig), available under **Examples -> Bridge -> YunFirstConfig**, that allows the easy configuration of the WiFi connection of your Yún Shield.
+We have prepared a [first configuration sketch](https://arduino.cc/en/Tutorial/LibraryExamples/YunFirstConfig), available under **Examples -> Bridge -> YunFirstConfig**, that allows the easy configuration of the WiFi connection of your Yún Shield.
 
 #### Easy setup for 101, Due, Leonardo and Zero boards
 
@@ -114,7 +114,7 @@ Please install this jumper to get the UNO boards to work with the Yún Shield.
 
 #### Zero boards special note
 
-If you are using a Zero board, verify that the SAMD core installed on your IDE is updated to the version 1.6.6 or later and that the bootloader has been [updated](/en/Tutorial/ZeroBootloaderUpdate) accordingly.
+If you are using a Zero board, verify that the SAMD core installed on your IDE is updated to the version 1.6.6 or later and that the bootloader has been [updated](https://arduino.cc/en/Tutorial/ZeroBootloaderUpdate) accordingly.
 If you want to upload a sketch to the Zero board via network, through the Yún Shield, you need to power the board from the DC barrel jack or using the Programming USB port.
 
 #### DUE boards special note
@@ -161,17 +161,17 @@ that saves in the sketch folder two hex files. If you have connected an AVR Core
 
 The Yún Shield runs a distribution of Linux called OpenWRT, based on [OpenWrt](https://openwrt.org/). While it's possible to configure the system from the command line, there is a web page that allows you to configure many of the different options available. The interface (called [LuCi](https://github.com/openwrt/luci)) gives you access to most any setting you would need for maintaining the WiFi interface. You already used this interface if you configured the board from the web browser.
 
-To install additional software on OpenWRT, you need to use the the Linux package manager **opkg**. For more information on the manager and some common commands, see [the Yún package manager page](/en/Tutorial/YunPackageManager).
+To install additional software on OpenWRT, you need to use the the Linux package manager **opkg**. For more information on the manager and some common commands, see [the Yún package manager page](https://arduino.cc/en/Tutorial/YunPackageManager).
 
-When interfacing with the OpenWRT system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
+When interfacing with the OpenWRT system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](https://arduino.cc/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
 
 Due to continuous improvements and suggestions coming from both the OpenWrt community and the Arduino community, **version of OpenWRT installed on your Yún Shield may be out of date**. Please check the [upgrade tutorial](http://arduino.cc/en/Tutorial/YunSysupgrade) and be sure you're running the latest version available.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with OpenWRT, with which you can write applications or scripts. For more on Python, visit the [Python 2.7 documentation pages](http://docs.python.org/2/).
+An installation of Python® 2.7 is included with OpenWRT, with which you can write applications or scripts. For more on Python®, visit the [Python® 2.7 documentation pages](http://docs.python.org/2/).
 
-If you're getting started with Python for the first time, there are a number of excellent resources on-line. ["Learn Python the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
+If you're getting started with Python® for the first time, there are a number of excellent resources on-line. ["Learn Python® the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
 
 #### Web services
 
@@ -217,7 +217,7 @@ _NB: the ethernet interface is eth1, not eth0_
 
 #### Communicating with OpenWRT via Bridge
 
-The Bridge library enables communication between Arduino and OpenWRT. There are several different utility classes that facilitate different kinds of communication between the two, described below, and more in depth on the [Bridge library reference](/en/Reference/YunBridgeLibrary) pages.
+The Bridge library enables communication between Arduino and OpenWRT. There are several different utility classes that facilitate different kinds of communication between the two, described below, and more in depth on the [Bridge library reference](https://arduino.cc/en/Reference/YunBridgeLibrary) pages.
 
 ![](./assets/BridgeShieldBlockDiag.png)
 
@@ -645,15 +645,15 @@ String mode = client.readStringUntil('\r');
 }
 ```
 
-You can find more details on this example on the [Bridge Example](/en/Tutorial/Bridge) page.
+You can find more details on this example on the [Bridge Example](https://arduino.cc/en/Tutorial/Bridge) page.
 
 #### Install additional software on Linux
 
-The Yún Shield comes with several pieces of software pre-installed on OpenWRT, including "curl" and "python". You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "package management system". For more information, refer to the [package manager tutorial](/en/Tutorial/YunPackageManager).
+The Yún Shield comes with several pieces of software pre-installed on OpenWRT, including "curl" and "python". You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "package management system". For more information, refer to the [package manager tutorial](https://arduino.cc/en/Tutorial/YunPackageManager).
 
 #### See also
 
-Now that you've gotten the basics down, you can dig in deeper with the [Bridge library and examples](/en/Reference/YunBridgeLibrary). You can also check out the [Yún Shield product page](/en/Main/ArduinoYunShield) for additional technical information.
+Now that you've gotten the basics down, you can dig in deeper with the [Bridge library and examples](https://arduino.cc/en/Reference/YunBridgeLibrary). You can also check out the [Yún Shield product page](https://arduino.cc/en/Main/ArduinoYunShield) for additional technical information.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

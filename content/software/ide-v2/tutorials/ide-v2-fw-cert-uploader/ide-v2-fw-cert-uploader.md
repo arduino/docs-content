@@ -45,9 +45,9 @@ You can read the full changelog of the NINA firmware through the link below:
 
 When you are using the [Arduino Cloud](https://create.arduino.cc/iot/things), during the device configuration, your board's firmware is automatically updated so that it can utilize features such as **OTA (Over The Air)** upload.
 
-### Python & Wi-Fi 
+### Python® & Wi-Fi
 
-To access the Wi-Fi module on the [Nano RP2040 Connect board](https://store.arduino.cc/products/arduino-nano-rp2040-connect) using Python (through [OpenMV](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)), you will need to update the NINA firmware to the latest version. 
+To access the Wi-Fi module on the [Nano RP2040 Connect board](https://store.arduino.cc/products/arduino-nano-rp2040-connect) using Python® (through [OpenMV](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)), you will need to update the NINA firmware to the latest version.
 
 ## Firmware Updater
 

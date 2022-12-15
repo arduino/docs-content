@@ -23,7 +23,8 @@ Communication protocols:
   Programmable Serial ports: RS485
 Power:
   Input voltage: 12-24V DC
-  Output voltage: 24V
+  Output relay rated voltage: 250V AC
+  Output relay maximum switching voltage: 400V AC
 Memory:
   SDRAM: 1 MB
   Onboard flash memory: 2MB internal + 16MB Flash QSPI

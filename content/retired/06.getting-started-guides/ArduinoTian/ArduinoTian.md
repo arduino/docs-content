@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Tian'
 
 The Arduino Tian is based on the Atheros AR9342 connected to an Atmel Cortex® M0+ 32-bit microcontroller plus all connectivity: Ethernet, Wi-Fi, Bluetooth.
 
-The Arduino Tian is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Tian is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Tian on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Tian on the Arduino Desktop IDE
 
-If you want to program your Arduino Tian while offline you need to install the [Arduino Desktop IDE](/en/Main/Software) and add the Atmel SAMD Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](/en/Guide/Cores) page.
+If you want to program your Arduino Tian while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software) and add the Atmel SAMD Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](https://arduino.cc/en/Guide/Cores) page.
 
 ![](./assets/MKR_Zero_BrdMgrAdd.jpg)
 
@@ -62,7 +62,7 @@ Now, simply click the "Upload" button in the environment. Wait a few seconds - y
 
 ![](./assets/UNO_Upload.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink (in orange). If it does, congratulations! You've gotten your Arduino Tian up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink (in orange). If it does, congratulations! You've gotten your Arduino Tian up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 
@@ -136,20 +136,20 @@ There are eight status LEDs on the Tian that indicate:TX UART SAMD21, RX UART SA
 
 LininoOS is based on OpenWRT distribution with about 3000 package built and available. LininoOS provides a fully writable filesystem with package management with GPG signature. Integrated with LininoIO it is a complete linux system for IoT space. LininoOS features many innovations for your Arduino Tian.
 
-LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
+LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python®, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
 
 Node.js with Ideino Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. Ideino is an embedded editor to write and debug your node.js application.
 
 All Joyn supported, which is an open source project which provides a universal software framework and core set of system services that enable interoperability among connected products and software applications to create dynamic proximal networks.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with LininoOS, which you can use to write applications or scripts.
-For more on Python, visit the Python 2.7 [documentation pages](https://docs.python.org/2/).
+An installation of Python® 2.7 is included with LininoOS, which you can use to write applications or scripts.
+For more on Python®, visit the Python® 2.7 [documentation pages](https://docs.python.org/2/).
 
 #### Install additional software on Linux
 
-The Tian comes with several pieces of software pre-installed on LininoOS, including "curl" and "python". You may want to install other software on the Tian. On Linux systems, additional software can be installed using a tool called the "opkg".
+The Tian comes with several pieces of software pre-installed on LininoOS, including `curl` and `python`. You may want to install other software on the Tian. On Linux systems, additional software can be installed using a tool called the `opkg`.
 You can find pre-compiled packages for LininoOS on their latest version, [here](http://download.linino.org/linino_distro/lininoIO/latest/packages/).
 
 #### Resetting the processors (AR9342, WiFi, and SAMD21)

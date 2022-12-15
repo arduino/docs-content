@@ -27,7 +27,7 @@ Only your Arduino Esplora is needed for this example. Connect the Esplora to you
 
 ## Code
 
-There are 13 notes stored inside an [array](https://www.arduino.cc/en/Reference/Array). You can choose the note to play by changing the position of the slider.
+There are 13 notes stored inside an [array](https://www.arduino.cc/reference/en/language/variables/data-types/array/). You can choose the note to play by changing the position of the slider.
 
 The index number that selects the value in the array is mapped to the position of the linear potentiometer. This number is the frequency of the note to play. Imagine the length of the potentiometer in split into 13 sections. Moving the slider from the right to the left will change the note when it crosses into a different section. Each section corresponds to a spot in the array, and a value to play on the buzzer.
 

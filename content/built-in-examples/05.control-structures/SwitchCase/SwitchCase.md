@@ -11,7 +11,7 @@ tags:
   - Code
 ---
 
-An if statement allows you to choose between two discrete options, TRUE or FALSE.  When there are more than two options, you can use multiple if statements, or you can use the [**switch**](https://www.arduino.cc/en/Reference/SwitchCase) statement.  Switch allows you to choose between several discrete options.  This tutorial shows you how to use it to switch between four desired states of a photo resistor:  really dark, dim, medium, and bright.
+An if statement allows you to choose between two discrete options, TRUE or FALSE.  When there are more than two options, you can use multiple if statements, or you can use the [**switch**](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) statement.  Switch allows you to choose between several discrete options.  This tutorial shows you how to use it to switch between four desired states of a photo resistor:  really dark, dim, medium, and bright.
 
 This program first reads the photoresistor.  Then it uses the `map()` function to map its output to one of four values: 0, 1, 2, or 3.  Finally, it uses the `switch()` statement to print one of four messages back to the computer depending on which of the four values is returned.
 

@@ -5,7 +5,7 @@ title: 'Ethernet Shield Network Time Protocol (NTP) Client'
 description: 'Query a Network Time Protocol (NTP) server using UDP.'
 ---
 
-[Tutorials](/en/Tutorial/HomePage) > [Examples](/en/Tutorial/LibraryExamples) > Ethernet > UdpNtpClient
+[Tutorials](https://arduino.cc/en/Tutorial/HomePage) > [Examples](https://arduino.cc/en/Tutorial/LibraryExamples) > Ethernet > UdpNtpClient
 
 In this example, you will use your Ethernet Shield and your Arduino to query a Network Time Protocol (NTP) server. This way, your Arduino can get the time from the Internet.
 

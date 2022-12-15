@@ -9,7 +9,7 @@ tags:
 author: 'Nefeli Alushi'
 libraries: 
   - name: Arduino LSM6DS3
-    url: https://www.arduino.cc/en/Reference/ArduinoLSM6DS3o_LSM6DS3
+    url: https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/
 hardware:
   - hardware/03.nano/boards/nano-33-iot
 software:

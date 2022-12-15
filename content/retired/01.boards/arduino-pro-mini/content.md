@@ -55,17 +55,17 @@ The ATmega328P has 32 kB of flash memory for storing code (of which 0.5kB is use
 
 ### Input and Output
 
-Each of the 14 digital pins on the Pro Mini can be used as an input or output, using [pinMode](https://www.arduino.cc/en/Main/Reference/PinMode),[digitalWrite](https://www.arduino.cc/en/Main/Reference/DigitalWrite), and [digitalRead](https://www.arduino.cc/en/Main/Reference/DigitalRead) functions. They operate at 3.3 or 5 volts (depending on the model). Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
+Each of the 14 digital pins on the Pro Mini can be used as an input or output, using [pinMode](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/),[digitalWrite](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/), and [digitalRead](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 3.3 or 5 volts (depending on the model). Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
 
 * **Serial: 0 (RX) and 1 (TX).** Used to receive (RX) and transmit (TX) TTL serial data. These pins are connected to the TX-0 and RX-1 pins of the six pin header.
-* **External Interrupts: 2 and 3.** These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt](https://www.arduino.cc/en/Main/Reference/AttachInterrupt) function for details.
-* **PWM: 3, 5, 6, 9, 10, and 11.** Provide 8-bit PWM output with the [analogWrite](https://www.arduino.cc/en/Main/Reference/AnalogWrite) function.
+* **External Interrupts: 2 and 3.** These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
+* **PWM: 3, 5, 6, 9, 10, and 11.** Provide 8-bit PWM output with the [analogWrite](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/) function.
 * **SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK).** These pins support SPI communication, which, although provided by the underlying hardware, is not currently included in the Arduino language.
 * **LED: 13.** There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
   
 The Pro Mini has 8 analog inputs, each of which provide 10 bits of resolution (i.e. 1024 different values). Four of them are on the headers on the edge of the board; two (inputs 4 and 5) on holes in the interior of the board. The analog inputs measure from ground to VCC. Additionally, some pins have specialized functionality:
 
-* **I2C: A4 (SDA) and A5 (SCL).** Support I2C (TWI) communication using the [Wire library](https://www.arduino.cc/en/Main/Reference/Wire).
+* **I2C: A4 (SDA) and A5 (SCL).** Support I2C (TWI) communication using the [Wire library](https://www.arduino.cc/reference/en/language/functions/communication/wire/).
 
 There is another pin on the board:
 
@@ -77,15 +77,15 @@ The Arduino Pro Mini has a number of facilities for communicating with a compute
 
 A [SoftwareSerial library](http://www.arduino.cc/en/Reference/SoftwareSerial) allows for serial communication on any of the Pro Mini's digital pins.   
 
-The ATmega328P also supports I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [reference](https://www.arduino.cc/en/Main/Reference/Wire) for details. To use the SPI communication, please see the ATmega328P datasheet.
+The ATmega328P also supports I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [reference](https://www.arduino.cc/reference/en/language/functions/communication/wire/) for details. To use the SPI communication, please see the ATmega328P datasheet.
 
 ### Programming
 
-The Arduino Pro Mini can be programmed with the Arduino software [download](https://www.arduino.cc/en/Main/Main/Software). For details, see the [reference](https://www.arduino.cc/en/Main/Reference/HomePage) and [tutorials](https://www.arduino.cc/en/Main/Tutorial/HomePage).   
+The Arduino Pro Mini can be programmed with the Arduino software [download](https://www.arduino.cc/en/software). For details, see the [reference](https://www.arduino.cc/reference/en/) and [tutorials](https://docs.arduino.cc/tutorials/).   
 
-The ATmega328P on the Arduino Pro Mini comes preburned with a [bootloader](https://www.arduino.cc/en/Main/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol [reference ](http://www.atmel.com/dyn/resources/prod_documents/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod_documents/avr061.zip).   
+The ATmega328P on the Arduino Pro Mini comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol [reference ](http://www.atmel.com/dyn/resources/prod_documents/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod_documents/avr061.zip).   
 
-You can also bypass the bootloader and program the ATmega328P with an external programmer; see [these instructions](https://www.arduino.cc/en/Main/Hacking/MiniBootloader) for details. 
+You can also bypass the bootloader and program the ATmega328P with an external programmer; see [these instructions](https://docs.arduino.cc/hacking/software/Programmer) for details. 
 
 ### Automatic (Software) Reset
 

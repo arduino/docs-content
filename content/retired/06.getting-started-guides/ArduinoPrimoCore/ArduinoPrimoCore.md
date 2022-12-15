@@ -7,11 +7,11 @@ description: 'The first steps to setting up the Arduino Primo Core'
 
 The PRIMO CORE is a compact device, using a Nordic nrf52832 chip with Bluetooth® smart (Bluetooth® Low Energy 4.0) and NFC-A tag functions , and also integrated motion and environmental sensors. The low power consumption permits powering the Primo Core with a coin cell battery.
 
-The Arduino Primo Core is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running only offline for this board. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Primo Core is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running only offline for this board. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Primo Core on the Arduino Desktop IDE
 
-If you want to program your Arduino Primo Core you need to install the [Arduino Desktop IDE](/en/Main/Software) and add the Arduino NRF52 Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](/en/Guide/Cores) page. To find the proper core, you should search for Arduino nRF52.
+If you want to program your Arduino Primo Core you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software) and add the Arduino NRF52 Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](https://arduino.cc/en/Guide/Cores) page. To find the proper core, you should search for Arduino nRF52.
 
 ![](./assets/BoardMgr_Arduino_Primo1.jpg)
 
@@ -51,7 +51,7 @@ Wait a few seconds and look at the status bar at the bottom of the IDE interface
 
 ![](./assets/Blink_uploaded_on_PrimoCore.jpg)
 
-A few seconds after the upload finishes, you should see the on-board LED starting to blink. If it does, congratulations! You've gotten your Primo Core board up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED starting to blink. If it does, congratulations! You've gotten your Primo Core board up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 

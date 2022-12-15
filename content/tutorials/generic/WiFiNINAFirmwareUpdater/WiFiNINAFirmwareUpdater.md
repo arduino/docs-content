@@ -7,7 +7,7 @@ featuredImage: 'led'
 
 This tutorial will guide you in the process of updating the firmware or loading certificates on your board based on the u-blox NINA module.
 
-If the [Check WiFiNINA Firmware Version](/en/Tutorial/CheckWiFiNINAFirmwareVersion) tells you that you may have issues because the firmware and library versions do not match, here is the solution to align them.
+If the [Check WiFiNINA Firmware Version](https://arduino.cc/en/Tutorial/CheckWiFiNINAFirmwareVersion) tells you that you may have issues because the firmware and library versions do not match, here is the solution to align them.
 
 ## Hardware required
 

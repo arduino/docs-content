@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Industrial 101'
 
 The Arduino Industrial 101 is a WiFi board based on a MIPS Linux processor.
 
-The Arduino Industrial 101 is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Industrial 101 is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Industrial 101 on the Arduino Web IDE
 
@@ -27,7 +27,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Industrial 101 on the Arduino Desktop IDE
 
-If you want to program your Arduino Industrial 101 while offline you need to install the [Arduino Desktop IDE](/en/Main/Software)
+If you want to program your Arduino Industrial 101 while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software)
 
 #### Open your first sketch
 
@@ -53,11 +53,11 @@ Now, simply click the "Upload" button of the Arduino Software (IDE). Wait a few 
 
 ![](./assets/UNO_Upload.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Arduino Industrial 101 up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Arduino Industrial 101 up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 
-Now that you have set up and programmed your Arduino Tian board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-industrial-101) tutorial platform, or you can dig in deeper with the [Bridge library and examples](/en/Reference/YunBridgeLibrary), [Ciao library and examples](/en/Reference/Ciao). You can also check out the [Arduino Industrial 101 hardware page](/en/Main/ArduinoBoardIndustrial101) for additional technical information.
+Now that you have set up and programmed your Arduino Tian board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-industrial-101) tutorial platform, or you can dig in deeper with the [Bridge library and examples](https://arduino.cc/en/Reference/YunBridgeLibrary), [Ciao library and examples](https://arduino.cc/en/Reference/Ciao). You can also check out the [Arduino Industrial 101 hardware page](https://arduino.cc/en/Main/ArduinoBoardIndustrial101) for additional technical information.
 
 ### Please Read...
 

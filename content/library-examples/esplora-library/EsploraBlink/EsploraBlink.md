@@ -31,7 +31,7 @@ The RGB LED is comprised of three colors that represent the three primary colors
 
 To control all the colors with one instruction you use the [writeRGB()](https://www.arduino.cc/en/Reference/EsploraWriteRGB) function. It take three arguments. Each value represents the brightness of the red, green, and blue element, respectively. The brightness scales between 0 (for completely off) to 255 (for completely on).
 
-After setting the brightness of an LED, use [delay()](https://www.arduino.cc/en/Reference/Delay) to pause the sketch for a second, so the light stays in the state you left it.
+After setting the brightness of an LED, use [delay()](https://www.arduino.cc/reference/en/language/functions/time/delay/) to pause the sketch for a second, so the light stays in the state you left it.
 
 It's also possible to control each light individually with the following functions :
 
