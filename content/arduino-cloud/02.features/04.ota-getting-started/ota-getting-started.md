@@ -1,6 +1,6 @@
 ---
 title: "Uploading sketches Over-The-Air (OTA)"
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to utilize Over-The-Air (OTA), a feature that allows you to upload sketches remotely.'
 tags:
   - OTA
@@ -28,6 +28,8 @@ Below is a list of all boards that supports OTA through the Arduino Cloud.
 - [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 
 
 ## How does it work

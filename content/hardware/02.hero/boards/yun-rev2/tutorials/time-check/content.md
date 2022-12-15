@@ -5,13 +5,13 @@ title: 'Arduino Yún Time Check'
 description: 'Get the time from a network time server and print it to the serial monitor.'
 ---
 
-This example for a Yún device gets the time from the Linux processor via Bridge, then parses out hours, minutes and seconds for the Arduino. The Yún device must be connected to a network to get the correct time. If you used the web-based WiFi interface to configure the Yún device for the network, make sure you've selected the proper time zone.
+This example for a Yún device gets the time from the Linux processor via Bridge, then parses out hours, minutes and seconds for the Arduino. The Yún device must be connected to a network to get the correct time. If you used the web-based Wi-Fi interface to configure the Yún device for the network, make sure you've selected the proper time zone.
 
 ## Hardware Required
 
 - Yún board or shield
 
-- WiFi network connected to the internet
+- Wi-Fi network connected to the internet
 
 ## Circuit
 

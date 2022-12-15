@@ -43,7 +43,7 @@ The Arduino NG uses the FTDI FT232RL USB-to-Serial converter, which requires few
 
 ![ARDUINO EXTREME v2](assets/ArduinoExtreme-v2-240.jpg) 
 
-Version 2 of the Arduino Extreme uses a gridded ground plane and includes the new "www.arduino.cc" URL.
+Version 2 of the Arduino Extreme uses a gridded ground plane and includes the new "[www.arduino.cc](www.arduino.cc)" URL.
 
 ### ARDUINO EXTREME
 
@@ -61,7 +61,7 @@ The second version of the Arduino USB corrected the USB connector pinout and upd
 
 ![Arduino USB](assets/ArduinoUSB-240.jpg) 
 
-The Arduino USB was the first board labelled "Arduino". These were mainly sold unassembled as kits. The first version had an incorrect pinout for the USB connector and had the URL "www.potemkin.org".
+The Arduino USB was the first board labelled "Arduino". These were mainly sold unassembled as kits. The first version had an incorrect pinout for the USB connector and had the URL "[www.potemkin.org](www.potemkin.org)".
 
 ## Arduino Bluetooth
 
@@ -83,7 +83,7 @@ A revised version of the serial board with the URL "arduino.berlios.de".
 
 ![ARDUINO USB v2 240](assets/ArduinoSerial-240.jpg) 
 
-The original version of the Arduino serial board. Includes the url "www.potemkin.org".
+The original version of the Arduino serial board. Includes the url "[www.potemkin.org](www.potemkin.org)".
 
 ## Arduino Single-Sided Serial
 
@@ -115,7 +115,7 @@ The original Arduino Mega has an ATmega1280 and an FTDI USB-to-serial chip.
 
 **LilyPad Arduino 04**
 
-This revision uses the ATmega328P instead of the ATmega168V. All other detials are identical to version 03.  
+This revision uses the ATmega328P instead of the ATmega168V. All other details are identical to version 03.  
 
 **LilyPad Arduino 03** 
 

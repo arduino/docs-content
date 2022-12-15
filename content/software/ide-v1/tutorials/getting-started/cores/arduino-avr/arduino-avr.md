@@ -1,7 +1,7 @@
 ---
 title: 'Installing classic AVR boards.'
 compatible-products: [uno-rev3, uno, micro, mega, leonardo, nano]
-difficulty: easy
+difficulty: beginner
 description: 'A quick guide to installing classic Arduino boards, including the UNO, Mega, Leonardo and Micro.'
 author: 'Karl Söderby'
 ---

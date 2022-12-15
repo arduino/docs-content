@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Arduino IDE 2.0'
-difficulty: easy
+difficulty: beginner
 description: 'An introductory guide to the Arduino IDE 2.0.'
 tags:
  - Arduino IDE 2
@@ -14,13 +14,13 @@ The Arduino IDE 2.0 is an improvement of the classic IDE, with increased perform
 
 In this guide, we will cover the basics of the Arduino IDE 2.0, where you will find links to more detailed resources on how to use specific features!
 
-***You can download the IDE 2.0 from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software).*** 
+***You can download the IDE 2.0 from the [Arduino Software page](https://www.arduino.cc/en/software).*** 
 
 ***You can also follow the [downloading and installing the Arduino IDE 2.0](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.***
 
 ## Requirements
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) installed. 
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software) installed. 
 
 ## Overview
 

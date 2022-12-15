@@ -11,20 +11,20 @@ author: 'José Bagur'
 
 ## Introduction
 
-In this tutorial, we will learn how to use the [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software) for debugging SAM-based Arduino® boards. Using an [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board and a simple program, we will learn about the debugging functionalities that are integrated with the debugger tool of the new IDE 2.0.
+In this tutorial, we will learn how to use the [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software) for debugging SAM-based Arduino® boards. Using an [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board and a simple program, we will learn about the debugging functionalities that are integrated with the debugger tool of the new IDE 2.0.
 
 ## Goals
 
 The goals with this tutorial are: 
 
-- Learn how to use an [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software) and a SAM-based Arduino® board.
-- Learn about the debugging functionalities of the new [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software).
+- Learn how to use an [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software) and a SAM-based Arduino® board.
+- Learn about the debugging functionalities of the new [Arduino IDE 2.0](https://www.arduino.cc/en/software).
 
 ## Hardware and Software Needed
 
 The hardware and software used in this tutorial:
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software#experimental-software).
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software).
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board.
 - [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool.
 - 10-pin mini-squid cable (included with the Atmel-ICE development tool)
@@ -169,7 +169,7 @@ Now, we can see the Debugger Tool menu expanded. Let's start using the debugger 
 
 We should see some text in the IDE console from the Debugger Tool. The text displayed in the console shows information about the current debugging session, the debugging hardware tool and the connected board; for example, the board's microcontroller part number should be recognized by the Debugger Tool as shown below:
 
-![Debugging sesion information in the IDE console.](assets/ide_v2_t1_img09.gif)
+![Debugging session information in the IDE console.](assets/ide_v2_t1_img09.gif)
 
 Let's set two **breakpoints** in lines 28 and 33. The breakpoints can be set in the Debugger Tool by clicking to the left of the line numbering in the editor as shown below:
 

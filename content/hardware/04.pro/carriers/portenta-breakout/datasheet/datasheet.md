@@ -50,10 +50,10 @@ This product is designed to work alongside the Portenta family. Please check the
 <!-- *   M2x3 screws for attaching the OpenMV Global Shutter Camera Module -->
 
 ### Related Products
-* Arduino® Portenta H7 (SKU: ABX00042)
-* Arduino® Portenta H7 Lite (SKU: ABX00045)
-* Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
-* Arduino® Portenta X8 (SKU: ABX00049)
+*   Arduino Portenta H7 (SKU: ABX00042)
+*   Arduino Portenta H7 Lite (SKU: ABX00045)
+*   Arduino Portenta H7 Lite Connected (SKU: ABX00046)
+*   Arduino Portenta X8 (SKU: ABX00049)
 <!-- *   OpenMV Global Shutter Camera Module -->
 
 ### Solution Overview
@@ -79,8 +79,8 @@ Example of a typical installation for a solution including Portenta H7. A Porten
 
 ## Functional Overview
 ### Board Topology 
-### Top View
-![Topology - Top view](assets/breakoutCarrierConnectors.png)
+Front view
+![Top view - connectors](assets/breakoutCarrierConnectors.png)
 
 | **Ref.** |                 **Description**                  | **Ref.** |       **Description**       |
 | :------: | :----------------------------------------------: | :------: | :-------------------------: |
@@ -91,8 +91,8 @@ Example of a typical installation for a solution including Portenta H7. A Porten
 |   SW1    |               Boot mode selection                |   PB1    |       Power ON button       |
 |    U1    |               USBA power switch IC               |          |                             |
 
-### Bottom View
-![Topology - Bottom view](assets/breakoutCarrierConnectorsBottom.png)
+Back view
+![Bottom view - connectors](assets/breakoutCarrierConnectorsBottom.png)
 
 | **Ref.** |              **Description**               | **Ref.** |              **Description**               |
 | :------: | :----------------------------------------: | :------: | :----------------------------------------: |
@@ -125,10 +125,19 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 ### DIP Switch
 The DIP switch allows for boot mode configuration:
 *   **BOOT SEL**: When set to ON, keeps the Portenta in Boot mode.
-*   **BOOT**: When set to ON enables the embedded bootloader. Firmware can be uploaded via the USB port on the breakout board (DFU). USB-A to USB-A  (non-crossover) cable required. The Portenta H7 has to be powered through the USB-C connector or VIN.
+*   **BOOT**: When set to ON enables the embedded bootloader. Firmware can be uploaded via the USB port on the breakout board (DFU). USB-A to USB-A  (non-crossover) cable required. The Portenta H7 has to be powered through the USB-C® connector or VIN.
+
+### RJ-45 Connector
+The RJ-45 Connector allows to plug-in an ethernet cable and connect to your network.
+
+By default it is compatible with the **Arduino Portenta H7** as the jumper pads are joint with copper.
+
+To **allow** compatibility with the **Arduino Portenta X8** it is needed to cut 2 jumper-pads, located on top of the to the RJ-45 Connector, below the SD holder, on the left side of the Carrier as show in the following picture.
+
+![Ethernet Jumper pads](assets/breakoutCarrierEthernetSolderJumpers.svg)
 
 ## Board Operation
-***Note: This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview).***
+**Note:** This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview). 
 
 ### Getting Started - IDE 
 If you want to program your Portenta H7 with the Breakout Board while offline you need to install the Arduino Desktop IDE **[1]**. To connect your Portenta H7 with the Portenta Breakout Board to your computer, you will need a Type-C USB cable. This also provides power to both the Portenta H7 as well as the Portenta Breakout Board. Alternatively, in order to provide power to the USB connectors and the 5V pins, a 5V source must be applied to J8. This will also provide power to the Portenta H7.
@@ -153,7 +162,7 @@ In case a sketch locks up the processor and the board is not reachable anymore v
 ## Connector Pinouts
 The Portenta Breakout Board provides easy access to the pins on the high density connector of the Portenta family. The Portenta Breakout Board is shipped in a headerless configuration to provide flexibility in using 2.54mm compatible connectors to meet their specific application. 
 
-![alt_text](assets/breakoutCarrierPinOut.jpg)
+![Pinouts](assets/breakoutCarrierPinOut.jpg)
 
 In cases where multiple channels are on a single header, the first channel is on the bottom part of the header and the section channel is on the top part of the header. The order of the channel is determined by the silkscreen markings.
 
@@ -189,8 +198,8 @@ In cases where multiple channels are on a single header, the first channel is on
 
 ### CAN0/CAN1
 Pins closer to the edge of the board are CAN0. Pins close to the centre are CAN1.
-
-***Please Note: When used with Arduino Portenta H7, only CAN1 is available.***
+**Please Note** 
+When used with Arduino Portenta H7, only CAN1 is available.
 
 | Pin  | **Function** |   **Type**   |      **Description**      |
 | :--: | :----------: | :----------: | :-----------------------: |
@@ -341,7 +350,7 @@ Pins closer to the edge of the board are UART2. Pins closer to the center are UA
 
 ## Mechanical Information
 ### Board Outline
-![Board outline](assets/breakoutCarrierOutline.png)
+![Board outline and screw holes](assets/breakoutCarrierOutline.png)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
@@ -391,3 +400,4 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 | ---------- | ------------------------------- |
 | 05/05/2021 | First Release                   |
 | 14/12/2021 | Clarified Camera compatibility  |
+| 23/08/2022 | Add RJ-45 jumpers information   |

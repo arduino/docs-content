@@ -21,7 +21,7 @@ software:
   - web-editor
 ---
 
-In this tutorial, we will set up a configuration that allows two MKR WAN 1300's to send and receive sensor data. We will use the **LoRa®** library to send data, and we will not use any external service. The sensor data will be recorded through the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), a shield that can record temperature, humidity, barometric pressure & ambient light.
+In this tutorial, we will set up a configuration that allows two MKR WAN 1300's to send and receive sensor data. We will use the **LoRa** library to send data, and we will not use any external service. The sensor data will be recorded through the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield), a shield that can record temperature, humidity, barometric pressure & ambient light.
 
 ## Hardware & Software Needed
 
@@ -30,7 +30,7 @@ In this tutorial, we will set up a configuration that allows two MKR WAN 1300's 
 - 1x [MKR ENV shield](https://store.arduino.cc/arduino-mkr-env-shield).
 - 2x Micro USB cable.
 - Arduino IDE (offline and online versions available).
-- Arduino SAMD core installed, [follow this link for instructions](/content/software/ide-v1/installing-samd21-core).
+- Arduino SAMD core installed, [follow this link for instructions](/software/ide-v1/getting-started/cores/arduino-samd).
 - **LoRa** library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
 - **Arduino_MKRENV** installed ([click here for more documentation](https://www.arduino.cc/en/Reference/ArduinoMKRENV)).
 
@@ -88,7 +88,7 @@ int counter = 0;
 
 In the `setup()` we will begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 As we are using the MKR ENV shield, we also need to initialize the **Arduino_MKRENV** library by using the line `if (!ENV.begin())` followed by an error message in case it failed to initialize.
 

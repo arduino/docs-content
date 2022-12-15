@@ -1,7 +1,7 @@
 ---
 title: 'Fading a LED'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Demonstrates the use of analog output to fade an LED.'
 tags: 
   - Basics

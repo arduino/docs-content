@@ -1,7 +1,7 @@
 ---
 title: Create and Upload a Custom Container to the Portenta X8
-difficulty: medium
-tags: [Linux, Python, Containers, ADB]
+difficulty: intermediate
+tags: [Linux, Python®, Containers, ADB]
 description: This tutorial will show you how to create and upload your custom container to your Portenta X8
 author: Benjamin Dannegård
 hardware:
@@ -23,7 +23,7 @@ In this tutorial we will create a simple container that we can then upload to th
 
 - [Portenta X8](https://store.arduino.cc/portenta-x8)
 - ADB
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
 
@@ -55,7 +55,7 @@ TEST_CMD="python3 --help"
 ```
 
 ### Docker-compose.yml
-This file defines the app name through the factory, permissions and settings for the involved containers. The argument in the image tag will make it so our image file builds locally.
+This file defines the app name through the Factory, permissions and settings for the involved containers. The argument in the image tag will make it so our image file builds locally.
 
 ```python
 version: '3.6'
@@ -122,9 +122,9 @@ if __name__ == '__main__':
 
 ## Uploading the Container Folder
 
-First, you have to have set up your board to a factory, as shown in the [Portenta X8 Out of the Box tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box).
+First, you have to have set up your board to a Factory, as shown in the [Portenta X8 Out of the Box tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box).
 
-Once this is done, we will push our folder to a repository within the factory. Lets place our folder "x8-custom-test" inside the "containers.git" repository. You can find this repository inside your factory page, if you click on "Source". And then on "container.git", the url of this page will be used in the next command.
+Once this is done, we will push our folder to a repository within the Factory. Lets place our folder "x8-custom-test" inside the "containers.git" repository. You can find this repository inside your Factory page, if you click on "Source". And then on "container.git", the url of this page will be used in the next command.
 
 ![Source on Foundries.io Factory page](assets/custom-factory-page.png)
 
@@ -138,19 +138,17 @@ In order to pull or push repositories you have to generate an API key. This can 
 
 ![Token section in user settings](assets/token-page.png)
 
-Use the following command in a Linux shell, like ADB which the previously mentioned tutorial showed how to set up. To get the repository on your board, replace the "YOUR_FACTORY" with the name of your factory. The "-m" tag selects the manifest file within the repository. If no manifest name is selected, the default is "default.xml". And the "-b" tag specifies a revision. Running this command will get the container repository, where we will put our folder.
+Use the following command in a Linux shell, like ADB which the previously mentioned tutorial showed how to set up. To get the repository on your board, replace "YOUR_FACTORY" with the name of your Factory. The "-b" parameter specifies a branch to checkout after cloning the repository. Running this command will get the container repository, where we will put our folder.
 
-```python
-repo init -u https://source.foundries.io/factories/YOUR_FACTORY/containers.git -m arduino.xml -b devel
+```
+git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
-We can also run ```repo sync``` to get the latest version of the repository. Put the "x8-custom-test" folder in the repository. If you push the commit to "container.git" a new target will automatically build on your Foundries.io Factory page.
-
-***NOTE: The "repo sync" will at some point pause. This is because it is waiting for a username and password but the prompt will be hidden. Enter the username and password to move on.***
+Put the "x8-custom-test" folder in the repository. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it in the "Targets" page.
 
 ### Building and Running the Container
 
-After uploading the folder to the repository. Navigate into the "x8-custom-test" folder, that should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with a ```--tag``` will let us give the container a tag so we can easily keep track of what version of the build this is.
+After the build is finished, it can take up to 10 minutes for your device to OTA update to this new version. You can inspect it via the "Devices" tab of your FoundriesFactory. After your device takes the update, navigate into the "x8-custom-test" folder, that should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with a ```--tag``` will let us give the container a tag so we can easily keep track of what version of the build this is.
 
 ```python
 docker build --tag "x8-custom-test:latest" .
@@ -184,7 +182,7 @@ docker-compose stop
 
 ## Conclusion
 
-This tutorial went through what goes into a container, how the folder should be built and what files it should contain. It then explained what each files purpose is and what they should contain for this example. Then we went through how this relates back to the factory, and how Foundries.io makes the whole process easier for us. We then showed how to build the container and run it on the Portenta X8. Lastly, we showed a useful testing feature with docker-compose. Which lets us test our container with a faster process.
+This tutorial went through what goes into a container, how the folder should be built and what files it should contain. It then explained what each files purpose is and what they should contain for this example. Then we went through how this relates back to the Factory, and how Foundries.io makes the whole process easier for us. We then showed how to build the container and run it on the Portenta X8. Lastly, we showed a useful testing feature with docker-compose. Which lets us test our container with a faster process.
 
 ### Next Steps
 

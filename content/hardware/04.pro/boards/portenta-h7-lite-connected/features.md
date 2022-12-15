@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **Portenta H7 Lite Connected** simultaneously runs high level code along with real time tasks. The design includes two processors that can run tasks in parallel. For example, is possible to execute Arduino compiled code along with MicroPython one, and have both cores to communicate with one another. The Portenta functionality is two-fold, it can either be running like any other embedded microcontroller board, or as the main processor of an embedded computer. For example, use the **Portenta Vision Shield** to transform your H7 into an industrial camera capable of performing real time machine learning algorithms on live video feeds
+The **Portenta H7 Lite Connected** simultaneously runs high level code along with real time tasks. The design includes two processors that can run tasks in parallel. For example, is possible to execute Arduino compiled code along with MicroPython one and have both cores to communicate with one another. The Portenta functionality is two-fold, it can either be running like any other embedded microcontroller board or as the main processor of an embedded computer. For instance, use the **Portenta Vision Shield** to transform your H7 into an industrial camera capable of performing real time machine learning algorithms on live video feeds
 
 </FeatureDescription>
 
@@ -10,7 +10,7 @@ The **Portenta H7 Lite Connected** simultaneously runs high level code along wit
 
   The Portenta H7 Lite Connected allows for programming with high-level languages and AI while performing low-latency operations on its customizable hardware.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Datasheet-Portenta-H7.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf" download blank/>
 </Feature>
 
 <Feature title="STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU" image="mcu">
@@ -25,18 +25,6 @@ The **Portenta H7 Lite Connected** simultaneously runs high level code along wit
   The onboard wireless module allows to simultaneously manage WiFi and Bluetooth® connectivity.
 
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_Murata-1dx.pdf" download blank/>
-</Feature>
-
-<Feature title="Chrom-ART graphical hardware Accelerator™" image="mcu">
-
-  Probably one of the most exciting features of the Portenta H7 is the possibility of connecting an external monitor to build your own dedicated embedded computer with a user interface. This is possible thanks to the STM32H747 processor's on-chip GPU, the Chrom-ART Accelerator™. Besides the GPU, the chip includes a dedicated JPEG encoder and decoder.
-
-</Feature>
-
-<Feature title="Special Configuration Request" image="configurability">
-
-  The Portenta H7 Lite Connected is a highly configurable design, it is possible to order boards with different configurations of memory, crypto chip, antenna, etc. These request will be channeled through Arduino's sales team and will require a minimum amount order. We recommend you try the default H7 configuration and if you need specific features for your solution, then contact us to discuss the terms.
-  
 </Feature>
 
 </FeatureList>

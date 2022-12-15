@@ -2,8 +2,8 @@
 title: 'The Arduino Guide to LoRa® and LoRaWAN®'
 description: 'Learn the basics of LoRa® and LoRaWAN® and how to use them with Arduino hardware and software.'
 tags: 
-  - LoRa
-  - LoRaWAN
+  - LoRa®
+  - LoRaWAN®
   - MKR WAN 1310
 author: 'José Bagur, Taddy Chung'
 ---
@@ -25,7 +25,7 @@ Some of the important use cases for LPWAN's include the following applications:
 - **Smart grids**: electricity, water, and gas metering.
 - **Smart agriculture**: land condition monitoring, animal tracking, geofencing. 
 
-***If you want to read more about LPWAN's, check out [this article](/learn/wireless/lorawan-101) from the Learn section.***
+***If you want to read more about LPWAN's, check out [this article](/learn/wireless/low-power-wide-area-networks-101) from the Learn section.***
 
 Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation, **LoRaWAN®**, is currently one of the existing LPWAN gaining the most traction to support IoT devices and services. 
 
@@ -134,7 +134,7 @@ Class C communication profile is used in applications with enough power availabl
 
 ### Authentication and Security
 
-Authentication and security are also important in LoRaWAN® networks. Any LoRaWAN® network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRaWAN® framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encription uses an **application session key** (AppSKey). 
+Authentication and security are also important in LoRaWAN® networks. Any LoRaWAN® network has a baseline authentication and security framework based on the AES 128 encryption scheme. Compared to other LPWAN's, which rely on a single key for authentication and encryption, the LoRaWAN® framework separates both. Authentication and integrity control use a **network session key** (NwkSKey) while user data encryption uses an **application session key** (AppSKey). 
 
 ***NwkSKey and AppSKey are AES-128 root keys specific to the end-device, end-devices manufacturers, or application owners assigned them.***
 

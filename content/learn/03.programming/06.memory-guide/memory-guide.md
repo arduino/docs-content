@@ -10,9 +10,9 @@ tags:
 author: 'Arduino, José Bagur, Taddy Chung'
 ---
 
-A microcontroller unit (also known as a MCU) is an integrated circuit (IC), typically used to perform specific applications or tasks. Usually, this type of IC gathers information or data from its surroundings, process it, and generates specific outputs according to the gathered data. Microcontrollers today are everywhere; they are an essential part of modern embedded systems that can be found practically everywhere in our world, from smartwatches to electric vehicles; they are even on the Martian surface right now. 
+A microcontroller unit (also known as an MCU) is an integrated circuit (IC), typically used to perform specific applications or tasks. Usually, this type of IC gathers information or data from its surroundings, processes it, and generates specific outputs according to the gathered data. Microcontrollers today are everywhere; they are an essential part of modern embedded systems that can be found practically everywhere in our world, from smart watches to electric vehicles; they are even on the Martian surface right now. 
 
-One essential part of a microcontroller is its **memory**; memory stores information temporarily or permanently in microcontrollers, and can be used for several purposes. In this article, we will explore memory organization in microcontrollers, focusing on those present in Arduino® boards. We will also explore several ways to manage, measure, and optimize memory usage in Arduino-based systems are discussed in the article.
+One essential part of a microcontroller is its **memory**; memory stores information temporarily or permanently in microcontrollers, and can be used for several purposes. In this article, we will explore memory organization in microcontrollers, focusing on those present in Arduino® boards. We will also explore several ways to manage, measure, and optimize memory usage in Arduino-based systems.
 
 ## What is Memory?
 
@@ -30,7 +30,7 @@ In the early days of computing, two computer architectures, i.e., the organizati
 
 ### Von Neumann Architecture
 
-The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid-'40s; it is also known as the Princeton architecture. This architecture stores program data and instructions in the same memory unit. 
+The von Neumann architecture, named after the mathematician, physicist, and computer scientist John von Neumann, was first introduced in the mid '40s. It is also known as the Princeton architecture. This architecture stores program data and instructions in the same memory unit. 
 
 ![Von Neumann architecture.](assets/memory-guide-004.png)
 
@@ -38,7 +38,7 @@ Both are accessed by the CPU using the same communications bus, as shown below. 
 
 ### Harvard Architecture
 
-The Harvard architecture, named after the Harvard Mark I relay-based computer, was first introduced in the mid-'40s. This architecture's main characteristic is that it uses **two separate memory units**, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
+The Harvard architecture, named after the Harvard *Mark I* relay-based computer, was first introduced in the mid '40s. This architecture's main characteristic is that it uses **two separate memory units**, one for storing program instructions and one for storing program data. Both memory units in the Harvard architecture are accessed by the CPU using different communication buses. 
 
 ![Harvard architecture.](assets/memory-guide-003.png)
 
@@ -91,11 +91,11 @@ RAM and ROM in microcontroller-based systems are organized into three main categ
 
 ### Flash
 
-**Flash** memory in microcontroller-based systems is part of its ROM. The flash memory is where the system's firmware is stored to be executed. For example, think of the famous `Blink.ino` sketch, when we compile this sketch, we create a binary file that is later stored in the flash memory of an Arduino board. The sketch is then executed when the board is powered on.
+**Flash** memory in microcontroller-based systems is part of its ROM. The flash memory is where the system's firmware is stored to be executed. For example, think of the famous `Blink.ino` sketch: when we compile this sketch, we create a binary file that is later stored in the flash memory of an Arduino board. The sketch is then executed when the board is powered on.
 
 ### RAM
 
-**RAM** in microcontroller-based systems **is where the system's temporary data or run-time data is stored**; for example, the variables created by functions of a program. RAM in microcontrollers usually is **SRAM**; this is a type of RAM that uses a flip-flop to store one bit of data. There is also another type of RAM that can be found in microcontrollers: DRAM.
+**RAM** in microcontroller-based systems is where the system's **temporary data or run-time data is stored**; for example, the variables created by functions of a program. RAM in microcontrollers usually is **SRAM**; this is a type of RAM that uses a flip-flop to store one bit of data. There is also another type of RAM that can be found in microcontrollers: DRAM.
 
 ### EEPROM
 
@@ -368,7 +368,7 @@ Dynamic memory allocations cause **heap fragmentation**. With heap fragmentation
   
   - It is good to keep Strings/literals as short as possible. A single char takes **one** Byte of RAM, so the shorter, the better memory space usage. This does not mean keeping it short and using it in several different code areas is possible. Use it when required and keep it as short as possible to spare RAM space for other tasks.
 
-  - **Arrays** are also recommended to be at a minimum size. If it requires resizing the array, you can always re-set the array size in code. It may be a tedious, also non-efficient method to hard-code the array sizes. However, if the code utilizes small array sizes and less than three arrays, it may suffice via manual resizing, knowing the requirements. An intelligent way to do this is a resizeable array with limited size. The tasks will use the array without going over the size boundary. Thus it is suitable for extensive code. Although, the limit of the array size must be analyzed and kept as small as possible.
+  - **Arrays** are also recommended to be at a minimum size. If it requires resizing the array, you can always re-set the array size in code. It may be a tedious, also non-efficient method to hard-code the array sizes. However, if the code utilizes small array sizes and less than three arrays, it may suffice via manual resizing, knowing the requirements. An intelligent way to do this is a resizable array with limited size. The tasks will use the array without going over the size boundary. Thus it is suitable for extensive code. Although, the limit of the array size must be analyzed and kept as small as possible.
 
 #### Reserve Function
 

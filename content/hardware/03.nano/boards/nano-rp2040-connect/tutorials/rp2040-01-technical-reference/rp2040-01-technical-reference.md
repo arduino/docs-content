@@ -189,7 +189,7 @@ The VUSB pin is located on the bottom of the board. The pads on the Arduino RP20
 
 ## IMU
 
-![The LSM6DSOXTR sensor](assets/LSM6DSOXTR-NANORP2040CONNECT.png)
+![The LSM6DSOXTR sensor](assets/rp2040-imu-basics-img-02.png)
 
 ### LSM6DSOXTR
 

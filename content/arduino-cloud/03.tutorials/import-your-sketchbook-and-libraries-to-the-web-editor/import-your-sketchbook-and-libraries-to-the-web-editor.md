@@ -84,4 +84,4 @@ More info on the online Library Manager [on this tutorial](https://create.arduin
 
 ### More tutorials
 
-You can find more tutorials in the [Web Editor documentation page](/cloud/web-editor/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud).

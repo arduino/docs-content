@@ -1,0 +1,21 @@
+.header {
+    border-color: #58585A;
+}
+
+.header-title {
+    color: #3E4440;
+}
+
+.product-variant {
+    /* color: #8B7866; */
+    color: #e4c5a9;
+}
+
+th {
+    background-color: #3e4440;
+    color: white;
+}
+
+h1, h2, h3, h4 {
+    color: #3e4440;
+}

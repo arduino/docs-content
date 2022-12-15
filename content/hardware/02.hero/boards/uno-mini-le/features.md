@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **UNO Mini Limited Edition (LE)** is a miniature version of the classic <a href="../uno-rev3">Arduino UNO board</a>. It is based on the **ATmega328P** microcontroller, has USB-C connector for programming and powering the board, and pins available for connecting external power sources. It also comes with the standard set of female pin connectors, built-in LED, reset button and everything else that the standard UNO have, but at **25% the area size!**. 
+The **UNO Mini Limited Edition (LE)** is a miniature version of the classic <a href="/hardware/uno-rev3">Arduino UNO board</a>. It is based on the **ATmega328P** microcontroller, has USB-C® connector for programming and powering the board, and pins available for connecting external power sources. It also comes with the standard set of female pin connectors, built-in LED, reset button and everything else that the standard UNO have, but at **25% the area size!**. 
 
 </FeatureDescription>
 

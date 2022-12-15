@@ -30,7 +30,8 @@
         "type": "string"
       },
       "difficulty": {
-        "type": "string"
+        "type": "string",
+        "enum": ["beginner", "intermediate", "advanced"]
       },
       "hero_position": {
         "type": "integer"

@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Portenta Max Carrier and Portenta X8'
-difficulty: easy
+difficulty: beginner
 description: "Get started with your Portenta Max Carrier and Portenta X8"
 tags:
   - Installation
@@ -17,7 +17,7 @@ software:
 
 ## Introduction 
 
-Using the Portenta X8 with the Portenta Max Carrier enables a large suite of peripherals and features. With the Portenta X8 it is possible to use Linux containers and python scripts, it is also possible to use the M4 core on the board to interface with the Portenta Max Carrier. In this tutorial we will focus on the peripherals and features that are available to us.
+Using the Portenta X8 with the Portenta Max Carrier enables a large suite of peripherals and features. With the Portenta X8 it is possible to use Linux containers and Python® scripts, it is also possible to use the M4 core on the board to interface with the Portenta Max Carrier. In this tutorial we will focus on the peripherals and features that are available to us.
 
 ## Goals
 
@@ -59,7 +59,7 @@ To make use of the Portenta Max Carrier you will need to power it through either
 
 ### Memory
 
-The Portenta Max Carrier equips two different memory units on-board, a flash memory and a mini SD card slot. The Flash memory on-board the Portenta Max Carrier has 2MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
+The Portenta Max Carrier equips two different memory units on-board, a flash memory and a mini SD card slot. The Flash memory on-board the Portenta Max Carrier has 2 MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
 
 If you have a sd card connected to the Max Carrier you can create a directory on the sd card by using the following command:
 ```python
@@ -83,11 +83,11 @@ apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf 
 
 The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires a SIM card and an antenna connected to the SMA connector.
 
-![LoRa and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
+![LoRa® and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
 
-If you want to use this feature with python scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
+If you want to use this feature with Python® scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
 
-### LoRa
+### LoRa®
 
 One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-078 that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 
@@ -114,10 +114,9 @@ The Portenta Max Carrier and the Portenta X8 are connected with High Density con
 
 ### Setting up Portenta X8
 
-If you wish to use the Portenta X8 and Max Carrier with the Arduino IDE, please follow our [Uploading sketches to Arduino Portenta X8 tutorial](./tutorials/uploading-sketches-m4). Also, make sure that you have the latest version of the Portenta Core installed. Go to **Tools > Boards > board manager...** and search for **Arduino Mbed OS Portenta boards**. When this is installed and your Portenta X8 board is connected to the computer, the board should be assigned a port in the Arduino IDE.
+If you wish to use the Portenta X8 and Max Carrier with the Arduino IDE, please follow our [Uploading sketches to Arduino Portenta X8 tutorial](/tutorials/portenta-x8/uploading-sketches-m4). Also, make sure that you have the latest version of the Portenta Core installed. Go to **Tools > Boards > board manager...** and search for **Arduino Mbed OS Portenta boards**. When this is installed and your Portenta X8 board is connected to the computer, the board should be assigned a port in the Arduino IDE.
 
-If you want to use the Portenta X8 and Max Carrier with a Foundries.io Factory, python scripts and Linux containers, Please take a look at our [Portenta X8 Getting started tutorial](./tutorials/portenta-x8/out-of-the-box). You may also find our tutorial on how to [manage dockers on the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container) useful.
-
+If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Python® scripts and Linux containers, Please take a look at our [Portenta X8 Getting started tutorial](./tutorials/portenta-x8/out-of-the-box). You may also find our tutorial on how to [manage dockers on the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container) useful.
 
 ## Quick Reference Tables for the Portenta Max Carrier
 

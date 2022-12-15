@@ -106,7 +106,7 @@ At this point, the "Remap Object Files To Disk Files" window will pop-up :
 
 Select the three-point box in the same row of the Blink1.ino file:
 
-[![](./assets/M0_ADV_DBG_image018.gif)](/en/uploads/Guide/M0_ADV_DBG_image018.gif)
+[![](./assets/M0_ADV_DBG_image018.gif)](https://arduino.cc/en/uploads/Guide/M0_ADV_DBG_image018.gif)
 
 and open the Blink1.ino file itself, then click on finish. Open now the Blink1.ino entry in the Solution Explorer workspace of the main window of Atmel Studio:
 

@@ -5,7 +5,7 @@ description: 'The first steps to setting up your Arduino ADK'
 
 **This is a retired product and the information given could be inaccurate or obsolete. It is supplied AS IS for documentation purposes**
 
-This guide describe how to connect an Android™ device to an Arduino ADK board ([Mega ADK](/en/Main/ArduinoBoardMegaADK) and [USB Host shield](/en/Main/ArduinoUSBHostShield)). Furthermore, we have tried to make it as easy as possible by concentrating in the use of Processing instead of Eclipse as the tool of choice for writing the Android Apps.
+This guide describe how to connect an Android™ device to an Arduino ADK board ([Mega ADK](https://arduino.cc/en/Main/ArduinoBoardMegaADK) and [USB Host shield](https://arduino.cc/en/Main/ArduinoUSBHostShield)). Furthermore, we have tried to make it as easy as possible by concentrating in the use of Processing instead of Eclipse as the tool of choice for writing the Android Apps.
 
 Here you can learn how to connect Arduino to Android™ via the USB cable the phone (or tablet) uses for data transfers as well as for recharging its battery. You might be interested in using Bluetooth® as an alternative to get Arduino and the Android artifact to talk to each other.
 
@@ -27,7 +27,7 @@ The different configurations listed in this table are Accessory Development Kit 
 
 ### Running Examples in ADK Mode
 
-The examples for ADK Mode for Processing has been developed and tested on the Arduino [Mega ADK](/en/Main/ArduinoBoardMegaADK), but should work for other similar Open Accessory enabled boards as well for. The ADK mode requires the following hardware and software:
+The examples for ADK Mode for Processing has been developed and tested on the Arduino [Mega ADK](https://arduino.cc/en/Main/ArduinoBoardMegaADK), but should work for other similar Open Accessory enabled boards as well for. The ADK mode requires the following hardware and software:
 
 - An Arduino ADK compatible board or shield.
 

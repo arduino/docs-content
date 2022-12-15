@@ -27,7 +27,7 @@ Using a Nano Every and a custom PCB, this maker made a turntable capable of play
 
 A bit more advanced use case for the Nano Every is documented by user [torstengeppert](https://create.arduino.cc/projecthub/torstengeppert) on the Arduino Project Hub platform.
 
-This smart electricity meter measures and stores the readings from two meters, simulatenously. To read more about this project, visit the link below:
+This smart electricity meter measures and stores the readings from two meters, simultaneously. To read more about this project, visit the link below:
 
 - [Logging 2 Electricity Smart Meters Using Arduino Nano Every](https://create.arduino.cc/projecthub/torstengeppert/logging-2-electricity-smart-meters-using-arduino-nano-every-99f934)
 

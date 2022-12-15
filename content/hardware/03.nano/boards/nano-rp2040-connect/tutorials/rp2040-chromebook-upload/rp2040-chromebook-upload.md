@@ -1,6 +1,6 @@
 ---
 title: 'Nano RP2040 Connect Chromebook Setup'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-rp2040-connect]
 description: 'A quick tutorial on how to setup your Nano RP2040 Connect with a Chromebook, using the Web Editor & the Arduino Chrome App.'
 tags: 

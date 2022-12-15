@@ -11,7 +11,7 @@ A simple server that distributes any incoming messages to all connected clients.
 
 - Arduino Board
 
-- [Arduino Ethernet Shield](arduino.cc/en/Guide/ArduinoEthernetShield)
+- [Arduino Ethernet Shield](https://arduino.cc/en/Guide/ArduinoEthernetShield)
 
 ## Circuit
 

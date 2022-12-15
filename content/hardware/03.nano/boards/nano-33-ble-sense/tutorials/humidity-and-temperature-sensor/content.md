@@ -1,6 +1,6 @@
 ---
 title: 'Reading Temperature & Humidity on Nano 33 BLE Sense'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-33-ble-sense]
 description: 'Learn how to measure and print out the humidity and temperature values of your surroundings using the Nano 33 BLE Sense'
 tags:

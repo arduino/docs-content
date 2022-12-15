@@ -1,7 +1,7 @@
 ---
 title: 'Analog In, Out Serial'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Read an analog input pin, map the result, and then use that data to dim or brighten an LED.'
 tags: 
   - Analog
@@ -41,7 +41,7 @@ In the sketch below, after declaring two pin assignments (analog 0 for our poten
 
 Next, in the main loop, `sensorValue` is assigned to store the raw analog value read from the potentiometer. Arduino has an `analogRead` range from 0 to 1023, and an `analogWrite` range only from 0 to 255, therefore the data from the potentiometer needs to be converted to fit into the smaller range before using it to dim the LED.
 
-In order to convert this value, use a function called [map()](https://www.arduino.cc/en/Reference/Map):
+In order to convert this value, use a function called [map()](https://www.arduino.cc/reference/en/language/functions/math/map/):
 
 `outputValue = map(sensorValue, 0, 1023, 0, 255);`
 

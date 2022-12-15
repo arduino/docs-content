@@ -131,6 +131,19 @@ This feature allows Arduino devices to communicate with each other by sharing va
 Using this feature you can link variables of the same data type between **two or more cloud-enabled devices**, and Arduino IoT Cloud will automatically ensure any change to their value is propagated among all linked boards.
 For example, one button could set three smart bulbs to the same color by just setting a variable on one device and reading it on the others. Or you could turn on a heater when temperature sensors in your room or outside in your weather station drop below a certain level.
 
+### Local Time
+
+To retrieve local time, use the `ArduinoCloud.getLocalTime()` method in your sketch. The value returned represents the current local time expressed as a Unix timestamp (i.e. seconds from the epoch), and it automatically takes your time zone settings and DST (Daylight Saving Time) into account. Time zone can be set in the Thing configuration page within the Arduino IoT Cloud platform.
+
+The returned timestamp can be displayed in a dashboard using a `CloudTime` variable and the [Time Picker widget](/arduino-cloud/getting-started/technical-reference#time-picker), or can be parsed with a third-party library such as [Time](https://www.arduino.cc/reference/en/libraries/time/) in case you want to show it on a display.
+
+```arduino
+myTimeVariable = ArduinoCloud.getLocalTime()
+```
+
+***Note that when using a board equipped with a hardware Real-Time Clock (RTC) the [Arduino_IoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library will use it automatically, thus communicating with the RTC from within your sketch or other libraries is not recommended. You can use the `getLocalTime()` and `getInternalTime()` methods provided by Arduino_IoTCloud instead.
+*** 
+
 ## Things
 
 In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of the variables and other settings, as well as the history of the data collected for the variables.
@@ -152,6 +165,8 @@ The steps below can be used as guidance when **setting up a Thing**:
 ***You can learn more about Things in the [Getting Started with the Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide.***
 
 ## Variables
+
+***Visit the main article on [Cloud Variables](/arduino-cloud/getting-started/cloud-variables) for a more detailed coverage.***
 
 A thing can have one or more variables. A variable can be used for multiple purposes:
 
@@ -176,362 +191,6 @@ When adding a variable the following values need to be determined:
 4. The **Variable's Permission**, which can be either **Read & Write** or **Read Only**. A **Read & Write** variable can work both as **input and output**, the data can be sent from the device to the cloud and vice versa. A **Read Only** variable can only send data from the device to the cloud.
 
 5. The **Variable Update Policy**, which may be either **On Change** or **Periodically**. If **On Change** is chosen, the variable will be updated to the cloud whenever the change in value is greater than or equal to the set **threshold**. If **Periodically** is chosen, the variable will be updated to the cloud each time the number of seconds set is elapsed.
-
-### Basic Types
-
-| Type                  | Declaration            |
-| --------------------- | ---------------------- |
-| Boolean               | `bool variableName;`   |
-| Character String      | `String variableName;` |
-| Floating Point Number | `float variableName;`  |
-| Integer Number        | `int variableName;`    |
-
-
-### Specialized Types
-
-For your convenience, IoT Cloud provides specialized types which are just wrappers around basic types but declare the variable semantics more explicitly. This enables smarter integrations with third-party services (such as Alexa) and better visualization of widgets in dashboards.
-
-You can use them just like a normal variable of the wrapped type, since they support assignment and comparison operators.
-
-| Type                 | Declaration                              | Wrapped data type |
-| -------------------- | ---------------------------------------- | ----------------- |
-| Acceleration         | `CloudAcceleration variableName;`        | `float`           |
-| Angle                | `CloudAngle variableName;`               | `float`           |
-| Area                 | `CloudArea variableName;`                | `float`           |
-| Capacitance          | `CloudCapacitance variableName;`         | `float`           |
-| Color                | `CloudColor variableName;`               | `float`           |
-| Contact Sensor       | `CloudContactSensor variableName;`       | `bool`            |
-| Counter              | `CloudCounter variableName;`             | `int`             |
-| Data Rate            | `CloudDataRate variableName;`            | `float`           |
-| Electric Current     | `CloudElectricCurrent variableName;`     | `float`           |
-| Electric Potention   | `CloudElectricPotention variableName;`   | `float`           |
-| Electric Resistance  | `CloudElectricResistance variableName;`  | `float`           |
-| Energy               | `CloudEnergy variableName;`              | `float`           |
-| Flow Rate            | `CloudFlowRate variableName;`            | `float`           |
-| Force                | `CloudForce variableName;`               | `float`           |
-| Frequency            | `CloudFrequency variableName;`           | `float`           |
-| Heart Rate           | `CloudHeartRate variableName;`           | `float`           |
-| Information Content  | `CloudInformationContent variableName;`  | `int`             |
-| Length               | `CloudLength variableName;`              | `float`           |
-| Light                | `CloudLight variableName;`               | `bool`            |
-| Location             | `CloudLocation variableName;`            | `float`           |
-| Logarithmic Quantity | `CloudLogarithmicQuantity variableName;` | `float`           |
-| Luminance            | `CloudLuminance variableName;`           | `float`           |
-| Luminous Flux        | `CloudLuminousFlux variableName;`        | `float`           |
-| Luminous Intensity   | `CloudLuminousIntensity variableName;`   | `float`           |
-| Mass                 | `CloudMass variableName;`                | `float`           |
-| Motion Sensor        | `CloudMotionSensor variableName;`        | `bool`            |
-| Percentage           | `CloudPercentage variableName;`          | `float`           |
-| Power                | `CloudPower variableName;`               | `float`           |
-| Pressure             | `CloudPressure variableName;`            | `float`           |
-| Relative Humidity    | `CloudRelativeHumidity variableName;`    | `float`           |
-| Smart Plug           | `CloudSmartPlug variableName;`           | `bool`            |
-| Switch               | `CloudSwitch variableName;`              | `bool`            |
-| CloudTemperature     | `CloudTemperature variableName;`         | `float`           |
-| Temperature Sensor   | `CloudTemperatureSensor variableName;`   | `float`           |
-| Time                 | `CloudTime variableName;`                | `float`           |
-| Velocity             | `CloudVelocity variableName;`            | `float`           |
-| Volume               | `CloudVolume variableName;`              | `float`           |
-
-
-### Complex Types
-
-The following variable types hold multiple values internally and are used to represent more complex data. In order to access such values, methods are provided.
-
-#### DimmedLight
-
-Declared as `CloudDimmedLight x;`
-
-| Property   | Type            | Read value          | Set value           |
-| ---------- | --------------- | ------------------- | ------------------- |
-| Brightness | `float` (0-100) | `x.getBrightness()` | `x.setBrightness()` |
-| Switch     | `bool`          | `x.getSwitch()`     | `x.setSwitch()`     |
-
-#### ColoredLight
-
-Declared as `CloudColoredLight x;`
-
-| Property   | Type            | Read value          | Set value           |
-| ---------- | --------------- | ------------------- | ------------------- |
-| Switch     | `bool`          | `x.getSwitch()`     | `x.setSwitch()`     |
-| Hue        | `float` (0-360) | `x.getHue()`        | `x.setHue()`        |
-| Saturation | `float` (0-100) | `x.getSaturation()` | `x.setSaturation()` |
-| Brightness | `float` (0-100) | `x.getBrightness()` | `x.setBrightness()` |
-
-#### CloudColor
-
-Declared as `CloudColor x;`.
-
-To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the `colorValues` variable.
-
-| Property   | Type    | Read value        | Set value                              |
-| ---------- | ------- | ----------------- | -------------------------------------- |
-| Hue        | `float` | `colorValues.hue` | `x = Color(hue,saturation,brightness)` |
-| Saturation | `float` | `colorValues.sat` | `x = Color(hue,saturation,brightness)` |
-| Brightness | `float` | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
-
-To set the color, we can assign the CloudColor variable directly to float variables `x = {hue,saturation,brightness}`, or using the method ` x = Color(hue,saturation,brightness)`.
-
-#### CloudLocation
-
-Declared as `CloudLocation x;`.
-
-To read the location values, we can use the following method `Location coordinates = x.getValue();`. This will assign the longitude and latitude values to the coordinates variable. If we want too access the values individually we can use `Serial.println(coordinates.lat)` and `Serial.println(coordinates.lon)`.
-
-| Property  | Type    | Read value        | Set value                   |
-| --------- | ------- | ----------------- | --------------------------- |
-| Latitude  | `float` | `coordinates.lat` | This variable is ready only |
-| Longitude | `float` | `coordinates.lon` | This variable is ready only |
-
-***The format of the `lat` and `lon` is in Decimal Degrees (DD), for example `41.40338`, `2.17403`.***
-
-#### Television    
-   
-Declared as `CloudTelevision x;`
-
-| Property         | Type                                                                                                                                                                                      | Read Value               | Set value                |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------ |
-| Switch           | `bool`                                                                                                                                                                                    | `x.getSwitch()`          | `x.setSwitch()`          |
-| Volume           | `int`(0-100)                                                                                                                                                                              | `x.getVolume()`          | `x.setVolume()`          |
-| Mute             | `bool`                                                                                                                                                                                    | `x.getMute()`            | `x.setMute()`            |
-| PlaybackCommands | `PlaybackCommands` (FastForward, Next, Pause, Play, Previous, Rewind, StartOver, Stop)                                                                                                    | `x.getPlaybackCommand()` | `x.setPlaybackCommand()` |
-| Input            | `InputValue` ([Up to 60 values](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/property/types/automation/CloudTelevision.h) such as HDMI1, HDMI2, DVD, GAME...etc.) | `x.getInput()`           | `x.setInput()`           |
-| Channel          | `int`                                                                                                                                                                                     | `x.getChannel()`         | `x.setChannel()`         |
-
-
-### Utilities
-
-The following utilities are available using any IoT Cloud sketch.
-
-#### Check Connection Status
-
-To check connection to the cloud, use:
-
-```arduino
-ArduinoCloud.connected()
-```
-
-This will return in an `int` format:
-- `0` (not connected)
-- `1` (connected).
-
-#### Get Local Time (Unix)
-
-To check local time, use:
-
-```arduino
-ArduinoCloud.getLocalTime()                         
-```
-
-This will return in a `long` format:
-- Epoch Unix time stamp. Example: `1652442415`.
-
-***This utility can be used together with the `CloudTime` variable and the `Time Picker` widget.***
-
-### Examples
-
-Here are some examples of how to use the variables in a sketch:
-
-#### Colored Light
-
-ColoredLight is a complex variable declared automatically in the `thingProperties.h` file as `CloudColoredLight variableName;`. The example below shows how the ColoredLight variable (declared with the variableName `cLight`) can be used and modified in the sketch. Note that the `onCLightChange()` function is automatically added and is triggered whenever the value of the Light variable is updated in the Cloud.
-
-```arduino
-#include <ArduinoGraphics.h> 
-#include <Arduino_MKRRGB.h> // Arduino_MKRRGB depends on ArduinoGraphics
-
-#include "thingProperties.h"
-
-void setup() {
-  // Initialize serial and wait for port to open:
-  Serial.begin(9600);
-  // This delay gives the chance to wait for a Serial mood without blocking if none is found
-  delay(1500); 
-
-  // Defined in thingProperties.h
-  initProperties();
-
-  // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-  setDebugMessageLevel(2);
-  ArduinoCloud.printDebugInfo();
-  
-  if (!MATRIX.begin()) {
-    Serial.println("Failed to initialize MKR RGB shield!");
-    while (1);
-  }
-  
-  // set the brightness, supported values are 0 - 255
-  MATRIX.brightness(10);
-}
-
-void loop() {
-  ArduinoCloud.update();
-}
-
-void onCLightChange() {
-  uint8_t r, g, b;
-  cLight.getValue().getRGB(r, g, b);
-  
-  MATRIX.beginDraw();
-  
-  if (cLight.getSwitch()) {
-    Serial.println("R:"+String(r)+" G:"+String(g)+ " B:"+String(b));
-    MATRIX.fill(r, g, b);
-    MATRIX.rect(0, 0, MATRIX.width(), MATRIX.height());
-  }else{
-    MATRIX.clear();
-  }
-  
-  MATRIX.endDraw();
-}
-    
-```
-
-#### Television
-
-CloudTelevision is an automation variable declared automatically in the `thingProperties.h` file as `CloudTelevision variableName;`. The example below shows how the CloudTelevision variable (declared with the variableName `tv`) can be used and modified in the sketch. The example simulates a remote controller by using an IR receiver to read the signals sent from the a remote controller and save them in arrays of unsigned integers. An IR transmitter is then used to send IR signals using the Arduino IoT Cloud. To view the full documentation of the project, [you can check this page](https://create.arduino.cc/projecthub/313276/full-control-of-your-tv-using-alexa-and-arduino-iot-cloud-9e7c4d). 
-
-Note that the `onTvChange()` function is automatically added and is triggered whenever the value of the tv variable is updated in the Cloud.
-
-```arduino
-#include "thingProperties.h"
-#include <IRremote.h>
-
-/******* SAVE DATA FROM IR RECEIVER ********/
-const unsigned int chan[9][67] = {};
-const unsigned int volUp[67] = {};
-const unsigned int chanUp[67] = {};
-const unsigned int onoff[67] = {};
-                        
-IRsend irsend;
-const int freq = 38;
-bool first;
-
-int prevChannel;
-int prevVolume;
-bool prevSwitch;
-bool prevMute;
-
-void setup() {
-  // Initialize serial and wait for port to open:
-  Serial.begin(9600);
-  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
-  delay(1500); 
-
-  // Defined in thingProperties.h
-  initProperties();
-
-  // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-  setDebugMessageLevel(2);
-  ArduinoCloud.printDebugInfo();
- 
-  first = true;
-  pinMode(LED_BUILTIN, OUTPUT);
-}
-
-void loop() {
-  ArduinoCloud.update();
-}
-
-/******* HANDLING THE IR TRANSMITTER********/
-void sendIR(const unsigned int buf[]) {
-  digitalWrite(LED_BUILTIN, HIGH);
-  irsend.sendRaw(buf, 67, freq);
-  delay(300);
-  digitalWrite(LED_BUILTIN, LOW);
-}
-
-void onTvChange() {
-  
-  Serial.println("==================");
-  Serial.println("Switch:"+String(tv.getSwitch()));
-  Serial.println("Volume:"+String(tv.getVolume()));
-  Serial.println("Channel:"+String(tv.getChannel()));
-  Serial.println("Mute:"+String(tv.getMute()));
-  Serial.println("==================");
-  
-  if (first){
-      prevSwitch = tv.getSwitch();
-      prevVolume = tv.getVolume();
-      prevChannel = tv.getChannel();
-      prevMute = tv.getMute();
-      first = false;
-      return;
-  } 
-  
-  
-  // Volume changed
-  if (tv.getVolume() > prevVolume) {
-    tv.setMute(false);
-    prevMute = false;
-    for (int k = prevVolume + 1 ; k<=tv.getVolume(); k++) {
-      sendIR(volUp);
-      Serial.println("Volume requested:"+String(tv.getVolume())+" Set:"+String(k));  
-    }
-    prevVolume = tv.getVolume();
-  }
-  else if (tv.getVolume() < prevVolume) {
-    tv.setMute(false);
-    prevMute = false;
-    for (int k = prevVolume - 1; k>=tv.getVolume(); k--) {
-      sendIR(volDown);
-      Serial.println("Volume changed:"+String(tv.getVolume())+" Set:"+String(k));  
-    }
-    prevVolume = tv.getVolume();
-  }
-  
-  
-  // Mute changed
-  if (tv.getMute() != prevMute && tv.getMute()) {
-    prevMute = tv.getMute();
-    sendIR(mute);
-    Serial.println("Mute changed:"+String(tv.getMute()));
-  }
-  else if (tv.getMute() != prevMute && !tv.getMute()) {
-    prevMute = tv.getMute();
-    sendIR(mute);
-    Serial.println("Mute changed:"+String(tv.getMute()));
-  }
-  
-  
-  // Channel changed
-  if (tv.getChannel() != prevChannel) {
-    int newChannel = tv.getChannel();
-    if (newChannel > 0 && newChannel < 10) {
-      sendIR(chan[newChannel-1]);
-    } else if (newChannel > 9) {
-      if (newChannel > prevChannel) {
-        for (int ch = prevChannel; ch < newChannel; ch++) {
-          sendIR(chanUp);
-          Serial.println("Chan requested:"+String(newChannel)+" Set:"+String(ch));  
-        }  
-      } else if (newChannel < prevChannel) {
-          for (int ch = prevChannel; ch > newChannel; ch--) {
-            sendIR(chanDown);
-            Serial.println("Chan requested:"+String(newChannel)+" Set:"+String(ch));  
-          }
-      }
-    }
-    prevChannel = newChannel;
-    Serial.println("Channel changed:"+String(tv.getChannel()));
-  }
-  
-  
-  // On/Off changed
-  if (tv.getSwitch() != prevSwitch) {
-    prevSwitch = tv.getSwitch();
-    if (tv.getSwitch()) {
-      sendIR(chan[6]);
-    } else {
-      sendIR(onoff);
-    }
-    Serial.println("Switch changed:"+String(tv.getSwitch()));
-  }
-}
-
-```
 
 ## Configuring Network
 
@@ -641,7 +300,7 @@ The full editor allows for more control over the code and its libraries and prov
 ***Please note: the status of the connection to the Network and Arduino IoT Cloud may be checked by opening the Serial Monitor after uploading a sketch. If the `while(!Serial);` loop is included in the `setup()` function, the code would not execute before opening the Serial Monitor.***
 
 
-## Dashboards
+## Dashboards & Widgets
 
 Dashboards are **visual user interfaces** for interacting with your boards over the cloud, which can be customized with different setups depending on the project's needs.
 
@@ -649,289 +308,29 @@ One or more **Things** can be added to a **Dashboard**, with all or some of thei
 
 ![Create widgets from a Thing](./images/create-widget-from-thing.png)
 
-### Widgets 
-
-On the Dashboard **widgets can be added individually** and linked to variables, and variables can be assigned to widgets **automatically by adding a Thing**.
-
-Additionally, the widgets can be **resized and rearranged** on the dashboard using the **"Arrange widgets"** icon. All widgets available are shown in the images below.
-
-![The Arduino IoT Cloud widgets](./images/cloud-widgets.png)
-
-Widgets are visual representations of variables. You can for example choose to have a **Gauge Widget** for a variable storing temperature readings, or a **Chart Widget** for monitoring energy consumption. Depending on the variable's permission, the Widget looks different:
-
-- Read Only cannot be interacted with (e.g. charts)
-- Read & Write can be interacted with (e.g. sliders, steppers)
-
-### Sharing Dashboards
-
-It is possible to share your live dashboards with external people. To do so, please refer to the guide in the link below:
-
-- [Sharing Dashboards in the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/sharing-dashboards)
-
-
-### Downloading Historical Data
-
-You can download the historical data of one or multiple variables. This can be done directly in the dashboard interface, by clicking the information sign at the top right corner, and clicking on download data.
-
-![Downloading historical data](images/download-historical-data.png)
-
-Here you can do the following:
-
-- Search for specific variables
-- Select a period of time
-- Select one (or all) variables
-
-Once you have selected the variables you want data from, click on the **"Select Data Source"** button and then on the **"Get Data"** button. An email will be sent to you with a log file.
-
-### List of Widgets
-
-Below you will find a list of available widgets, and examples on how they are linked to a variable used in a sketch.
-
-#### Switch
-
-![The Switch Widget](./images/widget-switch.png)
-
-The switch widget is great for simply turning something ON or OFF.
-
-Can be linked with a **boolean** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-if(switchVariable == true){
-    digitalWrite(ledPin, HIGH);
-}
-
-else{
-    digitalWrite(ledPin, LOW);
-}
-```
-
-#### Push Button
-
-![Push Button Widget](images/widget-pushbutton.png)
-
-The push button widget is a virtual version of a push button. While pushed down, something is activated, and when released, it is de-activated.
-
-Can be linked with a **boolean** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-while(pushbuttonVariable == true){
-    counter++
-    delay(10);
-}
-```
-
-#### Slider
-
-![Slider Widget](images/widget-slider.png)
-
-The slider widget can be used to adjust a value range. Great for changing the intensity of light, or the speed of a motor.
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-analogWrite(ledPin, sliderVariable);
-```
-
-#### Stepper
-
-![Stepper Widget](images/widget-stepper.png)
-
-Similar to the slider, the stepper widget increases or decreases a variable by increments of 1. It can be used to switch between different modes.
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-if(stepperVariable == 10){
-    activateThisFunction();    
-}
-
-//activate another function
-else if(stepperVariable == 11){
-    activateAnotherFunction();
-}
-
-//or simply print out the updated value
-Serial.println(stepperVariable);
-```
-
-#### Messenger
-
-![Messenger Widget](images/widget-messenger.png)
-
-The messenger widget can be used to send and receive strings through the messenger window.
-
-Can be linked with a **String** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-stringVariable = "This is a string";
-```
-
-#### Color
-
-![Color Widget](images/widget-color.png)
-
-The color widget is great for selecting an exact color for an RGB light.
-
-Can be linked with a **Color** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-uint8_t r, g, b;
-rgbVariable.getValue().getRGB(r, g, b);
-```
-
-#### Dimmed Light
-
-![Dimmed Light Widget](images/widget-dimmed-light.png)
-
-The dimmed light widget is great for changing the intensity of a light, and to be able to turn it ON and OFF as well.
-
-Can be linked with a **Dimmed Light** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-  //retrieve and map brightness value from cloud
-  uint8_t brightness = map(dimmedVariable.getBrightness(), 0, 100, 0, 255);
-
-  //then check if switch is on/off 
-  if (dimmedVariable.getSwitch()) {
-    analogWrite(6, brightness); //write brightness value to pin 6    
-  }
-  else{
-    analogWrite(6, LOW); //turn off lamp completely
-  }
-```
-
-#### Colored light
-
-![Colored Light Widget](images/widget-color-light.png)
-
-The colored light widget is designed to set the color for a lamp, and can turn it ON and OFF as well.
-
-Can be linked with a **Colored Light** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-uint8_t r, g, b;
-rgbVariable.getValue().getRGB(r, g, b);
-```
-
-#### Value
-
-![Value Widget](images/widget-value.png)
-
-The value widget is a simple one. It only reads, or writes values without any additional functionalities.
-
-Can be linked with many different variables.
-
-An example of how it is used in a sketch:
-
-```arduino
-valueVariable = analogRead(A0);
-```
-
-#### Status
-
-![Status Widget](images/widget-status.png)
-
-The status widget is great for checking the state of something: green is positive, red is negative!
-
-Can be linked to a **boolean** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-statusVariable = true;
-//or
-statusVariable = false;
-```
-
-#### Gauge
-
-![Gauge Widget](images/widget-gauge.png)
-
-The gauge widget is the go-to for any measurements that fit in a half circle. A great widget for building organized, professional dashboards.
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-gaugeVariable = analogRead(A0);
-```
-
-#### Percentage
-
-![Percentage Widget](images/widget-percentage.png)
-
-Much like the gauge widget, the percentage widget displays percentage in a more visual way.
-
-Can be linked with multiple variables, including **integers & floats.**
-
-An example of how it is used in a sketch:
-
-```arduino
-percentageVariable = analogRead(A0);
-```
-
-#### LED
-
-![LED Widget](images/widget-led.png)
-
-The LED widget is a virtual LED that can signal the status of something. Can either be set to ON or OFF.
-
-Can be linked with a **boolean** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-ledVariable = true;
-//or
-ledVariable = false;
-```
-
-#### Map
-
-![Map Widget](images/widget-map.png)
-
-The map widget is a tool for keeping track on the location of your projects. This is a great tool for any project involving GPS, or to get an overview of where your Thing, or multiple Things are operating.
-
-Can be linked with the **Location** variable.
-
-An example of how it is used in a sketch:
-
-```arduino
-locationVariable = Location(51.5074, 0.1278);
-```
-
-#### Chart
-
-![Chart Widget](images/widget-chart.png)
-
-The chart widget is great for data analytics. It is used to track real time data, as well as tracking historical data. This widget can for example be used to track temperature changes, energy consumption and other sensor values. A chart widget can only be linked to one variable at a time.
-
-An example of how it is used in a sketch:
-
-```arduino
-locationChart = analogRead(A0);
-```
+***You can read more about [Dashboards & Widgets](/arduino-cloud/getting-started/dashboard-widgets).***
 
 ## Recommended Code Practices
 
-### Avoid blocking commands within the loop()
+This section highlights some important aspects of writing code with regard to the implementations in the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud).
+
+### Watchdog Timer (WDT)
+
+All IoT Cloud sketches use a **Watchdog Timer (WDT)** by default. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
+
+A WDT is essentially a countdown timer, whereas it starts counting from a set value, and upon reaching zero, it resets the board. To prevent it from reaching zero, we continuously call it from the `loop()`, using the `ArduinoCloud.update()` function.
+
+This is why, it is very important to not use any long blocking code in your sketch. For example, using a long `delay()` inside the `loop()` is **strongly discouraged**, as the WDT can reach zero and reset the board.
+
+The WDT can however be disabled inside of the `setup()` function, by adding the `false` parameter:
+
+```arduino
+ArduinoCloud.begin(ArduinoIoTPreferredConnection, false).
+```
+
+***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog).***
+
+### Alternatives to Delays
 
 The `loop()` function includes the `ArduinoCloud.update();` call, which sends data to the cloud and receives updates. In order to get the best responsiveness in your cloud-connected projects, the `loop()` function should run as fast as possible. This means that no blocking commands should be used inside, and you should prefer a non-blocking programming approach whenever possible.
 
@@ -939,30 +338,59 @@ A common **blocking pattern** is the use of the `delay()` function which stops t
 
 Let's see how to blink a LED. The traditional way involves the `delay()` function:
 
-    void loop() {
-      ArduinoCloud.update();
-  
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(1000);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(1000);
-    }
+```arduino
+void loop() {
+  ArduinoCloud.update();
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
 
 This works, but it will cause a delay of at least two seconds between one execution of `ArduinoCloud.update()` and the next one, thus causing bad performance of the cloud communication.
 
 This can be rewritten in a non-blocking way as follows:
 
-    void loop() {
-      ArduinoCloud.update();
-  
-      digitalWrite(LED_PIN, (millis() % 2000) < 1000);
-    }
+```arduino
+void loop() {
+  ArduinoCloud.update();
+
+  digitalWrite(LED_PIN, (millis() % 2000) < 1000);
+}
+```
 
 How does this work? It gets the current execution time provided by `millis()` and divides it by 2 seconds. If the remainder is smaller than one second it will turn the LED on, and if it's greater it will turn the LED off.
 
 For a more complex and commented example, you can have a look at the [BlinkWithoutDelay example](/built-in-examples/digital/BlinkWithoutDelay).
 
-### Avoid waiting for Serial Monitor to initialize connection
+### I2C Usage
+
+Components connected via I²C (including the sensors onboard the [MKR IoT Carrier](https://store.arduino.cc/products/arduino-mkr-iot-carrier)) uses the same bus as the **ECCX08** cryptochip. As the crypto chip is an essential part of establishing a connection to the IoT Cloud (it contains the credentials), it is important that other I²C peripherals are initialized after the connection has been made.
+
+For example, if you are initializing a library such as [Arduino_MKRENV](https://www.arduino.cc/reference/en/libraries/arduino_mkrenv), your `setup()` should be implemented as:
+
+```arduino
+void setup() {
+  Serial.begin(9600);
+  delay(1500);
+
+  initProperties();
+
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  //initializing the Arduino_MKRENV library
+  if (!ENV.begin()) {
+    Serial.println("Failed to initialize MKR ENV shield!");
+    while (1);
+  }
+```
+
+
+### Avoid Blocking Serial Communication
 
 `while(!Serial) {}` loops endlessly until the Serial Monitor is opened. This is a useful practice in cases where you want to see all debug output from the start of the sketch execution. However, when building IoT systems using **`while(!Serial){}` can hinder our project from running autonomously**, stopping the board from connecting to the network and IoT Cloud before manually opening the Serial Monitor. Therefore, it is recommended to consider removing the `while(!Serial){}` loop if it's not necessary.
 
@@ -977,7 +405,7 @@ We provide two Arduino Iot Cloud APIs:
 
  The Arduino IoT Cloud REST API can be called just with any **HTTP Client**, or using one of these clients:
   - [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client).
-  - [Python PYPI Package](https://pypi.org/project/arduino-iot-client/).
+  - [Python® PYPI Package](https://pypi.org/project/arduino-iot-client/).
   - [Golang Module](https://github.com/arduino/iot-client-go).
   
 **2.** The second is the **Data API (MQTT)** which allows you to send/receive Variables' data. An example of this API's use is sending IoT Cloud Variables' updates to the browser. A full [documentation of the Arduino IoT Cloud Data API (MQTT)](https://www.npmjs.com/package/arduino-iot-js) is available for advanced users.

@@ -29,19 +29,19 @@ Only your Arduino Esplora is needed for this example. Connect the Esplora to you
 
 Create some variables to hold your maximum and minimum values for the light sensor, and another one to let the Esplora know if the sensor has been calibrated or not.
 
-To send data to your computer, you need to open a serial connection. Use [Serial.begin](/en/Serial/Begin)() to open a serial port at 9600 baud on the Esplora.
+To send data to your computer, you need to open a serial connection. Use [Serial.begin](https://arduino.cc/en/Serial/Begin)() to open a serial port at 9600 baud on the Esplora.
 
 Use [Esplora.readButton](https://www.arduino.cc/en/Reference/EsploraReadButton)() to see if button 1 is being pressed. If it is, call the `calibrate()` function you'll be writing below.
 
 To read the light sensor, use [Esplora.readLightSensor](https://www.arduino.cc/en/Reference/EsploraReadLightSensor)(). This will give you a value between 0 and 1023, which will be stored in a variable.
 
-You'll want to map the value from the sensor to a range that is appropriate for the LED using your maximum and minimum range. The [map](https://www.arduino.cc/en/Reference/Map)() function takes 5 arguments, the original value, the minimum value of the sensor, the maximum value of the sensor, the minimum value of the LED (0), and the maximum value of the LED (255). Store this value in a new variable named `brightness`.
+You'll want to map the value from the sensor to a range that is appropriate for the LED using your maximum and minimum range. The [map](https://www.arduino.cc/reference/en/language/functions/math/map/)() function takes 5 arguments, the original value, the minimum value of the sensor, the maximum value of the sensor, the minimum value of the LED (0), and the maximum value of the LED (255). Store this value in a new variable named `brightness`.
 
 The map() function doesn't limit the values to 0 and 255. If you happen to get sensor readings outside your maximum and minimum values, map() would return values less than 0  or higher than 255. To make sure you stay in that range, call [constrain](https://www.arduino.cc/en/Reference/Constrain)().
 
 To change the color of the LED with your new value between 0 and 255, call [Esplora.writeBlue](https://www.arduino.cc/en/Reference/EsploraWriteBlue)().
 
-Once the light has been calibrated, send the values to the Serial Monitor by calling [Serial.print](/en/Serial/Print)(). You should start to see values reported like this :
+Once the light has been calibrated, send the values to the Serial Monitor by calling [Serial.print](https://arduino.cc/en/Serial/Print)(). You should start to see values reported like this :
 `light sensor level: 256 blue brightness: 10`
 
 These values will not print to the Serial Monitor until you've calibrated the sensor, and the `calibrated` variable is set to `true`.
@@ -56,7 +56,7 @@ void calibrate (){
 
 This creates a function named `calibrate`. All the code you write between the brackets will now be executed whenever you call `calibrate()` in your sketch.
 
-In `calibrate()`, use [while](https://www.arduino.cc/en/Reference/While)() to run the code aslong as the button is pressed.
+In `calibrate()`, use [while](https://www.arduino.cc/reference/en/language/structure/control-structure/while/)() to run the code aslong as the button is pressed.
 
 Read the value of the sensor, and save it in a variable. Initially, you had set the minimum value high. Compare the light sensor value for anything lower than that, saving it as the new minimum. Likewise, you set the maximum low and read for anything higher as the new maximum.
 

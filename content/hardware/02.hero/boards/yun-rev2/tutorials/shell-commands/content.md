@@ -9,7 +9,7 @@ This sketch demonstrates running Linux shell commands on a Yún device.
 
 It runs the wifiCheck script (located at /usr/bin/pretty-wifi-info.lua) on the Linux processor, then uses grep to get the signal strength.
 
-On the board, parseInt() is called to read the WiFi signal strength as an integer, and uses that number to fade an LED with `analogWrite()`.
+On the board, parseInt() is called to read the Wi-Fi signal strength as an integer, and uses that number to fade an LED with `analogWrite()`.
 
 ## Hardware Required
 
@@ -57,7 +57,7 @@ void setup() {
 }
 ```
 
-Create a named Process with which you'll use to run the WiFi status script and grep.
+Create a named Process with which you'll use to run the Wi-Fi status script and grep.
 
 ```arduino
 void loop() {

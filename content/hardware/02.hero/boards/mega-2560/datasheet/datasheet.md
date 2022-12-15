@@ -74,7 +74,7 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 ### Recommended Operating Conditions
 | Symbol | Description                                       | Min        | Max     |
 | ------ | ------------------------------------------------- | ---------- | ------- | 
-|        |  Conservative thermal limits for the whole board: |  -40 °C    | 85 °C   |
+|   TOP  |  Operating temperature:                           |  -40 °C    | 85 °C   |
 
 
 
@@ -128,9 +128,6 @@ Sample sketches for the Arduino® MEGA 2560 can be found either in the “Exampl
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
-
-### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
 

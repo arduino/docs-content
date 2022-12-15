@@ -1,6 +1,6 @@
 ---
 title: 'Nano RP2040 Datalogger with MicroPython'
-difficulty: easy
+difficulty: beginner
 compatible-products: [nano-rp2040-connect]
 description: 'Learn how to save data in .csv format on the Nano RP2040 Connect, using MicroPython.'
 tags: 
@@ -21,7 +21,7 @@ In order to utilize this feature, we need to install the latest release of [Open
 
 This tutorial can be completed with only the Nano RP2040 Connect board and open-source software.
 
-***If you are unfamiliar with Arduino & Python, you can learn more by reading the [Python with Arduino](/learn/programming/arduino-and-python) and the [Nano RP2040 Connect Python API Guide](/tutorials/nano-rp2040-connect/rp2040-python-api) articles.***
+***If you are unfamiliar with Arduino & Python®, you can learn more by reading the [Python® with Arduino](/learn/programming/arduino-and-python) and the [Nano RP2040 Connect Python® API Guide](/tutorials/nano-rp2040-connect/rp2040-python-api) articles.***
 
 ## Goals
 

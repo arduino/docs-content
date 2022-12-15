@@ -7,9 +7,8 @@ Pins:
   Digital I/O Pins: 22
   Analog input pins: 8
   PWM pins: 10
-Connectivity:
-  Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth® 5.1 BR/EDR/LE
-  Secure element: NXP SE0502
+Connectivity: Murata Type 1DX shielded ultra small Wi-Fi® 11b/g/n + Bluetooth® 5.1 module
+Secure element: NXP SE050C2 and ATECC608
 Communication:
   UART: Yes
   I2C: Yes

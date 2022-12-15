@@ -1,7 +1,7 @@
 ---
 title: MKR Vidor 4000
 url_shop: https://store.arduino.cc/arduino-mkr-vidor-4000
-url_guide: /software/ide-v1/installing-samd21-core
+url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrvidor4000/150'
 productCode: '024'

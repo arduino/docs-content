@@ -1,7 +1,7 @@
 ---
 title: 'Bare Minimum code needed'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'The bare minimum of code needed to start an Arduino sketch.'
 tags: 
   - Basics

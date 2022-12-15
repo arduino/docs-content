@@ -19,7 +19,7 @@ software:
 ---
 
 
-In this tutorial we will use an Arduino Nano 33 IoT to turn on the built-in LED over Bluetooth, made possible by the NINA module embedded on the board.
+In this tutorial we will use an Arduino Nano 33 IoT to turn on the built-in LED over Bluetooth®, made possible by the NINA module embedded on the board.
 
 
 ## Goals

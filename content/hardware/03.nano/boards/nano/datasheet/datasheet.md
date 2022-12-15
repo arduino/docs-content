@@ -104,9 +104,6 @@ Sample sketches for the Arduino® can be found either in the “Examples” menu
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
 
-### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
-
 ## Connector Pinouts
 
 ![Power Tree of Arduino Nano](./assets/nano_connector_pinout.png)
@@ -241,7 +238,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Ref                       | Link                                                                                                |
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Arduino Documentation     | https://docs.arduino.cc/hardware/nano                                                               |
@@ -252,6 +249,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 12/04/2022 | 1            | First Release | 
+| **Date**   | **Revision** | **Changes**                           |
+| ---------- | ------------ | ------------------------------------- |
+| 08/03/2022 | 2            | Reference documentation links updates |
+| 04/12/2022 | 1            | First Release                         |

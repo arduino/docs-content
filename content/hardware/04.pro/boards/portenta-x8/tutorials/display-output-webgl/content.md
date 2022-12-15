@@ -1,7 +1,7 @@
 ---
 title: 'Output WebGL Content on a Screen'
 description: 'This tutorial shows how to install and modify a container that outputs web browser and webGL content'
-difficulty: easy
+difficulty: beginner
 tags:
   - containers
   - Docker
@@ -29,8 +29,8 @@ The Arduino Portenta X8's processor **NXP® i.MX 8M Mini Processor** can be used
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
-- USB-C hub with HDMI
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- USB-C® hub with HDMI
 - External monitor 
 - HDMI cable
 
@@ -40,7 +40,7 @@ The Arduino Portenta X8's processor **NXP® i.MX 8M Mini Processor** can be used
 
 There are two ways to get the container, either through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers)
 
-**With Foundries:** 
+**With Foundries.io:** 
 
 If you use [Foundries.io](https://www.foundries.io) you can switch the current `target` of your device to `x-kiosk-imx8-webgl` by switching the app from a terminal on your computer:
 
@@ -74,7 +74,7 @@ IN-USE  BSSID              SSID             MODE   CHAN  RATE        SIGNAL  BAR
         AA:BB:CC:DD:EE:FF  <yourAP-SSID>    Infra  X     130 Mbit/s  --      *     WPA2
 ```
 
-You can save your WiFi details with these commands:
+You can save your Wi-Fi details with these commands:
 ```
 nmcli c add type wifi con-name <customName> ifname wlan0 ssid <SSID>
 nmcli con modify <customName> wifi-sec.key-mgmt wpa-psk
@@ -176,7 +176,7 @@ To save the changes press the **ESC** key and type `:wq` this will write and qui
 
 ## Conclusion
 
-In this tutorial we went through how to connect the board and display something on a screen. Using a container from foundriesFactories or by downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
+In this tutorial we went through how to connect the board and display something on a screen. Using a container from FoundriesFactories or by downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
 
 ### Next Steps
 

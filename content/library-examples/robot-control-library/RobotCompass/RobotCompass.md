@@ -25,7 +25,7 @@ When you hold the robot in your hands and rotate, you will the screen change, in
 
 3. After the starting screen, a graph will appear on-screen, representing the compass
 
-4. The robot will start moving in a direction (in this example, it will sart heading south). If you move it in a different direction,   it will turn back to the way it wants to move.
+4. The robot will start moving in a direction (in this example, it will start heading south). If you move it in a different direction,   it will turn back to the way it wants to move.
 
 5. If you want to change the robot's heading, in the code, look for `int direc=180` at the beginning of the code. Change this value to another number, between 0 and 359. 0 represents north, 90 is east, 180 is south, and 270 is west. Where do you want to go?
 

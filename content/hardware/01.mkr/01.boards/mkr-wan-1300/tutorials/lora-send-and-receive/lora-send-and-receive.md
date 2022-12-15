@@ -56,7 +56,7 @@ ___
 -   2x [Antenna](https://store.arduino.cc/antenna).
 -   2x Micro USB cable .
 -   Arduino IDE (offline and online versions available).
--   Arduino SAMD core installed ([follow this link for instructions](/content/software/ide-v1/installing-samd21-core)).
+-   Arduino SAMD core installed ([follow this link for instructions](/software/ide-v1/getting-started/cores/arduino-samd)).
 -   LoRa library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
 
 
@@ -104,7 +104,7 @@ int counter = 0;
 
 In the `setup()` we will first begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 
 ```arduino

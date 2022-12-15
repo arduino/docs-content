@@ -1,0 +1,10 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - web-editor
+hardware:
+  shields:
+  - 4-relays-shield
+  - motor-shield-rev3
+  carriers: ~
+  boards: ~

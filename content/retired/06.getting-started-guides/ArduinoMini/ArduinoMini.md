@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino Mini'
 
 The Arduino Mini is a small microcontroller board originally based on the ATmega328P intended for use on breadboards and when space is at a premium. Because of its small size, connecting the Arduino Mini is a bit more complicated than a regular Arduino board ([see below](#connecting) for instructions and photos).
 
-The Arduino Mini is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Mini is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Mini on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Mini on the Arduino Desktop IDE
 
-If you want to program your Arduino Mini while offline you need to install the [Arduino Desktop IDE](/en/Main/Software)
+If you want to program your Arduino Mini while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software)
 
 #### Open your first sketch
 

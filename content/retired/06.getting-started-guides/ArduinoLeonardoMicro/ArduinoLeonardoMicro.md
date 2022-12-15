@@ -5,9 +5,9 @@ description: 'The first steps to setting up the Arduino Leonardo, Leonardo ETH a
 
 **The Leonardo ETH is a retired product**
 
-The Arduino [Leonardo](/en/Main/ArduinoBoardLeonardo), [Leonardo ETH](/en/Main/ArduinoBoardLeonardoEth) and [Micro](/en/Main/ArduinoBoardMicro) boards use an ATmega32U4 to offer you more functionalities compared to Uno.
+The Arduino [Leonardo](https://arduino.cc/en/Main/ArduinoBoardLeonardo), [Leonardo ETH](https://arduino.cc/en/Main/ArduinoBoardLeonardoEth) and [Micro](https://arduino.cc/en/Main/ArduinoBoardMicro) boards use an ATmega32U4 to offer you more functionalities compared to Uno.
 
-The Leonardo, Leonardo ETH and Micro are programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Leonardo, Leonardo ETH and Micro are programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Leonardo, Leonardo ETH and Micro on the Arduino Web IDE
 
@@ -23,11 +23,11 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Leonardo, Leonardo ETH and Micro on the Arduino Desktop IDE
 
-If you want to program your Leonardo, Leonardo ETH and Micro while offline you need to install the [Arduino Desktop IDE](/en/Main/Software).
+If you want to program your Leonardo, Leonardo ETH and Micro while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software).
 
 #### Installing drivers for Leonardo, Leonardo ETH and Micro
 
-Drivers should be automatically installed plugging with an USB cable the board to your PC, but with some version of the Windows operative system (like Windows 7, Vista and 10) it can happen that your board won't be recognized and you will get the message **Unknown USB device**. It is so necessary to manually install them following the guide [Manually install Drivers on Windows](/en/Guide/DriverInstallation).
+Drivers should be automatically installed plugging with an USB cable the board to your PC, but with some version of the Windows operative system (like Windows 7, Vista and 10) it can happen that your board won't be recognized and you will get the message **Unknown USB device**. It is so necessary to manually install them following the guide [Manually install Drivers on Windows](https://arduino.cc/en/Guide/DriverInstallation).
 
 #### Open the Blink example
 
@@ -71,11 +71,11 @@ Now that you have set up and programmed your Leonardo, Leonardo ETH or Micro boa
 
 More examples on the following library pages will help you in making very cool things!
 
-- [Keyboard](/en/Reference/MouseKeyboard) - Send keystrokes to an attached computer.
+- [Keyboard](https://arduino.cc/en/Reference/MouseKeyboard) - Send keystrokes to an attached computer.
 
-- [Mouse](/reference/en/language/functions/usb-leonardo-and-due-only/mouse/) - Control cursor movement on a connected computer.
+- [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) - Control cursor movement on a connected computer.
 
-- [Ethernet](/en/Reference/Ethernet) for connecting to the internet using the Arduino Ethernet Shield, Arduino Ethernet Shield 2 and Arduino Leonardo ETH
+- [Ethernet](https://arduino.cc/en/Reference/Ethernet) for connecting to the internet using the Arduino Ethernet Shield, Arduino Ethernet Shield 2 and Arduino Leonardo ETH
 
 ### Please read...
 
@@ -139,10 +139,10 @@ Serial.begin(9600);
 One advantage of using a single chip for your sketches and for USB is increased flexibility in the communication with the computer. While the board appears as a virtual serial port to your operating system (also called CDC) for programming and communication (as with the Arduino Uno), it can also behave as a (HID) keyboard or mouse. See the "Good Coding Practice" section below for a warning about using this functionality.
 
 **Separation of USB and serial communication.**
-On the Leonardo, Leonardo ETH and Micro, the main **Serial** class refers to the virtual serial driver on the board for connection to your computer over USB. It's not connected to the physical pins 0 and 1 as it is on the Uno and earlier boards. To use the hardware serial port (pins 0 and 1, RX and TX), use **Serial1**. (See the [Serial reference pages](/en/Reference/Serial) for more information.)
+On the Leonardo, Leonardo ETH and Micro, the main **Serial** class refers to the virtual serial driver on the board for connection to your computer over USB. It's not connected to the physical pins 0 and 1 as it is on the Uno and earlier boards. To use the hardware serial port (pins 0 and 1, RX and TX), use **Serial1**. (See the [Serial reference pages](https://arduino.cc/en/Reference/Serial) for more information.)
 
 **Differences in pin capabilities.**
-The Leonardo, Leonardo ETH and Micro has some slight differences in the capabilities and assignments of various pins (especially for SPI and TWI). These are detailed on the [hardware page](/en/Main/ArduinoBoardLeonardo).
+The Leonardo, Leonardo ETH and Micro has some slight differences in the capabilities and assignments of various pins (especially for SPI and TWI). These are detailed on the [hardware page](https://arduino.cc/en/Main/ArduinoBoardLeonardo).
 
 #### Uploading Code to the Leonardo, Leonardo ETH and Micro
 

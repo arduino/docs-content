@@ -1,8 +1,8 @@
 ---
 title: Getting Started With the Arduino Portenta Breakout
-difficulty: easy
+difficulty: beginner
 tags: [Getting Started, Setup, PWM, Analog, I2C]
-description: This tutorial will give you an overview of the core features of the breakout, setup the development environment and introduce the APIs required to program the board.
+description: This tutorial will give you an overview of the core features of the Portenta Breakout, setup the development environment and introduce the APIs required to program the board.
 author: Manuel Zomer, Pablo Marquínez, Sebastian Romero
 ---
 
@@ -31,32 +31,32 @@ The Arduino Portenta Breakout is a versatile tool designed for developing, testi
 ## Instructions
 
 ### 1. Get to Know the Carrier
-The Portenta Breakout is made to reduce development time and gives access to the Portenta's High Density connectors as well as features Ethernet, USBA, a JTAG connector and more. For this tutorial however, we will focus on using the **Arduino_PortentaBreakout** library to get access to the High Density connectors and create some simple example use cases. 
+The Portenta Breakout is designed to reduce development time. It gives access to the Portenta's High Density connectors as well as features Ethernet, USB-A, a JTAG connector and more. However, for this tutorial, we will focus on using the **Arduino_PortentaBreakout** library to get access to the High Density connectors and create some simple example use cases. 
 
 ![Parts of the Portenta Breakout board](assets/breakout_gs_main_parts.svg)
 
 ### 2. The Basic Setup
-As part of this tutorial we will create two sample use cases for the **Arduino_PortentaBreakout** library: starting with using the Portenta Breakout's PWM pins to connect an LED and fade its brightness high ad low. Secondly we will connect an external potentiometer to showcase how to use the Portenta Breakout to read an analog input. In order to use the pins on the Portenta Breakout to connect external components as described in this tutorial, pin headers have to be soldered on to the used pins. We recommend using double row pin headers.
+As part of this tutorial, we will create two sample use cases for the **Arduino_PortentaBreakout** library: starting by using the Portenta Breakout's PWM pins to connect an LED and fade its brightness high ad low. Secondly, we will connect an external potentiometer to showcase how to use the Portenta Breakout to read an analog input. In order to use the pins on the Portenta Breakout to connect external components, pin headers have to be soldered on to the used pins. We recommend using double row pin headers.
 
-After having prepared the Portenta Breakout by soldering on pin headers we can start using it. The board comes with two DIP switches called **BOOT** and **BT_SEL**. These switches are used to keep the Portenta in either boot-mode (BT_SEL switch) or to enable the embedded bootloader (BOOT switch) to upload firmware via the USB port on the Portenta Breakout. For this tutorial we have to make sure, to set both DIP switches in the **OFF** position. Having done that we can connect the Portenta H7 to the Portenta Breakout using the two high density connectors in the orientation showcased by the dashed line on the Portenta Breakout.
+After having prepared the Portenta Breakout by soldering on pin headers, we can start using it. The board comes with two DIP switches called **BOOT** and **BT_SEL**. These switches are used to keep the Portenta in either boot-mode (BT_SEL switch) or to enable the embedded bootloader (BOOT switch) to upload firmware via the USB port on the Portenta Breakout. In this case, we have to make sure that both DIP switches are set in the **OFF** position. Having done that, we can connect the Portenta H7 to the Portenta Breakout using the two high density connectors in the orientation showcased by the dashed line on the Portenta Breakout.
 
 ![Dip switch on the Breakout](assets/breakout_gs_dip_switch.svg)
 
 ### 3. The Circuit
-In order to build this example's circuit we need our Portenta Breakout with the Portenta H7 on top and headers soldered on (at least within the ANALOG/PWM and GPIO section on the bottom right corner of the carrier). Then we need a simple LED, an adequate resistor for it (we are using a 220Ω resistor) as well as a potentiometer. To connect all these components we use jumper wires and a breadboard by following this schematic:
+In order to build this example circuit, we need our Portenta Breakout with the Portenta H7 on top and headers soldered on (at least within the ANALOG/PWM and GPIO section on the bottom right corner of the carrier). Then we need a simple LED, an adequate resistor for it (we are using a 220Ω resistor) as well as a potentiometer. To connect all these components we use jumper wires and a breadboard by following this schematics:
 
 ![Connecting the LEDS and the Portenta](assets/breakout_gs_circuit_diagram.svg) 
 
-For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case **PWM 9**. For the potentiometer on the other hand we can use one of the analog pins A0 to A7 in order to read the the potentiometers current value, in this example we use **A7**. For the potentiometer we also need a 3.3V power source, which we take from the GPIO section on the Portenta Breakout, considering it being located most conveniently and close by. Lastly Potentiometer and LED have to be connected to GND and the circuit is finished. 
+For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case **PWM 9**. For the potentiometer, on the other hand, we can use one of the analog pins (A0 to A7) in order to read the potentiometer current value, in this example we use **A7**. The potentiometer also needs a 3.3V power source, which we take from the GPIO section on the Portenta Breakout, considering it being located most conveniently and close by. Eventually, potentiometer and LED have to be connected to GND to finilize the circuit. 
 
-After having connected everything the Portenta H7 can be plugged into the computer using a USBC cable and we can start with the code.
+After having connected everything, the Portenta H7 can be plugged into the computer using a USB-C® cable and we can start with the code.
 
 ### 4. The Arduino_PortentaBreakout Library
-In the Arduino IDE we create a new Sketch and make sure we have selected the Arduino Portenta H7 on the M7 core, if you haven't used the Portenta H7 before, [here](/tutorials/portenta-h7/setting-up-portenta) is a detailed tutorial on how to get started with it. 
+In the Arduino IDE we create a new Sketch and make sure we have selected the Arduino Portenta H7 on the M7 core. If you haven't used the Portenta H7 before, [here](/tutorials/portenta-h7/setting-up-portenta) you can find a detailed tutorial on how to get started with it. 
 
-In order to use the pins on the Portenta Breakout we need to install the **Arduino_PortentaBreakout** Library which allows us to address all the pins located on the Carrier. Therefore we need to download the library using the library manager by going to **Sketch > Include Libraries > Manage Libraries** and search for **Arduino_PortentaBreakout**.
+In order to use the pins on the Portenta Breakout we need to install the **Arduino_PortentaBreakout** Library, which allows us to address all the pins located on the Carrier. Therefore, we need to download the library using the library manager, by going to **Sketch > Include Libraries > Manage Libraries** and search for **Arduino_PortentaBreakout**.
 
-Once we have installed the Portenta Breakout library we can import it to our Sketch.
+Once we have installed the Portenta Breakout library, we can import it to our Sketch.
 
 ```cpp
 #include <Arduino_PortentaBreakout.h>
@@ -72,7 +72,7 @@ breakoutPin analogPins[] = {ANALOG_A0, ANALOG_A1, ANALOG_A2, ANALOG_A3, ANALOG_A
 ```
 
 ### 5. PWM & LED
-Once we have the pins in place, we can start controlling the LED we connected to `PWM9`, therefore we create a byte variable containing our pin number and can set the `pinMode` within the `setup()` function.
+Once we have the pins in place, we can start controlling the LED we connected to `PWM9` by creating a byte variable containing our pin number and setting the `pinMode` within the `setup()` function.
 
 ```cpp
 byte pwmPinNumber = 9;
@@ -97,7 +97,7 @@ void loop() {
 }
 ```
 
-When uploading the sketch to the board we should now see the LED fading up and down in brightness. If that works as expected, we can proceed with connecting the potentiometer to our code.
+While uploading the sketch to the board, we should see the LED fading up and down in brightness. If that works as expected, we can proceed  connecting the potentiometer to our code.
 
 ### Analog Inputs Through the Portenta Breakout
 Similar to the PWM code we need to define our pinNumber first, we will also create a variable to save the last value potentiometer value that has been read. Before the `setup()`function we therefore specify the following:
@@ -115,7 +115,7 @@ while (!Serial);
 Serial.println("Initialized Breakout Carrier example sketch");
 ```
 
-Once we completed the setup we can then update the loop `loop()` function to read the incoming potentiometer value and write it to the serial monitor. Also we can update the PWM setting for the LED to instead of fading up and down on repeat, to follow the potentiometers value.
+Once we completed the setup, we can then update the loop `loop()` function to read the incoming potentiometer value and write it to the Serial Monitor. We can also update the PWM setting for the LED instead of fading up and down on repeat, to follow the potentiometers value.
 
 ```cpp
 void loop() {
@@ -132,7 +132,7 @@ void loop() {
 }
 ```
 
-Once the sketch is re-uploaded and we start the serial monitor the Portenta starts reading the current potentiometer value and translates it into different brightness levels of our LED. 
+Once the sketch is re-uploaded and we start the Serial Monitor, the Portenta starts reading the current potentiometer value and translates it into different brightness levels of our LED. 
 
 ## Conclusion
 This sketch shows a simple usage of the Portenta Breakout in combination with the **Arduino_PortentaBreakout** Library to access and control some of the Portenta's High Density connectors. The library can thereby also be used for other protocols and pins such as I2C, UART and more. Within the "Next Steps" section below,there is a table of reference regarding how to address specific pins or what API to use.

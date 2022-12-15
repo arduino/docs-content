@@ -1,4 +1,4 @@
 ---
 title: Student Kit
-certifications: [CE, UKCA]
+certifications: [CE, UKCA, FCC]
 ---

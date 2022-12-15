@@ -46,7 +46,7 @@ As it turned out that Arduino users have a need of a quick and easy way to secur
 ### Application Examples
 **Motor Driver Design:** Evaluate motor drivers and other smaller circuits on the prototyping area
 
-**External debugging:** All the standard Nano pins are accessible via both breadboard compatible pin headers as well as the screw terminals. This allows for direct probing of signals via a multimeter or oscilliscope while the device is under operation. 
+**External debugging:** All the standard Nano pins are accessible via both breadboard compatible pin headers as well as the screw terminals. This allows for direct probing of signals via a multimeter or oscilloscope while the device is under operation. 
 
 **Rapid solution development:** Quickly connect to external circuitry with pin headers or screw terminals to evaluate new ideas quickly. Rapidly prototype circuits and evaluate various Nano boards to choose the best option for your application. 
 

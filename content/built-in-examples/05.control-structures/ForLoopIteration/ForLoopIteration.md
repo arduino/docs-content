@@ -1,7 +1,7 @@
 ---
 title: 'For Loop Iteration (aka The Knight Rider)'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Control multiple LEDs with a for loop and.'
 tags: 
   - Control structures
@@ -10,7 +10,7 @@ tags:
 featuredImage: 'board'
 ---
 
-Often you want to iterate over a series of pins and do something to each one.  For instance, this example blinks 6 LEDs  attached to the Arduino by using a  [**for()**](https://www.arduino.cc/en/Reference/For) loop to cycle back and forth through digital pins 2-7. The LEDS are turned on and off, in sequence, by using both the [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite)  and [delay()](https://www.arduino.cc/en/Reference/Delay) functions .
+Often you want to iterate over a series of pins and do something to each one.  For instance, this example blinks 6 LEDs  attached to the Arduino by using a  [**for()**](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) loop to cycle back and forth through digital pins 2-7. The LEDS are turned on and off, in sequence, by using both the [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite)  and [delay()](https://www.arduino.cc/reference/en/language/functions/time/delay/) functions .
 
 We also call this example "[Knight Rider](http://en.wikipedia.org/wiki/KITT)" in memory of a TV-series from the 80's where David Hasselhoff had an AI machine named KITT driving his Pontiac. The car had been augmented with plenty of LEDs in all possible sizes performing flashy effects. In particular, it had a display that scanned back and forth across a line, as shown in this exciting [fight between KITT and KARR](https://www.youtube.com/watch?v=PO5E5mQIy_Q). This example duplicates the KITT display.
 

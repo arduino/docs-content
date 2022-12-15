@@ -1,10 +1,10 @@
 ---
 title: Nano 33 IoT
 url_shop: https://store.arduino.cc/arduino-nano-33-iot
-url_guide: /software/ide-v1/installing-samd21-core
+url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
 core: arduino:samd
 forumCategorySlug: '/hardware/nano-family/nano-33-iot/157'
-certifications: [REACH, RoHS, WEEE]
+certifications: [REACH, RoHS, WEEE, UKCA, CE]
 productCode: '033'
 ---
 

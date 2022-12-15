@@ -1,7 +1,7 @@
 ---
 title: 'Ping Ultrasonic Range Finder'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Detect objects with an ultrasonic range finder.'
 tags: 
   - Sensors
@@ -10,7 +10,7 @@ tags:
   - Distance detection
 ---
 
-The [**SEN136B5B**](http://wiki.seeed.cc/Ultra_Sonic_range_measurement_module/) is an ultrasonic range finder from Seeedstudio.  It detects the distance of the closest object in front of the sensor (from 3 cm up to 400 cm).  It works by sending out a burst of ultrasound and listening for the echo when it bounces off of an object. It *pings* the obstacles with ultrasound. The Arduino board sends a short pulse to trigger the detection, then listens for a pulse on the same pin using the [**pulseIn()**](https://www.arduino.cc/en/Reference/PulseIn) function.  The duration of this second pulse is equal to the time taken by the ultrasound to travel to the object and back to the sensor.  Using the speed of sound, this time can be converted to distance.
+The [**SEN136B5B**](http://wiki.seeed.cc/Ultra_Sonic_range_measurement_module/) is an ultrasonic range finder from Seeedstudio.  It detects the distance of the closest object in front of the sensor (from 3 cm up to 400 cm).  It works by sending out a burst of ultrasound and listening for the echo when it bounces off of an object. It *pings* the obstacles with ultrasound. The Arduino board sends a short pulse to trigger the detection, then listens for a pulse on the same pin using the [**pulseIn()**](https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/) function.  The duration of this second pulse is equal to the time taken by the ultrasound to travel to the object and back to the sensor.  Using the speed of sound, this time can be converted to distance.
 
 ### Hardware Required
 

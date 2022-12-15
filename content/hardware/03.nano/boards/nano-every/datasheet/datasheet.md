@@ -138,9 +138,6 @@ All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[13]**, the Arduino Library Reference **[14]** and the on line store **[15]** where you will be able to complement your board with sensors, actuators and more.
 
-### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
-
 ## Connector Pinouts
 ![Pinout](assets/pinout.png)
     
@@ -295,12 +292,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Reference             | **Link**                                                     |
 | --------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop) | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                       |
 | Arduino IDE (Cloud)   | https://create.arduino.cc/editor                             |
 | Forum                 | http://forum.arduino.cc/                                     |
-| SAMD21G18             | http://ww1.microchip.com/downloads/en/devicedoc/40001884a.pdf |
-| NINA W102             | [https://www.u-blox.com/sites/default/files/NINA-W10_DataSheet_%28UBX-17065507%29.pdf](https://www.u-blox.com/sites/default/files/NINA-W10_DataSheet_(UBX-17065507).pdf) |
-| ECC608                | http://ww1.microchip.com/downloads/en/DeviceDoc/40001977A.pdf |
+| SAMD21G18             | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
+| NINA W102             | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
+| ECC608                | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
 | MPM3610               | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
 | NINA Firmware         | https://github.com/arduino/nina-fw                           |
 | ECC608 Library        | https://github.com/arduino-libraries/ArduinoECCX08           |
@@ -312,7 +309,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**               |
-| ---------- | ------------ | ------------------------- |
-| 04/27/2021 | 1            | General datasheet updates |
+| Date       | **Revision** | **Changes**                           |
+| ---------- | ------------ |-------------------------------------- |
+| 08/03/2022 | 2            | Reference documentation links updates |
+| 04/27/2021 | 1            | General datasheet updates             |
 

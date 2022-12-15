@@ -15,7 +15,7 @@ This example is designed to be used with a Processing sketch. Processing is an o
 
 If you don't have [Processing](http://www.processing.org) installed on your computer,  [download it](http://www.processing.org/download/) from the Processing site and follow the installation instructions.
 
-[Download the zip file](/en/uploads/Tutorial/ProcessingPong.zip) containing the Processing sketch for this example.
+[Download the zip file](https://arduino.cc/en/uploads/Tutorial/ProcessingPong.zip) containing the Processing sketch for this example.
 
 You only need to unzip this folder inside your Processing sketches folder, and open the .pde file in Processing.
 
@@ -39,7 +39,7 @@ Only your Arduino Esplora is needed for this example.
 
 This example sends the states of the slider and three pushbuttons serially to the computer.  The associated Processing sketch reads the serial data to control the paddles and the state of the game.
 
-The data is always sent in the same order:  slider, button 1, button 3, button 4. The data are separated by commas. The [Serial.println](/en/Serial/Println)() command that sends the final button also sends a newline character. The Processing sketch looks for the newline to know when it's got all the sensor data.
+The data is always sent in the same order:  slider, button 1, button 3, button 4. The data are separated by commas. The [Serial.println](https://arduino.cc/en/Serial/Println)() command that sends the final button also sends a newline character. The Processing sketch looks for the newline to know when it's got all the sensor data.
 
 **NOTE: Serial ports on a computer can only be accessed by one program at a time.** If you have the Arduino IDE's Serial Monitor open, then the Processing Sketch will not be able to access the Esplora's serial port. Likewise, if the Processing sketch is still running, you won't be able to open the Serial Monitor or reprogram your Esplora.
 

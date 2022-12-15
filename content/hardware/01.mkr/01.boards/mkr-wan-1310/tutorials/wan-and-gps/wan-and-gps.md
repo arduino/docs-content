@@ -27,7 +27,7 @@ software:
 
 In this tutorial, we will use the [MKR GPS Shield](https://store.arduino.cc/arduino-mkr-gps-shield) to record the longitude and latitude, and transmit it to another board using LoRa® technology. This setup can be very useful for scenarios involving remote areas, where tracking location might be essential. 
 
-Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa® library](https://github.com/sandeepmistry/arduino-LoRa).
+Special thanks to [Sandeep Mistry](https://github.com/sandeepmistry) for creating the [LoRa library](https://github.com/sandeepmistry/arduino-LoRa).
 
 ## Goals
 
@@ -41,7 +41,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- LoRa® library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
+- LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 - [Arduino_MKRGPS](https://www.arduino.cc/en/Reference/ArduinoMKRGPS) library installed
 - 2x Arduino MKR WAN 1310  ([link to store](https://store.arduino.cc/mkr-wan-1310))
 - 2x antenna ([link to store](https://store.arduino.cc/antenna))
@@ -64,7 +64,7 @@ There is, of course, much more behind the GPS technology. If we want to read mor
 
 We will now go through a series of step by steps, to set up our GPS + LoRa® device. 
 
-Before starting, we will need to make sure that we have all the dependencies. For this setup, we are using **two** MKR WAN 1310 boards, two antennas and one MKR GPS Shield. We will also need to install the **Arduino_MKRGPS** library, the **LoRa®** library. The latter can be downloaded from the [LoRa® repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
+Before starting, we will need to make sure that we have all the dependencies. For this setup, we are using **two** MKR WAN 1310 boards, two antennas and one MKR GPS Shield. We will also need to install the **Arduino_MKRGPS** library, the **LoRa** library. The latter can be downloaded from the [LoRa® repository](https://github.com/sandeepmistry/arduino-LoRa), where you can install it by navigating to **Sketch > Include Library > Add .ZIP Library...** in the offline IDE. 
 
 Since we are using two boards, we will also need to program them separately. 
 
@@ -76,7 +76,7 @@ Some of the main functions of this sketch are listed below:
 
 - `byte localAddress = 0xBB;` - create a local address for our board.
 - `byte destination = 0xFF;` - create a destination address we will send our data to. 
-- `LoRa.begin(868E6)` - initializes the LoRa® module to operate on 868MHz frequency (European, for American, change to 915E6).
+- `LoRa.begin(868E6)` - initializes the LoRa® module to operate on 868 MHz frequency (European, for American, change to 915E6).
 - `GPS.begin` - initializes the GPS library.
 - `GPS.latitude()` - records latitude.
 - `GPS.longitude()` - records longitude.
