@@ -254,7 +254,7 @@ Edge computing, industrial internet of things, system on module, artificial inte
          <td><strong>Temperature range</strong></td>
          <td> -40°C to +85°C</td>
          <td> It is user’s sole responsibility to test board's operation in full temperature
-         range. To improve board performance in critical conditions, it is possible to attach external heatsinks on the processor and on the memory.</td>
+         range. To improve the board performance in critical conditions, it is possible to attach external heatsinks on the processor and on the memory chip.</td>
       </tr>
       <tr>
          <td><strong>Safety information</strong></td>
