@@ -13,7 +13,7 @@ Connectivity:
   Bluetooth®: NINA-B306
 Sensors:
   IMU: BMI270 (3-axis accelerometer + 3-axis gyroscope) + BMM150 (3-axis Magnetometer)
-  Microphone: MP34DT05
+  Microphone: MP34DT06JTR
   Gesture, light, proximity: APDS9960
   Barometric pressure: LPS22HB
   Temperature, humidity: HS3003
