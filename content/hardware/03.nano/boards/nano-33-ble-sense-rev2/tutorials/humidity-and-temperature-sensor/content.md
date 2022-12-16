@@ -76,7 +76,7 @@ Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE Sense to the computer to check that the Web Editor recognises it, if so, the  board and port should appear as shown in the image. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognise your board.
+Now, connect the Arduino Nano 33 BLE Sense Rev2 to the computer to check that the Web Editor recognises it, if so, the  board and port should appear as shown in the image. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognise your board.
 
 ![Selecting the board.](assets/nano33BS_01_board_port.png)
 
@@ -123,11 +123,11 @@ If you choose to skip the code building section, the complete code can be found 
   HS300x - Read Sensors
 
   This example reads data from the on-board HS300x sensor of the
-  Nano 33 BLE Sense and prints the temperature and humidity sensor
+  Nano 33 BLE Sense Rev2 and prints the temperature and humidity sensor
   values to the Serial Monitor once a second.
 
   The circuit:
-  - Arduino Nano 33 BLE Sense R2
+  - Arduino Nano 33 BLE Sense Rev2
 
   This example code is in the public domain.
 */
@@ -191,5 +191,5 @@ Sometimes errors occur, if the project is not working as intended there are some
 
 ## Conclusion
 
-In this simple tutorial we learned how to read temperature and humidity values from the  **HS3003** sensor using the [HS300x library](https://github.com/arduino-libraries/Arduino_HS300x), and how to use the sensor embedded in the Arduino Nano 33 BLE Sense board, to measure and print out humidity and temperature values from the environment.
+In this simple tutorial we learned how to read temperature and humidity values from the  **HS3003** sensor using the [HS300x library](https://github.com/arduino-libraries/Arduino_HS300x), and how to use the sensor embedded in the Arduino Nano 33 BLE Sense Rev2 board, to measure and print out humidity and temperature values from the environment.
 
