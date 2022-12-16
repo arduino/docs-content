@@ -67,7 +67,7 @@ Maker, enhancements, IoT application
   - Very high sensitivity – Ideally suited for operation behind dark glass
   - Proximity Sensing with Ambient light rejection
   - Complex Gesture Sensing
-- **MP34DT05** (Digital Microphone)
+- **MP34DT06JTR** (Digital Microphone)
   - AOP = 122.5 dbSPL
   - 64 dB signal-to-noise ratio
   - Omnidirectional sensitivity
@@ -161,7 +161,7 @@ The Color and ALS detection feature provides red, green, blue and clear light in
 
 ### Digital Microphone
 
-The MP34DT05 is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface.
+The MP34DT06 is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface.
 
 The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors
 
