@@ -38,7 +38,7 @@ The goals of this project are:
 
 ## The IMU System on Arduino Nano 33 BLE Sense Rev2
 
-IMU stands for: inertial measurement unit. It is an electronic device that measures and reports a body's specific force, angular rate and the orientation of the body, using a combination of accelerometers, gyroscopes, and oftentimes magnetometers. In this tutorial we will learn about the IMU system that is included in the Arduino Nano 33 BLE Sense Board.
+IMU stands for: inertial measurement unit. It is an electronic device that measures and reports a body's specific force, angular rate and the orientation of the body, using a combination of accelerometers, gyroscopes, and oftentimes magnetometers. In this tutorial we will learn about the IMU system that is included in the Arduino Nano 33 BLE Sense Rev2 Board.
 
 ![The Arduino Nano 33 BLE Sense Rev2 IMU system.](./assets/nano33BS_02_IMU.png)
 
@@ -262,4 +262,4 @@ Sometimes errors occur, if the code is not working there are some common issues 
 
 ## Conclusion
 
-In this simple tutorial we learned what an IMU sensor module is, how to use the **LSM9DS1** library, and how to use an Arduino Nano 33 BLE Sense to get data. Furthermore, we utilized the 3-axis accelerometer sensor, in order to measure and print out the degrees and relative position of the board.
+In this simple tutorial we learned what an IMU sensor module is, how to use the **BMI270_BMM150** library, and how to use an Arduino Nano 33 BLE Sense Rev2 to get data. Furthermore, we utilized the 3-axis accelerometer sensor, in order to measure and print out the degrees and relative position of the board.

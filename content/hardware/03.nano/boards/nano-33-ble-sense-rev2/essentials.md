@@ -23,11 +23,11 @@
 The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
   </EssentialElement>
 
-  <EssentialElement title="Arduino_BMI270_BMM150" type="library" link="https://www.arduino.cc/reference/en/arduino-libraries/arduino_bmi270_bmm150">
+  <EssentialElement title="Arduino_BMI270_BMM150" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/">
 The Arduino_BMI270_BMM150 library is designed to be used with the BMI270_BMM150 IMU system, which includes a 3-axis accelerometer, 3-axis gyroscope and a 3-axis magnetometer. 
   </EssentialElement>
 
-  <EssentialElement title="Arduino_HS300x" type="library" link="https://www.arduino.cc/en/Reference/ArduinoHS300x">
+  <EssentialElement title="Arduino_HS300x" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_hs300x/">
 The HS300x library is designed for reading temperature and humidity values from the HS300x sensor.
   </EssentialElement>
 
