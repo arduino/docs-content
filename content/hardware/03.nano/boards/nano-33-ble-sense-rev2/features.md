@@ -18,7 +18,7 @@ The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or 
 
   The combined BMI270 and BMM150 provides a 9-axis inertial measurement unit featuring a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
 
-  <FeatureLink title="Library" url="https://github.com/arduino-libraries/Arduino_BMI270_BMM150" download blank/>
+  <FeatureLink title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/"/>
 </Feature>
 
 <Feature title="Python Support" image="python">
@@ -32,7 +32,7 @@ The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or 
 
   The MP34DT06JTR microphone allows to capture and analyze sound in real time and can be used to create a voice interface for your project.  
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/MP34DT06JTR.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="/resources/datasheets/MP34DT06JTR.pdf" download blank/>
 </Feature>
 
 <Feature title="Proximity and Gesture Detection" image="proximity-sensor">
@@ -53,7 +53,7 @@ The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or 
 
   The HS3003 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.2 °C suited to detect ambient temperature.
 
-<FeatureLink title="Datasheet" url="https://www.renesas.com/document/dst/hs300x-datasheet" download blank/>
+<FeatureLink title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_hs300x/"/>
 
 </Feature>
 

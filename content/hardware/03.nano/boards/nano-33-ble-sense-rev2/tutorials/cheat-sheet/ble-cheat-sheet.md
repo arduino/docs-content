@@ -1,6 +1,6 @@
 ---
 title: 'Nano 33 BLE Sense Rev2 Cheat Sheet'
-description: 'Learn how to set up the Nano 33 BLE Sense, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
+description: 'Learn how to set up the Nano 33 BLE Sense Rev2, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
 tags:
   - Installation
   - I2C
@@ -35,7 +35,7 @@ software:
 
 This article is a collection of guides, API calls, libraries and tutorials that can help you get started with the Nano 33 BLE Sense Rev2 board.
 
-You can also visit the [documentation platform for the Nano 33 BLE Sense](/hardware/nano-33-ble-sense-rev2).
+You can also visit the [documentation platform for the Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2).
 
 ## Core
 
@@ -137,7 +137,7 @@ The microcontroller on the Arduino Nano 33 BLE Sense Rev2 runs at 3.3V, which me
 
 To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Sense, we have the 5V pin on the header, positioned between RST and A7 that is not connected as default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs.
 
-5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense through the USB port. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
+5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Sense Rev2 through the USB port. If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
 
 ![Soldering the VUSB pins.](assets/Nano33_ble_sense_vusb.png)
 
@@ -147,7 +147,7 @@ To avoid such risk with existing projects, where you should be able to pull out 
 
 ### BMI270 and BMM150
 
-The Arduino Nano BLE Sense Rev2 Inertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
+The Arduino Nano 33 BLE Sense Rev2 Inertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
 
 ### BMI270 and BMM150 Library
 
@@ -206,9 +206,9 @@ The magnetometer data can be accessed through the following commands:
 
 If you want to learn more on how to use the IMU, please check out the tutorial below:
 
-- [Accessing IMU gyroscope data with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense-rev2/imu_gyroscope)
-- [Accessing IMU accelerometer data with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense-rev2/imu_accelerometer)
-- [Accessing IMU magnetometer data with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense-rev2/imu_magnetometer)
+- [Accessing IMU gyroscope data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_gyroscope)
+- [Accessing IMU accelerometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_accelerometer)
+- [Accessing IMU magnetometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_magnetometer)
 
 ## Proximity and Gesture Detection
 
@@ -220,7 +220,7 @@ The **APDS9960** chip allows for measuring digital proximity and ambient light a
 
 ### APDS9960 Library
 
-To access the data from the APDS9960 module, we need to install the [APDS9960](https://github.com/arduino-libraries/Arduino_APDS9960) library, which comes with examples that can be used directly with the Nano 33 BLE Sense.
+To access the data from the APDS9960 module, we need to install the [APDS9960](https://github.com/arduino-libraries/Arduino_APDS9960) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
 
 It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
 
@@ -288,7 +288,7 @@ Serial.println(HS300x.readHumidity());
 
 If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
 
-- [Reading Temperature & Humidity on Nano 33 BLE Sense](https://docs.arduino.cc/tutorials/nano-33-ble-sense-rev2/humidity_and_temperature_sensor)
+- [Reading Temperature & Humidity on Nano 33 BLE Sense Rev2](https://docs.arduino.cc/tutorials/nano-33-ble-sense-rev2/humidity_and_temperature_sensor)
 
 ## Pressure Sensor
 
@@ -384,7 +384,7 @@ Like other Arduino® products, the Nano 33 BLE Sense Rev2 features dedicated pin
 
 ### SPI
 
-The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE Sense are the following:
+The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE Sense Rev2 are the following:
 
 - (CIPO) - D12
 - (COPI) - D11
@@ -419,7 +419,7 @@ And to write to the device:
 
 ### I2C
 
-The pins used for I2C (Inter-Integrated Circuit) on the Nano 33 BLE Sense are the following:
+The pins used for I2C (Inter-Integrated Circuit) on the Nano 33 BLE Sense Rev2 are the following:
 
 - (SDA) - A4
 - (SCL) - A5
