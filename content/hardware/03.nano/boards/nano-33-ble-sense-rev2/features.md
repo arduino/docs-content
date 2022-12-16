@@ -30,9 +30,9 @@ The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or 
 
 <Feature title="Omnidirectional Digital Microphone" image="microphone">
 
-  The MP34DT05 microphone allows to capture and analyze sound in real time and can be used to create a voice interface for your project.  
+  The MP34DT06JTR microphone allows to capture and analyze sound in real time and can be used to create a voice interface for your project.  
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_mp34dt05-a.pdf" download blank/>
+  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/MP34DT06JTR.pdf" download blank/>
 </Feature>
 
 <Feature title="Proximity and Gesture Detection" image="proximity-sensor">
