@@ -21,9 +21,9 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_lsm9ds1.pdf" download blank/>
 </Feature>
 
-<Feature title="Python Support" image="python">
+<Feature title="Python® Support" image="python">
 
-  This board can be programmed with the Python programming language via the OpenMV IDE.
+  This board can be programmed with the Python® programming language via the OpenMV IDE.
 
   <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>

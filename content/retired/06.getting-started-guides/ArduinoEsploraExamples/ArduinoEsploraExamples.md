@@ -20,7 +20,7 @@ The other Arduino boards have two types of inputs: digital inputs, which have on
 
 The digital inputs on the other Arduino boards can also be used as outputs, so they need to be declared as either input or output using a command called `pinMode()`. Because all of the Esplora's inputs or outputs are dedicated to one function, you don't need pinMode commands.
 
-Whenever you see the command `digitalRead()` in an Arduino example, substitute the command `Esplora.readButton()`. Choose whichever button you want to read. Below, you can see the original [DigitalReadSerial](/en/Tutorial/BuiltInExamples/DigitalReadSerial) example (found in File -> Examples -> 01.Basics -> DigitalReadSerial) and the modified version that works on the Esplora using Switch 1:
+Whenever you see the command `digitalRead()` in an Arduino example, substitute the command `Esplora.readButton()`. Choose whichever button you want to read. Below, you can see the original [DigitalReadSerial](https://arduino.cc/en/Tutorial/BuiltInExamples/DigitalReadSerial) example (found in File -> Examples -> 01.Basics -> DigitalReadSerial) and the modified version that works on the Esplora using Switch 1:
 
 **Original example:**
 
@@ -74,7 +74,7 @@ Most of the Arduino digitalRead() examples are written with the assumption that 
 
 For most Arduino examples, LEDs are used as digital outputs, meaning that you can only turn them on or off (HIGH or LOW). The RGB LED on the Esplora, however, is used as an analog output, meaning that you can set its brightness from 0 to 255. To make it act like a digital output, set its level to 255 for HIGH and 0 for LOW.
 
-Below, you'll see the [Button](/en/Tutorial/BuiltInExamples/Button) example (found in File -> 02.Digital -> Button) in its original and modified forms:
+Below, you'll see the [Button](https://arduino.cc/en/Tutorial/BuiltInExamples/Button) example (found in File -> 02.Digital -> Button) in its original and modified forms:
 
 **Original example:** Highlit lines will change. Pin constants and pinMode() commands will go away because they're not needed.
 
@@ -150,7 +150,7 @@ You don't have to use only the red LED channel; you can use any of the RGB chann
 
 Changes to analog examples are similar to the digital ones. There's no pinMode() commands to remove, however, because the analog inputs on the other Arduino boards are inputs by default.
 
-Here's another example, this time replacing an analog input with one the Esplora's analog inputs. The [ReadAnalogVoltage](/en/Tutorial/BuiltInExamples/ReadAnalogVoltage) example (found in File -> 01.Basics -> ReadAnalogVoltage) reads an analog input and tells you the voltage on the pin. Below, you'll replace the `analogRead()` command with the reading from the light sensor:
+Here's another example, this time replacing an analog input with one the Esplora's analog inputs. The [ReadAnalogVoltage](https://arduino.cc/en/Tutorial/BuiltInExamples/ReadAnalogVoltage) example (found in File -> 01.Basics -> ReadAnalogVoltage) reads an analog input and tells you the voltage on the pin. Below, you'll replace the `analogRead()` command with the reading from the light sensor:
 
 **Original example:**
 
@@ -201,7 +201,7 @@ Most of the analog sensors on the Esplora can be substituted for `analogRead()` 
 
 The temperature sensor on the Esplora is different from the other analog sensors, however. The `Esplora.readTemperature()` command doesn't simply give you the analog reading like the other sensor commands do. Instead, it converts the sensor's reading to Celsius or Fahrenheit. So you can't simply substitute the temperature sensor for an `analogRead()` command.
 
-The `analogWrite()` command on other Arduinos works only on certain pins. Its range is from 0 to 255, just like the `Esplora.writeRed()`, `Esplora.writeGreen()`, and `Esplora.writeBlue()` commands, so you could replace `analogWrite()` statements with any of these three commands and see a working result. Note that `analogWrite()` takes two parameters, a pin number and a brightness level, while the `Esplora.writeRed()` and related commands only take one parameter, the brightness. Below you can see the [Fade](/en/Tutorial/BuiltInExamples/Fade) example (found in File -> Examples -> 01.Basics -> Fade) in its original and modified forms:
+The `analogWrite()` command on other Arduinos works only on certain pins. Its range is from 0 to 255, just like the `Esplora.writeRed()`, `Esplora.writeGreen()`, and `Esplora.writeBlue()` commands, so you could replace `analogWrite()` statements with any of these three commands and see a working result. Note that `analogWrite()` takes two parameters, a pin number and a brightness level, while the `Esplora.writeRed()` and related commands only take one parameter, the brightness. Below you can see the [Fade](https://arduino.cc/en/Tutorial/BuiltInExamples/Fade) example (found in File -> Examples -> 01.Basics -> Fade) in its original and modified forms:
 
 **Original example:**`pinMode()` command will be cut, as it's not needed.
 
@@ -272,11 +272,11 @@ void loop()  {
 
 Serial communication over USB using the `Serial.read()`, `Serial.write()`, `Serial.print` and `Serial.println()` commands should work on the Esplora just the same as they do on other boards. However, the serial output of the Esplora works slightly faster than the Uno, so you might want to add a short delay to sketches that do nothing but read a sensor and serially print the result, so as not to fill your computer's serial input buffer. When your computer's serial buffer fills up, the Serial Monitor will run much slower, and you'll experience a delay when you change windows from it to the main IDE. A delay of even 1 millisecond will work fine.
 
-You can also use the [USB Mouse and Keyboard libraries](/en/Reference/MouseKeyboard) on the Esplora. The examples found in File -> Examples -> 09.USB will work with only modifications for digital and analog I/O, as described above. There's an example for the Esplora called [EsploraJoystickMouse](/en/Tutorial/LibraryExamples/EsploraJoystickMouse) that lets you use the joystick as a mouse controller as well.
+You can also use the [USB Mouse and Keyboard libraries](https://arduino.cc/en/Reference/MouseKeyboard) on the Esplora. The examples found in File -> Examples -> 09.USB will work with only modifications for digital and analog I/O, as described above. There's an example for the Esplora called [EsploraJoystickMouse](https://arduino.cc/en/Tutorial/LibraryExamples/EsploraJoystickMouse) that lets you use the joystick as a mouse controller as well.
 
 ## Communicating With Other Devices
 
-The other Arduinos offer two other forms of serial communication, SPI (using the [SPI library](/en/Reference/SPI)) and [I2C (using the Wire library)](/en/Reference/Wire). The Esplora can communicate via SPI using the ICSP header that's also used for optional in-circuit serial programming of the board. The ICSP connector's pins are laid out as follows. Pin 1 is the pin nearest the white dot on the Esplora board. It's the bottom right pin if you're holding the Esplora with the USB connector facing up:
+The other Arduinos offer two other forms of serial communication, SPI (using the [SPI library](https://arduino.cc/en/Reference/SPI)) and [I2C (using the Wire library)](https://arduino.cc/en/Reference/Wire). The Esplora can communicate via SPI using the ICSP header that's also used for optional in-circuit serial programming of the board. The ICSP connector's pins are laid out as follows. Pin 1 is the pin nearest the white dot on the Esplora board. It's the bottom right pin if you're holding the Esplora with the USB connector facing up:
 
 ![](assets/ICSP_pinout.jpg)
 
@@ -288,6 +288,6 @@ Generally, if you need SPI or I2C connectivity, you're better off using another 
 
 ## After The Esplora
 
-Once you've mastered the Esplora, if you're looking for other Arduino boards to try, the next best step is the [Arduino Uno](/en/Main/ArduinoBoardUno), which is the heart of the Arduino line. It allows you to connect your own sensor and actuator circuits, or add-on shields for expanded capability. You might also want to consider the [Arduino Leonardo](/en/Main/ArduinoBoardLeonardo). It's based on the same processor as the Esplora, and can likewise act as a USB keyboard or mouse. It offers all of the functionality of the regular Arduino boards as well.
+Once you've mastered the Esplora, if you're looking for other Arduino boards to try, the next best step is the [Arduino Uno](https://arduino.cc/en/Main/ArduinoBoardUno), which is the heart of the Arduino line. It allows you to connect your own sensor and actuator circuits, or add-on shields for expanded capability. You might also want to consider the [Arduino Leonardo](https://arduino.cc/en/Main/ArduinoBoardLeonardo). It's based on the same processor as the Esplora, and can likewise act as a USB keyboard or mouse. It offers all of the functionality of the regular Arduino boards as well.
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

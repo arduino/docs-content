@@ -2,13 +2,13 @@ Board:
   Name: Arduino® Portenta H7 Lite Connected
   SKU: ABX00046
 Microcontroller: STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU
-USB connector: USB-C
+USB connector: USB-C®
 Pins:
   Digital I/O Pins: 22
   Analog input pins: 8
   PWM pins: 10
-Connectivity:
-  Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth® 5.1 BR/EDR/LE
+Connectivity: Murata Type 1DX shielded ultra small Wi-Fi® 11b/g/n + Bluetooth® 5.1 module
+Secure element: ATECC608
 Communication:
   UART: Yes
   I2C: Yes

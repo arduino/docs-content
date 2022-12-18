@@ -8,7 +8,7 @@ libraries:
   - name: Arduino BHY2
     url: https://www.github.com/Arduino-libraries/Arduino_BHY2
   - name: Arduino BHY2_HOST
-    url: https://www.github.com/Arduino-libraries/Arduino_BHY2_HOST
+    url: https://github.com/arduino-libraries/Arduino_BHY2Host
 hardware:
   - hardware/05.nicla/boards/nicla-sense-me
 software:

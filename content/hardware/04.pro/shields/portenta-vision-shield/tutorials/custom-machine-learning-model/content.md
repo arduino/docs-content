@@ -2,41 +2,41 @@
 title: Training a Custom Machine Learning Model for Portenta H7
 coverImage: assets/vs_openmv_ml_cover.svg
 difficulty: intermediate
-tags: [Machine Learning, Edge Impulse, TinyML, Tensorflow]
-description: This tutorial teaches you how to train a custom machine learning model with Edge Impulse and to run it using the Portenta Vision Shield.
+tags: [Machine Learning, Edge Impulse®, TinyML, Tensorflow]
+description: This tutorial teaches you how to train a custom machine learning model with Edge Impulse® and to run it using the Portenta Vision Shield.
 author: Sebastian Romero
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
 software:
-  - EdgeImpulse
+  - Edge-Impulse
 ---
 
 ## Overview 
 
-This tutorial teaches you how to train a custom machine learning model with Edge Impulse and how to run it using the Portenta Vision Shield. The Machine Learning (ML) model will use the TensorFlow Lite format and the classification example will run on OpenMV.
+This tutorial teaches you how to train a custom machine learning model with Edge Impulse® and how to run it using the Portenta Vision Shield. The Machine Learning (ML) model will use the TensorFlow Lite format and the classification example will run on OpenMV.
 
 ## You Will Learn
 
 - To create datasets to be used for classification
-- How to train a ML model in Edge Impulse
+- How to train a ML model in Edge Impulse®
 - To use OpenMV to run a classification example
 
 ## Required Hardware and Software
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- [Portenta Vision Shield - LoRa®](https://store.arduino.cc/portenta-vision-shield-lora) or [Portenta Vision Shield - Ethernet](https://store.arduino.cc/usa/portenta-vision-shield)
+- [Portenta Vision Shield - LoRa®](https://store.arduino.cc/portenta-vision-shield-lora) or [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora®)
 - USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- An [Edge Impulse](https://studio.edgeimpulse.com/) account for training the ML model
+- An [Edge Impulse®](https://studio.edgeimpulse.com/) account for training the ML model
 - Fruits (or other objects) to create the classification model 🍏🍌🍐
 
 ## Machine Learning on the Edge
 
 Machine learning on powerful computers has been around for a while. On microcontrollers, this is a rather new territory. Microcontrollers might not be able to run ML models to process high resolution images at high frame rates, but there are some interesting aspects. On one side, microcontrollers can run at very low power on batteries for a long time. You could even put the processor to sleep and only wake it up when the camera or one of the attached sensors registers activity. On the other side, ML models on a microcontroller can run without Internet connection as they do not need to upload data to the Cloud. This means that you can install distributed ML solutions in places where there is no Internet connection (Edge Computing). Additionall,y processing data locally means that data stay on the device, so that data privacy is ensured.
 
-## The Edge Impulse Platform
+## The Edge Impulse® Platform
 
-Edge Impulse is a platform that simplifies the process of creating machine learning models, by choosing reasonable defaults for the countless parameters you need to set when creating a ML model. It provides a simple user interface that not only allows to train a ML model, but also to inspect the data and test the model.
+Edge Impulse® is a platform that simplifies the process of creating machine learning models, by choosing reasonable defaults for the countless parameters you need to set when creating a ML model. It provides a simple user interface that not only allows to train a ML model, but also to inspect the data and test the model.
 
 ## Training the ML Model
 
@@ -62,17 +62,17 @@ First, create a new image class and name it `apple` by clicking on "New Class Fo
 
 You may have also noticed that there is a label text file. This file is used to store a textual representation of the classes to later classify the objects and print the class names. The classes are added to that automatically.
 
-### 2. Uploading the Data to Edge Impulse
-Now that all data is ready to be uploaded, you need to create a new Edge Impulse project. If you have not registered an Edge Impulse account yet, you may create one on [their website](https://studio.edgeimpulse.com/login). Log in to the Edge Impulse Studio and create a new project named `Fruit-Detector`.
+### 2. Uploading the Data to Edge Impulse®
+Now that all data is ready to be uploaded, you need to create a new Edge Impulse® project. If you have not registered an Edge Impulse® account yet, you may create one on [their website](https://studio.edgeimpulse.com/login). Log in to the Edge Impulse® Studio and create a new project named `Fruit-Detector`.
 
-After that, you can go back to the OpenMV IDE and select **Tools > Dataset Editor > Export > Log in to Edge Impulse Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it has not seen yet.
+After that, you can go back to the OpenMV IDE and select **Tools > Dataset Editor > Export > Log in to Edge Impulse® Account and Upload to Project**. The OpenMV IDE will ask you for your Edge Impulse® login credentials. Select the project that you just created and click OK. Leave the data set split setting at the default. This will keep 20% of the images aside for testing the model once it has been trained. That allows you to assess how well your model performs at detecting the objects with data that it has not seen yet.
 
-![You need to log in with your Edge Impulse account when uploading a dataset for the first time](assets/vs_openmv_ml_edge_impulse_login.png)
+![You need to log in with your Edge Impulse® account when uploading a dataset for the first time](assets/vs_openmv_ml_edge_impulse_login.png)
 
 
 ### 3. Acquire Data
 
-Open your project in the Edge Impulse studio and navigate to "Data Acquisition". You can see that the images have been uploaded and labeled according to the classes that you created. With this tool, you can browse through the image samples and remove the ones which you do not deem valuable for the training (e.g. if one of the images is too blurry).
+Open your project in the Edge Impulse® studio and navigate to "Data Acquisition". You can see that the images have been uploaded and labeled according to the classes that you created. With this tool, you can browse through the image samples and remove the ones which you do not deem valuable for the training (e.g. if one of the images is too blurry).
 
 ![The Data Acquisition tool allows to inspect the uploaded assets](assets/vs_openmv_ml_edge_impulse_data.png)
 
@@ -110,9 +110,9 @@ The ML model is trained and already optimized to be used with microcontrollers. 
 
 ### Deploy
 
-Deploying the ML model to the Portenta H7 is very simple. The Edge Impulse Studio provides an export feature for OpenMV. Switch to the deployment section in the menu, select OpenMV under "Build firmware" and click "build". This will create an OpenMV compatible library that you can download as a zip file. Unzip it and copy **trained.tflite** and **labels.txt** to Portenta's Flash drive.
+Deploying the ML model to the Portenta H7 is very simple. The Edge Impulse® Studio provides an export feature for OpenMV. Switch to the deployment section in the menu, select OpenMV under "Build firmware" and click "build". This will create an OpenMV compatible library that you can download as a zip file. Unzip it and copy **trained.tflite** and **labels.txt** to Portenta's Flash drive.
 
-![The Edge Impulse Studio has a built-in export function for OpenMV](assets/vs_openmv_ml_edge_impulse_build.png)
+![The Edge Impulse® Studio has a built-in export function for OpenMV](assets/vs_openmv_ml_edge_impulse_build.png)
 
 ### Run the Script
 
@@ -177,7 +177,7 @@ You have learned about classification as a machine learning concept which catego
 
 ### Next Steps
 
-One thing that we did not have a look at is testing the final model. In Edge Impulse Studio there is a section for this called "Model Testing". It allows you to test the accuracy of your model with additional data that it has not seen yet. This gives you an opportunity to find out for which images the classification accuracy falls short. You can inspect individual images that are not correctly detected and decide whether additional data needs to be created to re-train the model for better accuracy on those images. You can also decide to move the images that were not recognized correctly to the training set and try again with that setup.
+One thing that we did not have a look at is testing the final model. In Edge Impulse® Studio there is a section for this called "Model Testing". It allows you to test the accuracy of your model with additional data that it has not seen yet. This gives you an opportunity to find out for which images the classification accuracy falls short. You can inspect individual images that are not correctly detected and decide whether additional data needs to be created to re-train the model for better accuracy on those images. You can also decide to move the images that were not recognized correctly to the training set and try again with that setup.
 
 ## Troubleshooting
 

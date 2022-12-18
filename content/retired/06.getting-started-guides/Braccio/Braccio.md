@@ -149,7 +149,7 @@ To make its compatible with the shield, you must move the power switch to "VIN" 
 
 ## TinkerKit Braccio Library
 
-To use your TinkerKit Braccio you need to load the Braccio library using the Library manager of the Arduino Software (IDE); see [these instructions](/en/Guide/Libraries) for details on installing libraries.
+To use your TinkerKit Braccio you need to load the Braccio library using the Library manager of the Arduino Software (IDE); see [these instructions](https://arduino.cc/en/Guide/Libraries) for details on installing libraries.
 
 ![](assets/BraccioLib.jpg)
 

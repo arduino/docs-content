@@ -22,7 +22,7 @@ image developed using [Fritzing](http://www.fritzing.org).
 
 ## Instructions
 
-Set up the Arduino software as described in [Getting Started with Arduino 101](/en/Guide/Arduino101).
+Set up the Arduino software as described in [Getting Started with Arduino 101](https://arduino.cc/en/Guide/Arduino101).
 
 1. Download the nRF Toolbox for Bluetooth® Low Energy app [for Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.nrftoolbox&amp;hl=it) or [for iOS](https://itunes.apple.com/it/app/nrf-toolbox/id820906058?mt=8) free of charge.
 

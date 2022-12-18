@@ -9,7 +9,7 @@ tags:
   - Accelerometer
 ---
 
-The Memsic 2125 ([datasheet](https://www.parallax.com/sites/default/files/downloads/28017-Memsic-MXD2125-Datasheet.pdf)) is a two-axis [**accelerometer**](http://en.wikipedia.org/wiki/Accelerometer) capable of measuring acceleration up to plus or minus 2g.  It has a simple digital interface: two pins (one for each axis) emit pulses whose duration corresponds to the acceleration of that axis. By measuring the length of that pulse, in microseconds, using the  [**pulseIn()**](https://www.arduino.cc/en/Reference/PulseIn) function, it is possible to determine the rate of acceleration and to use that data for your purposes.
+The Memsic 2125 ([datasheet](https://www.parallax.com/sites/default/files/downloads/28017-Memsic-MXD2125-Datasheet.pdf)) is a two-axis [**accelerometer**](http://en.wikipedia.org/wiki/Accelerometer) capable of measuring acceleration up to plus or minus 2g.  It has a simple digital interface: two pins (one for each axis) emit pulses whose duration corresponds to the acceleration of that axis. By measuring the length of that pulse, in microseconds, using the  [**pulseIn()**](https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/) function, it is possible to determine the rate of acceleration and to use that data for your purposes.
 
 ### Hardware Required
 

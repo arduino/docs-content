@@ -19,7 +19,7 @@ software:
 
 ## Introduction 
 
-In some cases you might need to upgrade your NINA-W102 module's firmware. There is for example a need to upgrade your firmware if you wish to [use the NINA-W102 module via Python](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-python-api#wireless). 
+In some cases you might need to upgrade your NINA-W102 module's firmware. There is for example a need to upgrade your firmware if you wish to [use the NINA-W102 module via Python®](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-python-api#wireless). 
 
 ***If you are using the [Arduino Cloud IoT](https://create.arduino.cc/iot/things), manual firmware upgrades are not necessary, as it is done automatically while configuring your board.***
 

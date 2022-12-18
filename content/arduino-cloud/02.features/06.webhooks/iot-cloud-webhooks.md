@@ -53,7 +53,7 @@ The first step is to create an Applet on the IFTTT platform using the following 
 
 ![Creating an Applet](assets/creating-an-applet.gif)
 
-**1.** Go to [IFTTT website](maker.ifttt.com) and sign in.
+**1.** Go to [IFTTT website](https://maker.ifttt.com) and sign in.
 
 **2.** Click **Create** in the top right, then select **If This**.
 
