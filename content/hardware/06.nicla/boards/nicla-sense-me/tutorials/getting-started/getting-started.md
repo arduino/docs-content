@@ -221,7 +221,7 @@ Next, we will go through a sketch that allows us to see the readings from the se
 
 ### Arduino IDE and Nicla Core
 
-Start the Arduino IDE and install the **nicla_mbed** core. If you need help with installing the core for the Nicla Sense ME, please refer to this [guide](/content/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla/).
+Start the Arduino IDE and install the **nicla_mbed** core. If you need help with installing the core for the Nicla Sense ME, please refer to this [guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla).
 
 Now you need to add the **Arduino_BHY2** library that contains the example sketch that you want. You can do this through the library manager in the Arduino IDE. After the library is installed, you can access the example sketch directly through the IDE. You can find the sketch in **File > Examples > Arduino_BHY2 > Standalone**. At this point you can plug in your Nicla Sense ME and upload the sketch.
 
@@ -273,7 +273,7 @@ After you have uploaded the sketch to the board, open the Serial Monitor in the 
 
 
 ## Next Step
-In this sketch you only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, for example on the board LED. Please take a look at our [cheat sheet](/content/hardware/05.nicla/boards/nicla-sense-me/tutorials/cheat-sheet) if you want quick references for the boards features. Test other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
+In this sketch you only get the readings of the sensor. A good next step could be to use these readings as parameters to trigger different reactions on the board, for example on the board LED. Please take a look at our [cheat sheet](/tutorials/nicla-sense-me/cheat-sheet) if you want quick references for the boards features. Test other tutorials we have for the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me#tutorials) to discover more about this board.
 
 ## Conclusion
 

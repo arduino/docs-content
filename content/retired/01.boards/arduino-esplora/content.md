@@ -80,7 +80,7 @@ The Leonardo the Esplora has a number of facilities for communicating with a com
 
 The ATmega32U4 also supports SPI communication, that can be accessed through the SPI library.
 
-The Esplora can appear as a generic keyboard and mouse, and can be programmed to control these input devices using the [Keyboard and Mouse](https://www.arduino.cc/en/Reference/MouseKeyboard) libraries.
+The Esplora can appear as a generic keyboard and mouse, and can be programmed to control these input devices using the [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries.
 
 ### Programming
 

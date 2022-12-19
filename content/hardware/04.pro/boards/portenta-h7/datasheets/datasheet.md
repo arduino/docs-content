@@ -60,9 +60,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB /16 MB</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
       </tr>
       <tr>
          <td style="text-align: center;">Power</td>
@@ -254,15 +254,15 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td rowspan="2" style="vertical-align: top;">External memories</td>
-         <td>SDRAM (optional)</td>
-         <td>Up to 64 MByte</td>
+         <td>SDRAM</td>
+         <td>8 MByte</td>
       </tr>
       <tr>
-         <td>QSPI Flash (optional)</td>
-         <td>Up to 128 MByte</td>
+         <td>QSPI Flash</td>
+         <td>16 MByte</td>
       </tr>
       <tr>
-         <td rowspan="4" style="vertical-align: top;" >USB-C</td>
+         <td rowspan="4" style="vertical-align: top;" >USB-C®</td>
          <td>High speed (optional/FUll Speed USB)</td>
          <td></td>
          <td rowspan="3"></td>
@@ -500,9 +500,9 @@ Laboratory equipment, Computer vision
 
 ## Connector Pinouts
 
-![USB-C Pinout](assets/portentaH7_PinoutUSB-C.png)
+![USB-C® Pinout](assets/portentaH7_PinoutUSB-C.png)
 
-### USB-C
+### USB-C®
 
 | Pin     | **Description**                                              | **Pin**         | **Description**                                          |
 | ------- | ------------------------------------------------------------ | --------------- | -------------------------------------------------------- |
@@ -556,7 +556,7 @@ Depending on the variant, some of the components does not apply. The image below
 | U3       | USB HS PHY                           | U12, U13, U14    | ESD protection*             |
 | U4       | SDRAM                                | U16              | Crypto Chip (Microchip)     |
 | U5       | Ethernet PHY                         | J1, J2           | High Density Connectors     |
-| U6       | MIPI to USB-C/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
+| U6       | MIPI to USB-C®/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
 | U7       | Level Shifter*                       | JANALOG JDIGITAL | MKR Compatible headers      |
 | U8       | I2C level shifter*                   | J4               | Battery Connector           |
 | U9       | Wifi/BT Module**                     | J5               | ESLOV Connector             |

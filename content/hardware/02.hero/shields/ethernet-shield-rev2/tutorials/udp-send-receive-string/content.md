@@ -5,7 +5,7 @@ title: 'Ethernet Shield Sending and Receiving String via UDP'
 description: 'Send and receive text strings via UDP.'
 ---
 
-[Tutorials](/en/Tutorial/HomePage) > [Examples](/en/Tutorial/LibraryExamples) > Ethernet > UDPSendReceiveString
+[Tutorials](https://arduino.cc/en/Tutorial/HomePage) > [Examples](https://arduino.cc/en/Tutorial/LibraryExamples) > Ethernet > UDPSendReceiveString
 
 In this example, you will use your Ethernet Shield and your Arduino to send and receive text strings via the UDP protocol (Universal Datagram Packet). You'll need another device to send to and from.  The [Processing](http://www.processing.org) sketch included at the end of the code will send to and receive from your Arduino running this example.
 

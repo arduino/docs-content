@@ -1,7 +1,7 @@
 ---
 title: Create and Upload a Custom Container to the Portenta X8
 difficulty: intermediate
-tags: [Linux, Python, Containers, ADB]
+tags: [Linux, Python®, Containers, ADB]
 description: This tutorial will show you how to create and upload your custom container to your Portenta X8
 author: Benjamin Dannegård
 hardware:
@@ -23,7 +23,7 @@ In this tutorial we will create a simple container that we can then upload to th
 
 - [Portenta X8](https://store.arduino.cc/portenta-x8)
 - ADB
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
 

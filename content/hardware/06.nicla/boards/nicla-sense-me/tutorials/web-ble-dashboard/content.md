@@ -1,5 +1,5 @@
 ---
-title: 'Displaying on-Board Sensor Values on a WebBLE Dashboard.'
+title: 'Displaying on-Board Sensor Values on a WebBLE Dashboard'
 coverImage: hero-banner.svg
 tags: 
   - Bluetooth®
@@ -23,7 +23,7 @@ software:
 ---
 
 ## Overview
-The Arduino Nicla Sense ME can give you information about the environment such as pressure, temperature and gas readings. Sometimes, you may have to place the sensor in a hard-to-reach area and therefore want to access the data wirelessly.
+The Arduino® Nicla Sense ME can give you information about the environment such as pressure, temperature and gas readings. Sometimes, you may have to place the sensor in a hard-to-reach area due to certain environmental requirement. Therefore, it will be much convenient and helpful to access the data wirelessly.
 
 Thanks to the ANNA B112 Bluetooth® chip and the libraries developed for the Nicla Sense ME, you can easily stream data over Bluetooth® to a device of your choice. By using WebBLE, no additional software other than a compatible browser (Google Chrome is recommended) is required.
 
@@ -31,7 +31,7 @@ To demonstrate this, we prepared a simple sketch and hosted a dashboard so you c
 
 A [previous version](https://arduino.github.io/ArduinoAI/BLESense-test-dashboard/) of this dashboard was developed to be used with the Arduino® Nano 33 BLE. You can see a video that shows how it looks [here](https://www.facebook.com/official.arduino/videos/ble-sense-test-dashboard/336762167617547/). 
 
-In this tutorial we will focus on the Arduino® Nicla Sense ME.
+In this tutorial, we will focus on the Arduino® Nicla Sense ME.
 
 ## Goals
 
@@ -41,38 +41,30 @@ In this tutorial we will focus on the Arduino® Nicla Sense ME.
 ### Required Hardware and Software
 
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
-- Micro USB-A cable (USB-A to Micro USB-A)
+- Micro USB-A cable (USB-A to Micro USB-AB)
 - Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Web Editor
-- If you choose the Arduino IDE, you will need to install 2 libraries: `Arduino_BHY2`and `ArduinoBLE`
+- If you choose the Arduino IDE, you will need to install 2 libraries: [**Arduino_BHY2**](https://github.com/arduino-libraries/Arduino_BHY2) and [**ArduinoBLE**](https://github.com/arduino-libraries/ArduinoBLE)
 
 ## Instructions
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/pmarquinez/b0102b0a-1d8b-4b4a-a53d-781b896d87f7/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
+If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries. 
+
+These libraries can be found within the Library Manager in the Arduino IDE, or it can be downloaded separately following the links attached within required hardware and software section. 
 
 If you use a local IDE, you can copy & paste the following sketch:
 ```arduino
   /*
-
   Arduino Nicla Sense ME WEB Bluetooth® Low Energy Sense dashboard demo
-
-
   Hardware required: https://store.arduino.cc/nicla-sense-me
-
   1) Upload this sketch to the Arduino Nano Bluetooth® Low Energy sense board
-
   2) Open the following web page in the Chrome browser:
   https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
-
   3) Click on the green button in the web page to connect the browser to the board over Bluetooth® Low Energy
-
-
   Web dashboard by D. Pajak
-
   Device sketch based on example by Sandeep Mistry and Massimo Banzi
   Sketch and web dashboard copy-fixed to be used with the Nicla Sense ME by Pablo Marquínez
-
   */
 
   #include "Nicla_System.h"
@@ -146,7 +138,7 @@ If you use a local IDE, you can copy & paste the following sketch:
 
     address.toUpperCase();
 
-    name = "BLESense-";
+    name = "NiclaSenseME-";
     name += address[address.length() - 5];
     name += address[address.length() - 4];
     name += address[address.length() - 2];
@@ -272,8 +264,9 @@ If you use a local IDE, you can copy & paste the following sketch:
 
     nicla::leds.setColor(r, g, b);
   }
-
 ```
+
+Once you have these tools, you can select the Nicla Sense ME as target board and its corresponding port. Now you are ready to upload the sketch. 
 
 ### Connect to the Dashboard
 
@@ -287,15 +280,14 @@ To connect your board to the dashboard, you will need to click on the top left b
 
 ***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to <chrome://flags> and enable "Experimental Web Platform features". Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
 
-Once it is connected, the button will change its color to green, and the graphs will start to show data in real time.
+Once it is connected, the button will change its color to green, and the graphs will start to show data in real time. You will be able to verify its operation by trying out the following actions:
 
-Try to rotate the board and see the 3D model of the board spin.
+- Try to rotate the board and see the 3D model of the board spin.
 
-You can also select a different LED color from the bottom left widget.
+- You can also select a different LED color from the bottom left widget.
 
-Breathe onto the board and see the humidity and temperature values changing.
-
+- Breathe onto the board and see the humidity and temperature values changing.
 
 ## Conclusion
 
-The Nicla Sense ME supports a lot of use cases through its on-board sensors and the Bluetooth® Low Energy functionality. By leveraging the WebBLE API you do not need to install or run any application from your computer as shown in this tutorial. You can read more about WebBLE technology [here](https://web.dev/bluetooth/).
+The Nicla Sense ME supports a lot of use cases through its on-board sensors and the Bluetooth® Low Energy functionality. By leveraging the WebBLE API, you do not need to install or run any application from your computer as shown in this tutorial. You can read more about WebBLE technology [here](https://web.dev/bluetooth/).

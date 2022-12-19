@@ -53,15 +53,15 @@ The ATmega32u4 has 32 KB (with 4 KB used for the bootloader). It also has 2.5 KB
 
 ### Input and Output
 
-Each of the 9 digital i/o pins on the LilyPad Arduino USB can be used as an input or output, using[pinMode()](https://www.arduino.cc/en/Reference/PinMode), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 3.3V volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms.
+Each of the 9 digital i/o pins on the LilyPad Arduino USB can be used as an input or output, using[pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 3.3V volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms.
 
 In addition, some pins have specialized functions:
 
 * **TWI**: 2 (SDA) and 3 (SCL). Support a simple TWI communication using the [Wire library](https://www.arduino.cc/en/Reference/Wire).
-* **External Interrupts**: 2 and 3\. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/en/Reference/AttachInterrupt) function for details.
+* **External Interrupts**: 2 and 3\. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
 * **PWM**: 3, 9, 10, 11, and 13\. Provide 8-bit PWM output with the [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function.
 * **LED**: 13\. There is a built-in LED connected to digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
-* **Analog Inputs:** A2-A5\. The LilyPad Arduino USB has 4 analog inputs, labeled A0 through A11, all of which can also be used as digital i/o. Each analog input provide 10 bits of resolution (i.e. 1024 different values). By default the analog inputs measure from ground to 5 volts, though is it possible to change the upper end of their range using the [analogReference()](https://www.arduino.cc/en/Reference/AnalogReference) function.
+* **Analog Inputs:** A2-A5\. The LilyPad Arduino USB has 4 analog inputs, labeled A0 through A11, all of which can also be used as digital i/o. Each analog input provide 10 bits of resolution (i.e. 1024 different values). By default the analog inputs measure from ground to 5 volts, though is it possible to change the upper end of their range using the [analogReference()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/) function.
 
 See also the mapping between Arduino pins and ATmega32u4 ports.
 
@@ -75,7 +75,7 @@ A [SoftwareSerial library](https://www.arduino.cc/en/Reference/SoftwareSerial) a
 
 The LilyPad Arduino USB also supports I2C (TWI). The Arduino software includes a [Wire Library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus.
 
-The LilyPad Arduino USB appears as a generic keyboard and mouse, and can be programmed to control these input devices using the [Keyboard and Mouse](https://www.arduino.cc/en/Reference/MouseKeyboard) classes.
+The LilyPad Arduino USB appears as a generic keyboard and mouse, and can be programmed to control these input devices using the [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [Mouse](https://www.arduino.cc/en/Reference/mouse) classes.
 
 ### Programming
 

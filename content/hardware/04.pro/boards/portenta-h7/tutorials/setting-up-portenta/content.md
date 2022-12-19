@@ -24,7 +24,7 @@ Congratulations on your purchase of one of our most powerful microcontroller boa
 
 One of the benefits of the Portenta H7 is that it supports different types of software cores. A core is the software API for a particular set of processors. It is the API that provides functions such as digitalRead(), analogWrite(), millis() etc. which directly operate on the hardware.
 
-At the moment of writing the tutorial, there is an Arduino core and a MicroPython core available for working with Portenta. The latter one allows you to write sketches in the popular programming language Python rather than C or C++ and run them on the Portenta H7.
+At the moment of writing the tutorial, there is an Arduino core and a MicroPython core available for working with Portenta. The latter one allows you to write sketches in the popular programming language Python® rather than C or C++ and run them on the Portenta H7.
 
 This tutorial focuses on the Arduino core which allows you to benefit from the thousands of existing Arduino libraries and code examples written in C and C++ which are compatible with the Arduino core. A tutorial about setting the Portenta H7 up for development with the MicroPython core will be released soon.
 
@@ -56,7 +56,7 @@ In this section, we will guide you through a step-by-step process of setting up 
 ### 1. The Basic Setup
 Let's begin by Plug-in your Portenta to your computer using the appropriate USB C cable. Next, open your IDE and make sure that you have the right version of the Arduino IDE downloaded on to your computer.
 
-![The Portenta H7 can be connected to the computer using an appropriate USB-C cable](assets/por_ard_gs_basic_setup.svg)
+![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_ard_gs_basic_setup.svg)
 
 ### 2. Adding the Portenta to the List of Available Boards
 In your Arduino IDE, open the board manager and search for "portenta". Find the Arduino mbed-enabled Boards library and click on "Install" to install the latest version of the mbed core (1.2.3 at the time of writing this tutorial).

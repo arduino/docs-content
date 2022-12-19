@@ -5,11 +5,11 @@ description: 'The first steps to setting up the Arduino WiFi Shield'
 
 **This is a retired product.**
 
-The [Arduino WiFi shield](/en/Main/ArduinoWiFiShield) allows an Arduino board to connect to the internet using the [WiFi library](/en/Reference/WiFi) and to read and write an SD card using the [SD library](/en/Reference/SD).
+The [Arduino WiFi shield](https://arduino.cc/en/Main/ArduinoWiFiShield) allows an Arduino board to connect to the internet using the [WiFi library](https://arduino.cc/en/Reference/WiFi) and to read and write an SD card using the [SD library](https://arduino.cc/en/Reference/SD).
 
-The WiFi Library is included with the most [recent version of the Arduino IDE](/en/Main/Software). _The firmware for the WiFi shield has changed in Arduino IDE 1.0.4. It is strongly recommended to install this update per [these instructions](/en/Hacking/WiFiShieldFirmwareUpgrading)_
+The WiFi Library is included with the most [recent version of the Arduino IDE](https://arduino.cc/en/Main/Software). _The firmware for the WiFi shield has changed in Arduino IDE 1.0.4. It is strongly recommended to install this update per [these instructions](https://arduino.cc/en/Hacking/WiFiShieldFirmwareUpgrading)_
 
-The [WiFI library](/en/Reference/WiFi) is similar to the [Ethernet library](/en/Reference/Ethernet) and many of the function calls are the same.
+The [WiFI library](https://arduino.cc/en/Reference/WiFi) is similar to the [Ethernet library](https://arduino.cc/en/Reference/Ethernet) and many of the function calls are the same.
 
 ### Connecting the Shield
 
@@ -34,7 +34,7 @@ Soldering 3.3V to IOREF
 ![](./assets/WiFiAdditionalPorts_v2.png)
 There is an onboard micro-USB connector. This is not for programming an attached Arduino, it is for updating the Atmega 32UC3 using the Atmel DFU protocol. The programming jumper adjacent to the power bus and analog inputs should be left unconnected for typical use. It is only used for DFU programming mode.
 
-A FTDI connection enables serial communication with the 32UC3 for debugging purposes. A list of [available commands can be found here](/en/Hacking/WiFiShield32USerial).
+A FTDI connection enables serial communication with the 32UC3 for debugging purposes. A list of [available commands can be found here](https://arduino.cc/en/Hacking/WiFiShield32USerial).
 
 ### Network Settings
 
@@ -323,17 +323,17 @@ void loop() {
 
 ### SD Card and SPI
 
-The WiFI Shield includes a micro-SD card slot, which can be interfaced with using the [SD library](/en/Reference/SD). The SS for the SD card is pin 4.
+The WiFI Shield includes a micro-SD card slot, which can be interfaced with using the [SD library](https://arduino.cc/en/Reference/SD). The SS for the SD card is pin 4.
 
 Arduino communicates with the shield using the SPI bus. This is on digital pins 11, 12, and 13 on the Uno and pins 50, 51, and 52 on the Mega. On both boards, pin 10 is used as SS. On the Mega, the hardware SS pin, 53, is not used, but it must be kept as an output or the SPI interface won't work.
 
 ### Updating firmware on the shield
 
-Please follow [this guide](/en/Hacking/WiFiShieldFirmwareUpgrading) to update the firmware on your shield.
+Please follow [this guide](https://arduino.cc/en/Hacking/WiFiShieldFirmwareUpgrading) to update the firmware on your shield.
 
 ### Next steps
 
-Refer to the [WiFi library page](/en/Reference/WiFi) for more information on the functionality of the shield, as well as further examples.
+Refer to the [WiFi library page](https://arduino.cc/en/Reference/WiFi) for more information on the functionality of the shield, as well as further examples.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

@@ -160,7 +160,7 @@ After we open the Serial Monitor, the board will start connecting to the network
 
 ![Starting the web client.](assets/MKRNB_T4_IMG02.png)
 
-When it connects, it will then make a GET request to [example.org](example.org). It basically downloads the contents, and prints it in the Serial Monitor. The result is that you can see the entire page in the Serial Monitor.
+When it connects, it will then make a GET request to [example.org](https://example.org). It basically downloads the contents, and prints it in the Serial Monitor. The result is that you can see the entire page in the Serial Monitor.
 
 ![The HTML content of example.org printed in the Serial Monitor.](assets/MKRNB_T4_IMG03.png)
 

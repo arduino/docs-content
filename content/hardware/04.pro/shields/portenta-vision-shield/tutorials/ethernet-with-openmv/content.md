@@ -29,10 +29,10 @@ With the Ethernet version of the Arduino Portenta Vision Shield it is possible t
 ### Hardware & Software Needed
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/usa/portenta-vision-shield)
+- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora®)
 - [OpenMV](https://openmv.io/pages/download)
 - Ethernet cable
-- USB-C cable
+- USB-C® cable
 
 ***If you want to know more about the ethernet connection please go to the [Arduino IDE ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide#ethernet-connection)***
 
@@ -40,7 +40,7 @@ With the Ethernet version of the Arduino Portenta Vision Shield it is possible t
 
 ### Connecting the Board
 
-Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the USB-C cable to the Portenta H7 and your computer. Lastly connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
+Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
 
 ### Programming the Board
 

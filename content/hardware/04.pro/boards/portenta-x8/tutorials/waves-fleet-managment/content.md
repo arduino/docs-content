@@ -23,7 +23,7 @@ In a production environment it is convenient to plan updates and have control ov
 
 ### Required Hardware and Software
 
-- USB-C to USB-A or USB-C to USB-C
+- USB-C® to USB-A or USB-C® to USB-C®
 - Portenta X8
 - Arduino Create account
 - Arduino Cloud for business subscription with Portenta X8 Manager add-on. [Learn more about it](https://cloud.arduino.cc/plans#business).

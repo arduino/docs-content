@@ -81,7 +81,7 @@ The maximum length and width of the Motor Shield PCB are 2.7 and 2.1 inches resp
 
 |                   |                                                                                               |
 | ----------------- | --------------------------------------------------------------------------------------------- |
-| Operating Voltage | 5 V                                                                                           |
+| Operating Voltage | 5V                                                                                            |
 | USB Controller    | MAX3421E                                                                                      |
 | Max Current       | 500 mA when Arduino is powered by a suitable power supply connected to the Arduino power jack |
 | Max Current       | 400 mA when Arduino is powered by its USB port                                                |
