@@ -1,7 +1,7 @@
 ---
 title: 'Getting started with Modbus RS485 on Arduino Opta'
 description: 'Learn how to make use of the Arduino Opta's Modbus RS485 protocol'
-difficulty: beginner
+difficulty: beginner 
 tags:
   - Getting started
   - Modbus
@@ -95,7 +95,7 @@ void loop() {
 Some important functions in the receiver sketch:
 
 - `RS485.begin(9600)`: Make sure this is set to the same baudrate as the sender device, `9600` in this case.
-- `RS485.recieve()`: Enables reception through the RS485 connection.
+- `RS485.receive()`: Enables reception through the RS485 connection.
 - `RS485.parseInt()`: We use this function to make sure that the correct value is received and read.
 
 Now upload this sketch to the receiver device.
@@ -159,7 +159,7 @@ The values the device can receive and the result:
 
 ## Conclusion
 
-In this tutorial we went through how to establish a Modbus RS485 connection between two Optas. And then how to write sketches using the `ArduinoRS485.h` library to send and receive values between these two devices. Finaly the tutorial showed how to take these values sent with RS485 to interact with the Opta.
+In this tutorial we went through how to establish a Modbus RS485 connection between two Optas. And then how to write sketches using the `ArduinoRS485.h` library to send and receive values between these two devices. Finally the tutorial showed how to take these values sent with RS485 to interact with the Opta.
 
 ### Next Steps
 
