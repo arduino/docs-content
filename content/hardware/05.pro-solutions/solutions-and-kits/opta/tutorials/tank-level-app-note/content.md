@@ -1,7 +1,7 @@
 ---
 title: 'Tank Level Monitoring with Opta (Application Note)'
 description: "This application note describes how to monitor the level in tanks using the Arduino® Opta."
-difficulty: beginner
+difficulty: intermediate
 tags:
   - Tank level
   - Opta
@@ -41,7 +41,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 ### Hardware Requirements
 
-- [Arduino Opta](https://store.arduino.cc/products/nicla-sense-me)
+- [Arduino Opta](https://store.arduino.cc/pages/opta)
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
