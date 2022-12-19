@@ -1,0 +1,30 @@
+Board:
+  Name: Arduino® GIGA R1 WiFi
+  SKU: ABX00042
+Microcontroller: STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU
+USB connector: USB-C
+Pins:
+  Digital I/O Pins: XX
+  Analog input pins: XX
+  PWM pins: XX
+Communication:
+  UART: Yes
+  I2C: Yes
+  SPI: Yes
+  CAN: Yes (requires an external transceiver).
+Connectors:
+  Camera: Yes
+  Display: Yes
+  Sound: Audio Jack
+Power:
+  Circuit operating voltage: 3.3V
+  Input voltage (VIN): 5V
+  DC Current per I/O Pin: 8 mA
+Clock speed:
+  Main core: 480 MHz
+  Second core: 240 MHz
+Memory:
+  STM32H747XI: 2MB Flash, 1MB RAM
+Dimensions:
+  Width: 25 mm
+  Length: 66 mm
