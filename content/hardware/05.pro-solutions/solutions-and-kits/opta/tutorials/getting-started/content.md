@@ -178,7 +178,7 @@ Fifth press --> All leds off and back.
 ### Using Out Relays
 
 Opta has 4 outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10 A at 250 V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta as shown in the image. They correspond to pins D0 to D3 as follows:
-
+The outputs correspond to pins D0 to D3 as follows:
 OUTPUT 1 --> D0
 
 OUTPUT 2 --> D1
