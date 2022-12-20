@@ -752,6 +752,10 @@ void onEMStopBTChange()  {
 }
 ```
 
+Arduino IoT Cloud integration with the tanks is shown below:
+
+![Arduino IoT Cloud integration with the tanks.](assets/cloud_integration.png)
+
 ## Conclusion
 
 Let's build monitoring systems with the Arduino Opta and the Arduino IoT Cloud. In this application note, we have learned how to interface two Arduino Optas using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.
