@@ -162,7 +162,7 @@ void changeLights() {
 
 ![The button and LEDs that will light up on the Opta](assets/opta-device-button.png)
 
-Now the more lights should turn on when the button is pressed, the rest turn on in sequence as the button is pressed. This is the sequence the lights should follow:
+Once the sketch is uploaded, you can see that an additional LED is turned on each time you press the button, following the sequence:
 
 First press --> LED 1 ON.
 
