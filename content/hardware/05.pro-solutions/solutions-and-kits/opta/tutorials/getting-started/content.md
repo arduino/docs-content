@@ -113,7 +113,7 @@ int buttonState = 0;
 int counter = 0;
 
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
+  // Initialize OPTA LEDs
   pinMode(LED_D0, OUTPUT);
   pinMode(LED_D1, OUTPUT);
   pinMode(LED_D2, OUTPUT);
@@ -121,7 +121,7 @@ void setup() {
   pinMode(BTN_USER, INPUT);
 }
 
-// the loop function runs over and over again forever
+// The loop function runs over and over again while the device is on
 void loop() {
   buttonState = digitalRead(BTN_USER);
   if(buttonState == LOW){
@@ -159,7 +159,6 @@ void changeLights() {
   }
   delay(100);
 }
-```
 
 ![The button and LEDs that will light up on the Opta](assets/opta-device-button.png)
 
