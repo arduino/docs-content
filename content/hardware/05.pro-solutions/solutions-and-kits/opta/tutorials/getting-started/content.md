@@ -287,49 +287,46 @@ The sketch will read the inputs on the analog pins A0, A1 and A2 and then print 
 
 ```arduino
 void setup() {
- Serial.begin(9600);
- // 65535 is the max value with 16 bits resolution set by analogReadResolution(16)
- // 4095 is the max value with 12 bits resolution set by analogReadResolution(12)
- analogReadResolution(12);
+   Serial.begin(9600);
+   // 65535 is the max value with 16 bits resolution set by analogReadResolution(16)
+   // 4095 is the max value with 12 bits resolution set by analogReadResolution(12)
+   analogReadResolution(12);
 }
 
 void loop() {
+   // Read the input on analog input I1 corresponding to A0:
+   int sensorValueA0 = analogRead(A0);
+   float voltageA0 = sensorValueA0 * (3.0 / 4095.0)/ 0.3;
+   
+   // Print out the value you read from I1 to the max value for the analog inputs resolution:
+   Serial.print("I1 value: ");
+   Serial.print(sensorValueA0);
+   Serial.print(" corresponding to ");
+   Serial.print(voltageA0, 5); // Print the voltage as a float with 5 decimal digits
+   Serial.println("Volts");
+   
+   // Read the input on analog input I2 corresponding to A1:
+   int sensorValueA1 = analogRead(A1);
+   float voltageA1 = sensorValueA1 * (3.0 / 4095.0)/0.3;
 
- // read the input on analog input 1 corresponding to A0:
-int sensorValueA0 = analogRead(A0);
-float voltageA0 = sensorValueA0 * (3.0 / 4095.0)/ 0.3;
- // print out the value you read from o to the max value for the analog inputs resolution:
- Serial.print("I1 value: ");
- Serial.print(sensorValueA0);
- Serial.print(" corresponding to ");
- // print the voltage as a floating point number with 5 decimal digits
- Serial.print(voltageA0, 5);
- Serial.println("Volts");
- 
- // read the input on analog input 2 corresponding to A1:
- int sensorValueA1 = analogRead(A1);
- float voltageA1 = sensorValueA1 * (3.0 / 4095.0)/0.3;
- // print out the value you read:
- Serial.print("I2 value: ");
- Serial.print(sensorValueA1);
- Serial.print(" corresponding to ");
- // print the voltage as a floating point number with 5 decimal digits
- Serial.print(voltageA1, 5);
- Serial.println("Volts");
- 
- // read the input on analog input 3 corresponding to A2:
- int sensorValueA2 = analogRead(A2);
- float voltageA2 = sensorValueA2 * (3.0 / 4095.0)/0.3;
- // print out the value you read:
- Serial.print("I3 value: ");
- Serial.print(sensorValueA2);
- Serial.print(" corresponding to ");
- // print the voltage as a floating point number with 5 decimal digits
- Serial.print(voltageA2, 5);
- Serial.println("Volts");
- delay(1000);
+   Serial.print("I2 value: ");
+   Serial.print(sensorValueA1);
+   Serial.print(" corresponding to ");
+   Serial.print(voltageA1, 5); // Print the voltage as a float with 5 decimal digits
+   Serial.println("Volts");
+   
+   // Read the input on analog input I3 corresponding to A2:
+   int sensorValueA2 = analogRead(A2);
+   float voltageA2 = sensorValueA2 * (3.0 / 4095.0)/0.3;
+
+   Serial.print("I3 value: ");
+   Serial.print(sensorValueA2);
+   Serial.print(" corresponding to ");
+   Serial.print(voltageA2, 5); // Print the voltage as a float with 5 decimal digits
+   Serial.println("Volts");
+
+   delay(1000);
 }
-```
 
 You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the max value with 12 bits resolution; this is because there is a precautional margin taken on the max voltage level applicable to the inputs to preserve the microcontroller.
 
