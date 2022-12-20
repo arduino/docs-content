@@ -30,7 +30,7 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 
 ### Required Hardware and Software
 
-- USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable
 - [Arduino Opta](https://store.arduino.cc/pages/opta)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - Power supply of 12-24V DC, 1A  (optional if not running the section related to the relays)
@@ -253,6 +253,7 @@ void loop() {
  digitalWrite(LED_D3, LOW);
  delay(1000);
 }
+```
 
 *** Important: It is not possible to program the Opta while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again. ***
 
@@ -260,21 +261,16 @@ void loop() {
 
 Opta has 8 input pins that can be programmed to be used as analog or digital. The mapping between the marking on the Opta physical terminals (I1 to I8) and their definition in the core can be found below:
 
-I1 --> A0
-
-I2 --> A1
-
-I3 --> A2
-
-I4 --> A3
-
-I5 --> A4
-
-I6 --> A5
-
-I7 --> A6
-
-I8 --> A7
+| Physical terminal | Defenition in core |
+| ----------------- | ------------------ |
+| I1 | A0 |
+| I2 | A1 |
+| I3 | A2 |
+| I4 | A3 |
+| I5 | A4 |
+| I6 | A5 |
+| I7 | A6 |
+| I8 | A7 |
 
 The 8 inputs pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V). 
 * To use them as digital inputs, add the Arduino command *pinMode(pinName, INPUT);* inside the setup(). 
