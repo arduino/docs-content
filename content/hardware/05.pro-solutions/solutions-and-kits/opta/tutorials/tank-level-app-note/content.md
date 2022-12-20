@@ -425,13 +425,11 @@ int rs485_counter = 0;
 char rs485_rec;
 bool rs485_port = false;
 
-// Global Parameters
+// Global parameters, initial conditions
 uint8_t BT_Max = 0, ST_Max = 0, BT_Pump = 0;
 uint8_t BT_Min = 1, ST_Min = 1;
 
-/*************************************
-* Big Tank Routines
-*************************************/
+// Big tank routines  
 void BT_Param_Monitor(){
   Serial.println(F("\n------------------------"));
   Serial.println(F("--> Big Tank Status Monitor: "));
