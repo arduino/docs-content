@@ -50,7 +50,7 @@ Now you are ready to upload sketches to the Opta via the Arduino IDE.
 Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta, highlighted in the image below.
 All the STATUS LEDs on the device are defined in the core of the PLC. 
-Hereafter you can see the correspondence between each of them as identified on the front panel and their definition in the core:
+Hereafter you can see the correspondence between each of them as identified in the core and their labeling on the front panel of the product:
 
 LED_D0 --> STATUS 1
 
