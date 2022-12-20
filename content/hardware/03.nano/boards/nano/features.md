@@ -6,21 +6,30 @@ The classic Nano is the oldest member of the Arduino Nano family boards. It is s
 
 
 <FeatureList>
-<Feature title="ATmega328 microcontroller" image="core">
+<Feature title="Blink" image="led">
 
-  The ATMega328 CPU runs with 16 MHz and features 32 KB of Flash Memory (of which 2 KB used by bootloader).
-
-  <FeatureLink title="Datasheet" url="http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061A.pdf" download blank/>
+  All Arduino boards the Nano also has an integrated led which can be addressed through pin 13. Learn how to control the LED and how to 
+  implement basic Arduino concepts. See Arduino’s Built-In examples to learn more.
+  
+  <FeatureLink variant="primary" title="Documentation" url="/built-in-examples/basics/Blink"/>
+  <FeatureLink variant="secondary" title="Library" url="/built-in-examples/"/>
 </Feature>
 
-<Feature title="Tiny footprint" image="nano-form-factor">
+<Feature title="Servo Motor" image="nano-form-factor">
 
-  With a length of 45 mm and a width of 18 mm the Nano is Arduino's smallest board and weighs only 7 grams.
+  Servo motors are a great and easy way to give your projects some life. The Servo Library is a great library for controlling servo 
+  motors and below you can find links to projects to get you started as well as the necessary library. 
+
+  <FeatureLink variant="primary" title="Documentation" url="/learn/electronics/servo-motors"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/servo/?_gl=1*mm97ed*_ga*MjEyMzQ2MjgwOC4xNjY1NjUyNTY3*_ga_NEXN8H46L5*MTY3MTUyNzEzNy4xNTUuMS4xNjcxNTI4MTE4LjAuMC4w"/>
 </Feature>
 
+<Feature title="I2C Protocol" image="communication">
 
-<Feature title="Made for breadboard" image="configurability">
+  I2C is a communication protocol which can be used to set up communication between two boards using a Reader/Peripheral Sender configuration. Several 
+  functions of Arduino’s Wire library are used to accomplish this. 
 
-  The Nano is made for breadboard use and features soldered headers for all pins, allowing to attach the board easily on any breadboard.
+  <FeatureLink variant="primary" title="Documentation" url="https://www.arduino.cc/reference/en/language/functions/communication/wire/"/>
+  <FeatureLink variant="secondary" title="Library" url="https://github.com/arduino/ArduinoCore-avr/tree/master/libraries/Wire"/>
 </Feature>
 </FeatureList>
