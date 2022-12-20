@@ -328,7 +328,9 @@ void loop() {
    delay(1000);
 }
 
-You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the max value with 12 bits resolution; this is because there is a precautional margin taken on the max voltage level applicable to the inputs to preserve the microcontroller.
+Once you have uploaded the code, open the serial monitor to see the values read in each analog input. Ig you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each of the signals. In case you did not connect anything to the analog inputs, you will see how the values oscillate between 0V and a very small value because the pins are floating.
+
+You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. The reason is that there is a precautional margin taken on the maximum voltage level applicable to the inputs to preserve the integrity of the microcontroller.
 
 ### Connecting Opta to the Cloud
 
