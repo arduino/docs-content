@@ -1,15 +1,7 @@
 ---
-<<<<<<< HEAD
-title: 'Tank Level Monitoring with Opta (Application Note)'
+title: 'Tank Level Monitoring with Opta - Application Note'
 description: "This application note describes how to monitor the level in tanks using the Arduino® Opta."
 difficulty: advanced
-=======
-title: 'Tank Level Monitoring with Opta - Application Note'
-
-description: "This application note describes how to monitor the level in tanks in an industrial environment using the Arduino® Opta."
-
-difficulty: intermediate
->>>>>>> 86c9d54d767589519bad649cd22dba6aa99efcf0
 tags:
   - Tank level
   - Opta
