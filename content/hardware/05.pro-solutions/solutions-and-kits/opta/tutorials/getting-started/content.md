@@ -189,9 +189,13 @@ OUTPUT 4 --> D4
 
 ![Out relays on the Opta](assets/opta-out-relays.png)
 
-The OPTA output contacts are "clean" contacts, they are contacts that are not live in a non-connection situation. This type of contact allows it to be used in any system and with any type of voltage. To function, the outputs must therefore be connected by bringing, for example a power cable to a terminal, and exiting the terminal on the side, go towards the load to be managed.
-In this way, when the contact is closed by the logic set via IDE, that power supply signal will cross the contact and will switch on or in any case carry the signal up to the reference load.
-The “clean” contact also allows to carry a different power system or type of load for each output contact.
+The OPTA output contacts are "clean" contacts, which means they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing for example a power cable to one of the terminals and connecting the load to the exit of the other terminal. 
+
+![Clean contact on the Opta](assets/opta-clean-contact.png)
+
+This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carring the signal up to the reference load.
+
+The “clean” contact also allows carrying a different power system or type of load for each output contact, being possible to control multiple devices or signals that use different voltage levels.
 
 ![Clean contact on the Opta](assets/opta-clean-contact.png)
 
