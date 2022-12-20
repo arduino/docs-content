@@ -201,7 +201,6 @@ The “clean” contact also allows carrying a different power system or type of
 
 Let's run a simple sketch to test the output relays on Opta: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle a led, will be turned on to provide a visual feedback. 
 To activate the relays and run this sketch you need to provide Opta with a voltage from 12 to 24 V DC by connecting it a proper power supply. 
-In this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle a led, will be turned on to provide a visual feedback.
 
 Opta has dedicated terminals for power supply, located in the upper part of Opta next to the Inputs. They are doubled to help the user to connect the power supply and any common part for the input terminals but are at the same potential (upon polarity) and equivalent.
 
