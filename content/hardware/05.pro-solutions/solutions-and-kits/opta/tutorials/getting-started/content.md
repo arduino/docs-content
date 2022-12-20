@@ -41,7 +41,7 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software). 
 Within the Arduino IDE install the core for the Opta. Go to **Tools > Board > Boards Manager**, in the boards manager section search for **Opta mbed** and install it.
 
-![Finding the Core in the Arduino IDE 2.0](assets/opta-core-install.png)
+![Finding the Opta Core in the Arduino IDE 2.0](assets/opta-core-install.png)
 
 Now you are ready to upload sketches to the Opta via the Arduino IDE.
 
