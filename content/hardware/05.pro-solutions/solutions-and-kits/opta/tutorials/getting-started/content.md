@@ -201,7 +201,7 @@ Opta has dedicated terminals for power supply located in the upper part of Opta 
 
 ![Connect these pins to drive the relays on the Opta](assets/opta-voltage-pins.png)
 
-*** These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-". ***
+***These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-".***
 
 The entire sketch can be found below, copy it into your IDE and upload it to your device.
 
@@ -255,13 +255,13 @@ void loop() {
 }
 ```
 
-*** Important: It is not possible to program the Opta while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again. ***
+***Important: It is not possible to program the Opta while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again.***
 
 ### Using Opta's Inputs
 
 Opta has 8 input pins that can be programmed to be used as analog or digital. The mapping between the marking on the Opta physical terminals (I1 to I8) and their definition in the core can be found below:
 
-| Physical terminal | Defenition in core |
+| Physical terminal | Definition in core |
 | ----------------- | ------------------ |
 | I1 | A0 |
 | I2 | A1 |
@@ -337,7 +337,7 @@ It is possible to use the Opta with the Arduino Cloud. To set up the Opta to the
 
 ## Conclusion
 
-This tutorial went through the basics of the Opta. Now you should know how to program the LEDs on the board. We also showed how to program the programmable button on the device. The analog inputs and the out relays were also covered. After going through this tutorial you should be ready to go into the other Opta tutorials and learn more about the device and its features. 
+This tutorial went through the basics of the Opta device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, and program the relays and digital and analog inputs. With the additional connection of the Opta to the Arduino Cloud, Opta can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
 
 ### Next Steps
 
