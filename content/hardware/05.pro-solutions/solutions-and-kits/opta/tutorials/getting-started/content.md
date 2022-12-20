@@ -201,7 +201,9 @@ Opta has dedicated terminals for power supply located in the upper part of Opta 
 
 ![Connect these pins to drive the relays on the Opta](assets/opta-voltage-pins.png)
 
-These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-".
+*** These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-". ***
+
+The entire sketch can be found below, copy it into your IDE and upload it to your device.
 
 ```arduino
 void setup() {
@@ -252,6 +254,8 @@ void loop() {
  delay(1000); // waits for a second
 }
 ```
+
+*** Important: It is not possible to program the Opta while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again. ***
 
 ### Using Opta's Inputs
 
