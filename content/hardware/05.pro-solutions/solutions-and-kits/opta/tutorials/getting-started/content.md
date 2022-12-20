@@ -30,7 +30,7 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 
 - USB-C cable (either USB-C to USB-A or USB-C to USB-C)
 - [Arduino Opta](https://store.arduino.cc/pages/opta)
-- Arduino IDE
+- [Arduino IDE](https://www.arduino.cc/en/software)
 - 12-24V DC, 1A Power supply (optional if not running the section related to the relays)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
 
