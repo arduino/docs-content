@@ -24,7 +24,7 @@ Opta is a robust micro PLC solution with many engaging features. In this tutoria
 - Blinking the LEDs on the device
 - Programming the button on the device
 - Testing the inputs and outputs on the device
-- Connecting the device to the cloud
+- Connecting the device to the Arduino Cloud
 
 ### Required Hardware and Software
 
