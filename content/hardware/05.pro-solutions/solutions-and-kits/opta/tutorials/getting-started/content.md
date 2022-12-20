@@ -81,20 +81,22 @@ void loop() {
   delay(100);
   digitalWrite(LED_D0, LOW);
   delay(100);
+  
   digitalWrite(LED_D1, HIGH);
   delay(100);
   digitalWrite(LED_D1, LOW);
   delay(100);
+  
   digitalWrite(LED_D2, HIGH);
   delay(100);
   digitalWrite(LED_D2, LOW);
   delay(100);
+  
   digitalWrite(LED_D3, HIGH);
   delay(100);
   digitalWrite(LED_D3, LOW);
   delay(500);  
 }
-```
 
 ![The blinking LEDs on the Opta](assets/opta-device-LED.png)
 
