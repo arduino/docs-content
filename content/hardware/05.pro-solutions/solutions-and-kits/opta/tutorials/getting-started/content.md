@@ -282,7 +282,7 @@ The 8 inputs pins can be used as digital (having the logical values of LOW or HI
 
 Now let's try a sketch that will read the analog inputs on the Opta. The inputs can operate in a range between 0 and 10V.
 The max voltage managed by the microcontroller is 3V. This maximum voltage needs to be put into relationship with the maximum resolution factor that we want to chose which can be selected within a range between 16bit (65535) and 12bit (4095). 
-To get and display the proper voltage value read by the input, we need to convert the value read by the analogRead function that we will use below, applying a rescaling factor which is 0.3 determined by the internal voltage divider.
+To get and display the proper voltage value read by the input, we need to convert the value read by the analogRead function and apply a rescaling factor of 0.3 which is determined by the internal voltage divider.
 The sketch will read the inputs on the analog pins A0, A1 and A2 and then print the result in the serial monitor.
 
 ```arduino
