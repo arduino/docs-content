@@ -19,7 +19,7 @@ hardware:
 
 ## Overview
 
-The Arduino Opta is equipped with the industry standard RS485 protocol. Making use of this feature is made easy with the help of the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will go through the steps to get this protocol up and running using two Optas and the Arduino IDE. Going through some important functions in the library and show a example sketch that makes use of the library and RS485 protocol.
+The Arduino Opta is equipped with the industry standard RS485 interface. Making use of this feature is made easy with the help of the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will go through the steps to get the Modbus RTU protocol up and running using two Optas connected via RS485 and the Arduino IDE. Going through some important functions in the library and show an example sketch that makes use of the library and RS485 interface.
 
 ## Goals
 
