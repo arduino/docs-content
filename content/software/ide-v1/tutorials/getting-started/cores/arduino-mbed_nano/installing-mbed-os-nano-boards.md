@@ -18,6 +18,7 @@ If you are using the **Web Editor**, you can follow the [getting started with th
 
 - [Arduino Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble)
 - [Arduino Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense)
+- [Arduino Nano 33 BLE Sense Rev2](https://store.arduino.cc/nano-33-ble-sense-rev2)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 
 ### Downloading and installing
