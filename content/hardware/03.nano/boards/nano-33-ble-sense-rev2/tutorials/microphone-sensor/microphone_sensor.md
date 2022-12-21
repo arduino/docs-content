@@ -12,7 +12,7 @@ libraries:
   - name: Arduino PDM
     url: https://www.arduino.cc/en/Reference/PDM
 hardware:
-  - hardware/03.nano/boards/nano-33-ble-sense
+  - hardware/03.nano/boards/nano-33-ble-sense-rev2
 software:
   - web-editor
   - ide-v1
