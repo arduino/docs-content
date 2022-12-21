@@ -159,7 +159,7 @@ The values the device can receive and the result:
 
 ## Conclusion
 
-In this tutorial we went through how to establish a Modbus RS485 connection between two Optas. And then how to write sketches using the `ArduinoRS485.h` library to send and receive values between these two devices. Finally the tutorial showed how to take these values sent with RS485 to interact with the Opta.
+In this tutorial we went through how to establish a Modbus RTU connection between two Optas. And then how to write sketches using the `ArduinoRS485.h` library to send and receive values between these two devices. Finally the tutorial showed how to take these values sent with RS485 to interact with the Opta.
 
 ### Next Steps
 
