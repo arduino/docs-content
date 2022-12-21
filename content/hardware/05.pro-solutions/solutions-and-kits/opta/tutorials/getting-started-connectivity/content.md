@@ -31,10 +31,10 @@ The Arduino® Opta is a powerful PLC device that has many features, allowing you
 
 ### Required Hardware and Software
 
-- USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
-- Wi-Fi Access Point with Internet Access
 - Arduino Opta
 - Ethernet cable
+- USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
+- Wi-Fi® Access Point with Internet Access
 
 ## Instructions
 
