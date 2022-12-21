@@ -33,7 +33,7 @@ The Arduino Opta is equipped with the industry standard RS485 protocol. Making u
 - USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
 - [Arduino Opta](https://store.arduino.cc/pages/opta)
 - Power supply of 12-24V DC, 1A 
-- Arduino IDE
+- [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Instructions
 
