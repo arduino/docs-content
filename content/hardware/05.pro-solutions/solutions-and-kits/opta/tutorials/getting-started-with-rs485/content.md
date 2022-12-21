@@ -162,7 +162,7 @@ In this tutorial we went through how to establish a Modbus RTU connection betwee
 
 ### Next Steps
 
-Now that you are familiar with Modbus RS485 on the Opta, have a look at our [Getting started with Opta tutorial]() to get a better overview of other features on the device.
+Now that you are familiar with the Modbus RTU communication protocol on the Opta, have a look at our [Getting started with Opta tutorial]() to get a better overview of other features on the device.
 
 If you wish to incorporate connectivity in your Opta solutions, have a look at the [Connectivity on Opta tutorial]().
 
