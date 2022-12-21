@@ -24,9 +24,9 @@ The Arduino Opta is equipped with the industry standard RS485 protocol. Making u
 ## Goals
 
 - Learn how to connect two Optas for RS485 communication
-- Run a RS485 sender sketch on Opta
-- Run a RS485 receiver sketch on Opta
-- Learn how to send values using RS485 
+- Run a Modbus-RS485 sender sketch on Opta
+- Run a Modbus-RS485 receiver sketch on Opta
+- Learn how to send values using the Modbus RTU protocol and the RS485 interface 
 
 ### Required Hardware and Software
 
