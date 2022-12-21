@@ -79,7 +79,6 @@ void loop() {
 
   if (Serial.available() > 0)
   {
-
     incomingByte = Serial.read();
     RS485.beginTransmission();
     RS485.print(incomingByte);
