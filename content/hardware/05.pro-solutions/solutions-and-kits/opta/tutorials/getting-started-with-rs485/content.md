@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Modbus RTU and RS485 on Arduino Opta'
-description: "Learn how to make use of the Arduino Opta's Modbus RS485 protocol"
+description: "Learn how to make use of the Arduino Opta's Modbus RTU RS485 protocol"
 difficulty: beginner 
 tags:
   - Getting started
@@ -19,7 +19,7 @@ hardware:
 
 ## Overview
 
-The Arduino Opta is equipped with the industry standard RS485 interface. Making use of this feature is made easy with the help of the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will go through the steps to get the Modbus RTU protocol up and running using two Optas connected via RS485 and the Arduino IDE. Going through some important functions in the library and show an example sketch that makes use of the library and RS485 interface.
+The Arduino Opta® is equipped with the industry standard RS485 interface. Making use of this feature is made easy with the help of the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will go through the steps to get the Modbus RTU protocol up and running using two Optas connected via RS485 and the Arduino IDE. Going through some important functions in the library and show an example sketch that makes use of the library and RS485 interface.
 
 ## Goals
 
@@ -45,7 +45,7 @@ To make it easier to use the RS485 protocol with Opta let's make use of a librar
 
 If you want a more in-depth article that explains the entirety of what a Modbus and RS485 protocol is, take a look at our [Modbus article](https://docs.arduino.cc/learn/communication/modbus).
 
-### Using Modbus RS485 on Opta
+### Using Modbus RTU on Opta
 
 The sender sketch will run a RS485 connection between your two devices and it will let you send a message over the serial monitor to the receiving device. The receiving device, which will be a Opta in this example, will then take the message, open or close the corresponding relay and turn on or off a LED. If you send the number 0 through the serial monitor, the receiving Opta will open or close relay 1 depending on it's current status, while turning on or off a status LED.
 
