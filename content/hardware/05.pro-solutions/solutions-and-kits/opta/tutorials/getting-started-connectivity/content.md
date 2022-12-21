@@ -58,7 +58,7 @@ If you want to take a deeper look at what features the **Ethernet** library has 
 
 ### Modbus TCP Via Ethernet Port
 
-The Arduino Opta can be configured to used Modbus TCP protocol, which basically runs on Ethernet instead of serial lines using TCP interface over RTU protocol. Thus the coverage distance is dependent on the capacity of the Ethernet cable. For example, Cat6a cable could be paired with Arduino Opta to operate inside industrial environment. Modbus TCP is a variant of the Modbus family of simple, vendor-neutral communication protocols intended for supervision and control of automation equipment. Specifically, it covers the use of Modbus messaging in an intranet or internet environment using the TCP/IP protocols. The most common use of the protocols at this time is for Ethernet attachment of PLCs, I/O modules and gateways to other simple field buses or I/O networks.
+The Arduino Opta can be configured to use Modbus TCP protocol, which basically runs on Ethernet instead of serial lines using TCP interface over RTU protocol. Thus the coverage distance is dependent on the capacity of the Ethernet cable. For example, Cat6a cable could be paired with Arduino Opta to operate inside industrial environment. Modbus TCP is a variant of the Modbus family of simple, vendor-neutral communication protocols intended for supervision and control of automation equipment. Specifically, it covers the use of Modbus messaging in an intranet or internet environment using the TCP/IP protocols. The most common use of the protocols at this time is for Ethernet attachment of PLCs, I/O modules and gateways to other simple field buses or I/O networks.
 
 ### Bluetooth® Low Energy
 
