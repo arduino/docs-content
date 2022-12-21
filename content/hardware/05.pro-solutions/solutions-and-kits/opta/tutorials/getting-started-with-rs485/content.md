@@ -60,7 +60,7 @@ Connect the sender and receiver Opta according to the image shown below.
 
 ![Connecting RS485 on Opta](assets/opta-modbus-connection.png)
 
-### RS485 Sender Sketch
+### Modbus RTU RS485 Sender Sketch
 
 Now upload this sketch to the device you want to designate as the sender device.
 
