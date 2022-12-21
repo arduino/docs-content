@@ -3,8 +3,8 @@
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
-  <EssentialElement title="BLE Sense Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">
-    Learn about the Nano 33 BLE Sense's onboard sensors, supported serial & wireless protocols, pins and much more.
+  <EssentialElement title="BLE Sense Rev2 Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">
+    Learn about the Nano 33 BLE Sense Rev2's onboard sensors, supported serial & wireless protocols, pins and much more.
   </EssentialElement>
 
   <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
@@ -12,7 +12,7 @@
   </EssentialElement>
 
   <EssentialElement title="Community Projects" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/community-projects">
-    Discover interesting projects from the community based on the Nano 33 BLE Sense board.
+    Discover interesting projects from the community based on the Nano 33 BLE Sense Rev2 board.
   </EssentialElement>
 
 </EssentialsColumn>
@@ -32,11 +32,11 @@ The HS300x library is designed for reading temperature and humidity values from 
   </EssentialElement>
 
   <EssentialElement title="PDM" type="library" link="https://www.arduino.cc/en/Reference/PDM">
-The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT05 onboard the Arduino Nano 33 BLE Sense.
+The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT06JTR onboard the Arduino Nano 33 BLE Sense Rev2.
   </EssentialElement>
 
   <EssentialElement title="Arduino_APDS9960" type="library" link="https://www.arduino.cc/en/Reference/ArduinoAPDS9960">
-The Arduino_APDS9960 library allows you to use the APDS9960 sensor available on the Arduino Nano 33 BLE Sense to read gestures, color, light intensity and proximity.
+The Arduino_APDS9960 library allows you to use the APDS9960 sensor available on the Arduino Nano 33 BLE Sense Rev2 to read gestures, color, light intensity and proximity.
   </EssentialElement>
 
 </EssentialsColumn>
