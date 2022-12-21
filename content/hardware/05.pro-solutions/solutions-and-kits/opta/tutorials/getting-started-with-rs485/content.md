@@ -41,7 +41,7 @@ The Arduino Opta is equipped with the industry standard RS485 protocol. Making u
 
 First make sure the latest version of the Arduino IDE is installed. Download the IDE from [here](https://www.arduino.cc/en/software) if you need help setting up the Opta with the Arduino IDE, please have a look at our [Getting started with Opta tutorial]().
 
-To make it easier to use the RS485 protocol with Opta let's make use of a library. The library is called [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), which can be found in the Arduino IDE library manager. Once installed let's take a look at a simple sketch to use for testing out the Modbus RS485 protocol.
+To make it easier to use the RS485 protocol with Opta let's make use of a library. The library is called [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), which can be found in the Arduino IDE library manager. Once installed let's take a look at a simple sketch to use for testing out the Modbus RTU protocol.
 
 If you want a more in-depth article that explains the entirety of what a Modbus and RS485 protocol is, take a look at our [Modbus article](https://docs.arduino.cc/learn/communication/modbus).
 
