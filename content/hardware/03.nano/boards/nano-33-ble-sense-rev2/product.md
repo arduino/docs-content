@@ -1,7 +1,6 @@
 ---
 title: Nano 33 BLE Sense Rev2
-url_shop: https://store.arduino.cc/arduino-nano-33-ble-sense-rev2
-url_guide: /software/ide-v1/installing-mbed-os-nano-boards
+url_shop: https://store.arduino.cc/nano-33-ble-sense-rev2
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble-sense-rev2/160'
 certifications: [FCC, IC, REACH, CE, RoHS, WEEE, RCM, UKCA]
