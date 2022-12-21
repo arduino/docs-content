@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with Modbus RS485 on Arduino Opta'
+title: 'Getting Started with Modbus RTU and RS485 on Arduino Opta'
 description: "Learn how to make use of the Arduino Opta's Modbus RS485 protocol"
 difficulty: beginner 
 tags:
