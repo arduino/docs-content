@@ -90,7 +90,7 @@ void loop() {
 ```
 
 
-### RS485 Receiver Sketch
+### Modbus RTU RS485 Receiver Sketch
 
 Some important functions in the receiver sketch:
 
