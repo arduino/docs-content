@@ -33,6 +33,7 @@ The Arduino® Opta is a powerful PLC device that has many features, allowing you
 
 - Arduino Opta
 - Ethernet cable
+- [Arduino IDE](https://www.arduino.cc/en/software)
 - USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
 - Wi-Fi® Access Point with Internet Access
 
@@ -62,7 +63,7 @@ The Arduino Opta can be configured to use Modbus TCP protocol, which basically r
 
 ### Bluetooth® Low Energy
 
-To use the Bluetooth® feature, you will need to download the **ArduinoBLE** library in the Arduino IDE. Go into the **library manager** and search for **ArduinoBLE**. if you can't find it, try sorting by official libraries published by Arduino. Let's now try and run a simple example sketch from the ArduinoBLE library. We will test with the sketch that will scan for other Bluetooth® devices within range. The sketch will then print the found devices address, local name and the advertised service UUIDs, if present. You can find the example under **File > Examples > ArduinoBLE > Central**, the sketch is called **Scan**. When the sketch is running on the Opta, the output on the serial monitor should look something like the image below.
+To use the Bluetooth® feature, you will need to download the **ArduinoBLE** library in the Arduino IDE. Go into the **library manager** and search for **ArduinoBLE**. if you can't find it, try sorting by official libraries published by Arduino. Once ArduinoBLE library is installed, let's try and run a simple example. We will test with the sketch that scans for other Bluetooth® devices within range. The sketch will then print the found devices address, local name and the advertised service UUIDs, if present. You can find the example under **File > Examples > ArduinoBLE > Central**, the sketch is called **Scan**. When the sketch is running on the Opta, the output on the serial monitor should look something like the image below.
 
 ![Bluetooth® sketch running on the Opta](assets/opta-ble.png)
 
