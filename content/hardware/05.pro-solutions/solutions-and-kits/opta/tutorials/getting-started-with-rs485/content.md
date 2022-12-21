@@ -60,6 +60,8 @@ Connect the sender and receiver Opta according to the image shown below.
 
 ![Connecting RS485 on Opta](assets/opta-modbus-connection.png)
 
+***Modbus RTU communication is supported using Opta's RS485 physical interface. Note that Opta does not have internal terminator resistors so they need to be added if necessary following the Modbus protocol specification.***
+
 ### Modbus RTU RS485 Sender Sketch
 
 Let's start by uploading the sender sketch to the device you want to designate as the sender device.
