@@ -51,7 +51,7 @@ If you want to take a deeper look at what features the **WiFi** library has to o
 
 ### Ethernet
 
-The Arduino Opta has a RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet on the Opta are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta** we can find the **Ethernet** section. Inside there is an example sketch called **WebClient**. Connect the Ethernet cable to the Arduino Opta and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website defined in the sketch and print the websites' HTML content in the serial monitor. If the sketch ran successfully, the output should look like the image below.
+The Arduino Opta® has a RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet on the Arduino Opta® are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta** we can find the **Ethernet** section. Inside there is an example sketch called **WebClient**. Connect the Ethernet cable to the Arduino Opta® and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website defined in the sketch and print the websites' HTML content in the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
 ![Running the Ethernet sketch on the Arduino Opta® in the Arduino IDE](assets/opta-ethernet.png)
 
