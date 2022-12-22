@@ -39,7 +39,7 @@ The Arduino Opta® is a powerful PLC device that has many features, allowing you
 
 ## Instructions
 
-Using the Arduino IDE we can easily work with these peripherals. Some features have their own library that we can make use of. First we need to install the appropriate core for the Arduino Opta, go into the **Board manager** and search for **Opta Mbed core**. When the latest version of the core is installed, we can move on to try out the connectivity options.
+Using the Arduino IDE we can easily work with these peripherals. Some features have their own library that we can make use of. First we need to install the appropriate core for the Arduino Opta®, go into the **Board manager** and search for **Opta Mbed core**. When the latest version of the core is installed, we can move on to try out the connectivity options.
 
 ### Wi-Fi®
 
