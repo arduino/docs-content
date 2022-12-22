@@ -43,7 +43,7 @@ Using the Arduino IDE we can easily work with these peripherals. Some features h
 
 ### Wi-Fi®
 
-The files necessary for using the Wi-Fi® on the Opta are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta** we can find the **WiFi** section. Inside there is an example sketch called **WiFiWebClient**. Open this example sketch and fill out the WiFi details in the **arduino_secrets.h** tab. The sketch will make the Opta connect to desired website defined within `char server[] = "example.com";` variable. If the connection is successful, it will then print the websites' HTML content to the serial monitor. If the sketch ran successfully, the output should look like the image below.
+The files necessary for using the Wi-Fi® on the Arduino Opta® are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta** we can find the **WiFi** section. Inside there is an example sketch called **WiFiWebClient**. Open this example sketch and fill out the WiFi details in the **arduino_secrets.h** tab. The sketch will make the  Arduino Opta® connect to desired website defined within `char server[] = "example.com";` variable. If the connection is successful, it will then print the websites' HTML content to the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
 ![Running WiFi sketch on the Arduino Opta® in the Arduino IDE](assets/opta-wifi.png)
 
