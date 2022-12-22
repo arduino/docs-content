@@ -21,7 +21,7 @@ hardware:
 
 ## Overview
 
-The Arduino® Opta is a powerful PLC device that has many features, allowing you to customize its use for your solution. Among these features are the standard connectivity features: Wi-Fi®, Ethernet and Bluetooth®. In this tutorial we will go through how to use these features with the Arduino IDE and the Arduino Opta.
+The Arduino Opta® is a powerful PLC device that has many features, allowing you to customize its use for your solution. Among these features are the standard connectivity features: Wi-Fi®, Ethernet and Bluetooth®. In this tutorial we will go through how to use these features with the Arduino IDE and the Arduino Opta®.
 
 ## Goals
 
