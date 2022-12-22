@@ -1,5 +1,5 @@
 ---
-title: 'Using Bluetooth® Low Energy, Wi-Fi® and Ethernet on the Arduino Opta®'
+title: 'Bluetooth® Low Energy, Wi-Fi® and Ethernet on the Arduino Opta®'
 description: "Learn how to make use of the Arduino Opta's connectivity features"
 difficulty: beginner
 tags:
@@ -39,7 +39,11 @@ The Arduino Opta® is a powerful PLC device that has many features, allowing you
 
 ## Instructions
 
-Using the Arduino IDE we can easily work with these peripherals. Some features have their own library that we can make use of. First we need to install the appropriate core for the Arduino Opta®, go into the **Board manager** and search for **Opta Mbed core**. When the latest version of the core is installed, we can move on to try out the connectivity options.
+### Setup With the Arduino IDE
+
+Using the Arduino IDE we can easily work with these peripherals. Some features have their own library that we can make use of. Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
+
+Then we need to install the appropriate core for the Arduino Opta®. Go to **Tools > Board > Boards Manager**, in the boards manager section search for **Opta mbed** and install it. For more detailed instructions on setting up the Arduino Opta® with the Arduino IDE, have a look at the [Getting started with Opta tutorial](/tutorials/opta/getting-started).
 
 ### Wi-Fi®
 
