@@ -87,12 +87,14 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 - Arduino® Portenta H7 (SKU: ABX00042)
 
 ### Assembly Overview
-![Example of a typical solution for remote machine vision including an Arduino® Nicla Vision and LiPo battery.](assets/niclaVisionSolutionOverview.png)
+![Example of a typical solution for remote machine vision including an Arduino® Nicla Vision and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVisionSolutionOverview.png)
+
+**Note** : The NTC pin on the battery connector is optional.
 
 ## Ratings
 ### Recommended Operating Conditions
 | Symbol               | Description                      | Min                      | Typ | Max                      | Unit |
-| -------------------- | -------------------------------- | ------------------------ | --- | ------------------------ | ---- |
+|----------------------|----------------------------------|--------------------------|-----|--------------------------|------|
 | V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                      | 5.0 | 5.5                      | V    |
 | V<sub>USB</sub>      | Input voltage from USB connector | 4.8                      | 5.0 | 5.5                      | V    |
 | V<sub>BATT</sub>     | Input voltage from battery       | 3.5                      | 3.7 | 4.7                      | V    |
@@ -107,7 +109,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 ### Power Consumption
 | Symbol               | Description                                                 | Min | Typ | Max | Unit |
-| -------------------- | ----------------------------------------------------------- | --- | --- | --- | ---- |
+|----------------------|-------------------------------------------------------------|-----|-----|-----|------|
 | P<sub>STDBY</sub>    | Power consumption in standby                                |     | TBC |     | mW   |
 | P<sub>BLINK</sub>    | Power consumption with blink sketch                         |     | TBC |     | mW   |
 | P<sub>SENSE</sub>    | Power consumption for polling all sensors at 1 Hz           |     | TBC |     | mW   |
@@ -123,27 +125,27 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 ![Nicla Vision Top View](assets/niclaVisionTopTopology.svg)
 
-| **Ref.** | **Description**                                  | **Ref.** | **Description**                           |
-| -------- | ------------------------------------------------ | -------- | ----------------------------------------- |
-| U1       | STM32H747AII6 Dual ARM® Cortex® M7/M4 IC         | U4       | VL53L1CBV0FY/1 Time-of-flight sensor IC   |
-| U5       | USB3320C-EZK-TR  USB 2.0 Transceiver             | U6       | MP34DT06JTR Omnidirectional Mic           |
-| U14      | DSC6151HI2B 25 MHz MEMS Oscillator               | U15      | DSC6151HI2B 27 MHz MEMS Oscillator         |
-| U8       | IS31FL3194-CLS2-TR 3-channel LED IC              | U9       | BQ25120AYFPR Battery Charger IC           |
-| U10      | SN74LVC1T45 1-channel voltage level translator IC| U11      | TXB0108YZPR Bidirectional IC              |
-| U12      | NTS0304EUKZ 4-bit translating transceiver        | J1       | ADC, SPI and LPIO Pin headers             |
-| J2       | I2C, JTAG, Power and LPIO pin headers            | J3       | Battery headers                           |
-| DL1      | SMLP34RGB2W3 RGB SMD LED                         | DL2      | KPHHS-1005SURCK Red LED                   |
-| PB1      | Reset button                                     | J6       | U.FL-R-SMT-1(60) Male micro UFL connector |
+| **Ref.** | **Description**                                   | **Ref.** | **Description**                           |
+|----------|---------------------------------------------------|----------|-------------------------------------------|
+| U1       | STM32H747AII6 Dual ARM® Cortex® M7/M4 IC          | U4       | VL53L1CBV0FY/1 Time-of-flight sensor IC   |
+| U5       | USB3320C-EZK-TR  USB 2.0 Transceiver              | U6       | MP34DT06JTR Omnidirectional Mic           |
+| U14      | DSC6151HI2B 25 MHz MEMS Oscillator                | U15      | DSC6151HI2B 27 MHz MEMS Oscillator        |
+| U8       | IS31FL3194-CLS2-TR 3-channel LED IC               | U9       | BQ25120AYFPR Battery Charger IC           |
+| U10      | SN74LVC1T45 1-channel voltage level translator IC | U11      | TXB0108YZPR Bidirectional IC              |
+| U12      | NTS0304EUKZ 4-bit translating transceiver         | J1       | ADC, SPI and LPIO Pin headers             |
+| J2       | I2C, JTAG, Power and LPIO pin headers             | J3       | Battery headers                           |
+| DL1      | SMLP34RGB2W3 RGB SMD LED                          | DL2      | KPHHS-1005SURCK Red LED                   |
+| PB1      | Reset button                                      | J6       | U.FL-R-SMT-1(60) Male micro UFL connector |
 
 **Back View**
 ![Nicla Vision Back View](assets/niclaVisionBackTopology.svg)
 
 | **Ref.** | **Description**                             | **Ref.** | **Description**                                    |
-| -------- | ------------------------------------------- | -------- | -------------------------------------------------- |
+|----------|---------------------------------------------|----------|----------------------------------------------------|
 | U2,U7    | LM66100DCKR Ideal Diode                     | U3       | LSM6DSOXTR 6-axis IMU with ML Core                 |
 | U8       | SE050C2HQ1/Z01SDZ Crypto IC                 | U9       | LBEE5KL1DX-883 Wi-Fi/Bluetooth Module              |
 | U10      | MC34PF1550A0EP PMIC                         | U11      | TXB0108YZPR Bidirectional Voltage Shifter          |
-| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MB FLASH Memory IC          |
+| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MB FLASH Memory IC             |
 | U19      | MAX17262REWL+T Fuel Gauge IC                | J4       | BM03B-ACHSS-GAN-TF(LF)(SN) 3-pin battery connector |
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin ESLOV connector | J7       | microUSB connector                                 |
 
@@ -154,8 +156,8 @@ The Nicla Vision's main processor is the dual core STM32H747 (U1) including a Co
 ### 6-Axis IMU
 It is possible to obtain 3D gyroscope and 3D accelerometer data from the LSM6DSOX 6-axis IMU (U3). In addition to providing such data, it is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
-### Wi-Fi/Bluetooth Connectivity
-The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth.
+### Wi-Fi/Bluetooth® Connectivity
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth®.
 
 ### Crypto Capabilities
 The Arduino® Nicla Vision enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
@@ -214,7 +216,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ### J1 Pin Connector
 
 | Pin | **Function** | **Type** | **Description**                    |
-| --- | ------------ | -------- | ---------------------------------- |
+|-----|--------------|----------|------------------------------------|
 | 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 |
 | 2   | NC           | N/A      | N/A                                |
 | 3   | CS           | Digital  | SPI Cable Select                   |
@@ -227,7 +229,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 ### J2 Pin Header
 
 | Pin | **Function** | **Type** | **Description**       |
-| --- | ------------ | -------- | --------------------- |
+|-----|--------------|----------|-----------------------|
 | 1   | SDA          | Digital  | I2C Data Line         |
 | 2   | SCL          | Digital  | I2C Clock             |
 | 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    |
@@ -240,10 +242,10 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
-### J3 Fins
+### J1 Fins
 
 | Pin | **Function** | **Type** | **Description**              |
-| --- | ------------ | -------- | ---------------------------- |
+|-----|--------------|----------|------------------------------|
 | P1  | SDA_PMIC     | Digital  | PMIC I2C Data Line           |
 | P2  | SCL_PMIC     | Digital  | PMIC I2C Clock Line          |
 | P3  | SWD          | Digital  | Data SWD JTAG Interface      |
@@ -252,6 +254,31 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | P6  | SWO          | Digital  | Output of SWD JTAG Interface |
 | P7  | +1V8         | Power    | +1.8V Voltage Rail           |
 | P8  | VOTP_PMIC    | Digital  | Reserved                     |
+
+### J3 Battery Pads
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
+
+### J4 Battery Connector
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
+| 3   | GND          | Power    | Ground          |
+
+### J5 ESLOV
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | 5V           | Power    | 5V Power Rail   |
+| 2   | INT          | Digital  | Digital IO      |
+| 3   | SCL          | Digital  | I2C Clock Line  |
+| 4   | SDA          | Digital  | I2C Data Line   |
+| 5   | GND          | Power    | Ground          |
 
 
 ## Mechanical Information
@@ -265,7 +292,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -328,20 +355,20 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
 | Frequency bands      | Typical Output Power |
-| -------------------- | -------------------- |
+|----------------------|----------------------|
 | 2.4 GHz, 40 channels | TBC                  |
 
 
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
-| --------------- | -------------------------------------------- |
+|-----------------|----------------------------------------------|
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
 
 | Ref                                | Link                                                                                                |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------- |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Arduino® IDE (Desktop)             | https://www.arduino.cc/en/Main/Software                                                             |
 | Arduino® IDE (Cloud)               | https://create.arduino.cc/editor                                                                    |
 | Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
@@ -351,5 +378,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**     |
-| ---------- | ------------ | --------------- |
+|------------|--------------|-----------------|
 | 03-09-2021 | 01           | Initial Version |
