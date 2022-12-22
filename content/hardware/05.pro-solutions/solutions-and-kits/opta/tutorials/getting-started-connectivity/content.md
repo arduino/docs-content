@@ -27,7 +27,7 @@ The Arduino Opta® is a powerful PLC device that has many features, allowing you
 
 - Learn how to use Bluetooth® Low Energy on the Arduino Opta®
 - Learn how to use Wi-Fi® on the Arduino Opta®
-- Learn how to use Ethernet on the Opta
+- Learn how to use Ethernet on the Arduino Opta®
 
 ### Required Hardware and Software
 
