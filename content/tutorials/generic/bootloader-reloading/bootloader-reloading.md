@@ -14,24 +14,24 @@ In this tutorial, we will learn how to burn the bootloader on non-AVR boards usi
 
 >**Note:** Certain Arduino boards can't be used with the sketch that converts it to a programmer. It is possible to use an Arduino board that runs at 5V as the programmer, but you will need to use level shifting circuitry on the programming lines to avoid exposing the target board to 5V logic levels, which would damage it.
 
-| Working  | Untested      | Not working      |
+| Working | Untested | Not working |
 | ----------- | ----------- |----------- |
-| SAMD architecture boards         | AVR architecture boards        |Nano 33 BLE        |
+| SAMD architecture boards | AVR architecture boards | Nano 33 BLE |
 
 - An SD slot. This could be built into your Arduino board (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?_gl=1%2A17dcyg9%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjI5ODA2LjAuMC4w)), a shield (e.g., [MKR SD Proto Shield](https://store.arduino.cc/products/mkr-sd-proto-shield?_gl=1%2A1xs1eol%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjMwMzgxLjAuMC4w)), or one of the common SD modules.
 - An SD card that fits your SD slot.
 - A way to connect the SD card to your computer.
-- A way to make the connections to the SWD pins on your target Arduino board. 
+- A way to make the connections to the SWD pins on your target Arduino board.
 
 For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=1%2A80ta1j%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjMwNDIwLjAuMC4w) and the MKR Boards other than MKR1000, we found it the easiest to use a 0.1" pitch 2x3 POGO adapter. You could also solder wires to the test points if you prefer. On the MKR boards other than the MKR1000, the SWD header is on the bottom of the board and is the footprint for a 0.1" pitch 2x3 SMD header. On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, which you will need an adapter and one cable for.
 
 ## Instructions
 - Connect an SD card to your computer.
-- Open this link in your browser: https://github.com/arduino/ArduinoCore-samd/tree/master/bootloaders
+- Open this link in your browser: https://github.com/arduino/ArduinoCore-samd/tree/master/bootloaders.
 - Click the folder that matches the name of your target board.
-- Click the file that ends in ```.bin```
-- Click the **Download** button
-- Rename the downloaded file to ```fw.bin```
+- Click the file that ends in ```.bin```.
+- Click the **Download** button.
+- Rename the downloaded file to ```fw.bin```.
 - Move ```fw.bin``` to the SD card.
 - Eject the SD card from your computer.
 - Plug the USB cable of the Arduino board you will be using as a programmer into your computer.
@@ -44,9 +44,9 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
 - Wait for the installation to finish.
 - Click the **Close** button.
 - Select **File > Examples > Adafruit DAP library > samd21 > flash_from_SD** from the Arduino IDE's menus.
-- Change this line: ```#define SD_CS 4``` 
+- Change this line: ```#define SD_CS 4```according to the Arduino pin connected to the SD CS pin. 
 
-    according to the Arduino pin connected to the SD CS pin. If your board has a built-in SD slot (e.g., [MKR Zero 9](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), then you can change this line:
+    If your board has a built-in SD slot (e.g., [MKR Zero 9](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), then you can change this line:
 
     ```
     (!SD.begin(SD_CS)) { 
@@ -94,7 +94,7 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
 ## Alternatives
 These are some alternatives to the "Adafruit DAP" method described above.
 
-**Using a CMSIS-DAP debug probe as the programmer**
+### Using a CMSIS-DAP debug probe as the programmer
 
 If you have a CMSIS-DAP compliant debug probe, you can just do this instead:
 
@@ -102,11 +102,11 @@ If you have a CMSIS-DAP compliant debug probe, you can just do this instead:
 - Select **Tools > Programmer > Atmel EDBG** from the Arduino IDE's menus.
 - Select **Tools > Burn Bootloader** from the Arduino IDE's menus. - The "Burn Bootloader" process should now finish successfully.
 
-You can use [this little open-source debugger](https://www.tindie.com/products/ataradov/cmsis-dap-compliant-swd-debugger/)
+You can use [this little open-source debugger](https://www.tindie.com/products/ataradov/cmsis-dap-compliant-swd-debugger/).
 
-**Using a J-Link as the programmer**
+### Using a J-Link as the programmer
 
 Segger J-Link debug probes (e.g., J-Link EDU Mini) can be used with the Adalink software:
-https://github.com/adafruit/Adafruit_Adalink
+https://github.com/adafruit/Adafruit_Adalink.
 
 This is a fairly complex procedure, so we recommend against this option unless you already own a J-Link and don't have the supplies on hand for one of the other options.
