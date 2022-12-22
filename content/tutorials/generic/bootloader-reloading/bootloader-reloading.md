@@ -95,6 +95,7 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
 These are some alternatives to the "Adafruit DAP" method described above.
 
 **Using a CMSIS-DAP debug probe as the programmer**
+
 If you have a CMSIS-DAP compliant debug probe, you can just do this instead:
 
 - Connect the debug probe to your Arduino board.
@@ -104,6 +105,7 @@ If you have a CMSIS-DAP compliant debug probe, you can just do this instead:
 You can use [this little open-source debugger](https://www.tindie.com/products/ataradov/cmsis-dap-compliant-swd-debugger/)
 
 **Using a J-Link as the programmer**
+
 Segger J-Link debug probes (e.g., J-Link EDU Mini) can be used with the Adalink software:
 https://github.com/adafruit/Adafruit_Adalink
 
