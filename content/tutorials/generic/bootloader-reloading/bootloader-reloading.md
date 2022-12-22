@@ -9,7 +9,7 @@ In this tutorial, we will learn how to burn the bootloader on non-AVR boards usi
 
 >**Note:** If you want to burn the bootloader on AVR boards such as an UNO, Mega, and classic Nano you can check out [these instructions](https://support.arduino.cc/hc/en-us/articles/4841602539164-Burn-the-bootloader-on-UNO-Mega-and-classic-Nano-using-another-Arduino).
 
-## You will need:
+## Requirements
 - An extra Arduino board that runs at 3.3V to use as the programmer.
 
 >**Note:** Certain Arduino boards can't be used with the sketch that converts it to a programmer. It is possible to use an Arduino board that runs at 5V as the programmer, but you will need to use level shifting circuitry on the programming lines to avoid exposing the target board to 5V logic levels, which would damage it.
