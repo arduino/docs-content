@@ -31,7 +31,7 @@ The Arduino Opta® is a powerful PLC device that has many features, allowing you
 
 ### Required Hardware and Software
 
-- Arduino Opta
+- Arduino Opta®
 - Ethernet cable
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
