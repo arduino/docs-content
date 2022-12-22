@@ -264,8 +264,8 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 | Pin | **Function** | **Type** | **Description** |
 |-----|--------------|----------|-----------------|
 | 1   | 5V           | Power    | 5V Power Rail   |
-| 2   | INT          | Digital  | Digial IO       |
-| 3   | SCL          | Digital  | I2C Clock Linke |
+| 2   | INT          | Digital  | Digital IO      |
+| 3   | SCL          | Digital  | I2C Clock Line |
 | 4   | SDA          | Digital  | I2C Data Line   |
 | 5   | GND          | Power    | Ground          |
 
