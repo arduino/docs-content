@@ -242,7 +242,7 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
-### J3 Fins
+### J2 Fins
 
 | Pin | **Function**  | **Type** | **Description**                     |
 |-----|---------------|----------|-------------------------------------|
@@ -257,6 +257,31 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 
 **Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
 **Note 2:** All JTAG logic levels operate at 1.8V apart from the SAMD11 pins (P6 and P8) which are 3.3V. All these JTAG pins are 1.8V only and don't scale with VDDIO.
+
+### J3 Battery Pads
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
+
+### J4 Battery Connector
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
+| 3   | GND          | Power    | Ground          |
+
+### J5 ESLOV
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | 5V           | Power    | 5V Power Rail   |
+| 2   | INT          | Digital  | Digial IO       |
+| 3   | SCL          | Digital  | I2C Clock Linke |
+| 4   | SDA          | Digital  | I2C Data Line   |
+| 5   | GND          | Power    | Ground          |
 
 ## Mechanical Information
 ![](assets/niclaSenseMEMech.png)
@@ -356,6 +381,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 27-05-2021 | 01           | Initial Version                |
 | 20-07-2021 | 02           | Technical Revisions            |
 | 13-12-2022 | 03           | Change Solution Overview Image |
+| 22-12-2022 | 04           | Add NTC info and revise tables |
 
 ## Product Warnings and Disclaimers
 
