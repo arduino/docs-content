@@ -1,5 +1,5 @@
 ---
-title: 'Using BLE, WiFi and Ethernet on the Arduino Opta'
+title: 'Using Bluetooth® Low Energy, Wi-Fi® and Ethernet on the Arduino Opta®'
 description: "Learn how to make use of the Arduino Opta's connectivity features"
 difficulty: beginner
 tags:
