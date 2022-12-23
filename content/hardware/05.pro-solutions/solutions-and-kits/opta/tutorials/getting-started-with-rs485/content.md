@@ -1,10 +1,9 @@
 ---
-title: 'Getting Started with Modbus RTU and RS485 on Arduino Opta'
-description: "Learn how to make use of the Arduino Opta's Modbus RTU RS485 protocol"
+title: 'Getting Started with RS-485 on Arduino Opta®'
+description: "Learn how to make use of the RS-485 specification on the Arduino Opta"
 difficulty: beginner 
 tags:
   - Getting started
-  - Modbus
   - RS-485
 author: 'Benjamin Dannegård'
 libraries:
@@ -19,7 +18,7 @@ hardware:
 
 ## Overview
 
-The Arduino Opta® is equipped with the industry standard RS485 interface. Making use of this feature is made easy with the help of the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will go through the steps to get the Modbus RTU protocol up and running using two Optas connected via RS485 and the Arduino IDE. Going through some important functions in the library and show an example sketch that makes use of the library and RS485 interface.
+The Arduino Opta® is equipped with the RS-485 interface. Making use of this feature is made easy with the help of the Arduino ecosystem tools, such as the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will go through the steps to get the Modbus RTU protocol up and running using two Optas connected via RS485 and the Arduino IDE. Going through some important functions in the library and show an example sketch that makes use of the library and RS485 interface.
 
 ## Goals
 
