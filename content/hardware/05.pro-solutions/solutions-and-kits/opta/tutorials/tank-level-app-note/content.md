@@ -1,6 +1,6 @@
 ---
-title: 'Tank Level Monitoring with Opta - Application Note'
-description: "This application note describes how to monitor the level in tanks using the Arduino® Opta."
+title: 'Tank Level Monitoring with Opta™ - Application Note'
+description: "This application note describes how to monitor the level in tanks using the Arduino Opta®."
 difficulty: advanced
 tags:
   - Tank level
@@ -20,11 +20,11 @@ hardware:
 
 ## Introduction
 
-Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks that are done in many industries, even in your house. Some industrial applications include transport and storage tanks (for example, think of a tank in a water treatment plant). In household applications, tank level monitoring is essential for applications like water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines, etc. With its industrial IoT capabilities, the Opta micro PLC can be used for this application. 
+Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks that are done in many industries, even in your house. Some industrial applications include transport and storage tanks (for example, think of a tank in a water treatment plant). In household applications, tank level monitoring is essential for applications like water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines, etc. With its industrial IoT capabilities, the Opta™ micro PLC can be used for this application. 
 
 ## Goals
 
-This application note aims to show a system based on the Opta, capable of monitoring and adjusting two tank levels; we will refer to those tanks as Big Tank (BT) and Small Tank (ST). The goals to be met by the application are the following:
+This application note aims to show a system based on the Opta™, capable of monitoring and adjusting two tank levels; we will refer to those tanks as Big Tank (BT) and Small Tank (ST). The goals to be met by the application are the following:
 
 - BT and ST levels must stay within a minimum and a maximum user-defined level; maximum and minimum levels will be measured using float switches. A vertical-type float switch will be used for measuring the maximum level, while a horizontal-type float switch will be used for measuring the minimum level in the tanks.
 - If the ST level goes below its minimum level, a relay opens a gate valve from the BT, letting the BT liquid fill the ST. When the level in the ST goes over its maximum, the relay closes the gate valve.
@@ -41,7 +41,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 ### Hardware Requirements
 
-- [Arduino Opta](https://store.arduino.cc/pages/opta)
+- [Arduino Opta®](https://store.arduino.cc/pages/opta)
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
@@ -53,7 +53,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `Scheduler`. You can install those libraries via the Library Manager of the Arduino IDE.
-- For the Wi-Fi connectivity feature of the Opta, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
+- For the Wi-Fi connectivity feature of the Opta™, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
 
 ## Demonstration Setup
 
@@ -67,13 +67,13 @@ Notice that the Optas communicate with each other over RS-485. The level sensors
 
 ST and BT each have a specific monitoring routine to monitor and control their minimum and maximum level. Both Optas will exchange important states and parameters of each tank to understand and execute appropriate actions to maintain both tank levels as expected in the application. As stated before, the Optas in charge of ST and BT will communicate with each other using Modbus RTU over RS-485.
 
-The Opta in the BT performs the following actions:
+The Opta™ in the BT performs the following actions:
 
 - It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from BT to ST. 
 - It shuts off the system completely, halting any activity on it.
 - It sends the current minimum level state to ST while also seeking for ST maximum level state. 
 
-The Opta in the ST performs the following actions:
+The Opta™ in the ST performs the following actions:
 
 - It manages the gate valve given the ST level and BT minimum level state. 
 - It sends ST's current maximum level state to BT while seeking BT's minimum level state. 
@@ -82,7 +82,7 @@ In addition to the functionalities explained before, both Optas are connected to
 
 ### Example Code for Small Tank (ST)
 
-The following code exemplifies how Opta in ST can achieve the actions described before. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration:
+The following code exemplifies how Opta™ in ST can achieve the actions described before. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration:
 
 ```arduino
 #include "thingProperties.h"
@@ -400,7 +400,7 @@ void onSTValveCloudChange()  {
 
 ### Example Code for Big Tank (ST)
 
-The following code exemplifies how Opta in BT can achieve the actions described before. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration:
+The following code exemplifies how Opta™ in BT can achieve the actions described before. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration:
 
 ```arduino
 #include "thingProperties.h"
@@ -758,4 +758,4 @@ Arduino IoT Cloud integration with the tanks is shown below:
 
 ## Conclusion
 
-Let's build monitoring systems with the Arduino Opta and the Arduino IoT Cloud. In this application note, we have learned how to interface two Arduino Optas using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.
+Let's build monitoring systems with the Arduino Opta® and the Arduino IoT Cloud. In this application note, we have learned how to interface two Arduino Opta® using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.

@@ -24,14 +24,14 @@ The Arduino Opta® is equipped with the industry standard RS485 interface. Makin
 ## Goals
 
 - Learn how to connect two Optas for RS485 communication
-- Run a RS485 sender sketch on Opta
-- Run a RS485 receiver sketch on Opta
+- Run a RS485 sender sketch on Opta™
+- Run a RS485 receiver sketch on Opta™
 - Learn how to send values using the UART protocol and the RS485 interface
 
 ### Required Hardware and Software
 
 - USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
-- [Arduino Opta](https://store.arduino.cc/pages/opta)
+- [Arduino Opta®](https://store.arduino.cc/pages/opta)
 - Power supply of 12-24V DC, 1A 
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
@@ -39,13 +39,13 @@ The Arduino Opta® is equipped with the industry standard RS485 interface. Makin
 
 ### Setting up With Arduino IDE
 
-First make sure the latest version of the Arduino IDE is installed. Download the IDE from [here](https://www.arduino.cc/en/software) if you need help setting up the Opta with the Arduino IDE, please have a look at our [Getting started with Opta tutorial](/tutorials/opta/getting-started).
+First make sure the latest version of the Arduino IDE is installed. Download the IDE from [here](https://www.arduino.cc/en/software) if you need help setting up the Opta™ with the Arduino IDE, please have a look at our [Getting started with Opta™ tutorial](/tutorials/opta/getting-started).
 
-To make it easier to use the RS485 protocol with Opta let's make use of a library. The library is called [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), which can be found in the Arduino IDE library manager. Once installed let's take a look at a simple sketch to use for testing out the UART protocol.
+To make it easier to use the RS485 protocol with Opta™ let's make use of a library. The library is called [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), which can be found in the Arduino IDE library manager. Once installed let's take a look at a simple sketch to use for testing out the UART protocol.
 
-### Using RS485 on Opta
+### Using RS485 on Opta™
 
-The sender sketch will run a RS485 connection between your two devices and it will let you send a message over the serial monitor to the receiving device. The receiving device, which will be an Opta in this example, will then take the message, open or close the corresponding relay and turn on or off a LED. If you send the number 0 through the serial monitor, the receiving Opta will open or close relay 1 depending on its current status, while turning on or off a status LED.
+The sender sketch will run a RS485 connection between your two devices and it will let you send a message over the serial monitor to the receiving device. The receiving device, which will be an Opta™ in this example, will then take the message, open or close the corresponding relay and turn on or off a LED. If you send the number 0 through the serial monitor, the receiving Opta™ will open or close relay 1 depending on its current status, while turning on or off a status LED.
 
 Here are some important functions in the sketch:
 
@@ -54,9 +54,9 @@ Here are some important functions in the sketch:
 - `RS485.print()`: Writes binary data over RS485. This data is sent as a byte or series of bytes.
 - `RS485.endTransmission()`: Disables RS-485 transmission.
 
-Connect the sender and receiver Opta according to the image shown below.
+Connect the sender and receiver Opta™ according to the image shown below.
 
-![Connecting RS485 on Opta](assets/opta-modbus-connection.png)
+![Connecting RS485 on Opta™](assets/opta-modbus-connection.png)
 
 ### UART RS485 Sender Sketch
 
@@ -156,12 +156,12 @@ The values the device can receive and the result:
 
 ## Conclusion
 
-In this tutorial we went through how to establish a serial communication between two Optas using the RS485 connection, learning how to write sketches using the `ArduinoRS485.h` library to send and receive values between these two devices. Finally, the tutorial showed how to take these values sent with RS485 to interact with the Opta activating its relays and LEDs accordingly.
+In this tutorial we went through how to establish a serial communication between two Optas using the RS485 connection, learning how to write sketches using the `ArduinoRS485.h` library to send and receive values between these two devices. Finally, the tutorial showed how to take these values sent with RS485 to interact with the Opta™ activating its relays and LEDs accordingly.
 
 ### Next Steps
 
-Now that you are familiar with the R485 on the Opta, have a look at our [Getting started with Opta tutorial](../getting-started-with-rs485/content.md) to get a better overview of other features on the device.
+Now that you are familiar with the R485 on the Opta™, have a look at our [Getting started with Opta™ tutorial](../getting-started-with-rs485/content.md) to get a better overview of other features on the device.
 
-If you wish to incorporate connectivity in your Opta solutions, have a look at the [Connectivity on Opta tutorial]().
+If you wish to incorporate connectivity in your Opta™ solutions, have a look at the [Connectivity on Opta™ tutorial](../getting-started-connectivity).
 
-If you are interested in seeing the RS485 interface, used with the Modbus protocol, being put to work in a real-life scenario, have a look at our [Tank levels application note for the Opta]().
+If you are interested in seeing the RS485 interface, used with the Modbus protocol, being put to work in a real-life scenario, have a look at our [Tank levels application note for the Opta](../tank-level-app-note).
