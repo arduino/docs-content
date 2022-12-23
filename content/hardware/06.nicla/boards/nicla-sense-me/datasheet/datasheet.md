@@ -103,6 +103,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector. ](assets/niclaSenseMEBattery.png)
 
+**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC. 
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -213,7 +214,7 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
 
-### J1 Pin Connector
+### J1 Nicla Header A
 
 | Pin | **Function** | **Type** | **Description**                    |
 |-----|--------------|----------|------------------------------------|
@@ -226,7 +227,7 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 | 7   | ADC2         | Analog   | Analog Input 2                     |
 | 8   | ADC1         | Analog   | Analog Input 1                     |
 
-### J2 Pin Header
+### J2 Nicla Header B
 
 | Pin | **Function** | **Type** | **Description**       |
 |-----|--------------|----------|-----------------------|
@@ -242,7 +243,7 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
-### J3 Fins
+### J2 Fins
 
 | Pin | **Function**  | **Type** | **Description**                     |
 |-----|---------------|----------|-------------------------------------|
@@ -257,6 +258,31 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 
 **Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
 **Note 2:** All JTAG logic levels operate at 1.8V apart from the SAMD11 pins (P6 and P8) which are 3.3V. All these JTAG pins are 1.8V only and don't scale with VDDIO.
+
+### J3 Battery Pads
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
+
+### J4 Battery Connector
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
+| 3   | GND          | Power    | Ground          |
+
+### J5 ESLOV
+
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | 5V           | Power    | 5V Power Rail   |
+| 2   | INT          | Digital  | Digital IO      |
+| 3   | SCL          | Digital  | I2C Clock Line  |
+| 4   | SDA          | Digital  | I2C Data Line   |
+| 5   | GND          | Power    | Ground          |
 
 ## Mechanical Information
 ![](assets/niclaSenseMEMech.png)
@@ -351,11 +377,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**                    |
-|------------|--------------|--------------------------------|
-| 27-05-2021 | 01           | Initial Version                |
-| 20-07-2021 | 02           | Technical Revisions            |
-| 13-12-2022 | 03           | Change Solution Overview Image |
+| **Date**   | **Revision** | **Changes**                        |
+|------------|--------------|------------------------------------|
+| 27-05-2021 | 01           | Initial Version                    |
+| 20-07-2021 | 02           | Technical Revisions                |
+| 13-12-2022 | 03           | Change Solution Overview Image     |
+| 22-12-2022 | 04           | Add NTC Image & addition pins info |
 
 ## Product Warnings and Disclaimers
 
