@@ -1,5 +1,5 @@
 ---
-title: 'How to use Serial Communication Using RS485 on Arduino Opta'
+title: 'How to use Serial Communication Using RS485 On Arduino Opta'
 description: "Learn how to create a serial communication between two Optas using RS485"
 difficulty: beginner 
 tags:
