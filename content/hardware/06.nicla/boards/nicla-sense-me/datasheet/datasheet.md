@@ -103,7 +103,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector. ](assets/niclaSenseMEBattery.png)
 
-**Note** : The NTC pin on the battery connector is optional.
+**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC. 
 
 ## Ratings
 ### Recommended Operating Conditions
