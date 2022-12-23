@@ -10,7 +10,7 @@ author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri, Taddy Chung
 # Description
 The **Arduino® Nicla Voice** packs machine learning capabilities on the edge into a tiny fingerprint.
 
-Implement always-on speech recognition with Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
+Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
 # Target areas:
 noise and vibration detection, low-power speech recognition, contactless operations, gesture recognition
@@ -108,17 +108,19 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 - Arduino® Portenta H7 (SKU: ABX00042)
 
 ### Assembly Overview
-![Example: Example of a typical solution for remote environmental sensing including an Arduino® Nicla Voice, Arduino® Portenta H7 and LiPo battery.](assets/niclaVoiceSolutionOverview.png)
+![Example: Example of a typical solution for remote environmental sensing including an Arduino® Nicla Voice, Arduino® Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVoiceSolutionOverview.png)
+
+**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC.
 
 ## Ratings
-| Symbol               | Description                      | Min                      | Typ | Max                      | Unit |
-| -------------------- | -------------------------------- | ------------------------ | --- | ------------------------ | ---- |
-| V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                      | 5.0 | 5.5                      | V    |
-| V<sub>USB</sub>      | Input voltage from USB connector | 4.8                      | 5.0 | 5.5                      | V    |
-| V<sub>DDIO_EXT</sub> | Level Translator Voltage         | 1.8                      | 3.3 | 3.3                      | V    |
-| V<sub>IH</sub>       | Input high-level voltage         | 0.7V<sub>DDIO_EXT</sub><sup>1</sup> |     | V<sub>DDIO_EXT</sub>     | V    |
-| V<sub>IL</sub>       | Input low-level voltage          | 0                        |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
-| T<sub>OP</sub>       | Operating Temperature            | 0                        | 25  | 85                       | °C   |
+| Symbol               | Description                      | Min                                 | Typ | Max                                 | Unit |
+|----------------------|----------------------------------|-------------------------------------|-----|-------------------------------------|------|
+| V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                                 | 5.0 | 5.5                                 | V    |
+| V<sub>USB</sub>      | Input voltage from USB connector | 4.8                                 | 5.0 | 5.5                                 | V    |
+| V<sub>DDIO_EXT</sub> | Level Translator Voltage         | 1.8                                 | 3.3 | 3.3                                 | V    |
+| V<sub>IH</sub>       | Input high-level voltage         | 0.7V<sub>DDIO_EXT</sub><sup>1</sup> |     | V<sub>DDIO_EXT</sub>                | V    |
+| V<sub>IL</sub>       | Input low-level voltage          | 0                                   |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
+| T<sub>OP</sub>       | Operating Temperature            | 0                                   | 25  | 85                                  | °C   |
 
 **Note** : V<sub>DDIO_EXT</sub> is software programmable. While the ADC inputs can accept up to x.xV, the maximum value is at the ANNA B112 operating voltage.
 
@@ -142,28 +144,28 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 
 ![Nicla Voice Topology- Components](assets/connectors.svg)
 
-| **Ref.** | **Description**                                  | **Ref.**            | **Description**                  |
-| ------------------- | ------------------------------------- | ------------------- | -------------------------------- |
-| J1 (Nicla Header A) |                                       | J2 (Nicla Header B) |                                  |
-| J3                  | Battery Pads                          | J4                  | Battery Connector (BM03B-ACHSS)  |
-| J5                  | ESLOV Connector (SM05B-SRSS)          | J6                  | External Microphone (FH33J-4S)   |
+| **Ref.**            | **Description**              | **Ref.**            | **Description**                 |
+|---------------------|------------------------------|---------------------|---------------------------------|
+| J1 (Nicla Header A) |                              | J2 (Nicla Header B) |                                 |
+| J3                  | Battery Pads                 | J4                  | Battery Connector (BM03B-ACHSS) |
+| J5                  | ESLOV Connector (SM05B-SRSS) | J6                  | External Microphone (FH33J-4S)  |
 | J7                  | Micro USB-A (ZX62-AB)                 |
 
 #### Components Topology
 
 ![Nicla Voice Topology - components](assets/components.svg)
 
-| **Ref.** | **Description**                  | **Ref.** | **Description**                     |
-| -------- | ---------------------------------| -------- | ----------------------------------- |
-| DL1      | RGB LED                          | MD1      | uBlox ANNA B112                     |
-| PB1      | Push Button                      | D1       | Diode                               |
-| D2       | Resistor array PRTR5V0U0F        | U1       | Cortex M0 ATSAM-D11                 |
-| U2       | Microphone IM69D130V01           | U3       | Neural Decision Processor NDP120    |
-| U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR                  |
-| U7       | Flash, 128MX1. AT25QL128A        | U8       | RGB LED Driver IS31FL3194           |
-| U9       | Battery Charger LDO Buck BQ25120 | U10      | Bus Transceiver                     |
-| U11      | Level Shifter TXB0108Y           | U12      | Level Shifter NTS0304               |
-| U13      | Level shifter, NTS0304           | U14      | LDO regulator, 3V3 AP2112K          |
+| **Ref.** | **Description**                  | **Ref.** | **Description**                  |
+|----------|----------------------------------|----------|----------------------------------|
+| DL1      | RGB LED                          | MD1      | uBlox ANNA B112                  |
+| PB1      | Push Button                      | D1       | Diode                            |
+| D2       | Resistor array PRTR5V0U0F        | U1       | Cortex M0 ATSAM-D11              |
+| U2       | Microphone IM69D130V01           | U3       | Neural Decision Processor NDP120 |
+| U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR               |
+| U7       | Flash, 128MX1. AT25QL128A        | U8       | RGB LED Driver IS31FL3194        |
+| U9       | Battery Charger LDO Buck BQ25120 | U10      | Bus Transceiver                  |
+| U11      | Level Shifter TXB0108Y           | U12      | Level Shifter NTS0304            |
+| U13      | Level shifter, NTS0304           | U14      | LDO regulator, 3V3 AP2112K       |
 | U15      | IMU 6 Axis Low Power BMI270      |
 
 #### Front
@@ -198,7 +200,7 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 ### J1 Nicla Header A
 
 | Pin | **Function** | **Type** | **Description**                    | **MKR Compatibility** |
-| --- | ------------ | -------- | ---------------------------------- | --------------------- |
+|-----|--------------|----------|------------------------------------|-----------------------|
 | 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 | A6                    |
 | 2   | NC           | N/A      | N/A                                | A5                    |
 | 3   | CS           | Digital  | SPI Cable Select                   | A4                    |
@@ -211,7 +213,7 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 ### J2 Nicla Header B
 
 | Pin | **Function** | **Type** | **Description**       | **MKR Compatibility** |
-| --- | ------------ | -------- | --------------------- | --------------------- |
+|-----|--------------|----------|-----------------------|-----------------------|
 | 1   | SDA          | Digital  | I2C Data Line         | SDA                   |
 | 2   | SCL          | Digital  | I2C Clock             | SCL                   |
 | 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    | RX                    |
@@ -224,12 +226,12 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
-### J1 Fins
+### J2 Fins
 
 ![Nicla Family Bottom Fins](assets/nicla_bottom_fins.svg)
 
 | Pin | **Function**  | **Type** | **Description**                     |
-| --- | ------------- | -------- | ----------------------------------- |
+|-----|---------------|----------|-------------------------------------|
 | P1  | BHI_SWDIO     | Digital  | BHI260 JTAG Serial Wire Debug Data  |
 | P2  | BHI_SWDCLK    | Digital  | BHI260 JTAG Serial Wire Debug Clock |
 | P3  | ANNA_SWDIO    | Digital  | ANNA JTAG Serial Wire Debug Data    |
@@ -244,28 +246,28 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 
 ### J3 Battery Pads
 
-| Pin | **Function**  | **Type** | **Description**                     |
-| --- | ------------- | -------- | ----------------------------------- |
-| 1   | VBAT          | Power    | Battery input                       |
-| 2   | NTC           | Analog   | NTC Thermistor                      |
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | VBAT         | Power    | Battery input   |
+| 2   | NTC          | Analog   | NTC Thermistor  |
 
 ### J4 Battery Connector
 
 | Pin | **Function** | **Type** | **Description** |
-| --- | ------------ | -------- | --------------- |
+|-----|--------------|----------|-----------------|
 | 1   | VBAT         | Power    | Battery input   |
 | 2   | NTC          | Analog   | NTC Thermistor  |
 | 3   | GND          | Power    | Ground          |
 
 ### J5 ESLOV
 
-| Pin | **Function** |
-| --- | ------------ |
-| 1   | 5V           |
-| 2   | INT          |
-| 3   | SCL          |
-| 4   | SDA          |
-| 5   | GND          |
+| Pin | **Function** | **Type** | **Description** |
+|-----|--------------|----------|-----------------|
+| 1   | 5V           | Power    | 5V Power Rail   |
+| 2   | INT          | Digital  | Digital IO      |
+| 3   | SCL          | Digital  | I2C Clock Line |
+| 4   | SDA          | Digital  | I2C Data Line   |
+| 5   | GND          | Power    | Ground          |
 
 ## Mechanical Information
 ### Outline Board Measures
@@ -284,7 +286,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -346,20 +348,20 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands      | Typical Output Power |
-| -------------------- | -------------------- |
-| 2.4GHz, 40 channels  | +4dBm                |
+| Frequency bands     | Typical Output Power |
+|---------------------|----------------------|
+| 2.4GHz, 40 channels | +4dBm                |
 
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
-| --------------- | -------------------------------------------- |
+|-----------------|----------------------------------------------|
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
 
 | Ref                                | Link                                                                                                |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------- |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Arduino® IDE (Desktop)             | https://www.arduino.cc/en/Main/Software                                                             |
 | Arduino® IDE (Cloud)               | https://create.arduino.cc/editor                                                                    |
 | Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
@@ -370,9 +372,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**         |
-| ---------- | ------------ | ------------------- |
-| 01-07-2022 | 01           | First release       |
+| **Date**   | **Revision** | **Changes**   |
+|------------|--------------|---------------|
+| 12-22-2022 | 01           | First release |
 
 ## Product Warnings and Disclaimers
 
