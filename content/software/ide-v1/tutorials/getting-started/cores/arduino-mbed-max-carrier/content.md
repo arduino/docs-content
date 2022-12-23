@@ -13,10 +13,6 @@ software:
   - ide-v2
 ---
 
-## Overview
-
-The Arduino® Portenta Max Carrier provides developers an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Portenta Max Carrier possibilities are endless. The Portenta Max Carrier can be used as a single-board computer (SBC) or reference design. It couples the Arduino® Portenta H7 board as a central high-performance unit, granting Edge AI and cutting edge connectivity features into an industry-standard embedded Next Unit of Computing (eNUC) form factor ready. In this tutorial, you will learn about the core features of the Portenta Max Carrier and how to get started with it.
-
 ## Required Hardware and Software
 
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7).
@@ -91,9 +87,9 @@ For **MAC** users, it could look like this:
 
 ### Uploading a simple example
 
-You are now ready to start using your board! The easiest way to check that everything is working, is to upload just a simple sketch example to your board.
+You are now ready to start using your board! The easiest way to check that everything is working, is to upload a simple sketch example to your board.
 
-Copy and paste the below code into your IDE:
+Copy and paste the below code into your empty sketch on your IDE:
 
 ```arduino
 int pin1 = D0;
@@ -123,7 +119,7 @@ void loop() {
 }
 ```
 
-To upload the sketch, simply click on the arrow in the top left corner. This process takes a few seconds, and it is important to not disconnect the board during this process.
+With the code copied it is now ready to be uploaded. To upload the sketch, simply click on the arrow in the top left corner. This process takes a few seconds, and it is important to not disconnect the board during this process.
 
 ![Uploading the sketch.](assets/install_mbed_portenta_img07.png)
 
