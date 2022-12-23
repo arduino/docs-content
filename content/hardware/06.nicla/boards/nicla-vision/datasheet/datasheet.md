@@ -89,7 +89,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote machine vision including an Arduino® Nicla Vision and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVisionSolutionOverview.png)
 
-**Note** : The NTC pin on the battery connector is optional.
+**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC.
 
 ## Ratings
 ### Recommended Operating Conditions
