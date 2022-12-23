@@ -110,7 +110,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 ### Assembly Overview
 ![Example: Example of a typical solution for remote environmental sensing including an Arduino® Nicla Voice, Arduino® Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVoiceSolutionOverview.png)
 
-**Note** : The NTC pin on the battery connector is optional.
+**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC.
 
 ## Ratings
 | Symbol               | Description                      | Min                                 | Typ | Max                                 | Unit |
