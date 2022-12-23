@@ -15,7 +15,7 @@ libraries:
 software:
   - ide-v1
   - ide-v2
-  - cli
+  - arduino-cli
   - web-editor
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/opta
