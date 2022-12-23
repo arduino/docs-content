@@ -69,21 +69,33 @@ Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta
 When the sketch is uploaded you will see the Opta's STATUS LEDs blinking in sequence.
 
 ```arduino
-int leds[] = {LED_D0, LED_D1, LED_D2, LED_D3};
-
 void setup() {
-   for (int i = 0 ; i < 4 ; i++){
-        pinMode(leds[i], OUTPUT);
-    }
+  pinMode(LED_D0, OUTPUT);
+  pinMode(LED_D1, OUTPUT);
+  pinMode(LED_D2, OUTPUT);
+  pinMode(LED_D3, OUTPUT);
 }
 
 void loop() {
-   for (int i = 0 ; i < 4 ; i++){
-      digitalWrite(leds[i], HIGH);
-      delay(100);
-      digitalWrite(leds[i], LOW);
-      delay(100);
-    }
+  digitalWrite(LED_D0, HIGH);
+  delay(100);
+  digitalWrite(LED_D0, LOW);
+  delay(100);
+  
+  digitalWrite(LED_D1, HIGH);
+  delay(100);
+  digitalWrite(LED_D1, LOW);
+  delay(100);
+  
+  digitalWrite(LED_D2, HIGH);
+  delay(100);
+  digitalWrite(LED_D2, LOW);
+  delay(100);
+  
+  digitalWrite(LED_D3, HIGH);
+  delay(100);
+  digitalWrite(LED_D3, LOW);
+  delay(500);
 }
 ```
 
@@ -99,14 +111,12 @@ The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed)
 int buttonState = 0;
 int counter = 0;
 
-int leds[] = {LED_D0, LED_D1, LED_D2, LED_D3};
-
 void setup() {
-  // Initialize Opta LEDs
-  for (int i = 0 ; i < 4 ; i++){
-        pinMode(leds[i], OUTPUT);
-    }
-
+  // Initialize OPTA LEDs
+  pinMode(LED_D0, OUTPUT);
+  pinMode(LED_D1, OUTPUT);
+  pinMode(LED_D2, OUTPUT);
+  pinMode(LED_D3, OUTPUT);
   pinMode(BTN_USER, INPUT);
 }
 
@@ -126,16 +136,26 @@ void loop() {
 }
 
 void changeLights() {
-  // Turn off the LEDs
-  for (int i = 0 ; i < 4 ; i++){
-    digitalWrite(leds[i], OUTPUT);
+  switch(counter){
+    case 0:
+      digitalWrite(LED_D0, LOW);
+      digitalWrite(LED_D1, LOW);
+      digitalWrite(LED_D2, LOW);
+      digitalWrite(LED_D3, LOW);
+      break;
+    case 1:
+      digitalWrite(LED_D0, HIGH);
+      break;
+    case 2:
+      digitalWrite(LED_D1, HIGH);
+      break;
+    case 3:
+      digitalWrite(LED_D2, HIGH);
+      break;
+    case 4:
+      digitalWrite(LED_D3, HIGH);
+      break;
   }
-
-  // Turn on X length of LEDs
-  for (int i = 0 ; i < counter ; i++){
-    digitalWrite(leds[i], HIGH);
-  }
-
   delay(100);
 }
 ```
@@ -186,32 +206,52 @@ Opta™ has dedicated terminals for power supply located in the upper part of Op
 The entire sketch can be found below, copy it into your IDE and upload it to your device.
 
 ```arduino
-int relays[] = {RELAY1, RELAY2, RELAY3, RELAY4};
-int leds[] = {LED_D0, LED_D1, LED_D2, LED_D3};
-
 void setup() {
-  for (int i = 0; i < 4; i++){
-    // Initialize Relays outputs
-    pinMode(relays[i], OUTPUT);
-    
-    // Initialize Opta LEDs
-    pinMode(leds[i], OUTPUT);
-  }
+ // Initialize Relays outputs
+ pinMode(D0, OUTPUT);
+ pinMode(D1, OUTPUT);
+ pinMode(D2, OUTPUT);
+ pinMode(D3, OUTPUT);
+ 
+ // Initialize Opta LEDs
+ pinMode(LED_D0, OUTPUT);
+ pinMode(LED_D1, OUTPUT);
+ pinMode(LED_D2, OUTPUT);
+ pinMode(LED_D3, OUTPUT);
 }
 
 void loop() {
- // Closes and opens the contacts of each relay and sync it with each LED
- for (int = 0; i < 4; i++){
-  // Relay Closed, LED ON
-  digitalWrite(relays[i], HIGH);
-  digitalWrite(leds[i], HIGH);
-  delay(1000);
+ // Closes and opens the contact of relay 1 and turns on led 1
+ digitalWrite(D0, HIGH); // Sets the relay 1 on
+ digitalWrite(LED_D0, HIGH);
+ delay(1000);
+ digitalWrite(D0, LOW); // Sets the relay 1 off
+ digitalWrite(LED_D0, LOW);
+ delay(1000);
+ 
+ // Closes and opens the contact of relay 2 and turns on led 2
+ digitalWrite(D1, HIGH); // Sets the relay 2 on
+ digitalWrite(LED_D1, HIGH);
+ delay(1000); 
+ digitalWrite(D1, LOW); // Sets the relay 2 off
+ digitalWrite(LED_D1, LOW);
+ delay(1000);
+ 
+ // Closes and opens the contact of relay 3 and turns on led 3
+ digitalWrite(D2, HIGH); // Sets the relay 3 on
+ digitalWrite(LED_D2, HIGH);
+ delay(1000);
+ digitalWrite(D2, LOW); // Sets the relay 3 off
+ digitalWrite(LED_D2, LOW);
+ delay(1000);
 
-  // Relay Open, LED OFF
-  digitalWrite(relays[i], LOW);
-  digitalWrite(leds[i], LOW);
-  delay(1000);
- }
+ //  Closes and opens the contact of relay 4 and turns on led 4
+ digitalWrite(D3, HIGH); // Sets the relay 4 on
+ digitalWrite(LED_D3, HIGH);
+ delay(1000);
+ digitalWrite(D3, LOW); // Sets the relay 4 off
+ digitalWrite(LED_D3, LOW);
+ delay(1000);
 }
 ```
 
