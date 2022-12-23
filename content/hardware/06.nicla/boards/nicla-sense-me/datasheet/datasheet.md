@@ -279,8 +279,8 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 | Pin | **Function** | **Type** | **Description** |
 |-----|--------------|----------|-----------------|
 | 1   | 5V           | Power    | 5V Power Rail   |
-| 2   | INT          | Digital  | Digital IO       |
-| 3   | SCL          | Digital  | I2C Clock Line |
+| 2   | INT          | Digital  | Digital IO      |
+| 3   | SCL          | Digital  | I2C Clock Line  |
 | 4   | SDA          | Digital  | I2C Data Line   |
 | 5   | GND          | Power    | Ground          |
 
