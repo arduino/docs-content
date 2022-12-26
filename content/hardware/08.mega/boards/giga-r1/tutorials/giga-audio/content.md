@@ -102,6 +102,43 @@ void loop() {
 }
 ```
 
+### Visualizing Two GIGA R1 ADCs Simultaneously in the Serial Plotter
+
+The following example code showS how to use two GIGA R1 ADCs simultaneously with the `AdvancedAnalogRedux` library from Arduino and displays the readings via the Serial Plotter of the Arduino IDE:
+
+```arduino
+#include "AdvancedADC.h"
+
+AdvancedADC adc(A0, A1);
+uint64_t last_millis = 0;
+
+void setup() {
+    Serial.begin(9600);
+
+    // Resolution, sample rate, number of samples per channel, and queue depth of the ADC
+    if (!adc.begin(AN_RESOLUTION_16, 16000, 32, 128)) {
+        Serial.println("Failed to start analog acquisition!");
+        while (1);
+    }
+}
+
+void loop() {
+    if (adc.available()) {
+        SampleBuffer buf = adc.read();
+        
+        // Process the buffer
+        if ((millis() - last_millis) > 20) {
+          Serial.println(buf[0]);   // Sample from the first channel
+          Serial.println(buf[1]);   // Sample from the second channel
+          last_millis = millis();
+        }
+
+        // Release the buffer to return it to the pool
+        buf.release();
+    }
+}
+```
+
 ## Digital-to-Analog Converters 
 
 A digital-to-analog converter (DAC) is a device that has a function opposite to that of the analog-to-digital converter (ADC); a DAC converts digital data to an analog voltage. The GIGA R1 microcontroller, the STM32H747XI, features two 12-bit buffered DAC channels that can convert two digital signals into two analog voltage signals. Some of the features of the DACs found in the GIGA R1 are the following:
