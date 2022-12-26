@@ -48,7 +48,59 @@ Pins `A7`, `DAC0`, and `DAC1` can also be accessed via the built-in TRRS 3.5mm j
 
 ## Analog-to-Digital Converters 
 
+An analog-to-digital converter (ADC) is a device that converts an analog voltage, or signal, into digital data. The GIGA R1 microcontroller, the STM32H747XI, embeds three ADCs whose resolution can be configured to 8, 10, 12, 14, or 16 bits. Each ADC shares up to 20 external channels that can be accessed in the GIGA R1 board through pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, and `A11`; pins `DAC0`, `DAC1`, `CANRX`, and `CANTX` can also be used as ADCs.
 
+![ADC pins of the GIGA R1](assets/adcs.png)
+
+The GIGA R1 ADCs can be used with the [built-in analog input/output functions of the Arduino programming language](https://www.arduino.cc/reference/de/language/functions/analog-io/analogread/), though they only provide the basic functionalities of the ADCs. To use all of the capabilities of the DACs from the GIGA R1, we can use the `AdvancedAnalogRedux` library from Arduino. Let's check some interesting examples that show some capabilities of the GIGA R1 ADCs!
+
+### Using Two GIGA R1 ADCs Simultaneously
+
+The following example code show how to use two GIGA R1 ADCs simultaneously with the `AdvancedAnalogRedux` library from Arduino:
+
+```arduino
+#include "AdvancedADC.h"
+
+AdvancedADC adc1(A0);
+AdvancedADC adc2(A1);
+uint64_t last_millis = 0;
+
+void setup() {
+    Serial.begin(9600);
+
+    // Resolution, sample rate, number of samples per channel, and queue depth of the ADC
+    if (!adc1.begin(AN_RESOLUTION_16, 16000, 32, 64)) {
+        Serial.println("Failed to start analog acquisition!");
+        while (1);
+    }
+    
+    // Resolution, sample rate, number of samples per channel, and queue depth of the ADC
+    if (!adc2.begin(AN_RESOLUTION_16, 8000, 32, 64)) {
+        Serial.println("Failed to start analog acquisition!");
+        while (1);
+    }
+}
+
+void adc_print_buf(AdvancedADC &adc) {
+    if (adc.available()) {
+        SampleBuffer buf = adc.read();
+
+        // Print first sample
+        Serial.println(buf[0]);
+
+        // Release the buffer to return it to the pool
+        buf.release();
+    }
+}
+
+void loop() {
+    if (millis() - last_millis > 1) {
+        adc_print_buf(adc1);
+        adc_print_buf(adc2);
+        last_millis = millis();
+    }
+}
+```
 
 ## Digital-to-Analog Converters 
 
