@@ -494,7 +494,7 @@ void waveform_gen(){
     
     // Null buffer for null audio output
     if (strcmp("n",(char*)rk) == 0){
-      // Immitate audio pause 
+      // Imitate audio pause 
       Serial.println(F("Null Audio"));
 
       for (uint8_t i=0; i<255; i++){
