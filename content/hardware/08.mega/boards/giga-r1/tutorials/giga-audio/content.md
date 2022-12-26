@@ -15,7 +15,7 @@ The GIGA gives you access to more pins than any other Arduino board accessible f
 
 - Analog-to-Digital Converters (ADC) pins
 - Digital-to-Analog Converters (DAC) pins
-- TRRS 3.5mm jack
+- Tip, Ring, Ring, Sleeve (TRRS) 3.5mm jack
 
 The image below shows the position of the audio pins and connectors of the GIGA R1:
 
@@ -41,6 +41,14 @@ The table below explains the full functionality of the listed on it; notice that
 |  DAC1 |   ADC and DAC  |
 | CANRX | ADC and CAN RX |
 | CANTX | ADC and CAN TX |
+
+Pins `A7`, `DAC0`, and `DAC1` can also be accessed via the built-in TRRS 3.5mm jack. `DAC0` is connected to ring 1 (right channel), `DAC1` is connected to the tip (left channel), and `A7` is connected to ring 2 (microphone) of the jack, as shown in the schematic below:
+
+![GIGA R1 TRRS 3.5mm jack schematic](assets/jack-schematic-1.png)
+
+## Analog-to-Digital Converters 
+
+
 
 ## Digital-to-Analog Converters 
 
