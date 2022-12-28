@@ -100,7 +100,7 @@ This script will light up the RGB LED with 3 different colors in sequence. This 
 
 With the binary file ready, you can now create the OTA file needed to complete the process. 
 
-To continue, macOS or Linux environment is required. For Windows environment, it is possible to use virtualization software such as [Oracle VM Virtualbox](https://www.virtualbox.org/) using your preffered choice of compatible Linux distribution. If you're not familiar with Linux environments, [Ubuntu](https://ubuntu.com/) is one of many distributions that can help you explore Linux environment. 
+To continue, macOS or Linux environment is required. For Windows environment, it is possible to use virtualization software such as [Oracle VM Virtualbox](https://www.virtualbox.org/) using your preferred choice of compatible Linux distribution. If you're not familiar with Linux environments, [Ubuntu](https://ubuntu.com/) is one of many distributions that can help you explore Linux environment. 
 
 Once you're ready, you will need to have a tool which can be found at the following link.
 
