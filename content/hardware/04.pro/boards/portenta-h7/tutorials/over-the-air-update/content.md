@@ -98,11 +98,11 @@ This script will light up the RGB LED with 3 different colors in sequence. This 
 
 ![Exporting Binary for the Sketch](assets/binary_export.png)
 
-With the binary file ready, you can now create the OTA file needed to complete the process. 
+With the binary file ready, you can now create the OTA file needed to enable Over-The-Air process. 
 
-To continue, macOS or Linux environment is required. For Windows environment, it is possible to use virtualization software such as [Oracle VM Virtualbox](https://www.virtualbox.org/) using your preferred choice of compatible Linux distribution. If you're not familiar with Linux environments, [Ubuntu](https://ubuntu.com/) is one of many distributions that can help you explore Linux environment. 
+To continue, macOS or Linux environment is required. For Windows environment, it is possible to use virtualization software such as [Oracle VM Virtualbox](https://www.virtualbox.org/) using your preferred choice of compatible Linux distribution. If you're not familiar with Linux environments, [Ubuntu](https://ubuntu.com/) is one of many distributions that can help you explore Linux environment with ease of access. 
 
-Once you're ready, you will need to have a tool which can be found at the following link.
+Once you're comfortable with an environment, you will need a tool which can be found at the following link.
 
 ***Arduino IoT Cloud Library - Over-The-Air Tools: https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools***
 
@@ -111,6 +111,7 @@ You will have to extract the library at a preferred location to be able to use t
 Copy the binary file into the library tool's folder 
 
 ```cpp
+// Exported binary format reference: sketch.bin
 cp OTA_Usage_Portenta.ino.PORTENTA_H7_M7.bin ~/Arduino/libraries/ArduinoIoTCloud/extras/tools/
 ```
 
@@ -123,12 +124,14 @@ cd ~/Arduino/libraries/ArduinoIoTCloud/extras/tools
 Encode your binary file into `OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss`
 
 ```cpp
+// Argument format: ./lzss.py --encode sketch.bin sketch.lzss
 ./lzss.py --encode OTA_Usage_Portenta.ino.PORTENTA_H7_M7.bin OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss
 ```
 
 Convert your encoded file into `.ota` format
 
 ```cpp
+// Argument format: ./bin2ota.py PORTENTA_H7_M7 sketch.lzss sketch.ota
 ./bin2ota.py PORTENTA_H7_M7 OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
 ```
 
