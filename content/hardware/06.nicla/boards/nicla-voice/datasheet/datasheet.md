@@ -91,9 +91,6 @@ The Arduino® Nicla Voice is your cutting edge development and deployment soluti
 - **Automated Intruder Detection System**:
 Nicla Voice’s edge capabilities enables faster identification of critical and time-sensitive events, including glass-breaking or motion sensing. Multiple voice, sound and sensor applications can run simultaneously with low power consumption, all in a tiny battery-powered size, allowing long period of usage without intervention.
 
-- **Smart Personal Protective Equipment (PPE) Headphones**:
-Nicla Voice enables noise suppression and acoustic echo cancellation, allowing the user to work in noisy environments without risks. However, the integrated deep learning algorithms are able to classify and avoid filtering machine or line alarm signals, preserving overall safety.
-
 - **Predictive Maintenance**:
 Nicla Voice can be used to predict wear of industrial equipment, machinery and automation devices. It can detect vibrations, noises coming from motors or coils and gather the information needed for the Neural Decision Network to output an aligned maintenance with the received inputs.
 
