@@ -34,6 +34,7 @@ The goals of this tutorial are:
 
 ## Hardware and Software Needed 
 - [Arduino Portenta H7](https://store.arduino.cc/portenta-h7)
+- Operative System: Linux or MacOS system, this procedure is not 100% compatible on Windows.
 - Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+
 - USB-C® type cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Arduino IoT Cloud and Arduino_Portenta_OTA libraries
