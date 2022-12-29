@@ -51,10 +51,10 @@ By the end of this project, your plant will communicate its needs with you visua
 
 This tutorial is part of a series of experiments that familiarize you with the Arduino RP2040 and IoT. All experiments can be built using the components contained in the IoT Bundle.
 
-* [I Love You Pillow with Arduino IoT Bundle](https://www.hackster.io/Arduino_Genuino/i-love-you-pillow-with-the-arduino-mkr-iot-bundle-1010-cec4c4?auth_token=452f9f5af91cdf5fb1b219a3a55f98de)
-* [Puzzle Box with Arduino IoT Bundle ](https://www.hackster.io/Arduino_Genuino/puzzlebox-with-arduino-mkr-iot-bundle-1010-96d09c?auth_token=cc56a48599fb1e5b8686a6bddd94f7df)
-* [The Nerd with the Arduino IoT Bundle ](https://www.hackster.io/Arduino_Genuino/the-nerd-with-arduino-iot-mkr-wifi-1010-bundle-b1d0ca?auth_token=8f8951807d454511e857e40ea82f73f9)
-* [Pavlov's Cat with the Arduino IoT Bundle ](https://www.hackster.io/Arduino_Genuino/pavlov-s-cat-with-arduino-mkr-iot-bundle-1010-d5b388?auth_token=f4760e59144a21d6755a8b2b9826be67)
+* [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
+* [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
+* [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
+* [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 
 ### Setting up the Arduino IoT Cloud
 
@@ -241,7 +241,7 @@ Congratulations you have now build your own DIY plant communicator showing how y
 
 This tutorial is part of a series of experiments that familiarize you with the Arduino IoT Bundle. All experiments can be built using the components contained in the IoT Bundle.
 
-* [I Love You Pillow with the Arduino IoT Bundle ](https://www.hackster.io/Arduino_Genuino/i-love-you-pillow-with-the-arduino-mkr-iot-bundle-1010-cec4c4?auth_token=452f9f5af91cdf5fb1b219a3a55f98de)
-* [Pavlov's Cat with the Arduino IoT Bundle ](https://www.hackster.io/Arduino_Genuino/pavlov-s-cat-with-arduino-mkr-iot-bundle-1010-d5b388?auth_token=f4760e59144a21d6755a8b2b9826be67)
-* [Puzzle Box with Arduino IoT Bundle](https://www.hackster.io/Arduino_Genuino/puzzlebox-with-arduino-mkr-iot-bundle-1010-96d09c?auth_token=cc56a48599fb1e5b8686a6bddd94f7df)
-* [The Nerd with the Arduino IoT Bundle](https://www.hackster.io/Arduino_Genuino/the-nerd-with-arduino-iot-mkr-wifi-1010-bundle-b1d0ca?auth_token=8f8951807d454511e857e40ea82f73f9)
+* [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
+* [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
+* [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
+* [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
