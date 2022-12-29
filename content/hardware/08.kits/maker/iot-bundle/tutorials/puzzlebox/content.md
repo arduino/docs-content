@@ -145,7 +145,7 @@ Note that the value of a potentiometer spans from 0 to 1023 making the combinati
 int PotOne = map(analogRead(A0), 0, 1023, 0, 9);
 ```
 
-You wont see any changes until you build your interface in the next step but you can take a look at how to map the values from the potentiometers.
+You won't see any changes until you build your interface in the next step but you can take a look at how to map the values from the potentiometers.
 
 ```
 #include "thingProperties.h"
@@ -770,7 +770,7 @@ void playMelody() {
 }
 ```
 
-Now, we need to go back to our main sketch to play the melody. In order to use the notes we need to add " **#include "Melody.h"** " at the top of our code and inside **setup()** we need to add our **buzzerPin** as **Ouput.** To test our melody we can call **playMelody()** inside **loop()** if the combination has been set right.
+Now, we need to go back to our main sketch to play the melody. In order to use the notes we need to add " **#include "Melody.h"** " at the top of our code and inside **setup()** we need to add our **buzzerPin** as **Output.** To test our melody we can call **playMelody()** inside **loop()** if the combination has been set right.
 
 ```
 #include "LiquidCrystal.h"

@@ -215,7 +215,7 @@ int noteDurationsTwo[] = {
 
 Now, we need to go back to our main sketch to play the melody. In order to use the notes we need to add `#include "pitches.h"` at the top of our code.
 
-Inside **setup()** we need to add our **buzzerPin** as **Ouput.** At the bottom of the code we will add a function called **playMelody()** with three parameters: **melody,durations** and **numberOfNotes.**
+Inside **setup()** we need to add our **buzzerPin** as **Output.** At the bottom of the code we will add a function called **playMelody()** with three parameters: **melody,durations** and **numberOfNotes.**
 
 To test our melody we can call the playMelody function inside **loop()** with our parameters in place.
 

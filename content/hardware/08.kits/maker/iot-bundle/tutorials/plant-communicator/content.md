@@ -195,7 +195,7 @@ void loop() {
  }  
 }  
 int get_average_moisture() {  
- int tempValue = 0; /* variable to temporarly store moisture value */  
+ int tempValue = 0; /* variable to temporarily store moisture value */  
  /* make an average of 10 values to be more accurate */  
  for (int a = 0; a < 10; a++) {  
  tempValue += analogRead(moisturePin);  
@@ -208,7 +208,7 @@ float get_temperature() {
  float voltage = reading * 3.3;  
  voltage /= 1024.0;  
  /* temperature in Celsius */  
- float temperatureC = (voltage - 0.5) * 100 ; /*converting from 10 mv per degree wit 500 mV offset */  
+ float temperatureC = (voltage - 0.5) * 100 ; /*converting from 10 mv per degree with 500 mV offset */  
  /* Convert to Fahrenheit */  
  float temperatureF = (temperatureC * 9.0 / 5.0) + 32.0;  
  return temperatureC;  
