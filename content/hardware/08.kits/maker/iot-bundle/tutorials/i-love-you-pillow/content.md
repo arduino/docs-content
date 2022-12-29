@@ -285,3 +285,62 @@ This tutorial is part of a series of experiments that familiarize you with the A
 * [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 * [Plant Communicator with the Arduino IoT Bundle](/tutorials/iot-bundle/plant-communicator)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
+
+## Full Code
+
+```arduino
+#include "thingProperties.h"
+int Buzzer = 8;
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  delay(1500);
+  // Defined in thingProperties.h
+  initProperties();
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+void loop() {
+  ArduinoCloud.update();
+  if (chat == 
+"
+ <3
+"
+) {
+    chat = "\U00002764";
+  }
+  
+  int reading = analogRead(A0);
+  
+  //threshold set to 500, this can be adjusted to your liking
+  if(reading > 500){
+    pressed = true;
+  
+  //execute the activateBuzzer() function when threshold is being met.
+  activateBuzzer();
+  heart_beat +=1; //increase heart_beat value for every "heart beat".
+}
+else{
+  pressed = false;  
+}
+}
+void activateBuzzer() {
+  tone(Buzzer, 31, 200); // tone(Pin, Note, Duration);
+  delay(200);
+  tone(Buzzer, 31, 400);
+  delay(200);
+  noTone(Buzzer);
+  delay(1000);
+}
+void onChatChange() {
+//this function is automatically generated
+}
+void onHeartBeatChange() {
+//this function is automatically generated
+}
+void onPressedChange() {
+//this function is automatically generated
+}
+```
