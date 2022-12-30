@@ -48,7 +48,7 @@ This tutorial is part of a series of experiments that familiarise you with the A
 * [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
 * [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
 * [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
-* [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
+* [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 
 ### Circuit
 
@@ -142,7 +142,7 @@ This tutorial is part of a series of experiments that familiarize you with the A
 * [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
 * [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
 * [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
-* [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
+* [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 
 ## Full Code
 

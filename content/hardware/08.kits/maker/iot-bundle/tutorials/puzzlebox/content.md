@@ -47,7 +47,7 @@ In order to open the box, which is held closed with a servo motor, you will have
 This tutorial is part of a series of experiments that familiarize you with the Arduino RP2040 and IoT. All experiments can be built using the components contained in the IoT Bundle.
 
 * [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
-* [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
+* [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 * [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 

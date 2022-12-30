@@ -53,7 +53,7 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 * [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
 * [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
-* [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
+* [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 
 ### Setting up the Arduino IoT Cloud
@@ -243,7 +243,7 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 * [I Love You Pillow with the Arduino IoT Bundle ](/tutorials/iot-bundle/i-love-you-pillow)
 * [Puzzle Box with Arduino IoT Bundle ](/tutorials/iot-bundle/puzzlebox)
-* [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
+* [Pavlov's Cat with the Arduino IoT Bundle](/tutorials/iot-bundle/pavlovs-cat)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 
 ## Full Code
