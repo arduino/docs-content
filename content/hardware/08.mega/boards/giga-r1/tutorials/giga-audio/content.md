@@ -52,6 +52,10 @@ An analog-to-digital converter (ADC) is a device that converts an analog voltage
 
 ![ADC pins of the GIGA R1](assets/adcs.png)
 
+`A7` is connected to ring 2 (microphone) of the jack, as shown in the schematic below:
+
+![GIGA R1 3.5mm input jack schematic](assets/jack-schematic-2.png)
+
 The GIGA R1 ADCs can be used with the [built-in analog input/output functions of the Arduino programming language](https://www.arduino.cc/reference/de/language/functions/analog-io/analogread/), though they only provide the basic functionalities of the ADCs. To use all of the capabilities of the DACs from the GIGA R1, we can use the `AdvancedAnalogRedux` library from Arduino. Let's check some interesting examples that show some capabilities of the GIGA R1 ADCs!
 
 ### Using Two GIGA R1 ADCs Simultaneously
@@ -157,9 +161,9 @@ The GIGA R1 DACs are named `DAC0` and `DAC1`; they can be found on pins `A12` an
 
 Besides pins `A12` and `A13`, `DAC0` and `DAC1` can also be accessed via the built-in TRRS 3.5mm jack. `DAC0` is connected to the right channel (tip), while `DAC1` is connected to the left channel (ring) of the input jack as shown in the schematic below:
 
-![GIGA R1 3.5mm input jack schematic](assets/jack-schematic.png)
+![GIGA R1 3.5mm input jack schematic](assets/jack-schematic-3.png)
 
-The GIGA R1 DACs can be used with the built-in analog input/output functions of the Arduino programming language, though they only provide the basic functionalities of the DACs. To use all of the capabilities of the DACs from the GIGA R1, we can use the `AdvancedAnalogRedux` library from Arduino. Let's check some interesting examples that show some capabilities of the GIGA R1 DACs!
+The GIGA R1 DACs can be used with the [built-in analog input/output functions of the Arduino programming language](https://www.arduino.cc/reference/de/language/functions/analog-io/analogread/), though they only provide the basic functionalities of the ADCs. To use all of the capabilities of the DACs from the GIGA R1, we can use the `AdvancedAnalogRedux` library from Arduino. Let's check some interesting examples that show some capabilities of the GIGA R1 DACs!
 
 ### Waveform Generation with the GIGA R1 DACs
 
