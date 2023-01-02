@@ -301,120 +301,9 @@ void loop() {
 }
 ```
 
-### Playback with the GIGA R1 DACs
-
-The GIGA R1 12-bit DAC channels can also be used to create a simple mono or stereo audio playback. In the following example, we will use a USB drive as our source for a .WAV audio files and output them using custom libraries to help us process these files. A 3.5mm audio jack-compatible speaker is also required for the audio playback output.
-
-The libraries we are going to use are the following:
-
-- `USBHostMbed5.h`
-- `DigitalOut.h`
-- `FATFileSystem.h`
-- `AdvancedDAC.h` 
-
-The `AdvancedDAC` library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. The custom library `wav_seeker` will be used to process .WAV audio files; this library adapts the algorithm based on `wave_player` library by Steve Ravet. 
-
-An USB drive will be required with WAV format audio files. The USB drive must be formatted with MBR partition scheme and FAT32 file system for correct operation with the GIGA R1. Our recommendation is [Audacity](https://www.audacityteam.org/), a free, open-source, cross-platform, and easy-to-use audio software for formatting the USB drive.
-
-***It is recommendable to format the audio file as 16-bit PCM Mono at 44,000Hz.***
-
-Three lines of code are essential to notice in the example. The first line of code is in which we will define the USB drive to read. We must determine the `USB_DRIVE_NAME` field with the respective USB drive name:
-
-```arduino 
-mbed::FATFileSystem usb("USB_DRIVE_NAME");
-```
-The second line of code defines the desired audio file to be played. We will need to fill out the complete audio file name, replacing `AUDIO_SAMPLE`, which points to the file to be read:
-
-```arduino
-  FILE *f = fopen("/USB_DRIVE_NAME/AUDIO_SAMPLE.wav", "r+");
-```
-
-And lastly, the third line of code is the call to the playback function. This function requires three arguments: file to be playback, DAC to be used, and verbosity (optional):
-
-```arduino
-wav_play_rl(f, dac1, false);
-```
-
-The complete example code is shown below (the `wav_seeker` library can be accessed [here](assets/wav_seeker.zip)):
-
-```arduino
-/*
- * GIGA R1 - Audio Playback
- * Simple wav format audio playback via 12-Bit DAC output by reading from a USB drive.
-*/
-
-#include <USBHostMbed5.h>
-#include <DigitalOut.h>
-#include <FATFileSystem.h>
-
-// AdvancedDAC library is included inside wav_seeker library
-#include "wav_seeker.h"
-AdvancedDAC dac1(A12);
-
-USBHostMSD msd;
-mbed::FATFileSystem usb("USB_DRIVE_NAME");
-
-void setup() {
-  Serial.begin(115200);
-  while (!Serial);
-
-  delay(2500);
-  Serial.println("Starting USB File Read example...");
-
-  // If you are using a Max Carrier, uncomment the following line:
-  //start_hub();
-
-  while (!msd.connect()) {
-    delay(1000);
-  }
-
-  Serial.println("Mounting USB device...");
-  int err =  usb.mount(&msd);
-  if (err) {
-    Serial.print("Error mounting USB device!");
-    Serial.println(err);
-    while (1);
-  }
-
-  // Read the file
-  Serial.print("Read done!");
-  mbed::fs_file_t file;
-  struct dirent *ent;
-  int dirIndex = 0;
-  int res = 0;
-  Serial.println("Open file...");
-  
-  // 16-bit PCM Mono 16kHz realigned noise reduction
-  FILE *f = fopen("/USB_DRIVE_NAME/AUDIO_SAMPLE.wav", "r+");
-
-  // Crucial (from mBed)
-  wav_play_rl(f, dac1, false);
- 
-  // Close the file 
-  Serial.println("File closing");
-  fflush(stdout);
-  err = fclose(f);
-  if (err < 0) {
-    Serial.print("fclose error: ");
-    Serial.print(strerror(errno));
-    Serial.print(" (");
-    Serial.print(-errno);
-    Serial.print(")");
-  } else {
-    Serial.println("File closed!");
-  } 
-}
-
-void loop() {
-
-}
-```
-
-Once you have the setup and the code ready, you can upload it to the GIGA R1 board and play the audio file of your choice. The example can playback 3 to 4 seconds of an audio file.
-
 ### Tone Generation with the GIGA R1 DACs
 
-Let's experiment more with the GIGA R1 features; in the following example, we will connect a keyboard to the GIGA R1. The keyboard in the example is used to generate different waveforms: 
+Let's experiment more with the GIGA R1 features; in the following example, we will connect a keyboard to the GIGA R1. The keyboard in the example is used to generate different waveforms, like a synthesizer: 
 
 ```arduino
 #include "AdvancedDAC.h"
@@ -705,6 +594,7 @@ void setup() {
 
 void loop() {
   //Serial.println(F("Loop beg"));
+
   if (keyb.available() > 0 && newData == false) {
     rk[0] = keyb.read();
     Serial.println(rk);
@@ -718,3 +608,114 @@ void loop() {
   waveform_gen();
   waveform_gen_uturn();
   dac12bit_ctrl(globalDAC_Buffer, GLOBBuf_size);
+}
+```
+
+### Playback with the GIGA R1 DACs
+
+The GIGA R1 12-bit DAC channels can also be used to create a simple mono or stereo audio playback. In the following example, we will use a USB drive as our source for a .WAV audio files and output them using custom libraries to help us process these files. A 3.5mm audio jack-compatible speaker is also required for the audio playback output.
+
+The libraries we are going to use are the following:
+
+- `USBHostMbed5.h`
+- `DigitalOut.h`
+- `FATFileSystem.h`
+- `AdvancedDAC.h` 
+
+The `AdvancedDAC` library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. The custom library `wav_seeker` will be used to process .WAV audio files; this library adapts the algorithm based on `wave_player` library by Steve Ravet. 
+
+An USB drive will be required with WAV format audio files. The USB drive must be formatted with MBR partition scheme and FAT32 file system for correct operation with the GIGA R1. Our recommendation is [Audacity](https://www.audacityteam.org/), a free, open-source, cross-platform, and easy-to-use audio software for formatting the USB drive.
+
+***It is recommendable to format the audio file as 16-bit PCM Mono at 44,000Hz.***
+
+Three lines of code are essential to notice in the example. The first line of code is in which we will define the USB drive to read. We must determine the `USB_DRIVE_NAME` field with the respective USB drive name:
+
+```arduino 
+mbed::FATFileSystem usb("USB_DRIVE_NAME");
+```
+The second line of code defines the desired audio file to be played. We will need to fill out the complete audio file name, replacing `AUDIO_SAMPLE`, which points to the file to be read:
+
+```arduino
+  FILE *f = fopen("/USB_DRIVE_NAME/AUDIO_SAMPLE.wav", "r+");
+```
+
+And lastly, the third line of code is the call to the playback function. This function requires three arguments: file to be playback, DAC to be used, and verbosity (optional):
+
+```arduino
+wav_play_rl(f, dac1, false);
+```
+
+The complete example code is shown below (the `wav_seeker` library can be accessed [here](assets/wav_seeker.zip)):
+
+```arduino
+/*
+ * GIGA R1 - Audio Playback
+ * Simple wav format audio playback via 12-Bit DAC output by reading from a USB drive.
+*/
+
+#include <USBHostMbed5.h>
+#include <DigitalOut.h>
+#include <FATFileSystem.h>
+
+// AdvancedDAC library is included inside wav_seeker library
+#include "wav_seeker.h"
+AdvancedDAC dac1(A12);
+
+USBHostMSD msd;
+mbed::FATFileSystem usb("USB_DRIVE_NAME");
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+
+  delay(2500);
+  Serial.println("Starting USB File Read example...");
+
+  // If you are using a Max Carrier, uncomment the following line:
+  //start_hub();
+
+  while (!msd.connect()) {
+    delay(1000);
+  }
+
+  Serial.println("Mounting USB device...");
+  int err =  usb.mount(&msd);
+  if (err) {
+    Serial.print("Error mounting USB device!");
+    Serial.println(err);
+    while (1);
+  }
+
+  // Read the file
+  Serial.print("Read done!");
+  mbed::fs_file_t file;
+  struct dirent *ent;
+  int dirIndex = 0;
+  int res = 0;
+  Serial.println("Open file...");
+  
+  // 16-bit PCM Mono 16kHz realigned noise reduction
+  FILE *f = fopen("/USB_DRIVE_NAME/AUDIO_SAMPLE.wav", "r+");
+
+  // Crucial (from mBed)
+  wav_play_rl(f, dac1, false);
+ 
+  // Close the file 
+  Serial.println("File closing");
+  fflush(stdout);
+  err = fclose(f);
+  if (err < 0) {
+    Serial.print("fclose error: ");
+    Serial.print(strerror(errno));
+    Serial.print(" (");
+    Serial.print(-errno);
+    Serial.print(")");
+  } else {
+    Serial.println("File closed!");
+  } 
+}
+
+void loop() {}
+```
+
+Once you have the setup and the code ready, you can upload it to the GIGA R1 board and play the audio file of your choice. The example can playback 3 to 4 seconds of an audio file.
