@@ -104,7 +104,7 @@ void loop() {
 
 ### Visualizing Two GIGA R1 ADCs Simultaneously in the Serial Plotter
 
-The following example code showS how to use two GIGA R1 ADCs simultaneously with the `AdvancedAnalogRedux` library from Arduino and displays the readings via the Serial Plotter of the Arduino IDE:
+The following example code shows how to use two GIGA R1 ADCs simultaneously with the `AdvancedAnalogRedux` library from Arduino and displays the readings via the Serial Plotter of the Arduino IDE:
 
 ```arduino
 #include "AdvancedADC.h"
@@ -163,7 +163,11 @@ The GIGA R1 DACs can be used with the built-in analog input/output functions of 
 
 ### Waveform Generation with the GIGA R1 DACs
 
-The following example shows how to output an 8KHz square wave on `DAC0`.
+Waveform generation is an exciting application used in audio systems, for example, synthesizers, for audio signal generation.
+
+***Synthesizers create audio signals by generating waveforms but also by changing their characteristics.***
+
+The following example shows how to output an 8kHz square wave on `DAC0`:
 
 ```arduino
 #include "AdvancedDAC.h"
@@ -175,8 +179,9 @@ void setup() {
 
     while (!Serial) {}
 
+    // Resolution, sample rate, number of samples per channel, and queue depth of the DAC
     if (!dac1.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
-        Serial.println("Failed to start DAC1 !");
+        Serial.println("Failed to start DAC1!");
         while (1);
     }
 }
@@ -202,7 +207,7 @@ void loop() {
 }
 ```
 
-It is also possible to output at both DAC channels, `DAC0` and `DAC1`. The continuing example outputs an 8KHz square wave on DAC0, while 16KHz square wave is outputted on DAC1.
+It is also possible to simultaneously output at both DAC channels, `DAC0` and `DAC1`. The following example generates an 8kHz square wave on `DAC0`, while a 16kHz square wave is generated on `DAC1`:
 
 ```arduino
 #include "AdvancedDAC.h"
@@ -213,17 +218,16 @@ AdvancedDAC dac2(A13);
 void setup() {
     Serial.begin(9600);
 
-    while (!Serial) {
+    while (!Serial) {}
 
-    }
-
+    // Resolution, sample rate, number of samples per channel, and queue depth of the DAC
     if (!dac1.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
-        Serial.println("Failed to start DAC1 !");
+        Serial.println("Failed to start DAC1!");
         while (1);
     }
 
     if (!dac2.begin(AN_RESOLUTION_12, 16000, 32, 64)) {
-        Serial.println("Failed to start DAC2 !");
+        Serial.println("Failed to start DAC2!");
         while (1);
     }
 }
@@ -231,15 +235,15 @@ void setup() {
 void dac_output_sq(AdvancedDAC &dac_out) {
     if (dac_out.available()) {
       
-        // Get a free buffer for writing.
+        // Get a free buffer for writing
         SampleBuffer buf = dac_out.dequeue();
         
-        // Write data to buffer.
+        // Write data to buffer
         for (int i=0; i<buf.size(); i++) {
           buf.data()[i] =  (i % 2 == 0) ? 0: 0xfff;
         }
         
-        // Writethe buffer to DAC.
+        // Writethe buffer to DAC
         dac_out.write(buf);
     }
 }
@@ -250,7 +254,7 @@ void loop() {
 }
 ```
 
-A 32KHz sine wave output on DAC0 can be implemented using following example. 
+A 32kHz sine wave output on `DAC0` can be generated using the following example:
 
 ```arduino
 #include "AdvancedDAC.h"
@@ -267,8 +271,10 @@ static size_t lut_size = sizeof(lut) / sizeof(lut[0]);
 
 void setup() {
     Serial.begin(9600);
+    
+    // Resolution, sample rate, number of samples per channel, and queue depth of the DAC
     if (!dac1.begin(AN_RESOLUTION_12, 32000 * lut_size, 64, 128)) {
-        Serial.println("Failed to start DAC1 !");
+        Serial.println("Failed to start DAC1!");
         while (1);
     }
 }
@@ -277,369 +283,55 @@ void loop() {
     static size_t lut_offs = 0;
 
     if (dac1.available()) {
-        // Get a free buffer for writing.
+        // Get a free buffer for writing
         SampleBuffer buf = dac1.dequeue();
 
-        // Write data to buffer.
+        // Write data to buffer
         for (size_t i=0; i<buf.size(); i++, lut_offs++) {
             buf[i] =  lut[lut_offs % lut_size];
         }
 
-        // Writethe buffer to DAC.
+        // Write the buffer to DAC
         dac1.write(buf);
     }
 }
 ```
 
-### Tone Generation with the GIGA R1 DACs
-
-To experiment the DACs that are on-board the GIGA R1, it is possible to interface through a keyboard that would let us interact and generate waveforms to output as sound. Following example shows a way to generate different types of waveforms and it can be played with to make different levels of sound. 
-
-```arduino
-#include "AdvancedDAC.h"
-#include "HIDHost.h"
-
-//REDIRECT_STDOUT_TO(Serial)
-Keyboard keyb;
-
-AdvancedDAC dac1(A12);
-
-boolean newData = false;
-bool wave_uturn = false;
-
-// Specific to sine mod 
-int sin_freq = 220;
-int sin_ampl = 127;
-
-static byte ndx = 0;
-char endMarker = '\n';
-char rk[] = "";
-
-// Custom mode
-// Sine Wave Value 
-long long slice_buf;
-uint16_t globalDAC_Buffer[256];
-uint16_t neutralDAC_Buffer[256];
-
-static size_t GLOBBuf_size = sizeof(globalDAC_Buffer) / sizeof(globalDAC_Buffer[0]);
-
-void dac12bit_ctrl(uint16_t reqBuffer[], size_t buf_formfactor){
-  static size_t buf_offs = 0;
-
-  if (dac1.available()) {
-    // Get a free buffer for writing.
-    SampleBuffer buf = dac1.dequeue();
-
-    // Write data to buffer.
-    for (size_t i=0; i<buf.size(); i++, buf_offs++) {
-        buf[i] =  reqBuffer[buf_offs % buf_formfactor];
-    }
-
-    // Writethe buffer to DAC.
-    for(uint8_t i=0; i<5; i++){
-      dac1.write(buf);
-    }
-
-    // Spacing (TEMPORAL) - For some reason it makes faster 
-    buf = dac1.dequeue();
-
-    // Write data to buffer.
-    for (size_t i=0; i<buf.size(); i++) {
-        buf[i] =  0;
-    }
-
-    for(uint8_t i=0; i<50; i++){
-      dac1.write(buf);
-    }
-    
-  }
-
-}
-
-void waveform_gen(){
-  if (newData == true){
-    newData = false;
-    
-    // Basic waveforms generated from iterations
-    if (strcmp("q",(char*)rk) == 0){
-      // Simple Triangle wave
-      Serial.println(F("trig"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = abs((i % 255) - 127);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-        //Serial.println(globalDAC_Buffer[i]);
-      }
-    }
-
-    if (strcmp("w",(char*)rk) == 0){
-      // Simple Square wave
-      Serial.println(F("squa"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = (i % 255) < 127 ? 127 : 0;
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    // Default fixed sine wave
-    if (strcmp("e",(char*)rk) == 0){
-      // Sine wave
-      Serial.println(F("sine fixed"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = 127 * sin((float)i / 10);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    // Variable sine wave
-    if (strcmp("t",(char*)rk) == 0){
-      // Sine wave
-      Serial.println(F("sine modded"));
-
-      // variable
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = sin_ampl * sin(2*(3.1415)*(sin_freq)*(float)i);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    if (strcmp("r",(char*)rk) == 0){
-      // Triangular Concave SQRTX
-      Serial.println(F("concave sqrt"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = pow(abs((i % 255) - 127), 0.5);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-/*
-    // Currently crashes GIGA
-    if (strcmp("y",(char*)rk) == 0){
-      Serial.println(F("Sawtooth"));
-
-      // Sawtooth generation (Very rough)
-      for (uint8_t i=0; i<256; i++){
-        // Simply incrementing to fit into buffer of 64 samples to complete 4096 (Can be done to generate deep bass sound)
-        slice_buf = i; 
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }*/
-
-    // Non-Waveform generator functions
-    if (strcmp("h",(char*)rk) == 0){
-      // Increase sine wave frequency
-      Serial.println(F("sine freq +"));
-      if (sin_freq < 6500){
-        sin_freq += 100;
-      } else {
-        sin_freq = 6500;
-        Serial.println(F("max frequency"));
-      }
-    }
-
-    if (strcmp("l",(char*)rk) == 0){
-      // Decrease sine wave frequency
-      Serial.println(F("sine freq -"));
-      if (sin_freq > 100){
-        sin_freq -= 100;
-      } else {
-        sin_freq = 100;
-        Serial.println(F("min frequency"));
-      }
-    }
-
-    if (strcmp("o",(char*)rk) == 0){
-      // Increase sine wave amplitude
-      Serial.println(F("sine ampl +"));
-      if (sin_ampl < 256){
-        sin_ampl += 10;
-      } else {
-        sin_ampl = 256;
-        Serial.println(F("max ampl"));
-      }
-    }
-
-    if (strcmp("p",(char*)rk) == 0){
-      // Decrease sine wave amplitude
-      Serial.println(F("sine ampl -"));
-      if (sin_ampl > 10){
-        sin_ampl -= 10;
-      } else {
-        sin_ampl = 10;
-        Serial.println(F("min ampl"));
-      }
-    }
-
-    if (strcmp("R",(char*)rk) == 0){
-      // Sine wave spec Neutral
-      Serial.println(F("sine spec neut"));
-      sin_ampl = 127;
-      sin_freq = 220;
-    }
-
-    if (strcmp("U",(char*)rk) == 0){
-      // Tone generation mode change - ON
-      if (wave_uturn == false){
-        Serial.println(F("Consistent waveform mix - ON"));
-        wave_uturn = true;
-      } 
-    }
-    
-    // Null buffer for null audio output
-    if (strcmp("n",(char*)rk) == 0){
-      // Imitate audio pause 
-      Serial.println(F("Null Audio"));
-
-      for (uint8_t i=0; i<255; i++){
-        globalDAC_Buffer[i] = slice_buf=0;
-      }
-    }
-  }
-}
-
-void waveform_gen_uturn(){
-  if (newData = true && wave_uturn == true){
-    newData = false;
-    
-    // Basic waveforms generated from iterations
-    if (strcmp("q",(char*)rk) == 0){
-      // Simple Triangle wave
-      Serial.println(F("trig"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = abs((i % 255) - 127);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-        //Serial.println(globalDAC_Buffer[i]);
-      }
-    }
-
-    if (strcmp("w",(char*)rk) == 0){
-      // Simple Square wave
-      Serial.println(F("squa"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = (i % 255) < 127 ? 127 : 0;
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    if (strcmp("t",(char*)rk) == 0){
-      // Sine wave
-      Serial.println(F("sine modded"));
-
-      // variable
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = sin_ampl * sin(2*(3.1415)*(sin_freq)*(float)i);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    if (strcmp("r",(char*)rk) == 0){
-      // Triangular Concave SQRTX
-      Serial.println(F("concave sqrt"));
-
-      for (uint8_t i=0; i<255; i++){
-        slice_buf = pow(abs((i % 255) - 127), 0.5);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-    
-    if (strcmp("K",(char*)rk) == 0){
-      // Tone generation mode change - OFF
-      if (wave_uturn == true){
-        Serial.println(F("Consistent waveform mix - OFF"));
-        wave_uturn = false;
-      } 
-    }
-  }
-}
-
-void setup() {
-  Serial.begin(115200);
-
-  while (!Serial) {
-  }
-
-  // Initializing keyboard interface
-  pinMode(PA_15, OUTPUT);
-  keyb.begin();
-
-  // DAC initialization
-  if (!dac1.begin(AN_RESOLUTION_12, 44100, 256, 512)) {
-      Serial.println("Failed to start DAC1 !");
-      while (1);
-  }
-  
-}
-
-void loop() {
-  //Serial.println(F("loop beg"));
-  if (keyb.available() > 0 && newData == false){
-    rk[0] = keyb.read();
-    Serial.println(rk);
-
-    newData = true;
-  }
-  
-  // ****************************************
-  // Input standby
-  // * Precaution: Very long - Requires to be shortened & not applied correctly to DAC
-  // ****************************************
-
-  waveform_gen();
-  waveform_gen_uturn();
-
-  dac12bit_ctrl(globalDAC_Buffer, GLOBBuf_size);
-
-}
-
-```
-
 ### Playback with the GIGA R1 DACs
 
-The GIGA R1 has 2 DAC channels available at 12-Bit resolution for output using the 3.5mm audio jack. This can be used to create a simple mono or stereo audio playback. We will use an USB drive as our source for WAV audio files and output using custom library that will help us to process these files. For this simple audio playback, we will use following libraries. 
+The GIGA R1 12-bit DAC channels can also be used to create a simple mono or stereo audio playback. In the following example, we will use a USB drive as our source for a .WAV audio files and output them using custom libraries to help us process these files. A 3.5mm audio jack-compatible speaker is also required for the audio playback output.
+
+The libraries we are going to use are the following:
 
 - `USBHostMbed5.h`
 - `DigitalOut.h`
 - `FATFileSystem.h`
 - `AdvancedDAC.h` 
 
-The `AdvancedDAC` library contains vital functions to enable DAC processing features on-board GIGA R1. The custom library `wav_seeker` will be used to process WAV audio file format using this library. The library adapts the algorithm based on wave_player library by Steve Ravet. 
+The `AdvancedDAC` library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. The custom library `wav_seeker` will be used to process .WAV audio files; this library adapts the algorithm based on `wave_player` library by Steve Ravet. 
 
-An USB drive will be required with WAV format audio files. The USB drive must be formatted with MBR partition scheme and FAT32 file system for correct operation with the GIGA R1. A software called [*Audacity*](https://www.audacityteam.org/) can be used to format the desired audio file. It is recommendable to format the audio file as *16-Bit PCM Mono at 44,000Hz* but it can be used with different audio format. 
+An USB drive will be required with WAV format audio files. The USB drive must be formatted with MBR partition scheme and FAT32 file system for correct operation with the GIGA R1. Our recommendation is [Audacity](https://www.audacityteam.org/), a free, open-source, cross-platform, and easy-to-use audio software for formatting the USB drive.
 
-A 3.5mm audio jack compatible speaker would be required as an audio file output source. With all this ready, we can now move onto audio playback code. 
+***It is recommendable to format the audio file as 16-bit PCM Mono at 44,000Hz.***
 
-The 3 lines of audio playback code will require your attention. The first line will be in which you will define the USB drive to read. You will need to define `USB_DRIVE_NAME` field with respective USB drive name that can be found on your computer's drive navigation or via storage properties. 
+Three lines of code are essential to notice in the example. The first line of code is in which we will define the USB drive to read. We must determine the `USB_DRIVE_NAME` field with the respective USB drive name:
 
-```arduino
+```arduino 
 mbed::FATFileSystem usb("USB_DRIVE_NAME");
 ```
-
-The next line will be defining which is the desired audio file to be played. You will need to fill out the complete audio file name, replacing `AUDIO_SAMPLE` which points to the file to be read. 
+The second line of code defines the desired audio file to be played. We will need to fill out the complete audio file name, replacing `AUDIO_SAMPLE`, which points to the file to be read:
 
 ```arduino
   FILE *f = fopen("/USB_DRIVE_NAME/AUDIO_SAMPLE.wav", "r+");
 ```
 
-And lastly, it will be the playback function. This function will require 3 arguments: file parameter, configured DAC, and option for verbosity if desired.
+And lastly, the third line of code is the call to the playback function. This function requires three arguments: file to be playback, DAC to be used, and verbosity (optional):
 
 ```arduino
 wav_play_rl(f, dac1, false);
 ```
 
-The complete script is as follows. The `wav_seeker` library can be accessed [here](assets/wav_seeker.zip)
+The complete example code is shown below (the `wav_seeker` library can be accessed [here](assets/wav_seeker.zip)):
 
 ```arduino
 /*
@@ -665,7 +357,7 @@ void setup() {
   delay(2500);
   Serial.println("Starting USB File Read example...");
 
-  // if you are using a Max Carrier uncomment the following line
+  // If you are using a Max Carrier, uncomment the following line:
   //start_hub();
 
   while (!msd.connect()) {
@@ -675,37 +367,37 @@ void setup() {
   Serial.println("Mounting USB device...");
   int err =  usb.mount(&msd);
   if (err) {
-    Serial.print("Error mounting USB device ");
+    Serial.print("Error mounting USB device!");
     Serial.println(err);
     while (1);
   }
 
-  // Read
-  Serial.print("read done ");
+  // Read the file
+  Serial.print("Read done!");
   mbed::fs_file_t file;
   struct dirent *ent;
   int dirIndex = 0;
   int res = 0;
-  Serial.println("Open file..");
+  Serial.println("Open file...");
   
-  // 16 Bit PCM Mono 16kHz Realigned Noise Reduction
+  // 16-bit PCM Mono 16kHz realigned noise reduction
   FILE *f = fopen("/USB_DRIVE_NAME/AUDIO_SAMPLE.wav", "r+");
 
-  // Crucial - from mBed 
+  // Crucial (from mBed)
   wav_play_rl(f, dac1, false);
  
-  // Close
+  // Close the file 
   Serial.println("File closing");
   fflush(stdout);
   err = fclose(f);
   if (err < 0) {
-    Serial.print("fclose error:");
+    Serial.print("fclose error: ");
     Serial.print(strerror(errno));
     Serial.print(" (");
     Serial.print(-errno);
     Serial.print(")");
   } else {
-    Serial.println("File closed");
+    Serial.println("File closed!");
   } 
 }
 
@@ -714,4 +406,311 @@ void loop() {
 }
 ```
 
-Once you have the setup and the code ready, you can upload to the GIGA R1 board and play the audio file of your choice. It will have the capability to play 3 ~ 4 seconds of playback, and hear it through the connected speaker. You will now be able to use this simple feature to make a list of audio files to play in sequence in short terms that react to surroundings, or a small audio clip llibrary to play using a keyboard as a launchpad-style.  
+Once you have the setup and the code ready, you can upload it to the GIGA R1 board and play the audio file of your choice. The example can playback 3 to 4 seconds of an audio file.
+
+### Tone Generation with the GIGA R1 DACs
+
+Let's experiment more with the GIGA R1 features; in the following example, we will connect a keyboard to the GIGA R1. The keyboard in the example is used to generate different waveforms: 
+
+```arduino
+#include "AdvancedDAC.h"
+#include "HIDHost.h"
+
+//REDIRECT_STDOUT_TO(Serial)
+Keyboard keyb;
+
+AdvancedDAC dac1(A12);
+
+boolean newData = false;
+bool wave_uturn = false;
+
+// Specific to sine mod 
+int sin_freq = 220;
+int sin_ampl = 127;
+
+static byte ndx = 0;
+char endMarker = '\n';
+char rk[] = "";
+
+// Custom mode
+// Sine wave value 
+long long slice_buf;
+uint16_t globalDAC_Buffer[256];
+uint16_t neutralDAC_Buffer[256];
+
+static size_t GLOBBuf_size = sizeof(globalDAC_Buffer) / sizeof(globalDAC_Buffer[0]);
+
+void dac12bit_ctrl(uint16_t reqBuffer[], size_t buf_formfactor) {
+  static size_t buf_offs = 0;
+
+  if (dac1.available()) {
+    // Get a free buffer for writing
+    SampleBuffer buf = dac1.dequeue();
+
+    // Write data to buffer
+    for (size_t i=0; i<buf.size(); i++, buf_offs++) {
+        buf[i] =  reqBuffer[buf_offs % buf_formfactor];
+    }
+
+    // Write the buffer to DAC
+    for(uint8_t i=0; i<5; i++) {
+      dac1.write(buf);
+    }
+
+    // Spacing (TEMPORAL) - For some reason it makes faster 
+    buf = dac1.dequeue();
+
+    // Write data to buffer
+    for (size_t i=0; i<buf.size(); i++) {
+        buf[i] =  0;
+    }
+
+    for(uint8_t i=0; i<50; i++) {
+      dac1.write(buf);
+    }
+    
+  }
+
+}
+
+void waveform_gen(){
+  if (newData == true) {
+    newData = false;
+    
+    // Basic waveforms generated from iterations
+    if (strcmp("q",(char*)rk) == 0) {
+      // Simple Triangle wave
+      Serial.println(F("trig"));
+
+      for (uint8_t i = 0; i < 255; i++){
+        slice_buf = abs((i % 255) - 127);
+        // Scaling up from 8 bit to 12 bit resol data
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+        //Serial.println(globalDAC_Buffer[i]);
+      }
+    }
+
+    if (strcmp("w",(char*)rk) == 0) {
+      // Simple square wave
+      Serial.println(F("squa"));
+
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = (i % 255) < 127 ? 127 : 0;
+        // Scaling up from 8 bit to 12-bit data
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+
+    // Default fixed sine wave
+    if (strcmp("e",(char*)rk) == 0) {
+      // Sine wave
+      Serial.println(F("Sine fixed"));
+
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = 127 * sin((float)i / 10);
+        // Scaling up from 8 bit to 12 bit resolution
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+
+    // Variable sine wave
+    if (strcmp("t",(char*)rk) == 0) {
+      // Sine wave
+      Serial.println(F("sine modded"));
+
+      // Variable
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = sin_ampl * sin(2*(3.1415)*(sin_freq)*(float)i);
+        // Scaling up from 8-bit to 12-bit resolution
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+
+    if (strcmp("r",(char*)rk) == 0) {
+      // Triangular concave SQRTX
+      Serial.println(F("Concave sqrt"));
+
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = pow(abs((i % 255) - 127), 0.5);
+        // Scaling up from 8 bit to 12 bit resol data
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+/*
+    // Currently crashes GIGA
+    if (strcmp("y",(char*)rk) == 0) {
+      Serial.println(F("Sawtooth"));
+
+      // Sawtooth generation (very rough)
+      for (uint8_t i=0; i<256; i++){
+        // Simply incrementing to fit into buffer of 64 samples to complete 4096 (can be done to generate deep bass sound)
+        slice_buf = i; 
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }*/
+
+    // Non-waveform generator functions
+    if (strcmp("h",(char*)rk) == 0) {
+      // Increase sine wave frequency
+      Serial.println(F("sine freq +"));
+      if (sin_freq < 6500) {
+        sin_freq += 100;
+      } else {
+        sin_freq = 6500;
+        Serial.println(F("max frequency"));
+      }
+    }
+
+    if (strcmp("l",(char*)rk) == 0) {
+      // Decrease sine wave frequency
+      Serial.println(F("Sine freq - "));
+      if (sin_freq > 100){
+        sin_freq -= 100;
+      } else {
+        sin_freq = 100;
+        Serial.println(F("min frequency"));
+      }
+    }
+
+    if (strcmp("o",(char*)rk) == 0) {
+      // Increase sine wave amplitude
+      Serial.println(F("sine ampl +"));
+      if (sin_ampl < 256) {
+        sin_ampl += 10;
+      } else {
+        sin_ampl = 256;
+        Serial.println(F("max ampl"));
+      }
+    }
+
+    if (strcmp("p",(char*)rk) == 0) {
+      // Decrease sine wave amplitude
+      Serial.println(F("sine ampl -"));
+      if (sin_ampl > 10){
+        sin_ampl -= 10;
+      } else {
+        sin_ampl = 10;
+        Serial.println(F("min ampl"));
+      }
+    }
+
+    if (strcmp("R",(char*)rk) == 0) {
+      // Sine wave spec Neutral
+      Serial.println(F("sine spec neut"));
+      sin_ampl = 127;
+      sin_freq = 220;
+    }
+
+    if (strcmp("U",(char*)rk) == 0) {
+      // Tone generation mode change - ON
+      if (wave_uturn == false){
+        Serial.println(F("Consistent waveform mix - ON"));
+        wave_uturn = true;
+      } 
+    }
+    
+    // Null buffer for null audio output
+    if (strcmp("n",(char*)rk) == 0){
+      // Imitate audio pause 
+      Serial.println(F("Null Audio"));
+
+      for (uint8_t i=0; i<255; i++){
+        globalDAC_Buffer[i] = slice_buf=0;
+      }
+    }
+  }
+}
+
+void waveform_gen_uturn() {
+  if (newData = true && wave_uturn == true) {
+    newData = false;
+    
+    // Basic waveforms generated from iterations
+    if (strcmp("q",(char*)rk) == 0) {
+      // Simple Triangle wave
+      Serial.println(F("trig"));
+
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = abs((i % 255) - 127);
+        // Scaling up from 8 bit to 12 bit resol data
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+        //Serial.println(globalDAC_Buffer[i]);
+      }
+    }
+
+    if (strcmp("w",(char*)rk) == 0) {
+      // Simple Square wave
+      Serial.println(F("squa"));
+
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = (i % 255) < 127 ? 127 : 0;
+        // Scaling up from 8 bit to 12 bit resolution
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+
+    if (strcmp("t",(char*)rk) == 0) {
+      // Sine wave
+      Serial.println(F("sine modded"));
+
+      // variable
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = sin_ampl * sin(2*(3.1415)*(sin_freq)*(float)i);
+        // Scaling up from 8 bit to 12 bit resol data
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+
+    if (strcmp("r",(char*)rk) == 0) {
+      // Triangular Concave SQRTX
+      Serial.println(F("Concave sqrt"));
+
+      for (uint8_t i=0; i<255; i++) {
+        slice_buf = pow(abs((i % 255) - 127), 0.5);
+        // Scaling up from 8 bit to 12 bit resolution
+        globalDAC_Buffer[i] += (slice_buf<<=4);
+      }
+    }
+    
+    if (strcmp("K",(char*)rk) == 0) {
+      // Tone generation mode change - OFF
+      if (wave_uturn == true) {
+        Serial.println(F("Consistent waveform mix - OFF"));
+        wave_uturn = false;
+      } 
+    }
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  while (!Serial) {
+  }
+
+  // Initializing keyboard interface
+  pinMode(PA_15, OUTPUT);
+  keyb.begin();
+
+  // DAC initialization
+  if (!dac1.begin(AN_RESOLUTION_12, 44100, 256, 512)) {
+      Serial.println("Failed to start DAC1 !");
+      while (1);
+  }
+}
+
+void loop() {
+  //Serial.println(F("Loop beg"));
+  if (keyb.available() > 0 && newData == false) {
+    rk[0] = keyb.read();
+    Serial.println(rk);
+    newData = true;
+  }
+  
+  // ****************************************************************************
+  // Input standby
+  // Caution: Very long - Requires to be shortened & not applied correctly to DAC
+  // ****************************************************************************
+  waveform_gen();
+  waveform_gen_uturn();
+  dac12bit_ctrl(globalDAC_Buffer, GLOBBuf_size);
