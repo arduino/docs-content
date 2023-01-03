@@ -198,7 +198,7 @@ The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network.
 
 ## Connector Pinouts
-**Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
+All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
 
 ### J1 Nicla Header A
 
