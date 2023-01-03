@@ -244,6 +244,8 @@ To learn in depth about how to use these powerful features, read the [USBHost Gu
 
 The **Arduino GIGA R1** features an RTC pin, giving you the ability to power the timekeeping circuitry with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
 
+![RTC pin on the Arduino GIGA R1](./assets/rtc.png)
+
 The following sketch will continuously print the time in the Serial monitor.
 ```arduino
 #include "mbed.h"
@@ -293,6 +295,8 @@ To get accurate time, you'll want to change the values in `void RTCset()` to wha
 The Arduino GIGA features an onboard arducam compatible connector, with support for **parallel**. 
 
 Programming the board in the **MicroPython** language using the **OpenMV IDE** easily lets you get started with a neural network analysing a realtime camera feed with ML. 
+
+To learn more about the camera capabilities of the Arduino GIGA R1, check out the [GIGA Camera Guide](../giga-camera/giga-camera.md)
 
 ## JTAG
 The **Arduino GIGA R1** features a 2x5 pin JTAG (Joint Test Action Group) connector, giving advanced debug functionalities for more advanced users. 
