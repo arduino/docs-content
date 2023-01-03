@@ -13,7 +13,7 @@ The Arduino Nicla Voice is our smallest form factor yet.
 </Feature>
 
 <Feature title="Ultra-low power board" image="power">
-The Arduino Nicla voice has been designed as an ultra-low power board, being the perfect solution for industrial and IoT battery-powered applications.
+The Arduino Nicla Voice has been designed as an ultra-low power board, being the perfect solution for industrial and IoT battery-powered applications.
 </Feature>
 
 <Feature title="System-on-Chip" image="mcu">
@@ -42,7 +42,7 @@ The Nicla Voice features a BMM150, a low-power 3-axis digital geomagnetic sensor
 </Feature>
 
 <Feature title="Bluetooth® Low Energy" image="bluetooth">
-The Nicla voice features the ANNA-B112 Bluetooth® module. A Bluetooth® 5.0 Low Energy system-in-package (SIP) with the powerful nRF52832 SoC integrated.
+The Nicla Voice features the ANNA-B112 Bluetooth® module. A Bluetooth® 5.0 Low Energy system-in-package (SIP) with the powerful nRF52832 SoC integrated.
 <FeatureLink title="Datasheet" url="https://content.u-blox.com/sites/default/files/ANNA-B112_DataSheet_UBX-18011707.pdf" download blank/>
 </Feature>
 
