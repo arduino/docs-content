@@ -23,6 +23,20 @@ The GIGA R1 have two USB connectors:
 
 ***Note: do NOT connect the USB-A connector to your computer. This is not a programming port and if the `PA15` pin is enabled, it can damage your computer's USB port.***
 
+## Enable/Disable USB-A Port
+
+To enable the USB-A port, you will need to define it as an output. You can also disable it inside of a sketch by writing a LOW state to it.
+
+```arduino
+void setup(){
+  pinMode(PA_15, OUTPUT);
+}
+
+void loop(){
+  digitalWrite(PA_15, HIGH); //write a high state
+  digitalWrite(PA_15, LOW); //write a low state
+}
+```
 
 ## USB Mass Storage
 
