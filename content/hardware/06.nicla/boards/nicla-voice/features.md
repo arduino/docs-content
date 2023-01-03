@@ -12,6 +12,10 @@ The Nicla Voice can also be battery-powered with long-lasting autonomy making it
 The Arduino Nicla Voice is our smallest form factor yet.
 </Feature>
 
+<Feature title="Ultra-low power board" image="power">
+The Arduino Nicla voice has been designed as an ultra-low power board, being the perfect solution for industrial and IoT battery-powered applications.
+</Feature>
+
 <Feature title="System-on-Chip" image="mcu">
 The Nicla Voice features an nRF52832, a general-purpose multiprotocol System-on-Chip (SoC) from Nordic® Semiconductor.
 <FeatureLink title="Datasheet" url="https://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.4.pdf" download blank/>
@@ -22,8 +26,9 @@ The Nicla Voice features an NDP120™, an ultra-low powered and special-purpose 
 <FeatureLink title="Datasheet" url="https://www.syntiant.com/ndp120" download blank/>
 </Feature>
 
-<Feature title="Ultra-low power board" image="power">
-The Arduino Nicla voice has been designed as an ultra-low power board, being the perfect solution for industrial and IoT battery-powered applications.
+<Feature title="Microphone" image="microphone">
+The Nicla Voice features an IM69D130, a high-performance digital MEMS microphone from Infineon®.
+<FeatureLink title="Datasheet" url="https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e" download blank/>
 </Feature>
 
 <Feature title="Inertial Measurement Unit" image="imu">
@@ -36,9 +41,12 @@ The Nicla Voice features a BMM150, a low-power 3-axis digital geomagnetic sensor
 <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf" download blank/>
 </Feature>
 
-<Feature title="Microphone" image="microphone">
-The Nicla Voice features an IM69D130, a high-performance digital MEMS microphone from Infineon®.
-<FeatureLink title="Datasheet" url="https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e" download blank/>
+<Feature title="Bluetooth® Low Energy" image="bluetooth">
+
+The Nicla voice features the ANNA-B112 Bluetooth® module. A Bluetooth® 5.0 Low Energy system-in-package (SIP) with the powerful nRF52832 SoC integrated.
+
+<FeatureLink title="Datasheet" url="https://content.u-blox.com/sites/default/files/ANNA-B112_DataSheet_UBX-18011707.pdf" download blank/>
+
 </Feature>
 
 </FeatureList>
