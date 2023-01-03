@@ -3,6 +3,7 @@ title: UNO WiFi Rev2
 url_shop: https://store.arduino.cc/arduino-uno-wifi-rev2
 url_guide: /software/ide-v1/installing-megaavr-core
 core: arduino:megaavr
+certifications: [CE]
 productCode: '023'
 ---
 

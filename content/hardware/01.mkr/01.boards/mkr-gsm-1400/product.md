@@ -4,6 +4,7 @@ url_guide: /software/ide-v1/installing-samd21-core
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrgsm1400/146'
 status: end-of-life
+certifications: [CE]
 productCode: '021'
 ---
 
