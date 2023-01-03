@@ -14,11 +14,6 @@ tags:
   - Arducam
   - Audio Jack
 author: 'Jacob Hylén'
-libraries:
-  - name: USBHost
-    url: https://github.com/arduino-libraries/USBHost
-  - name: AdvancedAnalogRedux
-    url: https://github.com/arduino-libraries/AdvancedAnalogRedux 
 hardware:
   - hardware/giga-r1
 software:
