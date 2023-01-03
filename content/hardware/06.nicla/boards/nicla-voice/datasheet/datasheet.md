@@ -8,7 +8,7 @@ author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri, Taddy Chung
 ![Nicla Voice](assets/featured.png)
 
 # Description
-The **Arduino® Nicla Voice** packs machine learning capabilities on the edge into a tiny fingerprint.
+The **Arduino® Nicla **Voice** packs machine-learning capabilities on the edge into a tiny fingerprint.
 
 Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
@@ -31,7 +31,7 @@ noise and vibration detection, low-power speech recognition, contactless operati
   - Internal 32 MHz oscillator
   - 1.8 V Operating Voltage
 - **Syntiant® NDP120** Neural Decision Processor™ (Microprocessor)
-  - 1x Syntiant® Core 2™ ultra low power deep neural network inference engine
+  - 1x Syntiant® Core 2™ ultra-low power deep neural network inference engine
   - 1x HiFi 3 Audio DSP
   - 1x Arm® Cortex® M0 core up to 48 MHz
   - Dedicated Low I<sub>Q</sub> High PSRR Low-Dropout regulator (TPS7A05)
@@ -50,22 +50,22 @@ noise and vibration detection, low-power speech recognition, contactless operati
     - <1μs of HW synchronization
     - Wide voltage supply range
     - Low Power
-      - Current consumption: typ. 685 μA (full ODR and aliasing free operation)
-      - Built in PMU
-  - Magnetometer 3-axis (BMM150)
+      - Current consumption: typ. 685 μA (full ODR and aliasing-free operation)
+      - Built-in PMU
+  - **Magnetometer** 3-axis (BMM150)
     - Low voltage operation
-    - Ultra low power, current consumption 170μA @ 10 Hz in low power preset
+    - Ultra-low power, current consumption 170μA @ 10 Hz in low power preset
     - Interrupt signal generation for magnetic Low-/High-Threshold detection
     - Magnetic field range typical of ±1300μT (x, y-axis), ±2500μT (z-axis)
     - Magnetic field resolution of ~0.3μT
     - Maximum magnetic field rating at any direction >7T
-  - High Performance Microphone (IM69D130)
+  - High-Performance Microphone (IM69D130)
     - Frequency range 20 Hz ~ 20 kHz
     - MEMS (silicon) type
     - Dynamic range of 105dB
     - <1% total harmonic distortions up to 128 dBSPL
     - Sensitivity (± 1dB) and phase (± 2° @1kHz) matched
-    - Flat frequency response with low frequency roll off at 28Hz
+    - Flat frequency response with low-frequency roll-off at 28Hz
     - Power optimized modes determined by PDM clock frequency
     - PDM output
     - Omnidirectional pickup pattern
@@ -89,16 +89,16 @@ noise and vibration detection, low-power speech recognition, contactless operati
 The Arduino® Nicla Voice is your cutting edge development and deployment solution taking advantage of Syntiant® NDP120, a neural decision processor that will let you run multiple AI algorithms. Deploy predictive maintenance, gesture and speech recognition, and contactless applications in a miniaturized form factor. A 6-axis motion sensor, a magnetometer, and always-on speech recognition on the edge are at your disposal for unrestricted research and development. On-board Bluetooth® Low Energy connectivity grants interoperability with compatible Nicla, Portenta, and MKR devices for scalability. Ultra-low power consumption enables long lasting device life-time and wide range of deployment possibilities.
 
 - **Automated Intruder Detection System**:
-Nicla Voice’s edge capabilities enables faster identification of critical and time-sensitive events, including glass-breaking or motion sensing. Multiple voice, sound and sensor applications can run simultaneously with low power consumption, all in a tiny battery-powered size, allowing long period of usage without intervention.
+Nicla Voice’s edge capabilities enable faster identification of critical and time-sensitive events, including glass-breaking or motion sensing. Multiple voices, sound and sensor applications can run simultaneously with low power consumption, all in a tiny battery-powered size, allowing long periods of usage without intervention.
 
 - **Predictive Maintenance**:
-Nicla Voice can be used to predict wear of industrial equipment, machinery and automation devices. It can detect vibrations, noises coming from motors or coils and gather the information needed for the Neural Decision Network to align maintenance with the operational characteristics.
+Nicla Voice can be used to predict the wear of industrial equipment, machinery and automation devices. It can detect vibrations, noises coming from motors or coils and gather the information needed for the Neural Decision Network to align maintenance with the operational characteristics.
 
 - **Add low-power speech recognition**:
-With the built-in microphone and its tiny form factor, you can easily equip an existing setup with the Nicla Voice to improve the workflow by adding speech recognition like voice commands. Moreover, Always-On speech recognition application can be developed thanks to the ultra low-power Syntiant® NDP120 Neural Decision Processor™.
+With the built-in microphone and its tiny form factor, you can easily equip an existing setup with the Nicla Voice to improve the workflow by adding speech recognition like voice commands. Moreover, an always-on speech recognition application can be developed thanks to the ultra low-power Syntiant® NDP120 Neural Decision Processor™.
 
 ### Accessories (Not Included)
-- Single cell Li-ion/Li-Po battery
+- Single-cell Li-ion/Li-Po battery
 
 ### Related Products
 - ESLOV connector
@@ -109,7 +109,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 ### Assembly Overview
 ![Example: Example of a typical solution for remote environmental sensing including an Arduino® Nicla Voice, Arduino® Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVoiceSolutionOverview.png)
 
-**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC.
+**Note**: The NTC pin on the battery connector is optional. This is a feature that allows safer use and thermal shutoff of the PMIC.
 
 ## Ratings
 | Symbol               | Description                      | Min                                 | Typ | Max                                 | Unit |
@@ -176,16 +176,16 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI270 6-axis IMU (U15). It is also the secondary for the BHI270 (U15) I2C and SPI connection. While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal.
 
 ### Neural Decision Processor
-The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with capacity to run multiple application simultaneously with minimal power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.
+The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with the capacity to run multiple applications simultaneously with minimal power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.
 
 ### IMU
-The Nicla Voice provides  9-axis IMU capabilities, by combination of the BMI270 (U15) and BMM150 (U4) ICs. The BMI270 includes both a three axis gyroscope as well as an three axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning. Both are connected via an SPI connection to the ANNA-B112 module (MD1).
+The Nicla Voice provides  9-axis IMU capabilities, by the combination of the BMI270 (U15) and BMM150 (U4) ICs. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning. Both are connected via an SPI connection to the ANNA-B112 module (MD1).
 
 ### RGB LED
-An I2C LED driver (U8) drives the common anode RGB LED (DL1), and is capable of a maximum output of 40 mA. It is driven by the ANNA-B112 (U5) microcontroller.
+An I2C LED driver (U8) drives the common anode RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANNA-B112 (U5) microcontroller.
 
 ### Microphone
-The IM69D130V01XTSA1 microphone IC (U2) includes two near identical MEMS microphones with a common membrane, allowing for beamforming applications in a small form factor. Audio signal is transported over a PDM channel to the NDP120 (U3). An external microphone can be connected (J6), that is also connected to the NDP120(U3) over a separate PDM channel. Internal microphone (U2) and optional external microphone (J6) are on PDM 0 and PDM 1 channels respectively. 
+The IM69D130V01XTSA1 microphone IC (U2) includes two near identical MEMS microphones with a common membrane, allowing for beamforming applications in a small form factor. The audio signal is transported over a PDM channel to the NDP120 (U3). An external microphone can be connected (J6), which is also connected to the NDP120(U3) over a separate PDM channel. Internal microphone (U2) and optional external microphone (J6) are on PDM 0 and PDM 1 channels respectively. 
 
 ### USB Bridge
 The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3 V logic to 1.8 V for the ANNA-B112. The 3.3 V voltage is generated from the USB voltage by a LDO (U14).
@@ -193,9 +193,9 @@ The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as we
 ### Power Tree
 ![Nicla Voice Power Tree](assets/niclaVoice_Power_Tree.png)
 
-The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the microUSB, a linear 3.3 V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8 V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>.
+The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3 V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8 V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>.
 
-Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing use of the board as a wireless sensor network.
+Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network.
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
@@ -332,7 +332,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -351,7 +351,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
