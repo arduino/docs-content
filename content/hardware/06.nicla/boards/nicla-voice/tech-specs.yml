@@ -16,6 +16,10 @@ Pins:
   External interrupts: 12
 Connectivity:
   Bluetooth®: ANNA-B112 Bluetooth® module
+Sensors:
+  IMU: BMI270
+  Magnetometer: BMM150
+  Microphone: IM69D130
 Communication:
   UART: Yes
   I2C: 1

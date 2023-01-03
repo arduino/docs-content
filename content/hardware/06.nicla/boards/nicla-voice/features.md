@@ -13,12 +13,12 @@ The Arduino Nicla Voice is our smallest form factor yet.
 </Feature>
 
 <Feature title="System-on-Chip" image="mcu">
-The Nicla Voice features an nRF52832 from Nordic® Semiconductors. The nRF52832 is a general-purpose multiprotocol System-on-Chip (SoC) that meets the challenges of a broad range of applications that need advanced Bluetooth® LE features.
+The Nicla Voice features an nRF52832, a general-purpose multiprotocol System-on-Chip (SoC) from Nordic® Semiconductor.
 <FeatureLink title="Datasheet" url="https://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.4.pdf" download blank/>
 </Feature>
 
-<Feature title="Neural Decision Processor" image="mcu">
-The Nicla Voice features an NDP120™ from Syntiant®. The NDP120 is a special-purpose deep-learning processor suitable for always-on applications in battery-powered devices.
+<Feature title="Neural Decision Processor" image="core">
+The Nicla Voice features an NDP120™, a special-purpose deep-learning processor suitable for battery-powered applications and devices from Syntiant®.
 <FeatureLink title="Datasheet" url="https://www.syntiant.com/ndp120" download blank/>
 </Feature>
 
@@ -28,17 +28,17 @@ This board can be programmed with the Python® programming language via the Open
 </Feature>
 
 <Feature title="Inertial Measurement Unit" image="imu">
-The Nicla Voice features a BMI270 from Bosch®. The BMI270 is an ultra-low power Inertial Measurement Unit (IMU) optimized for wearables. It provides acceleration, angular rate, and intelligent on-chip motion-triggered interrupt features.
+The Nicla Voice features a BMI270, an ultra-low power Inertial Measurement Unit (IMU) optimized for wearables from Bosch®.
 <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf" download blank/>
 </Feature>
 
 <Feature title="Magnetometer" image="magnetometer">
-The Nicla Voice features a BMM150 from Bosch®. The BMM1250 is a low-power 3-axis digital geomagnetic sensor.
+The Nicla Voice features a BMM150, a low-power 3-axis digital geomagnetic sensor from Bosch®.
 <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf" download blank/>
 </Feature>
 
 <Feature title="Microphone" image="microphone">
-The Nicla Voice features an IM69D130 from Infineon®. The IM69D130 is a high-performance digital MEMS microphone.
+The Nicla Voice features an IM69D130, a high-performance digital MEMS microphone from Infineon®.
 <FeatureLink title="Datasheet" url="https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e" download blank/>
 </Feature>
 
