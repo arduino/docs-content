@@ -18,17 +18,16 @@ The Nicla Voice features an nRF52832, a general-purpose multiprotocol System-on-
 </Feature>
 
 <Feature title="Neural Decision Processor" image="core">
-The Nicla Voice features an NDP120™, a special-purpose deep-learning processor suitable for battery-powered applications and devices from Syntiant®.
+The Nicla Voice features an NDP120™, an ultra-low powered and special-purpose deep-learning processor suitable for battery-powered applications and devices created by Syntiant®.
 <FeatureLink title="Datasheet" url="https://www.syntiant.com/ndp120" download blank/>
 </Feature>
 
-<Feature title="Python® Support" image="python">
-This board can be programmed with the Python® programming language via the OpenMV IDE.
-<FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
+<Feature title="Ultra-low power board" image="power">
+The Arduino Nicla voice has been designed as an ultra-low power board, being the perfect solution for industrial and IoT battery-powered applications.
 </Feature>
 
 <Feature title="Inertial Measurement Unit" image="imu">
-The Nicla Voice features a BMI270, an ultra-low power Inertial Measurement Unit (IMU) optimized for wearables from Bosch®.
+The Nicla Voice features a BMI270, a 6-axis ultra-low power Inertial Measurement Unit (IMU) optimized for wearables from Bosch®.
 <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf" download blank/>
 </Feature>
 
