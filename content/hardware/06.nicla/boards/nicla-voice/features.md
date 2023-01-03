@@ -2,7 +2,7 @@
 
 The Arduino® Nicla Voice implements always-on speech recognition on the edge. The board integrates a Neural Decision Processor from Syntiant (NDP120), enabling it to run multiple AI algorithms. It also features a smart 6-axis motion sensor and a magnetometer, making it the ideal solution for ultra-low power predictive maintenance, gesture/voice recognition, and contactless applications. Following the Nicla family, it offers on-board Bluetooth® Low Energy connectivity and is compatible with Nicla, Portenta, and MKR products.
 
-The Nicla Voice can also be battery-powered with long-lasting autonomy making it standalone.
+The Nicla Voice can also be battery-powered with long-lasting autonomy being perfect for autonomous power standalone applications.
 
 </FeatureDescription>
 
@@ -42,11 +42,8 @@ The Nicla Voice features a BMM150, a low-power 3-axis digital geomagnetic sensor
 </Feature>
 
 <Feature title="Bluetooth® Low Energy" image="bluetooth">
-
 The Nicla voice features the ANNA-B112 Bluetooth® module. A Bluetooth® 5.0 Low Energy system-in-package (SIP) with the powerful nRF52832 SoC integrated.
-
 <FeatureLink title="Datasheet" url="https://content.u-blox.com/sites/default/files/ANNA-B112_DataSheet_UBX-18011707.pdf" download blank/>
-
 </Feature>
 
 </FeatureList>
