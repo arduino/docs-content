@@ -52,7 +52,7 @@ noise and vibration detection, low-power speech recognition, contactless operati
     - Low Power
       - Current consumption: typ. 685 μA (full ODR and aliasing-free operation)
       - Built-in PMU
-  - **Magnetometer** 3-axis (BMM150)
+  - Magnetometer 3-axis (BMM150)
     - Low voltage operation
     - Ultra-low power, current consumption 170μA @ 10 Hz in low power preset
     - Interrupt signal generation for magnetic Low-/High-Threshold detection
