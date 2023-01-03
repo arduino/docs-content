@@ -14,15 +14,6 @@ tags:
   - Arducam
   - Audio Jack
 author: 'Jacob Hylén'
-libraries:
-  - name: Arduino ECCX08
-    url: https://github.com/arduino-libraries/ArduinoECCX08
-  - name: RTC by Giampalo Mancini
-    url: Haven't found yet
-  - name: USBHostMbed5
-    url: https://github.com/facchinm/USBHostMbed5/tree/test_hs_in_fs        WILL PROBABLY CHANGE
-  - name: AdvancedAnalogRedux
-    url: https://github.com/bcmi-labs/AdvancedAnalogRedux 
 hardware:
   - hardware/giga-r1
 software:
@@ -43,7 +34,7 @@ You can also visit the documentation platform for the [Arduino GIGA R1](/hardwar
 ## Datasheet
 The full datasheets are available as a downloadable PDF from the link below:
 
-- [Download the Arduino GIGA R1 datasheet]()
+- [Download the Arduino GIGA R1 datasheet](docs.arduino.cc/resources/datasheets/ABX00067-datasheet.pdf)
 
 ## Power Supply
 
@@ -69,7 +60,7 @@ The **Arduino GIGA R1** can be programmed through:
 To set the board up to be programmed with the OpenMV IDE in MicroPython, check out the [Boot0 section](#boot0) of this article.
 
 ### Core
-The Arduino GIGA R1 uses the [GIGA core]().
+The Arduino GIGA R1 uses the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed).
 
 ### Boot0
 Pressing and holding the button labelled `BOOT0` on the board while powering the board will boot it into DFU-mode (Device Firmware Update), letting you reflash the bootloader without the use of external hardware, if you were to ever need to. 
@@ -78,15 +69,12 @@ Pressing and holding the button labelled `BOOT0` on the board while powering the
 
 The state of this button can also be read from a sketch while it is running, giving you a basic interactive component without needing to do any wiring.
 
+To read the state of the Boot0 button in your sketch, you use this line of code:
+```arduino
+digitalRead(PC_13);
+```
+
 Booting the board into DFU-mode will also let you configure it with the OpenMV IDE to program the board with MicroPython, to for example deploy a trained ML model analysing a real time camera feed.
-
-To learn more about this feature, and how you can use it, check out [this tutorial.]()
-
-## Arduino IoT Cloud
-
-The Arduino GIGA R1 is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
-
-If you need help to get started, you can go through the [Arduino IoT Cloud getting started guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ## STM32H747XI Microcontroller
 
@@ -158,43 +146,105 @@ In the coming sections we will provide resources and basic information on how to
 
 
 ### Output
+In order to output audio from the DAC, you can use the `AdvancedAnalogRedux` library from Arduino. You will need to connect a speaker to your board either with the headphone jack or the dac pins.
+
+Include the library and setup the DAC with the following code in the beginning of your sketch, outside of the `void setup()` function:
+
+```arduino
+#include "AdvancedDAC.h"
+
+AdvancedDAC dac(A12);
+
+```
+
+Then, initialize the library, and check that everything went as expected with the following piece of code:
+
+```arduino
+ if (!dac.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
+        Serial.println("Failed to start DAC!");
+        while (1);
+    }
+```
+
+Then lastly, add the following code to `void loop()` to start:
+```arduino
+if (dac.available()) {
+
+        // Get a free buffer for writing
+        SampleBuffer buf = dac.dequeue();
+
+        // Write data to buffer
+        for (int i=0; i<buf.size(); i++) {
+            buf.data()[i] =  (i % 2 == 0) ? 0: 0xfff;
+        }
+
+        // Write the buffer data to DAC
+        dac.write(buf);
+    }
+```
+
+The options for audio playback and generation on your Arduino GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [audio guide](../giga-audio/content.md).
 
 ### Input
+The audio jack on the Arduino GIGA R1 is not just connected to the DAC pins, however, but are also connected to pin A7, for microphone capabilities. 
+
+To take advantage of this, you can use the `AdvancedAnalogRedux` library from Arduino, start off by including the library and setting up the pin as an advanced ADC pin in the beginning of your sketch, outside of `void setup()`.
+
+```arduino
+#include "AdvancedADC.h"
+
+AdvancedADC adc(A7);
+```
+
+Now, initialise the library and run a check to make sure everything went as expected with the following code within `void setup()`:
+```arduino
+
+  Serial.begin(9600);
+
+  // Resolution, sample rate, number of samples per channel, and queue depth of the ADC
+   if (!adc.begin(AN_RESOLUTION_16, 16000, 32, 64)) {
+       Serial.println("Failed to start analog acquisition!");
+       while (1);
+   }
+```
+Finally, read the ADC, and store it in a way that you can use it, do this within `void loop()`:
+```arduino
+  if (adc.available()) {
+        SampleBuffer buf = adc.read();
+
+        // Print first sample
+        Serial.println(buf[0]);
+
+        // Release the buffer to return it to the pool
+        buf.release();
+```
+
+The options for audio input on your Arduino GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [audio guide](../giga-audio/content.md).
 
 ## MIPI Display Interface
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **Arduino GIGA R1** to boast a 2 lane MIPI display interface. 
 
 This means that the **Arduino GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build a responsive interface.
 
-Check out [this tutorial]() to learn how to build an interface with the LVGL library.
-
 ## USBHost
-The USB-A port you find on the **Arduino GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. The board can receive keyboard input, or be used to read files off of a USB flash drive, if you for example want to play audio files on a speaker you have plugged in the audio jack.
+The USB-A port you find on the **Arduino GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. The board can receive keyboard input effectively enabling a few hundred more inputs without any wiring, or be used to read files off of a USB flash drive, if you for example want to play audio files on a speaker you have plugged in the audio jack.
 
-- [Library for USB-Host]()
+There are several libraries you can use for the USBHost capabilities of the Arduino GIGA R1: 
 
-To learn in depth about how to use this powerful feature, read the [USBHost Guide.]()
+- USBHost
+- HIDHost
+- PluggableUSBHID
+- USBKeyboard
 
-## Dual Core Processing
-As mentioned previously, the microcontroller on the **Arduino GIGA R1** is a dual core processor, and can therefore run two separate programs simultaneously. The cores can be programmed separately and are capable of sharing information with each other. 
+Some of these libraries are built in to the core and therefore you won't be required to download them separately. 
 
-When writing a program that is supposed to use both cores, you will be required to forcefully boot the second core. For most programs there really is no reason to use both, and for that reason it is by default unbooted. However it is a powerful option to have, and one that you can easily make use of if you want to continuously monitor and process sensor values. 
-
-You boot the second core by adding the function:
-```arduino
-bootM4();
-```
-at the beginning of the sketch for your primary core, in the board selector you choose to program either the primary M7 core, or the secondary M4 core.
-
-It is also possible to program both cores with just one sketch, though this quickly becomes an unwieldy, inefficient and **difficult** way to work.
-
-To learn more about dual core processing on the **Arduino GIGA R1**, check out the tutorial below:
-
-- [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)
+To learn in depth about how to use these powerful features, read the [USBHost Guide](../giga-usb/giga-usb.md) that contains in-depth walkthroughs for each of them.
 
 ## RTC
 
 The **Arduino GIGA R1** features an RTC pin, giving you the ability to power the timekeeping circuitry with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
+
+![RTC pin on the Arduino GIGA R1](./assets/rtc.png)
 
 The following sketch will continuously print the time in the Serial monitor.
 ```arduino
@@ -241,17 +291,15 @@ String getLocaltime()
 
 To get accurate time, you'll want to change the values in `void RTCset()` to whatever time it is when you're starting this clock. As long as the VRTC pin is connected to power, the clock will keep ticking and time will be kept accurately.
 
-To learn more about the Arduino GIGA R1's RTC capabilities, check out [this tutorial]() for an in-depth guide
-
 ## Camera Interface
 The Arduino GIGA features an onboard arducam compatible connector, with support for **parallel**. 
 
 Programming the board in the **MicroPython** language using the **OpenMV IDE** easily lets you get started with a neural network analysing a realtime camera feed with ML. 
 
+To learn more about the camera capabilities of the Arduino GIGA R1, check out the [GIGA Camera Guide](../giga-camera/giga-camera.md)
+
 ## JTAG
 The **Arduino GIGA R1** features a 2x5 pin JTAG (Joint Test Action Group) connector, giving advanced debug functionalities for more advanced users. 
-
-Check out [this tutorial]() to learn how to use the JTAG connector on the **Arduino GIGA R1**. 
 
 ![JTAG Connector](assets/jtag.png)
 
@@ -267,10 +315,6 @@ CAN, or **Controller Area Network**, is a communication standard that allows mic
 This makes the **Arduino GIGA R1** a powerful option for complex multilayered systems, as it can be integrated into existing systems or be used to build a new one from scratch. 
 
 The CAN pins on the **Arduino GIGA R1** are labelled `CANRX` and `CANTX`
-
-For more information on how to use the CAN bus on your **Arduino GIGA R1**, check out [this tutorial.]()
-
-- [Using the CAN bus on the Arduino GIGA]()
 
 ## SPI 
 The **Arduino GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header labelled SPI, and the other is broken out into pin connections on the board. 
@@ -538,8 +582,6 @@ analogWriteResolution(12);
 On the **Arduino GIGA R1** you will find a pin labelled **"OFF"**. If you connect this pin to ground, the board will power down even if power is supplied to the board.
 
 You can install a flip-switch to the board to let you turn your device on and off easily, which can be a handy option for a more permanent fixture. 
-
-Read more about this feature, and learn when and how to use it by checking out this [this tutorial.]()
 
 ## Miscellaneous 
 
