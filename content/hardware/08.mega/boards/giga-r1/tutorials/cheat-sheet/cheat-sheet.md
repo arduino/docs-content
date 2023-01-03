@@ -234,7 +234,7 @@ This means that the **Arduino GIGA R1** is capable of driving a touch-display la
 ## USBHost
 The USB-A port you find on the **Arduino GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. The board can receive keyboard input effectively enabling a few hundred more inputs without any wiring, or be used to read files off of a USB flash drive, if you for example want to play audio files on a speaker you have plugged in the audio jack.
 
-There are several libaries you can use for the USBHost capabilities of the Arduino GIGA R1: 
+There are several libraries you can use for the USBHost capabilities of the Arduino GIGA R1: 
 
 - USBHost
 - HIDHost
