@@ -103,6 +103,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 ### Related Products
 - ESLOV connector
 - Arduino® Portenta H7 (SKU: ABX00042)
+- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 - Arduino® Nicla Sense ME (SKU: ABX00050)
 
 
