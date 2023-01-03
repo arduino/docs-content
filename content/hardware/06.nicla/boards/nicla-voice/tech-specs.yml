@@ -28,7 +28,7 @@ Power:
   DC Current per I/O pin: 4.7 mA
 Clock speed:
   Processor: 64MHz
-  RTC: On board of the ANNA-B112
+  RTC: On-board the ANNA-B112
 Memory:
   nRF52832 System-on-chip: 64kB SRAM, 512kB Flash
   x1 AT25QL128A-UUE-T: 16MB SPI Flash
