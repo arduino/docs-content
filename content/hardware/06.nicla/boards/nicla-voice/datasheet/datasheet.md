@@ -192,6 +192,8 @@ The IM69D130V01XTSA1 microphone IC (U2) includes two near identical MEMS microph
 ### USB Bridge
 The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3 V logic to 1.8 V for the ANNA-B112. The 3.3 V voltage is generated from the USB voltage by a LDO (U14).
 
+<div style="page-break-after: always;"> </div>
+
 ### Power Tree
 ![Nicla Voice Power Tree](assets/niclaVoice_Power_Tree.png)
 
