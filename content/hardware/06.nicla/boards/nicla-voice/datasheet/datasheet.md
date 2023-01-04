@@ -187,7 +187,7 @@ The Nicla Voice provides 9-axis IMU capabilities, by the combination of the 3-ax
 An I2C LED driver (U8) drives the common anode RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANNA-B112 (U5) microcontroller.
 
 ### Microphone
-The IM69D130V01XTSA1 microphone IC (U2) includes two near identical MEMS microphones with a common membrane, allowing for beamforming applications in a small form factor. The audio signal is transported over a PDM channel to the NDP120 (U3). An external microphone can be connected (J6), which is also connected to the NDP120(U3) over a separate PDM channel. Internal microphone (U2) and optional external microphone (J6) are on PDM 0 and PDM 1 channels respectively. 
+The IM69D130V01XTSA1 microphone IC (U2) includes two near identical MEMS microphones with a common membrane, allowing for beamforming applications in a small form factor. The audio signal is transported over a PDM channel to the NDP120 (U3). An external microphone can be added using the J6 connector, which is also connected to the NDP120 (U3) over a separate PDM channel. Internal microphone (U2) and optional external microphone (J6) are on PDM 0 and PDM 1 channels respectively. 
 
 ### USB Bridge
 The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3 V logic to 1.8 V for the ANNA-B112. The 3.3 V voltage is generated from the USB voltage by a LDO (U14).
