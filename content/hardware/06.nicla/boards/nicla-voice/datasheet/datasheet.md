@@ -103,6 +103,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 ### Related Products
 - ESLOV connector
 - Arduino® Portenta H7 (SKU: ABX00042)
+- Arduino® Portenta H7 Lite (SKU: ABX00045)
 - Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 - Arduino® Nicla Sense ME (SKU: ABX00050)
 
@@ -174,13 +175,13 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 ![Nicla Voice Front View](assets/front.svg)
 
 ### Microcontroller
-The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI270 6-axis IMU (U15). It is also the secondary for the BHI270 (U15) I2C and SPI connection. While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal.
+The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI270 6-axis IMU (U15). While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the Syntiant® NDP120 IC (U3).
 
 ### Neural Decision Processor
-The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with the capacity to run multiple applications simultaneously with minimal power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.
+The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with the capacity to run multiple applications simultaneously with minimal power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection. The Syntiant® NDP120 IC (U3) also acts as the SPI host for the BMM150 3-axis magnetometer (U4) and the BMI270 6-axis IMU (U15).
 
 ### IMU
-The Nicla Voice provides  9-axis IMU capabilities, by the combination of the BMI270 (U15) and BMM150 (U4) ICs. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning. Both are connected via an SPI connection to the ANNA-B112 module (MD1).
+The Nicla Voice provides 9-axis IMU capabilities, by the combination of the 3-axis BMM150 (U4) and 6-axis BMI270 (U15) ICs. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning. Both are connected via an SPI connection to the Syntiant® NDP120 IC (U3).
 
 ### RGB LED
 An I2C LED driver (U8) drives the common anode RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANNA-B112 (U5) microcontroller.
