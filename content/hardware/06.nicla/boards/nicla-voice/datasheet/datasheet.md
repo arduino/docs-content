@@ -317,6 +317,8 @@ Between the main pins, there are smaller contacts (fins) that provide access to 
 
 ![Nicla Voice outline measures](assets/mechanical.svg)
 
+<div style="page-break-after: always;"> </div>
+
 ### Board's Connectors Measures
 
 ![Nicla Voice connectors - mechanical measures](assets/mechanical_connectors.svg)
