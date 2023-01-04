@@ -10,7 +10,7 @@ author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri, Taddy Chung
 # Description
 The **Arduino® Nicla Voice** packs machine-learning capabilities on the edge into a tiny fingerprint.
 
-Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
+Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant® NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
 # Target areas:
 noise and vibration detection, low-power speech recognition, contactless operations, gesture recognition
