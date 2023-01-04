@@ -199,6 +199,29 @@ The **Arduino® Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or V
 
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7 V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network.
 
+## Board Operation
+### Getting Started - IDE
+If you want to program your Arduino® Nicla Voice while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino® Nicla Voice to your computer, you’ll need a micro USB cable.
+
+### Getting Started - Arduino Web Editor
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
+
+The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+
+### Getting Started - Arduino Cloud
+All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
+### Getting Started - ESLOV
+This board can act as a secondary to a ESLOV controller and have the firmware updated through this method.
+### Sample Sketches
+Sample sketches for the Arduino® Nicla Voice can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**.
+
+### Online Resources
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
+
+### Board Recovery
+All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after power up.
+
 ## Connector Pinouts
 All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
 
