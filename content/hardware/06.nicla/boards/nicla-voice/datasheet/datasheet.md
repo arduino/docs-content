@@ -310,6 +310,8 @@ Between the main pins, there are smaller contacts (fins) that provide access to 
 | 3   | PDMDIN1      | Digital  | PDM 1 Data Line  |
 | 4   | PDMCLK1      | Digital  | PDM 1 Clock Line |
 
+<div style="page-break-after: always;"> </div>
+
 ## Mechanical Information
 ### Outline Board Measures
 
