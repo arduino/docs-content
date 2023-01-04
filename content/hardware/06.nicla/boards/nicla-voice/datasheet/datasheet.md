@@ -160,7 +160,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 | **Ref.** | **Description**                  | **Ref.** | **Description**                            |
 | -------- | -------------------------------- | -------- | ------------------------------------------ |
 | DL1      | RGB LED                          | MD1      | u-blox ANNA-B112                           |
-| PB1      | Push Button                      | D1       | Diode                                      |
+| PB1      | Push Button                      | D1       | Schottky Diode, PMEG4005EPK                |
 | D2       | Resistor array PRTR5V0U0F        | U1       | Arm® Cortex M0 ATSAM-D11                   |
 | U2       | Microphone IM69D130V01           | U3       | Syntiant® Neural Decision Processor NDP120 |
 | U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR                         |
@@ -197,7 +197,7 @@ The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as we
 
 The **Arduino® Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN pin. The input power is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3 V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8 V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>.
 
-Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network.
+Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7 V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network.
 
 ## Connector Pinouts
 All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
@@ -232,6 +232,8 @@ All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT<
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
 ### J2 Fins
+
+Between the main pins, there are smaller contacts (fins) that provide access to debugging capabilities. 
 
 ![Nicla Family Bottom Fins](assets/nicla_bottom_fins.svg)
 
