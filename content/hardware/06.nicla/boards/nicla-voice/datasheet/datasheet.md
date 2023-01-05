@@ -125,7 +125,7 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 
 **Note** : V<sub>DDIO_EXT</sub> is software programmable. While the ADC inputs can accept up to 3.3 V, the maximum value is at the ANNA-B112 operating voltage.
 
-**<sup>1</sup>** : All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
+All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
 - ADC1 and ADC2 - 1.8 V
 - JTAG_SAMD11 - 3.3 V
 - JTAG_ANNA - 1.8 V
