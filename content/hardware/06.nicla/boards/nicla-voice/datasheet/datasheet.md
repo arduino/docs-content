@@ -8,30 +8,30 @@ author: Linnea Åkerberg, Pablo Marquínez, Ali Jahangiri, Taddy Chung
 ![Nicla Voice](assets/featured.png)
 
 # Description
-The **Arduino® Nicla Voice** packs machine learning capabilities on the edge into a tiny fingerprint.
+The **Arduino® Nicla Voice** packs machine-learning capabilities on the edge into a tiny fingerprint.
 
-Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
+Implement always-on speech recognition with the Nicla Voice. The board integrates a dedicated Neural Decision Processor **Syntiant® NDP 120** able to run multiple AI algorithms at the same time. Leverage the built-in microphone, nRF52832 microcontroller, Bluetooth® Low Energy module, 6-axis IMU and 3-axis magnetometer to create your own wireless sensor network for machine learning applications with low power consumption capabilities.
 
 # Target areas:
 noise and vibration detection, low-power speech recognition, contactless operations, gesture recognition
 
 # Features
 
-- **ANNA-B112** Bluetooth® Module
+- **ANNA-B112** Bluetooth®  Module with integrated microprocessor
   - **nRF52832** System-on-chip
-    - 64 MHz Arm® Cortex M4 with FPU
-    - 512 KB Flash + 64 KB SRAM
-    - 16MB SPI Flash
-  - Bluetooth® Low Energy module (ANNA-B112)
-    - 2.4GHz, 40 channels
-    - Bluetooth 5.0 via cordio stack, 4.2 via ArduinoBLE
-    - Typical +4dBm TX
-      - +5dBm Max radiated TX with internal antenna (EIRP)
-    - -91 dBm sensitivity (conducted)
-      - -92 dBm sensitivity with internal antenna (EIRP)
-    - Data rates of 1 and 2 Mbps GFSK
+    - 64 MHz ARM® Cortex-M4F microcontroller 
+    - 64 KB SRAM
+    - 512 KB Flash
+    - RAM mapped FIFOs using EasyDMA
+    - 2x SPI (one is accessible via pin header)
+    - 2x I2C (one is accessible via pin header)
+    - 12-bit/200 ksps ADC
+    - 2.400 - 2.4835 GHz Bluetooth®  (5.0 via cordio stack, 4.2 via ArduinoBLE)
+  - Internal antenna
+  - Internal 32 MHz oscillator
+  - 1.8 V Operating Voltage
 - **Syntiant® NDP120** Neural Decision Processor™ (Microprocessor)
-  - 1x Syntiant Core 2™ ultra low power deep neural network inference engine
+  - 1x Syntiant® Core 2™ ultra-low power deep neural network inference engine
   - 1x HiFi 3 Audio DSP
   - 1x Arm® Cortex® M0 core up to 48 MHz
   - Dedicated Low I<sub>Q</sub> High PSRR Low-Dropout regulator (TPS7A05)
@@ -50,84 +50,98 @@ noise and vibration detection, low-power speech recognition, contactless operati
     - <1μs of HW synchronization
     - Wide voltage supply range
     - Low Power
-      - Current consumption: typ. 685 μA (full ODR and aliasing free operation)
-      - Built in PMU
+      - Current consumption: typ. 685 μA (full ODR and aliasing-free operation)
+      - Built-in PMU
   - Magnetometer 3-axis (BMM150)
     - Low voltage operation
-    - Ultra low power, current consumption 170μA @ 10 Hz in low power preset
+    - Ultra-low power, current consumption 170μA @ 10 Hz in low power preset
     - Interrupt signal generation for magnetic Low-/High-Threshold detection
     - Magnetic field range typical of ±1300μT (x, y-axis), ±2500μT (z-axis)
     - Magnetic field resolution of ~0.3μT
     - Maximum magnetic field rating at any direction >7T
-  - High Performance Microphone (IM69D130)
+  - High-Performance Microphone (IM69D130)
     - Frequency range 20 Hz ~ 20 kHz
     - MEMS (silicon) type
     - Dynamic range of 105dB
     - <1% total harmonic distortions up to 128 dBSPL
     - Sensitivity (± 1dB) and phase (± 2° @1kHz) matched
-    - Flat frequency response with low frequency roll off at 28Hz
+    - Flat frequency response with low-frequency roll-off at 28Hz
     - Power optimized modes determined by PDM clock frequency
     - PDM output
     - Omnidirectional pickup pattern
 - **I/O**
-  - Castellated pads (J1 8 pads, J2 9 pads, J3 2 pads)
+  - Castellated pads (J1, J2, J3)
     - 1x I<sup>2</sup>C bus, also available on the ESLOV connector
     - 1x Serial Port (UART)
     - 1x SPI
     - 2x ADC
-    - GPIOs configurable voltage 1V8/3V3
+    - GPIOs configurable voltage 1.8 V/3.3 V
     - 1x Battery Input
       - Integrated battery charger and fuel gauge (BQ25120AYFPR) for 3.7V Li-Po battery
-    - Power Input and Output (3V3, GND and VIN)
-  - External PDM microphone connector (ZIF connector for FFC cables FH33J-4S)
+    - Power Input and Output (3.3 V, GND and VIN)
+  - External PDM microphone connector (Via 4-pin 0.5 mm pitch FFC cable compatible with FH33J-4S ZIF connector)
 
 # Contents
 
 ## The Board
 
 ### Application Examples
-The Arduino® Nicla Voice is your cutting edge development and deployment solution taking advantage of Syntiant NDP120, a neural decision processor that will let you run multiple AI algorithms. Deploy predictive maintenance, gesture and speech recognition, and contactless applications in a miniaturized form factor. A 6-axis motion sensor, a magnetometer, and always-on speech recognition on the edge are at your disposal for unrestricted research and development. On-board Bluetooth® Low Energy connectivity grants compatibility with Nicla, Portenta, and MKR devices for scalability. Ultra-low power consumption enables long lasting device life-time and wide range of spectrum in deployment capabilities.
+The Arduino® Nicla Voice is your cutting edge development and deployment solution taking advantage of Syntiant® NDP120, a neural decision processor that will let you run multiple AI algorithms. Deploy predictive maintenance, gesture and speech recognition, and contactless applications in a miniaturized form factor. A 6-axis motion sensor, a magnetometer, and always-on speech recognition on the edge are at your disposal for unrestricted research and development. On-board Bluetooth® Low Energy connectivity grants interoperability with compatible Nicla, Portenta, and MKR devices for scalability. Ultra-low power consumption enables long lasting device life-time and wide range of deployment possibilities.
 
 - **Automated Intruder Detection System**:
-Nicla Voice’s edge capabilities enables faster identification of critical and time-sensitive events, including glass-breaking or motion sensing. Multiple voice, sound and sensor applications can run simultaneously with low power consumption, all in a tiny battery-powered size, allowing long period of usage without intervention.
+Nicla Voice’s edge capabilities enable faster identification of critical and time-sensitive events, including glass-breaking or motion sensing. Multiple voices, sound and sensor applications can run simultaneously with low power consumption, all in a tiny battery-powered size, allowing long periods of usage without intervention.
 
 - **Predictive Maintenance**:
-Nicla Voice can be used to predict wear of industrial equipment, machinery and automation devices. It can detect vibrations, noises coming from motors or coils and gather the information needed for the Neural Decision Network to output an aligned maintenance with the received inputs.
+Nicla Voice can be used to predict the wear of industrial equipment, machinery and automation devices. It can detect vibrations, noises coming from motors or coils and gather the information needed for the Neural Decision Network to align maintenance with the operational characteristics.
 
 - **Add low-power speech recognition**:
-With the built-in microphone and its tiny form factor, you can easily equip an existing setup with Nicla Voice to improve the workflow by adding speech recognition like voice commands. Moreover, Always-On speech recognition application can be developed thanks to the ultra low-power Syntiant® NDP120 Neural Decision Processor™.
+With the built-in microphone and its tiny form factor, you can easily equip an existing setup with the Nicla Voice to improve the workflow by adding speech recognition like voice commands. Moreover, an always-on speech recognition application can be developed thanks to the ultra low-power Syntiant® NDP120 Neural Decision Processor™.
 
 ### Accessories (Not Included)
-- Single cell Li-ion/Li-Po battery
+- Single-cell Li-ion/Li-Po battery
 
 ### Related Products
 - ESLOV connector
 - Arduino® Portenta H7 (SKU: ABX00042)
+- Arduino® Portenta H7 Lite (SKU: ABX00045)
+- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
+- Arduino® Nicla Sense ME (SKU: ABX00050)
+
 
 ### Assembly Overview
 ![Example: Example of a typical solution for remote environmental sensing including an Arduino® Nicla Voice, Arduino® Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVoiceSolutionOverview.png)
 
-**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC.
+**Note**: The NTC pin on the battery connector is optional. This is a feature that allows safer use and thermal shutoff of the PMIC.
 
 ## Ratings
 | Symbol               | Description                      | Min                                 | Typ | Max                                 | Unit |
-|----------------------|----------------------------------|-------------------------------------|-----|-------------------------------------|------|
+| -------------------- | -------------------------------- | ----------------------------------- | --- | ----------------------------------- | ---- |
 | V<sub>IN</sub>       | Input voltage from VIN pad       | 3.5                                 | 5.0 | 5.5                                 | V    |
 | V<sub>USB</sub>      | Input voltage from USB connector | 4.8                                 | 5.0 | 5.5                                 | V    |
 | V<sub>DDIO_EXT</sub> | Level Translator Voltage         | 1.8                                 | 3.3 | 3.3                                 | V    |
 | V<sub>IH</sub>       | Input high-level voltage         | 0.7V<sub>DDIO_EXT</sub><sup>1</sup> |     | V<sub>DDIO_EXT</sub>                | V    |
 | V<sub>IL</sub>       | Input low-level voltage          | 0                                   |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
-| T<sub>OP</sub>       | Operating Temperature            | 0                                   | 25  | 85                                  | °C   |
+| T<sub>OP</sub>       | Operating Temperature            | 0                                   | 25  | 70                                  | °C   |
 
-**Note** : V<sub>DDIO_EXT</sub> is software programmable. While the ADC inputs can accept up to x.xV, the maximum value is at the ANNA B112 operating voltage.
+**Note** : V<sub>DDIO_EXT</sub> is software programmable. While the ADC inputs can accept up to 3.3 V, the maximum value is at the ANNA-B112 operating voltage.
 
-**<sup>1</sup>** : All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
-- ADC1 and ADC2 - 1V8
-- JTAG_SAMD11 - 3V3
-- JTAG_ANNA - 1V8
-- JTAG_BHI - 1V8
+All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
+- ADC1 and ADC2 - 1.8 V
+- JTAG_SAMD11 - 3.3 V
+- JTAG_ANNA - 1.8 V
+- JTAG_BMI - 1.8 V
+- VDDOTP - 1.8 V
 
-**<sup>2</sup>** : If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
+**<sup>2</sup>** : If the internal V<sub>DDIO_EXT</sub> is disabled by software, it is possible to supply it externally.
+
+## Power Consumption
+| Description                                                   | Min | Typ  | Max | Unit |
+| ------------------------------------------------------------- | --- | ---- | --- | ---- |
+| Standby                                                       | -   | 0.46 | -   | mA   |
+| Alexa demo ON with BLE off                                    | -   | 0.80 | -   | mA   |
+| Alexa demo ON with BLE advertising and sensor polling at 1 Hz | -   | 2.4  | -   | mA   |
+
+The measurements have been performed with VBAT = 3.7 V. Alexa demo corresponds to the factory firmware flashed by default on the Nicla Voice.
 
 ## Functional Overview
 
@@ -141,63 +155,91 @@ With the built-in microphone and its tiny form factor, you can easily equip an e
 
 ![Nicla Voice Topology- Components](assets/connectors.svg)
 
-| **Ref.**            | **Description**              | **Ref.**            | **Description**                 |
-|---------------------|------------------------------|---------------------|---------------------------------|
-| J1 (Nicla Header A) |                              | J2 (Nicla Header B) |                                 |
-| J3                  | Battery Pads                 | J4                  | Battery Connector (BM03B-ACHSS) |
-| J5                  | ESLOV Connector (SM05B-SRSS) | J6                  | External Microphone (FH33J-4S)  |
-| J7                  | Micro USB-A (ZX62-AB)                 |
+| **Ref.** | **Description**              | **Ref.** | **Description**                 |
+| -------- | ---------------------------- | -------- | ------------------------------- |
+| J1       | Nicla Header A               | J2       | Nicla Header B                  |
+| J3       | Battery Pads                 | J4       | Battery Connector (BM03B-ACHSS) |
+| J5       | ESLOV Connector (SM05B-SRSS) | J6       | External Microphone (FH33J-4S)  |
+| J7       | Micro USB-AB (ZX62-AB)       |
 
 #### Components Topology
 
 ![Nicla Voice Topology - components](assets/components.svg)
 
-| **Ref.** | **Description**                  | **Ref.** | **Description**                  |
-|----------|----------------------------------|----------|----------------------------------|
-| DL1      | RGB LED                          | MD1      | uBlox ANNA B112                  |
-| PB1      | Push Button                      | D1       | Diode                            |
-| D2       | Resistor array PRTR5V0U0F        | U1       | Cortex M0 ATSAM-D11              |
-| U2       | Microphone IM69D130V01           | U3       | Neural Decision Processor NDP120 |
-| U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR               |
-| U7       | Flash, 128MX1. AT25QL128A        | U8       | RGB LED Driver IS31FL3194        |
-| U9       | Battery Charger LDO Buck BQ25120 | U10      | Bus Transceiver                  |
-| U11      | Level Shifter TXB0108Y           | U12      | Level Shifter NTS0304            |
-| U13      | Level shifter, NTS0304           | U14      | LDO regulator, 3V3 AP2112K       |
+| **Ref.** | **Description**                  | **Ref.** | **Description**                            |
+| -------- | -------------------------------- | -------- | ------------------------------------------ |
+| DL1      | RGB LED                          | MD1      | u-blox ANNA-B112                           |
+| PB1      | Push Button                      | D1       | Schottky Diode, PMEG4005EPK                |
+| D2       | Resistor array PRTR5V0U0F        | U1       | Arm® Cortex M0 ATSAM-D11                   |
+| U2       | Microphone IM69D130V01           | U3       | Syntiant® Neural Decision Processor NDP120 |
+| U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR                         |
+| U7       | Flash, 128MX1. AT25QL128A        | U8       | RGB LED Driver IS31FL3194                  |
+| U9       | Battery Charger LDO Buck BQ25120 | U10      | Bus Transceiver 74LVC1T45DW                |
+| U11      | Level Shifter TXB0108Y           | U12      | Level Shifter NTS0304                      |
+| U13      | Level Shifter NTS0304            | U14      | LDO regulator, 3.3 V AP2112K               |
 | U15      | IMU 6 Axis Low Power BMI270      |
 
 #### Front
 
 ![Nicla Voice Front View](assets/front.svg)
 
-### Neural Decision Processor
-The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3).The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with capacity to run multiple application simultaneously with minial power consumption, including beamforming, echo-cancellation and noise suppression, keyword spotting and event detection.
-
 ### Microcontroller
-The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal.
+The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7). While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the Syntiant® NDP120 IC (U3).
 
-### Bosch BMM150 3-Axis Magnetometer
-The Bosch BMM150 (U4) provides accurate 3-axis measurements of magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high accuracy spatial orientation and motion vectors for detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
+### Neural Decision Processor
+The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with the capacity to run multiple applications simultaneously with minimal power consumption, including keyword spotting and event detection. The Syntiant® NDP120 IC (U3) also acts as the SPI host for the BMM150 3-axis magnetometer (U4) and the BMI270 6-axis IMU (U15).
+
+### IMU
+The Nicla Voice provides 9-axis IMU capabilities, by the combination of the 3-axis BMM150 (U4) and 6-axis BMI270 (U15) ICs. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning. Both are connected via an SPI connection to the Syntiant® NDP120 IC (U3).
 
 ### RGB LED
-An I2C LED driver (U8) drives the RGB LED (DL1), and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller.
+An I2C LED driver (U8) drives the common anode RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANNA-B112 (U5) microcontroller.
+
+### Microphone
+The IM69D130V01XTSA1 microphone IC (U2) includes two near identical MEMS microphones with a common membrane. The audio signal is transported over a PDM channel to the NDP120 (U3). An external microphone can be added using the J6 connector, which is also connected to the NDP120 (U3) over a separate PDM channel. Internal microphone (U2) and optional external microphone (J6) are on PDM 0 and PDM 1 channels respectively. 
 
 ### USB Bridge
-The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3V logic to 1.8V for the ANNA-B112. The 3.3V voltage is generated from the USB voltage by a LDO (U14).
+The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in between to translate 3.3 V logic to 1.8 V for the ANNA-B112. The 3.3 V voltage is generated from the USB voltage by a LDO (U14).
+
+<div style="page-break-after: always;"> </div>
 
 ### Power Tree
 ![Nicla Voice Power Tree](assets/niclaVoice_Power_Tree.png)
 
-The **Arduino Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the microUSB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>.
+The **Arduino® Nicla Voice** can be powered via micro USB (J7), ESLOV (J5) or VIN pin. The input power is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3 V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8 V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>.
 
-Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing use of the board as a wireless sensor network.
+Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7 V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network.
+
+## Board Operation
+### Getting Started - IDE
+If you want to program your Arduino® Nicla Voice while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino® Nicla Voice to your computer, you’ll need a micro USB cable.
+
+### Getting Started - Arduino Web Editor
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
+
+The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+
+### Getting Started - Arduino Cloud
+All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
+### Getting Started - ESLOV
+This board can act as a secondary to a ESLOV controller and have the firmware updated through this method.
+### Sample Sketches
+Sample sketches for the Arduino® Nicla Voice can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**.
+
+### Online Resources
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
+
+### Board Recovery
+All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
-**Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
+All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
 
 ### J1 Nicla Header A
 
 | Pin | **Function** | **Type** | **Description**                    | **MKR Compatibility** |
-|-----|--------------|----------|------------------------------------|-----------------------|
+| --- | ------------ | -------- | ---------------------------------- | --------------------- |
 | 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 | A6                    |
 | 2   | NC           | N/A      | N/A                                | A5                    |
 | 3   | CS           | Digital  | SPI Cable Select                   | A4                    |
@@ -210,14 +252,14 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 ### J2 Nicla Header B
 
 | Pin | **Function** | **Type** | **Description**       | **MKR Compatibility** |
-|-----|--------------|----------|-----------------------|-----------------------|
+| --- | ------------ | -------- | --------------------- | --------------------- |
 | 1   | SDA          | Digital  | I2C Data Line         | SDA                   |
 | 2   | SCL          | Digital  | I2C Clock             | SCL                   |
 | 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    | RX                    |
 | 4   | LPIO2_EXT    | Digital  | Low Power IO Pin 2    | TX                    |
 | 5   | LPIO3_EXT    | Digital  | Low Power IO Pin 3    | RESET                 |
 | 6   | GND          | Power    | Ground                | GND                   |
-| 7   | VDDIO_EXT    | Digital  | Logic Level Reference | 3V3                   |
+| 7   | VDDIO_EXT    | Digital  | Logic Level Reference | 3.3 V                 |
 | 8   | N/C          | N/A      | N/A                   | VIN                   |
 | 9   | VIN          | Digital  | Input Voltage         | 5V                    |
 
@@ -225,33 +267,34 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 
 ### J2 Fins
 
+Between the main pins, there are smaller contacts (fins) that provide access to debugging capabilities. These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
+
 ![Nicla Family Bottom Fins](assets/nicla_bottom_fins.svg)
 
 | Pin | **Function**  | **Type** | **Description**                     |
-|-----|---------------|----------|-------------------------------------|
-| P1  | BHI_SWDIO     | Digital  | BHI260 JTAG Serial Wire Debug Data  |
-| P2  | BHI_SWDCLK    | Digital  | BHI260 JTAG Serial Wire Debug Clock |
+| --- | ------------- | -------- | ----------------------------------- |
+| P1  | BMI_SWDIO     | Digital  | BMI270 JTAG Serial Wire Debug Data  |
+| P2  | BMI_SWDCLK    | Digital  | BMI270 JTAG Serial Wire Debug Clock |
 | P3  | ANNA_SWDIO    | Digital  | ANNA JTAG Serial Wire Debug Data    |
 | P4  | ANNA_SWDCLK   | Digital  | ANNA JTAG Serial Wire Debug Clock   |
 | P5  | RESET         | Digital  | Reset Pin                           |
 | P6  | SAMD11_SWDIO  | Digital  | SAMD11 JTAG Serial Wire Debug Data  |
-| P7  | +1V8          | Power    | +1.8V Voltage Rail                  |
+| P7  | +1.8 V        | Power    | +1.8 V Voltage Rail                 |
 | P8  | SAMD11_SWDCLK | Digital  | SAMD11 JTAG Serial Wire Debug Clock |
 
-**Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
-**Note 2:** All JTAG logic levels operate at 1.8V apart from the SAMD11 pins (P6 and P8) which are 3.3V. All these JTAG pins are 1.8V only and don't scale with VDDIO.
+**Note:** All JTAG logic levels operate at 1.8 V apart from the SAMD11 pins (P6 and P8) which are 3.3 V. All these JTAG pins are 1.8 V only and don't scale with VDDIO.
 
 ### J3 Battery Pads
 
 | Pin | **Function** | **Type** | **Description** |
-|-----|--------------|----------|-----------------|
+| --- | ------------ | -------- | --------------- |
 | 1   | VBAT         | Power    | Battery input   |
 | 2   | NTC          | Analog   | NTC Thermistor  |
 
 ### J4 Battery Connector
 
 | Pin | **Function** | **Type** | **Description** |
-|-----|--------------|----------|-----------------|
+| --- | ------------ | -------- | --------------- |
 | 1   | VBAT         | Power    | Battery input   |
 | 2   | NTC          | Analog   | NTC Thermistor  |
 | 3   | GND          | Power    | Ground          |
@@ -259,17 +302,30 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 ### J5 ESLOV
 
 | Pin | **Function** | **Type** | **Description** |
-|-----|--------------|----------|-----------------|
+| --- | ------------ | -------- | --------------- |
 | 1   | 5V           | Power    | 5V Power Rail   |
 | 2   | INT          | Digital  | Digital IO      |
-| 3   | SCL          | Digital  | I2C Clock Line |
+| 3   | SCL          | Digital  | I2C Clock Line  |
 | 4   | SDA          | Digital  | I2C Data Line   |
 | 5   | GND          | Power    | Ground          |
+
+### J6 External Microphone
+
+| Pin | **Function** | **Type** | **Description**  |
+| --- | ------------ | -------- | ---------------- |
+| 1   | 1.8 V_MIC    | Power    | 1.8 V Power Rail |
+| 2   | GND          | Power    | Ground           |
+| 3   | PDMDIN1      | Digital  | PDM 1 Data Line  |
+| 4   | PDMCLK1      | Digital  | PDM 1 Clock Line |
+
+<div style="page-break-after: always;"> </div>
 
 ## Mechanical Information
 ### Outline Board Measures
 
 ![Nicla Voice outline measures](assets/mechanical.svg)
+
+<div style="page-break-after: always;"> </div>
 
 ### Board's Connectors Measures
 
@@ -283,7 +339,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-|----------------------------------------|-------------------------|
+| -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -317,7 +373,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -336,7 +392,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -346,32 +402,31 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands     | Typical Output Power |
-|---------------------|----------------------|
+| ------------------- | -------------------- |
 | 2.4GHz, 40 channels | +4dBm                |
 
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
-|-----------------|----------------------------------------------|
-| Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
 | Ref                                | Link                                                                                                |
-|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| ---------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Arduino® IDE (Desktop)             | https://www.arduino.cc/en/Main/Software                                                             |
 | Arduino® IDE (Cloud)               | https://create.arduino.cc/editor                                                                    |
 | Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Arduino® Pro Website               | https://www.arduino.cc/pro                                                                          |
 | Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference                  | https://github.com/bcmi-labs/Arduino_EdgeControl/tree/4dad0d95e93327841046c1ef80bd8b882614eac8      |
 | Online Store                       | https://store.arduino.cc/                                                                           |
 
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**   |
-|------------|--------------|---------------|
-| 12-22-2022 | 01           | First release |
+| ---------- | ------------ | ------------- |
+| 05-12-2023 | 01           | First release |
 
 ## Product Warnings and Disclaimers
 
