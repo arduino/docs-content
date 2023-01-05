@@ -424,9 +424,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 05-12-2023 | 01           | First release |
+| **Date (DD/MM/YY)**   | **Revision** | **Changes**   |
+| --------------------- | ------------ | ------------- |
+| 05-01-2023            | 01           | First release |
 
 ## Product Warnings and Disclaimers
 
