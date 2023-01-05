@@ -267,7 +267,7 @@ All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT<
 
 ### J2 Fins
 
-Between the main pins, there are smaller contacts (fins) that provide access to debugging capabilities. 
+Between the main pins, there are smaller contacts (fins) that provide access to debugging capabilities. These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
 
 ![Nicla Family Bottom Fins](assets/nicla_bottom_fins.svg)
 
@@ -282,8 +282,7 @@ Between the main pins, there are smaller contacts (fins) that provide access to 
 | P7  | +1.8 V        | Power    | +1.8 V Voltage Rail                 |
 | P8  | SAMD11_SWDCLK | Digital  | SAMD11 JTAG Serial Wire Debug Clock |
 
-**Note:** These test points can easily be accessed by inserting the board in a double row 1.27 mm/50 mil pitch male header.
-**Note 2:** All JTAG logic levels operate at 1.8 V apart from the SAMD11 pins (P6 and P8) which are 3.3 V. All these JTAG pins are 1.8 V only and don't scale with VDDIO.
+**Note:** All JTAG logic levels operate at 1.8 V apart from the SAMD11 pins (P6 and P8) which are 3.3 V. All these JTAG pins are 1.8 V only and don't scale with VDDIO.
 
 ### J3 Battery Pads
 
