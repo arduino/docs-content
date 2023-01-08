@@ -127,17 +127,13 @@ The Nicla System header is required to use the RGB LED.
 #include "Nicla_System.h"
 ```
 
-Since the functions are scoped under a specific name called "nicla", you can use the following statement to have convenient access without repeating explicitly the namespace before every function call.
-
-```cpp
-using namespace nicla;
-```
+Since the functions are scoped under a specific name called "nicla", you need to explicitly write it before each statement.
 
 The LEDs need to be started along with the Nicla inside `void setup()`:
 
 ```arduino
-begin();
-leds.begin();
+nicla::begin();
+nicla::leds.begin();
 ```
 
 The LED can be set to the desired RGB value using red, green and blue components or by using one of the following predefined colors:
@@ -153,9 +149,9 @@ To set the LED to a predefined color (e.g. green or blue):
 
 ```arduino
 void loop() {
-  leds.setColor(green);
+  nicla::leds.setColor(green);
   delay(1000);
-  leds.setColor(blue);
+  nicla::leds.setColor(blue);
   delay(1000);  
 }
 ```
@@ -163,7 +159,7 @@ void loop() {
 To turn the LED off:
 
 ```arduino
-leds.setColor(off);
+nicla::leds.setColor(off);
 ```
 
 You can also choose a value between 255 - 0 for each color component to set a custom color:
@@ -174,12 +170,31 @@ void loop() {
   int green = 72;
   int blue = 122;
 
-  leds.setColor(red, green, blue);
+  nicla::leds.setColor(red, green, blue);
   delay(1000);
-  leds.setColor(off);
+  nicla::leds.setColor(off);
   delay(1000); 
 }
 ```
+
+This is a complete example code to correctly control the built-in I2C LED
+
+```arduino
+#include "Nicla_System.h"
+
+void setup() {
+  nicla::begin();
+  nicla::leds.begin();  
+}
+
+void loop() {
+  nicla::leds.setColor(red);
+  delay(1000);
+  nicla::leds.setColor(off);
+  delay(1000); 
+}
+```
+
 
 ## Sensors
 
