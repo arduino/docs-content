@@ -466,7 +466,7 @@ void waveform_gen_uturn(){
     /*
     // Null buffer for null audio output
     if (strcmp("n",(char*)rk) == 0){
-      // Immitate audio pause 
+      // Imitate audio pause 
       Serial.println(F("Null Audio"));
 
       for (uint8_t i=0; i<255; i++){
@@ -515,7 +515,7 @@ void loop() {
 }
 ```
 
-All of the previous waveforms can be controlled by using keyboard, as such a lot of differents types of waveforms were included. We can simplify a bit and use a single sinusoidal waveform and use the keyboard for basic commands, while two potentiometers can be added to control in a more continuous manner. 
+All of the previous waveforms can be controlled by using keyboard, as such a lot of different types of waveforms were included. We can simplify a bit and use a single sinusoidal waveform and use the keyboard for basic commands, while two potentiometers can be added to control in a more continuous manner. 
 
 ```arduino
 
