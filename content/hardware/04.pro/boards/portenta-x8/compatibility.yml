@@ -2,6 +2,5 @@ software:
   - arduino-ide
   - arduino-cli
 hardware:
-    - portenta-breakout
   carriers:
     - portenta-max-carrier
