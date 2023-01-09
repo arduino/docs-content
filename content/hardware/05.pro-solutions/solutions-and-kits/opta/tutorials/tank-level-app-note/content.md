@@ -4,7 +4,7 @@ description: "This application note describes how to monitor the level in tanks 
 difficulty: advanced
 tags:
   - Tank level
-  - Opta
+  - Opta™
   - RS-485
   - Level sensor
   - Application Note
@@ -44,11 +44,11 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 ### Hardware Requirements
 
-- [Arduino Opta®](https://store.arduino.cc/pages/opta)
+- [Arduino Opta®](https://store.arduino.cc/pages/opta), with RS-485 support
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
-- 12VDC solenoid valve (x1) 
+- 12VDC NC 2/2-Way direct acting solenoid or motorized ball valve (x1)
 - 12VDC liquid pump
 - 12VDC DIN rail power supply (x1)
 
@@ -56,7 +56,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `Scheduler`. You can install those libraries via the Library Manager of the Arduino IDE.
-- For the Wi-Fi connectivity feature of the Opta™, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
+- The [Arduino IoT Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. It will require an account to access Arduino IoT Cloud's features.
 
 ## Demonstration Setup
 
@@ -64,11 +64,11 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Electrical connections of the application.](assets/electrical_connections.png)
 
-Notice that the Optas communicate with each other over RS-485. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of the Optas; the pump and the gate valve are controlled using the built-in relay outputs of the Optas.
+Notice that the Opta™ communicate with each other over RS-485 interface. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of the Opta™; the pump and the gate valve are controlled using the built-in relay outputs of the Opta™.
 
 ## Demonstration Description
 
-ST and BT each have a specific monitoring routine to monitor and control their minimum and maximum level. Both Optas will exchange important states and parameters of each tank to understand and execute appropriate actions to maintain both tank levels as expected in the application. As stated before, the Optas in charge of ST and BT will communicate with each other using Modbus RTU over RS-485.
+ST and BT each have a specific monitoring routine to monitor and control their minimum and maximum level. Both Opta™ will exchange important states and parameters of each tank to understand and execute appropriate actions to maintain both tank levels as expected in the application. As stated before, the Opta™ in charge of ST and BT will communicate with each other over RS-485 interface.
 
 The Opta™ in the BT performs the following actions:
 
@@ -81,7 +81,7 @@ The Opta™ in the ST performs the following actions:
 - It manages the gate valve given the ST level and BT minimum level state. 
 - It sends ST's current maximum level state to BT while seeking BT's minimum level state. 
 
-In addition to the functionalities explained before, both Optas are connected to Arduino IoT Cloud via Wi-Fi. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
+In addition to the functionalities explained before, both Opta™ are connected to Arduino IoT Cloud via Wi-Fi. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
 
 ### Example Code for Small Tank (ST)
 
@@ -234,7 +234,7 @@ void component_state() {
   }
 }
 
-// Opta LED PLC Switches
+// Opta™ LED PLC Switches
 void opta_led_setup() {
   pinMode(LEDG, OUTPUT);
   pinMode(LEDR, OUTPUT);
@@ -364,7 +364,7 @@ void loop() {
 void rs485_interface(){
   ST_Param_Share();
 
-  // RS485 Communication with ST Opta
+  // RS485 Communication with ST Opta™
   RS485_parser();
   delay(100);
 }
@@ -761,4 +761,4 @@ Arduino IoT Cloud integration with the tanks is shown below:
 
 ## Conclusion
 
-Let's build monitoring systems with the Arduino Opta® and the Arduino IoT Cloud. In this application note, we have learned how to interface two Arduino Opta® using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.
+Let's build monitoring systems with the Opta™ and the Arduino IoT Cloud. In this application note, we have learned how to interface two Opta™ using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.
