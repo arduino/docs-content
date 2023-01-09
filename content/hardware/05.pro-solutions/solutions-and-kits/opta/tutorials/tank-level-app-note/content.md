@@ -123,7 +123,7 @@ void ST_Param_Monitor() {
   Serial.println(ST_Min);
   Serial.print(F("Small tank - Valve activity: "));
   Serial.println(ST_Valve);
-  Serial.println(F("Small tank - Co-shared req. BT parameters: "));
+  Serial.println(F("Small tank - Co-shared required BT parameters: "));
   Serial.print(F("Big tank - Minimum sensor: "));
   Serial.println(BT_Min);
   Serial.println(F("------------------------\n"));
@@ -212,7 +212,7 @@ uint8_t ST_MinSensor_A2() {
   int st_min_read = analogRead(A2);
   float st_min_read_V = st_min_read * (3.249 / 4095.0) / 0.3034;
 
-  Serial.print(F("ST_Min = "));
+  Serial.print(F("Small Tank - Min = "));
   Serial.println(st_min_read_V, 3);
 
   digitalWrite(LEDB, LOW);
@@ -282,7 +282,7 @@ void RS485_Setup() {
 
   delay(1000);
 
-  Serial.println(F("ST - RS485 Interface Client Toggle"));
+  Serial.println(F("Small Tank - RS485 Interface Client Toggle"));
   RS485.beginTransmission();
 
   // Enable RS-485 reception
@@ -292,18 +292,17 @@ void RS485_Setup() {
 uint16_t rs485_transport, rs485_carrier;
 uint8_t RS485_parser() {
   if (RS485.available() > 0) {
-    //rs485_rec = RS485.read();
     if (RS485.find('V')) {
-      Serial.println(F("Received: Valve OFF - BT"));
+      Serial.println(F("Received: Valve OFF - Big Tank"));
       ST_Valve = 0;
       digitalWrite(D2, ST_Valve);
     }
     if (RS485.find('1')) {
-      Serial.println(F("Received: BT_Min - ON"));
+      Serial.println(F("Received: Big Tank - Min - ON"));
       BT_Min = 1;
     }
     if (RS485.find('2')) {
-      Serial.println(F("Received: BT_Min - OFF"));
+      Serial.println(F("Received: Big Tank - Min - OFF"));
       BT_Min = 0;
     }
   }
@@ -337,7 +336,7 @@ void setup() {
   initProperties();
 
   // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
 }
@@ -364,7 +363,7 @@ void loop() {
 void rs485_interface(){
   ST_Param_Share();
 
-  // RS485 Communication with ST Opta™
+  // RS485 Communication with Small Tank Opta™
   RS485_parser();
   delay(100);
 }
@@ -442,7 +441,7 @@ void BT_Param_Monitor(){
   Serial.println(BT_Min);
   Serial.print(F("Big Tank - Pump Activity: "));
   Serial.println(BT_Pump);
-  Serial.println(F("Big Tank - Co-Shared Req. ST Param: "));
+  Serial.println(F("Big Tank - Co-Shared required ST Parameters: "));
   Serial.print(F("Small Tank - Maximum Sensor: "));
   Serial.println(ST_Max);
   Serial.println(F("------------------------\n"));
@@ -483,7 +482,7 @@ uint8_t BT_System_Off(){
     // Turn off 
     BT_Pump = 0;
     Sys_EM_Stop = true;
-    // Emulation purpose - may require change afterwards
+
     digitalWrite(D2, BT_Pump);
     Serial.println(F("Big Tank - Level Below Nominal: Emergency Stop"));
   } else {
@@ -528,7 +527,7 @@ uint8_t BT_MaxSensor_A1(){
   int bt_max_read = analogRead(A1);
   float bt_max_read_V = bt_max_read * (3.249 / 4095.0) / 0.3034;
 
-  Serial.print(F("BT_Max = "));
+  Serial.print(F("Big Tank - Max = "));
   Serial.println(bt_max_read_V, 3);
 
   digitalWrite(LEDB, LOW);
@@ -548,7 +547,7 @@ uint8_t BT_MinSensor_A2(){
   int bt_min_read = analogRead(A2);
   float bt_min_read_V = bt_min_read * (3.249 / 4095.0) / 0.3034;
 
-  Serial.print(F("BT_Min = "));
+  Serial.print(F("Big Tank - Min = "));
   Serial.println(bt_min_read_V, 3);
 
   digitalWrite(LEDB, LOW);
@@ -637,16 +636,16 @@ uint16_t rs485_transport;
 uint8_t RS485_parser(){
   if (RS485.available() > 0) {
     if (RS485.find('P')){
-      Serial.println(F("Received: Pump Off - ST"));
+      Serial.println(F("Received: Pump Off - Small Tank"));
       BT_Pump = 0;
       digitalWrite(D2, BT_Pump);
     }
     if (RS485.find('6')){
-      Serial.println(F("Received: ST_Max - On"));
+      Serial.println(F("Received: Small Tank - Max - On"));
       ST_Max = 1;
     }
     if (RS485.find('7')){
-      Serial.println(F("Received: ST_Max - Off"));
+      Serial.println(F("Received: Small Tank - Max - Off"));
       ST_Max = 0;
     }
   }
@@ -682,7 +681,7 @@ void setup() {
   initProperties();
 
   // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
      The following function allows you to obtain more information
@@ -698,7 +697,6 @@ void setup() {
 void loop() {
   ArduinoCloud.update();
   if (EM_Stop_BT == false){
-    // Your code here 
     // Essential tank runtime and parameter display
     BT_Level_Check();
     BT_Param_Monitor();
@@ -718,7 +716,7 @@ void loop() {
 void rs485_interface(){
   BT_Param_Share();
 
-  // RS485 Communication with ST PLC
+  // RS485 Communication with Small Tank PLC
   RS485_parser();
   delay(100);
 }
@@ -728,8 +726,6 @@ void rs485_interface(){
   executed every time a new value is received from IoT Cloud.
 */
 void onBTPumpCloudChange()  {
-  // Add your code here to act upon BTPumpCloud change
-  // Add your code here to act upon BTPump change
   if (BT_Pump_Cloud == true){
     Serial.println(F("Big Tank - Pump Active - via Cloud"));
     
@@ -745,7 +741,6 @@ void onBTPumpCloudChange()  {
   executed every time a new value is received from IoT Cloud.
 */
 void onEMStopBTChange()  {
-  // Add your code here to act upon EMStopBT change
   if (EM_Stop_BT == true){
     Serial.println(F("Emergency Stop Active - via Cloud"));
   } 
