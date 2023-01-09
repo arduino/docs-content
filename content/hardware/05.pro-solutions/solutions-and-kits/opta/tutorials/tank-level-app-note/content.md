@@ -36,7 +36,7 @@ This application note aims to show a system based on the Opta™, capable of mon
 
 A graphical representation of the intended application is shown below:
 
-![Graphical representation of the tank level monitoring application.](assets/application_represetation.png)
+![Graphical representation of the tank level monitoring application.](assets/application_representation.png)
 
 BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
