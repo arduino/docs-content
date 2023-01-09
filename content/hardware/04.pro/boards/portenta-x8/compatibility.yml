@@ -2,8 +2,6 @@ software:
   - arduino-ide
   - arduino-cli
 hardware:
-  shields:
-    - portenta-vision-shield
   boards:
     - portenta-breakout
   carriers:
