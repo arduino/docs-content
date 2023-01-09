@@ -315,7 +315,6 @@ Keyboard keyb;
 AdvancedDAC dac1(A12);
 
 boolean newData = false;
-bool wave_uturn = false;
 
 // Specific to sine mod 
 int sin_freq = 220;
@@ -326,56 +325,50 @@ char endMarker = '\n';
 char rk[] = "";
 
 // Custom mode
-// Sine wave value 
+// Sine Wave Value 
 long long slice_buf;
 uint16_t globalDAC_Buffer[256];
 uint16_t neutralDAC_Buffer[256];
 
 static size_t GLOBBuf_size = sizeof(globalDAC_Buffer) / sizeof(globalDAC_Buffer[0]);
 
-void dac12bit_ctrl(uint16_t reqBuffer[], size_t buf_formfactor) {
+void dac12bit_ctrl(uint16_t reqBuffer[], size_t buf_formfactor){
   static size_t buf_offs = 0;
 
   if (dac1.available()) {
-    // Get a free buffer for writing
+    // Get a free buffer for writing.
     SampleBuffer buf = dac1.dequeue();
 
-    // Write data to buffer
+    // Write data to buffer.
     for (size_t i=0; i<buf.size(); i++, buf_offs++) {
         buf[i] =  reqBuffer[buf_offs % buf_formfactor];
     }
 
-    // Write the buffer to DAC
-    for(uint8_t i=0; i<5; i++) {
-      dac1.write(buf);
-    }
-
+    dac1.write(buf);
+/*
     // Spacing (TEMPORAL) - For some reason it makes faster 
     buf = dac1.dequeue();
 
-    // Write data to buffer
+    // Write data to buffer.
     for (size_t i=0; i<buf.size(); i++) {
         buf[i] =  0;
     }
 
-    for(uint8_t i=0; i<50; i++) {
-      dac1.write(buf);
-    }
-    
+    dac1.write(buf);
+    */
   }
-
 }
 
-void waveform_gen(){
-  if (newData == true) {
+void waveform_gen_uturn(){
+  if (newData = true){
     newData = false;
     
     // Basic waveforms generated from iterations
-    if (strcmp("q",(char*)rk) == 0) {
+    if (strcmp("q",(char*)rk) == 0){
       // Simple Triangle wave
       Serial.println(F("trig"));
 
-      for (uint8_t i = 0; i < 255; i++){
+      for (uint8_t i=0; i<255; i++){
         slice_buf = abs((i % 255) - 127);
         // Scaling up from 8 bit to 12 bit resol data
         globalDAC_Buffer[i] += (slice_buf<<=4);
@@ -383,70 +376,47 @@ void waveform_gen(){
       }
     }
 
-    if (strcmp("w",(char*)rk) == 0) {
-      // Simple square wave
+    if (strcmp("w",(char*)rk) == 0){
+      // Simple Square wave
       Serial.println(F("squa"));
 
-      for (uint8_t i=0; i<255; i++) {
+      for (uint8_t i=0; i<255; i++){
         slice_buf = (i % 255) < 127 ? 127 : 0;
-        // Scaling up from 8 bit to 12-bit data
+        // Scaling up from 8 bit to 12 bit resol data
         globalDAC_Buffer[i] += (slice_buf<<=4);
       }
     }
 
-    // Default fixed sine wave
-    if (strcmp("e",(char*)rk) == 0) {
-      // Sine wave
-      Serial.println(F("Sine fixed"));
-
-      for (uint8_t i=0; i<255; i++) {
-        slice_buf = 127 * sin((float)i / 10);
-        // Scaling up from 8 bit to 12 bit resolution
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    // Variable sine wave
-    if (strcmp("t",(char*)rk) == 0) {
+    if (strcmp("t",(char*)rk) == 0){
       // Sine wave
       Serial.println(F("sine modded"));
 
-      // Variable
-      for (uint8_t i=0; i<255; i++) {
+      // variable
+      for (uint8_t i=0; i<255; i++){
         slice_buf = sin_ampl * sin(2*(3.1415)*(sin_freq)*(float)i);
-        // Scaling up from 8-bit to 12-bit resolution
+        // Scaling up from 8 bit to 12 bit resol data
         globalDAC_Buffer[i] += (slice_buf<<=4);
       }
     }
 
-    if (strcmp("r",(char*)rk) == 0) {
-      // Triangular concave SQRTX
-      Serial.println(F("Concave sqrt"));
+    if (strcmp("r",(char*)rk) == 0){
+      // Triangular Concave SQRTX
+      Serial.println(F("concave sqrt"));
 
-      for (uint8_t i=0; i<255; i++) {
+      for (uint8_t i=0; i<255; i++){
         slice_buf = pow(abs((i % 255) - 127), 0.5);
         // Scaling up from 8 bit to 12 bit resol data
         globalDAC_Buffer[i] += (slice_buf<<=4);
       }
     }
-/*
-    // Currently crashes GIGA
-    if (strcmp("y",(char*)rk) == 0) {
-      Serial.println(F("Sawtooth"));
 
-      // Sawtooth generation (very rough)
-      for (uint8_t i=0; i<256; i++){
-        // Simply incrementing to fit into buffer of 64 samples to complete 4096 (can be done to generate deep bass sound)
-        slice_buf = i; 
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }*/
-
-    // Non-waveform generator functions
-    if (strcmp("h",(char*)rk) == 0) {
+    // **************************************
+    // Non-Waveform generator functions
+    // **************************************
+    if (strcmp("h",(char*)rk) == 0){
       // Increase sine wave frequency
       Serial.println(F("sine freq +"));
-      if (sin_freq < 6500) {
+      if (sin_freq < 6500){
         sin_freq += 100;
       } else {
         sin_freq = 6500;
@@ -454,9 +424,9 @@ void waveform_gen(){
       }
     }
 
-    if (strcmp("l",(char*)rk) == 0) {
+    if (strcmp("l",(char*)rk) == 0){
       // Decrease sine wave frequency
-      Serial.println(F("Sine freq - "));
+      Serial.println(F("sine freq -"));
       if (sin_freq > 100){
         sin_freq -= 100;
       } else {
@@ -465,10 +435,10 @@ void waveform_gen(){
       }
     }
 
-    if (strcmp("o",(char*)rk) == 0) {
+    if (strcmp("o",(char*)rk) == 0){
       // Increase sine wave amplitude
       Serial.println(F("sine ampl +"));
-      if (sin_ampl < 256) {
+      if (sin_ampl < 256){
         sin_ampl += 10;
       } else {
         sin_ampl = 256;
@@ -476,7 +446,7 @@ void waveform_gen(){
       }
     }
 
-    if (strcmp("p",(char*)rk) == 0) {
+    if (strcmp("p",(char*)rk) == 0){
       // Decrease sine wave amplitude
       Serial.println(F("sine ampl -"));
       if (sin_ampl > 10){
@@ -487,90 +457,145 @@ void waveform_gen(){
       }
     }
 
-    if (strcmp("R",(char*)rk) == 0) {
+    if (strcmp("R",(char*)rk) == 0){
       // Sine wave spec Neutral
       Serial.println(F("sine spec neut"));
       sin_ampl = 127;
       sin_freq = 220;
     }
-
-    if (strcmp("U",(char*)rk) == 0) {
-      // Tone generation mode change - ON
-      if (wave_uturn == false){
-        Serial.println(F("Consistent waveform mix - ON"));
-        wave_uturn = true;
-      } 
-    }
-    
+    /*
     // Null buffer for null audio output
     if (strcmp("n",(char*)rk) == 0){
-      // Imitate audio pause 
+      // Immitate audio pause 
       Serial.println(F("Null Audio"));
 
       for (uint8_t i=0; i<255; i++){
         globalDAC_Buffer[i] = slice_buf=0;
       }
     }
+    */
   }
 }
 
-void waveform_gen_uturn() {
-  if (newData = true && wave_uturn == true) {
+void setup() {
+  Serial.begin(115200);
+
+  while (!Serial) {
+  }
+
+  // Initializing keyboard interface
+  pinMode(PA_15, OUTPUT);
+  keyb.begin();
+
+  // DAC initialization
+  if (!dac1.begin(AN_RESOLUTION_12, 44100*256, 256, 512)) {
+      Serial.println("Failed to start DAC1 !");
+      while (1);
+  }
+  
+}
+
+void loop() {
+  //Serial.println(F("loop beg"));
+  if (keyb.available() > 0 && newData == false){
+    rk[0] = keyb.read();
+    Serial.println(rk);
+
+    newData = true;
+  }
+  
+  // ****************************************
+  // Input standby
+  // * Precaution: Very long - Requires to be shortened & not applied correctly to DAC
+  // ****************************************
+
+  waveform_gen_uturn();
+
+  dac12bit_ctrl(globalDAC_Buffer, GLOBBuf_size);
+}
+```
+
+All of the previous waveforms can be controlled by using keyboard, as such a lot of differents types of waveforms were included. We can simplify a bit and use a single sinusoidal waveform and use the keyboard for basic commands, while two potentiometers can be added to control in a more continuous manner. 
+
+```arduino
+
+#include "AdvancedDAC.h"
+#include "HIDHost.h"
+
+//REDIRECT_STDOUT_TO(Serial)
+Keyboard keyb;
+
+AdvancedDAC dac1(A12);
+
+boolean newData = false;
+
+// Specific to sine mod 
+#define sin_freq_pot A3
+#define sin_ampl_pot A4
+float sin_freq = 220;
+float sin_ampl = 127;
+float sin_freq_raw, sin_ampl_raw;
+
+static byte ndx = 0;
+char endMarker = '\n';
+char rk[] = "";
+
+// Custom mode
+// Sine Wave Value 
+long long slice_buf;
+uint16_t globalDAC_Buffer[256];
+static size_t GLOBBuf_size = sizeof(globalDAC_Buffer) / sizeof(globalDAC_Buffer[0]);
+
+void dac12bit_ctrl(uint16_t reqBuffer[], size_t buf_formfactor){
+  static size_t buf_offs = 0;
+
+  if (dac1.available()) {
+    // Get a free buffer for writing.
+    SampleBuffer buf = dac1.dequeue();
+
+    // Write data to buffer.
+    for (size_t i=0; i<buf.size(); i++, buf_offs++) {
+        buf[i] =  reqBuffer[buf_offs % buf_formfactor];
+    }
+
+    dac1.write(buf);
+  }
+}
+
+void sin_propCTRL(){
+  // Potentiometer readings
+  sin_freq_raw = analogRead(sin_freq_pot);
+  sin_ampl_raw = analogRead(sin_ampl_pot);
+
+  // Value translation
+  sin_freq = map(sin_freq_raw, 0, 1023, 10, 255);
+  sin_ampl = map(sin_ampl_raw, 0, 1023, 10, 255);
+}
+
+void waveform_gen_uturn(){
+  if (newData = true){
     newData = false;
     
-    // Basic waveforms generated from iterations
-    if (strcmp("q",(char*)rk) == 0) {
-      // Simple Triangle wave
-      Serial.println(F("trig"));
-
-      for (uint8_t i=0; i<255; i++) {
-        slice_buf = abs((i % 255) - 127);
-        // Scaling up from 8 bit to 12 bit resol data
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-        //Serial.println(globalDAC_Buffer[i]);
-      }
-    }
-
-    if (strcmp("w",(char*)rk) == 0) {
-      // Simple Square wave
-      Serial.println(F("squa"));
-
-      for (uint8_t i=0; i<255; i++) {
-        slice_buf = (i % 255) < 127 ? 127 : 0;
-        // Scaling up from 8 bit to 12 bit resolution
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-
-    if (strcmp("t",(char*)rk) == 0) {
+    if (strcmp("t",(char*)rk) == 0){
       // Sine wave
       Serial.println(F("sine modded"));
 
-      // variable
-      for (uint8_t i=0; i<255; i++) {
+      // General Waveform
+      for (uint8_t i=0; i<255; i++){
         slice_buf = sin_ampl * sin(2*(3.1415)*(sin_freq)*(float)i);
         // Scaling up from 8 bit to 12 bit resol data
         globalDAC_Buffer[i] += (slice_buf<<=4);
       }
     }
 
-    if (strcmp("r",(char*)rk) == 0) {
-      // Triangular Concave SQRTX
-      Serial.println(F("Concave sqrt"));
-
-      for (uint8_t i=0; i<255; i++) {
-        slice_buf = pow(abs((i % 255) - 127), 0.5);
-        // Scaling up from 8 bit to 12 bit resolution
-        globalDAC_Buffer[i] += (slice_buf<<=4);
-      }
-    }
-    
-    if (strcmp("K",(char*)rk) == 0) {
-      // Tone generation mode change - OFF
-      if (wave_uturn == true) {
-        Serial.println(F("Consistent waveform mix - OFF"));
-        wave_uturn = false;
-      } 
+    // **************************************
+    // Non-Waveform generator functions
+    // **************************************
+    if (strcmp("R",(char*)rk) == 0){
+      // Sine wave spec Neutral
+      Serial.println(F("sine spec neut"));
+      sin_ampl = 127;
+      sin_freq = 220;
     }
   }
 }
@@ -586,27 +611,28 @@ void setup() {
   keyb.begin();
 
   // DAC initialization
-  if (!dac1.begin(AN_RESOLUTION_12, 44100, 256, 512)) {
+  if (!dac1.begin(AN_RESOLUTION_12, 44100*256, 256, 512)) {
       Serial.println("Failed to start DAC1 !");
       while (1);
   }
 }
 
-void loop() {
-  //Serial.println(F("Loop beg"));
-
-  if (keyb.available() > 0 && newData == false) {
+void loop(){
+  // Searching for input
+  if (keyb.available() > 0 && newData == false){
     rk[0] = keyb.read();
     Serial.println(rk);
+
     newData = true;
   }
-  
-  // ****************************************************************************
-  // Input standby
-  // Caution: Very long - Requires to be shortened & not applied correctly to DAC
-  // ****************************************************************************
-  waveform_gen();
+
+  // Single waveform generation with variables to changes its properties
   waveform_gen_uturn();
+
+  // Sinusoidal waveform property control - Frequency & Amplitude
+  sin_propCTRL();
+
+  // 12-Bit DAC Output
   dac12bit_ctrl(globalDAC_Buffer, GLOBBuf_size);
 }
 ```
