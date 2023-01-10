@@ -137,6 +137,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 **5.** Go to the sketch tab, and use the following code:
 
+***Note: If you copy the code, it is important to make sure the capitalisation and read/write permissions of the variables created in the previous step matches perfectly. Otherwise the sketch will not compile.***
 ```arduino
 /* 
  Arduino Watering Plant Kit
