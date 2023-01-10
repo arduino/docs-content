@@ -59,7 +59,7 @@ First, let's ensure we have the latest Arduino IDE version installed on our comp
 
 ***`ArduinoModbus` library requires the `ArduinoRS485` library as the Modbus library is dependent on it; remember to install both libraries.***
 
-### Connecting the Optas Over RS-485
+### Connecting the Opta™ Over RS-485
 
 Now that we have the Arduino IDE configured and the libraries installed, let's connect both Opta™ devices via RS-485, as shown in the image below:
 
@@ -394,4 +394,4 @@ Once you have uploaded the Modbus RTU Client and Server code for each Opta™ de
 
 ## Conclusion
 
-In this tutorial, we established a Modbus RTU connection between two Opta™ devices using the Arduino ecosystem tools, such as the Arduino IDE and Arduino libraries. The `ArduinoRS485` and `ArduinoModbus` libraries are essential components that enable communication with compatible Modbus RTU devices. With the demonstrative example described in this tutorial, we have established communication between a Modbus RTU Server and a Client; we can now configure and set a secondary Arduino Opta® or use a Modbus RTU-compatible module for your project developments.
+In this tutorial, we established a Modbus RTU connection between two Opta™ devices using the Arduino ecosystem tools, such as the Arduino IDE and Arduino libraries. The `ArduinoRS485` and `ArduinoModbus` libraries are essential components that enable communication with compatible Modbus RTU devices. With the demonstrative example described in this tutorial, we have established communication between a Modbus RTU Server and a Client; we can now configure and set a secondary Opta™ or use a Modbus RTU-compatible module for your project developments.
