@@ -15,7 +15,7 @@ Wireless sensor networks, data fusion, artificial intelligence, machine vision
 
 # Features
 - **STM32H747AII6** Microcontroller
-  - Dual core
+Dual-core
     - 32-bit Arm® Cortex®-M7 core with double-precision FPU and L1 cache up to 480 MHz
     - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
@@ -40,7 +40,7 @@ Wireless sensor networks, data fusion, artificial intelligence, machine vision
   - Fully integrated miniature module
   - 940 nm invisible laser (VCSEL) emitter
   - Receiving array with integrated lens
-  - 400 cm detection with full field of view (FoV)
+  - 400 cm detection with a full field of view (FoV)
 - **MP34DT06JTR** Microphone
   - AOP = 122.5 dBSPL
   - 64 dB signal-to-noise ratio
@@ -69,19 +69,19 @@ Wireless sensor networks, data fusion, artificial intelligence, machine vision
 ## Introduction
 
 ### Application Examples
-The **Arduino® Nicla Vision** houses the computational power, camera, IMU you need to quickly developed machine vision solutions at the edge together with two wireless technologies. The board can act as a field-ready standalone board, or can be argumented with external peripherals through the I/O available on the chip. Ultra low power consumption and integrated battery management allows for deployment in various capabilities. WebBLE allows for easy OTA update to the firmware as well as remote monitoring.
+The **Arduino® Nicla Vision** houses the computational power, camera and IMU you need to quickly develop machine vision solutions at the edge together with two wireless technologies. The board can act as a field-ready standalone board or can be augmented with external peripherals through the I/O available on the chip. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates to the firmware as well as remote monitoring.
 
 - **Warehouse & Automated Inventory Management**: 
-The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provides the benefits of a always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the cloud.
+The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the cloud.
 
 - **Real-time process management**:
-The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) even in hard to reach and hazardous areas thanks to the small footprint and wireless connectivity options. The fast Time-of-Flight sensor ensures that the image acquisition is performed in a repeatable manner, with minimal modifications to the process. Additionally, the IMU can provide vibration analysis for predictive maintenance.
+The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) even in hard-to-reach and hazardous areas thanks to the small footprint and wireless connectivity options. The fast Time-of-Flight sensor ensures that the image acquisition is performed in a repeatable manner, with minimal modifications to the process. Additionally, the IMU can provide vibration analysis for predictive maintenance.
 
 - **Wireless Sensor Network Reference Design**:
-The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor network which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
+The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
 ### Accessories
-- Single cell Li-ion/Li-Po battery
+Single-cell Li-ion/Li-Po battery
 
 ### Related Products
 - Arduino® Portenta H7 (SKU: ABX00042)
@@ -89,7 +89,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote machine vision including an Arduino® Nicla Vision and battery. Notice the orientation of the battery's cable in the board's connector.](assets/niclaVisionSolutionOverview.png)
 
-**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC.
+**Note**: The NTC pin on the battery connector is optional. This is a feature that allows a safer use and thermal shutoff of the PMIC.
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -114,6 +114,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | P<sub>BLINK</sub>    | Power consumption with blink sketch                         |     | TBC |     | mW   |
 | P<sub>SENSE</sub>    | Power consumption for polling all sensors at 1 Hz           |     | TBC |     | mW   |
 | P<sub>SENSE_LP</sub> | Low Power consumption for polling all sensors once per hour |     | TBC |     | mW   |
+
+<div style="page-break-after:always;"></div>
 
 ## Functional Overview
 
@@ -151,29 +153,29 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 
 ### Processor
-The Nicla Vision's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The Nicla Vision's main processor is the dual-core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 
 ### 6-Axis IMU
 It is possible to obtain 3D gyroscope and 3D accelerometer data from the LSM6DSOX 6-axis IMU (U3). In addition to providing such data, it is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
 ### Wi-Fi/Bluetooth® Connectivity
-The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth®.
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth®.
 
 ### Crypto Capabilities
 The Arduino® Nicla Vision enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
 
 ### Time of Flight Sensor
-The VL53L1CBV0FY Time-of-Flight sensor (U4) adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) are encapsulated together with receiving optics in an all-in-one small module located below the camera.
+The VL53L1CBV0FY Time-of-Flight sensor (U4) adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
 
 ### Digital Microphones
-The MP34DT05 digital MEMS microphone is omnidirectional and operate via a capacitive sensing element with a high (64 dB) signal to noise ratio. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to producing audio sensors (U6).
+The MP34DT05 digital MEMS microphone is omnidirectional and operates via a capacitive sensing element with a high (64 dB) signal-to-noise ratio. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to producing audio sensors (U6).
 
 ### Power Tree
 ![Nicla Vision Power Tree](assets/niclaVisionPowerTree.svg)
 
-Input voltage can be provided to the Nicla Vision through the USB connector (J7), the ESLOV connector (J5), battery connector (J4) or alternatively the headers. The USB connector is prioritized over the ESLOV connector, both of which are prioritized over the battery connector and header. Reverse polarity protection for the USB connector (J7) and the ESLOV connector (J5) are provided by ideal diodes U2 and U7 respectively. Input voltage from the battery does NOT have reverse polarity protection and the user is responsible for respecting the polarity.
+Input voltage can be provided to the Nicla Vision through the USB connector (J7), the ESLOV connector (J5), the battery connector (J4) or alternatively the headers. The USB connector is prioritized over the ESLOV connector, both of which are prioritized over the battery connector and header. Reverse polarity protection for the USB connector (J7) and the ESLOV connector (J5) are provided by ideal diodes U2 and U7 respectively. Input voltage from the battery does NOT have reverse polarity protection and the user is responsible for respecting the polarity.
 
-A NTC (negative thermal coefficient) sensor provides overtemperature shutoff to the battery. The battery fuel gauge provides indication of the remaining battery capacity 
+An NTC (negative thermal coefficient) sensor provides overtemperature shutoff to the battery. The battery fuel gauge provides an indication of the remaining battery capacity.
 
 There are three main power lines provided:
 
@@ -196,10 +198,10 @@ The Arduino® Web Editor is hosted online, therefore it will always be up-to-dat
 All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Getting Started - WebBLE
-The Arduino Nicla Vision provides capability for OTA updates to the STM32 microcontroller using WebBLE.
+The Arduino Nicla Vision provides the capability for OTA updates to the STM32 microcontroller using WebBLE.
 
 ### Getting Started - ESLOV
-This board can act as a secondary to a ESLOV controller and have the firmware updated through this method.
+This board can act as a secondary to an ESLOV controller and have the firmware updated through this method.
 ### Sample Sketches
 Sample sketches for the Arduino® Nicla Vision can be found either in the “Examples” menu in the Arduino® IDE or on the Arduino® documentation website **[4]**
 
@@ -326,7 +328,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
 English: 
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -345,14 +347,14 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English 
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
 
 French: 
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands      | Typical Output Power |
 |----------------------|----------------------|
@@ -363,7 +365,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Company name    | Arduino SRL                                  |
 |-----------------|----------------------------------------------|
-| Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
@@ -377,6 +379,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**     |
-|------------|--------------|-----------------|
-| 03-09-2021 | 01           | Initial Version |
+| **Date**   | **Revision** | **Changes**                   |
+|------------|--------------|-------------------------------|
+| 03-09-2021 | 01           | Initial Version               |
+| 10-01-2022 | 02           | Updated information and fixes |
