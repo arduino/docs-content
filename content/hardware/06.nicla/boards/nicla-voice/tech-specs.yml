@@ -1,0 +1,42 @@
+Board:
+  Name: Arduino® Nicla Voice
+  SKU: ABX00061
+Neural Decision Processor:
+  Syntiant NDP120:
+    Core: Syntiant Core 2™ ultra-low power deep neural network inference engine
+    Audio: HiFi 3 Audio DSP
+    MCU: Arm® Cortex® M0 core up to 48 MHz
+Microcontroller: nRF52832 Arm® Cortex® M4 at 64MHz
+USB connector: Micro USB (USB-B)
+Pins:
+  LED built-in: 1 RGB LED (I2C)
+  Digital I/O Pins: 10 (of which 2 are shared with I2C and 4 are shared with SPI)
+  Analog input pins: 2 (both shared with PWM)
+  PWM pins: 12 (of which 2 are shared with analog, 2 are shared with I2C and 4 are shared with SPI)
+  External interrupts: 12
+Connectivity:
+  Bluetooth®: ANNA-B112 Bluetooth® module
+Sensors:
+  IMU: BMI270 (6-axis)
+  Magnetometer: BMM150 (3-axis)
+  Microphone: IM69D130
+Communication:
+  UART: Yes
+  I2C: 1
+  SPI: 1
+Power:
+  Microcontroller operating voltage: 1.8V translated to 3.3V on external pins
+  Board Power Supply (USB/VIN): 5V
+  Supported battery: Li-ion/Li-Po Single Cell, 3.7V
+  Battery connector: JST 3-pin 1.2 mm pitch
+  DC Current per I/O pin: 4.7 mA
+Clock speed:
+  Processor: 64 MHz
+  RTC: On-board the ANNA-B112
+Memory:
+  nRF52832 System-on-chip: 64kB SRAM, 512kB Flash
+  x1 AT25QL128A-UUE-T: 16MB SPI Flash
+Dimensions:
+  Weight: 2 g
+  Width: 22.86 mm (900mils)
+  Length: 22.86 mm (900mils)
