@@ -3,4 +3,6 @@ software:
   - arduino-cli
 hardware:
   carriers:
+    - portenta-breakout
     - portenta-max-carrier
+    
