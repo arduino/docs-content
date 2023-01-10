@@ -3,24 +3,21 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
 </FeatureDescription>
 
 <FeatureList>
-<Feature title="Cortex-M0 32-bit SAMD21" image="core">
 
-  The powerful, low-power processor featuring 256KB of CPU flash memory.
+<Feature title="WiFi" image="wifi">
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf" download blank/>
+  The board comes with WiFi connectivity and Arduino IoT Cloud compatibility. This allows you to create IoT applications in your own projects. 
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/wifi-connection"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
 </Feature>
 
-<Feature title="u-blox NINA-W102" image="wifi-bluetooth">
+<Feature title="Bluetooth®" image="bluetooth">
 
-  Enables Bluetooth® and Wi-Fi connectivity to get started with IoT or Bluetooth® Low Energy applications. 
+  The board is Bluetooth® enabled allowing you to control peripheral devices via bluetooth and start implementing  Bluetooth® Low Energy applications.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/bluetooth"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </Feature>
 
-<Feature title="ATECC608A crypto chip" image="crypto-chip">
-
-  The ECC608A crypto chip makes sure your data remains secure and private, and can store up to 16 keys in an EEPROM array.
-
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/microchip_atecc608a_cryptoauthentication_device_summary_datasheet-DS40001977B.pdf" download blank/>
-</Feature>
 </FeatureList>

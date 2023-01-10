@@ -16,35 +16,25 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
 
 <Feature title="IMU for Motion Detection" image="imu">
 
-  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or 
-  vibrations in your project.
+  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble/imu-accelerometer"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm9ds1/"/>
 </Feature>
 
-<Feature title="Arm® Mbed™ OS" image="core">
-
-  Arm® Mbed™ OS the Nano 33 BLE builds upon the same operating system as the Arduino Portenta H7. This also allows for Arduino APIs to be 
-  integrated using APIs exposed directly by Mbed OS.
-
-  <FeatureLink variant="primary" title="Documentation" url="https://os.mbed.com/docs/mbed-os"/>
-</Feature>
-
 <Feature title="Python® Support" image="python">
 
-  This board can be programmed using MicroPython which is an implementation of the Python® programming language that comes with a subset of the Python® 
-  standard library, and is designed to run on microcontrollers.
+  This board can be programmed using MicroPython which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
 
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble/getting-started-omv"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
+  <FeatureLink variant="secondary" title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>
 
-<Feature title="Lauterbach TRACE32 debugger" image="file-icon">
+<Feature title="Arm® Mbed™ OS" image="core">
 
-  This board is compatible with the Lauterbach TRACE32 debugger, and a free license can be obtained using the board's serial number.
+  Arm® Mbed™ OS is an open-source operating system which the Nano 33 BLE builds upon. It’s the same operating system as the Arduino Portenta H7, which allows for Arduino APIs to be integrated using APIs exposed directly by Mbed OS.
 
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble/trace-32"/>
-  <FeatureLink variant="secondary" title="Download" url="https://www.lauterbach.com/frames.html?download_demo.html"/>
+  <FeatureLink variant="primary" title="Documentation" url="https://os.mbed.com/docs/mbed-os"/>
 </Feature>
 
 
