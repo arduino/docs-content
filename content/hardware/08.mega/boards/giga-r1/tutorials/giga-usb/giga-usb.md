@@ -23,6 +23,10 @@ The GIGA R1 have two USB connectors:
 
 ***Note: do NOT connect the USB-A connector to your computer. This is not a programming port and if the `PA15` pin is enabled, it can damage your computer's USB port.***
 
+Below is an example of how you should use the USB-C / USB-A connectors. 
+
+![Keyboard connected to USB-A port.](assets/giga-keyboard-connect.png)
+
 ## Enable/Disable USB-A Port
 
 To enable the USB-A port, you will need to define it as an output. You can also disable it inside of a sketch by writing a LOW state to it.
@@ -37,6 +41,8 @@ void loop(){
   digitalWrite(PA_15, LOW); //write a low state
 }
 ```
+
+***Please note that connecting devices to the USB-A that draw high amounts of current may cause the board to reset.***
 
 ## USB Mass Storage
 
@@ -497,6 +503,3 @@ void loop() {
   delay(1000);
 }
 ```
-
-## Use Cases
-
