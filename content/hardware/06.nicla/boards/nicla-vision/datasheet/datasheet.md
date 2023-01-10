@@ -3,7 +3,7 @@ identifier: ABX00051
 title: Arduino® Nicla Vision
 type: pro
 author: Ali Jahangiri
----
+--- 
 
 ![Nicla Vision](assets/featured.png)
 
