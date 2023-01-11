@@ -111,7 +111,7 @@ void setup()
 }
 ```
 
-Given Modbus RTU specification, `preDelay` and `postDelay` must be configured for correct operation and for this example, it will use the defined parameters as per specification based on message RTU framing that is explained in deep with this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The method `RS485.setDelays(preDelayBR, postDelayBR);` will be called to take it into effect to correctly enable Modbus RTU on the Opta™.
+Given Modbus RTU specification, `preDelay` and `postDelay` must be configured for correct operation and this example will use the defined parameters as per specification based on message RTU framing that is explained in deep with this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The method `RS485.setDelays(preDelayBR, postDelayBR);` will be called to take it into effect to correctly enable Modbus RTU on the Opta™.
 
 The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
 
@@ -137,8 +137,6 @@ void loop(){
     Serial.println();
 }
 ```
-
-As we are interested in obtaining specific values, we will define a simple operation pause counter that will be flagged if conditions are met with the defined pause trigger. This will keep the communication busy to keep data flowing and create a headroom for the devices to process if required.
 
 The complete code for the Client is shown below:
 
@@ -334,7 +332,7 @@ void readInputRegisterValues()
 
 #### Modbus RTU Server
 
-In the Opta™ Server, the main task will be to poll for Modbus RTU requests and return configured values when requested. It requires following the same initial configuration as the Opta™ Client. The main difference between the Client and the Server devices is found in the `setup()` function:
+In the Opta™ Server, the main task will be to poll for Modbus RTU requests and return configured values when requested. It requires following the same initial configuration as the Opta™ Client. The main difference between the Client and the Server devices lies in the `setup()` function:
 
 ```arduino
 #include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
@@ -465,7 +463,7 @@ void loop() {
 
 ### Testing the Modbus RTU Client and Server
 
-Once you have uploaded the Modbus RTU Client and Server code for each Opta™ device, we can open the Serial Monitor on the Client side to debug the communication status between the devices. If everything is working correctly, you will be able to see `Success!` messages after each read-and-write tasks as shown in the image below:
+Once you have uploaded the Modbus RTU Client and Server code for each Opta™ device, we can open the Serial Monitor on the Client side to debug the communication status between the devices. If everything is working correctly, you will be able to see `Success!` messages after each read-and-write task as shown in the image below:
 
 ![Modbus RTU Client and Server communication status.](assets/opta-modbus-client.png)
 
