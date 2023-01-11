@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="https://opla.arduino.cc/">
+  <EssentialElement title="Quickstart Guide" type="tutorial" link="https://docs.arduino.cc/tutorials/mkr-iot-carrier-rev2/cheat-sheet">
     All you need to know to get started with your new Arduino MKR IoT Carrier.
   </EssentialElement>
 
