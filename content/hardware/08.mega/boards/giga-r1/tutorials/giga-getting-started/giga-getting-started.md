@@ -1,7 +1,7 @@
 ---
 title: Getting Started with GIGA R1 / GIGA R1 WiFi
 description: A step-by-step guide to install the board package needed for the GIGA R1 / GIGA R1 WiFi board.
-author:
+author: Karl Söderby
 tags: [GIGA R1, GIGA R1 WiFi, Installation, IDE]
 ---
 
