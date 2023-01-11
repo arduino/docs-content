@@ -33,7 +33,7 @@ The Arduino Opta™ is a powerful micro PLC device that has many features, allow
 
 ### Required Hardware and Software
 
-- Arduino Opta™
+- [Arduino Opta™](https://store.arduino.cc/pages/opta)
 - Ethernet cable
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - USB-C® cable (either USB-C to USB-A or USB-C to USB-C)
@@ -57,7 +57,7 @@ If you want to take a deeper look at what features the **WiFi** library has to o
 
 ### Ethernet
 
-The Arduino Opta has a RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet on the Arduino Opta are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta** we can find the **Ethernet** section. Inside there is an example sketch called **WebClient**. Connect the Ethernet cable to the Arduino Opta and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website defined in the sketch and print the websites' HTML content in the serial monitor. If the sketch ran successfully, the output should look like the image below.
+The Arduino Opta has a RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet with the Arduino Opta are included in the core. To try it out, we can go to **File > Examples** and under **Examples for Opta** we can find the **Ethernet** section. Inside there is an example sketch called **WebClient**. Connect the Ethernet cable to the Arduino Opta and upload the example. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website defined in the sketch and print the websites' HTML content in the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
 ![Running the Ethernet sketch on the Arduino Opta in the Arduino IDE](assets/opta-ethernet.png)
 
@@ -65,7 +65,7 @@ If you want to take a deeper look at what features the **Ethernet** library has 
 
 ### Modbus TCP Via Ethernet Port
 
-The Arduino Opta can be configured to use Modbus TCP protocol, which basically runs on Ethernet instead of serial lines using TCP interface over RTU protocol. Thus the coverage distance is dependent on the capacity of the Ethernet cable. For example, Cat6a cable could be paired with Arduino Opta to operate inside industrial environment. Modbus TCP is a variant of the Modbus family of simple, vendor-neutral communication protocols intended for supervision and control of automation equipment. Specifically, it covers the use of Modbus messaging in an intranet or internet environment using the TCP/IP protocols. The most common use of the protocols at this time is for Ethernet attachment of PLCs, I/O modules and gateways to other simple field buses or I/O networks.
+The Arduino Opta can be configured to use Modbus TCP protocol, which runs a Modbus protocol layered over a TCP/IP stack. Thus the coverage distance is dependent on the capacity of the Ethernet cable. For example, Cat6A cable could be paired with Arduino Opta to operate inside industrial environment.
 
 ### Bluetooth® Low Energy
 
@@ -77,7 +77,7 @@ If you want to take a deeper look at what features the **ArduinoBLE** library ha
 
 ## Conclusion
 
-Now you have a better overview of the connectivity features on the Arduino Opta and how to use them. We went through how to use the different connectivity features and what libraries are required for them. By running all the example sketches on our device, we have made sure that the modules are all working and everything is up to date.
+This tutorial has shown an overview of the connectivity features on the Arduino Opta and how to use them. How to use the different connectivity features and what libraries are required for them was also shown here. By running all the example sketches on the device the modules are all working and everything is up to date, ready to be implemented into other more complex solutions.
 
 ### Next Steps
 
