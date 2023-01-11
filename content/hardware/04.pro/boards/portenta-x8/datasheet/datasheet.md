@@ -382,7 +382,7 @@ Power management is mainly performed by the BD71847AMWV IC (U1).
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® Portenta X8 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a Type-c USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Arduino® Portenta X8 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
