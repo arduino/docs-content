@@ -4,7 +4,7 @@ description: "This application note describes how to monitor the level in tanks 
 difficulty: advanced
 tags:
   - Tank level
-  - Opta
+  - Opta™
   - RS-485
   - Level sensor
   - Application Note
@@ -36,7 +36,7 @@ This application note aims to show a system based on the Opta™, capable of mon
 
 A graphical representation of the intended application is shown below:
 
-![Graphical representation of the tank level monitoring application.](assets/application_represetation.png)
+![Graphical representation of the tank level monitoring application.](assets/application_representation.png)
 
 BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
@@ -44,11 +44,11 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 ### Hardware Requirements
 
-- [Arduino Opta®](https://store.arduino.cc/pages/opta)
+- [Arduino Opta®](https://store.arduino.cc/pages/opta) with RS-485 support
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
-- 12VDC solenoid valve (x1) 
+- 12VDC NC 2/2-Way direct acting solenoid or motorized ball valve (x1)
 - 12VDC liquid pump
 - 12VDC DIN rail power supply (x1)
 
@@ -56,7 +56,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `Scheduler`. You can install those libraries via the Library Manager of the Arduino IDE.
-- For the Wi-Fi connectivity feature of the Opta™, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
+- The [Arduino IoT Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. It will require an account to access Arduino IoT Cloud's features.
 
 ## Demonstration Setup
 
@@ -64,28 +64,30 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Electrical connections of the application.](assets/electrical_connections.png)
 
-Notice that the Optas communicate with each other over RS-485. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of the Optas; the pump and the gate valve are controlled using the built-in relay outputs of the Optas.
+Notice that the Opta™ communicate with each other over RS-485 interface. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of the Opta™; the pump and the gate valve are controlled using the built-in relay outputs of the Opta™.
 
 ## Demonstration Description
 
-ST and BT each have a specific monitoring routine to monitor and control their minimum and maximum level. Both Optas will exchange important states and parameters of each tank to understand and execute appropriate actions to maintain both tank levels as expected in the application. As stated before, the Optas in charge of ST and BT will communicate with each other using Modbus RTU over RS-485.
+Small Tank (ST) and Big Tank (BT) each have a specific monitoring routine to monitor and control their minimum and maximum level. Both Opta™ will exchange important states and parameters of each tank to understand and execute appropriate actions to maintain both tank levels as expected in the application. As stated before, the Opta™ in charge of Small Tank and Big Tank will communicate with each other over RS-485 interface.
 
-The Opta™ in the BT performs the following actions:
+The Opta™ in the Big Tank (BT) performs the following actions:
 
-- It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from BT to ST. 
+- It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from Big Tank to Small Tank. 
 - It shuts off the system completely, halting any activity on it.
-- It sends the current minimum level state to ST while also seeking for ST maximum level state. 
+- It sends the current minimum level state to Small Tank while also seeking for Small Tank's maximum level state. 
 
-The Opta™ in the ST performs the following actions:
+The Opta™ in the Small Tank (ST) performs the following actions:
 
-- It manages the gate valve given the ST level and BT minimum level state. 
-- It sends ST's current maximum level state to BT while seeking BT's minimum level state. 
+- It manages the gate valve given the Small Tank level and Big Tank minimum level state. 
+- It sends Small Tank's current maximum level state to Big Tank while seeking Big Tank's minimum level state. 
 
-In addition to the functionalities explained before, both Optas are connected to Arduino IoT Cloud via Wi-Fi. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
+In addition to the functionalities explained before, both Opta™ are connected to Arduino IoT Cloud via Wi-Fi. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
 
-### Example Code for Small Tank (ST)
+### Understanding the Small Tank (ST) Code
 
-The following code exemplifies how Opta™ in ST can achieve the actions described before. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration:
+We will highlight the important details of the sketch that makes up part of the Opta™ in charge of the Small Tank. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration. We will begin with the required libraries. 
+
+These following headers are required to enable the RS-485 interface, connection with the Arduino IoT Cloud, and the scheduler. The scheduler handles the data exchange over RS-485 interface, while keeping the `loop()` to manage local parameters of the Small Tank.
 
 ```arduino
 #include "thingProperties.h"
@@ -93,111 +95,32 @@ The following code exemplifies how Opta™ in ST can achieve the actions describ
 
 #include <ArduinoRS485.h>
 #include <Scheduler.h>
+```
 
-#define CHANNEL1
+The vertical and horizontal float swiches are essential sensors to know the tank's capacity. It will measure if the switches are closed or open by reading the voltage in this scenario. For example, if the vertical switch is closed indicating the tank is at maximum capacity, it will read ~3.0V and thus return such state as 1. Otherwise, it will return the maximum capacity state as 0, meaning it has not reached upper capacity limit. 
 
-#ifdef CHANNEL1
-  float a1_tot = 0;
-  float a1_avg = 0;
-  float a1_max = 0;
-  float a1_min = 5;
-  float a1_noise = 0;
-  int a1_count, a2_count = 0;
-#endif
-
-int start_time    = 0;
-int rs485_counter = 0;
-char rs485_rec;
-
-// Global parameters, initial conditions
-uint8_t BT_Max = 0, ST_Max = 0, ST_Valve = 0;
-uint8_t BT_Min = 1, ST_Min = 1;
-
-// Small tank routines
-void ST_Param_Monitor() {
-  Serial.println(F("\n------------------------"));
-  Serial.println(F("--> Small Tank Status Monitor: "));
-  Serial.print(F("Small tank - Maximum sensor: "));
-  Serial.println(ST_Max);
-  Serial.print(F("Small tank - Minimum sensor: "));
-  Serial.println(ST_Min);
-  Serial.print(F("Small tank - Valve activity: "));
-  Serial.println(ST_Valve);
-  Serial.println(F("Small tank - Co-shared req. BT parameters: "));
-  Serial.print(F("Big tank - Minimum sensor: "));
-  Serial.println(BT_Min);
-  Serial.println(F("------------------------\n"));
-}
-
-uint8_t ST_Level_Check() {
+```arduino
+uint8_t ST_Level_Check(){
   // Simple sensor read state 
   ST_Max = ST_MaxSensor_A1();
   ST_Min = ST_MinSensor_A2();
 }
 
-uint8_t ST_Volume_Ctrl() { 
-  // Active main condition to free ST volume
-  if (((ST_Min == 0 && BT_Min == 1) && ST_Max != 1)) {
-    if (ST_Valve != 1) {
-      ST_Valve = 1;
-      ST_Valve_Cloud = true;
-      digitalWrite(D2, ST_Valve);
-      
-      Serial.println(F("Small tank - Valve opening"));
-    } else {
-      Serial.println(F("Small tank - Valve opened"));
-    } 
-  }
+...
 
-  // Conditional to halt volume freeing process for ST
-  if (ST_Max == 1 || BT_Min == 0) {
-      if (ST_Valve != 0) {
-        ST_Valve = 0;
-        ST_Valve_Cloud = false;
-        digitalWrite(D2, ST_Valve);
-        Serial.println(F("Small tank - Valve closing"));
-      } else {
-        Serial.println(F("Small tank - Valve closed"));
-      }
-
-      // Sending Big Tank Pump Off Command
-      // 0x52 for BT_Pump Off
-      RS485.beginTransmission();
-      RS485.println('P');
-      RS485.endTransmission();
-      delay(40);
-  }
-}
-
-void ST_Param_Share() {
-  // 4 for ST_Min = 1
-  // 5 for ST_Min = 0
-  // 6 for ST_Max = 1
-  // 7 for ST_Max = 0
-  RS485.beginTransmission();
-  if (ST_Max == 1){
-    RS485.println('6');
-    Serial.println(F("Small tank - Maximum level: ON"));
-  } else {
-    RS485.println('7');
-    Serial.println(F("Small Tank - Maximum Level: OFF"));
-  }
-  RS485.endTransmission();
-  delay(100);
-}
-
-uint8_t ST_MaxSensor_A1() {
-  // Value Extractor
+// Reading the sensor's current state
+// ST_MaxSensor_A1 & ST_MinSensor_A2 is reading the vertical & horizontal float switches.
+uint8_t ST_MaxSensor_A1(){
   digitalWrite(LEDB, HIGH);
   int st_max_read = analogRead(A1);
   float st_max_read_V = st_max_read * (3.249 / 4095.0) / 0.3034;
 
-  Serial.print(F("ST_Max = "));
+  Serial.print(F("Small Tank - Max = "));
   Serial.println(st_max_read_V, 3);
 
   digitalWrite(LEDB, LOW);
 
-  if (st_max_read_V >= 2.99) {
+  if (st_max_read_V >= 2.99){
     ST_Max_Cloud = true;
     return 1;
   } else {
@@ -206,18 +129,17 @@ uint8_t ST_MaxSensor_A1() {
   }
 }
 
-uint8_t ST_MinSensor_A2() {
-  // Value extractor
+uint8_t ST_MinSensor_A2(){
   digitalWrite(LEDB, HIGH);
   int st_min_read = analogRead(A2);
   float st_min_read_V = st_min_read * (3.249 / 4095.0) / 0.3034;
 
-  Serial.print(F("ST_Min = "));
+  Serial.print(F("Small Tank - Min = "));
   Serial.println(st_min_read_V, 3);
 
   digitalWrite(LEDB, LOW);
 
-  if (st_min_read_V >= 2.99) {
+  if (st_min_read_V >= 2.99){
     ST_Min_Cloud = true;
     return 1;
   } else {
@@ -225,55 +147,101 @@ uint8_t ST_MinSensor_A2() {
     return 0;
   }
 }
+```
 
-void component_state() {
-  if (ST_Valve == 1){
-    digitalWrite(LEDR, HIGH);
-  } else {
-    digitalWrite(LEDR, LOW);
+The Opta™ controlling the Small Tank will need to recognize the reservoir's capacity and use such information to control the volume. A 2/2-way normal closed direct acting solenoid or a motorized ball valve is used in this setup and controlled by Small Tank to free the volume whenever certain conditions are met. The following function helps control this valve by reading the tank's capacity state and an external information which is from the Big Tank. The `BT_Min` is the float switch state for Big Tank's minimum level, attained via communication over RS-485 interface. 
+
+```arduino
+uint8_t ST_Volume_CTRL(){
+  // Active main condition to free Small Tank volume
+  if (((ST_Min == 0 && BT_Min == 1) && ST_Max != 1)){
+    if (ST_Valve != 1){
+      ST_Valve = 1;
+      ST_Valve_Cloud = true;
+      digitalWrite(D2, ST_Valve);
+      
+      Serial.println(F("Small Tank - Valve Opening"));
+    } else {
+      Serial.println(F("Small Tank - Valve Opened"));
+    } 
+  }
+
+  // Conditional to halt volume freeing process for Small Tank
+  if (ST_Max == 1 || BT_Min == 0){
+      if (ST_Valve != 0){
+        ST_Valve = 0;
+        ST_Valve_Cloud = false;
+        digitalWrite(D2, ST_Valve);
+        Serial.println(F("Small Tank - Valve Closing"));
+      } else {
+        Serial.println(F("Small Tank - Valve Closed"));
+      }
+      // Sending Big Tank Pump Off Command
+      RS485.beginTransmission();
+      RS485.println('P');
+      RS485.endTransmission();
+      delay(40);
   }
 }
+```
 
-// Opta LED PLC Switches
-void opta_led_setup() {
-  pinMode(LEDG, OUTPUT);
-  pinMode(LEDR, OUTPUT);
-  pinMode(LEDB, OUTPUT);
-  pinMode(PIN_SPI_MISO, OUTPUT);
-  pinMode(PIN_SPI_MOSI, OUTPUT);
-  pinMode(PIN_SPI_SCK, OUTPUT);
-  pinMode(PIN_SPI_SS, OUTPUT);
+As the Opta™ receives `BT_Min` from the Big Tank, the Small Tank also shares the information with the Big Tank regarding Small Tank's maximum level denoted as `ST_Max`. 
 
-  opta_led_off();
+```arduino
+void ST_Param_Share(){
+  // 6 for ST_Max = 1
+  // 7 for ST_Max = 0
+  RS485.beginTransmission();
+  if (ST_Max == 1){
+    RS485.println('6');
+    Serial.println(F("Small Tank - Maximum Level: ON"));
+  } else {
+    RS485.println('7');
+    Serial.println(F("Small Tank - Maximum Level: OFF"));
+  }
+  RS485.endTransmission();
+  delay(100);
 }
+```
 
-void opta_led_off() {
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDB, LOW);
-  digitalWrite(PIN_SPI_MISO, LOW);
-  digitalWrite(PIN_SPI_MOSI, LOW);
-  digitalWrite(PIN_SPI_SCK, LOW);
-  digitalWrite(PIN_SPI_SS, LOW);
+It is possible to notice whenever an Opta™ exchanges information with another Opta™ over RS-485 interface with subsequent code structure. The sketch uses a single character to represent a flag state of a certain module to be recognized by receiving device to use this flag as a conditional for designed operations.
+
+```arduino
+RS485.beginTransmission();
+RS485.println('');
+RS485.endTransmission();
+```
+
+Thus, when such characters are received and decoded, they can be used to determine whether to activate a certain module or if it has been activated. In this example, if we receive `V` from the Big Tank Opta™, the Small Tank turns off the valve. If it receives the character `1` or `2`, the Small Tank will have the information regarding Big Tank's minimum level. The following simple parser does this task inside the Small Tank's Opta™. 
+
+```arduino
+uint8_t RS485_parser(){
+  if (RS485.available() > 0) {
+    if (RS485.find('V')){
+      Serial.println(F("Received: Valve Off - Big Tank"));
+      ST_Valve = 0;
+      digitalWrite(D2, ST_Valve);
+    }
+    if (RS485.find('1')){
+      Serial.println(F("Received: Big Tank - Min - On"));
+      BT_Min = 1;
+    }
+    if (RS485.find('2')){
+      Serial.println(F("Received: Big Tank - Min - Off"));
+      BT_Min = 0;
+    }
+  }
+  delay(40);
 }
+```
 
+The setup process to enable all the needed features to manage Small Tank's Opta™ is as follows. Here the RS-485 interface, scheduler, Arduino IoT Cloud, and other features are configured and enabled. 
 
-// Digital port related tasks
-void digitalIO_Setup() {
-  // D2 -> ST Valve
-  pinMode(D2, OUTPUT);
-}
-
-// Analog port related tasks
-void analogIO_Setup() {
-  analogReadResolution(12);
-  start_time = millis();
-  SCB_DisableDCache();
-  Serial.println("Start");
-}
-
-// RS-485 port related tasks
-void RS485_Setup() {
+```arduino
+/*************************************
+* RS485 related tasks
+*************************************/
+void RS485_Setup(){
 
   Serial.begin(9600);
   RS485.begin(9600);
@@ -282,52 +250,30 @@ void RS485_Setup() {
 
   delay(1000);
 
-  Serial.println(F("ST - RS485 Interface Client Toggle"));
+  Serial.println(F("Small Tank - RS485 Interface Client Toggle"));
   RS485.beginTransmission();
 
-  // Enable RS-485 reception
+  // Enables RS485 reception
   RS485.receive();
 }
 
-uint16_t rs485_transport, rs485_carrier;
-uint8_t RS485_parser() {
-  if (RS485.available() > 0) {
-    //rs485_rec = RS485.read();
-    if (RS485.find('V')) {
-      Serial.println(F("Received: Valve OFF - BT"));
-      ST_Valve = 0;
-      digitalWrite(D2, ST_Valve);
-    }
-    if (RS485.find('1')) {
-      Serial.println(F("Received: BT_Min - ON"));
-      BT_Min = 1;
-    }
-    if (RS485.find('2')) {
-      Serial.println(F("Received: BT_Min - OFF"));
-      BT_Min = 0;
-    }
-  }
-  delay(40);
-}
-
 void setup() {
-
   // Initial parameter initialization
   EM_Stop_ST = false;
   ST_Valve_Cloud = false;
   
-  // IO ports configuration
+  // Analog/Digital IO Port Configuration
   analogIO_Setup();
   digitalIO_Setup();
 
-  // RS-485 configuration 
+  // RS485 Configuration 
   RS485_Setup();
   
   // Status LED configuration;
-  opta_led_setup();
+  finder_led_Setup();
   digitalWrite(LEDG, HIGH);
   
-  // Scheduler -> RS-485 Interface
+  // Scheduler -> RS485 Interface
   Scheduler.startLoop(rs485_interface);
   
   // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
@@ -337,24 +283,36 @@ void setup() {
   initProperties();
 
   // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
 }
+```
 
+The main `loop()` manages local parameters and `rs485_interface()` handles the data exchange between the Opta™ over RS-485 interface. 
+
+```arduino
 void loop() {
   ArduinoCloud.update();
   
-  if (EM_Stop_ST == false) {
+  if (EM_Stop_ST == false){
     // Essential tank runtime and parameter display
     ST_Level_Check();
     ST_Param_Monitor();
     
-    // ST Condition Checkers
+    // Small Tank Condition Checkers
     component_state();
-    ST_Volume_Ctrl();
+    ST_Volume_CTRL();
   } else {
-    Serial.println(F("Emergency stop - Cloud"));
+    Serial.println(F("Emergency Stop - Cloud"));
     ST_Valve = 0;
     ST_Valve_Cloud = false;
   }
@@ -364,117 +322,24 @@ void loop() {
 void rs485_interface(){
   ST_Param_Share();
 
-  // RS485 Communication with ST Opta
+  // RS485 Communication with Small Tank PLC
   RS485_parser();
   delay(100);
 }
-
-
-/*
-  onEMStopSTChange() function generated by Arduino IoT Cloud  
-  Since EMStopST is READ_WRITE variable, onEMStopSTChange() is
-  executed every time a new value is received from IoT Cloud.
-*/
-void onEMStopSTChange()  {
-  if (EM_Stop_ST == false) {
-    Serial.println(F("Emergency Stop Deactivated - Cloud"));
-  }
-  if (EM_Stop_ST == true) {
-    Serial.println(F("Emergency Stop Activated - Cloud"));
-  }
-}
-
-/*
-  onSTValveCloudChange() function generated by Arduino IoT Cloud
-  Since STValveCloud is READ_WRITE variable, onSTValveCloudChange() is
-  executed every time a new value is received from IoT Cloud.
-*/
-void onSTValveCloudChange()  {
-  if (ST_Valve_Cloud == false) {
-    ST_Valve = 0;
-    Serial.println(F("Small Tank - Valve Deactivated - Cloud"));
-  }
-  if (ST_Valve_Cloud == true) {
-    ST_Valve = 1;
-    Serial.println(F("Small Tank - Valve Activated- Cloud"));
-  }
-}
 ```
 
-### Example Code for Big Tank (ST)
+We will now continue with Big Tank's Opta™ to understand its main role. 
 
-The following code exemplifies how Opta™ in BT can achieve the actions described before. Notice that some of the functions in the code were generated by Arduino IoT Cloud during the dashboard configuration:
+### Understanding the Big Tank (BT) Code
+
+The Opta™ in charge of Big Tank has a very similar structure to Small Tank's Opta™, as well as some of the functions in the code, were generated by Arduino IoT Cloud during the dashboard configuration. Since it has a similar code backbone, we will focus on the main tasks that only Big Tank is in charge of.
+
+The Big Tank's Opta™ has 2 main tasks. They are to stop the system operation or to control the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is turned off, in which will halt the Pump and send the valve off command for Small Tank's Opta™. This is the emergency stop for the system. The `BT_Pump_CTRL()` will send the valve off command whenever Big Tank's maximum level is reached and activate the pump to avoid reservoir overfill. 
 
 ```arduino
-#include "thingProperties.h"
-#include "stm32h7xx_ll_gpio.h"
-
-#include <ArduinoRS485.h>
-#include <Scheduler.h>
-
-#define CHANNEL1
-
-#ifdef CHANNEL1
-float a1_tot = 0;
-float a1_avg = 0;
-float a1_max = 0;
-float a1_min = 5;
-float a1_noise = 0;
-int a1_count, a2_count = 0;
-#endif
-
-int start_time = 0;
-int rs485_counter = 0;
-char rs485_rec;
-bool rs485_port = false;
-
-// Global parameters, initial conditions
-uint8_t BT_Max = 0, ST_Max = 0, BT_Pump = 0;
-uint8_t BT_Min = 1, ST_Min = 1;
-
-// Big tank routines  
-void BT_Param_Monitor(){
-  Serial.println(F("\n------------------------"));
-  Serial.println(F("--> Big Tank Status Monitor: "));
-  Serial.print(F("Big Tank - Maximum Sensor: "));
-  Serial.println(BT_Max);
-  Serial.print(F("Big Tank - Minimum Sensor: "));
-  Serial.println(BT_Min);
-  Serial.print(F("Big Tank - Pump Activity: "));
-  Serial.println(BT_Pump);
-  Serial.println(F("Big Tank - Co-Shared Req. ST Param: "));
-  Serial.print(F("Small Tank - Maximum Sensor: "));
-  Serial.println(ST_Max);
-  Serial.println(F("------------------------\n"));
-}
-
-void BT_Param_Share(){
-  // 1 for BT_Min = 1
-  // 2 for BT_Min = 0
-  // A for BT_Max = 1
-  // B for BT_Max = 0
-  RS485.beginTransmission();
-  if (BT_Min == 1){
-    RS485.println('1');
-    Serial.println(F("Big Tank - Minimum Level: ON"));
-  } else {
-    RS485.println('2');
-    Serial.println(F("Big Tank - Minimum Level: OFF"));
-  }
-  RS485.endTransmission();
-  delay(100);
-}
-
-uint8_t BT_Level_Check(){
-  // Simple sensor read state 
-  BT_Max = BT_MaxSensor_A1();
-  BT_Min = BT_MinSensor_A2();
-}
-
 uint8_t BT_System_Off(){
   if (BT_Min != 1){
     // Sending Small Tank Valve Off Command
-    // 0x34 for ST_Valve Off
     RS485.beginTransmission();
     RS485.println('V');
     RS485.endTransmission();
@@ -483,7 +348,7 @@ uint8_t BT_System_Off(){
     // Turn off 
     BT_Pump = 0;
     Sys_EM_Stop = true;
-    // Emulation purpose - may require change afterwards
+
     digitalWrite(D2, BT_Pump);
     Serial.println(F("Big Tank - Level Below Nominal: Emergency Stop"));
   } else {
@@ -494,8 +359,7 @@ uint8_t BT_System_Off(){
 
 uint8_t BT_Pump_CTRL(){
   if (BT_Max != 0){
-    // Sending Small Tank Valve Off Command - This is to avoid creating unnecessary pressure
-    // 0x34 for ST_Valve Off
+    // Sending Small Tank Valve Off Command
     RS485.beginTransmission();
     RS485.println('V');
     RS485.endTransmission();
@@ -521,119 +385,30 @@ uint8_t BT_Pump_CTRL(){
     }
   }
 }
+```
 
-uint8_t BT_MaxSensor_A1(){
-  // Value Extractor
-  digitalWrite(LEDB, HIGH);
-  int bt_max_read = analogRead(A1);
-  float bt_max_read_V = bt_max_read * (3.249 / 4095.0) / 0.3034;
+The Opta™ in charge of the Big Tank shares the information with the Small Tank regarding Big Tank's minimum level denoted as `BT_Min` inside the sketch. 
 
-  Serial.print(F("BT_Max = "));
-  Serial.println(bt_max_read_V, 3);
-
-  digitalWrite(LEDB, LOW);
-
-  if (bt_max_read_V >= 2.99){
-    BT_Max_Cloud = true;
-    return 1;
-  } else {
-    BT_Max_Cloud = false;
-    return 0;
-  }
-}
-
-uint8_t BT_MinSensor_A2(){
-  // Value Extractor
-  digitalWrite(LEDB, HIGH);
-  int bt_min_read = analogRead(A2);
-  float bt_min_read_V = bt_min_read * (3.249 / 4095.0) / 0.3034;
-
-  Serial.print(F("BT_Min = "));
-  Serial.println(bt_min_read_V, 3);
-
-  digitalWrite(LEDB, LOW);
-
-  if (bt_min_read_V >= 2.99){
-    BT_Min_Cloud = true;
-    return 1;
-  } else {
-    BT_Min_Cloud = false; 
-    return 0;
-  }
-}
-
-void component_state(){
-  if (BT_Pump == 1){
-    digitalWrite(LEDR, HIGH);
-  } else {
-    digitalWrite(LEDR, LOW);
-  }
-}
-
-/*************************************
-* LED PLC Switches
-*************************************/
-void finder_led_off() {
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDB, LOW);
-  digitalWrite(PIN_SPI_MISO, LOW);
-  digitalWrite(PIN_SPI_MOSI, LOW);
-  digitalWrite(PIN_SPI_SCK, LOW);
-  digitalWrite(PIN_SPI_SS, LOW);
-}
-
-void finder_led_Setup(){
-  pinMode(LEDG, OUTPUT);
-  pinMode(LEDR, OUTPUT);
-  pinMode(LEDB, OUTPUT);
-  pinMode(PIN_SPI_MISO, OUTPUT);
-  pinMode(PIN_SPI_MOSI, OUTPUT);
-  pinMode(PIN_SPI_SCK, OUTPUT);
-  pinMode(PIN_SPI_SS, OUTPUT);
-
-  finder_led_off();
-}
-
-/*************************************
-* Digital Port related tasks
-*************************************/
-void digitalIO_Setup(){
-  // D2 -> BT Pump
-  pinMode(D2, OUTPUT);
-}
-
-/*************************************
-* Analog Port related tasks
-*************************************/
-void analogIO_Setup(){
-  analogReadResolution(12);
-
-  start_time = millis();
-  SCB_DisableDCache();
-  Serial.println("Start");
-}
-
-/*************************************
-* RS485 related tasks
-*************************************/
-void RS485_Setup(){
-
-  Serial.begin(9600);
-  RS485.begin(9600);
-  while (!Serial)
-      ;
-
-  delay(1000);
-
-  Serial.println("Big Tank - RS485 Interface Client Toggle");
+```arduino
+void BT_Param_Share(){
+  // 1 for BT_Min = 1
+  // 2 for BT_Min = 0
   RS485.beginTransmission();
-  
-  // Enables RS485 reception
-  RS485.receive();
+  if (BT_Min == 1){
+    RS485.println('1');
+    Serial.println(F("Big Tank - Minimum Level: ON"));
+  } else {
+    RS485.println('2');
+    Serial.println(F("Big Tank - Minimum Level: OFF"));
+  }
+  RS485.endTransmission();
+  delay(100);
 }
+```
 
-uint16_t rs485_transport;
+In this example, if we receive `P` from the Small Tank Opta™, the Big Tank turns off the pump. If it captures the character `6` or `7`, the Big Tank will have the information regarding Small Tank's maximum level. The following simple parser does this task inside the Big Tank's Opta™. 
+
+```arduino
 uint8_t RS485_parser(){
   if (RS485.available() > 0) {
     if (RS485.find('P')){
@@ -652,58 +427,20 @@ uint8_t RS485_parser(){
   }
   delay(40);
 }
+```
 
-void setup() {
-  // Initial Parameter 
-  EM_Stop_BT = false;
-  Sys_EM_Stop = false;
-  
-  // Initialize serial and wait for port to open:
-  // Analog/Digital IO Port Configuration
-  analogIO_Setup();
-  digitalIO_Setup();
+There are no major differences in setup between Opta™ managing Small and Big Tank. In the loop and assigned scheduler function, the only difference is that the Big Tank's Opta™ will share its local parameters with Small Tank's Opta™, while it consistently checks for pump activation or if the system must activate emergency stop.
 
-  // RS485 Configuration 
-  RS485_Setup();
-  
-  // Status LED configuration;
-  finder_led_Setup();
-
-  // Only for Device On State flag
-  digitalWrite(LEDG, HIGH);
-  
-  // Scheduler -> RS485 Interface
-  Scheduler.startLoop(rs485_interface);
-  
-  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
-  delay(1500); 
-
-  // Defined in thingProperties.h
-  initProperties();
-
-  // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
-  
-  /*
-     The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
-     the higher number the more granular information you’ll get.
-     The default is 0 (only errors).
-     Maximum is 4
- */
-  setDebugMessageLevel(2);
-  ArduinoCloud.printDebugInfo();
-}
-
+```arduino
 void loop() {
   ArduinoCloud.update();
+
   if (EM_Stop_BT == false){
-    // Your code here 
     // Essential tank runtime and parameter display
     BT_Level_Check();
     BT_Param_Monitor();
   
-    // BT Condition Checkers
+    // Big Tank Condition Checkers
     component_state();
     BT_System_Off();
     BT_Pump_CTRL();
@@ -718,40 +455,9 @@ void loop() {
 void rs485_interface(){
   BT_Param_Share();
 
-  // RS485 Communication with ST PLC
+  // RS485 Communication with Small Tank PLC
   RS485_parser();
   delay(100);
-}
-
-/*
-  Since BTPumpCloud is READ_WRITE variable, onBTPumpCloudChange() is
-  executed every time a new value is received from IoT Cloud.
-*/
-void onBTPumpCloudChange()  {
-  // Add your code here to act upon BTPumpCloud change
-  // Add your code here to act upon BTPump change
-  if (BT_Pump_Cloud == true){
-    Serial.println(F("Big Tank - Pump Active - via Cloud"));
-    
-  } 
-  if (BT_Pump_Cloud == false){
-    Serial.println(F("Big Tank - Pump Deactivated - via Cloud"));
-    
-  } 
-}
-
-/*
-  Since EMStopBT is READ_WRITE variable, onEMStopBTChange() is
-  executed every time a new value is received from IoT Cloud.
-*/
-void onEMStopBTChange()  {
-  // Add your code here to act upon EMStopBT change
-  if (EM_Stop_BT == true){
-    Serial.println(F("Emergency Stop Active - via Cloud"));
-  } 
-  if (EM_Stop_BT == false){
-    Serial.println(F("Emergency Stop Deactivated - via Cloud"));
-  } 
 }
 ```
 
@@ -759,6 +465,12 @@ Arduino IoT Cloud integration with the tanks is shown below:
 
 ![Arduino IoT Cloud integration with the tanks.](assets/cloud_integration.png)
 
+Within Arduino IoT Cloud's dashboard, both tank's system status can be monitored. Remote actuation is available for both Opta™ regarding its managed tasks, meaning such actuators and emergency stop can be controlled manually on-demand. 
+
+## Full Tank Level Monitoring Example
+
+The complete code for Small and Big Tank's Opta™ can be downloaded [here](assets/tank-level-monitoring-sketch.zip). It is important to know that for both, `thingProperties.h` is included with its respective variables that are generated automatically with Arduino IoT Cloud.
+
 ## Conclusion
 
-Let's build monitoring systems with the Arduino Opta® and the Arduino IoT Cloud. In this application note, we have learned how to interface two Arduino Opta® using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.
+You are now able to build monitoring systems with the Opta™ and the Arduino IoT Cloud. In this application note, we have learned how to interface two Opta™ using its RS-485 interface to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level values.
