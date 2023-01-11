@@ -151,14 +151,14 @@ Include the library and setup the DAC with the following code in the beginning o
 ```arduino
 #include "AdvancedDAC.h"
 
-AdvancedDAC dac(A12);
+AdvancedDAC dac1(A12);
 
 ```
 
 Then, initialize the library, and check that everything went as expected with the following piece of code:
 
 ```arduino
- if (!dac.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
+ if (!dac1.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
         Serial.println("Failed to start DAC!");
         while (1);
     }
@@ -166,10 +166,10 @@ Then, initialize the library, and check that everything went as expected with th
 
 Then lastly, add the following code to `void loop()` to start:
 ```arduino
-if (dac.available()) {
+if (dac1.available()) {
 
         // Get a free buffer for writing
-        SampleBuffer buf = dac.dequeue();
+        SampleBuffer buf = dac1.dequeue();
 
         // Write data to buffer
         for (int i=0; i<buf.size(); i++) {
@@ -177,11 +177,11 @@ if (dac.available()) {
         }
 
         // Write the buffer data to DAC
-        dac.write(buf);
+        dac1.write(buf);
     }
 ```
 
-The options for audio playback and generation on your Arduino GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [audio guide](../giga-audio/content.md).
+The options for audio playback and generation on your Arduino GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).
 
 ### Input
 The audio jack on the Arduino GIGA R1 is not just connected to the DAC pins, however, but are also connected to pin A7, for microphone capabilities. 
@@ -191,7 +191,7 @@ To take advantage of this, you can use the `AdvancedAnalogRedux` library from Ar
 ```arduino
 #include "AdvancedADC.h"
 
-AdvancedADC adc(A7);
+AdvancedADC adc1(A7);
 ```
 
 Now, initialise the library and run a check to make sure everything went as expected with the following code within `void setup()`:
@@ -200,15 +200,15 @@ Now, initialise the library and run a check to make sure everything went as expe
   Serial.begin(9600);
 
   // Resolution, sample rate, number of samples per channel, and queue depth of the ADC
-   if (!adc.begin(AN_RESOLUTION_16, 16000, 32, 64)) {
+   if (!adc1.begin(AN_RESOLUTION_16, 16000, 32, 64)) {
        Serial.println("Failed to start analog acquisition!");
        while (1);
    }
 ```
 Finally, read the ADC, and store it in a way that you can use it, do this within `void loop()`:
 ```arduino
-  if (adc.available()) {
-        SampleBuffer buf = adc.read();
+  if (adc1.available()) {
+        SampleBuffer buf = adc1.read();
 
         // Print first sample
         Serial.println(buf[0]);
@@ -217,7 +217,7 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
         buf.release();
 ```
 
-The options for audio input on your Arduino GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [audio guide](../giga-audio/content.md).
+The options for audio input on your Arduino GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).
 
 ## MIPI Display Interface
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **Arduino GIGA R1** to boast a 2 lane MIPI display interface. 
@@ -236,7 +236,7 @@ There are several libraries you can use for the USBHost capabilities of the Ardu
 
 Some of these libraries are built in to the core and therefore you won't be required to download them separately. 
 
-To learn in depth about how to use these powerful features, read the [USBHost Guide](../giga-usb/giga-usb.md) that contains in-depth walkthroughs for each of them.
+To learn in depth about how to use these powerful features, read the [GIGA R1 USBHost Guide](/tutorials/giga-r1/giga-usb) that contains in-depth walkthroughs for each of them.
 
 ## RTC
 
@@ -294,7 +294,7 @@ The Arduino GIGA features an onboard arducam compatible connector, with support 
 
 Programming the board in the **MicroPython** language using the **OpenMV IDE** easily lets you get started with a neural network analysing a realtime camera feed with ML. 
 
-To learn more about the camera capabilities of the Arduino GIGA R1, check out the [GIGA Camera Guide](../giga-camera/giga-camera.md)
+To learn more about the camera capabilities of the Arduino GIGA R1, check out the [GIGA R1 Camera Guide](/tutorials/giga-r1/giga-camera)
 
 ## JTAG
 The **Arduino GIGA R1** features a 2x5 pin JTAG (Joint Test Action Group) connector, giving advanced debug functionalities for more advanced users. 
