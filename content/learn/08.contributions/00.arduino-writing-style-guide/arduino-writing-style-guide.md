@@ -59,7 +59,7 @@ if (somethingIsTrue) doSomething;
 Instead, use this:
 
 ```
-if (somethingIsTrue == TRUE) {
+if (somethingIsTrue) {
    doSomething;
 }
 ```
