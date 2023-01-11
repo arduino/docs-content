@@ -33,7 +33,8 @@ Modbus is an open serial protocol derived from the client/server architecture in
 
 ### Hardware Requirements
 
-- [Arduino Opta®](https://store.arduino.cc/pages/opta) (x2)
+- [Arduino Opta®](https://store.arduino.cc/pages/opta) with RS-485 support (x2)
+- STP/UTP 24-18AWG(Unterminated)/22-16AWG(Terminated) 100-130Ω rated cable for RS-485 connection (x3)
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
 
@@ -75,54 +76,64 @@ The Opta™ Client will require the following setup:
 
 ```arduino
 #include <ArduinoModbus.h>
-#include <ArduinoRS485.h>
+#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
 
-constexpr auto baudrate { 9600 };
+constexpr auto baudrate { 19200 };
 
-// Calculate preDelay and postDelay in microseconds as per Modbus RTU specification
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+//
+// MODBUS over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 MODBUS Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
 constexpr auto bitduration { 1.f / baudrate };
 constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
+// constexpr auto preDelayBR { bitduration * 10.0f * 3.5f * 1e6 };
 
-#define pause_trigger 15
 int counter = 0;
-int oper_pause = 0;
 
-void setup() {
+void setup()
+{
     Serial.begin(9600);
-    while (!Serial);
+    while (!Serial)
+        ;
 
     Serial.println("Modbus RTU Client");
+
     RS485.setDelays(preDelayBR, postDelayBR);
 
-    // Start the Modbus RTU Client
+    // start the Modbus RTU client
     if (!ModbusRTUClient.begin(baudrate, SERIAL_8E1)) {
         Serial.println("Failed to start Modbus RTU Client!");
-        while (1);
+        while (1)
+            ;
     }
 }
 ```
 
-Given Modbus RTU specification, `preDelay` and `postDelay` must be configured for correct operation. The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `9600`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
+Given Modbus RTU specification, `preDelay` and `postDelay` must be configured for correct operation and for this example, it will use the defined parameters as per specification based on message RTU framing that is explained in deep with this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The method `RS485.setDelays(preDelayBR, postDelayBR);` will be called to take it into effect to correctly enable Modbus RTU on the Opta™.
+
+The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
 
 In this example, an Opta™ device is defined as a Modbus Server from which information will be retrieved. The Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain desired information about what's being measured or monitored. Inside the loop function of the example code of the Client, we will have several tasks in charge of reading and writing specific values to test Modbus RTU communication with the Server.
 
 ```arduino
 void loop(){
     writeCoilValues();
+
     readCoilValues();
+
     readDiscreteInputValues();
+
     writeHoldingRegisterValues();
+
     readHoldingRegisterValues();
+
     readInputRegisterValues();
 
     counter++;
-    oper_pause++;
 
-    if (oper_pause >= pause_trigger) {
-      oper_pause = 0;
-      delay(5000);
-    }
+    delay(5000);
     Serial.println();
 }
 ```
@@ -133,93 +144,90 @@ The complete code for the Client is shown below:
 
 ```arduino
 #include <ArduinoModbus.h>
-#include <ArduinoRS485.h>
+#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
 
-constexpr auto baudrate { 9600 };
+constexpr auto baudrate { 19200 };
 
 // Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+//
+// MODBUS over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 MODBUS Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
 constexpr auto bitduration { 1.f / baudrate };
 constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
+// constexpr auto preDelayBR { bitduration * 10.0f * 3.5f * 1e6 };
 
-#define pause_trigger 15
 int counter = 0;
-int oper_pause = 0;
 
-void setup() {
+void setup()
+{
     Serial.begin(9600);
-    while (!Serial);
+    while (!Serial)
+        ;
 
     Serial.println("Modbus RTU Client");
+
     RS485.setDelays(preDelayBR, postDelayBR);
 
-    // Start the Modbus RTU Client
+    // start the Modbus RTU client
     if (!ModbusRTUClient.begin(baudrate, SERIAL_8E1)) {
         Serial.println("Failed to start Modbus RTU Client!");
-        while (1);
+        while (1)
+            ;
     }
 }
 
-void loop() {
+void loop()
+{
     writeCoilValues();
+
     readCoilValues();
+
     readDiscreteInputValues();
+
     writeHoldingRegisterValues();
+
     readHoldingRegisterValues();
+
     readInputRegisterValues();
 
     counter++;
-    oper_pause++;
 
-    if (oper_pause >= pause_trigger){
-      oper_pause = 0;
-      delay(5000);
-    }
+    delay(5000);
     Serial.println();
 }
 
-void writeCoilValues() {
-    // Set the coils to 1 when counter is odd
+void writeCoilValues()
+{
+    // set the coils to 1 when counter is odd
     byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
-    Serial.print("Writing Coil register values... ");
 
-    // Write 10 Coil register values to ID 42, address 0x00
+    Serial.print("Writing Coil values ... ");
+
+    // write 10 Coil values to (slave) id 42, address 0x00
     ModbusRTUClient.beginTransmission(42, COILS, 0x00, 10);
     for (int i = 0; i < 10; i++) {
         ModbusRTUClient.write(coilValue);
     }
     if (!ModbusRTUClient.endTransmission()) {
-        Serial.print("Failed! ");
+        Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
     } else {
-        Serial.println("Success!");
+        Serial.println("success");
     }
+
+    // Alternatively, to write a single Coil value use:
+    // ModbusRTUClient.coilWrite(...)
 }
 
-void readCoilValues() {
-    Serial.print("Reading Coil register values... ");
+void readCoilValues()
+{
+    Serial.print("Reading Coil values ... ");
 
-    // Read 10 Coil values from ID 42, address 0x00
+    // read 10 Coil values from (slave) id 42, address 0x00
     if (!ModbusRTUClient.requestFrom(42, COILS, 0x00, 10)) {
-        Serial.print("Failed! ");
-        Serial.println(ModbusRTUClient.lastError());
-    } else {
-        Serial.println("Success!");
-
-        while (ModbusRTUClient.available()) {
-            Serial.print(ModbusRTUClient.read());
-            Serial.print(' ');
-        }
-        Serial.println();
-    }
-}
-
-void readDiscreteInputValues() {
-    Serial.print("Reading Discrete Input register values... ");
-
-    // Read 10 Discrete Input values from ID 42, address 0x00
-    if (!ModbusRTUClient.requestFrom(42, DISCRETE_INPUTS, 0x00, 10)) {
-        Serial.print("Failed! ");
+        Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
     } else {
         Serial.println("success");
@@ -230,11 +238,38 @@ void readDiscreteInputValues() {
         }
         Serial.println();
     }
+
+    // Alternatively, to read a single Coil value use:
+    // ModbusRTUClient.coilRead(...)
 }
 
-void writeHoldingRegisterValues() {
-    // Set the Holding register values to counter value
-    Serial.print("Writing Holding registers values... ");
+void readDiscreteInputValues()
+{
+    Serial.print("Reading Discrete Input values ... ");
+
+    // read 10 Discrete Input values from (slave) id 42, address 0x00
+    if (!ModbusRTUClient.requestFrom(42, DISCRETE_INPUTS, 0x00, 10)) {
+        Serial.print("failed! ");
+        Serial.println(ModbusRTUClient.lastError());
+    } else {
+        Serial.println("success");
+
+        while (ModbusRTUClient.available()) {
+            Serial.print(ModbusRTUClient.read());
+            Serial.print(' ');
+        }
+        Serial.println();
+    }
+
+    // Alternatively, to read a single Discrete Input value use:
+    // ModbusRTUClient.discreteInputRead(...)
+}
+
+void writeHoldingRegisterValues()
+{
+    // set the Holding Register values to counter
+
+    Serial.print("Writing Holding Registers values ... ");
 
     // write 10 coil values to (slave) id 42, address 0x00
     ModbusRTUClient.beginTransmission(42, HOLDING_REGISTERS, 0x00, 10);
@@ -245,19 +280,23 @@ void writeHoldingRegisterValues() {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
     } else {
-        Serial.println("Success");
+        Serial.println("success");
     }
+
+    // Alternatively, to write a single Holding Register value use:
+    // ModbusRTUClient.holdingRegisterWrite(...)
 }
 
-void readHoldingRegisterValues() {
+void readHoldingRegisterValues()
+{
     Serial.print("Reading Holding Register values ... ");
 
-    // Read 10 Input Register values from ID 42, address 0x00
+    // read 10 Input Register values from (slave) id 42, address 0x00
     if (!ModbusRTUClient.requestFrom(42, HOLDING_REGISTERS, 0x00, 10)) {
-        Serial.print("Failed! ");
+        Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
     } else {
-        Serial.println("Success!");
+        Serial.println("success");
 
         while (ModbusRTUClient.available()) {
             Serial.print(ModbusRTUClient.read());
@@ -265,17 +304,21 @@ void readHoldingRegisterValues() {
         }
         Serial.println();
     }
+
+    // Alternatively, to read a single Holding Register value use:
+    // ModbusRTUClient.holdingRegisterRead(...)
 }
 
-void readInputRegisterValues() {
-    Serial.print("Reading Input register values ... ");
+void readInputRegisterValues()
+{
+    Serial.print("Reading input register values ... ");
 
-    // Read 10 discrete input values from ID 42,
+    // read 10 discrete input values from (slave) id 42,
     if (!ModbusRTUClient.requestFrom(42, INPUT_REGISTERS, 0x00, 10)) {
-        Serial.print("Failed! ");
+        Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
     } else {
-        Serial.println("Success!");
+        Serial.println("success");
 
         while (ModbusRTUClient.available()) {
             Serial.print(ModbusRTUClient.read());
@@ -283,6 +326,9 @@ void readInputRegisterValues() {
         }
         Serial.println();
     }
+
+    // Alternatively, to read a single Input Register value use:
+    // ModbusRTUClient.inputRegisterRead(...)
 }
 ```
 
@@ -291,29 +337,51 @@ void readInputRegisterValues() {
 In the Opta™ Server, the main task will be to poll for Modbus RTU requests and return configured values when requested. It requires following the same initial configuration as the Opta™ Client. The main difference between the Client and the Server devices is found in the `setup()` function:
 
 ```arduino
-// Start the Modbus RTU Server
+#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoModbus.h>
+
+constexpr auto baudrate { 19200 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+//
+// MODBUS over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 MODBUS Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration { 1.f / baudrate };
+constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
+// constexpr auto preDelayBR { bitduration * 10.0f * 3.5f * 1e6 };
+
+const int numCoils = 10;
+const int numDiscreteInputs = 10;
+const int numHoldingRegisters = 10;
+const int numInputRegisters = 10;
+
 void setup() {
   Serial.begin(9600);
   while (!Serial);
 
   Serial.println("Modbus RTU Server");
+
   RS485.setDelays(preDelayBR, postDelayBR);
 
+  // start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
       Serial.println("Failed to start Modbus RTU Client!");
-      while (1);
+      while (1)
+          ;
   }
 
-  // Configure Coils registers at address 0x00
+  // configure coils at address 0x00
   ModbusRTUServer.configureCoils(0x00, numCoils);
 
-  // Configure Discrete Inputs registers at address 0x00
+  // configure discrete inputs at address 0x00
   ModbusRTUServer.configureDiscreteInputs(0x00, numDiscreteInputs);
 
-  // Configure Holding registers at address 0x00
+  // configure holding registers at address 0x00
   ModbusRTUServer.configureHoldingRegisters(0x00, numHoldingRegisters);
 
-  // Configure Input registers at address 0x00
+  // configure input registers at address 0x00
   ModbusRTUServer.configureInputRegisters(0x00, numInputRegisters);
 }
 ```
@@ -327,15 +395,20 @@ ModbusRTUServer.poll();
 This is the line that will poll for Modbus RTU requests. The complete code for the Server is shown below:
 
 ```arduino
-#include <ArduinoRS485.h>
+#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
 #include <ArduinoModbus.h>
 
-constexpr auto baudrate { 9600 };
+constexpr auto baudrate { 19200 };
 
 // Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+//
+// MODBUS over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 MODBUS Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
 constexpr auto bitduration { 1.f / baudrate };
 constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
+// constexpr auto preDelayBR { bitduration * 10.0f * 3.5f * 1e6 };
 
 const int numCoils = 10;
 const int numDiscreteInputs = 10;
@@ -347,40 +420,44 @@ void setup() {
   while (!Serial);
 
   Serial.println("Modbus RTU Server");
+
   RS485.setDelays(preDelayBR, postDelayBR);
 
-  // Start the Modbus RTU client
+  // start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
       Serial.println("Failed to start Modbus RTU Client!");
-      while (1);
+      while (1)
+          ;
   }
 
-  // Configure Coils registers at address 0x00
+  // configure coils at address 0x00
   ModbusRTUServer.configureCoils(0x00, numCoils);
 
-  // Configure Discrete Inputs registers at address 0x00
+  // configure discrete inputs at address 0x00
   ModbusRTUServer.configureDiscreteInputs(0x00, numDiscreteInputs);
 
-  // Configure Holding registers at address 0x00
+  // configure holding registers at address 0x00
   ModbusRTUServer.configureHoldingRegisters(0x00, numHoldingRegisters);
 
-  // Configure Input registers at address 0x00
+  // configure input registers at address 0x00
   ModbusRTUServer.configureInputRegisters(0x00, numInputRegisters);
 }
 
 void loop() {
-  // Poll for Modbus RTU requests
+  // poll for Modbus RTU requests
   ModbusRTUServer.poll();
 
-  // Map the Coil registers values to the discrete input values
+  // map the coil values to the discrete input values
   for (int i = 0; i < numCoils; i++) {
     int coilValue = ModbusRTUServer.coilRead(i);
+
     ModbusRTUServer.discreteInputWrite(i, coilValue);
   }
 
-  // Map the Holding registers values to the Input registers values
+  // map the holding register values to the input register values
   for (int i = 0; i < numHoldingRegisters; i++) {
     long holdingRegisterValue = ModbusRTUServer.holdingRegisterRead(i);
+
     ModbusRTUServer.inputRegisterWrite(i, holdingRegisterValue);
   }
 }
