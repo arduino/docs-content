@@ -14,6 +14,7 @@ libraries:
 software:
   - ide-v1
   - ide-v2
+  - arduino-cli
   - web-editor
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/opta
@@ -43,7 +44,7 @@ The Arduino Opta® is a powerful PLC device that has many features, allowing you
 
 Using the Arduino IDE we can easily work with these peripherals. Some features have their own library that we can make use of. Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
 
-Then we need to install the appropriate core for the Arduino Opta®. Go to **Tools > Board > Boards Manager**, in the boards manager section search for **Opta mbed** and install it. For more detailed instructions on setting up the Arduino Opta® with the Arduino IDE, have a look at the [Getting started with Opta tutorial](/tutorials/opta/getting-started).
+Then we need to install the appropriate core for the Arduino Opta®. Go to **Tools > Board > Boards Manager**, in the boards manager section search for **Opta mbed** and install it. For more detailed instructions on setting up the Arduino Opta® with the Arduino IDE, have a look at the [Getting started with opta™ tutorial](/tutorials/opta/getting-started).
 
 ### Wi-Fi®
 
