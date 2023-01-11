@@ -352,7 +352,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 3      | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
 | 4      | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u>                            |
 | 5      | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u>                                |
-| 6      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier</u>                                                            |
+| 6      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier-rev2</u>                                                            |
 | 7      | Arduino Documentation     | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier-rev2</u>                                               |
 
 ## Revision History
