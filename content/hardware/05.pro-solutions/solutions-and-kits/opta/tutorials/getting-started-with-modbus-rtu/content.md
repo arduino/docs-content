@@ -95,8 +95,7 @@ int counter = 0;
 void setup()
 {
     Serial.begin(9600);
-    while (!Serial)
-        ;
+    while (!Serial);
 
     Serial.println("Modbus RTU Client");
 
@@ -105,8 +104,7 @@ void setup()
     // start the Modbus RTU client
     if (!ModbusRTUClient.begin(baudrate, SERIAL_8E1)) {
         Serial.println("Failed to start Modbus RTU Client!");
-        while (1)
-            ;
+        while (1);
     }
 }
 ```
@@ -161,8 +159,7 @@ int counter = 0;
 void setup()
 {
     Serial.begin(9600);
-    while (!Serial)
-        ;
+    while (!Serial);
 
     Serial.println("Modbus RTU Client");
 
@@ -171,8 +168,7 @@ void setup()
     // start the Modbus RTU client
     if (!ModbusRTUClient.begin(baudrate, SERIAL_8E1)) {
         Serial.println("Failed to start Modbus RTU Client!");
-        while (1)
-            ;
+        while (1);
     }
 }
 
@@ -366,8 +362,7 @@ void setup() {
   // start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
       Serial.println("Failed to start Modbus RTU Client!");
-      while (1)
-          ;
+      while (1);
   }
 
   // configure coils at address 0x00
@@ -424,8 +419,7 @@ void setup() {
   // start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
       Serial.println("Failed to start Modbus RTU Client!");
-      while (1)
-          ;
+      while (1);
   }
 
   // configure coils at address 0x00
