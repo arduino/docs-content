@@ -1,11 +1,11 @@
 ---
-title: Burn the bootloader on non-AVR boards
-description: Learn how to burn the bootloader on non-AVR boards.
+title: Burn the bootloader on SAMD boards
+description: Learn how to burn the bootloader on SAMD boards.
 difficulty: Advanced
 featuredImage: 'clip'
 ---
 
-In this tutorial, we will learn how to burn the bootloader on non-AVR boards using another Arduino board. The bootloader is a small piece of software that allows uploading sketches onto the Arduino board. It comes preprogrammed on the microcontrollers on Arduino boards. Whether the bootloader has been corrupted or intentionally has been removed, it can be restored by burning (also called, flashing or programming) a new bootloader to the board.
+In this tutorial, we will learn how to burn the bootloader on boards that use the ATSAMD21G18 microcontroller using another Arduino board. The bootloader is a small piece of software that allows uploading sketches onto the Arduino board. It comes preprogrammed on the microcontrollers on Arduino boards. Whether the bootloader has been corrupted or intentionally has been removed, it can be restored by burning (also called, flashing or programming) a new bootloader to the board.
 
 >**Note:** If you want to burn the bootloader on AVR boards such as an UNO, Mega, and classic Nano you can check out [these instructions](https://support.arduino.cc/hc/en-us/articles/4841602539164-Burn-the-bootloader-on-UNO-Mega-and-classic-Nano-using-another-Arduino).
 
