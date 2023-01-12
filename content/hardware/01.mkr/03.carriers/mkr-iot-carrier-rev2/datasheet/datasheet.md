@@ -20,7 +20,7 @@ IoT applications, MKR hobbyists
 
 ***Note: This board is passive and requires a MKR board to function.***
 
-***Requirements: This device require the library Arduino_MKRIoTCarrier version to be 2.0.0 in order to function***
+***Requirements: This device require the library Arduino_MKRIoTCarrier version to be 2.0.0 or later in order to function***
 
 * **Grove Connectors**
   * Easy interface with wide range of Grove modules and sensors
