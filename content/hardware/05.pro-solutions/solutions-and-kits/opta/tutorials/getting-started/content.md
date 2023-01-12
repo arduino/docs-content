@@ -1,11 +1,12 @@
 ---
-title: 'Getting Started With the Arduino Opta™'
+title: 'Getting Started with the Arduino Opta™'
 description: 'Get started with the Opta™ and get to know some of its features.'
 difficulty: beginner
 tags:
   - Getting started
   - Relays
   - Analog Input
+  - Digital Input
 author: 'Benjamin Dannegård'
 software:
   - ide-v1
@@ -43,7 +44,7 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 ### Setup With the Arduino IDE
 
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software). 
-Within the Arduino IDE install the core for the Opta™. Go to **Tools > Board > Boards Manager**, in the boards manager section search for **Opta mbed** and install it.
+Within the Arduino IDE install the core for the Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it.
 
 ![Finding the Opta™ Core in the Arduino IDE 2.0](assets/opta-core-install.png)
 
@@ -103,7 +104,7 @@ void loop() {
 
 ### Configuring the Programmable Button on the Opta
 
-Opta™ has a programmable button, shown on the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how much simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
+Opta™ has a programmable button, shown on the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.png)
 
@@ -164,13 +165,13 @@ void changeLights() {
 
 Once the sketch is uploaded, you can see that an additional LED is turned on each time you press the button, following the sequence:
 
-| Interaction  | Result                        |
-| ------------ | ----------------------------- |
-| First press  | STATUS LED 1 ON.              |
-| Second press | STATUS LEDs 1 and 2 ON.       |
-| Third press  | STATUS LEDs 1, 2 and 3 ON.    |
-| Fourth press | STATUS LEDs 1, 2, 3 and 4 ON. |
-| Fifth press  | All STATUS LEDs off and back. |
+| Interaction  | Result                       |
+| ------------ | ---------------------------- |
+| First press  | STATUS LED 1 ON              |
+| Second press | STATUS LEDs 1 and 2 ON       |
+| Third press  | STATUS LEDs 1, 2 and 3 ON    |
+| Fourth press | STATUS LEDs 1, 2, 3 and 4 ON |
+| Fifth press  | All STATUS LEDs off and back |
 
 
 ### Using Out Relays
@@ -190,14 +191,14 @@ The relays coils correspond to pins D0 to D3 as follows:
 
 The Opta™ output contacts are "clean" contacts, which means they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing for example a power cable to one of the terminals and connecting the load to the exit of the other terminal.
 
-This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carring the signal up to the reference load.
+This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carrying the signal up to the reference load.
 
 The “clean” contact also allows carrying a different power system or type of load for each output contact, being possible to control multiple devices or signals that use different voltage levels.
 
 ![Clean contact on the Opta™](assets/opta-clean-contact.png)
 
 Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle a led will be turned on to provide visual feedback. 
-To activate the relays and run this sketch you need to provide Opta™ with a voltage from 12 to 24 V DC by connecting it a proper power supply. 
+To activate the relays and run this sketch you need to provide Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply. 
 
 Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
 
@@ -331,11 +332,11 @@ void loop() {
 
 Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each of the signals. In case you did not connect anything to the analog inputs, you will see how the values oscillate between 0V and a very small value because the pins are floating.
 
-You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. The reason is that there is a precautional margin taken on the maximum voltage level applicable to the inputs to preserve the integrity of the microcontroller.
+You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. The reason is that there is a precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. We also have a number of other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/).
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. We also have some other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/).
 
 ## Conclusion
 

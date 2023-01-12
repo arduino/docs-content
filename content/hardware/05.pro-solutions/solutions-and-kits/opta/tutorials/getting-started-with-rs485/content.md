@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started with RS-485 on the Opta™'
-description: "Learn how to make use of the RS-485 communication interface on the Opta™"
+title: 'Getting Started with RS-485 on the Arduino Opta™'
+description: "Learn how to make use of the RS-485 communication interface on the Arduino Opta™."
 difficulty: beginner 
 tags:
   - Getting started
@@ -57,7 +57,7 @@ Here are some important functions in the sketch:
 
 Connect the Opta™ devices according to the image shown below:
 
-![RS-485 connection between two Opta™ devices.](assets/opta-modbus-connection.png)
+![RS-485 connection between two Opta™ devices](assets/opta-modbus-connection.png)
 
 ### RS-485 Sender Sketch
 
@@ -162,8 +162,8 @@ In this tutorial, we established an RS-485 connection between two Opta™ device
 
 ### Next Steps
 
-Now that you are familiar with the RS-485 communication interface on the Opta™, look at our at our [getting started tutorial]() to get a better overview of other features on the device.
+Now that you are familiar with the RS-485 communication interface on the Opta™, look at our [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of other features on the device.
 
-If you wish to incorporate Wi-Fi/Bluetooth® Low Energy in your Opta™ solutions, have a look at our [connectivity tutorial]().
+If you wish to incorporate Wi-Fi/Bluetooth® Low Energy in your Opta™ solutions, have a look at our [connectivity tutorial](/tutorials/opta/getting-started-connectivity).
 
-If you are interested in seeing the RS-485 interface and the Opta™ being put to work in a real life scenario, have a look at our [tank level application note]().
+If you are interested in seeing the RS-485 interface and the Opta™ being put to work in a real-life scenario, have a look at our [Tank level application note](/tutorials/opta/tank-level-app-note).
