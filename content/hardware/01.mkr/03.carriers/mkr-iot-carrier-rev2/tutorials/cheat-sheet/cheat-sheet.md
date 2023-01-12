@@ -116,7 +116,7 @@ void setup() {
 
 ## BME688 Environmental Sensor
 
-![The HTS221 Humidity Sensor on the MKR IoT Carrier Rev2](assets/bme-688.png)
+![The BME688 Humidity Sensor on the MKR IoT Carrier Rev2](assets/bme-688.png)
 
 The **[BME688 Environmental Sensor](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf)** is a 4 in 1 sensor capable of providing the following measurements:
 - **Humidity**, 0‒100% r.H.
