@@ -68,8 +68,7 @@ Upload the following sender sketch to the Opta™ device you want to designate a
 
 int incomingByte = 0; // for incoming serial data
 
-void setup()
-{
+void setup() {
   Serial.begin(115200); // opens serial port
   RS485.begin(9600);
 }
@@ -80,6 +79,8 @@ void loop() {
   {
     incomingByte = Serial.read();
     RS485.beginTransmission();
+    Serial.print("- Sending: ");
+    Serial.println(incomingByte);
     RS485.print(incomingByte);
     RS485.endTransmission();
     delay(1000);
@@ -106,9 +107,8 @@ bool newState = false;
 int relays[] = {D0, D1, D2, D3};
 int leds[] = {LED_D0, LED_D1, LED_D2, LED_D3};
 
-void setup()
-{
-    for (int i = 0; i < 4; i++){
+void setup() {
+    for (int i = 0; i < 4; i++) {
         pinMode(relays[i], OUTPUT);
         pinMode(leds[i], OUTPUT);
     }
@@ -120,24 +120,25 @@ void setup()
     while (!Serial);
 }
 
-void loop(){
-    while (RS485.available() > 0){
+void loop() {
+    while (RS485.available() > 0) {
         readValue = RS485.parseInt();
-        RS485.parseInt();
+        Serial.print("- Incoming byte: ");
+        Serial.println(readValue);
         newState = true;
     }
 
-    if (newState){
+    if (newState) {
         changeRelay();
         newState = false;
     }
 }
 
-void changeRelay(){
-    if (digitalRead(relays[readValue]) == 1){
+void changeRelay() {
+    if (digitalRead(relays[readValue]) == 1) {
         digitalWrite(relays[readValue], LOW);
         digitalWrite(leds[readValue], LOW);
-    }else{
+    }else {
         digitalWrite(relays[readValue], HIGH);
         digitalWrite(leds[readValue], HIGH);
     }
