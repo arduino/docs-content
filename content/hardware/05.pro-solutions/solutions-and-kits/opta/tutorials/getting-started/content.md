@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started With the Arduino Opta®'
+title: 'Getting Started With the Arduino Opta™'
 description: 'Get started with the Opta™ and get to know some of its features.'
 difficulty: beginner
 tags:
@@ -20,7 +20,7 @@ hardware:
 
 Opta™ is a robust micro PLC solution with many engaging features. In this tutorial we will go through the setup of Opta™ with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as controlling its inputs and outputs.
 
-![The Arduino Opta®](assets/opta-device.png)
+![The Arduino Opta™](assets/opta-device.png)
 
 ## Goals
 
@@ -32,10 +32,10 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 
 ### Required Hardware and Software
 
-- USB-C® cable
-- [Arduino Opta®](https://store.arduino.cc/pages/opta)
+- USB-C® cable (x1)
+- [Arduino Opta™](https://store.arduino.cc/pages/opta) (x1)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Power supply of 12-24V DC, 1A  (optional if not running the section related to the relays)
+- Power supply of 12-24V DC, 1A  (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
 
 ## Instructions
@@ -54,7 +54,7 @@ Now you are ready to upload sketches to the Opta™ via the Arduino IDE.
 Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta™, highlighted in the image below.
 
-![The blinking LEDs on the Opta™](assets/opta-device-LED.png)
+![The blinking STATUS  LEDs on the Opta™](assets/opta-device-LED.png)
 
 All the STATUS LEDs on the device are defined in the core of the PLC. 
 Hereafter you can see the correspondence between each of them as identified in the core and their labeling on the front panel of the product:
@@ -105,9 +105,9 @@ void loop() {
 
 Opta™ has a programmable button, shown on the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how much simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
-![The button and LEDs that will light up on the Opta™](assets/opta-device-button.png)
+![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.png)
 
-The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn on one by one the LEDs when the button is pressed, and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device. 
+The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device. 
 
 ```arduino
 int buttonState = 0;
@@ -164,13 +164,13 @@ void changeLights() {
 
 Once the sketch is uploaded, you can see that an additional LED is turned on each time you press the button, following the sequence:
 
-| Interaction  | Result                 |
-| ------------ | ---------------------- |
-| First press  | LED 1 ON.              |
-| Second press | LEDs 1 and 2 ON.       |
-| Third press  | LEDS 1, 2 and 3 ON.    |
-| Fourth press | LEDS 1, 2, 3 and 4 ON. |
-| Fifth press  | All leds off and back. |
+| Interaction  | Result                        |
+| ------------ | ----------------------------- |
+| First press  | STATUS LED 1 ON.              |
+| Second press | STATUS LEDs 1 and 2 ON.       |
+| Third press  | STATUS LEDs 1, 2 and 3 ON.    |
+| Fourth press | STATUS LEDs 1, 2, 3 and 4 ON. |
+| Fifth press  | All STATUS LEDs off and back. |
 
 
 ### Using Out Relays
@@ -196,7 +196,7 @@ The “clean” contact also allows carrying a different power system or type of
 
 ![Clean contact on the Opta™](assets/opta-clean-contact.png)
 
-Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle a led, will be turned on to provide a visual feedback. 
+Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle a led will be turned on to provide visual feedback. 
 To activate the relays and run this sketch you need to provide Opta™ with a voltage from 12 to 24 V DC by connecting it a proper power supply. 
 
 Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
@@ -329,7 +329,7 @@ void loop() {
 }
 ```
 
-Once you have uploaded the code, open the serial monitor to see the values read in each analog input. Ig you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each of the signals. In case you did not connect anything to the analog inputs, you will see how the values oscillate between 0V and a very small value because the pins are floating.
+Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each of the signals. In case you did not connect anything to the analog inputs, you will see how the values oscillate between 0V and a very small value because the pins are floating.
 
 You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. The reason is that there is a precautional margin taken on the maximum voltage level applicable to the inputs to preserve the integrity of the microcontroller.
 
