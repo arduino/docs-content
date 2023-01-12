@@ -77,7 +77,7 @@ If you want to take a deeper look at what features the **ArduinoBLE** library ha
 
 ## Conclusion
 
-This tutorial has shown an overview of the connectivity features on the Arduino Opta and how to use them. How to use the different connectivity features and what libraries are required for them was also shown here. By running all the example sketches on the device the modules are all working and everything is up to date, ready to be implemented into other more complex solutions.
+This tutorial has shown an overview of the connectivity features of the Arduino Opta and how to use them. Including how to use the different connectivity features and what libraries are required to make them work. By running all the example sketches mentioned in this tutorial,  you can confirm that the connectivity features of your Arduino Opta are ready to be implemented into other more complex solutions.
 
 ### Next Steps
 
