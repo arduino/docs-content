@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started with Modbus RTU on the Opta™'
-description: "Learn how to use the Modbus RTU serial protocol on the Opta™."
+title: 'Getting Started with Modbus RTU on the Arduino Opta™'
+description: "Learn how to use the Modbus RTU serial protocol on the Arduino Opta™."
 difficulty: intermediate
 tags:
   - Getting started
@@ -64,7 +64,7 @@ First, let's ensure we have the latest Arduino IDE version installed on our comp
 
 Now that we have the Arduino IDE configured and the libraries installed, let's connect both Opta™ devices via RS485, as shown in the image below:
 
-![Connecting two Opta™ devices via RS485.](assets/opta-modbus-connection.png)
+![Connecting two Opta™ devices via RS485](assets/opta-modbus-connection.png)
 
 ### Code Overview
 
@@ -459,8 +459,12 @@ void loop() {
 
 Once you have uploaded the Modbus RTU Client and Server code for each Opta™ device, we can open the Serial Monitor on the Client side to debug the communication status between the devices. If everything is working correctly, you will be able to see `Success!` messages after each read-and-write task as shown in the image below:
 
-![Modbus RTU Client and Server communication status.](assets/opta-modbus-client.png)
+![Modbus RTU Client and Server communication status](assets/opta-modbus-client.png)
 
 ## Conclusion
 
 In this tutorial, we established a Modbus RTU connection between two Opta™ devices using the Arduino ecosystem tools, such as the Arduino IDE and Arduino libraries. The `ArduinoRS485` and `ArduinoModbus` libraries are essential components that enable communication with compatible Modbus RTU devices. With the demonstrative example described in this tutorial, we have established communication between a Modbus RTU Server and a Client; we can now configure and set a secondary Opta™ or use a Modbus RTU-compatible module for your project developments.
+
+### Next Steps
+
+Now that you know how to create and use a Modbus RTU communication with Opta™, you can take a look at [Getting started with connectivity on the Opta™ tutorial](/tutorials/opta/getting-started-connectivity) to discover more about all the connectivity possibilities that Opta™ has.
