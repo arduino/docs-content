@@ -70,10 +70,10 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
     | Programmer  | Target      |
     | ----------- | ----------- |
     | VCC         | +3V3        |
-    | 10          | SWDIO       |
-    | 9           | SWCLK       |
+    | 12          | SWDIO       |
+    | 11          | SWCLK       |
     | GND         | GND         |
-    | 11          | RESETN      |
+    | 9           | RESETN      |
 
     SWD pads on MKR boards other than MKR 1000:
 
