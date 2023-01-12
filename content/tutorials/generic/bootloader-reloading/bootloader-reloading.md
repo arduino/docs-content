@@ -70,7 +70,7 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
 
     SWD pads on MKR boards other than MKR 1000:
 
-    ![](assets/SWDpadsMKR1000.png)
+    ![](assets/SWDpadsMKR.png)
 
     MKR1000 SWD header pinout:
 
