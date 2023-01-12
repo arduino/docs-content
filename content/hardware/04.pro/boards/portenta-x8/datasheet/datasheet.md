@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![](assets/featured.png)
 
 # Description
-The Arduino® Portenta X8 is a high performance system on module designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini hosting an embedded Linux OS with the STM32H7 to leverage Arduino libraries/skills. Shield and carrier boards are available to extend the functionality of the X8 or alternatively can be used as reference designs to develop your own custom solutions.
+The Arduino® Portenta X8 is a high performance system on module designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini (4+1-cores) hosting an embedded Linux OS with the STM32H7 (2-cores) for real-time applications in the Arduino environment. Shield and carrier boards are available to extend the functionality of the Portenta X8 or alternatively can be used as reference designs to develop your own custom solutions.
 
 # Target Areas
 Edge computing, industrial internet of things, system on module, artificial intelligence
@@ -254,7 +254,7 @@ Edge computing, industrial internet of things, system on module, artificial inte
          <td><strong>Temperature range</strong></td>
          <td> -40°C to +85°C</td>
          <td> It is user’s sole responsibility to test board's operation in full temperature
-         range</td>
+         range. To improve the board performance in critical conditions, it is possible to attach external heatsinks on the processor and on the memory chip.</td>
       </tr>
       <tr>
          <td><strong>Safety information</strong></td>
@@ -276,34 +276,36 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 ## Accessories (Not Included)
 - USB-C® Hub
 - USB-C® to HDMI Adapter
+- Heatsink (if required)
 
 ## Related Products
 - Arduino® Portenta Breakout Board (ASX00031)
+- Arduino® Portenta Max Carrier (ABX00043)
 
 # Rating
 
 ## Recommended Operating Conditions
 
-| Symbol             | Description                                         | Min  | Typ  | Max  | Unit |
-| :----------------- | :-------------------------------------------------- | :--: | :--: | :--: | :--: |
-| V<sub>IN</sub>     | Input voltage from VIN pad                          | 4.5  |  5   | 5.5  |  V   |
-| V<sub>USB</sub>    | Input voltage from USB connector                    | 4.5  |  5   | 5.5  |  V   |
-| V<sub>3V3</sub>    | 3.3 V output to user application                    |      | 3.1  |      |  V   |
-| I<sub>3V3</sub>    | 3.3 V output current available for user application |  -   |  -   | 1000 |  mA  |
-| V<sub>IH</sub>     | Input high-level voltage                            | 2.31 |  -   | 3.3  |  V   |
-| V<sub>IL</sub>     | Input low-level voltage                             |  0   |  -   | 0.99 |  V   |
-| I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high               |      |      |  8   |  mA  |
-| I<sub>OL Max</sub> | Current at VSS+0.4 V, output set low                |      |      |  8   |  mA  |
-| V<sub>OH</sub>     | Output high voltage, 8 mA                           | 2.7  |  -   | 3.3  |  V   |
-| V<sub>OL</sub>     | Output low voltage, 8 mA                            |  0   |  -   | 0.4  |  V   |
+| Symbol             | Description                                         | Min  | Typ | Max  | Unit |
+|:-------------------|:----------------------------------------------------|:----:|:---:|:----:|:----:|
+| V<sub>IN</sub>     | Input voltage from VIN pad                          | 4.5  |  5  | 5.5  |  V   |
+| V<sub>USB</sub>    | Input voltage from USB connector                    | 4.5  |  5  | 5.5  |  V   |
+| V<sub>3V3</sub>    | 3.3 V output to user application                    |      | 3.1 |      |  V   |
+| I<sub>3V3</sub>    | 3.3 V output current available for user application |  -   |  -  | 1000 |  mA  |
+| V<sub>IH</sub>     | Input high-level voltage                            | 2.31 |  -  | 3.3  |  V   |
+| V<sub>IL</sub>     | Input low-level voltage                             |  0   |  -  | 0.99 |  V   |
+| I<sub>OH Max</sub> | Current at VDD-0.4 V, output set high               |      |     |  8   |  mA  |
+| I<sub>OL Max</sub> | Current at VSS+0.4 V, output set low                |      |     |  8   |  mA  |
+| V<sub>OH</sub>     | Output high voltage, 8 mA                           | 2.7  |  -  | 3.3  |  V   |
+| V<sub>OL</sub>     | Output low voltage, 8 mA                            |  0   |  -  | 0.4  |  V   |
 
 ## Power Consumption
 
-| Symbol          | Description                         | Min  | Typ  | Max  | Unit |
-| --------------- | :---------------------------------- | :--: | :--: | :--: | :--: |
-| P<sub>BL</sub>  | Power consumption with busy loop    |      | 2350 |      |  mW  |
-| P<sub>LP</sub>  | Power consumption in low power mode |      | 200  |      |  mW  |
-| P<sub>MAX</sub> | Maximum Power Consumption           |      | 4000 |      |  mW  |
+| Symbol          | Description                         | Min | Typ  | Max | Unit |
+|-----------------|:------------------------------------|:---:|:----:|:---:|:----:|
+| P<sub>BL</sub>  | Power consumption with busy loop    |     | 2350 |     |  mW  |
+| P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     |  mW  |
+| P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     |  mW  |
 
 The use of a USB 3.0 compatible port will ensure that current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
@@ -316,7 +318,7 @@ The use of a USB 3.0 compatible port will ensure that current requirements for t
 ![Front view of Portenta X8 Topology](assets/x8TopologyFront.svg)
 
 | **Ref.** | **Description**                                | **Ref.**        | **Description**                                              |
-| -------- | ---------------------------------------------- | --------------- | ------------------------------------------------------------ |
+|----------|------------------------------------------------|-----------------|--------------------------------------------------------------|
 | U1       | BD71847AMWV i.MX 8M Mini  PMIC                 | U2              | MIMX8MM6CVTKZAA i.MX 8M Mini Quad IC                         |
 | U4       | NCP383LMUAJAATXG Current-Limiting Power Switch | U6              | ANX7625 MIPI-DSI/DPI to USB Type-C® Bridge IC                |
 | U7       | MP28210 Step Down IC                           | U9              | LBEE5KL1DX-883 WLAN+Bluetooth® Combo IC                      |
@@ -325,7 +327,7 @@ The use of a USB 3.0 compatible port will ensure that current requirements for t
 | U19      | NT6AN512T32AV 2GB LP-DDR4 DRAM                 | IC1,IC2,IC3,IC4 | SN74LVC1G125DCKR 3-state 1.65-V to 5.5-V buffer IC           |
 | PB1      | PTS820J25KSMTRLFS Reset Push Button            | Dl1             | KPHHS-1005SURCK Power On SMD LED                             |
 | DL2      | SMLP34RGB2W3 RGB Common Anode SMD LED          | Y1              | CX3225GB24000P0HPQCC 24MHz crystal                           |
-| Y3       | DSC2311KI2-R0012 Dual-Output MEMS Oscillator   | J3              | CX90B1-24P USB Type-C® connector                              |
+| Y3       | DSC2311KI2-R0012 Dual-Output MEMS Oscillator   | J3              | CX90B1-24P USB Type-C® connector                             |
 | J4       | U.FL-R-SMT-1(60) UFL Connector                 |
 
 
@@ -333,7 +335,7 @@ The use of a USB 3.0 compatible port will ensure that current requirements for t
 ![Back view of Portenta X8 Topology](assets/x8TopologyBack.svg)
 
 | **Ref.** | **Description**                                       | **Ref.**     | **Description**                                      |
-| -------- | ----------------------------------------------------- | ------------ | ---------------------------------------------------- |
+|----------|-------------------------------------------------------|--------------|------------------------------------------------------|
 | U3       | LM66100DCKR Ideal Diode                               | U5           | FEMDRW016G 16GB eMMC Flash IC                        |
 | U8       | KSZ9031RNXIA Gigabit Ethernet Transceiver IC          | U10          | FXMA2102L8X Dual Supply, 2-Bit Voltage Translator IC |
 | U11      | SE050C2HQ1/Z01SDZ IoT Secure Element                  | U12, U13,U14 | PCMF2USB3B/CZ Bidirectional EMI Protection IC        |
@@ -351,7 +353,7 @@ The MIMX8MM6CVTKZAA iMX8M (U2) features a quad core ARM® Cortex® A53 running a
 The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as a I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini and runs a proprietary firmware inaccessible to the User. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2). 
 
 ## Wi-Fi®/Bluetooth® Connectivity
-The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi® and Bluetooth®. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth® 5.1 is supported together with Wi-Fi® conforming to the IEEE802.11b/g/n standard.
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE 802.11b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi® and Bluetooth®. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth® 5.1 is supported together with Wi-Fi® conforming to the IEEE802.11b/g/n standard.
 
 ## Onboard Memories
 The Arduino® Portenta X8 includes two onboard memory modules. A NT6AN512T32AV 2GB LP-DDR4 DRAM (U19) and 16GB Forsee eMMC Flash module (FEMDRW016G) (U5) are accessible to the i.MX 8M Mini (U2).
@@ -380,7 +382,7 @@ Power management is mainly performed by the BD71847AMWV IC (U1).
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® Portenta X8 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a Type-c USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Arduino® Portenta X8 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
@@ -412,16 +414,16 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 # Certifications
 
-| Certification | Details                                                      |
-| :------------ | :----------------------------------------------------------- |
+| Certification | Details                                                                   |
+|:--------------|:--------------------------------------------------------------------------|
 | CE (EU)       | EN 301489-1<br />EN 301489-1<br />EN 300328<br />EN 62368-1<br />EN 62311 |
-| WEEE (EU)     | Yes                                                          |
-| RoHS (EU)     | 2011/65/(EU)<br />2015/863/(EU)                              |
-| REACH (EU)    | Yes                                                          |
-| UKCA (UK)     | Yes                                                          |
-| RCM (RCM)     | Yes                                                          |
-| FCC (US)      | ID.<br />Radio: Part 15.247<br />MPE: Part 2.1091            |
-| RCM (AU)      | Yes                                                          |
+| WEEE (EU)     | Yes                                                                       |
+| RoHS (EU)     | 2011/65/(EU)<br />2015/863/(EU)                                           |
+| REACH (EU)    | Yes                                                                       |
+| UKCA (UK)     | Yes                                                                       |
+| RCM (RCM)     | Yes                                                                       |
+| FCC (US)      | ID.<br />Radio: Part 15.247<br />MPE: Part 2.1091                         |
+| RCM (AU)      | Yes                                                                       |
 
 ## Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
@@ -430,7 +432,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -493,30 +495,31 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states. 
 
 | Frequency bands      | Maximum output power (ERP) |
-| -------------------- | -------------------------- |
+|----------------------|----------------------------|
 | 2.4 GHz, 40 channels | +6dBm                      |
 
 
 ## Company Information
 
 | Company name    | Arduino SRL                                   |
-| --------------- | --------------------------------------------- |
+|-----------------|-----------------------------------------------|
 | Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
 
 ## Reference Documentation
 
-| Ref                       | Link                                                         |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
+| Ref                       | Link                                                                                                |
+|---------------------------|-----------------------------------------------------------------------------------------------------|
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
+| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Pro Website       | https://www.arduino.cc/pro                                   |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://github.com/arduino-libraries/                        |
-| Online Store              | https://store.arduino.cc/                                    |
+| Arduino Pro Website       | https://www.arduino.cc/pro                                                                          |
+| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Library Reference         | https://github.com/arduino-libraries/                                                               |
+| Online Store              | https://store.arduino.cc/                                                                           |
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 24/03/2022 | Release     |
+| **Date**   | **Changes**                   |
+|------------|-------------------------------|
+| 12/09/2022 | Make cores clear, minor fixes |
+| 24/03/2022 | Release                       |

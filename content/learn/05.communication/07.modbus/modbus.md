@@ -4,6 +4,8 @@ description: "Modbus is an open serial communication protocol used for transmitt
 author: "Hannes Siebeneicher"
 ---
 
+## Introduction
+
 This article contains information about the Modbus serial communication protocol and how it can be used together with Arduino hardware. The different elements are highlighted and compatible libraries and boards are shown together with code examples. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary, therefore it is important to always check your device specifications.
 
 ### Modbus compatible hardware

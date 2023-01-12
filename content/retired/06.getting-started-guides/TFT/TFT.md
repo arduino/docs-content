@@ -13,7 +13,7 @@ The screen's pin layout is designed to easily fit into the socket of an [Arduino
 
 The [TFT library](https://arduino.cc/en/Reference/TFTLibrary) is included with [Arduino IDE 1.0.5 or later](https://arduino.cc/en/Main/Software).
 
-### Library
+## Library
 
 The Arduino TFT library extends the [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library), and [Adafruit ST7735 libraries](https://github.com/adafruit/Adafruit-ST7735-Library) that it is based on. The GFX library is responsible for the drawing routines, while the ST7735 library is specific to the screen on the Arduino screen. The Arduino specific additions were designed to work as similarly to the Processing API as possible.
 
@@ -21,7 +21,7 @@ The library is backwards compatible, which means you can still use the Adafruit 
 
 The TFT library relies on the [SPI library](https://arduino.cc/en/Reference/SPI), which must be included in any sketch that uses the scree. If you wish to use the SD card, you need to include the [SD library](https://arduino.cc/en/Reference/SD) as well.
 
-### Screen layout
+## Screen layout
 
 By default, the screen is oriented so it is wider than it is tall. The top of the screen is the same side as the text 'SD CARD''. In this orientation, the screen is 160 pixels wide and 128 pixels high.
 
@@ -29,11 +29,11 @@ When thinking about coordinates on the screen, imagine a grid. Each square in th
 
 It is possible to use the screen in a vertical, (also called "portrait") orientation, by calling `setRotation(0)`. When you call this, the x and y-axes change accordingly, and calls to `screen.width()` or `screen.height()` change as well.
 
-### Colors
+## Colors
 
 The screen has the ability to show 16-bit color. The red and blue have 5-bits of resolution each (32 levels of red and blue), the green has 6-bits of resolution (64 different levels). For consistency with other applications, the library deals with color in 8-bit values for the red, green, and blue channels (0-255), and scales the colors appropriately.
 
-### Hardware vs software SPI interface
+## Hardware vs software SPI interface
 
 The screen can be configured for use in two ways. One is to use an Arduino's hardware SPI interface. The other is to declare all the pins manually. There is no difference in the functionality of the screen between the two methods, but using hardware SPI is significantly faster when drawing.
 
@@ -41,21 +41,21 @@ If you plan on using the SD card on the TFT module, you must use hardware SPI.
 
 All the examples are written for hardware SPI use.
 
-### Connecting the screen
+## Connecting the screen
 
 ![](./assets/GLCD_pinUse.png)
 
-#### Connecting to the Esplora
+### Connecting to the Esplora
 
 There is a socket on the front of the Esplora for the screen. Insert the screen into the socket with the blue tab that says "SD Card" closest to the USB port.
 
 ![](./assets/Esplora_GTFT.png)
 
-#### Connecting to other Arduino boards
+### Connecting to other Arduino boards
 
 To connect the screen to other Arduino boards, read the tutorial on this [link](http://arduino.cc/en/Guide/TFTtoBoards).
 
-### Write your first program
+## Write your first program
 
 To get started with the screen, first write a program that will draw a line, then 2 rectangles horizontally across the screen in different colors.
 
@@ -173,7 +173,7 @@ void loop(){
 }
 ```
 
-### Movement across the screen
+## Movement across the screen
 
 To give the illusion of motion, you need to quickly erase and draw images on the screen. When using Processing on a powerful computer, you can call `background()` every time through your `draw()` function to erase the window contests and dra objects in their new positions. The Arduino is not as fast, is it takes a little time to clear the screen when calling `background()` with the TFT library.
 
@@ -348,7 +348,7 @@ void loop(){
 }
 ```
 
-### Draw some text
+## Draw some text
 
 The TFT library includes a basic font for drawing text on screen. By default, characters are 5 pixels wide and 8 pixels tall. It is possible to change the font size to 10x16, 15x24, or 20x32. For additional information on the underlying font capabilities, see the [Adafruit page on graphic primitives](http://learn.adafruit.com/adafruit-gfx-graphics-library/graphics-primitives).
 
@@ -488,7 +488,7 @@ void loop(){
 }
 ```
 
-### Draw an image from the SD card
+## Draw an image from the SD card
 
 The TFT library has the ability to read .bmp files off a SD card and display them on the screen. Images can be smaller or larger than the screen resolution (160x128), but there is no method on the Arduino for image manipulation. The images should be sized before you put them on the SD card.
 
@@ -659,7 +659,7 @@ Even if the screen's headers are designed to fit into the socket on the front of
 
 You can either connect the screen with hardware SPI pins, or define your own set of pins. Using the hardware SPI is faster when drawing to the screen.
 
-###  Arduino Uno
+### Arduino Uno
 
 Connect power and ground to the breadboard.
 
@@ -690,7 +690,7 @@ Connecting the pins in the proper way, you can see the lcd screen working with y
 
 ![Photo of the circuit of the UNO and the TFT screen.](assets/UnoTFT.jpg)
 
-###  Arduino Leonardo & Arduino Yún
+### Arduino Leonardo & Arduino Yún
 
 The Arduino Leonardo & Arduino Yún use different pins to be compatible with the lcd screen. To set the pins MISO, MOSI and SCK, you have to use the ICSP terminals.
 
@@ -713,7 +713,7 @@ The image below shows an Arduino Leonardo but it works for an Arduino Yún too.
 
 The screen will show this message: **"Arduino TFT Bitmap Example. Open serial monitor to run the sketch"**. Open the serial monitor to view the Arduino Logo.
 
-###  Arduino Mega 2560 or Mega ADK
+### Arduino Mega 2560 or Mega ADK
 
 To connect the lcd screen to a Mega board, use this pin configuration:
 
@@ -751,7 +751,7 @@ To connect the lcd screen to an Arduino Due, use this pin configuration and don'
 
 ![Circuit of the Due and the TFT screen.](assets/DueLcd.jpg)
 
-### Next steps
+## Next steps
 
 Now that you have tested the basic functionality of the screen, see the [TFT library](https://arduino.cc/en/Reference/TFTLibrary) pages for information about the library's API and additional examples. It's also recommended to visit the Adafruit graphics library page for additional information on functions not covered.
 
