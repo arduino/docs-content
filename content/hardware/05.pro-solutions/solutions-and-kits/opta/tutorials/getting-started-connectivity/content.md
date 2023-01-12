@@ -1,6 +1,6 @@
 ---
 title: 'Bluetooth® Low Energy, Wi-Fi® and Ethernet on Arduino Opta™'
-description: "Learn how to make use of the Opta's connectivity features"
+description: "Learn how to make use of the Opta's connectivity features."
 difficulty: beginner
 tags:
   - Wi-Fi®

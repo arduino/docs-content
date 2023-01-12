@@ -1,11 +1,12 @@
 ---
-title: 'Getting Started With the Arduino Opta™'
+title: 'Getting Started with the Arduino Opta™'
 description: 'Get started with the Opta™ and get to know some of its features.'
 difficulty: beginner
 tags:
   - Getting started
   - Relays
   - Analog Input
+  - Digital Input
 author: 'Benjamin Dannegård'
 software:
   - ide-v1
