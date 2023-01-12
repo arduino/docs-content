@@ -56,7 +56,7 @@ BT is at least 2.5 times bigger than ST in the experimental setup shown before.
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `Scheduler`. You can install those libraries via the Library Manager of the Arduino IDE.
-- The [Arduino IoT Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. The Arduino IoT Cloud account is free and it will be needed to access its features.
+- The [Arduino IoT Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. The Arduino IoT Cloud account is free and it will be needed to access its features.
 
 ## Demonstration Setup
 
@@ -81,7 +81,7 @@ The Opta™ in the Small Tank (ST) performs the following actions:
 - It manages the gate valve given the Small Tank level and Big Tank minimum level state. 
 - It sends Small Tank's current maximum level state to Big Tank while seeking Big Tank's minimum level state. 
 
-In addition to the functionalities explained before, both Opta™ are connected to Arduino IoT Cloud via Wi-Fi. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
+In addition to the functionalities explained before, both Opta™ are connected to Arduino IoT Cloud via Wi-Fi®. Through Arduino IoT Cloud, both tanks can be monitored and controlled online. 
 
 ### Understanding the Small Tank (ST) Code
 
