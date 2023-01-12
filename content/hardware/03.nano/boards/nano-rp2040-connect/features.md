@@ -17,7 +17,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 <Feature title="Machine Learning" image="core">
 
-  Get started with machine learning with TinyML, TensorFlow Lite or Edge Impulse thanks to the high performance energy efficient microprocessor clocked at 133 MHz in your projects.
+  Get started with machine learning using TinyML, TensorFlow Lite or Edge Impulse thanks to the high performance energy efficient microprocessor clocked at 133 MHz in your projects.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-imu-advanced"/>
   <FeatureLink variant="secondary" title="Library" url="https://github.com/stm32duino/X-NUCLEO-IKS01A3"/>
@@ -47,7 +47,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </Feature>
 
-<Feature title="ST LSM6DSOX 6-axis IMU" image="imu">
+<Feature title="6-axis IMU" image="imu">
 
   Combined accelerometer and gyroscope with a dedicated machine learning core.
 

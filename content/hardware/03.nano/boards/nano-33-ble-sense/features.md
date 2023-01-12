@@ -18,7 +18,7 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
 
 <Feature title="IMU for Motion Detection" image="imu">
 
-  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
+  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer allowing you to detect orientation, motion or vibrations in your project.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/imu-accelerometer"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm9ds1/"/>
