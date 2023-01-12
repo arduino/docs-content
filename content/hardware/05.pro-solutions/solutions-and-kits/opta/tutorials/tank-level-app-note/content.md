@@ -1,5 +1,5 @@
 ---
-title: 'Tank Level Monitoring with the Arduino Opta™ - Application Note'
+title: 'Tank Level Monitoring with Arduino Opta™ - Application Note'
 description: "This application note describes how to monitor the level in tanks using the Arduino Opta™."
 difficulty: advanced
 tags:
