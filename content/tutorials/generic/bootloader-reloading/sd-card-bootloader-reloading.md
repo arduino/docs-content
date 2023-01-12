@@ -20,9 +20,9 @@ In this tutorial, we will learn how to burn the bootloader on boards that use th
 - Select **Sketch > Include Library > Manage Libraries...** from the Arduino IDE menus.
 - Wait for any index updates to finish.
 - In the **"Filter your search..."** field, type `Adafruit DAP library`
-- Press **<kbd>Enter</kbd>**.
+- Press **Enter**.
 - Click on "**Adafruit DAP library by Adafruit**".
-- Click the **<kbd>Install</kbd>** button.
+- Click the **Install** button.
 - Wait for the installation to finish.
 - Close **Library Manager**.
 - Select **File > Examples > Adafruit DAP library > samd21 > flash_MKR_bootloaders** from the Arduino IDE menus. 
@@ -54,7 +54,7 @@ In this tutorial, we will learn how to burn the bootloader on boards that use th
 - Select **Tools > Serial Monitor** from the Arduino IDE menus.
 - Select "No line ending" from the dropdown menu near the bottom right corner of the **Serial Monitor** window.
 
-You should see some instructions for using the sketch in the **Serial Monitor** output field. <br />
+You should see some instructions for using the sketch in the **Serial Monitor** output field.
    This includes a menu of the boards supported by the sketch:
    ```text
    [...]
@@ -71,7 +71,7 @@ You should see some instructions for using the sketch in the **Serial Monitor** 
    Find your **target** Arduino board on the list and note the code written to the left of it.
 
 - Type the code for the **target** Arduino board in the message field of **Serial Monitor**.
-- Press the <kbd>**Enter** key.
+- Press the **Enter** key.
 - The Serial Monitor output field should now show the board you selected and the progress of flashing the bootloader to the **target** Arduino board.
    Wait for it to show "Done!"
 - Unplug the **programmer** Arduino board from your computer.
