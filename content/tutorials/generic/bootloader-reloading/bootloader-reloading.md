@@ -10,14 +10,7 @@ In this tutorial, we will learn how to burn the bootloader on boards that use th
 >**Note:** If you want to burn the bootloader on AVR boards such as an UNO, Mega, and classic Nano you can check out [these instructions](https://support.arduino.cc/hc/en-us/articles/4841602539164-Burn-the-bootloader-on-UNO-Mega-and-classic-Nano-using-another-Arduino).
 
 ## Requirements
-- An extra Arduino board that runs at 3.3V to use as the programmer.
-
->**Note:** Certain Arduino boards can't be used with the sketch that converts it to a programmer. It is possible to use an Arduino board that runs at 5V as the programmer, but you will need to use level shifting circuitry on the programming lines to avoid exposing the target board to 5V logic levels, which would damage it.
-
-| Working | Untested | Not working |
-| ----------- | ----------- |----------- |
-| SAMD architecture boards | AVR architecture boards | Nano 33 BLE |
-
+- An extra SAMD-based Arduino board to use as the programmer.
 - An SD slot. This could be built into your Arduino board (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?_gl=1%2A17dcyg9%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjI5ODA2LjAuMC4w)), a shield (e.g., [MKR SD Proto Shield](https://store.arduino.cc/products/mkr-sd-proto-shield?_gl=1%2A1xs1eol%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjMwMzgxLjAuMC4w)), or one of the common SD modules.
 - An SD card that fits your SD slot.
 - A way to connect the SD card to your computer.
