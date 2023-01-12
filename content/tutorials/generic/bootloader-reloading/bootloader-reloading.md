@@ -46,7 +46,7 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
 - Select **File > Examples > Adafruit DAP library > samd21 > flash_from_SD** from the Arduino IDE's menus.
 - Change this line: ```#define SD_CS 4``` according to the Arduino pin connected to the SD CS pin. 
 
-    If your board has a built-in SD slot (e.g., [MKR Zero 9](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), then you can change this line:
+    If your board has a built-in SD slot (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), then you can change this line:
 
     ```
     (!SD.begin(SD_CS)) { 
