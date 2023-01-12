@@ -65,7 +65,7 @@ If you want to take a deeper look at what features the **Ethernet** library has 
 
 ### Modbus TCP Via Ethernet Port
 
-The Arduino Opta can be configured to use Modbus TCP protocol, which runs a Modbus protocol layered over a TCP/IP stack. Thus the coverage distance is dependent on the capacity of the Ethernet cable. For example, Cat6A cable could be paired with Arduino Opta to operate inside industrial environment.
+The Arduino Opta can be configured to use Modbus TCP protocol, which runs a Modbus protocol layered over a TCP/IP stack. Thus the coverage distance is dependent on the capacity of the Ethernet cable. In the case of an industrial environment, a good cable choice could be an RJ45 cable with the category Cat6 or Cat6A allowing a maximum distance of 100 meters. 
 
 ### Bluetooth® Low Energy
 
