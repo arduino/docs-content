@@ -21,9 +21,9 @@ The Arduino Nano 33 BLE Sense Rev2 is a great choice for any beginner, maker or 
   <FeatureLink title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/"/>
 </Feature>
 
-<Feature title="Python Support" image="python">
+<Feature title="Python® Support" image="python">
 
-  This board can be programmed with the Python programming language via the OpenMV IDE.
+  This board can be programmed with the Python® programming language via the OpenMV IDE.
 
   <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>
