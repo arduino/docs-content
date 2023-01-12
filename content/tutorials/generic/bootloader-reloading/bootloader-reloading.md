@@ -43,7 +43,7 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
 - Click the **"Install"** button.
 - You may now get a dialog asking whether to install the library's dependencies. If so, click the **"Install All**" button.
 - Wait for the installation to finish.
-- Click the **Close** button.
+- Close Library Manager
 - Select **File > Examples > Adafruit DAP library > samd21 > flash_from_SD** from the Arduino IDE's menus.
 - Change this line: ```#define SD_CS 4``` according to the Arduino pin connected to the SD CS pin. 
 
