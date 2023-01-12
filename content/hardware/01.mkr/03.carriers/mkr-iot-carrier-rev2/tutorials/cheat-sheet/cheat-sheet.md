@@ -43,7 +43,7 @@ The chosen Arduino MKR board needs to be mounted on top of the MKR IoT Carrier R
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Download the Arduino MKR IoT Carrier Rev2 datasheet](https://docs.arduino.cc/resources/datasheet/ABX00073-datasheet.pdf)
+- [Download the Arduino MKR IoT Carrier Rev2 datasheet](https://docs.arduino.cc/resources/datasheets/ABX00073-datasheet.pdf)
 
 ## Arduino IoT Cloud
 
