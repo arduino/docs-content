@@ -59,8 +59,8 @@ For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=
     if (!SD.begin()) {
     ```
 
-- Select the correct board from the **Tools > Board** from the Arduino IDE's menus.
-- Select the correct port from the **Tools > Port** from the Arduino IDE's menus.
+- Select the programmer Arduino board from Arduino IDE's **Tools > Board** menu.
+- Select the port of the programmer Arduino board from Arduino IDE's **Tools > Port** menu.
 - Select **Sketch > Upload** from the Arduino IDE's menus.
 - Wait for the upload to finish successfully.
 - Unplug the programmer Arduino board from your computer.
