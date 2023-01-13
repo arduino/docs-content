@@ -32,10 +32,10 @@ On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, whi
 - Connect the SD card to your computer.
 - Open [this link](https://github.com/arduino/ArduinoCore-samd/tree/master/bootloaders) in your browser.
 - Click the folder that matches the name of your target board.
-- Click the file that ends in ```.bin```.
+- Click the file that ends in `.bin`
 - Click the **Download** button.
-- Rename the downloaded file to ```fw.bin```.
-- Move ```fw.bin``` to the SD card.
+- Rename the downloaded file to `fw.bin`
+- Move `fw.bin` to the SD card.
 - Eject the SD card from your computer.
 - Connect the Arduino board you will be using as a programmer to your computer via USB.
 - Select **Sketch > Include Library > Manage Libraries...** from the Arduino IDE's menu.
@@ -48,19 +48,19 @@ On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, whi
 - Wait for the installation to finish.
 - Close Library Manager.
 - Select **File > Examples > Adafruit DAP library > samd21 > flash_from_SD** from the Arduino IDE's menu.
-- Change this line: ```#define SD_CS 4``` according to the Arduino pin connected to the SD CS pin. 
+- Change this line: `#define SD_CS 4` according to the Arduino pin connected to the SD CS pin. 
 
     If your board has a built-in SD slot (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), then you can change this line:
 
-    ```
-    (!SD.begin(SD_CS)) {... 
-    ```
+    `
+    (!SD.begin(SD_CS)) {
+    `
 
     to:
 
-    ```
-    if (!SD.begin()) {...
-    ```
+    `
+    if (!SD.begin()) {
+    `
 
 - Select the programmer Arduino board from Arduino IDE's **Tools > Board** menu.
 - Select the port of the programmer Arduino board from Arduino IDE's **Tools > Port** menu.
@@ -147,7 +147,7 @@ On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, whi
 
 This includes a menu of the boards supported by the sketch:
 
-   ```
+   `
   [...]
 
    Select Arduino MKR board to erase and flash with bootloader:
@@ -158,7 +158,7 @@ This includes a menu of the boards supported by the sketch:
    1010  -> Arduino MKR WIFI 1010 (7984 bytes)
 
    [...]
-   ```
+   `
 - Find your **target** Arduino board on the list and note the code written to the left of it.
 - Type the code for the **target** Arduino board in the message field of the Serial Monitor.
 - Press **Enter**
