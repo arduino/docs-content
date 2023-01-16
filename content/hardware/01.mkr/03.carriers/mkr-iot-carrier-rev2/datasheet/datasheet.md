@@ -359,5 +359,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date DD/MM/YY** | **Revision** | **Changes**            |
 | ----------------- | ------------ | ---------------------- |
-| 16/01/2023        | 1            | Update Pinout graphic  |
+| 16/01/2023        | 2            | Update Pinout graphic  |
 | 23/11/2022        | 1            | First Release          |
