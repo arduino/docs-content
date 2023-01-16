@@ -36,14 +36,14 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 - USB-C® cable (x1)
 - [Arduino Opta™](https://store.arduino.cc/pages/opta) (x1)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Power supply of 12-24V DC, 1A  (optional if not running the section related to the relays) (x1)
+- Power supply of 12-24V DC, 1A (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
 
 ## Instructions
 
 ### Setup With the Arduino IDE
 
-Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software). 
+Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
 Within the Arduino IDE install the core for the Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it.
 
 ![Finding the Opta™ Core in the Arduino IDE 2.0](assets/opta-core-install.png)
@@ -104,7 +104,7 @@ void loop() {
 
 ### Configuring the Programmable Button on the Opta
 
-Opta™ has a programmable button, shown on the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
+Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.png)
 
@@ -165,13 +165,13 @@ void changeLights() {
 
 Once the sketch is uploaded, you can see that an additional LED is turned on each time you press the button, following the sequence:
 
-| Interaction  | Result                       |
-| ------------ | ---------------------------- |
-| First press  | STATUS LED 1 ON              |
-| Second press | STATUS LEDs 1 and 2 ON       |
-| Third press  | STATUS LEDs 1, 2 and 3 ON    |
-| Fourth press | STATUS LEDs 1, 2, 3 and 4 ON |
-| Fifth press  | All STATUS LEDs off and back |
+| Interaction  | Result                                |
+| ------------ | ------------------------------------- |
+| First press  | STATUS LED 1 ON                       |
+| Second press | STATUS LEDs 1 and 2 ON                |
+| Third press  | STATUS LEDs 1, 2 and 3 ON             |
+| Fourth press | STATUS LEDs 1, 2, 3 and 4 ON          |
+| Fifth press  | All STATUS LEDs off and counter reset |
 
 
 ### Using Out Relays
@@ -180,7 +180,7 @@ Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) 
 
 ![Out relays on the Opta™](assets/opta-out-relays.png)
 
-The relays coils correspond to pins D0 to D3 as follows:
+The coils of each relay correspond to pins D0 to D3 as follows:
 
 | Output     | Pin   | Alias  |
 | :--------: | :---: | :----: |
@@ -197,8 +197,8 @@ The “clean” contact also allows carrying a different power system or type of
 
 ![Clean contact on the Opta™](assets/opta-clean-contact.png)
 
-Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle a led will be turned on to provide visual feedback. 
-To activate the relays and run this sketch you need to provide Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply. 
+Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and, after each relay's cycle, a led will be turned on to provide visual feedback.
+To activate the relays and run this sketch, you need to provide energy to Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply.
 
 Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
 
@@ -275,14 +275,14 @@ Opta™ has 8 input pins that can be programmed to be used as analog or digital.
 | I7                | A6                  | PIN_A6             |
 | I8                | A7                  | PIN_A7             |
 
-The 8 inputs pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V).
+The 8 input pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V).
 * To use them as digital inputs, add the Arduino command `pinMode(pinName, INPUT);` inside the `setup()`.
 * To use them as analog inputs, add the command `analogReadResolution();` with the bit resolution that you want to use.
 
 ![Analog inputs on the Opta™](assets/opta-analog-inputs.png)
 
 Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 10V.
-The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the voltage of the input using it in conjunction with the resolution factor of the ADCs. That resolution can be selected inside the program within a range between 12bit (4095) and 16bit (65535).
+The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the voltage of the input using it in conjunction with the resolution factor of the ADCs. That resolution can be selected inside the program within a range between 12 bits (4095) and 16 bits (65535).
 To get and display the proper voltage value read by the input, we need to convert the value read by the `analogRead` function and apply a rescaling factor of 0.3 which is determined by the internal voltage divider.
 The sketch will read the inputs on the analog pins A0, A1 and A2 and then print the result in the serial monitor.
 
@@ -336,12 +336,12 @@ You may notice from the output values that when the maximum value of 10V is reac
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. We also have some other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/).
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. We also have some other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/) that will help you to expand its capabilities.
 
 ## Conclusion
 
-This tutorial went through the basics of the Opta™ device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, and program the relays and digital and analog inputs. With the additional connection of the Opta™ to the Arduino Cloud, Opta™ can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
+This tutorial went through the basics of the Opta™ device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, program the relays and read the digital and analog inputs. With the additional connection of the Opta™ to the Arduino Cloud, Opta™ can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
 
 ### Next Steps
 
-Now that you know the basics of the Opta™ it could be a good idea to combine these features with other features on the Opta™. For example, if you want to add connectivity to your solution, take a look at the [Getting started with connectivity on the Opta™ tutorial](/tutorials/opta/getting-started-connectivity).
+Now that you know the basics of the Opta™, it could be a good idea to combine these features with other features of the device. For example, if you want to add connectivity to your solution, take a look at the [Getting started with connectivity on the Opta™ tutorial](/tutorials/opta/getting-started-connectivity).
