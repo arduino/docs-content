@@ -145,7 +145,7 @@ On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, whi
 - Select "**No line ending**” from the dropdown menu near the bottom right corner of the **Serial Monitor** window.
 - You should now see some instructions for using the sketch in the **Serial Monitor** output field. 
 
-This includes a menu of the boards supported by the sketch:
+  This includes a menu of the boards supported by the sketch:
 
    `
   [...]
