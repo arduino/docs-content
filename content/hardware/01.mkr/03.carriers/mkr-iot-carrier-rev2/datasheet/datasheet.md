@@ -9,13 +9,11 @@ variant: Rev2
 ![](assets/featured.png)
 
 # Description
-
 The **MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors.
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
-# Target areas
-
+# Target areas:
 IoT applications, MKR hobbyists
 
 # Features
@@ -45,20 +43,20 @@ IoT applications, MKR hobbyists
   * 240 x 240 resolution
   * 36 x 40 mm
 
-* **Bosch BME688** Environmental sensing with Artificial Intelligence
-  * Operating range
-    * Pressure: 300-1100 hPa
-    * Humidity: 0-100%
-    * Temperature: -40 - +85°C
-  * eNose Gas sensor
-    * Sensor-to-sensor deviation (IAQ): ± 15% ± 15 IAQ
-    * Standard scan speed: 10.8 s/scan
-    * Electric charge for standard scan: 0.18 mAh (5 scans - 1 min)
-    * Major Sensor outputs
-      * Index for air quality (IAQ)
-      * bVOC- & CO2-equivalents (ppm)
-      * Gas scan result (%)
-      * Intensity level
+- **Bosch BME688** Environmental sensing with Artificial Intelligence
+  - Operating range
+    - Pressure: 300-1100 hPa
+    - Humidity: 0-100%
+    - Temperature: -40 - +85°C
+  - eNose Gas sensor
+    - Sensor-to-sensor deviation (IAQ): ± 15% ± 15 IAQ
+    - Standard scan speed: 10.8 s/scan
+    - Electric charge for standard scan: 0.18 mAh (5 scans - 1 min)
+    - Major Sensor outputs
+      - Index for air quality (IAQ)
+      - bVOC- & CO2-equivalents (ppm)
+      - Gas scan result (%)
+      - Intensity level
 
 * **Broadcom APDS-9660 RGB and Gesture Sensor**
   * Ambient light and RGB Colour Sensing
@@ -114,7 +112,6 @@ IoT applications, MKR hobbyists
 ### Accessories
 
 ***(Not Included)***
-
 * 18650 Li-ion battery
 * <u>[Grove sensors](https://search.arduino.cc/search/?q=Grove%20Sensors&tab=store)</u>
 * SD Card
@@ -126,6 +123,7 @@ IoT applications, MKR hobbyists
 * <u>[Arduino® MKR WAN 1310 (SKU: MKRWAN1310WANT)](https://store.arduino.cc/products/arduino-mkr-wan-1310)</u>
 * <u>[Arduino® MKR GSM 1400 (SKU: MKRGSM1400WANT)](https://store.arduino.cc/products/arduino-mkr-gsm-1400)</u>
 * <u>[Arduino® MKR NB 1500 (SKU: MKRNB1500WANT)](https://store.arduino.cc/products/arduino-mkr-nb-1500)</u>
+
 
 ## Functional Overview
 
@@ -141,6 +139,7 @@ IoT applications, MKR hobbyists
 | U4       | Bosch BME688 Environmental Sensor IC   | L0-L4    | APA1022020-2018 RGB LED IC             |
 | J6       | FH26W-45S-0.3SHW(60) Display Connector | PB1      | Reset push-button                      |
 
+
 #### Bottom View
 
 ![Bottom view](assets/bottom_view.svg)
@@ -154,7 +153,6 @@ IoT applications, MKR hobbyists
 | J1        | Micro SD Module                       | J7, J8   | Li-Ion 18650 Holder               |
 
 ### Power Tree
-
 The **MKR IoT Carrier Rev2** makes use of the power management features of the Arduino MKR boards to power itself as well as to interface with the Li-Ion battery.
 
 ![Power tree](assets/Power_Tree_MKR_IoT_Carrier.png)
@@ -162,29 +160,23 @@ The **MKR IoT Carrier Rev2** makes use of the power management features of the A
 ## Board Operation
 
 ### Getting Started - IDE
-
 If you want to program your **MKR IoT Carrier Rev2** while offline you need to install the Arduino Desktop IDE <sup>[**[1]**](#10-reference-documentation)</sup>. To connect the **MKR IoT Carrier Rev2** to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
-
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor <sup>[**[2]**](#10-reference-documentation)</sup>, by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow <sup>[**[3]**](#10-reference-documentation)</sup> to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino IoT Cloud
-
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-
 Sample sketches for the **MKR IoT Carrier Rev2** can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation <sup>[**[7]**](#10-reference-documentation)</sup> which also contains links to the troubleshooting articles.
 
 ### Online Resources
-
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub <sup>[**[4]**](#10-reference-documentation)</sup>, the Arduino Library Reference <sup>[**[5]**](#10-reference-documentation)</sup> and the online store <sup>[**[6]**](#10-reference-documentation)</sup> where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
-
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
@@ -201,7 +193,6 @@ Detailed information on the pinouts are available in a separate document: <u>[Do
 |  2   |     VBAT     |  Power   | Positive 18650 Battery Terminal |
 
 ### Grove Connectors
-
 #### A0
 
 | Pin  | **Function** | **Type** | **Description**  |
@@ -230,11 +221,11 @@ Detailed information on the pinouts are available in a separate document: <u>[Do
 |  4   |     GND      |  Power   | Ground           |
 
 ### Relays
-
 #### Relay 1 and 2
 
 * Relay 1 driven by digital pin 1
 * Relay 2 driven by digital pin 2
+
 
 | Pin  | **Function** | **Type** | **Description** |
 | :--: | :----------: | :------: | --------------- |
@@ -292,7 +283,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions : No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
 
@@ -368,5 +359,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date DD/MM/YY** | **Revision** | **Changes**       |
 | ----------------- | ------------ | ----------------- |
-| 16/01/2023        | 2            | Update Pinout graphic     |
 | 23/11/2022        | 1            | First Release     |
