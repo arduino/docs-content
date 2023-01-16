@@ -22,7 +22,7 @@ Below you will find two different approaches to burning the bootloader:
 - A way to connect the SD card to your computer.
 - A way to make connections to the SWD pins on your target Arduino board.
 
-For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=1%2A80ta1j%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjMwNDIwLjAuMC4w) and the **MKR Boards** other than **MKR1000** ([tutorial](https://support.arduino.cc/hc/en-us/articles/360014905199-How-to-burn-the-bootloader-to-Arduino-MKR1000-using-a-programmer?queryID=ae55269235f9756d76c0b66bbb8ffa69)), we found it the easiest to use a 0.1" pitch 2x3 POGO adapter. You could also solder wires to the test points if you prefer. 
+For the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?_gl=1%2A80ta1j%2A_ga%2AMjEyMzQ2MjgwOC4xNjY1NjUyNTY3%2A_ga_NEXN8H46L5%2AMTY3MTYyNzMzMS4xNjEuMS4xNjcxNjMwNDIwLjAuMC4w) and the **MKR Boards** other than **MKR1000** ([tutorial](https://support.arduino.cc/hc/en-us/articles/360014905199-How-to-burn-the-bootloader-to-Arduino-MKR1000-using-a-programmer?queryID=ae55269235f9756d76c0b66bbb8ffa69)), we found it the easiest to use a 0.1" pitch 2x3 pogo adapter. You could also solder wires to the test points if you prefer. 
 
 On the MKR boards other than the MKR1000, the SWD header is on the bottom of the board and is the footprint for a 0.1" pitch 2x3 SMD header. 
 
