@@ -10,7 +10,7 @@ In this tutorial, we will learn how to burn the bootloader on boards that use th
 Below you will find two different approaches to burning the bootloader:
 - [The first approach](#sd-card) uses an SD card and should be used when wanting to flash a different bootloader than the ones bundled with the "flash_MKR_bootloaders" sketch.
 
-- The second approach does not require a SD card and should be used by users who want the easiest solution.
+- [The second approach](#no-sd-card) does not require an SD card and should be used by users who want the easiest solution.
 
 >**Note:** If you want to burn the bootloader on AVR boards such as an UNO, Mega, and classic Nano you can check out [these instructions](https://support.arduino.cc/hc/en-us/articles/4841602539164-Burn-the-bootloader-on-UNO-Mega-and-classic-Nano-using-another-Arduino).
 
