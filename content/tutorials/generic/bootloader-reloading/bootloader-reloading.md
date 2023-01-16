@@ -123,10 +123,10 @@ On the MKR1000, it is a 0.05" pitch 2x5 male header on the top of the board, whi
     | Programmer  | Target      |
     | ----------- | ----------- |
     | VCC         | +3V3        |
-    | 12          | SWDIO       |
-    | 11          | SWCLK       |
+    | 1           | SWDIO       |
+    | 2           | SWCLK       |
     | GND         | GND         |
-    | 9           | RESETN      |
+    | 0           | RESETN      |
 
     SWD pads on MKR boards other than MKR 1000:
 
