@@ -8,7 +8,7 @@ featuredImage: 'clip'
 In this tutorial, we will learn how to burn the bootloader on boards that use the ATSAMD21G18 microcontroller using another Arduino board. The bootloader is a small piece of software that allows uploading sketches onto the Arduino board. It comes preprogrammed on the microcontrollers on Arduino boards. Whether the bootloader has been corrupted or intentionally has been removed, it can be restored by burning (also called, flashing or programming) a new bootloader to the board.
 
 Below you will find two different approaches to burning the bootloader:
-- The first approach uses an SD card and should be used when wanting to flash a different board than the ones bundled with the "flash_MKR_bootloaders" (check out the [Github repository](https://github.com/adafruit/Adafruit_DAP) for more information).
+- [The first approach](#sd-card) uses an SD card and should be used when wanting to flash a different bootloader than the ones bundled with the "flash_MKR_bootloaders" sketch.
 
 - The second approach does not require a SD card and should be used by users who want the easiest solution.
 
