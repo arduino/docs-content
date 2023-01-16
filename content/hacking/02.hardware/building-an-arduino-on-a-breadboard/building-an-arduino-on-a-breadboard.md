@@ -133,7 +133,7 @@ Now, it's time to get the USB to serial breakout board talking with your new Ard
 
 And there you have it... ready to be plugged in, powered up and programmed!
 
-But wait, there's another step right? If you pulled your Atmega chip out of your Arduino, it has most likely been programed several times by yourself and so it definitely has been bootloaded, so you won't need to move any further in this tutorial.
+But wait, there's another step right? If you pulled your Atmega chip out of your Arduino, it has most likely been programmed several times by yourself and so it definitely has been bootloaded, so you won't need to move any further in this tutorial.
 
 However, if you purchased some extra Atmega328 or Atmega168 chips from an online store they will have NOT been bootloaded with the Arduino bootloader (with the exception of [Adafruit Industries](http://www.adafruit.com/index.php?main_page=product_info&cPath=17&products_id=56)). What does this mean? You won't be able to program your chips using the USB to serial breakout board and the Arduino software. So, in order to make your new chips useful for Arduino you MUST bootload them and MUST check out step 4.
 
