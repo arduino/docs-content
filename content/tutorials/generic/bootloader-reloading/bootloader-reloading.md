@@ -17,7 +17,7 @@ Below you will find two different approaches to burning the bootloader:
 ## SD card
 ### Requirements
 - An extra SAMD-based Arduino board to use as the programmer. 
-- An SD slot. This could be built into your Arduino board (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?_gl=1*17dcyg9*_ga*MjEyMzQ2MjgwOC4xNjY1NjUyNTY3*_ga_NEXN8H46L5*MTY3MTYyNzMzMS4xNjEuMS4xNjcxNjI5ODA2LjAuMC4w)), a shield (e.g., [MKRSD Proto](https://store.arduino.cc/products/mkr-sd-proto-shield?_gl=1*1xs1eol*_ga*MjEyMzQ2MjgwOC4xNjY1NjUyNTY3*_ga_NEXN8H46L5*MTY3MTYyNzMzMS4xNjEuMS4xNjcxNjMwMzgxLjAuMC4w)), or one of the common SD modules.
+- An SD slot. This could be built into your Arduino board (e.g., [MKR Zero](https://store.arduino.cc/products/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)), a shield (e.g., [MKR SD Proto](https://store.arduino.cc/products/mkr-sd-proto-shield)), or one of the common SD modules.
 - An SD card that fits your SD slot.
 - A way to connect the SD card to your computer.
 - A way to make connections to the SWD pins on your target Arduino board.
