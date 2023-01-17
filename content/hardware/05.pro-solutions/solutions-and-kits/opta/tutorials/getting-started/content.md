@@ -55,7 +55,7 @@ Now you are ready to upload sketches to the Opta™ via the Arduino IDE.
 Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta™, highlighted in the image below.
 
-![The blinking STATUS  LEDs on the Opta™](assets/opta-device-LED.png)
+![The blinking STATUS  LEDs on the Opta™](assets/opta-device-LED.svg)
 
 All the STATUS LEDs on the device are defined in the core of the PLC. 
 Hereafter you can see the correspondence between each of them as identified in the core and their labeling on the front panel of the product:
@@ -106,7 +106,7 @@ void loop() {
 
 Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
-![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.png)
+![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
 The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device. 
 
@@ -178,7 +178,7 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 
 Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
 
-![Out relays on the Opta™](assets/opta-out-relays.png)
+![Out relays on the Opta™](assets/opta-out-relays.svg)
 
 The coils of each relay correspond to pins D0 to D3 as follows:
 
@@ -195,14 +195,14 @@ This way, when the contact is closed by the logic set in the programming, the po
 
 The “clean” contact also allows carrying a different power system or type of load for each output contact, being possible to control multiple devices or signals that use different voltage levels.
 
-![Clean contact on the Opta™](assets/opta-clean-contact.png)
+![Clean contact on the Opta™](assets/opta-clean-contact.svg)
 
 Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and, after each relay's cycle, a led will be turned on to provide visual feedback.
 To activate the relays and run this sketch, you need to provide energy to Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply.
 
 Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
 
-![Connect these pins to drive the relays on the Opta™](assets/opta-voltage-pins.png)
+![Connect these pins to drive the relays on the Opta™](assets/opta-voltage-pins.svg)
 
 ***These terminals are polarized, it is therefore mandatory to strictly respect the power supply polarity by connecting the positive connector of the power supply to "+" and the negative to "-".***
 
@@ -279,7 +279,7 @@ The 8 input pins can be used as digital (having the logical values of LOW or HIG
 * To use them as digital inputs, add the Arduino command `pinMode(pinName, INPUT);` inside the `setup()`.
 * To use them as analog inputs, add the command `analogReadResolution();` with the bit resolution that you want to use.
 
-![Analog inputs on the Opta™](assets/opta-analog-inputs.png)
+![Analog inputs on the Opta™](assets/opta-analog-inputs.svg)
 
 Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 10V.
 The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the voltage of the input using it in conjunction with the resolution factor of the ADCs. That resolution can be selected inside the program within a range between 12 bits (4095) and 16 bits (65535).
