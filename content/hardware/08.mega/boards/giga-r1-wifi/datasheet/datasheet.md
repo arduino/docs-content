@@ -51,13 +51,13 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 ## Application Examples
 
-The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
+The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud (or third party services), with the help of onboard secure element and wireless connectivity.
 
-- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud.
+- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud (or third party services).
 
-- **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud and connect with people all over the world.
+- **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud (or third party services) and connect with people all over the world.
 
-- **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
+- **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud (or third party services). Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
 ## Accessories (Not Included)
 
@@ -68,11 +68,6 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ## Related Products
 
 - Arduino Mega Proto Shield Rev3 (A000080)
-
-<!--
-### Solution Overview
-![Example of a Arduino GIGA connected to a external audio source and micro UFL antenna](assets/gigaSolutionOverview.png)
--->
 
 # Rating
 
@@ -87,14 +82,6 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 | T<sub>OP</sub>  | Operating Temperature            | -20                | 25  | 60                 | °C   |
 
 **Note 1:** V<sub>DD</sub> controls the logic level and is connected to the 3.3V power rail. V<sub>AREF</sub> is for the analog logic.
-
-## Power Consumption
-
-| Symbol            | Description                                        | Min | Typ | Max | Unit |
-|-------------------|----------------------------------------------------|-----|-----|-----|------|
-| P<sub>STDBY</sub> | Average power consumption in standby               |     | TBC |     | mW   |
-| P<sub>BLINK</sub> | Average power consumption with blink sketch sketch |     | TBC |     | mW   |
-| P<sub>MAX</sub>   | Maximum power consumption                          |     | TBC |     | mW   |
 
 # Functional Overview
 
@@ -166,7 +153,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Getting Started - Arduino IoT Cloud
 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
