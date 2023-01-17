@@ -115,7 +115,7 @@ To configure a device, you can use the following command:
 arduino-cloud-cli device create --name <deviceName> --port <port> --fqbn <deviceFqbn>
 ```
 
-Currently, the following devices are supported:
+Here's follows the FQBN's list of the supported devices:
 
 * `arduino:samd:nano_33_iot` [Arduino Nano 33 IoT](https://docs.arduino.cc/hardware/nano-33-iot)
 * `arduino:samd:mkrwifi1010` [Arduino MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010)
@@ -149,7 +149,7 @@ arduino-cloud-cli device list-frequency-plans
 
 General devices is a virtual device that does not need to be attached to a physical board. 
 
-To see the full list of supported FQBNs, you can run the following command:
+To see the full list of supported FQBNs (Fully Qualified Board Names), you can run the following command:
 
 ```
 arduino-cloud-cli device list-fqbn
