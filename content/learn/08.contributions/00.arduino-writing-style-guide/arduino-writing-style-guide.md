@@ -53,14 +53,14 @@ Put your `setup()` and your `loop()` at the beginning of the program. They help 
 Use verbose if statements. For simplicity to the beginning reader, use the block format for everything, i.e. avoid this:
 
 ```
-if (somethingIsTrue) doSomething;
+if (distance > 10) moveCloser();
 ```
 
 Instead, use this:
 
 ```
-if (somethingIsTrue) {
-   doSomething;
+if (distance > 10) {
+   moveCloser();
 }
 ```
 
