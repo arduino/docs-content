@@ -51,7 +51,7 @@ Then we need to install the appropriate core for the Arduino Opta™. Go to **To
 
 The files necessary for using the Wi-Fi® on the Arduino Opta™ are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta**, we can find the **WiFi** section. Inside there is an example sketch called **WiFiWebClient**. Open this example sketch and fill out the Wi-Fi® details in the **arduino_secrets.h** tab. Once uploaded, the sketch will make the Arduino Opta® connect to the desired website defined within `char server[] = "example.com";` variable. If the connection is successful, it will then print the website's HTML content to the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
-![Running Wi-Fi® sketch on the Arduino Opta™ in the Arduino IDE](assets/opta-wifi.png)
+![Running Wi-Fi® sketch on the Arduino Opta™ in the Arduino IDE](assets/opta-wifi.svg)
 
 If you want to take a deeper look at the features that the **WiFi** library has to offer, [take a look at the API Wi-Fi® reference page](https://www.arduino.cc/reference/en/libraries/wifi/).
 
@@ -59,7 +59,7 @@ If you want to take a deeper look at the features that the **WiFi** library has 
 
 The Arduino Opta™ has an RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet with the Arduino Opta™ are included in the core. To try it out, we can go to **File > Examples** and under **Examples for Opta** we can find the **Ethernet** section. Inside there is an example sketch called **WebClient**. Connect the Ethernet cable to the Arduino Opta™ and upload the example using the USB-C® cable. This example will function the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website defined in the sketch and print the website's HTML content in the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
-![Running the Ethernet sketch on the Arduino Opta™ in the Arduino IDE](assets/opta-ethernet.png)
+![Running the Ethernet sketch on the Arduino Opta™ in the Arduino IDE](assets/opta-ethernet.svg)
 
 If you want to take a deeper look at the features that the **Ethernet** library has to offer, [take a look at the API Ethernet reference page](https://www.arduino.cc/reference/en/libraries/ethernet/).
 
@@ -71,7 +71,7 @@ The Arduino Opta™ can be configured to use Modbus TCP protocol, which runs a M
 
 To use the Bluetooth® Low Energy feature, you will need to download the **ArduinoBLE** library in the Arduino IDE. Go into the **library manager** and search for **ArduinoBLE**. if you can't find it, try sorting by official libraries published by Arduino. Once the ArduinoBLE library is installed, let's try and run a simple example that scans for other Bluetooth® devices within range. The sketch will print the addresses of near devices as well as the local name and the advertised service UUIDs, if present. The example can be found under **File > Examples > ArduinoBLE > Central**, the sketch is called **Scan**. When the sketch is running on the Opta™, the output on the serial monitor should look something like the image below.
 
-![Bluetooth® sketch running on the Opta™](assets/opta-ble.png)
+![Bluetooth® sketch running on the Opta™](assets/opta-ble.svg)
 
 If you want to take a deeper look at the features that the **ArduinoBLE** library has to offer, [take a look at the API BLE reference page](https://www.arduino.cc/reference/en/libraries/arduinoble/).
 
