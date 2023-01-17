@@ -97,7 +97,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 | **Ref.** | **Description**                         | **Ref.** | **Description**                     |
 |----------|-----------------------------------------|----------|-------------------------------------|
-| U1       | STM32H7 Dual Core Microcontroller IC    | U2       | MX25L12833FZ2I 16 MB Flash IC       |
+| U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC       |
 | U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
 | U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
 | U7       | MP2269GD-Z Buck Converter 5V IC         | JANALOG  | Analog input/output headers         |
@@ -123,7 +123,7 @@ The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi®
 
 ## Onboard Memories
 
-The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
+The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the AT25SF128A-MHB-T (U8) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U8 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
 
 ## USB Connector
 
