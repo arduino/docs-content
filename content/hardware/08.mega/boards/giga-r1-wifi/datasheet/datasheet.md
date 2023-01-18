@@ -28,10 +28,10 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)
   - Micro UFL connector for external antenna
 - **Memory**
-  - **STM32H747XI**:
+  - **STM32H747XI**
     - 2 MB Flash
     - 1 MB RAM
-  - **MX25L12833FZ2I**:
+  - **AT25SF128A-MHB-T**
     - 16 MB NOR Flash
     - QSPI Interface
   - **AS4C4M16SA**
@@ -99,7 +99,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 | **Ref.** | **Description**                         | **Ref.** | **Description**                     |
 |----------|-----------------------------------------|----------|-------------------------------------|
-| U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC       |
+| U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC     |
 | U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
 | U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
 | U7       | MP2269GD-Z Buck Converter 5V IC         | JANALOG  | Analog input/output headers         |
