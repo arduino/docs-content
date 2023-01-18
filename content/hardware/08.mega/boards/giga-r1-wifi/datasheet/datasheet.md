@@ -68,6 +68,8 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ## Related Products
 
 - Arduino Mega Proto Shield Rev3 (A000080)
+- Arduino 4 Relays Shield (A000110)
+- Arduino Motor Shield Rev3 (A000079)
 
 # Rating
 
