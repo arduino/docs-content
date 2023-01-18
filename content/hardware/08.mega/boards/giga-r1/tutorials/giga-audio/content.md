@@ -484,7 +484,7 @@ void setup() {
   }
 
   // Initializing keyboard interface
-  pinMode(PA_15, OUTPUT);
+  pinMode(PA_15, OUTPUT); //enable the USB-A port
   keyb.begin();
 
   // DAC initialization
@@ -607,7 +607,7 @@ void setup() {
   }
 
   // Initializing keyboard interface
-  pinMode(PA_15, OUTPUT);
+  pinMode(PA_15, OUTPUT); //enable the USB-A port
   keyb.begin();
 
   // DAC initialization
@@ -692,6 +692,10 @@ mbed::FATFileSystem usb("USB_DRIVE_NAME");
 
 void setup() {
   Serial.begin(115200);
+  
+  pinMode(PA_15, OUTPUT); //enable the USB-A port
+  digitalWrite(PA_15, HIGH);
+  
   while (!Serial);
 
   delay(2500);

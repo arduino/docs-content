@@ -33,7 +33,7 @@ To enable the USB-A port, you will need to define it as an output. You can also 
 
 ```arduino
 void setup(){
-  pinMode(PA_15, OUTPUT);
+  pinMode(PA_15, OUTPUT); //enable the USB-A port
 }
 
 void loop(){
@@ -93,6 +93,10 @@ mbed::FATFileSystem usb("usb");
 void setup()
 {
     Serial.begin(115200);
+    
+    pinMode(PA_15, OUTPUT); //enable the USB-A port
+    digitalWrite(PA_15, HIGH);
+    
     while (!Serial)
         ;
 
@@ -189,6 +193,10 @@ mbed::DigitalOut otg(PB_14, 0);
  
 void setup() {
   Serial.begin(115200);
+  
+  pinMode(PA_15, OUTPUT); //enable the USB-A port
+  digitalWrite(PA_15, HIGH);  
+  
   while (!Serial);
 
   delay(2500);
@@ -270,7 +278,12 @@ mbed::DigitalOut otg(PB_8, 1);
 
 void setup() {
   Serial.begin(115200);
+  
+  pinMode(PA_15, OUTPUT); //enable the USB-A port
+  digitalWrite(PA_15, HIGH);
+  
   while (!Serial);
+  
   msd.connect();
 
   while (!msd.connected()) {
@@ -336,7 +349,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   while (!Serial);
-  pinMode(PA_15, OUTPUT); //enable the USB-A connector
+  pinMode(PA_15, OUTPUT); //enable the USB-A port //enable the USB-A connector
   keyb.begin(); //init the library
 }
 
