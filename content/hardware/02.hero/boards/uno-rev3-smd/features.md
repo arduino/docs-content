@@ -8,14 +8,6 @@ The "SMD" stands for surface-mount device, and the microcontroller (ATmega328p) 
 
 <FeatureList>
 
-<Feature title="ATmega328P" image="core">
-
-The classic high-performance, low-power AVR® microcontroller. 
-
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf" download blank/>
-
-</Feature>
-
 <Feature title="EEPROM" image="mcu">
 
 The ATmega328P also features 1kb of EEPROM, a memory which is not erased when powered off.

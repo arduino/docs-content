@@ -8,23 +8,18 @@ bootloader programming.
 
 <FeatureList>
 
-<Feature title="Cortex-M0 32-bit SAMD21" image="core">
+<Feature title="Embedded Debugger" image="mcu">
 
-The powerful, low-power processor from Microchip.
+The Zero comes with a built-in debugger, which can be used with the Arduino IDE 2.0 version.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf"/>
-</Feature>
-
-<Feature title="Embedded Debugger (EDBG)" image="mcu">
-
-The Zero comes with a **built-in debugger**, which can be used directly with the Arduino IDE 2.0 version to debug programs.
-
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/zero/debugging-with-zero"/>
 </Feature>
 
 <Feature title="Battery Connector" image="power">
 
 The Arduino Zero features a barrel plug connector, that works great with a standard 9V battery.
 
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino-low-power/"/>
 </Feature>
 
 </FeatureList>
