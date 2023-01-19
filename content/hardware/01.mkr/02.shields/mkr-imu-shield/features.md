@@ -1,10 +1,11 @@
 <FeatureList>
 
-<Feature title="BNO055" image="imu">
+<Feature title="Bosch orientation sensor" image="imu">
 
 This 9-axis absolute orientation sensor from Bosch consists of three sensors: gyroscope, accelerometer and geomagnetic sensor.
 
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bno055-ds000.pdf"download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-imu-shield/mkr-imu-shield-basics"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/mkrimu/"/>
 
 </Feature>
 
