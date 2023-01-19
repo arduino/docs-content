@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Arduino Opta™'
+title: 'Getting Started with Opta™'
 description: 'Get started with the Opta™ and get to know some of its features.'
 difficulty: beginner
 tags:
@@ -21,7 +21,7 @@ hardware:
 
 Opta™ is a robust micro PLC solution with many engaging features. In this tutorial we will go through the setup of Opta™ with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as controlling its inputs and outputs.
 
-![The Arduino Opta™](assets/opta-device.svg)
+![The Opta™](assets/opta-device.svg)
 
 ## Goals
 
@@ -34,7 +34,7 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 ### Required Hardware and Software
 
 - USB-C® cable (x1)
-- [Arduino Opta™](https://store.arduino.cc/pages/opta) (x1)
+- [Opta™ PLC](https://store.arduino.cc/pages/opta) (x1)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - Power supply of 12-24V DC, 1A (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
@@ -55,7 +55,7 @@ Now you are ready to upload sketches to the Opta™ via the Arduino IDE.
 Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta™, highlighted in the image below.
 
-![The blinking STATUS  LEDs on the Opta™](assets/opta-device-LED.svg)
+![The blinking STATUS LEDs on the Opta™](assets/opta-device-LED.svg)
 
 All the STATUS LEDs on the device are defined in the core of the PLC. 
 Hereafter you can see the correspondence between each of them as identified in the core and their labeling on the front panel of the product:
@@ -65,7 +65,7 @@ Hereafter you can see the correspondence between each of them as identified in t
 - `LED_D2`: STATUS 3
 - `LED_D3`: STATUS 4
 - `LED_RESET`: LED above the reset button
-- `LED_USER`: LED above the user button (only available on the Arduino Opta WiFi, SKU: AFX00002)
+- `LED_USER`: LED above the user button (only available on the Arduino Opta® WiFi, SKU: AFX00002)
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta™.
@@ -102,7 +102,7 @@ void loop() {
 }
 ```
 
-### Configuring the Programmable Button on the Opta
+### Configuring the Programmable Button on the Opta™
 
 Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
