@@ -639,7 +639,7 @@ void loop(){
 
 ### Playback with the GIGA R1 DACs
 
-The GIGA R1 12-bit DAC channels can also be used to create a simple mono or stereo audio playback. In the following example, we will use a USB drive as our source for a .WAV audio files and output them using custom libraries to help us process these files. A 3.5mm audio jack-compatible speaker is also required for the audio playback output.
+The GIGA R1 12-bit DAC channels can also be used to create a simple mono or stereo audio playback. In the following example, we will use a USB drive as our source for a .WAV audio files and output them using custom libraries to help us process them. A 3.5mm audio jack-compatible speaker is also required for the audio playback output.
 
 The libraries we are going to use are the following:
 
@@ -749,3 +749,66 @@ void loop() {}
 ```
 
 Once you have the setup and the code ready, you can upload it to the GIGA R1 board and play the audio file of your choice. The example can playback 3 to 4 seconds of an audio file.
+
+## Pulse Density Modulation Support
+
+Pulse Density Support (PDM) is a form of modulation used to represent analog information into digital information; PDM uses a high-frequency stream of 1-bit digital samples. In PDM, a large cluster of ones represents a positive amplitude, while a large cluster of zeros represents a negative amplitude.
+
+The GIGA R1 PDM support can be used with the [built-in PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm). Let's check an interesting example that shows of how to read a PDM microphone wwith the GIGA R1:
+
+```arduino
+#include <PDM.h>
+
+// Default number of output channels
+static const char channels = 1;
+
+// Default PCM output frequency
+static const int frequency = 16000;
+
+// Buffer to read samples into, each sample is 16-bits
+short sampleBuffer[128];
+
+// Number of audio samples read
+volatile int samplesRead;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  // Configure the callback function and gain
+  PDM.onReceive(onPDMdata);
+  PDM.setGain(30);
+
+  // Initialize PDM microphone in mono mode, and a 16 kHz sample rate:
+  if (!PDM.begin(channels, frequency)) {
+    Serial.println("Failed to start PDM!");
+    while (1);
+  }
+}
+
+void loop() {
+  // Wait for samples to be read
+  if (samplesRead) {
+
+    // Print samples to the Serial Monitor
+    for (int i = 0; i < samplesRead; i++) {
+      if(channels == 2) {
+        Serial.print("L:");
+        Serial.print(sampleBuffer[i]);
+        Serial.print(" R:");
+        i++;
+      }
+      Serial.println(sampleBuffer[i]);
+    }
+
+    samplesRead = 0;
+  }
+}
+
+// Callback function
+void onPDMdata() {
+  int bytesAvailable = PDM.available();
+  PDM.read(sampleBuffer, bytesAvailable);
+  samplesRead = bytesAvailable / 2;
+}
+```
