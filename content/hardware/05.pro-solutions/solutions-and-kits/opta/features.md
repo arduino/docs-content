@@ -1,15 +1,15 @@
 <FeatureDescription>
 
-Thanks to its computing power, **Arduino Opta** enables a wide range of real-time control, monitoring and predictive maintenance applications.
+Thanks to its computing power, **Opta™** enables a wide range of real-time control, monitoring and predictive maintenance applications.
 
 It allows professionals to scale up automation projects while taking advantage of the open and widely known Arduino ecosystem.
 
 Quickly put it to work, leveraging the many available software libraries. The onboard secure element ensures over-the-air firmware updates and remote control via the Arduino Cloud or third-party services.
 
-Arduino Opta is available in three variants:
-* Opta Lite: on-board Ethernet and USB-C® ports
-* Opta RS485: on-board Ethernet and USB-C® ports, plus RS485 connectivity
-* Opta WiFi: on-board Ethernet and USB-C® ports, plus RS485 and Wi-Fi/Bluetooth® Low Energy
+Opta™ is available in three variants:
+* Opta™ Lite: on-board Ethernet and USB-C® ports
+* Opta™ RS485: on-board Ethernet and USB-C® ports, plus RS485 connectivity
+* Opta™ WiFi: on-board Ethernet and USB-C® ports, plus RS485 and Wi-Fi/Bluetooth® Low Energy
 
 </FeatureDescription>
 
@@ -31,7 +31,7 @@ Arduino Opta is available in three variants:
 
 <Feature title="Industrial temperature range" image="temperature-sensor">
 
-  The Arduino Opta has a highly reliable design operating at industrial temperature ranges (-20 °C to +50 °C) thanks to a dual-core architecture that doesn’t require any external cooling.
+  Opta™ has a highly reliable design operating at industrial temperature ranges (-20 °C to +50 °C) thanks to a dual-core architecture that doesn’t require any external cooling.
 
 </Feature>
 
