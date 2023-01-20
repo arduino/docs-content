@@ -19,7 +19,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 - **STM32H747XIH6** Microcontroller
   - Dual core
-    - 32-bit Arm® Cortex[®](https://github.com/arduino/docs-content-private/tree/karlsoderby/ble-sense-rev2-launch)-M7 core with double-precision FPU and L1 cache up to 480 MHz
+    - 32-bit Arm® Cortex®-M7 core with double-precision FPU and L1 cache up to 480 MHz
     - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
@@ -28,10 +28,10 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)
   - Micro UFL connector for external antenna
 - **Memory**
-  - **STM32H747XI**:
+  - **STM32H747XI**
     - 2 MB Flash
     - 1 MB RAM
-  - **MX25L12833FZ2I**:
+  - **AT25SF128A-MHB-T**
     - 16 MB NOR Flash
     - QSPI Interface
   - **AS4C4M16SA**
@@ -51,13 +51,13 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 ## Application Examples
 
-The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
+The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud (or third party services), with the help of onboard secure element and wireless connectivity.
 
-- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud.
+- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud (or third party services).
 
-- **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud and connect with people all over the world.
+- **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud (or third party services) and connect with people all over the world.
 
-- **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
+- **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud (or third party services). Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
 ## Accessories (Not Included)
 
@@ -68,11 +68,8 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ## Related Products
 
 - Arduino Mega Proto Shield Rev3 (A000080)
-
-<!--
-### Solution Overview
-![Example of a Arduino GIGA connected to a external audio source and micro UFL antenna](assets/gigaSolutionOverview.png)
--->
+- Arduino 4 Relays Shield (A000110)
+- Arduino Motor Shield Rev3 (A000079)
 
 # Rating
 
@@ -88,13 +85,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 **Note 1:** V<sub>DD</sub> controls the logic level and is connected to the 3.3V power rail. V<sub>AREF</sub> is for the analog logic.
 
-## Power Consumption
-
-| Symbol            | Description                                        | Min | Typ | Max | Unit |
-|-------------------|----------------------------------------------------|-----|-----|-----|------|
-| P<sub>STDBY</sub> | Average power consumption in standby               |     | TBC |     | mW   |
-| P<sub>BLINK</sub> | Average power consumption with blink sketch sketch |     | TBC |     | mW   |
-| P<sub>MAX</sub>   | Maximum power consumption                          |     | TBC |     | mW   |
+<div style="page-break-after: always;"> </div>
 
 # Functional Overview
 
@@ -110,7 +101,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 | **Ref.** | **Description**                         | **Ref.** | **Description**                     |
 |----------|-----------------------------------------|----------|-------------------------------------|
-| U1       | STM32H7 Dual Core Microcontroller IC    | U2       | MX25L12833FZ2I 16 MB Flash IC       |
+| U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC     |
 | U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
 | U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
 | U7       | MP2269GD-Z Buck Converter 5V IC         | JANALOG  | Analog input/output headers         |
@@ -136,7 +127,7 @@ The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi®
 
 ## Onboard Memories
 
-The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
+The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the AT25SF128A-MHB-T (U8) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U8 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
 
 ## USB Connector
 
@@ -145,6 +136,8 @@ Two USB ports are provided on the Arduino GIGA R1 WiFi. One USB 2.0 type A (J2) 
 ## Audio
 
 The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the stereo audio output on the 3.5 mm connector J15. The DAC has a resolution of up to 12 bits. The right and left channel are also accessible via pins DAC0 and DAC1 respectively. A microphone input is also present on J15, which is shared with analog pin A7. Buffered mode in the STM32H7 can allow for low impedance output. Sample and hold functionality can reduce the power requirements. Up to 10 mega samples per second is supported.
+
+<div style="page-break-after: always;"> </div>
 
 ## Power Tree
 
@@ -166,7 +159,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Getting Started - Arduino IoT Cloud
 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
@@ -310,6 +303,8 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ![Mechanical View of Arduino GIGA R1 WiFi](assets/gigaMechanical.png)
 
+<div style="page-break-after: always;"> </div>
+
 # Certifications
 
 ## Declaration of Conformity CE DoC (EU)
@@ -410,4 +405,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Changes** |
 |------------|-------------|
-| 09/12/2022 | Release     |
+| 18/01/2023 | Release     |

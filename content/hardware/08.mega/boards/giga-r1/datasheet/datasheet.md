@@ -19,8 +19,8 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 - **STM32H747XIH6** Microcontroller
   - Dual core
-    - 32-bit Arm® Cortex[®](https://github.com/arduino/docs-content-private/tree/karlsoderby/ble-sense-rev2-launch)-M7 core with double-precision FPU and L1 cache up to 480 MHz
-    - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
+    - 32-bit Arm® Cortex® M7 core with double-precision FPU and L1 cache up to 480 MHz
+    - 32-bit Arm® 32-bit Cortex® M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
 - **Murata® 1DX** Wi-Fi®/Bluetooth® Module
@@ -28,10 +28,10 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)
   - Micro UFL connector for external antenna
 - **Memory**
-  - **STM32H747XI**:
+  - **STM32H747XI**
     - 2 MB Flash
     - 1 MB RAM
-  - **MX25L12833FZ2I**:
+  - **MX25L12833FZ2I**
     - 16 MB NOR Flash
     - QSPI Interface
   - **AS4C4M16SA**
@@ -51,13 +51,13 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 ## Application Examples
 
-The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Your IoT projects can even benefit from the Arduino IoT Cloud, with the help of onboard secure element and wireless connectivity.
+The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine learning. Create your custom IoT solution easily, with the help of wireless connectivity and an onboard secure element through the Arduino IoT Cloud.
 
 - **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high resolution DAC interfaces to for high performance sensing of the 3D printing process. Together with the dual core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud.
 
 - **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud and connect with people all over the world.
 
-- **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12bit resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
+- **Data acquisition device:** With two DAC inputs (as well as the audio input) with up to 12 bits resolution you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
 ## Accessories (Not Included)
 
@@ -66,35 +66,25 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 - USB 2.0 A cable
 
 ## Related Products
-
 - Arduino Mega Proto Shield Rev3 (A000080)
-
-<!--
-### Solution Overview
-![Example of a Arduino GIGA connected to a external audio source and micro UFL antenna](assets/gigaSolutionOverview.png)
--->
+- Arduino Motor Shield Rev3 (A000079)
+- Arduino 4 Relays Shield (A000110)
 
 # Rating
 
 ## Recommended Operating Conditions
 
 | Symbol          | Description                      | Min                | Typ | Max                | Unit |
-|-----------------|----------------------------------|--------------------|-----|--------------------|------|
+| --------------- | -------------------------------- | ------------------ | --- | ------------------ | ---- |
 | V<sub>IN</sub>  | Input voltage from VIN pad       | 6                  | 7.0 | 32                 | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
-| V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
-| V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
+| V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> | -   | V<sub>DD</sub>     | V    |
+| V<sub>IL</sub>  | Input low-level voltage          | 0                  | -   | 0.3*V<sub>DD</sub> | V    |
 | T<sub>OP</sub>  | Operating Temperature            | -20                | 25  | 60                 | °C   |
 
 **Note 1:** V<sub>DD</sub> controls the logic level and is connected to the 3.3V power rail. V<sub>AREF</sub> is for the analog logic.
 
-## Power Consumption
 
-| Symbol            | Description                                        | Min | Typ | Max | Unit |
-|-------------------|----------------------------------------------------|-----|-----|-----|------|
-| P<sub>STDBY</sub> | Average power consumption in standby               |     | TBC |     | mW   |
-| P<sub>BLINK</sub> | Average power consumption with blink sketch sketch |     | TBC |     | mW   |
-| P<sub>MAX</sub>   | Maximum power consumption                          |     | TBC |     | mW   |
 
 # Functional Overview
 
@@ -109,7 +99,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 ![Top View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiTop.png)
 
 | **Ref.** | **Description**                         | **Ref.** | **Description**                     |
-|----------|-----------------------------------------|----------|-------------------------------------|
+| -------- | --------------------------------------- | -------- | ----------------------------------- |
 | U1       | STM32H7 Dual Core Microcontroller IC    | U2       | MX25L12833FZ2I 16 MB Flash IC       |
 | U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
 | U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
@@ -128,23 +118,23 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 ## Processor
 
-The GIGA R1 WiFi's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The GIGA R1 WiFi's main processor is the dual core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call (RPC) mechanism that allows calling functions on the other processor seamlessly.
 
 ## Wi-Fi®/Bluetooth® Connectivity
 
-The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J14) to be shared between Wi-Fi® and Bluetooth®.
+The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA), or as a dual mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J14) to be shared between Wi-Fi® and Bluetooth®.
 
 ## Onboard Memories
 
-The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
+The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the MX25L12833FZ2I (U2) as well as 8MB of SDRAM with the AS4C4M16SA (U3). The U2 connects over a Quad-SPI interface to the U1. U3 operates at a frequency of 166 MHz.
 
 ## USB Connector
 
-Two USB ports are provided on the Arduino GIGA R1 WiFi. One USB 2.0 type A (J2) and a USB-C® (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-C® connector allows the GIGA board to be connected as a peripheral. Note that super speed pins on J12 are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4,D2) for ESD protection.
+Two USB ports are provided on the Arduino GIGA R1 WiFi. One USB 2.0 type A (J2) and a USB-C® (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-C® connector allows the GIGA board to be connected as a peripheral. Note that super speed pins on USB-C® connector (J12) are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4,D2) for ESD protection.
 
 ## Audio
 
-The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the stereo audio output on the 3.5 mm connector J15. The DAC has a resolution of up to 12 bits. The right and left channel are also accessible via pins DAC0 and DAC1 respectively. A microphone input is also present on J15, which is shared with analog pin A7. Buffered mode in the STM32H7 can allow for low impedance output. Sample and hold functionality can reduce the power requirements. Up to 10 mega samples per second is supported.
+The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the stereo audio output on the 3.5 mm connector (J15). The DAC has a resolution of up to 12 bits. The right and left channel are also accessible via pins DAC0 and DAC1 respectively. A microphone input is also present on the 3.5 mm connector (J15), which is shared with analog pin A7. Buffered mode in the STM32H7 can allow for low impedance output. Sample and hold functionality can reduce the power requirements. Up to 10 mega samples per second is supported.
 
 ## Power Tree
 
@@ -156,7 +146,7 @@ Power can either be supplied via the VIN pins, or the 5V of the USB connectors (
 
 ### Getting Started - IDE
 
-If you want to program your GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]** To connect the GIGA R1 WiFi control to your computer, you’ll need a Type-C® USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the GIGA R1 WiFi control to your computer, you’ll need a Type-C® USB cable. This also provides power to the board, as indicated by the green LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
@@ -181,47 +171,47 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Pinout
 
-### J1
+### J1 VRTC
 | Pin | Function | Type    | Description             |
-|-----|----------|---------|-------------------------|
+| --- | -------- | ------- | ----------------------- |
 | 1   | OFF      | Digital | 3V3 Enable Pin          |
 | 2   | GND      | Power   | Ground                  |
 | 3   | VRTC     | Reset   | Real Time Clock Battery |
 
 
-### Analog
+### JANALOG
 
-| Pin  | Function   | Type      | Description                                     |
-| ---- | ---------- | --------- | ----------------------------------------------- |
-|  1   | NC         | NC        | Not Connected                                   |
-|  2   | IOREF      | IOREF     | Reference for digital logic V - connected to 3.3V |
-|  3   | Reset      | Reset     | Reset                                           |
-|  4   | +3V3       | Power     | +3V3 Power Rail                                 |
-|  5   | +5V        | Power     | +5V Power Rail                                  |
-|  6   | GND        | Power     | Ground                                          |
-|  7   | GND        | Power     | Ground                                          |
-|  8   | VIN        | Power     | Voltage Input                                   |
-|  9   | A0         | Analog    | Analog input 0 /GPIO                            |
-|  10  | A1         | Analog    | Analog input 1 /GPIO                            |
-|  11  | A2         | Analog    | Analog input 2 /GPIO                            |
-|  12  | A3         | Analog    | Analog input 3 /GPIO                            |
-|  13  | A4         | Analog    | Analog input 4 /GPIO                            |
-|  14  | A5         | Analog    | Analog input 5 /GPIO                            |
-|  15  | A6         | Analog    | Analog input 6 /GPIO                            |
-|  16  | A7         | Analog    | Analog input 7 /GPIO                            |
-|  17  | A8         | Analog    | Analog input 8 /GPIO                            |
-|  18  | A9         | Analog    | Analog input 9 /GPIO                            |
-|  19  | A10        | Analog    | Analog input 10 /GPIO                           |
-|  20  | A11        | Analog    | Analog input 11 /GPIO                           |
-|  21  | DAC0       | Analog    | Digital to Analog Converter 0                   |
-|  22  | DAC1       | Analog    | Digital to Analog Converter 1                   |
-|  23  | CANRX      | Digital   | CAN Bus Receive                                 |
-|  24  | CANTX      | Digital   | CAN Bus Transfer                                |
+| Pin | Function | Type    | Description                                     |
+| --- | -------- | ------- | ----------------------------------------------- |
+| 1   | NC       | NC      | Not Connected                                   |
+| 2   | IOREF    | IOREF   | Reference for digital logic - connected to 3.3V |
+| 3   | Reset    | Reset   | Reset                                           |
+| 4   | +3V3     | Power   | +3V3 Power Rail                                 |
+| 5   | +5V      | Power   | +5V Power Rail                                  |
+| 6   | GND      | Power   | Ground                                          |
+| 7   | GND      | Power   | Ground                                          |
+| 8   | VIN      | Power   | Voltage Input                                   |
+| 9   | A0       | Analog  | Analog input 0 /GPIO                            |
+| 10  | A1       | Analog  | Analog input 1 /GPIO                            |
+| 11  | A2       | Analog  | Analog input 2 /GPIO                            |
+| 12  | A3       | Analog  | Analog input 3 /GPIO                            |
+| 13  | A4       | Analog  | Analog input 4 /GPIO                            |
+| 14  | A5       | Analog  | Analog input 5 /GPIO                            |
+| 15  | A6       | Analog  | Analog input 6 /GPIO                            |
+| 16  | A7       | Analog  | Analog input 7 /GPIO                            |
+| 17  | A8       | Analog  | Analog input 8 /GPIO                            |
+| 18  | A9       | Analog  | Analog input 9 /GPIO                            |
+| 19  | A10      | Analog  | Analog input 10 /GPIO                           |
+| 20  | A11      | Analog  | Analog input 11 /GPIO                           |
+| 21  | DAC0     | Analog  | Digital to Analog Converter 0                   |
+| 22  | DAC1     | Analog  | Digital to Analog Converter 1                   |
+| 23  | CANRX    | Digital | CAN Bus Receiver                                |
+| 24  | CANTX    | Digital | CAN Bus Transfer                                |
 
-### Digital
+### JDIGITAL
 
 | Pin | Function | Type    | Description                              |
-|-----|----------|---------|------------------------------------------|
+| --- | -------- | ------- | ---------------------------------------- |
 | 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                      |
 | 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                   |
 | 3   | AREF     | Digital | Analog Reference Voltage                 |
@@ -249,10 +239,10 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                 |
 | 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                    |
 
-### STM32 ICSP
+### J7 STM32 ICSP
 
 | Pin | Function | Type     | Description                  |
-|-----|----------|----------|------------------------------|
+| --- | -------- | -------- | ---------------------------- |
 | 1   | CIPO     | Internal | Controller In Peripheral Out |
 | 2   | +5V      | Internal | Power Supply of 5V           |
 | 3   | SCK      | Internal | Serial Clock                 |
@@ -260,10 +250,10 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 5   | RESET    | Internal | Reset                        |
 | 6   | GND      | Internal | Ground                       |
 
-### Digital Pins D22 - D53 LHS
+### JSIDE Digital Pins D22 - D53 LHS
 
 | Pin | Function | Type    | Description    |
-|-----|----------|---------|----------------|
+| --- | -------- | ------- | -------------- |
 | 1   | +5V      | Power   | +5V Power Rail |
 | 2   | D22      | Digital | GPIO 22        |
 | 3   | D24      | Digital | GPIO 24        |
@@ -283,10 +273,10 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 17  | D52      | Digital | GPIO 52        |
 | 18  | GND      | Power   | Ground         |
 
-### Digital Pins D22 - D53 RHS
+### JSIDE Digital Pins D22 - D53 RHS
 
 | Pin | Function | Type    | Description    |
-|-----|----------|---------|----------------|
+| --- | -------- | ------- | -------------- |
 | 1   | +5V      | Power   | +5V Power Rail |
 | 2   | D23      | Digital | GPIO 23        |
 | 3   | D25      | Digital | GPIO 25        |
@@ -321,7 +311,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-|----------------------------------------|-------------------------|
+| -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -386,19 +376,18 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands      | Maximum output power (ERP) |
-|----------------------|----------------------------|
+| -------------------- | -------------------------- |
 | 2.4 GHz, 40 channels | TBD                        |
 
 ## Company Information
 
-| Company name    | Arduino SRL                                   |
-|-----------------|-----------------------------------------------|
-| Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
-
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 ## Reference Documentation
 
 | Ref                       | Link                                                                                            |
-|---------------------------|-------------------------------------------------------------------------------------------------|
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
 | Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
@@ -409,5 +398,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Change Log
 
 | **Date**   | **Changes** |
-|------------|-------------|
-| 09/12/2022 | Release     |
+| ---------- | ----------- |
+| 02/01/2023 | Release     |
