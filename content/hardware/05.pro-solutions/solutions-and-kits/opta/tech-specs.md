@@ -1,1 +1,1 @@
-This is the technical specifications for Opta™.
+These are the technical specifications for Opta™.
