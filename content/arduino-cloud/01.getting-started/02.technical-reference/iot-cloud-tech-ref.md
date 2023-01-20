@@ -117,6 +117,7 @@ This feature allows for uploading sketches wirelessly to Arduino boards, without
 - [Arduino NANO 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect-with-headers)
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- Cloud compatible ESP32 boards.
 
 ![Connecting the device with the OTA option](./images/device_OtA.png)
 
