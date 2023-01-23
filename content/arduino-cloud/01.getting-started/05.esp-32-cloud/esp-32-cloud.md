@@ -20,7 +20,7 @@ software:
 
 In this tutorial, we will go through the steps necessary to set up an **ESP32 / ESP8266 development board** with the Arduino Cloud IoT. To test it out, we will send random values from the board to the cloud, and set up a switch that can enable the built-in LED on the board.
 
-***Over-the-air (OTA) uploads is now supported on ESP32 boards. You can read more about this feature in [this blogpost]() and in the [OTA uploads article]().***
+***Over-the-air (OTA) uploads is now supported on ESP32 boards. You can read more about this feature in the [OTA uploads article](/arduino-cloud/features/ota-getting-started).***
 
 ## Goals
 
