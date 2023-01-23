@@ -16,6 +16,7 @@ The ATmega328P can easily be replaced, as it is not soldered to the board.
 
 The ATmega328P also features 1kb of EEPROM, a memory which is not erased when powered off.
 
+  <FeatureLink variant="primary" title="Documentation" url="/learn/programming/eeprom-guide"/>
 </Feature>
 
 <Feature title="Battery Connector" image="power">

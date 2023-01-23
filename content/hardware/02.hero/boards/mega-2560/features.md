@@ -11,6 +11,7 @@ The Arduino Mega 2560 is a microcontroller board based on the ATmega2560. It has
 
 The ATmega2560 features 4kb (4096 bytes) of EEPROM, a memory which is not erased when powered off.
 
+  <FeatureLink variant="primary" title="Documentation" url="/learn/programming/eeprom-guide"/>
 </Feature>
 
 <Feature title="54 digital & 16 analog pins" image="hw-pin">

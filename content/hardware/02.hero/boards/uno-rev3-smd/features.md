@@ -12,6 +12,7 @@ The "SMD" stands for surface-mount device, and the microcontroller (ATmega328p) 
 
 The ATmega328P also features 1kb of EEPROM, a memory which is not erased when powered off.
 
+  <FeatureLink variant="primary" title="Documentation" url="/learn/programming/eeprom-guide"/>
 </Feature>
 
 <Feature title="Battery Connector" image="power">

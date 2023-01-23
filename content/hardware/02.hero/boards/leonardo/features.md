@@ -10,6 +10,8 @@ The Arduino Leonardo is a microcontroller board based on the ATmega32u4. It has 
 
 The Arduino Leonardo has built-in USB communication that allows the Micro to appear as a mouse/keyboard on your machine.
 
+  <FeatureLink variant="secondary" title="Keyboard Library" url="https://www.arduino.cc/reference/en/language/functions/usb/keyboard/"/>
+  <FeatureLink variant="secondary" title="Mouse Library" url="https://www.arduino.cc/reference/en/language/functions/usb/mouse/"/>
 </Feature>
 
 <Feature title="Battery Connector" image="power">

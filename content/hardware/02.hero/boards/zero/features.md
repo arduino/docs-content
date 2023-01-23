@@ -15,9 +15,15 @@ The Zero comes with a built-in debugger, which can be used with the Arduino IDE 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/zero/debugging-with-zero"/>
 </Feature>
 
-<Feature title="Battery Connector" image="power">
+<Feature title="Battery Connector" image="connection">
 
 The Arduino Zero features a barrel plug connector, that works great with a standard 9V battery.
+
+</Feature>
+
+<Feature title="Low Power Support" image="power">
+
+This board can be optimized to reduce power consumption via the Arduino Low Power library.
 
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino-low-power/"/>
 </Feature>

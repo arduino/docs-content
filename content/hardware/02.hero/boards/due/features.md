@@ -34,8 +34,8 @@ The Due has 12 analog input pins, and 2 DAC pins.
 
 Use the Due as USB host for peripherals such as mice connected to the SerialUSB port.
 
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier-rev2/cheat-sheet#leds"/>
-  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/due/keyboard-controller"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/usbhost/"/>
 </Feature>
 
 <Feature title="Battery Connector" image="power">
