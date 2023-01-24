@@ -144,7 +144,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
  Built using the Arduino IoT Cloud service
 
  Components used:
-- Arduino Nano RP2040
+- Arduino Nano RP2040 Connect
 - Arduino Nano Screw terminal Adapter
 - 5V submersible pump.
 - 1 meter watering pipe.
