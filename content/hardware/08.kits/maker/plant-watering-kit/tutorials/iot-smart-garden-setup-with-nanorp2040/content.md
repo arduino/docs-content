@@ -57,7 +57,7 @@ OR
 
 ### Hardware & Circuit Assembly
 
-Begin by connecting the Nano RP2040 IoT board to the Nano Screw Terminal Adapter. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the Adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
+Begin by connecting the Nano RP2040 Connect board to the Nano Screw Terminal Adapter. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the Adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
 
 Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
 
