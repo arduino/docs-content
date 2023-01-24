@@ -34,7 +34,7 @@ Dimensions:
   Length: 80 mm
   Height: 90 mm
 IP Protection: IP20
-RTC: ~10days, NTP sync through Ethernet or Wifi
+RTC: ~10days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet
 Secure element: ATECC608B
 Programming:
   Arduino programming language: Via Arduino IDEs, Arduino CLI, Arduino Web Editor
