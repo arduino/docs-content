@@ -5,8 +5,8 @@ Board:
     Arduino Opta® Lite: AFX00003
 Microcontroller:
   ID: STM32H747XI Dual ARM® Cortex®
-  Cortex-M7 core: up to 480 MHz
-  Cortex-M4 core: up to 240 MHz
+  Cortex-M7 core: Up to 480 MHz
+  Cortex-M4 core: Up to 240 MHz
 Input:
   Configurable digital / analog (0-10V) input: 8
 Actuators:
@@ -19,7 +19,7 @@ Connectivity:
   Bluetooth® Low Energy: Arduino Opta® WiFi
   Wi-Fi: Arduino Opta® WiFi
 Communication protocols:
-  RS485: Arduino Opta® RS485® & Arduino Opta® WiFi
+  RS485: Arduino Opta® RS485 & Arduino Opta® WiFi
   Programmable Serial ports: RS485
 Power:
   Input voltage: 12-24V DC
@@ -34,8 +34,8 @@ Dimensions:
   Length: 80 mm
   Height: 90 mm
 IP Protection: IP20
-RTC: ~10days, NTP sync through ethernet
+RTC: ~10days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet
 Secure element: ATECC608B
 Programming:
   Arduino programming language: Via Arduino IDEs, Arduino CLI, Arduino Web Editor
-  IEC-61131-3 as option: Ladder Diagram (LD), Function Block Diagram (FBD), Sequential Function Chart (SFC), Structured Text (ST), Instruction List (IL)
+  IEC-61131-3: Ladder Diagram (LD), Function Block Diagram (FBD), Sequential Function Chart (SFC), Structured Text (ST), Instruction List (IL)
