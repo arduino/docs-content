@@ -10,6 +10,7 @@ The Arduino 4 Relays Shield is a solution for driving high power loads that cann
 
 The shield comes with 4 relays with a maximum of 48V loads.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/4-relays-shield/4-relay-shield-basics"/>
 </Feature>
 
 <Feature title="Status LEDs" image="configurability">

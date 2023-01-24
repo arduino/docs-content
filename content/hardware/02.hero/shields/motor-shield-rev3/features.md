@@ -6,11 +6,11 @@ The Arduino Motor Shield is based on the L298, which is a dual full-bridge drive
 
 <FeatureList>
 
-<Feature title="L298" image="connection">
+<Feature title="Monolithic Circuit" image="connection">
 
 An integrated monolithic circuit designed to drive inductive loads such as DC and Stepper motors.
 
-<FeatureLink title="Datasheet" url="https://www.st.com/en/motor-drivers/l298.html" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/motor-shield-rev3/msr3-controlling-dc-motor"/>
 </Feature>
 
 </FeatureList>
