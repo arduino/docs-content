@@ -1,0 +1,17 @@
+Kit:
+  Name: Arduino® Plant Watering Kit
+  SKU: AKX00041
+Components:
+  Arduino Nano RP2040 Connect: 1x
+  micro USB cable: 1x
+  400-point breadboard: 1x
+  solid-core jumper wires: 70x
+  stranded jumper wire: 2x
+  5V submersible pump: 1x
+  1 meter watering pipe: 1x
+  Open ended USB Cable: 1x
+  Soil moisture sensor: 1x
+  Grove LED button: 1x
+  Short Grove cable (20cm): 1x
+  Long Grove cable (50cm): 1x
+  Long 3-pronged Grove cable (50cm): 1x
