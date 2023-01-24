@@ -23,7 +23,7 @@ Decorating your home with plants is an easy way to bring some life into your day
 
 ### In a Nutshell
 
-Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040.
+Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
 
 ### Components
 
