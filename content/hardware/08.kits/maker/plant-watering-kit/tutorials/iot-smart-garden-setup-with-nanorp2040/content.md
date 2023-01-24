@@ -13,6 +13,7 @@ difficulty: beginner
 ## Components and Supplies
 
 - [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
+- [3D-printed enclosure](assets/PlantKitCase.zip) (optional).
 
 ## Apps and Online Services
 
@@ -29,13 +30,14 @@ Decorating your home with plants is an easy way to bring some life into your day
 Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
 
 ### Components
-
-* [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
-* [Arduino Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
+* [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
+* [3D-printed enclosure](assets/PlantKitCase.zip) (optional)
 * USB - wall adapter (not included in the kit)
 
 OR
 
+* [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+* [Arduino Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 * 5V submersible pump.
 * 1 meter watering pipe.
 * USB wall adapter
