@@ -27,7 +27,7 @@ Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you 
 
 ### Components
 
-* [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+* [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
 * [Arduino Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 * USB - wall adapter (not included in the kit)
 
