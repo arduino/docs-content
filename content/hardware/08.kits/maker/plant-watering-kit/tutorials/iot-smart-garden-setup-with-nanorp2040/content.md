@@ -4,6 +4,9 @@ description: "Build a smart garden setup with the Nano RP2040 Connect, a pump, a
 coverImage: "assets/coverpage.png"
 tags: [IoT Cloud, Water Pump, Moisture Sensor]
 author: "Jacob Hylén, Hannes Siebeneicher, Karl Söderby"
+hardware:
+  - hardware/03.nano/boards/nano-rp2040-connect
+  - hardware/08.kits/maker/plant-watering-kit
 difficulty: beginner
 ---
 
