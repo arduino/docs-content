@@ -1,5 +1,5 @@
 ---
-title: "IoT Smart Garden Setup with Nano RP2040"
+title: "IoT Smart Garden Setup with Nano RP2040 Connect"
 description: "Build a smart garden setup with the Nano RP2040, a pump, and a moisture sensor."
 coverImage: "assets/coverpage.jpg"
 tags: [IoT Cloud, Water Pump, Moisture Sensor]
