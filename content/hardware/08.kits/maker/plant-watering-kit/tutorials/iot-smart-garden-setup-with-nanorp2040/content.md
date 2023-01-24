@@ -62,37 +62,47 @@ OR
 
 ### Hardware & Circuit Assembly
 
-Begin by connecting the Nano RP2040 Connect board to the Nano Screw Terminal Adapter. Then connect the relay, the pump, the button, and most importantly the power cable to power the entire system. The screw terminals on the Adapter are great for sturdily attaching wires to your Arduino board without needing to solder, just feed the wires into the hole on the side and clamp it down by tightening the related screw.
-
-Take the open ended USB cable and connect the positive wire (+) to the VIN pin and the negative wire (-) to GND. The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
-
-Next, take the pump and connect the negative wire (-) to GND on the Nano Screw Terminal Adapter and connect the positive wire (+) to one of the screw terminals in the relay module, it doesn't matter which one.
-
-Now connect the other screw terminal on the relay module to the VIN pin.
-
 There are cases were multiple wires are going into the same screw terminal, you may find it easier to get them in at the same time if you twist them together before trying to insert them.
 
 ![Twisting cables together](assets/cabletwisting.gif)
 
-In case you want to place your plant further away from the electronics, we've included a loose set of extra screw terminals, that you can use to add more length to your cables. Just use wire cutters to clip off as many as you need and screw down the cables you want to connect together.
+In case you want to place your plant further away from the electronics, we've included a loose set of extra screw terminals, that you can use to add more length to your cables. Just use wire cutters to clip off as many as you need and screw down the cables you want to connect together. These can also be used to join cables instead of twisting, if you find that easier.
 
-Plug an open ended grove cable into the port on the relay module, the **cable ends** should be wired as follows:
+Now on to the circuit assembly! Begin by grabbing the Arduino Nano RP2040 Connect board, and pushing it into place on the Nano Screw Terminal Adapter.
+
+![Nano mounted on the adapter](./assets/step1.png)
+
+Then find the relay module, and a grove cable. You will need to cut the grove cable in half to expose the copper cable inside so you can connect it to the Screw terminal adapter. Connect the wires from the grove cable to the Nano Screw Terminal Adapter as follows:
 
 - Black wire (-) to GND pin.
 - Red wire (+) to 3.3V pin.
 - Yellow wire to D6 pin.
 
-The **grove button** should be wired as follows:
+![Relay and split open Grove cable](./assets/step2.png)
+
+
+Now let's wire up the submersible pump. This pump runs on 5V, and draws more current than an Arduino board can provide, so it needs to be powered by the USB wall adapter. This is why we need a relay acting as a power switch that we control with software. Connect the black wire from the pump to GND, and the red wire to one of the screw terminal connectors on the relay.
+
+![Pump connected](./assets/step3.png)
+
+Now find the LED Grove button and a Grove cable. This cable also needs to be cut to expose the copper wire inside. The wires from the grove cable should be connected as follows:
 
 - Black wire (-) to GND pin.
-
 - Red wire (+) to 3.3V pin.
-
 - Yellow wire to D5 pin.
-
 - White wire to D4 pin.
 
-The **moisture sensor** should be wired as follows:
+![LED Grove Button connected](./assets/step4.png)
+
+Find the open ended USB cable, this will be used both to power the board through it's Vin pin, and the pump through the relay. Connect the black wire to GND, and connect the red wire, together with a separate jumper cable, to Vin. The other jumper wire that you just connected should be wired to the other screw terminal connector on the Relay module. 
+
+If you find this step hard, you can also use one of the loose screw terminals provided in the kit to connect the red wire from the USB cable to two jumper cables.
+
+![USB wall adapter powering the project](./assets/step5.png)
+
+The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
+
+Lastly, find the moisture sensor and a grove cable. Connect it to the Nano Screw Terminal Adapter as follows: 
 
 - Black wire (-) to GND pin. 
 
@@ -100,9 +110,9 @@ The **moisture sensor** should be wired as follows:
 
 - Yellow wire to A0 pin.
 
-### Circuit
+![Moisture sensor](./assets/step6.png)
 
-Below is the complete circuit for this setup.
+The complete circuit should look something like this:
 
 ![Circuit for this project.](assets/circuit.png)
 
