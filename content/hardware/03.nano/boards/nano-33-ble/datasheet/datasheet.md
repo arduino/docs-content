@@ -98,7 +98,7 @@ As all Nano form factor boards, Nano 33 BLE does not have a battery charger but 
 | **Ref.** | **Description** | **Ref.** | **Description** |
 | -------- | --------------- | -------- | --------------- |
 | SJ1      | VUSB Jumper     | SJ2      | D7 Jumper       |
-| SJ3      | 3v3 Jumper      | SJ4      | D8 Jumper       |
+| SJ3      | D8 Jumper       | SJ4      | 3v3 Jumper     |
 
 ### Processor 
 The Main Processor is a Cortex M4F running at up to 64MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
@@ -150,7 +150,7 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 
 | Pin  | **Function** | **Type**     | **Description**                                              |
 | ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | D13          | Digital      | GPIO                                                         |
+| 1    | D13          | Digital      | GPIO/Built-in LED                                                          |
 | 2    | +3V3         | Power Out    | Internally generated power output to external devices        |
 | 3    | AREF         | Analog       | Analog Reference; can be used as GPIO                        |
 | 4    | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                          |
@@ -281,13 +281,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Reference Documentation
 | Reference                 | **Link**                                                     |
 | ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                           |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Forum                     | http://forum.arduino.cc/                                     |
-| SAMD21G18                 | http://ww1.microchip.com/downloads/en/devicedoc/40001884a.pdf |
-| NINA W102                 | [https://www.u-blox.com/sites/default/files/NINA-W10_DataSheet_%28UBX-17065507%29.pdf](https://www.u-blox.com/sites/default/files/NINA-W10_DataSheet_(UBX-17065507).pdf) |
-| ECC608                    | http://ww1.microchip.com/downloads/en/DeviceDoc/40001977A.pdf |
+| SAMD21G18                 | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
+| NINA W102                 | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
+| ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
 | MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
 | NINA Firmware             | https://github.com/arduino/nina-fw                           |
 | ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
@@ -297,6 +297,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino Store             | https://store.arduino.cc/                                    |
 
 ## Revision History
-| Date       | **Revision** | **Changes**               |
-| ---------- | ------------ | ------------------------- |
-| 04/21/2021 | 1            | General datasheet updates |
+
+| Date       | **Revision** | **Changes**                           |
+| ---------- | ------------ | ------------------------------------- |
+| 08/03/2022 | 2            | Reference documentation links updates |
+| 04/21/2021 | 1            | General datasheet updates             |

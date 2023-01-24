@@ -5,7 +5,7 @@ description: 'The first steps to setting up your Arduino 101'
 
 The Arduino 101 is a learning and development board which contains the [Intel® Curie™](http://www.intel.com/content/www/us/en/wearables/wearable-soc.html) Module, designed to integrate the core's low power-consumption and high performance with the Arduino's ease-of-use. The 101 adds Bluetooth® Low Energy capabilities and has an on-board 6-axis accelerometer/gyroscope, providing exciting opportunities for building creative projects in the connected world. 
 
-The Arduino 101 is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino 101 is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino 101 on the Arduino Web IDE
 
@@ -21,11 +21,11 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino 101 on the Arduino Desktop IDE
 
-If you want to program your 101 while offline you need to install the [Arduino Desktop IDE](/en/Main/Software) and add the Intel Curie Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](/en/Guide/Cores) page.
+If you want to program your 101 while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software) and add the Intel Curie Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](https://arduino.cc/en/Guide/Cores) page.
 
 ![](./assets/Board_MGR_OK.png)
 
-Here you can search _Intel Curie_ or _101_ to find the core. Click on its box and click on the **install** button. On the bottom bar of the window you can follow the download and install procedure, including the installation of the proper driver, needed by the operating system to use the 101 board. For more information about cores, see the [guide on installing additional Arduino cores](/en/Guide/Cores).
+Here you can search _Intel Curie_ or _101_ to find the core. Click on its box and click on the **install** button. On the bottom bar of the window you can follow the download and install procedure, including the installation of the proper driver, needed by the operating system to use the 101 board. For more information about cores, see the [guide on installing additional Arduino cores](https://arduino.cc/en/Guide/Cores).
 
 #### Installing Drivers for the Arduino 101
 
@@ -82,19 +82,19 @@ You have successfully set up your 101 board and uploaded your first sketch. You 
 
 ### Tutorials
 
-Now that you have set up and programmed your 101 board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-101-genuino-101) tutorial platform, or learn how to use the specific features of the 101 board with the 101 library examples.
+Now that you have set up and programmed your 101 board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub?by=part&part_id=15659&sort=trending) tutorial platform, or learn how to use the specific features of the 101 board with the 101 library examples.
 
 <iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/31926/arduino101-ble-autonomous-rover-2cb19f/embed?use_route=project' width='354' style='margin-top:30px; margin-right:20px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/MarJoh/arduino-pokeball-5555d8/embed?use_route=project' width='354' style='margin-top:30px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/gov/voronoi101-light-your-lamp-a22a9e/embed?use_route=project' style='margin-top:30px;margin-right:20px' width='354'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/Lucas_Ainsworth/kaleidoscope-infinity-mirror-bdcd36/embed?use_route=project' style='margin-top:30px' width='354'></iframe>
 
 Here a list of tutorials that will help you in making very cool things!
 
-[CurieIMU Orientation Visualiser](/en/Tutorial/Genuino101CurieIMUOrientationVisualiser)
-[CurieIMU Step Count](/en/Tutorial/Genuino101CurieIMUStepCount)
-[CurieIMU Raw data example](/en/Tutorial/Genuino101CurieIMURawImuDataSerial)
-[CurieIMU tap detection](/en/Tutorial/Genuino101CurieIMUTapDetect)
-[CurieIMU Shock detection](/en/Tutorial/Genuino101CurieIMUShockDetect)
-[CurieBLE Smartphone Led interaction](/en/Tutorial/Genuino101CurieBLECallbackLED)
-[CurieBLE Heart Rate Monitor](/en/Tutorial/Genuino101CurieBLEHeartRateMonitor)
+[CurieIMU Orientation Visualiser](https://arduino.cc/en/Tutorial/Genuino101CurieIMUOrientationVisualiser)
+[CurieIMU Step Count](https://arduino.cc/en/Tutorial/Genuino101CurieIMUStepCount)
+[CurieIMU Raw data example](https://arduino.cc/en/Tutorial/Genuino101CurieIMURawImuDataSerial)
+[CurieIMU tap detection](https://arduino.cc/en/Tutorial/Genuino101CurieIMUTapDetect)
+[CurieIMU Shock detection](https://arduino.cc/en/Tutorial/Genuino101CurieIMUShockDetect)
+[CurieBLE Smartphone Led interaction](https://arduino.cc/en/Tutorial/Genuino101CurieBLECallbackLED)
+[CurieBLE Heart Rate Monitor](https://arduino.cc/en/Tutorial/Genuino101CurieBLEHeartRateMonitor)
 
 more examples on the respective library pages
 
@@ -102,9 +102,9 @@ more examples on the respective library pages
 
 All 101's embedded peripherals have dedicated libraries, namely:
 
-[CureBLE (to control Bluetooth® Low Energy module)](/en/Reference/CurieBLE)
-[CurieIMU(to control the 6-axis accelerometer + gyro)](/en/Reference/CurieIMU)
-[Curie Timer One (to control Timer functions)](/en/Reference/CurieTimerOne)
+[CureBLE (to control Bluetooth® Low Energy module)](https://arduino.cc/en/Reference/CurieBLE)
+[CurieIMU(to control the 6-axis accelerometer + gyro)](https://arduino.cc/en/Reference/CurieIMU)
+[Curie Timer One (to control Timer functions)](https://arduino.cc/en/Reference/CurieTimerOne)
 
 All of these libraries contain example sketches and tutorials have been written to get you started with using and understanding the functionalities of the modules (see _Tutorials_ at the bottom of this page).
 All these libraries are automatically installed with the Intel Curie core.
@@ -139,7 +139,7 @@ After a sketch is uploaded to the board, there's a delay of a few seconds before
 
 #### Drivers
 
-On Windows, drivers are needed to allow the board communication. These drivers will be installed automatically when [adding the core](/en/Guide/Cores).
+On Windows, drivers are needed to allow the board communication. These drivers will be installed automatically when [adding the core](https://arduino.cc/en/Guide/Cores).
 On MacOS and Linux no driver is needed.
 
 For more details on the Arduino 101, see the [product page](https://store.arduino.cc/arduino-101-619).

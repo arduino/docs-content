@@ -8,8 +8,6 @@ In order to contribute new or updated documentation, you must first create a Git
 
 **NOTE:** Unless you are opening a pull request which will only make small corrections, for instance to correct a typo, you are more likely to get traction for your changes if you [open an issue](https://github.com/arduino/docs.arduino.cc/issues) first to discuss the proposed changes.
 
-**NOTE:** The default [branch](https://github.com/arduino/docs.arduino.cc/branches) of the repository is the `develop` branch, and this should be the branch you get by default when you initially checkout the repository. You should target any pull requests against the `develop` branch, pull requests against the `master` branch will automatically fail checks and not be accepted.
-
 ## Type of Content
 
 We welcome contributions from the community, ranging from correcting small typos all the way through to adding entire new sections to the documentation. However, we are looking to keep the contents of this repository focussed on Arduino-specific things.
@@ -28,7 +26,7 @@ Contributions that are more likely to be rejected:
 
 ## Style
 
-We require content to be written in plain and concise language, so that both basic and advanced users can understand it. See our [Style Guide](https://docs.arduino.cc/hacking/software/ArduinoStyleGuide) for more information about this.
+We require content to be written in plain and concise language, so that both basic and advanced users can understand it. See our [Style Guide](https://docs.arduino.cc/learn/contributions/arduino-writing-style-guide) for more information about this.
 
 ## Licensing 
 

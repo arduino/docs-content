@@ -4,7 +4,7 @@ description: "How to use the new Arduino SDU library for SAMD boards to update t
 coverImage: "assets/full_sd_with_5v_bb_qeGy7GuPFG.jpg"
 tags: [update, updating]
 author: "Arduino_Genuino"
-difficulty: easy
+difficulty: beginner
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/sd-sketch-update-534404"
 ---
 

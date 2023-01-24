@@ -16,7 +16,7 @@ The IDE 2 comes with two really useful tools: the **Firmware Updater for WiFi bo
 
 Only Wi-Fi enabled boards can be updated through these tools, and you can find the full list in the compatible boards section just below.
 
-***You can download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software).***
+***You can download the editor from the [Arduino Software page](https://www.arduino.cc/en/software).***
 
 ## Compatible Boards
 
@@ -45,9 +45,9 @@ You can read the full changelog of the NINA firmware through the link below:
 
 When you are using the [Arduino Cloud](https://create.arduino.cc/iot/things), during the device configuration, your board's firmware is automatically updated so that it can utilize features such as **OTA (Over The Air)** upload.
 
-### Python & Wi-Fi 
+### Python® & Wi-Fi
 
-To access the Wi-Fi module on the [Nano RP2040 Connect board](https://store.arduino.cc/products/arduino-nano-rp2040-connect) using Python (through [OpenMV](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)), you will need to update the NINA firmware to the latest version. 
+To access the Wi-Fi module on the [Nano RP2040 Connect board](https://store.arduino.cc/products/arduino-nano-rp2040-connect) using Python® (through [OpenMV](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)), you will need to update the NINA firmware to the latest version.
 
 ## Firmware Updater
 
@@ -61,7 +61,7 @@ To update the Firmware, follow the below steps:
 
 ![Selecting the Firmware Updater Tool.](assets/fw-cert-img01.png)
 
-**3.** A new window will open. Select your board from the drop down menu. 
+**3.** A new window will open. Select your board from the drop down menu, and press the button to check for updates. 
 
 ![Selecting your board.](assets/fw-cert-img02.png)
 
@@ -87,12 +87,12 @@ To upload SSL Root certificates to your board, follow the below steps:
 
 **3.** A new window will open. Click on the **"Add New"** and add the URL in the field. Here you can add multiple entries. When you are finished adding certificates, you can select your board from the drop down menu. To upload the certificates, click on the **"Upload"** button.
 
-![Uploading the certificates.](assets/fw-cert-img05.png).
+![Uploading the certificates.](assets/fw-cert-img05.png)
 
 **5.** The process of uploading the certificates takes some time, and when it is finished, you will see the text: 
 
 ```
-Certificates Uploaded.
+Certificates uploaded.
 ``` 
 
 ## Conclusion

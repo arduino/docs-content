@@ -6,7 +6,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-Nano 33 IoT is a miniature sized module containing a Cortex M0+ SAMD21 processor, a WiFi+BT module based on ESP32, a crypto chip which can securely store certificates and pre-shared keys and a 6 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+The Arduino Nano 33 IoT and Arduino Nano 33 IoT with headers are a miniature sized module containing a Cortex M0+ SAMD21 processor, a Wi-Fi®+Bluetooth® module based on ESP32, a crypto chip which can securely store certificates and pre-shared keys and a 6 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
 # Target areas:
 Maker, enhancements, basic IoT application scenarios
@@ -40,8 +40,6 @@ Maker, enhancements, basic IoT application scenarios
         - IEEE 802.11g up to 54MBit
         - IEEE 802.11n up to 72MBit
         - 2.4 GHz, 13 channels
-        - 16dBm output power
-        - 19 dBm EIRP
         - -96 dBm sensitivity 
     - **Bluetooth®  BR/EDR**
         - Max 7 peripherals
@@ -76,16 +74,16 @@ Maker, enhancements, basic IoT application scenarios
 # Contents
 
 ## The Board
-As all Nano form factor boards, Nano 33 IoT does not have a battery charger but can be powered through USB or headers.
+As all Nano form factor boards, Nano 33 IoT and Nano 33 IoT with headers does not have a battery charger but can be powered through USB or headers.
 
-**NOTE:** Arduino Nano 33 IoT only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+**NOTE:** Arduino Nano 33 IoT and Nano 33 IoT with headers only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Application Examples
-**Weather station:** Using the Arduino Nano 33 IoT together with a sensor and a OLED display, we can create a small weather station communicating temperature, humidity etc. directly  to your phone.
+**Weather station:** Using the Arduino Nano 33 IoT or Nano 33 IoT with headers together with a sensor and a OLED display, we can create a small weather station communicating temperature, humidity etc. directly  to your phone.
 
-**Air quality monitor:** Bad air quality may have serious effects on your health. By assembling the Nano 33 IoT, with a sensor and monitor you can make sure that the air quality is kept in indoor-environments. By connecting the hardware assembly to an IoT application/API, you will receive real time values.
+**Air quality monitor:** Bad air quality may have serious effects on your health. By assembling the board, with a sensor and monitor you can make sure that the air quality is kept in indoor-environments. By connecting the hardware assembly to an IoT application/API, you will receive real time values.
 
-**Air drum:** A quick and fun project is to create a small air drum. Connect your Nano 33 IoT and upload your sketch from the Create Web Editor and start creating beats with your audio workstation of your choice.
+**Air drum:** A quick and fun project is to create a small air drum. Connect your board and upload your sketch from the Create Web Editor and start creating beats with your audio workstation of your choice.
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -160,7 +158,7 @@ Source code for the Arduino Library that supports the Crypto is available **[10]
 
 
 ### IMU
-Arduino Nano 33 IoT has an embedded 6 axis IMU which can be used to measure board orientation (by checking the gravity acceleration vector orientation) or to measure shocks, vibration, acceleration and rotation speed.
+The board has an embedded 6 axis IMU which can be used to measure board orientation (by checking the gravity acceleration vector orientation) or to measure shocks, vibration, acceleration and rotation speed.
 
 Source code for the Arduino Library that supports the IMU is available **[11]**
 
@@ -171,7 +169,7 @@ Source code for the Arduino Library that supports the IMU is available **[11]**
 
 ## Board Operation 
 ### Getting Started - IDE 
-If you want to program your Arduino 33 IoT while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino 33 IoT to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your board while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino 33 IoT to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor 
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
@@ -347,29 +345,30 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands | Maximum output power (ERP) |
-| :-------------- | :------------------------- |
-| 863-870Mhz      | -3.22dBm                   |
-
+| Frequency bands           | Maximum output power (EIRP) |
+| :------------------------ | :-------------------------- |
+| 2402-2480MHz(EDR)         | 6.24 dBm                    |
+| 2402-2480MHz(BLE)         | 6.30 dBm                    |
+| 2412-2472MHz(2.4G WiFi)   | 13.61 dBm                   |
  
 
 ## Company Information
 
-| Company name    | Arduino SA.                                    |
-| --------------- | ---------------------------------------------- |
-| Company Address | Via Ferruccio Pelli 14 6900 Lugano Switzerland |
+| Company name    | Arduino S.r.l                                    |
+| --------------- | ----------------------------------------------   |
+| Company Address | Via Andrea Appiani,2520900 MONZA                 |
 
 ## Reference Documentation
 
 | Reference                 | **Link**                                                     |
 | ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                      |
 | Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
 | Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Forum                     | http://forum.arduino.cc/                                     |
-| SAMD21G18                 | http://ww1.microchip.com/downloads/en/devicedoc/40001884a.pdf |
-| NINA W102                 | [https://www.u-blox.com/sites/default/files/NINA-W10_DataSheet_%28UBX-17065507%29.pdf](https://www.u-blox.com/sites/default/files/NINA-W10_DataSheet_(UBX-17065507).pdf) |
-| ECC608                    | http://ww1.microchip.com/downloads/en/DeviceDoc/40001977A.pdf |
+| SAMD21G18                 | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
+| NINA W102                 | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
+| ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
 | MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
 | NINA Firmware             | https://github.com/arduino/nina-fw                           |
 | ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
@@ -380,6 +379,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**               |
-| ---------- | ------------ | ------------------------- |
-| 04/15/2021 | 1            | General datasheet updates |
+| Date       | **Revision** | **Changes**                           |
+| ---------- | ------------ | ------------------------------------- |
+| 08/03/2022 | 2            | Reference documentation links updates |
+| 04/15/2021 | 1            | General datasheet updates             |

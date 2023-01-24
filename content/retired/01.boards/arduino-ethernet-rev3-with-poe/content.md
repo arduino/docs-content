@@ -31,9 +31,9 @@ Use the [Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software), and s
 
 ### Need Help?
 
-* On the Ethernet Shield V2 [on the Ethernet V2 Library](https://www.arduino.cc/en/Reference/EthernetV2)
+* On the Ethernet Shield V2 [on the Ethernet V2 Library](https://www.arduino.cc/reference/en/libraries/ethernet2/)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 This version has the power-over-Ethernet (PoE) module soldered to the board to provide power from a conventional twisted pair Category 5 Ethernet cable. It is IEEE802.3af compliant, and works with all compliant PoE injectors currently available.
 
@@ -73,7 +73,7 @@ The optional PoE module is designed to extract power from a conventional twisted
 * High efficiency DC/DC converter: typ 75% @ 50% load
 * 1500V isolation (input to output)
 
-*NB: the Power over Ethernet module is proprietary hardware not made by Arduino, it is a third party accessory. For more information, see the [datasheet](https://www.arduino.cc/en/uploads/Main/PoE-datasheet.pdf)* 
+*NB: the Power over Ethernet module is proprietary hardware not made by Arduino, it is a third party accessory. For more information, see the [datasheet](https://www.arduino.cc/en/uploads/Main/PoE-datasheet.pdf)*
 
 When using the power adapter, power can come either from an AC-to-DC adapter (wall-wart) or battery. The adapter can be connected by plugging a 2.1mm center-positive plug into the board's power jack. Leads from a battery can be inserted in the Gnd and Vin pin headers of the POWER connector. The board can operate on an external supply of 6 to 20 volts. If supplied with less than 7V, however, the 5V pin may supply less than five volts and the board may be unstable. If using more than 12V, the voltage regulator may overheat and damage the board. The recommended range is 7 to 12 volts.
 
@@ -83,21 +83,21 @@ The ATmega328 has 32 KB (with 0.5 KB used for the bootloader). It also has 2 KB 
 
 ### Input and Output
 
-Each of the 14 digital pins on the Ethernet board can be used as an input or output, using[pinMode()](https://www.arduino.cc/en/Reference/PinMode), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 5 volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
+Each of the 14 digital pins on the Ethernet board can be used as an input or output, using[pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 5 volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
 
 * Serial: 0 (RX) and 1 (TX). Used to receive (RX) and transmit (TX) TTL serial data.
-* External Interrupts: 2 and 3\. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/en/Reference/AttachInterrupt) function for details.
+* External Interrupts: 2 and 3\. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
 * PWM: 3, 5, 6, 9, and 10\. Provide 8-bit PWM output with the [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function.
 * SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK). These pins support SPI communication using the[SPI library](https://www.arduino.cc/en/Reference/SPI).
 * LED: 9\. There is a built-in LED connected to digital pin 9\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off. On most other arduino boards, this LED is found on pin 13\. It is on pin 9 on the Ethernet board because pin 13 is used as part of the SPI connection.
 
-The Ethernet board has 6 analog inputs, labeled A0 through A5, each of which provide 10 bits of resolution (i.e. 1024 different values). By default they measure from ground to 5 volts, though is it possible to change the upper end of their range using the AREF pin and the [analogReference](https://www.arduino.cc/en/Reference/AnalogReference)() function. Additionally, some pins have specialized functionality:
+The Ethernet board has 6 analog inputs, labeled A0 through A5, each of which provide 10 bits of resolution (i.e. 1024 different values). By default they measure from ground to 5 volts, though is it possible to change the upper end of their range using the AREF pin and the [analogReference](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/)() function. Additionally, some pins have specialized functionality:
 
 * TWI: A4 (SDA) and A5 (SCL). Support TWI communication using the [Wire library](https://www.arduino.cc/en/Reference/Wire).
 
 There are a couple of other pins on the board:
 
-* AREF. Reference voltage for the analog inputs. Used with [analogReference](https://www.arduino.cc/en/Reference/AnalogReference)().
+* AREF. Reference voltage for the analog inputs. Used with [analogReference](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/)().
 * Reset. Bring this line LOW to reset the microcontroller. Typically used to add a reset button to shields which block the one on the board.
 
 See also the [mapping between Arduino pins and ATmega328 ports](http://arduino.cc/en/Hacking/PinMapping168).
@@ -136,7 +136,7 @@ If you want to use a FTDI cable to download your sketches on the Arduino Etherne
 
 |   |   |
 |-----------------------------------------------|--------------------------------------------------------|
-|Microcontroller                                |[ATmega328P](http://www.atmel.com/Images/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf)|
+|Microcontroller                                |[ATmega328P](/resources/datasheets/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf)|
 |Operating Voltage                              |5V|
 |Input Voltage Plug (recommended)               |7-12V|
 |Input Voltage Plug (limits)                    |6-20V|

@@ -95,7 +95,7 @@ The Arduino's MKR family boards can work with the NMEA 0183 messaging protocol u
 
 ![The MKR GPS Shield.](assets/mkr-gps-shield.png)
 
-The MKR GPS Shield is based on the **u-blox SAM-M8Q GNSS module**; this module utilizes concurrent reception of up to three GNSS (GPS, Galileo and GLONASS) and supports both SBAS and QZSS. It also recognizes multiple constellations simultaneously and provides outstanding positioning accuracy in scenarios whre urban canyon or weak signals are involved. 
+The MKR GPS Shield is based on the **u-blox SAM-M8Q GNSS module**; this module utilizes concurrent reception of up to three GNSS (GPS, Galileo and GLONASS) and supports both SBAS and QZSS. It also recognizes multiple constellations simultaneously and provides outstanding positioning accuracy in scenarios where urban canyon or weak signals are involved. 
 
 The MKR GPS Shield is meant to be used on top of the MKR family boards, but it is also possible to hook it up to other SAM D-based Arduino boards via its UART or I2C pins (the Arduino_MKR GPS library can work with both communications protocols). 
 

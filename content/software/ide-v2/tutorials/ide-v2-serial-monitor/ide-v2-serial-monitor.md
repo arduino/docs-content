@@ -1,6 +1,6 @@
 ---
 title: 'Using the Serial Monitor tool'
-difficulty: easy
+difficulty: beginner
 description: 'Learn how to use the new Serial Monitor tool in the Arduino IDE 2.0, and how it works differently from older versions.'
 tags:
  - Serial Monitor
@@ -12,9 +12,9 @@ The Serial Monitor is an essential tool when creating projects with Arduino. It 
 
 The Arduino IDE 2.0 has the Serial Monitor tool integrated with the editor, which means that no external window is opened when using the Serial Monitor. This means that you can have multiple windows open, each with its own Serial Monitor. 
 
-You can download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+You can download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
-You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tutorial/getting-started-with-ide-v2/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
+You can also follow the [downloading and installing the Arduino IDE 2.0](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
 ## Requirements
 
@@ -23,6 +23,8 @@ You can also follow the [downloading and installing the Arduino IDE 2.0](/en/Tut
 - Core installed for the board used.
 
 ## Notable Changes
+
+### Integrated Monitor
 
 One major change that was introduced with the Arduino IDE 2.0 is the **integrated Serial Monitor**. The older versions of the editor features an external window that matches the port/board that we select. 
 
@@ -36,7 +38,7 @@ Now, let's take a look at the IDE 2.0. Notice how the Serial Monitor is located 
 
 The Serial Monitor settings are also located here, such as adjusting the baud rate and sending messages. 
 
-### Advantages with New Integration
+#### Advantages
 
 A major advantage with having the Serial Monitor integrated with the editor is the possibility to have multiple monitors open simultaneously. In the old editor, when changing the port/board, it changed across all windows. In addition, we were limited to **one Serial Monitor window**, an obstacle that the IDE 2.0 removes. 
 

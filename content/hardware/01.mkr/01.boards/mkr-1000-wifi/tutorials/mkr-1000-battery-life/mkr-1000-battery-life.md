@@ -42,7 +42,7 @@ This tutorial gives an overview on how to determine the duration of a rechargeab
 
 ## The Circuit
 
-The battery is connected to the board through the on-board JST connector
+The battery is connected to the board through the on-board JST PH connector
 
 ![The circuit for this tutorial](assets/ArduinoMKR1000Battery_bb.png)
 

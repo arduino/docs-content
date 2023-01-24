@@ -30,7 +30,7 @@ Regular-size Arduinos have a 6 pin connector for the ISP. The Arduino Mini does 
 - An ISP (eg. AVR ISP MkII)
 - 6 pieces of wire
 - One piece of male header strip, with 12 pins
-- Two pieces of male header stip, 3 pins each
+- Two pieces of male header strip, 3 pins each
 - 8 AVR Studio software (from Atmel, [free download](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=2725))
 
 ## How do I Make the Cable?

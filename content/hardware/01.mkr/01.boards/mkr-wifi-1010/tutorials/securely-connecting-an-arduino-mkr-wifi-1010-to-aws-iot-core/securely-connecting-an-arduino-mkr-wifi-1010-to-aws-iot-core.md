@@ -1,6 +1,6 @@
 ---
 title: "Securely Connecting an Arduino MKR WiFi 1010 to AWS IoT Core"
-description: "In this tutorial, you'll learn how to connect your Arduino MKR WiFi 1010 (or MKR 1000) board securely to AWS IoT Core."
+description: "In this tutorial, you'll learn how to connect your Arduino MKR WiFi 1010 (or MKR 1000 WiFi) board securely to AWS IoT Core."
 coverImage: "assets/blob_fXIeojA4b3.png"
 tags: [aws, iot, mkr]
 author: "Arduino_Genuino"
@@ -24,7 +24,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/securely-connectin
 
 [AWS IoT Core](https://aws.amazon.com/iot-core/) is a managed cloud service that lets connected devices easily and securely interact with cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. 
 
-Devices can connect to AWS IoT Core using the following protocols: HTTP, WebSockets and MQTT. This tutorial will walk you through how to connect an [Arduino MKR WiFi 1010](https://store.arduino.cc/usa/arduino-mkr-wifi-1010) (or MKR1000) board securely to AWS IoT Core using the MQTT protocol. [MQTT](http://mqtt.org/) (**Message Queuing Telemetry Transport**) is an extremely lightweight M2M (machine-to-machine) connectivity protocol which provides a messaging subscription and publish transport.
+Devices can connect to AWS IoT Core using the following protocols: HTTP, WebSockets and MQTT. This tutorial will walk you through how to connect an [Arduino MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) (or MKR1000) board securely to AWS IoT Core using the MQTT protocol. [MQTT](http://mqtt.org/) (**Message Queuing Telemetry Transport**) is an extremely lightweight M2M (machine-to-machine) connectivity protocol which provides a messaging subscription and publish transport.
 
 When connecting to AWS IoT Core using MQTT, devices are required to use X.509 certificates with TLS for authentication, as AWS IoT Core does not support authentication via username and password like many other MQTT broker services provide support for. More information on X.509 certificate support on AWS IoT can be found [here](https://docs.aws.amazon.com/iot/latest/developerguide/x509-certs.html).
 
@@ -134,9 +134,9 @@ Now that we have a CSR to identify the board, we need to login into the AWS cons
 
 ## Connecting the Board to AWS IoT Core
 
-1) Open the AWS IoT WiFi sketch in the Arduino IDE using the **File -> Examples -> Arduino Cloud Provider Examples -> AWSIoT-> AWS_IoT_WiFi.**
+1) Open the AWS IoT Wi-Fi sketch in the Arduino IDE using the **File -> Examples -> Arduino Cloud Provider Examples -> AWSIoT-> AWS_IoT_WiFi.**
 
-2) In the arduino_secrets.h tab. update the WiFi settings with the SSID and password of your WiFi network.
+2) In the arduino_secrets.h tab. update the Wi-Fi settings with the SSID and password of your Wi-Fi network.
 
 ```arduino
 // Fill in  your WiFi networks SSID and password
@@ -161,7 +161,7 @@ const char SECRET_CERTIFICATE[] = R"(
 )";
 ```
 
-5) Upload the sketch to your board and open the serial monitor. The board will attempt to connect to the WiFi network and if successful try to connect to AWS IoT using MQTT.
+5) Upload the sketch to your board and open the serial monitor. The board will attempt to connect to the Wi-Fi network and if successful try to connect to AWS IoT using MQTT.
 
 ### Interacting with the Board on AWS IoT Core
 

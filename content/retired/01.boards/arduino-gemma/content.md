@@ -20,7 +20,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoGemma), 
 ### Need Help?
 
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=13.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 ## Documentation
 
@@ -50,7 +50,7 @@ The ATtiny85 has 8 kB (with 2.75 kB used for the bootloader). It also has 512 By
 
 ### Input and Output
 
-Each of the 3 digital I/O pins on the Arduino Gemma can be used as an input or output, using[pinMode()](https://www.arduino.cc/en/Reference/PinMode), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 3.3V volts. Each pin can provide or receive a maximum of 20 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms.
+Each of the 3 digital I/O pins on the Arduino Gemma can be used as an input or output, using[pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 3.3V volts. Each pin can provide or receive a maximum of 20 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms.
 
 In addition, some pins have specialized functions:
 

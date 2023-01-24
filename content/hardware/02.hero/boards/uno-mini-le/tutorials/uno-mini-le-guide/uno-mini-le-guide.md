@@ -15,7 +15,7 @@ software:
 
 The [Arduino UNO Mini LE](https://store.arduino.cc/uno-mini-le) is a great little board that is very much like its dad: the good ol' UNO. It uses the same microcontroller, **ATmega328P** and the same USB-Serial Processor **ATmega16U2**, but differs in size and some other areas. Some notable differences are:
 
-- The UNO Mini LE has a USB-C connector
+- The UNO Mini LE has a USB-C® connector
 - The female header pins are half the pitch of the original UNO (due to its small size). 
 - It does not feature a barrel plug connector for external power supply. Instead, there are two pins available for connecting external power supplies: **VIN** and **GND**. The limit for these pins are 6-21V and should not be exceeded.
 
@@ -33,7 +33,7 @@ The goal with this guide is to:
 
 - [Arduino UNO Mini LE](https://store.arduino.cc/uno-mini-le)
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software) versions).
-- USB-C cable.
+- USB-C® cable.
 
 ## Setup & Installation
 
@@ -55,7 +55,7 @@ The UNO Mini LE can be programmed through the **Arduino IDE 2.0.X**. To install 
 
 The UNO Mini LE can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started-web-editor)
+- [Getting started with the Web Editor](/arduino-cloud/getting-started/getting-started-web-editor)
 
 ## The Blink Example
 

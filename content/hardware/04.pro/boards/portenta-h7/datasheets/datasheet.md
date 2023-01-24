@@ -47,7 +47,7 @@ Laboratory equipment, Computer vision
          <td style="vertical-align: middle;text-align: center;">Security  </td>
          <td style="vertical-align: middle;text-align: center;">
             <p>ATECC608 </p>
-            <p>NXP SE0502</p>
+            <p>NXP SE050C2</p>
          </td>
          <td style="text-align: center;">ATECC608</td>
          <td style="text-align: center;">ATECC608</td>
@@ -60,9 +60,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB /16 MB</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
       </tr>
       <tr>
          <td style="text-align: center;">Power</td>
@@ -254,15 +254,15 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td rowspan="2" style="vertical-align: top;">External memories</td>
-         <td>SDRAM (optional)</td>
-         <td>Up to 64 MByte</td>
+         <td>SDRAM</td>
+         <td>8 MByte</td>
       </tr>
       <tr>
-         <td>QSPI Flash (optional)</td>
-         <td>Up to 128 MByte</td>
+         <td>QSPI Flash</td>
+         <td>16 MByte</td>
       </tr>
       <tr>
-         <td rowspan="4" style="vertical-align: top;" >USB-C</td>
+         <td rowspan="4" style="vertical-align: top;" >USB-C®</td>
          <td>High speed (optional/FUll Speed USB)</td>
          <td></td>
          <td rowspan="3"></td>
@@ -396,10 +396,38 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td style="vertical-align: top;">SE050 Secure element</td>
+         <td rowspan="8" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Ready-to-use IoT secure element solution</td>
          <td></td>
-         <td><p style="text-align: right">H7 full</p></td>
+         <td rowspan="8" ><p style="text-align: right">H7 full</p></td>
+      </tr>
+      <tr>
+         <td>Securely storing and provisioning credentials and performing cryptographic operations</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>based on NXP's Integral Security Architecture 3.0™</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>CC EAL 6+ certified HW</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>FIPS 140-2 certified platform with Security Level 3</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Support for RSA and ECC asymmetric cryptography algorithms</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Support for SCP03 protocol</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>up to 100 Mio write cycles / 25 years</td>
+         <td></td>
       </tr>
       <tr>
          <td rowspan="5" style="vertical-align: top;" >MKR compatible header</td>
@@ -472,9 +500,9 @@ Laboratory equipment, Computer vision
 
 ## Connector Pinouts
 
-![USB-C Pinout](assets/portentaH7_PinoutUSB-C.png)
+![USB-C® Pinout](assets/portentaH7_PinoutUSB-C.png)
 
-### USB-C
+### USB-C®
 
 | Pin     | **Description**                                              | **Pin**         | **Description**                                          |
 | ------- | ------------------------------------------------------------ | --------------- | -------------------------------------------------------- |
@@ -528,10 +556,11 @@ Depending on the variant, some of the components does not apply. The image below
 | U3       | USB HS PHY                           | U12, U13, U14    | ESD protection*             |
 | U4       | SDRAM                                | U16              | Crypto Chip (Microchip)     |
 | U5       | Ethernet PHY                         | J1, J2           | High Density Connectors     |
-| U6       | MIPI to USB-C/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
+| U6       | MIPI to USB-C®/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
 | U7       | Level Shifter*                       | JANALOG JDIGITAL | MKR Compatible headers      |
 | U8       | I2C level shifter*                   | J4               | Battery Connector           |
 | U9       | Wifi/BT Module**                     | J5               | ESLOV Connector             |
+| J6       | Connector micro UFL                  |                  |                             |
 
 <p>
 * &emsp;&nbsp;&nbsp; = Only with Portenta H7 <br />
@@ -768,7 +797,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 27/12/2021 | 1            | First Release |
-
+| Date       | **Revision** | **Changes**                        |
+| ---------- | ------------ | ---------------------------------- |
+| 27/12/2021 | 1            | First Release                      |
+| 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |

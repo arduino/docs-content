@@ -1,7 +1,7 @@
 ---
 title: 'Managing Containers with Docker on Portenta X8'
 description: 'This tutorial shows how to install and manage your containers using Docker.'
-difficulty: easy
+difficulty: beginner
 tags:
   - containers
   - Docker
@@ -18,7 +18,7 @@ hardware:
 
 [Docker](http://docker.com) Is a platform full of applications, called containers. Containers are isolated solutions and thus they don't have to depend on your environment. Making them portable and consistent throughout development, testing and production.
 
-You can download, install, use and share applications in the form of containers. You can find all the available containers on the [hub.docker.com](hub.docker.com) page.
+You can download, install, use and share applications in the form of containers. You can find all the available containers on the [hub.docker.com](https://hub.docker.com) page.
 
 In this tutorial we will go through the steps of how to install, run and remove the [Hello-World Container](https://hub.docker.com/_/hello-world)
 
@@ -32,9 +32,9 @@ In this tutorial we will go through the steps of how to install, run and remove 
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C cable (either USB-C to USB-A or USB-C to USB-C)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Wi-Fi Access Point with Internet Access
-- ADB or SSH. [Check how to connect to your Portenta X8](docs.arduino.cc/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal)
+- ADB or SSH. [Check how to connect to your Portenta X8](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal)
 
 ## Using Docker
 
@@ -45,7 +45,7 @@ docker -v
 
 ***To use this tool, first of all you will need to connect to your device, check [how to connect using adb/ssh](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal).***
 
-You can check the Docker reference documentation, which covers all the features of the tool in depth at [https://docs.docker.com/](docs.docker.com).
+You can check the Docker reference documentation, which covers all the features of the tool in depth at [docs.docker.com](https://docs.docker.com/).
 
 The following steps shows how to install, run and uninstall the "Hello World" container.
 

@@ -21,9 +21,9 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_lsm9ds1.pdf" download blank/>
 </Feature>
 
-<Feature title="Python Support" image="python">
+<Feature title="Python® Support" image="python">
 
-  This board can be programmed with the Python programming language via the OpenMV IDE.
+  This board can be programmed with the Python® programming language via the OpenMV IDE.
 
   <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>
@@ -54,6 +54,13 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
   The HTS221 capacitive digital sensor measures relative humidity and temperature. It has a temperature accuracy of ± 0.5 °C (between 15-40 °C) and is thereby perfectly suited to detect ambient temperature.
 
 <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_HTS221.pdf" download blank/>
+</Feature>
+
+<Feature title="Lauterbach TRACE32 debugger" image="file-icon">
+
+  This board is compatible with Lauterbach TRACE32 debugger, and a free license can be obtained using the boards serial number.
+
+  <FeatureLink title="Learn More" url="/tutorials/nano-33-ble-sense/trace-32"/>
 </Feature>
 
 </FeatureList>

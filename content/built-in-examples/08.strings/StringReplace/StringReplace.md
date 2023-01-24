@@ -1,7 +1,7 @@
 ---
 title: 'String replace Function'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'The replace() function allows you to replace all instances of a given character in a string with another character.'
 tags: 
   - Strings

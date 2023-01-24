@@ -12,8 +12,8 @@ The Arduino Primo is the first board developed in cooperation with [Nordic Semic
   
 There are three onboard microcontrollers: 
 
-* [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf), the main Arduino microcontroller with integrated Bluetooth® Low Energy and NFC
-* [STM32f103](http://www.st.com/content/ccc/resource/technical/document/datasheet/33/d4/6f/1d/df/0b/4c/6d/CD00161566.pdf/files/CD00161566.pdf/jcr:content/translations/en.CD00161566.pdf), a service microcontroller used for advanced debugging and programming of the other microcontrollers
+* [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf), the main Arduino microcontroller with integrated Bluetooth® Low Energy and NFC
+* [STM32f103](/resources/datasheets/en.CD00161566.pdf), a service microcontroller used for advanced debugging and programming of the other microcontrollers
 * [ESP8266](https://espressif.com/en/products/hardware/esp8266ex/overview), for Wi-Fi and related internet connectivity functions.
 
 The board has: 
@@ -77,13 +77,13 @@ The nRF52832 has 512 KB of Flash memory and 64 KB of SRAM. There is no onboard E
 
 ### Input and Output
 
-Each of the 14 digital pins on the Primo can be used as an input or output, using [pinMode()](https://www.arduino.cc/en/Reference/PinMode), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite) , and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 3.3V. Each pin can provide or receive a maximum current of 14 mA. In addition, some pins have specialized functions:
+Each of the 14 digital pins on the Primo can be used as an input or output, using [pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite) , and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 3.3V. Each pin can provide or receive a maximum current of 14 mA. In addition, some pins have specialized functions:
 * Serial: 0 (RX) and 1 (TX): Pins 0 and 1 are used to receive (RX) and transmit (TX) TTL serial data. On Primo TX and RX LEDs are missing but the ON LED blinks every time you send data over the Serial port of the nRF52
-* External Interrupts: all pins (digital and analog) can be used as external interrupts except pins 0 and 1\. Keep in mind that you can’t use more than eight interrupt pins at the same time. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/en/Reference/AttachInterrupt) function for details.
-* PWM: pulse width modulation is available on all digital pins except pins 0 and 1\. The 12-bit PWM output resolution can be adjusted using the [analogWriteResolution()](https://www.arduino.cc/en/Reference/AnalogWriteResolution) function.
+* External Interrupts: all pins (digital and analog) can be used as external interrupts except pins 0 and 1\. Keep in mind that you can’t use more than eight interrupt pins at the same time. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
+* PWM: pulse width modulation is available on all digital pins except pins 0 and 1\. The 12-bit PWM output resolution can be adjusted using the [analogWriteResolution()](https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogwriteresolution/) function.
 * SPI: A serial peripheral interface (SPI) bus is available using pins 10 (SS), 11 (MOSI), 12 (MISO), and 13 (SCK) as well as using the onboard ICSP header. SPI communication is available using the [SPI library](https://www.arduino.cc/en/Reference/SPI).
 * LED: There is a built-in LED connected to digital pin 9\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
-The Primo has 6 analog inputs, labeled A0 through A5, each of which provide up to 14 bits of resolution (i.e., 16384 different values). By default they measure from ground to 3.3 volts, though it is possible to change the upper end of their range using the [analogReference()](https://www.arduino.cc/en/Reference/AnalogReference) function. A few additional pins are on the headers and those pins have specialized functions:
+The Primo has 6 analog inputs, labeled A0 through A5, each of which provide up to 14 bits of resolution (i.e., 16384 different values). By default they measure from ground to 3.3 volts, though it is possible to change the upper end of their range using the [analogReference()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/) function. A few additional pins are on the headers and those pins have specialized functions:
 * TWI: Two-wire interface (TWI) communication is available from the serial data line (SDA) and serial clock line (SCL) pins (located near AREF). TWI communication is supported using the [Wire library](https://www.arduino.cc/en/Reference/Wire).
 * AREF. Unlike some other Arduino boards, the analog reference (AREF) pin cannot be used to connect an external reference voltage for the analogRead() command.
 * RESET. Bringing the reset line LOW will reset the microcontroller. RESET pin will reset only nRF52832 microcontroller. In order to reset all the three microcontrollers on board use reset button instead
@@ -96,7 +96,7 @@ The easiest method to communicate is to use a USB cable between the micro-USB po
   
 A [SoftwareSerial library](https://www.arduino.cc/en/Reference/SoftwareSerial) allows for serial communication over any of the digital pins.  
   
-The [nRF52832](http://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.1.pdf) also supports I2C (TWI) and SPI communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus and the [SPI library](https://www.arduino.cc/en/Reference/SPI) for the SPI communication.  
+The [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf) also supports I2C (TWI) and SPI communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus and the [SPI library](https://www.arduino.cc/en/Reference/SPI) for the SPI communication.  
   
 The board allows wireless communication with other devices via Bluetooth, NFC, WiFi and IR, using specific libraries for each protocol.  
   

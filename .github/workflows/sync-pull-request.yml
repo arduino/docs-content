@@ -28,7 +28,7 @@ jobs:
       - name: Sync PR
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_GITHUB_CLI_TOKEN }}
-        run: gh pr create --title "$(gh pr view $GITHUB_REF_NAME --json title --jq .title)" --body "$(gh pr view $GITHUB_REF_NAME --json body --jq .body)" --repo arduino/docs-content
+        run: gh pr create --repo arduino/docs-content --head sync/${GITHUB_REF_NAME} --title "$(gh pr view $GITHUB_REF_NAME --json title --jq .title)" --body "$(gh pr view $GITHUB_REF_NAME --json body --jq .body)"  --label "$(gh pr view $GITHUB_REF_NAME --json labels --jq .labels[].name)" --reviewer "$(gh pr view $GITHUB_REF_NAME --json reviewRequests --jq .reviewRequests[].login)" --label "arduino" --assignee "$(gh pr view $GITHUB_REF_NAME --json assignees --jq .assignees[].login)"
 
       - name: Close PR
         env:

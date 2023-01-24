@@ -13,7 +13,7 @@ The **Arduino Yún** is a microcontroller board based on the ATmega32u4 and the 
 
 NB : In some countries, it is prohibited to sell WiFi enabled devices without government approval. While waiting for proper certification, some local distributors are disabling WiFi functionality. Check with your dealer before purchasing a Yún if you believe you may live in such a country.
 
-The Yún distinguishes itself from other Arduino boards by its ability to communicate with the Linux distribution onboard, offering a powerful networked computer with the ease of an Arduino. In addition to Linux commands like the cURL, you can write your own shell and python scripts for robust interactions. The Yún is similar to the Leonardo with the ATmega32u4, except that it has Linux on board. (has built-in USB communication, eliminating the need for a secondary processor).
+The Yún distinguishes itself from other Arduino boards by its ability to communicate with the Linux distribution onboard, offering a powerful networked computer with the ease of an Arduino. In addition to Linux commands like the cURL, you can write your own shell and Python® scripts for robust interactions. The Yún is similar to the Leonardo with the ATmega32u4, except that it has Linux on board. (has built-in USB communication, eliminating the need for a secondary processor).
 
 NB: Yun Release 5 The new Arduino Yun R5 differs substantially from the previous release in these features:
 
@@ -30,7 +30,7 @@ In the Getting Started section, you can find all the information you need to con
 
 * On the Software [on the Arduino Forum](https://forum.arduino.cc/index.php?board=93.0)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 Warning: Arduino YÚN is not compatible with 12V PoE module.
 

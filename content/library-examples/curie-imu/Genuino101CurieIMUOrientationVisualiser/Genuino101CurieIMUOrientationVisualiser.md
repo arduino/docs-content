@@ -16,7 +16,7 @@ This tutorial demonstrates how to make use the Arduino 101's onboard [6-axis acc
 
 ## Instructions
 
-1. Set up the Arduino software (IDE) as described in [Getting Started with Arduino 101](/en/Guide/Arduino101).
+1. Set up the Arduino software (IDE) as described in [Getting Started with Arduino 101](https://arduino.cc/en/Guide/Arduino101).
 
 2. Connect the 101 to your computer.
 

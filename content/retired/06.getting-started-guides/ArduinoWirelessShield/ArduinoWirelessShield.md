@@ -5,13 +5,13 @@ description: 'The first steps to setting up the ArduinoWireless SD Shield and Se
 
 **This is a retired product.**
 
-The [Arduino Wireless shield](/en/Main/ArduinoWirelessShield) with the XBee 802.15.4 modules allows your Arduino board to communicate wirelessly using Zigbee. This documentation describes the use of the shield with the XBee 802.15.4 module (sometimes called "Series 1" to distinguish them from the Series 2 modules, although "Series 1" doesn't appear in the official name or product description).
+The [Arduino Wireless shield](https://arduino.cc/en/Main/ArduinoWirelessShield) with the XBee 802.15.4 modules allows your Arduino board to communicate wirelessly using Zigbee. This documentation describes the use of the shield with the XBee 802.15.4 module (sometimes called "Series 1" to distinguish them from the Series 2 modules, although "Series 1" doesn't appear in the official name or product description).
 
 ### A Simple Example
 
-You should be able to get two Arduino boards with Wireless shields talking to each other without any configuration, using just the standard Arduino serial commands (described in the [reference](/en/Reference/HomePage)).
+You should be able to get two Arduino boards with Wireless shields talking to each other without any configuration, using just the standard Arduino serial commands (described in the [reference](https://arduino.cc/en/Reference/HomePage)).
 
-To upload a sketch to an Arduino board with a Wireless shield, remove the Xbee. Then, you can upload a sketch normally from the Arduino environment. In this case, upload the **Communication | Physical Pixel** sketch to one of the boards. This sketch instructs the board to turn on the LED attached to pin 13 whenever it receives an 'H' over its serial connection, and turn the LED off when it gets an 'L'. You can test it by connecting to the board with the Arduino serial monitor (be sure it's set at 9600 baud), typing an H, and pressing enter (or clicking send). The LED should turn on. Send an L and the LED should turn off. If nothing happens, you may have an Arduino board that doesn't have a built-in LED on pin 13 (see the [board index](/en/Main/Boards) to check for sure), in this case you'll need to supply your own.
+To upload a sketch to an Arduino board with a Wireless shield, remove the Xbee. Then, you can upload a sketch normally from the Arduino environment. In this case, upload the **Communication | Physical Pixel** sketch to one of the boards. This sketch instructs the board to turn on the LED attached to pin 13 whenever it receives an 'H' over its serial connection, and turn the LED off when it gets an 'L'. You can test it by connecting to the board with the Arduino serial monitor (be sure it's set at 9600 baud), typing an H, and pressing enter (or clicking send). The LED should turn on. Send an L and the LED should turn off. If nothing happens, you may have an Arduino board that doesn't have a built-in LED on pin 13 (see the [board index](https://arduino.cc/en/Main/Boards) to check for sure), in this case you'll need to supply your own.
 
 Once you've uploaded the Physical Pixel sketch and made sure that it's working, unplug the first Arduino board from the computer. Change the switch to the Micro setting. Now, you need to upload a sketch to the other board. Make sure its switch is in the USB setting. Then upload the following sketch to the board:
 
@@ -83,7 +83,7 @@ Note that like the other commands, the reset will not be permanent unless you fo
 
 ### References
 
-For more information, see the [hardware page](/en/Main/ArduinoWirelessShield) for the Arduino Wireless SD Shield, and the [Digi Xbee page](http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/point-multipoint-rfmodules/).
+For more information, see the [hardware page](https://arduino.cc/en/Main/ArduinoWirelessShield) for the Arduino Wireless SD Shield, and the [Digi Xbee page](http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/point-multipoint-rfmodules/).
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

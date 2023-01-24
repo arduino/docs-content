@@ -43,7 +43,7 @@ The goals of this project are:
 
 ## The uBlox SARA-R4 Module
 
-As every other MKR family board, the MKR NB 1500 board has a specific module for connectivity. It is called uBlox SARA-R4, and is designed to communicate over LTE Cat M1 or NB IoT networks with a speed of up to 375 kb/s.
+As every other MKR family board, the MKR NB 1500 board has a specific module for connectivity. It is called uBlox SARA-R4, and is designed to communicate over LTE Cat M1 or NB IoT networks with a speed of up to 375 Kbps.
 
 It is designed to operate in temperature conditions between –40 °C to +85 °C, making it quite durable. It also offers low power consumption and coverage enhancement for deeper range into buildings and basements (and underground with NB1).
 

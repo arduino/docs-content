@@ -1,6 +1,10 @@
 <EssentialsColumn title="First Steps">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/installing-mbed-os-nano-boards">
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano">
     All you need to know to get started with your new Arduino board.
+  </EssentialElement>
+
+  <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
+    Learn how to create your own custom hardware that is compatible with the Arduino Nano Family.
   </EssentialElement>
 
 </EssentialsColumn>

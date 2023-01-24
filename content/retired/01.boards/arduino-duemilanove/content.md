@@ -9,7 +9,7 @@ source: "https://arduino.cc/en/Main/ArduinoBoardDuemilanove"
 
 ### Overview
 
-The Arduino Duemilanove ("2009") is a microcontroller board based on the ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)) or ATmega328 ([datasheet](http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P%5Fdatasheet%5FComplete.pdf)). It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
+The Arduino Duemilanove ("2009") is a microcontroller board based on the ATmega168 ([datasheet](/resources/datasheets/Datasheet-ATmega48-88-168-doc2545.pdf)) or ATmega328 ([datasheet](/resources/datasheets/ATmega48A_ATmega48PA_ATmega88A_ATmega88PA.pdf)). It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
 
 "Duemilanove" means 2009 in Italian and is named after the year of its release. The Duemilanove is the latest in a series of USB Arduino boards.
 
@@ -56,7 +56,7 @@ The ATmega168 has 16 KB of flash memory for storing code (of which 2 KB is used 
 
 ### Input and Output
 
-Each of the 14 digital pins on the Duemilanove can be used as an input or output, using [pinMode()](//www.arduino.cc/en/Reference/PinMode), [digitalWrite()](//www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](//www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 5 volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
+Each of the 14 digital pins on the Duemilanove can be used as an input or output, using [pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/), and [digitalRead()](http://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 5 volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
 
 * **Serial: 0 (RX) and 1 (TX).** Used to receive (RX) and transmit (TX) TTL serial data. These pins are connected to the corresponding pins of the FTDI USB-to-TTL Serial chip.
 * **External Interrupts: 2 and 3.** These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](//www.arduino.cc/en/Reference/AttachInterrupt) function for details.
@@ -87,7 +87,7 @@ The ATmega168 and ATmega328 also support I2C (TWI) and SPI communication. The Ar
 
 The Arduino Duemilanove can be programmed with the Arduino software ([download](//www.arduino.cc/en/Main/Software)). Select "Arduino Diecimila or Duemilanove w/ ATmega168" or "Arduino Duemilanove w/ ATmega328" from the **Tools > Board** menu (according to the microcontroller on your board). For details, see the [reference](//www.arduino.cc/en/Reference/HomePage) and [tutorials](//www.arduino.cc/en/Tutorial/HomePage).
 
-The ATmega168 or ATmega328 on the Arduino Duemilanove comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod%5Fdocuments/avr061.zip)).
+The ATmega168 or ATmega328 on the Arduino Duemilanove comes preburned with a [bootloader](//www.arduino.cc/en/Tutorial/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](./static/resources/datasheets/doc2525.pdf), [C header files](./static/resources/datasheets/avr061.zip)).
 
 You can also bypass the bootloader and program the microcontroller through the ICSP (In-Circuit Serial Programming) header; see [these instructions](https://docs.arduino.cc/hacking/software/Programmer) for details.
 

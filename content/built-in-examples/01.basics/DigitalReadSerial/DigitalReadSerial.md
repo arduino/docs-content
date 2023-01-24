@@ -1,7 +1,7 @@
 ---
 title: 'Digital Read Serial'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Read a switch, print the state out to the Arduino Serial Monitor.'
 tags: 
   - Basics
@@ -52,7 +52,7 @@ Next, initialize digital pin 2, the pin that will read the output from your butt
 
 Now that your setup has been completed, move into the main loop of your code. When your button is pressed, 5 volts will freely flow through your circuit, and when it is not pressed, the input pin will be connected to ground through the 10k ohm resistor. This is a digital input, meaning that the switch can only be in either an on state (seen by your Arduino as a "1", or HIGH)  or an off state (seen by your Arduino as a "0", or LOW), with nothing in between.
 
-The first thing you need to do in the main loop of your program is to establish a variable to hold the information coming in from your switch. Since the information coming in from the switch will be either a "1" or a "0",  you can use an [`int`datatype](https://www.arduino.cc/en/Reference/Int). Call this variable `sensorValue`, and set it to equal whatever is being read on digital pin 2. You can accomplish all this with just one line of code:
+The first thing you need to do in the main loop of your program is to establish a variable to hold the information coming in from your switch. Since the information coming in from the switch will be either a "1" or a "0",  you can use an [`int`datatype](https://www.arduino.cc/reference/en/language/variables/data-types/int/). Call this variable `sensorValue`, and set it to equal whatever is being read on digital pin 2. You can accomplish all this with just one line of code:
 
 `int sensorValue = digitalRead(2);`
 

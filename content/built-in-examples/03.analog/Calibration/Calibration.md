@@ -9,7 +9,7 @@ tags:
   - Map
 ---
 
-This example demonstrates one techinque for calibrating sensor input.  The board takes sensor readings for five seconds during the startup, and tracks the highest and lowest values it gets. These sensor readings during the first five seconds of the sketch execution define the minimum and maximum of expected values for the readings taken during the loop.
+This example demonstrates one technique for calibrating sensor input.  The board takes sensor readings for five seconds during the startup, and tracks the highest and lowest values it gets. These sensor readings during the first five seconds of the sketch execution define the minimum and maximum of expected values for the readings taken during the loop.
 
 ### Hardware Required
 

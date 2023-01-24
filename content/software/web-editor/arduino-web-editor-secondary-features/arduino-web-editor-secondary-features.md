@@ -3,7 +3,7 @@ title: "Arduino Web Editor Secondary Features "
 description: "Explore secondary features of the Arduino Web Editor and become a pro using it."
 coverImage: "assets/blob_YimidWfjGD.png"
 tags: [coding, software]
-difficulty: easy
+difficulty: beginner
 author: "Arduino_Genuino"
 source: "https://create.arduino.cc/projecthub/Arduino_Genuino/arduino-web-editor-secondary-features-d57076"
 ---

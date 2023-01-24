@@ -1,9 +1,11 @@
 <EssentialsColumn title="First Steps">
 
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/installing-megaavr-core">
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-megaavr">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
-
+  <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
+    Learn how to create your own custom hardware that is compatible with the Arduino Nano Family.
+  </EssentialElement>
   <EssentialElement title="Community Projects" type="tutorial" link="/tutorials/nano-every/community-projects">
     Discover interesting projects from the community based on the Nano Every board.
   </EssentialElement>

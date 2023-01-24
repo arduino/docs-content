@@ -1,6 +1,6 @@
 ---
 title: 'Controlling LED over Wi-Fi Using Simulink with Nano 33 IoT'
-difficulty: medium
+difficulty: intermediate
 compatible-products: [nano-33-iot, nano-motor-carrier]
 description: 'Learn how to control the Nano 33 IoT LED over USB and Wi-Fi with Simulink.'
 tags: 
@@ -69,7 +69,7 @@ In line with the various stages of Model-Based Design, there are four ways to op
 The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling this pin HIGH, we can turn the LED on and by pulling it LOW we can turn the LED off.
 ![LED Location on Nano 33 IoT](img/nano-Simulink-WiFi-LED-D13-LED.png)
 
-***It is recommended that you go through the [MATLAB tutorial](../nano-matlab-wifi-led/nanoMatlabWiFiLED) before attempting this tutorial.***
+***It is recommended that you go through the [MATLAB tutorial](/tutorials/nano-motor-carrier/nano-matlab-wifi-led) before attempting this tutorial.***
 
 ## Simulate an LED Turning on and Off
 
@@ -230,7 +230,7 @@ Add a gif/video.
 
 ***For the purposes of this tutorial, we will leave the `Use static IP address and disable DHCP` box unchecked. This means that a dynamic IP address will be allocated to the Nano 33 IoT.***
 
-**2.** We now need to configure the wireless settings. Click on **WiFi properties** and enter the **Service set identifier (SSID)** or name of your wireless network. Select the appropriate encryption (`None`, `WEP` or `WPA`) and enter your password.
+**2.** We now need to configure the wireless settings. Click on **Wi-Fi properties** and enter the **Service set identifier (SSID)** or name of your wireless network. Select the appropriate encryption (`None`, `WEP` or `WPA`) and enter your password.
 
 ![Configure Wi-Fi Credentials](img/nano-Simulink-WiFi-LED-Wi-Fi-Credentials.png)
 

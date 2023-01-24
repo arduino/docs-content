@@ -4,7 +4,7 @@ description: 'Run multiple functions simultaneously with the Scheduler Library.'
 tags: 
   - Scheduler
   - LED
-difficulty: easy
+difficulty: beginner
 libraries:
   - name: Scheduler 
     url: https://www.arduino.cc/en/reference/scheduler

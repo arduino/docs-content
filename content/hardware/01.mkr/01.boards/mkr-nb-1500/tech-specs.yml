@@ -25,10 +25,10 @@ Communication:
   SPI: Yes
 Power:
   I/O Voltage: 3.3V
-  Input Voltage (nominal): 5-17V
+  Input Voltage (nominal): 5-7V
   DC Current per I/O pin: 7 mA
   Supported battery: Li-Po Single Cell, 3.7V, 1500mAh minimum
-  Battery connector: JST
+  Battery connector: JST PH
   Power Consumption (LTE M1): min 100 mA / max 190 mA
   Power Consumption (LTE NB1): min 60 mA / max 140 mA
 Clock speed:

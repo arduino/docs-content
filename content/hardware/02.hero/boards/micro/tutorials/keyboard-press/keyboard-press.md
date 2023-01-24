@@ -57,7 +57,7 @@ The main message is: you can in theory use thousands of unique ways of producing
 You can read more about the ASCII values in the links below:
 
 - http://www.asciitable.com/
-- https://www.arduino.cc/en/Reference/KeyboardModifiers
+- https://www.arduino.cc/reference/it/language/functions/usb/keyboard/keyboardmodifiers/
 
 ### Circuit
 

@@ -20,7 +20,7 @@ Communication:
   SPI: Yes
 Power:
   I/O Voltage: 5V
-  Input voltage (nominal): 7-12V
+  Input voltage (nominal): 6-20V
   DC Current per I/O Pin: 20 mA
   Power Supply Connector: Barrel Plug
 Clock speed:

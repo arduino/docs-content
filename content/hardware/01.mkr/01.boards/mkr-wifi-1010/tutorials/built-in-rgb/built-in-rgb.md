@@ -1,6 +1,6 @@
 ---
 title: 'Accessing the Built-in RGB LED on the MKR WiFi 1010'
-difficulty: easy
+difficulty: beginner
 compatible-products: [mkr-wifi-1010]
 description: "In this tutorial, we are going to find out how to control the MKR WiFi 1010's built-in RGB LED. This component is a really good tool for any type of development: we can use it to prototype a smart light, or perhaps use it as a feedback component."
 tags:

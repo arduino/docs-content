@@ -26,12 +26,12 @@ software:
 
 In this tutorial, we will set up two MKR WAN 1310's to host a remote LED control. One board will be set up as a sender with a pushbutton that when it is pressed, an LED on the other board will turn on or off. 
  
-We will use the **LoRa®** library for the communication, and we will not use any external service. 
+We will use the **LoRa** library for the communication, and we will not use any external service. 
 
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- LoRa® library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
+- LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 - 2x Arduino MKR WAN 1310  ([link to store](https://store.arduino.cc/mkr-wan-1310))
 - 2x antenna ([link to store](https://store.arduino.cc/antenna))
 - 1x Pushbutton
@@ -101,7 +101,7 @@ int buttonState;
 
 In the `setup()` we will first define the `button` pin as an `INPUT_PULLUP`. We will then begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 ```arduino
 void setup() {
@@ -163,7 +163,7 @@ int led = 2;
 
 In the `setup()` we will first define the `led` pin as an output. We will then begin serial communication, where we will use the command `while(!Serial);` to prevent the program from running until we open the Serial Monitor.
 
-We will then initialize the **LoRa®** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
+We will then initialize the **LoRa** library, where we will set the radio frequency to 868E6, which is used in Europe for LoRa® communication. If we are located in North America, we need to change this to 915E6.
 
 ```arduino
 void setup() {
@@ -352,7 +352,7 @@ Now that we have communication between the boards, we can do a simple test with 
 
 ### Making Sender Device Mobile
 
-As of now, we have a quite immobile setup, but this can be fixed by making the sender device mobile. A good way of testing this out is to make the sender device run on a battery instead. The MKR WAN 1310 has a battery connector that any battery with a JST connector can connect to. A standard 3.7 LiPo battery can power the MKR WAN 1310 for a longer time.
+As of now, we have a quite immobile setup, but this can be fixed by making the sender device mobile. A good way of testing this out is to make the sender device run on a battery instead. The MKR WAN 1310 has a battery connector that any battery with a JST PH connector can connect to. A standard 3.7 LiPo battery can power the MKR WAN 1310 for a longer time.
 
 ### Troubleshoot
 

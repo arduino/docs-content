@@ -1,5 +1,5 @@
 ---
-title: 'MKR 1000 Wi-Fi Network Scan'
+title: 'MKR 1000 WiFi Network Scan'
 difficulty: intermediate
 compatible-products: [mkr-1000-wifi]
 description: 'Learn how to setup your board to scan nearby Wi-Fi networks.'
@@ -39,7 +39,7 @@ The goals of this project are:
 
 ## Scanning Networks
 
-Scanning for Wi-Fi networks is a quite straightforward process. A device with a Wi-Fi module such as smart-phones, computers or development boards such as the MKR 1000, search their surroundings, and get a response from nearby networks. 
+Scanning for Wi-Fi networks is a quite straightforward process. A device with a Wi-Fi module such as smart-phones, computers or development boards such as the MKR 1000 WiFi, search their surroundings, and get a response from nearby networks. 
 
 The device looking for a network or the client, sends a probe request, while nearby networks send probe responses. These responses contains information such as name of the network, signal strength in dBm (decibel milli-watts) and encryption type.
 
@@ -68,7 +68,7 @@ This tutorial requires no additional circuit.
 - `WiFi.SSID()` - retrieves SSID (network name) of found network.
 - `WiFi.RSSI()` - retrieves RSSI (signal strength) of found network (measured in dBm). 
 
-5. We can now upload the code that can be found in the snippet below to our MKR 1000 board. You can also find this code in the editor, by navigating to **File > Examples > WiFi101 > ScanNetworks**. 
+5. We can now upload the code that can be found in the snippet below to our MKR 1000 WiFi board. You can also find this code in the editor, by navigating to **File > Examples > WiFi101 > ScanNetworks**. 
 
 ```cpp
 #include <SPI.h>
@@ -199,6 +199,6 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 ## Conclusion
 
-In this tutorial we have created a simple Wi-Fi scanner, that has printed all available networks within range of our MKR 1000 board. This feature exists virtually in any device that can connect to the Internet, and can be quite a good tool to experiment with, for example how far our devices can be from a gateway (router) to work. 
+In this tutorial we have created a simple Wi-Fi scanner, that has printed all available networks within range of our MKR 1000 WiFi board. This feature exists virtually in any device that can connect to the Internet, and can be quite a good tool to experiment with, for example how far our devices can be from a gateway (router) to work. 
 
 

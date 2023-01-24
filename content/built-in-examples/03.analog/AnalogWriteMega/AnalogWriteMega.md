@@ -1,7 +1,7 @@
 ---
 title: 'Analog Write with 12 LEDs on an Arduino Mega'
 compatible-products: [mega-2560]
-difficulty: easy
+difficulty: beginner
 description: 'Fade 12 LEDs on and off, one by one, using an Arduino Mega board.'
 tags: 
   - Analog
@@ -37,7 +37,7 @@ Connect the longer, positive legs (anodes) of 12 LEDs to digital pins 2-13 throu
 
 ### Code
 
-In the `setup()` function of the code below, a [`for()`](https://www.arduino.cc/en/Reference/For) loop is used to assign digital pins 2-13 of the Mega as outputs.
+In the `setup()` function of the code below, a [`for()`](https://www.arduino.cc/reference/en/language/structure/control-structure/for/) loop is used to assign digital pins 2-13 of the Mega as outputs.
 
 Next, in the `loop()` function of the program below, a trio of nested `for()` loops are used.
 

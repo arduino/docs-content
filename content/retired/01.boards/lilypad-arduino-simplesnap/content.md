@@ -23,7 +23,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoLilyPad)
 
 * On the board on the [LilyPad Arduino SimpleSnap Page](http://lilypadarduino.org/?p=289)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 ## Documentation
 
@@ -49,16 +49,16 @@ The LilyPad SimpleSnap can be programmed with the Arduino [Arduino Software](htt
 
 The ATmega328 on the LilyPad Arduino SimpleSnap comes preburned with [bootloader](https://www.arduino.cc/en/Hacking/Bootloader?from=Tutorial.Bootloader) that allows you to upload new code to it with the Arduino software.
 
-The LilyPad SimpleSnap does not have an onboard USBSerial adapter or USB connector. To program the board, you will need to use a FTDI compatible adapter like the [USBSerial Light Adapter](https://www.arduino.cc/en/Main/en/Main/USBSerial).
+The LilyPad SimpleSnap does not have an onboard USBSerial adapter or USB connector. To program the board, you will need to use a FTDI compatible adapter like the [USBSerial Light Adapter](https://docs.arduino.cc/retired/boards/arduino-usb-2-serial-micro).
 
 ### Inputs and Outputs
 
 The LilyPad SimpleSnap has fewer inputs and outputs than the [LilyPad Arduino Main Board](https://www.arduino.cc/en/Main/ArduinoBoardLilyPad). There are a total of 9 I/O pins on the SimpleSnap board, one exposed pin for +5VDC, and one pin for ground.
 
-Each of the 9 digital I/O pins on the LilyPad Arduino SimpleSnap can be used as an input or output, using [pinMode()](https://www.arduino.cc/en/Reference/PinMode), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. They operate at 3.3V volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20 kOhms. In addition, some pins have specialized functions:
+Each of the 9 digital I/O pins on the LilyPad Arduino SimpleSnap can be used as an input or output, using [pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. They operate at 3.3V volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20 kOhms. In addition, some pins have specialized functions:
 
 * **PWM: 5, 6, 9, 10, 11** Provide 8-bit PWM output with the [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function.
-* **Analog Inputs: A2-A5**. The LilyPad Arduino SimpleSnap has 4 analog inputs, labeled A2 through A5, all of which can also be used as digital I/O. Each analog input provide 10 bits of resolution (i.e. 1024 different values). By default the analog inputs measure from ground to 5 volts, though is it possible to change the upper end of their range using the [analogReference()](https://www.arduino.cc/en/Reference/AnalogReference)function.
+* **Analog Inputs: A2-A5**. The LilyPad Arduino SimpleSnap has 4 analog inputs, labeled A2 through A5, all of which can also be used as digital I/O. Each analog input provide 10 bits of resolution (i.e. 1024 different values). By default the analog inputs measure from ground to 5 volts, though is it possible to change the upper end of their range using the [analogReference()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/)function.
 
 ### Automatic (Software) Reset and Bootloader Initiation
 

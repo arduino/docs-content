@@ -1,7 +1,7 @@
 ---
 title: 'If Statement (Conditional Statement)'
 compatible-products: [all-boards]
-difficulty: easy
+difficulty: beginner
 description: 'Use an if statement to change the output conditions based on changing the input conditions.'
 tags: 
   - Control structures
@@ -10,7 +10,7 @@ tags:
 featuredImage: 'board'
 ---
 
-The [**if()**](https://www.arduino.cc/en/Reference/If) statement is the most basic of all programming control structures.  It allows you to make something happen or not, depending on whether a given condition is true or not.  It looks like this:
+The [**if()**](https://www.arduino.cc/reference/en/language/structure/control-structure/if/) statement is the most basic of all programming control structures.  It allows you to make something happen or not, depending on whether a given condition is true or not.  It looks like this:
 
 ```arduino
 if (someCondition) {

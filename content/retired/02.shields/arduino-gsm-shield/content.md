@@ -12,7 +12,7 @@ The Arduino GSM Shield V1 connects your Arduino to the internet using the GPRS w
 
 The Arduino GSM Shield V1 allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/en/uploads/Main/Quectel_M10_AT_commands.pdf). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
 
-The shield uses digital pins 2 and 3 for software serial communication with the M10\. Pin 2 is connected to the M10’s TX pin and pin 3 to its RX pin. [See these notes](https://www.arduino.cc/en/en/Guide/GSMShieldLeonardoMega) for working with an Arduino Mega, Mega ADK, or Leonardo. The modem's PWRKEY pin is connected to Arduino pin 7.
+The shield uses digital pins 2 and 3 for software serial communication with the M10\. Pin 2 is connected to the M10’s TX pin and pin 3 to its RX pin. [See these notes](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield) for working with an Arduino Mega, Mega ADK, or Leonardo. The modem's PWRKEY pin is connected to Arduino pin 7.
 
 The M10 is a Quad-band GSM/GPRS modem that works at frequencies GSM850MHz, GSM900MHz, DCS1800MHz and PCS1900MHz. It supports TCP/UDP and HTTP protocols through a GPRS connection. GPRS data downlink and uplink transfer speed maximum is 85.6 kbps.
 
@@ -36,9 +36,9 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoGSMShiel
 
 ### Need Help?
 
-* On the GSM Shield V1 [on the GSM Library](https://www.arduino.cc/en/en/Reference/GSM)
+* On the GSM Shield V1 [on the GSM Library](https://docs.arduino.cc/retired/archived-libraries/GSM)
 * On Projects [on the Arduino Forum](https://forum.arduino.cc/index.php?board=3.0)
-* On the Product itself through [our Customer Support](https://store.arduino.cc/index.php?main_page=contact_us&language=en)
+* On the Product itself through [our Customer Support](https://support.arduino.cc/hc)
 
 ## Documentation
 
