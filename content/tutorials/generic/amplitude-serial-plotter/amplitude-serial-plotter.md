@@ -17,6 +17,7 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
+contributeURL: content/tutorials/generic/
 ---
 
 ## Introduction
