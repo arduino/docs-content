@@ -128,6 +128,8 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
+>**Note:** We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Simply click [here](https://create.arduino.cc/iot/templates/plant-watering-kit) to check out the IoT Cloud Template. Don’t worry, after using the template you can still freely change your setup. If you want to go through the steps on your own just skip the template and continue with the following steps in this tutorial.
+
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
 
 **1.** Create a new Thing, and select/configure the Nano RP2040 board. Note that the board needs to be connected to your computer during this setup.
