@@ -8,7 +8,7 @@ tags:
 author: 'Benjamin Dannegård'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/enclosure-kit
-  - hardware/04.pro/carriers/edge-control
+  - hardware/05.pro-solutions/solutions-and-kits/edge-control
 ---
 
 ## Introduction 
