@@ -10,8 +10,8 @@ libraries:
   - name: ArduinoMotorCarrier
     url: https://github.com/arduino-libraries/ArduinoMotorCarrier
 hardware:
-  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/01.mkr/03.carriers/mkr-motor-carrier
+  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - _snippets/hardware/dc-motor
 software:
   - ide-v1

@@ -9,8 +9,8 @@ tags:
   - NBIOT
 author: 'Benjamin Dannegård'
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04pro/shields/portenta-cat-m1-nb-iot-gnss-shield
+  - hardware/04.pro/boards/portenta-h7
   - _snippets/hardware/dipole-antenna
   - _snippets/hardware/sim-card
 software:

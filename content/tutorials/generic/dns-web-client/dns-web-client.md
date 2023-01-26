@@ -8,11 +8,12 @@ libraries:
   - name: Ethernet Library
     url: https://www.arduino.cc/en/Reference/Ethernet
 hardware:
-  - hardware/02.hero/boards/uno-rev3    
+  - hardware/02.hero/boards/uno-rev3
 software:
   - ide-v1
   - ide-v2
   - web-editor
+contributeURL: content/tutorials/generic/
 ---
 
 
