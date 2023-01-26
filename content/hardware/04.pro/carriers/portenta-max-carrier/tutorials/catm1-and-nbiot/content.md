@@ -8,7 +8,7 @@ tags:
   - NBIOT
 author: 'Benjamin Dannegård'
 hardware:
-  - hardware/04pro/carriers/portenta-max-carrier
+  - hardware/04.pro/carriers/portenta-max-carrier
   - hardware/04.pro/boards/portenta-h7
   - _snippets/hardware/sim-card
 software:
