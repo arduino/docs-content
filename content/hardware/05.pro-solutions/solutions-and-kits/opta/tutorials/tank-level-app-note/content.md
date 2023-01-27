@@ -46,7 +46,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 ### Hardware Requirements
 
-- [Opta™ PLC](https://store.arduino.cc/pages/opta) with RS-485 support (x2)
+- [Opta™ PLC](https://store.arduino.cc/pages/opta) with RS485 support (AFX00001 or AFX00002) (x2)
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
