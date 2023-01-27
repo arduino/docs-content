@@ -355,7 +355,7 @@ void modbus_line(){
 
 ### Understanding the Big Tank (BT) Code
 
-The Opta™ in charge of the Big Tank has a similar structure to the Small Tank's Opta™,  such as Arduino IoT Cloud generated code during the configuration. We will focus on the main tasks that the Big Tank is in charge of and specializes as a Client.
+The Opta™ in charge of the Big Tank has a similar structure to the Small Tank's Opta™,  such as Arduino IoT Cloud generated code during the configuration. We will focus on the main tasks that the Big Tank is in charge of and specializes in as a Client.
 
 The Big Tank's Opta™ has two main tasks. They are to stop the system operation or to control the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is turned off, which will halt the Pump and send the valve off command for Small Tank's Opta™. This sets emergency stop for the system. The `BT_Pump_CTRL()` will send the valve off request whenever Big Tank's maximum level is reached and activate the pump to avoid reservoir overfill.
 
