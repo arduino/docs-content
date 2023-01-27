@@ -489,11 +489,13 @@ Laboratory equipment, Computer vision
 
 ### Power Consumption
 
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -    | xx   | V    |
-| VUSBMax | Maximum input voltage from USB connector | -0.3 | -    | xx   | V    |
-| PMax    | Maximum Power Consumption                | -xx  | -    | xx   | mW   |
+| Description                                                 | Min  | Typ  | Max  | Unit |
+| ----------------------------------------------------------- | ---- | ---- | ---- | ---- |
+| Power consumption in deep sleep mode with 3.7V power supply |      | 0.67 |      | mA   |
+| Power consumption in busy loop with 5V power supply         |      | 2.6  |      | mAh  |
+| Maximum power consumption with 5V power supply              |      | 230  |      | mA   |
+
+**Note:** The busy loop taken as reference consists of 595 seconds of deep sleep time and 5 seconds of power on and radio on. 
 
 ### Block Diagram 
 ![Block diagram](assets/portentaH7_blockDiagram.svg)
