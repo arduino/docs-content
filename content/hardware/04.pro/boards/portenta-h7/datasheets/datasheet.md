@@ -495,7 +495,7 @@ Laboratory equipment, Computer vision
 | Power consumption in busy loop with 5V power supply         |      | 2.6  |      | mAh  |
 | Maximum power consumption with 5V power supply              |      | 230  |      | mA   |
 
-**Note:** The busy loop taken as reference consists of 595 seconds of deep sleep time and 5 seconds of power on and radio on. 
+**Note:** All the measurements have been performed with Portenta H7 full version (ABX00042). The busy loop taken as reference consists of 595 seconds of deep sleep time and 5 seconds of power on and radio on. 
 
 ### Block Diagram 
 ![Block diagram](assets/portentaH7_blockDiagram.svg)
