@@ -352,7 +352,6 @@ void modbus_line(){
 }
 ```
 
-We will now continue with Big Tank's Opta™ to understand its role.
 
 ### Understanding the Big Tank (BT) Code
 
