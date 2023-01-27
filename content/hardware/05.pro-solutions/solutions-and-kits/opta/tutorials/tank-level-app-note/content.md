@@ -58,9 +58,9 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: 
-* * ArduinoRS485
-* * ArduinoModbus
-* * Scheduler
+* ArduinoRS485
+* ArduinoModbus
+* Scheduler
 
 You can install those libraries via the Library Manager of the Arduino IDE.
 - The [Arduino IoT Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. The Arduino IoT Cloud account is free and it will be needed to access its features.
