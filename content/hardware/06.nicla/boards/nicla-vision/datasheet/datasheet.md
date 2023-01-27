@@ -120,10 +120,10 @@ Single-cell Li-ion/Li-Po battery
 
 | Description                                                 | Min | Typ | Max | Unit |
 |-------------------------------------------------------------|-----|-----|-----|------|
-| Average power consumption in deep sleep mode                |     | 374 |     | uA   |
-| Average power consumption during image capture              |     | 105 |     | mA   |
+| Average current consumption in deep sleep mode              |     | 374 |     | uA   |
+| Average current consumption during image capture            |     | 105 |     | mA   |
 
-**Note:** The measurements have been performed with battery power supply and OpenMV IDE firmware version 4.3.4.
+**Note:** The measurements have been performed with battery power supply (200mAh Li-ion battery) and OpenMV IDE firmware version 4.3.4.
 
 <div style="page-break-after:always;"></div>
 
