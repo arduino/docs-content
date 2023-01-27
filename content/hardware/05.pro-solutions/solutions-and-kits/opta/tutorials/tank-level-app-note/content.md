@@ -558,4 +558,4 @@ The complete code for the Small and Big Tank's Opta™ can be downloaded [here](
 
 ## Conclusion
 
-You have learned to build tank level monitoring systems with the Opta™ and the Arduino IoT Cloud. In this application note, we have learned how to comminicate two Opta™ using Modbus RTU protocol to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level information.
+In this application note, we have learned how to communicate two Opta™ using Modbus RTU protocol to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino IoT Cloud features to have an on-demand trigger and monitor the actual tank-level information through a dashboard that allows the monitoring and control in real-time of the whole system.
