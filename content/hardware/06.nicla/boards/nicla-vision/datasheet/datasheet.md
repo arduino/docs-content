@@ -11,7 +11,7 @@ author: Ali Jahangiri
 
 The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
 
-# Target areas
+# Target Areas
 
 Wireless sensor networks, data fusion, artificial intelligence, machine vision
 
