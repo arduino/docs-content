@@ -321,7 +321,7 @@ void setup() {
 }
 ```
 
-The main `loop()` manages local parameters and `modbus_line()` handles the data exchange between the Opta™ using Modbus RTU protocol.
+The main `loop()` manages the general execution and the local parameters. The `modbus_line()` function handles the data exchange between the two Opta™ using the Modbus RTU protocol.
 
 ```arduino
 void loop() {
