@@ -544,7 +544,9 @@ void modbus_line(){
 }
 ```
 
-Arduino IoT Cloud integration with the tanks is shown below:
+### The Arduino IoT Cloud dashboard
+
+Thanks to the Arduino IoT Cloud, we can create a simple but useful dashboard to have a professional real-time HCI as it can be seen below:
 
 ![Arduino IoT Cloud integration with the tanks.](assets/cloud_integration.svg)
 
