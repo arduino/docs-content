@@ -51,7 +51,7 @@ Big Tank is at least double the capacity of the Small Tank in the experimental s
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
 - 12VDC NC 2/2-Way direct acting solenoid or motorized ball valve (x1)
-- 12VDC liquid pump
+- 12VDC liquid pump (x1)
 - 12VDC DIN rail power supply (x1)
 
 ### Software Requirements
