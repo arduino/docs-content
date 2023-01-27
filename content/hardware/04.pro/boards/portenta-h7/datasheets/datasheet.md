@@ -489,13 +489,17 @@ Laboratory equipment, Computer vision
 
 ### Power Consumption
 
-| Description                                                 | Min | Typ  | Max | Unit |
-|-------------------------------------------------------------|-----|------|-----|------|
-| Power consumption in deep sleep mode with 3.7V power supply |     | 0.67 |     | mA   |
-| Power consumption in busy loop with 5V power supply         |     | 2.6  |     | mAh  |
-| Maximum power consumption with 5V power supply              |     | 230  |     | mA   |
+| Description                                                    | Min | Typ  | Max | Unit |
+|----------------------------------------------------------------|-----|------|-----|------|
+| Current consumption in deep sleep mode (@3.7V)                 |     | 0.67 |     | mA   |
+| Current consumption in busy loop (@5V)                         |     | 2.6  |     | mAh  |
+| Maximum current consumption with M7 ON and M4 ON bliking (@5V) |     | 230  |     | mA   |
 
-**Note:** All the measurements have been performed with Portenta H7 full version (ABX00042). The busy loop taken as reference consists of 595 seconds of deep sleep time and 5 seconds of power on and radio on. 
+**Note:** All the measurements have been performed with Portenta H7 full version (ABX00042). The current consumption in busy loop has been evaluated according to the following loop:
+1. Deep sleep mode.
+2. Wake up every 595 seconds.
+3. Acquire data for 5 seconds.
+4. Go back to deep sleep mode.
 
 ### Block Diagram 
 ![Block diagram](assets/portentaH7_blockDiagram.svg)
