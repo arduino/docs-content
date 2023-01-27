@@ -75,7 +75,7 @@ The two Opta™ will communicate with each other using the Modbus RTU protocol. 
 
 ## Demonstration Description
 
-Small Tank (ST) and Big Tank (BT) each have a specific monitoring routine to track and control their minimum and maximum level. Both Opta™ will exchange important states and parameters of each tank to understand and take appropriate actions to maintain both tanks' desired capacity in the application. As mentioned before, the Opta™ in charge of the Small Tank and Big Tank will communicate with each other using Modbus RTU protocol. The Big Tank will be the Client, while the Small Tank will behave as Server.
+Each one of the tanks has a specific monitoring routine to track and control their minimum and maximum levels. Both Opta™ will exchange important states and parameters of each tank to understand and take appropriate actions to maintain the desired capacities in the application. As mentioned before, the Opta™ in charge of the Small Tank (ST) and Big Tank (BT) will communicate with each other using Modbus RTU protocol. The Big Tank will be the Client, while the Small Tank will behave as Server.
 
 The Opta™ in the Big Tank (BT) performs the following actions:
 
