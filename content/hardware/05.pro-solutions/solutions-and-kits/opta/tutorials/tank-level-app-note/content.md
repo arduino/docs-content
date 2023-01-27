@@ -348,7 +348,7 @@ void loop() {
 void modbus_line(){
   ST_Param_Share();
 
-  // Modbus RTU w/ Small Tank PLC
+  // Modbus RTU w/ Big Tank PLC
   RTU_parser();
   delay(100);
 }
