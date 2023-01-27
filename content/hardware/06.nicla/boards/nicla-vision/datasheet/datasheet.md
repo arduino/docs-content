@@ -108,12 +108,12 @@ Single-cell Li-ion/Li-Po battery
 **Note 2:** If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
 
 ### Power Consumption
-| Symbol               | Description                                                 | Min | Typ | Max | Unit |
-|----------------------|-------------------------------------------------------------|-----|-----|-----|------|
-| P<sub>STDBY</sub>    | Power consumption in standby                                |     | TBC |     | mW   |
-| P<sub>BLINK</sub>    | Power consumption with blink sketch                         |     | TBC |     | mW   |
-| P<sub>SENSE</sub>    | Power consumption for polling all sensors at 1 Hz           |     | TBC |     | mW   |
-| P<sub>SENSE_LP</sub> | Low Power consumption for polling all sensors once per hour |     | TBC |     | mW   |
+| Description                                                 | Min | Typ | Max | Unit |
+|-------------------------------------------------------------|-----|-----|-----|------|
+| Average power consumption in deep sleep mode                |     | 374 |     | uA   |
+| Average power consumption during image capture              |     | 105 |     | mA   |
+
+**Note:** The measurements have been performed with battery power supply and OpenMV IDE firmware version 4.3.4.
 
 <div style="page-break-after:always;"></div>
 
