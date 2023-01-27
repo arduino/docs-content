@@ -254,7 +254,7 @@ uint8_t RTU_parser(){
 }
 ```
 
-The setup process to enable all the needed features to manage Small Tank's Opta™ is as follows. Here the Modbus RTU protocol, scheduler, Arduino IoT Cloud, and other features are configured and enabled.
+The setup process to enable all the needed features to manage Small Tank's Opta™ can be found below. Here the Modbus RTU protocol, scheduler, Arduino IoT Cloud, and other features are configured and enabled.
 
 ```arduino
 /*************************************
