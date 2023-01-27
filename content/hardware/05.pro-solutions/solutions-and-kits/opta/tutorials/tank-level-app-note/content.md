@@ -512,7 +512,7 @@ uint8_t readInputRegisterValues(int dev_address, uint8_t reg_address, int byte_c
 }
 ```
 
-In the loop and assigned scheduler function, the Big Tank Opta™ will share its local parameters with Small Tank's Opta™, consistently checking for pump activation or if the system must activate an emergency stop.
+In the loop and assigned scheduler function, the Big Tank Opta™ will share its local parameters with the Small Tank's Opta™, consistently checking for pump activation or if the system must activate an emergency stop.
 
 ```arduino
 void loop() {
