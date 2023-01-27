@@ -40,7 +40,7 @@ A graphical representation of the intended application is shown below:
 
 ![Graphical representation of the tank level monitoring application.](assets/application_representation.svg)
 
-Big Tank is at least double the capacity of the Small Tank in the experimental setup shown before.
+The Big Tank has at least twice the capacity of the Small Tank in the experimental setup shown before. The communication between both tanks is done using Modbus RTU.
 
 ## Hardware and Software Requirements
 
