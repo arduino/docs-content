@@ -253,7 +253,7 @@ The setup process to enable all the needed features to manage Small Tank's Optaâ
 
 ```arduino
 /*************************************
-* RS485 related tasks
+* Modbus RTU related tasks
 *************************************/
 void RTU_Setup(){
   Serial.println(F("Small Tank - Modbus RTU Client"));
