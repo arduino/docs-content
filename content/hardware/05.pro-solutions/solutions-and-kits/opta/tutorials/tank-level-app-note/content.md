@@ -449,7 +449,7 @@ uint8_t RTU_parser(){
 }
 ```
 
-The Big Tank Opta™, since it is the Client, the Modbus RTU protocol is configured accordingly with the Client's properties. The commonly used method in this example for the Client will be `writeHoldingRegisterValues()` and `readInputRegisterValues()`. The first method will write to the Small Tank Opta™ when certain conditions are flagged, while the other method will request information to track the Small Tank Opta™.
+Since the Big Tank Opta™ is the Client, the Modbus RTU protocol is configured accordingly with the Client's properties. The commonly used method in this example for the Client will be `writeHoldingRegisterValues()` and `readInputRegisterValues()`. The first method will write to the Small Tank Opta™ when certain conditions are flagged, while the other method will request information to track the Small Tank Opta™.
 
 ```arduino
 void RTU_Setup(){
