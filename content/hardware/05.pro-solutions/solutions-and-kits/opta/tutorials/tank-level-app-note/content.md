@@ -71,7 +71,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Electrical connections of the application.](assets/electrical_connections.svg)
 
-The Opta™ will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via digital input pins of the Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of the Opta™.
+The two Opta™ will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pumps and the solenoid/ball valves are controlled using the built-in relay outputs of both Opta™.
 
 ## Demonstration Description
 
