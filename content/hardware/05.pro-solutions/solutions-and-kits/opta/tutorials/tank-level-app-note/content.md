@@ -25,7 +25,7 @@ hardware:
 
 ## Introduction
 
-Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks operated in many industries, even in your house. Some industrial applications include transport and storage tanks (for example, think of a tank in a water treatment plant). In household applications, tank level monitoring is essential for applications like water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines, and the list goes on. With its industrial IoT capabilities, the Opta™ micro PLC can be used for this application.
+Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks operated in many industries, even at home. Some industrial applications include transport and storage tanks like, for example, a tank in a water treatment plant. In household applications, tank level monitoring is essential for applications like water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines... the list goes on. With its industrial IoT capabilities, Opta™ micro PLC can be the perfect solution for these industrial applications.
 
 ## Goals
 
