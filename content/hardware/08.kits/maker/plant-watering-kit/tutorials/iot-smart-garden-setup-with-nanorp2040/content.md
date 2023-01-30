@@ -110,9 +110,9 @@ Lastly, find the moisture sensor and a grove cable. Connect it to the Nano Screw
 
 - Yellow wire to A0 pin.
 
-***Note: The moisture sensor needs to be powered with 5V, and therefore you will need to power it with the same wall adapter that powers the board. This also means that if you're using a different power supply solution than we are suggesting, you should be careful not to exceed 5V or you may damage the sensor, your board, or both.***
-
 ![Moisture sensor](./assets/step6.png)
+
+***Note: The moisture sensor needs to be powered with 5V, and therefore you will need to power it with the same wall adapter that powers the board. This also means that if you're using a different power supply solution than we are suggesting, you should be careful not to exceed 5V or you may damage the sensor, your board, or both.***
 
 The complete circuit should look something like this:
 
