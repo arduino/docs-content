@@ -113,7 +113,105 @@ void onSmartSwitch(){
 
 ## Pump Watering System
 
+**Material required:**
+- Arduino Cloud enabled board.
+- Water Pump 
+- H-Bridge / NPN Transistor / Relay\*
+
+***\*There are several methods to enable a pump. Essentially, the main component of a pump is a DC motor. The use of a NPN transistor found on chips such as the ULN2003A allows you to control the intensity of the pump by setting the speed.***
+
+Pumps are low-cost components that can be utilized for plant management, drainage and other liquid management projects. 
+
+To set up a pump, we need a circuit to activate it. This can be achieved either through a relay (switching ON/OFF), a NPN transistor (setting the speed), or an H-bridge (reversing polarity of the motor). See the circuits below for each of these setups.
+
+![Pump circuits.]()
+
+**Configuration (relay):**
+
+| Variable | Name         | Permission     |
+| -------- | ------------ | -------------- |
+| boolean  | `pump_relay` | `Read & Write` |
+
+**Code (relay):**
+
+```arduino
+#include "thingProperties.h"
+
+void setup() {
+  Serial.begin(9600);
+
+  delay(1500); 
+
+  initProperties();
+
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+}
+
+void loop() {
+  ArduinoCloud.update();
+  
+}
+
+void onPumpRelayChange() {
+  if(pump_relay){
+    digitalWrite(pump_pin, HIGH);
+  }
+  else{
+    digitalWrite(pump_pin, LOW);
+  }
+}
+```
+
+**Configuration (ULN2003A chip):**
+
+| Variable | Name         | Permission     |
+| -------- | ------------ | -------------- |
+| int      | `pump_speed` | `Read & Write` |
+
+**Code (ULN2003A chip):**
+
+```arduino
+#include "thingProperties.h"
+int pump_pin = X //enter pin connected here
+
+void setup() {
+  Serial.begin(9600);
+  
+  delay(1500); 
+
+  initProperties();
+
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  pinMode(pump_pin, OUTPUT);
+}
+
+void loop() {
+  ArduinoCloud.update();
+  
+}
+
+void onPumpSpeedChange() {
+  analogWrite(pump_pin, pump_speed);
+}
+```
+
+***Note that the `pump_speed` variable will change anytime you change the value from a dashboard. In this example, the pump will continue to run until you set it to `0` (stop). You can create additional controls to e.g. activate the pump for a number of seconds, at a specific speed etc.***
+
 ## Climate Control
+
+**Material required:**
+- Arduino Cloud enabled board
+- Temperature sensor
+- Relay
+- Cooling fan
+- Heating element
+
+Climate control is quite easy and straightforward to implement, and can save a lot of money depending on how it is setup.
+
+In almost every case, you need a temperature sensor, that can inform your application about the temperature. The ideal temperature range is between 20-25 degrees. To keep the temperature in that range, we can control different devices, i.e. **climate control.**
+
+This example demonstrates how you can create a simple application that moderates the climate, designed for a smaller room.
+
 
 ## Energy Monitor (Current Sensor)
 
@@ -175,7 +273,5 @@ void loop() {
 - [Energy Monitor with Arduino IoT Cloud & Modbus protocol](). 
 
 ## 
-
-
 
 
