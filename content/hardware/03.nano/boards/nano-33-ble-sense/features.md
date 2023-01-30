@@ -56,7 +56,7 @@ The Arduino Nano 33 BLE Sense is a great choice for any beginner, maker or profe
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lps22hb/"/>
 </Feature>
 
-<Feature title="Temperature and Humidity Detection" image="temperature-sensor">
+<Feature title="Temperature and Humidity Sensor" image="temperature-sensor">
 
   The HTS221 capacitive digital sensor measures relative humidity and temperature. It has an accuracy of ± 0.5 °C and is thereby perfectly suited to detect ambient temperature.
 
