@@ -13,7 +13,7 @@ difficulty: beginner
 ## Components and Supplies
 
 - [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
-- [3D-printed enclosure](assets/PlantKitCase.zip) (optional).
+- [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional).
 
 ## Apps and Online Services
 
@@ -31,7 +31,7 @@ Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you 
 
 ### Components
 * [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
-* [3D-printed enclosure](assets/PlantKitCase.zip) (optional)
+* [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional)
 * USB - wall adapter (not included in the kit)
 
 OR
@@ -46,7 +46,7 @@ OR
 * Open ended USB Cable.
 * Soil moisture sensor.
 * Grove LED button.
-* [3D-printed enclosure](assets/PlantKitCase.zip) (optional).
+* [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional).
 * Short Grove cable (20cm).
 * Long Grove cable (50cm).
 * Long 3-pronged Grove cable (50cm).
@@ -106,15 +106,17 @@ Lastly, find the moisture sensor and a grove cable. Connect it to the Nano Screw
 
 - Black wire (-) to GND pin. 
 
-- Red wire (+) to 3.3V pin.
+- Red wire (+) to Vin pin.
 
 - Yellow wire to A0 pin.
+
+***Note: The moisture sensor needs to be powered with 5V, and therefore you will need to power it with the same wall adapter that powers the board. This also means that if you're using a different power supply solution than we are suggesting, you should be careful not to exceed 5V or you may damage the sensor, your board, or both.***
 
 ![Moisture sensor](./assets/step6.png)
 
 The complete circuit should look something like this:
 
-![Circuit for this project.](assets/circuit.png)
+![Circuit for this project.](assets/step7.png)
 
 If you are using the 3D-printed enclosure we provide a 3D-model for, now is a good time to fit the components inside if you haven't already. Use the standoffs to click the components into place.
 
@@ -128,7 +130,7 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
->**Note:** We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Simply click [here](https://create.arduino.cc/iot/templates/plant-watering-kit) to check out the IoT Cloud Template. Don’t worry, after using the template you can still freely change your setup. If you want to go through the steps on your own just skip the template and continue with the following steps in this tutorial.
+***Note: We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Click [here](https://create.arduino.cc/iot/templates/plant-watering-kit) to check out the IoT Cloud Template for an automated setup process.***
 
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
 
