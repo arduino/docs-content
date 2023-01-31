@@ -9,7 +9,7 @@ libraries:
   - name: NDP
     url: https://github.com/edgeimpulse/firmware-syntiant-tinyml
 hardware:
-  - hardware/nicla-voice
+  - hardware/06.nicla/boards/nicla-voice
 software:
   - ide-v1
   - ide-v2
@@ -21,7 +21,7 @@ software:
 
 The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it hears different events and keywords simultaneously, and is capable of understanding and learning what sounds mean. To make use of these keyword triggers, like blinking the LED when it recognizes a specific word, a machine learning model is required. With Edge Impulse it is possible to build, train these machine learning models and easily deploy the model to the Nicla Voice board. This tutorial will go through this process. 
 
-![The Nicla Voice](assets/cover-image.jpg)
+![The Nicla Voice](assets/nicla-cover-image.svg)
 
 ## Goals
 
@@ -30,7 +30,7 @@ The goals of this tutorial are:
 - Learn how to capture audio for a ML model
 - Learn how to train an Edge Impulse model
 - Learn how to export the model for use with the Nicla Voice
-- Learn how to use this model in a sketch
+- Learn how to use this model
 
 ## Hardware & Software Needed
 
@@ -67,7 +67,7 @@ With the account set up, now create a new project and lets move to the next step
 
 ### Capturing Data for the Model
 
-There are various different methods for capturing sound for the model with Edge Impulse. Navigate to the [data acquisition page]() and pick the preferred method for capturing audio.
+There are various different methods for capturing sound for the model with Edge Impulse. Navigate to the "Data acquisition" page and pick the preferred method for capturing audio.
 
 ![Data acquisition page](assets/data-acquisition-page.svg)
 
@@ -81,7 +81,7 @@ Scan the QR code with your phone and it will automatically connect. Set the opti
 
 ![Recording options](assets/record-data-options.svg)
 
-When a recording is made on the phone it will automatically show up on the webpage. First start by recording around 5 minutes of the phrase you want recognized, in this tutorial "Hey Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized.  Once this is done, record another 5 minutes of random words that are not the desired phrase, set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger also record 5 minutes of background noise and ambient noise, set the label of these recordings as "noise". The more data collected the better the model can be trained to recognize the phrase that is wanted, feel free to collect as much of these three different categories as needed.
+When a recording is made on the phone it will automatically show up on the webpage. First start by recording around 5 minutes of the phrase you want recognized, in this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized.  Once this is done, record another 5 minutes of random words that are not the desired phrase, set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger also record 5 minutes of background noise and ambient noise, set the label of these recordings as "noise". The more data collected the better the model can be trained to recognize the phrase that is wanted, feel free to collect as much of these three different categories as needed.
 
 ![Data collected](assets/data-acquired.svg)
 
@@ -119,29 +119,35 @@ The model is now ready to be built and deployed. Go to the "Deployment" page. Se
 
 ![Deployment on Edge Impulse](assets/deployment-first-step.svg)
 
-Next select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice.
-
-
-
-### Uploading the Model to Nicla Voice
-
+Next select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the ML model built for the Nicla Voice we need to set up the Arduino IDE, install the appropriate core and CLIs.
 
 ### Setting up Arduino IDE
 
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software). Within the Arduino IDE install the core for Nicla. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Arduino Mbed OS Nicla Boards** and install it.
 
-Now you are ready to upload sketches to the Nicla Voice via the Arduino IDE.
+### Installing Additional Dependencies
 
-### Using the Model in a Sketch
+To make it easy to flash any ML model created with Edge Impulse onto the Nicla Voice we need to install the Arduino CLI and Edge Impulse CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse to install these properly.
 
+### Uploading the Model
+
+Now that everything needed for flashing the firmware and model to the Nicla Voice is installed we can go ahead and do so. Extract the files that were packed into the .zip file recieved from Edge Impulse when the model was built into a folder. Now run the "flash" file that corresponds with the OS on the machine you are using. Like shown in this list:
+
+- Use **flash_windows.bat** if you are using a PC
+- Use **flash_mac.command** if you are using a MAC
+- Use **flash_linux.sh** if you are using a Linux machine
+
+Now a command window will appear where you can follow the status of the installation.
 
 ### Testing It Out
 
+To make sure everything is working open the Arduino IDE, select the correct port that the board is connected to and open the serial monitor. If there is nothing in the serial monitor try pressing the button on the Nicla Voice once. Info about the files and model that is loaded onto the board should now be printed in the serial monitor.
 
+![Serial monitor of running ML model on a Nicla Voice]()
 
 ## Conclusion
 
-This tutorial showed how to set up the Edge impulse platform to create a machine learning model to use with the Nicla Voice. It went through how to collect audio with a phone, how to train the model with the data and then how to build it to work with the board. Lastly, the tutorial shows how to upload the model to the Nicla Voice and how to use that model in a sketch.
+This tutorial showed how to set up the Edge impulse platform to create a machine learning model to use with the Nicla Voice. It went through how to collect audio with a phone, how to train the model with the data and then how to build it to work with the board. Lastly, the tutorial shows how to upload the model to the Nicla Voice and how to use that model.
 
 ### Troubleshoot
 
