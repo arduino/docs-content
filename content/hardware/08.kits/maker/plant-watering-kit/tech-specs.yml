@@ -1,0 +1,15 @@
+Kit:
+  Name: Arduino® Plant Watering Kit
+  SKU: AKX00041
+Components:
+  Arduino Nano RP2040 Connect: 1x
+  Arduino Nano Screw Terminal Adapter: 1x
+  Open-ended USB cable: 1x
+  5V submersible pump: 1x
+  1 meter of plastic hose: 1x
+  Grove moisture sensor: 1x
+  Grove relay module with cable: 1x
+  Grove LED button module with cable: 1x
+  Grove cables 50 cm: 1x
+  Jumper wires (15 cm): 10x
+  Screw connectors: 12x
