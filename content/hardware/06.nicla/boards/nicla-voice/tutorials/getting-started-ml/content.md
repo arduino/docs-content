@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Nicla Voice'
-description: 'Learn how to capture audio for an Edge Impulse model to use with Nicla Voice'
+description: 'Learn how to start to use the Nicla Voice and create your own machine learning audio models using Edge Impulse'
 tags: 
   - Getting started
   - Edge Impulse
