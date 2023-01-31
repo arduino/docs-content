@@ -64,7 +64,7 @@ With the Nicla Voice it is possible to train your own model for voice recognitio
 
 ![ML tools option in Arduino Cloud](assets/arduino-cloud-ML.svg)
 
-With the account set up, now create a new project and let's move to the next step to capture data for the model.
+With the account set up, create a new project and proceed to the next step to capture data for the model.
 
 ### Capturing Data for the Model
 
