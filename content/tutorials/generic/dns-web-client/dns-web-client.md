@@ -13,7 +13,7 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
-contributeURL: content/tutorials/generic/
+contributeURL: content/tutorials/generic
 ---
 
 
