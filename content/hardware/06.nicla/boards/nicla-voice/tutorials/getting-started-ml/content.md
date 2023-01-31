@@ -116,7 +116,7 @@ Once it is completed, the performance of the model's training can be seen below.
 
 ### Deploying the Model
 
-The model is now ready to be built and deployed. Go to the "Deployment" page. Select the "Syntiant NDP120 library" and set the posterior parameters. Click the "Find posterior parameters" button, in the window that pops up select all keywords that we have created in the steps before, we can keep the calibration settings to "No calibration". Then press the green "Find parameters" button, when the job is done you can close this window.
+The model is now ready to be built and deployed. Go to the "Deployment" page, select the "Syntiant NDP120 library" and set the posterior parameters. Click the "Find posterior parameters" button. In the window that pops up select all keywords that we have created in the steps before. We can keep the calibration settings to "No calibration". Then press the green "Find parameters" button and, when the job is done, close this window.
 
 ![Deployment on Edge Impulse](assets/deployment-first-step.svg)
 
