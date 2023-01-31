@@ -14,7 +14,6 @@ software:
   - ide-v2
   - web-editor
   - iot-cloud
-contributeURL: contribution-templates/
 ---
 
 Update the frontmatter above with information that fits your tutorial. Remove the section that are not relevant or filled in. Note that you **must** at least fill in the title, description and author. Remove the sections that are not filled in.
