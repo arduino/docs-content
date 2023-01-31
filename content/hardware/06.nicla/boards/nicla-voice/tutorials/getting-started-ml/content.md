@@ -92,7 +92,7 @@ Make sure to have a good training/test data split ratio of around 80/20. The tes
 
 ### Create an Impulse
 
-Now that we have the data samples we can move on to designing the impulse. An impulse is in a nutshell a recipe with which the model is being trained. It defines actions that are performed on your input data to make them better suited for machine learning and a learning block that defines the algorithm for the classification. In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
+Now that we have the data samples we can move on to designing the impulse. An impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was recorded in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class. In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
 
 ![Impulse design page](assets/impulse-design-page.svg)
 
@@ -138,7 +138,7 @@ Now that everything needed for flashing the firmware and the model to the Nicla 
 - Use **flash_mac.command** if you are using a MAC
 - Use **flash_linux.sh** if you are using a Linux machine
 
-Now a command window will appear where you can follow the status of the installation.
+If there is any issue in the process, try to run these as administrator. A command window will appear where you can follow the status of the installation.
 
 ### Testing It Out
 
