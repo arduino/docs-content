@@ -3,32 +3,40 @@ The MKR ENV Shield comes equipped with three sensors: <b>LPS22HB, HTS221</b> and
 </FeatureDescription>
 
 <FeatureList>
-<Feature title="LPS22HB" image="pressure-sensor">
-A compact absolute pressure sensor with a range between 260 hPa and 1260 hPa, with power consumption as low as 3 μA.
+<Feature title="Pressure Sensor" image="pressure-sensor">
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/dm00140895.pdf"download blank/>
+A compact absolute pressure sensor with a range between 260 hPa and 1260 hPa.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-env-shield/mkr-env-shield-basic#lps22hb-atmospheric-pressure-sensor"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkrenv/"/>
 </Feature>
 
-<Feature title="HTS221" image="temperature-sensor">
-A relative humidity and temperature sensor with high accuracy.
+<Feature title="Humidity / Temperature" image="temperature-sensor">
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/hts221.pdf"download blank/>
+A relative humidity and temperature sensor with high accuracy to use for your projects.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-env-shield/mkr-env-shield-basic#hts221-temperature--humidity-sensor"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkrenv/"/>
 </Feature>
 
-<Feature title="TEMT6000" image="light-sensor">
+<Feature title="Light Sensor" image="light-sensor">
+
 An ambient light sensor based on a epitaxial planar phototransistor, with a peak sensitivity of 570 nm.
 
-<FeatureLink title="Datasheet" url="https://www.vishay.com/docs/81579/temt6000.pdf"download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-env-shield/mkr-env-shield-basic#temt6000-light-sensor"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkrenv/"/>
 </Feature>
 
 <Feature title="Micro SD card slot" image="file-icon">
+
 Store all of your environmental data on an external SD card.
+
 </Feature>
 
 <Feature title="VEML6075 (older versions only)" image="uv-sensor">
+
 Capture ultraviolet UVA and UVB intensity.
 
-<FeatureLink title="Datasheet" url="http://www.farnell.com/datasheets/2245219.pdf?_ga=2.253922568.1265931949.1503988629-1413671594.1503025027"download blank/>
 </Feature>
 
 </FeatureList>

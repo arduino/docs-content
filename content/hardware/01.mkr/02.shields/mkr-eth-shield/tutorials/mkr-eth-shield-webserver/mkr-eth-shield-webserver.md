@@ -9,7 +9,7 @@ tags:
 author: 'Karl Söderby'
 libraries: 
   - name: Ethernet
-    url: https://www.arduino.cc/en/Reference/ArduinoMKRENV
+    url: https://www.arduino.cc/reference/en/libraries/ethernet/
 hardware:
   - hardware/01.mkr/01.boards/mkr-zero
   - hardware/01.mkr/02.shields/mkr-eth-shield

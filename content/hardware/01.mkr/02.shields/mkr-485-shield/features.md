@@ -6,17 +6,18 @@ The MKR 485 Shield is based on the **MAXIM MAX3157** transceiver, which guarante
 
 <FeatureList>
 
-<Feature title="MAXIM MAX3157" image="communication">
+<Feature title="half & full duplex communication" image="communication">
 
 A transceiver with guaranteed data rates of up to 250kbps, which can be used for half-duplex or full-duplex communication.
 
-<FeatureLink title="Datasheet" url="https://datasheets.maximintegrated.com/en/ds/MAX3157.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-485-shield/mkr-485-communication"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinors485/"/>
 </Feature>
 
-<Feature title="TPS54232" image="power">
+<Feature title="Power with battery" image="power">
+
 A DC-DC converter with pulse-skipping Eco-Mode feature, which allows the use of batteries as a power supply.
 
-<FeatureLink title="Datasheet" url="https://www.ti.com/lit/ds/symlink/tps54232.pdf" download blank/>
 </Feature>
 
 </FeatureList>

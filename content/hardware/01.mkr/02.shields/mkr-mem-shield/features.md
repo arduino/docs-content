@@ -1,11 +1,5 @@
 <FeatureList>
 
-<Feature title="W25Q16 memory chip" image="core">
-
-This Serial Flash memory extends the storage possibilities for your projects.
-
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Winbond_w25q16dv.pdf"download blank/>
-</Feature>
 
 <Feature title="Prototyping" image="configurability">
 
