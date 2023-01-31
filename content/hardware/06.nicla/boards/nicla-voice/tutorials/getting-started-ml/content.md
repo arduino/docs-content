@@ -128,7 +128,7 @@ Make sure the latest version of the Arduino IDE is installed. The IDE can be dow
 
 ### Installing Additional Dependencies
 
-To make it easy to flash any ML model created with Edge Impulse onto the Nicla Voice we need to install the Arduino CLI and Edge Impulse CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse to install these properly.
+To make it easy to flash any ML model created with Edge Impulse onto the Nicla Voice, we need to install the Arduino CLI and Edge Impulse CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse to install both properly.
 
 ### Uploading the Model
 
