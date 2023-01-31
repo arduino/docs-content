@@ -122,7 +122,7 @@ The model is now ready to be built and deployed. Go to the "Deployment" page, se
 
 Next select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the ML model built for the Nicla Voice, we need to set up the Arduino IDE installing the appropriate core and CLIs.
 
-### Setting up Arduino IDE
+### Setting up the Arduino IDE
 
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software). Within the Arduino IDE install the core for Nicla. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Arduino Mbed OS Nicla Boards** and install it.
 
