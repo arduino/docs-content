@@ -131,7 +131,7 @@ To make it easy to flash any ML model created with Edge Impulse onto the Nicla V
 
 ### Uploading the Model
 
-Now that everything needed for flashing the firmware and model to the Nicla Voice is installed we can go ahead and do so. Extract the files that were packed into the .zip file recieved from Edge Impulse when the model was built into a folder. Now run the "flash" file that corresponds with the OS on the machine you are using. Like shown in this list:
+Now that everything needed for flashing the firmware and model to the Nicla Voice is installed we can go ahead and do so. Extract the files that were packed into the .zip file received from Edge Impulse when the model was built into a folder. Now run the "flash" file that corresponds with the OS on the machine you are using. Like shown in this list:
 
 - Use **flash_windows.bat** if you are using a PC
 - Use **flash_mac.command** if you are using a MAC
