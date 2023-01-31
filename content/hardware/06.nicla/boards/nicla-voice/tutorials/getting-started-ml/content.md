@@ -44,7 +44,7 @@ The goals of this tutorial are:
 
 ### Testing the Default Sketch
 
-The Nicla Voice comes pre-flashed with the Alexa Demo. To test this sketch simply connect the Nicla Voice to a computer or alternative power source and say "Hey Nicla". This should make the LED on the board blink. If there is no response from the board try moving closer to it or to speak louder. This function is what we are going to replicate with the custom Edge Impulse model that will be created in this tutorial.
+The Nicla Voice comes pre-flashed with the Alexa Demo. To test this sketch simply connect the Nicla Voice to a computer, or an alternative power source, and say "Hey Nicla". This should make the LED on the board blink. If there is no response from the board try moving closer to it or to speak louder. During this tutorial, we are going to replicate this behavior using our own custom Edge Impulse model.
 
 Now let's take a look at how to create an Edge Impulse model.
 
@@ -54,7 +54,7 @@ To be able to train a machine learning model to classify audio we first need to 
 
 ### What Is Overfitting and How to Avoid It 
 
-If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart and makes the classification based on that but you rather want the model to learn the concept of an object or sound. In machine learning this problem is a common pitfall.
+If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. This is a common pitfall in machine learning. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart and makes the classification based on that but you rather want the model to learn the concept of an object or sound.
 
 Finding the right configuration for your application often requires trial and error. Edge Impulse shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
 
@@ -100,17 +100,15 @@ Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings t
 
 ![Syntiant settings](assets/syntiant-options.svg)
 
-Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button, if you have collected 15 minutes of data as suggested in the previous step this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
+Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button. If you have collected a total of fifteen minutes of data as suggested in the previous step, this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate well, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
+
+![Generting features with syntiant](assets/features-generation.svg)
 
 Now that the settings are correct and we have the data for the model it is time to train it.
 
 ### Training the Model
 
-Go to the "Classifier" tab under "Impulse design". We can keep the default settings here and press the "Start training" button. On the right you can see the progress of the training, this process will also take some time to complete.
-
-![Training the model in Edge Impulse](assets/features-generation.svg)
-
-Once it is completed, the performance of the model's training can be seen in the image below.
+Go to the "Classifier" tab under "Impulse design". We can keep the default settings here and press the "Start training" button. On the right you can see the progress of the training, this process will also take some time to complete. Once it is completed, the performance of the model's training can be seen in the image below.
 
 ![Stats from the generated features](assets/generated-features-stats.svg)
 
