@@ -6,8 +6,8 @@ tags:
   - Edge Impulse
 author: 'Benjamin Dannegård'
 libraries: 
-  - name: 
-    url: 
+  - name: NDP
+    url: https://github.com/edgeimpulse/firmware-syntiant-tinyml
 hardware:
   - hardware/nicla-voice
 software:
@@ -57,7 +57,7 @@ If a machine learning model is overfitting, it means that it is too well geared 
 
 To find the right configuration for your application often requires trial and error. Edge Impulse shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
 
-### Creating a custom Edge Impulse Model
+### Creating a Custom Edge Impulse Model
 
 With the Nicla Voice it is possible to train your own model for voice recognition and use it with the board. This will allow the Nicla Voice to detect words or phrases that you yourself record. First, if you do not already have a Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse via the Arduino Cloud, as shown in the image below.
 
