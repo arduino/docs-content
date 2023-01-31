@@ -102,7 +102,7 @@ Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings t
 
 Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button. If you have collected a total of fifteen minutes of data as suggested in the previous step, this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate well, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
 
-![Generting features with syntiant](assets/features-generation.svg)
+![Generating features with syntiant](assets/features-generation.svg)
 
 Now that the settings are correct and we have the data for the model it is time to train it.
 
@@ -132,7 +132,7 @@ To make it easy to flash any Machine Learning model created with Edge Impulse on
 
 ### Uploading the Model
 
-Now that everything needed for flashing the firmware and model to the Nicla Voice is installed we can go ahead and do so. Extract the files that were packed into the .zip file received from Edge Impulse when the model was built into a folder. Now run the "flash" file that corresponds with the OS on the machine you are using. As shown in this list:
+Now that everything needed for flashing the firmware and the model to the Nicla Voice is installed, we can finally flash the board with our model. Extract the files that were packed into the .zip file received from Edge Impulse when the model was built into a folder. Now run the "flash" file that corresponds with the OS on the machine you are using. As shown in this list:
 
 - Use **flash_windows.bat** if you are using a PC
 - Use **flash_mac.command** if you are using a MAC
