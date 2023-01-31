@@ -102,7 +102,7 @@ Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings t
 
 Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button, if you have collected 15 minutes of data as suggested in the previous step this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
 
-Now that the settings are correct and we have the data for the model it needs to be trained.
+Now that the settings are correct and we have the data for the model it is time to train it.
 
 ### Training the Model
 
@@ -110,9 +110,11 @@ Go to the "Classifier" tab under "Impulse design". We can keep the default setti
 
 ![Training the model in Edge Impulse](assets/features-generation.svg)
 
-Once it is completed, the performance of the model's training can be seen below. Ideally, you want to get as close to 100% accuracy as possible for each class. If the results are poor the sound recorded may not be representative of the audio that it is being classified as. The audio that is incorrect should then be removed from the data set and replaced if the data set becomes too small.
+Once it is completed, the performance of the model's training can be seen in the image below.
 
 ![Stats from the generated features](assets/generated-features-stats.svg)
+
+Ideally, you want to get as close to 100% accuracy as possible for each class. If the results are poor the sound recorded may not be representative of the audio that it is being classified as. The audio that is incorrect should then be removed from the data set and replaced if the data set becomes too small.
 
 ### Deploying the Model
 
@@ -120,7 +122,7 @@ The model is now ready to be built and deployed. Go to the "Deployment" page, se
 
 ![Deployment on Edge Impulse](assets/deployment-first-step.svg)
 
-Next select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the Machine Learning model built for the Nicla Voice, we need to set up the Arduino IDE installing the appropriate core and CLIs.
+Now it is time to prepare the model created to upload it to the Nicla Voice. Select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the Machine Learning model built, we need to set up the Arduino IDE installing the appropriate core and CLIs.
 
 ### Setting up the Arduino IDE
 
