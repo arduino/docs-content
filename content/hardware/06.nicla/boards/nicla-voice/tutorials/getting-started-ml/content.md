@@ -52,7 +52,7 @@ Now let's take a look at how to create an Edge Impulse model.
 
 To be able to train a machine learning model to classify audio we first need to feed it with audio, which will be sound that it should recognize. During the training process, the model will be trained using a concept called supervised learning. This means that we train the model with known data and tell it while it's "practicing" its predictions if they are correct or not. For supervised learning, objects are labeled beforehand with their names, which you will see when we get to the audio recording section.
 
-### Overfitting
+### What Is Overfitting and How to Avoid It 
 
 If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart and makes the classification based on that but you rather want the model to learn the concept of an object or sound. In machine learning this problem is a common pitfall.
 
