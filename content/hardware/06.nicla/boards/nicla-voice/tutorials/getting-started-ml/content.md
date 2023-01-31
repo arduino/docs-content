@@ -56,7 +56,7 @@ To be able to train a machine learning model to classify audio we first need to 
 
 If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart and makes the classification based on that but you rather want the model to learn the concept of an object or sound. In machine learning this problem is a common pitfall.
 
-To find the right configuration for your application often requires trial and error. Edge Impulse shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
+Finding the right configuration for your application often requires trial and error. Edge Impulse shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
 
 ### Creating a Custom Edge Impulse Model
 
