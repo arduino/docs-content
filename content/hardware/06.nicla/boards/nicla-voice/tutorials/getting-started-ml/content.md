@@ -62,7 +62,7 @@ Finding the right configuration for your application often requires trial and er
 
 With the Nicla Voice it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases that you record by yourself. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse via the Arduino Cloud, as shown in the image below.
 
-![ML tools option in Arduino Cloud](assets/arduino-cloud-ML.svg)
+![Machine Learning tools option in Arduino Cloud](assets/arduino-cloud-ML.svg)
 
 With the account set up, create a new project and proceed to the next step to capture data for the model.
 
@@ -72,13 +72,13 @@ There are various different methods for capturing sound for the model with Edge 
 
 ![Data acquisition page](assets/data-acquisition-page.svg)
 
-This tutorial will go through how to capture audio from the phone directly to the ML model. It is possible to capture audio from the Nicla Voice and upload it to the Edge Impulse model by using the NDP library's "Record and Stream" example.
+This tutorial will go through how to capture audio from the phone directly to the Machine Learning model. It is possible to capture audio from the Nicla Voice and upload it to the Edge Impulse model by using the NDP library's "Record and Stream" example.
 
 On the data acquisition page, press the "Let's collect some data" button. Now select the "Show QR code" option in the "Use your mobile phone" section.
 
 ![Collecting data for the model](assets/data-collection-option.svg)
 
-Scan the QR code with your phone and it will automatically connect. Set the options as shown below and you are ready to start recording audio for the ML model. On your phone select the option for recording audio and give the appropriate permissions, there should now be a button on the screen that says "Start recording". Before recording set the label of the recordings to match the phrase you want to be recognized, this will make it easier to sort the data later.
+Scan the QR code with your phone and it will automatically connect. Set the options as shown below and you are ready to start recording audio for the Machine Learning model. On your phone select the option for recording audio and give the appropriate permissions, there should now be a button on the screen that says "Start recording". Before recording set the label of the recordings to match the phrase you want to be recognized, this will make it easier to sort the data later.
 
 ![Recording options](assets/record-data-options.svg)
 
@@ -120,7 +120,7 @@ The model is now ready to be built and deployed. Go to the "Deployment" page, se
 
 ![Deployment on Edge Impulse](assets/deployment-first-step.svg)
 
-Next select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the ML model built for the Nicla Voice, we need to set up the Arduino IDE installing the appropriate core and CLIs.
+Next select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the Machine Learning model built for the Nicla Voice, we need to set up the Arduino IDE installing the appropriate core and CLIs.
 
 ### Setting up the Arduino IDE
 
@@ -128,7 +128,7 @@ Make sure the latest version of the Arduino IDE is installed. The IDE can be dow
 
 ### Installing Additional Dependencies
 
-To make it easy to flash any ML model created with Edge Impulse onto the Nicla Voice, we need to install the Arduino CLI and Edge Impulse CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse to install both properly.
+To make it easy to flash any Machine Learning model created with Edge Impulse onto the Nicla Voice, we need to install the Arduino CLI and Edge Impulse CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse to install both properly.
 
 ### Uploading the Model
 
@@ -144,7 +144,7 @@ Now a command window will appear where you can follow the status of the installa
 
 To make sure everything is working open the Arduino IDE, select the correct port that the board is connected to and open the serial monitor. If there is nothing in the serial monitor try pressing the reset button on the Nicla Voice once. The information about the files and the model that is loaded onto the board should now be printed on the serial monitor.
 
-[Serial monitor of running ML model on a Nicla Voice]()
+[Serial monitor of running Machine Learning model on a Nicla Voice]()
 
 ## Conclusion
 
