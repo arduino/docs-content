@@ -59,7 +59,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
   The LSM6DSOX sensor also features an embedded sensor that can be accessed directly via a library.
 
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#temperature"/>
   <FeatureLink variant="secondary" title="Library" url="/learn/built-in-libraries/pdm"/>
 </Feature>
 
