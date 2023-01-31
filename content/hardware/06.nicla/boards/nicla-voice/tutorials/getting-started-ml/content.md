@@ -96,7 +96,7 @@ Now that we have the data samples we can move on to designing the impulse. An im
 
 ![Impulse design page](assets/impulse-design-page.svg)
 
-Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings the "Features extractor" has to be set to "log-bin". This means that the window will be a fixed size. The window is the size of data that will be processed per classification.
+Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings the "Features extractor" has to be set to "log-bin". This means that the window will be a fixed size. The window is the size of the data that will be processed per classification.
 
 ![Syntiant settings](assets/syntiant-options.svg)
 
