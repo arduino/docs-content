@@ -143,7 +143,7 @@ Now a command window will appear where you can follow the status of the installa
 
 To make sure everything is working open the Arduino IDE, select the correct port that the board is connected to and open the serial monitor. If there is nothing in the serial monitor try pressing the button on the Nicla Voice once. Info about the files and model that is loaded onto the board should now be printed in the serial monitor.
 
-![Serial monitor of running ML model on a Nicla Voice]()
+[Serial monitor of running ML model on a Nicla Voice]()
 
 ## Conclusion
 
