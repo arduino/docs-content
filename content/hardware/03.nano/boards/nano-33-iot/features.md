@@ -20,4 +20,12 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </Feature>
 
+<Feature title="IMU" image="imu">
+
+  The Nano 33 IoT comes with an IMU (LSM6DS3), combining an accelerometer and a gyroscope to use in your projects.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/imu-gyroscope"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/"/>
+</Feature>
+
 </FeatureList>
