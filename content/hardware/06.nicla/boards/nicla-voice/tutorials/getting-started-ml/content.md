@@ -86,7 +86,7 @@ When a recording is made on the phone it will automatically show up on the webpa
 
 ![Data collected](assets/data-acquired.svg)
 
-Make sure to have a good training / test data split ratio of around 80/20. The test data is used to test the model with "unseen" data after the training has finished. If you have an overfitting model you may see high accuracy in the training results but poor performance in the testing results. If that's the case you may have to tweak the parameters or collect more / better training data. More information on this can be found in the Edge Impulse documentation referenced above.
+Make sure to have a good training/test data split ratio of around 80/20. The test data is used to test the model with "unseen" data after the training has finished. If you have an overfitting model you may see high accuracy in the training results but poor performance in the testing results. If that's the case you may have to tweak the parameters or collect more/better training data. More information on this can be found in this [Edge Impulse documentation](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance).
 
 ![Data split ratio](assets/dataset-train-test-split.svg)
 
