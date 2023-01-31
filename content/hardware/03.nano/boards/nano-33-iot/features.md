@@ -4,9 +4,9 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
 
 <FeatureList>
 
-<Feature title="WiFi" image="wifi">
+<Feature title="Wi-Fi®" image="wifi">
 
-  The board comes with WiFi connectivity and Arduino IoT Cloud compatibility. This allows you to create IoT applications in your own projects. 
+  The board comes with Wi-Fi® connectivity and Arduino IoT Cloud compatibility. This allows you to create IoT applications in your own projects. 
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/wifi-connection"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
@@ -14,7 +14,7 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
 
 <Feature title="Bluetooth®" image="bluetooth">
 
-  The board is Bluetooth® enabled allowing you to control peripheral devices via bluetooth and start implementing  Bluetooth® Low Energy applications.
+  The Nano 33 IoT is Bluetooth® enabled allowing you to control peripheral devices via bluetooth and start implementing  Bluetooth® Low Energy applications.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/bluetooth"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
@@ -22,7 +22,7 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
 
 <Feature title="IMU" image="imu">
 
-  The Nano 33 IoT comes with an IMU (LSM6DS3), combining an accelerometer and a gyroscope to use in your projects.
+  The Nano 33 IoT comes with an IMU (LSM6DS3), combining an accelerometer and a gyroscope. Build your own motion tracking device and implement it in your projects.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/imu-gyroscope"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/"/>
