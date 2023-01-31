@@ -19,7 +19,7 @@ software:
 
 ## Overview
 
-The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it hears different events and keywords simultaneously, and is capable of understanding and learning what sounds mean. To make use of these keyword triggers, like blinking the LED when it recognizes a specific word, a machine learning model is required. With Edge Impulse it is possible to build, train these machine learning models and easily deploy the model to the Nicla Voice board. This tutorial will go through this process.
+The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it hears different events and keywords simultaneously, and is capable of understanding and learning what certain sounds mean. To make use of these keyword triggers, like blinking the LED when it recognizes a specific word, a machine learning model is required. With Edge Impulse it is possible to build, train these machine learning models, and easily deploy the model to the Nicla Voice board. This tutorial will go through this process, explaining how to start with the board, test the default built-in sketch, and start to create your own models.
 
 ![The Nicla Voice](assets/nicla-cover-image.svg)
 
