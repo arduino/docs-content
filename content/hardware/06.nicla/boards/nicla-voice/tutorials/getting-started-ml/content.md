@@ -27,10 +27,11 @@ The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120
 
 The goals of this tutorial are:
 
-- Learn how to capture audio for a ML model
+- Test the built-in example to check that the board is working well
+- Learn how to capture audio to train a machine learning model
 - Learn how to train an Edge Impulse model
-- Learn how to export the model for use with the Nicla Voice
-- Learn how to use this model
+- Learn how to export the model to be used with the Nicla Voice
+- Learn how to test the model to see if it is working as it should be
 
 ## Hardware & Software Needed
 
