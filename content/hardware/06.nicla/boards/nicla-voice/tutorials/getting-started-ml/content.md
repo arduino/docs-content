@@ -42,7 +42,7 @@ The goals of this tutorial are:
 
 ## Instructions
 
-### Testing Default Sketch
+### Testing the Default Sketch
 
 The Nicla Voice comes pre-flashed with the Alexa Demo. To test this sketch simply connect the Nicla Voice to a computer or alternative power source and say "Hey Nicla". This should make the LED on the board blink. If there is no response from the board try moving closer to it or to speak louder. This function is what we are going to replicate with the custom Edge Impulse model that will be created in this tutorial.
 
