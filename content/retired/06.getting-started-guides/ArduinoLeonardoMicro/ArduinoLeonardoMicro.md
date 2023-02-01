@@ -15,7 +15,7 @@ The Leonardo, Leonardo ETH and Micro are programmed using the [Arduino Software 
 
 All Arduino boards, including this one, work out-of-the-box on the [Arduino Web Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) to start coding on the browser and upload your sketches onto your board.
 
 
 
@@ -65,9 +65,9 @@ After the compilation and upload process, you should see the message _Done Uploa
 
 ### Tutorials
 
-Now that you have set up and programmed your Leonardo, Leonardo ETH or Micro board, you may find inspiration in our [Project Hub](https://create.arduino.cc/projecthub/products/arduino-leonardo) tutorial platform.
+Now that you have set up and programmed your Leonardo, Leonardo ETH or Micro board, you may find inspiration in our [Project Hub](https://projecthub.arduino.cc/search?value=arduino+leonardo) tutorial platform.
 
-<iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/onyx/gesture-mouse-a4320a/embed?use_route=project' width='354' style='margin-top:30px; margin-right:20px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/windows-iot/coffeeauth-grinder-authentication-system-d7cb38/embed?use_route=project' width='354' style='margin-top:30px'></iframe>
+<iframe frameborder='0' height='410' scrolling='no' src='https://www.hackster.io/onyx/gesture-mouse-a4320a' width='354' style='margin-top:30px; margin-right:20px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/windows-iot/coffeeauth-grinder-authentication-system-d7cb38/embed?use_route=project' width='354' style='margin-top:30px'></iframe>
 
 More examples on the following library pages will help you in making very cool things!
 
