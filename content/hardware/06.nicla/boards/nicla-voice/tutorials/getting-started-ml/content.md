@@ -21,7 +21,7 @@ software:
 
 The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it recognizes different events and hears keywords simultaneously. It is capable of understanding and learning its surrounding sounds.
 
-To make use of these keyword triggers, such as blinking the LED when it recognizes a specific word, a machine learning model is required. It is possible with Edge Impulse®  to build, train these machine learning models, and easily deploy the model to the Nicla Voice board. This tutorial will explain how to start with the board, test the default built-in sketch, and create your own models.
+To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning model is required. With Edge Impulse®, it is possible to build, train and easily deploy the machine learning model to the Nicla Voice. This tutorial will explain how to start with the board, test the default built-in sketch, and create your own models.
 
 ![The Nicla Voice](assets/nicla-cover-image.svg)
 
@@ -54,13 +54,13 @@ To train a machine learning model to classify audio, we first need to feed it wi
 
 ### What Is Overfitting and How to Avoid It
 
-If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. This is a common pitfall in machine learning. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart, making the classification based on that as you rather want the model to learn the concept of an object or sound.
+If a machine learning model is overfitting, it means that it is too well geared toward your training data and it will not perform well with unseen input data. This is a common pitfall in machine learning. You need some variation in the training dataset and adjust the parameters, so that the model does not just learn all input data by heart, making the classification based on that, but it will rather learn the concept that makes up an object or a sound.
 
 Finding the proper configuration for your application often requires trial and error. Edge Impulse® shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
 
 ### Creating a Custom Edge Impulse® Model
 
-With the Nicla Voice, it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases based on your recordings. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse® via the Arduino Cloud, as shown in the image below.
+With the Nicla Voice, it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases based on your recordings. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse® via the Arduino Cloud, as shown in the image below. Otherwise, if you already have an Edge Impulse® account, you can directly login from the [Edge Impulse website®](https://studio.edgeimpulse.com/login).
 
 ![Machine Learning tools option in Arduino Cloud](assets/arduino-cloud-ML.svg)
 
@@ -78,13 +78,13 @@ On the data acquisition page, press the "Let's collect some data" button. Now se
 
 ![Collecting data for the model](assets/data-collection-option.svg)
 
-Scan the QR code with your phone and it will automatically connect. Set the options as shown below and you are ready to start recording audio for the Machine Learning model. On your phone select the option for recording audio and give the appropriate permissions, there should now be a button on the screen that says "Start recording". Before recording, set the label of the recordings to match the phrase you want to have recognized, this will make it easier to sort the data later.
+Scan the QR code with your phone and it will automatically connect. Set the options as shown below and you are ready to start recording audio for the Machine Learning model. On your phone, select the option for recording audio and give the appropriate permissions. There should now be a button on the screen that says "Start recording". Before recording, set the label of the recordings to match the phrase you want to have recognized, this will simplify the data sorting.
 
 ![Recording options](assets/record-data-options.svg)
 
-When a recording is made on the phone, it will automatically show up on the webpage. First start by recording around five minutes of the phrase you want to have recognized, for this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized. 
+When a recording is made on the phone, it will automatically show up on the webpage. First start by recording around five minutes of the phrase you want to have recognized, for this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized. If you want to make the model more accurate have multiple people recording the same phrase, going through the same process of varying the distance from the microphone, the pronunciation and the inflection.
 
-Once this is done, record for another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger, also record five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the phrase required. Feel free to collect as many of these three different categories as needed.
+Once this is done, record another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help you with the training of the model later. And, to give the model a better understanding of what sounds not to recognize as the trigger, also record five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the required sentence. Feel free to collect as many of these three different categories as needed.
 
 ![Data collected](assets/data-acquired.svg)
 
@@ -93,6 +93,8 @@ Make sure to have a good training/test data split ratio of around 80/20. The tes
 ![Data split ratio](assets/dataset-train-test-split.svg)
 
 ### Create an Impulse
+
+Now that we acquired the data samples, we can move on to designing the Impulse. In a nutshell, an Impulse is a pipeline that the model will use for training and it consists of an input block, a processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data and the audio that was captured in the previous step and provides a probability that indicates how likely it is that the input data belongs to a particular class as its output.
 
 Now that we have the data samples, we can move on to designing the Impulse. An Impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class.
 
@@ -104,7 +106,7 @@ Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings t
 
 ![Syntiant settings](assets/syntiant-options.svg)
 
-Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button. If you have collected a total of fifteen minutes of data as suggested in the previous step, this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate into clear groups in respect to their different classes, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
+Now select the "Generate features" tab on the "Syntiant" page. On this page, press the green "Generate features" button. If you have collected a total of fifteen minutes of data as suggested in the previous step, this will take some time to complete. Now the data can be visualized on the right. Here you can easily see if the different classes of collected data are separated into clear groups with respect to their different classes; this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
 
 ![Generating features with syntiant](assets/features-generation.svg)
 
@@ -136,7 +138,7 @@ To make it easy to flash any Machine Learning model created with Edge Impulse® 
 
 ### Uploading the Model
 
-Now that everything needed for flashing the firmware and the model to the Nicla Voice is installed, we can finally flash the board with our model. Extract the files that were packed into the .zip file received from Edge Impulse® when the model was built into a folder. Now run the "flash" file that corresponds with the OS on the machine you are using. As shown in this list:
+Now that everything needed for flashing the firmware and the model to the Nicla Voice is installed, you can finally flash the board with your model. Extract the files that were packed into the .zip file received from Edge Impulse® when the model was built into a folder. At this point, run the right "flash" file for your OS on the machine you are using, as reported in this list:
 
 - Use **flash_windows.bat** if you are using a PC
 - Use **flash_mac.command** if you are using a MAC
