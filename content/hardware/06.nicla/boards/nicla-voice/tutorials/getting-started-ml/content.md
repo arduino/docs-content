@@ -44,6 +44,12 @@ The goals of this tutorial are:
 
 ## Instructions
 
+### Testing the Default Sketch
+
+The Nicla Voice comes pre-flashed with a wake up word detection demo. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Hey Nicla". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Edge Impulse® model.
+
+Now let's take a look at how to create an Edge Impulse® model.
+
 ## The Machine Learning Model
 
 To train a machine learning model to classify audio, we first need to feed it with an audio sample, which will be a sound that it should recognize. The model will be trained using a concept called *supervised learning*. With *supervised learning*, we train the model with data already known and tell it while it's "practicing" its predictions if they are correct or not. This is normally known as the *training* process. For the training on *supervised learning*, objects are labeled beforehand with their names, which you will see when we get to the audio recording section.
