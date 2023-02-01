@@ -44,7 +44,7 @@ The goals of this tutorial are:
 
 ## Testing the Built-in Example
 
-The Nicla Voice comes pre-flashed with a wake up word detection demo. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Hey Nicla". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Edge Impulse® model.
+The Nicla Voice comes pre-flashed with a wake up word detection demo. This demo can be found in the Arduino IDE, under **File->Examples->NDP->AlexaDemo**. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Alexa". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Edge Impulse® model.
 
 Now let's take a look at how to create an Edge Impulse® model.
 
