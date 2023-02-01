@@ -84,7 +84,9 @@ Scan the QR code with your phone and it will automatically connect. Set the opti
 
 ![Recording options](assets/record-data-options.svg)
 
-When a recording is made on the phone, it will automatically show up on the webpage. First start by recording around five minutes of the phrase you want to have recognized, for this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized. Once this is done, record for another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger, also do a record of five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the phrase required. Feel free to collect as many of these three different categories as needed.
+When a recording is made on the phone, it will automatically show up on the webpage. First start by recording around five minutes of the phrase you want to have recognized, for this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized. 
+
+Once this is done, record for another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger, also do a record of five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the phrase required. Feel free to collect as many of these three different categories as needed.
 
 ![Data collected](assets/data-acquired.svg)
 
@@ -94,7 +96,9 @@ Make sure to have a good training/test data split ratio of around 80/20. The tes
 
 ### Create an Impulse
 
-Now that we have the data samples, we can move on to designing the impulse. An impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class. In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
+Now that we have the data samples, we can move on to designing the impulse. An impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using this tutorial extracts time and frequency features from the audio used in the model. 
+
+The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class. In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
 
 ![Impulse design page](assets/impulse-design-page.svg)
 
