@@ -5,4 +5,4 @@ url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_giga
 core: arduino:mbed_giga
 ---
 
-The GIGA R1 is a powerful, feature-packed & an all-you-can-connect GPIO board. Based on the [STM32H747XI]() micro and part of our [mbed]() boards, the GIGA R1 features XX GPIOs, a [dual core processor](), advanced [audio]() capabilities as well as camera & display connectors.
+The GIGA R1 is a powerful, feature-packed board based on the STM32H747XI microcontroller. The GIGA R1 features 75 GPIOs, a [dual core processor](), advanced [ADC & DAC]() features, a [USB-A port](/tutorials/giga-r1/giga-usb) (USBHost) as well as camera & display connectors. The board supports MicroPython and can also [run machine learning models]() via Tensorflow, OpenMV, Edge Impulse & AIfES frameworks.
