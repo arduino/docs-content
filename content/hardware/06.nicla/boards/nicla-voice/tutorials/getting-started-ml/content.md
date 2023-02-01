@@ -86,7 +86,7 @@ Scan the QR code with your phone and it will automatically connect. Set the opti
 
 When a recording is made on the phone, it will automatically show up on the webpage. First start by recording around five minutes of the phrase you want to have recognized, for this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized. 
 
-Once this is done, record for another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger, also do a record of five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the phrase required. Feel free to collect as many of these three different categories as needed.
+Once this is done, record for another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help with the training of the model later. And to give the model a better understanding of what sounds not to recognize as the trigger, also record five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the phrase required. Feel free to collect as many of these three different categories as needed.
 
 ![Data collected](assets/data-acquired.svg)
 
