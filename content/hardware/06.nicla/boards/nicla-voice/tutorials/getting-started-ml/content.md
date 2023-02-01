@@ -148,7 +148,7 @@ If there is any issue in the process, try to run these as administrator. A comma
 
 To make sure everything is working open the Arduino IDE, select the correct port that the board is connected to, and open the serial monitor. If there is nothing in the serial monitor try pressing the reset button on the Nicla Voice once. The information about the files and the model that is loaded onto the board should now be printed on the serial monitor.
 
-[Serial monitor of running Machine Learning model on a Nicla Voice]()
+Now you can go ahead and say your wake up words to the Nicla Voice. The board should then blink the LED when the correct words are recognized. If the LED does not blink try moving closer to the Nicla Voice or pronounce the wake up words differently.
 
 ## Conclusion
 
