@@ -42,9 +42,7 @@ The goals of this tutorial are:
 - [Arduino Cloud](https://cloud.arduino.cc/)
 - [Edge Impulse®](https://www.edgeimpulse.com/)
 
-## Instructions
-
-### Testing the Default Sketch
+## Testing the Built-in Example
 
 The Nicla Voice comes pre-flashed with a wake up word detection demo. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Hey Nicla". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Edge Impulse® model.
 
