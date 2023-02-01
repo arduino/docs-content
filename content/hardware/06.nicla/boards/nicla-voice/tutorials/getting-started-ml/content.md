@@ -122,11 +122,13 @@ Ideally, you want to get as close to 100% accuracy as possible for each class. I
 
 ### Deploying the Model
 
-The model is now ready to be built and deployed. Go to the "Deployment" page, select the "Syntiant NDP120 library" and set the posterior parameters. Click the "Find posterior parameters" button. In the window that pops up select all keywords that we have created in the steps before. We can keep the calibration settings to "No calibration". Then press the green "Find parameters" button and, when the job is done, close this window.
+The model is now ready to be built and deployed. Go to the "Deployment" page, select the "Arduino Nicla Voice" under "Build firmware" and set the posterior parameters. Click the "Find posterior parameters" button. In the window that pops up select all keywords that we have created in the steps before. We can keep the calibration settings to "No calibration". Then press the green "Find parameters" button and, when the job is done, close this window.
 
 ![Deployment on Edge Impulse®](assets/deployment-first-step.svg)
 
-Now it is time to prepare the model created to upload it to the Nicla Voice. Select the Nicla Voice firmware and build. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the Machine Learning model built, we need to set up the Arduino IDE installing the appropriate core and CLIs.
+Now it is time to prepare the model created to upload it to the Nicla Voice. Select the Nicla Voice firmware and press the green "Build" button. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the Machine Learning model built, we need to set up the Arduino IDE installing the appropriate core and CLIs.
+
+![Model finished building on Edge Impulse®](assets/deployment-finished.svg)
 
 ### Setting up the Arduino IDE
 
