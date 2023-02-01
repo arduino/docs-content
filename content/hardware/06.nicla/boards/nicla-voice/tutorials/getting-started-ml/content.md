@@ -60,7 +60,7 @@ Finding the proper configuration for your application often requires trial and e
 
 ### Creating a Custom Edge Impulse® Model
 
-With the Nicla Voice, it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases based on your recordings. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse® via the Arduino Cloud, as shown in the image below. Otherwise, if you already have an Edge Impulse® account, you can directly login from the [Edge Impulse website®](https://studio.edgeimpulse.com/login).
+With the Nicla Voice, it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases based on your recordings. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse® via the Arduino Cloud, as shown in the image below. Otherwise, if you already have an Edge Impulse® account, you can directly login from the [Edge Impulse® website](https://studio.edgeimpulse.com/login).
 
 ![Machine Learning tools option in Arduino Cloud](assets/arduino-cloud-ML.svg)
 
