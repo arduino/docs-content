@@ -38,7 +38,7 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino Nicla Voice](https://store.arduino.cc/products/nicla-voice) x1
+- [Arduino Nicla Voice](https://store.arduino.cc/pages/nicla-voice) x1
 - [Arduino Cloud](https://cloud.arduino.cc/)
 - [Edge Impulse®](https://www.edgeimpulse.com/)
 
