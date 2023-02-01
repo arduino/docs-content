@@ -44,19 +44,13 @@ The goals of this tutorial are:
 
 ## Instructions
 
-### Testing the Default Sketch
-
-The Nicla Voice comes pre-flashed with the Alexa Demo. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Hey Nicla". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Edge Impulse® model.
-
-Now let's take a look at how to create an Edge Impulse® model.
-
 ## The Machine Learning Model
 
-To train a machine learning model to classify audio, we first need to feed it with audio sample, which will be the sound that it should recognize. The model will be trained using a concept called supervised learning. This means that we will train the model with known data and tell it while it's "practicing" its predictions if they are correct or not. For supervised learning, objects are labeled beforehand with their names, which you will see when we get to the audio recording section.
+To train a machine learning model to classify audio, we first need to feed it with an audio sample, which will be a sound that it should recognize. The model will be trained using a concept called *supervised learning*. With *supervised learning*, we train the model with data already known and tell it while it's "practicing" its predictions if they are correct or not. This is normally known as the *training* process. For the training on *supervised learning*, objects are labeled beforehand with their names, which you will see when we get to the audio recording section.
 
 ### What Is Overfitting and How to Avoid It
 
-If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. This is a common pitfall in machine learning. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart and makes the classification based on that as you rather want the model to learn the concept of an object or sound.
+If a machine learning model is overfitting, it means that it is too well geared toward your training data and won't perform well with unseen input data. This is a common pitfall in machine learning. You need some variation in the training dataset and adjust the parameters so that it doesn't just learn all input data by heart, making the classification based on that as you rather want the model to learn the concept of an object or sound.
 
 Finding the proper configuration for your application often requires trial and error. Edge Impulse® shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
 
