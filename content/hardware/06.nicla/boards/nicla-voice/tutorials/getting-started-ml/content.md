@@ -150,7 +150,11 @@ If there is any issue in the process, try to run these as administrator. A comma
 
 To make sure everything is working open the Arduino IDE, select the correct port that the board is connected to, and open the serial monitor. If there is nothing in the serial monitor try pressing the reset button on the Nicla Voice once. The information about the files and the model that is loaded onto the board should now be printed on the serial monitor.
 
-Now you can go ahead and say your wake up words to the Nicla Voice. The board should then blink the LED when the correct words are recognized. If the LED does not blink try moving closer to the Nicla Voice or pronounce the wake up words differently.
+![Correct firmware and model loaded on the Nicla Voice](assets/fw-loaded-serial-monitor.svg)
+
+Now you can go ahead and say your wake up words to the Nicla Voice. The board should then blink the blue LED when sound is registered. If the LED does not blink try moving closer to the Nicla Voice or pronounce the wake up words differently. The board will print what class it thinks the sounds recognized belongs to, as seen in the image below. This makes it easy to see if the board will recognize the desired phrase or if it recognized as a different class. If the board has problems recognizing the right phrase it might be a good idea to take another look at the model and the data that has been collected.
+
+![Serial monitor showing sound recognized](assets/phrase-recognition.svg)
 
 ## Conclusion
 
