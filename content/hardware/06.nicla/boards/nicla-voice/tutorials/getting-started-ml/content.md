@@ -38,7 +38,7 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino Nicla Voice](https://store.arduino.cc/pages/nicla-voice) x1
+- [Arduino Nicla Voice](https://store.arduino.cc/nicla-voice) (x1)
 - [Arduino Cloud](https://cloud.arduino.cc/)
 - [Edge Impulse®](https://www.edgeimpulse.com/)
 
@@ -96,7 +96,7 @@ Make sure to have a good training/test data split ratio of around 80/20. The tes
 
 Now that we acquired the data samples, we can move on to designing the Impulse. In a nutshell, an Impulse is a pipeline that the model will use for training and it consists of an input block, a processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data and the audio that was captured in the previous step and provides a probability that indicates how likely it is that the input data belongs to a particular class as its output.
 
-Now that we have the data samples, we can move on to designing the Impulse. An Impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class.
+Now that we have the data samples, we can move on to designing the Impulse. An Impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, and then give us a probability that indicates how likely it is that the input data belongs to a particular class.
 
 In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
 
@@ -118,7 +118,7 @@ Go to the "Classifier" tab under "Impulse design". We can keep the default setti
 
 ![Stats from the generated features](assets/generated-features-stats.svg)
 
-Ideally, you want to get as close to 100% accuracy as possible for each class. If the results are poor, the sound recorded may not be representative of the audio that is being classified as. The audio that is incorrect should then be removed from the data set and replaced if the data set becomes too small.
+Ideally, you want to get as close to 100% accuracy as possible for each class. If the results are poor, the sound recorded may not be representative of the audio that it is being classified as. The audio that is incorrect should then be removed from the data set and replaced if the data set becomes too small.
 
 ### Deploying the Model
 
@@ -154,7 +154,7 @@ To make sure everything is working open the Arduino IDE, select the correct port
 
 ![Correct firmware and model loaded on the Nicla Voice](assets/fw-loaded-serial-monitor.svg)
 
-Now you can go ahead and say your wake up words to the Nicla Voice. The board should then blink the blue LED when sound is registered. If the LED does not blink try moving closer to the Nicla Voice or pronounce the wake up words differently. The board will print what class it thinks the sounds recognized belongs to, as seen in the image below. This makes it easy to see if the board will recognize the desired phrase or if it recognized as a different class. If the board has problems recognizing the right phrase it might be a good idea to take another look at the model and the data that has been collected.
+Now you can go ahead and say your wake up words to the Nicla Voice. The board should then blink the blue LED when a sound is registered. If the LED does not blink try moving closer to the Nicla Voice or pronounce the wake up words differently. The board will print what class it thinks the sounds recognized belongs to, as seen in the image below. This makes it easy to see if the board will recognize the desired phrase or if it is recognized as a different class. If the board has problems recognizing the right phrase it might be a good idea to take another look at the model and the data that has been collected.
 
 ![Serial monitor showing sound recognized](assets/phrase-recognition.svg)
 
