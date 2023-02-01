@@ -90,9 +90,9 @@ Make sure to have a good training/test data split ratio of around 80/20. The tes
 
 ### Create an Impulse
 
-Now that we have the data samples, we can move on to designing the impulse. An impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using this tutorial extracts time and frequency features from the audio used in the model. 
+Now that we have the data samples, we can move on to designing the Impulse. An Impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class.
 
-The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, then give us a probability that indicates how likely it is that the input data belongs to a particular class. In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
+In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
 
 ![Impulse design page](assets/impulse-design-page.svg)
 
@@ -100,7 +100,7 @@ Under "Impulse Design" go to the "Syntiant" page. In the "Parameters" settings t
 
 ![Syntiant settings](assets/syntiant-options.svg)
 
-Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button. If you have collected a total of fifteen minutes of data as suggested in the previous step, this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate well, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
+Now select the "Generate features" tab on the "Syntiant" page. On this page press the green "Generate features" button. If you have collected a total of fifteen minutes of data as suggested in the previous step, this will take some time to complete. Now a visualization of the data can be seen on the right. Here you can easily see if the different classes of data collected separate into clear groups in respect to their different classes, this can help you figure out if the desired phrase will be easily differentiated from the noise and random words recorded.
 
 ![Generating features with syntiant](assets/features-generation.svg)
 
