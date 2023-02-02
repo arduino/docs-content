@@ -26,13 +26,13 @@
   errorMessage: The USB-C® / USB Type-C® / USB4® trademark is not used correctly.
 
 # Arduino Opta® rule
-- regex: "((?<![a-zA-Z]|[0-9])(opta)(?!®|™|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=[aA]rduino\\s)(opta)(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(([o]pta|((?<=[aA]rduino\\s)([o]pta))))(?=®|™|))"
+- regex: "(?<![a-zA-Z]|[0-9])(([oO]pta)(?!®|™|[a-zA-Z])|(((?<=[aA]rduino\\s)([oO]pta(?=™)))|((?<=[aA]rduino®\\s)([oO]pta))))"
   regexModifiers: "gi"
   shouldMatch: false
   includeCodeBlocks: false
   format: markdown
   type: warning
-  errorMessage: The Arduino Opta® trademark is not used correctly.
+  errorMessage: The Arduino Opta® / Opta™ trademark is not used correctly.
 
 # MIPI® / A-PHY® / CSI-2® / I3C® / M-PHY® rule
 - regex: "((?<![a-zA-Z]|[0-9])((mipi)|((aphy)|(a-phy))|((csi2)|(csi-2))|(i3c)|((mphy)|(m-phy)))(?!®|[a-zA-Z]))|(([mM][iI][pP][i])|(([aA][pP][hH][yY])|([aA]-[pP][hH][y]))|(([cC][sS][iI]2)|([cC][sS][i]-2))|([iI]3[c])|(([mM][pP][hH][yY])|([mM]-[pP][hH][y])))(?=®)"
