@@ -1,25 +1,29 @@
 ---
 title: GIGA R1 Camera Guide
-description: Learn about GIGA R1 and camera compatibility, and find examples that work out of the box with the GIGA R1.
-tags: [ArduCAM, Camera, AI, OpenMV]
+description: Learn about the GIGA R1 & GIGA R1 WiFi's camera connector, and how to use existing examples.
+tags: [ArduCAM, Camera, Processing]
 author: Karl Söderby
 ---
 
 The GIGA R1 has a dedicated camera connector that allows certain camera modules to mount directly on the board. This makes it possible to add machine vision to your GIGA R1 board without much effort at all.
 
-In this guide, we will explore the GIGA R1's camera support a bit more in-depth:
+In this guide, we will explore the following:
 
 - Where the camera connector is located.
 - What cameras are compatible.
-- What library/examples are available.
-- How to get started with machine vision using the OpenMV platform.
+- What library to use.
+- How to setup a camera stream to a processing application.
 
-## Hardware Requirements
+## Hardware & Software Needed
 
 To follow and use the examples provided in this guide, you will need one of the following boards:
 
-- [GIGA R1]()
-- [GIGA R1 WiFi]()
+- [GIGA R1](/hardware/giga-r1)
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi)
+
+You will also need the following software:
+- [Arduino IDE](https://www.arduino.cc/en/software) (any version).
+- [Processing](https://processing.org/download) (for displaying camera feed).
 
 ## Supported Cameras
 
@@ -57,19 +61,19 @@ The complete pin map can be found below:
 
 ![Camera connector, zoomed in.](assets/camera-connector-zoomed.png)
 
-## OpenMV
+You can also view the schematic for this connector in more detail just below. This is useful to understand exactly which pins on the STM32H747XI microcontroller is used.
 
-[OpenMV](https://openmv.io/) is a platform for machine vision projects, and can be programmed with MicroPython, more specifically, [OpenMV's branch of MicroPython](https://github.com/openmv/micropython).
+![Schematic for Camera Connector (J6).](assets/camera-schematic.png)
 
 ## Raw Bytes Over Serial (Processing)
 
 ![Live view of the camera.](assets/processing-example.png)
 
-This example allows you to stream the sensor data from your camera to a Processing application, using serial over USB. This will allow you to see the image directly in your computer. 
+This example allows you to stream the sensor data from your camera to a Processing application, using serial over USB. This will allow you to see the image directly in your computer.
 
 ***This example requires a version of [Processing](https://processing.org/download) on your machine.***
 
-**Step 1: Arduino**
+### Step 1: Arduino
 
 Upload the following sketch to your board.
 
@@ -151,13 +155,13 @@ void loop() {
 
 ```
 
-**Step 2: Processing**
+### Step 2: Processing
 
-The following processing sketch will launch a Java app that allows you to view the camera. As data is streamed via serial, make sure you close the Serial Monitor during this process, else it won't work.
+The following Processing sketch will launch a Java app that allows you to view the camera feed. As data is streamed via serial, make sure you close the Serial Monitor during this process, else it will not work.
 
 ***Important! Make sure to replace the following line in the code below: `/dev/cu.usbmodem14301`, with the name of your port.***
 
-Click on the big "PLAY" button to initialize the app.
+Click on the **"PLAY"** button to initialize the app.
 
 ```cpp
 /*
@@ -283,184 +287,6 @@ void serialEvent(Serial myPort) {
 
 If all goes well, you should now be able to see the camera feed.
 
-### JPEG Webserver
+## Summary
 
-The **JPEG Webserver** allows you to take an image every X amount of seconds and upload it to a webserver that can be accessed remotely. This setup can be used for asset monitoring, security systems, smart doorbells and many more applications. 
-
-This setup also comes with a Golang script that you will need to launch via a terminal, which is required to make this setup work. 
-
-**Step 1: Launch Golang Script**
-
-First, create a file in a directory of your choice, and name it `main.go`. Paste the following code into it:
-
-```go
-package main
-
-import (
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strconv"
-	"time"
-)
-
-func uploadFile(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("File Upload Endpoint Hit")
-
-	// Parse our multipart form, 10 << 20 specifies a maximum
-	// upload of 10 MB files.
-	r.ParseMultipartForm(10 << 20)
-	// FormFile returns the first file for the given key `myFile`
-	// it also returns the FileHeader so we can get the Filename,
-	// the Header and the size of the file
-	file, handler, err := r.FormFile("image1")
-	if err != nil {
-		fmt.Println("Error Retrieving the File")
-		fmt.Println(err)
-		return
-	}
-	defer file.Close()
-	fmt.Printf("Uploaded File: %+v\n", handler.Filename)
-	fmt.Printf("File Size: %+v\n", handler.Size)
-	fmt.Printf("MIME Header: %+v\n", handler.Header)
-
-	// Create a temporary file within our temp-images directory that follows
-	// a particular naming pattern
-	name := "upload-" + strconv.Itoa(int(time.Now().Unix())) + "*.jpg"
-	tempFile, err := ioutil.TempFile("", name)
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer tempFile.Close()
-	fmt.Println("File ", tempFile.Name())
-
-	// read all of the contents of our uploaded file into a
-	// byte array
-	fileBytes, err := ioutil.ReadAll(file)
-	if err != nil {
-		fmt.Println(err)
-	}
-	// write this byte array to our temporary file
-	tempFile.Write(fileBytes)
-	// return that we have successfully uploaded our file!
-	fmt.Println("Successfully Uploaded File\n")
-}
-
-func setupRoutes() {
-	http.HandleFunc("/upload", uploadFile)
-	http.ListenAndServe(":8088", nil)
-}
-
-func main() {
-	fmt.Println("Hello World")
-	fmt.Println("Serving on :8088")
-	setupRoutes()
-}
-```
-
-Then, to launch the script, open a terminal on the directory and use the following command:
-
-```
-go run main.go
-```
-
-Which, on success will return `Serving on :8088`.
-
-**Step 2: OpenMV Script**
-
-Next step is to launch the OpenMV editor. If you are not yet familiar with OpenMV, visit the [Getting Started with OpenMV]() section.
-
-Once the editor is open, connect your board. Then, copy and paste the script below into the editor, and click on the green "PLAY" button.
-
-***Please note that the `WIFI_SSID = "yournetwork"` and `WIFI_PASS = "yourpassword"` strings will need to be replaced with your credentials to your Wi-Fi network.***
-
-```python
-import time
-import network
-import sensor
-import urequests
-import os
-
-WIFI_SSID = "yournetwork"
-WIFI_PASS = "yourpassword"
-
-url = 'http://10.130.22.213:8088/upload'
-
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
-    # Add more headers if needed
-}
-
-class RAMBlockDev:
-    def __init__(self, block_size, num_blocks):
-        self.block_size = block_size
-        self.data = bytearray(block_size * num_blocks)
-
-    def readblocks(self, block_num, buf, offset=0):
-        addr = block_num * self.block_size + offset
-        for i in range(len(buf)):
-            buf[i] = self.data[addr + i]
-
-    def writeblocks(self, block_num, buf, offset=None):
-        if offset is None:
-            # do erase, then write
-            for i in range(len(buf) // self.block_size):
-                self.ioctl(6, block_num + i)
-            offset = 0
-        addr = block_num * self.block_size + offset
-        for i in range(len(buf)):
-            self.data[addr + i] = buf[i]
-
-    def ioctl(self, op, arg):
-        if op == 4: # block count
-            return len(self.data) // self.block_size
-        if op == 5: # block size
-            return self.block_size
-        if op == 6: # block erase
-            return 0
-
-def sensor_init():
-    sensor.reset()
-    sensor.set_pixformat(sensor.RGB565)
-    sensor.set_framesize(sensor.QVGA)
-    sensor.skip_frames(time = 1000)
-
-def wifi_connect():
-    if not WIFI_SSID or not WIFI_PASS:
-        raise (Exception("Network is not configured"))
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    wlan.connect(WIFI_SSID, WIFI_PASS)
-    while not wlan.isconnected():
-        #raise (Exception("Network is not configured, add SSID and pass to secrets.py"))
-        time.sleep_ms(500)
-    print("WiFi Connected ", wlan.ifconfig())
-
-
-
-if __name__ == "__main__":
-    sensor_init()
-    wifi_connect()
-    bdev = RAMBlockDev(512, 100)
-    os.VfsFat.mkfs(bdev)
-    os.mount(bdev, '/ramdisk')
-    while (True):
-        img = sensor.snapshot()
-        jpg = img.compress()
-        with open('/ramdisk/img.jpg', 'w') as f:
-            f.write(jpg)
-        f.close()
-        files = {
-          'image1': ('img.jpg', open('/ramdisk/img.jpg', 'rb'))
-        }
-        r = urequests.post(url, files=files, headers=headers)
-        print(f"sending {jpg}")
-        time.sleep(20.0)
-```
-
-Once you run the script, the board will attempt to connect to the local Wi-Fi, and on success, it will capture an image and upload it. 
-
-This can now be accessed if your device is on the same local network.
-
-### Motion Detection
-
+In this article, we learned a bit more about the camera connector on board the GIGA R1 board, how it is connected to the STM32H747XI microcontroller, and a simple example on how to connect an inexpensive OV7675 camera module to a Processing application.
