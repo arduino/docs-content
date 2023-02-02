@@ -45,7 +45,7 @@ In this section you will learn what the Arduino API is, and how to create code t
 
 ### Arduino Software Tools
 
-In this section you will how to set up your development environment as well as learning about what options there are.
+In this section you will learn how to set up your development environment as well as learning about what options there are.
 
   - [A Typical Workflow](#a-typical-workflow)
   - [Arduino IDE 1.8.x](#arduino-ide-18x)
