@@ -8,8 +8,8 @@ libraries:
   - name: Arduino_Pro_Tutorials
     url: https://github.com/arduino-libraries/Arduino_Pro_Tutorials
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v1
   - ide-v2

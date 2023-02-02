@@ -23,6 +23,7 @@ software:
   - ide-v2
   - web-editor
 author: "Arduino"
+contributeURL: content/tutorials/generic
 ---
 
 ## Introduction

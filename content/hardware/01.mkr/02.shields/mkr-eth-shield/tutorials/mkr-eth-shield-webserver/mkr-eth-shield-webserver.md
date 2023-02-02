@@ -11,8 +11,8 @@ libraries:
   - name: Ethernet
     url: https://www.arduino.cc/reference/en/libraries/ethernet/
 hardware:
-  - hardware/01.mkr/01.boards/mkr-zero
   - hardware/01.mkr/02.shields/mkr-eth-shield
+  - hardware/01.mkr/01.boards/mkr-zero
 software:
   - ide-v1
   - ide-v2

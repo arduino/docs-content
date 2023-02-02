@@ -12,8 +12,8 @@ libraries:
   - name: Ethernet
     url: https://www.arduino.cc/en/Reference/Ethernet
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---

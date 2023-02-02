@@ -8,8 +8,8 @@ tags:
   - PWM
 author: 'Karl Söderby'
 hardware:
-  - hardware/02.hero/boards/uno-rev3
   - hardware/02.hero/shields/motor-shield-rev3
+  - hardware/02.hero/boards/uno-rev3
   - _snippets/hardware/dc-motor
   - _snippets/hardware/power-source
 software:

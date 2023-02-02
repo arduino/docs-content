@@ -10,8 +10,8 @@ libraries:
   - name: CAN
     url: https://github.com/sandeepmistry/arduino-CAN
 hardware:
-  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/01.mkr/02.shields/mkr-can-shield
+  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - _snippets/hardware/jumper-wires
 software:
   - ide-v1
