@@ -492,7 +492,7 @@ Laboratory equipment, Computer vision
 | Description                                                    | Min | Typ  | Max | Unit |
 |----------------------------------------------------------------|-----|------|-----|------|
 | Current consumption in deep sleep mode (@3.7V)                 |     | 0.67 |     | mA   |
-| Current consumption in busy loop (@5V)                         |     | 2.6  |     | mAh  |
+| Current consumption in busy loop (@5V)                         |     | 2.6  |     | mA   |
 | Maximum current consumption with M7 ON and M4 ON bliking (@5V) |     | 230  |     | mA   |
 
 **Note:** All the measurements have been performed with Portenta H7 full version (ABX00042). The current consumption in busy loop has been evaluated according to the following loop:
