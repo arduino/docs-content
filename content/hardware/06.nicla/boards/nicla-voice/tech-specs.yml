@@ -19,7 +19,7 @@ Connectivity:
 Sensors:
   IMU: BMI270 (6-axis)
   Magnetometer: BMM150 (3-axis)
-  Microphone: IM69D130 [Datasheet](https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e)
+  Microphone [Datasheet](https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e): IM69D130 
 Communication:
   UART: Yes
   I2C: 1
