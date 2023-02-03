@@ -308,7 +308,7 @@ void loop() {
 
 ### Datalogger Example
 
-In the example below, we are reading logging the `A0` pin, where we are defining two paramaters:
+In the example below, we are reading logging the `A0` pin, where we are defining two parameters:
 - `interval` - how long between each reading.
 - `number_of_readings` - how many readings we should take.
 
