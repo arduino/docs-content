@@ -1,7 +1,7 @@
 ---
 title: Nicla Voice
 url_shop: https://store.arduino.cc/nicla-voice
-url_guide: /tutorials/getting-started-ml
+url_guide: /tutorials/nicla-voice/getting-started-ml
 core: arduino:mbed_voice
 productCode: 'ABX00061'
 ---
