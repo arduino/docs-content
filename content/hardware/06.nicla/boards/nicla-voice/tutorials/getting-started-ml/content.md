@@ -1,9 +1,9 @@
 ---
 title: 'Getting Started with Nicla Voice'
-description: 'Learn how to start to use the Nicla Voice and create your own machine learning audio models using Edge Impulse®'
+description: 'Learn how to start to use the Nicla Voice and create your own machine learning audio models using the Machine Learning Tools'
 tags: 
   - Getting started
-  - Edge Impulse®
+  - Machine Learning Tools
 author: 'Benjamin Dannegård'
 libraries: 
   - name: NDP
@@ -21,7 +21,7 @@ software:
 
 The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it recognizes different events and hears keywords simultaneously. It is capable of understanding and learning its surrounding sounds.
 
-To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning model is required. With Edge Impulse®, it is possible to build, train and easily deploy the machine learning model to the Nicla Voice. This tutorial will explain how to start with the board, test the default built-in sketch, and create your own models.
+To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning model is required. With the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) powered by Edge Impulse® and integrated in Arduino Cloud, it is possible to build, train and easily deploy the machine learning model to the Nicla Voice. This tutorial will explain how to start with the board, test the default built-in sketch, and create your own models.
 
 ![The Nicla Voice](assets/nicla-cover-image.svg)
 
@@ -31,7 +31,7 @@ The goals of this tutorial are:
 
 - Test the built-in example to check that the board is working well
 - Learn how to capture audio to train a machine learning model
-- Learn how to train an Edge Impulse® model
+- Learn how to train a machine learning model
 - Learn how to export the model to be used with the Nicla Voice
 - Learn how to test the model to see if it is working as it should be
 
@@ -40,13 +40,12 @@ The goals of this tutorial are:
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Arduino Nicla Voice](https://store.arduino.cc/nicla-voice) (x1)
 - [Arduino Cloud](https://cloud.arduino.cc/)
-- [Edge Impulse®](https://www.edgeimpulse.com/)
 
 ## Testing the Built-in Example
 
-The Nicla Voice comes pre-flashed with a wake up word detection demo. This demo can be found in the Arduino IDE, under **File->Examples->NDP->AlexaDemo**. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Alexa". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Edge Impulse® model.
+The Nicla Voice comes pre-flashed with a wake up word detection demo. This demo can be found in the Arduino IDE, under **File->Examples->NDP->AlexaDemo**. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Alexa". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Machine Learning model.
 
-Now let's take a look at how to create an Edge Impulse® model.
+Now let's take a look at how to create a machine learning model using the Machine Learning Tools integration.
 
 ## The Machine Learning Model
 
@@ -56,11 +55,11 @@ To train a machine learning model to classify audio, we first need to feed it wi
 
 If a machine learning model is overfitting, it means that it is too well geared toward your training data and it will not perform well with unseen input data. This is a common pitfall in machine learning. You need some variation in the training dataset and adjust the parameters, so that the model does not just learn all input data by heart, making the classification based on that, but it will rather learn the concept that makes up an object or a sound.
 
-Finding the proper configuration for your application often requires trial and error. Edge Impulse® shows in [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) how to improve poorly performing machine learning models.
+Finding the proper configuration for your application often requires trial and error. Check [this article](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance) to learn more about how to improve poorly performing machine learning models.
 
-### Creating a Custom Edge Impulse® Model
+### Creating a Custom Machine Learning Model
 
-With the Nicla Voice, it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases based on your recordings. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access Edge Impulse® via the Arduino Cloud, as shown in the image below. Otherwise, if you already have an Edge Impulse® account, you can directly login from the [Edge Impulse® website](https://studio.edgeimpulse.com/login).
+With the Nicla Voice, it is possible to train your own models for voice recognition and use them with the board. This will allow the Nicla Voice to detect words or phrases based on your recordings. First, if you do not already have an Arduino Cloud account, please go [here and create one](https://cloud.arduino.cc/home/). You can then access the Machine Learning Tools integration via the Arduino Cloud, as shown in the image below. 
 
 ![Machine Learning tools option in Arduino Cloud](assets/arduino-cloud-ML.svg)
 
@@ -68,11 +67,11 @@ With the account set up, create a new project and proceed to the next step to ca
 
 ### Capturing Data for the Model
 
-There are multifarious methods for capturing sound for the model with Edge Impulse®. Navigate to the "Data acquisition" page and pick the preferred method for capturing audio.
+There are multifarious methods for capturing sound for the model with the Machine Learning Tools integration. Navigate to the "Data acquisition" page and pick the preferred method for capturing audio.
 
 ![Data acquisition page](assets/data-acquisition-page.svg)
 
-This tutorial will go through how to capture audio from the phone directly to the Machine Learning model. It is possible to capture audio from the Nicla Voice and upload it to the Edge Impulse® model by using the NDP library's "Record and Stream" example.
+This tutorial will go through how to capture audio from the phone directly to the Machine Learning model. It is possible to capture audio from the Nicla Voice and upload it to the Machine Learning model by using the NDP library's "Record and Stream" example.
 
 On the data acquisition page, press the "Let's collect some data" button. Now select the "Show QR code" option in the "Use your mobile phone" section.
 
@@ -84,11 +83,11 @@ Scan the QR code with your phone and it will automatically connect. Set the opti
 
 When a recording is made on the phone, it will automatically show up on the webpage. First start by recording around five minutes of the phrase you want to have recognized, for this tutorial "Ciao Nicla" will be used. Try to vary the distance from the microphone, the pronunciation and the inflection when speaking the phrase to give the model a wider definition of the phrase that should be recognized. If you want to make the model more accurate have multiple people recording the same phrase, going through the same process of varying the distance from the microphone, the pronunciation and the inflection.
 
-Once this is done, record another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help you with the training of the model later. And, to give the model a better understanding of what sounds not to recognize as the trigger, also record five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the required sentence. Feel free to collect as many of these three different categories as needed.
+Once this is done, record another five minutes of random words that are not the desired phrase and set the label for these recordings as "unknown". This will help you with the training of the model later. And, to give the model a better understanding of which sounds not to recognize as the trigger, also record five minutes of background and ambient noise. Set the label of these recordings as "noise". The more data collected, the better the model can be trained to recognize the required sentence. Feel free to collect as many of these three different categories as needed.
 
 ![Data collected](assets/data-acquired.svg)
 
-Make sure to have a good training/test data split ratio of around 80/20. The test data is used to test the model with "unseen" data after the training has finished. If you have an overfitting model, you may see high accuracy in the training results but poor performance in the testing results. If that's the case, you may have to tweak the parameters or collect more/better training data. More information on this can be found in this [Edge Impulse® documentation](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance).
+Make sure to have a good training/test data split ratio of around 80/20. The test data is used to test the model with "unseen" data after the training has finished. If you have an overfitting model, you may see high accuracy in the training results but poor performance in the testing results. If that is the case, you may have to tweak the parameters or collect more/better training data. More information on this can be found in this [documentation](https://docs.edgeimpulse.com/docs/tips-and-tricks/increasing-model-performance).
 
 ![Data split ratio](assets/dataset-train-test-split.svg)
 
@@ -124,11 +123,11 @@ Ideally, you want to get as close to 100% accuracy as possible for each class. I
 
 The model is now ready to be built and deployed. Go to the "Deployment" page, select the "Arduino Nicla Voice" under "Build firmware" and set the posterior parameters. Click the "Find posterior parameters" button. In the window that pops up select all keywords that we have created in the steps before. We can keep the calibration settings to "No calibration". Then press the green "Find parameters" button and, when the job is done, close this window.
 
-![Deployment on Edge Impulse®](assets/deployment-first-step.svg)
+![Deployment on Machine Learning Tools Integration](assets/deployment-first-step.svg)
 
 Now it is time to prepare the model created to upload it to the Nicla Voice. Select the Nicla Voice firmware and press the green "Build" button. When the building is done you will receive a .zip file containing the model built for the Nicla Voice. Now that you have the Machine Learning model built, we need to set up the Arduino IDE installing the appropriate core and CLIs.
 
-![Model finished building on Edge Impulse®](assets/deployment-finished.svg)
+![Model finished building on Machine Learning Tools Integration](assets/deployment-finished.svg)
 
 ### Setting up the Arduino IDE
 
@@ -136,7 +135,7 @@ Make sure the latest version of the Arduino IDE is installed. The IDE can be dow
 
 ### Installing Additional Dependencies
 
-To make it easy to flash any Machine Learning model created with Edge Impulse® onto the Nicla Voice, we need to install the Arduino CLI and Edge Impulse® CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse® to install both properly.
+To easily flash any Machine Learning model created with Machine Learning Tools integration onto the Nicla Voice, we need to install the Arduino CLI and Edge Impulse® CLI. Follow [this article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-vision#installing-dependencies) from Edge Impulse® to install both properly.
 
 ### Uploading the Model
 
@@ -160,4 +159,4 @@ Now you can go ahead and say your wake up words to the Nicla Voice. The board sh
 
 ## Conclusion
 
-This tutorial showed how to set up the Edge impulse® platform to create a machine learning model to use with the Nicla Voice. It went through how to collect audio with a phone, how to train the model with the data, and then how to build it to work with the board. Lastly, the tutorial shows how to upload the model to the Nicla Voice and how to use that model.
+This tutorial showed how to set up the Machine Learning Tools platform to create a machine learning model to be used with the Nicla Voice. It went through how to collect audio with a phone, how to train the model with the data, and then how to build it to work with the board. Lastly, the tutorial shows how to upload the model to the Nicla Voice and how to use that model.
