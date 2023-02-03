@@ -27,8 +27,8 @@ The Nicla Voice features an NDP120™, an ultra-low powered and special-purpose 
 </Feature>
 
 <Feature title="Microphone" image="microphone">
-The Nicla Voice features an IM69D130, a high-performance digital MEMS microphone from Infineon®.
-<FeatureLink title="Datasheet" url="https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e" download blank/>
+The Nicla Voice features an IM69D130, a high-performance digital MEMS microphone from Infineon®. This microphone can be used for voice recognition with machine learning models.
+<FeatureLink title="Tutorial" url="https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml"/>
 </Feature>
 
 <Feature title="Inertial Measurement Unit" image="imu">
