@@ -31,10 +31,6 @@ The Nicla Voice features an IM69D130, a high-performance digital MEMS microphone
 <FeatureLink title="Tutorial" url="https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml"/>
 </Feature>
 
-
-<!--<FeatureLink title="Datasheet" url="https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e" download blank/
-</Feature>-->
-
 <Feature title="Inertial Measurement Unit" image="imu">
 The Nicla Voice features a BMI270, a 6-axis ultra-low power Inertial Measurement Unit (IMU) optimized for wearables from Bosch®.
 <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf" download blank/>
