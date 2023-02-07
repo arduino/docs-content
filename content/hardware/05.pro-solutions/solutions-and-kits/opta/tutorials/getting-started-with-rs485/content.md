@@ -66,28 +66,41 @@ Upload the following sender sketch to the Opta™ device you want to designate a
 ```arduino
 #include <ArduinoRS485.h>
 
-int incomingByte = 0; // for incoming serial data
+constexpr auto baudrate{ 115200 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto wordlen{ 9.6f };  // OR 10.0f depending on the channel configuration
+constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
+constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 
 void setup() {
-  Serial.begin(115200); // opens serial port
-  RS485.begin(9600);
+  Serial.begin(baudrate);  // opens serial port
+  while (!Serial);
+
+  RS485.begin(baudrate);
+  RS485.setDelays(preDelayBR, postDelayBR);
 }
 
 void loop() {
+  auto aval = Serial.available();
+  if (aval > 0) {
+    auto input = Serial.readStringUntil('\r');
 
-  if (Serial.available() > 0)
-  {
-    incomingByte = Serial.read();
+    // Discard \r\n
+    auto read = input.length();
+    while (aval > ++read)
+      Serial.read();
+
+    auto incomingByte = input.toInt();
     RS485.beginTransmission();
     Serial.print("- Sending: ");
     Serial.println(incomingByte);
-    RS485.print(incomingByte);
+    RS485.write(incomingByte);
     RS485.endTransmission();
-    delay(1000);
   }
 }
 ```
-
 
 ### RS485 Receiver Sketch
 
@@ -101,60 +114,84 @@ Now upload this sketch to the receiver Opta™ device:
 
 ```arduino
 #include <ArduinoRS485.h>
-int readValue = 0;
-bool newState = false;
 
-int relays[] = {D0, D1, D2, D3};
-int leds[] = {LED_D0, LED_D1, LED_D2, LED_D3};
+constexpr auto baudrate{ 115200 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto wordlen{ 9.6f };  // OR 10.0f depending on the channel configuration
+constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
+constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
+
+int idx{ 0 };
+bool newState{ false };
+
+int relays[]{ D0, D1, D2, D3 };
+int leds[]{ LED_D0, LED_D1, LED_D2, LED_D3 };
+bool statuses[]{ true, true, true, true };
 
 void setup() {
-    for (int i = 0; i < 4; i++) {
-        pinMode(relays[i], OUTPUT);
-        pinMode(leds[i], OUTPUT);
-    }
+  for (int i = 0; i < 4; i++) {
+    pinMode(relays[i], OUTPUT);
+    pinMode(leds[i], OUTPUT);
+  }
 
-    RS485.begin(9600);
-    RS485.receive();
+  RS485.begin(baudrate);
+  RS485.setDelays(preDelayBR, postDelayBR);
 
-    Serial.begin(9600);
-    while (!Serial);
+  Serial.begin(baudrate);
+  while (!Serial);
 }
 
 void loop() {
-    while (RS485.available() > 0) {
-        readValue = RS485.parseInt();
-        Serial.print("- Incoming byte: ");
-        Serial.println(readValue);
-        newState = true;
-    }
 
-    if (newState) {
-        changeRelay();
-        newState = false;
-    }
+  RS485.receive();
+  auto aval = RS485.available();
+  if (aval > 0) {
+    int readValue = RS485.read();
+
+    // Manage out-of-range inputs
+    if (readValue > 4)
+      readValue = readValue % 4;
+
+    Serial.print("Command for relay: ");
+    Serial.println(readValue);
+    newState = true;
+
+    // Array indexes start at 0
+    idx = readValue - 1;
+  }
+  RS485.noReceive();
+
+  if (newState) {
+    changeRelay();
+    newState = false;
+  }
 }
 
 void changeRelay() {
-    if (digitalRead(relays[readValue]) == 1) {
-        digitalWrite(relays[readValue], LOW);
-        digitalWrite(leds[readValue], LOW);
-    }else {
-        digitalWrite(relays[readValue], HIGH);
-        digitalWrite(leds[readValue], HIGH);
-    }
+  // Get current status
+  auto status = statuses[idx] ? HIGH : LOW;
+  
+  // Apply
+  digitalWrite(relays[idx], status);
+  digitalWrite(leds[idx], status);
+  
+  // Invert
+  statuses[idx] = !statuses[idx];
 }
 ```
 
 ### Testing Out the Sketches
 
-Let's test the application with the sender Opta™ device connected to the Serial Monitor of the Arduino IDE and the receiver Opta™ device powered on. In the Serial Monitor, send a value between `0`and `3`; sending a `0` should open relay one and turn on the first status LED, from left to right, of the receiver Opta™ device. Sending a `0` again should close the relay and turn off the status LED. 
+Let's test the application with the sender Opta™ device connected to the Serial Monitor of the Arduino IDE and the receiver Opta™ device powered on. In the Serial Monitor, send a value between `1`and `4`; sending a `1` should open relay one and turn on the corresponding status LED, from left to right, of the receiver Opta™ device. Sending a `0` again should close the relay and turn off the status LED.
 
 Here is a review of the values the receiver Opta™ device can receive and the result they produce:
 
-- Sending `0`: Will turn on or off the first relay and the first status LED
-- Sending `1`: Will turn on or off the second relay and the first status LED
-- Sending `2`: Will turn on or off the third relay and the first status LED
-- Sending `3`: Will turn on or off the fourth relay and the first status LED
+- Sending `1`: Will turn on or off the first relay and the first status LED
+- Sending `2`: Will turn on or off the second relay and the second status LED
+- Sending `3`: Will turn on or off the third relay and the third status LED
+- Sending `4`: Will turn on or off the fourth relay and the fourth status LED
 
 ## Conclusion
 
