@@ -22,14 +22,14 @@ The Opta™ is equipped with the RS485 communication interface. Using this featu
 
 ## Goals
 
-- Learn how to connect two Opta™ devices through their RS485 communication interface
-- Learn how to send and receive information between two Opta™ devices through their RS485 communication interface
+- Learn how to connect two Opta™ devices through RS485 communication interface
+- Learn to exchange information between two Opta™ devices through RS485 communication interface
   
 ### Required Hardware and Software
 
-- USB-C® cable (x1)
 - [Opta™ RS485](https://store.arduino.cc/pages/opta) (x2)
 - 12-24VDC, 1A power supply (x1)
+- USB-C® cable (x1)
 - [Arduino IDE 2](https://www.arduino.cc/en/software)
 - [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/)
 - 24AWG twisted-pair cable (for connecting the Optas via their RS485 communication interface)
@@ -50,14 +50,14 @@ The sender sketch will let you send a message over the Arduino IDE Serial Monito
 
 Here are some important functions in the sketch:
 
-- `RS485.begin(9600)`: Initializes the RS485 object communication speed with assigned baud rate, `9600` in this case
+- `RS485.begin(baudrate)`: Initializes the RS485 object communication speed with assigned baud rate, `115200` in this case
 - `RS485.beginTransmission()`: Enables RS485 transmission
 - `RS485.print()`: Writes binary data over RS485; data is sent as a byte or series of bytes
 - `RS485.endTransmission()`: Disables RS485 transmission
 
 Connect the Opta™ devices according to the image shown below:
 
-![RS485 connection between two Opta™ devices](assets/opta-modbus-connection.png)
+![RS485 connection between two Opta™ devices](assets/opta-modbus-connection.svg)
 
 ### RS485 Sender Sketch
 
@@ -106,7 +106,7 @@ void loop() {
 
 Some important functions in the receiver sketch:
 
-- `RS485.begin(9600)`: Make sure this is set to the same baud rate as the sender device, `9600` in this case.
+- `RS485.begin(baudrate)`: Make sure this is set to the same baud rate as the sender device, `115200` in this case.
 - `RS485.receive()`: Enables reception through the RS485 connection.
 - `RS485.parseInt()`: We use this function to ensure that the correct value is received and read.
 
