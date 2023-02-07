@@ -441,7 +441,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Mounting Holes and Board Outline
 
-![](assets/x8Mechanical.pdf)
+![](assets/x8Mechanical.png)
 
 # Certifications
 
