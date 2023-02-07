@@ -195,6 +195,10 @@ void changeRelay() {
 }
 ```
 
+### Complete RS485 Example Code
+
+You can access the complete example code by accessing [here](assets/Opta_RS485_Example.zip). The examples are easy to locate as their names suggest: `Opta_RS485_Sender` and `Opta_RS485_Receiver` after extracting the files.
+
 ### Testing Out the Sketches
 
 Let's test the application with the sender Opta™ device connected to the Serial Monitor of the Arduino IDE and the receiver Opta™ device powered on. In the Serial Monitor, send a value between `1`and `4`; sending a `1` should close relay one and turn on the corresponding status LED, from left to right, of the receiver Opta™ device. Sending a `1` again should open the relay and turn off the status LED.
