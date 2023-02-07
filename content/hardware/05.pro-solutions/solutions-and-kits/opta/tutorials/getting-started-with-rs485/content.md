@@ -84,7 +84,7 @@ constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 ```
 
-This will then be used within `setup()` to initialize RS485 interface within apropriate configuration. In this tutorial, we are using baud rate of `115200` but it can be configured at a different rate. It is important to have matching baud rate between sender and receiver for correct operation.
+This will then be used within `setup()` to initialize RS485 interface within appropriate configuration. In this tutorial, we are using baud rate of `115200` but it can be configured at a different rate. It is important to have matching baud rate between sender and receiver for correct operation.
 
 ```arduino
 void setup() {
