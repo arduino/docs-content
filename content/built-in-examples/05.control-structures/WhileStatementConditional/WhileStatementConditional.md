@@ -83,7 +83,7 @@ Connect your analog sensor (e.g. potentiometer, light sensor) on analog input 2 
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/WhileLoop
+  https://www.arduino.cc/en/Tutorial/WhileLoop
 
 */
 

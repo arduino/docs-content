@@ -128,7 +128,7 @@ This function is used **event title** and the **event duration**  in order to un
 
   by Arturo Guadalupi <a.guadalupi@arduino.cc>
 
-  http://arduino.cchttps://www.arduino.cc/en/Tutorial/GoogleCalendarWiFi101
+  https://www.arduino.cc/en/Tutorial/GoogleCalendarWiFi101
 
   This code is in the public domain.
 

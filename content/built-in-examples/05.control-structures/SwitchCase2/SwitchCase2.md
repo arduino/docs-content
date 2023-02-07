@@ -71,7 +71,7 @@ To make this sketch work, your board must be connected to your computer. In the 
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/SwitchCase2
+  https://www.arduino.cc/en/Tutorial/SwitchCase2
 
 */
 

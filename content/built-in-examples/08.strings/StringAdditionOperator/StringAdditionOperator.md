@@ -110,7 +110,7 @@ Here's a working example of several different concatenation examples :
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/StringAdditionOperator
+  https://www.arduino.cc/en/Tutorial/StringAdditionOperator
 
 */
 

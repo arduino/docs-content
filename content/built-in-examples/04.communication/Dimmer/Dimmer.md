@@ -72,7 +72,7 @@ Connect the 220 ohm current limiting resistor to digital pin 9, with an LED in s
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Dimmer
+  https://www.arduino.cc/en/Tutorial/Dimmer
 
 */
 
