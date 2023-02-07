@@ -22,8 +22,8 @@ The Opta™ is equipped with the RS485 communication interface. Using this featu
 
 ## Goals
 
-- Learn how to connect two Opta™ devices through RS485 communication interface
-- Learn to exchange information between two Opta™ devices through RS485 communication interface
+- Learn how to connect two Opta™ devices through RS485 interface
+- Learn to exchange information between two Opta™ devices through RS485 interface
   
 ### Required Hardware and Software
 
@@ -32,36 +32,45 @@ The Opta™ is equipped with the RS485 communication interface. Using this featu
 - USB-C® cable (x1)
 - [Arduino IDE 2](https://www.arduino.cc/en/software)
 - [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/)
-- 24AWG twisted-pair cable (for connecting the Optas via their RS485 communication interface)
+- 24AWG twisted-pair cable (for connecting the Opta™ devices via RS485 interface)
 
-***Notice: This tutorial does not work with Opta™ Lite since it does not have an RS485 communication interface.***
+***Notice: This tutorial does not work with Opta™ Lite since it does not have an RS485 interface.***
+
+## RS485 101
+
+The RS485 is an electrical-only standard that uses a differential bus with voltage levels of 0-5V with multi-drop feature that allows drivers and receivers to be added to transmission line. Due to differential signaling, it provides good noise immunity to be implemented in industrial environments.
+
+It is important to know that RS485 does not define a protocol, since it does not know how to interpret such information nor when or what they should do to process. Modbus RTU is a communication protocol over RS485 interface that helps maintain interoperability. Although it is out of scope of this tutorial, you can check out further by reading [getting started with Modbus RTU tutorial](/tutorials/opta/getting-started-with-modbus-rtu) after this tutorial for better understanding.
 
 ## Instructions
 
 ### Setting up With Arduino IDE
 
-First, ensure that you have installed the latest version of the Arduino IDE; you can download the IDE from [here](https://www.arduino.cc/en/software). Please look at our [getting started with Opta™ tutorial](/tutorials/opta/getting-started) if you need help setting up the Opta™ with the Arduino IDE.
+We will need to have the latest version of the Arduino IDE. For this, you can download the Arduino IDE from [here](https://www.arduino.cc/en/software). Please look at [getting started with Opta™ tutorial](/tutorials/opta/getting-started) if it is first time setting up the Opta™ with the Arduino IDE.
 
-Let's use a library to make it easier to use the RS485 protocol with Opta™. The library is called [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/), which can be found in the Arduino IDE Library Manager. Once installed, let's take a look at a simple sketch to test the RS485 communication between two Opta™ devices.
+The [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) library will be used to enable the RS485 interface with Opta™. The library can be found via Arduino IDE Library Manager and make sure to install the latest version of the library. Once it's installed, we will use a simple sketch to verify and help you understand the RS485 interface two Opta™ devices.
 
-### RS485 Communication with the Opta™
+### RS485 Interface with the Opta™
 
-The sender sketch will let you send a message over the Arduino IDE Serial Monitor to the receiving device via RS485. The receiving device will take the received message, open or close the corresponding relay, and turn on or off a LED. If you send the number 0 through the Serial Monitor, the receiving Opta™ will open or close the relay one depending on its current status while turning on or off a status LED at the same time.
+To establish RS485 interface between Opta™ devices, please refer to the following diagram. The diagram also indicates elements of interests, which are the status LEDs and relays, for the current tutorial's purpose.
 
-Here are some important functions in the sketch:
+![RS485 interface connection between two Opta™ devices](assets/opta-modbus-connection.svg)
 
-- `RS485.begin(baudrate)`: Initializes the RS485 object communication speed with assigned baud rate, `115200` in this case
-- `RS485.beginTransmission()`: Enables RS485 transmission
-- `RS485.print()`: Writes binary data over RS485; data is sent as a byte or series of bytes
-- `RS485.endTransmission()`: Disables RS485 transmission
+### RS485 Example Overview
 
-Connect the Opta™ devices according to the image shown below:
+An Opta™ will either be assigned as a sender or a receiver. As the role suggests, each Opta™ has a specific task.
 
-![RS485 connection between two Opta™ devices](assets/opta-modbus-connection.svg)
+The Sender Opta™ will await for an input from `1` to `4` via Arduino IDE Serial Monitor. Each number represents the relay to trigger and its corresponding status LED.
+
+The Receiver Opta™ will intercept incoming Bytes and decode it into proper action. It will update the relay state and the status LED accordingly given its present status.
+
+For instance, if it receives `2` from Sender while the Receiver has second relay closed with lit second status LED, the Receiver will proceed to open the relay and turn off the second status LED as a deactivation indication. The process is vice-versa and it applies for the rest of the relays with its respective status LEDs.
+
+For better understanding, we will highlight portions of the example code with brief description.
 
 ### RS485 Sender Sketch
 
-Upload the following sender sketch to the Opta™ device you want to designate as the sender device:
+The Sender Opta™ will require adequate parameters for correct transmission via RS485 interface. This is defined per specification with following setup:
 
 ```arduino
 #include <ArduinoRS485.h>
@@ -73,7 +82,11 @@ constexpr auto bitduration{ 1.f / baudrate };
 constexpr auto wordlen{ 9.6f };  // OR 10.0f depending on the channel configuration
 constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
+```
 
+This will then be used within `setup()` to initialize RS485 interface within apropriate configuration. In this tutorial, we are using baud rate of `115200` but it can be configured at a different rate. It is important to have matching baud rate between sender and receiver for correct operation.
+
+```arduino
 void setup() {
   Serial.begin(baudrate);  // opens serial port
   while (!Serial);
@@ -81,7 +94,11 @@ void setup() {
   RS485.begin(baudrate);
   RS485.setDelays(preDelayBR, postDelayBR);
 }
+```
 
+As the Sender's job is to pack the data and transfer to the Receiver, it will need to transmit clear data. Inside the `loop()`, it will capture the input and write the Byte after series of checks to avoid sending bogus characters.
+
+```arduino
 void loop() {
   auto aval = Serial.available();
   if (aval > 0) {
@@ -104,32 +121,20 @@ void loop() {
 
 ### RS485 Receiver Sketch
 
-Some important functions in the receiver sketch:
-
-- `RS485.begin(baudrate)`: Make sure this is set to the same baud rate as the sender device, `115200` in this case.
-- `RS485.receive()`: Enables reception through the RS485 connection.
-- `RS485.parseInt()`: We use this function to ensure that the correct value is received and read.
-
-Now upload this sketch to the receiver Opta™ device:
+In terms of setup, the Receiver Opta™ has same configuration as Sender Opta™. But since it needs to trigger the relays with its corresponding status LEDs based on the received data, we will define such properties and its states in a form of array with other flags.
 
 ```arduino
-#include <ArduinoRS485.h>
-
-constexpr auto baudrate{ 115200 };
-
-// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-constexpr auto bitduration{ 1.f / baudrate };
-constexpr auto wordlen{ 9.6f };  // OR 10.0f depending on the channel configuration
-constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
-constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
-
 int idx{ 0 };
 bool newState{ false };
 
 int relays[]{ D0, D1, D2, D3 };
 int leds[]{ LED_D0, LED_D1, LED_D2, LED_D3 };
 bool statuses[]{ true, true, true, true };
+```
 
+On top of initializing the RS485 interface, we will set the relays and the status LEDs as `OUTPUT`. These will allow to control the relays with its visual indicators given captured data over the RS485 interface.
+
+```arduino
 void setup() {
   for (int i = 0; i < 4; i++) {
     pinMode(relays[i], OUTPUT);
@@ -142,7 +147,11 @@ void setup() {
   Serial.begin(baudrate);
   while (!Serial);
 }
+```
 
+The `loop()` will seek for an available data over RS485 interface and handle the packet accordingly when captured. It will manage out-of-range inputs and apply to intended relay and status LED.
+
+```arduino
 void loop() {
 
   RS485.receive();
@@ -168,7 +177,11 @@ void loop() {
     newState = false;
   }
 }
+```
 
+The `changeRelay()` method manages the relay and status LED state based on the input.
+
+```arduino
 void changeRelay() {
   // Get current status
   auto status = statuses[idx] ? HIGH : LOW;
@@ -184,7 +197,7 @@ void changeRelay() {
 
 ### Testing Out the Sketches
 
-Let's test the application with the sender Opta™ device connected to the Serial Monitor of the Arduino IDE and the receiver Opta™ device powered on. In the Serial Monitor, send a value between `1`and `4`; sending a `1` should open relay one and turn on the corresponding status LED, from left to right, of the receiver Opta™ device. Sending a `0` again should close the relay and turn off the status LED.
+Let's test the application with the sender Opta™ device connected to the Serial Monitor of the Arduino IDE and the receiver Opta™ device powered on. In the Serial Monitor, send a value between `1`and `4`; sending a `1` should close relay one and turn on the corresponding status LED, from left to right, of the receiver Opta™ device. Sending a `1` again should open the relay and turn off the status LED.
 
 Here is a review of the values the receiver Opta™ device can receive and the result they produce:
 
@@ -195,7 +208,7 @@ Here is a review of the values the receiver Opta™ device can receive and the r
 
 ## Conclusion
 
-In this tutorial, we established an RS485 connection between two Opta™ devices. We learned how to use the `ArduinoRS485.h` library to send and receive values between these two devices. Finally, the tutorial showed how to take the values sent via RS485 to interact with the Opta™ hardware features, such as its onboard relays and LEDs.
+In this tutorial, we established an RS485 connection between two Opta™ devices. We learned how to use the `ArduinoRS485.h` library to send and receive values between these two devices. Finally, the tutorial showed how to take the values sent via RS485 to interact with the Opta™ hardware features, such as its on-board relays and status LEDs.
 
 ### Next Steps
 
