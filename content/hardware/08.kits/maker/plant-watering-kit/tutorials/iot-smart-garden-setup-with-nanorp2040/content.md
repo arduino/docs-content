@@ -10,26 +10,23 @@ hardware:
 difficulty: beginner
 ---
 
-## Components and Supplies
-
-- [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
-- [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional).
-
-## Apps and Online Services
-
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
-
-## About This Project
+## Introduction
 
 **Water your plants from anywhere using the Arduino IoT Cloud**
 
 Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why not spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
-### In a Nutshell
+In this tutorial we will learn how attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. We will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
 
-Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
+## Goals
 
-### Components
+* Introducing the Arduino IoT Cloud
+* Introducing the Arduino IoT Remote app
+* Managing sensors with the Arduino IoT Cloud
+* Creating an Arduino IoT Cloud Dashboard
+
+## Hardware & Software Needed
+* [Arduino IoT Cloud](https://cloud.arduino.cc)
 * [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
 * [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional)
 * USB - wall adapter (not included in the kit)
@@ -52,15 +49,7 @@ OR
 * Long 3-pronged Grove cable (50cm).
 * A few spare jumper cables just in case you need them.
 
-
-### Learning Goals
-
-* Introducing the Arduino IoT Cloud
-* Introducing the Arduino IoT Remote app
-* Managing sensors with the Arduino IoT Cloud
-* Creating an Arduino IoT Cloud Dashboard
-
-### Hardware & Circuit Assembly
+## Hardware & Circuit Assembly
 
 There are cases were multiple wires are going into the same screw terminal, you may find it easier to get them in at the same time if you twist them together before trying to insert them.
 
@@ -126,11 +115,15 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 
 ![GIF of zip-tying the cables](assets/ziptie.gif)
 
-### IoT Cloud Setup
-
+## IoT Cloud Setup
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
-***Note: We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Click [here](https://create.arduino.cc/iot/templates/plant-watering-kit) to check out the IoT Cloud Template for an automated setup process.***
+### Template
+We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Check out [IoT Cloud Template](https://create.arduino.cc/iot/templates/plant-watering-kit) for an automated setup process.
+
+![Thing overview complete.](assets/template_overview.png)
+
+### Setup
 
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
 
@@ -140,15 +133,15 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 | Name        | Data Type | Function                               | Permission   |
 | ----------- | --------- | -------------------------------------- | ------------ |
+| moisture    | int       | Read moisture                          | Read Only    |
 | watering    | boolean   | Activate / de-activate pump            | Read & Write |
 | waterTime   | int       | How long the pump should run (seconds) | Read & Write |
-| moisture    | int       | Read moisture                          | Read Only    |
 
 **3.** Enter the credentials to your Wi-Fi network in the network section. 
 
 **4.** Your Thing overview should now look like the following:
 
-![Thing overview complete.](assets/Things.jpg)
+![Thing overview complete.](assets/things.png)
 
 **5.** Go to the sketch tab, and use the following code:
 
@@ -295,7 +288,7 @@ void onWaterTimeChange()  {
 
 **7.** Inside the dashboard view, click on **"Add"** then **"Things"** and select your Thing. This will generate a list of widgets and you can click on **"Create Widget"** to complete it. You should now see something similar to this dashboard:
 
-![Dashboard overview.](assets/dashboard-overview.jpg)
+![Dashboard overview.](assets/dashboard_initial.png)
 
 Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device. 
 
@@ -319,7 +312,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
-![Control and monitor your Smart Garden!](assets/Dashboard.gif)
+![Control and monitor your Smart Garden!](assets/dashboard-overview.png)
 
 ***In this dashboard, we have also added a chart widget to monitor the soil moisture over time.***
 
