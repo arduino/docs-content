@@ -305,6 +305,7 @@ locationChart = analogRead(A0);
 
 ![Sticky Note](assets/widget-sticky-note.png)
 
-The sticky note widget can be used to write important notes or to categorize your widgets.
+The sticky note widget can be used to write important notes or to categorize your widgets. 
 
-The sticky note can **not** be linked with a variable, and is designed to keep notes only while using a dashboard.
+The sticky note can **not** be linked with a variable, and is designed to keep notes only while using a dashboard. It does support the use of markdown, so that you can create titles, links, code blocks etc.
+
