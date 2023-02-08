@@ -45,6 +45,28 @@ The goals of this tutorial are:
 
 The Nicla Voice comes pre-flashed with a wake up word detection demo. This demo can be found in the Arduino IDE, under **File->Examples->NDP->AlexaDemo**. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Alexa". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Machine Learning model.
 
+### Updating the Boards Firmware Using Arduino IDE
+
+When you build a machine learning model with the machine learning tools and process showed later in the tutorial the tools for updating the boards firmware comes conveniently wrapped in the package you will download.
+
+However to be able to upload examples from the NDP library in the Arduino IDE the boards firmware needs to be updated manually. This can be done with the **Syntiant_upload_fw_ymodem** example sketch, found under **File->Examples->NDP** in the Arduino IDE. Open this sketch and upload it to your board.
+
+Next download this [.zip file](https://forum.arduino.cc/uploads/short-url/9s9FyyTgRHMLp0fZJIwVJ8z0UK0.zip) which contains the compiled uploaders for various operating systems and the firmwares. The files that needs to be uploaded to the board are **mcu_fw_120_v91.synpkg**, **dsp_firmware_v91.synpkg** and **model_name.synpkg**. Extract the contents of the .zip file and in a console run the following command inside the newly extracted folder, replacing **portName** with the port that the board is currently connected to and **filename** with the name of the firmware file:
+
+```arduino
+./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
+```
+
+The commands should look something like this:
+
+```arduino
+./syntiant-uploader send -m "Y" -w "Y" -p COM3 mcu_fw_120_v91.synpkg
+./syntiant-uploader send -m "Y" -w "Y" -p COM3 dsp_firmware_v91.synpkg
+./syntiant-uploader send -m "Y" -w "Y" -p COM3 model_name.synpkg
+```
+
+After these three files have been uploaded you can flash any example from the NDP library.
+
 Now let's take a look at how to create a machine learning model using the Machine Learning Tools integration.
 
 ## The Machine Learning Model
