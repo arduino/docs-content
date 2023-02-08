@@ -151,7 +151,7 @@ void setup() {
 }
 ```
 
-Within the `loop()` method, it will seek available data over the RS485 interface and handle the packet accordingly when captured. It will manage out-of-range inputs and apply them to the intended relay and status LED. If the user sends values that are not exactly `1` to `4`, the `readValue` will go through module operation and return the remainder from the integer division. It is a helpful and wise way to handle the data to relay to the corresponding destination.
+Within the `loop()` method, it will seek available data over the RS485 interface and handle the packet accordingly when captured. It will manage out-of-range inputs and apply them to the intended relay and status LED. If the user sends values that are not exactly `1` to `4`, the `readValue` will go through module operation and return the remainder from the integer division. It is a helpful and wise way to handle the data to relay to the corresponding target destination.
 
 Here, the `RS485.receive()` enables reception. The `RS485.available()` then obtains several bytes available for reading from the RS485 port and is the data saved inside the serial receive buffer. The `RS485.read()` will seek incoming serial data if actual data has arrived. Finally, after managing the data, `RS485.noReceive()` will be called to disable reception to let the resources use the retrieved data for desired tasks.
 
