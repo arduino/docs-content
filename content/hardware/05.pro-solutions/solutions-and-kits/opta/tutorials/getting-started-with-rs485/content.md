@@ -71,15 +71,14 @@ First, we need to define the RS-485 transmission parameters specified per specif
 
 constexpr auto baudrate{ 115200 };
 
-// Calculate preDelay and postDelay in microseconds to keep the current framing information on the RS485 line
-
+// Calculate preDelay and postDelay in microseconds for stable RS-485 transmission
 constexpr auto bitduration{ 1.f / baudrate };
 constexpr auto wordlen{ 9.6f };  // OR 10.0f depending on the channel configuration
 constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 ```
 
-The transmission parameters are then used in the Opta initialization and configuration. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
+These transmission parameters are crucial for stable RS-485 transmission as it will define its transmission timings. These are applied in the Opta initialization and configuration. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
 
 ```arduino
 void setup() {
