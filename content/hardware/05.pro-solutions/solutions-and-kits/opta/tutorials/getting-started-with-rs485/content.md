@@ -71,7 +71,8 @@ First, we need to define the RS-485 transmission parameters specified per specif
 
 constexpr auto baudrate{ 115200 };
 
-// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Calculate preDelay and postDelay in microseconds to keep the current framing information on the RS485 line
+
 constexpr auto bitduration{ 1.f / baudrate };
 constexpr auto wordlen{ 9.6f };  // OR 10.0f depending on the channel configuration
 constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
