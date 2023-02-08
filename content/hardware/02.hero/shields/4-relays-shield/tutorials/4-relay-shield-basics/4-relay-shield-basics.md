@@ -7,8 +7,8 @@ tags:
   - Relays
 author: 'Karl Söderby'
 hardware:
-  - hardware/02.hero/boards/uno-rev3
   - hardware/02.hero/shields/4-relays-shield
+  - hardware/02.hero/boards/uno-rev3
 software:
   - ide-v1
   - ide-v2

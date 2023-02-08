@@ -50,9 +50,9 @@ To communicate with the Portenta H7 via Bluetooth®, you need to upload a pre-bu
 
 ### 1. The Basic Setup
 
-Begin by plugging in your Portenta board to the computer using a USB-C cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
+Begin by plugging in your Portenta board to the computer using a USB-C® cable and open the Arduino IDE. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [set up the Portenta H7 for Arduino](setting-up-portenta) before you proceed.
 
-![The Portenta H7 can be connected to the computer using an appropriate USB-C cable](assets/por_ard_ble_basic_setup.svg)
+![The Portenta H7 can be connected to the computer using an appropriate USB-C® cable](assets/por_ard_ble_basic_setup.svg)
 
 ### 2. Install the ArduinoBLE Library 
 

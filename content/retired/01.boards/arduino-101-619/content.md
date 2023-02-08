@@ -9,8 +9,7 @@ source: "https://store.arduino.cc/arduino-101-619"
 
 ![The Arduino 101 board](./assets/ABX00005_featured_2.jpg)
 
-
-A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](/resources/datasheets/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth LE capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
+A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](/resources/datasheets/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth® Low Energy capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
 
 The module contains two tiny cores, an x86 (Quark) and a [32-bit ARC](https://en.wikipedia.org/wiki/ARC_(processor)) architecture core, both clocked at 32MHz. The Intel toolchain compiles your Arduino sketches optimally across both cores to accomplish the most demanding tasks. The Real-Time Operating Systems (RTOS) and framework developed by Intel is open sourced. See below under Firmware for the download link. The Arduino core communicates with the RTOS via static mailboxes to accomplish a predefined list of tasks (interface with PC using USB, program the sketch into flash, expose Bluetooth® Low Energy functionality to sketch, perform PWM). The RTOS for Intel Curie is still under development and new functions and features will be released in the near future.
 
@@ -72,12 +71,12 @@ The Intel Curie module memory is shared between the two microcontrollers, so you
 
 ### Input and Output
 
-Each of the 20 general purpose I/O pins on the 101 can be used for digital input or digital output using [pinMode()](https://www.arduino.cc/en/Reference/PinMode), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead) functions. Pins that can be used for PWM output are: 3, 5, 6, 9 using [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function. All pins operate at 3.3 volts and can be used as interrupt source. See the attachInterrupt() function for details. Each pin can source or sink a maximum of 20 mA.
+Each of the 20 general purpose I/O pins on the 101 can be used for digital input or digital output using [pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/), [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite), and [digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) functions. Pins that can be used for PWM output are: 3, 5, 6, 9 using [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite) function. All pins operate at 3.3 volts and can be used as interrupt source. See the attachInterrupt() function for details. Each pin can source or sink a maximum of 20 mA.
 
 In addition, some pins have specialized functions:
 
 * Serial: 0 (RX) and 1 (TX). Used to receive (RX) and transmit (TX) TTL serial data. These pins are connected to the Serial1 class.
-* External Interrupts on all pins. Can trigger an interrupt on a low value, high value, a rising or falling edge, or a change in value (change is only supported by pins 2, 5, 7, 8, 10, 11, 12, 13). See the [attachInterrupt()](https://www.arduino.cc/en/Reference/AttachInterrupt) function for details.
+* External Interrupts on all pins. Can trigger an interrupt on a low value, high value, a rising or falling edge, or a change in value (change is only supported by pins 2, 5, 7, 8, 10, 11, 12, 13). See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
 * SPI: SS, MOSI, MISO, SCK. Located on the SPI header support SPI communication using the [SPI library](https://www.arduino.cc/en/Reference/SPI).
 * LED: 13\. There is a built-in LED driven by digital pin 13\. When the pin is HIGH value, the LED is on, when the pin is LOW, it's off.
 * Analog Inputs. Six of the 20 general purpose I/O pins on the 101 provide analog input. These are labeled A0 through A5, and each provide 10 bits of resolution (i.e. 1024 different values). They measure from ground to 3.3 volts

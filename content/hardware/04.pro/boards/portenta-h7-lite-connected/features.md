@@ -27,10 +27,4 @@ The **Portenta H7 Lite Connected** simultaneously runs high level code along wit
   <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_Murata-1dx.pdf" download blank/>
 </Feature>
 
-<Feature title="Special Configuration Request" image="configurability">
-
-  The Portenta H7 Lite Connected is a highly configurable design, it is possible to order boards with different configurations of memory, crypto chip, antenna, etc. These request will be channeled through Arduino's sales team and will require a minimum amount order. We recommend you try the default H7 configuration and if you need specific features for your solution, then contact us to discuss the terms.
-  
-</Feature>
-
 </FeatureList>

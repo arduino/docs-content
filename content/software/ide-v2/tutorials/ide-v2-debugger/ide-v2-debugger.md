@@ -17,7 +17,7 @@ A debugger is a software tool which is used to test and debug programs, hence th
 
 It basically goes through a program in a controlled manner, with the help of a hardware interface which can help navigate through the program's execution. This can be of aid in better understanding the program as well as helping spot potential flaws and code errors.
 
-*** You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). ***
+*** You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). ***
 
 ### Compatible Boards
 
@@ -42,7 +42,7 @@ The debugger is compatible with all SAMD boards. Boards using the SAMD architect
 
 You will also need one of the following hardware setups:
 - [Arduino Zero](https://store.arduino.cc/arduino-zero) or
-- [Segger J-Link BASE](https://store.arduino.cc/j-link-base) / [Segger J-Link EDU](https://store.arduino.cc/j-link-edu) + [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) or
+- [Segger J-Link BASE](https://store.arduino.cc/products/j-link-base-compact) / [Segger J-Link EDU](https://store.arduino.cc/products/j-link-edu) + [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) or
 - [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) + [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 
 
@@ -102,14 +102,14 @@ Once your program has been uploaded, we can start using the debugger.
 
 Let's begin by creating something called a **breakpoint**. Breakpoints are used to stop the program execution at a specific line (or when a specific condition is verified). We can use multiple of these in a program (the number is variable depending on the processor). 
 
-In this example, we are going to set a breakpoint for **line 33** and **line 36**. These are set by clicking to the left of the line numbering in the editor. 
+In this example, we are going to set a breakpoint for **line 33** and **line 35**. These are set by clicking to the left of the line numbering in the editor. 
 
 ![Navigating the Debugger.](assets/debugger-img03.png)
 
 We can now go through our code, step by step.
-The first (automatic) stop will be triggered by the **Debugger** itself, and it will be a standard entry-point, ignore that for now.
+The debugger will automatically stop at the first breakpoint it reached.
 
-Let's continue, by clicking on the **Play/pause** button (**Continue**). The program will now run to the first breakpoint, line 33. If we click it again, it will jump to line 36 (the lines 34 and 35 will still be executed but we won't see that). Clicking the **Play/pause** button again will continue running the program which will pause at its next breakpoint, line 33. We're in the main loop, after all.
+Let's continue, by clicking on the **Play/pause** button (**Continue**). The program will now run to the next breakpoint (e.g., line 35). If we click it again, it will jump to line 33 (the other lines in the program sequence will still be executed but we won't see that). Clicking the **Play/pause** button again will continue running the program which will pause at its next breakpoint, line 35. We're in the main loop, after all.
 
 ![Going between breakpoints.](assets/playpause.gif)
 

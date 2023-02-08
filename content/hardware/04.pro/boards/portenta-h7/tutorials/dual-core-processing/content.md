@@ -33,10 +33,10 @@ The Portenta H7 is equipped with a processor that has two processing units calle
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB C cable (either USB A to USB C or USB C to USB C)
-- Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ 
+- Arduino IDE 1.8.10+ 
 
 ## Cortex® M7 & M4 
-Processor cores are individual processing units within the board's main processing unit (do not confuse a processor core with an [Arduino core](https://www.arduino.cc/en/guide/cores)). These cores are responsible for executing instructions at a particular clock speed. The on-board  Arm Cortex processor comes with two cores (Cortex® M7 and M4), with slightly different architectures and clock speeds. The M7 runs at 480 MHz and the architecture is designed to separate Instruction and Data buses to optimize CPU latency. The M4 runs at 240 MHz and the architecture supports the ART™ accelerator (a block that speeds up instruction fetching accesses of the Cortex-M4 core to the D1-domain internal memories). The higher clock rate of the M7 makes it suitable to handle complex processing tasks such as data storage, debugging or handling input/output peripherals at a higher efficiency compared to the M4. The dual core processor of the Portenta H7 sets it apart from other single core Arduino boards, by allowing true multitasking, faster data processing capabilities, enhanced processing power and application partitioning.  
+Processor cores are individual processing units within the board's main processing unit (do not confuse a processor core with an [Arduino core](https://docs.arduino.cc/learn/starting-guide/cores)). These cores are responsible for executing instructions at a particular clock speed. The on-board  Arm Cortex processor comes with two cores (Cortex® M7 and M4), with slightly different architectures and clock speeds. The M7 runs at 480 MHz and the architecture is designed to separate Instruction and Data buses to optimize CPU latency. The M4 runs at 240 MHz and the architecture supports the ART™ accelerator (a block that speeds up instruction fetching accesses of the Cortex-M4 core to the D1-domain internal memories). The higher clock rate of the M7 makes it suitable to handle complex processing tasks such as data storage, debugging or handling input/output peripherals at a higher efficiency compared to the M4. The dual core processor of the Portenta H7 sets it apart from other single core Arduino boards, by allowing true multitasking, faster data processing capabilities, enhanced processing power and application partitioning.  
 
 ![The Architectures of Cortex® M7 and M4 cores.](assets/por_ard_dcp_m4_m7_architectures.svg)
 
@@ -48,7 +48,7 @@ To best illustrate the idea of dual core processing, you will be running two sep
 ![Running two different sketch files on the different cores.](assets/por_ard_dcp_tutorial_overview.svg)
 
 ### 1. The Basic Setup
-Begin by plugging-in your Portenta board to your computer using an appropriate USB-C cable and have the  Arduino IDE open. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [Setting Up Portenta H7 For Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed.
+Begin by plugging-in your Portenta board to your computer using an appropriate USB-C® cable and have the  Arduino IDE open. If this is your first time running Arduino sketch files on the board, we suggest you check out how to [Setting Up Portenta H7 For Arduino](setting-up-portenta) before you proceed.
 
 ![A Basic setup of the board attached to your computer](../setting-up-portenta/assets/por_ard_gs_basic_setup.svg)
 
@@ -149,11 +149,11 @@ int myLED;
 
 void setup() {
 
-   randomSeed(analogRead(0));
+  randomSeed(analogRead(0));
    
- #ifdef CORE_CM7  
-     bootM4();  
-     myLED = LEDB; // built-in blue LED
+  #ifdef CORE_CM7  
+    bootM4();  
+    myLED = LEDB; // built-in blue LED
   #endif
 ```
 
@@ -163,9 +163,9 @@ The code between `#ifdef CORE_CM7` and `#endif` will only apply for the M7 Core 
 Then, as well inside the `setup()` function, you will need to include the following lines to configure properly the green LED in the M4 core.
 
 ```cpp
- #ifdef CORE_CM4  
-     myLED = LEDG; // built-in greeen LED
-  #endif   
+#ifdef CORE_CM4  
+  myLED = LEDG; // built-in greeen LED
+#endif   
 ```
 
 ### 3. Finishing the Setup() Function and Programming the Loop()
@@ -181,7 +181,7 @@ void loop() {
    digitalWrite(myLED, LOW); // turn the LED on 
    delay(200); 
    digitalWrite(myLED, HIGH); // turn the LED off 
-   delay( rand() % 2000 + 1000); // wait for a random amount of time between 1 and 3 seconds.
+   delay(rand() % 2000 + 1000); // wait for a random amount of time between 1 and 3 seconds.
 } 
 ```
 
@@ -192,4 +192,4 @@ This tutorial introduces the idea of dual core processing and illustrates the co
 
 ### Next Steps
 
-- Proceed with the next tutorial "Setting Up a Wi-Fi Access Point" to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.
+- Proceed with the next tutorial [Setting Up a Wi-Fi Access Point](wifi-access-point) to learn how to make use of the built-in Wi-Fi module and configure your Portenta H7 as a Wi-Fi access point.

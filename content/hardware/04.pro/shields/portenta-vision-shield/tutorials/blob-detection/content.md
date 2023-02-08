@@ -6,8 +6,8 @@ tags: [OpenMV, Blob Detection, Machine Vision, Machine Learning]
 description: This tutorial will show you how to use the Portenta Vision Shield to detect the presence and the position of objects in a camera image.
 author: Sebastian Romero
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---
@@ -60,7 +60,7 @@ Follow the instructions of the installer.
 
 ### 2. Flashing the OpenMV Firmware
 
-Connect the Portenta to your computer via the USB-C cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch in the examples menu in the Arduino IDE. 
+Connect the Portenta to your computer via the USB-C® cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch in the examples menu in the Arduino IDE. 
 
 Instructions on how to update the bootloader can be found in the [Updating the Portenta Bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) tutorial.
 
@@ -104,7 +104,7 @@ import image # Import module containing machine vision algorithms
 import time # Import module for tracking elapsed time
 ```
 
-A module in Python is a confined bundle of functionality. By importing it into the script, it gets made available.
+A module in Python® is a confined bundle of functionality. By importing it into the script, it gets made available.
 
 ### 2. Preparing the Sensor
 

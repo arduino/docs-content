@@ -119,7 +119,7 @@ You should now be able to compile the entire project without any problems. To do
 
 ## Uploading the Code
 
-Unfortunately, Quartus can't upload the compiled files to the Vidor directly. However, I demonstrated how you can send the compiled project to the board in the [Getting Started with Arduino MKR Vidor 4000](/en/Tutorial/VidorGSVHDL) article.
+Unfortunately, Quartus can't upload the compiled files to the Vidor directly. However, I demonstrated how you can send the compiled project to the board in the [Getting Started with Arduino MKR Vidor 4000](https://arduino.cc/en/Tutorial/VidorGSVHDL) article.
 
 You can find all of the Empty Vidor Project files by [following the link](https://content.arduino.cc/assets/EmptyVidorProject.zip).
 

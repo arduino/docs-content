@@ -11,7 +11,7 @@ A more sophisticated server that distributes any incoming messages to all connec
 
 - Arduino Board
 
-- [Arduino Ethernet Shield](arduino.cc/hardware/ethernet-shield-rev2)
+- [Arduino Ethernet Shield](/hardware/ethernet-shield-rev2)
 
 ## Circuit
 

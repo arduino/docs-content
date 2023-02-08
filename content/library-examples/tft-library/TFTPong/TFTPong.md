@@ -43,7 +43,7 @@ Connect the TFT screen to the breadboard. The headers on the side of the screen 
 
 ![](assets/GLCD_pong3.png)
 
-Connect the BL and +5V pins to power, and GND to ground. Connect CS-LD to pin 10, DC to pin 9, RESET to pin 8, MOSI to pin 11, and SCK to pin 13. If uyou're using a Leonardo, you'll be using different pins. see the [getting started page](arduino.cc/en/Guide/TFT) for more details.
+Connect the BL and +5V pins to power, and GND to ground. Connect CS-LD to pin 10, DC to pin 9, RESET to pin 8, MOSI to pin 11, and SCK to pin 13. If uyou're using a Leonardo, you'll be using different pins. see the [getting started page](https://arduino.cc/en/Guide/TFT) for more details.
 
 ![](assets/GTFT_pong4.png)
 Click the image for a larger version

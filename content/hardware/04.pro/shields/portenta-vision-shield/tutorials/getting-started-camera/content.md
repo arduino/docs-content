@@ -6,8 +6,8 @@ tags: [Getting Started, Camera, Processing, Serial]
 description: This tutorial shows you how to capture frames from the Portenta Vision Shield Camera module and visualize the video output through a Processing sketch.
 author: Lenard George, Sebastian Romero
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 ---
 
 ## Overview
@@ -23,7 +23,7 @@ This tutorial shows you how to capture frames from the Arduino Portenta Vision S
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
-- 1x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
+- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Arduino IDE 1.8.10+
 - Processing 3.5.4+
 

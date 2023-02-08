@@ -104,17 +104,17 @@ Using this connection it's possible to use Nicla as a shield for MKR or Nicla as
 | J1-4 | COPI  | A4      | SPI Controller Output/Peripheral Input |
 | J1-3 | CS    | A5      | SPI Chip Select                        |
 | J1-2 | ADC3  | A6      | Analog Capable Pin                     |
-| J1-1 | GPIO0 | A7      | General Purpose IO                     |
+| J1-1 | LPIO0 | A7      | Low Power IO                           |
 
 | Pin  | Name  | MKR pin | Description                     |
 | ---- | ----- | ------- | ------------------------------- |
 | J2-9 | VIN   | +5V     | Input Supply Voltage            |
-| J2-8 | -     | VIN     | No Connection                    |
+| J2-8 | -     | VIN     | No Connection                   |
 | J2-7 | VDDIO | +3V3    | Header I/O Voltage              |
 | J2-6 | GND   | GND     | Reference Ground                |
-| J2-5 | GPIO3 | RESET   | GPIO                            |
-| J2-4 | GPIO2 | D14/TX  | GPIO/UART                       |
-| J2-3 | GPIO1 | D13/RX  | GPIO/UART                       |
+| J2-5 | LPIO3 | RESET   | Low Power IO                    |
+| J2-4 | LPIO2 | D14/TX  | Low Power IO/UART               |
+| J2-3 | LPIO1 | D13/RX  | Low Power IO/UART               |
 | J2-2 | SCL   | D12/SDA | GPIO/I2C SDA, shared with ESLOV |
 | J2-1 | SDA   | D11/SDA | GPIO/I2C SCL, shared with ESLOV |
 
@@ -122,6 +122,23 @@ Using this connection it's possible to use Nicla as a shield for MKR or Nicla as
 | ---- | ---- | ------- | ---------------------------------------------------------- |
 | J3-2 | VBAT | -       | Battery Positive Terminal                                  |
 | J3-1 | NTC  | -       | optional NTC Sensor for Battery Overtemperature Protection |
+
+**Low Power I/Os**
+
+As reported in the table above, Nicla boards have a set of Low Power I/Os. 
+These I/Os are translated through an 8-Bit Bidirectional Voltage-Level Shifter with Auto Direction Sensing (check [TXB0108 datasheet](https://www.ti.com/product/TXB0108) for further info) and powered by VDDIO_EXT. This shifter is able to convert logic levels from inputs operating at 3.3V or less down to 1.8V (i.e. microcontroller operating voltage). However, it does not feature directional pins, since each input and output connected to it can detect and shift signals in either direction independently and automatically. As a consequence, the nominal behavior of these pins is guaranteed only when they are connected to a CMOS logic. 
+In the next section, the interaction with Low Power pins as input or output is described.
+
+**Low Power Input Pins**
+
+Any input device operating with a voltage less or equal to 3.3V can be connected to the Low Power pins. The integrated Voltage-Level shifter will automatically detect that an input device has been connected to the pin and it will guarantee the conversion from 3.3.V to 1.8V, i.e. microcontroller operating voltage, to properly interface with the Nicla boards. 
+
+**Low Power Output Pins**
+
+Any Low Power device can be directly connected to the Low-Power pins in case it does not absorb any current. The Voltage-Level shifter will automatically detect that an output device has been connected to the pin and switch the port accordingly. The output voltage is digital and its value depends on how VDDIO_EXT has been programmed via software: VDDIO_EXT can be switched off or switched on either at 1.8V or 3.3V. 
+On the other hand, if the connected output device needs to absorb current (e.g. LEDs, resistive loads, buzzers etc.), the user should connect a MOSFET or a buffer to guarantee the required current flow. A reference schematics showing how to connect an LED to a Low-Power pin through a MOSFET is reported below. 
+
+![Reference schematics for LED connection](assets/reference_schematics_LED.svg)
 
 ### Fins
 

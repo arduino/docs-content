@@ -14,7 +14,7 @@ libraries:
     url: https://github.com/arduino-libraries/Arduino_Portenta_OTA
 hardware:
   - hardware/04.pro/boards/portenta-h7
-  - hardware/04.pro/boards/portenta-h7-lite-connected 
+  - hardware/04.pro/boards/portenta-h7-lite-connected
 software:
   - ide-v1
   - ide-v2
@@ -34,8 +34,9 @@ The goals of this tutorial are:
 
 ## Hardware and Software Needed 
 - [Arduino Portenta H7](https://store.arduino.cc/portenta-h7)
+- Operative System: Linux or MacOS system, this procedure is not 100% compatible on Windows.
 - Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+
-- USB-C type cable (either USB-A to USB-C or USB-C to USB-C)
+- USB-C® type cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Arduino IoT Cloud and Arduino_Portenta_OTA libraries
 - SD card (optional, you can use QSPI instead)
 - Carrier or shield compatible with the Portenta H7 with a SD Card slot, in case you choose to use the SD Card.
@@ -98,7 +99,11 @@ This script will light up the RGB LED with 3 different colors in sequence. This 
 
 ![Exporting Binary for the Sketch](assets/binary_export.png)
 
-With the binary file ready, you can now create the OTA file needed to complete the process. For this, you will need to have an extra tool which can be found at the following link.
+With the binary file ready, you can now create the OTA file needed to enable Over-The-Air process. 
+
+To continue, macOS or Linux environment is required. For Windows environment, it is possible to use virtualization software such as [Oracle VM Virtualbox](https://www.virtualbox.org/) using your preferred choice of compatible Linux distribution. If you're not familiar with Linux environments, [Ubuntu](https://ubuntu.com/) is one of many distributions that can help you explore Linux environment with ease of access. 
+
+Once you're comfortable with an environment, you will need a tool which can be found at the following link.
 
 ***Arduino IoT Cloud Library - Over-The-Air Tools: https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools***
 
@@ -107,41 +112,28 @@ You will have to extract the library at a preferred location to be able to use t
 Copy the binary file into the library tool's folder 
 
 ```cpp
-// Mac/Linux
+// Exported binary format reference: sketch.bin
 cp OTA_Usage_Portenta.ino.PORTENTA_H7_M7.bin ~/Arduino/libraries/ArduinoIoTCloud/extras/tools/
-
-// Windows
-copy OTA_Usage_Portenta.ino.PORTENTA_H7_M7.bin <userPath>/Documents/Arduino/libraries/ArduinoIoTCloud/extras/tools/
 ```
 
 Go inside that directory
 
 ```cpp
-// Mac/Linux
 cd ~/Arduino/libraries/ArduinoIoTCloud/extras/tools
-
-// Windows
-cd <yourUserPath>/Documents/Arduino/libraries/ArduinoIoTCloud/extras/tools
 ```
 
 Encode your binary file into `OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss`
 
 ```cpp
-// Mac/Linux
+// Argument format: ./lzss.py --encode sketch.bin sketch.lzss
 ./lzss.py --encode OTA_Usage_Portenta.ino.PORTENTA_H7_M7.bin OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss
-
-// Windows
-lzss.py --encode OTA_Usage_Portenta.ino.PORTENTA_H7_M7.bin OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss
 ```
 
 Convert your encoded file into `.ota` format
 
 ```cpp
-// Mac/Linux
-./bin2ota.py [PORTENTA_H7_M7] OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
-
-// Windows
-bin2ota.py [PORTENTA_H7_M7] OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
+// Argument format: ./bin2ota.py PORTENTA_H7_M7 sketch.lzss sketch.ota
+./bin2ota.py PORTENTA_H7_M7 OTA_Usage_Portenta.ino.PORTENTA_H7_M7.lzss OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
 ```
 
 You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilitated identification of the file. After this, you will have the `.ota` file of the sketch that you will use with the OTA process. 

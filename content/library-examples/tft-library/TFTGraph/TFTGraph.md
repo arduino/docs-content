@@ -11,7 +11,7 @@ description: 'Graph the values from a variable resistor to the TFT.'
 
 ![](assets/GLCD_GraphDemosm.png)
 
-This example for the Arduino TFT screen reads the value of a potentiometer, and graphs it on screen. This is similar to the [serial communication Graph example](/en/Tutorial/BuiltInExamples/Graph).
+This example for the Arduino TFT screen reads the value of a potentiometer, and graphs it on screen. This is similar to the [serial communication Graph example](https://arduino.cc/en/Tutorial/BuiltInExamples/Graph).
 
 ## Hardware Required
 

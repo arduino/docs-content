@@ -9,8 +9,8 @@ tags:
   - NBIOT
 author: 'Benjamin Dannegård'
 hardware:
+  - hardware/04.pro/shields/portenta-cat-m1-nb-iot-gnss-shield
   - hardware/04.pro/boards/portenta-h7
-  - hardware/04pro/shields/portenta-cat-m1-nb-iot-gnss-shield
   - _snippets/hardware/dipole-antenna
   - _snippets/hardware/sim-card
 software:
@@ -48,7 +48,7 @@ First insert the SIM card into the SIM card slot at the bottom of the Portenta C
 
 ![Connect the antenna to the Portenta Cat. M1 shield](assets/Antenna_Cat_M1.svg)
 
-Now connect the shield to the Portenta H7. Do this by attaching it to the HD connectors at the bottom of the Portenta H7 board. Like the image shows below, the top and bottom high density connectors on the shield are connected to the corresponding ones on the lower side of the H7 board. Press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB-C cable.
+Now connect the shield to the Portenta H7. Do this by attaching it to the HD connectors at the bottom of the Portenta H7 board. Like the image shows below, the top and bottom high density connectors on the shield are connected to the corresponding ones on the lower side of the H7 board. Press firmly to let it snap in. Once attached, plug the Portenta H7 into your computer using a USB-C® cable.
 
 ![Connect the Portenta Cat. M1 shield with the Portenta H7](assets/Connect_Cat_M1_to_Portenta_H7.svg)
 

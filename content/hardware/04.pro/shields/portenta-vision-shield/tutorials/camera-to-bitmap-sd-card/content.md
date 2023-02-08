@@ -8,8 +8,8 @@ libraries:
   - name: Arduino_Pro_Tutorials
     url: https://github.com/arduino-libraries/Arduino_Pro_Tutorials
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v1
   - ide-v2
@@ -31,7 +31,7 @@ This tutorial shows you how to capture a frame from the Portenta Vision Shield C
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
-- 1x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
+- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Micro SD card
 - Arduino IDE or Arduino-cli
 
@@ -46,7 +46,7 @@ Connect the Vision Shield to your Portenta H7 as shown in the figure. The top an
 
 You will be using the **Himax HM-01B0 camera module** which has a resolution of 320 by 240 and the output data its in grayscale with 8 bits per pixel (bpp). It is important to have this in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
 
-Inside the sketch, you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](hardware/nicla-vision)
+Inside the sketch, you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
 ```cpp
 #include "camera.h" // Multi Media Card APIs
 #include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield

@@ -17,7 +17,7 @@ software:
 featuredImage: 'led'
 ---
 
-In this tutorial we will use an Arduino Nano 33 BLE, to turn on an RGB LED over Bluetooth, made possible by the communications chipset embedded on the board.
+In this tutorial we will use an Arduino Nano 33 BLE, to turn on an RGB LED over Bluetooth®, made possible by the communications chipset embedded on the board.
 
 
 ## Goals

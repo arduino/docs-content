@@ -26,7 +26,7 @@ The goals of this exercise are:
 This exercise requires having previous knowledge in:
 
 * Basic programming constructs
-* Arduino’s code structure: [setup](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) \+ [loop](https://www.arduino.cc/reference/en/language/structure/sketch/loop/) ([read more about it here](https://www.arduino.cc/en/tutorial/sketch))
+* Arduino’s code structure: [setup](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) \+ [loop](https://www.arduino.cc/reference/en/language/structure/sketch/loop/) ([read more about it here](/learn/programming/sketches))
 
 ### Components Used
 

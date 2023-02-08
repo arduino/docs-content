@@ -12,7 +12,7 @@ author: 'Karl Söderby'
 
 In the Arduino environment, we write **sketches** that can be uploaded to Arduino boards. In this tutorial, we will go through how to select a board connected to your computer, and how to upload a sketch to that board, using the Arduino IDE 2.0.
 
-You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software#experimental-software). 
+You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
 You can also follow the [downloading and installing the Arduino IDE 2.0](./ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 

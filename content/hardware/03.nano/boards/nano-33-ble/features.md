@@ -5,39 +5,36 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
 
 
 <FeatureList>
-<Feature title="u-blox NINA-B306" image="bluetooth">
+<Feature title="Bluetooth®" image="bluetooth">
 
-  A powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox, with an internal antenna. 
+  A powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox, with an internal antenna. Can be used to transmit data between different devices 
+  using the ArduinoBLE library.
 
-  <FeatureLink title="Datasheet" url="/resources/datasheets/NINA-B3-series.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble/bluetooth"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </Feature>
 
 <Feature title="IMU for Motion Detection" image="imu">
 
-  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer and allows you to detect orientation, motion or vibrations in your project.
+  The LSM9DS1 inertial measurement unit features a 3D accelerometer, gyroscope and magnetometer allowing you to detect orientation, motion or vibrations in your project.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_lsm9ds1.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble/imu-accelerometer"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm9ds1/"/>
+</Feature>
+
+<Feature title="Python® Support" image="python">
+
+  This board can be programmed using MicroPython, which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
+  <FeatureLink variant="secondary" title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>
 
 <Feature title="Arm® Mbed™ OS" image="core">
 
-  Running on Arm® Mbed™ OS the Nano 33 BLE builds upon the same operating system as the Arduino Portenta H7. This also allows for Arduino APIs to be integrated using APIs exposed directly by Mbed OS.
+  Arm® Mbed™ OS is an open-source operating system which the Nano 33 BLE builds upon. It’s the same operating system as the Arduino Portenta H7, which allows for Arduino APIs to be integrated using APIs exposed directly by Mbed OS.
 
-  <FeatureLink title="Link to Mbed OS documentation" url="https://os.mbed.com/docs/mbed-os" blank/>
-</Feature>
-
-<Feature title="Python Support" image="python">
-
-  This board can be programmed with the Python programming language via the OpenMV IDE.
-
-  <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
-</Feature>
-
-<Feature title="Lauterbach TRACE32 debugger" image="file-icon">
-
-  This board is compatible with Lauterbach TRACE32 debugger, and a free license can be obtained using the boards serial number.
-
-  <FeatureLink title="Learn More" url="/tutorials/nano-33-ble/trace-32"/>
+  <FeatureLink variant="primary" title="Documentation" url="https://os.mbed.com/docs/mbed-os"/>
 </Feature>
 
 

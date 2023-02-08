@@ -5,9 +5,9 @@ description: 'The first steps to setting up the Arduino Yún and Yún Mini Linin
 
 **This is a retired product.**
 
-The Arduino Yún and Yún mini are Arduino boards unlike any other. While programming it is very similar to the Arduino Leonardo and use the same processor, the Atmel ATmega32U4, there is also has an additional processor, an Atheros AR9331, running LininoOS and the OpenWrt wireless stack. Programming the 32U4 via USB is identical to the [Arduino Leonardo](/en/Guide/ArduinoLeonardo). Once you've configured the Yún to connect to your WiFi network, you can program the 32U4 via WiFi as well.
+The Arduino Yún and Yún mini are Arduino boards unlike any other. While programming it is very similar to the Arduino Leonardo and use the same processor, the Atmel ATmega32U4, there is also has an additional processor, an Atheros AR9331, running LininoOS and the OpenWrt wireless stack. Programming the 32U4 via USB is identical to the [Arduino Leonardo](https://arduino.cc/en/Guide/ArduinoLeonardo). Once you've configured the Yún to connect to your WiFi network, you can program the 32U4 via WiFi as well.
 
-The Arduino Yún an Yún Mini are programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino Yún an Yún Mini are programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino Yún an Yún Mini on the Arduino Web IDE
 
@@ -23,8 +23,8 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino Yún an Yún Mini on the Arduino Desktop IDE
 
-If you want to program your Arduino Yún an Yún Mini while offline you need to install the [Arduino Desktop IDE](/en/Main/Software)
-The Uno is programmed using the Arduino Software (IDE), our Integrated Development Environment common to all our boards. Before you can move on, you **must** have installed the Arduino Software (IDE) on your PC, as explained in the home page of our [Getting Started](/en/Guide/HomePage).
+If you want to program your Arduino Yún an Yún Mini while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software)
+The Uno is programmed using the Arduino Software (IDE), our Integrated Development Environment common to all our boards. Before you can move on, you **must** have installed the Arduino Software (IDE) on your PC, as explained in the home page of our [Getting Started](https://arduino.cc/en/Guide/HomePage).
 
 #### Installing Drivers for the Yún and Yún mini
 
@@ -61,7 +61,7 @@ Now, simply click the "Upload" button in the environment. Wait a few seconds - y
 
 ![](./assets/UNO_Upload.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Arduino Yún or Yún mini up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink. If it does, congratulations! You've gotten your Arduino Yún or Yún mini up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 
@@ -69,7 +69,7 @@ Now that you have set up and programmed your Yún board, you may find inspiratio
 
 <iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/faweiz/arduino_yun_light-8a0da6/embed?use_route=project' width='354' style='margin-top:30px; margin-right:20px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/giando/control-a-parrot-ar-drone-with-linino-linino-1763e1/embed?use_route=project' width='354' style='margin-top:30px'></iframe>
 
-or you can dig in deeper with the [Bridge library and examples](/en/Reference/YunBridgeLibrary). You can also check out the [Yún hardware page](/en/Products/ArduinoYUN) for additional technical information.
+or you can dig in deeper with the [Bridge library and examples](https://arduino.cc/en/Reference/YunBridgeLibrary). You can also check out the [Yún hardware page](https://arduino.cc/en/Products/ArduinoYUN) for additional technical information.
 
 ### Please Read...
 
@@ -77,7 +77,7 @@ or you can dig in deeper with the [Bridge library and examples](/en/Reference/Yu
 
 ![](./assets/YunParts.png)
 
-In addition to the 32U4 chip, the Yún or Yún mini has an additional processor, an Atheros AR9331, which runs a distribution of Linux for embedded systems named LininoOS, based on OpenWrt. A full install of Python 2.7 is included as well.
+In addition to the 32U4 chip, the Yún or Yún mini has an additional processor, an Atheros AR9331, which runs a distribution of Linux for embedded systems named LininoOS, based on OpenWrt. A full install of Python® 2.7 is included as well.
 
 The Yún or Yún mini has a number of different physical characteristics and connectors than the Leonardo. There is an on-board SD slot, Ethernet jack, and a USB-A Host connector. There is no power barrel connector on the Yún; it can be powered from the micro-USB connector.
 
@@ -101,7 +101,7 @@ There are several status LEDs on the Yún, indicating power, WLAN connection, WA
 
 LininoOS is based on OpenWRT distribution with about 3000 package built and available. LininoOS provides a fully writable filesystem with package management with GPG signature. Integrated with LininoIO it is a complete linux system for IoT space. LininoOS features many innovations for your Arduino Yun.
 
-- LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
+- LininoIO is a software framework able to integrate microcontroller features inside the microprocessor environment. You can simply write your application using Node.js, Python®, Bash, etc., on linux side using LininoOS to control completely the board and all the devices attacched.
 
 - Node.js with Ideino Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. Ideino is an embedded editor to write and debug your node.js application.
 
@@ -113,16 +113,16 @@ Accessing the web interface is described below.
 
 #### Install additional software on Linux
 
-The Yún comes with several pieces of software pre-installed on LininoOS, including "curl" and "python". You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "opkg".
+The Yún comes with several pieces of software pre-installed on LininoOS, including `curl` and `python`. You may want to install other software on the Yún. On Linux systems, additional software can be installed using a tool called the "opkg".
 You can find pre-compiled packages for LininoOS on their latest version, [here](http://download.linino.org/linino_distro/lininoIO/latest/packages/).
 
-When interfacing with the LininoOS system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
+When interfacing with the LininoOS system, you have to use a command line, either accessing it through the Arduino's Bridge library, or via SSH. If you are unfamiliar with the command line, you may want to [read about some basics](https://arduino.cc/en/Tutorial/LinuxCLI) about it and some of the programs that are frequently used.
 
-#### Python
+#### Python®
 
-An installation of Python 2.7 is included with LininoOS, with which you can write applications or scripts. For more on Python, visit the [Python 2.7 documentation pages](http://docs.python.org/2/).
+An installation of Python® 2.7 is included with LininoOS, with which you can write applications or scripts. For more on Python®, visit the [Python® 2.7 documentation pages](http://docs.python.org/2/).
 
-If you're getting started with Python for the first time, there are a number of excellent resources on-line. ["Learn Python the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
+If you're getting started with Python® for the first time, there are a number of excellent resources on-line. ["Learn Python® the Hard Way"](http://learnpythonthehardway.org/book/) will cover everything you need to know to get up and running with your own scripts.
 
 #### External storage on the Yún
 
@@ -273,7 +273,7 @@ _NB: the ethernet interface is eth1, not eth0_
 
 #### Communicating with LininoOS via Bridge
 
-The Bridge library enables communication between Arduino and LininoOS. There are several different utility classes that facilitate different kinds of communication between the two, described below, and more in depth on the [Bridge library reference](/en/Reference/YunBridgeLibrary) pages.
+The Bridge library enables communication between Arduino and LininoOS. There are several different utility classes that facilitate different kinds of communication between the two, described below, and more in depth on the [Bridge library reference](https://arduino.cc/en/Reference/YunBridgeLibrary) pages.
 
 ![](./assets/BridgeBlockDiag.png)
 
@@ -701,7 +701,7 @@ String mode = client.readStringUntil('\r');
 }
 ```
 
-You can find more details on this example on the [Bridge Example](/en/Tutorial/Bridge) page.
+You can find more details on this example on the [Bridge Example](https://arduino.cc/en/Tutorial/Bridge) page.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

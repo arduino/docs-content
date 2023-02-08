@@ -29,7 +29,7 @@ This tutorial will explain what a bootloader is, why you should consider keeping
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB C cable (either USB A to USB C or USB C to USB C)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+- Arduino IDE 1.8.10+
 
 ## What Is a Firmware?
 
@@ -48,6 +48,7 @@ The bootloader helps to upload a new sketch to the board. If the bootloader was 
 ## Memory Layout
 
 Both the bootloader and the firmware have predefined (but adjustable) locations in the memory where they get stored. In the end, the processor needs to know where to find the instructions to do its work. On the Portenta, for example, the bootloader is stored at the Flash memory address `0x08000000`. When the board gets powered on, it will jump to this location and start to do its job. The bootloader in turn knows that e.g. for the M7 the firmware can be found at location `0x08040000`, so it will jump there if it does not need to upload a new firmware.
+Should you for some reason want to adjust the start address of the application, you can edit the property `target.mbed_app_start` in the [mbed_app.json config file](https://github.com/arduino/ArduinoCore-mbed/blob/master/variants/PORTENTA_H7_M7/conf/mbed_app.json) of the core. Apart from modifying the json, you also need to change the text section start address [here](https://github.com/arduino/ArduinoCore-mbed/blob/master/variants/PORTENTA_H7_M7/linker_script.ld#L3). Alternatively you can recompile Mbed OS using the `mbed-os-to-arduino` [script](https://github.com/arduino/ArduinoCore-mbed/blob/master/mbed-os-to-arduino).
 
 ![There are predefined, but adjustable locations in the memory where the firmware and the bootloader get installed](assets/por_ard_bl_flash_memory.svg)
 
@@ -64,12 +65,12 @@ New versions of the bootloader normally get shipped together with the core. That
 
 ![Open the Boards Manager from the Tools menu](assets/por_ard_bl_boards_manager.png)
 
-In the board manager and search for "portenta".  Find the Arduino mbed-enabled Boards package and click on "Install" to install the latest version of the mbed core (1.3.0 at the time of writing this tutorial).
+In the board manager and search for "portenta". Find the Arduino mbed-enabled Boards package and click on "Install" to install the latest version of the mbed core (1.3.0 at the time of writing this tutorial).
 
 ![A search for "portenta" reveals the core that needs to be updated to get the latest bootloader](assets/por_ard_bl_update_core.png)
 
 ### 2. Updating the Bootloader
-To update the bootloader, you can use the **STM32H747_updateBootloader** sketch. You can find the sketch file under **File > Examples > STM32H747_System**
+To update the bootloader, you can use the **STM32H747_manageBootloader** sketch. You can find the sketch file under **File > Examples > STM32H747_System**
 
 ![Finding the bootloader updater sketch](assets/por_ard_bl_find_sketch_file.png)
 

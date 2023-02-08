@@ -6,8 +6,8 @@ tags: [Getting Started, OpenMV, IDE, Setup, TTN, LoRa]
 description: This tutorial explains how to connect your Portenta H7 to The Things Network (TTN) using the Vision Shield's LoRa® Connectivity feature.
 author: Lenard George, Ignacio Herrera, Benjamin Dannegård
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---
@@ -31,7 +31,7 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 - 1x [Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
 - [OpenMV IDE](https://openmv.io/pages/download)
 - Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
-- 1x USB-C cable (either USB-A to USB-C or USB-C to USB-C)
+- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - An account on [The Things Network](https://console.cloud.thethings.network/)
 
 ## Instructions

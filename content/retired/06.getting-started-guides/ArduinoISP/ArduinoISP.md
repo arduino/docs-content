@@ -5,7 +5,7 @@ description: 'The first steps to setting up the Arduino ISP'
 
 **This is a retired product.**
 
-The [Arduino ISP](/en/Main/ArduinoISP) is an In-System-Programmer that is used to program AVR microcontrollers. You can use the Arduino ISP to upload sketches directly on the AVR-based Arduino boards without the need of the bootloader. Otherwise you can use it to restore the bootloader.
+The [Arduino ISP](https://arduino.cc/en/Main/ArduinoISP) is an In-System-Programmer that is used to program AVR microcontrollers. You can use the Arduino ISP to upload sketches directly on the AVR-based Arduino boards without the need of the bootloader. Otherwise you can use it to restore the bootloader.
 
 ### How to connect the Arduino ISP
 

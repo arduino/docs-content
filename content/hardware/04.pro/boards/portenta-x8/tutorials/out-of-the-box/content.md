@@ -24,7 +24,6 @@ software:
 
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) board.
 * Wi-Fi AP with Internet access.
-* Arduino Pro Cloud Subscription. [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud).
 
 ***Attention: We encourage you to check every now and then if the device image version is up to date in order to have the latest bootloader, please check the tutorial [How to flash your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) for instructions.***
 
@@ -35,9 +34,9 @@ Once the Portenta X8 is plugged in via USB, you can open your browser and go to 
 ![Board set up page](assets/x8-oob-main.png)
 
 * [Configure Wi-Fi](#connecting-to-your-wi-fi)
-* [Add your device to a FoundriesFactory (OTA)](#add-a-new-device-to-your-factory)
+* [Add your device to FoundriesFactory (OTA)](#add-a-new-device-to-your-factory)
 * Board details
-* Shell (alpine python)
+* Shell (alpine Python®)
 
 ## Connecting to Your Wi-Fi
 
@@ -59,16 +58,17 @@ Once it is connected, you should see the Wi-Fi status bullet in the bottom left 
 
 ***You can change your network by clicking on the button again and repeat the above steps***
 
-## Connect to a FoundriesFactory
+## Connect to FoundriesFactory
 
-### Register the FoundriesFactory on Foundries.io
+### Register a FoundriesFactory on Foundries.io
 
-***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, contact us at [Arduino Pro Inquiries](https://www.arduino.cc/pro/contact-us), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
-Go to [https://create.arduino.cc](https://create.arduino.cc) and click on Portenta X8 Board Manager, you will get prompted to set a new `Factory` name if you didn't have one before. You will not be able to be change the name later, so use one that you can remember and write easily.
+***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
+
+Go to [https://create.arduino.cc](https://create.arduino.cc) and click on Portenta X8 Board Manager, you will get prompted to set a new `Factory` name if you did not have one before. You will not be able to be change the name later, so use one that you can remember and write easily.
 
 ![Arduino Cloud integration](assets/cloud-main.png)
 
-It will redirect you to the FoundriesFactory registration page.
+It will redirect you to FoundriesFactory registration page.
 
 ![Foundries Factory creation](assets/foundries-create-factory.png)
 
@@ -171,6 +171,8 @@ To check your manager connection status, use this command:
 `nmcli de`
 
 ### Register Device to the FoundriesFactory
+
+***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)***
 
 Make sure the name is not already being used in your Factory.
 

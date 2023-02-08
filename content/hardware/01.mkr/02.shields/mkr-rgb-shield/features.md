@@ -1,11 +1,17 @@
 
 <FeatureList>
 <Feature title="RGB matrix" image="led">
+
 The layout is 12x7, which is a total of 84 RGB LEDs.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-rgb-shield/mkr-rgb-fade"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinographics/"/>
 </Feature>
 
 <Feature title="Smart lamp" image="mkr-form-factor">
+
 This shield mounts directly on top of any MKR board that can easily transform it to a connected smart lamp.
+
 </Feature>
 
 
