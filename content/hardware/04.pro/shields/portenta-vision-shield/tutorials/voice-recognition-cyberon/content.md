@@ -1,8 +1,8 @@
 ---
-title: "Voice Recognition With Cyberon"
+title: "Voice Recognition With Cyberon SDK"
 difficulty: beginner
 tags: [Camera, Bitmap, SD Card]
-description: Control your device with voice commands thanks to the Cyberon SDK.
+description: Control your device with voice commands with the Cyberon SDK.
 author: Pablo Marquínez
 libraries:
   - name: CyberonSDK.com
