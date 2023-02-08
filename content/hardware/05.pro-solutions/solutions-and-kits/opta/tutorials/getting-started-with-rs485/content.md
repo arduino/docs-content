@@ -18,12 +18,12 @@ hardware:
 
 ## Overview
 
-The RS485 interface provides balanced performance to transmit data reliably over a long distance with a stable transmission rate. The Opta™ provisions the RS485 interface. Using this feature is easy with the help of the Arduino ecosystem tools, such as the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will follow the steps to connect two Opta™ devices via RS485 and the Arduino IDE; it will describe some essential library functions and show an example sketch that uses the library and the RS485 interface.
+The RS485 interface provides balanced performance to transmit data reliably over a long distance with a stable transmission rate. The Opta™ provisions the RS485 interface. Using this feature is easy with the help of the Arduino ecosystem tools, such as the Arduino IDE and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will show the steps to connect two Opta™ devices via RS485 and the Arduino IDE; it will describe some essential library functions and show an example sketch that uses the library and the RS485 interface.
 
 ## Goals
 
 - Learn how to connect two Opta™ devices through RS485 interface
-- Learn to exchange information between two Opta™ devices through RS485 interface
+- Learn how to exchange information between two Opta™ devices through RS485 interface and use to control on-board components
   
 ### Required Hardware and Software
 
@@ -40,7 +40,7 @@ The RS485 interface provides balanced performance to transmit data reliably over
 
 The RS485 is an electrical-only standard that uses a differential bus with voltage levels of 0-5V and the multi-drop feature, allowing to add drivers and receivers to the transmission line. It characterizes good noise immunity thanks to differential signaling. Thus it is well suited to industrial environment applications.
 
-The RS485 does not define a protocol since it does not know how to interpret such information nor when or what it should do to process it. Modbus RTU is a communication protocol over the RS485 interface that helps maintain interoperability. Although it is out of the scope of this tutorial, you can check out further by reading the [getting started with Modbus RTU tutorial](/tutorials/opta/getting-started-with-modbus-rtu) after this tutorial for a better understanding.
+The RS485 does not define a protocol since it does not know how to interpret such information nor when or what it should do to process it. Modbus RTU is a communication protocol over the RS485 interface that helps maintain interoperability. Although it is out of the scope of this tutorial, you can check out further by reading the [getting started with Modbus RTU tutorial](/tutorials/opta/getting-started-with-modbus-rtu) after this guide for a better understanding.
 
 ## Instructions
 
@@ -62,7 +62,7 @@ You will assign an Opta™ either as a sender or a receiver. As the role suggest
 
 The Sender Opta™ will await user input from `1` to `4` via Arduino IDE Serial Monitor. Each number represents the relay to trigger and its corresponding status LED.
 
-The Receiver Opta™ will intercept incoming Bytes and decode them to take proper action. It will update the relay state and the status LED accordingly, given its present condition.
+The Receiver Opta™ will intercept incoming data and decode them. The decoded data will be used to update the relay state and the status LED accordingly, given its present condition. It has a defensive logic to process out of range inputs and trigger corresponding relay and status LED target.
 
 For instance, if it receives `2` from Sender while the Receiver has a second relay closed with a lit second status LED, the Receiver will open the relay and turn off the second status LED as a deactivation indication. The process is vice-versa and applies to the rest of the relays with their respective status LEDs.
 
@@ -96,7 +96,9 @@ void setup() {
 }
 ```
 
-As the Sender's job is to pack the data and transfer it to the Receiver, it will need to transmit perspicuous data. Inside the `loop()` method, it will capture the input and write the Byte after a series of checks to avoid sending bogus characters.
+As the Sender's job is to pack the data and transfer it to the Receiver, it will need to transmit perspicuous data. Inside the `loop()` method, it will capture the input and write the data after a series of checks to avoid sending bogus characters. The input is converted to Integer type after discarding `\r\n` which is `End of Line`.
+
+The `RS485.beginTransmission()` enables RS485 transmission. Subsequently, `RS485.write(incomingByte)` sends data as a byte or series of bytes by writing its binary data to the serial port. In this case, `incomingByte` containing input data converted to Integer type is sent to Receiver Opta™. The `RS485.endTransmission()` then disables or ends the RS485 transmission finishing the operation cycle.
 
 ```arduino
 void loop() {
@@ -149,7 +151,9 @@ void setup() {
 }
 ```
 
-The `loop()` will seek available data over the RS485 interface and handle the packet accordingly when captured. It will manage out-of-range inputs and apply them to the intended relay and status LED.
+Within the `loop()` method, it will seek available data over the RS485 interface and handle the packet accordingly when captured. It will manage out-of-range inputs and apply them to the intended relay and status LED. If the user sends values that are not exactly `1` to `4`, the `readValue` will go through module operation and return the remainder from the integer division. It is a helpful and wise way to handle the data to relay to the corresponding destination.
+
+Here, the `RS485.receive()` enables reception. The `RS485.available()` then obtains several bytes available for reading from the RS485 port and is the data saved inside the serial receive buffer. The `RS485.read()` will seek incoming serial data if actual data has arrived. Finally, after managing the data, `RS485.noReceive()` will be called to disable reception to let the resources use the retrieved data for desired tasks.
 
 ```arduino
 void loop() {
@@ -179,7 +183,7 @@ void loop() {
 }
 ```
 
-The `changeRelay()` method manages the relay and status LED state based on the input.
+The `changeRelay()` method manages the relay and status LED state based on the received input. This method is called after the RS485 reception process in order to update relay status LED states accordingly.
 
 ```arduino
 void changeRelay() {
@@ -197,7 +201,7 @@ void changeRelay() {
 
 ### Complete RS485 Example Code
 
-You can access the complete example code by accessing [here](assets/Opta_RS485_Example.zip). The examples are easy to locate as their names suggest: `Opta_RS485_Sender` and `Opta_RS485_Receiver` after extracting the files.
+You can access the complete example code by accessing [here](assets/Opta_RS485_Example.zip). After extracting the files, you will have `Opta_RS485_Sender` and `Opta_RS485_Receiver` sketches available to try with your Opta™ devices.
 
 ### Testing Out the Sketches
 
@@ -218,6 +222,6 @@ In this tutorial, we established the RS485 connection between two Opta™ device
 
 Now that you are familiar with the RS485 communication interface on the Opta™, look at our [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of other features on the device.
 
-If you wish to incorporate Wi-Fi/Bluetooth® Low Energy in your Opta™ solutions, have a look at our [connectivity tutorial](/tutorials/opta/getting-started-connectivity).
+If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at our [connectivity tutorial](/tutorials/opta/getting-started-connectivity).
 
 If you are interested in seeing the RS485 interface and the Opta™ being put to work in a real-life scenario, have a look at our [Tank level application note](/tutorials/opta/tank-level-app-note).
