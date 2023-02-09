@@ -91,6 +91,8 @@ If you find this step hard, you can also use one of the loose screw terminals pr
 
 ![USB wall adapter powering the project](./assets/step5.png)
 
+***Note: Because of how the pump works, it will draw a significant current as it is starting up. Therefore it is good practice to isolate it from the rest of the circuit as much as possible. Do this by making sure the path between GND of the pump and the GND of the power supply is not longer than it has to be. An easy way to accomplish this that we recommend you to do is connecting the GNDs to the same screw terminal on the Nano Screw Terminal Adapter.***
+
 The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
 
 Lastly, find the moisture sensor and a grove cable. Connect it to the Nano Screw Terminal Adapter as follows: 
