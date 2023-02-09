@@ -148,7 +148,7 @@ AI applications, low-latency control solutions
     *   1x I2C
 *   **ESLOV Connector**
     *   I2C port with automatic device enumeration
-*   **NXP PF1550** Programmable PMIC
+*   **NXP® PF1550** Programmable PMIC
     *   dynamic voltage scaling
     *   programmable independent 1A voltage output to carrier board
     *   programmable I/O voltage

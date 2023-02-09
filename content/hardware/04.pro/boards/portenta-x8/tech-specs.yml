@@ -14,7 +14,7 @@ Pins:
   PWM pins: 4
 Connectivity:
   Radio module: Murata 1DX dual WiFi 802.11b/g/n 65 Mbps and Bluetooth 5.1 BR/EDR/LE
-  Secure Element: NXP SE050C2 Crypto
+  Secure Element: NXP® SE050C2 Crypto
 Communication:
   UART: Yes
   I2C: Yes

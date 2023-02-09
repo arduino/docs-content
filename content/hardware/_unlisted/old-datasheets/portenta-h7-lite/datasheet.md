@@ -112,7 +112,7 @@ Portenta H7 Lite offers several customization possibilities that allow tailoring
     *   1x I2C
 *   **ESLOV Connector**
     *   I2C port with automatic device enumeration
-*   **NXP PF1550 **Programmable PMIC
+*   **NXP® PF1550** Programmable PMIC
     *   dynamic voltage scaling
     *   programmable independent 1A voltage output to carrier board
     *   programmable I/O voltage
@@ -180,7 +180,7 @@ The [Portenta H7 Vision Shield](https://www.arduino.cc/pro/hardware/product/port
 | **Ref.** | **Description**                     | **Ref.**        | **Description**           |
 | -------- | ----------------------------------- | --------------- | ------------------------- |
 | U1       | STM32H747, Main processor           | U10             | Power Manager             |
-| U2       | QSPI Flash Memory                   | U11             | Crypto Chip (NXP)         |
+| U2       | QSPI Flash Memory                   | U11             | Crypto Chip (NXP®)         |
 | U3       | USB HS PHY                          | U12, U13, U14   | ESD protection            |
 | U4       | SDRAM                               | U16             | Crypto Chip (Microchip)   |
 | U5       | Ethernet PHY                        | J1, J2          | High Density Connectors   |
