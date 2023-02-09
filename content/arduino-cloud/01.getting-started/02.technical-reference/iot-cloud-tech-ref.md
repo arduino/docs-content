@@ -107,16 +107,30 @@ A shortcut to add a device is also provided in **"Things" page** as explained in
 
 Below you will find a list of features that are available in the Arduino IoT Cloud.
 
-### Uploading over-the-air (OTA)
+### Uploading Over-The-Air (OTA)
 
-This feature allows for uploading sketches wirelessly to Arduino boards, without the need to connect the board physically. This feature is supported for the following **compatible Arduino boards**:
-
-![Over The Air compatible boards](./images/ota_compatible_boards.png)
+This feature allows for uploading sketches wirelessly to Arduino boards, without the need to connect the board physically. This feature is supported for the following boards:
 
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Arduino NANO 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect-with-headers)
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- Cloud compatible ESP32 boards (see list below).
+
+#### Verified ESP32 Boards Supporting OTA 
+
+The following ESP32 boards have been tested and verified to support OTA:
+
+- ESP32-S2-DevKitC
+- NODEMCU-32-S2
+- WEMOS LOLIN D32
+- ESP32-S3-DevKitC
+- WEMOS LOLIN D32
+- ESP32-CAM
+- NodeMCU-32S
+- Freenove ESP32 WROVER
+- ESP32-DevKitC32E
+- DOIT ESP32 DevKit v1
 
 ![Connecting the device with the OTA option](./images/device_OtA.png)
 

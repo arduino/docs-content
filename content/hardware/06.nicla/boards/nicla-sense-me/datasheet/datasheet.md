@@ -105,6 +105,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 **Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC. 
 
+
 ## Ratings
 ### Recommended Operating Conditions
 | Symbol               | Description                      | Min                                 | Typ | Max                                 | Unit |

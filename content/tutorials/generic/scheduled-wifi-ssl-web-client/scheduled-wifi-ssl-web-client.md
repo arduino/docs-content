@@ -23,6 +23,7 @@ software:
   - ide-v2
   - web-editor
 author: "Arduino"
+contributeURL: content/tutorials/generic
 ---
 
 ## Introduction
@@ -127,7 +128,7 @@ Upload the sketch below to your board:
 
   by Arturo Guadalupi <a.guadalupi@arduino.cc>
 
-  http://arduino.cc/en/Tutorial/
+  https://docs.arduino.cc/tutorials/generic/scheduled-wifi-ssl-web-client
 
   This code is in the public domain.
 

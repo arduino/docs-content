@@ -81,7 +81,7 @@ This loop subtracts a point from the brightness variable, dimming the LED back d
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/AnalogWriteMega
+  https://www.arduino.cc/en/Tutorial/AnalogWriteMega
 
 */
 

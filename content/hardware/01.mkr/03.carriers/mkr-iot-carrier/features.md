@@ -8,47 +8,59 @@ The MKR IoT Carrier comes equipped with 5 RGB LEDs, 5 capacitive touch buttons, 
 
 <Feature title="RGB LEDs" image="led">
 
-The MKR IoT Carrier has 5 RGB LEDs that are easily accessible through the **Arduino_MKRIoTCarrier** library.
+The MKR IoT Carrier has 5 RGB LEDs that are easily accessible through the Arduino_MKRIoTCarrier library.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#leds"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
-<Feature title="Rounded 1.3” TFT Display" image="configurability">
+<Feature title="Display" image="configurability">
 
-Create graphical UIs with a 240x240 resolution display.
+The MKR IoT Carrier comes with an integrated display, letting you create graphical UIs with the 240x240 resolution display.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#display"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
 
-<Feature title="LSM6DS3" image="imu">
+<Feature title="IMU" image="imu">
 
-The LSM6DS3 is a low power IMU that features a 3D digital accelerometer and a 3D digital gyroscope. 
+The MKR IoT Carrier comes with a IMU, combining an accelerometer and a gyroscope including a machine learning core.
 
-<FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/LSM6DS3-datasheet.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#imu-accelerometer--gyroscope-sensors"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
-<Feature title="LPS22HB" image="pressure-sensor">
+<Feature title="Pressure Sensor" image="pressure-sensor">
+
 A compact absolute pressure sensor with a range between 260 hPa and 1260 hPa, with power consumption as low as 3 μA.
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/dm00140895.pdf"download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#pressure-sensor"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
-<Feature title="HTS221" image="temperature-sensor">
+<Feature title="Temperature Sensor" image="temperature-sensor">
+
 A relative humidity and temperature sensor with high accuracy.
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/hts221.pdf"download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#humidity--temperature-sensor"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
-<Feature title="APDS-9960" image="color-sensor">
+<Feature title="Color Sensor" image="color-sensor">
 
-An ambient light and RGB color sensor with gesture detection and proximity sensing capabilities. 
+An ambient light and RGB color sensor with gesture detection. 
 
-<FeatureLink title="Datasheet" url="https://docs.broadcom.com/doc/AV02-4191EN"download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#rgb-and-gesture-sensor"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
 <Feature title="3x Grove connectors" image="connection">
 
 The carrier features two analog I/O and one I2C Grove connector. 
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-iot-carrier/mkr-iot-carrier-01-technical-reference#grove-connectors"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/"/>
 </Feature>
 
 </FeatureList>

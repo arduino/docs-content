@@ -192,9 +192,9 @@ The underlying library used to read the sensor is **[Arduino_LSM6DS3](https://ww
 
 ## RGB and Gesture Sensor
 
-![The APDS-9660 sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-rgb.png)
+![The APDS-9960 sensor on the MKR IoT Carrier](assets/mkrIotCarrier-sensor-rgb.png)
 
-The MKR IoT Carrier contains a Broadcom **APDS-9660 RGB and Gesture sensors**, situated under the display and marked with a bulb icon. The sensor is useful for **ambient light** and **RGB** color sensing, **proximity** sensing, and **gesture** detection.
+The MKR IoT Carrier contains a Broadcom **APDS-9960 RGB and Gesture sensors**, situated under the display and marked with a bulb icon. The sensor is useful for **ambient light** and **RGB** color sensing, **proximity** sensing, and **gesture** detection.
 
 ### Code
 

@@ -135,7 +135,7 @@ The Main Processor is an Arm® Cortex®-M4F running at up to 64MHz. Most of its 
 
 ### IMU
 
-The Arduino Nano 33 BLE Sense Rev2 provides IMU capabilities with 9-axis, by combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three axis gryroscope as well as an three axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
+The Arduino Nano 33 BLE Sense Rev2 provides IMU capabilities with 9-axis, by combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three axis gyroscope as well as an three axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
 
 ### LPS22HB (U9) Barometer and Temperature Sensor
 

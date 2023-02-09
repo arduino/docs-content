@@ -92,7 +92,7 @@ When you attach the Esplora, press Shift-Command-M in the Arduino software to op
 
  by Scott Fitzgerald
 
- http://www.arduino.ccarduino.cc/en/Reference/EsploraReadJoystickSwitch
+ http://www.arduino.cc/en/Reference/EsploraReadJoystickSwitch
 
  This example is in the public domain.
 
