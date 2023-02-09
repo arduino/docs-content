@@ -78,7 +78,7 @@ constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 ```
 
-These transmission parameters are crucial for stable RS-485 transmission as it will define its frame timings. These are applied in the Opta initialization and configuration. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
+These transmission parameters are crucial for stable RS-485 transmission as they will define its communication timings. These are applied in the Opta initialization and configuration. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
 
 ```arduino
 void setup() {
@@ -92,7 +92,7 @@ void setup() {
 
 The sender's job is to pack and transmit data to the receiver. Inside the main loop of the sketch, the sender will capture input data from the serial port and write the data after a series of checks to avoid sending incorrect data. After discarding an end-of-line (EOL), the input is converted to an integer.
 
-The `RS485.beginTransmission()` function enables RS-485 transmission. Subsequently, the `RS485.write(incomingByte)` function sends data as a byte or a series of bytes by writing its binary data to the serial port. In this case, we are sending to the receiver the `incomingByte` variable that contains input data converted to an integer. The `RS485.endTransmission()` function then disables or ends the RS-485 transmission and, with this, the operation cycle:
+The `RS485.beginTransmission()` method enables RS-485 transmission. Subsequently, the `RS485.write(incomingByte)` method sends data as a byte or a series of bytes by writing its binary data to the serial port. In this case, we are sending to the receiver the `incomingByte` variable that contains input data converted to an integer. The `RS485.endTransmission()` method then disables or ends the RS-485 transmission and, with this, the operation cycle:
 
 ```arduino
 void loop() {
@@ -147,7 +147,7 @@ void setup() {
 
 In the main loop of the sketch, we will seek data sent over RS-485 and handle it accordingly. It manages out-of-range inputs and applies in-range data to the intended relay and status LED. If the sender device sends values that are not between `1` and `4`, the `readValue` variable will go through module operation and return the remainder from the integer division; this is an example of how to manage out-of-range data. 
 
-The `RS485.receive()` function enables data reception via RS-485, then the `RS485.available()` function is used to identify if there is data available via RS-485 to read it; when data is available, the `RS485.read()` function will read the data and store it in the readValue variable. Finally, after managing the received data, the `RS485.noReceive()` function is used to disable data reception over RS-485:
+The `RS485.receive()` method enables data reception via RS-485, then the `RS485.available()` method is used to identify if there is data available via RS-485 to read it; when data is available, the `RS485.read()` method will read the data and store it in the readValue variable. Finally, after managing the received data, the `RS485.noReceive()` method is used to disable data reception over RS-485:
 
 ```arduino
 void loop() {
