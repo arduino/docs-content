@@ -67,7 +67,8 @@ After the compilation and upload process, you should see the message _Done Uploa
 
 Now that you have set up and programmed your Leonardo, Leonardo ETH or Micro board, you may find inspiration in our [Project Hub](https://projecthub.arduino.cc/search?value=arduino+leonardo) tutorial platform.
 
-<iframe frameborder='0' height='410' scrolling='no' src='https://www.hackster.io/onyx/gesture-mouse-a4320a' width='354' style='margin-top:30px; margin-right:20px'></iframe><iframe frameborder='0' height='410' scrolling='no' src='https://www.hackster.io/windows-iot/coffeeauth-grinder-authentication-system-d7cb38' width='354' style='margin-top:30px'></iframe>
+* [Gesture Mouse](https://www.hackster.io/onyx/gesture-mouse-a4320a)
+* [Grinder Authentication System](https://www.hackster.io/windows-iot/coffeeauth-grinder-authentication-system-d7cb38)
 
 
 More examples on the following library pages will help you in making very cool things!
