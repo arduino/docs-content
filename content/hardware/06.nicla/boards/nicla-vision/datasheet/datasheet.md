@@ -30,7 +30,7 @@ Dual-core
   - Implements ModelGauge m5 EZ for battery monitoring
   - Low 5.2 μA Operating Current
   - No Calibration Required
-- **NXP SE050C2** Crypto
+- **NXP® SE050C2** Crypto
   - Common Criteria EAL 6+ certified up to OS level
   - RSA & ECC functionalities, high key length and future proof curves, such as brainpool, Edwards, and Montgomery
   - AES & 3DES encryption and decryption

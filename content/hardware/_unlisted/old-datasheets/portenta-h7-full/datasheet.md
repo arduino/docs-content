@@ -38,7 +38,7 @@ Standard configurations are:
     *   16MB NOR Flash
     *   10/100 Ethernet Phy
     *   USB HS
-    *   NXP SE050C2 Crypto
+    *   NXP® SE050C2 Crypto
     *   Wi-Fi/BT Module
     *   U.FL Antenna
     *   DisplayPort over USB-C®
@@ -125,7 +125,7 @@ Standard configurations are:
 *   **Murata 1DX** Wi-Fi/BT Module (optional)
     *   Wi-Fi 802.11b/g/n 65 Mbps
     *   Bluetooth®  5.1 BR/EDR/LE
-*   **NXP SE050C2** Crypto (optional)
+*   **NXP® SE050C2** Crypto (optional)
     *   Common Criteria EAL 6+ certified up to OS level
     *   RSA & ECC functionalities, high key length and future proof curves, such as brainpool, Edwards, and Montgomery
     *   AES & 3DES encryption and decryption
@@ -159,7 +159,7 @@ Standard configurations are:
     *   1x I2C
 *   **ESLOV Connector**
     *   I2C port with automatic device enumeration
-*   **NXP PF1550 **Programmable PMIC
+*   **NXP® PF1550** Programmable PMIC
     *   dynamic voltage scaling
     *   programmable independent 1A voltage output to carrier board
     *   programmable I/O voltage
@@ -229,7 +229,7 @@ The [Portenta H7 Vision Shield](https://www.arduino.cc/pro/hardware/product/port
 | **Ref.** | **Description**                     | **Ref.**        | **Description**           |
 | -------- | ----------------------------------- | --------------- | ------------------------- |
 | U1       | STM32H747, Main processor           | U10             | Power Manager             |
-| U2       | QSPI Flash Memory                   | U11             | Crypto Chip (NXP)         |
+| U2       | QSPI Flash Memory                   | U11             | Crypto Chip (NXP®)         |
 | U3       | USB HS PHY                          | U12, U13, U14   | ESD protection            |
 | U4       | SDRAM                               | U16             | Crypto Chip (Microchip)   |
 | U5       | Ethernet PHY                        | J1, J2          | High Density Connectors   |
@@ -271,7 +271,7 @@ External SDRAM can provide up to 64 MByte directly mapped in CPU addressing spac
 External QSPI flash can provide up to 128MByte of storage and can be either memory mapped for code execution (read only) or used as a QSPI peripheral for data storage.   
 
 ### Crypto Chips
-Portenta H7 provides two different optional Crypto Chip choices. The classic ATECC608A from Microchip provides low cost backwards compatibility with Arduino applications while the more advanced SE050C2 from NXP provides Common Criteria certification, larger storage memory and more advanced functionalities.  
+Portenta H7 provides two different optional Crypto Chip choices. The classic ATECC608A from Microchip provides low cost backwards compatibility with Arduino applications while the more advanced SE050C2 from NXP® provides Common Criteria certification, larger storage memory and more advanced functionalities.  
 
 ### Ethernet Phy
 The optional 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic MDIX support. The Wake On Lan functionality allows reducing power consumption when in sleep mode.  

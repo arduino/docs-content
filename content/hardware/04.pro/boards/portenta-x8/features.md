@@ -26,7 +26,7 @@ Learn more about the so-called Portenta X8 Manager [here](https://cloud.arduino.
     <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf" download/>
   </Feature>
 
-  <Feature title="NXP SE050C2" image="crypto-chip">
+  <Feature title="NXP® SE050C2" image="crypto-chip">
     The Crypto chip allows users to keep security in mind by ensuring a secure connection at the hardware level.
     <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/SE050-DATASHEET.pdf" download blank/>
   </Feature>
