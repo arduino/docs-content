@@ -49,7 +49,7 @@ As an alternative, you may purchase the [Electret microphone amplifier - MAX4466
 
   This example code is in the public domain
 
-  http://arduino.cchttps://www.arduino.cc/en/Tutorial/SimpleAudioFrequencyMeter
+  https://www.arduino.cc/en/Tutorial/SimpleAudioFrequencyMeter
 
   created by Arturo Guadalupi <a.guadalupi@arduino.cc>
 

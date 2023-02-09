@@ -75,7 +75,7 @@ The sensor values are sent from the Arduino to the computer as [ASCII-encoded de
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/VirtualColorMixer
+  https://www.arduino.cc/en/Tutorial/VirtualColorMixer
 
 */
 

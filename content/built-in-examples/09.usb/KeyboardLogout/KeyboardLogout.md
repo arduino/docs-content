@@ -73,7 +73,7 @@ While the sketch is running, pressing the button will connect pin 2 to ground an
 
   This example is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/KeyboardLogout
+  https://www.arduino.cc/en/Tutorial/KeyboardLogout
 
 */
 

@@ -56,7 +56,7 @@ Once programmed, open your serial monitor and send a byte. The board will reply 
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/KeyboardSerial
+  https://www.arduino.cc/en/Tutorial/KeyboardSerial
 
 */
 

@@ -77,7 +77,7 @@ Connect your board to the USB port, then push the button to connect D2 with GND 
 
   This example is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/KeyboardReprogram
+  https://www.arduino.cc/en/Tutorial/KeyboardReprogram
 
 */
 

@@ -77,7 +77,7 @@ Sends out to MIDI the event to turn off  the note of the specified pitch on the 
 
   This example code is in the public domain
 
-  http://arduino.cchttps://www.arduino.cc/en/Tutorial/AnalogToMidi
+  https://www.arduino.cc/en/Tutorial/AnalogToMidi
 
   created by Arturo Guadalupi <a.guadalupi@arduino.cc>
 

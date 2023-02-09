@@ -63,7 +63,7 @@ Connect the pushbutton between pin 2 and ground, without any resistor as referen
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/InputPullupSerial
+  https://www.arduino.cc/en/Tutorial/InputPullupSerial
 
 */
 

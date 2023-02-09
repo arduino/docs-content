@@ -79,7 +79,7 @@ The newly mapped sensor data is then output to the `analogOutPin` dimming or bri
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/AnalogInOutSerial
+  https://www.arduino.cc/en/Tutorial/AnalogInOutSerial
 
 */
 
