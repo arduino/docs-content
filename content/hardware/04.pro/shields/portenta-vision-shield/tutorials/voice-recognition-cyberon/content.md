@@ -24,8 +24,10 @@ This tutorial shows you how to receive voice commands and perform custom tasks a
 
 - Setting the command triggers
 - Getting the needed files and set up the library
-- Get the license and use it on the sketch
-- Create an Arduino sketch to control the LED's color
+- Get the license and use the demo sketch
+- Create a new project (custom voice commands)
+- Unlock limitations of the project (license needed)
+<!-- - Create an Arduino sketch to control the LED's color -->
 
 ### Required Hardware and Software
 
@@ -36,58 +38,190 @@ This tutorial shows you how to receive voice commands and perform custom tasks a
 
 ## Instructions
 
-In order to get the library, the dataset model and the license to use the library it is needed to:
 * Get the Serial Number of your Arduino device
+* Get the library
+* Test the free demo
+In case you have a license (paid):
 * Fill some information on Cyberon's website
-* Once you get the files, you need to activate your license (only required if you have a license)
+* Once you get the files, you need to activate your license
 
-### Get The Files
-
-#### Get The Serial Number
-
-To get the Serial Number of your board you will need to open the **Arduino IDE**, select the board's serial port and click on **tools > Get Board Info**, you will see the "SN" number, save it.
-
-#### Request the Files
-
-Once you have the Serial number.
-
-Depending on the board that you are using, navigate to:
-* [Portenta H7 activation page](https://tool.cyberon.com.tw/GetLicense/GetLicensePage_portenta-h7.php)
-* [Nano RP2040 activation page](https://tool.cyberon.com.tw/GetLicense/GetLicensePage_rp2040.php)
-* [Nano 33 Sense BLE activation page](https://tool.cyberon.com.tw/GetLicense/GetLicensePage_33ble.php)
-
-Now fill the "Board serial number" field and click the **Submit** button.
-
-Now that you have submitted the activation, you should have received an e-mail with the file `Model_{board}.dsproj` this will be later on used to activate your license.
-
-Please note that the files you have are a "demo" version. The limitations are:
-  * 50 recognitions per start.
-  * There will be a 20 seconds delay before each trigger recognition.
-
-#### Activate The License and Customize the Model
-
-Go to [Cyberon's Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php)
-
-Fill the required fields and make sure you upload the ".dsproj" file you have gotten on the previous step.
-
-Now you will see a new page to configure the trigger word, this word will be the one used to let the board now that you are going to say a command after it.
-
-Depending on the license you can configure more than one trigger words.
-
-You are also able to add "command words", these are the ones to do work, for example "play music".
-
-Once you finish your table of words, you can finish and you will get the model header file (model.h), you will need to copy it onto your sketch folder in order to access it.
-
-The IDs of the words on the table are collected on the info.txt so you will have them already saved, these are used to know which command has been said by the user on the application.
+### Setup
 
 #### Setup the Library
 
-As any custom Arduino Library, you need to download the library and save it on the **Arduino/libraries** directory.
+There are 3 libraries, depending on which board you are using:
+* Cyberon_DSpotterSDK_Maker_RP2040 (Nano RP2040)
+* Cyberon_DSpotterSDK_Maker_PortentaH7 (Portenta H7)
+* Cyberon_DSpotterSDK_Maker_33BLE (Nano 33 BLE)
+
+***Inside the downloaded library, you will have access to some documentation from Cyberon, inside the "extra" folder, check them out for more information.***
+
+Go to the Library Manager, search the library that you need for your board and install it.
 
 More instructions on how to install libraries, https://docs.arduino.cc/hacking/software/Libraries.
 
-***From now on, if you want to use your license, you will need to copy the header file (.h) within the sketch folder.***
+***From now on we will refer to the DSpotter SDK library as Cyberon_DSpotterSDK library, to skip the speficic board***
 
+#### Get The Serial Number
+
+In order to get your board's serial number, once you have the library downloaded: navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**
+
+Upload the sketch, and after it's done open the **Serial Monitor** to see your device's Serial Number.
+
+You will need this to activate the license on your board.
+
+##### Arduino IDE v1
+
+There is another way only available through the previous version of the Arduino IDE.
+
+To get the Serial Number of your board you will need to open the **Arduino IDE v1**, select the board's serial port and click on **tools > Get Board Info**, you will see the "SN" number, save it.
+
+#### Get the Demo License
+
+Once you have the Serial number.
+
+Depending on the board that you are using, open https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
+
+Select the board you are using.
+
+Secondly fill the "Board serial number" field and click the **Submit** button.
+
+Once everything is ready, click on the **submit** button to get your license.
+
+Save that array of characters.
+
+### Test the Free Demo Sketch
+
+Open the sketch **File > Example > Cyberon_DSpotterSDK > VoiceRecognition**
+
+Navigate to the `CybLicense.h` tab.
+
+Paste your license between the brackets, like:
+```cpp
+const uint32_t g_lpdwLicense[]{
+  AAAABBBBCCCCDDDD.....ZZZZ
+};
+```
+
+Now switch back to the `VoiceRecognition` tab and upload the sketch.
+
+You can now open the Serial Monitor, you will see the available commands that the CyberonSDK will recognice.
+
+Feel free to say the commands and see how it recognice your voice!
+
+Please note that the files you have are a "demo" version have limitations which:
+  * Maximum of 50 recognitions per start.
+  * 20 seconds delay before each trigger recognition.
+
+#### Customized Commands
+
+***This steps are compatible for the trial license (the one that we are showing) and the paid license***
+
+Go to [Cyberon's Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php)
+
+Fill the required fields:
+* e-mail address
+* Board
+* Serial Number of your board
+* EULA Agreement (Please read it carefuly)
+
+Now you will see a new page to:
+* Create a new project, or
+* Import an existing project
+
+##### Create a New Project
+
+First, you need to select the desired language of the voice recognition, once is set, click **create**.
+
+* Create the **Input Trigger word**, for example "Hey Arduino".
+  The **Input Trigger word** will trigger the device, to let the board know that you are going to say a command after that.
+* Add the **Command** list.
+  This commands will be used to do tasks on your sketch, for example if you have a command which is "Play", afterwards you will be able to get that command and proceed with some job inside the sketch easily.
+
+Once you finish your table of words, you can click **Next** to finish.
+At the end you will see all the configuration that you have set, check it out and see if there is something wrong, you are on time to go back and fix it.
+
+Once everything is checked, click **Confirm** and you will get the model header file (model.h), you will need to copy it onto your sketch folder in order to access it.
+
+You will now get some files on your e-mail address, download them.
+
+On the IDE, open the example **File > Examples > Cyberon_DSpotterSDK > VoiceRecognition** and click **File > Save As...** and type a name for your sketch.
+
+Once it's saved, open your File Explorer, and navigate to your sketch path.
+
+On your sketch directory, paste the files you have got on your e-mail before:
+* `CybLicense_<id>.h`
+* `Model_<id>.h`
+
+Now to implement the **Input Trigger Command** and the **Command List** open the sketch and change the following `#include`
+
+```cpp
+...
+
+#include "CybLicense.h" -> #include "CybLicense_<id>.h"
+
+...
+
+#include "Model_L1.h" -> #include "Model_<id>.h"
+
+...
+
+#include "Model_L0.h" -> #include "CybLicense_<id>.h"
+
+```
+
+Now you are all set to use your new project!
+
+Upload the sketch, and open the Serial Monitor.
+
+Test your new **Input Trigger Word** and the **Command** list that you have created.
+
+You will see the recogniced words on the **Serial Monitor**
+
+
+The IDs of the words on the table are collected on the info.txt so you will have them already saved, these are used to know which command has been said by the user on the application.
+
+
+#### Unlock Limitations (License)
+
+***For this section you need to have bought the corresponding license, available at https://store.arduino.cc/speech-recognition-engine***
+***Depending on the license you can configure more than one trigger words.***
+
+Note that you need to have an already existing project, check the [previous section](#create-a-new-project).
+
+Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php)
+
+
+Fill the required fields:
+* e-mail address
+* Board
+* Serial Number of your board
+* Voucher code
+* Import project: the `.dsproj` file that you have received on your e-mail.
+* EULA Agreement (Please read it carefuly)
+
+Click next, review your project options and press continue.
+
+You will get a new e-mail with the new License and Model headers.
+
+Open the sketch you have duplicated on the [Create New Project](#create-a-new-project) section.
+
+Repeat the replacement of `#include` files, with the latest ones (they have a different ID):
+```cpp
+...
+
+#include "CybLicense_<id>.h" -> #include "CybLicense_<newId>.h"
+
+...
+
+#include "Model_<id>.h" -> #include "Model_<newId>.h"
+
+...
+
+#include "CybLicense_<id>.h" -> #include "CybLicense_<newId>.h"
+
+```
+<!-->
 ### Create the sketch
 
 -EXPLANATION OF THE SKETCH PENDING HERE (TODO)-
@@ -200,6 +334,7 @@ void loop()
   g_oCDSpotterHL.DoVR();
 }
 ```
+-->
 
 ## Conclusion
 
