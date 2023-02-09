@@ -26,13 +26,13 @@
   errorMessage: The USB-C® / USB Type-C® / USB4® trademark is not used correctly.
 
 # Arduino Opta® rule
-- regex: "(?<![a-zA-Z]|[0-9])(([oO]pta)(?!®|™|[a-zA-Z])|(((?<=[aA]rduino\\s)([oO]pta(?=™)))|((?<=[aA]rduino®\\s)([oO]pta))))"
+- regex: "(?<!http[s]?:\\/\\/\\S*|  - )(?<![a-zA-Z]|[0-9])(?<=\\s)(([oO]pta)(?!®|™|[a-zA-Z])|(((?<=[aA]rduino\\s)([oO]pta(?=™)))|((?<=[aA]rduino®\\s)([oO]pta))))"
   regexModifiers: "gi"
   shouldMatch: false
   includeCodeBlocks: false
   format: markdown
   type: warning
-errorMessage: The Arduino Opta® / Opta™ trademark is not used correctly.
+  errorMessage: The Arduino Opta® / Opta™ trademark is not used correctly.
 
 # Edge Impulse® rule
 # Skip the match if it is inside tags' lists
