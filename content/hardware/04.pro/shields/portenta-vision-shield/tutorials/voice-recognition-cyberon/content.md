@@ -70,7 +70,7 @@ Upload the sketch, and after it's done open the **Serial Monitor** to see your d
 
 You will need this to activate the license on your board.
 
-##### Arduino IDE v1
+##### Arduino IDE V1
 
 There is another way only available through the previous version of the Arduino IDE.
 
@@ -222,7 +222,7 @@ Repeat the replacement of `#include` files, with the latest ones (they have a di
 
 ```
 <!-->
-### Create the sketch
+### Create The Sketch
 
 -EXPLANATION OF THE SKETCH PENDING HERE (TODO)-
 
