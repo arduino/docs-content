@@ -73,7 +73,7 @@ Open the Serial Monitor of the Arduino Software (IDE) to see the values read fro
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Memsic2125
+  https://www.arduino.cc/en/Tutorial/Memsic2125
 
 */
 

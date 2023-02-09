@@ -76,7 +76,7 @@ Connect six LEDs, with 220 ohm resistors in series, to digital pins 2-7 on your 
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Array
+  https://www.arduino.cc/en/Tutorial/Array
 
 */
 

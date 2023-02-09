@@ -57,7 +57,7 @@ image developed using [Fritzing](http://www.fritzing.org). For more circuit exam
 
  by Federico Vanzati
 
- http://www.arduino.cc/en/Tutorial/WifiWebClientRepeating
+ https://docs.arduino.cc/library-examples/wifi-library/WiFiWebClientRepeating
 
  This code is in the public domain.
 

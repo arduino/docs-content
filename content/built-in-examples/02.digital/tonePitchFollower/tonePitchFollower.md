@@ -74,7 +74,7 @@ The sketch is as follows:
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Tone2
+  https://www.arduino.cc/en/Tutorial/Tone2
 
 */
 

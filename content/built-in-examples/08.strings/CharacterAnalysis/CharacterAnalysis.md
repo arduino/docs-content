@@ -86,7 +86,7 @@ Open the serial monitor window of the Arduino Software (IDE) and type in a singl
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/CharacterAnalysis
+  https://www.arduino.cc/en/Tutorial/CharacterAnalysis
 
 */
 
