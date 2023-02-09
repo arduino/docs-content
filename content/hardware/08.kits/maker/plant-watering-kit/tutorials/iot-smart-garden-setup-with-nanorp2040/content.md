@@ -74,6 +74,8 @@ Now let's wire up the submersible pump. This pump runs on 5V, and draws more cur
 
 ![Pump connected](./assets/step3.png)
 
+***Note: These types of subermisible pumps can easily break if they're run without being submersed in water. In this project, a faulty pump might have a short circuit, causing the board to reset as soon as the pump is engaged.***
+
 Now find the LED Grove button and a Grove cable. This cable also needs to be cut to expose the copper wire inside. The wires from the grove cable should be connected as follows:
 
 - Black wire (-) to GND pin.
