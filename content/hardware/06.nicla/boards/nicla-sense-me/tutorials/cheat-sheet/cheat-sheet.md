@@ -177,7 +177,7 @@ void loop() {
 }
 ```
 
-This is a complete example code to correctly control the built-in I2C LED
+This is a complete example code to blink the built-in I2C LED:
 
 ```arduino
 #include "Nicla_System.h"
