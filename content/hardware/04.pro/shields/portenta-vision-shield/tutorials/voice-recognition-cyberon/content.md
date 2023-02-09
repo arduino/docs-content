@@ -60,7 +60,7 @@ Go to the Library Manager, search the library that you need for your board and i
 
 More instructions on how to install libraries, https://docs.arduino.cc/hacking/software/Libraries.
 
-***From now on we will refer to the DSpotter SDK library as Cyberon_DSpotterSDK library, to skip the speficic board***
+***From now on we will refer to the DSpotter SDK library as Cyberon_DSpotterSDK library, to skip the specific board***
 
 #### Get The Serial Number
 
@@ -123,7 +123,7 @@ Fill the required fields:
 * e-mail address
 * Board
 * Serial Number of your board
-* EULA Agreement (Please read it carefuly)
+* EULA Agreement (Please read it carefully)
 
 Now you will see a new page to:
 * Create a new project, or
@@ -176,7 +176,7 @@ Upload the sketch, and open the Serial Monitor.
 
 Test your new **Input Trigger Word** and the **Command** list that you have created.
 
-You will see the recogniced words on the **Serial Monitor**
+You will see the recognised words on the **Serial Monitor**
 
 
 The IDs of the words on the table are collected on the info.txt so you will have them already saved, these are used to know which command has been said by the user on the application.
@@ -198,7 +198,7 @@ Fill the required fields:
 * Serial Number of your board
 * Voucher code
 * Import project: the `.dsproj` file that you have received on your e-mail.
-* EULA Agreement (Please read it carefuly)
+* EULA Agreement (Please read it carefully)
 
 Click next, review your project options and press continue.
 
