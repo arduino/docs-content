@@ -67,7 +67,7 @@ Make sure you've installed the "Arduino Mbed OS Portenta Boards" core and upload
 
 ### Debugging the Arduino Sketch
 
-To check if the Arduino sketch is working correctly you may want to read the messages from the `Serial.println` statements. You can't currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called `py-serialrpc` which listens for those messages and prints them to the console. This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). Upload them to the X8 with `adb push py-serialrpc /home/fio`.
+To check if the Arduino sketch is working correctly you may want to read the messages from the `Serial.println` statements. You can't currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called `py-serialrpc` which listens for those messages and prints them to the console. This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with `adb push <local directory path>/py-serialrpc /home/fio`.
 
 Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder. Build the container using `sudo docker build . -t py-serialrpc`. The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then `sudo docker-compose up -d`. The `-d` flag detaches the container so it runs in the background. Note that this will run the docker container persistently across reboots by registering it as a systemd service. To stop the container, run `sudo docker-compose stop`. 
 
@@ -85,7 +85,7 @@ rpc_client = RpcClient(rpc_address)
 temperature = rpc_client.call('temperature')
 ```
 
-The files for the complete Python® application can be found in the same package as the Arduino sketch (see above). Upload the `python-sensor-rpc` folder to the X8 via `adb push python-sensor-rpc /home/fio`. Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute `sudo docker build . -t python-sensor-rpc`. When it's done you can run the container with `sudo docker-compose up`. After a few seconds you should see the output from the Python® application featuring the sensor readings on the M4 that were piped through the RPC mechanism. The output should look similar to the following:
+The files for the complete Python® application can be found in the same package as the Arduino sketch (see above). Like in the previous step, upload the `python-sensor-rpc` folder to the X8 via `adb push <local directory path>/python-sensor-rpc /home/fio`. Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute `sudo docker build . -t python-sensor-rpc`. When it's done you can run the container with `sudo docker-compose up`. After a few seconds you should see the output from the Python application featuring the sensor readings on the M4 that were piped through the RPC mechanism. The output should look similar to the following:
 
 ```
 python-sensor-rpc_1  | ============================================

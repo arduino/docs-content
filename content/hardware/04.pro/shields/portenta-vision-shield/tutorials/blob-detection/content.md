@@ -6,8 +6,8 @@ tags: [OpenMV, Blob Detection, Machine Vision, Machine Learning]
 description: This tutorial will show you how to use the Portenta Vision Shield to detect the presence and the position of objects in a camera image.
 author: Sebastian Romero
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---

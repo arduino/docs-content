@@ -7,18 +7,17 @@ Designed to facilitate motor control, the Nano Motor Carrier takes care of the e
 
 <FeatureList>
 <Feature title="Nano motor carrier" image="nano-form-factor">
+
 The Nano Motor Carrier is the perfect add-on for the Nano 33 IoT board as it works to extend and power up its functionality. 
-</Feature>
 
-<Feature title="ATSAMD11 (Arm Cortex-M0+ @48 Mhz)" image="mcu">
-
-The Nano Motor Carrier features the ATSAMD11 (Arm Cortex-M0+) as an on-board processor for automated control of some of the outputs.
-
-  <FeatureLink title="Datasheet" url="http://ww1.microchip.com/downloads/en/devicedoc/atmel-42363-sam-d11_datasheet.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-motor-carrier/nano-simulink-wifi-led"/>
 </Feature>
 
 <Feature title="Power source" image="power">
-When working with motors, you need an external power source to feed the motor drivers and power the motors. You can do this by connecting a 1 cell Li-Ion battery to the battery connector or by using an external power source. 
+
+Connect a 1 cell Li-Ion battery to the battery connector or by using an external power source to power extra motors.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-motor-carrier/nano-matlab-wifi-led"/>
 </Feature>
 
 </FeatureList>

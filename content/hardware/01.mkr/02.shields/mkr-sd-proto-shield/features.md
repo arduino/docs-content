@@ -6,9 +6,12 @@ The shield has a large area for soldering your own components. Add sensors & act
 
 </Feature>
 
-<Feature title="Micro SD card slot" image="file">
+<Feature title="Micro SD card slot" image="file-icon">
 
 Useful for data logging and storing larger files.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-sd-proto-shield/mkr-sd-proto-shield-data-logger"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/sd/"/>
 </Feature>
+
 </FeatureList>

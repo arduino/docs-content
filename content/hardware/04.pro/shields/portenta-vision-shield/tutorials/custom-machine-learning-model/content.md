@@ -6,8 +6,8 @@ tags: [Machine Learning, Edge Impulse®, TinyML, Tensorflow]
 description: This tutorial teaches you how to train a custom machine learning model with Edge Impulse® and to run it using the Portenta Vision Shield.
 author: Sebastian Romero
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - Edge-Impulse
 ---

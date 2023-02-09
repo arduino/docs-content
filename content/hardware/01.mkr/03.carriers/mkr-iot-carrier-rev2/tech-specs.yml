@@ -1,0 +1,22 @@
+Shield:
+  Name: Arduino® MKR IoT Carrier Rev2
+  SKU: ABX00073
+  Compatibility: MKR
+Storage: Micro SD card slot
+Connectors: 3x Grove connectors
+Sensors:
+  BME688: Temperature, humidity, barometric pressure, gas (air quality, VOC)
+  LSM6DSOX: Accelerometer & gyroscope
+  APDS-9960: Ambient light, gesture and proximity
+  Capacitive buttons: 5x
+Actuators:
+  Buzzer: Yes
+  RGB: 5x pixels
+  Display: 1.3” TFT Display, 240x240 resolution
+  Relays: 2x 24V, V23079
+  Relay status LEDs: Yes, for both
+Power:
+  Battery slot: Yes, 18650 Li-Ion rechargeable battery
+  Operating voltage: 3.3V
+Dimensions:
+  Diameter: 84.62 mm

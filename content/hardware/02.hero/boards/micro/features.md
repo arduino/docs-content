@@ -6,30 +6,12 @@ The Micro is a microcontroller board based on the ATmega32U4, developed in conju
 
 <FeatureList>
 
-<Feature title="ATmega32U4" image="core">
-
-The high Performance, low power AVR® 8-bit microcontroller.
-
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Atmel-7766-8-bit-AVR-ATmega16U4-32U4_Datasheet.pdf" download blank/>
-
-</Feature>
-
 <Feature title="Built-in USB communication" image="usb">
 
 The ATmega32U4 has built-in USB communication that allows the Micro to appear as a mouse/keyboard on your machine.
 
-</Feature>
-
-<Feature title="Flexible pins" image="hw-pin">
-
-The Micro features 20 digital pins, whereas 12 can be used as analog pins, and 7 as PWM pins.
-
-</Feature>
-
-<Feature title="EEPROM" image="mcu">
-
-The ATmega32U4 features 1kb of EEPROM, a memory which is not erased when powered off.
-
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/micro/keyboard-press"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/language/functions/usb/keyboard/"/>
 </Feature>
 
 </FeatureList>

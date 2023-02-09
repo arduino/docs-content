@@ -6,34 +6,20 @@ The Arduino UNO WiFi Rev 2 features the secure **ATECC608** crypto chip accelera
 
 <FeatureList>
 
-<Feature title="ATmega4809" image="core">
-
-A powerful microcontroller with low-power architecture from the megaAVR® 0-series.
-
-<FeatureLink title="Datasheet" url="http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-4809-Data-Sheet-DS40002173A.pdf" download blank/>
-</Feature>
-
-<Feature title="u-blox NINA-W102" image="wifi-bluetooth">
+<Feature title="Bluetooth® / WiFi" image="wifi-bluetooth">
 
 Enables Bluetooth® and Wi-Fi connectivity for the UNO WiFi Rev2 board.
 
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/uno-wifi-rev2/uno-wifi-r2-hosting-a-webserver"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
 
 </Feature>
 
-<Feature title="LSM6DS3TR" image="imu">
+<Feature title="IMU" image="imu">
 
-The **LSM6DS3TR** is a low-power IMU module that includes a 3D digital accelerometer & gyroscope.
+The UNO WiFi Rev2 comes with the LSM6DS3TR, a low-power IMU module that includes a 3D digital accelerometer & gyroscope.
 
-<FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6ds3.pdf" download blank/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/"/>
 </Feature>
-
-<Feature title="ATECC608 crypto chip" image="crypto-chip">
-
- The **ATECC608** crypto chip makes sure your data remains secure and private, and can store up to 16 keys in an EEPROM array.
-
-<FeatureLink title="Datasheet" url="http://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf" download blank/>
-</Feature>
-
 
 </FeatureList>

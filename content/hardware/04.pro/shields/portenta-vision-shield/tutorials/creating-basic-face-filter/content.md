@@ -6,8 +6,8 @@ tags: [OpenMV, Face Detection, Haar Cascade, Machine Vision, Machine Learning]
 description: In this tutorial you will build a MicroPython application with OpenMV, to use the Portenta Vision Shield to detect faces and overlay them with a custom bitmap image.
 author: Sebastian Romero, Lenard George
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---

@@ -6,17 +6,18 @@ The Arduino Nano Every is an evolution of the classic Arduino Nano sharing the s
 
 
 <FeatureList>
-<Feature title="ATMega4809 microcontroller" image="core">
+<Feature title="I2C" image="communication">
 
-  The ATMega4809 CPU features 50% more program memory than the classic Arduino UNO, allowing for larger programs.
+  Learn how to send data from the Nano Every board to another board via I2C.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano-Every_processor-48-pin-Data-Sheet-megaAVR-0-series-DS40002016B.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="learn/communication/wire"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/language/functions/communication/wire/"/>
 </Feature>
 
 <Feature title="Tiny footprint" image="nano-form-factor">
 
-  With a length of 45 mm and a width of 18 mm the Nano Every is Arduino's smallest board, weighing only 5 grams with attached headers and even less when configured without them.
-</Feature>
+  With a length of 45 mm and a width of 18 mm the Nano Every is Arduino's smallest board and weighs only 5 grams.
 
+</Feature>
 
 </FeatureList>
