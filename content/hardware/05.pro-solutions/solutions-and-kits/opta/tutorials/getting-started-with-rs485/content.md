@@ -60,11 +60,11 @@ Please refer to the following diagram for connecting two Optas via its RS-485 in
 
 We will assign an Opta™ either as a sender or a receiver device; as the role suggests, each Opta™ has a specific task. The sender Opta™ will await data from `1` to `4` via Arduino IDE Serial Monitor. Each number represents the relay to trigger and its corresponding status LED.
 
-The receiver Opta™ will intercept incoming data and decode them and also process out-of-range incoming data. The decoded data will update the relay state and the status LED accordingly, given its present condition. For instance, if the receiver receives a `2` from the sender while the receiver has a second relay closed with a turned-on second status LED, the receiver will open the relay and turn off the second status LED as a deactivation indication. The process is vice-versa and applies to the rest of the relays with their respective status LEDs.
+The receiver Opta™ will intercept incoming data, decode them, and process out-of-range incoming data. The decoded data will update the relay state and the status LED accordingly, given its present condition. For instance, if the receiver receives a `2` from the sender while the receiver has a second relay closed with a turned-on second status LED, the receiver will open the relay and turn off the second status LED as a deactivation indication. The process is vice-versa and applies to the rest of the relays with their respective status LEDs.
 
 ### Sender Sketch
 
-First, we need to define the RS-485 transmission parameters specified per specification; this is shown in the code below:
+First, we need to define the RS-485 transmission parameters:
 
 ```arduino
 #include <ArduinoRS485.h>
@@ -78,7 +78,7 @@ constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 ```
 
-These transmission parameters are crucial for stable RS-485 transmission as they will define its communication timings. These are applied in the Opta initialization and configuration. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
+These transmission parameters, applied in the Opta™ initialization, are crucial for a stable RS-485 data transmission as they will define communication timings. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
 
 ```arduino
 void setup() {
@@ -203,10 +203,10 @@ Now it's time to test the application. Using the Serial Monitor of the Arduino I
 
 Here is a review of the values the receiver Opta™ device can receive and the result they produce:
 
-- Sending `1`: Will turn on or off the first relay and the first status LED.
-- Sending `2`: Will turn on or off the second relay and the second status LED.
-- Sending `3`: Will turn on or off the third relay and the third status LED.
-- Sending `4`: Will turn on or off the fourth relay and the fourth status LED.
+- **Sending `1`**: The first relay and the first status LED will turn on or off.
+- **Sending `2`**: The second relay and the second status LED will turn on or off.
+- **Sending `3`**: The third relay and the third status LED will turn on or off.
+- **Sending `4`**: The fourth relay and the fourth status LED will turn on or off.
 
 ## Conclusion
 
