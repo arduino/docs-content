@@ -127,7 +127,7 @@ The Nicla System header is required to use the RGB LED.
 #include "Nicla_System.h"
 ```
 
-Since the functions are scoped under a specific name called "nicla", you need to explicitly write it before each statement.
+Since the functions are scoped under a specific Class name called "nicla", you need to explicitly write it before each statement.
 
 The LEDs need to be started along with the Nicla inside `void setup()`:
 
