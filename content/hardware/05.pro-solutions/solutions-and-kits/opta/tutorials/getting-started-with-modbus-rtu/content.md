@@ -205,7 +205,8 @@ void writeCoilValues()
 
     Serial.print("Writing Coil values ... ");
 
-    // write 10 Coil values to (slave) id 42, address 0x00
+    // write 10 Coil values to (server) id 42, address 0x00
+
     ModbusRTUClient.beginTransmission(42, COILS, 0x00, 10);
     for (int i = 0; i < 10; i++) {
         ModbusRTUClient.write(coilValue);
