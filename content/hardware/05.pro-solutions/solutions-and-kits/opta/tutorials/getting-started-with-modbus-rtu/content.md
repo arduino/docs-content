@@ -313,7 +313,8 @@ void readInputRegisterValues()
 {
     Serial.print("Reading input register values ... ");
 
-    // read 10 discrete input values from (slave) id 42,
+    // read 10 discrete input values from (server) id 42,
+
     if (!ModbusRTUClient.requestFrom(42, INPUT_REGISTERS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
