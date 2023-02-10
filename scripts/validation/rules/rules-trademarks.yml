@@ -1,5 +1,5 @@
 # Bluetooth® rule
-- regex: "(?<![-/]\\S*)(?:bluetooth(?!®))(?![-/])\\b"
+- regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)([bB]lueto{2}th)(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=\\s)(blueto{2}th)(?=®))"
   regexModifiers: "gi"
   shouldMatch: false
   includeCodeBlocks: false
@@ -9,7 +9,7 @@
 
 # LoRa® / LoRaWAN® rule
 # Avoids false positives by excluding the word in conjunction with a dash (e.g. URLs) and as part of code)
-- regex: "(?<![-\\/])([lL]o[rR]a(?:WAN| Alliance)?)(?!®)(?![-\\/]|\\.?\\S)\\b"
+- regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)((lora(?:WAN|\\sAlliance)?))(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=\\s)((((?<=(Lora\\s|loRa\\s|lora\\s))Alliance)|(?<=(Lora|loRa|lora)[wW][aA][nN])))(?=®))"
   shouldMatch: false
   includeCodeBlocks: false
   format: markdown
@@ -17,10 +17,38 @@
   errorMessage: The LoRa® / LoRaWAN® trademark is not used correctly.
 
 # USB-C® / USB Type-C® / USB4® rule
-- regex: "(?<!http[s]?:\\/\\/\\S*)(?:USB-C|USB Type[ -]C|USB4)(?!®)\\b"
+- regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)(?:USB-C|USB\\sType[-]C|USB4)(?!®|[a-zA-Z]))"
   regexModifiers: "gi"
   shouldMatch: false
   includeCodeBlocks: false
   format: markdown
   type: warning
   errorMessage: The USB-C® / USB Type-C® / USB4® trademark is not used correctly.
+
+# Arduino Opta® rule
+- regex: "(?<!http[s]?:\\/\\/\\S*|  - )(?<![a-zA-Z]|[0-9])(?<=\\s)(([oO]pta)(?!®|™|[a-zA-Z])|(((?<=[aA]rduino\\s)([oO]pta(?=™)))|((?<=[aA]rduino®\\s)([oO]pta))))"
+  regexModifiers: "gi"
+  shouldMatch: false
+  includeCodeBlocks: false
+  format: markdown
+  type: warning
+  errorMessage: The Arduino Opta® / Opta™ trademark is not used correctly.
+
+# Edge Impulse® rule
+# Skip the match if it is inside tags' lists
+- regex: "(?<!http[s]?:\\/\\/\\S*|  - )(?:Edge[ -]Impulse|[eE]dge[iI]mpulse)(?!®)\\b"
+  regexModifiers: "gi"
+  shouldMatch: false
+  includeCodeBlocks: false
+  format: markdown
+  type: warning
+  errorMessage: The Edge Impulse® trademark is not used correctly.
+
+# MIPI® / A-PHY® / CSI-2® / I3C® / M-PHY® rule
+- regex: "((?<![a-zA-Z]|[0-9])((mipi)|((aphy)|(a-phy))|((csi2)|(csi-2))|(i3c)|((mphy)|(m-phy)))(?!®|[a-zA-Z]))|(([mM][iI][pP][i])|(([aA][pP][hH][yY])|([aA]-[pP][hH][y]))|(([cC][sS][iI]2)|([cC][sS][i]-2))|([iI]3[c])|(([mM][pP][hH][yY])|([mM]-[pP][hH][y])))(?=®)"
+  regexModifiers: "gi"
+  shouldMatch: false
+  includeCodeBlocks: false
+  format: markdown
+  type: warning
+  errorMessage: The MIPI® / A-PHY® / CSI-2® / I3C® / M-PHY® trademark owned by MIPI Alliance is not used correctly.

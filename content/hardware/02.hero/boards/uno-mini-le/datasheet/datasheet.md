@@ -115,7 +115,7 @@ The UNO Mini is a smaller version of the Arduino UNO - to celebrate a successful
 
 | Ref.  | Description                    | Ref.  | Description                           |
 | ----- | ------------------------------ | ----- | ------------------------------------- |
-| J1    | USB C Connector                | J7    | Ground                                |
+| J1    | USB C® Connector               | J7    | Ground                                |
 | J2    | 6x Connector pin (female)      | U1    | ATMEGA16U2 Module                     |
 | J3    | 8x Connector pin (female)      | U2    | ATMEGA328P Module                     |
 | J4    | 8x Connector pin (female)      | U5    | MPM3610AGQV-PIC StpDwn-CONV.21V 1.2A  |

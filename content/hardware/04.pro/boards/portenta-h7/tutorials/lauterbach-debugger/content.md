@@ -26,7 +26,7 @@ This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debu
 
 ### Required Hardware and Software
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
--  USB C cable (either USB A to USB C or USB C to USB C)
+-  USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 -  Arduino IDE 1.8.13+ or Arduino Pro IDE 0.1.0+
 -  Lauterbach TRACE32 (https://www.lauterbach.com/download_demo.html)
 

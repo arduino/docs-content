@@ -38,7 +38,7 @@ The maximum length and width of the Lucky Shield PCB are 2.7 by 2.1 inches,respe
 | Humidity Sensor      | BOSCH SENSORTEC BME 280 |
 | Temperature Sensor   | BOSCH SENSORTEC BME 280 Operating temperature -40 ~ +85°C |
 | Pressure sensor      | BOSCH SENSORTEC BME 280Operating pressure range 300 ~ 1100 hPa |
-| 3-axis magnetometer  | NXP MAG3110E-compass, Full-scale range ±1000 T, Output data rates (ODR) up to 80 Hz|
-| 3 Axis accelerometer | NXP MMA8491QG-sensor, Ultra-fast data output time, ~700 μs ±8g full-scale range 3-axis, 45° tilt outputs |
+| 3-axis magnetometer  | NXP® MAG3110E-compass, Full-scale range ±1000 T, Output data rates (ODR) up to 80 Hz|
+| 3 Axis accelerometer | NXP® MMA8491QG-sensor, Ultra-fast data output time, ~700 μs ±8g full-scale range 3-axis, 45° tilt outputs |
 | Buzzer               | PUI AUDIO SMT-0927-S-6-R|
 | Joystick             | 5-directional tact switch|
