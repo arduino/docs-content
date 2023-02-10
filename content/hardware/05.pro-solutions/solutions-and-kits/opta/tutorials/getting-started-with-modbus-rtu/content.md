@@ -291,7 +291,8 @@ void readHoldingRegisterValues()
 {
     Serial.print("Reading Holding Register values ... ");
 
-    // read 10 Input Register values from (slave) id 42, address 0x00
+    // read 10 Input Register values from (server) id 42, address 0x00
+
     if (!ModbusRTUClient.requestFrom(42, HOLDING_REGISTERS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
