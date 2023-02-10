@@ -10,26 +10,23 @@ hardware:
 difficulty: beginner
 ---
 
-## Components and Supplies
-
-- [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
-- [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional).
-
-## Apps and Online Services
-
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
-
-## About This Project
+## Introduction
 
 **Water your plants from anywhere using the Arduino IoT Cloud**
 
 Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why not spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
-### In a Nutshell
+In this tutorial we will learn how attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. We will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
 
-Attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. In this tutorial we will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
+## Goals
 
-### Components
+* Introducing the Arduino IoT Cloud
+* Introducing the Arduino IoT Remote app
+* Managing sensors with the Arduino IoT Cloud
+* Creating an Arduino IoT Cloud Dashboard
+
+## Hardware & Software Needed
+* [Arduino IoT Cloud](https://cloud.arduino.cc)
 * [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
 * [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional)
 * USB - wall adapter (not included in the kit)
@@ -52,15 +49,7 @@ OR
 * Long 3-pronged Grove cable (50cm).
 * A few spare jumper cables just in case you need them.
 
-
-### Learning Goals
-
-* Introducing the Arduino IoT Cloud
-* Introducing the Arduino IoT Remote app
-* Managing sensors with the Arduino IoT Cloud
-* Creating an Arduino IoT Cloud Dashboard
-
-### Hardware & Circuit Assembly
+## Hardware & Circuit Assembly
 
 There are cases were multiple wires are going into the same screw terminal, you may find it easier to get them in at the same time if you twist them together before trying to insert them.
 
@@ -85,6 +74,8 @@ Now let's wire up the submersible pump. This pump runs on 5V, and draws more cur
 
 ![Pump connected](./assets/step3.png)
 
+***Note: These types of subermisible pumps can easily break if they're run without being submersed in water. In this project, a faulty pump might have a short circuit, causing the board to reset as soon as the pump is engaged.***
+
 Now find the LED Grove button and a Grove cable. This cable also needs to be cut to expose the copper wire inside. The wires from the grove cable should be connected as follows:
 
 - Black wire (-) to GND pin.
@@ -99,6 +90,8 @@ Find the open ended USB cable, this will be used both to power the board through
 If you find this step hard, you can also use one of the loose screw terminals provided in the kit to connect the red wire from the USB cable to two jumper cables.
 
 ![USB wall adapter powering the project](./assets/step5.png)
+
+***Note: Because of how the pump works, it will draw a significant current as it is starting up. Therefore it is good practice to isolate it from the rest of the circuit as much as possible. Do this by making sure the path between GND of the pump and the GND of the power supply is not longer than it has to be. An easy way to accomplish this that we recommend you to do is connecting the GNDs to the same screw terminal on the Nano Screw Terminal Adapter.***
 
 The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
 
@@ -126,12 +119,18 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 
 ![GIF of zip-tying the cables](assets/ziptie.gif)
 
-### IoT Cloud Setup
-
+## IoT Cloud Setup
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
-***Note: We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Click [here](https://create.arduino.cc/iot/templates/plant-watering-kit) to check out the IoT Cloud Template for an automated setup process.***
+### Template
+To connect your board to the Arduino IoT Cloud, we will use the [Plant Watering Kit Template](https://create.arduino.cc/iot/templates/plant-watering-kit). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all!
 
+See the image below to understand how to set it up.
+
+![Thing overview complete.](assets/template_overview.png)
+
+### Manual Setup
+***This section is for you who want to set up the cloud manually. For easy setup, use the template provided (see section just above).*** 
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
 
 **1.** Create a new Thing, and select/configure the Nano RP2040 board. Note that the board needs to be connected to your computer during this setup.
@@ -140,15 +139,15 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 | Name        | Data Type | Function                               | Permission   |
 | ----------- | --------- | -------------------------------------- | ------------ |
+| moisture    | int       | Read moisture                          | Read Only    |
 | watering    | boolean   | Activate / de-activate pump            | Read & Write |
 | waterTime   | int       | How long the pump should run (seconds) | Read & Write |
-| moisture    | int       | Read moisture                          | Read Only    |
 
 **3.** Enter the credentials to your Wi-Fi network in the network section. 
 
 **4.** Your Thing overview should now look like the following:
 
-![Thing overview complete.](assets/Things.jpg)
+![Thing overview complete.](assets/things.png)
 
 **5.** Go to the sketch tab, and use the following code:
 
@@ -295,7 +294,7 @@ void onWaterTimeChange()  {
 
 **7.** Inside the dashboard view, click on **"Add"** then **"Things"** and select your Thing. This will generate a list of widgets and you can click on **"Create Widget"** to complete it. You should now see something similar to this dashboard:
 
-![Dashboard overview.](assets/dashboard-overview.jpg)
+![Dashboard overview.](assets/dashboard_initial.png)
 
 Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device. 
 
@@ -319,13 +318,13 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
-![Control and monitor your Smart Garden!](assets/Dashboard.gif)
+![Control and monitor your Smart Garden!](assets/dashboard-overview.png)
 
 ***In this dashboard, we have also added a chart widget to monitor the soil moisture over time.***
 
 **Watering:** to activate the pump, do the following:
 - Select number of seconds that you want the pump to run for.
-- Click on the switch widget. The pump will now run for `x` amount of seconds, and then it will turn off.
+- Click on the switch widget. The pump will now run for **x** amount of seconds, and then it will turn off.
 - You can also activate the pump locally with the Grove button. 
 
 **Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the cloud dashboard.
