@@ -136,7 +136,7 @@ Please note that the files you have are a "demo" version have limitations which:
   * Maximum of 50 recognitions per start.
   * 20 seconds delay before each trigger recognition.
 
-#### Customized Commands
+### Customized Commands
 
 ***This steps are compatible for the trial license (the one that we are showing) and the paid license***
 
@@ -152,7 +152,7 @@ Click next, you will see a new page to:
 * Create a new project, or
 * Import an existing project
 
-##### Create a New Project
+#### Create a New Project
 
 First, you need to select the desired language of the voice recognition, once is set, click **create**.
 
