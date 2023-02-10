@@ -130,7 +130,7 @@ See the image below to understand how to set it up.
 ![Thing overview complete.](assets/template_overview.png)
 
 ### Setup
-
+***This section is for you who want to set up the cloud manually. For easy setup, use the template provided (see section just above).*** 
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
 
 **1.** Create a new Thing, and select/configure the Nano RP2040 board. Note that the board needs to be connected to your computer during this setup.
