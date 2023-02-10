@@ -385,7 +385,8 @@ void setup() {
 }
 ```
 
-In the Server `setup()` function, we assign the Server address; the given Server address will be an identifier to be recognized by the Client. Also, we will configure the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers. These will be the data that the Client will locate and retrieve. In the Server `loop()` function, the following line will be necessary:
+In the `setup()` function of the sketch dedicated to the Modbus server, the Server address is assigned as an identifier that will be recognized by the Client. Also, the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers are configured. Those are the data that the Client will locate and retrieve. The following line is necessary in the Server `loop()` function:
+
 
 ```arduino
 ModbusRTUServer.poll();
