@@ -50,7 +50,8 @@ Modbus is an open and royalty-free serial communication protocol widely used in 
 ***Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) Systems.***
 
 
-Using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC), reliability in communications between electronic devices is ensured with Modbus.
+Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
+
 
 ***If you want a more in-depth article explaining the entirety of Modbus communications protocol, look at our [Modbus article](https://docs.arduino.cc/learn/communication/modbus).***
 
