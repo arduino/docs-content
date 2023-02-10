@@ -67,7 +67,8 @@ First, let's ensure we have the latest Arduino IDE version installed on our comp
 
 ### Connecting the Opta™ Over RS485
 
-Now that we have the Arduino IDE configured and the libraries installed, let's connect both Opta™ devices via RS485, as shown in the image below:
+Now the Opta™ devices must be connected via RS485 bus, as shown in the image below:
+
 
 ![Connecting two Opta™ devices via RS485](assets/opta-modbus-connection.png)
 
