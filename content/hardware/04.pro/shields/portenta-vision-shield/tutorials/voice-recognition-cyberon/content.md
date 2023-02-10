@@ -92,44 +92,45 @@ Upload the sketch, and after it's done open the **Serial Monitor** to see your d
 
 You will need this to activate the license on your board.
 
-##### Arduino IDE V1
-
-There is another way only available through the previous version of the Arduino IDE.
-
-To get the Serial Number of your board you will need to open the **Arduino IDE v1**, select the board's serial port and click on **tools > Get Board Info**, you will see the "SN" number, save it.
+***On the Arduino IDE 1.6.x There is another way only available through the previous version of the Arduino IDE: select the board's serial port and click on `tools > Get Board Info`, you will see the "SN" number, save it.***
 
 #### Get the Demo License
 
-Once you have the Serial number.
+Once you have the Serial number, open https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
 
-Depending on the board that you are using, open https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
+* Select your board and
+* fill the "Board serial number" field and,
+* click the **Submit** button.
 
-Select the board you are using.
+![Get License Page](assets/getLicense.png)
 
-Secondly fill the "Board serial number" field and click the **Submit** button.
-
-Once everything is ready, click on the **submit** button to get your license.
-
-Save that array of characters.
+Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license, save it for the next step.
 
 ### Test the Free Demo Sketch
 
-Open the sketch **File > Example > Cyberon_DSpotterSDK > VoiceRecognition**
+* Open the sketch **File > Example > Cyberon_DSpotterSDK > VoiceRecognition**
+* Navigate to the `CybLicense.h` tab.
+* Paste your license between the brackets, like:
+  ```cpp
+  #include <stdint.h>
 
-Navigate to the `CybLicense.h` tab.
-
-Paste your license between the brackets, like:
-```cpp
-const uint32_t g_lpdwLicense[]{
-  AAAABBBBCCCCDDDD.....ZZZZ
-};
-```
+  const uint32_t g_lpdwLicense[] = {
+      0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
+      0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
+      0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
+      0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
+      0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
+      0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000
+      };
+  ```
 
 Now switch back to the `VoiceRecognition` tab and upload the sketch.
 
 You can now open the Serial Monitor, you will see the available commands that the CyberonSDK will recognice.
 
-Feel free to say the commands and see how it recognice your voice!
+![Serial Monitor Trigger and Command list](assets/voiceRecognitionCommandList.png)
+
+Feel free to say the commands and see how it recognise your voice!
 
 Please note that the files you have are a "demo" version have limitations which:
   * Maximum of 50 recognitions per start.
@@ -139,15 +140,15 @@ Please note that the files you have are a "demo" version have limitations which:
 
 ***This steps are compatible for the trial license (the one that we are showing) and the paid license***
 
-Go to [Cyberon's Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php)
-
-Fill the required fields:
+Go to [Cyberon's Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) and fill the required fields:
 * e-mail address
 * Board
 * Serial Number of your board
 * EULA Agreement (Please read it carefully)
 
-Now you will see a new page to:
+![Cyberon Model Configuration](assets/MakerTrialModelLicense.png)
+
+Click next, you will see a new page to:
 * Create a new project, or
 * Import an existing project
 
@@ -155,13 +156,19 @@ Now you will see a new page to:
 
 First, you need to select the desired language of the voice recognition, once is set, click **create**.
 
+![Cyberon, New Project](assets/newProject.png)
+
 * Create the **Input Trigger word**, for example "Hey Arduino".
   The **Input Trigger word** will trigger the device, to let the board know that you are going to say a command after that.
+  ![Cyberon Adding the Input trigger](assets/newProjectTrigger.png)
 * Add the **Command** list.
   This commands will be used to do tasks on your sketch, for example if you have a command which is "Play", afterwards you will be able to get that command and proceed with some job inside the sketch easily.
+  ![Cyberon Adding the Command list](assets/newProjectCommands.png)
+* The next step is to confirm the data that we have wrote, you can click **Next** to finish.
 
-Once you finish your table of words, you can click **Next** to finish.
 At the end you will see all the configuration that you have set, check it out and see if there is something wrong, you are on time to go back and fix it.
+
+![Cyberon finishing model configuration](assets/newProjectFinish.png)
 
 Once everything is checked, click **Confirm** and you will get the model header file (model.h), you will need to copy it onto your sketch folder in order to access it.
 
@@ -200,14 +207,10 @@ Test your new **Input Trigger Word** and the **Command** list that you have crea
 
 You will see the recognised words on the **Serial Monitor**
 
-
-The IDs of the words on the table are collected on the info.txt so you will have them already saved, these are used to know which command has been said by the user on the application.
-
-
 #### Unlock Limitations (License)
 
 ***For this section you need to have bought the corresponding license, available at https://store.arduino.cc/speech-recognition-engine***
-***Depending on the license you can configure more than one trigger words.***
+***Depending on the license you can configure more than one trigger words. Read more on the [Licensing section (Voucher codes)](#licensing)***
 
 Note that you need to have an already existing project, check the [previous section](#create-a-new-project).
 
@@ -221,6 +224,8 @@ Fill the required fields:
 * Voucher code
 * Import project: the `.dsproj` file that you have received on your e-mail.
 * EULA Agreement (Please read it carefully)
+
+![Cyberon Model Configuration with a voucher code](assets/licensedModel.png)
 
 Click next, review your project options and press continue.
 
@@ -243,11 +248,14 @@ Repeat the replacement of `#include` files, with the latest ones (they have a di
 #include "CybLicense_<id>.h" -> #include "CybLicense_<newId>.h"
 
 ```
+
+Upload the sketch to your board, and you will have unlocked all the limitations from the trial version.
+
 <!--
 ### Create The Sketch
 
 -EXPLANATION OF THE SKETCH PENDING HERE (TODO)-
-
+The IDs of the words on the table are collected on the info.txt so you will have them already saved, these are used to know which command has been said by the user on the application.
 #### Full Sketch
 
 ```cpp
@@ -364,9 +372,10 @@ On this article we have shown how to try the demo sketches of Cyberon DSpotter S
 
 Also you have tested the very base APIs from the DSpotter SDK, so you will be able to embed this on your project quickly.
 
-### Licenses
+### Licensing
 
 To know more about the different license and limitations of each device.
+The code that you get for your license it is also called **voucher code**.
 
 #### MAKER Free Demo
 
@@ -422,4 +431,8 @@ Once the number of recognition is reached the model will stop working and you wi
 
 ## Next Steps
 
-We recommend to check out Cyberon's documentation included on the downloaded libraries, inside the `extra` folder inside the library's path, aswell the `Readme.md` file that contains the requirements and the steps shown on this tutorial.
+After getting the demo sketch working, we encourage you to start implementing this on your own project.
+
+We recommend to check out Cyberon's documentation:
+* The included on the downloaded libraries, inside the `extra` folder inside the library's path, aswell the `Readme.md` file that contains the requirements and the steps shown on this tutorial.
+* The linked PDF on the e-mail received when getting the license: https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf
