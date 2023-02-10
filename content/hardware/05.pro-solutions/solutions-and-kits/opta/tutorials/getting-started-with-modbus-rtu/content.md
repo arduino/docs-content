@@ -119,7 +119,8 @@ Given Modbus RTU specification, `preDelay` and `postDelay` must be configured fo
 
 The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
 
-In this example, an Opta™ device is defined as a Modbus Server from which information will be retrieved. The Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain desired information about what's being measured or monitored. Inside the loop function of the example code of the Client, we will have several tasks in charge of reading and writing specific values to test Modbus RTU communication with the Server.
+The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the desired information about what's being measured or monitored. To access those data, inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values. 
+
 
 ```arduino
 void loop(){
