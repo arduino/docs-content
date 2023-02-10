@@ -367,7 +367,8 @@ void setup() {
 
   // start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
-      Serial.println("Failed to start Modbus RTU Client!");
+      Serial.println("Failed to start Modbus RTU Server!");
+
       while (1);
   }
 
