@@ -44,7 +44,8 @@ Modbus is an open serial protocol derived from the client/server architecture in
 
 ## Modbus 101
 
-Modbus is a widely used open and royalty-free serial communications protocol in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS). It has become a _de facto_ standard communications protocol among industrial electronic devices since it was published in 1979 (more than 40 years ago).
+Modbus is an open and royalty-free serial communication protocol widely used in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS). It was published in 1979 (more than 40 years ago) and has become a _de facto_ standard communication protocol among industrial electronic devices.
+
 
 ***Modbus communications protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) Systems.***
 
