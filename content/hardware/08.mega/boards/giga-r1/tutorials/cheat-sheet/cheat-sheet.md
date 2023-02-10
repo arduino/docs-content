@@ -158,6 +158,16 @@ This can be very useful, as this flash storage **does not get deleted when you u
 
 ***Note: In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches. To upload a new sketch you need to put the GIGA R1 in DFU mode by double pressing the RST button.***
 
+## Wi-Fi / Bluetooth® LE
+
+***This section is only relevant for the [GIGA R1 WiFi](/hardware/giga-r1-wifi) version. The standard [GIGA R1](/hardware/giga-r1) does not have a radio module, cryptochip & and antenna connector.***
+
+![Murata LBEE5KL1DX-883 radio module + antenna connector.]()
+
+The Wi-Fi / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX-883. This module does not come with a built-in antenna, but an external antenna is included when purchasing the Wi-Fi version of this board.
+
+The antenna connector (see image above) is located right next to the USB-C connector, and is of a **U.FL.** type.
+
 ## Audio Jack
 
 The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
@@ -517,17 +527,15 @@ void printWifiStatus()
 ```
 
 
-### RTC Pin
+### VRTC Pin
 
-The GIGA R1 also features an RTC pin, giving you the ability to power the RTC with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
+The GIGA R1 also features a `VRTC` pin, giving you the ability to power the RTC with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
 
-![RTC pin on the GIGA R1](./assets/rtc.png)
+![VRTC pin on the GIGA R1](./assets/rtc.png)
 
 ## Camera Interface
 
-The Arduino GIGA features an onboard arducam compatible connector, with support for **parallel**. 
-
-Programming the board in the **MicroPython** language using the **OpenMV IDE** easily lets you get started with a neural network analysing a realtime camera feed with ML. 
+The Arduino GIGA features an onboard Arducam compatible connector.
 
 To learn more about the camera capabilities of the GIGA R1, check out the [GIGA R1 Camera Guide](/tutorials/giga-r1/giga-camera)
 
@@ -543,36 +551,129 @@ The **GIGA R1** features a dedicated CAN bus.
 
 ![CAN Bus](assets/canpins.png)
 
->**Note:** the CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transceiver as a breakout board.
+***The CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transceiver as a breakout board.***
 
 CAN, or **Controller Area Network**, is a communication standard that allows microcontroller-based devices to communicate with each other without the need for a host computer. This means that building a complex system with many different subsystems within becomes much easier. 
 
 This makes the **GIGA R1** a powerful option for complex multilayered systems, as it can be integrated into existing systems or be used to build a new one from scratch. 
 
-The CAN pins on the **GIGA R1** are labelled `CANRX` and `CANTX`
+The CAN pins on the **GIGA R1** are labelled `CANRX` and `CANTX`. Typically, transceiver breakouts are labelled with a similar syntax, and to connect them to the board, use the following wiring scheme:
+
+| GIGA R1 | Tranceiver |
+| ------- | ---------- |
+| VCC     | 3.3V       |
+| GND     | GND        |
+| CANTX   | CANTX\*    |
+| CANRX   | CANRX\*    |
+
+***\*The name of CANTX/CANRX differs from product to product.***
+
+Below is an example of how to send & receive data using a CAN bus.
+
+```arduino
+#include "CAN.h"
+
+mbed::CAN can1(PB_5, PB_13);
+uint8_t counter = 0;
+
+void send() {
+  Serial.println("send()");
+  if (can1.write(mbed::CANMessage(1337, &counter, 1))) {
+    Serial.println("wloop()");
+    counter++;
+    Serial.print("Message sent: ");
+    Serial.println(counter);
+  } else {
+    Serial.println("Transmission error");
+    Serial.println(can1.tderror());
+    can1.reset();
+  }
+}
+
+void receive() {
+  mbed::CANMessage msg;
+  if (can1.read(msg)) {
+    Serial.print("Message received: ");
+    Serial.println(msg.data[0]);
+  }
+}
+
+
+void setup() {
+  Serial.begin(115200);
+  can1.frequency(1000000);
+}
+
+bool receiver = false;
+void loop() {
+  if (receiver) {
+    receive();
+  } else {
+    send();
+  }
+  delay(1000);
+}
+```
 
 ## SPI 
-The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header labelled SPI, and the other is broken out into pin connections on the board. 
-
-The pins used for SPI on the **GIGA R1** are the following:
-
-(CIPO) - D12
-(COPI) - D11
-(SCK) - D13
-(CS) - D10
 
 ![SPI Pins](assets/spipins.png)
 
-To use SPI, we first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
+The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
+
+The second bus `SPI` uses the following pins:
+
+- (CIPO) - D89
+- (COPI) - D90
+- (SCK) - D91
+- (CS) - D10\*
+
+The first bus, `SPI1`, uses the following pins: 
+
+- (CIPO) - D12
+- (COPI) - D11
+- (SCK) - D13
+- (CS) - D10\*
+
+***\*When connecting several devices, you also need to define additional Chip Select (CS) pins. You can use any GPIO for this.***
+
+For using both SPI buses simultaneously, check out the following example:
+
 ```arduino
 #include <SPI.h>
-```
-Inside `void setup()` we need to initialize the library
-```arduino
-SPI.begin()
+
+const int CS_1 = 10;
+const int CS_2 = 5;
+
+void setup() {
+  pinMode(CS_1, OUTPUT);
+  pinMode(CS_2, OUTPUT);
+
+  SPI.begin();
+  SPI1.begin();
+
+  digitalWrite(CS_1, LOW);
+  digitalWrite(CS_2, LOW);
+
+  SPI.transfer(0x00);
+  SPI1.transfer(0x00);
+  
+  digitalWrite(CS_1, HIGH);
+  digitalWrite(CS_2, HIGH);
+}
+
+void loop() {
+}
 ```
 
+Please note that the in the GIGA R1 schematics and the code does not match exactly. If you are looking at the schematics, you will notice `SPI` is `SPI1` and `SPI1` is `SPI5`.
+
+![SPI ports in the schematics.](assets/schematics-spi.png)
+
+
+
 ## I2C Pins
+
 I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7 bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
 The **GIGA R1** has three separate I2C buses of which two are usable without external components, letting you control more devices.
@@ -580,24 +681,29 @@ The **GIGA R1** has three separate I2C buses of which two are usable without ext
 The pins used for I2C on the **GIGA R1** are the following:
 - SDA - D20
 - SCL - D21
-- SDA1 
-- SCL1
+- SDA1 - also available on the camera connector.
+- SCL1 - also available on the camera connector.
 - SDA2 - D9
 - SCL2 - D8
 
 ![I2C Pins](assets/i2cpins.png)
 
 To connect I2C devices you will need to include the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library at the top of your sketch.
+
 ```arduino
 #include <Wire.h>
 ```
 
-Inside `void setup()` you need to initialize the library.
+Inside `void setup()` you need to initialize the library, and initialize the I2C port you want to use.
+
 ```arduino
-Wire.begin()
+Wire.begin() //SDA & SDL
+Wire1.begin(); //SDA1 & SDL1
+Wire2.begin(); //SDA2 & SDL2
 ```
 
 And to write something to a device connected via I2C, we can use the following commands:
+
 ```arduino
 Wire.beginTransmission(1); //begin transmit to device 1
 Wire.write(byte(0x00)); //send instruction byte 
@@ -610,6 +716,7 @@ If you pay close attention you may notice that there are three sets of I2C pins.
 If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use external pullup resistors.
 
 ## Serial/UART Pins
+
 The **GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **GIGA R1** board features 4 separate serial ports. 
 
 This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **4 different serial enabled devices** simultaneously. 
@@ -626,6 +733,7 @@ The pins used for UART on the **GIGA R1** are the following:
 - TX3 - 14
 
 Each Serial port works in the same way as the one you're used to, but you use different functions to target them:
+
 ```arduino
 Serial.begin(9600);
 Serial1.begin(9600);
@@ -761,13 +869,16 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 ### Analog Pins
 
 The **GIGA R1** has 12 analog input pins that can be read with a resolution of 16 Bits, by using the `analogRead()` function.
+
 ```arduino
 value = analogRead(pin, value);
 ```
 
 The reference voltage of these pins is 3.3V. 
 
-Pins A8, A9, A10 and A11 can not be used as GPIO, but are limited to use as analog input pins.
+Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as analog input pins.
+
+***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1/giga-audio#analog-to-digital-converters).***
 
 
 ### PWM Pins
@@ -775,6 +886,7 @@ Pins A8, A9, A10 and A11 can not be used as GPIO, but are limited to use as anal
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
 The **GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-12. You may use them as analog output pins with the function: 
+
 ```arduino
 analogWrite(pin, value);
 ```
@@ -798,7 +910,7 @@ The **GIGA R1** features more pins than any other Arduino board for makers, a fu
 - 18 - TX1
 - 19 - RX1
 - 20 - SDA
-- 21 - SCL 
+- 21 - SCL
 
 The reference voltage of all digital pins is 3.3V.
 
@@ -814,9 +926,12 @@ analogWrite(pin, value);
 These DAC pins have a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
 However you may change this write resolution if you need to, to up to 12-bits:
+
 ```arduino
 analogWriteResolution(12);
 ```
+
+***For advanced usage of the DAC, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced DAC section](/tutorials/giga-r1/giga-audio#digital-to-analog-converters).***
 
 ### OFF Pin
 
