@@ -123,7 +123,9 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
-We also provide a template which you can use to get started without the need to configure the entire IoT Cloud setup manually. Check out [IoT Cloud Template](https://create.arduino.cc/iot/templates/plant-watering-kit) for an automated setup process.
+To connect your board to the Arduino IoT Cloud, we will use the [Plant Watering Kit Template](https://create.arduino.cc/iot/templates/plant-watering-kit). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all!
+
+See the image below to understand how to set it up.
 
 ![Thing overview complete.](assets/template_overview.png)
 
