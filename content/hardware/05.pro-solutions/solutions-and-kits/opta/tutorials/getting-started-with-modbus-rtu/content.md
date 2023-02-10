@@ -271,7 +271,8 @@ void writeHoldingRegisterValues()
 
     Serial.print("Writing Holding Registers values ... ");
 
-    // write 10 coil values to (slave) id 42, address 0x00
+    // write 10 coil values to (server) id 42, address 0x00
+
     ModbusRTUClient.beginTransmission(42, HOLDING_REGISTERS, 0x00, 10);
     for (int i = 0; i < 10; i++) {
         ModbusRTUClient.write(counter);
