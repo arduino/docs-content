@@ -27,7 +27,8 @@ Modbus is an open serial protocol derived from the client/server architecture in
 
 ## Goals
 
-- Learn how to use the Modbus RTU communications protocol over RS485 between two Opta™ devices
+- Learn how to use the Modbus RTU communication protocol over RS485 between two Opta™ devices
+
 
 ### Required Hardware and Software
 
