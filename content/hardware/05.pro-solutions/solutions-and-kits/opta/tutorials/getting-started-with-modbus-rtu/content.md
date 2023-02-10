@@ -225,7 +225,8 @@ void readCoilValues()
 {
     Serial.print("Reading Coil values ... ");
 
-    // read 10 Coil values from (slave) id 42, address 0x00
+    // read 10 Coil values from (server) id 42, address 0x00
+
     if (!ModbusRTUClient.requestFrom(42, COILS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
