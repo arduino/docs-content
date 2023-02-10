@@ -23,8 +23,24 @@ software:
   - cli
 ---
 
+## What's Voice Recognition
+
+Speech recognition is a technology that receive, interpret and compute voice from humans to perform commands like speech dictation.
+
+This is very powerful also for AI, such as being able to recognise specific noises for motors to know and predict if there could be an issue causing that, so we can maintain the machinery to be more efficient in long-term production.
+
+## Cyberon Voice Technology
+Cyberon's speech recognition solutions work perfectly and flexibly on multiple platforms, now including some Arduino devices.
+
+Their main goal is to allow everyone to use high-end technology to satisfy modern human needs.
+
+On this case we will show how to use their official Speech Recognition SDK compatible with the following products:
+* Arduino Portenta H7 (with a microphone, like the one included on the Portenta Vision Shield)
+* Arduino Nano 33 BLE
+* Arduino Nano RP2040
+
 ## Overview
-This tutorial shows you how to receive voice commands and perform custom tasks after receiving the order.
+This tutorial shows you how to receive voice commands and perform custom tasks after receiving the order, powered by Cyberon "DSpotter SDK".
 
 ## Goals
 
