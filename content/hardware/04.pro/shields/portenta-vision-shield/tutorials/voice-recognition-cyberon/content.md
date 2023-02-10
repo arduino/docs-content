@@ -5,11 +5,17 @@ tags: [Camera, Bitmap, SD Card]
 description: Control your device with voice commands with the Cyberon SDK.
 author: Pablo Marquínez
 libraries:
-  - name: CyberonSDK.com
-    url: TBD
+  - name: Cyberon_DSpotterSDK_Maker_PortentaH7
+    url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_PortentaH7
+  - name: Cyberon_DSpotterSDK_Maker_33BLE
+    url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_33BLE
+  - name: Cyberon_DSpotterSDK_Maker_RP2040
+    url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_RP2040
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/03.nano/boards/nano-33-ble
+  - hardware/03.nano/boards/nano-rp2040-connect
 software:
   - ide-v1
   - ide-v2
