@@ -360,4 +360,66 @@ void loop()
 
 ## Conclusion
 
+On this article we have shown how to try the demo sketches of Cyberon DSpotter SDK and how to activate a license to unlock the limitations.
+
+Also you have tested the very base APIs from the DSpotter SDK, so you will be able to embed this on your project quickly.
+
+### Licenses
+
+To know more about the different license and limitations of each device.
+
+#### MAKER Free Demo
+
+* Compatible with the CDSpotterSDK library
+* Number of SET: x1
+* Number of TRIGGERS: x1
+* Number of COMMANDS: 4
+* Configure TRIGGER: Fixed (not configurable)
+* Configure COMMANDS: Fixed (not configurable)
+* Recognition times: Unlimited
+* Delay in Trigger mode: no
+* Hardware binding: no
+
+#### MAKER Trial
+
+Once the number of recognition is reached the model will stop working and you will need to manually reboot the target.
+
+* Compatible with the CDSpotterSDK library
+* Number of SET: x1
+* Number of TRIGGERS: x1
+* Number of COMMANDS: Unlimited (depends on the hardware)
+* Configure TRIGGER: Configurable
+* Configure COMMANDS: Configurable
+* Recognition times: x50
+* Delay in Trigger mode: 20 seconds
+* Hardware binding: Yes
+
+#### MAKER Formal
+
+
+* Compatible with the CDSpotterSDK library
+* Number of SET: x1
+* Number of TRIGGERS: x1
+* Number of COMMANDS: Unlimited (depends on the hardware)
+* Configure TRIGGER: Configurable
+* Configure COMMANDS: Configurable
+* Recognition times: Unlimited
+* Delay in Trigger mode: No delay
+* Hardware binding: Yes
+
+#### PRO
+
+* Compatible with the CDSpotterSDK PRO library
+* Number of SET: Unlimited (depends on the hardware)
+* Number of TRIGGERS: Unlimited (depends on the hardware)
+* Number of COMMANDS: Unlimited (depends on the hardware)
+* Configure TRIGGER: Configurable
+* Configure COMMANDS: Configurable
+* Recognition times: Unlimited
+* Delay in Trigger mode: No delay
+* Hardware binding: Yes
+* Customer-Support: Paid
+
 ## Next Steps
+
+We recommend to check out Cyberon's documentation included on the downloaded libraries, inside the `extra` folder inside the library's path, aswell the `Readme.md` file that contains the requirements and the steps shown on this tutorial.
