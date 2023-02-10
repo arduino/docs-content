@@ -2,7 +2,7 @@
 title: "Voice Recognition With Cyberon SDK"
 difficulty: beginner
 tags: [Camera, Bitmap, SD Card]
-description: Control your device with voice commands with the Cyberon SDK.
+description: Control your device with voice commands with the Cyberon DSpotter SDK.
 author: Pablo Marquínez
 libraries:
   - name: Cyberon_DSpotterSDK_Maker_PortentaH7
@@ -25,16 +25,16 @@ software:
 
 ## What's Voice Recognition
 
-Speech recognition is a technology that receive, interpret and compute voice from humans to perform commands like speech dictation.
+Speech recognition is a technology that receives, interprets and computes voice from humans to perform commands like speech dictation.
 
-This is very powerful also for AI, such as being able to recognise specific noises for motors to know and predict if there could be an issue causing that, so we can maintain the machinery to be more efficient in long-term production.
+This is very powerful also for AI, such as being able to recognize specific noises for motors to know and predict if there could be an issue causing that, so we can maintain the machinery to be more efficient in long-term production.
 
 ## Cyberon Voice Technology
 Cyberon's speech recognition solutions work perfectly and flexibly on multiple platforms, now including some Arduino devices.
 
 Their main goal is to allow everyone to use high-end technology to satisfy modern human needs.
 
-On this case we will show how to use their official Speech Recognition SDK compatible with the following products:
+In this case we will show how to use their official Speech Recognition SDK compatible with the following products:
 * Arduino Portenta H7 (with a microphone, like the one included on the Portenta Vision Shield)
 * Arduino Nano 33 BLE
 * Arduino Nano RP2040
@@ -43,7 +43,6 @@ On this case we will show how to use their official Speech Recognition SDK compa
 This tutorial shows you how to receive voice commands and perform custom tasks after receiving the order, powered by Cyberon "DSpotter SDK".
 
 ## Goals
-
 - Setting the command triggers
 - Getting the needed files and set up the library
 - Get the license and use the demo sketch
@@ -59,18 +58,16 @@ This tutorial shows you how to receive voice commands and perform custom tasks a
 - Arduino IDE or Arduino-cli
 
 ## Instructions
-
 * Get the Serial Number of your Arduino device
 * Get the library
 * Test the free demo
+
 In case you have a license (paid):
 * Fill some information on Cyberon's website
 * Once you get the files, you need to activate your license
 
 ### Setup
-
 #### Setup the Library
-
 There are 3 libraries, depending on which board you are using:
 * Cyberon_DSpotterSDK_Maker_RP2040 (Nano RP2040)
 * Cyberon_DSpotterSDK_Maker_PortentaH7 (Portenta H7)
@@ -86,7 +83,7 @@ More instructions on how to install libraries, https://docs.arduino.cc/hacking/s
 
 #### Get The Serial Number
 
-In order to get your board's serial number, once you have the library downloaded: navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**
+To get your board's serial number, once you have the library downloaded: navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**
 
 Upload the sketch, and after it's done open the **Serial Monitor** to see your device's Serial Number.
 
@@ -104,7 +101,7 @@ Once you have the Serial number, open https://tool.cyberon.com.tw/GetLicense/Get
 
 ![Get License Page](assets/getLicense.png)
 
-Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license, save it for the next step.
+Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license, save them for the next step.
 
 ### Test the Free Demo Sketch
 
@@ -126,21 +123,21 @@ Once everything is ready, click on the **submit** button to get your license, it
 
 Now switch back to the `VoiceRecognition` tab and upload the sketch.
 
-You can now open the Serial Monitor, you will see the available commands that the CyberonSDK will recognice.
+You can now open the Serial Monitor, you will see the available commands that the CyberonSDK recognizes.
 
 ![Serial Monitor Trigger and Command list](assets/voiceRecognitionCommandList.png)
 
-Feel free to say the commands and see how it recognise your voice!
+Feel free to say the commands and see how it recognizes your voice!
 
-Please note that the files you have are a "demo" version have limitations which:
+Please note that the files you have are a "demo" version has limitations which are:
   * Maximum of 50 recognitions per start.
   * 20 seconds delay before each trigger recognition.
 
 ### Customized Commands
 
-***This steps are compatible for the trial license (the one that we are showing) and the paid license***
+***This steps are compatible woth the trial license (the one that we are showing) and the paid license***
 
-Go to [Cyberon's Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) and fill the required fields:
+Go to [Cyberon Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) and fill the required fields:
 * e-mail address
 * Board
 * Serial Number of your board
@@ -162,15 +159,15 @@ First, you need to select the desired language of the voice recognition, once is
   The **Input Trigger word** will trigger the device, to let the board know that you are going to say a command after that.
   ![Cyberon Adding the Input trigger](assets/newProjectTrigger.png)
 * Add the **Command** list.
-  This commands will be used to do tasks on your sketch, for example if you have a command which is "Play", afterwards you will be able to get that command and proceed with some job inside the sketch easily.
+  These commands will be used to do tasks on your sketch for example if you have a command which is "Play", later you will be able to get that command and proceed with some job inside the sketch easily.
   ![Cyberon Adding the Command list](assets/newProjectCommands.png)
-* The next step is to confirm the data that we have wrote, you can click **Next** to finish.
+* The next step is to confirm the data that we have written, you can click **Next** to finish.
 
-At the end you will see all the configuration that you have set, check it out and see if there is something wrong, you are on time to go back and fix it.
+At the end you will see all the configurations that you have set, check it out and see if there is something wrong, you are on time to go back and fix it.
 
 ![Cyberon finishing model configuration](assets/newProjectFinish.png)
 
-Once everything is checked, click **Confirm** and you will get the model header file (model.h), you will need to copy it onto your sketch folder in order to access it.
+Once everything is checked, click **Confirm** and you will get the model header file (`model.h`), you will need to copy it onto your sketch folder to access it.
 
 You will now get some files on your e-mail address, download them.
 
@@ -178,7 +175,7 @@ On the IDE, open the example **File > Examples > Cyberon_DSpotterSDK > VoiceReco
 
 Once it's saved, open your File Explorer, and navigate to your sketch path.
 
-On your sketch directory, paste the files you have got on your e-mail before:
+On your sketch directory, paste the files you have got in your e-mail before:
 * `CybLicense_<id>.h`
 * `Model_<id>.h`
 
@@ -205,24 +202,23 @@ Upload the sketch, and open the Serial Monitor.
 
 Test your new **Input Trigger Word** and the **Command** list that you have created.
 
-You will see the recognised words on the **Serial Monitor**
+You will see the recognized words on the **Serial Monitor**
 
 #### Unlock Limitations (License)
 
-***For this section you need to have bought the corresponding license, available at https://store.arduino.cc/speech-recognition-engine***
-***Depending on the license you can configure more than one trigger words. Read more on the [Licensing section (Voucher codes)](#licensing)***
+***For this section, you need to have bought the corresponding license, available at https://store.arduino.cc/speech-recognition-engine***
+***Depending on the license you can configure more than one trigger words. Read more in the [Licensing section (Voucher codes)](#licensing)***
 
 Note that you need to have an already existing project, check the [previous section](#create-a-new-project).
 
 Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php)
-
 
 Fill the required fields:
 * e-mail address
 * Board
 * Serial Number of your board
 * Voucher code
-* Import project: the `.dsproj` file that you have received on your e-mail.
+* Import project: the `.dsproj` file that you have received on your e-mail
 * EULA Agreement (Please read it carefully)
 
 ![Cyberon Model Configuration with a voucher code](assets/licensedModel.png)
@@ -231,7 +227,7 @@ Click next, review your project options and press continue.
 
 You will get a new e-mail with the new License and Model headers.
 
-Open the sketch you have duplicated on the [Create New Project](#create-a-new-project) section.
+Open the sketch you have duplicated in the [Create New Project](#create-a-new-project) section.
 
 Repeat the replacement of `#include` files, with the latest ones (they have a different ID):
 ```cpp
@@ -368,14 +364,14 @@ void loop()
 
 ## Conclusion
 
-On this article we have shown how to try the demo sketches of Cyberon DSpotter SDK and how to activate a license to unlock the limitations.
+On this article, we have shown how to try the demo sketches of Cyberon DSpotter SDK and how to activate a license to unlock the limitations.
 
-Also you have tested the very base APIs from the DSpotter SDK, so you will be able to embed this on your project quickly.
+Also, you have tested the very base APIs from the DSpotter SDK, so you will be able to embed this on your project quickly.
 
 ### Licensing
 
-To know more about the different license and limitations of each device.
-The code that you get for your license it is also called **voucher code**.
+To know more about the different licenses and limitations of each device.
+The code that you get for your license is also called a **voucher code**.
 
 #### MAKER Free Demo
 
@@ -433,6 +429,6 @@ Once the number of recognition is reached the model will stop working and you wi
 
 After getting the demo sketch working, we encourage you to start implementing this on your own project.
 
-We recommend to check out Cyberon's documentation:
-* The included on the downloaded libraries, inside the `extra` folder inside the library's path, aswell the `Readme.md` file that contains the requirements and the steps shown on this tutorial.
+We recommend checking out Cyberon's documentation:
+* The included within the downloaded library, inside the `extra` folder inside the library's path, as well as the `Readme.md` file that contains the requirements and the steps shown in this tutorial.
 * The linked PDF on the e-mail received when getting the license: https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf
