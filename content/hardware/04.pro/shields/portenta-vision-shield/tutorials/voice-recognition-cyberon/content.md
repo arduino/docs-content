@@ -135,7 +135,7 @@ Please note that the files you have are a "demo" version has limitations which a
 
 ### Customized Commands
 
-***This steps are compatible woth the trial license (the one that we are showing) and the paid license***
+***This steps are compatible with the trial license (the one that we are showing) and the paid license***
 
 Go to [Cyberon Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) and fill the required fields:
 * e-mail address
