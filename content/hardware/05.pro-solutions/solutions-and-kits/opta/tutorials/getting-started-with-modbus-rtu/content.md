@@ -479,7 +479,8 @@ Once the Modbus RTU Client and Server code for each Opta™ device has been uplo
 
 ## Conclusion
 
-In this tutorial, we established a Modbus RTU connection between two Opta™ devices using the Arduino ecosystem tools, such as the Arduino IDE and Arduino libraries. The `ArduinoRS485` and `ArduinoModbus` libraries are essential components that enable communication with compatible Modbus RTU devices. With the demonstrative example described in this tutorial, we have established communication between a Modbus RTU Server and a Client; we can now configure and set a secondary Opta™ or use a Modbus RTU-compatible module for your project developments.
+This tutorial shows how to establish a Modbus RTU connection between two Opta™ devices using the Arduino ecosystem tools, such as the Arduino IDE and Arduino `ArduinoRS485` and `ArduinoModbus` libraries. Those are essential to enable the communication with Modbus RTU compatible devices. Through these examples it is easy to understand how to enable the communication between a Modbus RTU Server and a Client. Looking at this example it will be also easy o add extend the communication to another Modbus Server device, like secondary Opta™ or use a Modbus RTU-compatible module for enhanced project developments.
+
 
 ### Next Steps
 
