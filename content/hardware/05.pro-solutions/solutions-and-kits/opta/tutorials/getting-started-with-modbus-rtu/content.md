@@ -247,7 +247,8 @@ void readDiscreteInputValues()
 {
     Serial.print("Reading Discrete Input values ... ");
 
-    // read 10 Discrete Input values from (slave) id 42, address 0x00
+    // read 10 Discrete Input values from (server) id 42, address 0x00
+
     if (!ModbusRTUClient.requestFrom(42, DISCRETE_INPUTS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
