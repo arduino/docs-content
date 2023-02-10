@@ -129,7 +129,7 @@ See the image below to understand how to set it up.
 
 ![Thing overview complete.](assets/template_overview.png)
 
-### Setup
+### Manual Setup
 ***This section is for you who want to set up the cloud manually. For easy setup, use the template provided (see section just above).*** 
 Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
 
