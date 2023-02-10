@@ -322,7 +322,7 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 
 **Watering:** to activate the pump, do the following:
 - Select number of seconds that you want the pump to run for.
-- Click on the switch widget. The pump will now run for `x` amount of seconds, and then it will turn off.
+- Click on the switch widget. The pump will now run for **x** amount of seconds, and then it will turn off.
 - You can also activate the pump locally with the Grove button. 
 
 **Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the cloud dashboard.
