@@ -1,10 +1,10 @@
 ---
-title: 'Getting Started with RS485 on Opta™'
-description: "Learn how to make use of the RS485 communication interface on the Arduino Opta™."
+title: 'Getting Started with RS-485 on Opta™'
+description: "Learn how to make use of the RS-485 communication interface on the Arduino Opta™."
 difficulty: beginner 
 tags:
   - Getting started
-  - RS485
+  - RS-485
 author: 'Benjamin Dannegård'
 libraries:
   - name: ArduinoRS485
@@ -38,7 +38,7 @@ The Opta™ micro PLC from Arduino offers an easy-to-use and ready-available RS-
 
 ## RS-485 101
 
-The RS485 is an electrical-only standard that uses a differential bus with voltage levels of 0 to 5V and the multi-drop feature, allowing the addition of drivers and receivers to the transmission line. This interface is characteristic of good noise immunity thanks to differential signaling; this is a well-suited characteristic for industrial environment applications.
+The RS-485 is an electrical-only standard that uses a differential bus with voltage levels of 0 to 5V and the multi-drop feature, allowing the addition of drivers and receivers to the transmission line. This interface is characteristic of good noise immunity thanks to differential signaling; this is a well-suited characteristic for industrial environment applications.
 
 The RS-485 does not define a data communication protocol since it does not know how to interpret such information nor when or what to do to process it; it is only an electrical standard. An example of a data communication protocol that uses RS-485 is Modbus RTU; for more information about this data communication protocol, you can check our [getting started with Modbus RTU tutorial](/tutorials/opta/getting-started-with-modbus-rtu) with the Opta™.
 
@@ -48,7 +48,7 @@ The RS-485 does not define a data communication protocol since it does not know 
 
 This tutorial will need the latest version of the Arduino IDE. You can download the Arduino IDE [here](https://www.arduino.cc/en/software). Please look at getting started with the Opta™ tutorial if it is your first time setting up the Opta™ with the Arduino IDE.
 
-The [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/) will enable the RS-485 interface of the Opta™. This library can be installed via Arduino IDE Library Manager; make sure to install the latest version of the library. 
+The [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/) will enable the RS-485 interface of the Opta™. This library can be installed via Arduino IDE Library Manager; make sure to install the latest version of the library.
 
 ### RS-485 Interface in the Opta™
 

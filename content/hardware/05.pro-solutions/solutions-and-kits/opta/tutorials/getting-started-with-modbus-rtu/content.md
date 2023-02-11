@@ -47,15 +47,11 @@ Modbus is an open serial protocol derived from the client/server architecture in
 
 Modbus is an open and royalty-free serial communication protocol widely used in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS). It was published in 1979 (more than 40 years ago) and has become a _de facto_ standard communication protocol among industrial electronic devices.
 
-
 ***Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) Systems.***
-
 
 Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
 
-
 ***If you want more insights on the Modbus communication protocol, look at our [Modbus article](https://docs.arduino.cc/learn/communication/modbus).***
-
 
 ## Instructions
 
@@ -63,24 +59,21 @@ Reliability in communications between electronic devices is ensured with Modbus 
 
 Get [here](https://www.arduino.cc/en/software) and install the latest version of the Arduino IDE, if not already done, and install the device drivers on your computer. Check also our [getting started tutorial](/tutorials/opta/getting-started) for more info on Opta™. Modbus RTU communication protocol will be implemented using the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) library, be sure to install the latest version of the library.
 
-
 ***`ArduinoModbus` library requires the `ArduinoRS485` library as the Modbus library is dependent on it; remember to install both libraries.***
 
 ### Connecting the Opta™ Over RS485
 
 Now the Opta™ devices must be connected via RS485 bus, as shown in the image below:
 
-
 ![Connecting two Opta™ devices via RS485](assets/opta-modbus-connection.png)
 
 ### Code Overview
 
-The objective of the example described below is to configure and use Modbus RTU communication protocol over RS485 between two Opta™ devices. 
+The objective of the example described below is to configure and use Modbus RTU communication protocol over RS485 between two Opta™ devices.
 
-Modbus is a Client-Server protocol, where the Modbus client is the requesting device and the Modbus server is the device will supply the information requested. Only one Modbus Client is allowed while multiple Modbus Servers are permitted. In this example an Opta™ Client is responsible for writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values while an Opta™ Server will poll for Modbus RTU requests and return values accordingly. 
+Modbus is a Client-Server protocol, where the Modbus client is the requesting device and the Modbus server is the device will supply the information requested. Only one Modbus Client is allowed while multiple Modbus Servers are permitted. In this example an Opta™ Client is responsible for writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values while an Opta™ Server will poll for Modbus RTU requests and return values accordingly.
 
 To simplify the example's readability, the essential parts of the code used in this tutorial are explained in details.
-
 
 #### Modbus RTU Client
 
@@ -123,11 +116,9 @@ void setup()
 
 Given the Modbus RTU specifications, the `preDelay` and `postDelay` parameters must be configured for a proper operation. In this example, such parameters are applied based on the message RTU framing specifications explained in depth in this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The method `RS485.setDelays(preDelayBR, postDelayBR);` is then called to correctly enable Modbus RTU on Opta™.
 
-
 The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
 
-The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the desired information about what's being measured or monitored. To access those data, inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values. 
-
+The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the desired information about what's being measured or monitored. To access those data, inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values.
 
 ```arduino
 void loop(){
@@ -402,7 +393,6 @@ void setup() {
 
 In the `setup()` function of the sketch dedicated to the Modbus server, the Server address is assigned as an identifier that will be recognized by the Client. Also, the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers are configured. Those are the data that the Client will locate and retrieve. The following line is necessary in the Server `loop()` function:
 
-
 ```arduino
 ModbusRTUServer.poll();
 ```
@@ -481,13 +471,11 @@ void loop() {
 
 Once the Modbus RTU Client and Server code for each Opta™ device has been uploaded, by opening the Serial Monitor on the Opta™ Client's side a `Success!` message will be displayed after each read-and-write task as shown in the image below:
 
-
 ![Modbus RTU Client and Server communication status](assets/opta-modbus-client.png)
 
 ## Conclusion
 
 This tutorial shows how to establish a Modbus RTU connection between two Opta™ devices using the Arduino ecosystem tools, such as the Arduino IDE and Arduino `ArduinoRS485` and `ArduinoModbus` libraries. Those are essential to enable the communication with Modbus RTU compatible devices. Through these examples it is easy to understand how to enable the communication between a Modbus RTU Server and a Client. Looking at this example it will be also easy o add extend the communication to another Modbus Server device, like secondary Opta™ or use a Modbus RTU-compatible module for enhanced project developments.
-
 
 ### Next Steps
 
