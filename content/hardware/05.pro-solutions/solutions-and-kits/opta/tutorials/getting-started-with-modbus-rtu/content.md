@@ -121,7 +121,8 @@ void setup()
 }
 ```
 
-Given Modbus RTU specification, `preDelay` and `postDelay` must be configured for correct operation and this example will use the defined parameters as per specification based on message RTU framing that is explained in deep with this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The method `RS485.setDelays(preDelayBR, postDelayBR);` will be called to take it into effect to correctly enable Modbus RTU on the Opta™.
+Given the Modbus RTU specifications, the `preDelay` and `postDelay` parameters must be configured for a proper operation. In this example, such parameters are applied based on the message RTU framing specifications explained in depth in this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The method `RS485.setDelays(preDelayBR, postDelayBR);` is then called to correctly enable Modbus RTU on Opta™.
+
 
 The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
 
