@@ -75,7 +75,12 @@ Now the Opta™ devices must be connected via RS485 bus, as shown in the image b
 
 ### Code Overview
 
-The objective of the example described below is to configure and use Modbus RTU communications protocol over RS485 between two Opta™ devices, one acting as a Client and the other acting as a Server. The Client is responsible for writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values. The Server will poll for Modbus RTU requests and return values accordingly to each request. To help you understand better how the example works, we will briefly explain the essential parts of the code used in this tutorial.
+The objective of the example described below is to configure and use Modbus RTU communication protocol over RS485 between two Opta™ devices. 
+
+Modbus is a Client-Server protocol, where the Modbus client is the requesting device and the Modbus server is the device will supply the information requested. Only one Modbus Client is allowed while multiple Modbus Servers are permitted. In this example an Opta™ Client is responsible for writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values while an Opta™ Server will poll for Modbus RTU requests and return values accordingly. 
+
+To simplify the example's readability, the essential parts of the code used in this tutorial are explained in details.
+
 
 #### Modbus RTU Client
 
