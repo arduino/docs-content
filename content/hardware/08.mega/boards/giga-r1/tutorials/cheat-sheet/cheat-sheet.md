@@ -49,7 +49,7 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-***To install the GIGA R1 package, please  
+***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1/giga-getting-started) guide.***
 
 The **GIGA R1** can be programmed through:
 
@@ -68,7 +68,9 @@ These examples are available in the Arduino IDE via **File > Examples > Examples
 
 ### Mbed OS
 
-As [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed) is based on the [MbedOS]() core, it is possible for the operating system to crash. On many other Arduino devices, when a sketch fails due to e.g. memory shortage, the board resets.
+As [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
+
+On most Arduino boards, when a sketch fails due to e.g. memory shortage, the board resets.
 
 On the GIGA R1, whenever the MbedOS fails, the board does **not reset automatically**. Instead, if it fails, the onboard red LED will start to blink.
 
@@ -89,6 +91,7 @@ Pressing and holding the button labelled `BOOT0` on the board while powering the
 The state of this button can also be read from a sketch while it is running, giving you a basic interactive component without needing to do any wiring.
 
 To read the state of the Boot0 button in your sketch, you use this line of code:
+
 ```arduino
 digitalRead(PC_13);
 ```
@@ -162,7 +165,7 @@ This can be very useful, as this flash storage **does not get deleted when you u
 
 ***This section is only relevant for the [GIGA R1 WiFi](/hardware/giga-r1-wifi) version. The standard [GIGA R1](/hardware/giga-r1) does not have a radio module, cryptochip & and antenna connector.***
 
-![Murata LBEE5KL1DX-883 radio module + antenna connector.]()
+![Murata LBEE5KL1DX-883 radio module + antenna connector.](assets/wifi.png)
 
 The Wi-Fi / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX-883. This module does not come with a built-in antenna, but an external antenna is included when purchasing the Wi-Fi version of this board.
 
@@ -172,7 +175,7 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
-![Audio jack.](assets/AudioJack.png)
+![Audio jack.](assets/audiojack.png)
 
 The audio jack is connected to the following pins:
 - **A12 / DAC0**
@@ -621,21 +624,19 @@ void loop() {
 
 The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
 
-The second bus `SPI` uses the following pins:
+The first bus (connector), `SPI` uses the following pins:
 
 - (CIPO) - D89
 - (COPI) - D90
 - (SCK) - D91
-- (CS) - D10\*
+- (CS) - D10
 
-The first bus, `SPI1`, uses the following pins: 
+The second bus (header), `SPI1`, uses the following pins: 
 
 - (CIPO) - D12
 - (COPI) - D11
 - (SCK) - D13
-- (CS) - D10\*
-
-***\*When connecting several devices, you also need to define additional Chip Select (CS) pins. You can use any GPIO for this.***
+- (CS) - unassigned, use any free GPIO for this.
 
 For using both SPI buses simultaneously, check out the following example:
 
@@ -666,10 +667,9 @@ void loop() {
 }
 ```
 
-Please note that the in the GIGA R1 schematics and the code does not match exactly. If you are looking at the schematics, you will notice `SPI` is `SPI1` and `SPI1` is `SPI5`.
+Please note that the in the GIGA R1 schematics and the code does not match exactly. In the schematics, you will notice that `SPI` is `SPI1` and `SPI1` is `SPI5`.
 
 ![SPI ports in the schematics.](assets/schematics-spi.png)
-
 
 
 ## I2C Pins
