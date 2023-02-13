@@ -138,6 +138,30 @@ Convert your encoded file into `.ota` format
 
 You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilitated identification of the file. After this, you will have the `.ota` file of the sketch that you will use with the OTA process. 
 
+### Installing Python 3 on Ubuntu and the necessary modules
+If you recently installed Ubuntu maybe you can't run the **bin2ota.py** script. This may be because you need to install [Python 3](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu). To do it execute the next command on Ubuntu´s terminal: 
+
+```cpp 
+sudo apt install python-is-python3
+``````
+
+You will also need to install the **crccheck** module on python by following the next instructions:
+
+1. Installing pip on python:
+```cpp
+//Neccesary to installpython modules:
+sudo apt install python3-pip 
+```
+2. Installing the crccheck necessary module on python:
+
+```cpp
+//Necessary to run the script:
+pip install crccheck
+```
+Once you have done it, you should be able to run the bin2ota.py script successfully.
+
+<br>
+
 ***Now you have two options to choose, use QSPI or use an SD Card to storage your OTA file. You can use the left side index to jump to the option that you may need.***
 
 ### QSPI Storage Mode
