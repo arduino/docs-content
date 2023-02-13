@@ -19,7 +19,6 @@ hardware:
 software:
   - ide-v1
   - ide-v2
-  - OpenMV
   - web-editor
 ---
 
@@ -55,10 +54,7 @@ The **GIGA R1** can be programmed through:
 
 - The **Classic Arduino IDE 1.8.X**, 
 - the **Arduino IDE 2.0.X**, 
-- the OpenMV IDE,
 - and the Web-editor. 
-
-To set the board up to be programmed with the OpenMV IDE in MicroPython, check out the [Boot0 section](#boot0) of this article.
 
 ## Core
 
@@ -95,8 +91,6 @@ To read the state of the Boot0 button in your sketch, you use this line of code:
 ```arduino
 digitalRead(PC_13);
 ```
-
-Booting the board into DFU-mode will also let you configure it with the OpenMV IDE to program the board with MicroPython, to for example deploy a trained ML model analysing a real time camera feed.
 
 ## STM32H747XI Microcontroller
 
