@@ -175,7 +175,7 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
-![Audio jack.](assets/audiojack.png)
+![Audio jack.](assets/audio-jack.png)
 
 The audio jack is connected to the following pins:
 - **A12 / DAC0**
@@ -279,6 +279,8 @@ This means that the **GIGA R1** is capable of driving a touch-display large enou
 The GIGA R1 comes with support for HID, and can be used as either a keyboard or mouse. For more information, visit the [USB HID section](/tutorials/giga-r1/giga-usb#usb-hid).
 
 ### USBHost
+
+![USB-A connector.](assets/usb.png)
 
 The USB-A port you find on the **GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. 
 
@@ -562,12 +564,12 @@ This makes the **GIGA R1** a powerful option for complex multilayered systems, a
 
 The CAN pins on the **GIGA R1** are labelled `CANRX` and `CANTX`. Typically, transceiver breakouts are labelled with a similar syntax, and to connect them to the board, use the following wiring scheme:
 
-| GIGA R1 | Tranceiver |
-| ------- | ---------- |
-| VCC     | 3.3V       |
-| GND     | GND        |
-| CANTX   | CANTX\*    |
-| CANRX   | CANRX\*    |
+| GIGA R1 | Transceiver |
+| ------- | ----------- |
+| VCC     | 3.3V        |
+| GND     | GND         |
+| CANTX   | CANTX\*     |
+| CANRX   | CANRX\*     |
 
 ***\*The name of CANTX/CANRX differs from product to product.***
 
