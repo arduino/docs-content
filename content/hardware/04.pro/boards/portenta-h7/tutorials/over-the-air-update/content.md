@@ -160,6 +160,17 @@ pip install crccheck
 ```
 Once you have done it, you should be able to run the bin2ota.py script successfully.
 
+Now you have to upload the .OTA file to a network reachable location, e.g. *OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota*  has been uploaded to: 
+
+http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
+
+You can change the file location on the code by modifying the next line:
+
+```cpp
+static char const OTA_FILE_LOCATION[] = "Introduce here your online OTA file location";
+
+```
+
 <br>
 
 ***Now you have two options to choose, use QSPI or use an SD Card to storage your OTA file. You can use the left side index to jump to the option that you may need.***
