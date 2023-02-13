@@ -72,7 +72,7 @@ As [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed) 
 
 On most Arduino boards, when a sketch fails due to e.g. memory shortage, the board resets.
 
-On the GIGA R1, whenever the MbedOS fails, the board does **not reset automatically**. Instead, if it fails, the onboard red LED will start to blink.
+On the GIGA R1, whenever the MbedOS fails, the board does **not reset automatically**. Instead, if it fails, the onboard red LED will start to blink in a looping pattern of 4 fast blinks and 4 slow blinks.
 
 ***Please note, the red LED does NOT mean your board is broken or bricked.***
 
@@ -225,7 +225,7 @@ if (dac1.available()) {
     }
 ```
 
-The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).
+***The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).***
 
 ### ADC Input
 
@@ -262,13 +262,13 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
         buf.release();
 ```
 
-The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).
+***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).***
 
 ## MIPI Display Interface
 
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface. 
 
-This means that the **GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build a responsive interface.
+This means that the **GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build an interactive interface.
 
 ## USB Features
 
@@ -923,7 +923,7 @@ The **GIGA R1** also has two DAC pins, A12 & A13, that can act as genuine analog
 analogWrite(pin, value);
 ```
 
-![DAC Pins](assets/AudioJack.png)
+![DAC Pins](assets/audio-jack.png)
 
 These DAC pins have a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
