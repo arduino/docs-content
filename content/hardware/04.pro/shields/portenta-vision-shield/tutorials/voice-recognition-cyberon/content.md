@@ -145,20 +145,23 @@ Please note that the sketch and license that you are using are a "demo" version 
 
 ### Customized Commands
 
+To expand the features and human interaction of your projects, you can create your own voice commands with the Arduino Speech Recognition Engine. In this section, you will learn about how to use the _Cyberon Model Configuration_ webpage_ to create a new project with custom voice commands.
+
 ***These steps are compatible with the trial license, used in this tutorial, and the paid license***
 
 Go to [Cyberon Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) and fill the required fields:
-* e-mail address
-* Board
+* E-mail address
+* Board model
 * Serial Number of your board
-* EULA Agreement (Please read it carefully)
+* EULA Agreement - Please, read it carefully
 
 ![Cyberon Model Configuration](assets/MakerTrialModelLicense.png)
 
 Click next, you will see a new page to:
-* Create a new project, or
+* Create a new project
 * Import an existing project
 
+TODO continue here
 #### Create a New Project
 
 First, you need to select the desired language of the voice recognition, once is set, click **create**.
