@@ -43,64 +43,74 @@ In case you are interested in unlocking the full potential of the tool, the tuto
 
 ## Goals
 - Set the voice command triggers
-- Get the needed files and set up the library
+- Get your board serial number, needed files and set up the library
 - Get the license and use the demo sketch
 - Create a new project with your own custom voice commands
 - Learn how to acquire and use a paid license only in case you want to remove the free license limitations
 
-  TODO CONTINUE HERE
 ### Required Hardware and Software
 
-- [Portenta H7](https://store.arduino.cc/portenta-h7)
-- Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
+To use the Arduino Speech Recognition Engine, you will need to use one of the following boards:
+
+- [Arduino Portenta H7](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
+- [Arduino Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble)
+- [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+
+In the case of the Portenta H7, remember that is always possible to add an external microphone, using additional hardware, instead of using the Portenta Vision Shield.
+
+Additionally, you will need the following hardware and software:
 - 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- Arduino IDE or Arduino-cli
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software), [Arduino IoT Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
 
 ## Instructions
-* Get the Serial Number of your Arduino device
-* Get the library
-* Test the free demo
 
-In case you have a license (paid):
-* Fill some information on Cyberon's website
+The Arduino Speech Recognition Engine is a solution powered by Cyberon that requires a series of additional steps to unleash its potential. This tutorial will explain how to:
+
+* Get the Serial Number of your Arduino device
+* Install the library on your IDE
+* Test the free demo sketch
+
+In case you have a paid license and you want to unlock the full potential of the engine:
+* Fill in some information on Cyberon's website
 * Once you get the files, you need to activate your license
 
 ### Setup
 #### Setup the Library
-There are 3 libraries, depending on which board you are using:
-* Cyberon_DSpotterSDK_Maker_RP2040 (Nano RP2040)
-* Cyberon_DSpotterSDK_Maker_PortentaH7 (Portenta H7)
-* Cyberon_DSpotterSDK_Maker_33BLE (Nano 33 BLE)
+There are three libraries, you will need to install one or another depending on which board you are using:
+* Portenta H7: Cyberon_DSpotterSDK_Maker_PortentaH7
+* Nano 33 BLE: Cyberon_DSpotterSDK_Maker_33BLE
+* Nano RP2040: Cyberon_DSpotterSDK_Maker_RP2040
 
-***Inside the downloaded library, you will have access to some documentation from Cyberon, inside the "extra" folder, check them out for more information.***
+***Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon. Check them out in case you need more information***
 
-Go to the Library Manager, search the library that you need for your board and install it.
+Go to the Library Manager, search for the library that you need for your board and install it.
 
-More instructions on how to install libraries, https://docs.arduino.cc/hacking/software/Libraries.
+In case you need more instructions about how to install libraries, visit: https://docs.arduino.cc/hacking/software/Libraries
 
 ***From now on we will refer to the DSpotter SDK library as Cyberon_DSpotterSDK library, to skip the specific board***
+TODO not sure about this
 
 #### Get The Serial Number
 
-To get your board's serial number, once you have the library downloaded: navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**
+To use the Arduino Speech Recognition Engine, you will need a free trial license or paid license. In any of the cases, the serial number of the board that you are using is necessary to activate the license.
 
-Upload the sketch, and after it's done open the **Serial Monitor** to see your device's Serial Number.
+To get your board's serial number, and once you have the library downloaded, navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**.
 
-You will need this to activate the license on your board.
+Connect your board to the computer, upload the sketch to it and, once is done, open the **Serial Monitor** to see your device's Serial Number.
 
 ***On the Arduino IDE 1.6.x There is another way only available through the previous version of the Arduino IDE: select the board's serial port and click on `tools > Get Board Info`, you will see the "SN" number, save it.***
 
 #### Get the Demo License
 
-Once you have the Serial number, open https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
+Once you have the Serial number, open: https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
 
-* Select your board and
-* fill the "Board serial number" field and,
-* click the **Submit** button.
+* Select your board
+* Fill in the "Board serial number" field
+* Click the **Submit** button
 
 ![Get License Page](assets/getLicense.png)
 
-Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license, save them for the next step.
+Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license. **Save them on a safe place**, they will be used in the next step.
 
 ### Test the Free Demo Sketch
 
