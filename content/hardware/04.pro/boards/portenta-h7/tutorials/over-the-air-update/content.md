@@ -139,7 +139,7 @@ Convert your encoded file into `.ota` format
 You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilitated identification of the file. After this, you will have the `.ota` file of the sketch that you will use with the OTA process. 
 
 ### Installing Python 3 on Ubuntu and the necessary modules
-If you recently installed Ubuntu maybe you can't run the **bin2ota.py** script. This may be because you need to install [Python 3](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu). To do it execute the next command on Ubuntu´s terminal: 
+If you recently installed Ubuntu maybe you can't run the **bin2ota.py** script. This may be because you need to install [Python 3](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu). To do it execute the next command on **Ubuntu´s terminal**: 
 
 ```cpp 
 sudo apt install python-is-python3
@@ -158,18 +158,28 @@ sudo apt install python3-pip
 //Necessary to run the script:
 pip install crccheck
 ```
-Once you have done it, you should be able to run the bin2ota.py script successfully.
+Once you have done it, you should be able to run the bin2ota.py script successfully. 
 
-Now you have to upload the .OTA file to a network reachable location, e.g. *OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota*  has been uploaded to: 
+### Uploading OTA file to the net ###
+
+Now you can upload your .OTA file to an online reachable location, e.g. *OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota*  has been uploaded to: 
 
 http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
 
-You can change the file location on the code by modifying the next line:
+You can change the default file location on the code by modifying the next line on the ***"OTA_Qspi_Flash"** sketch or in the **"OTA_SD_Portenta"** sketch depending on which method are you going to follow:
 
 ```cpp
 static char const OTA_FILE_LOCATION[] = "Introduce here your online OTA file location";
 
 ```
+It is important to know that if your OTA file is uploaded to an HTTPS website you will need to modify the next line in the code:
+
+```cpp
+  int const ota_download = ota.download(OTA_FILE_LOCATION, true /* is_https */);
+```
+This line is in **line 87** for the **"OTA_Qspi_Flash"** sketch or in **line 88** on the **"OTA_SD_Portenta"** sketch.
+
+If you are going to use the example OTA file used in this tutorial you don't need to follow the steps in this section, just execute the sketch with the default file location.
 
 <br>
 
