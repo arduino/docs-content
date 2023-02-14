@@ -18,7 +18,9 @@ hardware:
 
 ## Overview
 
-The Opta™ micro PLC from Arduino offers an easy-to-use and ready-available RS-485 interface. The RS-485 interface provides balanced performance to transmit data reliably over a long distance with a stable transmission rate. Using this feature with the Opta™ is easy with the help of the Arduino ecosystem tools, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/). This tutorial will show the steps to connect two Opta™ devices via RS-485 and the Arduino ecosystems tools; it will describe some essential functions of the ArduinoRS485 library and show an example sketch that uses the library.
+The Opta™ micro PLC from Arduino offers an easy-to-use and ready-available RS-485 interface. The RS-485 interface provides balanced performance to transmit data reliably over a long distance with a stable transmission rate. Using this feature with the Opta™ is easy with the help of the Arduino ecosystem tools, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/).
+
+This tutorial will show the steps to connect two Opta™ devices via RS-485 and the Arduino ecosystems tools; it will describe some essential functions of the ArduinoRS485 library and show an example sketch that uses the library.
 
 ## Goals
 
@@ -52,7 +54,7 @@ The [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduino
 
 ### RS-485 Interface in the Opta™
 
-Please refer to the following diagram for connecting two Optas via its RS-485 interface. The figure also indicates other onboard features of the Optas, such as its status LEDs and relays; we will use those features in the tutorial.
+Please refer to the following diagram for connecting two Opta™ via its RS-485 interface. The figure also indicates other onboard features of the Opta™, such as its status LEDs and relays; we will use those features in the tutorial.
 
 ![Connection of two Opta™ devices via RS-485](assets/opta-modbus-connection.svg)
 
@@ -199,7 +201,7 @@ You can access the complete example code [here](assets/Opta_RS485_Example.zip); 
 
 ### Testing Out the Sketches
 
-Now it's time to test the application. Using the Serial Monitor of the Arduino IDE, send a value between `1` and `4` with the sender device; sending a `1` should close relay one and turn on the corresponding status LED of the receiver Opta™ device. Sending a `1` again should open the relay and turn off the status LED of the receiver device.
+Now it's time to test the application. Using the Serial Monitor of the Arduino IDE, send a value between `1` and `4` with the sender device; sending a `1` should close the relay one and turn on the corresponding status LED of the receiver Opta™ device. Sending a `1` again should open the relay and turn off the status LED of the receiver device.
 
 Here is a review of the values the receiver Opta™ device can receive and the result they produce:
 

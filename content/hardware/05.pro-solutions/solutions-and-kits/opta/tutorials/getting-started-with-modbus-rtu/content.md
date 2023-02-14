@@ -70,7 +70,7 @@ Refer to the following diagram for connecting two Opta™ devices via RS-485 int
 
 ### Code Overview
 
-The goal of the example shown below is to configure and use the Modbus RTU communication protocol over the RS-485 interface between two Opta™ devices.
+The goal of the following example is to configure and use the Modbus RTU communication protocol over the RS-485 interface between two Opta™ devices.
 
 In the Client-Server protocol known as Modbus, the requesting device is known as the Modbus Client, and the device that will provide the requested information is known as the Modbus Server. While several Modbus Servers are allowed, only one Modbus Client is authorized. In this example, an Opta™ Client is in charge of writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values, while an Opta™ Server will poll for Modbus RTU requests and return the appropriate values.
 
@@ -490,9 +490,9 @@ Once the Modbus RTU Client and Server code for each Opta™ device has been uplo
 
 ## Conclusion
 
-This tutorial demonstrates how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries, as well as the Arduino IDE, to implement the Modbus RTU protocol between two Opta™ devices. These are necessary elements to enable connection with devices that are Modbus RTU compliant.
+This tutorial demonstrates how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries, as well as the Arduino IDE, to implement the Modbus RTU protocol between two Opta™ devices. These are necessary elements to enable connection with Modbus RTU compliant devices.
 
-These examples make it simple to comprehend how to allow communication between a Modbus RTU Server and a Client. For further project developments, it offers a scalable architecture to link additional Modbus Server devices, such as secondary Opta™ or a Modbus RTU-compatible module.
+With the help of these examples, it is easy to understand how to enable Modbus RTU communication between a Server and a Client. For further project developments, it offers a scalable architecture to link additional Modbus Server devices, such as secondary Opta™ or a Modbus RTU-compatible module.
 
 ### Next Steps
 
