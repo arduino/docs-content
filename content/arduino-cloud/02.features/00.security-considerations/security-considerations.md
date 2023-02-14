@@ -4,8 +4,10 @@ description: 'Learn how Arduino ensures your data is protected in secure in this
 tags:
 - Arduino Cloud
 - Security
-author: 'Federico De Meo'
+author: 'Arduino Security Team'
 ---
+
+***For any questions contact the [Arduino Security Team](security@arduino.cc).***  
 
 ## Arduino Approach to Security
 
