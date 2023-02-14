@@ -148,7 +148,7 @@ Devices onboarding and communication with the Arduino Cloud is ensured to protec
 
 **Device setup phase**: 
 * The setup phase is initiated by the web browser with a secure connection to the Arduino IoT Cloud over HTTPS requesting to create a new device.
-* The IoTCloud provides a special sketch that is run on the device to generate:
+* The IoT Cloud provides a special sketch that is run on the device to generate:
    * a private and public keys;
    * a Certificate Signing Request (CSR).
 * The private and public keys are stored in the secure element on the device;
