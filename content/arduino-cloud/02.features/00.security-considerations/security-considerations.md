@@ -129,7 +129,7 @@ The Arduino Cloud CLI provides a way for interacting with the Arduino IoT Cloud 
 
 The Arduino Cloud Editor allows customers to create sketches they can subsequently deploy on boards. Each customer has a separate area where their sketches are stored so that no other customer has access to them. Sketches can be made publicly available to everyone, in which case access is granted by whomever possesses the link to access them.
 
-The Arduino Cloud Editor also provides a secret tab that can be used to securely store sensitive information needed by the device (e.g. WiFi credentials, API credentials). Secrets in this tab are encrypted with the AES-256 algorithm to safely store them in the Cloud.
+The Arduino Cloud Editor also provides a secret tab that can be used to securely store sensitive information needed by the device (e.g. Wi-Fi credentials, API credentials). Secrets in this tab are encrypted with the AES-256 algorithm to safely store them in the Cloud.
 In order to communicate with the Arduino Cloud Editor, web browsers should be able to communicate over the internet to port 80, 443 and 8080 towards Arduino’s subdomains \*.arduino.cc.
 
 ### Arduino IoT Cloud
