@@ -36,19 +36,19 @@ The Arduino Speech Recognition Engine is compatible with the following products:
 * Arduino Nano 33 BLE
 * Arduino Nano RP2040
 
-  TODO CONTINUE HERE
-
 ## Overview
-This tutorial shows you how to receive voice commands and perform custom tasks after receiving the order, powered by Cyberon "DSpotter SDK".
+This tutorial shows how to use the Arduino Speech Recognition Engine to receive multiple voice commands and perform custom tasks after receiving each of them. To do that, it is necessary to perform a series of steps to register your board and activate your trial and free-of-charge license. Once we have done that you will test the demo sketch and learn how to create your own custom voice commands.
+
+In case you are interested in unlocking the full potential of the tool, the tutorial will teach you how to acquire a paid license to unblock the free license limitations.
 
 ## Goals
-- Setting the command triggers
-- Getting the needed files and set up the library
+- Set the voice command triggers
+- Get the needed files and set up the library
 - Get the license and use the demo sketch
-- Create a new project (custom voice commands)
-- Unlock limitations of the project (license needed)
-<!-- - Create an Arduino sketch to control the LED's color -->
+- Create a new project with your own custom voice commands
+- Learn how to acquire and use a paid license only in case you want to remove the free license limitations
 
+  TODO CONTINUE HERE
 ### Required Hardware and Software
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
