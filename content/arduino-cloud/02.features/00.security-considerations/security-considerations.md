@@ -13,9 +13,9 @@ In order to provide secure digital services to customers, we at Arduino are comm
 
 In general, the approach  to Security is aligned with Cybersecurity standards such as ISO27001.
 
-To ensure the highest level of confidentiality, integrity and availability, Arduino operates under a shared security responsibility model. The shared security responsibility model identifies the distinct security responsibilities of the customer and Arduino. In this model:
-* Arduino is responsible for the security of the cloud infrastructure services provided to customers and the confidentiality of sensitive data.
-* Customers are responsible for the security of their account, personal access credentials, and for the information they decide to store in the cloud.  
+To ensure the highest level of confidentiality, integrity and availability, Arduino operates under a **shared security responsibility model**. The shared security responsibility model identifies the distinct security responsibilities of the customer and Arduino. In this model:
+* **Arduino** is responsible for the security of the cloud infrastructure services provided to customers and the confidentiality of sensitive data.
+* **Customers** are responsible for the security of their account, personal access credentials, and for the information they decide to store in the cloud.  
 
 
 ## Security and Data Protection Strategy
@@ -23,7 +23,7 @@ To ensure the highest level of confidentiality, integrity and availability, Ardu
 Arduino leverages the security level provided by infrastructure based on Cloud providers (Amazon Web Services and Google Compute Platform) and third party services also hosted in Cloud. 
 For a complete list of providers in use, see https://www.arduino.cc/en/Main/PrivacyPolicy.
 
-The Authentication phase plays a major role in security protection. Arduino takes advantage of a third party Authentication service that provides:
+The *Authentication* phase plays a major role in security protection. Arduino takes advantage of a third party Authentication service that provides:
 * Web protection against several common threats to web applications such as XSS (Cross-Site Scripting), Clickjacking and Cross-Site Request Forgery.
 * Anomaly Detection such as Brute-Force Protection: provides protection against suspicious failed login attempts.
 * Universal Login Support which increases security so that users have the ability to use their social logins without the need of sharing their credentials with us.
@@ -35,46 +35,46 @@ Arduino data protection strategy starts by identifying sensitive data that requi
 * Personally Identifiable Information (PII) of users - username, password, name, surname, email address, user profile picture and home address (for shipment and billing).
 * Data shared from boards to the Cloud.
 Security measures are applied to ensure confidentiality and integrity of data:
-* Protection at rest: 
+* **Protection at rest**: 
    * PII are stored in databases and the whole database is encrypted using the industry standard AES-256 encryption algorithm.
    * Users’ credentials are hashed using PBKDF2.
-* Protection in transit: 
+* **Protection in transit**: 
    * Any Browser-based or API-based communication uses HTTPS protocol secured with TLS.
    * IoT devices are sending data to our cloud using MQTT protocol secured with TLS.
 
 
 ### Secure Software Development Practices
 
-Arduino follows the Secure by Design principle in every stage of the software development. The following list describes the Security Principles that are followed during the secure development lifecycle.
-* Apply Defense in Depth
+Arduino follows the **Secure by Design** principle in every stage of the software development. The following list describes the **Security Principles** that are followed during the secure development lifecycle.
+* **Apply Defense in Depth**
    * Layered security mechanisms are in place to increase security as a whole.
-* Use a Positive Security Model
+* **Use a Positive Security Model**
    * A ‘positive’ security model defines what is allowed and rejects everything else.
-* Fail Securely
+* **Fail Securely**
    * It is important that failures are handled so that exceptions do not enable unwanted behavior.
-* Run with Least Privileges
+* **Run with Least Privileges**
    * The principle of least privilege is required to perform every business process.
-* Avoid Security through Obscurity
+* **Avoid Security through Obscurity**
    * Security through obscurity alone is a weak security mechanism, however when combined with all principles it can be used as an additional layer of security.
-* Keep Security Simple 
+* **Keep Security Simple** 
    * Keeping the application’s security simple is a better option than having complex designs.
-* Assuming compromise
+* **Assuming compromise**
    * The assuming compromise principle is useful to improve the detection and response capabilities in order to predict and remediate the security events before they evolve into security incidents.
-* Keep people away from data
+* **Keep people away from data**
    * Usage of mechanisms, patterns and tools to reduce or eliminate the need for direct data access or manual processing data with the aim of reducing the risk of mishandling or modification and human error when handling sensitive data. 
 
 In particular the following pillars are taken into consideration as part of the Arduino Secure Software Development Lifecycle
-* Education and Guidance: in order to ensure that developers have specific know-how and receive training on secure architectural and coding standards.
-* Secure Data Management: in order to ensure that environments, sensitive data, PII are managed properly and in accordance with legislation, adopting and implementing in a correct way, the necessary security standards.
-* Secure Repository Management: with the purpose of guaranteeing that the Least of privilege and Separation of duties principles are in place to protect the software repositories.
-* Secure Environment: in order to ensure the adequate segregation of the services and data contained into Development / Staging / Production environments
-* Secure Development: with the purpose of guaranteeing that security risks, security requirements and best practices are taken into consideration in all the steps of the development lifecycle for Hardware, Software and Infrastructure artifacts and reducing the residual risk associated with security flaws and bugs managed through the internal Vulnerability Management Program.
-* Security Testing: in order to ensure that all required security activities such as, but not limited to: Design Review, Threat and Risk Analysis, Code Review, Penetration Test, Vulnerability Assessment and all fixing activities related to the Vulnerability Management Program are performed by the security team, with the help of the developers, along all stages of the development lifecycle.
+* **Education and Guidance**: in order to ensure that developers have specific know-how and receive training on secure architectural and coding standards.
+* **Secure Data Management**: in order to ensure that environments, sensitive data, PII are managed properly and in accordance with legislation, adopting and implementing in a correct way, the necessary security standards.
+* **Secure Repository Management**: with the purpose of guaranteeing that the Least of privilege and Separation of duties principles are in place to protect the software repositories.
+* **Secure Environment**: in order to ensure the adequate segregation of the services and data contained into Development / Staging / Production environments
+* **Secure Development**: with the purpose of guaranteeing that security risks, security requirements and best practices are taken into consideration in all the steps of the development lifecycle for Hardware, Software and Infrastructure artifacts and reducing the residual risk associated with security flaws and bugs managed through the internal Vulnerability Management Program.
+* **Security Testing**: in order to ensure that all required security activities such as, but not limited to: Design Review, Threat and Risk Analysis, Code Review, Penetration Test, Vulnerability Assessment and all fixing activities related to the Vulnerability Management Program are performed by the security team, with the help of the developers, along all stages of the development lifecycle.
 
 
 ### Logical Access Control
 
-Logical access control is governed by the principle of least privilege. Specific users are granted the minimum access needed to perform their job functions.
+Logical access control is governed by the principle of **least privilege**. Specific users are granted the minimum access needed to perform their job functions.
 In general, Arduino internal staff members do not have direct access to PII or Arduino’s services users, with the following exceptions:
 * Our customer support team has administrator-level access to assist users with technical issues.
 * Only specific members of technical staff can access the databases directly, by remotely connecting to servers via the VPN. VPN access is only granted to those members who need it to perform their job functions, and is limited to specific network segments based on role. Multi-factor authentication is used during the VPN authentication process. The access control list is reviewed periodically to determine whether access is still needed. Accounts are modified or disabled based upon changes in job responsibilities.
@@ -125,7 +125,7 @@ The Arduino Cloud CLI provides a way for interacting with the Arduino IoT Cloud 
 The Arduino Cloud Editor allows customers to create sketches they can subsequently deploy on boards. Each customer has a separate area where their sketches are stored so that no other customer has access to them. Sketches can be made publicly available to everyone, in which case access is granted by whomever possesses the link to access them.
 
 The Arduino Cloud Editor also provides a secret tab that can be used to securely store sensitive information needed by the device (e.g. WiFi credentials, API credentials). Secrets in this tab are encrypted with the AES-256 algorithm to safely store them in the Cloud.
-In order to communicate with the Arduino Cloud Editor, web browsers should be able to communicate over the internet to port 80, 443 and 8080 towards Arduino’s subdomains *.arduino.cc.
+In order to communicate with the Arduino Cloud Editor, web browsers should be able to communicate over the internet to port 80, 443 and 8080 towards Arduino’s subdomains \*.arduino.cc.
 
 ### Arduino IoT Cloud
 
@@ -139,9 +139,9 @@ Devices onboarding and communication with the Arduino Cloud is ensured to protec
 
 ![Device Setup & Operation Phases.](assets/device-phases.png)
 
-> Note: this communication process is available only on devices equipped with a secure element chip.
+> **Note**: this communication process is available only on devices equipped with a secure element chip.
 
-Device setup phase: 
+**Device setup phase**: 
 * The setup phase is initiated by the web browser with a secure connection to the Arduino IoT Cloud over HTTPS requesting to create a new device.
 * The IoTCloud provides a special sketch that is run on the device to generate:
    * a private and public keys;
