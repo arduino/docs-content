@@ -33,7 +33,7 @@ Opta™ is a powerful micro PLC device with many features that can be customized
 
 ### Required Hardware and Software
 
-- [Opta™ PLC](https://store.arduino.cc/pages/opta) (x1)
+- Opta™ PLC (x1)
 - Ethernet (RJ45) cable (x1)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - USB-C® cable (either USB-C to USB-A or USB-C to USB-C) (x1)

@@ -34,7 +34,7 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 ### Required Hardware and Software
 
 - USB-C® cable (x1)
-- [Opta™ PLC](https://store.arduino.cc/pages/opta) (x1)
+- Opta™ PLC (x1)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - Power supply of 12-24V DC, 1A (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)

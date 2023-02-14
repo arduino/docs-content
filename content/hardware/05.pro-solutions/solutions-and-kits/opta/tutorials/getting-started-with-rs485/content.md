@@ -27,7 +27,7 @@ The Opta™ micro PLC from Arduino offers an easy-to-use and ready-available RS-
   
 ### Required Hardware and Software
 
-- [Opta™ RS485](https://store.arduino.cc/pages/opta) (x2)
+- Opta™ RS485 (x2)
 - 12-24VDC/1A power supply (x1)
 - USB-C® cable (x1)
 - [Arduino IDE 2](https://www.arduino.cc/en/software)

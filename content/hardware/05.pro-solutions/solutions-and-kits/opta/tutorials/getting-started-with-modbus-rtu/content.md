@@ -35,7 +35,7 @@ The **Opta™**, with its industrial hardware and software capabilities and the 
 
 ### Hardware Requirements
 
-- [Opta™ PLC](https://store.arduino.cc/pages/opta) with RS485 support (x2)
+- Opta™ PLC with RS485 support (x2)
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
 - Wires with similar specs: STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated) 100-130Ω rated cable for RS485 connection (x3)
