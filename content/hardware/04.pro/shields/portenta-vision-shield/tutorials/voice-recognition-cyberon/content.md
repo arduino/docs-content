@@ -2,7 +2,7 @@
 title: "Voice Commands With The Arduino Speech Recognition Engine"
 difficulty: beginner
 tags: [speech recognition, voice commands, machine learning]
-description: Control your device with voice commands using the Arduino Speech Recognition Engine.
+description: Control your device with voice commands using the Arduino Speech Recognition Engine
 author: Pablo Marquínez
 libraries:
   - name: Cyberon_DSpotterSDK_Maker_PortentaH7
@@ -23,18 +23,16 @@ software:
   - cli
 ---
 
-## What is Speech Recognition
+## What Is Speech Recognition
 
 Speech recognition is a technology field that captures, interprets, and computes a voice to transform it into text (TTS). Once the voice has been transformed into text, it can be applied to different applications, from speech dictation, to command-voice controllers, health monitoring, robotics and artificial intelligence or accessibility, among many others.
 
 ## The Arduino Speech Recognition Engine
 
-The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the most advanced, efficient and flexible platforms available on the market to perform speech recognition on embedded microcontrollers. Being the perfect solution for professional products and hobby projects.
+![](assets/arduinovoiceengine.jpg)
 
-The Arduino Speech Recognition Engine is compatible with the following products:
-* Arduino Portenta H7 + Portenta Vision Shield (or any external microphone connected to the Portenta)
-* Arduino Nano 33 BLE
-* Arduino Nano RP2040
+The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the best platforms available on the market to perform speech recognition on embedded microcontrollers. The engine is very flexible, efficient, and easy to use, being the perfect solution for professional products and hobby projects.
+
 
 ## Overview
 This tutorial shows how to use the Arduino Speech Recognition Engine to receive multiple voice commands and perform custom tasks after receiving each of them. To do that, it is necessary to perform a series of steps to register your board and activate your trial and free-of-charge license. Once we have done that you will test the demo sketch and learn how to create your own custom voice commands.
@@ -43,7 +41,7 @@ In case you are interested in unlocking the full potential of the tool, the tuto
 
 ## Goals
 - Set the voice command triggers
-- Get your board serial number, needed files and set up the library
+- Get your board serial number and the required files to set up the library
 - Get the license and use the demo sketch
 - Create a new project with your own custom voice commands
 - Learn how to acquire and use a paid license only in case you want to remove the free license limitations
@@ -70,16 +68,16 @@ The Arduino Speech Recognition Engine is a solution powered by Cyberon that requ
 * Install the library on your IDE
 * Test the free demo sketch
 
-In case you have a paid license and you want to unlock the full potential of the engine:
-* Fill in some information on Cyberon's website
-* Once you get the files, you need to activate your license
+In the case you have a paid license and you want to unlock the full potential of the engine, the tutorial will explain how to:
+* Fill in the required information on Cyberon's website
+* Get the required files and activate your license
 
 ### Setup
 #### Setup the Library
 There are three libraries, you will need to install one or another depending on which board you are using:
-* Portenta H7: Cyberon_DSpotterSDK_Maker_PortentaH7
-* Nano 33 BLE: Cyberon_DSpotterSDK_Maker_33BLE
-* Nano RP2040: Cyberon_DSpotterSDK_Maker_RP2040
+* **Portenta H7**: Cyberon_DSpotterSDK_Maker_PortentaH7
+* **Nano 33 BLE**: Cyberon_DSpotterSDK_Maker_33BLE
+* **Nano RP2040**: Cyberon_DSpotterSDK_Maker_RP2040
 
 ***Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon. Check them out in case you need more information***
 
@@ -110,13 +108,13 @@ Once you have the Serial number, open: https://tool.cyberon.com.tw/GetLicense/Ge
 
 ![Get License Page](assets/getLicense.png)
 
-Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license. **Save them on a safe place**, they will be used in the next step.
+Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license. **Save it in a safe place**, it will be used in the next step.
 
 ### Test the Free Demo Sketch
 
 * Open the sketch **File > Example > Cyberon_DSpotterSDK > VoiceRecognition**
 * Navigate to the `CybLicense.h` tab.
-* Paste your license between the brackets, like:
+* Paste your license between the brackets, like in the following example:
   ```cpp
   #include <stdint.h>
 
@@ -130,21 +128,24 @@ Once everything is ready, click on the **submit** button to get your license, it
       };
   ```
 
+**Remember to replace the _g_lpdwLicense_ values with your license ones.**
+
 Now switch back to the `VoiceRecognition` tab and upload the sketch.
 
-You can now open the Serial Monitor, you will see the available commands that the CyberonSDK recognizes.
+You can now open the Serial Monitor where you can see the available commands that the CyberonSDK recognizes.
 
 ![Serial Monitor Trigger and Command list](assets/voiceRecognitionCommandList.png)
+TODO change if possible the CLI screenshot for an IDE one
 
-Feel free to say the commands and see how it recognizes your voice!
+Now it is time to test the engine. Feel free to say out loud the commands and see how it recognizes your voice!
 
-Please note that the files you have are a "demo" version has limitations which are:
-  * Maximum of 50 recognitions per start.
-  * 20 seconds delay before each trigger recognition.
+Please note that the sketch and license that you are using are a "demo" version with the following limitations:
+  * A maximum of 50 recognitions per each board start
+  * A 20 seconds delay before each trigger recognition
 
 ### Customized Commands
 
-***This steps are compatible with the trial license (the one that we are showing) and the paid license***
+***These steps are compatible with the trial license, used in this tutorial, and the paid license***
 
 Go to [Cyberon Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php) and fill the required fields:
 * e-mail address
