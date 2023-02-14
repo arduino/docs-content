@@ -1,8 +1,8 @@
 ---
-title: "Voice Recognition With Cyberon SDK"
+title: "Voice Commands With The Arduino Speech Recognition Engine"
 difficulty: beginner
-tags: [Camera, Bitmap, SD Card]
-description: Control your device with voice commands with the Cyberon DSpotter SDK.
+tags: [speech recognition, voice commands, machine learning]
+description: Control your device with voice commands using the Arduino Speech Recognition Engine.
 author: Pablo Marquínez
 libraries:
   - name: Cyberon_DSpotterSDK_Maker_PortentaH7
@@ -23,21 +23,20 @@ software:
   - cli
 ---
 
-## What's Voice Recognition
+## What is Speech Recognition
 
-Speech recognition is a technology that receives, interprets and computes voice from humans to perform commands like speech dictation.
+Speech recognition is a technology field that captures, interprets, and computes a voice to transform it into text (TTS). Once the voice has been transformed into text, it can be applied to different applications, from speech dictation, to command-voice controllers, health monitoring, robotics and artificial intelligence or accessibility, among many others.
 
-This is very powerful also for AI, such as being able to recognize specific noises for motors to know and predict if there could be an issue causing that, so we can maintain the machinery to be more efficient in long-term production.
+## The Arduino Speech Recognition Engine
 
-## Cyberon Voice Technology
-Cyberon's speech recognition solutions work perfectly and flexibly on multiple platforms, now including some Arduino devices.
+The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the most advanced, efficient and flexible platforms available on the market to perform speech recognition on embedded microcontrollers. Being the perfect solution for professional products and hobby projects.
 
-Their main goal is to allow everyone to use high-end technology to satisfy modern human needs.
-
-In this case we will show how to use their official Speech Recognition SDK compatible with the following products:
-* Arduino Portenta H7 (with a microphone, like the one included on the Portenta Vision Shield)
+The Arduino Speech Recognition Engine is compatible with the following products:
+* Arduino Portenta H7 + Portenta Vision Shield (or any external microphone connected to the Portenta)
 * Arduino Nano 33 BLE
 * Arduino Nano RP2040
+
+  TODO CONTINUE HERE
 
 ## Overview
 This tutorial shows you how to receive voice commands and perform custom tasks after receiving the order, powered by Cyberon "DSpotter SDK".
@@ -246,121 +245,6 @@ Repeat the replacement of `#include` files, with the latest ones (they have a di
 ```
 
 Upload the sketch to your board, and you will have unlocked all the limitations from the trial version.
-
-<!--
-### Create The Sketch
-
--EXPLANATION OF THE SKETCH PENDING HERE (TODO)-
-The IDs of the words on the table are collected on the info.txt so you will have them already saved, these are used to know which command has been said by the user on the application.
-#### Full Sketch
-
-```cpp
-#include "CDSpotterHL.h"
-#include "LED_Control.h"
-
-// The DSpotter License Data.
-#include "CybLicense.h"
-#define DSPOTTER_LICENSE g_lpdwLicense
-
-#include "Model.h"
-#define DSPOTTER_MODEL g_lpdwModel
-
-// define the different words IDs
-#define COMMAND_RED 1002
-#define COMMAND_BLUE 1003
-
-// define colors for the LED Color Function
-#define COLOR_OFF 0b1
-#define COLOR_ON 0b10
-#define COLOR_RED 0b100
-#define COLOR_GREEN 0b1000
-#define COLOR_BLUE 0b10000
-
-// The VR engine object. Only can exist one, otherwise not worked.
-static CDSpotterHL g_oCDSpotterHL;
-
-void ledColor(int color)
-{
-  digitalWrite(LEDR, (color & COLOR_RED) >> 2);
-  digitalWrite(LEDG, (color & COLOR_GREEN) >> 3);
-  digitalWrite(LEDB, (color & COLOR_BLUE) >> 4);
-
-  nicla::leds.setColor(!(color & COLOR_OFF));
-}
-
-// Callback function for VR engine
-void VRCallback(int nFlag, int nID)
-{
-  if (nFlag == CDSpotterHL::InitSuccess)
-  {
-    // ToDo
-  }
-  else if (nFlag == CDSpotterHL::GetResult)
-  {
-    // ToDo
-    Serial.print("Got ID: ");
-    Serial.println(nID);
-    switch (nID)
-    {
-    case COMMAND_RED:
-      ledColor(COLOR_RED);
-      break;
-    case COMMAND_BLUE:
-      ledColor(COLOR_BLUE);
-      break;
-
-    default:
-      break;
-    }
-  }
-  else if (nFlag == CDSpotterHL::ChangeStage)
-  {
-    switch (nID)
-    {
-    case CDSpotterHL::TriggerStage:
-      ledColor(COLOR_OFF);
-      break;
-    case CDSpotterHL::CommandStage:
-      ledColor(COLOR_GREEN);
-      break;
-    default:
-      break;
-    }
-  }
-  else if (nFlag == CDSpotterHL::GetError)
-  {
-    g_oCDSpotterHL.Release();
-    while (1)
-      ; // hang loop
-  }
-  else if (nFlag == CDSpotterHL::LostRecordFrame)
-  {
-    // ToDo
-  }
-}
-
-void setup()
-{
-  // Init Serial output
-  Serial.begin(9600);
-  while (!Serial)
-    ;
-
-  // Init LED
-  LED_Init_All();
-
-  // Init VR engine & Audio
-  if (g_oCDSpotterHL.Init(DSPOTTER_LICENSE, sizeof(DSPOTTER_LICENSE), DSPOTTER_MODEL, VRCallback) != CDSpotterHL::Success)
-    return;
-}
-
-void loop()
-{
-  // Do VR
-  g_oCDSpotterHL.DoVR();
-}
-```
--->
 
 ## Conclusion
 
