@@ -150,7 +150,7 @@ You will also need to install the **crccheck** module on python by following the
 
 1. Installing pip on python:
 ```cpp
-//Neccesary to installpython modules:
+//Necessary to installpython modules:
 sudo apt install python3-pip 
 ```
 2. Installing the crccheck necessary module on python:
