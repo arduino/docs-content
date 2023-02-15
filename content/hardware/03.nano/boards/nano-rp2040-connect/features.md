@@ -51,8 +51,8 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
   Combined accelerometer and gyroscope with a dedicated machine learning core.
 
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-imu-advanced"/>
-  <FeatureLink variant="secondary" title="Library" url="https://github.com/stm32duino/X-NUCLEO-IKS01A3"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-imu-basics"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm6dsox/"/>
 </Feature>
 
 <Feature title="Temperature Sensor" image="temperature-sensor">
