@@ -132,7 +132,6 @@ Now switch back to the `VoiceRecognition` tab and upload the sketch.
 You can now open the Serial Monitor where you can see the available commands that the CyberonSDK recognizes.
 
 ![Serial Monitor Trigger and Command list](assets/voiceRecognitionCommandList.png)
-<!-- TODO change if possible the CLI screenshot for an IDE one -->
 
 Now it is time to test the engine. Feel free to say out loud the commands and see how it recognizes your voice!
 
@@ -179,8 +178,6 @@ On the next page you will see all the configurations already set. Check it out t
 ![Cyberon finishing model configuration](assets/newProjectFinish.png)
 
 Once everything is checked, click **Confirm** and you will get the model header file (`model.h`). This header is part of your new project and you need to copy it onto your sketch folder to use it.
-
-<!-- TODO Add Folder image in the future -->
 
 You will now get some files in your e-mail inbox. Download them to your computer.
 
