@@ -1,7 +1,7 @@
 ---
 title: Mega 2560 Rev3
 url_shop: https://store.arduino.cc/arduino-mega-2560-rev3
-url_guide: https://www.arduino.cc/en/Guide/ArduinoMega2560
+url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-avr
 core: arduino:avr
 productCode: '002'
 certifications: [CE, FCC, UKCA]
