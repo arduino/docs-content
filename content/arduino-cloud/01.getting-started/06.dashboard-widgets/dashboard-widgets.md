@@ -263,9 +263,13 @@ gaugeVariable = analogRead(A0);
 
 ### Percentage
 
-![Percentage Widget](assets/widget-percentage.png)
+![Percentage Widget](assets/widget-percentage-1.png)
 
-Much like the gauge widget, the percentage widget displays percentage in a more visual way.
+The percentage widget displays values as percentage, with the option of adding **icons** and **color thresholds**. 
+
+In the widget settings, you can choose from a range of icons, as well as a color that should be visible whenever a value is e.g. below a certain value. 
+
+![Configuration of a Percentage Widget.](assets/widget-percentage-2.png)
 
 Can be linked with multiple variables, including **integers & floats.**
 
