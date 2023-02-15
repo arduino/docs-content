@@ -7,7 +7,7 @@ tags:
 author: 'Arduino Security Team'
 ---
 
-***For any questions contact the [Arduino Security Team](security@arduino.cc).***  
+***For any questions contact the [Arduino Security Team](mailto:security@arduino.cc).***  
 
 ## Arduino Approach to Security
 
