@@ -125,7 +125,7 @@ Once everything is ready, click on the **submit** button to get your license, it
       };
   ```
 
-**Remember to replace the _g_lpdwLicense_ values with your license ones.**
+**Remember to replace the g_lpdwLicense values with your license ones.**
 
 Now switch back to the `VoiceRecognition` tab and upload the sketch.
 
@@ -213,13 +213,9 @@ Now the project is set to be used. Upload the sketch and open the Serial Monitor
 
 #### Unlock Limitations (License)
 
-In case you want to unlock the full potential of the Arduino Speech Recognition Engine, you will need to buy the corresponding license available at: https://store.arduino.cc/speech-recognition-engine.
+In case you want to unlock the full potential of the Arduino Speech Recognition Engine, you will need to buy the corresponding license available at the [Arduino Store](https://store.arduino.cc/speech-recognition-engine).
 
-Depending on the license you can configure more than one trigger's words. Read more in the [Licensing section (Voucher codes)](#licensing). 
-
-Note that you need to have an already existing project, check the [previous section](#create-a-new-project).
-
-Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php)
+Depending on the license you can configure more than one trigger's words. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project). Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
 
 Fill in the required fields:
 * E-mail address
@@ -317,8 +313,8 @@ After getting the demo sketch working, we encourage you to start implementing th
 
 In case you are looking for more information, you can check out Cyberon's documentation:
 * Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon, as well as the `Readme.md` file that contains the requirements and the steps shown in this tutorial
-* Cyberon's youtube channel contains a series of step-by-step tutorials that can help you to know more about how to use the Arduino Speech Recognition Engine: https://youtube.com/playlist?list=PLTEknqO5GAbrzlKN3fP-rW0l7BntOuaK0.
-* Cyberon's official Maker User Guide: https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf
+* Cyberon's youtube channel contains a series of step-by-step tutorials that can help you to know more about how to use the Arduino Speech Recognition Engine. [Click here to know more](https://youtube.com/playlist?list=PLTEknqO5GAbrzlKN3fP-rW0l7BntOuaK0).
+* You can also consult the [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
 
 ## Conclusion
 
