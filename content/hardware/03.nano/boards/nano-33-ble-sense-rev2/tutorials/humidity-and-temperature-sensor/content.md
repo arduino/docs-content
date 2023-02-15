@@ -64,7 +64,7 @@ Some of the useful ways they are used are seen in the following applications:
 - Asset and goods tracking.
 
 
-If you want to read more about the HTS221 sensor you can take a look at the [datasheet](https://docs.arduino.cc/resources/datasheets/REN_HS300x-Datasheet_DST.pdf)
+If you want to read more about the HTS221 sensor you can take a look at the [datasheet](/resources/datasheets/REN_HS300x-Datasheet_DST.pdf)
 
 
 
