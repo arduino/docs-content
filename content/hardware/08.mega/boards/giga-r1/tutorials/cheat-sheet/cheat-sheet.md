@@ -32,7 +32,7 @@ You can also visit the documentation platform for the [GIGA R1](/hardware/giga-r
 
 The full datasheets are available as a downloadable PDF from the link below:
 
-- [Download the GIGA R1 datasheet](docs.arduino.cc/resources/datasheets/ABX00067-datasheet.pdf)
+- [Download the GIGA R1 datasheet](/resources/datasheets/ABX00067-datasheet.pdf)
 
 ## Power Supply
 
