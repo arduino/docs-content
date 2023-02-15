@@ -29,7 +29,7 @@ Speech recognition is a technology field that captures, interprets, and computes
 
 ## The Arduino Speech Recognition Engine
 
-![](assets/arduinovoiceengine.jpg)
+![The Arduino Speech Recognition Engine](assets/arduinovoiceengine.jpg)
 
 The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the best platforms available on the market to perform speech recognition on embedded microcontrollers. The engine is very flexible, efficient, and easy to use, being the perfect solution for professional products and hobby projects.
 
