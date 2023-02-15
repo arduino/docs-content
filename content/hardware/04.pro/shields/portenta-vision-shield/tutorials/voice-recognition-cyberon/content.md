@@ -313,12 +313,9 @@ After getting the demo sketch working, we encourage you to start implementing th
 
 In case you are looking for more information, you can check out Cyberon's documentation:
 * Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon, as well as the `Readme.md` file that contains the requirements and the steps shown in this tutorial
-* Cyberon's youtube channel contains a series of step-by-step tutorials that can help you to know more about how to use the Arduino Speech Recognition Engine. [Click here to know more](https://youtube.com/playlist?list=PLTEknqO5GAbrzlKN3fP-rW0l7BntOuaK0).
-* You can also consult the [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
+* [Cyberon's youtube channel](https://youtube.com/playlist?list=PLTEknqO5GAbrzlKN3fP-rW0l7BntOuaK0) contains a series of step-by-step tutorials that can help you to know more about how to use the Arduino Speech Recognition Engine
+* You can also consult [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
 
 ## Conclusion
 
 In this tutorial, you have learned how to get a trial or paid license to use the Arduino Speech Recognition and, once you have your license, how to use test the free demo sketch and how to create your own project with your own custom voice triggers. Finally, you have learned the different licenses and limitations and how to upgrade a free project already made to be used with a more advanced license.
-
-Also, you have tested the very base APIs from the DSpotter SDK, so you will be able to embed this on your project quickly.
-* The linked PDF on the e-mail received when getting the license: https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf
