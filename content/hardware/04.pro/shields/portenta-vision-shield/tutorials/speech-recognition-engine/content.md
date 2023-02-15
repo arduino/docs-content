@@ -31,11 +31,15 @@ Speech recognition is a technology field that captures, interprets, and computes
 
 ![The Arduino Speech Recognition Engine](assets/arduinovoiceengine.jpg)
 
-The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the best platforms available on the market to perform speech recognition on embedded microcontrollers. The engine is very flexible, efficient, and easy to use, being the perfect solution for professional products and hobby projects.
+The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the best platforms available on the market to perform speech recognition on embedded microcontrollers. The full compatibility with multiple Arduino boards and with the Arduino IDE makes it very flexible, efficient, and easy to use, both in hobby projects and in professional products.
+
+The Arduino Speech Recognition Engine can be further customized based on the license type, as shown in the table below:
+
+![Licenses options for the Arduino Speech Recognition Engine](assets/licensesSpecs.png)
 
 
 ## Overview
-This tutorial shows how to use the Arduino Speech Recognition Engine to receive multiple voice commands and perform custom tasks after receiving each of them. To do that, it is necessary to perform a series of steps to register your board and activate your trial and free-of-charge license. Once we have done that you will test the demo sketch and learn how to create your own custom voice commands.
+This tutorial shows how to use the Arduino Speech Recognition Engine to configure multiple voice commands and perform custom tasks based on the recognized commands. To do that, it is necessary to perform a series of steps to register your board and activate your trial and free-of-charge license. Afterward, you will test the demo sketch and learn how to create your own custom voice commands.
 
 In case you are interested in unlocking the full potential of the tool, the tutorial will teach you how to acquire a paid license to unblock the free license limitations.
 
@@ -44,21 +48,21 @@ In case you are interested in unlocking the full potential of the tool, the tuto
 - Get your board serial number and the required files to set up the library
 - Get the license and use the demo sketch
 - Create a new project with your own custom voice commands
-- Learn how to acquire and use a paid license only in case you want to remove the free license limitations
+- Learn how to acquire and use a paid license in case you want to remove the free license limitations
 
 ### Required Hardware and Software
 
-To use the Arduino Speech Recognition Engine, you will need to use one of the following boards:
+To use the Arduino Speech Recognition Engine, you will need one of the following boards:
 
 - [Arduino Portenta H7](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
 - [Arduino Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble)
 - [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
 
-In the case of the Portenta H7, remember that is always possible to add an external microphone, using additional hardware, instead of using the Portenta Vision Shield.
+In the case of the Portenta H7, remember that is always possible to add an external microphone as additional hardware, instead of using the Portenta Vision Shield.
 
 Additionally, you will need the following hardware and software:
 - 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software), [Arduino IoT Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
+- [Arduino IDE 2.0](https://www.arduino.cc/en/software), [Arduino Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
 
 ## Instructions
 
@@ -68,7 +72,7 @@ The Arduino Speech Recognition Engine is a solution powered by Cyberon that requ
 * Install the library on your IDE
 * Test the free demo sketch
 
-In the case you have a paid license and you want to unlock the full potential of the engine, you will have to do the following steps:
+In case you would like to extend the engine functionalities, you will have to purchase [a voucher on the Arduino Store](https://store.arduino.cc/speech-recognition-engine) and follow the next steps:
 * Fill in the required information on Cyberon's website
 * Get the required files and activate your license
 
