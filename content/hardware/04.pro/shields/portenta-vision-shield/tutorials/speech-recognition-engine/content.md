@@ -5,11 +5,11 @@ tags: [speech recognition, voice commands, machine learning]
 description: Control your device with voice commands using the Arduino Speech Recognition Engine
 author: Pablo Marquínez
 libraries:
-  - name: Cyberon_DSpotterSDK_Maker_PortentaH7
+  - name: "Cyberon DSpotterSDK Maker PortentaH7"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_PortentaH7
-  - name: Cyberon_DSpotterSDK_Maker_33BLE
+  - name: "Cyberon DSpotterSDK Maker 33BLE"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_33BLE
-  - name: Cyberon_DSpotterSDK_Maker_RP2040
+  - name: "Cyberon DSpotter SDK Maker RP2040"
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_RP2040
 hardware:
   - hardware/04.pro/boards/portenta-h7
