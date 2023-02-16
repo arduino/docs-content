@@ -97,7 +97,7 @@ To get your board's serial number, and once you have the library downloaded, nav
 
 Connect your board to the computer, upload the sketch to it and, once is done, open the **Serial Monitor** to see your device's Serial Number.
 
-***On the Arduino IDE 1.6.x There is another way only available through the previous version of the Arduino IDE: select the board's serial port and click on `tools > Get Board Info`, you will see the "SN" number, save it.***
+***On the Arduino IDE 1.6.x or previous versions, you can also find the serial number as follow: select the board's serial port and click on `tools > Get Board Info`, you will see the "SN" number, save it for later.***
 
 #### Get the Demo License
 
@@ -145,7 +145,7 @@ Please note that the sketch and license that you are using are a "demo" version 
 
 ### Customized Commands
 
-To expand the features and human interaction of your projects, you can create your own voice commands with the Arduino Speech Recognition Engine. In this section, you will learn about how to use the _Cyberon Model Configuration_ webpage_ to create a new project with custom voice commands.
+To expand the features and human interaction of your projects, you can create your own voice commands with the Arduino Speech Recognition Engine. In this section, you will learn about how to use the _Cyberon Model Configuration_ webpage to create a new project with custom voice commands.
 
 ***These steps are compatible with the trial license, used in this tutorial, and the paid license***
 
@@ -189,7 +189,7 @@ On the IDE, open the example **File > Examples > Cyberon_DSpotterSDK > VoiceReco
 
 Once it is saved, open your File Explorer, and navigate to your sketch path.
 
-On your sketch directory, paste the files you have got in your e-mail before:
+On your sketch directory, paste the files you have got in your e-mail inbox before:
 * `CybLicense_<id>.h`
 * `Model_<id>.h`
 
@@ -210,20 +210,26 @@ Now to implement the **Input Trigger Command** and the **Command List** open the
 
 ```
 
-Now the project is set to be used. Upload the sketch and open the Serial Monitor. Now you can test your new **Input Trigger Word** and the **Command** list that you have created. Pronounce the new trigger words out loud, you will see the recognized words on the **Serial Monitor**.
+At this point, the project is set to be used. Upload the sketch and open the Serial Monitor. Now you can test your new **Input Trigger Word** and the **Command** list that you have created. Pronounce the new trigger words out loud, you will see the recognized words on the **Serial Monitor**.
 
 #### Unlock Limitations (License)
 
-In case you want to unlock the full potential of the Arduino Speech Recognition Engine, you will need to buy the corresponding license available at the [Arduino Store](https://store.arduino.cc/speech-recognition-engine).
+In case you want to further customize your model or add additional commands or trigger words, we have the right licenses for you:
+- **Speech Recognition license.** Voucher available on the [Arduino Store](https://store.arduino.cc/speech-recognition-engine).
+- **Pro License.** Feel free to [contact us](https://www.arduino.cc/pro/contact-us/) to unlock all the limitations.
 
-Depending on the license you can configure more than one trigger's words. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project). Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
+Check the [Licensing section](#licensing) to learn more about the specific features of each license.
+
+[Arduino Store](https://store.arduino.cc/speech-recognition-engine).
+
+There are different licensing options to fit the needs of your project. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project). Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
 
 Fill in the required fields:
 * E-mail address
 * Board
 * Serial Number of your board
 * Voucher code
-* Import project: the `.dsproj` file that you received in your e-mail during the creation of the project.
+* Import project: the `.dsproj` file that you received in your e-mail inbox during the creation of the project.
 * EULA Agreement - Please read it carefully
 
 ![Cyberon Model Configuration with a voucher code](assets/licensedModel.png)
@@ -231,6 +237,8 @@ Fill in the required fields:
 Click next, review your project options and press continue.
 
 You will get a new e-mail with the new License and Model headers.
+
+***In case you are using a Speech Recognition License (not Pro) please note that deployed models are not customizable. You can always purchase an additional voucher on [Arduino Store](https://store.arduino.cc/speech-recognition-engine) to generate a new model for the same hardware.***
 
 Open the sketch you have duplicated in the [Create New Project](#create-a-new-project) section.
 
@@ -250,14 +258,13 @@ Repeat the replacement of `#include` files, with the latest ones (they have a di
 
 ```
 
-Upload the sketch to your board, and you will have unlocked all the limitations from the trial version.
-
+Upload the sketch to your board, and you will have unlocked the limitations of the trial version.
 
 ### Licensing
 
 Here you can know more about the different licenses and limitations of each device. Remember that the code that you get for your license is also called a **voucher code**.
 
-#### MAKER Free Demo
+#### Free Demo
 
 * Compatible with the CDSpotterSDK library
 * Number of SET: x1
@@ -269,26 +276,28 @@ Here you can know more about the different licenses and limitations of each devi
 * Delay in Trigger mode: no
 * Hardware binding: no
 
-#### MAKER Trial
+#### Speech Recognition Free Trial
 
 Once the number of recognition is reached the model will stop working and you will need to manually reboot the target.
 
 * Compatible with the CDSpotterSDK library
 * Number of SET: x1
 * Number of TRIGGERS: x1
-* Number of COMMANDS: Unlimited (depends on the hardware)
+* Number of COMMANDS: 20 maximum
 * Configure TRIGGER: Configurable
 * Configure COMMANDS: Configurable
 * Recognition times: x50
 * Delay in Trigger mode: 20 seconds
 * Hardware binding: Yes
 
-#### MAKER Formal
+Please note that the delay in Trigger mode means a 20 seconds delay between entering the trigger mode and the recognition of the wake-up word.
+
+#### Speech Recognition License
 
 * Compatible with the CDSpotterSDK library
 * Number of SET: x1
 * Number of TRIGGERS: x1
-* Number of COMMANDS: Unlimited (depends on the hardware)
+* Number of COMMANDS: 20 maximum
 * Configure TRIGGER: Configurable
 * Configure COMMANDS: Configurable
 * Recognition times: Unlimited
@@ -306,8 +315,6 @@ Once the number of recognition is reached the model will stop working and you wi
 * Recognition times: Unlimited
 * Delay in Trigger mode: No delay
 * Hardware binding: Yes
-* Customer-Support: Paid
-
 ## Next Steps
 
 After getting the demo sketch working, we encourage you to start implementing this on your own project to unleash the full potential of the Arduino Speech Recognition Engine.
@@ -319,4 +326,4 @@ In case you are looking for more information, you can check out Cyberon's docume
 
 ## Conclusion
 
-In this tutorial, you have learned how to get a trial or paid license to use the Arduino Speech Recognition and, once you have your license, how to use test the free demo sketch and how to create your own project with your own custom voice triggers. Finally, you have learned the different licenses and limitations and how to upgrade a free project already made to be used with a more advanced license.
+In this tutorial, you have learned what is the Arduino Speech Recognition Engine, the different licenses and limitations, and how to acquire one. Once you have your license, you learned how to test it with the free demo sketch and how to create your own project with your own custom voice triggers. Eventually, you learned how to upgrade a free already-made project to be used with a more advanced license.
