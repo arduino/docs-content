@@ -181,7 +181,7 @@ On the next page you will see all the configurations already set. Check it out t
 
 ![Cyberon finishing model configuration](assets/newProjectFinish.png)
 
-Once everything is checked, click **Confirm** and you will get the model header file (`model.h`). This header is part of your new project and you need to copy it onto your sketch folder to use it.
+Once everything is checked, click **Confirm** and you will get the model header file (`model.h`). This header is part of your new project and you need to copy it onto your sketch folder to use it. Remember that once a model is confirmed, it cannot be further modified.
 
 You will now get some files in your e-mail inbox. Download them to your computer.
 
