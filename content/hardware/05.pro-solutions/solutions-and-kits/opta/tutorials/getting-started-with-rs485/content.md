@@ -38,7 +38,7 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 
 ***Notice: This tutorial does not work with Opta™ Lite since it does not have an RS485 interface.***
 
-## RS-485 101
+## RS-485 Interface
 
 The RS-485 is an electrical-only standard that uses a differential bus with voltage levels of 0 to 5V and the multi-drop feature, allowing the addition of drivers and receivers to the transmission line. This interface is characteristic of good noise immunity thanks to differential signaling; this is a well-suited characteristic for industrial environment applications.
 

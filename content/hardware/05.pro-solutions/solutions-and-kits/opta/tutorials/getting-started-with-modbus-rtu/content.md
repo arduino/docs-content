@@ -44,7 +44,7 @@ The **Opta™**, with its industrial hardware and software capabilities and the 
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
-## Modbus 101
+## Modbus Protocol
 
 Modbus is an open and royalty-free serial communication protocol widely used in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS). It was published in 1979 (more than 40 years ago) and has become a _de facto_ standard communication protocol among industrial electronic devices.
 
