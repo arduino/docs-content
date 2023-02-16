@@ -29,7 +29,7 @@ Speech recognition is a technology field that captures, interprets, and computes
 
 ## The Arduino Speech Recognition Engine
 
-![The Arduino Speech Recognition Engine](assets/ArduinoVoiceEngine.jpg)
+![The Arduino Speech Recognition Engine](assets/ArduinoVoice.jpg)
 
 The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of the best platforms available on the market to perform speech recognition on embedded microcontrollers. The full compatibility with multiple Arduino boards and with the Arduino IDE makes it very flexible, efficient, and easy to use, both in hobby projects and in professional products.
 
@@ -218,11 +218,9 @@ In case you want to further customize your model or add additional commands or t
 - **Speech Recognition license.** Voucher available on the [Arduino Store](https://store.arduino.cc/speech-recognition-engine).
 - **Pro License.** Feel free to [contact us](https://www.arduino.cc/pro/contact-us/) to unlock all the limitations.
 
-Check the [Licensing section](#licensing) to learn more about the specific features of each license.
+There are different licensing options to fit the needs of your project. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project) to know more.
 
-[Arduino Store](https://store.arduino.cc/speech-recognition-engine).
-
-There are different licensing options to fit the needs of your project. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project). Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
+Browse to [Cyberon's Licensed Project Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
 
 Fill in the required fields:
 * E-mail address
@@ -289,10 +287,10 @@ Once the number of recognition is reached the model will stop working and you wi
 * Configure TRIGGER: Configurable
 * Configure COMMANDS: Configurable
 * Recognition times: x50
-* Delay in Trigger mode: 20 seconds
+* Delay in Trigger mode: 20 seconds \[1\]
 * Hardware binding: Yes
 
-Please note that the delay in Trigger mode means a 20 seconds delay between entering the trigger mode and the recognition of the wake-up word.
+\[1\] Please note that the delay in Trigger mode means a 20 seconds delay between entering the trigger mode and the recognition of the wake-up word.
 
 #### Speech Recognition License
 
