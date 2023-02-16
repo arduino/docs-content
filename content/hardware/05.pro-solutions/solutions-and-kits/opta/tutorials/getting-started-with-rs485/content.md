@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with RS-485 on Opta™'
-description: "Learn how to make use of the RS-485 communication interface on the Arduino Opta™."
+description: "Learn how to make use of the RS-485 communication interface on Opta™."
 difficulty: beginner 
 tags:
   - Getting started
