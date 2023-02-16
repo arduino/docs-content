@@ -13,8 +13,9 @@ libraries:
     url: https://github.com/CyberonEBU/Cyberon_DSpotterSDK_Maker_RP2040
 hardware:
   - hardware/04.pro/boards/portenta-h7
+  - hardware/04.pro/boards/portenta-h7-lite
+  - hardware/04.pro/boards/portenta-h7-lite-connected
   - hardware/04.pro/shields/portenta-vision-shield
-  - hardware/03.nano/boards/nano-33-ble
   - hardware/03.nano/boards/nano-rp2040-connect
 software:
   - ide-v1
@@ -54,8 +55,9 @@ In case you are interested in unlocking the full potential of the tool, the tuto
 
 To use the Arduino Speech Recognition Engine, you will need one of the following boards:
 
-- [Arduino Portenta H7](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
-- [Arduino Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble)
+- [Arduino Portenta H7 (any variant)](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
+- [Arduino Nano 33 BLE Sense Rev 1](https://store.arduino.cc/products/arduino-nano-33-ble-sense)
+- [Arduino Nano 33 BLE Sense Rev 2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
 - [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
 
 In the case of the Portenta H7, remember that is always possible to add an external microphone as additional hardware, instead of using the Portenta Vision Shield.
@@ -80,7 +82,7 @@ In case you would like to extend the engine functionalities, you will have to pu
 #### Setup the Library
 There are three libraries, you will need to install one or another depending on which board you are using:
 * **Portenta H7**: Cyberon_DSpotterSDK_Maker_PortentaH7
-* **Nano 33 BLE**: Cyberon_DSpotterSDK_Maker_33BLE
+* **Nano 33 BLE Sense (Rev1 & Rev2)**: Cyberon_DSpotterSDK_Maker_33BLE
 * **Nano RP2040**: Cyberon_DSpotterSDK_Maker_RP2040
 
 ***Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon. Check them out in case you need more information***
