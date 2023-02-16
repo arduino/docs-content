@@ -35,7 +35,7 @@ The Arduino Speech Recognition Engine, which is powered by Cyberon, is one of th
 
 The Arduino Speech Recognition Engine can be further customized based on the license type, as shown in the table below:
 
-![Licenses options for the Arduino Speech Recognition Engine](assets/licensesSpecs.png)
+![License options for the Arduino Speech Recognition Engine](assets/licensesSpecs.png)
 
 
 ## Overview
@@ -264,6 +264,8 @@ Upload the sketch to your board, and you will have unlocked the limitations of t
 
 Here you can know more about the different licenses and limitations of each device. Remember that the code that you get for your license is also called a **voucher code**.
 
+![License options for the Arduino Speech Recognition Engine](assets/licensesSpecs.png)
+
 #### Free Demo
 
 * Compatible with the CDSpotterSDK library
@@ -322,7 +324,7 @@ After getting the demo sketch working, we encourage you to start implementing th
 In case you are looking for more information, you can check out Cyberon's documentation:
 * Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon, as well as the `Readme.md` file that contains the requirements and the steps shown in this tutorial
 * [Cyberon's youtube channel](https://youtube.com/playlist?list=PLTEknqO5GAbrzlKN3fP-rW0l7BntOuaK0) contains a series of step-by-step tutorials that can help you to know more about how to use the Arduino Speech Recognition Engine
-* You can also consult [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
+* You can also consult the [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
 
 ## Conclusion
 
