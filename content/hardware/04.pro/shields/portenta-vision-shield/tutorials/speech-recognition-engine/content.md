@@ -317,6 +317,7 @@ Please note that the delay in Trigger mode means a 20 seconds delay between ente
 * Recognition times: Unlimited
 * Delay in Trigger mode: No delay
 * Hardware binding: Yes
+
 ## Next Steps
 
 After getting the demo sketch working, we encourage you to start implementing this on your own project to unleash the full potential of the Arduino Speech Recognition Engine.
