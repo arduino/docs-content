@@ -43,7 +43,9 @@ If you do not need any tailored plan, go to [Arduino Cloud for Business page](ht
 
 ![Arduino Cloud login](assets/arduino-account-login.png "Arduino Cloud login")
 
+It is now time to customize your plan. Select the billing frequency you prefer and the number of Things (and so devices) that you would like to connect with your Arduino Cloud for Business workspace and click on **Continue**. 
 
+![Customize your plan](assets/plan-customization.png "Customize your plan")
 
 ### Join A Space
 
