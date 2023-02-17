@@ -5,7 +5,7 @@ difficulty: intermediate
 tags:
   - Getting started
   - Modbus RTU
-  - RS485
+  - RS-485
 author: 'José Bagur and Taddy Chung'
 libraries:
   - name: ArduinoRS485
@@ -38,7 +38,7 @@ The **Opta™**, with its industrial hardware and software capabilities and the 
 - Opta™ PLC with RS-485 support (x2)
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
-- Wires with similar specs: STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated) 100-130Ω rated cable for RS485 connection (x3)
+- Wires with similar specs: STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated) 100-130Ω rated cable for RS-485 connection (x3)
 
 ### Software Requirements
 
@@ -66,7 +66,7 @@ If you haven't already, head over [here](https://www.arduino.cc/en/software) and
 
 Refer to the following diagram for connecting two Opta™ devices via RS-485 interface.
 
-![Connecting two Opta™ devices via RS485](assets/opta-modbus-connection.svg)
+![Connecting two Opta™ devices via RS-485](assets/opta-modbus-connection.svg)
 
 ### Code Overview
 
