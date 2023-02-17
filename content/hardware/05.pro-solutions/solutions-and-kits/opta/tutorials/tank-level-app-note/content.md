@@ -46,7 +46,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 ### Hardware Requirements
 
-- Opta™ PLC with RS485 support (AFX00001 or AFX00002) (x2)
+- Opta™ PLC with RS-485 support (AFX00001 or AFX00002) (x2)
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
@@ -116,6 +116,13 @@ Usually, two-state element suffices such state conditions, but it may be better 
 However, the reading between 1.8-2.4V for an extended period during operation could mean the sensor is decalibrated or has failed. This reading could be helpful to take action to either replace or fix the sensor that is giving uncertain readings, without needing to make a close approach to dangerous elements that the sensor might be set up.
 
 ```arduino
+/**
+  Checks for Small Tank's minimum and maximum sensor state.
+
+  @param ST_Max Small Tank's maximum sensor state.
+  @param ST_Min Small Tank's minimum sensor state.
+  @return none
+*/
 uint8_t ST_Level_Check(){
   // Simple sensor read state 
   ST_Max = ST_MaxSensor_A0();
@@ -124,8 +131,12 @@ uint8_t ST_Level_Check(){
 
 ...
 
-// Reading the sensor's current state
-// ST_MaxSensor_A0 & ST_MinSensor_A1 is reading the vertical & horizontal float switches.
+/**
+  Analog reading from A0 for Small Tank's maximum sensor (Vertical float switch).
+
+  @param ST_Max_Cloud Small Tank's maximum sensor on Cloud side.
+  @return Returns 1 or 0 depending on the converted analog read and ST_Max_Cloud.
+*/
 uint8_t ST_MaxSensor_A0(){
   digitalWrite(LEDB, HIGH);
   int st_max_read = analogRead(A0);
@@ -145,6 +156,12 @@ uint8_t ST_MaxSensor_A0(){
   }
 }
 
+/**
+  Analog reading from A1 for Small Tank's minimum sensor (Horizontal float switch).
+
+  @param ST_Min_Cloud Small Tank's minimum sensor on Cloud side.
+  @return Returns 1 or 0 depending on the converted analog read and ST_Min_Cloud.
+*/
 uint8_t ST_MinSensor_A1(){
   digitalWrite(LEDB, HIGH);
   int st_min_read = analogRead(A1);
@@ -170,6 +187,15 @@ The Opta™ controlling the Small Tank will need to recognize the reservoir's ca
 The following function helps to control this valve by reading the reservoir's capacity and external information from the Big Tank. The `BT_Min` is the float switch state for Big Tank's minimum level, attained via communication using Modbus RTU protocol.
 
 ```arduino
+/**
+  Monitors Small Tank's valve depending on compilation of sensor states, and send pump off command.
+
+  @param ST_Valve Small Tank's valve state.
+  @param ST_Valve_Cloud Small Tank's valve state on Cloud side.
+  @param ST_Min Small Tank's minimum sensor state.
+  @param ST_Max Small Tank's maximum sensor state.
+  @return none
+*/
 uint8_t ST_Volume_CTRL(){
   // Active main condition to free Small Tank volume
   if (((ST_Min == 0 && BT_Min == 1) && ST_Max != 1)){
@@ -204,6 +230,12 @@ uint8_t ST_Volume_CTRL(){
 As the Opta™ receives `BT_Min` from the Big Tank, the Small Tank also shares the information with the Big Tank regarding Small Tank's maximum level tagged as `ST_Max`.
 
 ```arduino
+/**
+  Shares Small Tank's parameters with Big Tank based on the Small Tank's maximum sensor state.
+
+  @param ST_Max Small Tank's maximum sensor state.
+  @return none
+*/
 void ST_Param_Share(){
   // Simple representation for Small Tank's Maximum level sensor
   // 6 for ST_Max = 1
@@ -228,6 +260,14 @@ ModbusRTUServer.inputRegisterWrite(0, 0x37)
 In the meantime, the Big Tank's Opta™ will send such parameters, while the Small Tank Opta™ will poll for Modbus RTU requests to determine whether to activate a specific module or if it is activated. In this example, if we receive `0x56` from the Big Tank Opta™, the Small Tank will turn off the valve. If it captures the data `0x31` or `0x32`, the Small Tank will have the information regarding Big Tank's minimum level. The following simple parser does this task inside the Small Tank's Opta™.
 
 ```arduino
+/**
+  Sets system parameter states depending on the Modbus RTU requests poll. 
+
+  @param bigTank_coil Input Register value reading from Big Tank.
+  @param ST_Valve Small Tank's valve state.
+  @param BT_Min Big Tank's minimum sensor state.
+  @return none
+*/
 uint8_t RTU_parser(){
   // poll for Modbus RTU requests
   ModbusRTUServer.poll();
@@ -340,6 +380,12 @@ void loop() {
   delay(1000);
 }
 
+/**
+  Dedicated function for scheduler on handling ST_Param_Share() and RTU_parser().
+
+  @param none
+  @return none
+*/
 void modbus_line(){
   ST_Param_Share();
 
@@ -356,6 +402,13 @@ The Opta™ in charge of the Big Tank has a similar structure to the Small Tank'
 The Big Tank Opta™ code has two main tasks: controlling the stop of the system operation and controlling the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is turned off, which will halt the Pump and send the valve off command for Small Tank's Opta™. This sets an emergency stop on the system. The `BT_Pump_CTRL()` will send the valve off request whenever Big Tank's maximum level is reached and activate the pump to avoid reservoir overfill.
 
 ```arduino
+/**
+  Monitors Big Tank's system to trigger emergency stop when minimum sensor is false, and close the Small Tank's valve.
+
+  @param BT_Pump Big Tank's pump state.
+  @param BT_Min Big Tank's minimum sensor state.
+  @param Sys_EM_Stop Big Tank's emergency stop state.
+*/
 uint8_t BT_System_Off(){
   if (BT_Min != 1){
     // Sending Small Tank Valve Off Command
@@ -374,6 +427,13 @@ uint8_t BT_System_Off(){
   }
 }
 
+/**
+  Monitors Big Tank's pump depending on maximum sensor state, and close the Small Tank's valve.
+
+  @param BT_Pump Big Tank's pump state.
+  @param BT_Pump_Cloud Big Tank's pump state on Cloud side.
+  @param BT_Max Big Tank's maximum sensor state.
+*/
 uint8_t BT_Pump_CTRL(){
   if (BT_Max != 0){
     // Sending Small Tank Valve Off Command
@@ -405,6 +465,11 @@ uint8_t BT_Pump_CTRL(){
 The Opta™ in charge of the Big Tank shares the information with the Small Tank regarding Big Tank's minimum level tagged as `BT_Min` inside the sketch.
 
 ```arduino
+/**
+  Shares Big Tank's parameters with Small Tank based on the Big Tank's minimum sensor state.
+
+  @param BT_Min Big Tank's minimum sensor state.
+*/
 void BT_Param_Share(){
   // Simple representation for Big Tank's Minimum level sensor
   // 0x31 for BT_Min = 1
@@ -423,8 +488,15 @@ void BT_Param_Share(){
 In this example, if we receive `0x50` from the Small Tank Opta™, the Big Tank will turn off the pump. If it captures `0x36` or `0x37`, the Big Tank will have the information regarding Small Tank's maximum level. The following simple parser does this task inside the Big Tank's Opta™. The minor difference between the Small Tank Opta™ is how it seeks for the data to retrieve. The Big Tank Opta™ will use `readInputRegisterValues(42, 0x00, 1)` to request Small Tank Opta™ and search for the data if it has available information.
 
 ```arduino
+/**
+  Sets system parameter states depending on the received Input Register value. 
+
+  @param smallTank_coil Input Register value reading from Small Tank.
+  @param BT_Pump Big Tank's pump state.
+  @param ST_Max Small Tank's maximum sensor state.
+  @return none
+*/
 uint8_t RTU_parser(){
-  // poll for Modbus RTU requests
   smallTank_coil = readInputRegisterValues(42, 0x00, 1);
 
   if (smallTank_coil == 0x50){
@@ -448,6 +520,12 @@ uint8_t RTU_parser(){
 Since the Big Tank Opta™ is the Client, the Modbus RTU protocol is configured accordingly with the Client's properties. The commonly used method in this example for the Client will be `writeHoldingRegisterValues()` and `readInputRegisterValues()`. The first method will write to the Small Tank Opta™ when certain conditions are flagged, while the other method will request information to track the Small Tank Opta™.
 
 ```arduino
+/**
+  Sets up Modbus RTU protocol configuration.
+
+  @param none
+  @return none  
+*/
 void RTU_Setup(){
   Serial.println(F("Big Tank - Modbus RTU Client"));
 
@@ -460,6 +538,15 @@ void RTU_Setup(){
   }
 }
 
+/**
+  Writes Holding Register values given argument inputs. 
+
+  @param dev_address Device address.
+  @param reg_address Register address.
+  @param holding_write Data to write.
+  @param byte_count Number of bytes.
+  @return none
+*/
 void writeHoldingRegisterValues(int dev_address, uint8_t reg_address, uint8_t holding_write, int byte_count){
   ModbusRTUClient.beginTransmission(dev_address, HOLDING_REGISTERS, reg_address, byte_count);
   ModbusRTUClient.write(holding_write);
@@ -472,6 +559,15 @@ void writeHoldingRegisterValues(int dev_address, uint8_t reg_address, uint8_t ho
   }
 }
 
+/**
+  Reads Holding Register values given argument inputs. 
+
+  @param dev_address Device address.
+  @param reg_address Register address.
+  @param byte_count Number of bytes.
+  @param packet Holding register value reading.
+  @return none
+*/
 void readHoldingRegisterValues(int dev_address, uint8_t reg_address, int byte_count, uint8_t packet){
   if (!ModbusRTUClient.requestFrom(dev_address, HOLDING_REGISTERS, reg_address, byte_count)) {
     Serial.print(F("Holding Register Read - Failed! "));
@@ -488,6 +584,14 @@ void readHoldingRegisterValues(int dev_address, uint8_t reg_address, int byte_co
   }
 }
 
+/**
+  Reads Input Register values given argument inputs. 
+
+  @param dev_address Device address.
+  @param reg_address Register address.
+  @param byte_count Number of bytes.
+  @return none
+*/
 uint8_t readInputRegisterValues(int dev_address, uint8_t reg_address, int byte_count){
   uint8_t packet;
   if (!ModbusRTUClient.requestFrom(dev_address, INPUT_REGISTERS, reg_address, byte_count)) {
@@ -528,6 +632,12 @@ void loop() {
   delay(1000);
 }
 
+/**
+  Dedicated function for scheduler on handling BT_Param_Share() and RTU_parser().
+
+  @param none
+  @return none
+*/
 void modbus_line(){
   BT_Param_Share();
 
@@ -537,7 +647,7 @@ void modbus_line(){
 }
 ```
 
-### The Arduino Cloud Dashboard
+### The Cloud Dashboard
 
 Thanks to the Arduino Cloud, we can create a simple but useful dashboard to have a professional real-time HCI as it can be seen below:
 

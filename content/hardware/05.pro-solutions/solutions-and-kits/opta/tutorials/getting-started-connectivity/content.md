@@ -30,7 +30,6 @@ Opta™ is a powerful micro PLC device with many features that can be customized
 - Learn how to use Ethernet on Opta™
 - Learn how to use Bluetooth® Low Energy on Opta™
 
-
 ### Required Hardware and Software
 
 - Opta™ PLC (x1)

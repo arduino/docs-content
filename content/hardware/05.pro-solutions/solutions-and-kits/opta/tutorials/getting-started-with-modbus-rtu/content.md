@@ -25,7 +25,7 @@ hardware:
 
 Modbus is an open serial protocol derived from the client/server architecture initially developed and published by Modicon (now Schneider Electric) in 1979 for use with programmable logic controllers (PLCs); since 1979, Modbus has become a standard communications protocol in industrial electronic devices.
 
-The **Opta™**, with its industrial hardware and software capabilities and the Arduino ecosystem tools such as the Arduino IDE and its libraries, can implement this communications protocol. In this tutorial, we will learn how to implement this communications protocol over RS-485 between two Opta™ devices.
+The **Opta™**, with its industrial hardware and software capabilities and the Arduino ecosystem tools such as the Arduino IDE and its libraries, can implement this communications protocol with ease. In this tutorial, we will learn how to implement Modbus RTU communications protocol over RS-485 between two Opta™ devices.
 
 ## Goals
 
@@ -35,7 +35,7 @@ The **Opta™**, with its industrial hardware and software capabilities and the 
 
 ### Hardware Requirements
 
-- Opta™ PLC with RS485 support (x2)
+- Opta™ PLC with RS-485 support (x2)
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
 - Wires with similar specs: STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated) 100-130Ω rated cable for RS485 connection (x3)

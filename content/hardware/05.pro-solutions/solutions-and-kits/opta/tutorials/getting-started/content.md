@@ -33,8 +33,8 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 
 ### Required Hardware and Software
 
-- USB-C® cable (x1)
 - Opta™ PLC (x1)
+- USB-C® cable (x1)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - Power supply of 12-24V DC, 1A (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
@@ -44,6 +44,7 @@ Opta™ is a robust micro PLC solution with many engaging features. In this tuto
 ### Setup With the Arduino IDE
 
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
+
 Within the Arduino IDE install the core for the Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it.
 
 ![Finding the Opta™ Core in the Arduino IDE 2.0](assets/opta-core-install.png)
@@ -53,11 +54,13 @@ Now you are ready to upload sketches to the Opta™ via the Arduino IDE.
 ### Trying a Blink Sketch
 
 Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
+
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta™, highlighted in the image below.
 
 ![The blinking STATUS LEDs on the Opta™](assets/opta-device-LED.svg)
 
-All the STATUS LEDs on the device are defined in the core of the PLC. 
+All the STATUS LEDs on the device are defined in the core of the PLC.
+
 Hereafter you can see the correspondence between each of them as identified in the core and their labeling on the front panel of the product:
 
 - `LED_D0`: STATUS 1
@@ -108,7 +111,7 @@ Opta™ has a programmable button, shown in the image below and identified as US
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
-The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device. 
+The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device.
 
 ```arduino
 int buttonState = 0;
@@ -173,7 +176,6 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 | Fourth press | STATUS LEDs 1, 2, 3 and 4 ON          |
 | Fifth press  | All STATUS LEDs off and counter reset |
 
-
 ### Using Out Relays
 
 Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
@@ -189,7 +191,7 @@ The coils of each relay correspond to pins D0 to D3 as follows:
 | OUTPUT 3   | D2    | RELAY3 |
 | OUTPUT 4   | D3    | RELAY4 |
 
-The Opta™ output contacts are "clean" contacts, which means they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing for example a power cable to one of the terminals and connecting the load to the exit of the other terminal.
+The Opta™ output contacts are "clean" contacts, which means they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing, for example, a power cable to one of the terminals and connecting the load to the exit of the other terminal.
 
 This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carrying the signal up to the reference load.
 
@@ -276,13 +278,16 @@ Opta™ has 8 input pins that can be programmed to be used as analog or digital.
 | I8                | A7                  | PIN_A7             |
 
 The 8 input pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V).
+
 * To use them as digital inputs, add the Arduino command `pinMode(pinName, INPUT);` inside the `setup()`.
 * To use them as analog inputs, add the command `analogReadResolution();` with the bit resolution that you want to use.
 
 ![Analog inputs on the Opta™](assets/opta-analog-inputs.svg)
 
 Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 10V.
+
 The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the voltage of the input using it in conjunction with the resolution factor of the ADCs. That resolution can be selected inside the program within a range between 12 bits (4095) and 16 bits (65535).
+
 To get and display the proper voltage value read by the input, we need to convert the value read by the `analogRead` function and apply a rescaling factor of 0.3 which is determined by the internal voltage divider.
 The sketch will read the inputs on the analog pins A0, A1 and A2 and then print the result in the serial monitor.
 
