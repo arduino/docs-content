@@ -1,9 +1,10 @@
 ---
+
 title: 'Particle Detector with the Portenta Vision Shield'
-description: 'Make your very own particle detector with the Portenta Vision Shield and a Portenta H7.'
+description: 'Make your very own particle detector with the Portenta Vision Shield and a Portenta H7'
 tags: 
   - tutorial
-author: 'Ali Jahangiri' 'Francesca Cenna'
+author: 'Ali Jahangiri & Francesca Cenna'
 hardware:
   - hardware/04.pro/shields/portenta-vision-shield
   - hardware/04.pro/boards/portenta-h7
@@ -13,6 +14,7 @@ software:
   - openmv
 difficulty: intermediate
 tags: [OpenMV, Blob Detection, Physics]
+
 ---
 
 ## Introduction 
