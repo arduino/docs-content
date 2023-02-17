@@ -182,11 +182,17 @@ void loop() {
 The `changeRelay()` function manages the relay and status LED state based on the received input. This function is called after receiving data via RS-485  to update the relays and status LED states accordingly:
 
 ```arduino
+/**
+  Changes relay and status LED state given the received value. 
+
+  @param none
+  @return none
+*/
 void changeRelay() {
   // Get current status
   auto status = statuses[idx] ? HIGH : LOW;
   
-  // Apply 
+  // Apply
   digitalWrite(relays[idx], status);
   digitalWrite(leds[idx], status);
   
