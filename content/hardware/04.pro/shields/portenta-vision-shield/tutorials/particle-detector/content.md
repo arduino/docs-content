@@ -21,7 +21,9 @@ We live in a world, full of particles. In particular, we are showered by cosmic 
 
 ## Goals
 
-- 
+- Understand how CMOS detectors work
+- Use the OpenMV environment to identify particles
+- Measure muons with the Portenta Vision Shield
 
 ## Hardware & Software Needed
 
@@ -45,26 +47,33 @@ The Arduino Portenta Vision Shield includes a Himax HM-01B0 camera module at a r
 
 ## OpenMV and Blob Detection
 
-In this application note, we use a modified version of the Blob Detection tutorial. [[Explain Why we do this and what the code does]]
+In this application note, we use a modified version of the Blob Detection tutorial. This code disables the LED from blinking, that is required to ensure that all photons are related to muon activity. Change area_threshold=255 to pixel_threshold=1 and merge blobs. [[Explain Why we do this and what the code does]]
 
-## Programming the Board
+## Set up 
 
-Example code for the reader to copy and paste into their own sketch. This section should explain the different sections in the code. 
+**1.** Connect Portenta Vision Shield to Portenta H7. Use a USB-C cable to connect to a PC. 
 
-## Testing It Out
+**2.** Place the camera to face upwards in a dark box.
 
-After uploading the code, we should now start using it. Go through the flow with the reader. 
+**3.** Program the Portenta H7 with the modified blob detection code in OpenMV. [[Lead shielding?]] [[Why not inside house?]]
+
+**4.**  Data is saved to SD card. Repeat measurements with a vertical orientation.
+
+## Data Analysis
+
+**1.** Import data into Google Sheets for both orientations.
+
+**2.** Do the analysis???
 
 ### Troubleshoot
 
-Add a bullet list of the things that could be the potential issue for something not working. 
-
 If the code is not working, there are some common issues we can troubleshoot:
 
-- Troubleshoot point 1
-- Troubleshoot point 2
+- Increase the duration of data collection. A time of at least 24 hours is recommended. A longer time, results in more accurate results.
+- Make sure that the Blob example is alterated as instructed
+- Ensure that no stray light impacts the CMOS sensor of the Portenta Vision Shield
 
 ## Conclusion
 
-Add a conclusion to what this tutorial has gone through. Connect back to what you wrote in the "Goals" section. 
+In this tutorial you learnt how to measure muons with the Portenta Vision Shield. You can take this a step further, and explore how muon showers change over time. Or, set up multiple devices which connect to the Arduino IoT Cloud and see how particle counts vary over time and position. 
 
