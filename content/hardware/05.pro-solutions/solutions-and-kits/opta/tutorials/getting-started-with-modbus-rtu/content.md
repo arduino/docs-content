@@ -496,4 +496,4 @@ With the help of these examples, it is easy to understand how to enable Modbus R
 
 ### Next Steps
 
-Now that you know how to establisg and use Modbus RTU communication with Opta™, you can take a look at [Getting started with connectivity on the Opta™ tutorial](/tutorials/opta/getting-started-connectivity) to discover more about all the connectivity possibilities that Opta™ has to offer.
+Now that you know how to establish and use Modbus RTU communication with Opta™, you can take a look at [Getting started with connectivity on the Opta™ tutorial](/tutorials/opta/getting-started-connectivity) to discover more about all the connectivity possibilities that Opta™ has to offer.

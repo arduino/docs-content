@@ -46,7 +46,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 ### Hardware Requirements
 
-- Opta™ PLC with RS-485 support (AFX00001 or AFX00002) (x2)
+- Opta™ PLC with RS-485 support (x2)
 - USB-C® cable (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
@@ -111,7 +111,7 @@ constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 
 The vertical and horizontal float switches are essential sensors recognizing the tank's capacity. It will measure if the switches are closed or open by reading the voltage in this scenario. For example, if the vertical switch is closed and indicates the tank is at maximum capacity, it will read ~3.0V and return such state as 1. Otherwise, it will return the maximum capacity state as 0, meaning it has not reached the upper capacity limit.
 
-Usually, two-state element suffices such state conditions, but it may be better if unforeseen states are obervable. The simple `analogRead()` method is used to convert obtained raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean the sensor is closed, while 0V will mean it is open.
+Usually, two-state element suffices such state conditions, but it may be better if unforeseen states are observable. The simple `analogRead()` method is used to convert obtained raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean the sensor is closed, while 0V will mean it is open.
 
 However, the reading between 1.8-2.4V for an extended period during operation could mean the sensor is decalibrated or has failed. This reading could be helpful to take action to either replace or fix the sensor that is giving uncertain readings, without needing to make a close approach to dangerous elements that the sensor might be set up.
 
