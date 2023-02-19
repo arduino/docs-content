@@ -244,7 +244,7 @@ Morse morse(13);
 
 When this line gets executed (which actually happens even before the `setup()` function), the constructor for the `Morse` class will be called, and passed the argument you've given here (in this case, just 13).
 
-Notice that our `setup()` now has a call to `morse.begin()` which will make a call to `pinMode()` inside the library. It is best practice to have hardware initialization calls like `pinMode()` take place in `setup()` which is why we created the `begin()` function.
+Notice that our `setup()` now has a call to `morse.begin()` which configure the pin that was set in the constructor.
 
 Finally, to call the `dot()` and `dash()` functions, we need to prefix them with **morse**. - the name of the instance we want to use. We could have multiple instances of the `Morse` class, each on their own pin stored in the _pin private variable of that instance. By calling a function on a particular instance, we specify which instance's variables should be used during that call to a function. That is, if we had both:
 
