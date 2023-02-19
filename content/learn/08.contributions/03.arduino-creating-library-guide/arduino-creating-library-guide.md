@@ -138,7 +138,7 @@ Morse::Morse(int pin)
 
 There are a couple of strange things in this code. First is the **Morse::** before the name of the function. This says that the function is part of the **Morse** class. You'll see this again in the other functions in the class. The second unusual thing is the underscore in the name of our private variable, `_pin`. This variable can actually have any name you want, as long as it matches the definition in the header file. Adding an underscore to the start of the name is a common convention to make it clear which variables are private, and also to distinguish the name from that of the argument to the function (**pin** in this case).
 
-Next, you'll create a `begin()` function that will be called in `setup()`, after the hardware has been initilized by the Arduino main function. In our example, we need to set the pin as an output:
+Next, you'll create a `begin()` function that will be called in `setup()`, after the hardware has been initialized by the Arduino main function. In our example, we need to set the pin as an output:
 
 ```arduino
 void Morse::begin()
@@ -244,7 +244,7 @@ Morse morse(13);
 
 When this line gets executed (which actually happens even before the `setup()` function), the constructor for the `Morse` class will be called, and passed the argument you've given here (in this case, just 13).
 
-Notice that our `setup()` now has a call to `morse.begin()` which will make a call to `pinMode()` inside the library. It is best practice to have hardware initilization calls like `pinMode()` take place in `setup()` which is why we creaed the `begin()` function.
+Notice that our `setup()` now has a call to `morse.begin()` which will make a call to `pinMode()` inside the library. It is best practice to have hardware initialization calls like `pinMode()` take place in `setup()` which is why we created the `begin()` function.
 
 Finally, to call the `dot()` and `dash()` functions, we need to prefix them with **morse**. - the name of the instance we want to use. We could have multiple instances of the `Morse` class, each on their own pin stored in the _pin private variable of that instance. By calling a function on a particular instance, we specify which instance's variables should be used during that call to a function. That is, if we had both:
 
