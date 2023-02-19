@@ -259,7 +259,7 @@ If you tried the new sketch, you probably noticed that nothing from our library 
 
 ```arduino
 Morse	KEYWORD1
-begin KEYWORD2
+begin	KEYWORD2
 dash	KEYWORD2
 dot	KEYWORD2
 ```
