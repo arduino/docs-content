@@ -138,7 +138,7 @@ Morse::Morse(int pin)
 
 There are a couple of strange things in this code. First is the **Morse::** before the name of the function. This says that the function is part of the **Morse** class. You'll see this again in the other functions in the class. The second unusual thing is the underscore in the name of our private variable, `_pin`. This variable can actually have any name you want, as long as it matches the definition in the header file. Adding an underscore to the start of the name is a common convention to make it clear which variables are private, and also to distinguish the name from that of the argument to the function (**pin** in this case).
 
-Next, you'll create a `begin()` function that will be called in `setup()`, after the hardware has been initialized by the Arduino main function. In our example, we need to set the pin as an output:
+Next, you'll create a `begin()` function to handle hardware configuration. This will be called from the `setup()` function of the sketch. Hardware configuration is done in a dedicated function instead of the constructor because the hardware has not yet been initialized at the time the constructor code is executed. In our library, we need to set the pin as an output:
 
 ```arduino
 void Morse::begin()
