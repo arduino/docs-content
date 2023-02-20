@@ -159,16 +159,15 @@ In order to check the full list of compatible Hardware, have a look at [this tut
 
 #### Device Provisioning
 
-Arduino Cloud allows to securely provisioning your devices with two different tools: 
-* **Arduino IoT Cloud.** Arduino IoT Cloud is an App integrated into your Arduino Cloud Space, guaranteeing a simple and straihtforward provisioning of Arduino or othr compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is the right choice in case you need to provision few devices.
-* **Arduino Cloud CLI.** As explained in [this section](#arduino-cloud-cli), Arduino has developed a command line tool enabling the access of all Arduino IoT Cloud features from a terminal window. Arduino Cloud CLI is the right choice when you need to provision multiple devices at the same time, i.e. mass provisioning.
+Arduino Cloud allows you to securely provisioning your devices with two different tools: 
+* **Arduino IoT Cloud.** Arduino IoT Cloud is an App integrated into your Arduino Cloud Space, guaranteeing a simple and straihtforward provisioning of Arduino or other Cloud-compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is the right choice in case you need to provision few devices or you are not an advanced user.
+* **Arduino Cloud CLI.** As explained in [this section](#arduino-cloud-cli), Arduino has developed a command line tool enabling the access of all Arduino IoT Cloud features from a terminal window. Arduino Cloud CLI is the right choice when you need to provision multiple devices at the same time and you are an advanced user.
 
 ##### Device Provisioning With Arduino IoT Cloud
 If your device is compatible with Arduino Cloud, you can start provisioning it into your Shared Space by connecting it to your computer through USB cable. 
-
 In addition, Arduino IoT Cloud requires your computer to have the [Arduino Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). 
 
-Once this step is done, you can click on Arduino IoT Cloud button in your Shared Space. 
+When you are all set-up correctly, you can click on Arduino IoT Cloud button in your Shared Space. 
 
 ![Arduino IoT Cloud button](assets/iot-cloud-button.png "Arduino IoT Cloud button")
 
@@ -184,7 +183,7 @@ Select a board name to be able to correctly identify your device and click on **
 
 ![Device name configuration](assets/device-name-configuration.png "Device name configuration")
 
-Define which type of connection you want to use with your board and click on **Next.** The agent will start securely provisioning your device in your Shard Space by leveraging the secure element embedded on your board. In this way, your security keys will be stored in the secure element and full data encryption can be guaranteed during data exchange between Arduino devices and the Cloud. If you want to learn more on security in Arduino Cloud, please check the [dedicated documentation](https://docs.arduino.cc/arduino-cloud/features/security-considerations). 
+Define which type of connection you want to use with your board and click on **Next.** The agent will start securely provisioning your device by leveraging the secure element embedded on your board. In this way, your security keys will be stored in the secure element and full data encryption will be guaranteed during data exchanges between Arduino devices and the Cloud. If you want to learn more on security in Arduino Cloud, please check the [dedicated documentation](https://docs.arduino.cc/arduino-cloud/features/security-considerations). 
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully provisioned in Arduino Cloud. 
 
@@ -194,7 +193,7 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 If you need to provision more than one device at a time or you prefer to work through your terminal, we have the right tool for you: [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli). 
 
-In order to proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli), it will explain to you all the required steps to provision your board through your terminal. 
+In order to proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli), it will explain you all the required steps to provision your board through your terminal. 
 
 #### Device Programming
 
