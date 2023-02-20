@@ -20,7 +20,10 @@ software:
   - Google Colab
 ---
 ***This post was originally published by Sandeep Mistry and Dominic Pajak on the [TensorFlow blog](https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157).*** 
+
 ## Introduction
+
+***Important notice! The [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) is no longer available in the Arduino Library Manager. This library will need to be manually downloaded, and included in your IDE.***
 
 [Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense Rev2](https://store.arduino.cc/arduino-nano-33-ble-sense-rev2). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
 
@@ -82,7 +85,10 @@ On the machine learning side, there are techniques you can use to fit neural net
 
 TinyML is an emerging field and there is still work to do – but what’s exciting is there’s a vast unexplored application space out there. Billions of microcontrollers combined with all sorts of sensors in all sorts of places which can lead to some seriously creative and valuable TinyML applications in the future.
 
-## TensorFlow Lite for Microcontrollers Examples 
+## TensorFlow Lite for Microcontrollers Examples
+
+***The TensorFlow Lite examples are currently not compatible with the [Arduino Nano BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board.***
+
 The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available through the Arduino Library Manager making it possible to include and run them on Arduino in a few clicks. In this section we’ll show you how to run them. The examples are:
 
 - micro_speech – speech recognition using the onboard microphone
