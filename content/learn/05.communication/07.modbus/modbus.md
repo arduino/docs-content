@@ -1,5 +1,5 @@
 ---
-title: "Arduino & Modbus Protocol"
+title: "Arduino® & Modbus Protocol"
 description: "Modbus is an open serial communication protocol used for transmitting information over serial lines between electronic devices."
 author: "Hannes Siebeneicher"
 ---
@@ -9,10 +9,11 @@ author: "Hannes Siebeneicher"
 This article contains information about the Modbus serial communication protocol and how it can be used together with Arduino hardware. The different elements are highlighted and compatible libraries and boards are shown together with code examples. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary, therefore it is important to always check your device specifications.
 
 ### Modbus compatible hardware
-- all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
-- all boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
+- All boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
+- All boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
+- [Arduino Opta®](https://store.arduino.cc/pages/opta)
 - [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
-- [Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
+- [Portenta Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
 
 ### Libraries
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
@@ -99,6 +100,12 @@ Using the `readVoltage()` function, defined within the parameters we discussed, 
 Inside you can see how the `requestFrom()` is being called with *Device Address*, *Function Code*, *Starting Register* and *Register Count* as parameters.
 
 ```
+/**
+  Dedicated to read voltage information from a Modbus-compatible Finder 7M.24 energy meter.
+
+  @param none
+  @return Returns obtained voltage information.
+*/
 float readVoltage() {
   float volt = 0.;
   // Send reading request over RS485
