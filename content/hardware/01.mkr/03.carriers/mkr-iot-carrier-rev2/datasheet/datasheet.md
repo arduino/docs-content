@@ -133,11 +133,11 @@ IoT applications, MKR hobbyists
 
 ![Top view - components](assets/top_view.svg)
 
-| **Ref.** | **Description**                        | **Ref.** | **Description**                        |
-| -------- | -------------------------------------- | -------- | -------------------------------------- |
-| U1       | LSM6DSOXTR 6-axis IMU IC               | U2       | APDS-9660 RGB and Gesture Sensor IC    |
-| U4       | Bosch BME688 Environmental Sensor IC   | L0-L4    | APA1022020-2018 RGB LED IC             |
-| J6       | FH26W-45S-0.3SHW(60) Display Connector | PB1      | Reset push-button                      |
+| **Ref.** | **Description**                        | **Ref.** | **Description**                     |
+| -------- | -------------------------------------- | -------- | ----------------------------------- |
+| U1       | LSM6DSOXTR 6-axis IMU IC               | U2       | APDS-9660 RGB and Gesture Sensor IC |
+| U4       | Bosch BME688 Environmental Sensor IC   | L0-L4    | APA1022020-2018 RGB LED IC          |
+| J6       | FH26W-45S-0.3SHW(60) Display Connector | PB1      | Reset push-button                   |
 
 
 #### Bottom View
@@ -187,38 +187,38 @@ Detailed information on the pinouts are available in a separate document: <u>[Do
 
 ### Battery Clips
 
-| Pin  | **Function** | **Type** | **Description**                 |
-| :--: | :----------: | :------: | :------------------------------ |
-|  1   |     GND      |  Power   | Ground                          |
-|  2   |     VBAT     |  Power   | Positive 18650 Battery Terminal |
+|  Pin  | **Function** | **Type** | **Description**                 |
+| :---: | :----------: | :------: | :------------------------------ |
+|   1   |     GND      |  Power   | Ground                          |
+|   2   |     VBAT     |  Power   | Positive 18650 Battery Terminal |
 
 ### Grove Connectors
 #### A0
 
-| Pin  | **Function** | **Type** | **Description**  |
-| :--: | :----------: | :------: | ---------------- |
-|  1   |     AN0      |  Analog  | Analog Input 0   |
-|  2   |      NC      |    NC    | Not Connected    |
-|  3   |     +5V      |  Power   | +5.0V power rail |
-|  4   |     GND      |  Power   | Ground           |
+|  Pin  | **Function** | **Type** | **Description**  |
+| :---: | :----------: | :------: | ---------------- |
+|   1   |     AN0      |  Analog  | Analog Input 0   |
+|   2   |      NC      |    NC    | Not Connected    |
+|   3   |    +3.3V     |  Power   | +3.3V power rail |
+|   4   |     GND      |  Power   | Ground           |
 
 #### A6
 
-| Pin  | **Function** | **Type** | **Description**  |
-| :--: | :----------: | :------: | ---------------- |
-|  1   |     AN6      |  Analog  | Analog Input 6   |
-|  2   |      NC      |    NC    | Not Connected    |
-|  3   |     +5V      |  Power   | +5.0V power rail |
-|  4   |     GND      |  Power   | Ground           |
+|  Pin  | **Function** | **Type** | **Description**  |
+| :---: | :----------: | :------: | ---------------- |
+|   1   |     AN6      |  Analog  | Analog Input 6   |
+|   2   |      NC      |    NC    | Not Connected    |
+|   3   |    +3.3V     |  Power   | +3.3V power rail |
+|   4   |     GND      |  Power   | Ground           |
 
 #### I<sub>2</sub>C
 
-| Pin  | **Function** | **Type** | **Description**  |
-| :--: | :----------: | :------: | ---------------- |
-|  1   |     SCL      | Digital  | I2C Clock Signal |
-|  2   |     SDA      | Digital  | I2C Data Signal  |
-|  3   |     +5V      |  Power   | +5.0V power rail |
-|  4   |     GND      |  Power   | Ground           |
+|  Pin  | **Function** | **Type** | **Description**  |
+| :---: | :----------: | :------: | ---------------- |
+|   1   |     SCL      | Digital  | I2C Clock Signal |
+|   2   |     SDA      | Digital  | I2C Data Signal  |
+|   3   |    +3.3V     |  Power   | +3.3V power rail |
+|   4   |     GND      |  Power   | Ground           |
 
 ### Relays
 #### Relay 1 and 2
@@ -227,11 +227,11 @@ Detailed information on the pinouts are available in a separate document: <u>[Do
 * Relay 2 driven by digital pin 2
 
 
-| Pin  | **Function** | **Type** | **Description** |
-| :--: | :----------: | :------: | --------------- |
-|  1   |      NC      |  Switch  | Normally Closed |
-|  2   |     COM      |  Switch  | Common          |
-|  3   |      NO      |  Switch  | Normally Open   |
+|  Pin  | **Function** | **Type** | **Description** |
+| :---: | :----------: | :------: | --------------- |
+|   1   |      NC      |  Switch  | Normally Closed |
+|   2   |     COM      |  Switch  | Common          |
+|   3   |      NO      |  Switch  | Normally Open   |
 
 ## Mechanical Information
 
@@ -251,12 +251,12 @@ Detailed information on the pinouts are available in a separate document: <u>[Do
 
 ### Absolute Maximum Ratings
 
-| Symbol               | Description                              | Min  | Typ  | Max  | Unit |
-| -------------------- | ---------------------------------------- | :--: | :--: | :--: | :--: |
-| T<sub>Max</sub>      | Maximum thermal limit<sup>1</sup>        | -30  |  20  |  85  |  °C  |
-| VBatt<sub>Max</sub>  | Maximum input voltage from battery input | 3.2  | 3.7  | 4.3  |  V   |
-| ARelay<sub>Max</sub> | Maximum current through relay switch     |  -   |  -   |  2   |  A   |
-| P<sub>Max</sub>      | Maximum Power Consumption                |  -   |  -   | 5000 |  mW  |
+| Symbol               | Description                              |  Min  |  Typ  |  Max  | Unit  |
+| -------------------- | ---------------------------------------- | :---: | :---: | :---: | :---: |
+| T<sub>Max</sub>      | Maximum thermal limit<sup>1</sup>        |  -30  |  20   |  85   |  °C   |
+| VBatt<sub>Max</sub>  | Maximum input voltage from battery input |  3.2  |  3.7  |  4.3  |   V   |
+| ARelay<sub>Max</sub> | Maximum current through relay switch     |   -   |   -   |   2   |   A   |
+| P<sub>Max</sub>      | Maximum Power Consumption                |   -   |   -   | 5000  |  mW   |
 
 ## Certifications
 
@@ -352,12 +352,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 3      | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
 | 4      | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u>                            |
 | 5      | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u>                                |
-| 6      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier-rev2</u>                                                            |
+| 6      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier-rev2</u>                                                       |
 | 7      | Arduino Documentation     | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier-rev2</u>                                               |
 
 ## Revision History
 
-| **Date DD/MM/YY** | **Revision** | **Changes**            |
-| ----------------- | ------------ | ---------------------- |
-| 16/01/2023        | 2            | Update Pinout graphic  |
-| 23/11/2022        | 1            | First Release          |
+| **Date DD/MM/YY** | **Revision** | **Changes**                                           |
+| ----------------- | ------------ | ----------------------------------------------------- |
+| 20/02/2023        | 3            | Change grove connector power rail from +5.0V to +3.3V |
+| 16/01/2023        | 2            | Update Pinout graphic                                 |
+| 23/11/2022        | 1            | First Release                                         |
