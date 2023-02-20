@@ -74,7 +74,26 @@ The GIGA R1's STM32H747XI microcontroller includes the M7 and M4 core. In this e
 
 ### Installing MicroPython
 
+To install MicroPython on the GIGA R1, you will need to flash a specific MicroPython firmware to the **M7 processor.** This requires the [dfu-util]() tool.
+
+1. Download the [MicroPython firmware for GIGA R1]().
+2. Download [dfu-util]() (also available via [brew.sh](https://formulae.brew.sh/formula/dfu-util)). Make sure the tool is added to your PATH on your machine.
+3. Open a terminal, and navigate to the directory where you saved the downloaded MicroPython firmware.
+4. Double tap the reset button on the GIGA R1 (while it is powered). This will enter bootloader mode.
+5. Finally, load the MicroPython firmware, by using the following command:
+
+```sh
+dfu-util -w -a 0 -d 2341:0366 -D <firmware>.dfu
+```
+
+This will start an uploading process that can be tracked in the terminal. Once it is done, the green LED will be pulsing. Success!
+
+Make sure to reset the board before continuing (tap the reset button).
+
+### Flash M4
+
 ### Load MicroPython Script
+
 
 ### 
 
