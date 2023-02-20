@@ -65,7 +65,7 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 In this project, we will be using the following circuit. In it, we have a piezo speaker connected to pin 8, a 5M ohm resistor connected between A0 and A1, with jumper wires connected to the tin foil.
 
-![Show your love with a hug!](assets/pillow2-cover_eWFrQi0MOT.png)
+![Show your love with a hug!](assets/circuit_tLcnUy2ifl.png)
 
 ### Setting up the Arduino IoT Cloud
 
