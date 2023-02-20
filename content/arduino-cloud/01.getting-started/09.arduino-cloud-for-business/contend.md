@@ -149,6 +149,25 @@ The users you added will get the invitation by email with a link to join your Sh
 
 ### Device Managament
 
+The Arduino Cloud for Business allows for device management with over-the-air updates, secure provisioning to connect boards leveraging their secure element, and easy verification of their status (connected, not connected) and maintenance.
+
+#### Compatible Hardware
+
+The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports device connection via Wi-Fi, Ethernet, LoRaWAN® (via The Things Network) and cellular connectivity.
+
+In order to check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+
+#### Device Provisioning
+
+If your device is compatible with Arduino Cloud, you can start provisioning it into your Shared Space. In order to do that, Arduino IoT Cloud requires your computer to have the [Arduino Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). Once this step is done, you can click on Arduino IoT Cloud button in your Shared Space. 
+
+![Arduino IoT Cloud button](assets/iot-clud-button.png "Arduino IoT Cloud button")
+
+#### Device Programming
+
+#### OTA Updates
+
+
 ### Fleet Management
 
 ### Dashboards 
