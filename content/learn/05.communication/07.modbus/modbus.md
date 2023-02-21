@@ -11,9 +11,9 @@ This article contains information about the Modbus serial communication protocol
 ### Modbus compatible hardware
 - All boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
 - All boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
-- [Arduino Opta®](https://store.arduino.cc/pages/opta)
 - [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
 - [Portenta Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
+- Opta™
 
 ### Libraries
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
