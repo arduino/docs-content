@@ -98,8 +98,7 @@ constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 
 int counter = 0;
 
-void setup()
-{
+void setup() {
     Serial.begin(9600);
     while (!Serial);
 
@@ -119,10 +118,10 @@ The `preDelay` and `postDelay` parameters are configured for a proper operation 
 
 The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
 
-The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the monitored information or measurements. Inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values to access these types of data.
+The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the monitored information or measurements. Inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values to access these types of data. Such data are `Coil`, `Holding`, `Discrete Input`, and `Input` register values.
 
 ```arduino
-void loop(){
+void loop() {
     writeCoilValues();
 
     readCoilValues();
@@ -146,6 +145,7 @@ The complete code for the Client is shown below:
 
 ```arduino
 /**
+  Getting Started with Modbus RTU on Opta™
   Name: Opta_Client
   Purpose: Writes Coil and Holding Register values; Reads Coil, Discrete Input, Holding Registers, and Input Register values.
 
@@ -169,8 +169,7 @@ constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 
 int counter = 0;
 
-void setup()
-{
+void setup() {
     Serial.begin(9600);
     while (!Serial);
 
@@ -185,8 +184,7 @@ void setup()
     }
 }
 
-void loop()
-{
+void loop() {
     writeCoilValues();
 
     readCoilValues();
@@ -205,8 +203,7 @@ void loop()
     Serial.println();
 }
 
-void writeCoilValues()
-{
+void writeCoilValues() {
     // set the coils to 1 when counter is odd
     byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
 
@@ -229,8 +226,7 @@ void writeCoilValues()
     // ModbusRTUClient.coilWrite(...)
 }
 
-void readCoilValues()
-{
+void readCoilValues() {
     Serial.print("Reading Coil values ... ");
 
     // read 10 Coil values from (server) id 42, address 0x00
@@ -252,8 +248,7 @@ void readCoilValues()
     // ModbusRTUClient.coilRead(...)
 }
 
-void readDiscreteInputValues()
-{
+void readDiscreteInputValues() {
     Serial.print("Reading Discrete Input values ... ");
 
     // read 10 Discrete Input values from (server) id 42, address 0x00
@@ -275,8 +270,7 @@ void readDiscreteInputValues()
     // ModbusRTUClient.discreteInputRead(...)
 }
 
-void writeHoldingRegisterValues()
-{
+void writeHoldingRegisterValues() {
     // set the Holding Register values to counter
 
     Serial.print("Writing Holding Registers values ... ");
@@ -298,8 +292,7 @@ void writeHoldingRegisterValues()
     // ModbusRTUClient.holdingRegisterWrite(...)
 }
 
-void readHoldingRegisterValues()
-{
+void readHoldingRegisterValues() {
     Serial.print("Reading Holding Register values ... ");
 
     // read 10 Input Register values from (server) id 42, address 0x00
@@ -321,8 +314,7 @@ void readHoldingRegisterValues()
     // ModbusRTUClient.holdingRegisterRead(...)
 }
 
-void readInputRegisterValues()
-{
+void readInputRegisterValues() {
     Serial.print("Reading input register values ... ");
 
     // read 10 discrete input values from (server) id 42,
@@ -409,6 +401,7 @@ This is the line that will poll for Modbus RTU requests. The complete code for t
 
 ```arduino
 /**
+  Getting Started with Modbus RTU on Opta™
   Name: Opta_Server
   Purpose: Configures Coils, Discrete Inputs, Holding and Input Registers; Polls for Modbus RTU requests and maps the coil values to the Discrete Input values, and Holding Registers to the Input Register values.
 

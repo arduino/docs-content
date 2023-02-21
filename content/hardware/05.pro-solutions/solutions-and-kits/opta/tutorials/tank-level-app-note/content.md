@@ -109,11 +109,11 @@ constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 ```
 
-The vertical and horizontal float switches are essential sensors recognizing the tank's capacity. It will measure if the switches are closed or open by reading the voltage in this scenario. For example, if the vertical switch is closed and indicates the tank is at maximum capacity, it will read ~3.0V and return such state as 1. Otherwise, it will return the maximum capacity state as 0, meaning it has not reached the upper capacity limit.
+The vertical and horizontal float switches are essential sensors for recognizing the tank's capacity. It will measure if the switches are closed or open by reading the voltage in this scenario. For example, if the vertical switch is closed and indicates the tank is at maximum capacity, it will read ~3.0V and return its state as 1. Otherwise, it will return the maximum capacity state as 0, meaning it has not reached the upper capacity limit.
 
-Usually, two-state element suffices such state conditions, but it may be better if unforeseen states are observable. The simple `analogRead()` method is used to convert obtained raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean the sensor is closed, while 0V will mean it is open.
+Usually, a two-state element suffices such state conditions, but it may be better if unforeseen states are observable. The simple `analogRead()` method is used to convert obtained raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean the sensor is closed, while 0V will mean it is open.
 
-However, the reading between 1.8-2.4V for an extended period during operation could mean the sensor is decalibrated or has failed. This reading could be helpful to take action to either replace or fix the sensor that is giving uncertain readings, without needing to make a close approach to dangerous elements that the sensor might be set up.
+However, reading between 1.8-2.4V for an extended period during operation could mean the sensor is decalibrated or has failed. This reading could be helpful to take action to either replace or fix the sensor that is giving uncertain figures without the need to approach sensor placed within dangerous elements.
 
 ```arduino
 /**
@@ -295,9 +295,12 @@ uint8_t RTU_parser(){
 The setup process to enable all the needed features to manage Small Tank's Opta™ can be found below. Here the Modbus RTU protocol, scheduler, Arduino Cloud, and other features are configured and enabled.
 
 ```arduino
-/*************************************
-* Modbus RTU related tasks
-*************************************/
+/**
+  Sets up Modbus RTU protocol configuration.
+
+  @param none
+  @return none  
+*/
 void RTU_Setup(){
   Serial.println(F("Small Tank - Modbus RTU Client"));
 
@@ -397,9 +400,9 @@ void modbus_line(){
 
 ### The Big Tank (BT) Code
 
-The Opta™ in charge of the Big Tank has a similar structure to the Small Tank's Opta™,  such as Arduino Cloud generated code during the configuration. We will focus on the main tasks that the Big Tank is in charge of and specializes in as a Client.
+The Opta™ in charge of the Big Tank has a similar structure to the Small Tank's Opta™, such as Arduino Cloud generated code during the configuration. We will focus on the primary responsibilities that the Big Tank specializes in as a Client.
 
-The Big Tank Opta™ code has two main tasks: controlling the stop of the system operation and controlling the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is turned off, which will halt the Pump and send the valve off command for Small Tank's Opta™. This sets an emergency stop on the system. The `BT_Pump_CTRL()` will send the valve off request whenever Big Tank's maximum level is reached and activate the pump to avoid reservoir overfill.
+The Big Tank Opta™ code has two main tasks: controlling the stop of the system operation and controlling the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is false, which will halt the pump and send the valve off command for Small Tank's Opta™. Thus system emergency stop is prompted. The `BT_Pump_CTRL()` will send the valve off request whenever Big Tank's capacity reaches the maximum level and activate the pump to avoid reservoir overfill.
 
 ```arduino
 /**
