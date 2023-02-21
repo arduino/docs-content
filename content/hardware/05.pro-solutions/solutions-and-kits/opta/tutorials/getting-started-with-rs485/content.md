@@ -36,7 +36,7 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 - [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/)
 - 24AWG twisted-pair cable (used for electrical connections)
 
-***Notice: This tutorial does not work with Opta™ Lite since it does not have an RS-485 interface.***
+***Notice: Please note that this tutorial is intended to work only with the Opta™ variants that have an RS-485 interface. Check your product information to know more.***
 
 ## RS-485 Interface
 
