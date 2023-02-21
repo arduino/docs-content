@@ -121,7 +121,7 @@ void loop() {
 }
 ```
 
-### Receiver Sketch
+### The Opta™ Receiver Sketch
 
 The receiver has the same configuration as the sender. Although, since it needs to trigger the relays with their corresponding status LEDs based on the received data, it also configures the relays, and built-in LEDs and their states handled in an array with other flags:
 
