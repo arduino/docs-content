@@ -24,8 +24,9 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 
 ## Goals
 
-- Learn how to connect two Opta™ devices through the RS-485 interface.
-- Learn how to exchange information between two Opta™ devices through the RS-485 interface and use it to control the onboard features of the Opta™.
+- Learn how to connect two Opta™ devices through the RS-485 interface
+- Learn how to exchange information between two Opta™ devices through the RS-485 interface and use it to control the onboard features of the Opta™
+
   
 ### Required Hardware and Software
 
