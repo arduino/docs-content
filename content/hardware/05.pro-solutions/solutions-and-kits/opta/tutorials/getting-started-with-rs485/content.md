@@ -212,7 +212,8 @@ You can access the complete example code [here](assets/Opta_RS485_Example.zip); 
 
 ### Testing Out the Sketches
 
-Now it's time to test the application. Using the Serial Monitor of the Arduino IDE, send a value between `1` and `4` with the sender device; sending a `1` should close the relay one and turn on the corresponding status LED of the receiver Opta™ device. Sending a `1` again should open the relay and turn off the status LED of the receiver device.
+Now it is time to test the application. Using the Serial Monitor of the Arduino IDE, send a value between `1` and `4` with the sender device; sending a `1` should close the relay one and turn on the corresponding status LED of the receiver Opta™ device. Sending a `1` again should open the relay and turn off the status LED of the receiver device.
+
 
 Here is a review of the values the receiver Opta™ device can receive and the result they produce:
 
