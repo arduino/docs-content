@@ -200,7 +200,8 @@ void changeRelay() {
   digitalWrite(relays[idx], status);
   digitalWrite(leds[idx], status);
   
-  // Invert
+  // Invert the statuses array to be updated
+
   statuses[idx] = !statuses[idx];
 }
 ```
