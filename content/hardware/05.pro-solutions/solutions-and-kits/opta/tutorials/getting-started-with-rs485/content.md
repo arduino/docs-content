@@ -55,7 +55,8 @@ This tutorial will need the latest version of the Arduino IDE. You can download 
 
 The [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/) will enable the RS-485 interface of the Opta™. This library can be installed via Arduino IDE Library Manager; make sure to install the latest version of the library.
 
-### RS-485 Interface in the Opta™
+### The RS-485 Interface in Opta™
+
 
 Please refer to the following diagram for connecting two Opta™ via its RS-485 interface. The figure also indicates other onboard features of the Opta™, such as its status LEDs and relays; we will use those features in the tutorial.
 
