@@ -64,7 +64,7 @@ Please refer to the following diagram for connecting two Opta™ via its RS-485 
 
 ### Example Overview
 
-We will assign an Opta™ either as a sender or a receiver device; as the role suggests, each Opta™ has a specific task. The sender Opta™ will await data from `1` to `4` via the serial monitor. The Arduini IDE provides a serial monitor that can be used for this task. Each number represents the relay to trigger and its corresponding status LED.
+We will assign an Opta™ either as a sender or a receiver device. As the roles suggest, each Opta™ has a specific task. In the case of the Opta™ that acts as a sender, the device will await data from `1` to `4` via the serial monitor. The Arduino IDE provides a serial monitor that can be used for this task. Each number represents the relay to trigger and its corresponding status LED.
 
 The receiver Opta™ will intercept incoming data, decode them, and process out-of-range incoming data. The decoded data will update the relay state and the status LED accordingly, given its present condition. For instance, if the receiver receives a `2` from the sender while the receiver has a second relay closed with a turned-on second status LED, the receiver will open the relay and turn off the second status LED as a deactivation indication. The process is vice-versa and applies to the rest of the relays with their respective status LEDs.
 
