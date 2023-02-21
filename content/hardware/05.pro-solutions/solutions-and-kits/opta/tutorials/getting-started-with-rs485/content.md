@@ -228,7 +228,7 @@ In this tutorial, we established an RS-485 connection between two Opta™ device
 
 ### Next Steps
 
-Now that you are familiar with the RS-485 communication interface on the Opta™, look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of other features on the device.
+Now that you are familiar with the RS-485 communication interface on the Opta™, take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™.
 
 If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity).
 
