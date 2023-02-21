@@ -68,7 +68,7 @@ We will assign an Opta™ either as a sender or a receiver device. As the roles 
 
 The receiver Opta™ will intercept incoming data, decode them, and process out-of-range incoming data. The decoded data will update the relay state and the status LED accordingly, given its present condition. For instance, if the receiver receives a `2` from the sender while the receiver has a second relay closed with a turned-on second status LED, the receiver will open the relay and turn off the second status LED as a deactivation indication. The process is vice-versa and applies to the rest of the relays with their respective status LEDs.
 
-### Sender Sketch
+###  The Opta™ Sender Sketch
 
 First, we need to define the RS-485 transmission parameters:
 
