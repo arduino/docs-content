@@ -205,7 +205,7 @@ void changeRelay() {
 }
 ```
 
-### Complete Example Code
+### Full Example Code
 
 You can access the complete example code [here](assets/Opta_RS485_Example.zip); after extracting the files, `Opta_RS485_Sender` and `Opta_RS485_Receiver` sketches are available to try with your Opta™ devices.
 
