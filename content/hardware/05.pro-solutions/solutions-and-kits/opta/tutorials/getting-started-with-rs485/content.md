@@ -58,7 +58,7 @@ The [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduino
 ### The RS-485 Interface in Opta™
 
 
-Please refer to the following diagram for connecting two Opta™ via its RS-485 interface. The figure also indicates other onboard features of the Opta™, such as its status LEDs and relays; we will use those features in the tutorial.
+Please refer to the following diagram for connecting two Opta™ via its RS-485 interface. The figure also indicates other onboard features of the Opta™, such as its status LEDs and relays; which will be also used during the tutorial.
 
 ![Connection of two Opta™ devices via RS-485](assets/opta-modbus-connection.svg)
 
