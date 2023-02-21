@@ -197,6 +197,12 @@ In order to proceed with the onboarding, check [this tutorial](https://docs.ardu
 
 #### Device Programming
 
+Once your device has been successfully provisioned into your Arduino IoT Cloud, you can check its status under Devices section. 
+
+![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
+
+So it is now time to start programming your device. Arduino Cloud 
+
 #### OTA Updates
 
 
