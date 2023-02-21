@@ -48,6 +48,7 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 - An [Arduino Nano 33 BLE Sense](https://store.arduino.cc/nano-33-ble-sense) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
 - To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
+- [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) (download only available via GitHub).
 
 The Arduino Nano 33 BLE Sense has a variety of onboard sensors meaning potential for some cool TinyML applications:
 
@@ -127,15 +128,19 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ## IDE Setup
 
-**1.** First, let's make sure we have the drivers for the Nano 33 BLE boards installed. If we are using the online IDE, there is no need to install anything, if you are using the offline IDE, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**, search for **Arduino Mbed OS Nano Boards**, and install it. 
+**1.** First, let's make sure we have the drivers for the Nano 33 BLE boards installed. Select the board manager in the left panel, and search for **"Nano 33 BLE"** and install the **"Arduino Mbed OS Nano Boards"**.
 
-![Install Nano BLE board](assets/BoardsManager.png)
+![Install Nano BLE board](assets/install-board.png)
 
-**2.** Also, let's make sure we have all the libraries we need installed. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino_TensorFlowLite** and **Arduino:LSM9DS1**, and install them both. 
+**2.** Also, let's make sure we have all the libraries we need installed. The **Arduino_LSM9DS1** can be installed in the library manager in the IDE:
 
-![Install the necessary libraries](assets/libManager.png)
+![Install Arduino_LSM9DS1](assets/install-lib.png)
 
-There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://www.arduino.cc/en/Guide/Troubleshooting) guides on the Arduino site if you need help.
+**3.** Finally, we need to download the [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) from the repository. It is not available in the library manager, so it needs to be installed manually.
+
+Once the `.zip` has been downloaded, in the Arduino IDE, choose **Sketch > Include Library > Add .ZIP Library** and select the file.
+
+You may need to restart the IDE for it to work.
 
 ## Streaming Sensor Data From the Arduino Board
 

@@ -6,63 +6,62 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 
 <FeatureList>
-<Feature title="Raspberry Pi RP2040 Microcontroller" image="mcu">
-
-  The all-new low-cost Raspberry Pi silicon is the first microcontroller developed by the Raspberry Pi Foundation.  
-
-  <FeatureLink title="Datasheet" url="https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf" download blank/>
-</Feature>
 
 <Feature title="Python® Support" image="python">
 
-  This board can be programmed with the Python® programming language via the OpenMV IDE.
+  This board can be programmed using MicroPython which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
 
-  <FeatureLink title="Learn More" url="/learn/programming/arduino-and-python"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
+  <FeatureLink variant="secondary" title="Learn More" url="/learn/programming/arduino-and-python"/>
 </Feature>
 
-<Feature title="Dual Core 32-bit Arm® Cortex®-M0+" image="core">
+<Feature title="Machine Learning" image="core">
 
-  Get started with machine learning with TinyML, TensorFlow Lite or Edge Impulse thanks to the high performance energy efficient microprocessor clocked at 133 MHz.
+  Get started with machine learning using TinyML, TensorFlow Lite or Edge Impulse thanks to the high performance energy efficient microprocessor clocked at 133 MHz in your projects.
 
-  <FeatureLink title="Datasheet" url="https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Processor%20Datasheets/Arm%20Cortex-M0%20plus%20Processor%20Datasheet.pdf?revision=76cf8aff-b8fc-4897-b144-ee2858c3398f&la=en&hash=6AF26D8B8C9A0404181234E5612C872619072765" download/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-imu-advanced"/>
+  <FeatureLink variant="secondary" title="Library" url="https://github.com/stm32duino/X-NUCLEO-IKS01A3"/>
 </Feature>
 
+<Feature title="WiFi" image="wifi">
 
-<Feature title="U-blox® Nina W102" image="wifi-bluetooth">
+  The first and only RP2040 board with native WiFi connectivity and Arduino IoT Cloud compatibility. Control your peripherals wirelessly and start implementing IoT and WiFi applications in your projects.
 
-  The first and only RP2040 board with native Bluetooth® and WiFi connectivity.
-
-  <FeatureLink title="Datasheet" url="https://content.u-blox.com/sites/default/files/NINA-W10_ProductSummary_UBX-17051775.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-ap-web-server-rgb"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
 </Feature>
 
-<Feature title="ST LSM6DSOX 6-axis IMU" image="imu">
+<Feature title="Omnidirectional Microphone" image="microphone">
+
+  The Nano RP2040 connect comes with the MP34DT05 microphone. It allows you to capture and analyze sound in real time and can be used to create a voice interface to control your peripherals through sound.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-microphone-basics"/>
+  <FeatureLink variant="secondary" title="Library" url="/learn/built-in-libraries/pdm"/>
+</Feature>
+
+<Feature title="Bluetooth" image="bluetooth">
+
+  The board is Bluetooth® enabled allowing you to control peripheral devices via bluetooth.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
+</Feature>
+
+<Feature title="6-axis IMU" image="imu">
 
   Combined accelerometer and gyroscope with a dedicated machine learning core.
 
-  <FeatureLink title="Datasheet" url="https://www.st.com/resource/en/datasheet/lsm6dsox.pdf" download blank/>
-</Feature>
-
-<Feature title="Omnidirectional Digital Microphone" image="microphone">
-
-  The MP34DT05 microphone allows to capture and analyze sound in real time and can be used to create a voice interface for your project.  
-
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_Sense_mp34dt05-a.pdf" download blank/>
-</Feature>
-
-<Feature title="Microchip ATECC608A Cryptographic Co-processor" image="crypto-chip">
-
-  The powerful, low-power processor that is used in all MKR Family boards.
-
-  <FeatureLink title="Datasheet" url="https://ww1.microchip.com/downloads/en/DeviceDoc/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-imu-basics"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduino_lsm6dsox/"/>
 </Feature>
 
 <Feature title="Temperature Sensor" image="temperature-sensor">
 
   The LSM6DSOX sensor also features an embedded sensor that can be accessed directly via a library.
 
-  <FeatureLink title="Datasheet" url="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#temperature"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#temperature"/>
+  <FeatureLink variant="secondary" title="Library" url="/learn/built-in-libraries/pdm"/>
 </Feature>
-
 
 
 </FeatureList>

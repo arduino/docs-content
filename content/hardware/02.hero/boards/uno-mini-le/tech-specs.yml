@@ -2,7 +2,7 @@ Board:
   Name: Arduino UNO Mini Limited Edition
   SKU: ABX00062
 Microcontroller: ATmega328P
-USB connector: USB-C
+USB connector: USB-C®
 Pins:
   Built-in LED Pin: 13
   Digital I/O Pins: 14

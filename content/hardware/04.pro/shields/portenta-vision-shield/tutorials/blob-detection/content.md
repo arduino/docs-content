@@ -6,8 +6,8 @@ tags: [OpenMV, Blob Detection, Machine Vision, Machine Learning]
 description: This tutorial will show you how to use the Portenta Vision Shield to detect the presence and the position of objects in a camera image.
 author: Sebastian Romero
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---
@@ -25,8 +25,8 @@ In this tutorial you will use the Portenta Vision Shield to detect the presence 
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
 - [Arduino Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
-- USB C cable (either USB A to USB C or USB C to USB C)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
 - Portenta Bootloader Version 20+
 - OpenMV IDE 2.6.4+
 

@@ -65,11 +65,19 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 In this project, we will be using the following circuit. In it, we have a piezo speaker connected to pin 8, a 5M ohm resistor connected between A0 and A1, with jumper wires connected to the tin foil.
 
-![Arduino IoT Bundle](assets/circuit_tLcnUy2ifl.png)
+![Show your love with a hug!](assets/circuit_tLcnUy2ifl.png)
 
 ### Setting up the Arduino IoT Cloud
 
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+
+### Template
+
+To connect your board to the Arduino IoT Cloud, we will use the [I Love You Pillow Template](https://create.arduino.cc/iot/templates/i-love-you-pillow). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+
+See the image below to understand how to set it up.
+
+![Thing overview](assets/template_overview.png)
 
 **We will start by setting up the Arduino IoT Cloud by following the steps below:**
 

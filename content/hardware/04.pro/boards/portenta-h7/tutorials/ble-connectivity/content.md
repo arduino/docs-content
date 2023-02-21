@@ -27,13 +27,13 @@ In this tutorial we will enable low energy Bluetooth® on the Portenta H7 to all
 
 ## Goals
 
--   Enabling Bluetooth® Low Energy connectivity on the Portenta H7.
--   Connecting the Portenta to an external Bluetooth® Low Energy Mobile Application (In this case [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) by Nordic Semiconductor).
+- Enabling Bluetooth® Low Energy connectivity on the Portenta H7.
+- Connecting the Portenta to an external Bluetooth® Low Energy Mobile Application (In this case [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) by Nordic Semiconductor).
 
 ### Required Hardware and Software
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/portenta-h7) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
-- USB C cable (either USB A to USB C or USB C to USB C)
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - Arduino IDE 1.8.13+  or Arduino Pro IDE 0.0.4+ 
 - Mobile device, phone or tablet
 - [nRFconnect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) or equivalent tool downloaded on your mobile device: [nRF Connect for iOS](https://itunes.apple.com/us/app/nrf-connect/id1054362403?ls=1&mt=8) or [nRF Connect for android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp)

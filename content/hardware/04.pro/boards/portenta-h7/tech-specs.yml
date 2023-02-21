@@ -2,7 +2,7 @@ Board:
   Name: Arduino® Portenta H7
   SKU: ABX00042
 Microcontroller: STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU
-USB connector: USB-C
+USB connector: USB-C®
 Pins:
   Digital I/O Pins: 22
   Analog input pins: 8

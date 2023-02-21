@@ -6,21 +6,18 @@ The classic Nano is the oldest member of the Arduino Nano family boards. It is s
 
 
 <FeatureList>
-<Feature title="ATmega328 microcontroller" image="core">
 
-  The ATMega328 CPU runs with 16 MHz and features 32 KB of Flash Memory (of which 2 KB used by bootloader).
+<Feature title="I2C Protocol" image="communication">
 
-  <FeatureLink title="Datasheet" url="http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061A.pdf" download blank/>
+  A communication protocol that can be used to set up communication between two boards.
+
+  <FeatureLink variant="primary" title="Documentation" url="https://www.arduino.cc/reference/en/language/functions/communication/wire/"/>
+  <FeatureLink variant="secondary" title="library" url="https://github.com/arduino/ArduinoCore-avr/tree/master/libraries/Wire"/>
 </Feature>
 
 <Feature title="Tiny footprint" image="nano-form-factor">
 
   With a length of 45 mm and a width of 18 mm the Nano is Arduino's smallest board and weighs only 7 grams.
-</Feature>
 
-
-<Feature title="Made for breadboard" image="configurability">
-
-  The Nano is made for breadboard use and features soldered headers for all pins, allowing to attach the board easily on any breadboard.
 </Feature>
 </FeatureList>

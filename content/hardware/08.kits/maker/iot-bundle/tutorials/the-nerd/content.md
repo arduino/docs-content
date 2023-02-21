@@ -60,6 +60,14 @@ In this project, we will be using the following circuit. In it we have a 220 ohm
 
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
+### Template
+
+To connect your board to the Arduino IoT Cloud, we will use [The Nerd Template](https://create.arduino.cc/iot/templates/the-nerd). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+
+See the image below to understand how to set it up.
+
+![Thing overview](assets/template_overview.png)
+
 Creating a new thing and dashboard is really easy. First go to the Arduino Cloud site [here.](https://create.arduino.cc/iot) Setting up the cloud consists of the following parts:
 
 * Creating a **Thing**

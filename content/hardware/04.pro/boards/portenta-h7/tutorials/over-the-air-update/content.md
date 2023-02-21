@@ -14,7 +14,7 @@ libraries:
     url: https://github.com/arduino-libraries/Arduino_Portenta_OTA
 hardware:
   - hardware/04.pro/boards/portenta-h7
-  - hardware/04.pro/boards/portenta-h7-lite-connected 
+  - hardware/04.pro/boards/portenta-h7-lite-connected
 software:
   - ide-v1
   - ide-v2

@@ -11,8 +11,8 @@ libraries:
   - name: Arduino RS485
     url: https://www.arduino.cc/en/Reference/ArduinoRS485
 hardware:
-  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/01.mkr/02.shields/mkr-485-shield
+  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - _snippets/hardware/jumper-wires
 software:
   - ide-v1

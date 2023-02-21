@@ -55,6 +55,14 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
+### Template
+
+To connect your board to the Arduino IoT Cloud, we will use the [Puzzle Box Template](https://create.arduino.cc/iot/templates/puzzle-box). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+
+See the image below to understand how to set it up.
+
+![Thing overview](assets/template_overview.png)
+
 We will start by setting up the Arduino IoT Cloud by following the steps below:
 
 * Creating a **Thing**

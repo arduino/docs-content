@@ -14,9 +14,9 @@ The Arduino UNO WiFi is the same as a Arduino UNO Rev3 but with an integrated Wi
   
 The ESP8266 Wi-Fi Module is a self contained SoC with integrated TCP/IP protocol stack that can give access to your Wi-Fi network. (Or the device can act as an access point.) One useful feature of UNO WiFi is support for OTA (over-the-air) programming, either for transfer of Arduino sketches or Wi-Fi firmware.
 
-### Documentation
+## Documentation
 
-#### Power
+### Power
 
 The Arduino UNO WiFi can be powered via the USB connection or with an external power supply. The power source is selected automatically.External (non-USB) power can come either from an AC-to-DC adapter (wall-wart) or battery. The adapter can be connected by plugging a 2.1mm center-positive plug into the board's power jack. Leads from a battery can be inserted in the Gnd and Vin pin headers of the POWER connector.  
   
@@ -30,11 +30,11 @@ The power pins are as follows:
 * GND. Ground pins.
 * IOREF. This pin on the Arduino board provides the voltage reference with which the microcontroller operates. A properly configured shield can read the IOREF pin voltage and select the appropriate power source or enable voltage translators on the outputs for working with the 5V or 3.3V supplies.
 
-#### Memory
+### Memory
 
 The ATmega328 has 32 KB Flash (with 0.5 KB used for the bootloader). It also has 2 KB of SRAM and 1 KB of EEPROM (which can be read and written with the EEPROM library).
 
-##### Input and Output
+### Input and Output
 
 Each of the 14 digital pins on the UNO can be used as an input or output, using pinMode(), digitalWrite() and digitalRead() functions. They operate at 5 volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialised functions:  
   
@@ -47,7 +47,7 @@ Each of the 14 digital pins on the UNO can be used as an input or output, using 
 * AREF. Reference voltage for the analog inputs. Used with analogReference().
 * RESET. Bring this line LOW to reset the microcontroller. Typically used to add a reset button to shields which block the one on the board.
 
-#### Communication
+### Communication
 
 The Arduino UNO WiFi has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega328 provides UART TTL (5V) serial communication, which is available on digital pins 0 (RX) and 1 (TX). An ATmega16U2 on the board channels this serial communication over USB and appears as a virtual com port to software on the computer. The 16U2 firmware uses the standard USB COM drivers, and no external driver is needed. However, on Windows, a .inf file is required. The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board. The RX and TX LEDs on the board will flash when data is being transmitted via the USB-to-serial chip and USB connection to the computer (but not for serial communication on pins 0 and 1).  
   
@@ -67,24 +67,19 @@ The perfect way to communicate to internet via your Arduino UNO WiFi is the Ciao
   
 On the Arduino UNO WiFi is pre-uploaded the RestServer sketch that allows you to command immediately your board via browser:  
   
-Connect to the Arduino UNO WiFi SSID and go to the link <http://192.168.240.1/arduino/digital/13/1> to turn ON the LED L  
+Connect to the Arduino UNO WiFi SSID and go to the link http://192.168.240.1/arduino/digital/13/1 to turn ON the LED L  
   
   
 Here other possible commands:  
   
- \* "/arduino/digital/13" -> digitalRead(13)  
-  
- \* "/arduino/digital/13/1" -> digitalWrite(13, HIGH)  
-  
- \* "/arduino/analog/2/123" -> analogWrite(2, 123)  
-  
- \* "/arduino/analog/2" -> analogRead(2)  
-  
- \* "/arduino/mode/13/input" -> pinMode(13, INPUT)  
-  
- \* "/arduino/mode/13/output" -> pinMode(13, OUTPUT)
+- "/arduino/digital/13" -> digitalRead(13)  
+- "/arduino/digital/13/1" -> digitalWrite(13, HIGH)  
+- "/arduino/analog/2/123" -> analogWrite(2, 123)  
+- "/arduino/analog/2" -> analogRead(2)  
+- "/arduino/mode/13/input" -> pinMode(13, INPUT)  
+- "/arduino/mode/13/output" -> pinMode(13, OUTPUT)
 
-#### Programming
+### Programming
 
 The Arduino UNO WiFi can be programmed as a classic Arduino UNO with the Arduino software ([download](http://www.arduino.cc/download)). Select "Arduino UNO WiFi from the Tools > Board menu (according to the microcontroller on your board.  
   
@@ -94,7 +89,7 @@ The ATmega328 on the Arduino UNO WiFi comes pre-burned with a bootloader that al
   
 You can also bypass the bootloader and program the microcontroller through the ICSP (In-Circuit Serial Programming) header using Arduino ISP or similar.
 
-#### Automatic (Software) Reset
+### Automatic (Software) Reset
 
 Rather than requiring a physical press of the reset button before an upload, the Arduino UNO WiFi is designed in a way that allows it to be reset by software running on a connected computer. One of the hardware flow control lines (DTR) of the ATmega8U2/16U2 is connected to the reset line of the ATmega328 via a 100 nanofarad capacitor. When this line is asserted (taken low), the reset line drops long enough to reset the chip. The Arduino software uses this capability to allow you to upload code by simply pressing the upload button in the Arduino environment. This means that the bootloader can have a shorter timeout, as the lowering of DTR can be well-coordinated with the start of the upload.
 
@@ -102,11 +97,11 @@ This setup has other implications. When the UNO WiFi is connected to either a co
   
 The UNO WiFi contains a trace that can be cut to disable the auto-reset. The pads on either side of the trace can be soldered together to re-enable it. It's labeled "RESET-EN". You may also be able to disable the auto-reset by connecting a 110 ohm resistor from 5V to the reset line.
 
-#### USB Overcurrent Protection
+### USB Overcurrent Protection
 
 The Arduino UNO WiFi has a resettable polyfuse that protects your computer's USB ports from shorts and overcurrent. Although most computers provide their own internal protection, the fuse provides an extra layer of protection. If more than 500 mA is applied to the USB port, the fuse will automatically break the connection until the short or overload is removed.
 
-#### Physical Characteristics
+### Physical Characteristics
 
 The maximum length and width of the UNO WiFi PCB are 2.7 and 2.1 inches respectively, with the USB connector and power jack extending beyond the former dimension. Four screw holes allow the board to be attached to a surface or case. Note that the distance between digital pins 7 and 8 is 160 mil (0.16"), not an even multiple of the 100 mil spacing of the other pins.
 
@@ -176,7 +171,7 @@ Now:
 * Select the corresponding serial port in the Tools>Port menu.
 * Upload the **ESP Recovery sketch.** It is into the **UNOWiFiDev.Edition** Library. Download it from **[Library Manager](https://www.arduino.cc/en/Guide/Libraries#toc3).**
 
-```
+```arduino
 /\*ESP Recovery sketch\*/  
 #include <Wire.h>  
 #include <UnoWiFiDevEd.h>  

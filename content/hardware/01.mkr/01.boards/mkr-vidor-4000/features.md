@@ -5,48 +5,28 @@ The MKR VIDOR 4000 is nothing less than a powerhouse of a board, packing a huge 
 
 <FeatureList>
 
-<Feature title="Cortex-M0 32-bit SAMD21" image="core">
-
-The powerful, low-power processor that is used in all MKR Family boards.
-
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf" download blank/>
-
-</Feature>
-
 <Feature title="u-blox NINA-W102" image="wifi-bluetooth">
 
-Enables Bluetooth® and Wi-Fi connectivity for the MKR WiFi 1010 board.
+Enables Bluetooth® and Wi-Fi connectivity for the MKR Vidor 4000 board.
 
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf" download blank/>
-
-</Feature>
-
-<Feature title="ATECC508 crypto chip" image="crypto-chip">
-
-The ECC508 crypto chip makes sure your data remains secure and private, and can store up to 16 keys in an EEPROM array.
-
-<FeatureLink title="Datasheet" url="/resources/datasheets/ATECC508A-datasheet.pdf" download blank/>
-
-</Feature>
-
-<Feature title="Intel® Cyclone® 10CL016" image="mcu">
-
-With a total 16K logical elements, 504kb of embedded RAM, each of its pins can be configured to your own preference: I2C, SPI, UART, PWM and much more.
-
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino-Vidor_c10lp-51001.pdf" download blank/>
-
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/communication/wifi-nina-examples"/>
+  <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
 </Feature>
 
 <Feature title="Micro HDMI connector" image="connection">
 
 Connect your board to an external monitor through the Micro HDMI connector.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-vidor-4000/vidor-draw-logo"/>
+  <FeatureLink variant="secondary" title="library" url="https://github.com/vidor-libraries/VidorGraphics/blob/master/src/VidorGraphics.h/"/>
 </Feature>
 
 <Feature title="MIPI Camera connector" image="camera">
 
-Connect a camera and view the output on an external monitor, or use it for QR recognition!
+Connect a camera and use it to implement QR code in you projects.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-vidor-4000/vidor-qr-recognition"/>
+  <FeatureLink variant="secondary" title="library" url="https://github.com/vidor-libraries/VidorGraphics/blob/master/src/VidorGraphics.h"/>
 </Feature>
 
 

@@ -18,7 +18,7 @@ In this tutorial you will use the Arduino® Nicla Vision to detect the presence 
 ### Required Hardware and Software
 
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
-- Micro USB cable (either USB A to Micro USB or USB C to Micro USB)
+- Micro USB cable (either USB-A to Micro USB or USB-C® to Micro USB)
 - OpenMV IDE 2.9.0+
 
 ## Nicla Vision and the OpenMV IDE

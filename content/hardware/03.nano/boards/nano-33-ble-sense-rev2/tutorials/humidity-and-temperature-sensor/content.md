@@ -10,7 +10,7 @@ tags:
 author: 'Jose Garcia'
 libraries: 
   - name: Arduino H2300x
-    url: https://www.arduino.cc/en/Reference/ArduinoHS300x
+    url: https://reference.arduino.cc/reference/en/libraries/arduino_hs300x/
 hardware:
   - hardware/03.nano/boards/nano-33-ble-sense-rev2
 software:
@@ -64,7 +64,7 @@ Some of the useful ways they are used are seen in the following applications:
 - Asset and goods tracking.
 
 
-If you want to read more about the HTS221 sensor you can take a look at the [datasheet](https://content.arduino.cc/assets/REN_HS300x-Datasheet_DST.pdf)
+If you want to read more about the HS3003 sensor you can take a look at the [datasheet](/resources/datasheets/REN_HS300x-Datasheet_DST.pdf)
 
 
 
@@ -191,5 +191,5 @@ Sometimes errors occur, if the project is not working as intended there are some
 
 ## Conclusion
 
-In this simple tutorial we learned how to read temperature and humidity values from the  **HS3003** sensor using the [HS300x library](https://github.com/arduino-libraries/Arduino_HS300x), and how to use the sensor embedded in the Arduino Nano 33 BLE Sense Rev2 board, to measure and print out humidity and temperature values from the environment.
+In this simple tutorial we learned how to read temperature and humidity values from the  **HS3003** sensor using the [HS300x library](https://reference.arduino.cc/reference/en/libraries/arduino_hs300x/), and how to use the sensor embedded in the Arduino Nano 33 BLE Sense Rev2 board, to measure and print out humidity and temperature values from the environment.
 

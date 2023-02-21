@@ -18,6 +18,7 @@ software:
   - ide-v2
   - web-editor
 author: "Arduino"
+contributeURL: content/tutorials/generic
 ---
 ## Introduction
 This example reads audio data from an Invensense's ICS43432I2S microphone breakout board, and uses the input to detect clapping sounds. The built-in LED is toggled when a clap is detected.
