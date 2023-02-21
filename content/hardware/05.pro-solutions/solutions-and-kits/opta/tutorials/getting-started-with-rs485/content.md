@@ -196,7 +196,7 @@ void changeRelay() {
   // Get current status
   auto status = statuses[idx] ? HIGH : LOW;
   
-  // Apply
+  // Apply new status to the outputs
   digitalWrite(relays[idx], status);
   digitalWrite(leds[idx], status);
   
