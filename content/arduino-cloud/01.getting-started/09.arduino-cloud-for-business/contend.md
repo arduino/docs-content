@@ -55,7 +55,7 @@ In the next steps, add all your billing and payment information and purchase you
 
 Now you are ready to get started with your brand new Arduino Cloud for Business plan. Check the next sections to understand how to set-up your account and which features are included in your plan.  
 
-### Join A Space
+### Manage your Spaces
 
 Once your plan has been successfully purchased, you will be asked to define the company / space name for your workspace. You are free to modify it in a second time by navigating to `Arduino Cloud > General Settings > Space information > Edit info > Name`. 
 
@@ -189,21 +189,38 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 ![Successful provisioning](assets/provisioning-success.png "Successful provisioning")
 
+You can now check its status under Devices section. 
+
+![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
+
 ##### Device Provisioning With Arduino Cloud CLI
 
 If you need to provision more than one device at a time or you prefer to work through your terminal, we have the right tool for you: [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli). 
 
 In order to proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli), it will explain you all the required steps to provision your board through your terminal. 
 
+#### Assign A Thing To Your Device
+
+
+
 #### Device Programming
 
-Once your device has been successfully provisioned into your Arduino IoT Cloud, you can check its status under Devices section. 
+It is now time to start uploading sketches on your devices. 
 
-![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
+For this purpose, Arduino Cloud integrates a [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features without having to install any software locally. 
 
-So it is now time to start programming your device. Arduino Cloud 
+In order to open the Web Editor, go to Arduino Cloud Home and click on the Web Editor button. 
+
+![Start with Web Editor](assets/web-editor-button.png "Start with Web Editor")
+
+***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). On the other hand, if you have already developed your sketch and you would like to import it in the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
+
+All the sketches you are going to create are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Web Editor only if you share it with them. If you would like to do so, have a look at [this dedicated tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches). 
+
+Keep in mind that your skecth may contain some sensitive data that you do not want to share with other members, like Wi-Fi credentials or API keys. If this is the case, check [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/store-your-sensitive-data-safely-when-sharing) to learn how to share sketches without sharing sensitive data. 
 
 #### OTA Updates
+
 
 
 ### Fleet Management
