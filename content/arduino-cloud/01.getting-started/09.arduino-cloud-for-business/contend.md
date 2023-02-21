@@ -189,7 +189,9 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 ![Successful provisioning](assets/provisioning-success.png "Successful provisioning")
 
-You can now check its status under Devices section. 
+You can now check its status under Devices section. This section displays the name, status, and linked Things for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity and the date when the device was added.
+
+The status of the device indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
 
 ![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
 
@@ -201,6 +203,9 @@ In order to proceed with the onboarding, check [this tutorial](https://docs.ardu
 
 #### Assign A Thing To Your Device
 
+As already said, once a device is successfully configured, it appears in the "Devices" list and can be used to create a Thing, or can be linked to an existing Thing.
+
+In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of the variables and other settings, as well as the history of the data collected for the variables.
 
 
 #### Device Programming
