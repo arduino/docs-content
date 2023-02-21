@@ -232,4 +232,4 @@ Now that you are familiar with the RS-485 communication interface on the Opta™
 
 If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity).
 
-If you are interested in seeing the RS-485 interface and the Opta™ being put to work in a real-life scenario, have a look at [tank level application note](/tutorials/opta/tank-level-app-note).
+If you are interested in seeing the RS-485 interface and the Opta™ being put to work in a real-life scenario, check the [tank level application note](/tutorials/opta/tank-level-app-note).
