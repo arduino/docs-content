@@ -70,7 +70,7 @@ The receiver Opta™ will intercept incoming data, decode them, and process out-
 
 ###  The Opta™ Sender Sketch
 
-First, we need to define the RS-485 transmission parameters:
+The first step to do is to define the RS-485 transmission parameters:
 
 ```arduino
 #include <ArduinoRS485.h>
