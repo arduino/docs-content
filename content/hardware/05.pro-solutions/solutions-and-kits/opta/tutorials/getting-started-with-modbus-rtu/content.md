@@ -39,7 +39,9 @@ The **Opta™**, with its industrial hardware and software capabilities, and the
 - Opta™ PLC with RS-485 support (x2)
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
-- Wires with similar specs: STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated) 100-130Ω rated cable for RS-485 connection (x3)
+- Wires similar to the following specs  (x3): 
+- - STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated)
+- - 100-130Ω rated for RS-485 connection
 
 ### Software Requirements
 
