@@ -43,6 +43,7 @@ The **Opta™**, with its industrial hardware and software capabilities and the 
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `ArduinoModbus`. You can install these libraries via the Library Manager of the Arduino IDE.
 
 ## Modbus Protocol
 
@@ -58,7 +59,7 @@ Reliability in communications between electronic devices is ensured with Modbus 
 
 ### Setting Up the Arduino IDE
 
-If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, see our [getting started tutorial](/tutorials/opta/getting-started). Make sure you install the latest version of the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) library because it will be used to implement the Modbus RTU communication protocol.
+If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, check our [getting started tutorial](/tutorials/opta/getting-started). Make sure you install the latest version of the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) library because it will be used to implement the Modbus RTU communication protocol.
 
 ***`ArduinoModbus` library is dependent of the `ArduinoRS485` library; remember to install both libraries.***
 
@@ -116,7 +117,7 @@ void setup() {
 
 The `preDelay` and `postDelay` parameters are configured for a proper operation per Modbus RTU specification. The method `RS485.setDelays(preDelayBR, postDelayBR)` is then called to correctly set and use Modbus RTU over RS-485 interface on Opta™. In this example, such parameters are applied based on the message RTU framing specifications explained in depth in this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf).
 
-The baud rate can be configured as `4800`, `9600`, and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. The `SERIAL_8E1` defines the serial port parameters setting (8 data bits, even parity, and one stop bit).
+The typical baud rate are usually `9600` and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. For the serial port parameter, `SERIAL_8E1` is defined for setting 8 data bits, even parity, and one stop bit.
 
 The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the monitored information or measurements. Inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values to access these types of data. Such data are `Coil`, `Holding`, `Discrete Input`, and `Input` register values.
 
@@ -203,6 +204,9 @@ void loop() {
     Serial.println();
 }
 
+/**
+  Writes Coil values to the server under specified address.
+*/
 void writeCoilValues() {
     // set the coils to 1 when counter is odd
     byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
@@ -226,6 +230,9 @@ void writeCoilValues() {
     // ModbusRTUClient.coilWrite(...)
 }
 
+/**
+  Reads Coil values from the server under specified address.
+*/
 void readCoilValues() {
     Serial.print("Reading Coil values ... ");
 
@@ -248,6 +255,9 @@ void readCoilValues() {
     // ModbusRTUClient.coilRead(...)
 }
 
+/**
+  Reads Discrete Input values from the server under specified address.
+*/
 void readDiscreteInputValues() {
     Serial.print("Reading Discrete Input values ... ");
 
@@ -270,6 +280,9 @@ void readDiscreteInputValues() {
     // ModbusRTUClient.discreteInputRead(...)
 }
 
+/**
+  Writes Holding Register values to the server under specified address.
+*/
 void writeHoldingRegisterValues() {
     // set the Holding Register values to counter
 
@@ -292,6 +305,9 @@ void writeHoldingRegisterValues() {
     // ModbusRTUClient.holdingRegisterWrite(...)
 }
 
+/**
+  Reads Holding Register values from the server under specified address.
+*/
 void readHoldingRegisterValues() {
     Serial.print("Reading Holding Register values ... ");
 
@@ -314,6 +330,9 @@ void readHoldingRegisterValues() {
     // ModbusRTUClient.holdingRegisterRead(...)
 }
 
+/**
+  Reads Input Register values from the server under specified address.
+*/
 void readInputRegisterValues() {
     Serial.print("Reading input register values ... ");
 
@@ -397,7 +416,7 @@ In the `setup()` function of the sketch dedicated to the Modbus server, the Serv
 ModbusRTUServer.poll();
 ```
 
-This is the line that will poll for Modbus RTU requests. The complete code for the Server is shown below:
+This is the line that polls for Modbus RTU requests. The complete code for the Server is shown below:
 
 ```arduino
 /**

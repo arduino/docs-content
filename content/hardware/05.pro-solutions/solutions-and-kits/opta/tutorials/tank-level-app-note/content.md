@@ -25,11 +25,11 @@ hardware:
 
 ## Introduction
 
-Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks operated in many industries, even at home. Some industrial applications include transport and storage tanks like, for example, a tank in a water treatment plant. In household applications, tank level monitoring is essential for applications like water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines... the list goes on. With its industrial IoT capabilities, Opta™ micro PLC can be the perfect solution for these industrial applications.
+Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks operated in many industries, even at home. Some industrial applications include transport and storage tanks like, for example, a tank in a water treatment plant. In household applications, tank level monitoring is essential for applications as water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines, and so on. With its industrial IoT capabilities, Opta™ micro PLC can be the perfect solution for these industrial applications.
 
 ## Goals
 
-This application note aims to show a system capable of monitoring and adjusting two tank levels using Opta™. We will refer to those tanks as **Big Tank (BT) and Small Tank (ST)**. The goals to be met by the application are the following:
+Present application note aims to show a system capable of monitoring and adjusting two tank's level using Opta™. We will refer to these tanks as **Big Tank (BT) and Small Tank (ST)**. The application goals are the following:
 
 - Big Tank (BT) and Small Tank (ST) levels must stay within a minimum and a maximum user-defined level; maximum and minimum levels will be measured using float switches. A vertical-type float switch will be used for measuring the maximum level, while a horizontal-type float switch will be used for measuring the minimum level in the tanks.
 - If the Small Tank (ST)  level goes below its minimum level, a relay opens a gate valve from the Big Tank (BT), letting the Big Tank (BT) liquid fill the Small Tank (ST). When the level in the Small Tank (ST) goes over its maximum, the relay closes the gate valve.
@@ -40,7 +40,7 @@ A graphical representation of the intended application is shown below:
 
 ![Graphical representation of the tank level monitoring application.](assets/application_representation.svg)
 
-The Big Tank has at least twice the capacity of the Small Tank in the experimental setup shown before. The communication between both tanks is done using Modbus RTU.
+The Big Tank has at least twice the capacity of the Small Tank in the experimental setup shown above. The Opta™ devices communicate with each other using Modbus RTU protocol over the RS-485 interface to oversee its responsible container.
 
 ## Hardware and Software Requirements
 
@@ -58,38 +58,38 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, `ArduinoModbus`, and `Scheduler`. You can install these libraries via the Library Manager of the Arduino IDE.
-- The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. The Arduino Cloud account is free and it will be needed to access its features.
+- The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the provided sketch in later section. The Ethernet connection is also an available connectivity option. The Arduino Cloud account is free and is needed to access its features.
 
-## Demonstration Setup
+## Tank Level Monitoring Model Setup
 
 The electrical connections of the intended application are shown in the diagram below:
 
 ![Electrical connections of the application.](assets/electrical_connections.svg)
 
-The two Opta™ will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of both Opta™.
+The two Opta™ devices will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of both Opta™.
 
-## Demonstration Description
+## Tank Level Monitoring Model Overview
 
-Each one of the tanks has a specific monitoring routine to track and control their minimum and maximum levels. Both Opta™ will exchange important states and parameters of each tank to understand and take appropriate actions to maintain the desired capacities in the application. As mentioned before, the Opta™ in charge of the Small Tank (ST) and Big Tank (BT) will communicate with each other using Modbus RTU protocol. The Big Tank will be the Client, while the Small Tank will behave as Server.
+Each tank has a specific monitoring routine to track and control their minimum and maximum levels. Both Opta™ will exchange important states and parameters to understand and take appropriate actions to maintain the desired capacities in the application. As mentioned before, the Opta™ in charge of the Small Tank (ST) and Big Tank (BT) will communicate with each other using Modbus RTU protocol. The Big Tank will be the Client, while the Small Tank will behave as Server.
 
-The Opta™ in the Big Tank (BT) performs the following actions:
+The Opta™ responsible of the Big Tank (BT) performs the following actions:
 
-- It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from Big Tank to Small Tank.
-- It shuts off the system completely, halting most of the activities.
-- It sends the current minimum level state to Small Tank while also seeking for Small Tank's maximum level state.
+- It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from Big Tank to Small Tank
+- It shuts off the system completely, halting most of the activities
+- It sends the current minimum level state to Small Tank while also seeking for Small Tank's maximum level state
 
-The Opta™ in the Small Tank (ST) performs the following actions:
+The Opta™ responsible of the Small Tank (ST) performs the following actions:
 
-- It manages the solenoid/ball valve given the Small Tank level and Big Tank minimum level state.
-- It sends Small Tank's current maximum level state to Big Tank while seeking Big Tank's minimum level state.
+- It manages the solenoid/ball valve given the Small Tank level and Big Tank minimum level state
+- It sends Small Tank's current maximum level state to Big Tank while seeking Big Tank's minimum level state
 
-In addition to the functionalities explained before, both Opta™ connect to Arduino Cloud via Wi-Fi®. Thanks to the Arduino Cloud, both tanks can be monitored and controlled online.
+In addition to these functionalities, both Opta™ connect to Arduino Cloud via Wi-Fi®. Thanks to the Arduino Cloud, both tanks can be monitored and controlled remotely.
 
 ### The Small Tank (ST) Code
 
 We will highlight the details that make up a crucial part of the Opta™ in charge of the Small Tank. Notice that some of the functions in the code are generated by Arduino Cloud during the dashboard configuration. We will begin with the required libraries.
 
-The following headers are required to enable the Modbus RTU protocol, connection with the Arduino Cloud, and the scheduler. The scheduler handles the data exchange using Modbus RTU protocol while keeping the `loop()` to manage the local parameters of the Small Tank. It will also define the parameters needed per Modbus RTU specification as `preDelay` and `postDelay`.
+The following headers are required to enable the Modbus RTU protocol, connection with the Arduino Cloud, and the scheduler. The scheduler will handle the data exchange using Modbus RTU protocol while prioritizing the `loop()` to manage the local tasks of the Small Tank. Here also defines the parameters needed per Modbus RTU specification as `preDelay` and `postDelay`.
 
 ```arduino
 #include "thingProperties.h"
@@ -121,7 +121,6 @@ However, reading between 1.8-2.4V for an extended period during operation could 
 
   @param ST_Max Small Tank's maximum sensor state.
   @param ST_Min Small Tank's minimum sensor state.
-  @return none
 */
 uint8_t ST_Level_Check(){
   // Simple sensor read state 
@@ -182,9 +181,9 @@ uint8_t ST_MinSensor_A1(){
 }
 ```
 
-The Opta™ controlling the Small Tank will need to recognize the reservoir's capacity and use such information to maintain the nominal volume. A 2/2-way normally closed direct acting solenoid or a motorized ball valve is used in this setup and controlled by the Small Tank to free the volume whenever certain conditions are applicable.
+The Opta™ monitoring the Small Tank will need to recognize the reservoir's capacity and use such information to maintain its nominal volume. A 2/2-way normally closed direct acting solenoid or a motorized ball valve is used in this setup and controlled by the Small Tank to free the volume whenever certain conditions are applicable.
 
-The following function helps to control this valve by reading the reservoir's capacity and external information from the Big Tank. The `BT_Min` is the float switch state for Big Tank's minimum level, attained via communication using Modbus RTU protocol.
+The following function helps to control the valve by reading the reservoir's capacity and external information from the Big Tank. The `BT_Min` is the float switch state for Big Tank's minimum level, attained via communication using Modbus RTU protocol.
 
 ```arduino
 /**
@@ -194,7 +193,6 @@ The following function helps to control this valve by reading the reservoir's ca
   @param ST_Valve_Cloud Small Tank's valve state on Cloud side.
   @param ST_Min Small Tank's minimum sensor state.
   @param ST_Max Small Tank's maximum sensor state.
-  @return none
 */
 uint8_t ST_Volume_CTRL(){
   // Active main condition to free Small Tank volume
@@ -234,7 +232,6 @@ As the Opta™ receives `BT_Min` from the Big Tank, the Small Tank also shares t
   Shares Small Tank's parameters with Big Tank based on the Small Tank's maximum sensor state.
 
   @param ST_Max Small Tank's maximum sensor state.
-  @return none
 */
 void ST_Param_Share(){
   // Simple representation for Small Tank's Maximum level sensor
@@ -257,7 +254,7 @@ It is possible to notice whenever an Opta™ exchanges information with another 
 ModbusRTUServer.inputRegisterWrite(0, 0x37)
 ```
 
-In the meantime, the Big Tank's Opta™ will send such parameters, while the Small Tank Opta™ will poll for Modbus RTU requests to determine whether to activate a specific module or if it is activated. In this example, if we receive `0x56` from the Big Tank Opta™, the Small Tank will turn off the valve. If it captures the data `0x31` or `0x32`, the Small Tank will have the information regarding Big Tank's minimum level. The following simple parser does this task inside the Small Tank's Opta™.
+In the meantime, the Big Tank's Opta™ will send such parameters, while the Small Tank Opta™ will poll for Modbus RTU requests to determine whether to activate a specific module or know if it is activated. In this example, if we receive `0x56` from the Big Tank Opta™, the Small Tank will turn off the valve. If it captures the data `0x31` or `0x32`, the Small Tank will have the information regarding Big Tank's minimum level state. The following simple parser does this task inside the Small Tank's Opta™.
 
 ```arduino
 /**
@@ -266,7 +263,6 @@ In the meantime, the Big Tank's Opta™ will send such parameters, while the Sma
   @param bigTank_coil Input Register value reading from Big Tank.
   @param ST_Valve Small Tank's valve state.
   @param BT_Min Big Tank's minimum sensor state.
-  @return none
 */
 uint8_t RTU_parser(){
   // poll for Modbus RTU requests
@@ -292,14 +288,11 @@ uint8_t RTU_parser(){
 }
 ```
 
-The setup process to enable all the needed features to manage Small Tank's Opta™ can be found below. Here the Modbus RTU protocol, scheduler, Arduino Cloud, and other features are configured and enabled.
+The setup process to enable all the needed features to manage Small Tank's Opta™ can be found below. The Modbus RTU protocol, scheduler, Arduino Cloud, and other features are configured and enabled here.
 
 ```arduino
 /**
   Sets up Modbus RTU protocol configuration.
-
-  @param none
-  @return none  
 */
 void RTU_Setup(){
   Serial.println(F("Small Tank - Modbus RTU Client"));
@@ -361,7 +354,7 @@ void setup() {
 }
 ```
 
-The main `loop()` manages the general execution and the local parameters. The `modbus_line()` function handles the data exchange between the two Opta™ using the Modbus RTU protocol.
+The main `loop()` manages overall tank's processes and its local parameters. The `modbus_line()` function handles the data exchange between the two Opta™ using the Modbus RTU protocol.
 
 ```arduino
 void loop() {
@@ -385,9 +378,6 @@ void loop() {
 
 /**
   Dedicated function for scheduler on handling ST_Param_Share() and RTU_parser().
-
-  @param none
-  @return none
 */
 void modbus_line(){
   ST_Param_Share();
@@ -402,7 +392,7 @@ void modbus_line(){
 
 The Opta™ in charge of the Big Tank has a similar structure to the Small Tank's Opta™, such as Arduino Cloud generated code during the configuration. We will focus on the primary responsibilities that the Big Tank specializes in as a Client.
 
-The Big Tank Opta™ code has two main tasks: controlling the stop of the system operation and controlling the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is false, which will halt the pump and send the valve off command for Small Tank's Opta™. Thus system emergency stop is prompted. The `BT_Pump_CTRL()` will send the valve off request whenever Big Tank's capacity reaches the maximum level and activate the pump to avoid reservoir overfill.
+The Big Tank Opta™ code has two main tasks: to halt the system's operation due to emergency stop state and to control the attached pump. The `BT_System_Off()` is triggered if the minimum level flag is false, which will halt the pump and send the valve off command for Small Tank's Opta™. Thus system emergency stop is prompted. The `BT_Pump_CTRL()` will send the valve off request whenever Big Tank's capacity reaches the maximum level and activate the pump to avoid reservoir overfill.
 
 ```arduino
 /**
@@ -488,7 +478,7 @@ void BT_Param_Share(){
 }
 ```
 
-In this example, if we receive `0x50` from the Small Tank Opta™, the Big Tank will turn off the pump. If it captures `0x36` or `0x37`, the Big Tank will have the information regarding Small Tank's maximum level. The following simple parser does this task inside the Big Tank's Opta™. The minor difference between the Small Tank Opta™ is how it seeks for the data to retrieve. The Big Tank Opta™ will use `readInputRegisterValues(42, 0x00, 1)` to request Small Tank Opta™ and search for the data if it has available information.
+In this example, if we receive `0x50` from the Small Tank Opta™, the Big Tank will turn off the pump. If it captures `0x36` or `0x37`, the Big Tank will have the information regarding Small Tank's maximum level. The following simple parser does this task inside the Big Tank's Opta™. The minor difference between the Small Tank Opta™ resides in how it seeks for the data to retrieve. The Big Tank Opta™ will use `readInputRegisterValues(42, 0x00, 1)` to request Small Tank Opta™ and search for the data if it has available information.
 
 ```arduino
 /**
@@ -497,7 +487,6 @@ In this example, if we receive `0x50` from the Small Tank Opta™, the Big Tank 
   @param smallTank_coil Input Register value reading from Small Tank.
   @param BT_Pump Big Tank's pump state.
   @param ST_Max Small Tank's maximum sensor state.
-  @return none
 */
 uint8_t RTU_parser(){
   smallTank_coil = readInputRegisterValues(42, 0x00, 1);
@@ -525,9 +514,6 @@ Since the Big Tank Opta™ is the Client, the Modbus RTU protocol is configured 
 ```arduino
 /**
   Sets up Modbus RTU protocol configuration.
-
-  @param none
-  @return none  
 */
 void RTU_Setup(){
   Serial.println(F("Big Tank - Modbus RTU Client"));
@@ -548,7 +534,6 @@ void RTU_Setup(){
   @param reg_address Register address.
   @param holding_write Data to write.
   @param byte_count Number of bytes.
-  @return none
 */
 void writeHoldingRegisterValues(int dev_address, uint8_t reg_address, uint8_t holding_write, int byte_count){
   ModbusRTUClient.beginTransmission(dev_address, HOLDING_REGISTERS, reg_address, byte_count);
@@ -569,7 +554,6 @@ void writeHoldingRegisterValues(int dev_address, uint8_t reg_address, uint8_t ho
   @param reg_address Register address.
   @param byte_count Number of bytes.
   @param packet Holding register value reading.
-  @return none
 */
 void readHoldingRegisterValues(int dev_address, uint8_t reg_address, int byte_count, uint8_t packet){
   if (!ModbusRTUClient.requestFrom(dev_address, HOLDING_REGISTERS, reg_address, byte_count)) {
@@ -593,7 +577,6 @@ void readHoldingRegisterValues(int dev_address, uint8_t reg_address, int byte_co
   @param dev_address Device address.
   @param reg_address Register address.
   @param byte_count Number of bytes.
-  @return none
 */
 uint8_t readInputRegisterValues(int dev_address, uint8_t reg_address, int byte_count){
   uint8_t packet;
@@ -637,9 +620,6 @@ void loop() {
 
 /**
   Dedicated function for scheduler on handling BT_Param_Share() and RTU_parser().
-
-  @param none
-  @return none
 */
 void modbus_line(){
   BT_Param_Share();
@@ -652,11 +632,11 @@ void modbus_line(){
 
 ### The Cloud Dashboard
 
-Thanks to the Arduino Cloud, we can create a simple but useful dashboard to have a professional real-time HCI as it can be seen below:
+Thanks to the Arduino Cloud, we can create a simple but useful dashboard to have a professional real-time Human-Computer Interaction (HCI) as it can be seen below:
 
 ![Arduino Cloud integration with the tanks.](assets/cloud_integration.svg)
 
-Within Arduino Cloud's dashboard, both tank's system status can be monitored. Remote actuation is available for both Opta™ regarding its managed tasks, meaning such actuators and emergency stop can be controlled manually on-demand. The dashboard can be used to simulate as well, even without a full exact setup of the application note, the hardware described in this article.
+Within Arduino Cloud's dashboard, both tank's system status can be monitored. Remote actuation is available for both Opta™ regarding its managed tasks, meaning such actuators and emergency stop can be controlled manually on-demand. The dashboard can be used to simulate as well, even without a full exact setup of the application note.
 
 ## Full Tank Level Monitoring Example
 
