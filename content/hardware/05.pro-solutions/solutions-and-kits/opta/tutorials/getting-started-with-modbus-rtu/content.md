@@ -67,7 +67,7 @@ If you haven't already, head over [here](https://www.arduino.cc/en/software) and
 
 ### Connecting the Opta™ Over RS-485
 
-Refer to the following diagram for connecting two Opta™ devices via RS-485 interface.
+To use the Modbus RTU communication protocol, first you need to create an RS-485 connection. Refer to the following diagram for connecting two Opta™ devices via RS-485 interface.
 
 ![Connecting two Opta™ devices via RS-485](assets/opta-modbus-connection.svg)
 
