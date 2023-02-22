@@ -285,17 +285,42 @@ Arduino Cloud for Business allows any user to download historical data from Ardu
 
 ![Export your data](assets/download-data.png "Exporte your data")
 
-***Do you want to start exporting your data locally? See [this documentation](https://docs.arduino.cc/arduino-cloud/features/iot-cloud-historical-data).***
-
+***Do you want to start exporting your data locally? See [this documentation](https://docs.arduino.cc/arduino-cloud/features/iot-cloud-historical-data) to get started.***
 
 ## Arduino Cloud API
 
+Use Arduino IoT Cloud back-end to control Things and devices via Arduino rest APIs in [Javascript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you will be able to manage up to 10 requests per second, guaranteeing stable data sharing. 
+
+Leveraging the APIs, you can interact with any element of the Cloud: data, devices, dashboards and web properties. At the same time, APIs allows you to add the power to script, to create complex scenarios or to send and receive data from your custom or 3rd party service or mobile application.
+
+To use the APIs, you need to create an API Kei in the API Keys section of your Space. 
+
+***We strongly recommend you to add a Service Account role in to your Shared Space to create/manage/maintain API Keys Tokens. The Service Acocunt should not be linked to a personal email account, so that the API Keys which will be created do not risk to get lost if that email account is cancelled.***
+
+***If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).***
+
 ## IoT Cloud App
 
-Monitor your dashboards anywhere, anytime. Use your dashboards on the go, and control projects from your smartphone using the free IoT Remote app.
+Monitor your dashboards anywhere, anytime and use your dashboards on the go with the free IoT Remote app.
 
+To start using it, you will need to download it from either [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the [Apple App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device. 
+
+***Do you want to get started with it? Read [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/iot-remote-phone-sensors#phone-setup).***
 
 ## Arduino Cloud CLI 
+
+As already mentioned, Arduino Cloud for Business fully supports the [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli). The Arduino Cloud CLI allows to access all the Arduino Cloud features from your terminal window. 
+
+Arduino Cloud CLI is the right choice when you are familiar with command-line interfaces and you would like to manage multiple devices and Things at the same time with few lines of code. 
+
+These are the main features of Arduino Cloud CLI: 
+* [Mass provisioning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#device), i.e. provisioning of multiple devices at the same time. 
+* [Mass OTA updates](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air), i.e. Over-The-Air update of multiple devices at the same time. 
+* Advanced fleet management, including multiple devices [tagging](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#list-devices).
+* Things monitoring and management, such as Things [tagging](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#tag-a-thing), [listing](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#list-things), [cloning](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#clone-things) and [template creation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#extract-thing-template).
+* Dashboard [creation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#create-dashboard)/[cancellation](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#delete-dashboards), maintenance and dashboard [template extraction](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#extract-dashboard-template).
+
+***If you would like to learn more on Arduino cloud CLI and get started with it, check the corresponding documentation available [here](https://docs.google.com/document/d/1UBh5L-GXiAJiZG4LoZ5nY7ldXd7PAXSDax3pyb5DULU/edit).***
 
 ## Optional Add-Ons
 
