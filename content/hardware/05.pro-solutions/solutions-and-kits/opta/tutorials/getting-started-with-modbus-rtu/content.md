@@ -23,7 +23,7 @@ hardware:
 
 ## Overview
 
-Modbus is an open serial protocol derived from the client/server architecture initially developed and published by Modicon (now Schneider Electric) in 1979 for use with programmable logic controllers (PLCs); since 1979, Modbus has become a standard communications protocol in industrial electronic devices.
+Modbus is an open serial protocol derived from the client/server architecture initially developed and published by Modicon (now Schneider Electric) to be used with programmable logic controllers (PLCs). Since 1979, Modbus has become a standard communications protocol in industrial electronic devices.
 
 The **Opta™**, with its industrial hardware and software capabilities and the Arduino ecosystem tools such as the Arduino IDE and its libraries, can implement this communications protocol with ease. In this tutorial, we will learn how to implement Modbus RTU communications protocol over RS-485 between two Opta™ devices.
 
