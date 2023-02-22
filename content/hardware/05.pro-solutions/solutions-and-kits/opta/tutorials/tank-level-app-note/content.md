@@ -38,7 +38,7 @@ Present application note aims to show a system capable of monitoring and adjusti
 
 A graphical representation of the intended application is shown below:
 
-![Graphical representation of the tank level monitoring application.](assets/application_representation.svg)
+![Graphical representation of the tank level monitoring application](assets/application_representation.svg)
 
 The Big Tank has at least twice the capacity of the Small Tank in the experimental setup shown above. The Opta™ devices communicate with each other using Modbus RTU protocol over the RS-485 interface to oversee its responsible container.
 
@@ -64,7 +64,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical connections of the application.](assets/electrical_connections.svg)
+![Electrical connections of the application](assets/electrical_connections.svg)
 
 The two Opta™ devices will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of both Opta™.
 
@@ -74,14 +74,14 @@ Each tank has a specific monitoring routine to track and control their minimum a
 
 The Opta™ responsible of the Big Tank (BT) performs the following actions:
 
-- It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from Big Tank to Small Tank
-- It shuts off the system completely, halting most of the activities
-- It sends the current minimum level state to Small Tank while also seeking for Small Tank's maximum level state
+- It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from Big Tank to Small Tank.
+- It shuts off the system completely, halting most of the activities.
+- It sends the current minimum level state to Small Tank while also seeking for Small Tank's maximum level state.
 
 The Opta™ responsible of the Small Tank (ST) performs the following actions:
 
-- It manages the solenoid/ball valve given the Small Tank level and Big Tank minimum level state
-- It sends Small Tank's current maximum level state to Big Tank while seeking Big Tank's minimum level state
+- It manages the solenoid/ball valve given the Small Tank level and Big Tank minimum level state.
+- It sends Small Tank's current maximum level state to Big Tank while seeking Big Tank's minimum level state.
 
 In addition to these functionalities, both Opta™ connect to Arduino Cloud via Wi-Fi®. Thanks to the Arduino Cloud, both tanks can be monitored and controlled remotely.
 
@@ -634,7 +634,7 @@ void modbus_line(){
 
 Thanks to the Arduino Cloud, we can create a simple but useful dashboard to have a professional real-time Human-Computer Interaction (HCI) as it can be seen below:
 
-![Arduino Cloud integration with the tanks.](assets/cloud_integration.svg)
+![Arduino Cloud integration with the tanks](assets/cloud_integration.svg)
 
 Within Arduino Cloud's dashboard, both tank's system status can be monitored. Remote actuation is available for both Opta™ regarding its managed tasks, meaning such actuators and emergency stop can be controlled manually on-demand. The dashboard can be used to simulate as well, even without a full exact setup of the application note.
 
