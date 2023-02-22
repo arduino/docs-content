@@ -119,7 +119,7 @@ void setup() {
 
 The `preDelay` and `postDelay` parameters are configured for a proper operation per Modbus RTU specification. The method `RS485.setDelays(preDelayBR, postDelayBR)` is then called to correctly set and use Modbus RTU over RS-485 interface on Opta™. In this example, such parameters are applied based on the message RTU framing specifications explained in depth in this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf).
 
-The typical baud rate are usually `9600` and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. For the serial port parameter, `SERIAL_8E1` is defined for setting 8 data bits, even parity, and one stop bit.
+The typical baud rates are usually `9600` and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. For the serial port parameter, `SERIAL_8E1` is defined for setting 8 data bits, even parity, and one stop bit.
 
 The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the monitored information or measurements. Inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values to access these types of data. Such data are `Coil`, `Holding`, `Discrete Input`, and `Input` register values.
 
