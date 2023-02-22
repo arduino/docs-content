@@ -105,7 +105,8 @@ void setup() {
 The sender's job is to pack and transmit data to the receiver. Inside the main loop of the sketch, the sender will capture input data from the serial port and write the data after a series of checks to avoid sending incorrect data. Before converting the data to an integer, it is necessary to discard the end-of-line (EOL) as shown in the sketch.
 
 
-The `RS485.beginTransmission()` method enables the RS-485 transmission. Subsequently, the `RS485.write(incomingByte)` method sends data as a byte or a series of bytes by writing its binary data to the serial port. In this case, we are sending to the receiver the `incomingByte` variable that contains the input data converted to an integer. The `RS485.endTransmission()` method then ends the RS-485 transmission, finishing the operation cycle.
+The `RS485.beginTransmission()` method enables the RS-485 transmission. Subsequently, the `RS485.write(incomingByte)` method sends data as a byte or a series of bytes by writing their binary data to the serial port. In this case, we are sending to the receiver the `incomingByte` variable that contains the input data converted to an integer. The `RS485.endTransmission()` method then ends the RS-485 transmission, finishing the operation cycle.
+
 
 ```arduino
 void loop() {
