@@ -1,18 +1,19 @@
 ---
-title: "Arduino & Modbus Protocol"
+title: "Arduino® & Modbus Protocol"
 description: "Modbus is an open serial communication protocol used for transmitting information over serial lines between electronic devices."
 author: "Hannes Siebeneicher"
 ---
 
 ## Introduction
 
-This article contains information about the Modbus serial communication protocol and how it can be used together with Arduino hardware. The different elements are highlighted and compatible libraries and boards are shown together with code examples. The following section gives an overview of Modbus compatible Arduino boards and the libraries that you can use to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary, therefore it is important to always check your device specifications.
+This article contains information about the Modbus serial communication protocol and how it can be used with Arduino hardware. The different elements are highlighted, compatible libraries and boards are shown together with example code. The following section gives an overview of Modbus compatible Arduino boards and the libraries to enable Modbus protocol capability. Depending on the hardware you are using, the libraries might vary. Therefore, it is always important to check your device specifications.
 
 ### Modbus compatible hardware
-- all boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
-- all boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
+- All boards compatible with the [MKR 485 Shield](https://docs.arduino.cc/hardware/mkr-485-shield) and the [MKR ETH Shield](https://docs.arduino.cc/hardware/mkr-eth-shield)
+- All boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
 - [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
-- [Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
+- [Portenta Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
+- Opta™
 
 ### Libraries
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
@@ -25,12 +26,12 @@ Modbus is an open serial communication protocol used for transmitting informatio
 
 Several versions of the Modbus protocol exist such as Modbus RTU, Modbus ASCII, Modbus TCP and Modbus Plus. It is based on a controller-peripheral (formerly known as master-slave) architecture and communication between nodes is achieved with send request and read response type messages. Modbus communicates over several types of physical media such as RS-232/RS-485 or Ethernet. The original Modbus interface ran on RS-232 serial communication but most of the later Modbus implementations use RS-485 because it allows for longer distances, higher speeds and the possibility of multiple devices on a single multi-drop network. The communication over serial RS-485 physical media works with two-wire transmit and receive connections.
 
-On interfaces like RS-485 and RS-232, the Modbus messages are sent in plain form over the network and the network will be dedicated to only Modbus communication. However, if your network requires multiple heterogeneous devices, TCP/IP over Ethernet based protocol is recommended. In this case, Modbus and other types of mixed protocols can co-exist in the same physical interface at the same time. The main Modbus message structure is peer-to-peer, but it can also function on point-to-point and multidrop networks. As mentioned, the Modbus protocol communicates using a controller-peripheral technique in which only one device can initiate transactions, called queries.
+On interfaces like RS-485 and RS-232, the Modbus messages are sent in plain form over the network and the network will be dedicated to only Modbus communication. However, if your network requires multiple heterogeneous devices, TCP/IP over Ethernet based protocol is recommended. In this case, Modbus and other types of mixed protocols can co-exist in the same physical interface simultaneously. The main Modbus message structure is peer-to-peer, but it can also function on point-to-point and multidrop networks. As mentioned, the Modbus protocol communicates using a controller-peripheral technique in which only one device can initiate transactions, called queries.
 
 ![](assets/ModbusProtocol.png)
 
 ## How does Modbus work?
-Each Modbus message has the same structure, consisting of four basic elements which are present in each message. The sequence and order of these elements are the same for all messages. This allows for easy content parse. The conversation is always started by the controller and when a message is sent, the peripheral interprets the message and responds to it. Modbus sends functions which communicate read and write instructions to the peripheral’s internal memory registers to configure, monitor and control the peripheral’s inputs and outputs. Modbus devices will typically include a register map outlining where the configuration input and output data can be written and read from. You should always refer to the peripheral’s register map of your device to gain a better understanding of its overall operation.
+Each Modbus message has the same structure, consisting of four basic elements which are present in each message. The sequence and order of these elements are the same for all messages, subsequently allowing for easy content parse. The controller always initiates the conversation. When a message is sent, the peripheral interprets the message and responds to it. Modbus sends functions which communicate read and write instructions to the peripheral’s internal memory registers to configure, monitor and control the peripheral’s inputs and outputs. Modbus devices typically include a register map outlining where the configuration input and output data can be written and read. You should always refer peripheral’s register map of your device to gain a better understanding of its overall operation.
 
 Modbus requests follow a simple structure:
 ![](assets/requestFrame.png)
@@ -62,9 +63,9 @@ Two bytes are added to the end of every Modbus message for error detection and e
 The Modbus specification doesn't define exactly how the data is stored in the registers. Therefore, some manufacturers implemented Modbus in their equipment to store and transmit the higher byte first followed by the lower byte. Alternatively, others store and transmit the lower byte first. Similarly, when registers are combined to represent 32-bit data types, some devices store the higher 16 bits (high word) in the first register and the remaining low word in the second while others do the opposite. It doesn't matter which order the bytes or words are sent in, as long as the receiving device knows which way to expect it. ([Schneider Eletric, 2022](https://www.se.com/us/en/faqs/FA168406/#:~:text=What%20is%20byte%20and%20word%20ordering%3F))
 
 ## Use Modbus with Arduino
-Now that you have learned about the basics and functionalities of Modbus, it is time to talk about how you can use your Arduino to establish Modbus communication across devices. You can use your Arduino either as a controller or as a peripheral device depending on the setup. To make your life easier you can use the [Arduino Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) which allows you to implement the Modbus protocol over two different types of transport: serial communication over RS485 with RTU or Ethernet and WiFi communication using the TCP protocol. Because the Modbus library is dependent on the [RS-485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), you must include both of them in your code.
+Now that you have learned about the basics and functionalities of Modbus, it is time to talk about how you can use your Arduino to establish Modbus communication across devices. You can use your Arduino either as a controller or as a peripheral device depending on the setup. To make your life easier you can use the [Arduino Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) which allows you to implement the Modbus protocol over two different types of transport: serial communication over RS485 with RTU or Ethernet and Wi-Fi communication using the TCP protocol. Because the Modbus library is dependent on the [RS-485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), you must include both of them in your code.
 
-A lot of Arduino boards are Modbus compatible especially if you consider Ethernet-type messages. In case you want to communicate via RS485, [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield) will help you convert any MKR board into a Modbus compatible device. Check out [this tutorial](https://docs.arduino.cc/tutorials/mkr-485-shield/mkr-485-communication) to learn more about sending data between two [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield).
+A lot of Arduino boards are Modbus compatible especially if you consider Ethernet-type messages. In case you want to communicate via RS-485, [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield) will help you convert any MKR board into a Modbus compatible device. Check out [this tutorial](https://docs.arduino.cc/tutorials/mkr-485-shield/mkr-485-communication) to learn more about sending data between two [MKR 485 Shields](https://store-usa.arduino.cc/products/arduino-mkr-485-shield).
 
 When using the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/), sending messages is fairly straightforward as you can see in the examplary request format function below:
 
@@ -74,7 +75,7 @@ When using the [Modbus library](https://www.arduino.cc/reference/en/libraries/ar
 
 ***Note that this request form is specific to the [Modbus library](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and only works with boards compatible with this library. Make sure to check the specifications for the board you are using!***
 
-You have to check the device-specific documentation to attain the right address, function code, starting registers and register count. The CRC error check is taken care of by the Modbus library. To make it easier to understand the example below shows how to use the Modbus library.
+You have to check the device-specific documentation to attain the correct address, function code, starting registers and register count. The CRC error check is taken care of by the Modbus library. The example below shows how to implement the Modbus library in order to make it easy to understand.
 
 ### Example
 Let's say you have a Modbus-compatible energy meter working with RS-485. In our case, we use a model from [Finder](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf) which uses Modbus RTU protocol but you can use a different one.
@@ -99,6 +100,12 @@ Using the `readVoltage()` function, defined within the parameters we discussed, 
 Inside you can see how the `requestFrom()` is being called with *Device Address*, *Function Code*, *Starting Register* and *Register Count* as parameters.
 
 ```
+/**
+  Dedicated to read voltage information from a Modbus-compatible Finder 7M.24 energy meter.
+
+  @param none
+  @return Returns obtained voltage information.
+*/
 float readVoltage() {
   float volt = 0.;
   // Send reading request over RS485
@@ -118,7 +125,7 @@ float readVoltage() {
 }
 ```
 
-As this article does not cover all types of Modbus implementation and mostly focuses on Modbus RTU, the following section includes more references to read about the different types of implementation in more detail.
+As this article does not cover all types of Modbus implementation, focusing on Modbus RTU, the following section includes more references to read about the different implementation types in more detail.
 
 ### Read more
 - https://www.se.com/us/en/faqs/FA168406/
