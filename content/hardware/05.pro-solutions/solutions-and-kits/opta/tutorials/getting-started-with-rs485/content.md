@@ -155,7 +155,8 @@ void setup() {
 }
 ```
 
-In the main loop of the sketch, we will seek data sent over RS-485 and handle it accordingly. The loop manages out-of-range inputs and applies in-range data to the intended relay and status LEDs. If the sender device forwards values that are not between `1` and `4`, the `readValue` variable will go through a module operation and return the remainder from the integer division.
+In the main loop of the sketch, we will seek data sent over RS-485 and handle them accordingly. The loop manages out-of-range inputs and considers in-range data for the actuation of the intended relay and status LEDs. If the sender device forwards values that are not between `1` and `4`, the `readValue` variable will go through a module operation and return the remainder from the integer division.
+
 
 The `RS485.receive()` method enables the data reception via RS-485, then the `RS485.available()` method is used to determine if there is data available to read it. Once the data is available, the `RS485.read()` method will read the data and store it in the `readValue` variable. Finally, after managing the received data, the `RS485.noReceive()` method is called to disable the data reception over RS-485:
 
