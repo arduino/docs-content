@@ -20,7 +20,7 @@ hardware:
 
 The Opta™ micro PLC offers an easy-to-use and ready-available RS-485 interface. The RS-485 interface provides balanced performance to transmit data reliably over a long distance with a stable transmission rate. Thanks to the Arduino ecosystem tools, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/), it is really easy to implement communication protocols using the RS-485 interface.
 
-This tutorial will show the steps to connect two Opta™ devices via RS-485 and the Arduino ecosystems tools; it will describe some essential functions of the ArduinoRS485 library and show an example sketch that uses the library.
+This tutorial will show the steps to connect two Opta™ devices via RS-485 and the Arduino ecosystems tools; it will describe some essential functions of the [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) library and show an [example sketch](assets/Opta_RS485_Example.zip) that uses the library.
 
 ## Goals
 
@@ -31,14 +31,16 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 
 - Opta™ PLC with RS-485 support (x2)
 - 12-24VDC/1A power supply (x1)
+- 24AWG twisted-pair cable (used for electrical connections)
 - USB-C® cable (x1)
 - [Arduino IDE 2](https://www.arduino.cc/en/software)
 - [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/)
-- 24AWG twisted-pair cable (used for electrical connections)
+- The [RS-485 example code](assets/Opta_RS485_Example.zip) created for this tutorial
+
 
 ***Notice: Please note that this tutorial is intended to work only with the Opta™ variants that have an RS-485 interface. Check your product information to know more.***
 
-## RS-485 Interface
+## The RS-485 Interface
 
 The RS-485 is an electrical-only standard that uses a differential bus with voltage levels between 0-5V. The multi-drop feature allows the addition of drivers and receivers to the transmission line. This RS-485 interface has good noise immunity thanks to differential signaling; which is a well-suited characteristic for industrial environment applications.
 
@@ -208,10 +210,10 @@ Now it is time to test the application. Using the Serial Monitor of the Arduino 
 
 Here is a list of the values the receiver Opta™ device can receive and the result they produce:
 
-- **Sending `1`**: The first relay and the first status LED will turn on or off.
-- **Sending `2`**: The second relay and the second status LED will turn on or off.
-- **Sending `3`**: The third relay and the third status LED will turn on or off.
-- **Sending `4`**: The fourth relay and the fourth status LED will turn on or off.
+- **Sending `1`**: The first relay and the first status LED will turn on or off
+- **Sending `2`**: The second relay and the second status LED will turn on or off
+- **Sending `3`**: The third relay and the third status LED will turn on or off
+- **Sending `4`**: The fourth relay and the fourth status LED will turn on or off
 
 ## Conclusion
 
@@ -219,8 +221,10 @@ In this tutorial, we established an RS-485 connection between two Opta™ device
 
 ### Next Steps
 
-Now that you are familiar with the RS-485 communication interface on the Opta™, take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™.
+Now that you are familiar with the RS-485 communication interface on the Opta™, take a look at the following documentation to learn more:
 
-If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity).
+* Take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™
 
-If you are interested in seeing the RS-485 interface and the Opta™ being put to work in a real-life scenario, check the [tank level application note](/tutorials/opta/tank-level-app-note).
+* If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity)
+
+* If you are interested in seeing the RS-485 interface and the Opta™ being put to work in a real-life scenario, check the [tank level application note](/tutorials/opta/tank-level-app-note)
