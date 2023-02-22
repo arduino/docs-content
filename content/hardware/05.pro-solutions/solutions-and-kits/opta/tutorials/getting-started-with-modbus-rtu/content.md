@@ -62,7 +62,7 @@ Reliability in communications between electronic devices is ensured with Modbus 
 
 ### Setting Up the Arduino IDE
 
-If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, check our [getting started tutorial](/tutorials/opta/getting-started). Make sure you install the latest version of the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) library because it will be used to implement the Modbus RTU communication protocol.
+If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, check our [getting started tutorial](/tutorials/opta/getting-started). Make sure you install the latest version of the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and the [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) libraries, they will be used to implement the Modbus RTU communication protocol.
 
 ***`ArduinoModbus` library is dependent of the `ArduinoRS485` library; remember to install both libraries.***
 
