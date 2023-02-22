@@ -56,7 +56,7 @@ Modbus is an open and royalty-free serial communication protocol widely used in 
 
 Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
 
-***If you want more insights on the Modbus communication protocol, look at our [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying as well with Opta™.***
+***If you want more insights on the Modbus communication protocol, take a look at [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying as well with Opta™.***
 
 ## Instructions
 
