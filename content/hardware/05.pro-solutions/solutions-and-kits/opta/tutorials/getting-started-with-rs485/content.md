@@ -46,7 +46,8 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 The RS-485 is an electrical standard using a differential bus with voltage levels between 0-5V. The multi-drop feature allows the addition of drivers and receivers to the transmission line. The RS-485 interface has good noise immunity thanks to the differential signalling, which is a well-suited characteristic for industrial environment applications.
 
 
-The RS-485 does not define a data communication protocol since it does not know how to interpret such information nor when or what to do to process it; it is only an electrical standard. An example of a data communication protocol that uses RS-485 is Modbus RTU. For more information about this data communication protocol, you can check our [getting started with Modbus RTU tutorial](/tutorials/opta/getting-started-with-modbus-rtu) with the Opta™.
+The RS-485 does not define a data communication protocol since it does not know how to interpret such information nor when or what to do to process it: it is only an electrical standard. An example of a data communication protocol using RS-485 is Modbus RTU. For more information about this data communication protocol, you can check our [getting started with Modbus RTU tutorial](/tutorials/opta/getting-started-with-modbus-rtu) with the Opta™.
+
 
 ## Instructions
 
