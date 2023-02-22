@@ -29,7 +29,8 @@ The **Opta™**, with its industrial hardware and software capabilities, and the
 
 ## Goals
 
-- Learn how to use the Modbus RTU communication protocol over RS-485 interface between two Opta™ devices
+- Learn how to create a RS-485 interface connection between two Opta™ devices
+- Learn how to use the Modbus RTU communication protocol between two Opta™ devices
 
 ### Required Hardware and Software
 
