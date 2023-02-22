@@ -207,7 +207,11 @@ As already said, once a device is successfully configured, it appears in the "De
 
 In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of some variables and other settings, as well as the history of the data collected for the variables.
 
-***If you want to understand how to create your Things and manage them, check the dedicated documentation available [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).***
+To create a Thing, click on **Create Thing** next to the device of your interest and your Thing will be automatically created for you. At this point you can start updating it.
+
+![Create a new Thing](assets/create-thing.png "Create a new Thing")
+
+***If you want to understand how to work with your Things, check the dedicated documentation available [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).***
 
 ***Do you want to learn more on the different types of Variables and their features? Have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).***
 
@@ -234,6 +238,8 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 ***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work).***
 
 ### Fleet Management
+
+
 
 ### Dashboards 
 
