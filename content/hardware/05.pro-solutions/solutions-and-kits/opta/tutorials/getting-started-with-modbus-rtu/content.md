@@ -498,7 +498,7 @@ void loop() {
 
 ### Testing the Modbus RTU Client and Server
 
-Once the Modbus RTU Client and Server code for each Opta™ device has been uploaded, by opening the Serial Monitor on the Opta™ Client's side a `Success!` message will be displayed after each read-and-write task as shown in the image below:
+Once the Modbus RTU Client and Server code for each Opta™ device has been uploaded, a `Success!` message will be displayed on the Opta's Client's Serial Monitor after each read-and-write task:
 
 ![Modbus RTU Client and Server communication status](assets/opta-modbus-client.svg)
 
