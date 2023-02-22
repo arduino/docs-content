@@ -189,7 +189,7 @@ The coils of each relay correspond to pins D0 to D3 as follows:
 | OUTPUT 3   | D3    | RELAY3 |
 | OUTPUT 4   | D4    | RELAY4 |
 
-The Opta™ output contacts are "clean" contacts, which means they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing for example a power cable to one of the terminals and connecting the load to the exit of the other terminal.
+The Opta™ output contacts are "clean" contacts, which means that they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing for example a power cable to one of the terminals and connecting the load to the exit of the other terminal.
 
 This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carrying the signal up to the reference load.
 
