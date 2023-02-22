@@ -241,7 +241,7 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 Now it is time for you to start managing your fleet of devices/Things. The Arduino Cloud for Business fleet management features allow you to filter your devices/Things by status, add tags to more efficiently identify your projects, search between boards and list and order them. 
 
-Get started with this awesome feature by going to **Things** or **Devices** tab and searching and filtering among your Things/devices. 
+Get started with this awesome feature by going to **Things** or **Devices** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/devices) and searching and filtering among your Things/devices. 
 
 ![Search and filter among devices](assets/search-things.png "Search and filter among devices")
 
@@ -257,10 +257,43 @@ Click on **Add**. You will be asked to customize your tag through two fields:
 
 You can add an unlimited number of tags to each Thing. 
 
+At this point, you can go back to the Things tab and start filtering your Things according to the new tag you have just created. 
+
+![New tag filtering](assets/new-tag-filtering.png "New tag filtering")
 
 ### Dashboards 
 
+With Arduino Cloud for Business, you can create an unlimited number of dashboards. Push button, Switch, Scheduler, Map, Chart… These are just a few of the many widgets you can customize to visualize all your data or to remotely control your devices.
+
+In order to start creating your dashboard, go to **Dashboards** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards) and select the Thing you want to create a dashboard for. 
+
+![Dashboard example](assets/dashboard-example.png "Dashboard example")
+
+***If you want to learn more on how to customize your dashboard and leverage the wide widget portfolio, check the dedicated documentation available at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).***
+
+#### Sharing Dashboards
+
+Whether it is your teammate, your customer or your system integrator, you can freely share your dashboards with all the people you like. Just keep in mind that to open the dashboard, the interested stakeholders need to have an Arduino Account. 
+
+![Share your dashboard](assets/dashboard-sharing.png "Share your dashboard")
+
+***Ready to share your dashboard? Have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards).***
+
+#### Data Export
+
+Arduino Cloud for Business allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in `.csv` format to be ready for further evaluation or manipulation. 
+
+![Export your data](assets/download-data.png "Exporte your data")
+
+***Do you want to start exporting your data locally? See [this documentation](https://docs.arduino.cc/arduino-cloud/features/iot-cloud-historical-data).***
+
+
 ## Arduino Cloud API
+
+## IoT Cloud App
+
+Monitor your dashboards anywhere, anytime. Use your dashboards on the go, and control projects from your smartphone using the free IoT Remote app.
+
 
 ## Arduino Cloud CLI 
 
