@@ -205,8 +205,11 @@ In order to proceed with the onboarding, check [this tutorial](https://docs.ardu
 
 As already said, once a device is successfully configured, it appears in the "Devices" list and can be used to create a Thing, or can be linked to an existing Thing.
 
-In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of the variables and other settings, as well as the history of the data collected for the variables.
+In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept which holds the configuration of some variables and other settings, as well as the history of the data collected for the variables.
 
+***If you want to understand how to create your Things and manage them, check the dedicated documentation available [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).***
+
+***Do you want to learn more on the different types of Variables and their features? Have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).***
 
 #### Device Programming
 
@@ -226,7 +229,9 @@ Keep in mind that your skecth may contain some sensitive data that you do not wa
 
 #### OTA Updates
 
+Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. This feature allows you to upload sketches wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a WiFi/Ethernet network and configured to work with OTA, you will not need to physically connect the board to your computer in order to upload new sketches to it. Instead, everything will work over-the-air, even from remote.
 
+***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work).***
 
 ### Fleet Management
 
