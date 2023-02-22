@@ -119,19 +119,21 @@ There are multiple role types in Arduino Cloud for Business to allow the admin t
 
 The table below reports the list of supported roles and corresponding permissions. 
 
-|                                           | Admin | Manager              | Editor | Viewer | Service Account |
-|-------------------------------------------|-------|----------------------|--------|--------|-----------------|
-| **Create/edit/delete Things**             | X     | X                    | X      |        |                 |
-| **View Things**                           | X     | X                    | X      | X      |                 |
-| **Add/edit/delete Devices**               | X     | X                    | X      |        |                 |
-| **View Devices**                          | X     | X                    | X      | X      |                 |
-| **Create/edit/delete Dashboards/Widgets** | X     | X                    | X      |        |                 |
-| **View Dashboards**                       | X     | X                    | X      | X      |                 |
-| **Widget Interaction**                    | X     | X                    | X      | X      |                 |
-| **Download Historical Data**              | X     | X                    | X      | X      |                 |
-| **Add/remove Members**                    | X     | X (only lower roles) |        |        |                 |
-| **Manage billing**                        | X     |                      |        |        |                 |
-| **Create/edit/delete API keys**           |       |                      |        |        | X               |
+|                                           | Admin | Manager | Editor | Viewer | Service Account |
+|-------------------------------------------|-------|---------|--------|--------|-----------------|
+| **Create/edit/delete Things**             | X     | X       | X      |        |                 |
+| **View Things**                           | X     | X       | X      | X      |                 |
+| **Add/edit/delete Devices**               | X     | X       | X      |        |                 |
+| **View Devices**                          | X     | X       | X      | X      |                 |
+| **Create/edit/delete Dashboards/Widgets** | X     | X       | X      |        |                 |
+| **View Dashboards**                       | X     | X       | X      | X      |                 |
+| **Widget Interaction**                    | X     | X       | X      | X      |                 |
+| **Download Historical Data**              | X     | X       | X      | X      |                 |
+| **Add/remove Members**                    | X     | X \[1\] |        |        |                 |
+| **Manage billing**                        | X     |         |        |        |                 |
+| **Create/edit/delete API keys**           |       |         |        |        | X               |
+
+\[1\] It can add/remove only Editors or Viewers.
 
 Thus, the only role with full permissions is the Admin, which basically corresponds to the owner of the Arduino Cloud for Business plan. 
 
