@@ -77,7 +77,7 @@ The goal of the following example is to configure and use the Modbus RTU communi
 
 In the Client-Server protocol known as Modbus, the requesting device is known as the Modbus Client, and the device that will provide the requested information is known as the Modbus Server. While several Modbus Servers are allowed, only one Modbus Client is authorized. In this example, an Opta™ Client is in charge of writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values, while an Opta™ Server will poll for Modbus RTU requests and return the appropriate values.
 
-The crucial components of the code used in this tutorial are discussed in detail to make the example easier to read.
+The crucial components of the code used in this tutorial are discussed in detail in the next sections to make the example easier to understand.
 
 #### Modbus RTU Client
 
