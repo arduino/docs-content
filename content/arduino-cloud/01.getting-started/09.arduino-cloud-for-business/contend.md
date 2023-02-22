@@ -150,7 +150,7 @@ The following page will appear to allow you to send an email invitation to all t
 Type the email addresses of all your team and define which role they will cover in your Space based on the available options. Click on **Invite**.  
 The users you added will get the invitation by email with a link to join your Shared Space. You are now ready to start working all together on your Arduino Cloud projects.
 
-## Device Managament
+## Device Management
 
 The Arduino Cloud for Business allows for device management with Over-The-Air updates, secure provisioning to connect boards leveraging their secure element, and easy verification of their status (connected, not connected) and maintenance.
 
