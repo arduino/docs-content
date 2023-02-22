@@ -324,6 +324,38 @@ These are the main features of Arduino Cloud CLI:
 
 ## Optional Add-Ons
 
+Arduino Cloud for Business can be customized with optional add-ons: 
+* **Portenta X8 Manager**
+* **Machine Learning Tools Enterprise**
+
+![Arduino Cloud Homepage with Add-ons](assets/cloud-add-on.png "Arduino Cloud Homepage with Add-ons")
+
+In order to get started with them, it is sufficient to click on the corresponding tab.
+
+### Portenta X8 Manager
+
+Securely maintain Portenta X8 Linux distribution with this dedicated add-on. Deploy and update all your applications packaged into containers and perform secure over the air differential updates to target Portenta X8 devices/fleets. 
+
+***Check [Portenta X8 documentation](https://docs.arduino.cc/hardware/portenta-x8) to find out more and start working with Portenta X8 Manager.***
+
+### Machine Learning Tools Enterprise
+
+Build and train professional grade predictive models with just few lines of code through this dedicated add-on, powered by Edge Impulse®. Deploy premade models out of the box to quickly develop your machine learning projects, starting from object detection, machine vision to audio segmentation.
+
+***If you are interested in learning more about this add-on, have a look at [this documentation](https://cloud.arduino.cc/machine-learning-tools). Otherwise, we have plenty of tutorials already using the Machine Learning Tools. Check if your device is compatible with it in  the boards documentation available [here](https://docs.arduino.cc/).***
+
 ## Additional Tutorials
 
+You can find more tutorials in the [Arduino IoT Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
+
 ## Support
+
+Sentence provided by Content team.
+
+## Congratulations
+
+You are just a few easy steps from deploying your very own IoT project. Having a project connected to the Arduino Cloud for Business opens up many possibilities, such as tracking data in real time, triggering remote devices and building wireless systems.
+
+What will you create?
+
+[Start your Cloud journey now](https://cloud.arduino.cc/plans#business).
