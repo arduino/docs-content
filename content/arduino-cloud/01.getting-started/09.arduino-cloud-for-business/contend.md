@@ -223,7 +223,7 @@ For this purpose, Arduino Cloud integrates a [Web Editor](https://docs.arduino.c
 
 In order to open the Web Editor, go to Arduino Cloud Home and click on the Web Editor button. 
 
-![Start with Web Editor](assets/web-editor-button.png "Start with Web Editor")
+![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
 
 ***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). On the other hand, if you have already developed your sketch and you would like to import it in the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
 
@@ -239,6 +239,23 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 ### Fleet Management
 
+Now it is time for you to start managing your fleet of devices/Things. The Arduino Cloud for Business fleet management features allow you to filter your devices/Things by status, add tags to more efficiently identify your projects, search between boards and list and order them. 
+
+Get started with this awesome feature by going to **Things** or **Devices** tab and searching and filtering among your Things/devices. 
+
+![Search and filter among devices](assets/search-things.png "Search and filter among devices")
+
+If you want to create your own tag, which you can use then as a filtering option, go to **Things** tab, click on the Thing you would like to tag and go to the Metadata tab as shown in the figure below. 
+
+![Thing metadata](assets/thing-metadata.png "Thing metadata"). 
+
+Click on **Add**. You will be asked to customize your tag through two fields:
+* **Key**. The Key is the filter name which you will see among the list of available filtering options. E.g. Location.
+* **Value**. Value corresponds to the specific value your tag has for that specific Thing. E.g. Rome.
+
+![Customize your tag](assets/add-tag.png "Customize your tag")
+
+You can add an unlimited number of tags to each Thing. 
 
 
 ### Dashboards 
