@@ -61,7 +61,7 @@ Please refer to the following diagram for connecting two Opta™ devices via the
 
 ### Example Overview
 
-We will define one Opta™ as sender and the other as receiver device. As the roles suggests, each Opta™ has a specific task. In the case of the Opta™ acting as sender, the device will await for data from `1` to `4` via the serial monitor. The Arduino IDE provides a serial monitor that can be used for this task. Each number represents the relay to trigger and its corresponding status LED.
+We will define one Opta™ as sender and the other as receiver device. As the roles suggest, each Opta™ has a specific task. In the case of the Opta™ acting as sender, the device will await for data from `1` to `4` via the serial monitor. The Arduino IDE provides a serial monitor that can be used for this task. Each number represents the relay to trigger and its corresponding status LED.
 
 The Opta™ acting as receiver will get the incoming data, decode them, and discard non-valid or out-of-range data. The decoded data will switch the relay state and the status LED to the opposite of the current state. For instance, if the receiver captures a `2` from the sender while the receiver has its 2nd relay closed with a turned-on 2nd status LED, the receiver will open the relay and turn off the 2nd status LED as a deactivation indication.
 
