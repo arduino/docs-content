@@ -32,7 +32,7 @@ You will need the following software/tools installed:
 
 **2.** Download the [dfu-util](https://dfu-util.sourceforge.net/) tool, or install via Brew (or other package managers). Make sure it is in your PATH.
 
-```sh
+```
 $ brew install dfu-util 
 ```
 
@@ -40,7 +40,7 @@ $ brew install dfu-util
 
 **4.** Open a terminal, and navigate to the directory of your `firmware.dfu` file. Run the following command:
 
-```sh
+```
 $ dfu-util -w -a 0 -d 2341:0366 -D <firmware>.dfu 
 ```
 
@@ -48,7 +48,7 @@ $ dfu-util -w -a 0 -d 2341:0366 -D <firmware>.dfu
 
 At the end of the process, you will see the following message on success:
 
-```sh
+```
 Done parsing DfuSe file
 ```
 
