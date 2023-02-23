@@ -248,7 +248,7 @@ void ST_Param_Share(){
 }
 ```
 
-It is possible to notice whenever an Opta™ exchanges information with another Opta™ using Modbus RTU protocol with the subsequent code structure. This method writes for the specified address and the data for the seeking Opta™.
+The following code structure is used whenever an Opta™ exchanges information with another Opta™ using Modbus RTU protocol. This method writes the value data in the input register for addressee Opta™ defined by means of the specified Modbus address.
 
 ```arduino
 ModbusRTUServer.inputRegisterWrite(0, 0x37)
