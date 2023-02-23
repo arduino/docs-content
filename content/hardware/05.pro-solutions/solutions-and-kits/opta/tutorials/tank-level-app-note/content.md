@@ -40,7 +40,7 @@ A graphical representation of the intended application is shown below:
 
 ![Graphical representation of the tank level monitoring application](assets/application_representation.svg)
 
-The Big Tank has at least twice the capacity of the Small Tank in the experimental setup shown above. The Opta™ devices communicate with each other using Modbus RTU protocol over the RS-485 interface to oversee its responsible container.
+The Big Tank has at least twice the capacity of the Small Tank in the experimental setup shown above. The Opta™ devices communicate with each other using Modbus RTU protocol over the RS-485 interface to oversee its responsible tank.
 
 ## Hardware and Software Requirements
 
