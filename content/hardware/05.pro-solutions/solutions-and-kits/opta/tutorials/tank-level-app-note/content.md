@@ -66,7 +66,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Electrical connections of the application](assets/electrical_connections.svg)
 
-The two Opta™ devices will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of both Opta™.
+The two Opta™ devices will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of both the Opta™ PLCs.
 
 ## Tank Level Monitoring Model Overview
 
