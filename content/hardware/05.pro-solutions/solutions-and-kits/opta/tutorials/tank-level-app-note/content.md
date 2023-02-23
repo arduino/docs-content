@@ -1,5 +1,5 @@
 ---
-title: 'Tank Level Monitoring with the Opta™ - Application Note'
+title: 'Tank Level Monitoring with the Opta™'
 description: "This application note describes how to monitor the level in tanks using Opta™ and Modbus RTU."
 difficulty: advanced
 tags:

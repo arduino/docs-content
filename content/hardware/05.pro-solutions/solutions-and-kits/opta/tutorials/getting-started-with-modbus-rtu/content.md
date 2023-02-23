@@ -23,13 +23,13 @@ hardware:
 
 ## Overview
 
-Modbus is an open serial protocol derived from the client/server architecture initially developed and published by Modicon (now Schneider Electric) to be used with programmable logic controllers (PLCs). Since 1979, Modbus has become a standard communications protocol in industrial electronic devices.
+The **Opta™**, with its industrial hardware and software capabilities, and the Arduino ecosystem tools such as the Arduino IDE and its libraries, provide several types of Modbus communication protocol with effortless implementation thanks to its robust design.
 
-The **Opta™**, with its industrial hardware and software capabilities, and the Arduino ecosystem tools such as the Arduino IDE and its libraries, has been designed with the Modbus communication protocol in mind, being really easy to create a new Modbus communication line using Opta™. In this tutorial, we will learn how to implement Modbus RTU communications protocol over RS-485 between two Opta™ devices.
+The Modbus RTU protocol is one of the protocols available within Opta™. In this tutorial, we will learn how to implement Modbus RTU communications protocol over RS-485 between two Opta™ devices.
 
 ## Goals
 
-- Learn how to create a RS-485 interface connection between two Opta™ devices
+- Learn how to establish RS-485 interface connection between two Opta™ devices
 - Learn how to use the Modbus RTU communication protocol between two Opta™ devices
 
 ### Required Hardware and Software
@@ -39,9 +39,9 @@ The **Opta™**, with its industrial hardware and software capabilities, and the
 - Opta™ PLC with RS-485 support (x2)
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
-- Wires similar to the following specs  (x3): 
-- - STP/UTP 24-18AWG (Unterminated)/22-16AWG (Terminated)
-- - 100-130Ω rated for RS-485 connection
+- Wire with either specification for RS-485 connection (x3):
+- STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
+- STP/UTP 22-16AWG (Terminated) 100-130Ω rated
 
 ### Software Requirements
 
@@ -50,24 +50,23 @@ The **Opta™**, with its industrial hardware and software capabilities, and the
 
 ## Modbus Protocol
 
-Modbus is an open and royalty-free serial communication protocol widely used in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS). It was published in 1979 (more than 40 years ago) and has become a _de facto_ standard communication protocol among industrial electronic devices.
+Modbus is an open and royalty-free serial communication protocol derived from the client/server architecture. It is widely used in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS).
 
-Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) Systems.
+It was published by Modicon (now Schneider Electric) in 1979 and has become a _de facto_ standard communication protocol among industrial electronic devices to be used with programmable logic controllers (PLCs).
 
-Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
+Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) Systems. Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
 
-***If you want more insights on the Modbus communication protocol, take a look at [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying as well with Opta™.***
+If you want more insights on the Modbus communication protocol, take a look at [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying as well with Opta™.
 
 ## Instructions
 
 ### Setting Up the Arduino IDE
 
-If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, check our [getting started tutorial](/tutorials/opta/getting-started). Make sure you install the latest version of the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and the [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) libraries, they will be used to implement the Modbus RTU communication protocol.
-
+If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, check out [getting started tutorial](/tutorials/opta/getting-started). Make sure you install the latest version of the [`ArduinoModbus`](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and the [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) libraries, as they will be used to implement the Modbus RTU communication protocol.
 
 ### Connecting the Opta™ Over RS-485
 
-To use the Modbus RTU communication protocol, first you need to create an RS-485 connection. Refer to the following diagram for connecting two Opta™ devices via RS-485 interface.
+It requires setting up an RS-485 connection to enable the Modbus RTU communication protocol. Refer to the following diagram for connecting two Opta™ devices via the RS-485 interface.
 
 ![Connecting two Opta™ devices via RS-485](assets/opta-modbus-connection.svg)
 
@@ -75,9 +74,9 @@ To use the Modbus RTU communication protocol, first you need to create an RS-485
 
 The goal of the following example is to configure and use the Modbus RTU communication protocol over the RS-485 interface between two Opta™ devices.
 
-In the Client-Server protocol known as Modbus, the requesting device is known as the Modbus Client, and the device that will provide the requested information is known as the Modbus Server. While several Modbus Servers are allowed, only one Modbus Client is authorized. In this example, an Opta™ Client is in charge of writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values, while an Opta™ Server will poll for Modbus RTU requests and return the appropriate values.
+The Modbus is a renowned Client-Server protocol for its reliability. The Modbus Client is responsible as a requesting device, and the Modbus Server provides requested information when available. Several Modbus Servers are allowed, but only one Modbus Client can be present. In this example, an Opta™ Client handles writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values, while an Opta™ Server will poll for Modbus RTU requests and return the appropriate values.
 
-The crucial components of the code used in this tutorial are discussed in detail in the next sections to make the example easier to understand.
+The crucial components of the code used in this tutorial are discussed in detail in the following sections to make the example easier to understand.
 
 #### Modbus RTU Client
 
@@ -109,7 +108,7 @@ void setup() {
 
     RS485.setDelays(preDelayBR, postDelayBR);
 
-    // start the Modbus RTU client
+    // Start the Modbus RTU client
     if (!ModbusRTUClient.begin(baudrate, SERIAL_8E1)) {
         Serial.println("Failed to start Modbus RTU Client!");
         while (1);
@@ -119,7 +118,7 @@ void setup() {
 
 The `preDelay` and `postDelay` parameters are configured for a proper operation per Modbus RTU specification. The method `RS485.setDelays(preDelayBR, postDelayBR)` is then called to correctly set and use Modbus RTU over RS-485 interface on Opta™. In this example, such parameters are applied based on the message RTU framing specifications explained in depth in this [guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf).
 
-The typical baud rates are usually `9600` and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. For the serial port parameter, `SERIAL_8E1` is defined for setting 8 data bits, even parity, and one stop bit.
+The typical baud rates are usually `9600` and `19200`; in the current example, we are using a baud rate of `19200`, but it can be changed depending on the system requirements. For the serial port parameter, `SERIAL_8E1` is used to set 8 data bits, even parity, and one stop bit.
 
 The Modbus Server can be a module or a sensor with registers that can be accessed using specified addresses to obtain the monitored information or measurements. Inside the loop function of the sketch for the Client device, there are several tasks in charge of reading and writing specific values to access these types of data. Such data are `Coil`, `Holding`, `Discrete Input`, and `Input` register values.
 
@@ -161,7 +160,6 @@ The complete code for the Client is shown below:
 constexpr auto baudrate { 19200 };
 
 // Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-//
 // MODBUS over serial line specification and implementation guide V1.02
 // Paragraph 2.5.1.1 MODBUS Message RTU Framing
 // https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
@@ -180,7 +178,7 @@ void setup() {
 
     RS485.setDelays(preDelayBR, postDelayBR);
 
-    // start the Modbus RTU client
+    // Start the Modbus RTU client
     if (!ModbusRTUClient.begin(baudrate, SERIAL_8E1)) {
         Serial.println("Failed to start Modbus RTU Client!");
         while (1);
@@ -210,13 +208,12 @@ void loop() {
   Writes Coil values to the server under specified address.
 */
 void writeCoilValues() {
-    // set the coils to 1 when counter is odd
+    // Set the coils to 1 when counter is odd
     byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
 
     Serial.print("Writing Coil values ... ");
 
-    // write 10 Coil values to (server) id 42, address 0x00
-
+    // Srite 10 Coil values to (server) id 42, address 0x00
     ModbusRTUClient.beginTransmission(42, COILS, 0x00, 10);
     for (int i = 0; i < 10; i++) {
         ModbusRTUClient.write(coilValue);
@@ -238,8 +235,7 @@ void writeCoilValues() {
 void readCoilValues() {
     Serial.print("Reading Coil values ... ");
 
-    // read 10 Coil values from (server) id 42, address 0x00
-
+    // Read 10 Coil values from (server) id 42, address 0x00
     if (!ModbusRTUClient.requestFrom(42, COILS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
@@ -263,8 +259,7 @@ void readCoilValues() {
 void readDiscreteInputValues() {
     Serial.print("Reading Discrete Input values ... ");
 
-    // read 10 Discrete Input values from (server) id 42, address 0x00
-
+    // Read 10 Discrete Input values from (server) id 42, address 0x00
     if (!ModbusRTUClient.requestFrom(42, DISCRETE_INPUTS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
@@ -286,12 +281,10 @@ void readDiscreteInputValues() {
   Writes Holding Register values to the server under specified address.
 */
 void writeHoldingRegisterValues() {
-    // set the Holding Register values to counter
-
+    //Set the Holding Register values to counter
     Serial.print("Writing Holding Registers values ... ");
 
-    // write 10 coil values to (server) id 42, address 0x00
-
+    // Write 10 coil values to (server) id 42, address 0x00
     ModbusRTUClient.beginTransmission(42, HOLDING_REGISTERS, 0x00, 10);
     for (int i = 0; i < 10; i++) {
         ModbusRTUClient.write(counter);
@@ -313,8 +306,7 @@ void writeHoldingRegisterValues() {
 void readHoldingRegisterValues() {
     Serial.print("Reading Holding Register values ... ");
 
-    // read 10 Input Register values from (server) id 42, address 0x00
-
+    // Read 10 Input Register values from (server) id 42, address 0x00
     if (!ModbusRTUClient.requestFrom(42, HOLDING_REGISTERS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
@@ -338,8 +330,7 @@ void readHoldingRegisterValues() {
 void readInputRegisterValues() {
     Serial.print("Reading input register values ... ");
 
-    // read 10 discrete input values from (server) id 42,
-
+    // Read 10 discrete input values from (server) id 42,
     if (!ModbusRTUClient.requestFrom(42, INPUT_REGISTERS, 0x00, 10)) {
         Serial.print("failed! ");
         Serial.println(ModbusRTUClient.lastError());
@@ -369,7 +360,6 @@ In the Opta™ Server, the main task will be to poll for Modbus RTU requests and
 constexpr auto baudrate { 19200 };
 
 // Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-//
 // MODBUS over serial line specification and implementation guide V1.02
 // Paragraph 2.5.1.1 MODBUS Message RTU Framing
 // https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
@@ -391,28 +381,28 @@ void setup() {
 
   RS485.setDelays(preDelayBR, postDelayBR);
 
-  // start the Modbus RTU client
+  // Start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
       Serial.println("Failed to start Modbus RTU Server!");
 
       while (1);
   }
 
-  // configure coils at address 0x00
+  // Configure coils at address 0x00
   ModbusRTUServer.configureCoils(0x00, numCoils);
 
-  // configure discrete inputs at address 0x00
+  // Configure discrete inputs at address 0x00
   ModbusRTUServer.configureDiscreteInputs(0x00, numDiscreteInputs);
 
-  // configure holding registers at address 0x00
+  // Configure holding registers at address 0x00
   ModbusRTUServer.configureHoldingRegisters(0x00, numHoldingRegisters);
 
-  // configure input registers at address 0x00
+  // Configure input registers at address 0x00
   ModbusRTUServer.configureInputRegisters(0x00, numInputRegisters);
 }
 ```
 
-In the `setup()` function of the sketch dedicated to the Modbus server, the Server address is assigned as an identifier that will be recognized by the Client. Also, the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers are configured. Those are the data that the Client will locate and retrieve. The following line is necessary in the Server `loop()` function:
+In the `setup()` function of the sketch dedicated to the Modbus server, the Server address is assigned with an identifier that will be recognized by the Client. Also, the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers are configured. These are the data that the Client will locate and retrieve. The following line is necessary in the Server `loop()` function:
 
 ```arduino
 ModbusRTUServer.poll();
@@ -435,7 +425,6 @@ This is the line that polls for Modbus RTU requests. The complete code for the S
 constexpr auto baudrate { 19200 };
 
 // Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-//
 // MODBUS over serial line specification and implementation guide V1.02
 // Paragraph 2.5.1.1 MODBUS Message RTU Framing
 // https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
@@ -457,37 +446,37 @@ void setup() {
 
   RS485.setDelays(preDelayBR, postDelayBR);
 
-  // start the Modbus RTU client
+  // Start the Modbus RTU client
   if (!ModbusRTUServer.begin(42, baudrate, SERIAL_8E1)) {
       Serial.println("Failed to start Modbus RTU Client!");
       while (1);
   }
 
-  // configure coils at address 0x00
+  // Configure coils at address 0x00
   ModbusRTUServer.configureCoils(0x00, numCoils);
 
-  // configure discrete inputs at address 0x00
+  // Configure discrete inputs at address 0x00
   ModbusRTUServer.configureDiscreteInputs(0x00, numDiscreteInputs);
 
-  // configure holding registers at address 0x00
+  // Configure holding registers at address 0x00
   ModbusRTUServer.configureHoldingRegisters(0x00, numHoldingRegisters);
 
-  // configure input registers at address 0x00
+  // Configure input registers at address 0x00
   ModbusRTUServer.configureInputRegisters(0x00, numInputRegisters);
 }
 
 void loop() {
-  // poll for Modbus RTU requests
+  // Poll for Modbus RTU requests
   ModbusRTUServer.poll();
 
-  // map the coil values to the discrete input values
+  // Map the coil values to the discrete input values
   for (int i = 0; i < numCoils; i++) {
     int coilValue = ModbusRTUServer.coilRead(i);
 
     ModbusRTUServer.discreteInputWrite(i, coilValue);
   }
 
-  // map the holding register values to the input register values
+  // Map the holding register values to the input register values
   for (int i = 0; i < numHoldingRegisters; i++) {
     long holdingRegisterValue = ModbusRTUServer.holdingRegisterRead(i);
 
@@ -498,7 +487,7 @@ void loop() {
 
 ### Testing the Modbus RTU Client and Server
 
-Once the Modbus RTU Client and Server code for each Opta™ device has been uploaded, a `Success!` message will be displayed on the Opta's Client's Serial Monitor after each read-and-write task:
+Once the Modbus RTU Client and Server code for each Opta™ device has been uploaded, a `Success!` message will be displayed on the Serial Monitor of Opta™ Client after each read-and-write task:
 
 ![Modbus RTU Client and Server communication status](assets/opta-modbus-client.svg)
 
