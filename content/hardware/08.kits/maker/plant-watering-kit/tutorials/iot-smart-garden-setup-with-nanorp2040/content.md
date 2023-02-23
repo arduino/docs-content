@@ -131,7 +131,7 @@ To connect your board to the Arduino IoT Cloud, we will use the [Plant Watering 
 
 See the image below to understand how to set it up.
 
-![Template](assets/template_overview.png)
+![Template overview](assets/template_overview.png)
 
 ### Manual Setup
 ***This section is for you who want to set up the cloud manually. For easy setup, use the template provided (see section just above).*** 
@@ -151,7 +151,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 **4.** Your Thing overview should now look like the following:
 
-![Variables](assets/things.png)
+![Thing overview](assets/things.png)
 
 **5.** Go to the sketch tab, and use the following code:
 
@@ -298,7 +298,7 @@ void onWaterTimeChange()  {
 
 **7.** Inside the dashboard view, click on **"Add"** then **"Things"** and select your Thing. This will generate a list of widgets and you can click on **"Create Widget"** to complete it. You should now see something similar to this dashboard:
 
-![Dashboard](assets/dashboard_initial.png)
+![Dashboard overview](assets/dashboard_initial.png)
 
 Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device. 
 
