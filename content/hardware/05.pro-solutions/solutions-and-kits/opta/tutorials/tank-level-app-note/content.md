@@ -34,7 +34,7 @@ Present application note aims to show a system capable of monitoring and adjusti
 - Big Tank (BT) and Small Tank (ST) levels must stay within a minimum and a maximum user-defined level; maximum and minimum levels will be measured using float switches. A vertical-type float switch will be used for measuring the maximum level, while a horizontal-type float switch will be used for measuring the minimum level in the tanks.
 - If the Small Tank (ST) level goes below its minimum level, a relay opens a gate valve from the Big Tank (BT), letting the Big Tank (BT) liquid fill the Small Tank (ST). When the level in the Small Tank (ST) goes over its maximum, the relay closes the gate valve.
 - If the Big Tank (BT) level goes over its maximum level, a pump is activated to bring its level back below its maximum level.
-- If the Big Tank (BT) level goes below its minimum level, the system gets blocked, and the levels of the Small Tank (ST) don't activate the relay that opens or closes the gate valve of the Big Tank (BT).
+- If the Big Tank (BT) level goes below its minimum level, the system gets blocked, and the level threshold of the Small Tank (ST) doesn't activate the relay that opens or closes the gate valve of the Big Tank (BT).
 
 A graphical representation of the intended application is shown below:
 
