@@ -61,7 +61,11 @@ Now on to the circuit assembly! Begin by grabbing the Arduino Nano RP2040 Connec
 
 ![Nano mounted on the adapter](./assets/step1.png)
 
-Then find the relay module, and a grove cable. You will need to cut the grove cable in half to expose the copper cable inside so you can connect it to the Screw terminal adapter. Connect the wires from the grove cable to the Nano Screw Terminal Adapter as follows:
+Then find the relay and a Grove cable. Taking a closer look at the Grove cable you will see that one side is a 3 pin connector (this goes into the moisture sensor), while the other end is a 4 pin connector (this will be cut off in the next step, we won’t be needing that). 
+
+Now you will need to cut the Grove cable to expose the copper wire inside so you can connect it to the Nano Screw Terminal Adapter but be careful not to cut it too short at the side that goes into the moisture sensor (3 pin connector). We recommend cutting the cable close to the 4 pin connector giving you the maximum cable length. If needed you can always shorten the cable afterwards. 
+
+Connect the wires from the Grove cable to the Nano Screw Terminal Adapter as follows:
 
 - Black wire (-) to GND pin.
 - Red wire (+) to 3.3V pin.
@@ -76,14 +80,14 @@ Now let's wire up the submersible pump. This pump runs on 5V, and draws more cur
 
 ***Note: These types of subermisible pumps can easily break if they're run without being submersed in water. In this project, a faulty pump might have a short circuit, causing the board to reset as soon as the pump is engaged.***
 
-Now find the LED Grove button and a Grove cable. This cable also needs to be cut to expose the copper wire inside. The wires from the grove cable should be connected as follows:
+Now find the LED Grove button and a Grove cable. This cable also needs to be cut to expose the copper wire inside. The wires from the Grove cable should be connected as follows:
 
 - Black wire (-) to GND pin.
 - Red wire (+) to 3.3V pin.
 - Yellow wire to D5 pin.
 - White wire to D4 pin.
 
-![LED Grove Button connected](./assets/step4.png)
+![LED Grove button connected](./assets/step4.png)
 
 Find the open ended USB cable, this will be used both to power the board through it's Vin pin, and the pump through the relay. Connect the black wire to GND, and connect the red wire, together with a separate jumper cable, to Vin. The other jumper wire that you just connected should be wired to the other screw terminal connector on the Relay module. 
 
@@ -95,7 +99,7 @@ If you find this step hard, you can also use one of the loose screw terminals pr
 
 The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
 
-Lastly, find the moisture sensor and a grove cable. Connect it to the Nano Screw Terminal Adapter as follows: 
+Lastly, find the moisture sensor and a Grove cable. Connect it to the Nano Screw Terminal Adapter as follows: 
 
 - Black wire (-) to GND pin. 
 
@@ -109,11 +113,11 @@ Lastly, find the moisture sensor and a grove cable. Connect it to the Nano Screw
 
 The complete circuit should look something like this:
 
-![Circuit for this project.](assets/step7.png)
+![Complete circuit](assets/step7.png)
 
 If you are using the 3D-printed enclosure we provide a 3D-model for, now is a good time to fit the components inside if you haven't already. Use the standoffs to click the components into place.
 
-In the top-cover of the enclosure you will find a hole that will fit the LED-Button. Simply push the button into place, it might take a little force but it will firmly click into place.
+In the top-cover of the enclosure you will find a hole that will fit the LED-button. Simply push the button into place, it might take a little force but it will firmly click into place.
 
 We recommend gathering the cables that will leave through the opening, and zip-tying them to the bottom of the enclosure using the two slits in the bottom-plate, this way it stays organised and is a little bit easier to close.
 
@@ -127,7 +131,7 @@ To connect your board to the Arduino IoT Cloud, we will use the [Plant Watering 
 
 See the image below to understand how to set it up.
 
-![Thing overview complete.](assets/template_overview.png)
+![Template](assets/template_overview.png)
 
 ### Manual Setup
 ***This section is for you who want to set up the cloud manually. For easy setup, use the template provided (see section just above).*** 
@@ -147,7 +151,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
 **4.** Your Thing overview should now look like the following:
 
-![Thing overview complete.](assets/things.png)
+![Variables](assets/things.png)
 
 **5.** Go to the sketch tab, and use the following code:
 
@@ -294,7 +298,7 @@ void onWaterTimeChange()  {
 
 **7.** Inside the dashboard view, click on **"Add"** then **"Things"** and select your Thing. This will generate a list of widgets and you can click on **"Create Widget"** to complete it. You should now see something similar to this dashboard:
 
-![Dashboard overview.](assets/dashboard_initial.png)
+![Dashboard](assets/dashboard_initial.png)
 
 Once you see the values changing, we know that the connection is successful, and we can monitor and interact with our device. 
 
@@ -310,7 +314,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 **2.** Place the moisture sensor into the soil of the plant.
 
-**3.** Place the pump inside a water container. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the enclosure with your electronics next to the plant. Your setup could now look like this: ![Plant setup.](assets/completesetup.jpg)
+**3.** Place the pump inside a water container. Attach the plastic pipe to the pump, and place the other end into the plant pot. Place the enclosure with your electronics next to the plant. Your setup could now look like this: ![Plant setup](assets/completesetup.jpg)
 
 **4.** Finally, plug in a USB adapter into the wall. This will now power the entire setup, which should now connect to the IoT Cloud, via your Wi-Fi network. And that is it, you now have a Smart Garden setup! 
 
@@ -318,7 +322,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
-![Control and monitor your Smart Garden!](assets/dashboard-overview.png)
+![Control and monitor your smart garden](assets/dashboard-overview.png)
 
 ***In this dashboard, we have also added a chart widget to monitor the soil moisture over time.***
 
@@ -337,6 +341,9 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 With a smart garden setup, you can easily monitor the environment of your plant, and water it remotely. In this tutorial, we have gone through the basic elements needed for achieving just that: but there are more things you can do. Below is a list of some fun ideas that you can do with your plant:
 
 - **Automatic watering** - instead of watering your plant remotely, you can also activate the pump automatically whenever moisture drops too low. We do however think it is more fun to control it from a phone, but the choice is yours.
+
 - **Cooling/heating fan** - With some more work, you can connect a cooling/heating fan. This can help you bring the temperature to a perfect level (some plants like it cold, some hot).
+
 - **Humidifier** - a humidifier is an awesome component that increases the humidity (a perfect combo if you also add a humidity sensor).
-- **UV lights** - a UV light allows you to grow plants even when there's no natural sun light
+
+- **UV lights** - a UV light allows you to grow plants even when there's no natural sun light.
