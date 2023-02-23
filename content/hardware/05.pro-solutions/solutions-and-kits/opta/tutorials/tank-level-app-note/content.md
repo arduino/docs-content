@@ -636,7 +636,7 @@ Thanks to the Arduino Cloud, we can create a simple but useful dashboard to have
 
 ![Arduino Cloud integration with the tanks](assets/cloud_integration.svg)
 
-Within Arduino Cloud's dashboard, both tank's system status can be monitored. Remote actuation is available for both Opta™ regarding its managed tasks, meaning such actuators and emergency stop can be controlled manually on-demand. The dashboard can be used to simulate as well, even without a full exact setup of the application note.
+Within Arduino Cloud's dashboard, the system status of both the tanks can be monitored and the remote actuation is implemented for both the Opta™ devices' managed tasks. By means of this powerful tool, the actuators and emergency stop can be controlled remotely on-demand. The dashboard can also be used to make a simulation, even in absence of the full implementation of the application note.
 
 ## Full Tank Level Monitoring Example
 
