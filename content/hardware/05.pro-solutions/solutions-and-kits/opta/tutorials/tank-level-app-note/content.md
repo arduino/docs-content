@@ -76,7 +76,7 @@ The Opta™ responsible of the Big Tank (BT) performs the following actions:
 
 - It activates the pump if its maximum level alarm is triggered; this will cause liquid migration from the Big Tank to the Small Tank.
 - It shuts off the system completely, halting most of the activities.
-- It sends the current minimum level state to Small Tank while also seeking for Small Tank's maximum level state.
+- It sends the current minimum level state to the Small Tank while also seeking for the Small Tank's maximum level state.
 
 The Opta™ responsible of the Small Tank (ST) performs the following actions:
 
