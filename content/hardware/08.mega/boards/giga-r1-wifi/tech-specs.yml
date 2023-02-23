@@ -1,6 +1,6 @@
 Board:
   Name: Arduino® GIGA R1 WiFi
-  SKU: ABX00042
+  SKU: ABX00063
 Microcontroller: STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU
 USB:
   USB-C: Programming Port / HID
