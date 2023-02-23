@@ -344,7 +344,7 @@ void setup() {
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of the network, the IoT Cloud connection and the errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4
