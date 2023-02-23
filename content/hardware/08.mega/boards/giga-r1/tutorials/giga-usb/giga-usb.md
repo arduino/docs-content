@@ -11,9 +11,13 @@ It can easily be configured to act as a mouse or keyboard (HID device) or as a U
 
 In this guide, we will take a look at the available features, how to enable them in a sketch and what circuit (if any) is required.
 
-***To get inspired on what you can do with the USB features, please see [use cases](#use-cases) at the end of this article.***
+## Hardware & Software Needed
 
-## Hardware Overview
+- [GIGA R1](/hardware/giga-r1-wifi) or [GIGA R1 WiFi](/hardware/giga-r1).
+- USB Mass Storage Device (USB Stick).
+- Keyboard.
+
+## USB Overview
 
 The GIGA R1 have two USB connectors:
 - **USB-C** - for powering, programming & HID communication.
@@ -57,29 +61,23 @@ USB mass storage devices connected needs to be formatted with the **FAT32** as a
 
 To access the correct USB mass storage device, we need to specify the **designation** in the code.
 
-```
+```arduino
 mbed::FATFileSystem usb("USB_DRIVE_DESIGNATION")
 ```
 
 This is so that our GIGA R1 can target the right USB device.
+
+Please note that when writing/reading to files, you will need to specify the correct path, for example:
+
+```arduino
+
+```
 
 ### List File Directory
 
 Below is an example sketch that can be used to **list** files in a USB mass storage device.
 
 ```arduino
-/*
-  Portenta - DirList
-
-  The sketch shows how to mount an usb storage device and how to
-  get a list of the existing folders and files.
-
-  The circuit:
-   - Portenta H7
-
-  This example code is in the public domain.
-*/
-
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
 #include <USBHostMbed5.h>
@@ -87,8 +85,6 @@ Below is an example sketch that can be used to **list** files in a USB mass stor
 USBHostMSD msd;
 mbed::FATFileSystem usb("usb");
 
-// If you are using a Portenta Machine Control uncomment the following line
-// mbed::DigitalOut otg(PB_14, 0);
 
 void setup()
 {
@@ -167,20 +163,6 @@ void loop()
 Below is an example sketch that can be used to **read** files from a USB mass storage device.
 
 ```arduino
-/*
-  Portenta - FileRead
-
-  The sketch shows how to mount an usb storage device and how to
-  read from an existing file.
-  to use this sketch create a .txt file named Arduino.txt,
-  in your storage device and write some content inside.
-
-  The circuit:
-   - Portenta H7
-
-  This example code is in the public domain.
-*/
-
 #include <USBHostMbed5.h>
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
@@ -254,18 +236,6 @@ void loop() {
 Below is an example sketch that can be used to **write** files from a USB mass storage device.
 
 ```arduino
-/*
-  Portenta - FileWrite
-
-  The sketch shows how to mount an usb storage device and how to
-  write a file, eventually overwriting the original content.
-
-  The circuit:
-   - Portenta H7
-
-  This example code is in the public domain.
-*/
-
 #include <USBHostMbed5.h>
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
@@ -335,6 +305,113 @@ void loop() {
 
 }
 ```
+
+### Datalogger Example
+
+In the example below, we are reading logging the `A0` pin, where we are defining two parameters:
+- `interval` - how long between each reading.
+- `number_of_readings` - how many readings we should take.
+
+This is useful if you e.g. want to log a specific amount of samples for a specific amount of time.
+
+```arduino
+#include <USBHostMbed5.h>
+#include <DigitalOut.h>
+#include <FATFileSystem.h>
+
+USBHostMSD msd;
+mbed::FATFileSystem usb("usb");
+
+int err;
+int count;
+int number_of_readings = 100; //how many readings you want to take
+int interval = 10; //how long between readings (milliseconds)
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(PA_15, OUTPUT);  //enable the USB-A port
+  digitalWrite(PA_15, HIGH);
+
+  while (!Serial); //stop program from executing until serial port opens
+
+  msd.connect();
+
+  while (!msd.connected()) {
+    Serial.print("MSD not found.");
+    delay(1000);
+  }
+
+  Serial.println("Mounting USB device...");
+
+  err = usb.mount(&msd);
+  if (err) {
+    Serial.print("Error mounting USB device ");
+    Serial.println(err);
+    while (1)
+      ;
+  }
+  Serial.print("read done ");
+  
+  //function to write to file
+  WriteToFile();
+}
+
+void loop() {
+}
+
+void WriteToFile() {
+  mbed::fs_file_t file;
+  struct dirent *ent;
+  int dirIndex = 0;
+  int res = 0;
+
+  Serial.println("Opening file..");
+  FILE *f = fopen("/usb/log.txt", "w+");
+
+  for (int i = 0; i < number_of_readings; i++) {
+    count += 1;
+
+    Serial.print("Reading Nr: ");
+    Serial.print(count);
+    Serial.print(", Value: ");
+    Serial.println(analogRead(A0));
+    
+    fflush(stdout);
+    
+    int reading = analogRead(A0);
+
+    err = fprintf(f, "%s", "Reading Nr: ");
+    err = fprintf(f, "%d", count);
+    err = fprintf(f, "%s", ", Value: ");
+    err = fprintf(f, "%d\n", reading);
+
+    if (err < 0) {
+      Serial.println("Fail :(");
+      error("error: %s (%d)\n", strerror(errno), -errno);
+    }
+    delay(interval);
+  }
+
+  Serial.println("File closing");
+  fflush(stdout);
+  err = fclose(f);
+
+  if (err < 0) {
+    Serial.print("fclose error:");
+    Serial.print(strerror(errno));
+    Serial.print(" (");
+    Serial.print(-errno);
+    Serial.print(")");
+  } else {
+    Serial.println("File closed");
+  }
+}
+```
+
+After logging data, remove the USB stick from your board, and insert it in your computer to see the data logged:
+
+![Data logged in .txt file.](assets/giga-file-write.png)
 
 ## USB Host Keyboard
 
@@ -456,63 +533,10 @@ delay(1000);
 Mouse.release(); 
 ```
 
-## GIGA R1 as a USB Stick
+## Summary
 
-It is possible to expose the external flash (16MB) on the GIGA R1 as a USB device. This makes it possible to store smaller files directly on the GIGA R1, which can be accessed through the sketch.
-
-```arduino
-#include "PluggableUSBMSD.h"
-#include "QSPIFBlockDevice.h"
-#include "MBRBlockDevice.h"
-#include "FATFileSystem.h"
-
-static QSPIFBlockDevice root;
-mbed::MBRBlockDevice wifi_data(&root, 1);
-mbed::MBRBlockDevice ota_data(&root, 2);
-static mbed::FATFileSystem wifi("wifi");
-static mbed::FATFileSystem ota("ota");
-
-void USBMSD::begin()
-{
-  int err = wifi.mount(&wifi_data);
-  if (err) {
-    while (!Serial);
-    Serial.println("Please run WiFiFirmwareUpdater before");
-    return;
-  }
-  ota.mount(&ota_data);
-}
-
-
-USBMSD MassStorage(&root);
-
-void setup() {
-  Serial.begin(115200);
-  MassStorage.begin();
-}
-
-void printDirectory(char* name) {
-  DIR *d;
-  struct dirent *p;
-
-  d = opendir(name);
-  if (d != NULL) {
-    while ((p = readdir(d)) != NULL) {
-      Serial.println(p->d_name);
-    }
-  }
-  closedir(d);
-}
-
-void loop() {
-  if (MassStorage.media_removed()) {
-    // list the content of the partitions
-    // you may need to restart the board for the list to update if you copied new files
-    Serial.println("Content of WiFi partition:");
-    printDirectory("/wifi");
-    Serial.println("Content of OTA partition:");
-    printDirectory("/ota");
-  }
-  delay(1000);
-}
-```
+The goal with this guide was to provide a summary of all the GIGA R1's features, including:
+- Enabling and disabling the USB-A port.
+- Read & Write to a USB mass storage device (MSD).
+- Connecting keyboards and reading key presses.
+- Emulate a mouse/keyboard through the HID interface.
