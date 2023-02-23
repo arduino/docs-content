@@ -5,6 +5,8 @@ author: Karl Söderby
 tags: [Dual Core, RPC, MicroPython]
 ---
 
+***PLEASE NOTE: This article is still in progress.***
+
 The GIGA R1's microcontroller, the **STM32H747XI** has two processor cores, the **M7** and **M4**, clocking in at 480MHz and 240Mhz respectively. 
 
 Having two cores in a microcontroller brings a significant advantage, to run two main applications simultaneuously, and communicate with them through something called **Remote Procedure Call (RPC)**. 
