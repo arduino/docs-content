@@ -478,7 +478,7 @@ void BT_Param_Share(){
 }
 ```
 
-In this example, if we receive `0x50` from the Small Tank Opta™, the Big Tank will turn off the pump. If it captures `0x36` or `0x37`, the Big Tank will have the information regarding Small Tank's maximum level. The following simple parser does this task inside the Big Tank's Opta™. The minor difference between the Small Tank Opta™ resides in how it seeks for the data to retrieve. The Big Tank Opta™ will use `readInputRegisterValues(42, 0x00, 1)` to request Small Tank Opta™ and search for the data if it has available information.
+In this example, if we receive `0x50` from the Opta™ managing the Small Tank, the Big Tank will turn off the pump. If it captures `0x36` or `0x37`, the Big Tank will have the information regarding Small Tank's maximum level. The following simple parser does this task inside the Big Tank's Opta™. The minor difference between the Small Tank Opta™ resides in how it seeks for the data to retrieve. The Big Tank Opta™ will use `readInputRegisterValues(42, 0x00, 1)` to request for data from the Opta™ managing the Small Tank, if available.
 
 ```arduino
 /**
