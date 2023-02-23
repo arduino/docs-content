@@ -396,7 +396,7 @@ The Big Tank Opta™ code has two main tasks: to halt the system's operation due
 
 ```arduino
 /**
-  Monitors Big Tank's system to trigger emergency stop when minimum sensor is false, and close the Small Tank's valve.
+  Monitors Big Tank's system to trigger emergency stop when minimum sensor is false, and closes the Small Tank's valve.
 
   @param BT_Pump Big Tank's pump state.
   @param BT_Min Big Tank's minimum sensor state.
