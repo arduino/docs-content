@@ -648,4 +648,4 @@ In this application note, we have learned how to set up the communication betwee
 
 ### Next Steps
 
-Now that you have learned to design and build a tank level monitoring system with Opta™ using Modbus RTU protocol and Cloud-based platform for on demand remote actuation, explore the possibilities to scale further by integrating as a part of the manufacturing and maintenance system.
+Now that you have learned how to design and build a tank level monitoring system with Opta™, using the Modbus RTU protocol and the Arduino IoT Cloud platform for on demand remote actuation, you can explore the possibilities to scale your projects further, by integrating Opta as a part of a manufacturing or maintenance system.
