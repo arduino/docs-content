@@ -1,5 +1,5 @@
 ---
-title: GIGA R1
+title: GIGA R1 WiFi
 url_shop: https://store.arduino.cc/giga-r1-wifi
 url_guide: /tutorials/giga-r1/giga-getting-started
 core: arduino:mbed_giga
