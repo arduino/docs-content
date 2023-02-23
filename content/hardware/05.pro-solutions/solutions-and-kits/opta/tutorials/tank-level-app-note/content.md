@@ -455,7 +455,7 @@ uint8_t BT_Pump_CTRL(){
 }
 ```
 
-The Opta™ in charge of the Big Tank shares the information with the Small Tank regarding Big Tank's minimum level tagged as `BT_Min` inside the sketch.
+The Opta™ in charge of the Big Tank shares the information regarding the Big Tank's minimum level, tagged as `BT_Min` inside the sketch, with the Small Tank.
 
 ```arduino
 /**
