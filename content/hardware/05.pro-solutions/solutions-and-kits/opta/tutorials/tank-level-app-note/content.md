@@ -83,7 +83,7 @@ The Opta™ responsible of the Small Tank (ST) performs the following actions:
 - It manages the solenoid/ball valve given the Small Tank level and the Big Tank minimum level state.
 - It sends the Small Tank's current maximum level state to the Big Tank while seeking the Big Tank's minimum level state.
 
-In addition to these functionalities, both Opta™ connect to Arduino Cloud via Wi-Fi®. Thanks to the Arduino Cloud, both tanks can be monitored and controlled remotely.
+In addition to these functionalities, both Opta™ are connected to the Arduino IoT Cloud via Wi-Fi® to leverage monitored functionalities and remote control.
 
 ### The Small Tank (ST) Code
 
