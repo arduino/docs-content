@@ -187,7 +187,7 @@ The following function helps to control the valve by reading the reservoir's cap
 
 ```arduino
 /**
-  Monitors Small Tank's valve depending on compilation of sensor states, and send pump off command.
+  Monitors the Small Tank's valve depending on the compilation of the sensors' states, and send the pump OFF command.
 
   @param ST_Valve Small Tank's valve state.
   @param ST_Valve_Cloud Small Tank's valve state on Cloud side.
