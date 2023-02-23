@@ -70,7 +70,7 @@ The two Opta™ devices will communicate with each other using the Modbus RTU pr
 
 ## Tank Level Monitoring Model Overview
 
-Each tank has a specific monitoring routine to track and control their minimum and maximum levels. Both Opta™ will exchange important states and parameters to understand and take appropriate actions to maintain the desired capacities in the application. As mentioned before, the Opta™ in charge of the Small Tank (ST) and Big Tank (BT) will communicate with each other using Modbus RTU protocol. The Big Tank will be the Client, while the Small Tank will behave as Server.
+Each tank has a specific monitoring routine to track and control their minimum and maximum levels. Both Opta™ devices will exchange important state information and parameters to understand and take appropriate actions to maintain the desired capacities in the application. As mentioned before, the Opta™ devices in charge of managing the Small Tank (ST) and Big Tank (BT) will communicate with each other using the Modbus RTU protocol. The Opta managing the Big Tank will be the Client, while the one in charge of managing the Small Tank will behave as Server.
 
 The Opta™ responsible of the Big Tank (BT) performs the following actions:
 
