@@ -61,11 +61,7 @@ Now on to the circuit assembly! Begin by grabbing the Arduino Nano RP2040 Connec
 
 ![Nano mounted on the adapter](./assets/step1.png)
 
-Then find the relay and a Grove cable. Taking a closer look at the Grove cable you will see that one side is a 3 pin connector (this goes into the moisture sensor), while the other end is a 4 pin connector (this will be cut off in the next step, we won’t be needing that). 
-
-Now you will need to cut the Grove cable to expose the copper wire inside so you can connect it to the Nano Screw Terminal Adapter but be careful not to cut it too short at the side that goes into the moisture sensor (3 pin connector). We recommend cutting the cable close to the 4 pin connector giving you the maximum cable length. If needed you can always shorten the cable afterwards. 
-
-Connect the wires from the Grove cable to the Nano Screw Terminal Adapter as follows:
+Then find the relay module, and a grove cable. You will need to cut the grove cable in half to expose the copper cable inside so you can connect it to the Nano Screw Terminal Adapter. Connect the wires from the grove cable to the Nano Screw Terminal Adapter as follows:
 
 - Black wire (-) to GND pin.
 - Red wire (+) to 3.3V pin.
@@ -99,7 +95,11 @@ If you find this step hard, you can also use one of the loose screw terminals pr
 
 The USB-cable can then be plugged into any USB port, on a laptop, or in a wall-adapter, as long as it can provide at least 500 mA at 5V. Most wall-adapters meet these requirements, so don't worry too much about finding the right one.
 
-Lastly, find the moisture sensor and a Grove cable. Connect it to the Nano Screw Terminal Adapter as follows: 
+Lastly, find the moisture sensor and a Grove cable. Taking a closer look at the Grove cable you will see that one side is a 3 pin connector (this goes into the moisture sensor), while the other end is a 4 pin connector (this will be cut off in the next step, we won’t be needing that). 
+
+Now you will need to cut the Grove cable to expose the copper wire inside so you can connect it to the Nano Screw Terminal Adapter but be careful not to cut it too short at the side that goes into the moisture sensor (3 pin connector). We recommend cutting the cable close to the 4 pin connector giving you the maximum cable length. If needed you can always shorten the cable afterwards.
+
+Connect it to the Nano Screw Terminal Adapter as follows: 
 
 - Black wire (-) to GND pin. 
 
