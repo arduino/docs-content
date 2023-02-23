@@ -640,7 +640,7 @@ Within Arduino Cloud's dashboard, the system status of both the tanks can be mon
 
 ## Full Tank Level Monitoring Example
 
-The complete code for the Small and Big Tank's Opta™ can be downloaded [here](assets/tank-level-monitoring-sketch.zip). It is important to know that for both, `thingProperties.h` is included with its respective variables and is generated automatically with Arduino Cloud.
+The complete code for the Small and Big Tank's management implementation with Opta™ can be downloaded [here](assets/tank-level-monitoring-sketch.zip). It is important to know that for both, `thingProperties.h` is included with its respective variables and is generated automatically with Arduino Cloud.
 
 ## Conclusion
 
