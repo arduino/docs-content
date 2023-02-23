@@ -84,7 +84,7 @@ The MicroPython installation exposes the mass storage device on your board, whic
 
 ### Boot & Main Scripts
 
-![GIGA R1's boot.py and main.py]()
+![GIGA R1's boot.py and main.py](assets/giga-main-boot.png)
 
 You will notice that in the mass storage device, there's two `.py` files: `boot.py` and `main.py`.
 
