@@ -29,7 +29,7 @@ Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks o
 
 ## Goals
 
-Present application note aims to show a system capable of monitoring and adjusting two tank's level using Opta™. We will refer to these tanks as **Big Tank (BT) and Small Tank (ST)**. The application goals are the following:
+Present application note aims to show a system capable of monitoring and adjusting two tanks' level using Opta™. We will refer to these tanks as **Big Tank (BT) and Small Tank (ST)**. The application goals are the following:
 
 - Big Tank (BT) and Small Tank (ST) levels must stay within a minimum and a maximum user-defined level; maximum and minimum levels will be measured using float switches. A vertical-type float switch will be used for measuring the maximum level, while a horizontal-type float switch will be used for measuring the minimum level in the tanks.
 - If the Small Tank (ST)  level goes below its minimum level, a relay opens a gate valve from the Big Tank (BT), letting the Big Tank (BT) liquid fill the Small Tank (ST). When the level in the Small Tank (ST) goes over its maximum, the relay closes the gate valve.
