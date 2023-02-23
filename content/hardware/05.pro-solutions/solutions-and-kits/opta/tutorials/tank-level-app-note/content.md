@@ -183,7 +183,7 @@ uint8_t ST_MinSensor_A1(){
 
 The Opta™ monitoring the Small Tank will need to recognize the reservoir's capacity and use such information to maintain its nominal volume. A 2/2-way normally closed direct acting solenoid or a motorized ball valve is used in this setup and controlled by the Small Tank's Opta manager, to free the volume whenever certain conditions are applicable.
 
-The following function helps to control the valve by reading the reservoir's capacity and external information from the Big Tank. The `BT_Min` is the float switch state for Big Tank's minimum level, attained via communication using Modbus RTU protocol.
+The following function helps to control the valve by reading the reservoir's capacity and external information from the Big Tank. The `BT_Min` is the float switch state for Big Tank's minimum level, obtained via Modbus RTU communication from the Opta managing the Big Tank.
 
 ```arduino
 /**
