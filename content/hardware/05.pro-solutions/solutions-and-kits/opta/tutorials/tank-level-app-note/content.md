@@ -644,7 +644,7 @@ The complete code for the Small and Big Tank's management implementation with Op
 
 ## Conclusion
 
-In this application note, we have learned how to communicate two Opta™ using Modbus RTU protocol to exchange data and build a simple tank-level monitoring system using its I/O ports. We also have learned how to use the Arduino Cloud features to have an on-demand trigger and monitor the actual tank-level information through a dashboard that allows the monitoring and control in real-time of the whole system.
+In this application note, we have learned how to set up the communication between two Opta™ devices using the Modbus RTU protocol, to exchange data and to build a simple tank-level monitoring system using its I/O ports. We have also learned how to use the Arduino Cloud features to have an on-demand trigger and to monitor the actual tank-level information through a dashboard that allows monitoring and controlling in real-time the whole system.
 
 ### Next Steps
 
