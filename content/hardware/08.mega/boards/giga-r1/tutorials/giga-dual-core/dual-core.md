@@ -128,7 +128,7 @@ void loop() {
 
 To install MicroPython on the GIGA R1, you will need to flash a specific MicroPython firmware to the **M7 processor.** This requires the [dfu-util](https://dfu-util.sourceforge.net/) tool.
 
-**2.1.** Download the [MicroPython firmware for GIGA R1]().
+**2.1.** Download the [MicroPython firmware for GIGA R1](/micropython).
 
 **2.2.** Download [dfu-util](https://dfu-util.sourceforge.net/) (also available via [brew.sh](https://formulae.brew.sh/formula/dfu-util)). Make sure the tool is added to PATH on your machine.
 
@@ -138,8 +138,8 @@ To install MicroPython on the GIGA R1, you will need to flash a specific MicroPy
 
 **2.5.** Finally, load the MicroPython firmware, by using the following command:
 
-```sh
-dfu-util -w -a 0 -d 2341:0366 -D <firmware>.dfu
+```
+$ dfu-util -w -a 0 -d 2341:0366 -D <firmware>.dfu
 ```
 
 This will start an uploading process that can be tracked in the terminal. Once it is done, the green LED will be pulsing. Success!
@@ -157,8 +157,6 @@ When we install MicroPython on the M7 core, we create a mass storage device that
 **3.1.** First, download the [umsg module]() and unpack it.
 
 **3.2.** Open the mass storage device (available in e.g. finder), and drag only the `umsg` folder to the root of the mass storage device.
-
-![Drag and drop the umsg folder.]()
 
 You now have the `umsg` module available on your board, and can be called from a MicroPython script.
 
