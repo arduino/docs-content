@@ -113,7 +113,7 @@ The vertical and horizontal float switches are essential sensors for recognizing
 
 Usually, a two-state element would suffice to determine such state conditions, but it may be better if also unforeseen states are kept observable. The simple `analogRead()` method is used to convert the detected raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean that the sensor is closed, while 0V will mean it is open.
 
-However, reading between 1.8-2.4V for an extended period during operation could mean the sensor is decalibrated or has failed. This reading could be helpful to take action to either replace or fix the sensor that is giving uncertain figures without the need to approach sensor placed within dangerous elements.
+However, reading values between 1.8 and 2.4V for an extended period during the operation could mean that the sensor has lost its calibration or is experiencing a failure. This reading could be helpful to take an action: either to check, replace or fix the sensor that is giving uncertain figures.
 
 ```arduino
 /**
