@@ -421,7 +421,7 @@ uint8_t BT_System_Off(){
 }
 
 /**
-  Monitors Big Tank's pump depending on maximum sensor state, and close the Small Tank's valve.
+  Monitors Big Tank's pump depending on maximum sensor state, and closes the Small Tank's valve.
 
   @param BT_Pump Big Tank's pump state.
   @param BT_Pump_Cloud Big Tank's pump state on Cloud side.
