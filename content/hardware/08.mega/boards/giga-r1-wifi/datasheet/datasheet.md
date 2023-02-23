@@ -81,7 +81,7 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
 | V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
 | V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -20                | 25  | 60                 | °C   |
+| T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
 
 **Note 1:** V<sub>DD</sub> controls the logic level and is connected to the 3.3V power rail. V<sub>AREF</sub> is for the analog logic.
 
@@ -388,7 +388,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Company name    | Arduino SRL                                   |
 |-----------------|-----------------------------------------------|
-| Company Address | Via Andrea Appiani 25, 20900, MONZA MB, Italy |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy)  |
+
 
 ## Reference Documentation
 
@@ -405,4 +406,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Changes** |
 |------------|-------------|
-| 18/01/2023 | Release     |
+| 03/02/2023 | Release     |
