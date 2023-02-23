@@ -111,7 +111,7 @@ constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 
 The vertical and horizontal float switches are essential sensors for recognizing the tank's capacity. It will measure if the switches are closed or open by reading the voltage in this scenario. For example, if the vertical switch is closed and indicates the tank is at maximum capacity, it will read ~3.0V and return its state as 1. Otherwise, it will return the maximum capacity state as 0, meaning it has not reached the upper capacity limit.
 
-Usually, a two-state element suffices such state conditions, but it may be better if unforeseen states are observable. The simple `analogRead()` method is used to convert obtained raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean the sensor is closed, while 0V will mean it is open.
+Usually, a two-state element would suffice to determine such state conditions, but it may be better if also unforeseen states are kept observable. The simple `analogRead()` method is used to convert the detected raw value into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean that the sensor is closed, while 0V will mean it is open.
 
 However, reading between 1.8-2.4V for an extended period during operation could mean the sensor is decalibrated or has failed. This reading could be helpful to take action to either replace or fix the sensor that is giving uncertain figures without the need to approach sensor placed within dangerous elements.
 
