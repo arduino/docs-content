@@ -19,7 +19,7 @@ hardware:
 
 ## Overview
 
-The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial, we will go through setting up Opta™ with the Arduino IDE and explain how to use its basic features. It includes examples to show how to program the LEDs on the device, how to use the programmable button, as well as to contol its inputs and outputs.
+The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial, we will go through setting up Opta™ with the Arduino IDE and explain how to use its basic features. It includes examples to show how to program the LEDs on the device, how to use the programmable button, as well as to control its inputs and outputs.
 
 ![The Opta™](assets/opta-device.svg)
 
@@ -75,6 +75,14 @@ Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta
 When the sketch is uploaded you will see the Opta™ device's STATUS LEDs blinking in sequence.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: LED_Blink_Opta
+  Purpose: Blink STATUS LEDs on Opta™.
+
+  @author Arduino
+*/
+
 void setup() {
   pinMode(LED_D0, OUTPUT);
   pinMode(LED_D1, OUTPUT);
@@ -114,6 +122,14 @@ The Opta™ has a programmable button, shown in the image below and identified a
 The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed), and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: Programmable_Button_Opta
+  Purpose: Configures the programmable button to control STATUS LED sequence.
+
+  @author Arduino
+*/
+
 int buttonState = 0;
 int counter = 0;
 
@@ -141,6 +157,9 @@ void loop() {
   changeLights();
 }
 
+/**
+  Function to control STATUS LED based on the counter.
+*/
 void changeLights() {
   switch(counter){
     case 0:
@@ -211,6 +230,14 @@ The Opta™ has dedicated terminals for power supply located in the upper part o
 The entire sketch can be found below, copy it into your IDE and upload it to your device.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: Output_Relay_Opta
+  Purpose: Test output relays of the Opta™.
+
+  @author Arduino
+*/
+
 void setup() {
  // Initialize Relays outputs
  pinMode(D0, OUTPUT);
@@ -292,6 +319,14 @@ To get and display the proper voltage value read by the input, we need to conver
 The sketch will read the inputs on the analog pins A0, A1 and A2 and then print the result in the serial monitor.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: Analog_Inputs_Opta
+  Purpose: Test analog pins A0, A1 and A2 as inputs on Opta™.
+
+  @author Arduino
+*/
+
 void setup() {
    Serial.begin(9600);
    // 65535 is the max value with 16 bits resolution set by analogReadResolution(16)
@@ -341,7 +376,7 @@ You may notice from the output values that when the maximum value of 10V is reac
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. We also have some other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/) that will help you to expand its capabilities.
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, check [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
 
 ## Conclusion
 
