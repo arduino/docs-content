@@ -44,10 +44,6 @@ This allows you to simply connect the camera module directly to the board, witho
 
 ![Camera Module Connected](assets/camera-connector-photo.png)
 
-![Camera Module Connected](assets/camera-connector-photo2.png)
-
-![Camera Module Connected](assets/camera-connector-photo3.png)
-
 Some of the 20 pin connector breakout boards from ArduCam can be found [here](https://www.arducam.com/product-category/stm32-camera-modules-dcmi-and-spi/).
 
 The complete pin map can be found below:
