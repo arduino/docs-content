@@ -42,6 +42,8 @@ The 20 pin camera connector onboard the GIGA R1 is designed to be directly compa
 
 This allows you to simply connect the camera module directly to the board, without making any additional circuit.
 
+![Camera Module Connected](assets/camera-connector-photo.png)
+
 Some of the 20 pin connector breakout boards from ArduCam can be found [here](https://www.arducam.com/product-category/stm32-camera-modules-dcmi-and-spi/).
 
 The complete pin map can be found below:
