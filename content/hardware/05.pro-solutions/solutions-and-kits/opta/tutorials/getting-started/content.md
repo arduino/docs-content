@@ -19,7 +19,7 @@ hardware:
 
 ## Overview
 
-Opta™ is a robust micro PLC solution with many engaging features. In this tutorial we will go through the setup of Opta™ with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as controlling its inputs and outputs.
+The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial we will go through the setup of Opta™ with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as controlling its inputs and outputs.
 
 ![The Opta™](assets/opta-device.svg)
 
@@ -51,9 +51,9 @@ Within the Arduino IDE install the core for the Opta™. Go to **Tools > Board >
 
 Now you are ready to upload sketches to the Opta™ via the Arduino IDE.
 
-### Trying a Blink Sketch
+### Testing with Blink Sketch
 
-Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
+Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly.
 
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta™, highlighted in the image below.
 
@@ -72,7 +72,7 @@ Hereafter you can see the correspondence between each of them as identified in t
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta™.
-When the sketch is uploaded you will see the Opta's STATUS LEDs blinking in sequence.
+When the sketch is uploaded you will see the Opta™ device's STATUS LEDs blinking in sequence.
 
 ```arduino
 void setup() {
@@ -107,7 +107,7 @@ void loop() {
 
 ### Configuring the Programmable Button on the Opta™
 
-Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
+The Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
@@ -176,9 +176,9 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 | Fourth press | STATUS LEDs 1, 2, 3 and 4 ON          |
 | Fifth press  | All STATUS LEDs off and counter reset |
 
-### Using Out Relays
+### Using Opta™ PLC's Output Relays
 
-Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
+The Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
 
 ![Out relays on the Opta™](assets/opta-out-relays.svg)
 
@@ -202,7 +202,7 @@ The “clean” contact also allows carrying a different power system or type of
 Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and, after each relay's cycle, a led will be turned on to provide visual feedback.
 To activate the relays and run this sketch, you need to provide energy to Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply.
 
-Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
+The Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
 
 ![Connect these pins to drive the relays on the Opta™](assets/opta-voltage-pins.svg)
 
@@ -262,7 +262,7 @@ void loop() {
 
 ***Important: It is not possible to program the Opta™ while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again.***
 
-### Using Opta's Inputs
+### Using Opta™ PLC's Inputs
 
 Opta™ has 8 input pins that can be programmed to be used as analog or digital. The mapping between the marking on the Opta™ physical terminals (I1 to I8) and their definition in the core can be found below:
 

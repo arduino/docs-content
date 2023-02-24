@@ -22,7 +22,7 @@ hardware:
 
 ## Overview
 
-Opta™ is a powerful micro PLC device with many features that can be customized to meet the requirements of each professional solution. Among these features, you can find standard connectivity protocols such as Wi-Fi®, Ethernet and Bluetooth®. Please note that these connectivity features are not available on all variants of Opta™. In this tutorial we will go through how to use these features in Opta™ using the Arduino IDE.
+The Opta™ is a powerful micro PLC device with many features that can be customized to meet the requirements of each professional solution. Among these features, you can find standard connectivity protocols such as Wi-Fi®, Ethernet and Bluetooth®. Please note that these connectivity features are not available on all variants of Opta™. In this tutorial we will go through how to use these features in Opta™ using the Arduino IDE.
 
 ## Goals
 
