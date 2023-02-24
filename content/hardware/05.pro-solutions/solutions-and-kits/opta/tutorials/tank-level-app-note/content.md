@@ -53,7 +53,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 - 12VDC NC 2/2-Way direct acting solenoid or motorized ball valve (x1)
 - 12VDC liquid pump (x1)
 - 12VDC DIN rail power supply (x1)
-- Wire with either specification for RS-485 connection (x3):
+- Recommended wire specification for RS-485 connection (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130Ω rated
 
