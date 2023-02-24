@@ -19,17 +19,17 @@ hardware:
 
 ## Overview
 
-The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial we will go through the setup of Opta™ with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as controlling its inputs and outputs.
+The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial, we will go through setting up Opta™ with the Arduino IDE and explain how to use its basic features. It includes examples to show how to program the LEDs on the device, how to use the programmable button, as well as to contol its inputs and outputs.
 
 ![The Opta™](assets/opta-device.svg)
 
 ## Goals
 
-- Putting Opta™ to work with the Arduino IDE
-- Blinking the LEDs on the device
-- Programming the button on the device
-- Testing the inputs and outputs on the device
-- Connecting the device to the Arduino Cloud
+- Learn how to put Opta™ to work with the Arduino IDE
+- Learn how to blink the LEDs on the Opta™
+- Learn how to program the button on the Opta™
+- Learn how to test the inputs and outputs on the Opta™
+- Learn how to connect the Opta™ to the Arduino Cloud
 
 ### Required Hardware and Software
 
@@ -68,7 +68,7 @@ Hereafter you can see the correspondence between each of them as identified in t
 - `LED_D2`: STATUS 3
 - `LED_D3`: STATUS 4
 - `LED_RESET`: LED above the reset button
-- `LED_USER`: LED above the user button (only available on the Opta™ variant with WiFi features)
+- `LED_USER`: LED above the user button (only available on the Opta™ variant with connectivity features)
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta™.
@@ -111,7 +111,7 @@ The Opta™ has a programmable button, shown in the image below and identified a
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
-The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device.
+The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed), and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device.
 
 ```arduino
 int buttonState = 0;
@@ -176,11 +176,11 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 | Fourth press | STATUS LEDs 1, 2, 3 and 4 ON          |
 | Fifth press  | All STATUS LEDs off and counter reset |
 
-### Using Opta™ PLC's Output Relays
+### Using Output Relays of Opta™
 
 The Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
 
-![Out relays on the Opta™](assets/opta-out-relays.svg)
+![Output relays on the Opta™](assets/opta-out-relays.svg)
 
 The coils of each relay correspond to pins D0 to D3 as follows:
 

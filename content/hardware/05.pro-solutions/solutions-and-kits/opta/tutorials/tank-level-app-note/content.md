@@ -1,6 +1,6 @@
 ---
 title: 'Tank Level Monitoring with the Opta™'
-description: "This application note describes how to monitor the level in tanks using Opta™ and Modbus RTU."
+description: "This application note describes how to monitor the level in tanks using Opta™ and Modbus RTU protocol."
 difficulty: advanced
 tags:
   - Tank level
@@ -25,14 +25,14 @@ hardware:
 
 ## Introduction
 
-Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks operated in many industries, even at home. Some industrial applications include transport and storage tanks like, for example, a tank in a water treatment plant. In household applications, tank level monitoring is essential for applications as water dispensers, water evaporators, streamers, monitoring systems of boilers, heating systems, washing machines, steam irons, automated coffee machines, and so on. With its industrial IoT capabilities, Opta™ micro PLC can be the perfect solution for these industrial applications.
+Monitoring and adjusting tank levels, in-situ and remotely, are everyday tasks operated in many industries, even at home. Some industrial applications include transport and storage tanks like, for example, a tank in a water treatment plant. In household applications, tank level monitoring is essential for applications as water dispensers, water evaporators, streamers, boiler monitoring systems, heating systems, washing machines, steam irons, automated coffee machines, and so on. With its industrial IoT capabilities, Opta™ micro PLC can be the perfect solution for these industrial applications.
 
 ## Goals
 
 Present application note aims to show a system capable of monitoring and adjusting two tanks' level using Opta™. We will refer to these tanks as **Big Tank (BT) and Small Tank (ST)**. The application goals are the following:
 
 - Big Tank (BT) and Small Tank (ST) levels must stay within a minimum and a maximum user-defined level; maximum and minimum levels will be measured using float switches. A vertical-type float switch will be used for measuring the maximum level, while a horizontal-type float switch will be used for measuring the minimum level in the tanks.
-- If the Small Tank (ST) level goes below its minimum level, a relay opens a gate valve from the Big Tank (BT), letting the Big Tank (BT) liquid fill the Small Tank (ST). When the level in the Small Tank (ST) goes over its maximum, the relay closes the gate valve.
+- If the Small Tank (ST) level goes below its minimum level, a relay opens a gate valve from the Big Tank (BT), letting the Big Tank (BT) liquid fill the Small Tank (ST). When the level in the Small Tank (ST) goes over its maximum limit, the relay closes the gate valve.
 - If the Big Tank (BT) level goes over its maximum level, a pump is activated to bring its level back below its maximum level.
 - If the Big Tank (BT) level goes below its minimum level, the system gets blocked, and the level threshold of the Small Tank (ST) doesn't activate the relay that opens or closes the gate valve of the Big Tank (BT).
 
@@ -67,7 +67,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical connections of the application](assets/electrical_connections.svg)
+![Electrical connections of the tank level monitoring application](assets/electrical_connections.svg)
 
 The two Opta™ devices will communicate with each other using the Modbus RTU protocol. The level sensors (vertical and horizontal float switches) are monitored via the digital input pins of each Opta™; the pump and the solenoid/ball valve are controlled using the built-in relay outputs of both the Opta™ PLCs.
 
@@ -116,7 +116,7 @@ The vertical and horizontal float switches are essential sensors for recognizing
 
 Usually, a two-state element would suffice to determine such state conditions, but it may be better if also unforeseen states are kept observable. The simple `analogRead()` method is used to convert the raw value reading into comprehensible information by using `analogRead() * (3.249 / 4095.0) / 0.3034;` to represent in range of 0-3.2V in the current example. The ~3.0V will mean that the sensor is closed, while 0V will mean it is open.
 
-However, reading values between 1.8 and 2.4V for an extended period during the operation could mean that the sensor has lost its calibration or is experiencing a failure. This reading could be helpful to take an action: either to check, replace or fix the sensor that is giving uncertain figures.
+However, reading values between 1.8 and 2.4V for an extended period during the operation could mean that the sensor has lost its calibration or is experiencing a failure. This reading could be helpful to either check, replace, or fix the sensor that is giving uncertain figures.
 
 ```arduino
 /**
@@ -251,7 +251,7 @@ void ST_Param_Share(){
 }
 ```
 
-The following method is used whenever an Opta™ exchanges information with another Opta™ using Modbus RTU protocol. This method writes the input register data for addresses Opta™ defined through the specified Modbus address.
+The following method is used whenever an Opta™ exchanges information with another Opta™ using Modbus RTU protocol. This method writes the input register values for addresses Opta™ defined through the specified Modbus address.
 
 ```arduino
 ModbusRTUServer.inputRegisterWrite(0, 0x37)
@@ -647,7 +647,7 @@ The complete code for the Small and Big Tank's management implementation with Op
 
 ## Conclusion
 
-In this application note, we have learned how to set up the communication between two Opta™ devices using the Modbus RTU protocol, to exchange data and to build a simple tank-level monitoring system using its I/O ports. We have also learned how to use the Arduino Cloud features to have an on-demand trigger and to monitor the actual tank-level information through a dashboard that allows monitoring and controlling in real-time the whole system.
+In this application note, we have learned how to set up the communication between two Opta™ devices using the Modbus RTU protocol, to exchange data, and to build a simple tank-level monitoring system using its I/O ports. We have also learned how to use the Arduino Cloud features to have an on-demand trigger and to monitor the actual tank-level information through a dashboard that displays statistics of the whole system in real-time.
 
 ### Next Steps
 

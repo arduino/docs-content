@@ -65,7 +65,7 @@ We will define one Opta™ as sender and the other as receiver device. As the ro
 
 The Opta™ acting as receiver will get the incoming data, decode them, and discard non-valid or out-of-range data. The decoded data will switch the relay state and the status LED to the opposite of the current state. For instance, if the receiver captures a `2` from the sender while the receiver has its 2nd relay closed with a turned-on 2nd status LED, the receiver will open the relay and turn off the 2nd status LED as a deactivation indication.
 
-The other way around, in case of an open relay/LED off status, Opta™ will close the relay and turn on the status LED corresponding to the number received in the recent transmission. The same occurs for all the pairs of relays/status LED.
+The other way around, in case of an open relay/LED off status, Opta™ will close the relay and turn on the status LED corresponding to the number received in the recent transmission. The same occurs for all the pairs of relays/status LEDs.
 
 ### The Opta™ Sender Sketch
 
@@ -83,7 +83,7 @@ constexpr auto preDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * wordlen * 3.5f * 1e6 };
 ```
 
-These transmission parameters, applied in the Opta™ initialization, are crucial for a stable RS-485 data transmission as they will define the communication timings to make sure the lines of the RS-485 are already in a stable state. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we use a baud rate of `115200`, but it can be configured at a different baud rate:
+These transmission parameters, applied in the Opta™ initialization, are crucial for a stable RS-485 data transmission as they will define the communication timings to make sure the lines of the RS-485 are already in a stable state. **Remember that it is necessary to have a matching baud rate between the sender and the receiver devices for stable operation**. In this tutorial, we are using a baud rate of `115200`, but it can be configured at a different baud rate:
 
 ```arduino
 void setup() {
@@ -133,7 +133,7 @@ int leds[]{ LED_D0, LED_D1, LED_D2, LED_D3 };
 bool statuses[]{ true, true, true, true };
 ```
 
-After initializing the RS-485 interface, we will set the relays and the status LEDs as `OUTPUTS`. It will later help to control the relay with its corresponding visual indicator based on the received data over the RS-485:
+After initializing the RS-485 interface, the relays and the status LEDs are set as `OUTPUTS`. It will later help to control the relay with its corresponding visual indicator based on the received data over the RS-485:
 
 ```arduino
 void setup() {
@@ -150,7 +150,7 @@ void setup() {
 }
 ```
 
-In the main loop of the sketch, we will seek data sent over RS-485 and handle them accordingly. The loop manages out-of-range inputs and considers in-range data for the actuation of the intended relay and status LEDs. If the sender device forwards values that are not between `1` and `4`, the `readValue` variable will go through a module operation and return the remainder from the integer division.
+In the main loop of the sketch, we will seek data sent over RS-485 and handle them accordingly. The loop manages out-of-range inputs and considers in-range data for the actuation of the intended relay and status LED. If the sender device forwards values that are not between `1` and `4`, the `readValue` variable will go through a module operation and return the remainder from the integer division to use as a correct input.
 
 The `RS485.receive()` method enables the data reception via RS-485, then the `RS485.available()` method is used to determine if there are data available to be read. Once the data are available, the `RS485.read()` method will read the data and store them in the `readValue` variable. Finally, after managing the received data, the `RS485.noReceive()` method is called to disable the data reception over RS-485:
 
@@ -182,7 +182,7 @@ void loop() {
 }
 ```
 
-The `changeRelay()` function manages the relay and status LED state based on the received input message. This function is called after receiving data via RS-485 to update the relays and status LED states accordingly:
+The `changeRelay()` function manages the relay and status LED state based on the received input packet. This function is called after receiving data via RS-485 to update the relay and status LED states accordingly:
 
 ```arduino
 /**
@@ -207,7 +207,7 @@ You can access the complete example code [here](assets/Opta_RS485_Example.zip); 
 
 ### Testing Out the Sketches
 
-Now it is time to test the application. Using the Serial Monitor of the Arduino IDE, send a value between `1` and `4` with the sender device. Sending a `1` will close the relay one and turn on the corresponding status LED of the receiver Opta™ device. Sending a `1` again will open the relay and turn off the status LED of the receiver device.
+Now it is time to test the application. Using the Serial Monitor of the Arduino IDE, send a value between `1` and `4` with the sender device. Sending a `1` will close the 1st relay and turn on the corresponding status LED of the receiver Opta™ device. Sending a `1` again will open the 1st relay and turn off the status LED of the receiver device.
 
 Here is a list of the values the receiver Opta™ device can receive and the result they produce:
 
@@ -218,7 +218,7 @@ Here is a list of the values the receiver Opta™ device can receive and the res
 
 ## Conclusion
 
-In this tutorial, we established an RS-485 connection between two Opta™ devices. We also learned how to use the `ArduinoRS485.h` library to send and receive values between these two devices using RS-485 layer. Finally, the tutorial showed how to take the data sent via RS-485 to interact with the Opta™ hardware features, such as its onboard relays and status LEDs.
+In this tutorial, we established an RS-485 connection between two Opta™ devices. We also learned how to use the `ArduinoRS485.h` library to send and receive values between these two devices using RS-485 layer. Finally, the tutorial showed how to take the data sent via RS-485 to interact with the Opta™ PLC's hardware features, such as its onboard relays and status LEDs.
 
 ### Next Steps
 

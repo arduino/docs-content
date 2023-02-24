@@ -46,7 +46,7 @@ The Modbus RTU protocol is one of the protocols available within Opta™. In thi
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `ArduinoModbus`. You can install these libraries via the Library Manager of the Arduino IDE.
+- If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `ArduinoModbus`. You can install these libraries via Library Manager of the Arduino IDE.
 
 ## Modbus Protocol
 
@@ -54,7 +54,7 @@ Modbus is an open and royalty-free serial communication protocol derived from th
 
 It was published by Modicon (now Schneider Electric) in 1979 and has become a _de facto_ standard communication protocol among industrial electronic devices to be used with programmable logic controllers (PLCs).
 
-Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) Systems. Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
+Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (RTU) in Supervisory Control and Data Acquisition (SCADA) systems. Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
 
 If you want more insights on the Modbus communication protocol, take a look at [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying as well with Opta™.
 
@@ -89,7 +89,6 @@ The Opta™ Client will require the following setup:
 constexpr auto baudrate { 19200 };
 
 // Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-//
 // MODBUS over serial line specification and implementation guide V1.02
 // Paragraph 2.5.1.1 MODBUS Message RTU Framing
 // https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
@@ -402,13 +401,13 @@ void setup() {
 }
 ```
 
-In the `setup()` function of the sketch dedicated to the Modbus server, the Server address is assigned with an identifier that will be recognized by the Client. Also, the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers are configured. These are the data that the Client will locate and retrieve. The following line is necessary in the Server `loop()` function:
+In the `setup()` function of the sketch dedicated to the Modbus server, the Server address is assigned with an identifier that will be recognized by the Client. Also, the initial values of the `Coils`, `Discrete Input`, `Holding`, and `Input` registers are configured. These are the data that the Client will locate and retrieve. The following method is necessary in the Server `loop()` function:
 
 ```arduino
 ModbusRTUServer.poll();
 ```
 
-This is the line that polls for Modbus RTU requests. The complete code for the Server is shown below:
+This is the method that polls for Modbus RTU requests. The complete code for the Server is shown below:
 
 ```arduino
 /**
