@@ -47,6 +47,7 @@ The Modbus RTU protocol is one of the protocols available within Opta™. In thi
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `ArduinoModbus`. You can install these libraries via Library Manager of the Arduino IDE.
+- [Modbus RTU example code](assets/Opta_Modbus_RTU_Example.zip)
 
 ## Modbus Protocol
 
@@ -77,6 +78,8 @@ The goal of the following example is to configure and use the Modbus RTU communi
 The Modbus is a renowned Client-Server protocol for its reliability. The Modbus Client is responsible as a requesting device, and the Modbus Server provides requested information when available. Several Modbus Servers are allowed, but only one Modbus Client can be present. In this example, an Opta™ Client handles writing and reading `Coil`, `Holding`, `Discrete Input`, and `Input` register values, while an Opta™ Server will poll for Modbus RTU requests and return the appropriate values.
 
 The crucial components of the code used in this tutorial are discussed in detail in the following sections to make the example easier to understand.
+
+You can access the complete example code [here](assets/Opta_Modbus_RTU_Example.zip); after extracting the files, `Opta_ModbusRTU_client` and `Opta_ModbusRTU_server` sketches are available to try with your Opta™ devices.
 
 #### Modbus RTU Client
 
