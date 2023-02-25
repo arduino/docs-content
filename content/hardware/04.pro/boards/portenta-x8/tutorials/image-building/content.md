@@ -53,7 +53,7 @@ First, clone the lmp-manifest repository with this command:
 Then build the Docker Image using:
   ```
   cd lmp-manifest
-  docker build -t yocto-build ./lmp-manifest
+  docker build -t yocto-build .
   ```
   ![Building a Docker Image](assets/docker_build.png)
 
