@@ -93,9 +93,7 @@ The Space-Selector shows you at any time which Space you are currently working o
 
 ### Create Additional Spaces
 
-The Arduino Cloud for Business platform allows you to create and manage an unlimited number of Spaces. 
-
-Take into consideration that, except for the automatically created Private Space, all the other Spaces need a dedicated subscription to Arduino Cloud. Check the available plans [here](https://cloud.arduino.cc/plans).
+The Arduino Cloud for Business plan allows you to create and manage one Shared Space and one Private Space. If you need additional Spaces, you have to purchase a new Arduino Cloud plan. Check the available plans [here](https://cloud.arduino.cc/plans).
 
 In order to create a new Shared Space, click on **New Shared Space** in the Space-Selector. 
 
@@ -213,7 +211,7 @@ In order to proceed with the onboarding, check [this tutorial](https://docs.ardu
 
 As already said, once a device is successfully configured, it appears in the "Devices" list and can be used to create a Thing, or can be linked to an existing Thing.
 
-In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is an abstract concept that holds the configuration of some variables and other settings, as well as the history of the data collected for those variables.
+In order to use your devices in IoT Cloud, you need to associate a Thing to each of them. A Thing is the digital twin of your device, holding the configuration of some variables and other settings, as well as the history of the data collected for those variables.
 
 To create a Thing, click on **Create Thing** next to the device of your interest and your Thing will be automatically created for you. At this point, you can start updating it.
 
@@ -291,9 +289,27 @@ Whether it is your teammate, your customer or your system integrator, you can fr
 
 Arduino Cloud for Business allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in `.csv` format to be ready for further evaluation or manipulation. 
 
+The Arduino Cloud for Business plan includes 1 year data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 1 year. 
+
+In order to start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the Download icon up in the right corner. This will open a new window that will allow you to select which historical data you would like to download.
+
+![Download icon](assets/download-button.png "Download icon")
+
+From here you can select all the variables you want to download by checking the boxes as well as the time frame you are interested in.
+
+When you have selected the data, click on **Select Data Source** button.
+
 ![Export your data](assets/download-data.png "Exporte your data")
 
-***Do you want to start exporting your data locally? See [this documentation](https://docs.arduino.cc/arduino-cloud/features/iot-cloud-historical-data) to get started.***
+At this point, click on **Get data** to receive your data by email. 
+
+![Get your data](assets/get-data.png "Get your data")
+
+You will get an email like the one below with a link allowing you to download all your data. 
+
+![Link to download your data](assets/email-data.png "Link to download your data")
+
+You are now ready to monitor and manipulate all your Cloud data.
 
 ## Arduino Cloud API
 
