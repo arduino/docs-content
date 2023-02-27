@@ -40,10 +40,34 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - Digital I/O Pins: 75
   - Analog input pins: 14
   - PWM pins: 12
-  - Analog output pins: 2
+  - Analog output pins (DAC0/DAC1): 2
   - USB Host: USB 2.0 A
   - USB Peripheral: USB-C®
   - Logic level: 3.3V
+  - VRTC: To power the RTC while the board is off
+  - OFF pin: To turn off the board
+- **Communication**
+  - 4x UART
+  - 3x I2C
+  - 2x SPI
+  - 1x SPI (an external transceiver is required)
+- **Secure Element** ATECC608A-MAHDA-T Module
+- **USB**
+  - **USB Host** USB 2.0 Type A
+    - Host
+    - HID
+  - **USB Peripheral** USB-C®
+    - Programming Port
+- **Connectors**
+  - Camera: 20 pin Arducam camera connector
+  - Display: D1N, D0N, D1P, D0P, CKN, CKP, D68-D75
+  - Audio jack: DAC0, DAC1, A7
+  - JTAG connector
+- **Power**
+  - Circuit operating voltage: 3.3V
+  - Input voltage (VIN): 6-24V
+  - DC Current per I/O Pin: 8 mA 
+  
 
 # Contents
 
