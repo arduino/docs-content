@@ -1,6 +1,6 @@
 ---
 identifier: ABX00063
-title: Arduino® GIGA R1 WIFI
+title: Arduino® GIGA R1 WiFi
 type: maker
 author: Ali Jahangiri
 ---
@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The Arduino GIGA R1 WIFI brings the power of the STM32H7 to the Mega form factor, being the first one to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital inputs/outputs (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessible via pin headers. The STM32 microprocessor with dual-core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
+The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor, being the first one to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital inputs/outputs (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessible via pin headers. The STM32 microprocessor with dual-core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
 
 # Target Areas
 
@@ -51,11 +51,11 @@ The Arduino GIGA R1 WIFI brings the power of the STM32H7 to the Mega form factor
 
 ## Application Examples
 
-The GIGA R1 WIFI combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine-learning tasks. Your IoT projects can even benefit from the Arduino IoT Cloud with the help of the onboard secure element and its wireless connectivity.
+The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine-learning tasks. Your IoT projects can even benefit from the Arduino IoT Cloud with the help of the onboard secure element and its wireless connectivity.
 
 - **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high-resolution DAC interfaces for high-performance sensing of the 3D printing process. Together with the dual-core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino IoT Cloud, or any other third-party service, and its Wi-Fi® features.
 
-- **Audio Processing:** The GIGA R1 WIFI provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud or any other third-party service and connect with people all over the world.
+- **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino IoT Cloud or any other third-party service and connect with people all over the world.
 
 - **Data acquisition device:** Thanks to the numerous analog inputs, including the one connected to the jack connector (J15), and the two DAC outputs with a resolution up to 12 bits, you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud or any other third-party service. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
@@ -91,13 +91,13 @@ The GIGA R1 WIFI combines the best of the Portenta H7 and the Mega 2560. A gener
 
 ## Block Diagram
 
-![Arduino GIGA R1 WIFI Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
+![Arduino GIGA R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
 
 ## Board Topology
 
 ### Front View
 
-![Top View of Arduino GIGA R1 WIFI](assets/gigaR1WiFiTop.png)
+![Top View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiTop.png)
 
 | **Ref.** | **Description**                         | **Ref.** | **Description**                     |
 |----------|-----------------------------------------|----------|-------------------------------------|
@@ -115,11 +115,11 @@ The GIGA R1 WIFI combines the best of the Portenta H7 and the Mega 2560. A gener
 
 ### Back View
 
-![Back View of Arduino GIGA R1 WIFI](assets/gigaR1WiFiBottom.png)
+![Back View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiBottom.png)
 
 ## Processor
 
-The GIGA R1 WIFI's main processor is the dual-core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a _Remote Procedure Call_ mechanism that allows calling functions between each processor seamlessly.
+The GIGA R1 WiFi's main processor is the dual-core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a _Remote Procedure Call_ mechanism that allows calling functions between each processor seamlessly.
 
 ## Wi-Fi®/Bluetooth® Connectivity
 
@@ -127,11 +127,11 @@ The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi®
 
 ## Onboard Memories
 
-The GIGA R1 WIFI supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the AT25SF128A-MHB-T (U8) as well as 8 MB of SDRAM with the AS4C4M16SA (U3). U8 connects over a Quad-SPI interface to the main processor (U1). U3 operates at a frequency of 166 MHz.
+The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the AT25SF128A-MHB-T (U8) as well as 8 MB of SDRAM with the AS4C4M16SA (U3). U8 connects over a Quad-SPI interface to the main processor (U1). U3 operates at a frequency of 166 MHz.
 
 ## USB Connector
 
-Two USB ports are provided on the Arduino GIGA R1 WIFI. One USB 2.0 type A (J2) and a USB-C® (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-C® connector allows the GIGA board to be connected as a peripheral for other devices. Note that super speed pins on the USB-C® connector (J12) are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4, D2) for ESD protection purposes.
+Two USB ports are provided on the Arduino GIGA R1 WiFi. One USB 2.0 type A (J2) and a USB-C® (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-C® connector allows the GIGA board to be connected as a peripheral for other devices. Note that super speed pins on the USB-C® connector (J12) are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4, D2) for ESD protection purposes.
 
 ## Audio
 
@@ -141,15 +141,15 @@ The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the ster
 
 ## Power Tree
 
-![Arduino GIGA R1 WIFI Power Tree](assets/GIGA_R1_WiFi_Power_Tree.png)
+![Arduino GIGA R1 WiFi Power Tree](assets/GIGA_R1_WiFi_Power_Tree.png)
 
-Power can either be supplied via the VIN pins, or the 5V of the USB connectors (J2, J12). If power is supplied via VIN, the MP2269GD-Z (U7) buck converter steps the voltage down to 5V. The 5V power rail is then stepped down to 3.3V by the MP2322GQH (U6) buck converter. The logic level of components on the Arduino GIGA R1 WIFI is 3.3V.
+Power can either be supplied via the VIN pins, or the 5V of the USB connectors (J2, J12). If power is supplied via VIN, the MP2269GD-Z (U7) buck converter steps the voltage down to 5V. The 5V power rail is then stepped down to 3.3V by the MP2322GQH (U6) buck converter. The logic level of components on the Arduino GIGA R1 WiFi is 3.3V.
 
 ## Board Operation
 
 ### Getting Started - IDE
 
-If you want to program your GIGA R1 WIFI while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the GIGA R1 WIFI to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the GIGA R1 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
@@ -301,7 +301,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Arduino GIGA R1 WIFI](assets/gigaMechanical.png)
+![Mechanical View of Arduino GIGA R1 WiFi](assets/gigaMechanical.png)
 
 <div style="page-break-after: always;"> </div>
 
