@@ -10,7 +10,7 @@ hardware:
   - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v2
-author: "Jacob Hylén"
+author: 'Jacob Hylén'
 contributeURL: content/tutorials/generic
 ---
 ## Introduction
