@@ -4,7 +4,6 @@ description: 'A guide for flashing the MicroPython firmware to your Arduino Nano
 tags: 
   - MicroPython
 difficulty: Intermediate
-libraries:
 hardware:
   - hardware/03.nano/boards/nano-33-ble
   - hardware/03.nano/boards/nano-rp2040-connect
