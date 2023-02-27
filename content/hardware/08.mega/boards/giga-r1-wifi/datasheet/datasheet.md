@@ -198,7 +198,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ## Pinout
 
-### Three-pins header - J1
+### Three-Pins Header - J1
 | Pin | Function | Type    | Description             |
 |-----|----------|---------|-------------------------|
 | 1   | OFF      | Digital | 3V3 Enable Pin (U6)     |
