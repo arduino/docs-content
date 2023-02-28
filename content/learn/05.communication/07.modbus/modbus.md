@@ -13,7 +13,7 @@ This article contains information about the Modbus serial communication protocol
 - All boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
 - [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
 - [Portenta Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
-- Opta™
+- [Opta™](https://docs.arduino.cc/hardware/opta)
 
 ### Libraries
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
