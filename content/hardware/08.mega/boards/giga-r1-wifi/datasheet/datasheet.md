@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor, being the first Mega board to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital inputs/outputs (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessible via pin headers. The STM32 microprocessor with dual-core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
+The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor, being the first Mega board to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 76 digital inputs/outputs (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessible via pin headers. The STM32 microprocessor with dual-core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
 
 # Target Areas
 
@@ -25,7 +25,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - Memory Protection Unit (MPU)
 - **Murata® 1DX** Wi-Fi®/Bluetooth® Module
   - Wi-Fi® 802.11b/g/n 65 Mbps
-  - Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)
+  - Bluetooth® Low Energy (version 5.X via Cordio stack, version 4.2 via Arduino Stack)
   - Micro UFL connector for external antenna
 - **Memory**
   - **STM32H747XI**
@@ -50,7 +50,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - 4x UART
   - 3x I2C
   - 2x SPI
-  - 1x SPI (an external transceiver is required)
+  - 1x CAN (an external transceiver is required)
 - **Secure Element** ATECC608A-MAHDA-T Module
 - **USB**
   - **USB Host** USB 2.0 Type A
@@ -83,11 +83,11 @@ The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A gener
 
 - **Data acquisition device:** Thanks to the numerous analog inputs, including the jack connector (J15) and the two DAC outputs with a resolution up to 12 bits, you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino IoT Cloud or any other third-party service. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 
-## Accessories (Not Included)
+## Accessories
 
-- Micro UFL antenna
-- USB-C® cable
-- USB 2.0 Type-A cable
+- Micro UFL antenna (Included)
+- USB-C® cable (Not included)
+- USB 2.0 Type-A cable (Not included)
 
 ## Related Products
 
