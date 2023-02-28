@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor, being the first one to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital inputs/outputs (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessible via pin headers. The STM32 microprocessor with dual-core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
+The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor, being the first Mega board to include onboard Wi-Fi® and Bluetooth® connectivity. The board provides 75 digital inputs/outputs (12 with PWM capability), 14 analog inputs and 2 analog outputs (DAC) all easily accessible via pin headers. The STM32 microprocessor with dual-core Cortex® M7 and Cortex® M4, together with onboard memory and audio jack enables you to perform machine learning and signal processing on the edge.
 
 # Target Areas
 
