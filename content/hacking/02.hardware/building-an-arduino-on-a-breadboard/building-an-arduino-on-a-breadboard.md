@@ -206,7 +206,7 @@ In this step you will need to add the last four wires needed by the AVR programm
 * The MISO pin of your adapter will go to pin 18 or Arduino digital pin 12 of your Atmega chip.
 * The SCK pin of your adapter will go to pin 19 or Arduino digital pin 13 of your Atmega chip.
 * The RESET pin of your adapter will go to pin 1 of your Atmega chip.
-* The MOSI pin of your adapter will go to pin 17 or Arduino digital pin 11 of your Atmega chip.
+* The MOSI pin of your adapter will go to pin 17 or Arduino digital pin 11 of your Atmega chip. Please note that the photo above shows MOSI (the dark green wire) is incorrectly connected to pin 16 of your Atmega chip. Please make sure you connect the MOSI to pin 17 on your breadboard.   
 
 ![Plug in the USB cable and AVR programming cable](assets/arduinobload_plugin.jpg)
 
