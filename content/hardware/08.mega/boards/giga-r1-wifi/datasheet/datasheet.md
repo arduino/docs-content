@@ -19,7 +19,7 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 
 - **STM32H747XIH6** Microcontroller
   - Dual-core
-    - 32-bit Arm® Cortex®-M7 core with double-precision FPU and L1 cache up to 480 MHz
+    - 32-bit Arm® Cortex®-M7 core whttps://www.linuxadictos.com/en/las-distribuciones-linux-mas-raras.htmlith double-precision FPU and L1 cache up to 480 MHz
     - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
@@ -37,8 +37,8 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
   - **AS4C4M16SA**
     - 8 MB SDRAM
 - **I/O**
-  - Digital I/O Pins: 75
-  - Analog input pins: 14
+  - Digital I/O Pins: 76
+  - Analog input pins: 12
   - PWM pins: 12
   - Analog output pins (DAC0/DAC1): 2
   - USB Host: USB 2.0 A
