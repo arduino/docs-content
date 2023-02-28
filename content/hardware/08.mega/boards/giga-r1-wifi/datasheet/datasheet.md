@@ -55,9 +55,9 @@ The Arduino GIGA R1 WiFi brings the power of the STM32H7 to the Mega form factor
 - **USB**
   - **USB Host** USB 2.0 Type A
     - Host
-    - HID
   - **USB Peripheral** USB-C®
     - Programming Port
+    - HID
 - **Connectors**
   - Camera: 20 pin Arducam camera connector
   - Display: D1N, D0N, D1P, D0P, CKN, CKP, D68-D75
