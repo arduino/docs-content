@@ -1,6 +1,6 @@
 ---
-title: 'GIGA R1 Cheat Sheet'
-description: 'Learn how to set up the GIGA R1, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
+title: 'Arduino GIGA R1 WiFi Cheat Sheet'
+description: 'Learn how to set up the GIGA R1 WiFi, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
 tags:
   - Installation
   - I2C
@@ -15,7 +15,7 @@ tags:
   - Audio Jack
 author: 'Jacob Hylén'
 hardware:
-  - hardware/giga-r1
+  - hardware/08.mega/boards/giga-r1-wifi
 software:
   - ide-v1
   - ide-v2
@@ -26,17 +26,17 @@ The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date
 
 This article is a collection of resources and guides to make use of every great feature of this powerful hardware.
 
-You can also visit the documentation platform for the [GIGA R1](/hardware/giga-r1).
+You can also visit the documentation platform for the [GIGA R1 WiFi](/hardware/giga-r1-wifi).
 
 ## Datasheet
 
 The full datasheets are available as a downloadable PDF from the link below:
 
-- [Download the GIGA R1 datasheet](/resources/datasheets/ABX00067-datasheet.pdf)
+- [Download the GIGA R1 WiFi datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
 
 ## Power Supply
 
-To power the **GIGA R1** you may either use a USB-C cable, or the VIN pin. 
+To power the **GIGA R1 WiFi** you may either use a USB-C cable, or the VIN pin. 
 
 If you're using the USB-C connector you must power it with 5V.
 
@@ -48,9 +48,9 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1/giga-getting-started) guide.***
+***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1 WiFi](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
 
-The **GIGA R1** can be programmed through:
+The **GIGA R1 WiFi** can be programmed through:
 
 - The **Classic Arduino IDE 1.8.X**, 
 - the **Arduino IDE 2.0.X**, 
@@ -58,7 +58,7 @@ The **GIGA R1** can be programmed through:
 
 ## Core
 
-The GIGA R1 is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
+The GIGA R1 WiFi is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
 
 These examples are available in the Arduino IDE via **File > Examples > Examples for GIGA**.
 
@@ -94,11 +94,11 @@ digitalRead(PC_13);
 
 ## STM32H747XI Microcontroller
 
-The GIGA R1 boards feature the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO familys Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
+The GIGA R1 WiFi features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO familys Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
 
-![Microcontroller on the GIGA R1](assets/STM32H747XI.png)
+![Microcontroller on the GIGA R1 WiFi](assets/STM32H747XI.png)
 
 The microcontroller operates on a voltage of 3.3V, applying a higher voltage than that, such as 5V, to a pin might damage the microcontroller.
 
@@ -106,7 +106,7 @@ The microcontroller operates on a voltage of 3.3V, applying a higher voltage tha
 
 ### RAM
 
-The **GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
+The **GIGA R1 WiFi** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
 
 To access the SDRAM you need to use the SDRAM library, include it in your sketch with:
 
@@ -134,8 +134,8 @@ SDRAM.free(myVeryBigArray);
 
 ### Flash
 
-The **GIGA R1** has 2MB of internal, and 16MB of external Flash storage.
-The external Flash storage on the **GIGA R1** is QSPI and can be accessed and used to store data. If you need to, you can configure the board to act as a USB flash drive, so you can store files such as images, audio, and more.
+The **GIGA R1 WiFi** has 2MB of internal, and 16MB of external Flash storage.
+The external Flash storage on the **GIGA R1 WiFi** is QSPI and can be accessed and used to store data. If you need to, you can configure the board to act as a USB flash drive, so you can store files such as images, audio, and more.
 
 The GIGA firmware has full support for FATFS and littleFS.
 
@@ -157,17 +157,15 @@ This can be very useful, as this flash storage **does not get deleted when you u
 
 ## Wi-Fi / Bluetooth® LE
 
-***This section is only relevant for the [GIGA R1 WiFi](/hardware/giga-r1-wifi) version. The standard [GIGA R1](/hardware/giga-r1) does not have a radio module, cryptochip & and antenna connector.***
-
 ![Murata LBEE5KL1DX-883 radio module + antenna connector.](assets/wifi.png)
 
-The Wi-Fi / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX-883. This module does not come with a built-in antenna, but an external antenna is included when purchasing the Wi-Fi version of this board.
+The Wi-Fi / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX-883. This module does not come with a built-in antenna, but an external antenna is included when purchasing the board.
 
 The antenna connector (see image above) is located right next to the USB-C connector, and is of a **U.FL.** type.
 
 ## Audio Jack
 
-The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
+The **GIGA R1 WiFi** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
 ![Audio jack.](assets/audio-jack.png)
 
@@ -219,7 +217,7 @@ if (dac1.available()) {
     }
 ```
 
-***The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).***
+***The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
 ### ADC Input
 
@@ -256,7 +254,7 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
         buf.release();
 ```
 
-***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1/giga-audio).***
+***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
 ## MIPI Display Interface
 
@@ -266,11 +264,11 @@ This means that the **GIGA R1** is capable of driving a touch-display large enou
 
 ## USB Features
 
-***To learn about all the USB features in more detail, visit the [Guide to GIGA R1 USB Features](/tutorials/giga-r1/giga-usb).***
+***To learn about all the USB features in more detail, visit the [Guide to GIGA R1 USB Features](/tutorials/giga-r1-wifi/giga-usb).***
 
 ### USB HID
 
-The GIGA R1 comes with support for HID, and can be used as either a keyboard or mouse. For more information, visit the [USB HID section](/tutorials/giga-r1/giga-usb#usb-hid).
+The GIGA R1 WiFi comes with support for HID, and can be used as either a keyboard or mouse. For more information, visit the [USB HID section](/tutorials/giga-r1-wifi/giga-usb#usb-hid).
 
 ### USBHost
 
@@ -278,11 +276,11 @@ The GIGA R1 comes with support for HID, and can be used as either a keyboard or 
 
 The USB-A port you find on the **GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. 
 
-The board can receive keyboard input, effectively enabling a few hundred more inputs without any wiring, or be used to read & write files on a USB flash drive, which makes it possible to for example, build a [datalogger](/tutorials/giga-r1/giga-usb#datalogger-example).
+The board can receive keyboard input, effectively enabling a few hundred more inputs without any wiring, or be used to read & write files on a USB flash drive, which makes it possible to for example, build a [datalogger](/tutorials/giga-r1-wifi/giga-usb#datalogger-example).
 
 For more information, go to the following sections:
-- [USBHost Keyboard](/tutorials/giga-r1/giga-usb#usb-host-keyboard).
-- [USB mass storage](/tutorials/giga-r1/giga-usb#usb-mass-storage).
+- [USBHost Keyboard](/tutorials/giga-r1-wifi/giga-usb#usb-host-keyboard).
+- [USB mass storage](/tutorials/giga-r1-wifi/giga-usb#usb-mass-storage).
 
 ## RTC
 
@@ -536,7 +534,7 @@ The GIGA R1 also features a `VRTC` pin, giving you the ability to power the RTC 
 
 The Arduino GIGA features an onboard Arducam compatible connector.
 
-To learn more about the camera capabilities of the GIGA R1, check out the [GIGA R1 Camera Guide](/tutorials/giga-r1/giga-camera)
+To learn more about the camera capabilities of the GIGA R1, check out the [GIGA R1 Camera Guide](/tutorials/giga-r1-wifi/giga-camera)
 
 ## JTAG
 
@@ -874,7 +872,7 @@ The reference voltage of these pins is 3.3V.
 
 Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as analog input pins.
 
-***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1/giga-audio#analog-to-digital-converters).***
+***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
 
 
 ### PWM Pins
@@ -927,7 +925,7 @@ However you may change this write resolution if you need to, to up to 12-bits:
 analogWriteResolution(12);
 ```
 
-***For advanced usage of the DAC, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced DAC section](/tutorials/giga-r1/giga-audio#digital-to-analog-converters).***
+***For advanced usage of the DAC, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced DAC section](/tutorials/giga-r1-wifi/giga-audio#digital-to-analog-converters).***
 
 ### OFF Pin
 
