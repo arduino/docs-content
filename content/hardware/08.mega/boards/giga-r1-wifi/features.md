@@ -14,7 +14,7 @@ A reference to all technical features on this board, with pointers to additional
 </Feature>
 
 <Feature title="Advanced ADC/DAC" image="microphone">
-Learn more about the ADC/DAC features of the GIGA R1 Wi-Fi board, and discover examples for Audio projects.
+Learn more about the ADC/DAC features of the GIGA R1 WiFi board, and discover examples for Audio projects.
 <FeatureLink title="ADC/DAC Guide" url="/tutorials/giga-r1-wifi/giga-audio"/>
 </Feature>
 
