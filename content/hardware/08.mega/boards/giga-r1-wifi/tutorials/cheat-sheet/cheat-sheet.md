@@ -155,7 +155,7 @@ This can be very useful, as this flash storage **does not get deleted when you u
 
 ***Note: In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches. To upload a new sketch you need to put the GIGA R1 in DFU mode by double pressing the RST button.***
 
-## Wi-Fi / Bluetooth® LE
+## Wi-Fi® / Bluetooth® LE
 
 ![Murata LBEE5KL1DX-883 radio module + antenna connector.](assets/wifi.png)
 
