@@ -111,6 +111,14 @@ If you need help getting started with MicroPython on the **Nano RP2040 Connect**
 
 ***To reset the bootloader, you will need to short to connect a jumper wire between the REC and GND pin, and press the reset button. More detailed instructions are available in the [Nano RP2040 Connect technical reference](/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#board-not-detected).***
 
+### GIGA R1 
+
+![the GIGA R1](./assets/giga-r1.png)
+
+If you need help getting started with MicroPython on the **Arduino GIGA R1** board, you can check out the tutorial below:
+
+- [MicroPython on the GIGA R1](/tutorials/giga-r1-wifi/giga-micropython)
+
 ### Portenta H7
 
 ![The Portenta H7](assets/portenta-h7.png)
