@@ -25,7 +25,7 @@ The M4 and M7 cores are programmed with separate sketches, using the same serial
 
 Programming the cores is done via the Arduino IDE, in a special interface that appears only when you **select the Arduino GIGA R1 board** from the board menu. 
 
-### Partioning The Flash Memory
+### Partitioning The Flash Memory
 
 To allocate memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE.
 
@@ -163,7 +163,7 @@ With this function, we check whether the M4 or M7 is running, and we can write c
   }
 ```
 
-The pros of using this approach is that you can write all code in a single file, therefor, revisioning code, as well as the provisioning is easier to manage.
+The pros of using this approach is that you can write all code in a single file, therefore, revisioning code, as well as the provisioning is easier to manage.
 
 The cons of using this approach is that you will run out of program memory faster. You will also upload code to the cores that will never execute (the M7 code will not execute on M4 and vice versa).
 
