@@ -332,7 +332,7 @@ String getLocaltime()
 
 To get accurate time, you'll want to change the values in `void RTCset()` to whatever time it is when you're starting this clock. As long as the VRTC pin is connected to power, the clock will keep ticking and time will be kept accurately.
 
-### RTC Wi-Fi Example
+### RTC Wi-Fi® Example
 
 With the following sketch, you can automatically set the time by requesting the time from a Network Time Protocol (NTP), using the UDP protocol.
 
