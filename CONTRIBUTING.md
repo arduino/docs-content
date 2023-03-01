@@ -4,9 +4,9 @@ The docs.arduino.cc website is built from the Markdown sources hosted in this re
 
 ## How to Contribute
 
-In order to contribute new or updated documentation, you must first create a GitHub account and fork the original repository to your own account. You can make changes, save them in your repository, then [make a pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) against this repository. The pull request will appear [in the repository](https://github.com/arduino/docs.arduino.cc/pulls) where it can be assessed by the maintainers, copy edited, and if appropriate, merged.
+In order to contribute new or updated documentation, you must first create a GitHub account and fork the original repository to your own account. You can make changes, save them in your repository, then [make a pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) against this repository. The pull request will appear [in the repository](https://github.com/arduino/docs-content/pulls) where it can be assessed by the maintainers, copy edited, and if appropriate, merged.
 
-**NOTE:** Unless you are opening a pull request which will only make small corrections, for instance to correct a typo, you are more likely to get traction for your changes if you [open an issue](https://github.com/arduino/docs.arduino.cc/issues) first to discuss the proposed changes.
+**NOTE:** Unless you are opening a pull request which will only make small corrections, for instance to correct a typo, you are more likely to get traction for your changes if you [open an issue](https://github.com/arduino/docs-content/issues) first to discuss the proposed changes.
 
 ## Type of Content
 
