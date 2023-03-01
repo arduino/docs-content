@@ -163,6 +163,8 @@ The Wi-Fi / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX
 
 The antenna connector (see image above) is located right next to the USB-C connector, and is of a **U.FL.** type.
 
+To use the BLE features on this board, refer to the [ArduinoBLE library documentation](https://reference.arduino.cc/reference/en/libraries/arduinoble/).
+
 ## Audio Jack
 
 The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
