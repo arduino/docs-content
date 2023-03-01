@@ -2,7 +2,7 @@
 title: Dual Core and RPC with GIGA R1
 description: 'Learn how to setup and control the M7 and M4 cores, and how to communicate between them using RPC.'
 author: Karl Söderby
-tags: [Dual Core, RPC, M7, M4]
+tags: [RPC, M7, M4]
 ---
 
 The GIGA R1's microcontroller, the **STM32H747XI** has two processor cores, the **M7** and **M4**, clocking in at 480MHz and 240Mhz respectively. 
