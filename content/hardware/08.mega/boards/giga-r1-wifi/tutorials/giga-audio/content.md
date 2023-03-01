@@ -467,8 +467,6 @@ For this example, you will need:
 
 ***\*USB mass storage devices connected needs to be formatted with the FAT32 as a file system, using the MBR partitioning scheme. Read more in the [USB Mass Storage](/tutorials/giga-r1-wifi/giga-usb/#usb-mass-storage) section.***
 
-### Circuit
-
 ### USB Stick Configuration
 
 The **Arduino_AdvancedAnalog** library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. 
