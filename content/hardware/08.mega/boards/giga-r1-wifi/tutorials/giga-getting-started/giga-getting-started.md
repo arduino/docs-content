@@ -1,17 +1,17 @@
 ---
-title: Getting Started with GIGA R1 / GIGA R1 WiFi
-description: A step-by-step guide to install the board package needed for the GIGA R1 / GIGA R1 WiFi board.
+title: Getting Started with GIGA R1 WiFi
+description: A step-by-step guide to install the board package needed for the GIGA R1 WiFi board.
 author: Karl Söderby
-tags: [GIGA R1, GIGA R1 WiFi, Installation, IDE]
+tags: [GIGA R1 WiFi, Installation, IDE]
 ---
 
-To use the [Arduino GIGA R1](/hardware/giga-r1) / [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi) boards, you will need to install the GIGA board package, which is part of the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed).
+To use the [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi) board, you will need to install the GIGA board package, which is part of the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed).
 
 To install it, you will need a version of the Arduino IDE, which you can download from the [Arduino Software page](). In this guide, we will use the latest version of the IDE (2.0.x).
 
 ## Software & Hardware Needed
 
-- [Arduino GIGA R1](/giga-r1) or [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino IDE](https://docs.arduino.cc/software/ide-v2)
 
 ***You can also use the [Web Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 

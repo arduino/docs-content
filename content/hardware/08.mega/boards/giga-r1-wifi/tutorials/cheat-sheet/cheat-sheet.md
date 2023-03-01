@@ -1,6 +1,6 @@
 ---
-title: 'Arduino GIGA R1 WiFi Cheat Sheet'
-description: 'Learn how to set up the GIGA R1 WiFi, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
+title: 'Arduino GIGA R1 Cheat Sheet'
+description: 'Learn how to set up the GIGA R1, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
 tags:
   - Installation
   - I2C
@@ -26,17 +26,17 @@ The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date
 
 This article is a collection of resources and guides to make use of every great feature of this powerful hardware.
 
-You can also visit the documentation platform for the [GIGA R1 WiFi](/hardware/giga-r1-wifi).
+You can also visit the documentation platform for the [GIGA R1](/hardware/giga-r1-wifi).
 
 ## Datasheet
 
 The full datasheets are available as a downloadable PDF from the link below:
 
-- [Download the GIGA R1 WiFi datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
+- [Download the GIGA R1 datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
 
 ## Power Supply
 
-To power the **GIGA R1 WiFi** you may either use a USB-C cable, or the VIN pin. 
+To power the **GIGA R1** you may either use a USB-C cable, or the VIN pin. 
 
 If you're using the USB-C connector you must power it with 5V.
 
@@ -48,9 +48,9 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1 WiFi](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
+***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
 
-The **GIGA R1 WiFi** can be programmed through:
+The **GIGA R1** can be programmed through:
 
 - The **Classic Arduino IDE 1.8.X**, 
 - the **Arduino IDE 2.0.X**, 
@@ -58,7 +58,7 @@ The **GIGA R1 WiFi** can be programmed through:
 
 ## Core
 
-The GIGA R1 WiFi is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
+The GIGA R1 is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
 
 These examples are available in the Arduino IDE via **File > Examples > Examples for GIGA**.
 
@@ -94,11 +94,11 @@ digitalRead(PC_13);
 
 ## STM32H747XI Microcontroller
 
-The GIGA R1 WiFi features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO familys Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
+The GIGA R1 features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO familys Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
 
-![Microcontroller on the GIGA R1 WiFi](assets/STM32H747XI.png)
+![Microcontroller on the GIGA R1](assets/STM32H747XI.png)
 
 The microcontroller operates on a voltage of 3.3V, applying a higher voltage than that, such as 5V, to a pin might damage the microcontroller.
 
@@ -106,7 +106,7 @@ The microcontroller operates on a voltage of 3.3V, applying a higher voltage tha
 
 ### RAM
 
-The **GIGA R1 WiFi** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
+The **GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
 
 To access the SDRAM you need to use the SDRAM library, include it in your sketch with:
 
@@ -134,8 +134,8 @@ SDRAM.free(myVeryBigArray);
 
 ### Flash
 
-The **GIGA R1 WiFi** has 2MB of internal, and 16MB of external Flash storage.
-The external Flash storage on the **GIGA R1 WiFi** is QSPI and can be accessed and used to store data. If you need to, you can configure the board to act as a USB flash drive, so you can store files such as images, audio, and more.
+The **GIGA R1** has 2MB of internal, and 16MB of external Flash storage.
+The external Flash storage on the **GIGA R1** is QSPI and can be accessed and used to store data. If you need to, you can configure the board to act as a USB flash drive, so you can store files such as images, audio, and more.
 
 The GIGA firmware has full support for FATFS and littleFS.
 
@@ -165,7 +165,7 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 ## Audio Jack
 
-The **GIGA R1 WiFi** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
+The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
 ![Audio jack.](assets/audio-jack.png)
 
@@ -268,7 +268,7 @@ This means that the **GIGA R1** is capable of driving a touch-display large enou
 
 ### USB HID
 
-The GIGA R1 WiFi comes with support for HID, and can be used as either a keyboard or mouse. For more information, visit the [USB HID section](/tutorials/giga-r1-wifi/giga-usb#usb-hid).
+The GIGA R1 comes with support for HID, and can be used as either a keyboard or mouse. For more information, visit the [USB HID section](/tutorials/giga-r1-wifi/giga-usb#usb-hid).
 
 ### USBHost
 

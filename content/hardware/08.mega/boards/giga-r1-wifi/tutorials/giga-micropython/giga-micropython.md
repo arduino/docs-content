@@ -15,9 +15,7 @@ In this article, we will guide you through the installation steps, as well as so
 
 ## Hardware & Software Needed
 
-You will need the following hardware:
-
-- [Arduino GIGA R1](/giga-r1) or [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
+To follow along with this guide, you will need an [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 
 You will need the following software/tools installed:
 - [dfu-util](https://dfu-util.sourceforge.net/)\*
@@ -52,7 +50,7 @@ At the end of the process, you will see the following message on success:
 Done parsing DfuSe file
 ```
 
-**5.** Reset the board by clicking the reset button (just once). You should now be able to view the GIGA R1's mass storage in your file manager.
+**5.** Reset the board by clicking the reset button (just once). You should now be able to view and access some of the GIGA R1 boards onboard storage as a mass storage device in your file manager.
 
 ![GIGA R1 mass storage.](assets/giga-msd.png)
 
@@ -109,7 +107,7 @@ This allows you to create a number of scripts and store it on the mass storage, 
 
 ## Pin Map
 
-In the table below, you will find the matching between the **STM32H7** and **Arduino**. When using MicroPython, you need to use the STM32H7 pins.
+In the table below, you will find the matching between the **STM32H7** and **Arduino**. When writing MicroPython code, you need to use the pin designations listen in the STM32H7 column.
 
 | STM32H7 | Arduino |
 | ------- | ------- |
