@@ -13,15 +13,15 @@ In this guide, we will take a look at the available features, how to enable them
 
 ## Hardware & Software Needed
 
-- [GIGA R1](/hardware/giga-r1-wifi) or [GIGA R1 WiFi](/hardware/giga-r1).
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - USB Mass Storage Device (USB Stick).
 - Keyboard.
 
 ## USB Overview
 
-The GIGA R1 have two USB connectors:
+The GIGA R1 has two USB connectors:
 - **USB-C** - for powering, programming & HID communication.
-- **USB-A** - for USBHost (connecting keyboards, USB sticks etc).
+- **USB-A** - for USB-Host (connecting keyboards, USB sticks etc).
 
 ![USB ports on GIGA R1.](assets/usb-connectors.png)
 

@@ -16,10 +16,7 @@ In this guide, we will explore the following:
 
 ## Hardware & Software Needed
 
-To follow and use the examples provided in this guide, you will need one of the following boards:
-
-- [GIGA R1](/hardware/giga-r1)
-- [GIGA R1 WiFi](/hardware/giga-r1-wifi)
+To follow and use the examples provided in this guide, you will need an [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 
 You will also need the following software:
 - [Arduino IDE](https://www.arduino.cc/en/software) (any version).
