@@ -1,6 +1,6 @@
 ---
 title: GIGA R1 Camera Guide
-description: Learn about the GIGA R1 & GIGA R1 WiFi's camera connector, and how to use existing examples.
+description: Learn about the GIGA R1 WiFi's camera connector, and how to use existing examples.
 tags: [ArduCAM, Camera, Processing]
 author: Karl Söderby
 ---
