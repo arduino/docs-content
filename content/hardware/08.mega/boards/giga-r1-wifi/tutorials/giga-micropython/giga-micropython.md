@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [MicroPython, dfu-util]
 ---
 
-***Please note that MicroPython support for the GIGA R1 are currently in an experimental phase.***
+***Please note that MicroPython support for the GIGA R1 is currently in an experimental phase.***
 
 ***To learn more about MicroPython, please visit [MicroPython with Arduino](/learn/programming/arduino-and-python). This article is specific only to the GIGA R1 board.***
 
