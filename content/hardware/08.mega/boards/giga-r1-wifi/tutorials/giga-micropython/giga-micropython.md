@@ -5,7 +5,9 @@ author: Karl Söderby
 tags: [MicroPython, dfu-util]
 ---
 
-***Arduino Docs now have a dedicated page for MicroPython related documentation. Please visit [MicroPython with Arduino](/micropython) to learn more. This article is specific only to the GIGA R1 / GIGA R1 WiFi boards.***
+***Please note that MicroPython support for the GIGA R1 are currently in an experimental phase.***
+
+***To learn more about MicroPython, please visit [MicroPython with Arduino](/learn/programming/arduino-and-python). This article is specific only to the GIGA R1 board.***
 
 [MicroPython](https://micropython.org/) is an implementation of Python in a *micro* format. It can be installed on the GIGA R1, where instead of compiling and uploading sketches, the board has a built-in interpreter that converts Python code to machine code in runtime.
 
@@ -20,13 +22,13 @@ To follow along with this guide, you will need an [Arduino GIGA R1 WiFi](/hardwa
 You will need the following software/tools installed:
 - [dfu-util](https://dfu-util.sourceforge.net/)\*
 - An editor with support for MicroPython (such as [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) or [Thonny](https://thonny.org/))
-- `firmware.dfu` file, available for download at [MicroPython downloads](/micropython).
+- This specific [GIGAR1_MP_FW.dfu](/resources/firmware/GIGAR1_MP_FW.dfu) firmware.
 
 ***\*The installation for `dfu-util` varies between operation systems. For installation using [brew.sh](https://formulae.brew.sh/formula/dfu-util) simply use `brew install dfu-util`.***
 
 ## Installation
 
-**1.** Download the `firmware.dfu` file from the [MicroPython downloads](/micropython) page.
+**1.** Download the [GIGAR1_MP_FW.dfu](/resources/firmware/GIGAR1_MP_FW.dfu) firmware.
 
 **2.** Download the [dfu-util](https://dfu-util.sourceforge.net/) tool, or install via Brew (or other package managers). Make sure it is in your PATH.
 
@@ -36,13 +38,11 @@ $ brew install dfu-util
 
 **3.** Double tap the reset button on the GIGA R1 board. The green LED should now be pulsing. This means it is in bootloader mode.
 
-**4.** Open a terminal, and navigate to the directory of your `firmware.dfu` file. Run the following command:
+**4.** Open a terminal, and navigate to the directory of your `GIGAR1_MP_FW.dfu` file. Run the following command:
 
 ```
-$ dfu-util -w -a 0 -d 2341:0366 -D <firmware>.dfu 
+$ dfu-util -w -a 0 -d 2341:0366 -D GIGAR1_MP_FW.dfu 
 ```
-
->Replace `<firmware>` with the name of the file.
 
 At the end of the process, you will see the following message on success:
 
@@ -70,7 +70,7 @@ print("Hello world!")
 
 If it is printed in the REPL, it means it works, and you're ready to take on bigger challenges!
 
-To find out examples and more fundamental knowledge, please visit the [MicroPython with Arduino documentation](/micropython). Here you will find an introduction to this environment and useful examples to get started.
+To find out examples and more fundamental knowledge, please visit the [MicroPython with Arduino documentation](/learn/programming/arduino-and-python). Here you will find an introduction to this environment and useful examples to get started.
 
 ***It is important to note that different Arduino boards have different implementations. This is mainly due to what microcontroller the board is based on. For example, to access digital pin 2, on the GIGA R1, you will need to use `'PA3'` (with the quotation marks). See more in [GIGA R1 Pin Map](#pin-map)***
 
