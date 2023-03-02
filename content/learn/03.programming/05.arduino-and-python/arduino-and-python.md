@@ -65,14 +65,15 @@ Further down this article, you can find a lot of useful code examples that will 
 
 ## Compatible Boards
 
-There are currently **four Arduino boards that officially supports MicroPython.** They are listed below:
+There are currently **five Arduino boards that officially supports MicroPython.** They are listed below:
 
 - [Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble)
 - [Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 
-All of above are also compatible with the **OpenMV IDE.**
+All of above are also compatible with the **OpenMV IDE**, with the exception of the GIGA R1.
 
 ### Nano 33 BLE
 
