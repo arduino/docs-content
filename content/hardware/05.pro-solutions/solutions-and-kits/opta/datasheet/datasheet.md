@@ -203,6 +203,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         <tr>
             <td>Protected storage for up to 16 Keys, certificates or data</td>
         </tr>
+        <tr>
             <td>Networking key management support</td>
         </tr>
         <tr>
