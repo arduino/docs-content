@@ -137,7 +137,7 @@ sudo docker-compose logs -f --tail 20
 In case you have not configured internal Wi-Fi connectivity within the system, please use following command line.
 
 ```
-nmcli device Wi-Fi connect "SSID" password "PASSWORD"
+nmcli device wifi connect "SSID" password "PASSWORD"
 ```
 
 ### Setting Up The Things Network
