@@ -68,7 +68,7 @@ Hereafter you can see the correspondence between each of them as identified in t
 - `LED_D2`: STATUS 3
 - `LED_D3`: STATUS 4
 - `LED_RESET`: LED above the reset button
-- `LED_USER`: LED above the user button (only available on the Opta™ variant with connectivity features)
+- `LED_USER`: LED above the user button (only available on the Opta™ with connectivity features)
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta™.
@@ -115,7 +115,7 @@ void loop() {
 
 ### Configuring the Programmable Button on the Opta™
 
-The Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
+The Opta™ has a programmable button, shown in the image below, and is identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple it is, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
@@ -197,7 +197,7 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 
 ### Using Output Relays of Opta™
 
-The Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
+The Opta™ has 4 relay outputs, consisting of 4 normally-open electromechanical relays (SPST) with the capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™, as shown in the image below.
 
 ![Output relays on the Opta™](assets/opta-out-relays.svg)
 
@@ -210,7 +210,7 @@ The coils of each relay correspond to pins D0 to D3 as follows:
 | OUTPUT 3   | D2    | RELAY3 |
 | OUTPUT 4   | D3    | RELAY4 |
 
-The Opta™ output contacts are "clean" contacts, which means these are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing, for example, a power cable to one of the terminals and connecting the load to the exit of the other terminal.
+The Opta™ output contacts are "clean" contacts, which means these are not live in a "non-connection" scenario. This type of contact can be used in any system and with wide voltage range. To properly function, the outputs must therefore be connected by bringing, for example, a power cable to one of the terminals and connecting the load to the exit of the other terminal.
 
 This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carrying the signal up to the reference load.
 
@@ -218,10 +218,10 @@ The “clean” contact also allows carrying a different power system or type of
 
 ![Clean contact on the Opta™](assets/opta-clean-contact.svg)
 
-Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and, after each relay's cycle, a led will be turned on to provide visual feedback.
+Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle, a LED will turn on to provide visual feedback.
 To activate the relays and run this sketch, you need to provide energy to Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply.
 
-The Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
+The Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. These duplicates are to help the user connect the power supply and any common part to the input terminals.
 
 ![Connect these pins to drive the relays on the Opta™](assets/opta-voltage-pins.svg)
 
@@ -313,10 +313,10 @@ The 8 input pins can be used as digital (having the logical values of LOW or HIG
 
 Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 10V.
 
-The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the voltage of the input using it in conjunction with the resolution factor of the ADCs. That resolution can be selected inside the program within a range between 12 bits (4095) and 16 bits (65535).
+The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the input voltage using it in conjunction with the resolution factor of the ADCs. That resolution is configured inside the program within the range between 12 bits (4095) and 16 bits (65535).
 
 To get and display the proper voltage value read by the input, we need to convert the value read by the `analogRead` function and apply a rescaling factor of 0.3 which is determined by the internal voltage divider.
-The sketch will read the inputs on the analog pins A0, A1 and A2 and then print the result in the serial monitor.
+The sketch will read the inputs on the analog pins A0, A1, and A2 and then print the result in the serial monitor.
 
 ```arduino
 /**
@@ -370,13 +370,13 @@ void loop() {
 }
 ```
 
-Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each of the signals. In case you did not connect anything to the analog inputs, you will see how the values oscillate between 0V and a very small value because the pins are floating.
+Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each signal. In case you did not connect anything to the analog inputs, you will be able to observe the values oscillate around 0V because the pins are floating.
 
-You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. The reason is that there is a precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
+You may notice from the output values that when the maximum value reaches 10V, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. This is due to the precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, check [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud, go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, check [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
 
 ## Conclusion
 

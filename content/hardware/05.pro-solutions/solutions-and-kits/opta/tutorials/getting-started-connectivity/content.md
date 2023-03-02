@@ -58,7 +58,7 @@ If you want to take a deeper look at the features that the **WiFi** library has 
 
 ### Ethernet
 
-Opta™ has an RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet with Opta™ are included in the core. To try it out, we can go to **File > Examples** and under **Examples for Opta**, we can find the **Ethernet** section. Inside the section, there is an example sketch called **WebClient**.
+Opta™ has an RJ45 ethernet port with a LED that will indicate the status of the connected cable. The files necessary for using Ethernet with Opta™ are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta**, we can find the **Ethernet** section. Inside the section, there is an example sketch called **WebClient**.
 
 Connect the Ethernet cable to Opta™ and upload the example using the USB-C® cable. This example will work the same way as the one mentioned in the Wi-Fi® section. The device will connect to the website defined in the sketch and print the website's HTML content in the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
@@ -74,7 +74,7 @@ Opta™ can be configured to use Modbus TCP protocol, which runs a Modbus protoc
 
 To use the Bluetooth® Low Energy feature, you will need to download the **ArduinoBLE** library in the Arduino IDE. Go into the **library manager** and search for **ArduinoBLE**. If you can't find it, try sorting by official libraries published by Arduino. Once the ArduinoBLE library is installed, let's try and run a simple example that scans for other Bluetooth® devices within range.
 
-The sketch will print the addresses of near devices as well as the local name and the advertised service UUIDs, if present. The example can be found under **File > Examples > ArduinoBLE > Central**, the sketch is called **Scan**. When the sketch is running on the Opta™, the output on the serial monitor should look something like the image below.
+The sketch will print the addresses of near devices as well as the local name and the advertised service UUIDs if present. The example can be found under **File > Examples > ArduinoBLE > Central**, the sketch is called **Scan**. When the sketch is running on the Opta™, the output on the serial monitor should look something like the image below.
 
 ![Bluetooth® sketch running on the Opta™](assets/opta-ble.svg)
 
