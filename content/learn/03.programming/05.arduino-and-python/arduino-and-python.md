@@ -65,14 +65,17 @@ Further down this article, you can find a lot of useful code examples that will 
 
 ## Compatible Boards
 
-There are currently **four Arduino boards that officially supports MicroPython.** They are listed below:
+There are currently **five Arduino boards that officially supports MicroPython.** They are listed below:
 
 - [Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble)
 - [Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 
-All of above are also compatible with the **OpenMV IDE.**
+All of above are also compatible with the **OpenMV IDE**.
+
+***Currently, the GIGA R1 WiFi is not supported by OpenMV IDE.***
 
 ### Nano 33 BLE
 
@@ -110,6 +113,16 @@ If you need help getting started with MicroPython on the **Nano RP2040 Connect**
 
 
 ***To reset the bootloader, you will need to short to connect a jumper wire between the REC and GND pin, and press the reset button. More detailed instructions are available in the [Nano RP2040 Connect technical reference](/tutorials/nano-rp2040-connect/rp2040-01-technical-reference#board-not-detected).***
+
+### GIGA R1 
+
+![The GIGA R1](./assets/giga-r1.png)
+
+If you need help getting started with MicroPython on the **Arduino GIGA R1** board, you can check out the tutorial below:
+
+- [MicroPython on the GIGA R1](/tutorials/giga-r1-wifi/giga-micropython)
+
+***MicroPython support for the GIGA R1 is currently in an experimental phase.***
 
 ### Portenta H7
 
