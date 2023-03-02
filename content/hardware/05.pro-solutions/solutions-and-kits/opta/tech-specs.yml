@@ -14,7 +14,7 @@ Relays:
   Type: Normally Open (NO)
   Relay rated voltage: 250 VAC
   Relay maximum switching voltage: 400 VAC
-  Maximun current per relay: 10 A
+  Maximum current per relay: 10 A
   Maximum peak current per relay: 15 A
 Connectivity:
   USB Programming Port: Yes
