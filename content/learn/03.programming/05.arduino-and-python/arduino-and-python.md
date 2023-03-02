@@ -122,6 +122,8 @@ If you need help getting started with MicroPython on the **Arduino GIGA R1** boa
 
 - [MicroPython on the GIGA R1](/tutorials/giga-r1-wifi/giga-micropython)
 
+***MicroPython support for the GIGA R1 is currently in an experimental phase.***
+
 ### Portenta H7
 
 ![The Portenta H7](assets/portenta-h7.png)
