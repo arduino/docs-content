@@ -40,9 +40,9 @@ The Opta™ is a powerful micro PLC device with many features that can be custom
 
 ## Instructions
 
-### Setup With the Arduino IDE
+### Setup with the Arduino IDE
 
-Using the Arduino IDE, we can easily work with the connectivity features, which have their own libraries that we can make use of. First, make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
+Using the Arduino IDE, we can easily work with the connectivity features, which have libraries that we can make use of. First, make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
 
 Then we need to install the appropriate core for Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it. For more detailed instructions on setting up the Opta™ with the Arduino IDE, have a look at the [Getting started with Opta™ tutorial](/tutorials/opta/getting-started).
 
@@ -50,7 +50,7 @@ Then we need to install the appropriate core for Opta™. Go to **Tools > Board 
 
 The files necessary for using the Wi-Fi® on Opta™ are included in the core. To try it out, we can go to **File > Examples**, and under **Examples for Opta**, we can find the **WiFi** section. Inside there is an example sketch called **WiFiWebClient**. Open this example sketch and fill out the Wi-Fi® details in the **arduino_secrets.h** tab.
 
-Once uploaded, the sketch will make Opta™ connect to the desired website defined within `char server[] = "example.com";` variable. If the connection is successful, it will then print the website's HTML content to the serial monitor. If the sketch ran successfully, the output should look like the image below.
+Once uploaded, the sketch will make Opta™ connect to the desired website defined within the `char server[] = "example.com";` variable. If the connection is successful, it will then print the website's HTML content to the serial monitor. If the sketch ran successfully, the output should look like the image below.
 
 ![Running Wi-Fi® sketch on the Opta™ in the Arduino IDE](assets/opta-wifi.svg)
 

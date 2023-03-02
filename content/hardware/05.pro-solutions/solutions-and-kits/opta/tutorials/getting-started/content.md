@@ -41,7 +41,7 @@ The Opta™ is a robust micro PLC solution with many engaging features. In this 
 
 ## Instructions
 
-### Setup With the Arduino IDE
+### Setup with the Arduino IDE
 
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
 
@@ -197,7 +197,7 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 
 ### Using Output Relays of Opta™
 
-The Opta™ has 4 relay outputs, consisting of 4 normally-open electromechanical relays (SPST) with the capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™, as shown in the image below.
+The Opta™ has 4 relay outputs, consisting of 4 normally-open electromechanical relays (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™, as shown in the image below.
 
 ![Output relays on the Opta™](assets/opta-out-relays.svg)
 
@@ -210,7 +210,7 @@ The coils of each relay correspond to pins D0 to D3 as follows:
 | OUTPUT 3   | D2    | RELAY3 |
 | OUTPUT 4   | D3    | RELAY4 |
 
-The Opta™ output contacts are "clean" contacts, which means these are not live in a "non-connection" scenario. This type of contact can be used in any system and with wide voltage range. To properly function, the outputs must therefore be connected by bringing, for example, a power cable to one of the terminals and connecting the load to the exit of the other terminal.
+The Opta™ output contacts are "clean" contacts, which means these are not live in a "non-connection" scenario. This type of contact can be used in any system and with a wide voltage range. To properly function, the outputs must therefore be connected by bringing, for example, a power cable to one of the terminals and connecting the load to the exit of the other terminal.
 
 This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carrying the signal up to the reference load.
 
@@ -218,7 +218,7 @@ The “clean” contact also allows carrying a different power system or type of
 
 ![Clean contact on the Opta™](assets/opta-clean-contact.svg)
 
-Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and after each relay's cycle, a LED will turn on to provide visual feedback.
+Let's run a simple sketch to test the output relays on Opta™: in this sketch, all the 4 relays are closing and reopening their contacts and after each relay's cycle, a LED will turn on to provide visual feedback.
 To activate the relays and run this sketch, you need to provide energy to Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply.
 
 The Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. These duplicates are to help the user connect the power supply and any common part to the input terminals.
@@ -380,7 +380,7 @@ It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ 
 
 ## Conclusion
 
-This tutorial went through the basics of the Opta™ device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, program the relays and read the digital and analog inputs. With the additional connection of the Opta™ to the Arduino Cloud, Opta™ can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
+This tutorial went through the basics of the Opta™ device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, program the relays, and read the digital and analog inputs. With the additional connection of the Opta™ to the Arduino Cloud, Opta™ can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
 
 ### Next Steps
 
