@@ -10,9 +10,12 @@ Microcontroller:
 Input:
   Configurable digital / analog (0-10V) input: 8
 Relays:
-  Relays (250 V AC - 10 A): 4
-  Output relay rated voltage: 250V AC
-  Output relay maximum switching voltage: 400V AC
+  Nº of relays: 4
+  Type: Normally Open (NO)
+  Relay rated voltage: 250 VAC
+  Relay maximum switching voltage: 400 VAC
+  Maximun current per relay: 10 A
+  Maximum peak current per relay: 15 A
 Connectivity:
   USB Programming Port: Yes
   Ethernet:
@@ -24,12 +27,12 @@ Communication protocols:
   RS485: Arduino Opta® RS485 & Arduino Opta® WiFi
   Programmable Serial ports: RS485
 Power:
-  Input voltage: 12-24V DC
+  Input voltage: 12-24 VDC
 Memory:
   SDRAM: 1 MB
-  Onboard flash memory: 2MB internal + 16MB Flash QSPI
+  Onboard flash memory: 2 MB internal + 16 MB Flash QSPI
 Dimensions:
-  Weight: 210g
+  Weight: 210 g
   Width: 69 mm
   Length: 80 mm
   Height: 90 mm
