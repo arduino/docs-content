@@ -73,7 +73,9 @@ There are currently **five Arduino boards that officially supports MicroPython.*
 - [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 
-All of above are also compatible with the **OpenMV IDE**, with the exception of the GIGA R1.
+All of above are also compatible with the **OpenMV IDE**.
+
+***Currently, the GIGA R1 WiFi is not supported by OpenMV IDE.***
 
 ### Nano 33 BLE
 
