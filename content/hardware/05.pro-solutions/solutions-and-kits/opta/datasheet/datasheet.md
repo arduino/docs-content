@@ -390,9 +390,12 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
             <td>100 m</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Relay response time</td>
-            <td>6 ms (from state 0 to state 1) for relay output
-<br>4 ms (from state 1 to state 0) for relay output</td>
+            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
+            <td>6 ms for relay output</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
+            <td>4 ms for relay output</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Bounce time NO</td>
