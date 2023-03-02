@@ -9,8 +9,10 @@ Microcontroller:
   Cortex-M4 core: Up to 240 MHz
 Input:
   Configurable digital / analog (0-10V) input: 8
-Actuators:
+Relays:
   Relays (250 V AC - 10 A): 4
+  Output relay rated voltage: 250V AC
+  Output relay maximum switching voltage: 400V AC
 Connectivity:
   USB Programming Port: Yes
   Ethernet:
@@ -23,8 +25,6 @@ Communication protocols:
   Programmable Serial ports: RS485
 Power:
   Input voltage: 12-24V DC
-  Output relay rated voltage: 250V AC
-  Output relay maximum switching voltage: 400V AC
 Memory:
   SDRAM: 1 MB
   Onboard flash memory: 2MB internal + 16MB Flash QSPI
@@ -34,7 +34,7 @@ Dimensions:
   Length: 80 mm
   Height: 90 mm
 IP Protection: IP20
-RTC: ~10days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet
+RTC: ~10 days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet
 Secure element: ATECC608B
 Programming:
   Arduino programming language: Via Arduino IDEs, Arduino CLI, Arduino Web Editor
