@@ -1,16 +1,21 @@
 Board:
   SKUs:
+    Arduino Opta® Lite: AFX00003
     Arduino Opta® RS485: AFX00001
     Arduino Opta® WiFi: AFX00002
-    Arduino Opta® Lite: AFX00003
 Microcontroller:
   ID: STM32H747XI Dual ARM® Cortex®
   Cortex-M7 core: Up to 480 MHz
   Cortex-M4 core: Up to 240 MHz
 Input:
   Configurable digital / analog (0-10V) input: 8
-Actuators:
-  Relays (250 V AC - 10 A): 4
+Relays:
+  Nº of relays: 4
+  Type: Normally Open (NO)
+  Relay rated voltage: 250 VAC
+  Relay maximum switching voltage: 400 VAC
+  Maximum current per relay: 10 A
+  Maximum peak current per relay: 15 A
 Connectivity:
   USB Programming Port: Yes
   Ethernet:
@@ -22,19 +27,17 @@ Communication protocols:
   RS485: Arduino Opta® RS485 & Arduino Opta® WiFi
   Programmable Serial ports: RS485
 Power:
-  Input voltage: 12-24V DC
-  Output relay rated voltage: 250V AC
-  Output relay maximum switching voltage: 400V AC
+  Input voltage: 12-24 VDC
 Memory:
   SDRAM: 1 MB
-  Onboard flash memory: 2MB internal + 16MB Flash QSPI
+  Onboard flash memory: 2 MB internal + 16 MB Flash QSPI
 Dimensions:
-  Weight: 210g
+  Weight: 210 g
   Width: 69 mm
   Length: 80 mm
   Height: 90 mm
 IP Protection: IP20
-RTC: ~10days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet
+RTC: ~10 days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet
 Secure element: ATECC608B
 Programming:
   Arduino programming language: Via Arduino IDEs, Arduino CLI, Arduino Web Editor
