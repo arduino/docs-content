@@ -116,7 +116,7 @@ If you need help getting started with MicroPython on the **Nano RP2040 Connect**
 
 ### GIGA R1 
 
-![the GIGA R1](./assets/giga-r1.png)
+![The GIGA R1](./assets/giga-r1.png)
 
 If you need help getting started with MicroPython on the **Arduino GIGA R1** board, you can check out the tutorial below:
 
