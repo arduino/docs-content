@@ -1,8 +1,8 @@
 Board:
   SKUs:
+    Arduino Opta® Lite: AFX00003
     Arduino Opta® RS485: AFX00001
     Arduino Opta® WiFi: AFX00002
-    Arduino Opta® Lite: AFX00003
 Microcontroller:
   ID: STM32H747XI Dual ARM® Cortex®
   Cortex-M7 core: Up to 480 MHz
