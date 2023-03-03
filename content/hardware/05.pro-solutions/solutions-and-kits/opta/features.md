@@ -4,12 +4,12 @@ Thanks to its computing power, **Arduino Opta®** enables a wide range of real-t
 
 It allows professionals to scale up automation projects while taking advantage of the open and widely known Arduino ecosystem.
 
-Quickly put it to work, leveraging the many available software libraries. The onboard secure element ensures over-the-air firmware updates and remote control via the Arduino Cloud or third-party services.
+Quickly put it to work, leveraging the many available software libraries. The onboard secure element ensures Over-The-Air firmware updates and remote control via the Arduino Cloud or third-party services.
 
 Arduino Opta® is available in three variants:
 * Arduino Opta® Lite: on-board Ethernet and USB-C® ports
-* Arduino Opta® RS485: on-board Ethernet and USB-C® ports, plus RS485 connectivity
-* Arduino Opta® WiFi: on-board Ethernet and USB-C® ports, plus RS485 and Wi-Fi/Bluetooth® Low Energy
+* Arduino Opta® RS485: on-board Ethernet and USB-C® ports, plus RS-485 connectivity
+* Arduino Opta® WiFi: on-board Ethernet and USB-C® ports, plus RS-485 and Wi-Fi®/Bluetooth® Low Energy
 
 </FeatureDescription>
 
@@ -25,7 +25,7 @@ Arduino Opta® is available in three variants:
 
 <Feature title="Connectivity" image="wifi-bluetooth">
 
-  Multiple choices are available for network connectivity, including USB, Ethernet, and Wi-Fi/BLE in addition to industry specific protocols such as RS485.
+  Multiple choices are available for network connectivity, including USB, Ethernet, and Wi-Fi®/Bluetooth® Low Energy in addition to industry specific protocols such as RS-485.
   
 </Feature>
 
