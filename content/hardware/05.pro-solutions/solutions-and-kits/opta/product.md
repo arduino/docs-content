@@ -1,6 +1,6 @@
 ---
 title: Opta
-url_shop: https://store.arduino.cc/pages/opta
+url_shop: https://store.arduino.cc/collections/pro-family
 core: arduino:mbed_portenta
 ---
 
