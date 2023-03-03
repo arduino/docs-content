@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The GIGA R1 WiFi comes with a USB-C connector for programming, communication and HID functionality, a USB-A connector for connecting devices such as USB sticks and keyboards. It features a 3.5 mm audio jack for connecting speakers, microphones etc. Dedicated camera & display connectors are located at the top of the board, which can also be connected from underneath. 
+The GIGA R1 WiFi comes with a USB-C® connector for programming, communication and HID functionality, a USB-A connector for connecting devices such as USB sticks and keyboards. It features a 3.5 mm audio jack for connecting speakers, microphones etc. Dedicated camera & display connectors are located at the top of the board, which can also be connected from underneath. 
 
 With a fast dual core microcontroller (480MHz / 240MHz), 76 GPIOs, several communication buses, you can build large projects using the GIGA R1 WiFi as a base. The GIGA R1 WiFi also comes equipped with a radio module, crypto chip and an antenna.
 
@@ -24,7 +24,7 @@ The STM32H747XI has two cores that can be programmed separately (M4/M7). You can
 <FeatureLink title="DUAL CORE GUIDE" url="/tutorials/giga-r1-wifi/giga-dual-core"/>
 </Feature>
 
-<Feature title="Wi-Fi/Bluetooth®" image="connection">
+<Feature title="Wi-Fi®/Bluetooth®" image="connection">
 The GIGA R1 WiFi comes with a Murata LBEE5KL1DX-883 radio module for Wi-Fi/Bluetooth® communication.
 
 <FeatureLink title="See Documentation" url="/tutorials/giga-r1-wifi/cheat-sheet#wi-fi--bluetooth-le"/>
@@ -37,7 +37,7 @@ The GIGA R1 WiFi has support for MicroPython, which can be set up in just minute
 </Feature>
 
 <Feature title="USB" image="usb">
-This board has USB-C for power/programming/communication line, and a USB-A for connecting USB devices (keyboards, mass storage).
+This board has USB-C® for power/programming/communication line, and a USB-A for connecting USB devices (keyboards, mass storage).
 
 <FeatureLink title="USB Guide" url="/tutorials/giga-r1-wifi/giga-usb"/>
 </Feature>
