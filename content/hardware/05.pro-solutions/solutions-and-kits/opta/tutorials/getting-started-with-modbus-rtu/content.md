@@ -32,9 +32,9 @@ The Modbus RTU protocol is one of the protocols available within Opta™. In thi
 - Learn how to establish RS-485 interface connection between two Opta™ devices
 - Learn how to use the Modbus RTU communication protocol between two Opta™ devices
 
-### Required Hardware and Software
+## Required Hardware and Software
 
-#### Hardware Requirements
+### Hardware Requirements
 
 - Opta™ PLC with RS-485 support (x2)
 - 12VDC/1A DIN rail power supply (x1)
@@ -43,7 +43,7 @@ The Modbus RTU protocol is one of the protocols available within Opta™. In thi
 - STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130Ω rated
 
-#### Software Requirements
+### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `ArduinoModbus`. You can install these libraries via Library Manager of the Arduino IDE.
