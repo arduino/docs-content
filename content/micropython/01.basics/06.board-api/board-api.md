@@ -435,9 +435,9 @@ if __name__ == "__main__":
         time.sleep_ms(1000)
 ```
 
-## Nano BLE
+## Nano 33 BLE
 
-![Nano BLE.](assets/ble.png)
+![Nano 33 BLE.](assets/ble.png)
 
 ### GPIO Map
 
@@ -627,9 +627,9 @@ while (True):
     time.sleep_ms(500)
 ```
 
-## Nano BLE Sense
+## Nano 33 BLE Sense
 
-![Nano BLE Sense.](assets/ble-sense.png)
+![Nano 33 BLE Sense.](assets/ble-sense.png)
 
 ### Pin Map
 
