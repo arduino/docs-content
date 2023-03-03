@@ -3,8 +3,6 @@ title: Digital and Analog Pins
 description: Learn how to use digital and analog Pins with Micropython
 author: Francesca Sanfilippo & Karl Söderby
 micropython_type: basics
-next_article: "/micropython/basics/board-api"
-previous_article: "/micropython/basics/micropython-basics"
 ---
 
 In this chapter we will learn about managing digital and analog pins. 
@@ -13,7 +11,7 @@ All the compatibles boards have a series of pins, most of these pins work as a g
 
 There are essentially two types of pins, analog and digital pins. Digital pins can be set to either HIGH (usually 5V or 3.3V) or LOW (0V). You can use that to e.g. read a button state or to toggle an LED.
 
-***Important: unfortunately, the MicroPython implementation does not match the pinout of your board. This means, that if you want to use for example, digital pin (5), it might be digital pin (27) on one board, or digital pin (14) on another. Please visit the [Arduino MicroPython boards pin mapping article]().***
+***Important: unfortunately, the MicroPython implementation does not match the regular pinout of your board. This means, that if you want to use for example, digital pin (5), it might be digital pin (27) on one board, or digital pin (14) on another. Please visit the [Board API article](/micropython/basics/board-api) to see what the pin map for your board is.***
 
 ## Digital Pins
 
@@ -55,10 +53,6 @@ while True:
     myLED.value(1)
     time.sleep(1)
 ```
-
-The result is:
-
-![Onboard LED Blinking.]()
 
 ### Digital Read (Pull Up)
 

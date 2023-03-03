@@ -977,7 +977,7 @@ while (True):
 
 ![Portenta H7.](assets/portenta.png)
 
-***Note that the [Portenta H7 Lite]() and [Portenta H7 Lite Connected]() boards are compatible with most examples listed here, as they are variations of the Portenta H7.***
+***Note that the [Portenta H7 Lite](/hardware/portenta-h7-lite) and [Portenta H7 Lite Connected](/hardware/portenta-h7-lite-connected) boards are compatible with most examples listed here, as they are variations of the Portenta H7.***
 
 ### GPIO Map
 

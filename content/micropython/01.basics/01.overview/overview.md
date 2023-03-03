@@ -3,24 +3,20 @@ title: Overview
 description: An introduction to Arduino and MicroPython
 author: Francesca Sanfilippo
 micropython_type: basics
-next_article: "/micropython/basics/board-installation"
-previous_article: "/micropython"
 ---
 
 MicroPython is an implementation of the Python programming language, and includes some of the standard Python libraries. It is designed to run on microcontrollers with constrained environments.
  
-In this sequence of guides, you will amongst other things, learn how to:
+In this sequence of guides, you will among other things, learn how to:
 - Install MicroPython on your Arduino board,
-- Install the suggested editor (Arduino Labs for MicroPython),
+- Install an editor with support for MicroPython,
 - How to make basic scripts that can for example blink an LED, read an analog pin and print things to the terminal (REPL).
 
 You do not need any prior knowledge in either programming with Arduino or MicroPython, but it is recommended to know the basics of Python.
 
 What you need to do it is have a Compatible Board and a Code Editor. You can choose between two alternatives:
-- Arduino Lab for MicroPython: an experimental editor from Arduino, designed for simpler projects.
-- OpenMV: an editor for  more complex projects, such as computer vision.
-
-Check the pages of Compatibles Board and Code Editor to go on.
+- **Arduino Lab for MicroPython:** an experimental editor from Arduino, designed for simpler projects.
+- **OpenMV:** an editor for  more complex projects, such as computer vision.
 
 ## Python vs C/C++.
 
@@ -32,4 +28,3 @@ There's a big difference between how we program an Arduino board with the Arduin
 ## Python vs MicroPython
 
 MicroPython was created to work under constrained conditions, like a small environment. The main difference between Python and MicroPython is that MicroPython does not have the full standard Python language, it is only a subset of it.
-

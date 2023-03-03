@@ -3,23 +3,19 @@ title: MicroPython Basics
 description: An introduction to MicroPython
 author: Francesca Sanfilippo & Karl Söderby
 micropython_type: basics
-next_article: "/micropython/basics/digital-analog-pins"
-previous_article: "/micropython/basics/code-editors"
 ---
 
-As you read in the Overview, MicroPython is an implementation of Python. In this page, you will find some basic and intermediate MicroPython scripts that can be used by any Arduino board. This includes some very common concepts such as variables, loops, delays, prints and more.
+As you read in the Overview, MicroPython is an implementation of Python. In this page, you will find some basic and intermediate MicroPython scripts that can be used by any Arduino board. This includes some very common concepts such as variables, loops, delays, how to print and more.
 
 ***There are some differences between MicroPython and Python, which mostly concern standard library and types, but also some language-level features.***
 
-After you download Arduino Lab for MicroPython from the Arduino Labs page, click the file for your system, extract and run the application. The interface is similar to Arduino IDE.  
+After you download [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython), click the file for your system, extract and run the application. The interface is similar to Arduino IDE.
 
 First of all, we need to connect our board to the computer via USB.
 
-![Connect the board via USB.]()
-
 After connecting the board, click on the connect button, and select the port. 
 
-![Connect and select the port.]()
+![Connect and select the port.](assets/labs-connect.png)
 
 Now that you have connected your board, let’s create a file that will contain the script that will run on your board. Click on New button to create your file. The editor automatically creates the main file in the board.
 
