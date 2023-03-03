@@ -1,17 +1,18 @@
 ---
-title: 'Getting Started with Modbus RTU on Opta™'
+title: "Getting Started with Modbus RTU on Opta™"
 description: "Learn how to use the Modbus RTU serial protocol on Opta™."
-difficulty: intermediate
-tags:
-  - Getting started
-  - Modbus RTU
-  - RS-485
 author: 'José Bagur and Taddy Chung'
-libraries:
+libraries: 
   - name: ArduinoRS485
     url: https://www.arduino.cc/reference/en/libraries/arduinors485/
   - name: ArduinoModbus
     url: https://www.arduino.cc/reference/en/libraries/arduinomodbus/
+difficulty: intermediate
+tags: 
+  - Getting started
+  - Modbus RTU
+  - RS-485
+
 software:
   - ide-v1
   - ide-v2
