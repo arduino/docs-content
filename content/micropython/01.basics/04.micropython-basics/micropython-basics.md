@@ -11,7 +11,7 @@ As you read in the Overview, MicroPython is an implementation of Python. In this
 
 ***There are some differences between MicroPython and Python, which mostly concern standard library and types, but also some language-level features.***
 
-After you download Arduino Lab for Micropython from the Arduino Labs page, click the file for your system, extract and run the application. The interface is similar to Arduino IDE.  
+After you download Arduino Lab for MicroPython from the Arduino Labs page, click the file for your system, extract and run the application. The interface is similar to Arduino IDE.  
 
 First of all, we need to connect our board to the computer via USB.
 
@@ -77,7 +77,7 @@ Then you can call your function using the function name followed by parentheses:
 my_function() 
 ```
 
-The function need two components: the header, starting with keyword def, followed by parentheses with inside the arguments and ending by colon (:) and the indented boby is composed by descriptive string, function statements, return statements.
+The function need two components: the header, starting with keyword def, followed by parentheses with inside the arguments and ending by colon (:) and the indented body is composed by descriptive string, function statements, return statements.
 
 This script prints "Hello world!" every second. In addition, the function counter_function() increases the number every second and will be printed next to.
 
@@ -149,7 +149,7 @@ while True:
 
 ## Arrays
 
-An Array is one of the most known and used construct in programming. In Micropython an array by definition is a collection of elements (values or variables), selected by one or more indices computed at run-time, you refer to an array element by referring to the index number.
+An array is one of the most known and used construct in programming. In MicroPython an array by definition is a collection of elements (values or variables), selected by one or more indices computed at run-time, you refer to an array element by referring to the index number.
 
 ```python
 myFruit = ['orange', 'persimon', 'apple', 'kiwi', 'lemon']

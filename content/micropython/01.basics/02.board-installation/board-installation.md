@@ -13,21 +13,21 @@ So what do you need to start your first project with MicroPython and Arduino? Fi
 
 In order to understand which board is more suitable to your project, you can visit the documentation of each board.
 
-## Nano 33 BLE & Nano BLE Sense
+## Nano 33 BLE & Nano 33 BLE Sense
 
 - [Nano 33 BLE documentation](/hardware/nano-ble).
 - [Nano 33 BLE Sense documentation.](/hardware/nano-ble-sense)
 - [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-ble-sense-rev2)
 
-![Nano BLE.](assets/ble.png)
+![Nano 33 BLE.](assets/ble.png)
 
 The process for flashing the firmware on the Nano 33 BLE requires to first update the bootloader and SoftDevice. Once this is done you can flash the MicroPython firmware to your board.
 
 This process requires a version of the [Arduino IDE](https://www.arduino.cc/en/main/software) installed, which is explained in the next step.
 
- **Step 1: Installing the Core**
+**Step 1: Installing the Core**
 
-Start by making sure that you have the respective core installed. Open the **Arduino IDE** (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for your board (Nano BLE), and make sure you have the latest version of the core installed. More detailed information about this step can be found [here](/software/ide-v2/tutorials/ide-v2-board-manager).
+Start by making sure that you have the respective core installed. Open the **Arduino IDE** (not Arduino Lab for MicroPython) and navigate to the boards manager. Search for your board (Nano 33 BLE), and make sure you have the latest version of the core installed. More detailed information about this step can be found [here](/software/ide-v2/tutorials/ide-v2-board-manager).
 
 ![Board manager](assets/boardmanager.png)
 
@@ -84,7 +84,7 @@ bossac -e -w --offset=0x16000 --port=[port] -i -d -U -R [firmware]
 
 Don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
-Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano BLE.
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano 33 BLE.
 
 **Step 4b: Flash Firmware (MacOS)**
 
@@ -108,7 +108,7 @@ bossac -e -w --offset=0x16000 --port=[port] -i -d -U -R [firmware]
 
 Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board. Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
-Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano BLE!
+Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano 33 BLE!
 
 ## Nano RP2040 Connect
 
@@ -116,7 +116,7 @@ Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose 
 
 ![Nano RP2040 Connect.](assets/nano-rp2040.png)
 
-To program your Arduino Nano RP2040 board with MicroPython, follow the instructions below. The installation for Nano RP2040 requires no additional software tools for installation.
+To program your Nano RP2040 Connect board with MicroPython, follow the instructions below. The installation for Nano RP2040 Connect requires no additional software tools for installation.
 
 Follow the steps below to install MicroPython on the Nano RP2040 Connect board.
 

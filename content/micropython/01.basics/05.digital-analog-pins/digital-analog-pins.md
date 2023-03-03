@@ -45,7 +45,7 @@ from machine import Pin
 import time
 
 myLED = Pin(25, Pin.OUT) #Nano RP2040 Connect
-#myLED = Pin(10, Pin.OUT) #Nano BLE / Nano BLE Sense
+#myLED = Pin(10, Pin.OUT) #Nano 33 BLE / Nano 33 BLE Sense
 #myLED = Pin(2, Pin.OUT) #Portenta H7
 
 
@@ -109,7 +109,7 @@ import machine
 import time
 
 # Make sure to follow the GPIO map for the board you are using.
-# Pin 29 in this case is the "A3" pin on the Nano BLE / BLE Sense
+# Pin 29 in this case is the "A3" pin on the Nano 33 BLE / BLE Sense
 adc_pin = machine.Pin(29) 
 adc = machine.ADC(adc_pin)
 

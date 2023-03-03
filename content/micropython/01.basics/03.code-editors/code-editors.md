@@ -15,7 +15,7 @@ To write and load scripts to your board, you will also need a Code Editor. In th
 
 ## Arduino Lab for MicroPython
 
-Arduino Lab for Micropython is a software that supports programming Arduino boards with MicroPython. Through the customized editor, we can install MicroPython, and upload scripts directly to the board.  The editor is able to manage the files and you can see what is uploaded on the board and vice versa.
+Arduino Lab for MicroPython is a software that supports programming Arduino boards with MicroPython. Through the customized editor, we can install MicroPython, and upload scripts directly to the board.  The editor is able to manage the files and you can see what is uploaded on the board and vice versa.
 
 ![Arduino Lab for MicroPython]()
 

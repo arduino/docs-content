@@ -248,7 +248,7 @@ while (True):
         print("Server socket error: ", e)
 ```
 
-#### Wi-Fi Scan
+#### Wi-Fi® Scan
 
 To scan available networks:
 
@@ -477,7 +477,7 @@ In the MicroPython port of the Nano 33 BLE board, the pinout is the same as the 
 
 ### LED Control
 
-There are 3 different LEDs that can be accessed on the Nano BLE: **RGB, the built-in LED** and the **power LED**.
+There are 3 different LEDs that can be accessed on the Nano 33 BLE: **RGB, the built-in LED** and the **power LED**.
 
 They can be accessed by importing the `LED` module, where the RGB and built-in LED can be accessed.
 
@@ -670,7 +670,7 @@ In the MicroPython port of the Nano 33 BLE Sense board, the pinout is the same a
 
 ### LED Control
 
-There are 3 different LEDs that can be accessed on the Nano BLE Sense: **RGB, the built-in LED** and the **power LED**.
+There are 3 different LEDs that can be accessed on the Nano 33 BLE Sense: **RGB, the built-in LED** and the **power LED**.
 
 They can be accessed by importing the `LED` module, where the RGB and built-in LED can be accessed.
 
@@ -1454,22 +1454,22 @@ If you intend to write over UART, you can call `.write()`. The function writes `
 uart.write(buffer)
 ```
 
-#### Wi-Fi
+#### Wi-Fi®
 
-To use Wi-Fi you first need to import the relevant library.
+To use Wi-Fi® you first need to import the relevant library.
 
 ```python
 import network
 ```
 
-Then you need to define the Wi-Fi networks SSID and put that in a variable. You must do the same for the networks password.
+Then you need to define the Wi-Fi® networks SSID and put that in a variable. You must do the same for the networks password.
 
 ```python
 SSID=''
 PASSWORD=''
 ```
 
-Next, you can create a WLAN network interface object. In the argument you can enter `network.STA_IF`, which indicates that your device will be a client and connect to a Wi-Fi access point.
+Next, you can create a WLAN network interface object. In the argument you can enter `network.STA_IF`, which indicates that your device will be a client and connect to a Wi-Fi® access point.
 
 ```python
 wlan = network.WLAN(network.STA_IF)
