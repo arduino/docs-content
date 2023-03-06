@@ -103,7 +103,7 @@ by Helena Bisby <support@arduino.cc>
 
 This example code is in the public domain
 
-http://arduino.cchttps://www.arduino.cc/en/Tutorial/WiFi101ThingSpeakDataUploader
+https://www.arduino.cc/en/Tutorial/WiFi101ThingSpeakDataUploader
 
 */
 

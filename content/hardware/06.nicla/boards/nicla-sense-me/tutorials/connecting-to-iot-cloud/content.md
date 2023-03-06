@@ -252,4 +252,4 @@ In this tutorial you learned how to upload the temperature values from the Nicla
 ## Troubleshooting
 
 ### Arduino IoT Cloud
-If you encounter any issue in the process of using the Arduino IoT Cloud, please visit the [IoT Cloud Getting started](/content/cloud/iot-cloud/tutorials/iot-cloud-getting-started)
+If you encounter any issue in the process of using the Arduino IoT Cloud, please visit the [IoT Cloud Getting started](/arduino-cloud/getting-started/iot-cloud-getting-started)

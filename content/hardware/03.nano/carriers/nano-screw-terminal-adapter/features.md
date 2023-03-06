@@ -20,7 +20,7 @@ A smaller proto area suitable for through-hole component soldering is located on
 
 <Feature title="Additional GND Pins" image="hw-pin">
 
-There are 4x ground (GND) pins available on the board.
+There are 4x ground (GND) pins available on the board for you to use in your next project.
 
 </Feature>
 

@@ -3,6 +3,11 @@ title: 'FPGA HDL Basics'
 description: 'Learn the basics of Field Programmable Gate Arrays (FPGA) and HDL.'
 ---
 
+## Hardware Required
+
+- [MKR Vidor 4000](https://store.arduino.cc/products/arduino-mkr-vidor-4000)
+
+## Field Programmable Gate Arrays
 
 Field Programmable Gate Arrays, in short [FPGAs](https://en.wikipedia.org/wiki/Field-programmable_gate_array) are a relatively old way of creating custom hardware eliminating the costs associated with silicon foundries. Unfortunately most of the complexity of chip design are still there and this is the reason why most people prefers to use off the shelf chips, often accepting their limitations, rather than take the challenge to have an optimized, efficient design with exactly the hardware they need.
 

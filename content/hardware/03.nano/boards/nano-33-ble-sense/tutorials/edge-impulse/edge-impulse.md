@@ -22,7 +22,7 @@ featuredImage: 'chip'
 
 ## Introduction
 
-In this tutorial we will use Edge Impulse with an Arduino Nano 33 BLE Sense to run a simple Artificial Neural Network that can recognize keywords in speech. We will use the embedded digital microphone on the Nano 33 BLE Sense, the MP34DT05, to listen to our surroundings and we will light the built-in RGB LED of the board when a keyword is detected. 
+In this tutorial we will use Edge Impulse through the Arduino Cloud with an Arduino Nano 33 BLE Sense to run a simple Artificial Neural Network that can recognize keywords in speech. We will use the embedded digital microphone on the Nano 33 BLE Sense, the MP34DT05, to listen to our surroundings and we will light the built-in RGB LED of the board when a keyword is detected. 
 
 ## Goals
 
@@ -35,7 +35,7 @@ The goals of this tutorial are:
 ## Hardware and Software Needed
 
 - [Nano 33 BLE Sense](https://store.arduino.cc/arduino-nano-33-ble-sense).
-- Edge Impulse to train simple Artificial Neural Network.
+- [Arduino Cloud](cloud.arduino.cc/home) to train simple Artificial Neural Network.
 - Arduino IDE
 
 ## Machine Learning Fundamentals
@@ -93,7 +93,9 @@ Now that we learned the basics of ML, let's use the Arduino Nano 33 BLE Sense bo
 
 ## Setting up Edge Impulse 
 
-An **edge device** is any kind of hardware that controls data flow at the boundary between two networks. Edge devices work, essentially, as entry or exit points in networks. **Edge Impulse** is one of the leading development platforms for ML on edge devices, their mission is to enable developers and device makers from all over the world to solve real world problems using ML models on edge devices. Let's use Edge Impulse to create a ML system or model and deploy it on your Nano 33 BLE Sense board.
+An **edge device** is any kind of hardware that controls data flow at the boundary between two networks. Edge devices work, essentially, as entry or exit points in networks. **Edge Impulse** is one of the leading development platforms for ML on edge devices, their mission is to enable developers and device makers from all over the world to solve real world problems using ML models on edge devices. Let's use [Arduino Cloud](cloud.arduino.cc/home) to create a ML system or model and deploy it on your Nano 33 BLE Sense board.
+
+![Flashing your board.](./assets/nano33BS_TML_19.png)
 
 First, create an [Edge Impulse account](https://mltools.arduino.cc/studio/144605) through the Arduino platform, and create a new project called **speech_recognition**. 
 

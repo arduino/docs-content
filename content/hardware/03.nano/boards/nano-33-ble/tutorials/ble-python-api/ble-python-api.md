@@ -1,7 +1,7 @@
 ---
 author: 'Karl Söderby'
-title: 'Nano 33 BLE Python Guide'
-description: 'Discover how to access the features on the Nano 33 BLE using Python scripts.'
+title: 'Nano 33 BLE Python® Guide'
+description: 'Discover how to access the features on the Nano 33 BLE using Python® scripts.'
 compatible-products: [nano-33-ble]
 tags: 
   - MicroPython
@@ -11,11 +11,11 @@ featuredImage: 'board'
 
 ![The Nano 33 BLE](assets/hero.png)
 
-The [Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble-sense) board can be programmed using the popular **Python** programming language. More specifically, it supports [OpenMV's fork of MicroPython](https://github.com/openmv/micropython), where MicroPython is an implementation of the Python language, designed to run on microcontrollers. In this article, you will find a lot of sample scripts that will work directly with your Nano 33 BLE, such as general GPIO control, reading data from the IMU module and testing Bluetooth® Low Energy connection.
+The [Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble-sense) board can be programmed using the popular **Python®** programming language. More specifically, it supports [OpenMV's fork of MicroPython](https://github.com/openmv/micropython), where MicroPython is an implementation of the Python® language, designed to run on microcontrollers. In this article, you will find a lot of sample scripts that will work directly with your Nano 33 BLE, such as general GPIO control, reading data from the IMU module and testing Bluetooth® Low Energy connection.
 
-- If you want to read more about Arduino & Python, you can visit the [Python with Arduino](/learn/programming/arduino-and-python) article. Here you will find a lot of useful examples, such as how to use delays, interrupts, reading pins and more general functions.
+- If you want to read more about Arduino & Python®, you can visit the [Python® with Arduino](/learn/programming/arduino-and-python) article. Here you will find a lot of useful examples, such as how to use delays, interrupts, reading pins and more general functions.
 
-***If you are looking for information related to the similar Nano 33 BLE Sense board, you can refer to the [Nano 33 BLE Sense Python Guide](/tutorials/nano-33-ble-sense/ble-sense-python-api).***
+***If you are looking for information related to the similar Nano 33 BLE Sense board, you can refer to the [Nano 33 BLE Sense Python® Guide](/tutorials/nano-33-ble-sense/ble-sense-python-api).***
 
 ## Hardware & Software Needed
 
@@ -28,7 +28,7 @@ The [Nano 33 BLE](https://store.arduino.cc/arduino-nano-33-ble-sense) board can 
 
 Below you will find a lot of useful examples that can be loaded to your Nano 33 BLE board. Many of these examples were extracted from the [OpenMV repository](https://github.com/openmv/openmv), where you can find many useful examples for other boards as well.
 
-***In this article, you will only find examples for the Nano 33 BLE board. For more information on how to use delays, read and write to pins, please refer to the [Python with Arduino](/learn/programming/arduino-and-python) main article.***
+***In this article, you will only find examples for the Nano 33 BLE board. For more information on how to use delays, read and write to pins, please refer to the [Python® with Arduino](/learn/programming/arduino-and-python) main article.***
 
 ## Pin Control
 
@@ -265,4 +265,4 @@ while (True):
 
 ## Summary
 
-In this article we have gone through a selection of scripts that will help you control your Nano BLE board, via the OpenMV IDE. Feel free to check out our [Python with Arduino boards article](/learn/programming/arduino-and-python), where you can find guides to other boards, useful links to learn Python and more.
+In this article we have gone through a selection of scripts that will help you control your Nano BLE board, via the OpenMV IDE. Feel free to check out our [Python® with Arduino boards article](/learn/programming/arduino-and-python), where you can find guides to other boards, useful links to learn Python® and more.

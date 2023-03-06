@@ -5,7 +5,7 @@ tags:
   - ATmega2560
 ---
 
-Below is the pin mapping for the Atmega2560. The chip used in Arduino 2560. There are pin mappings to [Atmega8](/hacking/hardware/PinMapping) and [Atmega 168/328](hacking/hardware/PinMapping168) as well.
+Below is the pin mapping for the Atmega2560. The chip used in Arduino 2560. There are pin mappings to [Atmega8](/hacking/hardware/PinMapping) and [Atmega 168/328](/hacking/hardware/PinMapping168) as well.
  
 ![Arduino Mega 2560 PIN diagram.](./assets/PinMap2560big_Rev2.png)
 

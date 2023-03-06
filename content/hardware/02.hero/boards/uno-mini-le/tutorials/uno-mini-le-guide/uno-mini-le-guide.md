@@ -55,7 +55,7 @@ The UNO Mini LE can be programmed through the **Arduino IDE 2.0.X**. To install 
 
 The UNO Mini LE can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started-web-editor)
+- [Getting started with the Web Editor](/arduino-cloud/getting-started/getting-started-web-editor)
 
 ## The Blink Example
 

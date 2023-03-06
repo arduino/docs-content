@@ -69,7 +69,7 @@ In line with the various stages of Model-Based Design, there are four ways to op
 The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling this pin HIGH, we can turn the LED on and by pulling it LOW we can turn the LED off.
 ![LED Location on Nano 33 IoT](img/nano-Simulink-WiFi-LED-D13-LED.png)
 
-***It is recommended that you go through the [MATLAB tutorial](../nano-matlab-wifi-led/nanoMatlabWiFiLED) before attempting this tutorial.***
+***It is recommended that you go through the [MATLAB tutorial](/tutorials/nano-motor-carrier/nano-matlab-wifi-led) before attempting this tutorial.***
 
 ## Simulate an LED Turning on and Off
 

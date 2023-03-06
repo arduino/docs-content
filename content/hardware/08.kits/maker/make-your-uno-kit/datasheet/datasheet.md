@@ -238,9 +238,6 @@ Sample sketches for the **UNO** can be found either in the “Examples” menu i
 #### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub [4], the Arduino Library Reference [5] and the online store [6] where you will be able to complement your board with sensors, actuators and more.
 
-#### Board Recovery
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after a power-up.
-
 ### Connector Pinouts
 ![Make Your UNO main board pinout](assets/pinout.png)
 
@@ -316,8 +313,8 @@ The **BOM** (Bill Of Materials) of the **Audio Synth Shield** is made up of comm
 | C2                     | 1            | Capacitor 47µF 25V                          |
 | C3                     | 1            | Capacitor 100nF 63V                         |
 | C4                     | 1            | Capacitor 220µF 25V                         |
-| R1                     | 1            | Axial resistor 10Ω, 1/4W, 5%                |
-| R2                     | 1            | Axial resistor100kΩ, 1/4W, 5%               |
+| R1                     | 1            | Axial resistor 100kΩ, 1/4W, 5%                |
+| R2                     | 1            | Axial resistor 10Ω, 1/4W, 5%               |
 | R3, R4, R5, R6, R7, R8 | 6            | Potentiometer 10kΩ - TRIMMER                |
 | J1                     | 1            | UNO header digital connector A 8 positions  |
 | J2                     | 1            | UNO header digital connector B 10 positions |

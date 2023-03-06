@@ -70,11 +70,11 @@ As for the previous module, the configuration is complete, you must only check t
 
 ![](assets/XCTU_S2_Coordinator.png)
 
-Note that you didn't have to set the end device's destination address. That's because the end device always speaks to the coordinator. The modules now form a network. The coordinator is managing only one end node, so it's as if it were a transparent serial communication. You should be able to get two Arduino boards with Wireless Shields talking to each other using just the standard Arduino serial commands (described in the [reference](/en/Reference/HomePage)). Following is an example.
+Note that you didn't have to set the end device's destination address. That's because the end device always speaks to the coordinator. The modules now form a network. The coordinator is managing only one end node, so it's as if it were a transparent serial communication. You should be able to get two Arduino boards with Wireless Shields talking to each other using just the standard Arduino serial commands (described in the [reference](https://arduino.cc/en/Reference/HomePage)). Following is an example.
 
 ## A Simple Example
 
-To upload a sketch to an Arduino board with a Wireless shield, place the switch in the USB position. Then, you can upload a sketch normally from the Arduino environment. In this case, upload the [**Communication | Physical Pixel**](/en/Tutorial/BuiltInExamples/PhysicalPixel) sketch to one of the boards. This sketch instructs the board to turn on the LED attached to pin 13 whenever it receives an 'H' over its serial connection, and turn the LED off when it gets an 'L'. You can test it by connecting to the board with the Arduino serial monitor (be sure it's set at 9600 baud), typing an H, and pressing enter (or clicking send). The LED should turn on. Send an L and the LED should turn off. If nothing happens, you may have an Arduino board that doesn't have a built-in LED on pin 13 (see the [board index](/en/Main/Boards) to check for sure), in this case you'll need to supply your own.
+To upload a sketch to an Arduino board with a Wireless shield, place the switch in the USB position. Then, you can upload a sketch normally from the Arduino environment. In this case, upload the [**Communication | Physical Pixel**](https://arduino.cc/en/Tutorial/BuiltInExamples/PhysicalPixel) sketch to one of the boards. This sketch instructs the board to turn on the LED attached to pin 13 whenever it receives an 'H' over its serial connection, and turn the LED off when it gets an 'L'. You can test it by connecting to the board with the Arduino serial monitor (be sure it's set at 9600 baud), typing an H, and pressing enter (or clicking send). The LED should turn on. Send an L and the LED should turn off. If nothing happens, you may have an Arduino board that doesn't have a built-in LED on pin 13 (see the [board index](https://arduino.cc/en/Main/Boards) to check for sure), in this case you'll need to supply your own.
 
 Once you've uploaded the Physical Pixel sketch and made sure that it's working, unplug the first Arduino board from the computer. Change the switch to the Micro setting. Now, you need to upload a sketch to the other board. Make sure its switch is in the USB setting. Then upload the following sketch to the board:
 
@@ -108,6 +108,6 @@ If you want to deepen in the configuration and networking with ZigBee using XBee
 
 ## References
 
-For more information, see: the [hardware page](/en/Main/ArduinoWirelessShield) for the Xbee shield, and the [Digi Xbee page](http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/point-multipoint-rfmodules/).
+For more information, see: the [hardware page](https://arduino.cc/en/Main/ArduinoWirelessShield) for the Xbee shield, and the [Digi Xbee page](http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/point-multipoint-rfmodules/).
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

@@ -27,7 +27,7 @@ Industry 4.0, prototyping, robotics, data logging
     *   Murata CMWX1ZZABZ-078 LoRa® module,  SMA connector for antenna
     *   SARA-R412M-02B (4G/Cat-M1/NBIoT), micro SIM, SMA connector for antenna
 *   **Connectors**
-    *   2x USB A female connectors
+    *   2x USB-A female connectors
     *   1x Gigabit Ethernet connector (RJ45)
     *   1x FD-Can on RJ11
     *   1x mini PCIe

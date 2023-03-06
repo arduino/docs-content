@@ -4,25 +4,19 @@ The MKR FOX 1200 adds Sigfox connectivity to your projects. Using the popular <b
 
 <FeatureList>
 
-<Feature title="Cortex-M0 32-bit SAMD21" image="core">
-
-  The powerful, low-power processor that is used in all MKR Family boards.
-
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf" download blank/>
-</Feature>
-
-<Feature title="Microchip® Smart RF ATA8520" image="cellular">
+<Feature title="Microchip® Smart RF Transmitter" image="cellular">
 
   Fully integrated, single-chip RF transmitter with low power consumption.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_Atmel-9372-Smart-RF-ATA8520_Datasheet.pdf" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-fox-1200/sigfox-first-configuration"/>
+  <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/arduino-sigfox-for-mkrfox1200/"/>
 </Feature>
 
 <Feature title="Coverage" image="world-map">
 
 SigFox covers most parts of Europe, South Africa, Japan and is being introduced in many more countries.  
 
-  <FeatureLink title="Link to Map" url="https://www.sigfox.com/en/coverage"/>
+  <FeatureLink variant="primary" title="Link to Map" url="https://www.sigfox.com/en/coverage"/>
 </Feature>
 
 </FeatureList>

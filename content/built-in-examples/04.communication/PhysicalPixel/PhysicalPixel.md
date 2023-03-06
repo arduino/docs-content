@@ -73,7 +73,7 @@ Many Arduino boards have a built-in LED connected to pin 13; if your board has n
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/PhysicalPixel
+  https://www.arduino.cc/en/Tutorial/PhysicalPixel
 
 */
 

@@ -12,8 +12,8 @@ libraries:
   - name: MKRIMU
     url: https://www.arduino.cc/reference/en/libraries/mkrimu/
 hardware:
-  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/01.mkr/02.shields/mkr-imu-shield
+  - hardware/01.mkr/01.boards/mkr-wifi-1010
 software:
   - ide-v1
   - ide-v2

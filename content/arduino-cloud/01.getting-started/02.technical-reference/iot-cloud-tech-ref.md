@@ -107,16 +107,30 @@ A shortcut to add a device is also provided in **"Things" page** as explained in
 
 Below you will find a list of features that are available in the Arduino IoT Cloud.
 
-### Uploading over-the-air (OTA)
+### Uploading Over-The-Air (OTA)
 
-This feature allows for uploading sketches wirelessly to Arduino boards, without the need to connect the board physically. This feature is supported for the following **compatible Arduino boards**:
-
-![Over The Air compatible boards](./images/ota_compatible_boards.png)
+This feature allows for uploading sketches wirelessly to Arduino boards, without the need to connect the board physically. This feature is supported for the following boards:
 
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Arduino NANO 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect-with-headers)
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- Cloud compatible ESP32 boards (see list below).
+
+#### Verified ESP32 Boards Supporting OTA 
+
+The following ESP32 boards have been tested and verified to support OTA:
+
+- ESP32-S2-DevKitC
+- NODEMCU-32-S2
+- WEMOS LOLIN D32
+- ESP32-S3-DevKitC
+- WEMOS LOLIN D32
+- ESP32-CAM
+- NodeMCU-32S
+- Freenove ESP32 WROVER
+- ESP32-DevKitC32E
+- DOIT ESP32 DevKit v1
 
 ![Connecting the device with the OTA option](./images/device_OtA.png)
 
@@ -308,11 +322,29 @@ One or more **Things** can be added to a **Dashboard**, with all or some of thei
 
 ![Create widgets from a Thing](./images/create-widget-from-thing.png)
 
-***You can read more about [Dashboards & Widgets]().***
+***You can read more about [Dashboards & Widgets](/arduino-cloud/getting-started/dashboard-widgets).***
 
 ## Recommended Code Practices
 
-### Avoid blocking commands within the loop()
+This section highlights some important aspects of writing code with regard to the implementations in the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud).
+
+### Watchdog Timer (WDT)
+
+All IoT Cloud sketches use a **Watchdog Timer (WDT)** by default. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
+
+A WDT is essentially a countdown timer, whereas it starts counting from a set value, and upon reaching zero, it resets the board. To prevent it from reaching zero, we continuously call it from the `loop()`, using the `ArduinoCloud.update()` function.
+
+This is why, it is very important to not use any long blocking code in your sketch. For example, using a long `delay()` inside the `loop()` is **strongly discouraged**, as the WDT can reach zero and reset the board.
+
+The WDT can however be disabled inside of the `setup()` function, by adding the `false` parameter:
+
+```arduino
+ArduinoCloud.begin(ArduinoIoTPreferredConnection, false).
+```
+
+***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog).***
+
+### Alternatives to Delays
 
 The `loop()` function includes the `ArduinoCloud.update();` call, which sends data to the cloud and receives updates. In order to get the best responsiveness in your cloud-connected projects, the `loop()` function should run as fast as possible. This means that no blocking commands should be used inside, and you should prefer a non-blocking programming approach whenever possible.
 
@@ -320,30 +352,59 @@ A common **blocking pattern** is the use of the `delay()` function which stops t
 
 Let's see how to blink a LED. The traditional way involves the `delay()` function:
 
-    void loop() {
-      ArduinoCloud.update();
-  
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay(1000);
-      digitalWrite(LED_BUILTIN, LOW);
-      delay(1000);
-    }
+```arduino
+void loop() {
+  ArduinoCloud.update();
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
 
 This works, but it will cause a delay of at least two seconds between one execution of `ArduinoCloud.update()` and the next one, thus causing bad performance of the cloud communication.
 
 This can be rewritten in a non-blocking way as follows:
 
-    void loop() {
-      ArduinoCloud.update();
-  
-      digitalWrite(LED_PIN, (millis() % 2000) < 1000);
-    }
+```arduino
+void loop() {
+  ArduinoCloud.update();
+
+  digitalWrite(LED_PIN, (millis() % 2000) < 1000);
+}
+```
 
 How does this work? It gets the current execution time provided by `millis()` and divides it by 2 seconds. If the remainder is smaller than one second it will turn the LED on, and if it's greater it will turn the LED off.
 
 For a more complex and commented example, you can have a look at the [BlinkWithoutDelay example](/built-in-examples/digital/BlinkWithoutDelay).
 
-### Avoid waiting for Serial Monitor to initialize connection
+### I2C Usage
+
+Components connected via I²C (including the sensors onboard the [MKR IoT Carrier](https://store.arduino.cc/products/arduino-mkr-iot-carrier)) uses the same bus as the **ECCX08** cryptochip. As the crypto chip is an essential part of establishing a connection to the IoT Cloud (it contains the credentials), it is important that other I²C peripherals are initialized after the connection has been made.
+
+For example, if you are initializing a library such as [Arduino_MKRENV](https://www.arduino.cc/reference/en/libraries/arduino_mkrenv), your `setup()` should be implemented as:
+
+```arduino
+void setup() {
+  Serial.begin(9600);
+  delay(1500);
+
+  initProperties();
+
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  //initializing the Arduino_MKRENV library
+  if (!ENV.begin()) {
+    Serial.println("Failed to initialize MKR ENV shield!");
+    while (1);
+  }
+```
+
+
+### Avoid Blocking Serial Communication
 
 `while(!Serial) {}` loops endlessly until the Serial Monitor is opened. This is a useful practice in cases where you want to see all debug output from the start of the sketch execution. However, when building IoT systems using **`while(!Serial){}` can hinder our project from running autonomously**, stopping the board from connecting to the network and IoT Cloud before manually opening the Serial Monitor. Therefore, it is recommended to consider removing the `while(!Serial){}` loop if it's not necessary.
 
@@ -358,7 +419,7 @@ We provide two Arduino Iot Cloud APIs:
 
  The Arduino IoT Cloud REST API can be called just with any **HTTP Client**, or using one of these clients:
   - [Javascript NPM package](https://www.npmjs.com/package/@arduino/arduino-iot-client).
-  - [Python PYPI Package](https://pypi.org/project/arduino-iot-client/).
+  - [Python® PYPI Package](https://pypi.org/project/arduino-iot-client/).
   - [Golang Module](https://github.com/arduino/iot-client-go).
   
 **2.** The second is the **Data API (MQTT)** which allows you to send/receive Variables' data. An example of this API's use is sending IoT Cloud Variables' updates to the browser. A full [documentation of the Arduino IoT Cloud Data API (MQTT)](https://www.npmjs.com/package/arduino-iot-js) is available for advanced users.

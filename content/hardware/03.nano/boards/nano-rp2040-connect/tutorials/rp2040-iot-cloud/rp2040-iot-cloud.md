@@ -216,6 +216,6 @@ In this tutorial, we connected a Nano RP2040 Connect board to the [Arduino IoT C
 
 ### More Tutorials
 
-For more interesting tutorials around the IoT Cloud, check out the [Arduino IoT Cloud documentation page](/cloud/iot-cloud/).
+For more interesting tutorials around the IoT Cloud, check out the [Arduino IoT Cloud documentation page](/arduino-cloud).
 
 To learn more about the Nano RP2040 Connect board, you can check out the [Arduino Nano RP2040 Connect documentation page](/hardware/nano-rp2040-connect).

@@ -8,15 +8,16 @@ The MKR Connector Carrier comes with 14 grove compatible connectors for analog &
 
 <Feature title="Grove connectors" image="connection">
 
-There is a total of 14 connectors for analog & digital I/O, I2C and UART. 
+There are a total of 14 connectors for analog & digital I/O, I2C and UART.
 
-<FeatureLink title="Datasheet" url="https://www.seeedstudio.com/category/Sensor-for-Grove-c-24.html" download blank/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-connector-carrier/connector-dht-to-oled"/>
 </Feature>
 
-<Feature title="Screw terminals for battery" image="power">
+<Feature title="Screw terminals" image="power">
 
 The carrier has screw terminals to easily and robustly connect batteries.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-connector-carrier/connector-basics"/>
 </Feature>
 
 </FeatureList>

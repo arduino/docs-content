@@ -6,7 +6,7 @@ Protocol: CAN bus
 Communication: SPI
 Integrated circuits:
   Controller: Microchip MCP2515
-  Transceiver: NXP TJA1049
+  Transceiver: NXP® TJA1049
   Buck converter: TPS54232
 Power:
   Operating voltage: 3.3V

@@ -6,8 +6,8 @@ tags:
   - Getting Started
 author: José Bagur, Taddy Chung
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/carriers/portenta-max-carrier
+  - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v1
   - ide-v2
@@ -150,7 +150,7 @@ To begin using the modem, it will require some packages to be installed beforeha
 
 We will use the `arduino_secrets.h` header file for PIN and APN configuration of the SIM card that will be inserted into microSIM slot on-board Portenta Max Carrier.
 
-If you want to learn how to run a sketch with this library or how to switch between Cat M1 and NB IoT, please take a look at our [Portenta Max Carrier and Portenta H7 Cat M1/NB IoT tutorial](https://docs.arduino.cc/tutorials/portenta-max-carrier/catM1-and-NBIoT)
+If you want to learn how to run a sketch with this library or how to switch between Cat M1 and NB IoT, please take a look at our [Portenta Max Carrier and Portenta H7 Cat M1/NB IoT tutorial](https://docs.arduino.cc/tutorials/portenta-max-carrier/catm1-and-nbiot)
 
 The antenna connectors for both LoRaWAN® and cellular modem with the microSIM slot are indicated as the following image:
 

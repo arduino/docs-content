@@ -10,7 +10,7 @@ This tutorial will show you how to debug an Arduino sketch using an Arduino MKR 
 
 ### Required Hardware and Software
 -   [Arduino IDE 2.0](https://www.arduino.cc/en/software)
--   Segger J-link device ([EDU](https://store.arduino.cc/j-link-edu) or [BASE](https://store.arduino.cc/j-link-base))
+-   Segger J-link device ([EDU](https://store.arduino.cc/products/j-link-edu) or [BASE](https://store.arduino.cc/products/j-link-base-compact))
 -   [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (other boards from the MKR family works as well).
 -   Soldering equipment
 -   [MKR Proto shield](https://store.arduino.cc/mkr-proto-shield)
@@ -67,18 +67,23 @@ Now we are ready to start debugging our sketch. Connect the power to the MKR boa
 
 Then create or open the sketch that you want to debug. If you don't already have a sketch in mind, feel free to use the example sketch found at the end of this tutorial.
 
-Now go to the folder where the sketch is located. Add a `.json` file in the same folder as your sketch and name it `debug_custom.json`. The easiest way would be to create a text file and rename it `debug_custom.json`. In the `.json` file, add the following lines: 
+Now go to the folder where the sketch is located. Add a `.json` file in the same folder as your sketch and name it `debug_custom.json`. The easiest way would be to create a text file and rename it `debug_custom.json`. In the `.json` file, add the following lines:
 
 ```arduino
 {
-      "servertype": "jlink",     
-      "device": "ATSAMD21G18",
-      "interface": "SWD",
-      "serverpath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServer"
+  "servertype": "jlink",
+  "device": "ATSAMD21G18",
+  "interface": "SWD",
+  "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL"
 }
 ```
 
-The `"serverpath"` needs to be changed to the location where you installed the J-link package in the previous step. When this is done, click on the debugging icon.
+The `"serverpath"` field needs to be set to the path of the "J-Link GDB Server CL" tool executable file that is located under the folder of the J-Link package you installed in the previous step. The file is named:
+
+- **If you are using Windows:** `JLinkGDBServerCL.exe`
+- **If you are using Linux or macOS:** `JLinkGDBServer`
+
+When you have finished creating the `debug_custom.json` file, click on the debugging icon.
 
 ![Start debug feature in Arduino IDE 2.0](assets/mkr_jlink_IDE_debugging_button.png)
 

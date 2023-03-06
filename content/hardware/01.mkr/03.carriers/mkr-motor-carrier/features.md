@@ -8,14 +8,14 @@ The MKR Motor Carrier features a **ATSAMD11** processor for automated control of
 <FeatureList>
 <Feature title="ATSAMD11" image="core">
 
-The MKR Motor Carrier features the ATSAMD11 (Arm Cortex-M0+) as an on-board processor for automated control of some of the outputs.
+The MKR Motor Carrier features an on-board processor for automated control the outputs.
 
 <FeatureLink title="Datasheet" url="http://ww1.microchip.com/downloads/en/devicedoc/atmel-42363-sam-d11_datasheet.pdf" download blank/>
 </Feature>
 
 <Feature title="MC33926" image="mcu">
 
-DC / Servo motor driver capable of handling peak currents up to 5A.
+The MKR Motor Carrier features a DC / Servo motor driver capable of handling currents up to 5A.
  
 <FeatureLink title="Datasheet" url="https://www.nxp.com/docs/en/data-sheet/MC33926.pdf" download blank/>
 </Feature>
@@ -23,7 +23,7 @@ DC / Servo motor driver capable of handling peak currents up to 5A.
 
 <Feature title="DRV8871" image="mcu">
 
-DC motor driver with PWM control that can handle peak currents up to 3A. 
+The MKR Motor Carrier features a DC motor driver with PWM control capable of handling currents up to 3A. 
 
 <FeatureLink title="Datasheet" url="https://www.ti.com/document-viewer/DRV8871/datasheet/features" download blank/>
 </Feature>
@@ -36,19 +36,7 @@ The carrier features four servo motor outputs and four DC motor outputs (two sta
 
 <Feature title="Encoder inputs" image="hw-pin">
 
-The carrier features two inputs for encoders.
-
-</Feature>
-
-<Feature title="LiPo battery connector" image="power">
-
-Connect a 6.5V - 11.1V battery to either the male headers (2S and 3S compatible) or to the screw terminals. 
-
-</Feature>
-
-<Feature title="Battery status" image="power">
-
-The carrier is capable of reading the current status of batteries.
+The MKR Motor Carrier features two inputs for encoders.
 
 </Feature>
 
@@ -58,11 +46,25 @@ Screw terminals makes connections more robust for projects in motion.
 
 </Feature>
 
+<Feature title="LiPo battery connector" image="power">
+
+Connect a 6.5V - 11.1V battery to either the male headers (2S and 3S compatible) or to the screw terminals. 
+
+</Feature>
+
 
 <Feature title="Male header pins" image="hw-pin">
 
 Several male header connections for DC / servo motors are available. In addition, it also has a 4 pin I2C connector.
 
+</Feature>
+
+<Feature title="Battery status" image="power">
+
+The MKR Motor Carrier is capable of reading the current status of batteries.
+
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-motor-carrier/mkr-motor-carrier-battery"/>
+  <FeatureLink variant="secondary" title="Library" url="https://github.com/arduino-libraries/ArduinoMotorCarrier/"/>
 </Feature>
 
 </FeatureList>

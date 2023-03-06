@@ -57,7 +57,7 @@ If you look for a position that's outside the range of the string,you'll get unp
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/StringStartsWithEndsWith
+  https://www.arduino.cc/en/Tutorial/StringStartsWithEndsWith
 */
 
 void setup() {

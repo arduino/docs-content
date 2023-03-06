@@ -9,7 +9,7 @@ description: 'Graph the values from the light sensor to the TFT.'
 
 ## Esplora TFT Graph
 
-This example for the Esplora with an Arduino TFT screen reads the amount of brightness that falls on the onboard light sensor, and graphs it on screen. This is similar to the [serial communication Graph example](/en/Tutorial/BuiltInExamples/Graph).
+This example for the Esplora with an Arduino TFT screen reads the amount of brightness that falls on the onboard light sensor, and graphs it on screen. This is similar to the [serial communication Graph example](https://arduino.cc/en/Tutorial/BuiltInExamples/Graph).
 
 ## Hardware Required
 

@@ -63,7 +63,7 @@ The code is based on [Epoch](https://raw.githubusercontent.com/arduino-libraries
 
   modified 26 Sept 2018
 
-  http://arduino.cchttps://www.arduino.cc/en/Tutorial/WiFiRTC
+  https://www.arduino.cc/en/Tutorial/WiFiRTC
 
   This code is in the public domain.
 

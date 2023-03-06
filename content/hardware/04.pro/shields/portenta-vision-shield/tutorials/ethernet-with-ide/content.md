@@ -12,8 +12,8 @@ libraries:
   - name: Ethernet
     url: https://www.arduino.cc/en/Reference/Ethernet
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v1
   - ide-v2
@@ -123,7 +123,7 @@ First, some connection tests are made and printed in the Serial Monitor. After t
 
 ## Conclusion
 
-This tutorial showed how to connect the Portenta H7 with a Vision Shield Ethernet to the Internet, with an example sketch in the Arduino IDE. The sketch allowed the board to connect to a website and print its content in the Serial Monitor. The Portenta H7 and Vision Shield can also be used with OpenMV, have a look at the [OpenMV Ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv) if you want to see a similar example with python.
+This tutorial showed how to connect the Portenta H7 with a Vision Shield Ethernet to the Internet, with an example sketch in the Arduino IDE. The sketch allowed the board to connect to a website and print its content in the Serial Monitor. The Portenta H7 and Vision Shield can also be used with OpenMV, have a look at the [OpenMV Ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv) if you want to see a similar example with Python®.
 
 ### Next Steps
 

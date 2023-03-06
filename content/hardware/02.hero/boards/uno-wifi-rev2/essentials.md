@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/installing-megaavr-core">
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-megaavr">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 

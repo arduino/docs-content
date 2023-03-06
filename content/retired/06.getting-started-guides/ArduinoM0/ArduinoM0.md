@@ -7,7 +7,7 @@ description: 'The first steps to setting up the Arduino M0'
 
 This board is a simple and powerful 32-bit extension of the platform established by the UNO. Learn how to prepare your computer with all you need to start making your own projects.
 
-The Arduino M0 is programmed using the [Arduino Software (IDE)](/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](/en/Guide/HomePage).
+The Arduino M0 is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 
 ### Use your Arduino M0 on the Arduino Web IDE
 
@@ -23,7 +23,7 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Use your Arduino M0 on the Arduino Desktop IDE
 
-If you want to program your Arduino M0 while offline you need to install the [Arduino Desktop IDE](/en/Main/Software) and add the Atmel SAMD Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](/en/Guide/Cores) page.
+If you want to program your Arduino M0 while offline you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software) and add the Atmel SAMD Core to it. This simple procedure is done selecting **Tools menu**, then **Boards** and last **Boards Manager**, as documented in the [Arduino Boards Manager](https://arduino.cc/en/Guide/Cores) page.
 
 ![](./assets/MKR_Zero_BrdMgrAdd.jpg)
 
@@ -59,7 +59,7 @@ Now, simply click the "Upload" button in the environment. Wait a few seconds - y
 
 ![](./assets/UNO_Upload.png)
 
-A few seconds after the upload finishes, you should see the on-board LED start to blink (in orange). If it does, congratulations! You've gotten your M0 board up-and-running. If you have problems, please see the [troubleshooting suggestions](/en/Guide/Troubleshooting).
+A few seconds after the upload finishes, you should see the on-board LED start to blink (in orange). If it does, congratulations! You've gotten your M0 board up-and-running. If you have problems, please see the [troubleshooting suggestions](https://arduino.cc/en/Guide/Troubleshooting).
 
 ### Tutorials
 
@@ -67,10 +67,10 @@ Now that you have set up and programmed your M0 board, you may find inspiration 
 
 Here a list of tutorials that will help you in making very cool things!
 
-[Simple Audio Player](/en/Tutorial/SimpleAudioPlayerZero)
-[RTC](/en/Tutorial/SimpleRTC)
-[Power consumption](/en/Tutorial/ArduinoZeroPowerConsumption)
-[Adding mores Serial interfaces to SAMD microcontrollers](/en/Tutorial/SamdSercom)
+[Simple Audio Player](https://arduino.cc/en/Tutorial/SimpleAudioPlayerZero)
+[RTC](https://arduino.cc/en/Tutorial/SimpleRTC)
+[Power consumption](https://arduino.cc/en/Tutorial/ArduinoZeroPowerConsumption)
+[Adding mores Serial interfaces to SAMD microcontrollers](https://arduino.cc/en/Tutorial/SamdSercom)
 
 ### Please Read...
 
@@ -110,9 +110,9 @@ Pressing the Reset button on the M0 causes the SAMD21 to reset as well as resett
 
 #### ADC and PWM resolutions
 
-The M0 has the ability to change its analog read and write resolutions (defaults to 10-bits and 8-bits, respectively). It can support up to 12-bit ADC/PWM and 10-bit DAC resolutions. See the [analog write resolution](/en/Reference/AnalogWriteResolution) and [analog read resolution](/en/Reference/AnalogReadResolution) pages for information.
+The M0 has the ability to change its analog read and write resolutions (defaults to 10-bits and 8-bits, respectively). It can support up to 12-bit ADC/PWM and 10-bit DAC resolutions. See the [analog write resolution](https://arduino.cc/en/Reference/AnalogWriteResolution) and [analog read resolution](https://arduino.cc/en/Reference/AnalogReadResolution) pages for information.
 
-For more details on the Arduino M0, see the [hardware page](/en/Main/ArduinoBoardM0).
+For more details on the Arduino M0, see the [hardware page](https://arduino.cc/en/Main/ArduinoBoardM0).
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.
