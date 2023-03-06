@@ -125,6 +125,20 @@ Follow the steps below to install MicroPython on the Nano RP2040 Connect board.
 
 Congratulations, you are now ready to program your Nano RP2040 Connect with MicroPython.
 
+## GIGA R1 WiFi
+
+- [Arduino GIGA R1 WiFi documentation](/hardware/giga-r1-wifi)
+
+![GIGA R1 WiFi.](assets/giga-r1-wifi.png)
+
+The installation instructions for the **GIGA R1 WiFi** is identical to the **Portenta H7** instructions found just below. 
+
+You will however need a different firmware, which you can download from the link below:
+
+- [Download GIGA R1 WiFi MicroPython firmware (dfu)](/resources/firmware/GIGAR1_MP_FW.dfu)
+
+***The GIGA R1 WiFi and Portenta H7 boards are based on the same microcontroller, [STM32H747XI](static/resources/datasheets/stm32h747xi.pdf) and therefore share the same installation instructions.***
+
 ## Portenta H7
 
 - [Arduino Portenta H7 Documentation](https://docs.arduino.cc/hardware/portenta-h7)
@@ -147,7 +161,7 @@ Open the Arduino IDE (not Arduino Lab for MicroPython) and navigate to the board
 
 **Step 2: Download Firmware**
 
-Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython](https://docs.arduino.cc/micropython/) documentation site. The firmware is available as a `.dfu` file for the Portenta H7.
+Now you will need to find the specific firmware that you need to flash to your board. You can find the available firmware on the [MicroPython with Arduino](https://docs.arduino.cc/micropython/) home page. The firmware is available as a `.dfu` file for the Portenta H7.
 
 In the next step you will be diving into the core files you downloaded in the first step to find a command line tool called **dfu-util**. This process is differs depending on if you're on a Windows or MacOS computer. MacOS instructions are available further below.
 
@@ -156,7 +170,7 @@ In the next step you will be diving into the core files you downloaded in the fi
 To flash your board, you will need a file named `dfu-util.exe`. This is found in your following directory:
 
 ```     
-C:\Users\[your-username]\AppData\Local\Arduino15\staging\packages\dfu-util-0.10.0-arduino1-windows.tar.bz2\dfu-util-0.10.0-arduino1-windows.tar\windows\ 
+C:\Users\<your-username>\AppData\Local\Arduino15\staging\packages\dfu-util-0.10.0-arduino1-windows.tar.bz2\dfu-util-0.10.0-arduino1-windows.tar\windows\ 
 ```
 
 One you've found the file, extract it from the .tar archive and copy it somewhere else, your desktop for example. 
@@ -168,7 +182,7 @@ If successful, another command terminal window should open in which you are able
 Double tap the reset button on your board to put it in DFU mode, and execute the following command, but replace the path of the firmware file with the directory where you have placed the firmware you downloaded previously:
 
 ```
-dfu-util -a 0 -d 0x2341:0x035b -D [firmware]
+dfu-util -a 0 -d 0x2341:0x035b -D <firmware>.dfu
 ```
 
 Again, don't disconnect or power off your board during this part of the process, watch the progress of flashing the firmware to your board.
@@ -196,11 +210,11 @@ Now, you should be able to execute the command that will flash your board with t
 Double tap the reset button on your board to put it in DFU mode, and execute the following command, but replace the path of the firmware file with the directory where you have placed the firmware you downloaded previously:
 
 ```
-dfu-util -a 0 -d 0x2341:0x035b -D [firmware]
+dfu-util -a 0 -d 0x2341:0x035b -D <firmware>.dfu
 ```
 
 Do not disconnect your board during this part of the process, watch the progress of flashing the firmware to your board. 
 
 Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
-Go to the Arduino Lab MicroPython IDE and press connect in the top left corner, choose the port, and code away!
+Go to the Arduino Lab MicroPython IDE and press connect in the top left corner, choose the port and you are ready to load scripts to your board.
