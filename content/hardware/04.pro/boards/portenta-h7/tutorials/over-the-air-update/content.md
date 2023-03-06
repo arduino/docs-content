@@ -182,7 +182,6 @@ This line is in **line 87** for the **"OTA_Qspi_Flash"** sketch or in **line 88*
 
 If you are going to use the example OTA file used in this tutorial you don't need to follow the steps in this section, just execute the sketch with the default file location.
 
-<br>
 
 ***Now you have two options to choose, use QSPI or use an SD Card to storage your OTA file. You can use the left side index to jump to the option that you may need.***
 
