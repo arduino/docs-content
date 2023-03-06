@@ -64,7 +64,7 @@ In this example two loops are executed one after the other to increase and then 
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Fading
+  https://www.arduino.cc/en/Tutorial/Fading
 
 */
 

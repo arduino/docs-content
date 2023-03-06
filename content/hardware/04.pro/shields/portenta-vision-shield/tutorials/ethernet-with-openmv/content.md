@@ -12,8 +12,8 @@ libraries:
   - name: Ethernet
     url: https://www.arduino.cc/en/Reference/Ethernet
 hardware:
-  - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/04.pro/boards/portenta-h7
 software:
   - openmv
 ---
@@ -29,7 +29,7 @@ With the Ethernet version of the Arduino Portenta Vision Shield it is possible t
 ### Hardware & Software Needed
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/usa/portenta-vision-shield)
+- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora®)
 - [OpenMV](https://openmv.io/pages/download)
 - Ethernet cable
 - USB-C® cable

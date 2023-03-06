@@ -64,7 +64,7 @@ Here's the main sketch:
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Tone4
+  https://www.arduino.cc/en/Tutorial/Tone4
 
 */
 

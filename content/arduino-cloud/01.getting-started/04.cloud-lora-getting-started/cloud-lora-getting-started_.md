@@ -270,7 +270,7 @@ You can visit the [Activate an Arduino Pro Gateway with IoT Cloud](https://suppo
 ###  Migrate Existing Gateway
   
   
-If you had a gateway setup prior to the [A2A to TTS migration](linktoblogpost.com ), you will need to complete the following steps to use the Pro Gateway.
+If you had a gateway setup prior to the A2A to TTS migration, you will need to complete the following steps to use the Pro Gateway.
   
 To perform the Arduino Pro gateway migration:
   

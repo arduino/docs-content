@@ -44,10 +44,6 @@ A major advantage with having the Serial Monitor integrated with the editor is t
 
 You will find an example with more information on how to use this feature, further down this tutorial under the **Using multiple Serial Monitors simultaneously** section.
 
-### Different Send Trigger
-
-In the Arduino IDE 1.x Serial Monitor, data can be sent to the board by entering it in the field at the top of the window and then clicking the **Send** button or pressing the <kbd>**Enter**</kbd> key. In the Arduino IDE 2.0 Serial Monitor you must instead use the <kbd>**Ctrl**</kbd>+<kbd>**Enter**</kbd> keyboard shortcut (<kbd>**Command**</kbd>+<kbd>**Enter**</kbd> for macOS users).
-
 ## Using the Serial Monitor Tool
 
 The Serial Monitor tool is a really great tool for debugging and establishing communication between a computer and an Arduino. To use it is really easy, but there are some things that we need to do first.

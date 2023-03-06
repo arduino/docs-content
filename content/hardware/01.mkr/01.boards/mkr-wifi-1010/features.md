@@ -6,28 +6,22 @@ The MKR WiFi 1010 is a great choice for any beginner, maker or professional to g
 
 <FeatureList>
 
-<Feature title="u-blox NINA-W102" image="wifi-bluetooth">
+<Feature title="Bluetooth®" image="bluetooth">
 
-Enables Bluetooth® and Wi-Fi connectivity for the MKR WiFi 1010 board.
+Enables Bluetooth® allowing you to implement Bluetooth® in your projects.
 
-<FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Arduino_NINA-W10_DataSheet_%28UBX-17065507%29.pdf"/>
-
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wifi-1010/enabling-ble"/>
+  <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </Feature>
 
 
-<Feature title="Cortex-M0 32-bit SAMD21" image="core">
+<Feature title="WiFi" image="wifi">
 
-  The powerful, low-power processor that is used in all MKR Family boards.
+Enables WiFi allowing you to connect wirelessly to your peripherals.
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf"/>
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wifi-1010/hosting-a-webserver"/>
+  <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
 </Feature>
 
-
-<Feature title="ATECC508 crypto chip" image="crypto-chip">
-
-  The ECC508 crypto chip makes sure your data remains secure and private, and can store up to 16 keys in an EEPROM array.
-
-  <FeatureLink title="Datasheet" url="/resources/datasheets/ATECC508A-datasheet.pdf" download blank/>
-</Feature>
 </FeatureList>
 

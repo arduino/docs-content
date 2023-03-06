@@ -54,7 +54,7 @@ The main sketch is as follows:
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Tone
+  https://www.arduino.cc/en/Tutorial/Tone
 
 */
 

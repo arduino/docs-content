@@ -41,7 +41,7 @@ In the sketch below, after declaring two pin assignments (analog 0 for our poten
 
 Next, in the main loop, `sensorValue` is assigned to store the raw analog value read from the potentiometer. Arduino has an `analogRead` range from 0 to 1023, and an `analogWrite` range only from 0 to 255, therefore the data from the potentiometer needs to be converted to fit into the smaller range before using it to dim the LED.
 
-In order to convert this value, use a function called [map()](https://www.arduino.cc/en/Reference/Map):
+In order to convert this value, use a function called [map()](https://www.arduino.cc/reference/en/language/functions/math/map/):
 
 `outputValue = map(sensorValue, 0, 1023, 0, 255);`
 
@@ -79,7 +79,7 @@ The newly mapped sensor data is then output to the `analogOutPin` dimming or bri
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/AnalogInOutSerial
+  https://www.arduino.cc/en/Tutorial/AnalogInOutSerial
 
 */
 

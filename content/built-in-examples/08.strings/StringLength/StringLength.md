@@ -38,7 +38,7 @@ There is no circuit for this example, though your board must be connected to you
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/StringLengthTrim
+  https://www.arduino.cc/en/Tutorial/StringLengthTrim
 
 */
 

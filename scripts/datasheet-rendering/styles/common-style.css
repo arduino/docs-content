@@ -1,0 +1,298 @@
+html {
+    font-family: 'Open Sans', 'Source Sans Pro', sans-serif;
+    font-size: 12px; /* 10px for 16px based systems */
+    line-height: 1.6;
+    color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+p {
+    margin-block-start: 0.75em;
+    margin-block-end: 0.75em;
+}
+
+table {
+    font-size: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+hr {    
+    border-style: none;
+    border: 0;
+    background-color: #666;
+    height: 1px;
+}
+
+td, th {
+    border: 1px solid #666;    
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+td[align="right"], th[align="right"] {
+    text-align: right;
+}
+
+td[align="center"], th[align="center"] {
+    text-align: center;
+}
+
+th {
+    background-color: #bdc7c7;
+}
+
+h1, h2, h3, h4 {
+    color: #95a5a6;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    padding-top: 0.75em;
+}
+
+h3, h4 {
+    font-size: 1.2rem;
+}
+
+h2, h3 {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+li:last-of-type {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    max-height: 610px;
+    margin: auto;
+    display: block;
+    align-self: center;
+    page-break-inside: avoid;
+}
+
+/**
+Scaling classes for images based on their suffix
+**/
+
+img[src*="_20."]{
+    max-width: 20%;
+}
+
+img[src*="_40."]{
+    max-width: 40%;
+    max-width: 40%;
+}
+
+img[src*="_60."]{
+    max-width: 60%;
+}
+
+img[src*="_80."]{
+    max-width: 80%;
+}
+
+
+.header {
+    display: block;
+    width: 100%;
+    margin: 10mm 15mm 0 15mm;
+    padding-bottom: 1mm;
+    border-bottom: 1px solid #666;
+}
+
+.header-title {    
+    font-family: 'Roboto Mono', monospace;
+    text-align:right;
+    color: #95a5a6;
+    float: right;
+    max-width: 70%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    /* vertical-align: middle; */
+}
+
+.subtitle {
+    text-align:right;
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+.logo-header{
+    float: left;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8mm;
+    margin-left: 15mm;
+    margin-right: 15mm;
+    padding-top: 1.25mm;
+    border-top: 1px solid #666666;
+    font-size: 0.8rem;
+}
+
+.pagination {
+    font-weight: bold;
+    width: 100px;
+}
+
+.product-name-footer {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.modified-date {
+    text-align: right;
+    width: 100px;
+}
+
+/*
+Table of contents page numbers styles
+*/
+.page-number {
+    float: right;
+}
+
+.page-number::after {
+    clear: both;
+}
+
+.list-h2 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.list-h3 {
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+.list-h4 {
+    padding-left: 40px;
+    margin-bottom: 5px;
+}
+
+.list-h5 {
+    padding-left: 60px;
+    margin-bottom: 5px;
+}
+
+.list-h6 {
+    padding-left: 80px;
+    margin-bottom: 5px;
+}
+
+.img-description {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+    page-break-before: avoid;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.75em;
+}
+
+#features {
+    page-break-before: always;
+}
+
+#features, #description, #target-areas {
+    color: black;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#target-areas {
+    clear: both;
+    margin-top: 15px;
+}
+
+#target-areas + p {
+    border-bottom: 1px solid #95a5a6;
+    padding-bottom: 20px;
+}
+
+h1#features {
+    margin-top: 15px;
+}
+
+h1#contents {
+    page-break-before:always;
+}
+
+#table-of-contents {
+    page-break-after:always;
+}
+
+/**
+Formats the featured image if it's placed at the very beginning
+of the markdown document.
+*/
+div.subtitle + p > img:first-child {
+    width: 50%;
+    display: block;
+    margin-left: 50%;
+    margin-top: 15px;
+}
+
+/** Hide image caption of feature image **/
+div.subtitle + p + div.img-description {
+    display: none;
+}
+
+ul#feature-list {
+    font-size: 1rem;
+}
+
+ul#feature-list li {
+    page-break-inside: avoid;
+}
+
+
+h1, h2, h3, h4 {    
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.5em;
+}
+
+/* Don't break before elements just after a heading */
+h1 + *, h2 + *, h3 + *, h4 + * { 
+    page-break-before: avoid;
+}
+
+/* Hack to avoid page breaks after a heading */
+h1::after, h2::after, h3::after, h4::after {
+    content: "";
+    display: block;
+    height: 300px;
+    margin-bottom: -300px;
+}

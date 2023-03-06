@@ -9,7 +9,7 @@ With the Arduino Robot, you can learn about electronics, mechanics, and software
 
 ![](./assets/RobotIsoView.png)
 
-The robot comes with a large number of inputs; two potentiometers, five buttons, a digital compass, five floor sensors, and an SD card reader. It also has a speaker, two motors, and a color screen as outputs. You can control all these sensors and actuators through the [Robot library](/en/Reference/RobotLibrary).
+The robot comes with a large number of inputs; two potentiometers, five buttons, a digital compass, five floor sensors, and an SD card reader. It also has a speaker, two motors, and a color screen as outputs. You can control all these sensors and actuators through the [Robot library](https://arduino.cc/en/Reference/RobotLibrary).
 
 There are two different boards on the Robot: the Control Board (top) and the Motor Board (bottom). If you're just getting started with electronics and programming, you should work with the Control Board. As you become more experienced, you may want to tinker with the Motor Board.
 
@@ -128,7 +128,7 @@ Whenever you're writing code for the robot, make sure to include `<ArduinoRobot.
 
 There's no need to initialize the Robot object.
 
-To get the wheels to move, call [Robot.motorsWrite()](/en/Reference/RobotMotorsWrite). motorsWrite() requires 2 arguments, the speed of the left motor, and the speed of the right motor. These values range from -255 to 255, where -255 is full reverse, and 255 is full speed forward. If you pass a value of 0, the motor will stop spinning the wheel.
+To get the wheels to move, call [Robot.motorsWrite()](https://arduino.cc/en/Reference/RobotMotorsWrite). motorsWrite() requires 2 arguments, the speed of the left motor, and the speed of the right motor. These values range from -255 to 255, where -255 is full reverse, and 255 is full speed forward. If you pass a value of 0, the motor will stop spinning the wheel.
 
 Once you've uploaded the sketch, unplug the USB cable for the robot. Whenever the USB is connected, the robot's motors are disengaged. Turn on the power and watch it move around!
 
@@ -282,11 +282,11 @@ void loop() {
 
 There are many things you can do with the robot. The few examples on this page don't do it justice. To see some more complex examples that of what the robot can do, look at the sketches found in the _Explore_ folder of the robot examples. These are more complete examples that show you some different applications for the robot.
 
-You'll need to calibrate the compass module of the robot so it rotates smoothly. If you're using an old model, which has Honeywell HMC 6352, you can refer to this tutorial: [Calibrate Compass](/en/Tutorial/LibraryExamples/RobotCompassCalibration)
+You'll need to calibrate the compass module of the robot so it rotates smoothly. If you're using an old model, which has Honeywell HMC 6352, you can refer to this tutorial: [Calibrate Compass](https://arduino.cc/en/Tutorial/LibraryExamples/RobotCompassCalibration)
 
 To learn about more of the functionality of the specific inputs and outputs of the robot, look at the _learn_ folder in the robot examples.
 
-Be sure to check out the [Robot's library](/en/Reference/RobotLibrary) page and the [hardware page](/en/Main/Robot) for more information about the technical aspects of the Robot.
+Be sure to check out the [Robot's library](https://arduino.cc/en/Reference/RobotLibrary) page and the [hardware page](https://arduino.cc/en/Main/Robot) for more information about the technical aspects of the Robot.
 
 The text of the Arduino getting started guide is licensed under a
 [Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

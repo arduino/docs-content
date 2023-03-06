@@ -115,7 +115,7 @@ The UNO Mini is a smaller version of the Arduino UNO - to celebrate a successful
 
 | Ref.  | Description                    | Ref.  | Description                           |
 | ----- | ------------------------------ | ----- | ------------------------------------- |
-| J1    | USB C Connector                | J7    | Ground                                |
+| J1    | USB C® Connector               | J7    | Ground                                |
 | J2    | 6x Connector pin (female)      | U1    | ATMEGA16U2 Module                     |
 | J3    | 8x Connector pin (female)      | U2    | ATMEGA328P Module                     |
 | J4    | 8x Connector pin (female)      | U5    | MPM3610AGQV-PIC StpDwn-CONV.21V 1.2A  |
@@ -152,9 +152,6 @@ Sample sketches for the Arduino UNO Mini can be found either in the “Examples�
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
-
-### Board Recovery 
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 <div class="breakPage"> </div>
 

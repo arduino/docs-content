@@ -1,1 +1,1 @@
-This is the technical specifications for the Arduino Opta.
+These are the technical specifications for Arduino Opta®.

@@ -9,6 +9,7 @@ author: Taddy Chung, José Bagur
 libraries:
   - name: MKRWAN
 hardware:
+  - hardware/04.pro/carriers/portenta-max-carrier
   - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v1

@@ -22,7 +22,7 @@ For this example to work, you need to save an image named "logo.bmp" to the root
 
 - micro-SD card
 
-- [image file](/en/uploads/Tutorial/logo.bmp)
+- [image file](https://arduino.cc/en/uploads/Tutorial/logo.bmp)
 
 ## Circuit
 

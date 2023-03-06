@@ -9,26 +9,11 @@ perpendicular axes. It also provides the sensor fusion signals such as **quatern
 
 
 <FeatureList>
-<Feature title="BNO055" image="imu">
+<Feature title="IMU" image="imu">
 
-This 9-axis absolute orientation sensor from Bosch consists of three sensors: gyroscope, accelerometer and geomagnetic sensor.
+The 9-axis orientation sensor from Bosch consists of three sensors: gyroscope, accelerometer and geomagnetic sensor.
 
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bno055-ds000.pdf"download blank/>
-
-</Feature>
-
-<Feature title="Interrupt Engine" image="core">
-
-BNO055 sensor has an intelligent interrupt engine that allows for triggering interrupts based on:
-- **Slow or no motion recognition.**
-- **Any motion detection.**
-- **High-g detection.**
-
-</Feature>
-
-<Feature title="UNO Form Factor" image="uno-form-factor">
-
-This product uses the UNO form factor, and can be mounted on top of the classic Arduino UNO and Arduino UNO WiFi Rev2.
+  <FeatureLink variant="secondary" title="Library" url="https://github.com/adafruit/Adafruit_BNO055"/>
 
 </Feature>
 

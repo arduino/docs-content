@@ -29,7 +29,7 @@ ___
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [WiFi101](https://www.arduino.cc/reference/en/libraries/rtczero/) library.
+- [WiFi101]https://www.arduino.cc/reference/en/libraries/wifi101/) library.
 - Arduino MKR 1000 WiFi ([link to store](https://store.arduino.cc/arduino-mkr1000-wifi)).
 
 ## What Is Wi-Fi?

@@ -103,7 +103,7 @@ This solution allows the [breakout boards from Sparkfun](http://www.sparkfun.com
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/ADXL3xx
+  https://www.arduino.cc/en/Tutorial/ADXL3xx
 
 */
 

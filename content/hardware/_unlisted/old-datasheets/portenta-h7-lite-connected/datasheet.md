@@ -148,7 +148,7 @@ AI applications, low-latency control solutions
     *   1x I2C
 *   **ESLOV Connector**
     *   I2C port with automatic device enumeration
-*   **NXP PF1550** Programmable PMIC
+*   **NXP® PF1550** Programmable PMIC
     *   dynamic voltage scaling
     *   programmable independent 1A voltage output to carrier board
     *   programmable I/O voltage
@@ -235,7 +235,7 @@ Both processors can share all the peripherals and resources and both can run the
 *   MicroPython/Javascript interpreter
 *   TensorFlow Lite
 
-In all combinations of applications it is possible to invoke synchronous or asynchronous API calls. For example it is possible to extend Python language with functions implemented as Arduino sketches that are executed in parallel to other python functions by the opposite core.
+In all combinations of applications it is possible to invoke synchronous or asynchronous API calls. For example it is possible to extend Python® language with functions implemented as Arduino sketches that are executed in parallel to other Python® functions by the opposite core.
 
 Processor’s various power modes allow quickly switching between high performance and very low power configurations, optimizing power consumption whenever cores are idle.
 

@@ -60,9 +60,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB / 16 MB</td>
-         <td style="text-align: center;">8 MB /16 MB</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
+         <td style="text-align: center;">8 MB SDRAM / 16 MB QSPI Flash</td>
       </tr>
       <tr>
          <td style="text-align: center;">Power</td>
@@ -254,12 +254,12 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td rowspan="2" style="vertical-align: top;">External memories</td>
-         <td>SDRAM (optional)</td>
-         <td>Up to 64 MByte</td>
+         <td>SDRAM</td>
+         <td>8 MByte</td>
       </tr>
       <tr>
-         <td>QSPI Flash (optional)</td>
-         <td>Up to 128 MByte</td>
+         <td>QSPI Flash</td>
+         <td>16 MByte</td>
       </tr>
       <tr>
          <td rowspan="4" style="vertical-align: top;" >USB-C®</td>
@@ -484,16 +484,22 @@ Laboratory equipment, Computer vision
 ### Recommended Operating Conditions
 
 | Symbol | Description                                      | Min             | Max            |
-| ------ | ------------------------------------------------ | --------------- | -------------- |
+|--------|--------------------------------------------------|-----------------|----------------|
 |        | Conservative thermal limits for the whole board: | -40 °C (-40 °F) | 85 °C (185 °F) |
 
 ### Power Consumption
 
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -    | xx   | V    |
-| VUSBMax | Maximum input voltage from USB connector | -0.3 | -    | xx   | V    |
-| PMax    | Maximum Power Consumption                | -xx  | -    | xx   | mW   |
+| Description                                                    | Min | Typ  | Max | Unit |
+|----------------------------------------------------------------|-----|------|-----|------|
+| Current consumption in deep sleep mode (@3.7V)                 |     | 0.67 |     | mA   |
+| Current consumption in busy loop (@5V)                         |     | 2.6  |     | mA   |
+| Maximum current consumption with M7 ON and M4 ON bliking (@5V) |     | 230  |     | mA   |
+
+**Note:** All the measurements have been performed with Portenta H7 full version (ABX00042). The current consumption in busy loop has been evaluated according to the following loop:
+1. Deep sleep mode.
+2. Wake up every 595 seconds.
+3. Acquire data for 5 seconds.
+4. Go back to deep sleep mode.
 
 ### Block Diagram 
 ![Block diagram](assets/portentaH7_blockDiagram.svg)
@@ -504,11 +510,11 @@ Laboratory equipment, Computer vision
 
 ### USB-C®
 
-| Pin     | **Description**                                              | **Pin**         | **Description**                                          |
-| ------- | ------------------------------------------------------------ | --------------- | -------------------------------------------------------- |
-| GND     | Cable Ground                                                 | TX1 +/- TX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
-| VBUS    | Cable bus power                                              | RX1 +/- RX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
-| D+/D-   | USB 2.0 Interface                                            | SBU1 SBU2       | For sideband use  (Not used for USB)                     |
+| Pin     | **Description**                                                                                                     | **Pin**         | **Description**                                          |
+|---------|---------------------------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------|
+| GND     | Cable Ground                                                                                                        | TX1 +/- TX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
+| VBUS    | Cable bus power                                                                                                     | RX1 +/- RX2 +/- | High speed data path (TX for USB, or RX for DP Alt Mode) |
+| D+/D-   | USB 2.0 Interface                                                                                                   | SBU1 SBU2       | For sideband use  (Not used for USB)                     |
 | CC1 CC2 | Plug configuration detection \* One becomes VCONN for cable or adaptor power \* CC is used for USB-PD communication |                 |                                                          |
 
 ### High Density Connector
@@ -517,7 +523,7 @@ Laboratory equipment, Computer vision
 ![High density connectors pinouts](assets/portentaH7_higDensity_pinOut.png)
 
 | Pin               | **Description**        | **Pin**                                | **Description**        |
-| ----------------- | ---------------------- | -------------------------------------- | ---------------------- |
+|-------------------|------------------------|----------------------------------------|------------------------|
 | ETH               | High Density Connector | CAN                                    | High Density Connector |
 | USB               | High Density Connector | DSI                                    | High Density Connector |
 | CAM               | High Density Connector | DMIC                                   | High Density Connector |
@@ -549,18 +555,18 @@ Depending on the variant, some of the components does not apply. The image below
 ![Board Topology](assets/collectiveH7_boardTopology_top_80.png)
 
 
-| **Ref.** | **Description**                      | **Ref.**         | **Description**             |
-| -------- | ------------------------------------ | ---------------- | --------------------------- |
-| U1       | Main processor                       | U10              | Power Manager               |
-| U2       | QSPI Flash Memory                    | U11              | Crypto Chip (NXP)*          |
-| U3       | USB HS PHY                           | U12, U13, U14    | ESD protection*             |
-| U4       | SDRAM                                | U16              | Crypto Chip (Microchip)     |
-| U5       | Ethernet PHY                         | J1, J2           | High Density Connectors     |
+| **Ref.** | **Description**                       | **Ref.**         | **Description**             |
+|----------|---------------------------------------|------------------|-----------------------------|
+| U1       | Main processor                        | U10              | Power Manager               |
+| U2       | QSPI Flash Memory                     | U11              | Crypto Chip (NXP)*          |
+| U3       | USB HS PHY                            | U12, U13, U14    | ESD protection*             |
+| U4       | SDRAM                                 | U16              | Crypto Chip (Microchip)     |
+| U5       | Ethernet PHY                          | J1, J2           | High Density Connectors     |
 | U6       | MIPI to USB-C®/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
-| U7       | Level Shifter*                       | JANALOG JDIGITAL | MKR Compatible headers      |
-| U8       | I2C level shifter*                   | J4               | Battery Connector           |
-| U9       | Wifi/BT Module**                     | J5               | ESLOV Connector             |
-| J6       | Connector micro UFL                  |                  |                             |
+| U7       | Level Shifter*                        | JANALOG JDIGITAL | MKR Compatible headers      |
+| U8       | I2C level shifter*                    | J4               | Battery Connector           |
+| U9       | Wifi/BT Module**                      | J5               | ESLOV Connector             |
+| J6       | Connector micro UFL                   |                  |                             |
 
 <p>
 * &emsp;&nbsp;&nbsp; = Only with Portenta H7 <br />
@@ -714,7 +720,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
 
 | Substance                              | **Maximum limit (ppm)** |
-| -------------------------------------- | ----------------------- |
+|----------------------------------------|-------------------------|
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -780,24 +786,25 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states. 
 
 | Frequency bands | Maximum output power (ERP) |
-| --------------- | -------------------------- |
+|-----------------|----------------------------|
 | 863-870Mhz      | -3.22dBm                   |
 
 ## Company Information
 
 | Company name    | Arduino SRL                              |
-| --------------- | ---------------------------------------- |
+|-----------------|------------------------------------------|
 | Company Address | Via Andrea Appiani 25 - 20900 Monza (MB) |
 
 ## Reference Documentation
 
 | Reference             | **Link**                                |
-| --------------------- | --------------------------------------- |
+|-----------------------|-----------------------------------------|
 | Arduino IDE (Desktop) | https://www.arduino.cc/en/Main/Software |
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                        |
-| ---------- | ------------ | ---------------------------------- |
-| 27/12/2021 | 1            | First Release                      |
+|------------|--------------|------------------------------------|
+| 27/01/2023 | 3            | Add power consumption information  |
 | 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |
+| 27/12/2021 | 1            | First Release                      |

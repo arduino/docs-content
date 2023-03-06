@@ -27,10 +27,10 @@ Because the I2C protocol allows for each enabled device to have it's own unique 
 
 Check out the following tutorials to get a more detailed step-by-step on how to use I2C on Arduino boards:
 
-- [Connecting Two Nano 33 BLE Boards Through I2C](/tutorials/nano-33-ble/I2C)
+- [Connecting Two Nano 33 BLE Boards Through I2C](/tutorials/nano-33-ble/i2c)
 - [Connecting Two Nano 33 BLE Sense Boards Through I2C](/tutorials/nano-33-ble-sense/I2C)
 - [Connecting Two Nano 33 IoT Through I2C](/tutorials/nano-33-iot/I2C)
-- [Connecting Two Nano 33 Every Boards Through I2C](/tutorials/nano-33-every/I2C)
+- [Connecting Two Nano Every Boards Through I2C](/tutorials/nano-every/I2C)
 
 ***While the above tutorials were written specifically for the Nano Family boards, they can be adopted to any Arduino board.***
 
@@ -216,9 +216,6 @@ Attach the SDA pin of your SRFxx to analog pin 4 of your board, and the SCL pin 
 
 ***If using two SRFxxs on the same line, you must ensure that they do not share the same address. Instructions for re-addressing the range finders can be found at the bottom of the code below.***
 
-## Example 2: Digital Potentiometer
-
-
 ```arduino
 // I2C SRF10 or SRF08 Devantech Ultrasonic Ranger Finder
 // by Nicholas Zambetti <http://www.zambetti.com>
@@ -341,6 +338,8 @@ void changeAddress(byte oldAddress, byte newAddress)
 
 */
 ```
+
+## Example 2: Digital Potentiometer
 
 ### Hardware Required
 

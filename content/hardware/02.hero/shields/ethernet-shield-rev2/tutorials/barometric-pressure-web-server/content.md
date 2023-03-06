@@ -7,7 +7,7 @@ description: 'Outputs the values from a barometric pressure sensor as a web page
 
 This example shows how to use SPI communications to read data from [a SCP1000 Barometric Pressure sensor](http://www.sparkfun.com/commerce/product_info.php?products_id=8161), and how to then post that data to the web by using your Arduino / Ethernet Shield combo as a simple web server. Using the Ethernet library, your device will be able to answer HTTP requests by responding with just enough HTML for a browser to display the temperature and barometric pressure values outputted by your sensor. After completing your circuit and uploading the example code below, simply navigate to your Ethernet shield's IP address, in a browser, to see this information.
 
-See the [Barometric Pressure Sensor](/en/Tutorial/LibraryExamples/BarometricPressureSensor) example for more on how the sensor works.
+See the [Barometric Pressure Sensor](https://arduino.cc/en/Tutorial/LibraryExamples/BarometricPressureSensor) example for more on how the sensor works.
 
 ## Hardware Required
 

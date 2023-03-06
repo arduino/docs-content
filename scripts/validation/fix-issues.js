@@ -1,8 +1,8 @@
-import { fixMissingTitleCase } from './fixes/headings.js'
-import { ConfigManager } from './logic/config-manager.js';
-import { ArticleManager } from './logic/article-manager.js';
-import { fixUnusedAssets } from './fixes/assets.js';
-import { replaceItalicEmphasisWithBoldEmphasis } from './fixes/styling.js';
+import { fixMissingTitleCase } from 'content-lint';
+import { ConfigManager } from 'content-lint';
+import { ArticleManager } from 'content-lint';
+import { fixUnusedAssets } from 'content-lint';
+import { replaceItalicEmphasisWithBoldEmphasis } from 'content-lint';
 
 const configManager = new ConfigManager();
 configManager.addConfigFile("generic", "./config/config-generic.yml");

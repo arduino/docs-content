@@ -174,7 +174,7 @@ depending on your distribution.
 
 ### Download updated firmware for the 32UC3A1256/AT32UC3A1256
 
-The latest version is [here](https://github.com/arduino/Arduino/tree/master/hardware/arduino/avr/firmwares). Choose WiFi shield firmware. 
+The latest version is [here](https://github.com/arduino/ArduinoCore-avr/tree/master/firmwares). Choose WiFi shield firmware. 
 
 The firmware is also located with the Arduino software in the /hardware/avr/arduino/firmwares/wifishield folder. On OSX, right-click or command-click on the Arduino application and select "show package contents" to find this folder. 
 

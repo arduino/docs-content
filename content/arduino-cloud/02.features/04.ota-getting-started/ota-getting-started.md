@@ -20,15 +20,31 @@ This tutorial will guide you through the necessary steps to configure your board
 
 ## Compatible Hardware
 
-![Compatible boards.](assets/ota-supported-boards.png)
+OTA is supported on several Arduino devices, as well as many ESP32 devices.
 
-Below is a list of all boards that supports OTA through the Arduino Cloud.
+### Supported Arduino Boards
 
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)
 - [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 
+### Verified ESP32 Boards Supporting OTA 
+
+The following ESP32 boards have been tested and verified to support OTA:
+
+- ESP32-S2-DevKitC
+- NODEMCU-32-S2
+- WEMOS LOLIN D32
+- ESP32-S3-DevKitC
+- WEMOS LOLIN D32
+- ESP32-CAM
+- NodeMCU-32S
+- Freenove ESP32 WROVER
+- ESP32-DevKitC32E
+- DOIT ESP32 DevKit v1
 
 ## How does it work
 

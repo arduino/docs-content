@@ -29,7 +29,7 @@ Only your Arduino Board is needed for this example.
 
   This example code is in the public domain
 
-  http://arduino.cchttps://www.arduino.cc/en/Tutorial/SimpleRTC
+  https://www.arduino.cc/en/Tutorial/SimpleRTC
 
   created by Arturo Guadalupi <a.guadalupi@arduino.cc>
 

@@ -184,7 +184,7 @@ In the image above you can see that:
 
 ### Alternative Configuration (No USB Hub Required)
 
-If you do not have a USB-C® type hub, you may complete this tutorial with a USB-C® type keyboard or with a USB A type keyboard and a USB A to C adapter. To do so, proceed as follows:
+If you do not have a USB-C® type hub, you may complete this tutorial with a USB-C® type keyboard or with a USB-A type keyboard and a USB-A to USB-C® adapter. To do so, proceed as follows:
 
 - Power the Portenta H7 through the VIN pin with 5V. (Check [pinout diagram](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf))
 - Connect the keyboard directly to the Portenta's USB-C® connector (use a USB-A to USB-C® adapter if your keyboard's connector is USB type A)
@@ -199,7 +199,7 @@ Once you have connected your portenta board, you should be able to toggle the LE
 If it does not work as it should, try the following:
 
 1. Reset the portenta by pressing the Reset button. ![Reset Button](assets/por_ard_usbh_reset.png)
-2. Disconnect the Portenta board from the USB Hub (USB C adapter), disconnect the power from the USB Hub, connect the Portenta to the USB Hub and then connect the power to the USB Hub.
+2. Disconnect the Portenta board from the USB Hub (USB-C® adapter), disconnect the power from the USB Hub, connect the Portenta to the USB Hub and then connect the power to the USB Hub.
 
 ## Conclusion
 
@@ -270,6 +270,6 @@ In the data received on the MKR WiFi 1010 board you should see some "Enabled" me
 If in the messages received on the MKR WiFi 1010 board you see any "Disabled" message, it means that something went wrong with the communication of the USB Hub and the Portenta board. If this happens, try:
 
 1. Reset the Portenta by pressing the reset button.
-2. Disconnect the Portenta board from the USB Hub (USB C adapter), disconnect the power from the USB Hub, connect the Portenta to the USB Hub and connect the power to the USB Hub.
+2. Disconnect the Portenta board from the USB Hub (USB-C® adapter), disconnect the power from the USB Hub, connect the Portenta to the USB Hub and connect the power to the USB Hub.
 
 If, after repeating this process several times, the connection still is not working, the USB Hub you are using may not be compatible with the Portenta board and you will need a different USB Hub to complete this tutorial.

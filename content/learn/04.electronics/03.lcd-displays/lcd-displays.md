@@ -107,7 +107,7 @@ This example sketch prints `Hello World!` to the LCD and shows the time in secon
 
  This example code is in the public domain.
 
- http://www.arduino.cc/en/Tutorial/LiquidCrystalHelloWorld
+ https://docs.arduino.cc/learn/electronics/lcd-displays
 
 */
 
@@ -1058,7 +1058,7 @@ This potentiometer controls the `delayTime` variable.
  https://github.com/adafruit/SPI_VFD/blob/master/examples/createChar/createChar.pde
 
  This example code is in the public domain.
- http://www.arduino.cc/en/Tutorial/LiquidCrystalCustomCharacter
+ https://docs.arduino.cc/learn/electronics/lcd-displays#custom-character
 
  Also useful:
  http://icontexto.com/charactercreator/

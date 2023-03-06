@@ -15,9 +15,9 @@ If you don't have [Processing](http://www.processing.org) installed on your comp
 
 There are two Processing sketches that work with this example, a simple one that prints the sensors in text, and a more complex one that shows a graphic representation of the Esplora. The former may be better for beginning Processing programmers, and the latter may be better for advanced Processing programmers.
 
-[Download the zip file](/en/uploads/Tutorial/ProcessingEsploraSimpleRemote.zip) containing the simple Processing sketch for this example.
+[Download the zip file](https://arduino.cc/en/uploads/Tutorial/ProcessingEsploraSimpleRemote.zip) containing the simple Processing sketch for this example.
 
-[Download the zip file](/en/uploads/Tutorial/ProcessingEsploraRemote.zip) containing the advanced Processing sketch for this example.
+[Download the zip file](https://arduino.cc/en/uploads/Tutorial/ProcessingEsploraRemote.zip) containing the advanced Processing sketch for this example.
 
 You only need to unzip this folder inside your Processing sketches folder, and open the .pde file in Processing.
 

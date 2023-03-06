@@ -1,7 +1,7 @@
 ---
 title: Create and Upload a Custom Container to the Portenta X8
 difficulty: intermediate
-tags: [Linux, Python, Containers, ADB]
+tags: [Linux, Python®, Containers, ADB]
 description: This tutorial will show you how to create and upload your custom container to your Portenta X8
 author: Benjamin Dannegård
 hardware:
@@ -132,19 +132,19 @@ Once this is done, we will push our folder to a repository within the Factory. L
 
 ![Container.git page](assets/custom-git.png)
 
-In order to pull or push repositories you have to generate an API key. This can be done by going to the user settings on the Factory page. First click on the user drop-down menu, then go into the tokens page and follow the steps of creating a new API key. This token will be used as the password for all git operations while the username can be anything, except an empty string.
+In order to pull or push repositories you have to generate an API key. This can be done by going to the user settings on the Factory page. First click on the user drop-down menu, then go into the tokens page and follow the steps of creating a new API key. When creating the API key make sure you select the "Use for source code access" option and the correct factory that you want to use the key for. This token will be used as the password for all git operations while the username can be anything, except an empty string.
 
 ![User settings on your Factory page](assets/factory-user-settings.png)
 
-![Token section in user settings](assets/token-page.png)
+![Token creation section in Foundries.io](assets/token-creation-page.png)
 
-Use the following command in a Linux shell, like ADB which the previously mentioned tutorial showed how to set up. To get the repository on your board, replace "YOUR_FACTORY" with the name of your Factory. The "-b" parameter specifies a branch to checkout after cloning the repository. Running this command will get the container repository, where we will put our folder.
+Use the following command in git on your machine. To get the repository on your machine, replace "YOUR_FACTORY" with the name of your Factory. The "-b" parameter specifies a branch to checkout after cloning the repository. Running this command will get the container repository, where we will put our folder.
 
 ```
 git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
-Put the "x8-custom-test" folder in the repository. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it in the "Targets" page.
+Put the "x8-custom-test" folder in the repository and push it with git. When you have put the folder into the git folder, use `git status` to see the changed files in the folder, it will show the unadded changes in red, then use `git add` to add the changes you want to your git commit. Then use `git commit` and `git push` to finally push the changes to the repo. If you push the commit to "containers.git" a new target will automatically build on your FoundriesFactory, you can inspect it in the "Targets" page.
 
 ### Building and Running the Container
 

@@ -24,7 +24,7 @@ The Rescue challenge in robotics consists of getting your robot to follow a line
 
 ## Instruction
 
-1. To prepare the track, follow the instructions in [line following example](/en/Tutorial/LibraryExamples/RobotLineFollowing). There are a few  differences:
+1. To prepare the track, follow the instructions in [line following example](https://arduino.cc/en/Tutorial/LibraryExamples/RobotLineFollowing). There are a few  differences:
 
 1.  Add some end lines for the robot to stop. Create a gap in the line, and draw a rectangle about the size of the robot in the gap.
 

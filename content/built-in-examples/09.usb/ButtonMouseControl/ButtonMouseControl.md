@@ -74,7 +74,7 @@ Connect your board to your computer with a micro-USB cable. The buttons are conn
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/ButtonMouseControl
+  https://www.arduino.cc/en/Tutorial/ButtonMouseControl
 
 */
 

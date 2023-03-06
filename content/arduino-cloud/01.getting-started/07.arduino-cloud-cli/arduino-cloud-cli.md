@@ -115,12 +115,12 @@ To configure a device, you can use the following command:
 arduino-cloud-cli device create --name <deviceName> --port <port> --fqbn <deviceFqbn>
 ```
 
-Currently, the following devices are supported:
+Here's follows the FQBN's list of the supported devices:
 
 * `arduino:samd:nano_33_iot` [Arduino Nano 33 IoT](https://docs.arduino.cc/hardware/nano-33-iot)
 * `arduino:samd:mkrwifi1010` [Arduino MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010)
 * `arduino:mbed_nano:nanorp2040connect` [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect)
-* `arduino:mbed_portenta:envie_m7` [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7) / [Arduino Portenta H7 Lite connected](https://docs.arduino.cc/hardware/portenta-h7-lite-connected)
+* `arduino:mbed_portenta:envie_m7` [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7) / [Arduino Portenta H7 Lite connected](https://docs.arduino.cc/hardware/portenta-h7-lite-connected) / [Arduino Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
 * `arduino:mbed_nicla:nicla_vision` [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
 * `arduino:samd:mkr1000` [Arduino MKR1000](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 * `arduino:samd:mkrgsm1400` [Arduino MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
@@ -149,7 +149,7 @@ arduino-cloud-cli device list-frequency-plans
 
 General devices is a virtual device that does not need to be attached to a physical board. 
 
-To see the full list of supported FQBNs, you can run the following command:
+To see the full list of supported FQBNs (Fully Qualified Board Names), you can run the following command:
 
 ```
 arduino-cloud-cli device list-fqbn

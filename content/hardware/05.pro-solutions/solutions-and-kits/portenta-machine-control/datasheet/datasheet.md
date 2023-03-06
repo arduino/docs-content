@@ -21,7 +21,7 @@ Industry 4.0,  system integrators
     -   8 MB SDRAM
     -   16 MB Flash QSPI
     -   480 Mhz clock
-    -   Cryptochip NXP SE0502 security
+    -   Cryptochip NXP® SE0502 security
  
 -   **Input voltage 24**
     
@@ -142,7 +142,7 @@ Industry 4.0,  system integrators
 | J4       | Power supply 24V                                | J11      | Analog out      |
 | J5       | HMI - Comm protocols (RS232, RS422, RS485, CAN) | J13      | Ethernet        |
 | J6       | Digital outputs                                 | J14      | WI-FI / Bluetooth® Low Energy SMA |
-| J7       | Temperature probes                              | J15      | USB A           |
+| J7       | Temperature probes                              | J15      | USB-A           |
 | J8       | Digital programmable                            | J16      | USB micro       |
 | J9       | Analog in                                       | J17      | Grove I2C       |
 
@@ -335,7 +335,7 @@ The on board transceiver is the TJA1049T/3J, which can be SW configured for RS23
 
 ### Half Speed Micro USB 
   - Portenta half speed USB is connected to the micro USB connector. 
-  - Useful to program portenta via a micro usb cable 
+  - Useful to program portenta via a micro USB cable 
   - It can be use to power Portenta while the 24V power supply is off. 
   *ESD protection
 

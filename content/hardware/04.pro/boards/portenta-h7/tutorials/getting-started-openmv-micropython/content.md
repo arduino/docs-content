@@ -51,7 +51,7 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 ### 2. Flashing the OpenMV Firmware
 
-Connect the Portenta to your computer via the USB-C® cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_updateBootloader** sketch in the examples menu in the Arduino IDE.
+Connect the Portenta to your computer via the USB-C® cable if you haven't done so yet. Make sure you first update the bootloader to the latest version using the **STM32H747_manageBootloader** sketch in the examples menu in the Arduino IDE.
 
 Instructions on how to update the bootloader can be found in the ["Updating the Portenta Bootloader" tutorial](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
 
@@ -85,7 +85,7 @@ Create a new script by clicking the "New File" button in the toolbar on the left
 import pyb # Import module for board related functions
 ```
 
-A module in Python is a confined bundle of functionality. By importing it into the script, it gets made available. For this example, you only need `pyb`, which is a module that contains board related functionality such as PIN handling. You can read more about its functions [here](https://docs.micropython.org/en/latest/library/pyb.html).
+A module in Python® is a confined bundle of functionality. By importing it into the script, it gets made available. For this example, you only need `pyb`, which is a module that contains board related functionality such as PIN handling. You can read more about its functions [here](https://docs.micropython.org/en/latest/library/pyb.html).
 
 Now you can create the variables that will control our built-in RGB LED. With `pyb` you can easily control each color.
 

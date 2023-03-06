@@ -11,8 +11,8 @@ libraries:
   - name: SD
     url: https://www.arduino.cc/en/Reference/SD
 hardware:
-  - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/01.mkr/02.shields/mkr-sd-proto-shield
+  - hardware/01.mkr/01.boards/mkr-wifi-1010
 software:
   - ide-v1
   - ide-v2

@@ -7,23 +7,20 @@ The Arduino Ethernet Shield 2 connects your Arduino to the internet in mere minu
 
 <FeatureList>
 
-<Feature title="W5500" image="communication">
+<Feature title="Ethernet controller" image="communication">
 
-The W550 is an Ethernet controller that provides Internet connection to your devices and systems.
+Comes with a W550, an Ethernet controller that provides Internet connection to your devices and systems.
 
-<FeatureLink title="Datasheet" url="/resources/datasheets/W5500_datasheet.pdf" download blank/>
-</Feature>
-
-<Feature title="UNO Form Factor" image="uno-form-factor">
-
-This product uses the UNO form factor, and can be mounted on top of the classic Arduino UNO and Arduino UNO WiFi Rev2.
-
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/ethernet-shield-rev2/dns-web-client"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/ethernet/"/>
 </Feature>
 
 <Feature title="Micro SD Card slot" image="file-icon">
 
-Useful for data logging and storing larger files
+The Arduino Ethernet Shield Rev2 comes with an integrated micro SD card slot, useful for data logging and storing larger files.
 
+  <FeatureLink variant="primary" title="Documentation" url="/tutorials/ethernet-shield-rev2/datalogger"/>
+  <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/sd/"/>
 </Feature>
 
 </FeatureList>

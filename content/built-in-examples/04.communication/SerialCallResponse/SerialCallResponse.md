@@ -84,7 +84,7 @@ Connect analog sensors to analog input pin 0 and 1 with 10K ohm resistors used a
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/SerialCallResponse
+  https://www.arduino.cc/en/Tutorial/SerialCallResponse
 
 */
 

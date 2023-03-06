@@ -2847,7 +2847,7 @@ WEP network passwords are hexadecimal strings known as keys. A WEP network can h
 
  by Federico Vanzati
 
- http://www.arduino.cc/en/Tutorial/WifiWebClientRepeating
+ https://docs.arduino.cc/library-examples/wifi-library/WiFiWebClientRepeating
 
  This code is in the public domain.
 

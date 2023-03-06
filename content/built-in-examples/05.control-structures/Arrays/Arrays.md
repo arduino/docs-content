@@ -11,7 +11,7 @@ tags:
   - Code
 ---
 
-This variation on the [For Loop Iteration](/built-in-examples/control-structures/ForLoopIteration) example shows how to use an [**array**](https://www.arduino.cc/en/Reference/Array).  An array is a variable with multiple parts.  If you think of a variable as a cup that holds values, you might think of an array as an ice cube tray. It's like a series of linked cups, all of which can hold the same maximum value.
+This variation on the [For Loop Iteration](/built-in-examples/control-structures/ForLoopIteration) example shows how to use an [**array**](https://www.arduino.cc/reference/en/language/variables/data-types/array/).  An array is a variable with multiple parts.  If you think of a variable as a cup that holds values, you might think of an array as an ice cube tray. It's like a series of linked cups, all of which can hold the same maximum value.
 
 The [For Loop Iteration](/built-in-examples/control-structures/ForLoopIteration) example shows you how to light up a series of LEDs attached to pins 2 through 7 of the Arduino board, with certain limitations (the pins have to be numbered contiguously, and the LEDs have to be turned on in sequence).
 
@@ -76,7 +76,7 @@ Connect six LEDs, with 220 ohm resistors in series, to digital pins 2-7 on your 
 
   This example code is in the public domain.
 
-  http://www.arduino.cchttps://www.arduino.cc/en/Tutorial/Array
+  https://www.arduino.cc/en/Tutorial/Array
 
 */
 

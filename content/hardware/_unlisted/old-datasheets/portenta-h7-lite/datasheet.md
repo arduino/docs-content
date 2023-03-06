@@ -112,7 +112,7 @@ Portenta H7 Lite offers several customization possibilities that allow tailoring
     *   1x I2C
 *   **ESLOV Connector**
     *   I2C port with automatic device enumeration
-*   **NXP PF1550 **Programmable PMIC
+*   **NXP® PF1550** Programmable PMIC
     *   dynamic voltage scaling
     *   programmable independent 1A voltage output to carrier board
     *   programmable I/O voltage
@@ -180,7 +180,7 @@ The [Portenta H7 Vision Shield](https://www.arduino.cc/pro/hardware/product/port
 | **Ref.** | **Description**                     | **Ref.**        | **Description**           |
 | -------- | ----------------------------------- | --------------- | ------------------------- |
 | U1       | STM32H747, Main processor           | U10             | Power Manager             |
-| U2       | QSPI Flash Memory                   | U11             | Crypto Chip (NXP)         |
+| U2       | QSPI Flash Memory                   | U11             | Crypto Chip (NXP®)         |
 | U3       | USB HS PHY                          | U12, U13, U14   | ESD protection            |
 | U4       | SDRAM                               | U16             | Crypto Chip (Microchip)   |
 | U5       | Ethernet PHY                        | J1, J2          | High Density Connectors   |
@@ -199,7 +199,7 @@ Both processors can share all the peripherals and resources and both can run the
 *   MicroPython/Javascript interpreter
 *   TensorFlow Lite
 
-In all combinations of applications it is possible to invoke synchronous or asynchronous API calls. For example it is possible to extend Python language with functions implemented as Arduino sketches that are executed in parallel to other python functions by the opposite core.
+In all combinations of applications it is possible to invoke synchronous or asynchronous API calls. For example it is possible to extend Python® language with functions implemented as Arduino sketches that are executed in parallel to other Python® functions by the opposite core.
 
 Processor’s various power modes allow quickly switching between high performance and very low power configurations, optimizing power consumption whenever cores are idle.
 

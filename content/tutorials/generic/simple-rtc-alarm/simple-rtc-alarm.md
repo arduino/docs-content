@@ -31,7 +31,7 @@ Only your Arduino Board is needed for this example.
 
   This example code is in the public domain
 
-  http://arduino.cchttps://www.arduino.cc/en/Tutorial/SimpleRTCAlarm
+  https://www.arduino.cc/en/Tutorial/SimpleRTCAlarm
 
   created by Arturo Guadalupi <a.guadalupi@arduino.cc>
 
