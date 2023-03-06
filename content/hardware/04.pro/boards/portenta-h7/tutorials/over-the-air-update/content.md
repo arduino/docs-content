@@ -138,7 +138,7 @@ Convert your encoded file into `.ota` format
 
 You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilitated identification of the file. After this, you will have the `.ota` file of the sketch that you will use with the OTA process. 
 
-### Installing Python 3 On Ubuntu 
+### Installing Python 3 On Linux 
 
 If you recently installed Ubuntu maybe you can't run the **bin2ota.py** script. This may be because you need to install [Python 3](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu) and the necessary modules. To do it execute the next command on **Ubuntu´s terminal**: 
 
