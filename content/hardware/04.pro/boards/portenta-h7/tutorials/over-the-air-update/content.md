@@ -139,8 +139,9 @@ Convert your encoded file into `.ota` format
 You can use `OTA_Usage_Portenta.ino.PORTENTA_H7_M7` as a sketch name for facilitated identification of the file. After this, you will have the `.ota` file of the sketch that you will use with the OTA process. 
 
 ### Installing Python 3 On Linux 
+### Installing Python 3 On Linux
 
-If you recently installed Ubuntu maybe you can't run the **bin2ota.py** script. This may be because you need to install [Python 3](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu) and the necessary modules. To do it execute the next command on **Ubuntu´s terminal**: 
+If you recently installed a Linux distribution, maybe you can't run the **bin2ota.py** script. This may be because you need to install [Python 3](https://www.python.org/) and the necessary modules. To do it execute the next command on your **Linux terminal**: 
 
 ```cpp 
 sudo apt install python-is-python3
@@ -148,12 +149,12 @@ sudo apt install python-is-python3
 
 You will also need to install the **crccheck** module on python by following the next instructions:
 
-1. Installing pip on python:
+Installing pip on python:
 ```cpp
-//Necessary to installpython modules:
+//Necessary to install python modules:
 sudo apt install python3-pip 
 ```
-2. Installing the crccheck necessary module on python:
+Installing the crccheck necessary module on python:
 
 ```cpp
 //Necessary to run the script:
@@ -171,7 +172,6 @@ You can change the default file location on the code by modifying the next line 
 
 ```cpp
 static char const OTA_FILE_LOCATION[] = "Introduce here your online OTA file location";
-
 ```
 It is important to know that if your OTA file is uploaded to an HTTPS website you will need to modify the next line in the code:
 
