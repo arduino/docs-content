@@ -14,7 +14,7 @@ libraries:
   - name: Arduino BLE
     url: https://www.github.com/Arduino-libraries/ArduinoBLE
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/06.nicla/boards/nicla-sense-me
 software:
   - ide-v1
   - ide-v2

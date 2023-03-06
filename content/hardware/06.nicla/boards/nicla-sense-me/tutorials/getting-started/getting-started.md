@@ -11,7 +11,7 @@ libraries:
   - name: Arduino BHY2
     url: https://www.github.com/Arduino-libraries/Arduino_BHY2
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/06.nicla/boards/nicla-sense-me
 software:
   - ide-v1
   - ide-v2

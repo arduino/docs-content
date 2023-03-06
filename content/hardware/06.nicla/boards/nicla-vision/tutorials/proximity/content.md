@@ -8,7 +8,7 @@ libraries:
   - name: VL53L1X
     url: https://github.com/pololu/vl53l1x-arduino
 hardware:
-  - hardware/05.nicla/boards/nicla-vision
+  - hardware/06.nicla/boards/nicla-vision
 software:
   - ide-v1
   - ide-v2
