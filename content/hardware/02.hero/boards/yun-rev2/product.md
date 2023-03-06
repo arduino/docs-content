@@ -2,6 +2,7 @@
 title: Yún Rev2
 core: arduino:avr
 status: end-of-life
+certifications: [CE]
 productCode: '127'
 ---
 
