@@ -13,6 +13,15 @@ These two cores can run applications in parallel, for example, running a servo m
 
 The M4 and M7 cores are programmed with separate sketches, using the same serial port. In the Arduino IDE, you can select the core you want to program, and then upload the sketch you want to run on that specific core. 
 
+## Goals
+
+In this guide you will discover:
+- How to configure and program the M4/M7 cores and conventional approaches to do so.
+- How to boot the M4 core.
+- How to communicate between the cores via Remote Call Procedures (RPC).
+- Useful examples based on the dual core & RPC features.
+- The RPC library API.
+
 ## Hardware & Software Needed
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
@@ -213,3 +222,132 @@ It can also be distributed so that one core handles servo motors, and one handle
 Sensor readings in itself does not matter much which core you use. If you are simply running some tests, it is good to run it on the M7, as you are able to print the results using `Serial.print()` (not available on M4, only through RPC).
 
 When used in relation to a e.g. a display, it is good practice to read sensors on the M4 core and on the M7, fetch the result and display it.
+
+## Remote Call Procedures (RPC)
+
+
+
+## RPC API
+
+The `RPC` library is based on the [rpclib](https://github.com/rpclib/rpclib) C++ library which provides a client and server implementation. In addition, it provides a method for communication between the M4 and M7 cores. 
+
+To use this library, you need to include `RPC.h`:
+
+```arduino
+#include <RPC.h>
+```
+
+### `begin()`
+
+#### Description
+
+Initializes the library. This function also boots the M4 core.
+
+#### Syntax 
+
+```arduino
+RPC.begin()
+```
+
+#### Returns
+
+- `1` on success.
+- `0` on failure.
+
+### `bind()`
+
+Used on the server side to bind a name to a function, and makes it possible for remotely calling it from another system.
+
+#### Syntax
+
+```arduino
+RPC.bind("this_function", thisfunction)
+```
+
+#### Parameters
+
+- `"name_of_func"` - name given for the function to be called from the client side.
+- `name_of_func` - name of the function on the server side.
+
+#### Returns
+
+- None.
+
+### `call()`
+
+Used on the client side to call a function with optional parameters.
+
+```arduino
+RPC.call("this_function", int args)
+```
+
+#### Parameters
+
+- `"name_of_func"` - the name of the function declared on the server side.
+- `args` - arguments to be passed to the function.
+
+#### Returns
+
+- Result of the function if arguments are passed.
+
+## RPC Serial API
+
+The RPC Serial methods are also included in the `RPC` library, and uses methods from the [Stream](https://www.arduino.cc/reference/en/language/functions/communication/stream/) base class, and is similar to the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class.
+
+As the `Serial` class is only available on the M7 core, the M4 core uses `RPC` library to print data, where the M7 can read the data and print it to a computer.
+
+### `println()`
+
+Prints data to a serial port. This is used on the M4 core to send data to the M7.
+
+#### Syntax
+
+```
+RPC.println(val);
+```
+
+#### Parameters
+
+- The value to print. Can be any data type, but not multiple (e.g. string + integer in the same call).
+
+#### Returns
+
+- Number of bytes used. E.g. printing ("hello") returns 7. As hello (5) + new line (2) = 7. 
+
+### `available()`
+
+Get the number of available bytes to read from the M4.
+
+#### Syntax
+
+```arduino
+RPC.available();
+```
+
+#### Paramaters
+
+- None.
+
+#### Returns
+
+- The number of bytes available to read.
+- `-1` if there is none.
+
+### `read()`
+
+Reads the first available byte from the M4.
+
+#### Syntax
+
+```arduino
+RPC.read();
+```
+
+#### Paramaters
+
+- None.
+
+#### Returns
+
+- The first available byte from the M4.
+- `-1` if there is none.
