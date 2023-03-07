@@ -10,7 +10,7 @@ libraries:
   - name: Arduino BHY2Host
     url: https://www.github.com/Arduino-libraries/Arduino_BHY2Host
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/06.nicla/boards/nicla-sense-me
 software:
   - iot-cloud
   - web-editor

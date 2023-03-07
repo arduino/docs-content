@@ -21,7 +21,7 @@ libraries:
   - name: ArduinoBLE
     url: https://www.arduino.cc/en/Reference/ArduinoBLE
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/06.nicla/boards/nicla-sense-me
 software:
   - ide-v1
   - ide-v2
