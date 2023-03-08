@@ -2,7 +2,6 @@
 identifier: ABX00074
 title: Arduino® Portenta C33
 type: pro
-variant: 'Datasheet'
 ---
 
 ![](assets/portenta-c33-top-view.png)
@@ -14,3 +13,33 @@ The Portenta C33 is a powerful System-on-Module (SoM) designed for low-cost Inte
 # Target Areas:
 
 Internet of Things (IoT), building automation, smart cities, agriculture.
+
+# CONTENTS
+
+## Application Examples
+
+Due to the dual core processing, the Portenta supports a wide array of applications.  
+
+### Accessories
+* Portenta Vision shield
+* USB 2.0 Cable Type A/B
+* Portenta Breakout Board 
+
+## Company Information
+
+| Company name    | Arduino SRL                              |
+|-----------------|------------------------------------------|
+| Company Address | Via Andrea Appiani 25 - 20900 Monza (MB) |
+
+## Reference Documentation
+
+| Id  | Reference             | **Link**                                |
+| --- |-----------------------|-----------------------------------------|
+| 1   | Arduino IDE (Desktop) | https://www.arduino.cc/en/Main/Software |
+
+## Revision History
+
+| Date       | **Revision** | **Changes**                        |
+|------------|--------------|------------------------------------|
+| 00/00/2023 | 1            | First release                      |
+
