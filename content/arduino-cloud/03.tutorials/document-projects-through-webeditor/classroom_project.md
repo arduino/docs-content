@@ -1,6 +1,6 @@
 ---
 title: 'Creating Projects using the Web Editor'
-description: 'This is the template for creating an article for the Arduino Documentation website.'
+description: 'How to sse the Readme file that comes attached with the sketch on the webeditor'
 tags: 
   - article
 author: 'Lenard George Swamy'
