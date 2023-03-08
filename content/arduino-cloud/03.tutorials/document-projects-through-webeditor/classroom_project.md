@@ -1,76 +1,102 @@
 ---
 title: 'Creating Projects using the Web Editor'
-description: 'This is the template for creating an article for the Arduino Documentation website.'
+description: 'An article on how a teacher can use the web editor '
 tags: 
   - article
 author: 'Lenard George Swamy'
 ---
 
-## INTRODUCTION 
+## Introduction 
 
-Do you have an idea for your project but don’t know how to execute it for your class ? Use the web editor to start creating this project. For this example we chose to go with a simple project where you can read the distance sensor and make a proximity meter. 
-
-## HARDWARE & SOFTWARE NEEDED 
-- Arduino Uno Rev2 
-- RED LED 5mm 
-- Piezo 
-- Ultra Sonic Sense 
-- Web Editor 
+Many of you might have an interesting idea for your project but struggle with documentation and sharing it with your class. In this article you will learn how to use the web editor to document a project. We will illustrate the process with an example project  
 
 Note - We recommend that you read the article https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor before you proceed with the tutorial. 
 
-## BUILD THE PROJECT 
-How about we start our project with getting the basics setup. Here we will run you through how the essentials elements for a project that will be essential for you to teach anything related to programming and electronics.
+## The Essentials 
+Every arduino project has 3 essential elements that will make your teaching effortless. These are
+* Circuit diagrams 
+* Sketch Files 
+* Picture of your project 
 
-01. Create a circuit diagram
-Start by thinking about the layout of your circuit. It could be as basic as a pen on paper but more the fidelity the easier it is for your students to understand how to connect the components. For this tutorial we created a circuit using tinkercad. 
+### 1. Create a circuit diagram
+Start by thinking about the layout of your circuit. It could be as basic as a pen on paper but more the fidelity the easier it is for your students to understand how to connect the components. 
 
-![Well thought out alternative image text.png](/Users/lenardgeorge/Documents/Arduino Drive/Cloud/Web Editor)
+For this tutorial we created a circuit of the proximity meter using [tinkercad](https://www.tinkercad.com/circuits).
 
-02. Connect the components 
-Once you have created the components, its good to connect the components to ensure all the connections are right. Sometimes its also good to support your document with photos of your connections. Heres a picture of the circuit
+![proximity_meter_circuit.png](assets/classroom_project_circuit_diagram_proximity_meter.png)
 
-03. Open a new Arduino Sketch 
-Open the online webeditor and click on the (add new sketch file) icon to open a sketch file. Once you  
+### 2. Connect the components 
+Once you have created the components, its good to connect the components to ensure all the connections are right. Sometimes its also good to support your document with photos of your connections. Heres a picture of the circuit. This gives your students a good visual sense of how the circuit looks like in real life.
 
-02. Project Folder 
-Keeping your files organised for any project is important as it makes your life easier. Let’s start by creating a folder by clicking the new folder icon on the menu bar.
+![proximity_meter_real_components.png](assets/classroom_project_photo_proximity_meter.png)
 
-![Well thought out alternative image text.png]()
+### 3. Open a new sketch.
+Open the Web Editor by clicking on the ![header_dropdown_icon.png](assets/icon_header_dropdown.png) icon in the header. 
 
-06_Fill in the template 
+![proximity_meter_real_components.png](assets/classroom_project_webeditor.png)
 
-## DOCUMENT THE PROJECT 
-Start by filling in your credits 
+When your editor is ready, create a new sketch by clicking ![new_sketch_icon.png](assets/icon_new_sketch.png) and rename the sketch to the name of your project. 
 
+![classroom_project_rename_sketch](assets/classroom_project_rename_sketch.png)
 
+### 4. Write your sketch. 
+Write your sketch or copy-paste your sketch from another project. For easy readibility ensure that
+* Adding comments to describe important statements 
+* Assigning good varible names 
+* Inundating the code 
+
+Here's the example sketch of the Proximity Meter project for your reference.  
+
+<div class="sketch-iframe" data-src="https://create.arduino.cc/editor/ArduinoEdu/e833b75d-5989-4049-aec4-a2472303415d/preview?embed&snippet=L73-L77&hideNumbers&height=120#L73-L77"></div>
+
+## Documenting your Project 
+To use the project, students must be able to clearly understand the goals of the project and they must do in each step of making the project. The web editor comes with a ReadMe.adoc file attached to the sketch. Here you can document all the intructions required. The template comes with these sections 
+* Credits
+* Project description
+* Instructions 
+* Troubleshooting tips
+
+### 5. Fill in your credits.
+The first part of the Readme are credits where you can fill in your personal details. Students can use this section to reach out to you if needed. 
+
+´´´ arduino
 :Author: LenGeo
 :Email: {AuthorEmail}
 :Date: 22/02/2023
 :Revision: version#
 :License: Public Domain
+´´´
+![classroom_project_documentation_credentials](assets/classroom_project_documentation_credentials.png)
 
-Note- license is something you don’t have to be concerned with unless you want to share your project on the internet 
+[Note] - license is something you don’t have to be concerned with unless you want to share your project on the internet 
 
-Describe your project
-Give a short description of the project. In this example we will describe what the proximity sensor will do. 
+### 6. Describe your project
+Give a short description of the project. In this example we will describe what the Proximity Meter is going to do. 
 
-Materials and Components 
-Arduino Uno *1 
+![classroom_project_documentation_description](assets/classroom_project_documentation_description.png)
 
+### 7. Provide instructions 
+Briefly describe what you intend your students to do with this project. Make sure you provide all details right from intalling the right plugins to uploading the code to the board. 
 
-Installation 
-Most students would be new to the web editor and they wouldn’t have the webeditor installed. Copy paste this link if would like to 
-https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor
+![classroom_project_documentation_instructions](assets/classroom_project_documentation_instructions.png)
 
+Note- Most students would be new to the web editor and they wouldn’t have the webeditor installed. Copy paste this link if would like to https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor
 
+### 8. Other Details
+The rest of the document can be ignored as its intened to be use be other sets of user. You can rather add some troubleshooting tips that addresses common errors and 
 
-You could also instructions on how to use the file and distribute it in this section 
+## Share it with your class
+Once you have finished creating the essential components of your project, you can upload the files and share it with the rest of your class. 
 
-## SHARE IT WITH YOUR CLASS 
+### 9. Import your files 
+Keeping your files organised in plae is important as it makes your life easier. You can import the circuit diagram and the photo of your project from the dropdown next to the sketch. 
 
+![classroom_project_import_files.png](assets/classroom_project_import_files.png)
 
+### 10. Share the URL 
+After you have imported all your files. Your project is ready to be shared with the rest of your class. You can do this through the Share feature of the web editor 
 
+![classroom_project_share_project.png](assets/classroom_project_share_project.png)
 
  
 
