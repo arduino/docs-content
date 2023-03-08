@@ -10,7 +10,7 @@ author: 'Lenard George Swamy'
 
 Many of you might have an interesting idea for your project but struggle with documentation and sharing it with your class. In this article you will learn how to use the web editor to document a project. We will illustrate the process with an example project  
 
-Note - We recommend that you read the article https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor before you proceed with the tutorial. 
+***Note: We recommend that you read the article (Getting started with the Web Editor)(/getting-started/getting-started-web-editor) before you proceed with this tutorial.***
 
 ## The Essentials 
 Every arduino project has 3 essential elements that will make your teaching effortless. These are
