@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/arduino-nano-33-iot
 url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
 core: arduino:samd
 forumCategorySlug: '/hardware/nano-family/nano-33-iot/157'
-certifications: [REACH, RoHS, WEEE, UKCA, CE]
+certifications: [REACH, RoHS, WEEE, UKCA, CE, IC, MIC, RCM, FCC]
 productCode: '033'
 ---
 
