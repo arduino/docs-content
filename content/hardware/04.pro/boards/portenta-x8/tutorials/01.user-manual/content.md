@@ -1,6 +1,6 @@
 ---
 beta: true
-title: '1. Portenta X8 User Manual'
+title: '01. Portenta X8 User Manual'
 description: 'Get a general overview of Portenta X8 and its features'
 difficulty: intermediate
 tags:
