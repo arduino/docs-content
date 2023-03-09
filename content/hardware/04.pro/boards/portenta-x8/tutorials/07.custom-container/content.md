@@ -1,5 +1,5 @@
 ---
-title: '07. Create & Upload a Custom Container with Portenta X8 Manager'
+title: '07. Oversee a Custom Container with Portenta X8 Manager'
 difficulty: intermediate
 tags: [Linux, Python®, Containers, ADB]
 description: 'This tutorial will show you how to create and upload your custom container to your Portenta X8.'

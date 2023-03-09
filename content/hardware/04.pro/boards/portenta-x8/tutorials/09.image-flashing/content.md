@@ -30,9 +30,11 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
     
 ## Instructions
 
-###  Arduino's Download Repository
+### Arduino's Download Repository
 
-Go to [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and a compressed `.tar.gz` with all the required OS image files will automatically download.
+Go to [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and a compressed `.tar.gz` with latest version of all the required OS image files will be there to download.
+
+![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
 
 Please extract the files after you have downloaded the compressed file. The extracted contents have the following structure.
 
