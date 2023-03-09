@@ -13,7 +13,7 @@ software:
 
 ## Overview
 
-The **Portenta** X8 is one of the more advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article, we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how you can benefit from its advanced features of this board. You will learn about FoundriesFactory® and how containers on the Portenta X8 work.
+The **Portenta** X8 is one of the most advanced boards available from Arduino. And with that comes some new concepts that are not standard for Arduino boards. In this article, we will go through some of the foundations of the Portenta X8 and help you understand how the board works and how you can benefit from its advanced features of this board. You will learn about FoundriesFactory® and how containers on the Portenta X8 work.
 
 ## Goals
 
@@ -27,7 +27,7 @@ The **Portenta** X8 is one of the more advanced boards available from Arduino. A
 
 ## Instructions
 
-If you need help setting up your board, please have a look at the "Getting Started" tutorial. That tutorial will show you how to set up your board with FoundriesFactory and install containers on it.
+If you need help setting up your board, please have a look at the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) where you will learn the basics and how to use your Portenta X8.
 
 ## Embedded Linux
 
