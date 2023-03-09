@@ -31,7 +31,7 @@ IoT, building automation, smart cities, and agriculture.
 - Highly flexible power supply architecture designed specifically for low-power applications 
 - Various options for easily powering the board: USB-C port, external power supplies, and single-cell Lithium Ion/Lithium Polymer batteries
 - 12-bit analog-to-digital converter
-- 12-bit digital-to-analog coverter
+- 12-bit digital-to-analog converter
 - Various digital peripherals such as GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM(x1), and SAI (x1)
 - JTAG/SWD debug port (accessible through the board's high-density connectors)
 - Board dimensions: 66.04mm x 25.40mm</p>
