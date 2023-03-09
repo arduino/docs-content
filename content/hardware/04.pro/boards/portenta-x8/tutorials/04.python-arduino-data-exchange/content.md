@@ -15,7 +15,7 @@ The container infrastructure provided by Arduino contains a pre-built Python® i
 
 While all the peripherals are accessible from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and exchange only the required data between the microcontroller and the Python® application. 
 
-Thus you will learn how to do that. If you haven't done so, read through the [foundations article](/tutorials/portenta-x8/x8-fundamentals) to understand the fundamental concepts of the X8 and the provided infrastructure.
+Thus you will learn how to do that. If you haven't done so, read through the [user manual](/tutorials/portenta-x8/user-manual) to understand the fundamental concepts of the X8 and the provided infrastructure.
 
 ## Goals
 
