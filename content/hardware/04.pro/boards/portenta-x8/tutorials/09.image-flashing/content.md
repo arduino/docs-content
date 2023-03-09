@@ -15,8 +15,6 @@ hardware:
 
 In this tutorial, you will learn how to manually flash your Portenta X8 with the image provided by Arduino. You will flash your board through USB using the Terminal. The instructions below are meant to be used with a **Windows Operating System**.
 
-***We encourage you to check now and then if the device image version is up-to-date to have the latest bootloader. Please check the release section of the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/releases) and compare the target version number***
-
 ## Goals
 
 - Learn how to get the required files
@@ -32,13 +30,9 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
     
 ## Instructions
 
-### Getting Latest Portenta X8 Image
+###  Arduino's Download Repository
 
-The `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) contains releases of the official Arduino Linux microPlatform Manifests. We will head to the [releases](https://github.com/arduino/lmp-manifest/releases) section to acquire the required files. The files are compressed in tarball format (`.tar.gz`).
-
-At the time of this tutorial writing, the available version was `456`. If you encounter newer versions, please use the latest version to have the Portenta X8 up to date. We will proceed to download `456.tar.gz` which is the current latest version.
-
-![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
+Go to [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and a compressed `.tar.gz` with all the required OS image files will automatically download.
 
 Please extract the files after you have downloaded the compressed file. The extracted contents have the following structure.
 
