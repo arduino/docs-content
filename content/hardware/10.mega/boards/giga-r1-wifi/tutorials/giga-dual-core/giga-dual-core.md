@@ -20,7 +20,7 @@ In this guide you will discover:
 - How to boot the M4 core.
 - How to communicate between the cores via Remote Call Procedures (RPC).
 - Useful examples based on the dual core & RPC features.
-- The RPC library API.
+- The `RPC` library API.
 
 ## Hardware & Software Needed
 
@@ -136,10 +136,6 @@ void loop() {
 
 ***Note that both of these sketches needs to be uploaded to their corresponding cores.***
 
-### Advanced DAC/ADC On M4
-
-The advanced DAC/ADC features using the [Arduino_AdvancedAnalog](https://github.com/bcmi-labs/Arduino_AdvancedAnalog/tree/main/examples/Advanced) library is not available on the M4.
-
 ## Methods of Programming
 
 Programming the M4 and M7 cores is straightforward, but can be complicated to track. Having a strategy for how you want to build your dual core applications is key. 
@@ -178,11 +174,13 @@ The cons of using this approach is that you will run out of program memory faste
 
 ### Multiple Sketch Approach
 
-The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve what core you are using, you can instead just write the sketch as you would normally do.
+The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve the core you are using, you can instead just write sketches as you would normally do.
 
 The pros of using this approach is that the code you write is optimized only for one core, and this saves a lot of program memory.
 
 The cons is to manage the versions becomes harder, and while flashing the board, you'd need to keep track on which version is uploaded to which core. It is easier to upload to the wrong core by accident using this approach, but you have more optimized code.
+
+***Always make sure to include the `RPC.begin()` command in your M7 sketch.***
 
 ## Use Cases
 
@@ -205,6 +203,8 @@ For example, you should be running network applications on the M7, while you do 
 
 Wi-Fi and Bluetooth® applications are best run on the M7, as they are more demanding. Lower level tasks, such as controlling relays, reading sensor data and so forth, can be distributed to the M4 core instead.
 
+***The GIGA R1 WiFi is supported by the [Arduino IoT Cloud](https://create.arduino.cc/iot/). Currently, only the M7 is supported.***
+
 ### Displays
 
 As the M7 is faster, it is best to run display sketches on the M7 core. Displays have a lot of blocking operations, and it is a good idea to separate the display's functionalities and other operations we want to perform.
@@ -225,13 +225,93 @@ When used in relation to a e.g. a display, it is good practice to read sensors o
 
 ## Remote Call Procedures (RPC)
 
+RPC is a method that allows programs to make requests to programs located elsewhere. It is based on the client-server model (also referred to as caller/callee), where the client makes a request to the server. 
+
+An RPC is a synchronous operation, and while a request is being made from the caller to another system, the operation is suspended. On return of the results, the operation is resumed. 
+
+The server side then performs the subroutine on request, and suspends any other operation as well. After it sends the result to the client, it resumes its operation, while waiting for another request.
+
+![Request routine.](assets/rpc-basics.png)
+
+### RPCs in the Arduino Environment
+
+At the moment, only a limited amount of boards supports RPC, as in this context, it is designed to be a communication line between **two cores.** The GIGA R1 is one of them.
+
+What makes this implementation possible is the `RPC` library ([see API section](#rpc-library-api)), which utilises the [rpclib](https://github.com/rpclib/rpclib) C++ library as well as functions from the [Stream](https://www.arduino.cc/reference/en/language/functions/communication/stream/) class.
+
+The library makes it possible to set up either of the M4/M7 cores as a server/client, where remote calls can be made between them. This is done by "binding" a function to a name on the server side, and calling that function from the client side. 
+
+On the server side, it could look like this:
+
+```arduino
+//server side, for example M7
+int addFunction(int a, int b){ 
+  return a + b;
+}
+
+RPC.bind("addFunction", addFunction);
+```
+
+On the client side, it could look like this:
+
+```arduino
+int x,y = 10;
+
+RPC.call("addFunction", x, y);
+```
+
+When `call()` is used, a request is sent, it is processed on the server side, and returned. The `x` and `y` variables are used as arguments, and the result returned should be 20 (10+10).
+
+![Communication between M7 and M4 core.](assets/rpc-m7-m4.png)
+
+## RPC Examples
+
+In this section, you will find a series of examples that is based on the `RPC` library. 
+
+### Basic RPC Example
+
+This example demonstrates how to request a sensor reading from one core to the other, using:
+- M4 as a client.
+- M7 as a server.
+
+```arduino
+
+```
+
+### Servo Motor Example
+
+This example demonstrates how to request a servo motor on another core to move to a specific angle, using:
+- M4 as a client.
+- M7 as a server.
+
+Each example is written as a **single sketch** intended to be uploaded to **both cores**.
+
+```arduino
+
+```
+
+### IoT Sensor Example
+
+This example demonstrates how to read sensors on one core, and request the data from another, and send it to the Arduino IoT Cloud.
+
+***Please note, IoT Cloud sketches are designed to run only on the M7 core.***
 
 
-## RPC API
+### DAC Example
+
+This example demonstrates how to use audio examples simultaneously (one core for each channel, `DAC0` and `DAC1`).
+
+- The M4 sketch will run 
+
+```arduino
+
+```
+
+## RPC Library API
 
 The `RPC` library is based on the [rpclib](https://github.com/rpclib/rpclib) C++ library which provides a client and server implementation. In addition, it provides a method for communication between the M4 and M7 cores. 
 
-To use this library, you need to include `RPC.h`:
+This library is included in the GIGA core, so it is automatically installed with the core. To use this library, you need to include `RPC.h`:
 
 ```arduino
 #include <RPC.h>
