@@ -13,6 +13,7 @@
 <EssentialsColumn title="Suggested Repositories">
     <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
         Some containers examples for Portenta X8, these containers are accessible through your Foundries.io factory.
+    </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested libraries">
