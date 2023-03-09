@@ -73,7 +73,7 @@ The `measureLocation()` queries the module to retry the coordinates by cellular 
 //global variable used for location management
 String GSMlatitude = "0.000000";
 String GSMlongitude = "0.000000";
-// This function use the location's APIs to get the device coordinates and update the globa variable if all the requirement are satisfied
+// This function use the location's APIs to get the device coordinates and update the global variable if all the requirement are satisfied
 void measureLocation() {
 unsigned long timeout = millis();
 while (millis() - timeout < 45000) {
