@@ -13,13 +13,6 @@
 <EssentialsColumn title="Suggested Repositories">
     <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
         Some containers examples for Portenta X8, these containers are accessible through your Foundries.io factory.
-    </EssentialElement>
-    <EssentialElement link="https://github.com/arduino/lmp-manifest/releases" title="OS Images" type="tutorial">
-        Releases section from the lmp-manifest repo, lists all the builds also available on the Foundries.io factory.
-    </EssentialElement>
-    <EssentialElement link="https://github.com/arduino/lmp-manifest" title="Manifest repository" type="article">
-        This repository contains a Repo manifest and setup scripts for the Linux microPlatform build system. If you want to modify, extend or port Linux microPlatform to a new hardware platform, this is the manifest repository to use.
-    </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested libraries">
