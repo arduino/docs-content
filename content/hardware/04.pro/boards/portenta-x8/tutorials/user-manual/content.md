@@ -251,7 +251,7 @@ So, the communication between Arduino and Linux side will proceed as follow (che
 
 ***If you want to learn more about how to work with RPC on your Portenta X8, please check the [dedicated section](#working-with-arduino) of this user manual.***
 
-## First Use of your Portenta X8
+## First Use Of Your Portenta X8
 
 You can now start interacting with your Portenta X8. Portenta X8 comes with an embedded Out-of-the-box experience that will guide you step-by-step in the configuration of your board.  
 
