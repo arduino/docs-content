@@ -1,7 +1,7 @@
 ---
 beta: true
 title: 'How To Flash Your Portenta X8'
-description: 'This tutorial teaches you how to flash your Portenta X8 through USB'
+description: 'This tutorial teaches you how to flash your Portenta X8 through USB.'
 difficulty: intermediate
 tags:
   - Embedded Linux
@@ -13,39 +13,34 @@ hardware:
 
 ## Overview
 
-In this tutorial you will see how to manually flash your Portenta X8 with the image that is provided by Arduino. You will flash your board through USB using the Terminal.
-The instructions below are meant to be used with a Windows Operating System.
+In this tutorial, you will learn how to manually flash your Portenta X8 with the image provided by Arduino. You will flash your board through USB using the Terminal. The instructions below are meant to be used with a **Windows Operating System**.
 
-***Attention: We encourage you to check every now and then if the device image version is up-to-date in order to have the latest bootloader. Please check the release section of the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/releases) and compare the target version number***
+***We encourage you to check now and then if the device image version is up-to-date to have the latest bootloader. Please check the release section of the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/releases) and compare the target version number***
 
 ## Goals
 
-- Get the required files
-- Set up the correct structure of the files
-- Set up the board
-- Flash the device
+- Learn how to get the required files
+- Learn how to set up the correct structure of the files
+- Learn how to set up the board
+- Learn how to flash the device
 
 ### Required Hardware and Software
 
-- USB-A to USB-C® cable
-- Portenta X8
-- Portenta Breakout Board or Portenta Max Carrier
+- [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
+- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout) or [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
     
 ## Instructions
 
-### Get the Required Files
+### Getting Latest Portenta X8 Image
 
-#### Arduino's GitHub Repository
+The `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) contains releases of the official Arduino Linux microPlatform Manifests. We will head to the [releases](https://github.com/arduino/lmp-manifest/releases) section to acquire the required files. The files are compressed in tarball format (`.tar.gz`).
 
-Go to the `lmp-manifest` [GitHub repository](https://github.com/arduino/lmp-manifest) and open the [releases](https://github.com/arduino/lmp-manifest/releases) section, there you will find a compressed `.tar.gz` with all the required files.
-
-While we were writing this tutorial the available version was `456`, but you will probably find a more recent version in the future.
-
-Click on the file `456.tar.gz` (or newer) and download it to your computer.
+At the time of this tutorial writing, the available version was `456`. If you encounter newer versions, please use the latest version to have the Portenta X8 up to date. We will proceed to download `456.tar.gz` which is the current latest version.
 
 ![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
 
-Then After downloading it, unzip it, you will get a structure like the following:
+Please extract the files after you have downloaded the compressed file. The extracted contents have the following structure.
 
 ```
 Unzipped folder
@@ -56,9 +51,8 @@ Unzipped folder
 └── u-boot-portenta-x8.itb
 ```
 
-Then unzip `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz` make sure the .wic is on the unzipped folder in the main directory.
+After verifying these files are available, you will need to decompress `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz`. Please make sure the `.wic` is in the unzipped folder in the main directory. The folder structure should share a similar following layout.
 
-It needs to be like:
 ```
 Unzipped folder
 ├── mfgtool-files-portenta-x8/
@@ -70,43 +64,41 @@ Unzipped folder
 └── u-boot-portenta-x8.itb
 ```
 
-### Set the Portenta X8 to Flashing Mode
+### Setting the Portenta X8 to Flashing Mode
 
-Plug your Portenta X8 into your carrier (e.g. Portenta Breakout carrier or Portenta Max Carrier).
+Connect your Portenta X8 into your carrier of choice, either *Portenta Breakout* or *Portenta Max Carrier*, via High-Density connectors. After connecting the Portenta X8, you will need to set the `BOOT` DIP switches to the ON position. The `BOOT` switch configuration is important as it will put the board into Flashing mode.
 
-Place both DIP switches to the ON position.
-
-On the Portenta Max Carrier the DIP switches are identified by a label `BOOT SEL` and `BOOT` as shown in figure.
+On the Portenta Max Carrier, the DIP switches are identified by the label `BOOT SEL` and `BOOT` as shown in the figure:
 
 ![Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
 
-On the Portenta Breakout the DIP switches are identified by a label `BT_SEL` and `BOOT` as shown in figure.
+On the Portenta Breakout, the DIP switches are identified by the label `BT_SEL` and `BOOT` as shown in the figure:
 
 ![Breakout DIP switches](assets/breakout-dip-switches.png)
 
-Plug one USB-C® end into the Portenta X8 and the other end (USB-C® or USB-A) to your computer.
+You will need to connect one USB-C® end to the Portenta X8 and the other end (USB-C® or USB-A) to your computer. If the connection is established correctly, you will be able to see a newly connected device called `SE Blank M845S`.
 
-You will see a new connected device called `SE Blank M845S`.
+### Flashing the Portenta X8
 
-### Flash the Device
+To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where `mfgtool-files-portenta-x8` file is located using the `cd` command. Once it is inside the directory where the previous file is included, the following command is used:
 
-Open a terminal and change the directory (`cd`) to the folder where `mfgtool-files-portenta-x8` file is located.
+```
+uuu full_image.uuu
+```
 
-Use the `uuu full_image.uuu` command.
-
-Wait until it gets flashed.
+When the flashing operation is finished, you should see a similar result as the following figure:
 
 ![uuu tool flashing success output](assets/uuu-flashing-success.png)
 
-At this point, set back the DIP switches to OFF position.
+Once you have verified it has successfully flashed the Portenta X8, the `BOOT` DIP switches that have been configured to the ON position, now need to be set to the OFF position. Otherwise, you will always have the Portenta X8 in Flashing mode whenever it is attached to a carrier. Recycle the power for Portenta X8 by reconnecting the board to your computer and start using with the latest updates.
 
-Unplug and then plug-in again the Portenta X8 to your computer.
+***After booting, you will need to wait 10 seconds until the Portenta X8 starts blinking Blue LED. The Blue LED indicates it was able to boot successfully.***
 
-***After booting you will need to wait 10 secs until the Portenta X8 blue LED starts blinking. This means the boot was successful.***
+## Conclusion
 
-Now you can start using your Portenta X8 with the latest updates.
+In this tutorial, you have learned to flash the Portenta X8 by getting the latest image, setting up the adequate file structure and the board, and finally flashing the board with these files.
 
 ## Troubleshooting
 
-- If you get an error while it is flashing, make sure your USB is correctly plugged in. Re-plug your board and try to flash it again. You may need few trials before the flashing is successful.
-- If you get an error related to permissions, try to launch the `uuu` command as Super User (`sudo`). 
+- If you get an error while it is flashing, make sure your USB is correctly plugged in. Reconnect your board and try to flash it again. You may need to go through a few trials before successful flashing.
+- If you get an error related to permissions, try to launch the `uuu` command as Super User (`sudo`).
