@@ -121,7 +121,7 @@ If it is determined that a breach has occurred, system(s) or system component(s)
 
 PII data will only be stored as long as Arduino legitimately needs it and in accordance with Arduino’s Privacy Policy.
 
-## Security Considerations for Specific Arduino Cloud applications and tools
+## Arduino Cloud Applications and Tools
 
 ### Arduino Web Editor
 
