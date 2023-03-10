@@ -73,7 +73,7 @@ Foremost, you will learn how the multi-protocol gateway is implemented with a Po
 
 The Arduino layer extends within the M4 Core, which is the layer dedicated to real-time operations development. Thus, you can use the Arduino layer to perform Proportional-Integral-Derivative (PID) tasks and make the RPC calls to exchange data with the Linux layer. An example could be a temperature sensor driven with PID controller, which will use the actual reading as input and compare with the desired temperature target to provide an output for the control element.
 
-***To learn in-depth about how to exchange data using RPC between Arduino and Linux layer, please check out [User Manual: Communication Between Linux And Arduino](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#communication-between-linux-and-arduino) or [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
+***To learn in-depth about how to exchange data using RPC between Arduino and Linux layer, please check out the [User Manual: Communication Between Linux And Arduino](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#communication-between-linux-and-arduino) or [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
 ## The Linux Layer
 
