@@ -35,7 +35,7 @@ In this tutorial, we will go through the steps on how to set up both the Linux a
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Wi-Fi® Access Point with Internet Access
 - 868-915 MHz antenna with SMA connector
-- ADB: [Check how to connect to your Portenta X8](tutorials/portenta-x8/user-manual#out-of-the-box-experience)
+- ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - [Multi-protocol gateway example code](assets/Multi_Protocol_Gateway_X8.zip)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
@@ -73,7 +73,7 @@ Foremost, you will learn how the multi-protocol gateway is implemented with a Po
 
 The Arduino layer extends within the M4 Core, which is the layer dedicated to real-time operations development. Thus, you can use the Arduino layer to perform Proportional-Integral-Derivative (PID) tasks and make the RPC calls to exchange data with the Linux layer. An example could be a temperature sensor driven with PID controller, which will use the actual reading as input and compare with the desired temperature target to provide an output for the control element.
 
-***To learn in-depth about how to exchange data using RPC between Arduino and Linux layer, please check out [User Manual: Communication Between Linux And Arduino](tutorials/portenta-x8/what-is-portenta-x8) or [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)*** 
+***To learn in-depth about how to exchange data using RPC between Arduino and Linux layer, please check out [User Manual: Communication Between Linux And Arduino](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#communication-between-linux-and-arduino) or [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
 
 ## The Linux Layer
 
@@ -103,7 +103,7 @@ Before setting up the software, it is necessary to configure the hardware to be 
 
 ![Multi-Protocol Gateway Hardware Setup](assets/multi-protocol-hardware.png)
 
-***If you have not set up your Portenta X8, please have a look at [User Manual's Out-of-the-box experience](tutorials/portenta-x8/user-manual#out-of-the-box-experience)***
+***If you have not set up your Portenta X8, please have a look at [User Manual's Out-of-the-box experience](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)***
 
 ### Setting Up The Portenta X8
 
@@ -551,6 +551,7 @@ If you are curious about what to expect from the build you have made in this tut
 In this tutorial, you have learned how to set up a Multi-Protocol Gateway composed of MQTT protocol, RPC, and LoRaWAN®, by using the Portenta X8 and the Portenta Max Carrier. You have built the gateway that will connect to *The Things Network* to send the desired data. Also, the gateway is capable of exchanging data between Arduino and Linux layers using RPC, in which you have exposed the ports to be able to receive data from the local sensor to be sent directly to *The Things Network*.
 
 ### Next Steps
+
 - Now that you have developed a multi-protocol gateway, using Wi-Fi® and LoRaWAN® connectivity, expand the gateway's capability by adding other connectivity types such as Cat. M1 and NB-IoT.
 - Expand functionalities for data processing using RPC while using multi-protocol architecture.
 

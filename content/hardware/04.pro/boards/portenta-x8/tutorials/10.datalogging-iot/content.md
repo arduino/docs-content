@@ -47,7 +47,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 - Command-line interface
 - [Arduino IDE 2.0](https://www.arduino.cc/en/software)
   
-***If you are new to the Portenta X8 board, check out this [User Manual](tutorials/portenta-x8/user-manual) on controlling your board using a terminal or command-line interface.***
+***If you are new to the Portenta X8 board, check out this [User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) on controlling your board using a terminal or command-line interface.***
 
 ## IoT Architecture Basics
 
@@ -516,7 +516,7 @@ If everything is ok, we should see the following in the Serial monitor of the Ar
 
 ![Debug messages in the Arduino IDE 2.0 Serial Monitor.](assets/x8-data-logging-img_25.png)
 
-Check out now the Grafana dashboard we configured earlier; we should see data coming from the MKR WiFi 1010 board. 
+Check out now the Grafana dashboard we configured earlier; we should see data coming from the MKR WiFi 1010 board.
 
 ## Conclusion
 
