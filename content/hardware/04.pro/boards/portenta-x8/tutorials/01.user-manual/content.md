@@ -81,7 +81,7 @@ The full pinout is available and downloadable as PDF from the link below:
 ### Datasheet
 
 The full datasheet is available and downloadable as PDF from the link below:
-* [Portenta X8 Datasheet](https://docs.arduino.cc/static/e12188dbbde2deba83f37965615c3c5a/ABX00049-datasheet.pdf)
+* [Portenta X8 Datasheet](https://docs.arduino.cc/resources/datasheets/ABX00049-datasheet.pdf)
 
 ### Schematics
 
