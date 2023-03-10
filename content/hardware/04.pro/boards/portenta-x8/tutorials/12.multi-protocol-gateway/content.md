@@ -103,7 +103,7 @@ Before setting up the software, it is necessary to configure the hardware to be 
 
 ![Multi-Protocol Gateway Hardware Setup](assets/multi-protocol-hardware.png)
 
-***If you have not set up your Portenta X8, please have a look at [Portenta X8 Getting Started](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box) tutorial***
+***If you have not set up your Portenta X8, please have a look at [User Manual's Out-of-the-box experience](tutorials/portenta-x8/user-manual#out-of-the-box-experience)***
 
 ### Setting Up The Portenta X8
 
@@ -146,7 +146,7 @@ If you have not configured internal Wi-Fi® connectivity within the system, plea
 nmcli device wifi connect "SSID" password "PASSWORD"
 ```
 
-### Setting Up *The Things Network*
+### Setting Up The Things Network
 
 You now have the prerequisites for the Portenta X8 ready, but since you are using the LoRa® connectivity, you will need a platform capable of receiving data transmitted from the Portenta X8 and Max Carrier. **The Things Network** will be the platform we will use to communicate using LoRaWAN®. On the platform, you will need to create an application to add the Portenta Max Carrier as an End-Device.
 
@@ -154,7 +154,7 @@ You now have the prerequisites for the Portenta X8 ready, but since you are usin
 
 ![General End-Device Configuration](assets/ttn-end-device.png)
 
-***To learn more about LoRa® and LoRaWAN®, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn how to properly set up the End-Device in *The Things Network*, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
+***To learn more about LoRa® and LoRaWAN®, please have a look at our [Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101). Additionally, if you wish to learn how to properly set up the End-Device in The Things Network, please read [this tutorial](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network) reference***
 
 We will now build a multi-protocol gateway using Portenta X8 and Max Carrier.
 

@@ -197,7 +197,8 @@ An important thing to keep in mind is that, even if Docker shares the Linux Kern
 ![Images and containers](assets/images_containers.png "Images vs containers")
 
 On the other hand, a container represents a process, which runs starting from an image. The important thing to understand is that a container has a lifecycle and, for this reason, it can reach different states depending on whether it is running or not. The lifecycle of a Container consists of the following states:
-* **Created:** This is the first state of the container lifecycle and it occurs after an image has been created with the command `docker create`. A writable thin layer is created on the specified image and prepared to execute the main process commands. Consider that in this state the container is created but not started. 
+
+* **Created:** This is the first state of the container lifecycle and it occurs after an image has been created with the command `docker create`. A writable thin layer is created on the specified image and prepared to execute the main process commands. Consider that in this state the container is created but not started.
 * **Running:** This is the state in which the container is actually running. A container created through `docker create` or interrupted can be restarted through the command `docker start`.
 * **Paused:**  A running container can be paused through the command `docker pause`. As a consequence, all the processes of the specified container are suspended or blocked. When a container is paused, both the file system and the RAM are not affected.
 * **Stopped:** A stopped container does not have any running process. When a container is stopped through the command `docker stop`, the file system is not affected, but the RAM gets deleted. This is the main difference between stopped and paused states.
@@ -1163,6 +1164,7 @@ Please note that the Arduino RS485 (thus the Arduino Modbus library) library is 
 Portenta X8 supports Bluetooth connectivity just on the Linux side.
 
 In order to communicate with Bluetooth devices via the Portenta X8 Shell, you can use the Bluetooth utility **bluetoothctl**. These are some of the most used commands:
+
 * `bluetoothctl devices` to list all the available Bluetooth devices
 * `bluetoothctl pair [mac_address]` to pair with a specific device through its MAC address
 * `bluetoothctl connect [mac_address]` to connect to a paired device
