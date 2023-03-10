@@ -94,7 +94,7 @@ Keeping your files organised is important. You can import the circuit diagram an
 ![classroom_project_import_files.png](assets/classroom_project_import_files.png)
 
 ### 10. Share the URL 
-After you have imported all your files. Your project is ready to be shared with the rest of your class. You can do this through the Share feature of the web editor 
+After you have imported all your files, your project is ready to be shared with your class. You can do this through the Share feature of the Web Editor.
 
 ![classroom_project_share_project.png](assets/classroom_project_share_project.png)
 
