@@ -19,7 +19,7 @@ Every arduino project has 3 essential elements that will make your teaching effo
 * Picture of your project 
 
 ### 1. Create a circuit diagram
-Start by thinking about the layout of your circuit. It could be as basic as a pen on paper but more the fidelity the easier it is for your students to understand how to connect the components. 
+Start by thinking about the layout of your circuit. It could be as basic as a pen on paper but a higher-fidelity sketch might make it easier for your students to understand how to connect the components. 
 
 For this tutorial we created a circuit of the proximity meter using [tinkercad](https://www.tinkercad.com/circuits).
 
