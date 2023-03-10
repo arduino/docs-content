@@ -50,7 +50,7 @@ Here's the example sketch of the Proximity Meter project for your reference.
 <div class="sketch-iframe" data-src="https://create.arduino.cc/editor/ArduinoEdu/e833b75d-5989-4049-aec4-a2472303415d/preview?embed&snippet=L73-L77&hideNumbers&height=120#L73-L77"></div>
 
 ## Documenting your Project 
-To use the project, students must be able to clearly understand the goals of the project and they must do in each step of making the project. The web editor comes with a ReadMe.adoc file attached to the sketch. Here you can document all the intructions required. The template comes with these sections 
+To use the project, students must be able to clearly understand the goals of the project and they should go through each step of creating it. The Web Editor comes with a ReadMe.adoc file attached to the sketch. Here you can document all the instructions required. The template comes with these sections:
 * Credits
 * Project description
 * Instructions 
