@@ -76,7 +76,7 @@ Give a short description of the project. In this example we will describe what t
 ![classroom_project_documentation_description](assets/classroom_project_documentation_description.png)
 
 ### 7. Provide instructions 
-Briefly describe what you intend your students to do with this project. Make sure you provide all details right from intalling the right plugins to uploading the code to the board. 
+Briefly describe what you intend your students to do with this project. Make sure you provide all details from installing the plugins to uploading the code to the board. 
 
 ![classroom_project_documentation_instructions](assets/classroom_project_documentation_instructions.png)
 
