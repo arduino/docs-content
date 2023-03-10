@@ -59,7 +59,7 @@ To use the project, students must be able to clearly understand the goals of the
 ### 5. Fill in your credits.
 The first part of the Readme are credits where you can fill in your personal details. Students can use this section to reach out to you if needed. 
 
-´´´ arduino
+``` arduino
 :Author: LenGeo
 :Email: {AuthorEmail}
 :Date: 22/02/2023
