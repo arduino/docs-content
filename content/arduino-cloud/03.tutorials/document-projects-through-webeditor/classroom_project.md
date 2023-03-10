@@ -83,7 +83,7 @@ Briefly describe what you intend your students to do with this project. Make sur
 Note- Most students would be new to the web editor and they wouldn’t have the webeditor installed. Copy paste this link if would like to https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor
 
 ### 8. Other Details
-The rest of the document can be ignored as its intened to be use be other sets of user. You can rather add some troubleshooting tips that addresses common errors and 
+The rest of the document can be ignored as it's intended to be used by the readers of your documentation. If you want, you can add some troubleshooting tips that address common errors and 
 
 ## Share it with your class
 Once you have finished creating the essential components of your project, you can upload the files and share it with the rest of your class. 
