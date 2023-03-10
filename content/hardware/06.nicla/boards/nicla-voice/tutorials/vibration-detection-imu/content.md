@@ -1,14 +1,11 @@
 ---
-title: 'Vibration detection Machine Learning with Nicla Voice'
+title: 'Vibration Detection With Machine Learning Using Nicla Voice'
 difficulty: beginner
 compatible-products: [nicla-vision]
 description: 'Learn how to capture data from the IMU module to be used in a Machine Learning model to detect vibrations.'
 tags: 
   - IMU
 author: 'Benjamin Dannegård'
-libraries:
-  - name: 
-    url: 
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 software:
@@ -122,11 +119,11 @@ If there is any issue in the process, try to run these as administrator. A comma
 
 To make sure everything is working open the Arduino IDE, select the correct port that the board is connected to, and open the serial monitor. If there is nothing in the serial monitor try pressing the reset button on the Nicla Voice once. The information about the files and the model that is loaded onto the board should now be printed on the serial monitor.
 
-![Correct firmware and model loaded on the Nicla Voice]()
+[Correct firmware and model loaded on the Nicla Voice]()
 
 Now you can go ahead and move the board. The board should blink its blue LED when the board is being moved around. The board will print what class it thinks the movements recognized belongs to, as seen in the image below. This makes it easy to see if the board will recognize the desired movement or if it is recognized as the stable class. If the board has problems recognizing the right movement it might be a good idea to take another look at the model and the data that has been collected.
 
-![Serial monitor showing IMU readings recognized]()
+[Serial monitor showing IMU readings recognized]()
 
 ## Conclusion
 
