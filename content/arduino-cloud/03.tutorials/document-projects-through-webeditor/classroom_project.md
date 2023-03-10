@@ -8,7 +8,7 @@ author: 'Lenard George Swamy'
 
 ## Introduction 
 
-Many of you might have an interesting idea for your project but struggle with documentation and sharing it with your class. In this article you will learn how to use the web editor to document a project. We will illustrate the process with an example project  
+Many of you might have interesting ideas for your projects but struggle with documentation and sharing it with your class. In this article, you will learn how to use the Arduino Web Editor to document a project. We will illustrate the process with an example project.
 
 ***Note: We recommend that you read the article (Getting started with the Web Editor)(/getting-started/getting-started-web-editor) before you proceed with this tutorial.***
 
