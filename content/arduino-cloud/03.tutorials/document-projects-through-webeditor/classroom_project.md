@@ -57,7 +57,7 @@ To use the project, students must be able to clearly understand the goals of the
 * Troubleshooting tips
 
 ### 5. Fill in your credits.
-The first part of the Readme are credits where you can fill in your personal details. Students can use this section to reach out to you if needed. 
+The first part of the ReadMe are credits where you can fill in your personal details. Students can use this section to reach out to you if needed. 
 
 ``` arduino
 :Author: LenGeo
