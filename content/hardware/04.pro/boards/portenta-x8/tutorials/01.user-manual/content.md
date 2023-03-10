@@ -86,7 +86,7 @@ The full datasheet is available and downloadable as PDF from the link below:
 ### Schematics
 
 The full schematics are available and downloadable as PDF from the link below:
-* [Portenta X8 Schematics](https://docs.arduino.cc/static/c92dbfc6c6a7c3f79c9987d36f017e48/ABX00049-schematics.pdf)
+* [Portenta X8 Schematics](https://docs.arduino.cc/resources/schematics/ABX00049-schematics.pdf)
 
 ### STEP Files
 
