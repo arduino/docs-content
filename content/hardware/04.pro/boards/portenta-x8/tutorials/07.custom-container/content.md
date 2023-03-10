@@ -22,7 +22,7 @@ In this tutorial, we will create a simple container and upload it to the Arduino
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/portenta-x8)
-- ADB
+- ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Arduino Pro Cloud Subscription [Learn more about the Pro Cloud](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
@@ -57,6 +57,7 @@ TEST_CMD="python3 --help"
 ```
 
 ### Container File: Docker-compose.yml
+
 This file defines the app name through the Factory, permissions, and settings for the involved containers. The argument in the image tag will make it, so our image file builds locally.
 
 ```python
@@ -128,7 +129,7 @@ if __name__ == '__main__':
 
 ## Uploading the Container Folder
 
-First, you will need to set up your board to a Factory setting, as shown in the [Portenta X8 Out of the Box tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box).
+First, you will need to set up your board to a Factory setting, as shown in the Portenta X8 [Out-of-the-box experience from the User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).
 
 Once finished, we will push our folder to a repository within the Factory. Let us place our folder "x8-custom-test" inside the "containers.git" repository. You can find this repository inside your Factory page under "Source". Then, on "container.git", the page URL will be used in the following command.
 
@@ -217,5 +218,5 @@ To get a better understanding of how to manage containers with Docker, take a lo
 
 Here are some errors that might occur in the process of this tutorial:
 
-- Make sure you have followed our other tutorials that shows how to set up the [Portenta X8 out of the box](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box)
+- Make sure you have followed our other tutorials that shows how to set up the Portenta X8 with [Out-of-the-box experience from the User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - If you are having issues with the adb shell, don't forget to try and use `sudo` and `su`

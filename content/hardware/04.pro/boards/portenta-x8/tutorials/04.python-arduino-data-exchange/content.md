@@ -13,9 +13,9 @@ hardware:
 
 The container infrastructure provided by Arduino contains a pre-built Python® image that you can use to run Python® applications on the Portenta X8. In this tutorial, we're going to build a container based on a provided one.
 
-While all the peripherals are accessible from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and exchange only the required data between the microcontroller and the Python® application. 
+While all the peripherals are accessible from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and exchange only the required data between the microcontroller and the Python® application.
 
-Thus you will learn how to do that. If you haven't done so, read through the [user manual](/tutorials/portenta-x8/user-manual) to understand the fundamental concepts of the X8 and the provided infrastructure.
+Thus you will learn how to do that. If you haven't done so, read through the [user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) to understand the fundamental concepts of the X8 and the provided infrastructure.
 
 ## Goals
 
@@ -74,7 +74,7 @@ Make sure you have installed the "Arduino Mbed OS Portenta Boards" core and uplo
 
 ### Debugging the Arduino Sketch
 
-To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called `py-serialrpc`, which listens for those messages and prints them to the console. 
+To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called `py-serialrpc`, which listens for those messages and prints them to the console.
 
 This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with `adb push <local directory path>/py-serialrpc /home/fio`.
 
