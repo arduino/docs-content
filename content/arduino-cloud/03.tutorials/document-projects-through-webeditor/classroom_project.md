@@ -89,7 +89,7 @@ The rest of the document can be ignored as its intened to be use be other sets o
 Once you have finished creating the essential components of your project, you can upload the files and share it with the rest of your class. 
 
 ### 9. Import your files 
-Keeping your files organised in plae is important as it makes your life easier. You can import the circuit diagram and the photo of your project from the dropdown next to the sketch. 
+Keeping your files organised is important. You can import the circuit diagram and the photo of your project from the dropdown next to the sketch. 
 
 ![classroom_project_import_files.png](assets/classroom_project_import_files.png)
 
