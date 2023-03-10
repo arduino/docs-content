@@ -1,5 +1,5 @@
 ---
-title: 'Creating Projects using the Web Editor'
+title: 'Creating Projects using the Arduino Web Editor'
 description: 'An article on how a teacher can use the web editor '
 tags: 
   - article
