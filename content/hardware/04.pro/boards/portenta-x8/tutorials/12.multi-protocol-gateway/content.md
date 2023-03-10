@@ -35,7 +35,7 @@ In this tutorial, we will go through the steps on how to set up both the Linux a
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Wi-Fi® Access Point with Internet Access
 - 868-915 MHz antenna with SMA connector
-- ADB or SSH [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal)
+- ADB: [Check how to connect to your Portenta X8](tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - [Multi-protocol gateway example code](assets/Multi_Protocol_Gateway_X8.zip)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 

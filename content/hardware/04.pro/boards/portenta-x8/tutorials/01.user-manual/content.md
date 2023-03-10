@@ -233,7 +233,7 @@ The expression RPC refers to the activation of a "procedure" or "function" by a 
 
 Essential to the concept of RPC is also the idea of transparency: the remote procedure call must in fact be performed in a way similar to that of the traditional "local" procedure call; the details of the network communication must therefore be "hidden" (i.e. made transparent) for the user.
 
-The RPC paradigm is particularly suitable for distributed computing based on the client-server model: the "call procedure" corresponds to the "request" sent by the "client" and the "return value" of the procedure corresponds to the "response" sent by the "server". In fact, distributed computing uses the resources of several computers connected to each other in a network (usually via the Internet) to solve large-scale computational problems. 
+The RPC paradigm is particularly suitable for distributed computing based on the client-server model: the "call procedure" corresponds to the "request" sent by the "client" and the "return value" of the procedure corresponds to the "response" sent by the "server". In fact, distributed computing uses the resources of several computers connected to each other in a network (usually via the Internet) to solve large-scale computational problems.
 
 Although the ultimate goal of the RPC paradigm is to provide a remote procedure call mechanism whose semantics is essentially equivalent to that of the local procedure call (hence the aforementioned transparency of the mechanism), this equivalence is never fully achieved, due to difficulties that can arise in network communication (always subjected to failure).
 
@@ -350,6 +350,7 @@ Now you can click **OK** and you will be redirected to the Out-of-the-box homepa
 ***You can change your network by clicking on the Wi-Fi Settings button and repeat the steps from above.***
 
 #### Portenta X8 with Python Alpine Shell
+
 Click the **Shell** button to start using your Portenta X8 with Python-Alpine.
 
 ![Out-of-the-box Shell button](assets/OOTB_homepage_shell.png "Out-of-the-box Shell button")
@@ -362,7 +363,7 @@ This shell is running in a Python-Alpine container embedded in Portenta X8. In t
 
 ***Note: this is an optional step. The Portenta X8 can be also used with a local IDE without the need for any internet connection.***
 
-Making Portenta X8 compatible with Arduino Cloud means opening a wide range of new applications. This compatibility is guaranteed by a brand-new Python container, which includes a dedicated [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Through Arduino Cloud APIs, the Python container ensures full interaction and simple porting of any Python developed application in the Arduino Cloud. 
+Making Portenta X8 compatible with Arduino Cloud means opening a wide range of new applications. This compatibility is guaranteed by a brand-new Python container, which includes a dedicated [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Through Arduino Cloud APIs, the Python container ensures full interaction and simple porting of any Python developed application in the Arduino Cloud.
 
 ***Check all the available Arduino Cloud plans [here](https://cloud.arduino.cc/plans#business) and create your Arduino Cloud account in a couple of steps (see the dedicated documentation at [this link](https://docs.arduino.cc/arduino-cloud/)).***
 
@@ -547,15 +548,16 @@ void loop(){
 
 At this point, select the port of your device in the port selector menu and then press the Compile and Upload button.
 
-Behind the curtains, the sketch gets compiled into a binary. That binary file is then uploaded to the Linux side of the Portenta X8. The flashing is done on the board itself by the RPC service running on Linux (see [Communication between Linux and Arduino section](#communication-between-linux-and-arduino) of this user manual to learn more). 
+Behind the curtains, the sketch gets compiled into a binary. That binary file is then uploaded to the Linux side of the Portenta X8. The flashing is done on the board itself by the RPC service running on Linux (see [Communication between Linux and Arduino section](#communication-between-linux-and-arduino) of this user manual to learn more).
 
 When the sketch has been uploaded successfully, the onboard LED of your Portenta X8 will start blinking at an interval of one second.
 
-You can also upload the firmware manually if you like. To do so, you first need to compile the sketch: select **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file. 
+You can also upload the firmware manually if you like. To do so, you first need to compile the sketch: select **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file.
 
 To upload the firmware you can use the ADB tool that has been installed as part of the Portenta X8 core. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
 
 From that directory, you can use the `adb` tool. To upload your compiled sketch, you just need to type the following command into your terminal window:
+
 ```
 adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 ```
@@ -618,9 +620,11 @@ An example of how to use the command:
 ```arduino
 journalctl --since "2022-12-22 12:20:00" --until yesterday
 ```
+
 ### Create And Upload Docker Containers To Portenta X8
 
 We created dedicated tutorials covering this topic. Go check them out:
+
 * [Managing Containers with Docker on Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container)
 * [Deploy a Custom Container with Portenta X8 Manager](https://docs.arduino.cc/tutorials/portenta-x8/custom-container)
 * [Running Wordpress & Database Containers on Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/wordpress-webserver)
@@ -880,7 +884,7 @@ As shown in the image above, the OS release of this Portenta X8 corresponds to `
 
 ### Update Through Out-Of-The-Box Experience
 
-Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release. 
+Leverage the integrated Out-of-the-box experience to update your Portenta X8 to the latest release.
 
 ***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update, it allows the user to update only Portenta X8 default image and containers. It will overwrite any custom container application. Thus, it is recommended to make a local copy of your containers before updating your Portenta X8.***
 
@@ -967,13 +971,14 @@ In this case, a Portenta X8 with Portenta Breakout board is used to connect an e
 
 #### SPI With Linux
 
-You need to enable SPI support before using SPI devices. 
+You need to enable SPI support before using SPI devices.
 
-Open Portenta X8 Shell as explained [here](#working-with-linux). 
+Open Portenta X8 Shell as explained [here](#working-with-linux).
 
 ```arduino
 sudo madprobe spi-dev
 ```
+
 Insert the user password `fio`.
 
 An upcoming image release for the X8 will load the `spi-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/spi-dev.conf` file with the following content:
@@ -1025,8 +1030,7 @@ gosu <container user> /usr/bin/python my_spi_service.py
 | 136   | **`SPI1 CIPO`**           |
 | 137   | **`SPI1 CS`**             |
 
-
-#### SPI With Arduino 
+#### SPI With Arduino
 
 The `SPI` object is [mapped](https://github.com/arduino/ArduinoCore-mbed/blob/23e4a5ff8e9c16bece4f0e810acc9760d3dd4462/variants/PORTENTA_X8/pins_arduino.h#L85) as follows on the Portenta Breakout Board and can be deployed as usual:
 
@@ -1159,13 +1163,13 @@ The `Serial1` object in the Arduino sketch is mapped to the **`UART0`** port on 
 
 Please note that the Arduino RS485 (thus the Arduino Modbus library) library is not supported on the Arduino core of the X8.
 
-### Bluetooth
+### Bluetooth®
 
-Portenta X8 supports Bluetooth connectivity just on the Linux side.
+Portenta X8 supports Bluetooth® connectivity just on the Linux side.
 
-In order to communicate with Bluetooth devices via the Portenta X8 Shell, you can use the Bluetooth utility **bluetoothctl**. These are some of the most used commands:
+In order to communicate with Bluetooth® devices via the Portenta X8 Shell, you can use the Bluetooth® utility **bluetoothctl**. These are some of the most used commands:
 
-* `bluetoothctl devices` to list all the available Bluetooth devices
+* `bluetoothctl devices` to list all the available Bluetooth® devices
 * `bluetoothctl pair [mac_address]` to pair with a specific device through its MAC address
 * `bluetoothctl connect [mac_address]` to connect to a paired device
 * `bluetoothctl disconnect [mac_address]` to disconnect from a paired device
