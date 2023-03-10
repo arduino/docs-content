@@ -68,7 +68,7 @@ The first part of the Readme are credits where you can fill in your personal det
 ´´´
 ![classroom_project_documentation_credentials](assets/classroom_project_documentation_credentials.png)
 
-[Note] - license is something you don’t have to be concerned with unless you want to share your project on the internet 
+***Note: License is something you don’t have to be concerned with unless you want to share your project on the internet.***
 
 ### 6. Describe your project
 Give a short description of the project. In this example we will describe what the Proximity Meter is going to do. 
