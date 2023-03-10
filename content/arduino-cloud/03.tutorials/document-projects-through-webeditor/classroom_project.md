@@ -26,7 +26,7 @@ For this tutorial we created a circuit of the proximity meter using [tinkercad](
 ![proximity_meter_circuit.png](assets/classroom_project_circuit_diagram_proximity_meter.png)
 
 ### 2. Connect the components 
-Once you have created the components, its good to connect the components to ensure all the connections are right. Sometimes its also good to support your document with photos of your connections. Heres a picture of the circuit. This gives your students a good visual sense of how the circuit looks like in real life.
+Once you have created the components, it's good to connect the components to ensure all connections are correct. Sometimes it's also good to support your document with photos of your connections. Here's a picture of the circuit. This gives your students a good visual sense of how the circuit looks in real life.
 
 ![proximity_meter_real_components.png](assets/classroom_project_photo_proximity_meter.png)
 
