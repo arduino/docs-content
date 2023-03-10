@@ -79,7 +79,7 @@ In the "Generate features" tab on the "Syntiant" page. Press the green "Generate
 
 Now that the settings are correct and we have the data for the model, it is time to train.
 
-### Training the model
+### Training the Model
 
 Go to the "Classifier" tab under "Impulse design". We can keep the default settings here and press the "Start training" button. On the right, you can see the progress of the training, this process will also take some time to complete. Once it is complete, the performance of the model's training can be seen in the image below.
 
