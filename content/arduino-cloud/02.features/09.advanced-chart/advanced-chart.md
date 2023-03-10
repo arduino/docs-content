@@ -1,5 +1,5 @@
 ---
-title: Multible Variable Chart Widget
+title: Multiple Variable Chart Widget
 description: Learn how to use the advanced chart widget, which allows you to track several variables in real time or during a specific time period.
 author: Karl Söderby
 tags: [IoT Cloud, Charts, Data Plotting]
@@ -123,7 +123,7 @@ To see a specific time period, click on the calendar icon, where you can select 
 
 As an example, the widget below shows the illuminance (LUX) recorded via the **MKR ENV Shield**, the `light` variable.
 
-Here, we can see that sunset occured around 18.00 (6PM), and sunrise sometime around 07.00 (7AM).
+Here, we can see that sunset occurred around 18.00 (6PM), and sunrise sometime around 07.00 (7AM).
 
 ![Light tracking.](assets/light-tracking.png)
 
