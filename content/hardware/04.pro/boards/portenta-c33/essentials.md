@@ -7,7 +7,7 @@
 
 <EssentialsColumn title="Suggested Libraries">
     <EssentialElement link="https://www.arduino.cc/en/Reference/WiFi" title="WiFi" type="library">
-        The Wi-Fi® library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
+        The Wi-Fi® library is designed to use the ESP32-C3-MINI-1U  module, which allows your Arduino to connect to the Internet.
     </EssentialElement>
     
 <EssentialElement link="https://www.arduino.cc/en/Reference/ArduinoBLE" title="Arduino BLE" type="library">

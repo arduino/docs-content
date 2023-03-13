@@ -12,7 +12,7 @@ Connectivity:
   Chipset: ESP32-C3-MINI-1U
   Wi-Fi®: 2.4GHz Wi-Fi® (802.11 b/g/n)
   Bluetooth®: Bluetooth® 5 Low Energy connectivity
-Secure element: NXP® SE051C
+Secure element: NXP® SE051
 Communication:
   UART: Yes
   I2C: Yes
@@ -23,7 +23,8 @@ Power:
   DC Current per I/O Pin: 8 mA
 Clock speed: 200MHz 
 Memory:
-  Renesas R7FA6M5BH2CBG: 2MB Flash, 512KB RAM
+  Internal: 2MB Flash, 512KB RAM
+  External: 128MB (QSPI Flash)
 Dimensions:
   Width: 25.40 mm
   Length: 66.04 mm
