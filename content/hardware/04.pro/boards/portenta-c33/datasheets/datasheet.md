@@ -8,13 +8,29 @@ type: pro
 
 # Description 
 
-<p style="text-align: justify;">The Portenta C33 is a powerful System-on-Module designed for low-cost Internet of Things (IoT) applications. Based on the R7FA6M5BH2CBG microcontroller from Renesas®, this board shares the same form factor as the Portenta H7 and its backward compatible with it, making it fully compatible with all Portenta family shields and carriers through its high-density connectors. As a low-cost device, the Portenta C33 is an excellent choice for developers looking to create IoT devices and applications on a budget. Whether you're building a smart home device or a connected industrial sensor, the Portenta C33 provides the processing power and connectivity options you need to get the job done.</p>
+<p style="text-align: justify;">The Portenta C33 is a powerful System-on-Module designed for low-cost Internet of Things (IoT) applications. Based on the R7FA6M5BH2CBG microcontroller from Renesas®, this board shares the same form factor as the Portenta H7 and it is backward compatible with it, making it fully compatible with all Portenta family shields and carriers through its high-density connectors. As a low-cost device, the Portenta C33 is an excellent choice for developers looking to create IoT devices and applications on a budget. Whether you're building a smart home device or a connected industrial sensor, the Portenta C33 provides the processing power and connectivity options you need to get the job done.</p>
 
 # Target Areas
 
-IoT, building automation, smart cities, and agriculture.
+IoT, building automation, smart cities, and agriculture
 
 # CONTENTS
+## Application Examples
+
+Thanks to its dual-core processor, the Portenta C33 supports a wide array of applications. From industrial applications to rapid prototyping, IoT solutions, and building automation, among many others.
+
+- **Industrial Automation:** The Portenta C33 can be implemented as a solution for different industrial applications:
+
+    - **Industrial IoT gateway:** Connect your devices, machines and sensors to a Portenta C33 gateway. Collect operation data in real-time and display them on Arduino IoT Cloud dashboard, leveraging end-to-end secure data encryption.
+    - **Machine monitoring to track OEE/OPE:** Track Overall Equipment efficiency (OEE) and Overall Process Effectiveness (OPE) with Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.
+    - **Inline Quality Assurance:** Leverage full compatibility between Portenta C33 and Nicla family to carry out quality control in your production lines. Collect Nicla smart sensing data with Portenta C33 to catch defects early and resolve them before they travel down the line.
+
+- **Prototyping:** The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use WiFi/BLE® connectivity and a wide variety of peripheral interfaces, including CAN, SAI, SPI, I2C. Moreover, Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.
+  
+- **Building Automation:** The Portenta C33 can be used in multiple building automation applications:
+
+    - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g. Gas, Water, Electricity) in a single system. Display usage trends in Arduino IoT Cloud charts, providing an overall image for energy management optimization and cost reduction.
+    - **Appliances Control System**:** Leverage high-performing Portenta C33 MCU to real-time control your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi connectivity easily allows Cloud integration, so that everything is under control even from remote.
 
 ## Board Overview 
 
