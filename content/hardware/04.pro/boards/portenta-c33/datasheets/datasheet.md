@@ -34,23 +34,29 @@ Thanks to its dual-core processor, the Portenta C33 supports a wide array of app
 
 ## Board Overview 
 
-<p style="text-align: justify;">The Portenta C33 is a powerful microcontroller board based on the R7FA6M5BH2CBG, a high-performance microcontroller from Renesas with an Arm® Cortex®-M33 core running at 200MHz. It has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its high-density connectors. The Portenta C33 includes a range of key features and a low-power design that makes it well-suited for various low-cost IoT applications.</p>
+<p style="text-align: justify;">
+The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas, it offers a range of key features and a low-power design that make it well-suited for a variety of applications.The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors.
+</p>
 
-<p style="text-align: justify;">The key features of the Portenta C33 are the following:
+<p style="text-align: justify;">
+The main features of the Portenta C33 are the following:
 
 - 200MHz, Arm Cortex-M33 core microcontroller with 2MB Flash memory and 256kB SRAM (R7FA6M5BH2CBG)
 - External 16MB QSPI Flash memory (MX25L12833F)
-- On-board 2.4GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5 small-sized module (ESP32­-C3-­MINI-­1U)
+- On-board 2.4GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5 module (ESP32­-C3-­MINI-­1U)
 - Ethernet physical layer (PHY) transceiver (LAN8742AI)
 - On-board ready-to-use IoT secure element (SE051)
 - USB-C port for power and data (accessible also through the board's high-density connectors)
 - Highly flexible power supply architecture designed specifically for low-power applications 
-- Various options for easily powering the board: USB-C port, external power supplies, and single-cell Lithium Ion/Lithium Polymer batteries
-- 12-bit analog-to-digital converter
-- 12-bit digital-to-analog converter
-- Various digital peripherals such as GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM(x1), and SAI (x1)
+- Various options for easily powering the board: USB-C port, single-cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors
+- Various analog peripherals, such as a 12-bit analog-to-digital converter (ADC) and a 12-bit digital-to-analog converter (DAC)
+- Various digital peripherals, such as GPIO (x7), I<sup>2</sup>C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I<sup>2</sup>S (x1), SPDIF (x1), PDM(x1), and SAI (x1)
 - JTAG/SWD debug port (accessible through the board's high-density connectors)
-- Board dimensions: 66.04mm x 25.40mm</p>
+- Board dimensions: 66.04mm x 25.40mm
+- Castellated pins allow the board to be positioned as a surface-mountable module
+</p>
+
+**![Figure 1. The Arduino Portenta C33](assets/Portenta-C33-Iso1-View.png)**
 
 [comment]: <> (Force page break here) 
 <div style="page-break-after: always;"></div>
@@ -59,32 +65,71 @@ Thanks to its dual-core processor, the Portenta C33 supports a wide array of app
 
 ### Recommended Operating Conditions 
 
-<p style="text-align: justify;">The following table provides a comprehensive guideline for the optimal use of the Portenta C33, outlining typical operating conditions as well as design limits. Operating conditions of the Portenta C33 are largely a function of the operating conditions specified by its components.</p>
+<p style="text-align: justify;">
+Table 1 provides a comprehensive guideline for the optimal use of the Portenta C33, outlining typical operating conditions and design limits. The operating conditions of the Portenta C33 are largely a function of the operating conditions specified by its components.
+</p>
 
 <div style="text-align:center;">
 
-|         **Parameter**        |    **Symbol**   | **Min** | **Max** | **Unit** |
-|:----------------------------:|:---------------:|:-------:|:-------:|:--------:|
-|   USB Supply Input Voltage   | V<sub>USB</sub> |    -    |    -    |     V    |
-| Battery Supply Input Voltage | V<sub>BAT</sub> |   -0.3  |   4.8   |     V    |
-|     Supply Input Voltage     | V<sub>MCU</sub> |   4.1   |   6.0   |     V    |
-|     Operating Temperature    |  T<sub>OP</sub> |   -40   |    85   |    °C    |
+|         **Parameter**        |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
+|:----------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
+|   USB Supply Input Voltage   | V<sub>USB</sub> |    -    |   5.0   |    -    |     V    |
+| Battery Supply Input Voltage | V<sub>USB</sub> |   -0.3  |   3.7   |   4.8   |     V    |
+|     Supply Input Voltage     |  V<sub>IN</sub> |   4.1   |   5.0   |   6.0   |     V    |
+|     Operating Temperature    |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
 **<caption>Table 1: Recommended Operating Conditions</caption>**
 </div>
 
 ### Current Consumption
 
+<p style="text-align: justify;">
+The operating current of the Portenta C33 depends greatly on the application. Table 2 summarizes the board's power consumption in a defined application and conditions.
+</p>
+
+<div style="text-align:center;">
+
+|       **Parameter**       |    **Symbol**   |                                **Condition**                                | **Typ** | **Unit** |
+|:-------------------------:|:---------------:|:---------------------------------------------------------------------------:|:-------:|:--------:|
+| Board Current Consumption | I<sub>TOT</sub> | V<sub>BAT</sub>=3.7V, USB cable disconnected, all peripherals in sleep mode |    -    |     -    |
+
+**<caption>Table 2: Power Consumption in a Defined Application and Conditions</caption>**
+</div>
+
+
+*<p style="text-align: justify;">**Note**: Current consumption measurements were taken under controlled laboratory conditions, with the Portenta C33 running a specific application and connected to a specific power source. Results may vary depending on the application and operating conditions.</p>*
+
+[comment]: <> (Force page break here) 
+<div style="page-break-after: always;"></div>
+
 ## Hardware
+
+<p style="text-align: justify;">
+The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller. 
+</p>
 
 ### Block Diagram
 
+An overview of the Portenta C33 high-level architecture is illustrated in Figure 2.
+
+**![Figure 2. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)**
+
 ### Power Supply 
+
+The Portenta C33 can be powered through one of these interfaces:
+
+- USB-C port
+- Battery
+- MKR pins
+
+The figure below shows the power options available on the board and illustrates its power architecture. 
 
 ### Mechanical Specification
 
 #### Board Pinout 
 #### Board Connectors
+
+### Board Accesories 
 
 ## Document Revision History
 
