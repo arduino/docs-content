@@ -113,9 +113,10 @@ void loop() {
 }
 ```
 
+
 ### Configuring the Programmable Button on the Opta™
 
-The Opta™ has a programmable button, shown in the image below, and is identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple it is, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
+The Opta™ has a programmable button, shown in the image below, identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple it is, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
@@ -239,55 +240,52 @@ The entire sketch can be found below, copy it into your IDE and upload it to you
 */
 
 void setup() {
- // Initialize Relays outputs
- pinMode(D0, OUTPUT);
- pinMode(D1, OUTPUT);
- pinMode(D2, OUTPUT);
- pinMode(D3, OUTPUT);
- 
- // Initialize Opta LEDs
- pinMode(LED_D0, OUTPUT);
- pinMode(LED_D1, OUTPUT);
- pinMode(LED_D2, OUTPUT);
- pinMode(LED_D3, OUTPUT);
+  // Initialize Relays outputs
+  pinMode(D0, OUTPUT);
+  pinMode(D1, OUTPUT);
+  pinMode(D2, OUTPUT);
+  pinMode(D3, OUTPUT);
+
+  // Initialize Opta LEDs
+  pinMode(LED_D0, OUTPUT);
+  pinMode(LED_D1, OUTPUT);
+  pinMode(LED_D2, OUTPUT);
+  pinMode(LED_D3, OUTPUT);
 }
 
 void loop() {
- // Closes and opens the contact of relay 1 and turns on led 1
- digitalWrite(D0, HIGH); // Sets the relay 1 on
- digitalWrite(LED_D0, HIGH);
- delay(1000);
- digitalWrite(D0, LOW); // Sets the relay 1 off
- digitalWrite(LED_D0, LOW);
- delay(1000);
- 
- // Closes and opens the contact of relay 2 and turns on led 2
- digitalWrite(D1, HIGH); // Sets the relay 2 on
- digitalWrite(LED_D1, HIGH);
- delay(1000); 
- digitalWrite(D1, LOW); // Sets the relay 2 off
- digitalWrite(LED_D1, LOW);
- delay(1000);
- 
- // Closes and opens the contact of relay 3 and turns on led 3
- digitalWrite(D2, HIGH); // Sets the relay 3 on
- digitalWrite(LED_D2, HIGH);
- delay(1000);
- digitalWrite(D2, LOW); // Sets the relay 3 off
- digitalWrite(LED_D2, LOW);
- delay(1000);
+  // Closes and opens the contact of relay 1 and turns on/off led 1
+  digitalWrite(D0, HIGH); // Sets the relay 1 on
+  digitalWrite(LED_D0, HIGH);
+  delay(1000);
+  digitalWrite(D0, LOW); // Sets the relay 1 off
+  digitalWrite(LED_D0, LOW);
+  delay(1000);
 
- //  Closes and opens the contact of relay 4 and turns on led 4
- digitalWrite(D3, HIGH); // Sets the relay 4 on
- digitalWrite(LED_D3, HIGH);
- delay(1000);
- digitalWrite(D3, LOW); // Sets the relay 4 off
- digitalWrite(LED_D3, LOW);
- delay(1000);
+  // Closes and opens the contact of relay 2 and turns on/off led 2
+  digitalWrite(D1, HIGH); // Sets the relay 2 on
+  digitalWrite(LED_D1, HIGH);
+  delay(1000); 
+  digitalWrite(D1, LOW); // Sets the relay 2 off
+  digitalWrite(LED_D1, LOW);
+  delay(1000);
+
+  // Closes and opens the contact of relay 3 and turns on/off led 3
+  digitalWrite(D2, HIGH); // Sets the relay 3 on
+  digitalWrite(LED_D2, HIGH);
+  delay(1000);
+  digitalWrite(D2, LOW); // Sets the relay 3 off
+  digitalWrite(LED_D2, LOW);
+  delay(1000);  
+  //  Closes and opens the contact of relay 4 and turns on/off led 4
+  digitalWrite(D3, HIGH); // Sets the relay 4 on
+  digitalWrite(LED_D3, HIGH);
+  delay(1000);
+  digitalWrite(D3, LOW); // Sets the relay 4 off
+  digitalWrite(LED_D3, LOW);
+  delay(1000);
 }
 ```
-
-***Important: It is not possible to program the Opta™ while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again.***
 
 ### Using Opta™ PLC's Inputs
 
