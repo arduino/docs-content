@@ -145,6 +145,76 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
+### Ethernet
+
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="7">LAN8742AI</td>
+    <td>Single-port 10/100 Ethernet transceiver designed for use in industrial and automotive applications.</td>
+  </tr>
+  <tr>
+    <td>Designed to operate in harsh environments, with built-in features such as ESD protection, surge protection, and low EMI emissions.</td>
+  </tr>
+  <tr>
+    <td>Media Independent Interface (MII) and Reduced Media Independent Interface (RMII) interfaces support, making it compatible with a wide range of Ethernet controllers.</td>
+  </tr>
+  <tr>
+    <td>Built-in low-power mode that reduces power consumption when the link is idle, helping to conserve power in battery-powered devices.</td>
+  </tr>
+  <tr>
+    <td>Auto-negotiation support, which allows it to automatically detect and configure the link speed and duplex mode, making it easy to use in a variety of applications.</td>
+  </tr>
+  <tr>
+    <td>Built-in diagnostic features, such as loopback mode and cable length detection, which help to simplify troubleshooting and debugging.</td>
+  </tr>
+  <tr>
+    <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh industrial and automotive environments.</td>
+  </tr>
+</tbody>
+</table>
+
+### External Memory
+
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="7">MX25L12833F</td>
+    <td>NOR flash memory that can be used for storing program code, data, and configuration settings.</td>
+  </tr>
+  <tr>
+    <td>SPI and QSPI interfaces support, which provide high-speed data transfer rates of up to 104 MHz.</td>
+  </tr>
+  <tr>
+    <td>Onboard power management features, such as a deep power-down mode and standby mode, that help to reduce power consumption in battery-powered devices.</td>
+  </tr>
+  <tr>
+    <td>Hardware-based security features, such as a one-time programmable (OTP) area, a hardware write-protect pin, and a secure silicon ID.</td>
+  </tr>
+  <tr>
+    <td>Auto-negotiation support, which allows it to automatically detect and configure the link speed and duplex mode, making it easy to use in a variety of applications.</td>
+  </tr>
+  <tr>
+    <td>Reliability-enhancing features, such as ECC (Error Correction Code) and a high endurance of up to 100,000 program/erase cycles.</td>
+  </tr>
+  <tr>
+    <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh industrial and automotive environments.</td>
+  </tr>
+</tbody>
+</table>
+
 ### Included Accesories 
 
 - Wi-Fi W.FL antenna (not compatible with Portenta H7 U.FL antenna)
