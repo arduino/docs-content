@@ -3,7 +3,7 @@ Board:
   SKU: ABX00074
 Microcontroller: Renesas R7FA6M5BH2CBG Arm® Cortex®-M33 with embedded RTC
 USB connector: USB-C®
-High Density Pins:
+High-Density Pins:
   Digital I/O pins: 78
   Analog input pins: 8
   ADC resolution: 12 bits 
@@ -43,7 +43,6 @@ Communication:
 Power:
   Circuit operating voltage: 3.3 V
   Input voltage (VIN): 5 V
-  DC Current per I/O Pin: 8 mA
 Clock speed: 200 MHz 
 Memory:
   Internal: 2 MB Flash, 512 KB RAM
