@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Portenta Arduino® Portenta C33:
+Here you will find the technical specifications for the Arduino® Portenta C33:
