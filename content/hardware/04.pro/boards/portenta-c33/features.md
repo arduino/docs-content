@@ -8,40 +8,40 @@ Are you looking for a cost-effective and versatile microcontroller module for yo
 <FeatureList>
 <Feature title="Portenta Family Form Factor" image="nano-form-factor">
 
-  The high-density Connectors, which utilize castellated pins, and the Nano form factor of this board allow compatibility with the Arduino Portenta and MKR ecosystem, making the Portenta C33 very versatile for a variety of purposes. This compatibility enables developers to easily integrate the Portenta C33 into existing Arduino projects and access a wide range of shields and modules.
+  The high-density Connectors, which utilize castellated pins, and the Nano form factor of this board allow compatibility with the Arduino Portenta and MKR ecosystem, making the Portenta C33 very versatile for a variety of purposes.
 
 </Feature>
 
 <Feature title="Renesas R7FA6M5BH2CBG microcontroller" image="mcu">
 
-  The Portenta C33 main microcontroller is the ARM Cortex M33, a 32-bit processor that offers efficient performance, low power consumption, and advanced security features, making it an ideal choice for a wide range of embedded systems applications. The Cortex-M33 is designed for real-time processing and offers high performance and energy efficiency, making it well-suited for applications that require low latency, high throughput, and long battery life.
+  The Portenta C33 main microcontroller is the ARM Cortex M33, a 32-bit processor that offers efficient performance, low power consumption, and advanced security features, making it an ideal choice for a wide range of embedded systems applications.
 
   <FeatureLink title="Datasheet" url="https://www.renesas.com/us/en/document/dst/ra6m5-group-datasheet?r=1493931" download/>
 </Feature>
 
-<Feature title="ESP32-C3-MINI-1U Wi-Fi® and Bluetooth® module" image="wifi-bluetooth">
+<Feature title="Espressif ESP32-C3-MINI-1U Wi-Fi® and Bluetooth® module" image="wifi-bluetooth">
 
-  The ESP32-C3-MINI-1U is a compact Wi-Fi and Bluetooth module with low power consumption, high performance, and various peripheral interfaces, making it a well-suited option for battery-powered IoT devices that require long battery life and real-time data processing. Its low power consumption and high performance enable it to operate on battery power for extended periods while still performing real-time data processing tasks.
+  The ESP32-C3-MINI-1U is a compact Wi-Fi and Bluetooth module with low power consumption, high performance, and various peripheral interfaces, making it a well-suited option for battery-powered IoT devices that require long battery life and real-time data processing. 
 
   <FeatureLink title="Datasheet" url="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" download blank/>
 </Feature>
 
-<Feature title="SE051 IoT Secure Element" image="crypto-chip">
+<Feature title="NXP® SE050C2 IoT Secure Element" image="crypto-chip">
 
-  The SE051C secure element offers secure storage and processing of sensitive data, cryptographic key management, and protection against physical and software-based attacks. Its secure storage and processing of sensitive data and cryptographic key management are essential for protecting against data breaches and ensuring the confidentiality and integrity of sensitive information.
+  The SE051C secure element offers secure storage and processing of sensitive data, cryptographic key management, and protection against physical and software-based attacks.
 
   <FeatureLink title="Datasheet" url="https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf" download blank/>
 </Feature>
 
 <Feature title="MicroPython Language Support" image="python">
 
-  Program the Portenta C33 with MicroPython and other high-level programming languages, offering rapid prototyping, efficient use of resources, and a Python-based development environment for IoT applications. The ability to rapidly prototype and efficiently use resources allows developers to quickly test and iterate their designs and optimize the performance of their IoT applications.
+  Program the Portenta C33 with MicroPython and other high-level programming languages, offering rapid prototyping, efficient use of resources, and a Python-based development environment for IoT applications. 
   
 </Feature>
 
 <Feature title="Low-power design" image="power">
 
-  The Portenta C33 was designed with low power consumption in mind, making it well-suited for battery-powered IoT devices that require long battery life. Its microcontroller is designed for efficient power usage, allowing it to perform real-time processing tasks while consuming minimal energy. The board's low-power design ensures that it can operate for extended periods on battery power, making it a reliable and cost-effective solution for a wide range of IoT applications.
+  The Portenta C33 was designed with low power consumption in mind, making it well-suited for battery-powered IoT devices that require long battery life. Its microcontroller is designed for efficient power usage, allowing it to perform real-time processing tasks while consuming minimal energy.
   
 </Feature>
 
