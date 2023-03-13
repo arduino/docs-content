@@ -157,7 +157,7 @@ Serial.println("LED on V1: on");
 
 Before you can get everything up and running you should have filled the **arduino_secrets.h** piece of code with the auth token got by email and the credentials to access the internet over GPRS. With this data, the sketch can be uploaded to the MKR GSM 1400.
 
-Launch the Blynk application on your smartphone, then select the project created with the QR code and tap on the "play" icon on the right of the top bar. You should see the icon of a small board with a red blob on it: it is the status of the connection with your board. Load the sketch and wait for the connection process to happen. You may want to monitor it through the Serial Monitor.
+Launch the Blynk application on your smartphone, then select the project created with the QR code and tap on the "play" icon on the right of the top bar. You should see the icon of a small board with a red blob on it: it is the status of the connection with your board. Load the sketch and wait for the connection process to happen. You may want to monitor it trhough the Serial Monitor.
 
 Anyway, when the board connects to the Blynk server, the red blob should disappear and on the interface you should start to see the virtual LED blinking with a slow pace. You are connected!
 
