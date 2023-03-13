@@ -34,6 +34,12 @@ The full datasheets are available as a downloadable PDF from the link below:
 
 - [Download the GIGA R1 datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
 
+## Arduino IoT Cloud
+
+The GIGA R1 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+
+***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
+
 ## Power Supply
 
 To power the **GIGA R1** you may either use a USB-C cable, or the VIN pin. 

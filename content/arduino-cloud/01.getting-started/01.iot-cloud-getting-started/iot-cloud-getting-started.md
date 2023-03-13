@@ -57,6 +57,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
