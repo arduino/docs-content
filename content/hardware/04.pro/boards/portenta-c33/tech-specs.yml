@@ -1,30 +1,53 @@
 Board:
   Name: Arduino® Portenta C33
   SKU: ABX00074
-Microcontroller: Renesas R7FA6M5BH2CBG Arm® Cortex®-M33
+Microcontroller: Renesas R7FA6M5BH2CBG Arm® Cortex®-M33 with embedded RTC
 USB connector: USB-C®
-Pins:
-  Digital I/O pins: 73 (15 available through the MKR-styled connectors)
-  Analog input pins: 7 (available through the MKR-styled and high-density connectors)
-  Analog output pins: 2 (available through the high-density connectors)
-  #PWM pins: 10
-Connectivity:
+High Density Pins:
+  Digital I/O pins: 78
+  Analog input pins: 8
+  ADC resolution: 12 bits 
+  PWM pins: 10
+  DAC resolution: 12 bits
+  SPI pins: 8 
+  I2C pins: 6 
+  UART pins: 16
+  CAN pins: 4
+  I2S pins: 4
+  USB2: 3
+MKR-styled Pins:
+  Digital I/O pins: 22 
+  Analog input pins: 7
+  ADC resolution: 12 bits 
+  PWM pins: 7
+  DAC resolution: 12 bits
+  SPI pins: 4 
+  I2C pins: 2 
+  UART pins: 2
+Wireless Connectivity:
   Chipset: ESP32-C3-MINI-1U
   Wi-Fi®: 2.4GHz Wi-Fi® (802.11 b/g/n)
-  Bluetooth®: Bluetooth® 5.0
+  Bluetooth®: Bluetooth® Low Energy 5.0
+Ethernet connectivity:
+  Chipset: LAN8742AI-CZ-TR
+  Interface: 10/100Mbit Ethernet interface (PHY)
 Secure element: NXP® SE050C2
 Communication:
-  UART: Yes
-  I2C: Yes
-  SPI: Yes
+  I2C: 3
+  UART: 4
+  CAN FD: 2
+  I2S: 1
+  SPI: 2
+  PWM: 10
+  USB: 2 (1x USB 2.0 Full Speed + 1x USB 2.0 High Speed)
 Power:
-  Circuit operating voltage: 3.3V
-  Input voltage (VIN): 5V
+  Circuit operating voltage: 3.3 V
+  Input voltage (VIN): 5 V
   DC Current per I/O Pin: 8 mA
-Clock speed: 200MHz 
+Clock speed: 200 MHz 
 Memory:
-  Internal: 2MB Flash, 512KB RAM
-  External: 16MB (QSPI Flash)
+  Internal: 2 MB Flash, 512 KB RAM
+  External: 16 MB (QSPI Flash)
 Dimensions:
   Width: 25.40 mm
   Length: 66.04 mm
