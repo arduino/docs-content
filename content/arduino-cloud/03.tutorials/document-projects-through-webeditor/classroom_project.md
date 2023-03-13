@@ -40,9 +40,9 @@ When your editor is ready, create a new sketch by clicking ![new_sketch_icon.png
 ![classroom_project_rename_sketch](assets/classroom_project_rename_sketch.png)
 
 ### 4. Write your sketch. 
-Write your sketch or copy-paste your sketch from another project. For easy readibility ensure that
+Write your sketch or copy-paste your sketch from another project. For easy readability ensure that
 * Adding comments to describe important statements 
-* Assigning good varible names 
+* Assigning good variable names 
 * Inundating the code 
 
 Here's the example sketch of the Proximity Meter project for your reference.  
