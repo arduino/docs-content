@@ -60,6 +60,91 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 [comment]: <> (Force page break here) 
 [comment]: <> (<div style="page-break-after: always;"></div>)
 
+
+### Microcontroller
+
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="6">R7FA6M5BH2CBG</td>
+    <td>32-bit Arm Cortex-M33 microcontroller, with a maximum operating frequency of 200 MHz</td>
+  </tr>
+  <tr>
+    <td>2 MB of flash memory and 256 KB of SRAM</td>
+  </tr>
+  <tr>
+    <td>Several peripheral interfaces, including UART, I2C, SPI, USB, CAN, and Ethernet</td>
+  </tr>
+  <tr>
+    <td>Hardware-based security features, such as a True Random Number Generator (TRNG), a Memory Protection Unit (MPU), and a TrustZone-M security extension.</td>
+  </tr>
+  <tr>
+    <td>Onbaord power management features that allow it to operate on low power.</td>
+  </tr>
+  <tr>
+    <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh environments.</td>
+  </tr>
+</tbody>
+</table>
+
+### Communication
+
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="2">ESP32­-C3-­MINI-­1U</td>
+    <td>2.4 GHz Wi­Fi (802.11 b/g/n) support</td>
+  </tr>
+  <tr>
+    <td>Bluetooth® 5.0 support</td>
+  </tr>
+</tbody>
+</table>
+
+### Security
+
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="6">NXP SE050C2</td>
+    <td>Secure boot process that verifies the authenticity and integrity of the firmware before it is loaded into the device</td>
+  </tr>
+  <tr>
+    <td>Built-in hardware cryptography engine that can perform various encryption and decryption functions, including AES, RSA, and ECC.</td>
+  </tr>
+  <tr>
+    <td>Secure storage for sensitive data, such as private keys, credentials, and certificates. This storage is protected by strong encryption and can only be accessed by authorized parties.</td>
+  </tr>
+  <tr>
+    <td>Secure communication protocols support, such as TLS, which helps to protect data in transit from unauthorized access or interception.</td>
+  </tr>
+  <tr>
+    <td>Tamper detection features that can detect if the device has been physically tampered with. This helps to prevent attacks such as probing or power analysis attacks that attempt to access the device's sensitive data.</td>
+  </tr>
+  <tr>
+    <td>Common Criteria security standard certification, which is an internationally recognized standard for evaluating the security of IT products.</td>
+  </tr>
+</tbody>
+</table>
+
 ### Included Accesories 
 
 - Wi-Fi W.FL antenna (not compatible with Portenta H7 U.FL antenna)
