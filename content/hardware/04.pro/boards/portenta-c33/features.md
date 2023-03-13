@@ -21,7 +21,7 @@ Develop cost-effective, real-time applications with **Portenta C33**. Featuring 
 
 <Feature title="ESP32-C3-MINI-1U Wi-Fi® and Bluetooth® Low Energy" image="wifi-bluetooth">
 
-  Compact Wi-Fi® and Bluetooth-enabled microcontroller with benefits such as low power consumption, high performance, and a variety of peripheral interfaces. Ideal for a range of IoT applications requiring wireless connectivity and low power consumption.
+  Compact Wi-Fi® and Bluetooth-enabled microcontroller with benefits such as low power consumption, high performance, and a variety of peripheral interfaces. Ideal for a wide range of IoT applications.
 
   <FeatureLink title="Datasheet" url="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" download blank/>
 </Feature>
@@ -35,7 +35,7 @@ Develop cost-effective, real-time applications with **Portenta C33**. Featuring 
 
 <Feature title="MicroPython language supported" image="python">
 
-  Program it with MicroPython and other high-level programming languages. MicroPython offers rapid prototyping, efficient use of resources, and a Python-based development environment for IoT applications, enabling faster time-to-market.
+  Program it with MicroPython and other high-level programming languages, offering rapid prototyping, efficient use of resources, and a Python-based development environment for IoT applications.
   
 </Feature>
 
