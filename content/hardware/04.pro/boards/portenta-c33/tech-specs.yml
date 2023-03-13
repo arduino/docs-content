@@ -11,7 +11,7 @@ Pins:
 Connectivity:
   Chipset: ESP32-C3-MINI-1U
   Wi-Fi®: 2.4GHz Wi-Fi® (802.11 b/g/n)
-  Bluetooth®: Bluetooth® 5.0
+  Bluetooth®: Bluetooth® Low Energy 5.0
 Secure element: NXP® SE050C2
 Communication:
   UART: Yes
