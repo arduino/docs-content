@@ -21,10 +21,10 @@ Power:
   Circuit operating voltage: 3.3 V
   Input voltage (VIN): 5 V
   DC Current per I/O Pin: 8 mA
-Clock speed: 200MHz 
+Clock speed: 200 MHz 
 Memory:
-  Internal: 2MB Flash, 512KB RAM
-  External: 16MB (QSPI Flash)
+  Internal: 2 MB Flash, 512 KB RAM
+  External: 16 MB (QSPI Flash)
 Dimensions:
   Width: 25.40 mm
   Length: 66.04 mm
