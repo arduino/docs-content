@@ -8,7 +8,10 @@ Pins:
   Analog input pins: 8
   Analog output pins: 2
   #PWM pins: 10
-Connectivity: 2.4GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5 (ESP32-C3-MINI-1U)
+Connectivity:
+  Chipset: ESP32-C3-MINI-1U
+  Wi-Fi®: 2.4GHz Wi-Fi® (802.11 b/g/n)
+  Bluetooth® 5: Bluetooth® 5 Low Energy connectivity
 Secure element: NXP® SE051C
 Communication:
   UART: Yes

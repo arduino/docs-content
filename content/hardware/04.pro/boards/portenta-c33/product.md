@@ -1,7 +1,7 @@
 ---
 title: Portenta C33
 url_shop: https://store.arduino.cc/portenta-c33
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
+#url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
 #productCode: '041'
