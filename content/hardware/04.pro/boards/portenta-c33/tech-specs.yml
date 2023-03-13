@@ -18,8 +18,8 @@ Communication:
   I2C: Yes
   SPI: Yes
 Power:
-  Circuit operating voltage: 3.3V
-  Input voltage (VIN): 5V
+  Circuit operating voltage: 3.3 V
+  Input voltage (VIN): 5 V
   DC Current per I/O Pin: 8 mA
 Clock speed: 200MHz 
 Memory:
