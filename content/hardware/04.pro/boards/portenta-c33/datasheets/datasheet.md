@@ -33,26 +33,73 @@ Thanks to its high-performance processor, the Portenta C33 supports many applica
 ## Board Overview 
 
 <p style="text-align: justify;">
-The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications.The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table1 summarizes the board's main features, Table 2, 3 4, 5, and 6 shows more detailed information of the board's microcontroller, secure element, Ethernet transceiver, and external memory.
+The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications.The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table 1 summarizes the board's main features, Table 2, 3 4, 5, and 6 shows more detailed information of the board's microcontroller, secure element, Ethernet transceiver, and external memory.
 </p>
 
 <div style="text-align:center;">
 
-|     **Feature**     | **Description**                                                                                                                                                              |
-|:-------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   Microcontroller   | 200MHz, Arm Cortex-M33 core microcontroller (R7FA6M5BH2CBG)                                                                                                                  |
-|   Internal Memory   | 2MB Flash and 256kB SRAM                                                                                                                                                     |
-|   External Memory   | 6MB QSPI Flash memory (MX25L12833F)                                                                                                                                          |
-|     Connectivity    | 2.4GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5.0 (ESP32­-C3-­MINI-­1U)                                                                                                         |
-|       Ethernet      | Ethernet physical layer (PHY) transceiver (LAN8742AI)                                                                                                                        |
-|       Security      | IoT-ready secure element (SE050C2)                                                                                                                                           |
-|   USB Connectivity  | USB-C port for power and data (accessible also through the board's high-density connectors)                                                                                  |
-|     Power Supply    | Various options for easily powering the board: USB-C port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors |
-|  Analog Peripherals | Two, eight channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)                                                                 |
-| Digital Peripherals | GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1)                                                                  |
-|      Debugging      | JTAG/SWD debug port (accessible through the board's high-density connectors)                                                                                                 |
-|      Dimensions     | 66.04mm x 25.40mm                                                                                                                                                            |
-|    Surface-mount    | Castellated pins allow the board to be positioned as a surface-mountable module                                                                                              |
+<table>
+<thead>
+  <tr>
+    <th>**Feature**</th>
+    <th>**Description**</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Microcontroller</td>
+    <td>200 MHz, Arm® Cortex®-M33 core microcontroller (R7FA6M5BH2CBG)</td>
+  </tr>
+  <tr>
+    <td>Internal Memory</td>
+    <td>2MB Flash and 512 kB SRAM</td>
+  </tr>
+  <tr>
+    <td>External Memory</td>
+    <td>16 MB QSPI Flash memory (MX25L12833F)</td>
+  </tr>
+  <tr>
+    <td>Connectivity</td>
+    <td>2.4 GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5.0 (ESP32­-C3-­MINI-­1U)</td>
+  </tr>
+  <tr>
+    <td>Ethernet</td>
+    <td>Ethernet physical layer (PHY) transceiver (LAN8742AI)</td>
+  </tr>
+  <tr>
+    <td>Security</td>
+    <td>IoT-ready secure element (SE050C2)</td>
+  </tr>
+  <tr>
+    <td>USB Connectivity</td>
+    <td>USB-C port for power and data (accessible also through the board's high-density connectors)</td>
+  </tr>
+  <tr>
+    <td>Power Supply</td>
+    <td>Various options for easily powering the board: USB-C port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
+  </tr>
+  <tr>
+    <td>Analog Peripherals</td>
+    <td>Two, eight channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)</td>
+  </tr>
+  <tr>
+    <td>Digital Peripherals</td>
+    <td>GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1)</td>
+  </tr>
+  <tr>
+    <td>Debugging</td>
+    <td>JTAG/SWD debug port (accessible through the board's high-density connectors)</td>
+  </tr>
+  <tr>
+    <td>Dimensions</td>
+    <td>66.04 mm x 25.40 mm</td>
+  </tr>
+  <tr>
+    <td>Surface-mount</td>
+    <td>Castellated pins allow the board to be positioned as a surface-mountable module</td>
+  </tr>
+</tbody>
+</table>
 
 **<caption>Table 1: Portenta C33 Main Features</caption>**
 </div>
@@ -74,7 +121,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 <tbody>
   <tr>
     <td rowspan="7"; text-align="justify">R7FA6M5BH2CBG</td>
-    <td>32-bit Arm Cortex-M33 microcontroller, with a maximum operating frequency of 200 MHz</td>
+    <td>32-bit Arm® Cortex®-M33 microcontroller, with a maximum operating frequency of 200 MHz</td>
   </tr>
   <tr>
     <td text-align="justify" justify>2 MB of flash memory and 256 KB of SRAM</td>
@@ -323,17 +370,17 @@ Figure 2 shows the power options available on the board and illustrates its powe
 
 #### Board Dimensions 
 
-**![Figure 3. Portenta C33 dimensions (top view)](assets/portentaC33_mechanical_top.svg)**
+Portenta C33 board main dimensions can be seen in Figures 3.
 
-**![Figure 4. Portenta C33 dimensions (bottom view)](assets/portentaC33_mechanical_bot.svg)**
+**![Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
 #### Board Connectors
 
-Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 5 and 6.
+Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 4 and 5.
 
-**![Figure 5. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
+**![Figure 4. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
 
-**![Figure 6. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
+**![Figure 5. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
 
 ## Certifications
 

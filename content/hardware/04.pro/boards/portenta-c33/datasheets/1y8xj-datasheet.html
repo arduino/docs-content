@@ -1,0 +1,899 @@
+<html><head><style>html {
+    font-family: 'Open Sans', 'Source Sans Pro', sans-serif;
+    font-size: 12px; /* 10px for 16px based systems */
+    line-height: 1.6;
+    color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+p {
+    margin-block-start: 0.75em;
+    margin-block-end: 0.75em;
+}
+
+table {
+    font-size: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+hr {    
+    border-style: none;
+    border: 0;
+    background-color: #666;
+    height: 1px;
+}
+
+td, th {
+    border: 1px solid #666;    
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+td[align="right"], th[align="right"] {
+    text-align: right;
+}
+
+td[align="center"], th[align="center"] {
+    text-align: center;
+}
+
+th {
+    background-color: #bdc7c7;
+}
+
+h1, h2, h3, h4 {
+    color: #95a5a6;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    padding-top: 0.75em;
+}
+
+h3, h4 {
+    font-size: 1.2rem;
+}
+
+h2, h3 {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+li:last-of-type {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    max-height: 610px;
+    margin: auto;
+    display: block;
+    align-self: center;
+    page-break-inside: avoid;
+}
+
+/**
+Scaling classes for images based on their suffix
+**/
+
+img[src*="_20."]{
+    max-width: 20%;
+}
+
+img[src*="_40."]{
+    max-width: 40%;
+    max-width: 40%;
+}
+
+img[src*="_60."]{
+    max-width: 60%;
+}
+
+img[src*="_80."]{
+    max-width: 80%;
+}
+
+
+.header {
+    display: block;
+    width: 100%;
+    margin: 10mm 15mm 0 15mm;
+    padding-bottom: 1mm;
+    border-bottom: 1px solid #666;
+}
+
+.header-title {    
+    font-family: 'Roboto Mono', monospace;
+    text-align:right;
+    color: #95a5a6;
+    float: right;
+    max-width: 70%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    /* vertical-align: middle; */
+}
+
+.subtitle {
+    text-align:right;
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+.logo-header{
+    float: left;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8mm;
+    margin-left: 15mm;
+    margin-right: 15mm;
+    padding-top: 1.25mm;
+    border-top: 1px solid #666666;
+    font-size: 0.8rem;
+}
+
+.pagination {
+    font-weight: bold;
+    width: 100px;
+}
+
+.product-name-footer {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.modified-date {
+    text-align: right;
+    width: 100px;
+}
+
+/*
+Table of contents page numbers styles
+*/
+.page-number {
+    float: right;
+}
+
+.page-number::after {
+    clear: both;
+}
+
+.list-h2 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.list-h3 {
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+.list-h4 {
+    padding-left: 40px;
+    margin-bottom: 5px;
+}
+
+.list-h5 {
+    padding-left: 60px;
+    margin-bottom: 5px;
+}
+
+.list-h6 {
+    padding-left: 80px;
+    margin-bottom: 5px;
+}
+
+.img-description {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+    page-break-before: avoid;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.75em;
+}
+
+#features {
+    page-break-before: always;
+}
+
+#features, #description, #target-areas {
+    color: black;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#target-areas {
+    clear: both;
+    margin-top: 15px;
+}
+
+#target-areas + p {
+    border-bottom: 1px solid #95a5a6;
+    padding-bottom: 20px;
+}
+
+h1#features {
+    margin-top: 15px;
+}
+
+h1#contents {
+    page-break-before:always;
+}
+
+#table-of-contents {
+    page-break-after:always;
+}
+
+/**
+Formats the featured image if it's placed at the very beginning
+of the markdown document.
+*/
+div.subtitle + p > img:first-child {
+    width: 50%;
+    display: block;
+    margin-left: 50%;
+    margin-top: 15px;
+}
+
+/** Hide image caption of feature image **/
+div.subtitle + p + div.img-description {
+    display: none;
+}
+
+ul#feature-list {
+    font-size: 1rem;
+}
+
+ul#feature-list li {
+    page-break-inside: avoid;
+}
+
+
+h1, h2, h3, h4 {    
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.5em;
+}
+
+/* Don't break before elements just after a heading */
+h1 + *, h2 + *, h3 + *, h4 + * { 
+    page-break-before: avoid;
+}
+
+/* Hack to avoid page breaks after a heading */
+h1::after, h2::after, h3::after, h4::after {
+    content: "";
+    display: block;
+    height: 300px;
+    margin-bottom: -300px;
+}
+.header {
+    border-color: #95a5a6;
+    /* border-color: #58585A; */
+}
+
+.header-title {
+    color: #2F2F2F;
+}
+</style></head><body><div class="subtitle">Product Reference Manual<br>SKU: ABX00074</div><p><img src="assets/Portenta_C33_Top_View.png" alt=""></p>
+<h1 id="description">Description</h1>
+<p style="text-align: justify;">The Portenta C33 is a powerful System-on-Module designed for low-cost Internet of Things (IoT) applications. Based on the R7FA6M5BH2CBG microcontroller from Renesas®, this board shares the same form factor as the Portenta H7 and it is backward compatible with it, making it fully compatible with all Portenta family shields and carriers through its high-density connectors. As a low-cost device, the Portenta C33 is an excellent choice for developers looking to create IoT devices and applications on a budget. Whether you're building a smart home device or a connected industrial sensor, the Portenta C33 provides the processing power and connectivity options you need to get the job done.</p>
+
+<h1 id="target-areas">Target Areas</h1>
+<p>IoT, building automation, smart cities, and agriculture</p>
+<h1 id="contents">CONTENTS</h1><div id="table-of-contents"><div class="list-h2"><a href="#1-application-examples">1 Application Examples</a></div><div class="list-h2"><a href="#2-board-overview">2 Board Overview</a></div><div class="list-h3"><a href="#2-1-microcontroller">2.1 Microcontroller</a></div><div class="list-h3"><a href="#2-2-wireless-communication">2.2 Wireless Communication</a></div><div class="list-h3"><a href="#2-3-security">2.3 Security</a></div><div class="list-h3"><a href="#2-4-ethernet-connectivity">2.4 Ethernet connectivity</a></div><div class="list-h3"><a href="#2-5-external-memory">2.5 External Memory</a></div><div class="list-h3"><a href="#2-6-included-accesories">2.6 Included Accesories</a></div><div class="list-h3"><a href="#2-7-related-products">2.7 Related Products</a></div><div class="list-h2"><a href="#3-specifications">3 Specifications</a></div><div class="list-h3"><a href="#3-1-recommended-operating-conditions">3.1 Recommended Operating Conditions</a></div><div class="list-h3"><a href="#3-2-current-consumption">3.2 Current Consumption</a></div><div class="list-h2"><a href="#4-hardware">4 Hardware</a></div><div class="list-h3"><a href="#4-1-block-diagram">4.1 Block Diagram</a></div><div class="list-h3"><a href="#4-2-power-supply">4.2 Power Supply</a></div><div class="list-h3"><a href="#4-3-mechanical-specification">4.3 Mechanical Specification</a></div><div class="list-h4"><a href="#4-3-1-board-dimensions">4.3.1 Board Dimensions</a></div><div class="list-h4"><a href="#4-3-2-board-connectors">4.3.2 Board Connectors</a></div><div class="list-h2"><a href="#5-certifications">5 Certifications</a></div><div class="list-h3"><a href="#5-1-certifications-summary">5.1 Certifications Summary</a></div><div class="list-h3"><a href="#5-2-declaration-of-conformity-ce-doc-eu-">5.2 Declaration of Conformity CE DoC (EU)</a></div><div class="list-h3"><a href="#5-3-declaration-of-conformity-to-eu-rohs-reach-211-01-19-2021">5.3 Declaration of Conformity to EU RoHS &amp; REACH 211 01/19/2021</a></div><div class="list-h3"><a href="#5-4-conflict-minerals-declaration">5.4 Conflict Minerals Declaration</a></div><div class="list-h2"><a href="#6-fcc-caution">6 FCC Caution</a></div><div class="list-h2"><a href="#7-company-information">7 Company Information</a></div><div class="list-h2"><a href="#8-document-revision-history">8 Document Revision History</a></div></div>
+<h2 id="1-application-examples">1 Application Examples</h2>
+<div style="text-align:justify;">
+Thanks to its high-performance processor, the Portenta C33 supports many applications. From industrial applications to rapid prototyping, IoT solutions, and building automation, among many others. Here are some application examples: 
+
+<ul id="feature-list">
+<li><strong>Industrial Automation:</strong> The Portenta C33 can be implemented as a solution for different industrial applications, such as:<ul>
+<li><strong>Industrial IoT gateway:</strong> Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino IoT Cloud dashboard, leveraging end-to-end secure data encryption.</li>
+<li><strong>Machine monitoring to track OEE/OPE:</strong> Track Overall Equipment Efficiency (OEE) and Overall Process Effectiveness (OPE) with the Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.</li>
+<li><strong>Inline Quality Assurance:</strong> Leverage full compatibility between Portenta C33 and Nicla family to carry out quality control in your production lines. Collect Nicla smart sensing data with the Portenta C33 to catch defects early and resolve them before they travel down the line.</li>
+</ul>
+</li>
+<li><strong>Prototyping:</strong> The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use Wi-Fi/Bluetooth® connectivity and various of peripheral interfaces, including CAN, SAI, SPI, and I2C. Moreover, the Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.</li>
+<li><strong>Building Automation:</strong> The Portenta C33 can be used in multiple building automation applications:<ul>
+<li><strong>Energy Consumption Monitoring:</strong> Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino IoT Cloud charts, providing an overall image for energy management optimization and cost reduction.</li>
+<li><strong>Appliances Control System</strong>: Leverage high-performing Portenta C33 microcontroller to real-time control your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from remote.</li></ul></li></ul></div>
+
+
+
+<h2 id="2-board-overview">2 Board Overview</h2>
+<p style="text-align: justify;">
+The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications.The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table 1 summarizes the board's main features, Table 2, 3 4, 5, and 6 shows more detailed information of the board's microcontroller, secure element, Ethernet transceiver, and external memory.
+</p>
+
+<div style="text-align:center;">
+
+<table>
+<thead>
+  <tr>
+    <th>**Feature**</th>
+    <th>**Description**</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Microcontroller</td>
+    <td>200 MHz, Arm® Cortex®-M33 core microcontroller (R7FA6M5BH2CBG)</td>
+  </tr>
+  <tr>
+    <td>Internal Memory</td>
+    <td>2MB Flash and 512 kB SRAM</td>
+  </tr>
+  <tr>
+    <td>External Memory</td>
+    <td>16 MB QSPI Flash memory (MX25L12833F)</td>
+  </tr>
+  <tr>
+    <td>Connectivity</td>
+    <td>2.4 GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5.0 (ESP32­-C3-­MINI-­1U)</td>
+  </tr>
+  <tr>
+    <td>Ethernet</td>
+    <td>Ethernet physical layer (PHY) transceiver (LAN8742AI)</td>
+  </tr>
+  <tr>
+    <td>Security</td>
+    <td>IoT-ready secure element (SE050C2)</td>
+  </tr>
+  <tr>
+    <td>USB Connectivity</td>
+    <td>USB-C port for power and data (accessible also through the board's high-density connectors)</td>
+  </tr>
+  <tr>
+    <td>Power Supply</td>
+    <td>Various options for easily powering the board: USB-C port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
+  </tr>
+  <tr>
+    <td>Analog Peripherals</td>
+    <td>Two, eight channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)</td>
+  </tr>
+  <tr>
+    <td>Digital Peripherals</td>
+    <td>GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1)</td>
+  </tr>
+  <tr>
+    <td>Debugging</td>
+    <td>JTAG/SWD debug port (accessible through the board's high-density connectors)</td>
+  </tr>
+  <tr>
+    <td>Dimensions</td>
+    <td>66.04 mm x 25.40 mm</td>
+  </tr>
+  <tr>
+    <td>Surface-mount</td>
+    <td>Castellated pins allow the board to be positioned as a surface-mountable module</td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>Table 1: Portenta C33 Main Features</strong></p>
+</div>
+
+<h3 id="2-1-microcontroller">2.1 Microcontroller</h3>
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="7" ;="" text-align="justify">R7FA6M5BH2CBG</td>
+    <td>32-bit Arm® Cortex®-M33 microcontroller, with a maximum operating frequency of 200 MHz</td>
+  </tr>
+  <tr>
+    <td text-align="justify" justify="">2 MB of flash memory and 256 KB of SRAM</td>
+  </tr>
+  <tr>
+    <td text-align="justify">Several peripheral interfaces, including UART, I2C, SPI, USB, CAN, and Ethernet</td>
+  </tr>
+  <tr>
+    <td text-align="justify">Hardware-based security features, such as a True Random Number Generator (TRNG), a Memory Protection Unit (MPU), and a TrustZone-M security extension</td>
+  </tr>
+  <tr>
+    <td text-align="justify">Onboard power management features that allow it to operate on low power</td>
+  </tr>
+  <tr>
+    <td text-align="justify"> Onboard RTC module that provides accurate timekeeping and calendar functions, along with programmable alarms and tamper detection features</td>
+  </tr>
+  <tr>
+    <td text-align="justify">Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh environments</td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>Table 2: Portenta C33 Microcontroller Features</strong></p>
+</div>
+
+<h3 id="2-2-wireless-communication">2.2 Wireless Communication</h3>
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="2">ESP32­-C3-­MINI-­1U</td>
+    <td>2.4 GHz Wi-­Fi® (802.11 b/g/n) support</td>
+  </tr>
+  <tr>
+    <td>Bluetooth® 5.0 Low Energy support</td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>Table 3: Portenta C33 Wireless Communication Features</strong></p>
+</div>
+
+<h3 id="2-3-security">2.3 Security</h3>
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="6">NXP SE050C2</td>
+    <td>Secure boot process that verifies the authenticity and integrity of the firmware before it is loaded into the device</td>
+  </tr>
+  <tr>
+    <td>Built-in hardware cryptography engine that can perform various encryption and decryption functions, including AES, RSA, and ECC</td>
+  </tr>
+  <tr>
+    <td>Secure storage for sensitive data, such as private keys, credentials, and certificates. This storage is protected by strong encryption and can only be accessed by authorized parties</td>
+  </tr>
+  <tr>
+    <td>Secure communication protocols support, such as TLS, which helps to protect data in transit from unauthorized access or interception</td>
+  </tr>
+  <tr>
+    <td>Tamper detection features that can detect if the device has been physically tampered with. This helps to prevent attacks such as probing or power analysis attacks that attempt to access the device's sensitive data</td>
+  </tr>
+  <tr>
+    <td>Common Criteria security standard certification, which is an internationally recognized standard for evaluating the security of IT products</td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>Table 4: Portenta C33 Security Features</strong></p>
+</div>
+
+<h3 id="2-4-ethernet-connectivity">2.4 Ethernet connectivity</h3>
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="7">LAN8742AI</td>
+    <td>Single-port 10/100 Ethernet transceiver designed for use in industrial and automotive applications</td>
+  </tr>
+  <tr>
+    <td>Designed to operate in harsh environments, with built-in features such as ESD protection, surge protection, and low EMI emissions</td>
+  </tr>
+  <tr>
+    <td>Media Independent Interface (MII) and Reduced Media Independent Interface (RMII) interfaces support, making it compatible with a wide range of Ethernet controllers</td>
+  </tr>
+  <tr>
+    <td>Built-in low-power mode that reduces power consumption when the link is idle, helping to conserve power in battery-powered devices</td>
+  </tr>
+  <tr>
+    <td>Auto-negotiation support, which allows it to automatically detect and configure the link speed and duplex mode, making it easy to use in a variety of applications</td>
+  </tr>
+  <tr>
+    <td>Built-in diagnostic features, such as loopback mode and cable length detection, which help to simplify troubleshooting and debugging</td>
+  </tr>
+  <tr>
+    <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh industrial and automotive environments</td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>Table 5: Portenta C33 Ethernet Connectivity Features</strong></p>
+</div>
+
+<h3 id="2-5-external-memory">2.5 External Memory</h3>
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="7">MX25L12833F</td>
+    <td>NOR flash memory that can be used for storing program code, data, and configuration settings</td>
+  </tr>
+  <tr>
+    <td>SPI and QSPI interfaces support, which provide high-speed data transfer rates of up to 104 MHz</td>
+  </tr>
+  <tr>
+    <td>Onboard power management features, such as a deep power-down mode and standby mode, that help to reduce power consumption in battery-powered devices</td>
+  </tr>
+  <tr>
+    <td>Hardware-based security features, such as a one-time programmable (OTP) area, a hardware write-protect pin, and a secure silicon ID</td>
+  </tr>
+  <tr>
+    <td>Auto-negotiation support, which allows it to automatically detect and configure the link speed and duplex mode, making it easy to use in a variety of applications</td>
+  </tr>
+  <tr>
+    <td>Reliability-enhancing features, such as ECC (Error Correction Code) and a high endurance of up to 100,000 program/erase cycles</td>
+  </tr>
+  <tr>
+    <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh industrial and automotive environments</td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>Table 6: Portenta C33 External Memory Features</strong></p>
+</div>
+
+<h3 id="2-6-included-accesories">2.6 Included Accesories</h3>
+<ul>
+<li>Wi-Fi W.FL antenna (not compatible with Portenta H7 U.FL antenna)</li>
+</ul>
+<h3 id="2-7-related-products">2.7 Related Products</h3>
+<ul>
+<li>ESLOV connector</li>
+<li>Arduino® Portenta H7 (SKU: ABX00042)</li>
+<li>Arduino® Portenta H7 Lite (SKU: ABX00045)</li>
+<li>Arduino® Portenta H7 Lite Connected (SKU: ABX00046)</li>
+<li>Arduino® Nicla Sense ME (SKU: ABX00050)</li>
+</ul>
+<h2 id="3-specifications">3 Specifications</h2>
+<h3 id="3-1-recommended-operating-conditions">3.1 Recommended Operating Conditions</h3>
+<p style="text-align: justify;">
+Table 7 provides a comprehensive guideline for the optimal use of the Portenta C33, outlining typical operating conditions and design limits. The operating conditions of the Portenta C33 are largely a function of the operating conditions specified by its components.
+</p>
+
+<div style="text-align:center;">
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Parameter</strong></th>
+<th align="center"><strong>Symbol</strong></th>
+<th align="center"><strong>Min</strong></th>
+<th align="center"><strong>Typ</strong></th>
+<th align="center"><strong>Max</strong></th>
+<th align="center"><strong>Unit</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">USB Supply Input Voltage</td>
+<td align="center">V<sub>USB</sub></td>
+<td align="center">-</td>
+<td align="center">5.0</td>
+<td align="center">-</td>
+<td align="center">V</td>
+</tr>
+<tr>
+<td align="center">Battery Supply Input Voltage</td>
+<td align="center">V<sub>USB</sub></td>
+<td align="center">-0.3</td>
+<td align="center">3.7</td>
+<td align="center">4.8</td>
+<td align="center">V</td>
+</tr>
+<tr>
+<td align="center">Supply Input Voltage</td>
+<td align="center">V<sub>IN</sub></td>
+<td align="center">4.1</td>
+<td align="center">5.0</td>
+<td align="center">6.0</td>
+<td align="center">V</td>
+</tr>
+<tr>
+<td align="center">Operating Temperature</td>
+<td align="center">T<sub>OP</sub></td>
+<td align="center">-40</td>
+<td align="center">-</td>
+<td align="center">85</td>
+<td align="center">°C</td>
+</tr>
+</tbody></table>
+<p><strong>Table 7: Recommended Operating Conditions</strong></p>
+</div>
+
+<h3 id="3-2-current-consumption">3.2 Current Consumption</h3>
+<p style="text-align: justify;">
+The operating current of the Portenta C33 depends greatly on the application. Table 8 summarizes the board's power consumption in a defined application and conditions.
+</p>
+
+<div style="text-align:center;">
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Parameter</strong></th>
+<th align="center"><strong>Symbol</strong></th>
+<th align="center"><strong>Condition</strong></th>
+<th align="center"><strong>Typ</strong></th>
+<th align="center"><strong>Unit</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Board Current Consumption</td>
+<td align="center">I<sub>TOT</sub></td>
+<td align="center">V<sub>BAT</sub>=3.7V, USB cable disconnected, all peripherals in sleep mode</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p><strong>Table 8: Power Consumption in a Defined Application and Conditions</strong></p>
+</div>
+
+
+<p><em></em></p><p style="text-align: justify;"><em><strong>Note</strong>: Current consumption measurements were taken under controlled laboratory conditions, with the Portenta C33 running a specific application and connected to a specific power source. Results may vary depending on the application and operating conditions.</em></p><p></p>
+<div style="page-break-after: always;"></div>
+
+<h2 id="4-hardware">4 Hardware</h2>
+<p style="text-align: justify;">
+The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller. 
+</p>
+
+<h3 id="4-1-block-diagram">4.1 Block Diagram</h3>
+<p>An overview of the Portenta C33 high-level architecture is illustrated in Figure 1.</p>
+<p><strong><img src="assets/Portenta_C33_Block_Diagram.svg" alt="Figure 1. High-level architecture of the Portenta C33"><div class="img-description">Figure 1. High-level architecture of the Portenta C33</div></strong></p>
+<h3 id="4-2-power-supply">4.2 Power Supply</h3>
+<p>The Portenta C33 can be powered through one of these interfaces:</p>
+<ul>
+<li>USB-C port</li>
+<li>3.7V single cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector</li>
+<li>External 5V power supply connected through the MKR-styled pins</li>
+</ul>
+<p>Figure 2 shows the power options available on the board and illustrates its power architecture. </p>
+<h3 id="4-3-mechanical-specification">4.3 Mechanical Specification</h3>
+<h4 id="4-3-1-board-dimensions">4.3.1 Board Dimensions</h4>
+<p>Portenta C33 board main dimensions can be seen in Figures 3.</p>
+<p><strong><img src="assets/Portenta_C33_Top_View_Dimensions.png" alt="Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)"><div class="img-description">Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)</div></strong></p>
+<h4 id="4-3-2-board-connectors">4.3.2 Board Connectors</h4>
+<p>Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 4 and 5.</p>
+<p><strong><img src="assets/Portenta_C33_Top_View_Connectors.png" alt="Figure 4. Portenta C33 connectors placement (top view)"><div class="img-description">Figure 4. Portenta C33 connectors placement (top view)</div></strong></p>
+<p><strong><img src="assets/Portenta_C33_Bottom_View_Connectors.png" alt="Figure 5. Portenta C33 connectors placement (bottom view)"><div class="img-description">Figure 5. Portenta C33 connectors placement (bottom view)</div></strong></p>
+<h2 id="5-certifications">5 Certifications</h2>
+<h3 id="5-1-certifications-summary">5.1 Certifications Summary</h3>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Certification</strong></th>
+<th align="center"><strong>Status</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CE/RED (Europe)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">UKCA (UK)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">FCC (USA)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">IC (Canada)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">MIC/Telec (Japan)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">RCM (Australia)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">RoHS</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">REACH</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">WEEE</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">SRRC (China)</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">CCC (China)</td>
+<td align="center">Yes</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-declaration-of-conformity-ce-doc-eu-">5.2 Declaration of Conformity CE DoC (EU)</h3>
+<p style="text-align: justify;">
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+</p>
+
+<h3 id="5-3-declaration-of-conformity-to-eu-rohs-reach-211-01-19-2021">5.3 Declaration of Conformity to EU RoHS &amp; REACH 211 01/19/2021</h3>
+<p style="text-align: justify;">
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Substance</strong></th>
+<th align="center"><strong>Maximum Limit (ppm)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Lead (Pb)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Cadmium (Cd)</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">Mercury (Hg)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Hexavalent chromium (Cr6+)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Poly brominated biphenyls (PBB)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Poly brominated diphenyl ethers (PBDE)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Bis(2-Ethylhexyl) phthalate (DEHP)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Benzyl butyl phthalate (BBP)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Dibutyl phthalate (DBP)</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">Diisobutyl phthalate (DIBP)</td>
+<td align="center">1000</td>
+</tr>
+</tbody></table>
+<p>Exemptions: No exemptions are claimed.</p>
+<p style="text-align: justify;">
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+</p>
+
+<h3 id="5-4-conflict-minerals-declaration">5.4 Conflict Minerals Declaration</h3>
+<p style="text-align: justify;">
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+</p>
+
+<h2 id="6-fcc-caution">6 FCC Caution</h2>
+<p style="text-align: justify;">
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+</p><p>This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:</p>
+<ol>
+<li><p>This device may not cause harmful interference</p>
+</li>
+<li><p>This device must accept any interference received, including interference that may cause undesired operation.</p>
+<p></p></li>
+</ol>
+<p><strong>FCC RF Radiation Exposure Statement:</strong></p>
+<p style="text-align: justify;">
+
+</p><ol>
+<li><p>This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter</p>
+</li>
+<li><p>This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment</p>
+</li>
+<li><p>This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.</p>
+</li>
+</ol>
+<p>English:
+User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:</p>
+<ol>
+<li><p>This device may not cause interference</p>
+</li>
+<li><p>This device must accept any interference, including interference that may cause undesired operation of the device.</p>
+</li>
+</ol>
+<p>French:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:</p>
+<ol>
+<li><p>L’ appareil nedoit pas produire de brouillage</p>
+</li>
+<li><p>L’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.</p>
+<p></p></li>
+</ol>
+<p><strong>IC SAR Warning:</strong></p>
+<p style="text-align: justify;">
+English:
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+
+</p><p>French:
+Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.</p>
+<p><strong>Important:</strong> The operating temperature of the EUT can’t exceed 85 °C and shouldn’t be lower than -40 °C.</p>
+<p>Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.</p>
+<p></p>
+
+<h2 id="7-company-information">7 Company Information</h2>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Company name</strong></th>
+<th align="center"><strong>Arduino SRL</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Company address</td>
+<td align="center">Via Andrea Appiani, 25 - 20900 MONZA（Italy)</td>
+</tr>
+</tbody></table>
+<h2 id="8-document-revision-history">8 Document Revision History</h2>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Date</strong></th>
+<th align="center"><strong>Revision</strong></th>
+<th align="center"><strong>Changes</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">14/03/2023</td>
+<td align="center">1</td>
+<td align="center">First release</td>
+</tr>
+</tbody></table>
+</body></html>
