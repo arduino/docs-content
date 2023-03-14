@@ -124,7 +124,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
     <td>32-bit Arm® Cortex®-M33 microcontroller, with a maximum operating frequency of 200 MHz</td>
   </tr>
   <tr>
-    <td text-align="justify" justify>2 MB of flash memory and 256 KB of SRAM</td>
+    <td text-align="justify" justify>2 MB of flash memory and 512 KB of SRAM</td>
   </tr>
   <tr>
     <td text-align="justify">Several peripheral interfaces, including UART, I2C, SPI, USB, CAN, and Ethernet</td>
@@ -322,23 +322,6 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 **<caption>Table 7: Recommended Operating Conditions</caption>**
 </div>
 
-### Current Consumption
-
-<p style="text-align: justify;">
-The operating current of the Portenta C33 depends greatly on the application. Table 8 summarizes the board's power consumption in a defined application and conditions.
-</p>
-
-<div style="text-align:center;">
-
-|       **Parameter**       |    **Symbol**   |                                **Condition**                                | **Typ** | **Unit** |
-|:-------------------------:|:---------------:|:---------------------------------------------------------------------------:|:-------:|:--------:|
-| Board Current Consumption | I<sub>TOT</sub> | V<sub>BAT</sub>=3.7V, USB cable disconnected, all peripherals in sleep mode |    -    |     -    |
-
-**<caption>Table 8: Power Consumption in a Defined Application and Conditions</caption>**
-</div>
-
-*<p style="text-align: justify;">**Note**: Current consumption measurements were taken under controlled laboratory conditions, with the Portenta C33 running a specific application and connected to a specific power source. Results may vary depending on the application and operating conditions.</p>*
-
 [comment]: <> (Force page break here) 
 <div style="page-break-after: always;"></div>
 
@@ -362,7 +345,11 @@ The Portenta C33 can be powered through one of these interfaces:
 - 3.7V single cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
 - External 5V power supply connected through the MKR-styled pins
 
-Figure 2 shows the power options available on the board and illustrates its power architecture.
+<p style="text-align: justify;">
+The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
+</p>
+
+[comment]: <> (Figure 2 shows the power options available on the board and illustrates its power architecture.)
 
 ### Mechanical Specification
 
