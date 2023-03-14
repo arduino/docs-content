@@ -31,7 +31,8 @@ Thanks to its high-performance processor, the Portenta C33 supports many applica
 
 </div>
 
-## Board Overview
+## Features
+### General Specifications Overview
 
 <p style="text-align: justify;">
 The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications. The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table 1 summarizes the board's main features, and Table 2, 3, 4, 5, and 6 shows more detailed information about the board's microcontroller, secure element, Ethernet transceiver, and external memory.
@@ -173,43 +174,6 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 
 </div>
 
-### Security
-
-<div style="text-align:center;">
-<table>
-<thead>
-  <tr>
-    <th>Component</th>
-    <th>Details</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td rowspan="6">NXP SE050C2</td>
-    <td>Secure boot process that verifies the authenticity and integrity of the firmware before it is loaded into the device</td>
-  </tr>
-  <tr>
-    <td>Built-in hardware cryptography engine that can perform various encryption and decryption functions, including AES, RSA, and ECC</td>
-  </tr>
-  <tr>
-    <td>Secure storage for sensitive data, such as private keys, credentials, and certificates. This storage is protected by strong encryption and can only be accessed by authorized parties</td>
-  </tr>
-  <tr>
-    <td>Secure communication protocols support, such as TLS, which helps to protect data in transit from unauthorized access or interception</td>
-  </tr>
-  <tr>
-    <td>Tamper detection features that can detect if the device has been physically tampered with. This helps to prevent attacks such as probing or power analysis attacks that attempt to access the device's sensitive data</td>
-  </tr>
-  <tr>
-    <td>Common Criteria security standard certification, which is an internationally recognized standard for evaluating the security of IT products</td>
-  </tr>
-</tbody>
-</table>
-
-**<caption>Table 4: Portenta C33 Security Features</caption>**
-
-</div>
-
 ### Ethernet Connectivity
 
 <div style="text-align:center;">
@@ -247,6 +211,43 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </table>
 
 **<caption>Table 5: Portenta C33 Ethernet Connectivity Features</caption>**
+
+</div>
+
+### Security
+
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th>Component</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="6">NXP SE050C2</td>
+    <td>Secure boot process that verifies the authenticity and integrity of the firmware before it is loaded into the device</td>
+  </tr>
+  <tr>
+    <td>Built-in hardware cryptography engine that can perform various encryption and decryption functions, including AES, RSA, and ECC</td>
+  </tr>
+  <tr>
+    <td>Secure storage for sensitive data, such as private keys, credentials, and certificates. This storage is protected by strong encryption and can only be accessed by authorized parties</td>
+  </tr>
+  <tr>
+    <td>Secure communication protocols support, such as TLS, which helps to protect data in transit from unauthorized access or interception</td>
+  </tr>
+  <tr>
+    <td>Tamper detection features that can detect if the device has been physically tampered with. This helps to prevent attacks such as probing or power analysis attacks that attempt to access the device's sensitive data</td>
+  </tr>
+  <tr>
+    <td>Common Criteria security standard certification, which is an internationally recognized standard for evaluating the security of IT products</td>
+  </tr>
+</tbody>
+</table>
+
+**<caption>Table 4: Portenta C33 Security Features</caption>**
 
 </div>
 
@@ -302,7 +303,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 - Arduino® Nicla Sense ME (SKU: ABX00050)
 
-## Specifications
+## Ratings
 
 ### Recommended Operating Conditions
 
@@ -321,9 +322,6 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 
 **<caption>Table 7: Recommended Operating Conditions</caption>**
 </div>
-
-[comment]: <> (Force page break here) 
-<div style="page-break-after: always;"></div>
 
 ## Hardware
 
@@ -351,7 +349,25 @@ The recommended minimum battery capacity is 700 mAh. The battery is connected to
 
 [comment]: <> (Figure 2 shows the power options available on the board and illustrates its power architecture.)
 
-### Mechanical Specification
+## Device Operation
+### Getting Started - IDE
+If you want to program your Portenta C33 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Portenta C33 to your computer, you will need a USB-C® cable.
+
+### Getting Started - Arduino Web Editor
+All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+
+The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+
+### Getting Started - Arduino IoT Cloud
+All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
+### Sample Sketches
+Sample sketches for Portenta C33 can be found either in the “Examples” menu in the Arduino® IDE or the “Portenta C33 Documentation” section of Arduino® **[4]**.
+
+### Online Resources
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your Portenta C33 product with additional extensions, sensors and actuators.
+
+## Mechanical Information
 
 <p style="text-align: justify;">
 The Portenta C33 is a double-sided 66.04 mm x 25.40 mm board with a USB-C® port overhanging the top edge, dual
@@ -359,16 +375,16 @@ castellated/through-hole pins around the two long edges and two High-Density con
 </p>
 
 <p style="text-align: justify;">
-The Portenta C33 is designed to be usable as a surfacemount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes. The Portenta C33 also has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
+The Portenta C33 is designed to be usable as a surface-mount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes. The Portenta C33 also has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
 </p>
 
-#### Board Dimensions
+### Board Dimensions
 
 Portenta C33 board main dimensions can be seen in Figure 3.
 
 **![Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
-#### Board Connectors
+### Board Connectors
 
 Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 4 and 5.
 
@@ -487,6 +503,18 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | **Company name** |                **Arduino SRL**               |
 |:----------------:|:--------------------------------------------:|
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+
+## Reference Documentation
+|        **Ref**                     | **Link**                                                                                    |
+|:----------------------------------:|---------------------------------------------------------------------------------------------|
+| Arduino IDE (Desktop)              | https://www.arduino.cc/en/Main/Software                                                     |
+| Arduino IDE (Cloud)                | https://create.arduino.cc/editor                                                            |
+| Arduino Cloud - Getting started    | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
+| Arduino Portenta C33 Documentation | https://docs.arduino.cc/hardware/portenta-c33                                               |
+| Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
+| Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
+| Online Store                       | https://store.arduino.cc/                                                                   |
+         
 
 ## Document Revision History
 
