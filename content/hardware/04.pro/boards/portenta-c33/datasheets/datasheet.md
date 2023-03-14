@@ -210,7 +210,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 
 </div>
 
-### Ethernet connectivity
+### Ethernet Connectivity
 
 <div style="text-align:center;">
 <table>
