@@ -24,17 +24,17 @@ Thanks to its high-performance processor, the Portenta C33 supports many applica
     - **Industrial IoT gateway:** Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino IoT Cloud dashboard, leveraging end-to-end secure data encryption.
     - **Machine monitoring to track OEE/OPE:** Track Overall Equipment Efficiency (OEE) and Overall Process Effectiveness (OPE) with the Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.
     - **Inline Quality Assurance:** Leverage full compatibility between Portenta C33 and Nicla family to carry out quality control in your production lines. Collect Nicla smart sensing data with the Portenta C33 to catch defects early and resolve them before they travel down the line.
-- **Prototyping:** The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use Wi-Fi/Bluetooth® connectivity and various of peripheral interfaces, including CAN, SAI, SPI, and I2C. Moreover, the Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.
+- **Prototyping:** The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use Wi-Fi®/Bluetooth® connectivity and various peripheral interfaces, including CAN, SAI, SPI, and I2C. Moreover, the Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.
 - **Building Automation:** The Portenta C33 can be used in multiple building automation applications:
     - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino IoT Cloud charts, providing an overall image for energy management optimization and cost reduction.
-    - **Appliances Control System**: Leverage high-performing Portenta C33 microcontroller to real-time control your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from remote.
+    - **Appliances Control System**: Leverage high-performing Portenta C33 microcontroller to control in real-time your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from the remote.
 
 </div>
 
 ## Board Overview
 
 <p style="text-align: justify;">
-The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications.The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table 1 summarizes the board's main features, Table 2, 3 4, 5, and 6 shows more detailed information of the board's microcontroller, secure element, Ethernet transceiver, and external memory.
+The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications. The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table 1 summarizes the board's main features, and Table 2, 3, 4, 5, and 6 shows more detailed information about the board's microcontroller, secure element, Ethernet transceiver, and external memory.
 </p>
 
 <div style="text-align:center;">
@@ -42,8 +42,8 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 <table>
 <thead>
   <tr>
-    <th>**Feature**</th>
-    <th>**Description**</th>
+    <th>Feature</th>
+    <th>Description</th>
   </tr>
 </thead>
 <tbody>
@@ -61,7 +61,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Connectivity</td>
-    <td>2.4 GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5.0 (ESP32­-C3-­MINI-­1U)</td>
+    <td>2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.0 (ESP32­-C3-­MINI-­1U)</td>
   </tr>
   <tr>
     <td>Ethernet</td>
@@ -73,11 +73,11 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>USB Connectivity</td>
-    <td>USB-C port for power and data (accessible also through the board's high-density connectors)</td>
+    <td>USB-C® port for power and data (accessible also through the board's High-Density connectors)</td>
   </tr>
   <tr>
     <td>Power Supply</td>
-    <td>Various options for easily powering the board: USB-C port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
+    <td>Various options for easily powering the board: USB-C® port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
   </tr>
   <tr>
     <td>Analog Peripherals</td>
@@ -89,7 +89,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Debugging</td>
-    <td>JTAG/SWD debug port (accessible through the board's high-density connectors)</td>
+    <td>JTAG/SWD debug port (accessible through the board's High-Density connectors)</td>
   </tr>
   <tr>
     <td>Dimensions</td>
@@ -133,10 +133,10 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
     <td text-align="justify">Hardware-based security features, such as a True Random Number Generator (TRNG), a Memory Protection Unit (MPU), and a TrustZone-M security extension</td>
   </tr>
   <tr>
-    <td text-align="justify">Onboard power management features that allow it to operate on low power</td>
+    <td text-align="justify">Onboard power management features that allow it to operate on low power mode</td>
   </tr>
   <tr>
-    <td text-align="justify"> Onboard RTC module that provides accurate timekeeping and calendar functions, along with programmable alarms and tamper detection features</td>
+    <td text-align="justify">Onboard RTC module that provides accurate timekeeping and calendar functions, along with programmable alarms and tamper detection features</td>
   </tr>
   <tr>
     <td text-align="justify">Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh environments</td>
@@ -290,9 +290,9 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 
 </div>
 
-### Included Accesories 
+### Included Accessories
 
-- Wi-Fi W.FL antenna (not compatible with Portenta H7 U.FL antenna)
+- Wi-Fi® W.FL antenna (not compatible with Portenta H7 U.FL antenna)
 
 ### Related Products
 
@@ -302,13 +302,12 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 - Arduino® Nicla Sense ME (SKU: ABX00050)
 
-  
 ## Specifications
 
-### Recommended Operating Conditions 
+### Recommended Operating Conditions
 
 <p style="text-align: justify;">
-Table 7 provides a comprehensive guideline for the optimal use of the Portenta C33, outlining typical operating conditions and design limits. The operating conditions of the Portenta C33 are largely a function of the operating conditions specified by its components.
+Table 7 provides a comprehensive guideline for the optimal use of the Portenta C33, outlining typical operating conditions and design limits. The operating conditions of the Portenta C33 are largely a function based on its component's specifications.
 </p>
 
 <div style="text-align:center;">
@@ -338,7 +337,6 @@ The operating current of the Portenta C33 depends greatly on the application. Ta
 **<caption>Table 8: Power Consumption in a Defined Application and Conditions</caption>**
 </div>
 
-
 *<p style="text-align: justify;">**Note**: Current consumption measurements were taken under controlled laboratory conditions, with the Portenta C33 running a specific application and connected to a specific power source. Results may vary depending on the application and operating conditions.</p>*
 
 [comment]: <> (Force page break here) 
@@ -347,7 +345,7 @@ The operating current of the Portenta C33 depends greatly on the application. Ta
 ## Hardware
 
 <p style="text-align: justify;">
-The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller. 
+The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller.
 </p>
 
 ### Block Diagram
@@ -356,30 +354,30 @@ An overview of the Portenta C33 high-level architecture is illustrated in Figure
 
 **![Figure 1. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)**
 
-### Power Supply 
+### Power Supply
 
 The Portenta C33 can be powered through one of these interfaces:
 
-- USB-C port
+- USB-C® port
 - 3.7V single cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
 - External 5V power supply connected through the MKR-styled pins
 
-Figure 2 shows the power options available on the board and illustrates its power architecture. 
+Figure 2 shows the power options available on the board and illustrates its power architecture.
 
 ### Mechanical Specification
 
 <p style="text-align: justify;">
-The Portenta C33 is a double-sided 66.04 mm x 25.40 mm board with a USB-C port overhanging the top edge, dual
-castellated/through-hole pins around the two long edges and two High-Density connectors on the bottom side of the board. The onboard wireless antenna connector is located on the bottom edge of the board. 
+The Portenta C33 is a double-sided 66.04 mm x 25.40 mm board with a USB-C® port overhanging the top edge, dual
+castellated/through-hole pins around the two long edges and two High-Density connectors on the bottom side of the board. The onboard wireless antenna connector is located on the bottom edge of the board.
 </p>
 
 <p style="text-align: justify;">
 The Portenta C33 is designed to be usable as a surfacemount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes. The Portenta C33 also has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
 </p>
 
-#### Board Dimensions 
+#### Board Dimensions
 
-Portenta C33 board main dimensions can be seen in Figure 3, .
+Portenta C33 board main dimensions can be seen in Figure 3.
 
 **![Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
