@@ -320,6 +320,8 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 **<caption>Table 7: Recommended Operating Conditions</caption>**
 </div>
 
+<div style="page-break-after:always;"></div>
+
 ## Hardware
 
 <p style="text-align: justify;">
