@@ -9,7 +9,7 @@ The board also supports MicroPython and other high-level programming languages, 
 <FeatureList>
 <Feature title="Portenta Family Form Factor" image="nano-form-factor">
 
- The High Density Connectors and the MKR-styled pins allow full compatibility with the Arduino Portenta and MKR ecosystem, making the Portenta C33 very versatile for a variety of purposes. In addition, Portenta C33 features castellated pins, making it suitable for automatic assembly lines.
+ The High-Density Connectors and the MKR-styled pins allow full compatibility with the Arduino Portenta and MKR ecosystem, making the Portenta C33 very versatile for a variety of purposes. In addition, Portenta C33 features castellated pins, making it suitable for automatic assembly lines.
 
 </Feature>
 
@@ -22,7 +22,7 @@ The board also supports MicroPython and other high-level programming languages, 
 
 <Feature title="Espressif ESP32-C3-MINI-1U Wi-Fi® and Bluetooth® module" image="wifi-bluetooth">
 
-  The ESP32-C3-MINI-1U is a compact Wi-Fi® and Bluetooth® module with low power consumption, high-performance, and various peripheral interfaces, making it a well-suited option for battery-powered IoT devices that require long battery life and real-time data processing.
+  The ESP32-C3-MINI-1U is a compact Wi-Fi® and Bluetooth® module with low power consumption, high performance, and various peripheral interfaces, making it a well-suited option for battery-powered IoT devices that require long battery life and real-time data processing.
 
   <FeatureLink title="Datasheet" url="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" download blank/>
 </Feature>

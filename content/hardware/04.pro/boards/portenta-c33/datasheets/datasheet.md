@@ -276,7 +276,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
     <td>Auto-negotiation support, which allows it to automatically detect and configure the link speed and duplex mode, making it easy to use in a variety of applications</td>
   </tr>
   <tr>
-    <td>Reliability-enhancing features, such as ECC (Error Correction Code) and a high endurance of up to 100,000 program/erase cycles</td>
+    <td>Reliability-enhancing features, such as ECC (Error Correction Code) and high endurance of up to 100,000 program/erase cycles</td>
   </tr>
   <tr>
     <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh industrial and automotive environments</td>
@@ -341,7 +341,7 @@ The Portenta C33 can be powered through one of these interfaces:
 - External 5V power supply connected through the MKR-styled pins
 
 <p style="text-align: justify;">
-The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
+The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp-style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
 </p>
 
 ## Device Operation
@@ -441,7 +441,7 @@ Arduino Boards are fully compliant with the related requirements of European Uni
 
 ### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
@@ -462,7 +462,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 English:
-User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 1. This device may not cause interference
 
