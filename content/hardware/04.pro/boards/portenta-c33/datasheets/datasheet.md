@@ -18,8 +18,7 @@ IoT, building automation, smart cities, and agriculture
 ## Application Examples
 
 <div style="text-align:justify;">
-Thanks to its high-performance processor, the Portenta C33 supports many applications. From industrial applications to rapid prototyping, IoT solutions, and building automation, among many others. Here are some application examples: 
-
+Thanks to its high-performance processor, the Portenta C33 supports many applications. From industrial applications to rapid prototyping, IoT solutions, and building automation, among many others. Here are some application examples:
 - **Industrial Automation:** The Portenta C33 can be implemented as a solution for different industrial applications, such as:
     - **Industrial IoT gateway:** Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino IoT Cloud dashboard, leveraging end-to-end secure data encryption.
     - **Machine monitoring to track OEE/OPE:** Track Overall Equipment Efficiency (OEE) and Overall Process Effectiveness (OPE) with the Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.
@@ -30,7 +29,7 @@ Thanks to its high-performance processor, the Portenta C33 supports many applica
     - **Appliances Control System**: Leverage high-performing Portenta C33 microcontroller to real-time control your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from remote.
 </div>
 
-## Board Overview 
+## Board Overview
 
 <p style="text-align: justify;">
 The Portenta C33 is a powerful microcontroller board designed for low-cost IoT applications. Based on the high-performance R7FA6M5BH2CBG microcontroller from Renesas®, it offers a range of key features and a low-power design that make it well-suited for a variety of applications.The board has been designed with the same form factor as the Portenta H7 and is backward compatible, making it fully compatible with all Portenta family shields and carriers through its MKR-styled and high-density connectors. Table 1 summarizes the board's main features, Table 2, 3 4, 5, and 6 shows more detailed information of the board's microcontroller, secure element, Ethernet transceiver, and external memory.
