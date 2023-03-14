@@ -413,12 +413,6 @@ Connectors of the Portenta C33 are placed on the top and bottom side of the boar
 |        WEEE       |     Yes    |
 |    SRRC (China)   |     Yes    |
 |    CCC (China)    |     Yes    |
-
-<div style="text-align:center;">
-
-**<caption>Table 8: Certifications Summary</caption>**
-
-</div>
  
 ### Declaration of Conformity CE DoC (EU)
 
@@ -440,12 +434,6 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 |      Benzyl butyl phthalate (BBP)      |           1000          |
 |         Dibutyl phthalate (DBP)        |           1000          |
 |       Diisobutyl phthalate (DIBP)      |           1000          |
-
-<div style="text-align:center;">
-
-**<caption>Table 9: Restriction of the use of hazardous substances</caption>**
-
-</div>
 
 Exemptions: No exemptions are claimed.
 
@@ -505,12 +493,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |:----------------:|:--------------------------------------------:|
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA, Italy  |
 
-<div style="text-align:center;">
-
-**<caption>Table 10: Company address</caption>**
-
-</div>
-
 ## Reference Documentation
 |        **Ref**                     | **Link**                                                                                    |
 |:----------------------------------:|---------------------------------------------------------------------------------------------|
@@ -522,20 +504,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                       | https://store.arduino.cc/                                                                   |
          
-<div style="text-align:center;">
-
-**<caption>Table 11: Reference Documentation</caption>**
-
-</div>
 
 ## Document Revision History
 
 |  **Date**  | **Revision** |  **Changes**  |
 |:----------:|:------------:|:-------------:|
 | 14/03/2023 |       1      | First release |
-
-<div style="text-align:center;">
-
-**<caption>Table 12: Document Revision History</caption>**
-
-</div>
