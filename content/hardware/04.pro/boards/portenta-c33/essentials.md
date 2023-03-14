@@ -10,7 +10,8 @@
         The Wi-Fi® library is designed to use the ESP32-C3-MINI-1U module, which allows your Arduino to connect to the Internet.    </EssentialElement>
 
 <EssentialElement link="https://www.arduino.cc/en/Reference/ArduinoBLE" title="Arduino BLE" type="library">
-    Bluetooth® 5.0 includes both traditional Bluetooth®, now labeled " Bluetooth® Classic", and Bluetooth® Low Energy.
+    Bluetooth® 4.0 includes both traditional Bluetooth®, now labeled " Bluetooth® Classic", and Bluetooth® Low Energy.
+
 </EssentialElement>
 
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
