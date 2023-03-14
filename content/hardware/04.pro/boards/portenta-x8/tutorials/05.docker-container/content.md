@@ -133,4 +133,4 @@ In this tutorial, you have learned how to use Docker with Portenta X8. You have 
 
 - Now that you have the base of the workflow to use [Docker](https://docker.com), go to its docs page and make sure you understand all the features.
 - Look for a container image from [Docker hub](http://hub.docker.com), install it and make your own application out of it.
-- Create a container to run your custom made application. For this, it may interest you [Deploy a Custom Container with Portenta X8 Manager](tutorials/portenta-x8/custom-container) tutorial.
+- Create a container to run your custom made application. For this, it may interest you [Deploy a Custom Container with Portenta X8 Manager](https://docs.arduino.cc/tutorials/portenta-x8/custom-container) tutorial.
