@@ -106,9 +106,6 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 **<caption>Table 1: Portenta C33 Main Features</caption>**
 </div>
 
-[comment]: <> (Force page break here) 
-[comment]: <> (<div style="page-break-after: always;"></div>)
-
 ### Microcontroller
 
 <div style="text-align:center;">
@@ -347,25 +344,32 @@ The Portenta C33 can be powered through one of these interfaces:
 The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
 </p>
 
-[comment]: <> (Figure 2 shows the power options available on the board and illustrates its power architecture.)
-
 ## Device Operation
+
+<div style="text-align:justify;">
+
 ### Getting Started - IDE
+
 If you want to program your Portenta C33 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Portenta C33 to your computer, you will need a USB-C® cable.
 
 ### Getting Started - Arduino Web Editor
+
 All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
 
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino IoT Cloud
+
 All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
+
 Sample sketches for Portenta C33 can be found either in the “Examples” menu in the Arduino® IDE or the “Portenta C33 Documentation” section of Arduino® **[4]**.
 
 ### Online Resources
+
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your Portenta C33 product with additional extensions, sensors and actuators.
+</div>
 
 ## Mechanical Information
 
