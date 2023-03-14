@@ -118,26 +118,26 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </thead>
 <tbody>
   <tr>
-    <td rowspan="7"; text-align="justify">R7FA6M5BH2CBG</td>
+    <td rowspan="7">R7FA6M5BH2CBG</td>
     <td>32-bit Arm® Cortex®-M33 microcontroller, with a maximum operating frequency of 200 MHz</td>
   </tr>
   <tr>
-    <td text-align="justify" justify>2 MB of flash memory and 512 KB of SRAM</td>
+    <td>2 MB of flash memory and 512 KB of SRAM</td>
   </tr>
   <tr>
-    <td text-align="justify">Several peripheral interfaces, including UART, I2C, SPI, USB, CAN, and Ethernet</td>
+    <td>Several peripheral interfaces, including UART, I2C, SPI, USB, CAN, and Ethernet</td>
   </tr>
   <tr>
-    <td text-align="justify">Hardware-based security features, such as a True Random Number Generator (TRNG), a Memory Protection Unit (MPU), and a TrustZone-M security extension</td>
+    <td>Hardware-based security features, such as a True Random Number Generator (TRNG), a Memory Protection Unit (MPU), and a TrustZone-M security extension</td>
   </tr>
   <tr>
-    <td text-align="justify">Onboard power management features that allow it to operate on low power mode</td>
+    <td>Onboard power management features that allow it to operate on low power mode</td>
   </tr>
   <tr>
-    <td text-align="justify">Onboard RTC module that provides accurate timekeeping and calendar functions, along with programmable alarms and tamper detection features</td>
+    <td>Onboard RTC module that provides accurate timekeeping and calendar functions, along with programmable alarms and tamper detection features</td>
   </tr>
   <tr>
-    <td text-align="justify">Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh environments</td>
+    <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh environments</td>
   </tr>
 </tbody>
 </table>
