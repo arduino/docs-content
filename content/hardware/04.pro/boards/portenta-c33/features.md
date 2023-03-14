@@ -9,7 +9,7 @@ The board also supports MicroPython and other high-level programming languages, 
 <FeatureList>
 <Feature title="Portenta Family Form Factor" image="nano-form-factor">
 
- The High Density Connectors and the MKR-styled pins allow full compatibility with the Arduino Portenta and MKR ecosystem, making the Portenta C33 very versatile for a variety of purposes.
+ The High Density Connectors and the MKR-styled pins allow full compatibility with the Arduino Portenta and MKR ecosystem, making the Portenta C33 very versatile for a variety of purposes. In addition, Portenta C33 features castellated pins, making it suitable for automatic assembly lines.
 
 </Feature>
 
