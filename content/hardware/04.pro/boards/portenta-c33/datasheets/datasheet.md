@@ -368,9 +368,18 @@ Figure 2 shows the power options available on the board and illustrates its powe
 
 ### Mechanical Specification
 
+<p style="text-align: justify;">
+The Portenta C33 is a double-sided 66.04 mm x 25.40 mm board with a USB-C port overhanging the top edge, dual
+castellated/through-hole pins around the two long edges and two High-Density connectors on the bottom side of the board. The onboard wireless antenna connector is located on the bottom edge of the board. 
+</p>
+
+<p style="text-align: justify;">
+The Portenta C33 is designed to be usable as a surfacemount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes. The Portenta C33 also has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
+</p>
+
 #### Board Dimensions 
 
-Portenta C33 board main dimensions can be seen in Figures 3.
+Portenta C33 board main dimensions can be seen in Figure 3, .
 
 **![Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
