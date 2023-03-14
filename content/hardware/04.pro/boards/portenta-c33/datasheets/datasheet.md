@@ -78,11 +78,11 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Power Supply</td>
-    <td>Various options for easily powering the board: USB-C® port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
+    <td>Various options for easily powering the board: USB-C® port, single-cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
   </tr>
   <tr>
     <td>Analog Peripherals</td>
-    <td>Two, eight channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)</td>
+    <td>Two, eight-channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)</td>
   </tr>
   <tr>
     <td>Digital Peripherals</td>
@@ -207,7 +207,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 5: Portenta C33 Ethernet Connectivity Features</caption>**
+**<caption>Table 4: Portenta C33 Ethernet Connectivity Features</caption>**
 
 </div>
 
@@ -244,7 +244,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 4: Portenta C33 Security Features</caption>**
+**<caption>Table 5: Portenta C33 Security Features</caption>**
 
 </div>
 
@@ -276,7 +276,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
     <td>Auto-negotiation support, which allows it to automatically detect and configure the link speed and duplex mode, making it easy to use in a variety of applications</td>
   </tr>
   <tr>
-    <td>Reliability-enhancing features, such as ECC (Error Correction Code) and a high endurance of up to 100,000 program/erase cycles</td>
+    <td>Reliability-enhancing features, such as ECC (Error Correction Code) and high endurance of up to 100,000 program/erase cycles</td>
   </tr>
   <tr>
     <td>Designed to operate over a wide temperature range, from -40°C to 105°C, making it suitable for use in harsh industrial and automotive environments</td>
@@ -320,6 +320,8 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 **<caption>Table 7: Recommended Operating Conditions</caption>**
 </div>
 
+<div style="page-break-after:always;"></div>
+
 ## Hardware
 
 <p style="text-align: justify;">
@@ -337,11 +339,11 @@ An overview of the Portenta C33 high-level architecture is illustrated in Figure
 The Portenta C33 can be powered through one of these interfaces:
 
 - USB-C® port
-- 3.7V single cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
+- 3.7V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
 - External 5V power supply connected through the MKR-styled pins
 
 <p style="text-align: justify;">
-The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
+The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp-style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
 </p>
 
 ## Device Operation
@@ -384,17 +386,17 @@ The Portenta C33 is designed to be usable as a surface-mount module as well as p
 
 ### Board Dimensions
 
-Portenta C33 board main dimensions can be seen in Figure 3.
+Portenta C33 board main dimensions can be seen in Figure 2.
 
-**![Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
+**![Figure 2. Portenta C33 dimensions (top view on the left and bottom view on the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
 ### Board Connectors
 
-Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 4 and 5.
+Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 3 and 4.
 
-**![Figure 4. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
+**![Figure 3. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
 
-**![Figure 5. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
+**![Figure 4. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
 
 ## Certifications
 
@@ -413,7 +415,7 @@ Connectors of the Portenta C33 are placed on the top and bottom side of the boar
 |        WEEE       |     Yes    |
 |    SRRC (China)   |     Yes    |
 |    CCC (China)    |     Yes    |
-
+ 
 ### Declaration of Conformity CE DoC (EU)
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
@@ -441,7 +443,7 @@ Arduino Boards are fully compliant with the related requirements of European Uni
 
 ### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
@@ -462,7 +464,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 English:
-User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 1. This device may not cause interference
 
@@ -491,7 +493,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Company name** |                **Arduino SRL**               |
 |:----------------:|:--------------------------------------------:|
-|  Company address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+|  Company address | Via Andrea Appiani, 25 - 20900 MONZA, Italy  |
 
 ## Reference Documentation
 |        **Ref**                     | **Link**                                                                                    |
