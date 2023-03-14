@@ -1,6 +1,6 @@
 ---
 title: Guide to GIGA R1 Dual Cores
-description: Learn how to access and control the M4 and M7 cores on the GIGA R1
+description: Learn how to access and control the M4 and M7 cores on the GIGA R1, and how to communicate between them using RPC.
 author: Karl Söderby
 tags: [Dual Core, M4, M7]
 ---
@@ -268,17 +268,88 @@ When `call()` is used, a request is sent, it is processed on the server side, an
 
 In this section, you will find a series of examples that is based on the `RPC` library. 
 
-### Basic RPC Example
+### RPC Serial
+
+
+
+### RPC Sensor
 
 This example demonstrates how to request a sensor reading from one core to the other, using:
 - M4 as a client.
 - M7 as a server.
 
-```arduino
+**M7 Sketch:**
 
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  //Bind the sensorRead() function on the M7
+  RPC.bind("sensorRead", sensorRead);
+}
+
+void loop() {
+  // On M7, let's print everything that is received over the RPC1 stream interface
+  // Buffer it, otherwise all characters will be interleaved by other prints
+  String buffer = "";
+  while (RPC.available()) {
+    buffer += (char)RPC.read();  // Fill the buffer with characters
+  }
+  if (buffer.length() > 0) {
+    Serial.print(buffer);
+  }
+}
+
+/*
+Function on the M7 that returns an analog reading (A0)
+*/
+int sensorRead() {
+  int result = analogRead(A0);
+  return result;
+}
 ```
 
-### Servo Motor Example
+**M4 Sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+using namespace rtos;
+
+Thread sensorThread;
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  /*
+  Starts a new thread that loops the requestReading() function
+  */
+  sensorThread.start(requestReading);
+}
+
+void loop() {
+}
+
+/*
+This thread calls the sensorThread() function remotely
+every second. Result is printed to the RPC1 stream.
+*/
+void requestReading() {
+  while (true) {
+    delay(1000);
+    auto result = RPC.call("sensorRead").as<int>();
+    RPC.println("Result is " + String(result));
+  }
+}
+```
+
+### RPC Servo Motor
 
 This example demonstrates how to request a servo motor on another core to move to a specific angle, using:
 - M4 as a client.
@@ -286,8 +357,92 @@ This example demonstrates how to request a servo motor on another core to move t
 
 Each example is written as a **single sketch** intended to be uploaded to **both cores**.
 
-```arduino
+**M4 sketch:**
 
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+using namespace rtos;
+
+Thread servoThread;
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  /*
+  Starts a new thread that loops the requestServoMove() function
+  */
+  servoThread.start(requestServoMove);
+}
+
+void loop() {
+}
+
+/*
+This thread calls the servoMove() function remotely
+every second, passing the angle variable (0-180).
+*/
+void requestServoMove() {
+  while (true) {
+    //Read a pot meter
+    int rawAnalog = analogRead(A0);
+
+    //Map value to 180
+    int angle = map(rawAnalog, 0, 1023, 0, 180);
+
+    delay(1000);
+    auto result = RPC.call("servoMove", angle).as<int>();
+    RPC.println("Servo angle is: " + String(result));
+  }
+}
+```
+
+**M7 sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+#include <Servo.h>
+
+Servo myservo;
+
+void setup() {
+  RPC.begin();
+  Servo.attach(5); //attach servo to pin 5
+
+  Serial.begin(115200);
+
+  //Bind the servoMove() function on the M7
+  RPC.bind("servoMove", servoMove);
+}
+
+void loop() {
+  // On M7, let's print everything that is received over the RPC1 stream interface
+  // Buffer it, otherwise all characters will be interleaved by other prints
+  String buffer = "";
+  while (RPC.available()) {
+    buffer += (char)RPC.read();  // Fill the buffer with characters
+  }
+  if (buffer.length() > 0) {
+    Serial.print(buffer);
+  }
+}
+
+/*
+Function on the M7 that returns an analog reading (A0)
+*/
+int servoMove(int angle) {
+  servo.write(angle);
+  delay(10);
+  return angle;
+  /*
+  After the operation is done, return angle to the client.
+  The value passed to this function does not change, but this
+  verifies it has been passed correctly.
+  */
+}
 ```
 
 ### IoT Sensor Example
@@ -295,6 +450,7 @@ Each example is written as a **single sketch** intended to be uploaded to **both
 This example demonstrates how to read sensors on one core, and request the data from another, and send it to the Arduino IoT Cloud.
 
 ***Please note, IoT Cloud sketches are designed to run only on the M7 core.***
+
 
 
 ### DAC Example
