@@ -216,9 +216,6 @@ Attach the SDA pin of your SRFxx to analog pin 4 of your board, and the SCL pin 
 
 ***If using two SRFxxs on the same line, you must ensure that they do not share the same address. Instructions for re-addressing the range finders can be found at the bottom of the code below.***
 
-## Example 2: Digital Potentiometer
-
-
 ```arduino
 // I2C SRF10 or SRF08 Devantech Ultrasonic Ranger Finder
 // by Nicholas Zambetti <http://www.zambetti.com>
@@ -341,6 +338,8 @@ void changeAddress(byte oldAddress, byte newAddress)
 
 */
 ```
+
+## Example 2: Digital Potentiometer
 
 ### Hardware Required
 

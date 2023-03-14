@@ -19,45 +19,48 @@ hardware:
 
 ## Overview
 
-Opta™ is a robust micro PLC solution with many engaging features. In this tutorial we will go through the setup of Opta™ with the Arduino IDE and explain how to use its basic features, showing through examples how to program the LEDs on the device, how to use the programmable button, as well as controlling its inputs and outputs.
+The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial, we will go through setting up Opta™ with the Arduino IDE and explain how to use its basic features. It includes examples to show how to program the LEDs on the device, how to use the programmable button, as well as to control its inputs and outputs.
 
 ![The Opta™](assets/opta-device.svg)
 
 ## Goals
 
-- Putting Opta™ to work with the Arduino IDE
-- Blinking the LEDs on the device
-- Programming the button on the device
-- Testing the inputs and outputs on the device
-- Connecting the device to the Arduino Cloud
+- Learn how to put Opta™ to work with the Arduino IDE
+- Learn how to blink the LEDs on the Opta™
+- Learn how to program the button on the Opta™
+- Learn how to test the inputs and outputs on the Opta™
+- Learn how to connect the Opta™ to the Arduino Cloud
 
 ### Required Hardware and Software
 
+- Opta™ PLC (x1)
 - USB-C® cable (x1)
-- [Opta™ PLC](https://store.arduino.cc/pages/opta) (x1)
-- [Arduino IDE](https://www.arduino.cc/en/software)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - Power supply of 12-24V DC, 1A (optional if not running the section related to the relays) (x1)
 - Analog inputs (optional, alternatively the section related to analog inputs will work but reading random values)
 
 ## Instructions
 
-### Setup With the Arduino IDE
+### Setup with the Arduino IDE
 
 Make sure the latest version of the Arduino IDE is installed. The IDE can be downloaded [here](https://www.arduino.cc/en/software).
+
 Within the Arduino IDE install the core for the Opta™. Go to **Tools > Board > Boards Manager**, in the board's manager section search for **Opta mbed** and install it.
 
 ![Finding the Opta™ Core in the Arduino IDE 2.0](assets/opta-core-install.png)
 
 Now you are ready to upload sketches to the Opta™ via the Arduino IDE.
 
-### Trying a Blink Sketch
+### Testing with Blink Sketch
 
-Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly. 
+Once the IDE and the core are installed, let's warm up by uploading a first sketch to your Opta™. We will be using a modified version of the classical Arduino blink sketch to put your device to work and test if everything is set properly.
+
 Let's create a simple blink sketch that will blink the four STATUS LEDs on the Opta™, highlighted in the image below.
 
 ![The blinking STATUS LEDs on the Opta™](assets/opta-device-LED.svg)
 
-All the STATUS LEDs on the device are defined in the core of the PLC. 
+All the STATUS LEDs on the device are defined in the core of the PLC.
+
 Hereafter you can see the correspondence between each of them as identified in the core and their labeling on the front panel of the product:
 
 - `LED_D0`: STATUS 1
@@ -65,13 +68,21 @@ Hereafter you can see the correspondence between each of them as identified in t
 - `LED_D2`: STATUS 3
 - `LED_D3`: STATUS 4
 - `LED_RESET`: LED above the reset button
-- `LED_USER`: LED above the user button (only available on the Opta™ WiFi, SKU: AFX00002)
+- `LED_USER`: LED above the user button (only available on the Opta™ with connectivity features)
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta™.
-When the sketch is uploaded you will see the Opta's STATUS LEDs blinking in sequence.
+When the sketch is uploaded you will see the Opta™ device's STATUS LEDs blinking in sequence.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: LED_Blink_Opta
+  Purpose: Blink STATUS LEDs on Opta™.
+
+  @author Arduino
+*/
+
 void setup() {
   pinMode(LED_D0, OUTPUT);
   pinMode(LED_D1, OUTPUT);
@@ -104,13 +115,21 @@ void loop() {
 
 ### Configuring the Programmable Button on the Opta™
 
-Opta™ has a programmable button, shown in the image below and identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple is to use it, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
+The Opta™ has a programmable button, shown in the image below, and is identified as USER. It can be programmed using the Arduino IDE to fit your needs. To show how simple it is, let's create a sketch and program the button as a trigger to modify the status of the STATUS LEDs.
 
 ![The button and STATUS LEDs that will light up on the Opta™](assets/opta-device-button.svg)
 
-The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed),  and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device. 
+The button is defined in the core as `BTN_USER`: 'HIGH' as default (not pressed), and 'LOW' when pressed. The new sketch will turn the STATUS LEDs on one by one when the button is pressed and then start over when all the lights have been turned on. Below you can find the entire sketch, where a simple [Switch (case) Statement](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/) is used, and an image highlighting where the USER button is located on the device.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: Programmable_Button_Opta
+  Purpose: Configures the programmable button to control STATUS LED sequence.
+
+  @author Arduino
+*/
+
 int buttonState = 0;
 int counter = 0;
 
@@ -138,6 +157,9 @@ void loop() {
   changeLights();
 }
 
+/**
+  Function to control STATUS LED based on the counter.
+*/
 void changeLights() {
   switch(counter){
     case 0:
@@ -173,12 +195,11 @@ Once the sketch is uploaded, you can see that an additional LED is turned on eac
 | Fourth press | STATUS LEDs 1, 2, 3 and 4 ON          |
 | Fifth press  | All STATUS LEDs off and counter reset |
 
+### Using Output Relays of Opta™
 
-### Using Out Relays
+The Opta™ has 4 relay outputs, consisting of 4 normally-open electromechanical relays (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™, as shown in the image below.
 
-Opta™ has 4 relay outputs, consisting of 4 electromechanical relays NO (SPST) with a capacity of 10A at 250V AC (considering a resistive load). They are identified as OUTPUTS and located on the bottom of Opta™ as shown in the image below.
-
-![Out relays on the Opta™](assets/opta-out-relays.svg)
+![Output relays on the Opta™](assets/opta-out-relays.svg)
 
 The coils of each relay correspond to pins D0 to D3 as follows:
 
@@ -189,7 +210,7 @@ The coils of each relay correspond to pins D0 to D3 as follows:
 | OUTPUT 3   | D2    | RELAY3 |
 | OUTPUT 4   | D3    | RELAY4 |
 
-The Opta™ output contacts are "clean" contacts, which means that they are contacts that are not alive in a "non-connection" situation. This type of contact can be used in any system and with any type of voltage. To properly function, the outputs must therefore be connected by bringing for example a power cable to one of the terminals and connecting the load to the exit of the other terminal.
+The Opta™ output contacts are "clean" contacts, which means these are not live in a "non-connection" scenario. This type of contact can be used in any system and with a wide voltage range. To properly function, the outputs must therefore be connected by bringing, for example, a power cable to one of the terminals and connecting the load to the exit of the other terminal.
 
 This way, when the contact is closed by the logic set in the programming, the power supply signal will cross the contact carrying the signal up to the reference load.
 
@@ -197,10 +218,10 @@ The “clean” contact also allows carrying a different power system or type of
 
 ![Clean contact on the Opta™](assets/opta-clean-contact.svg)
 
-Let's run a simple sketch to test the output relays on Opta™: in this sketch all the 4 relays are closing and reopening their contacts and, after each relay's cycle, a led will be turned on to provide visual feedback.
+Let's run a simple sketch to test the output relays on Opta™: in this sketch, all the 4 relays are closing and reopening their contacts and after each relay's cycle, a LED will turn on to provide visual feedback.
 To activate the relays and run this sketch, you need to provide energy to Opta™ with a voltage from 12 to 24 V DC by connecting it to a proper power supply.
 
-Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. They are duplicated to help the user to connect the power supply and any common part to the input terminals but they have the same potential (upon polarity).
+The Opta™ has dedicated terminals for power supply located in the upper part of Opta™ and next to the inputs. These duplicates are to help the user connect the power supply and any common part to the input terminals.
 
 ![Connect these pins to drive the relays on the Opta™](assets/opta-voltage-pins.svg)
 
@@ -209,6 +230,14 @@ Opta™ has dedicated terminals for power supply located in the upper part of Op
 The entire sketch can be found below, copy it into your IDE and upload it to your device.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: Output_Relay_Opta
+  Purpose: Test output relays of the Opta™.
+
+  @author Arduino
+*/
+
 void setup() {
  // Initialize Relays outputs
  pinMode(D0, OUTPUT);
@@ -260,7 +289,7 @@ void loop() {
 
 ***Important: It is not possible to program the Opta™ while it is being powered with the power pins. You would need to disconnect the power supply, upload the program and then connect the power again.***
 
-### Using Opta's Inputs
+### Using Opta™ PLC's Inputs
 
 Opta™ has 8 input pins that can be programmed to be used as analog or digital. The mapping between the marking on the Opta™ physical terminals (I1 to I8) and their definition in the core can be found below:
 
@@ -276,17 +305,28 @@ Opta™ has 8 input pins that can be programmed to be used as analog or digital.
 | I8                | A7                  | PIN_A7             |
 
 The 8 input pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V).
+
 * To use them as digital inputs, add the Arduino command `pinMode(pinName, INPUT);` inside the `setup()`.
 * To use them as analog inputs, add the command `analogReadResolution();` with the bit resolution that you want to use.
 
 ![Analog inputs on the Opta™](assets/opta-analog-inputs.svg)
 
 Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 10V.
-The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the voltage of the input using it in conjunction with the resolution factor of the ADCs. That resolution can be selected inside the program within a range between 12 bits (4095) and 16 bits (65535).
+
+The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the input voltage using it in conjunction with the resolution factor of the ADCs. That resolution is configured inside the program within the range between 12 bits (4095) and 16 bits (65535).
+
 To get and display the proper voltage value read by the input, we need to convert the value read by the `analogRead` function and apply a rescaling factor of 0.3 which is determined by the internal voltage divider.
-The sketch will read the inputs on the analog pins A0, A1 and A2 and then print the result in the serial monitor.
+The sketch will read the inputs on the analog pins A0, A1, and A2 and then print the result in the serial monitor.
 
 ```arduino
+/**
+  Getting Started with Opta™
+  Name: Analog_Inputs_Opta
+  Purpose: Test analog pins A0, A1 and A2 as inputs on Opta™.
+
+  @author Arduino
+*/
+
 void setup() {
    Serial.begin(9600);
    // 65535 is the max value with 16 bits resolution set by analogReadResolution(16)
@@ -330,17 +370,17 @@ void loop() {
 }
 ```
 
-Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each of the signals. In case you did not connect anything to the analog inputs, you will see how the values oscillate between 0V and a very small value because the pins are floating.
+Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each signal. In case you did not connect anything to the analog inputs, you will be able to observe the values oscillate around 0V because the pins are floating.
 
-You may notice from the output values that when the maximum value of 10V is reached, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. The reason is that there is a precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
+You may notice from the output values that when the maximum value reaches 10V, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. This is due to the precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, go to our [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. We also have some other helpful tutorials for [the Arduino cloud](https://docs.arduino.cc/arduino-cloud/) that will help you to expand its capabilities.
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud, go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, check [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
 
 ## Conclusion
 
-This tutorial went through the basics of the Opta™ device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, program the relays and read the digital and analog inputs. With the additional connection of the Opta™ to the Arduino Cloud, Opta™ can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
+This tutorial went through the basics of the Opta™ device. Now you know how to program the LEDs of the PLC, use the user-programmable button to create additional modes and features, program the relays, and read the digital and analog inputs. With the additional connection of the Opta™ to the Arduino Cloud, Opta™ can be programmed online, create HMI interfaces accessible on any device, and even be updated through an OTA using professional encryption security.
 
 ### Next Steps
 

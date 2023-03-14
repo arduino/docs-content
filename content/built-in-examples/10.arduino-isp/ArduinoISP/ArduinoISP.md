@@ -57,7 +57,7 @@ On some Arduino boards (see table above), pins MOSI, MISO and SCK are the same p
 
 ![](assets/ArduinoUNOtoUNO_ISP2.jpg)
 
-In the picture above we are connecting two UNO boards for bootloader burning with the "old style" connections: the top board is the Target, the bottom board is the Programmer. Note the yellow connection from D10 of the programmer to RESET of the target. *On MKR family of boards, you can't use D10 for reset; we suggest D6 and you must remember to change the line 73 of the ArduinoISP sketch - `#define RESET 10` - putting "6" insteat of 10.*
+In the picture above we are connecting two UNO boards for bootloader burning with the "old style" connections: the top board is the Target, the bottom board is the Programmer. Note the yellow connection from D10 of the programmer to RESET of the target. *On MKR family of boards, you can't use D10 for reset; we suggest D6 and you must remember to change the line 73 of the ArduinoISP sketch - `#define RESET 10` - putting "6" instead of 10.*
 
 ![](assets/Arduino_ISP_wires.jpg)
 
