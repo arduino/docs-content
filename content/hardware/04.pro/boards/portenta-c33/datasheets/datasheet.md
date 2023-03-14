@@ -78,11 +78,11 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Power Supply</td>
-    <td>Various options for easily powering the board: USB-C® port, single cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
+    <td>Various options for easily powering the board: USB-C® port, single-cell lithium-ion/lithium-polymer battery and external power supply connected through MKR-styled connectors</td>
   </tr>
   <tr>
     <td>Analog Peripherals</td>
-    <td>Two, eight channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)</td>
+    <td>Two, eight-channel 12-bit analog-to-digital converter (ADC) and two 12-bit digital-to-analog converter (DAC)</td>
   </tr>
   <tr>
     <td>Digital Peripherals</td>
@@ -207,7 +207,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 5: Portenta C33 Ethernet Connectivity Features</caption>**
+**<caption>Table 4: Portenta C33 Ethernet Connectivity Features</caption>**
 
 </div>
 
@@ -244,7 +244,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 4: Portenta C33 Security Features</caption>**
+**<caption>Table 5: Portenta C33 Security Features</caption>**
 
 </div>
 
@@ -337,7 +337,7 @@ An overview of the Portenta C33 high-level architecture is illustrated in Figure
 The Portenta C33 can be powered through one of these interfaces:
 
 - USB-C® port
-- 3.7V single cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
+- 3.7V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
 - External 5V power supply connected through the MKR-styled pins
 
 <p style="text-align: justify;">
@@ -384,17 +384,17 @@ The Portenta C33 is designed to be usable as a surface-mount module as well as p
 
 ### Board Dimensions
 
-Portenta C33 board main dimensions can be seen in Figure 3.
+Portenta C33 board main dimensions can be seen in Figure 2.
 
-**![Figure 3. Portenta C33 dimensions (top view in the left and bottom view in the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
+**![Figure 2. Portenta C33 dimensions (top view on the left and bottom view on the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
 ### Board Connectors
 
-Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 4 and 5.
+Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 3 and 4.
 
-**![Figure 4. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
+**![Figure 3. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
 
-**![Figure 5. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
+**![Figure 4. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
 
 ## Certifications
 
@@ -414,6 +414,12 @@ Connectors of the Portenta C33 are placed on the top and bottom side of the boar
 |    SRRC (China)   |     Yes    |
 |    CCC (China)    |     Yes    |
 
+<div style="text-align:center;">
+
+**<caption>Table 8: Certifications Summary</caption>**
+
+</div>
+ 
 ### Declaration of Conformity CE DoC (EU)
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
@@ -435,13 +441,19 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 |         Dibutyl phthalate (DBP)        |           1000          |
 |       Diisobutyl phthalate (DIBP)      |           1000          |
 
+<div style="text-align:center;">
+
+**<caption>Table 9: Restriction of the use of hazardous substances</caption>**
+
+</div>
+
 Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
@@ -491,7 +503,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Company name** |                **Arduino SRL**               |
 |:----------------:|:--------------------------------------------:|
-|  Company address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+|  Company address | Via Andrea Appiani, 25 - 20900 MONZA, Italy  |
+
+<div style="text-align:center;">
+
+**<caption>Table 10: Company address</caption>**
+
+</div>
 
 ## Reference Documentation
 |        **Ref**                     | **Link**                                                                                    |
@@ -504,9 +522,20 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                       | https://store.arduino.cc/                                                                   |
          
+<div style="text-align:center;">
+
+**<caption>Table 11: Reference Documentation</caption>**
+
+</div>
 
 ## Document Revision History
 
 |  **Date**  | **Revision** |  **Changes**  |
 |:----------:|:------------:|:-------------:|
 | 14/03/2023 |       1      | First release |
+
+<div style="text-align:center;">
+
+**<caption>Table 12: Document Revision History</caption>**
+
+</div>
