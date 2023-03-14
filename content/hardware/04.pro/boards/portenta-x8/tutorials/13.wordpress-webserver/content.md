@@ -31,7 +31,7 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 
 ## Instructions
 
-First, make sure your Portenta X8 is set up correctly by following the [getting started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box).
+First, make sure your Portenta X8 is set up correctly by following the [User Manual's Out-of-the-box experience](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).
 
 ### Creating the Docker-compose.yml File
 
@@ -96,7 +96,7 @@ When you are in the correct directory and no other container is running on the p
 
 ### Connecting to the WordPress Site
 
-To connect to the WordPress setup site, you simply need to access it with your Portenta X8s unique id and port. So for example: `http://portenta-x8-<uuid>.local:<port>`, where you would substitute the `<uuid>` with your Portenta X8's unique id and the port chosen for the WordPress container with `<port>`. The `<uuid>` can be found on the setup page that is shown in the [Getting started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), but you can also see it in the terminal when running `adb` or you can go to `http://192.168.7.1:8000` if you use Windows and Linux, on MacOS use `http://192.168.8.1:8000`.
+To connect to the WordPress setup site, you simply need to access it with your Portenta X8s unique id and port. So for example: `http://portenta-x8-<uuid>.local:<port>`, where you would substitute the `<uuid>` with your Portenta X8's unique id and the port chosen for the WordPress container with `<port>`. The `<uuid>` can be found on the setup page that is shown in the [User Manual's Out-of-the-box experience](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience), but you can also see it in the terminal when running `adb` or you can go to `http://192.168.7.1:8000` if you use Windows and Linux, on MacOS use `http://192.168.8.1:8000`.
 
 When you connect, you should get some feedback in the terminal. Text will begin printing in the terminal, showing you information about the connection that has just been established as shown in the image below.
 

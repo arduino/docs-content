@@ -47,7 +47,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 - Command-line interface
 - [Arduino IDE 2.0](https://www.arduino.cc/en/software)
   
-***If you are new to the Portenta X8 board, check out this [getting started tutorial](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal) on controlling your board using a terminal or command-line interface.***
+***If you are new to the Portenta X8 board, check out this [User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) on controlling your board using a terminal or command-line interface.***
 
 ## IoT Architecture Basics
 
@@ -276,7 +276,7 @@ We can now proceed to configure InfluxDB.
 
 ## Installing InfluxDB
 
-InfluxDB is an open-source, high-performance, time series database; with InfluxDB data can be written and read in real-time, and data can be processed in the background for extract, transform, and load (ETL) purposes or for monitoring and alerting purposes. User dashboards for visualizing and exploring data can also be set up. 
+InfluxDB is an open-source, high-performance, time series database; with InfluxDB data can be written and read in real-time, and data can be processed in the background for extract, transform, and load (ETL) purposes or for monitoring and alerting purposes. User dashboards for visualizing and exploring data can also be set up.
 
 The simplest form to run InfluxDB with Docker is by using the following command:
 
@@ -516,7 +516,7 @@ If everything is ok, we should see the following in the Serial monitor of the Ar
 
 ![Debug messages in the Arduino IDE 2.0 Serial Monitor.](assets/x8-data-logging-img_25.png)
 
-Check out now the Grafana dashboard we configured earlier; we should see data coming from the MKR WiFi 1010 board. 
+Check out now the Grafana dashboard we configured earlier; we should see data coming from the MKR WiFi 1010 board.
 
 ## Conclusion
 

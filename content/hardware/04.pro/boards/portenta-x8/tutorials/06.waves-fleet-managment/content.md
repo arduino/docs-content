@@ -30,13 +30,13 @@ This tutorial will show you how to define fleets and how to construct a Wave tha
 - Arduino Create account
 - Arduino Cloud for business subscription with Portenta X8 Manager add-on: [Learn more about here](https://cloud.arduino.cc/plans#business)
 - Foundries.io™ account (linked with the Arduino Cloud for business subscription)
-- FoundriesFactory® and devices already attached to your Factory ([Check the Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box))
+- FoundriesFactory® and devices already attached to your Factory ([User Manual for Out-of-the-box experience](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience))
 
 ## Instructions
 
 ### Setting Up the Terminal
 
-Waves fleet management requires us to have the X8 setup with FoundriesFactory. If you have not done so, please follow our [Getting Started tutorial](https://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box), as it will walk you through setting up the X8 with your Factory.
+Waves fleet management requires us to have the X8 setup with FoundriesFactory. If you have not done so, please follow our [User Manual for Out-of-the-experience](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience), as it will walk you through setting up the X8 with your Factory.
 
 To use Waves, you need to have fioctl installed and configured. Follow this [guide](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) to do so. Creating Waves and device groups will be done via the host, which is your factory. As such, the following commands will be entered in a terminal using fioctl to connect to your Factory.
 

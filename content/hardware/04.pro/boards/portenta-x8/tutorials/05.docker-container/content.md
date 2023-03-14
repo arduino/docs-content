@@ -34,7 +34,7 @@ In this tutorial, we will go through the steps of how to install, run and remove
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Wi-Fi® Access Point with Internet Access
-- ADB, [Check how to connect to your Portenta X8](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal)
+- ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
 ***Make sure to have the Portenta X8 with the latest image as well as bootloader. Please check [how to flash your Portenta X8](/tutorials/portenta-x8/image-flashing) to have latest version.***
@@ -47,7 +47,7 @@ The Portenta X8 provides Docker CLI by default. The following command will help 
 docker -v
 ```
 
-***To use this tool, you will need to connect to your device first. Check [how to connect using adb/ssh](/tutorials/portenta-x8/out-of-the-box#controlling-portenta-x8-through-the-terminal).***
+***To use this tool, you will need to connect to your device first. Check [how to connect using adb/ssh](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).***
 
 You can check the Docker's reference documentation, which covers all the features of the tool in depth at [docs.docker.com](https://docs.docker.com/).
 
@@ -133,4 +133,4 @@ In this tutorial, you have learned how to use Docker with Portenta X8. You have 
 
 - Now that you have the base of the workflow to use [Docker](https://docker.com), go to its docs page and make sure you understand all the features.
 - Look for a container image from [Docker hub](http://hub.docker.com), install it and make your own application out of it.
-- Create a container to run your custom made application. For this, it may interest you [Create and Upload a Custom Container to the Portenta X8](tutorials/portenta-x8/custom-container) tutorial.
+- Create a container to run your custom made application. For this, it may interest you [Deploy a Custom Container with Portenta X8 Manager](tutorials/portenta-x8/custom-container) tutorial.
