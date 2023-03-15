@@ -270,7 +270,9 @@ In this section, you will find a series of examples that is based on the `RPC` l
 
 ### RPC Serial
 
-
+The `Serial.print()` command only works on the **M7 core**. In order to print values on the **M4**, we need to:
+- Use `RPC.println()` on the M4. This will print the values to the RPC1 stream.
+- Use `RPC.available()` and `RPC.read()` 
 
 ### RPC Sensor
 
@@ -451,7 +453,7 @@ This example demonstrates how to read sensors on one core, and request the data 
 
 ***Please note, IoT Cloud sketches are designed to run only on the M7 core.***
 
-
+**M4 Sketch**
 
 ### DAC Example
 
