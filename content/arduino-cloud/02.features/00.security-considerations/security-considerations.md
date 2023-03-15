@@ -1,6 +1,6 @@
 ---
 title: 'Arduino Cloud Security Considerations'
-description: 'Learn how Arduino ensures your data is protected in secure in this security overview document.'
+description: 'Learn how Arduino ensures your data is protected and secured in this security overview document.'
 tags:
 - Arduino Cloud
 - Security
