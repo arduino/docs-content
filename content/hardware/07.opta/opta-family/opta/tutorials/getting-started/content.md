@@ -17,6 +17,8 @@ hardware:
   - hardware/07.opta/opta-family/opta
 ---
 
+ <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/PKNAXUEZZp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+
 ## Overview
 
 The Opta™ is a robust micro PLC solution with many engaging features. In this tutorial, we will go through setting up Opta™ with the Arduino IDE and explain how to use its basic features. It includes examples to show how to program the LEDs on the device, how to use the programmable button, as well as to control its inputs and outputs.
