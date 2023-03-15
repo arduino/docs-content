@@ -100,21 +100,54 @@ Click OK to save the settings and press the connect button on **On-line > connec
 
 ![Connect to the board](assets/connect.png)
 
-### 6. License Activation
+### 6. License Activation With Product Key (Portenta Machine Control)
 
 If the communication is successful the main panel will show the license section to be filled in and a status indicator.
 
-To use your product license, fill it in on the form and press the **Activate** button.
+#### Online Activation
+
+To use your product license, paste the key in the blank next to **Product Key:** and press the **Activate** button.
 
 ![Connection success](assets/licenseActivation.png)
 
-After you click the **Activate** button, it will use the license and attach it to the board. A popup telling you to reboot the target (which is the device connected to the PLC IDE) will show up once the attachment finishes. Press the reset button of your device to perform the reboot.
+After you click the **Activate** button, the IDE will bind the license to the hardware ID. A popup telling you to reboot the target (which is the device connected to the PLC IDE) will show up: press the reset button of your device to reboot.
 
 ![Activation succeed](assets/connectedAndActivated.png)
 
-Once the board has been activated, it is recommended to get the **Hardware-ID** of your device. 
+Once the product has been activated, it is recommended to get the **Hardware-ID** of your device. 
 
-### 7. Getting the Hardware-ID of Your Device
+#### Offline Activation
+
+To activate the product Offline, deselect the "online" slider and the scenario below will show up:
+
+![Activation Offline](https://user-images.githubusercontent.com/100422525/225364908-b2d0e497-014d-4fe4-bef0-34c846cb5103.png)
+
+Follow the instructions provided, using our [Contact form](https://www.arduino.cc/en/contact-us) and generating the **Activation Request File**.
+
+Once you will receive back the **Activation file**, drag&drop it in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
+
+### 7. License Activation With Pre-licensed Products (Opta)
+
+When a product is pre-licensed, the scenario below will be displayed:
+
+![Opta Ativation No License](https://user-images.githubusercontent.com/100422525/225370627-9c65c9ce-2c7f-4bb0-8416-059bcede8bea.png)
+
+By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC status will be set as OK:
+
+![Opta Activation Status OK](https://user-images.githubusercontent.com/100422525/225371868-0ad91f93-ec77-4f68-90f5-678c9662d531.png)
+
+### 8. Activation Recovery
+
+In case the hardware is being reflashed and the key got lost, the license can be recovered just clicking the **Forgot your Product Key?" button:
+
+![Activation Online Forgotten](https://user-images.githubusercontent.com/100422525/225387229-b0780ac0-fcae-4175-a4d5-6d4a8aa991bb.png)
+
+The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop up when done:
+
+![Activation Online Forgotten Key Activated](https://user-images.githubusercontent.com/100422525/225387549-b03dc55b-c82a-4fbd-b254-c376e44d4952.png)
+
+
+### 9. Getting the Hardware-ID of Your Device
 
 To do it follow the next steps:
 - Be sure that your device is disconnected from the Arduino PLC IDE.
@@ -123,13 +156,13 @@ To do it follow the next steps:
 - Go to **Tools** > **Port** to select the proper port (the default one shown before in the PLC IDE inside the **Arduino PMC Configuration** > **Other** section)
 - Go to **Tools** > **Serial Monitor** and reset the board. Look at the end of the boot report to find the "Hardware-ID" and store it in a safe place.
 
-### 8. Download a Program
+### 10. Download a Program
 
 Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter. To upload that program to your PLC, it is needed to compile the program and send it to the target device.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 
-### 9. Communication Test
+### 11. Communication Test
 
 Open the **Watch** window by clicking on "View > Tool Windows > Watch", it will attach a new window on the right side called **Watch**. This window shows the real-time variables value.
 
