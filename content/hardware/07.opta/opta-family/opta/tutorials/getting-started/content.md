@@ -17,7 +17,14 @@ hardware:
   - hardware/07.opta/opta-family/opta
 ---
 
- <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/PKNAXUEZZp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+ <iframe 
+ width="720" 
+ height="405"  
+ src="https://www.youtube.com/embed/PKNAXUEZZp0?autoplay=1&controls=0&loop=1&mute=1" 
+ title="Arduino Opta" 
+ frameborder="0" 
+ >
+ </iframe>
 
 ## Overview
 
