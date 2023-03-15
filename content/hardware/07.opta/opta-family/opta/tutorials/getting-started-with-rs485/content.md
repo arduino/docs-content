@@ -13,7 +13,7 @@ software:
   - ide-v1
   - ide-v2
 hardware:
-  - hardware/05.pro-solutions/solutions-and-kits/opta
+  - hardware/07.opta/opta-family/opta
 ---
 
 ## Overview
