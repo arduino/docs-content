@@ -51,15 +51,15 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 
 ## IoT Architecture Basics
 
-IoT applications and devices are everywhere nowadays, even where we don't think a device or application is connected to the Internet. Rather than a single technology, **IoT is a concept** that refers to the connection of everyday devices, just like your watch, to the Internet and how that Internet connection creates more and different ways to interact with your device and your environment. Interactions between humans and devices or applications create **data** (lots) that must be communicated and processed.
+IoT applications and devices are everywhere nowadays, even in places where we don't realize a device or application is connected to the Internet. Rather than a single technology, **IoT is a concept** that refers to the connection of everyday devices, just like your watch, to the Internet and how that Internet connection creates more and different ways to interact with your device and your environment. Interactions between humans and devices or applications create **data** (often in large quantities) that must be communicated and processed.
 
-How can we plan, build and deploy IoT solutions? To answer that question, we must think about **IoT architecture**. Due to the different IoT devices and applications that exist and can exist, there is not just one unique architecture for IoT devices and applications. But, we can talk about a base architecture that can be considered as a starting point for every IoT project. This base architecture consists of **three essential layers**: **perception** (or devices), **network**, and **application**. Let's talk more about these layers:
+How can we plan, build and deploy IoT solutions? To answer that question, we must consider **IoT architecture**. Due to the variety of IoT devices and applications that exist and can be developed, there is no single, unique architecture for IoT devices and applications. However, we can discuss a foundational architecture that can be considered a starting point for any IoT project. This foundational architecture consists of **three essential layers**: **perception** (or devices), **network**, and **application**. Let's explore these layers in more detail:
 
-- **Perception layer**: this is the sensor's layer, where data comes from. In this layer, data is gathered with one or more sensor nodes; actuators, that answer to data collected from sensor nodes, are also in this layer.
-- **Network layer**: this is where sensor node data is recollected and transmitted to back-end services, such as databases.
-- **Application layer**: this layer is what the device or application user sees and interacts with, for example, a dashboard.
+- **Perception layer**: This is the sensor's layer, where data originates. In this layer, data is gathered by one or more sensor nodes. Actuators, which respond to data collected from sensor nodes, are also part of this layer.
+- **Network layer**: This layer is responsible for collecting and transmitting data from sensor nodes to back-end services, such as databases. Data transmission can occur through various communication networks like Wi-Fi or cellular networks.
+- **Application layer**: This layer is what the device or application user sees and interacts with, such as a dashboard. The sensor data is processed and displayed to the end-user in a user-friendly manner through smartphone apps or web interfaces.
 
-The three-layer IoT architecture can be a starting point for designing and implementing an IoT device or application. In this tutorial, we are going to take this base architecture and set up a data-logging application, as shown in the image below:
+These three layers are interconnected to form a complete IoT system. In this tutorial, we are going to take this base architecture and set up a data-logging application, as shown in the image below:
 
 ![IoT application high-level architecture.](assets/x8-data-logging-img_01.png)
 
@@ -75,14 +75,26 @@ Let's start by configuring the MQTT broker!
 
 ## Installing Mosquitto
 
-Let's start by creating a new directory in our Portenta X8 called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml`:
+Let's start by creating a new directory in our Portenta X8 `home` directory called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml`:
 
 ```
-$ mkdir mqtt
-$ cd mqtt
-$ export TERM=xterm
-$ stty rows 36 cols 150
-$ sudo vi docker-compose.yml
+mkdir mqtt
+```
+
+```
+cd mqtt
+```
+
+```
+export TERM=xterm
+```
+
+```
+stty rows 36 cols 150
+```
+
+```
+sudo vi docker-compose.yml
 ```
 
 ***The `export TERM=xterm` and `stty rows 36 cols 150` commands enable VI editor full screen.***
@@ -95,13 +107,14 @@ services:
                 container_name: mosquitto
                 image: eclipse-mosquitto
                 restart: always
+                user: "0:0"
                 ports:
                         - "1883:1883"
                         - "9001:9001"
                 volumes:
-                        - /var/rootdirs/home/root/mqtt/config:/mosquitto/config
-                        - /var/rootdirs/home/root/mqtt/data:/mosquitto/data
-                        - /var/rootdirs/home/root/mqtt/log:/mosquitto/log
+                        - /var/rootdirs/home/fio/mqtt/config:/mosquitto/config:rw
+                        - /var/rootdirs/home/fio/mqtt/data:/mosquitto/data
+                        - /var/rootdirs/home/fio/mqtt/log:/mosquitto/log
 volumes:
         config:
         data:
@@ -113,30 +126,30 @@ volumes:
 Save the file and exit the VI editor. Return to the `mqtt` directory and run the following command:
 
 ```
-mqtt$ docker-compose up -d
+docker-compose up -d
 ```
 
-The Mosquitto broker should be available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command:
+The Mosquitto broker should be available on your Portenta X8 `IP address`. You can retrieve the `IP Address` of your board with the `ping <hostname>` command.
+
+We should see inside the `mqtt` directory three folders (`config`, `data`, and `log`) and the `docker-compose.yml` file we created before. When we launch the Mosquitto container using the `docker-compose up -d` command, the logs will fill with errors about being unable to open the configuration file. To fix this issue, we can download a default configuration file and store it in the newly created `config` directory:
 
 ```
-$ ping portenta-x8-a28ba09dab6fad9
-PING portenta-x8-a28ba09dab6fad9 (192.168.1.111) 56 data bytes
+sudo wget https://raw.githubusercontent.com/eclipse/mosquitto/master/mosquitto.conf
 ```
 
-We should see inside the `mqtt` directory three folders (`config`, `data`, and `log`) and the `docker-compose.yml` file we created before. Go to the `config` directory and make a file named `mosquitto.conf`:
+Let's add the following lines at the end of the `config` file
 
 ```
-mqtt$ ls
-config  data  docker-compose.yml  log
-mqtt$ cd config
-/mqtt/config# sudo vi mosquitto.config
-```
+# Listen on port 1883 
+listener 1883
+listener 9001
 
-Inside the VI editor, copy and paste the following:
-
-```
+# Save the in-memory database to disk
 persistence true
 persistence_location /mosquitto/data/
+
+# Log to stderr and logfile
+log_dest stderr
 log_dest file /mosquitto/log/mosquitto.log
 ```
 
@@ -147,8 +160,7 @@ Save the file and exit the VI editor. Now, let's restart the Mosquitto container
 Now, we need to manage password files by adding a user to a new password file. For this, we need to run the `sh` command in the mosquitto container with the mosquitto `CONTAINER ID` found before, as shown below:
 
 ```
-/mqtt/config$ docker exec -it CONTAINER ID sh
-/ # 
+docker exec -it CONTAINER ID sh
 ```
 
 Let's dissect that command:
@@ -159,42 +171,34 @@ Let's dissect that command:
 Now, in the terminal session with the Mosquitto container, run the following command:
 
 ```
-/ # mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
+mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
 ```
 
-This command creates a new password file (`mosquitto.passwd`); if the file already exists, it will overwrite; `guest` is the username. After entering the `username` we want, we must define a password for the username and then exit the terminal session with the `exit` command:
-
-```
-/ # mosquitto_passwd -c /mosquitto/config/mosquitto.passwd guest
-Password:
-Reenter password:
-/ # exit
-```
-
-Now, let's return to the `config` directory; you should see now inside this directory the `mosquitto.passwd` file. Open the `mosquitto.config` file and add the following information to it:
+This command creates a new password file (`mosquitto.passwd`); if the file already exists, it will overwrite; `guest` is the username. After entering the `username` we want, we must define a password for the username and then exit the terminal session with the `exit` command. Now, let's return to the `config` directory; you should see now inside this directory the `mosquitto.passwd` file. Open the `mosquitto.config` file and add the following information to it:
 
 ```
 password_file /mosquitto/config/mosquitto.passwd
 allow_anonymous true
-
-listener 1883
-listener 9001
-protocol websockets
 ```
 
 The file should see now like this:
 
 ```
-persistence true
-persistence_location /mosquitto/data/
-log_dest file /mosquitto/log/mosquitto.log
-
+# Password file
 password_file /mosquitto/config/mosquitto.passwd
 allow_anonymous true
 
+# Listen on port 1883 
 listener 1883
 listener 9001
-protocol websockets
+
+# Save the in-memory database to disk
+persistence true
+persistence_location /mosquitto/data/
+
+# Log to stderr and logfile
+log_dest stderr
+log_dest file /mosquitto/log/mosquitto.log
 ```
 
 To test it, save the file and exit the VI editor; also, we need to restart the Mosquitto container so the configuration file can start working. This can be done by using the `docker restart` command and the Mosquitto `CONTAINER ID`. After restarting the container, the local Mosquitto broker should be ready.
