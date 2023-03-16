@@ -172,7 +172,7 @@ The antenna connector (see image above) is located right next to the USB-C conne
 To use the BLE features on this board, refer to the [ArduinoBLE library documentation](https://reference.arduino.cc/reference/en/libraries/arduinoble/).
 
 ### Ethernet
-If you want to add ethernet connectivity to your project, there are many many ways of doing that, one of the easiest ways is to use the [Arduino Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2).
+If you want to add Ethernet connectivity to your project, there are many many ways of doing that, one of the easiest ways is to use the [Arduino Ethernet Shield Rev2](/hardware/ethernet-shield-rev2).
 
 ## Audio Jack
 
