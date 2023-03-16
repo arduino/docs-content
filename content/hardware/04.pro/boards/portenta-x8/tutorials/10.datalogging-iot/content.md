@@ -75,7 +75,7 @@ Let's start by configuring the MQTT broker!
 
 ## Installing Mosquitto
 
-Let's start by creating a new directory in our Portenta X8 `home` directory called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml`:
+Let's start by creating a new directory in our Portenta X8 `home` directory called `mqtt`; inside this directory, we are going to make a file named `docker-compose.yml` using the following commands:
 
 ```
 mkdir mqtt
