@@ -3,8 +3,7 @@ software:
   - arduino-cli
   - web-editor
 hardware:
-  boards: ~
+  boards:
+    - GIGA R1 WiFi
   carriers: ~
-  shields:
-    - 4-relays-shield
-    - motor-shield-rev3
+  shields: ~
