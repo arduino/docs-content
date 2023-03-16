@@ -20,7 +20,8 @@ hardware:
  <iframe 
  width="720" 
  height="405"  
- src="https://www.youtube.com/embed/PKNAXUEZZp0?autoplay=1&controls=0&loop=1&mute=1" 
+ loop="true" 
+ src="https://www.youtube.com/embed/PKNAXUEZZp0?autoplay=1&controls=0&loop=1&mute=1&playlist=PKNAXUEZZp0" 
  title="Arduino Opta" 
  frameborder="0" 
  >
