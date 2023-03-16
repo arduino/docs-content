@@ -171,6 +171,9 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 To use the BLE features on this board, refer to the [ArduinoBLE library documentation](https://reference.arduino.cc/reference/en/libraries/arduinoble/).
 
+### Ethernet
+If you want to add ethernet connectivity to your project, there are many many ways of doing that, one of the easiest ways is to use the [Arduino Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2).
+
 ## Audio Jack
 
 The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
@@ -185,7 +188,6 @@ The audio jack is connected to the following pins:
 Both of these come with caveats, though. As there is no amplifier circuit on the board itself, driving a high impedance speaker directly without an amplifier circuit could cause damage to the board, and microphone input without an amplifier circuit between the microphone and the board may sound dim.
 
 In the coming sections we will provide resources and basic information on how to use the audio jack as both an input and an output. 
-
 
 ### DAC Output
 
@@ -880,6 +882,16 @@ The reference voltage of these pins is 3.3V.
 
 Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as analog input pins.
 
+The **STM32H7** has an internal OPAMP and comparator that are exposed on the **GIGA R1** as follows:
+
+| Pin | OPAMP             | Comparator           |
+| --- | ------------------| -------------------- |
+| A0  | OPAMP1_VOUT       | COMP1_INM            |
+| A1  | OPAMP1_VINM &VINM0|                      |
+| A2  | OPAMP1_VINP       | COMP1_INP            |
+| A3  |                   | COMP1_INM            |
+| A6  |                   | COMP1_INM            |
+
 ***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
 
 
@@ -915,6 +927,8 @@ The **GIGA R1** features more pins than any other Arduino board for makers, a fu
 - 21 - SCL
 
 The reference voltage of all digital pins is 3.3V.
+
+The logic for `LED_BUILTIN` is reversed if compared to the behaviour of, for example, the **Arduino UNO** board. What this means is that if you write HIGH to `LED_BUILTIN`, the LED will turn off, and on respectively if you write LOW.
 
 ### DAC Pins
 
