@@ -68,6 +68,8 @@ The USB-A connector onboard the GIGA R1 can be used to connect **USB mass storag
 
 USB mass storage devices connected needs to be formatted with the **FAT32** as a file system, using the **MBR partitioning scheme**. This is a requirement, and reading & writing will not work otherwise.
 
+The USB mass storage features are based on the [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5/) library.
+
 ### USB Designation
 
 To access the correct USB mass storage device, we need to specify the **designation** in the code.
@@ -77,12 +79,6 @@ mbed::FATFileSystem usb("USB_DRIVE_DESIGNATION")
 ```
 
 This is so that our GIGA R1 can target the right USB device.
-
-Please note that when writing/reading to files, you will need to specify the correct path, for example:
-
-```arduino
-
-```
 
 ### List File Directory
 
