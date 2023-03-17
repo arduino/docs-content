@@ -17,6 +17,17 @@ In this guide, we will take a look at the available features, how to enable them
 - USB Mass Storage Device (USB Stick).
 - Keyboard.
 
+### Libraries
+
+USB features on the GIGA R1 is currently enabled through three separate libraries.
+- [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) - included in the core.
+- [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5/) - can be downloaded through the Arduino IDE.
+- [USBHostGiga (Alpha)](https://github.com/arduino-libraries/USBHostGiga) - library only available through its GitHub repository.
+
+These libraries each provides a set of methods to access the USB features on the board. This includes using the GIGA R1 as a mouse/keyboard (HID), reading & writing to mass storage devices & connecting external keyboards.
+
+The examples provided in this guide are based on these libraries.
+
 ## USB Overview
 
 The GIGA R1 has two USB connectors:
@@ -57,6 +68,8 @@ The USB-A connector onboard the GIGA R1 can be used to connect **USB mass storag
 
 USB mass storage devices connected needs to be formatted with the **FAT32** as a file system, using the **MBR partitioning scheme**. This is a requirement, and reading & writing will not work otherwise.
 
+The USB mass storage features are based on the [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5/) library.
+
 ### USB Designation
 
 To access the correct USB mass storage device, we need to specify the **designation** in the code.
@@ -66,12 +79,6 @@ mbed::FATFileSystem usb("USB_DRIVE_DESIGNATION")
 ```
 
 This is so that our GIGA R1 can target the right USB device.
-
-Please note that when writing/reading to files, you will need to specify the correct path, for example:
-
-```arduino
-
-```
 
 ### List File Directory
 
@@ -415,7 +422,12 @@ After logging data, remove the USB stick from your board, and insert it in your 
 
 ## USB Host Keyboard
 
-It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry. This library is included in the core, so it does not require any additional installation.
+It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry. 
+
+The library used for this can be downloaded through Github.
+- [USBHostGiga](https://github.com/arduino-libraries/USBHostGiga)
+
+***The USBHostGiga library is not available in the Arduino IDE and needs to be installed manually. You can do so my navigating to `Sketch` > `Include Library` > `Add .ZIP Library`.***
 
 ```arduino
 #include "HIDHost.h"
