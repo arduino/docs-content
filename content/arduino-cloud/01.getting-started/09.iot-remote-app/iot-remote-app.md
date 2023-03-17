@@ -65,3 +65,5 @@ The sensor data from your phone is tracked through **variables** in the Arduino 
 Head over to the [Arduino IoT Cloud - Things]() and go to the Thing created for your phone (in this case, it is named `Karl_s S20_ Thing`), and select a variable you want to synchronize. In the following menu you can link it to other variables on other Things.
  
 ![Synchronizing variables.](assets/remote-app-cloud-variables.png)
+
+Simply described, this allows you to use your phone as an input. For example, the `Compass` variable can be used to control the angle of a servo motor on another device. You can read more 
