@@ -180,48 +180,11 @@ The pros of using this approach is that the code you write is optimized only for
 
 The cons is to manage the versions becomes harder, and while flashing the board, you'd need to keep track on which version is uploaded to which core. It is easier to upload to the wrong core by accident using this approach, but you have more optimized code.
 
-***Always make sure to include the `RPC.begin()` command in your M7 sketch.***
-
-## Use Cases
-
-There are a number of cases where running two cores in parallel brings an advantage. Mainly, it allows one to develop code to run simultaneously, each performing their own individual tasks.
-
-In all modern computers, including yours, you have several cores each occupied with a number of task, in order to speed things up. This is particularly useful in blocking operations such as:
-- Controlling a servo motor, 
-- Loading a display,
-- Connecting to a network.
-
-### Choosing Core
-
-Simply speaking, the M7 should always run your main program, or the most intensive program. It is overall a faster processor that reads memory and executes instructions faster.
-
-For example, you should be running network applications on the M7, while you do sensor readings on the M4. 
-
-***To get a more detailed view on the differences between M4 and M7, see [Arm Cortex-M Processor Comparison Table](https://developer.arm.com/documentation/102787/latest).***
-
-### Wi-Fi / Bluetooth®
-
-Wi-Fi and Bluetooth® applications are best run on the M7, as they are more demanding. Lower level tasks, such as controlling relays, reading sensor data and so forth, can be distributed to the M4 core instead.
-
-***The GIGA R1 WiFi is supported by the [Arduino IoT Cloud](https://create.arduino.cc/iot/). Currently, only the M7 is supported.***
-
-### Displays
-
-As the M7 is faster, it is best to run display sketches on the M7 core. Displays have a lot of blocking operations, and it is a good idea to separate the display's functionalities and other operations we want to perform.
-
-Running the display application on the M7 leaves the M4 free for other applications, such as motor control. Particularly useful when building projects where you need to control a motor from a display.
-
-### Robotics
-
-For robotics projects, separating the motor control **between the cores** can be beneficial. For example, servo control is a blocking operation, so if you are running several servos at the same time, performance can be reduced.
-
-It can also be distributed so that one core handles servo motors, and one handles stepper motors, if you are using multiple types of motors.
-
-### Sensors
-
-Sensor readings in itself does not matter much which core you use. If you are simply running some tests, it is good to run it on the M7, as you are able to print the results using `Serial.print()` (not available on M4, only through RPC).
-
-When used in relation to a e.g. a display, it is good practice to read sensors on the M4 core and on the M7, fetch the result and display it.
+When writing multiple sketches, there are some things to consider to make your development experience easier:
+- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
+- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
+- Always include `RPC.begin()` on your M7 core sketch.
+- 
 
 ## Remote Call Procedures (RPC)
 
@@ -272,31 +235,34 @@ In this section, you will find a series of examples that is based on the `RPC` l
 
 The `Serial.print()` command only works on the **M7 core**. In order to print values on the **M4**, we need to:
 - Use `RPC.println()` on the M4. This will print the values to the RPC1 stream.
-- Use `RPC.available()` and `RPC.read()` 
+- Use `RPC.available()` and `RPC.read()`.
 
-### RPC Sensor
+**M4 Sketch:**
 
-This example demonstrates how to request a sensor reading from one core to the other, using:
-- M4 as a client.
-- M7 as a server.
+```arduino
+#include <RPC.h>
+
+void setup() {
+RPC.begin();
+}
+
+void loop() {
+RPC.println("Printed from M4 core");
+delay(1000);
+}
+```
 
 **M7 Sketch:**
 
 ```arduino
-#include "Arduino.h"
-#include "RPC.h"
+#include <RPC.h>
 
 void setup() {
-  RPC.begin();
-  Serial.begin(115200);
-
-  //Bind the sensorRead() function on the M7
-  RPC.bind("sensorRead", sensorRead);
+Serial.begin(9600);
+RPC.begin();
 }
 
 void loop() {
-  // On M7, let's print everything that is received over the RPC1 stream interface
-  // Buffer it, otherwise all characters will be interleaved by other prints
   String buffer = "";
   while (RPC.available()) {
     buffer += (char)RPC.read();  // Fill the buffer with characters
@@ -305,15 +271,13 @@ void loop() {
     Serial.print(buffer);
   }
 }
-
-/*
-Function on the M7 that returns an analog reading (A0)
-*/
-int sensorRead() {
-  int result = analogRead(A0);
-  return result;
-}
 ```
+
+### RPC Sensor
+
+This example demonstrates how to request a sensor reading from one core to the other, using:
+- M4 as a client.
+- M7 as a server.
 
 **M4 Sketch:**
 
@@ -348,6 +312,41 @@ void requestReading() {
     auto result = RPC.call("sensorRead").as<int>();
     RPC.println("Result is " + String(result));
   }
+}
+```
+
+**M7 Sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  //Bind the sensorRead() function on the M7
+  RPC.bind("sensorRead", sensorRead);
+}
+
+void loop() {
+  // On M7, let's print everything that is received over the RPC1 stream interface
+  // Buffer it, otherwise all characters will be interleaved by other prints
+  String buffer = "";
+  while (RPC.available()) {
+    buffer += (char)RPC.read();  // Fill the buffer with characters
+  }
+  if (buffer.length() > 0) {
+    Serial.print(buffer);
+  }
+}
+
+/*
+Function on the M7 that returns an analog reading (A0)
+*/
+int sensorRead() {
+  int result = analogRead(A0);
+  return result;
 }
 ```
 
@@ -445,24 +444,6 @@ int servoMove(int angle) {
   verifies it has been passed correctly.
   */
 }
-```
-
-### IoT Sensor Example
-
-This example demonstrates how to read sensors on one core, and request the data from another, and send it to the Arduino IoT Cloud.
-
-***Please note, IoT Cloud sketches are designed to run only on the M7 core.***
-
-**M4 Sketch**
-
-### DAC Example
-
-This example demonstrates how to use audio examples simultaneously (one core for each channel, `DAC0` and `DAC1`).
-
-- The M4 sketch will run 
-
-```arduino
-
 ```
 
 ## RPC Library API
