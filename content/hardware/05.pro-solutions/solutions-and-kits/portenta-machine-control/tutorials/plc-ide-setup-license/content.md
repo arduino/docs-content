@@ -80,7 +80,7 @@ The board needs to run a specific program (runtime) in order to interact with th
 
 Plug your device to the computer, select the Serial Port of your board and click the **Download** button.
 
-***The device will show up two Serial Ports, the default one (generally with the lowest number) is the usual Serial Port, the secondary one (usually with the highest number) is a virtual port for ModBus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
+***The device will show up two Serial Ports, the default one (generally with the lowest number) is the usual Serial Port, the secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
 
 ### 5. Connect to the Device
 
@@ -88,11 +88,11 @@ After the runtime is up and running, set up the communication by going to **On-l
 
 ![Set up communication](assets/onlineSetupButton.png)
 
-On the new pop-up window open the properties of the ModBus protocol.
+On the new pop-up window open the properties of the Modbus protocol.
 
 ![Properties of the communication](assets/onlineSetup.png)
 
-Make sure the Modbus protocol is using the secondary Serial port number, the ModBus Virtual port you took note of before.  Press OK.
+Make sure the Modbus protocol is using the secondary Serial port number, the Modbus Virtual port you took note of before.  Press OK.
 
 ![Setting up the modbus protocol](assets/onlineSetupProperties.png)
 
