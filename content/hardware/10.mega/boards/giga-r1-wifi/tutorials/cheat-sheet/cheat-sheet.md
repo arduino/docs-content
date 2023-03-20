@@ -721,7 +721,7 @@ If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use e
 
 ## Serial/UART Pins
 
-The **GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **GIGA R1** board features 4 separate serial ports. 
+The **GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **GIGA R1** board features 5 separate serial ports, including the standard serial over USB port that is initialized using `Serial.begin()`. 
 
 This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **4 different serial enabled devices** simultaneously. 
 
@@ -739,13 +739,14 @@ The pins used for UART on the **GIGA R1** are the following:
 Each Serial port works in the same way as the one you're used to, but you use different functions to target them:
 
 ```arduino
-Serial.begin(9600);
-Serial1.begin(9600);
-Serial2.begin(9600);
-Serial3.begin(9600);
+Serial.begin(9600); //initialize serial communication over USB
+Serial1.begin(9600); //initialize serial communication on RX0/TX0
+Serial2.begin(9600); //initialize serial communication on RX1/TX1
+Serial3.begin(9600); //initialize serial communication on RX2/TX2
+Serial4.begin(9600); //initialize serial communication on RX3/TX3
 ```
 
-To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. In this example, we use RX0/TX0.
 
 ```arduino
 Serial1.begin(9600);
