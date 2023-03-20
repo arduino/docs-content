@@ -888,7 +888,7 @@ Leverage the integrated Out-of-the-box experience to update your Portenta X8 to 
 
 ***Warning: The Out-of-the-box update feature is not a complete Over-The-Air (OTA) update, it allows the user to update only Portenta X8 default image and containers. It will overwrite any custom container application. Thus, it is recommended to make a local copy of your containers before updating your Portenta X8.***
 
-Open your Out-of-the-box as explained in [this section](#first-use).
+Open your Out-of-the-box as explained in [this section](#first-use-of-your-portenta-x8).
 
 ![Out-of-the-box homepage](assets/OOTB_homepage.png "Out-of-the-box homepage")
 
