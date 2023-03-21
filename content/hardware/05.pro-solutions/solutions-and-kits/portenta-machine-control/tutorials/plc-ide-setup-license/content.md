@@ -32,8 +32,8 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 - Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta)
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
-- If you have a Portenta Machine Control, you will need an unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
-- If you have an Opta you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
+- If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
+- If you have an Opta, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
 
 ***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
 
@@ -96,13 +96,13 @@ On the new pop-up window open the properties of the Modbus protocol.
 
 Make sure the Modbus protocol is using the secondary Serial port number, the Modbus Virtual port you took note of before.  Press OK.
 
-![Setting up the ModBus protocol](assets/onlineSetupProperties.png)
+![Setting up the Modbus protocol](assets/onlineSetupProperties.png)
 
 Click OK to save the settings and press the connect button on **On-line > connect**.
 
 ![Connect to the board](assets/connect.png)
 
-### 6. License Activation With Product Key (Portenta Machine Control)
+### 6. License Activation with Product Key (Portenta Machine Control)
 
 If the communication is successful the main panel will show the license section to be filled in and a status indicator.
 
@@ -116,21 +116,21 @@ After you click the **Activate** button, the IDE will bind the license to the ha
 
 ![Activation succeed](assets/connectedAndActivated.png)
 
-Once the product has been activated, it is recommended to get the **Hardware-ID** of your device. 
+Once the product has been activated, it is recommended to get the **Hardware-ID** of your device.
 
 #### Offline Activation
 
-To activate the product Offline, deselect the "online" slider and the scenario below will show up:
+To activate the product **Offline**, deselect the "Online" slider and the scenario below will show up:
 
-![Activation Offline](assets/offline-activation_up.png)
+![Offline Activation](assets/offline-activation_up.png)
 
-Follow the instructions provided using our [Contact [form](https://www.arduino.cc/en/contact-us) and generate the **Activation** Request File**.
+Follow the instructions provided using our Contact [form](https://www.arduino.cc/en/contact-us) and generate the **Activation Request File**.
 
-Once you will receive back the **Activation file**, drag and drop it in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
+Once you receive the **Activation file**, drag and drop the file in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
 
-### 7. License Activation With Pre-Licensed Products (Opta)
+### 7. License Activation with Pre-Licensed Products (Opta)
 
-When a product is pre-licensed, the scenario below will be displayed:
+When a product is **Pre-licensed**, the following scenario will be displayed:
 
 ![Opta Activation No License](assets/opta-activation-no-license.png)
 
@@ -142,19 +142,18 @@ Now the product is ready to be used with the PLC IDE.
 
 ### 8. Activation Recovery
 
-In case the hardware is being reflashed and the key got lost, the license can be recovered just by clicking the **Forgot your Product Key?**" button:
+In case the hardware is being reflashed and the key got lost, the license can be recovered just by clicking the "**Forgot your Product Key?**" button:
 
-![Activation Online Forgotten](assets/forgot_product_key.png)
+![Online Activation with Forgotten Key](assets/forgot_product_key.png)
 
 The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop-up when done:
 
-![Activation Online Forgotten Key Activated](assets/activation-online.png)
-
+![Online Activation Forgotten Key Activated](assets/activation-online.png)
 
 ### 9. Getting the Hardware-ID of Your Device
 
 To do it follow the next steps:
-- Be sure that your device is disconnected from the Arduino PLC IDE.
+- Be sure that your device is disconnected from the Arduino PLC IDE
 - Open the **Arduino IDE** software
 - Go to **Tools** > **Board** > **Arduino Mbed OS Portenta Boards** > **Arduino Portenta H7 (M7 Core)**
 - Go to **Tools** > **Port** to select the proper port (the default one shown before in the PLC IDE inside the **Arduino PMC Configuration** > **Other** section)
@@ -176,6 +175,6 @@ Select the **Watch** window and click on the **Start/Stop watch button** unless 
 
 ## Conclusions
 
-In this tutorial we went through how to set up the Portenta Machine Control with the Arduino IDE lab, learning how to connect the board to the program through ModBus, activating the hardware license of your product, and creating a simple sketch with one variable that went compiled and downloaded inside the board. Finally, we learned how to see the values of the variables in real-time using the **Watch** window.
+In this tutorial, we went through how to set up the Portenta Machine Control or Opta™ with the Arduino IDE lab, learned how to connect the board to the program through Modbus, activate the hardware license of your product, and create a simple sketch with one variable that went compiled and downloaded inside the board. Finally, we learned how to see the values of the variables in real-time using the **Watch** window.
 
- Now that your board is up and running with the Arduino PLC IDE, you can start to create your own professional solutions.
+Now that your board is up and running with the Arduino PLC IDE, you can start to create your own professional solutions.
