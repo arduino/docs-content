@@ -29,12 +29,12 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 ### Required Hardware and Software
 
-- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta™)
+- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta)
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
 - If you have a Portenta Machine Control, you will need an unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
-- If you have an Opta™ you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
+- If you have an Opta you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
 
-***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the **Arduino software page** and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
+***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
 
 ## Instructions
 
@@ -136,6 +136,8 @@ When a product is pre-licensed, the scenario below will be displayed:
 By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC **Status** will be set as OK:
 
 ![Opta Activation Status OK](https://user-images.githubusercontent.com/100422525/225371868-0ad91f93-ec77-4f68-90f5-678c9662d531.png)
+
+Now the product is ready to be used with the PLC IDE.
 
 ### 8. Activation Recovery
 
