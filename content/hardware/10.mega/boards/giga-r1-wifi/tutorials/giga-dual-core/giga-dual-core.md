@@ -144,7 +144,7 @@ In this section we introduce the "single" and "multiple" sketch approach, and th
 
 ### Single Sketch Approach
 
-The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does by using simply by querying the core used with a simple function:
+The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does, simply by querying the core used with a simple function:
 
 ```arduino
 String currentCPU() {
@@ -184,7 +184,6 @@ When writing multiple sketches, there are some things to consider to make your d
 - Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
 - Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
 - Always include `RPC.begin()` on your M7 core sketch.
-- 
 
 ## Remote Call Procedures (RPC)
 
@@ -411,7 +410,7 @@ Servo myservo;
 
 void setup() {
   RPC.begin();
-  Servo.attach(5); //attach servo to pin 5
+  myservo.attach(5); //attach servo to pin 5
 
   Serial.begin(115200);
 
@@ -435,7 +434,7 @@ void loop() {
 Function on the M7 that returns an analog reading (A0)
 */
 int servoMove(int angle) {
-  servo.write(angle);
+  myservo.write(angle);
   delay(10);
   return angle;
   /*
