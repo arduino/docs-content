@@ -17,7 +17,7 @@ software:
 
 ## Overview
 
-The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (*LD, SFC, FBD, ST, IL*) with the **Portenta Machine Control**. The **PLC IDE** offers a wide set of standard features commonly used in the industrial automation. This tutorial will show you how to connect the **Portenta Machine Control** to the **Arduino PLC IDE**, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
+The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation. This tutorial will show you how to connect the Portenta Machine Control and Opta to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
 
 ## Goals
 
@@ -33,7 +33,7 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
 - Unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
 
-***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/pro/software-plc-ide), and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
+***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the **Arduino software page**** and the** [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
 
 ## Instructions
 
@@ -94,7 +94,7 @@ On the new pop-up window open the properties of the ModBus protocol.
 
 Make sure the Modbus protocol is using the secondary Serial port number, the ModBus Virtual port you took note of before.  Press OK.
 
-![Setting up the modbus protocol](assets/onlineSetupProperties.png)
+![Setting up the ModBus protocol](assets/onlineSetupProperties.png)
 
 Click OK to save the settings and press the connect button on **On-line > connect**.
 
@@ -122,7 +122,7 @@ To activate the product Offline, deselect the "online" slider and the scenario b
 
 ![Activation Offline](https://user-images.githubusercontent.com/100422525/225364908-b2d0e497-014d-4fe4-bef0-34c846cb5103.png)
 
-Follow the instructions provided using our [Contact form](https://www.arduino.cc/en/contact-us) and generating the **Activation Request File**.
+Follow the instructions provided using our [Contact [form](https://www.arduino.cc/en/contact-us) and generate the **Activation** Request File**.
 
 Once you will receive back the **Activation file**, drag and drop it in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
 
@@ -130,7 +130,7 @@ Once you will receive back the **Activation file**, drag and drop it in the dash
 
 When a product is pre-licensed, the scenario below will be displayed:
 
-![Opta Ativation No License](https://user-images.githubusercontent.com/100422525/225370627-9c65c9ce-2c7f-4bb0-8416-059bcede8bea.png)
+![Opta Activation No License](https://user-images.githubusercontent.com/100422525/225370627-9c65c9ce-2c7f-4bb0-8416-059bcede8bea.png)
 
 By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC **Status** will be set as OK:
 
@@ -142,7 +142,7 @@ In case the hardware is being reflashed and the key got lost, the license can be
 
 ![Activation Online Forgotten](https://user-images.githubusercontent.com/100422525/225387229-b0780ac0-fcae-4175-a4d5-6d4a8aa991bb.png)
 
-The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop up when done:
+The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop-up when done:
 
 ![Activation Online Forgotten Key Activated](https://user-images.githubusercontent.com/100422525/225387549-b03dc55b-c82a-4fbd-b254-c376e44d4952.png)
 
@@ -172,6 +172,6 @@ Select the **Watch** window and click on the **Start/Stop watch button** unless 
 
 ## Conclusions
 
-In this tutorial we went through how to setup the Portenta Machine Control with the Arduino IDE lab, learning how to connect the board to the program through Modbus, activating the hardware license of your product, and creating a simple sketch with one variable that went compiled and downloaded inside the board. Finally, we learned how to see the values of the variables in real-time using the **Watch** window.
+In this tutorial we went through how to set up the Portenta Machine Control with the Arduino IDE lab, learning how to connect the board to the program through ModBus, activating the hardware license of your product, and creating a simple sketch with one variable that went compiled and downloaded inside the board. Finally, we learned how to see the values of the variables in real-time using the **Watch** window.
 
  Now that your board is up and running with the Arduino PLC IDE, you can start to create your own professional solutions.
