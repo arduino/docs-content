@@ -132,7 +132,7 @@ When a product is pre-licensed, the scenario below will be displayed:
 
 ![Opta Ativation No License](https://user-images.githubusercontent.com/100422525/225370627-9c65c9ce-2c7f-4bb0-8416-059bcede8bea.png)
 
-By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC status will be set as OK:
+By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC **Status** will be set as OK:
 
 ![Opta Activation Status OK](https://user-images.githubusercontent.com/100422525/225371868-0ad91f93-ec77-4f68-90f5-678c9662d531.png)
 
