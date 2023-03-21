@@ -542,7 +542,7 @@ Get the number of available bytes to read from the M4.
 RPC.available();
 ```
 
-#### Paramaters
+#### Parameters
 
 - None.
 
@@ -561,7 +561,7 @@ Reads the first available byte from the M4.
 RPC.read();
 ```
 
-#### Paramaters
+#### Parameters
 
 - None.
 
