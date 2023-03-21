@@ -99,7 +99,7 @@ Once you have configured your device as a **Modbus Master** you can attach some 
 
 ### Modbus TCP Configuration
 
-***Important: Once you use the Modbus Mode, the ethernet port will be only dedicated to Modbus, so the ethernet protocol is not accessible while using Modbus***
+***Important: Once you use the Modbus Mode, the Ethernet port will be only dedicated to Modbus, so the Ethernet protocol is not accessible while using Modbus***
 
 Inside the Arduino PLC IDE navigate to the left side panel and click on the "Resources" tab.
 
