@@ -121,7 +121,7 @@ Once the product has been activated, it is recommended to get the **Hardware-ID*
 
 To activate the product Offline, deselect the "online" slider and the scenario below will show up:
 
-![Activation Offline](assets/offline-activation.png)
+![Activation Offline](assets/offline-activation_up.png)
 
 Follow the instructions provided using our [Contact [form](https://www.arduino.cc/en/contact-us) and generate the **Activation** Request File**.
 
