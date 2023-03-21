@@ -122,7 +122,7 @@ To activate the product Offline, deselect the "online" slider and the scenario b
 
 ![Activation Offline](https://user-images.githubusercontent.com/100422525/225364908-b2d0e497-014d-4fe4-bef0-34c846cb5103.png)
 
-Follow the instructions provided, using our [Contact form](https://www.arduino.cc/en/contact-us) and generating the **Activation Request File**.
+Follow the instructions provided using our [Contact form](https://www.arduino.cc/en/contact-us) and generating the **Activation Request File**.
 
 Once you will receive back the **Activation file**, drag&drop it in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
 
