@@ -475,7 +475,7 @@ void loop(){
 
 To get readings from the pressure sensor in standalone mode, you also need to use the Arduino_BHY2 library as described in the section above.
 
-Follow these steps to use the library to read the sensor values.
+Follow these steps to use the library to read the sensor values in hPa.
 
 Include the library's header file:
 
