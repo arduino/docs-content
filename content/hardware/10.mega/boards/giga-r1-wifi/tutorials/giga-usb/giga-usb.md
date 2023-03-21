@@ -78,7 +78,15 @@ To access the correct USB mass storage device, we need to specify the **designat
 mbed::FATFileSystem usb("USB_DRIVE_DESIGNATION")
 ```
 
-This is so that our GIGA R1 can target the right USB device.
+This is so that our GIGA R1 can target the right USB device. In addition, when reading & writing to files, please ensure that the designation is included in the path.
+
+The below line of code is an example of how you need to use the designation in the path, `/usb/` before accessing the file.
+
+```arduino
+FILE *f = fopen("/usb/text.txt", "r+");
+```
+
+***The designation is essential to consider when using the examples in this guide. All examples are based on the designation = `usb`. You will need to change this in the code, or else it will not work.***
 
 ### List File Directory
 
@@ -87,7 +95,7 @@ Below is an example sketch that can be used to **list** files in a USB mass stor
 ```arduino
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 
 USBHostMSD msd;
 mbed::FATFileSystem usb("usb");
@@ -170,7 +178,7 @@ void loop()
 Below is an example sketch that can be used to **read** files from a USB mass storage device.
 
 ```arduino
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
 
@@ -243,7 +251,7 @@ void loop() {
 Below is an example sketch that can be used to **write** files from a USB mass storage device.
 
 ```arduino
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
 
@@ -322,7 +330,7 @@ In the example below, we are reading logging the `A0` pin, where we are defining
 This is useful if you e.g. want to log a specific amount of samples for a specific amount of time.
 
 ```arduino
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <DigitalOut.h>
 #include <FATFileSystem.h>
 
