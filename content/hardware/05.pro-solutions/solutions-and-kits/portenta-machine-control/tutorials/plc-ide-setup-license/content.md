@@ -124,7 +124,7 @@ To activate the product Offline, deselect the "online" slider and the scenario b
 
 Follow the instructions provided using our [Contact form](https://www.arduino.cc/en/contact-us) and generating the **Activation Request File**.
 
-Once you will receive back the **Activation file**, drag&drop it in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
+Once you will receive back the **Activation file**, drag and drop it in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
 
 ### 7. License Activation With Pre-Licensed Products (Opta)
 
