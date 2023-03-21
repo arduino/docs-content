@@ -53,7 +53,7 @@ Before installing the Arduino PLC IDE you need to install all the required tools
 
 Once the installation is finished, all the required drivers, libraries and Arduino cores will be installed and ready to be used. Your computer is now ready to install the Arduino PLC IDE.
 
-***It is possible that during the installation some windows terminals will be opened and closed by the installation program. Do not worry about it, those windows are required by the program to install all the tools that your computer needs**
+***It is possible that during the installation some windows terminals will be opened and closed by the installation program. Do not worry about it, those windows are required by the program to install all the tools that your computer needs***
 
 ### 2. Arduino PLC IDE Installation
 
@@ -121,7 +121,7 @@ Once the product has been activated, it is recommended to get the **Hardware-ID*
 
 To activate the product Offline, deselect the "online" slider and the scenario below will show up:
 
-![Activation Offline](https://user-images.githubusercontent.com/100422525/225364908-b2d0e497-014d-4fe4-bef0-34c846cb5103.png)
+![Activation Offline](assets/offline-activation.png)
 
 Follow the instructions provided using our [Contact [form](https://www.arduino.cc/en/contact-us) and generate the **Activation** Request File**.
 
@@ -131,11 +131,11 @@ Once you will receive back the **Activation file**, drag and drop it in the dash
 
 When a product is pre-licensed, the scenario below will be displayed:
 
-![Opta Activation No License](https://user-images.githubusercontent.com/100422525/225370627-9c65c9ce-2c7f-4bb0-8416-059bcede8bea.png)
+![Opta Activation No License](assets/opta-activation-no-license.png)
 
 By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC **Status** will be set as OK:
 
-![Opta Activation Status OK](https://user-images.githubusercontent.com/100422525/225371868-0ad91f93-ec77-4f68-90f5-678c9662d531.png)
+![Opta Activation Status OK](assets/opta-activation-status-ok.png)
 
 Now the product is ready to be used with the PLC IDE.
 
