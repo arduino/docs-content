@@ -140,11 +140,11 @@ By clicking the **Activate PLC Runtime** button, the product activation will be 
 
 In case the hardware is being reflashed and the key got lost, the license can be recovered just by clicking the **Forgot your Product Key?**" button:
 
-![Activation Online Forgotten](https://user-images.githubusercontent.com/100422525/225387229-b0780ac0-fcae-4175-a4d5-6d4a8aa991bb.png)
+![Activation Online Forgotten](assets/forgot_product_key.png)
 
 The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop-up when done:
 
-![Activation Online Forgotten Key Activated](https://user-images.githubusercontent.com/100422525/225387549-b03dc55b-c82a-4fbd-b254-c376e44d4952.png)
+![Activation Online Forgotten Key Activated](assets/activation-online.png)
 
 
 ### 9. Getting the Hardware-ID of Your Device
