@@ -106,7 +106,7 @@ If the communication is successful the main panel will show the license section 
 
 #### Online Activation
 
-To use your product license, paste the key in the blank next to **Product Key:** and press the **Activate** button.
+To use your product license, paste the key in the blank next to **Product Key** and press the **Activate** button.
 
 ![Connection success](assets/licenseActivation.png)
 
