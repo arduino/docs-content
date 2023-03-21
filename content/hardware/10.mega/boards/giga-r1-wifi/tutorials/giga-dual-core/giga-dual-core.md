@@ -1,6 +1,6 @@
 ---
 title: Guide to GIGA R1 Dual Cores
-description: Learn how to access and control the M4 and M7 cores on the GIGA R1
+description: Learn how to access and control the M4 and M7 cores on the GIGA R1, and how to communicate between them using RPC.
 author: Karl Söderby
 tags: [Dual Core, M4, M7]
 ---
@@ -12,6 +12,15 @@ The M7 is referred to as the main processor due its superior hardware features, 
 These two cores can run applications in parallel, for example, running a servo motor on one core, and a display on another, without blocking each other. In a single core, such operations would slow down the program, resulting in lesser performance.
 
 The M4 and M7 cores are programmed with separate sketches, using the same serial port. In the Arduino IDE, you can select the core you want to program, and then upload the sketch you want to run on that specific core. 
+
+## Goals
+
+In this guide you will discover:
+- How to configure and program the M4/M7 cores and conventional approaches to do so.
+- How to boot the M4 core.
+- How to communicate between the cores via Remote Call Procedures (RPC).
+- Useful examples based on the dual core & RPC features.
+- The `RPC` library API.
 
 ## Hardware & Software Needed
 
@@ -127,10 +136,6 @@ void loop() {
 
 ***Note that both of these sketches needs to be uploaded to their corresponding cores.***
 
-### Advanced DAC/ADC On M4
-
-The advanced DAC/ADC features using the [Arduino_AdvancedAnalog](https://github.com/bcmi-labs/Arduino_AdvancedAnalog/tree/main/examples/Advanced) library is not available on the M4.
-
 ## Methods of Programming
 
 Programming the M4 and M7 cores is straightforward, but can be complicated to track. Having a strategy for how you want to build your dual core applications is key. 
@@ -139,7 +144,7 @@ In this section we introduce the "single" and "multiple" sketch approach, and th
 
 ### Single Sketch Approach
 
-The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does by using simply by querying the core used with a simple function:
+The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does, simply by querying the core used with a simple function:
 
 ```arduino
 String currentCPU() {
@@ -169,47 +174,396 @@ The cons of using this approach is that you will run out of program memory faste
 
 ### Multiple Sketch Approach
 
-The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve what core you are using, you can instead just write the sketch as you would normally do.
+The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve the core you are using, you can instead just write sketches as you would normally do.
 
 The pros of using this approach is that the code you write is optimized only for one core, and this saves a lot of program memory.
 
 The cons is to manage the versions becomes harder, and while flashing the board, you'd need to keep track on which version is uploaded to which core. It is easier to upload to the wrong core by accident using this approach, but you have more optimized code.
 
-## Use Cases
+When writing multiple sketches, there are some things to consider to make your development experience easier:
+- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
+- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
+- Always include `RPC.begin()` on your M7 core sketch.
 
-There are a number of cases where running two cores in parallel brings an advantage. Mainly, it allows one to develop code to run simultaneously, each performing their own individual tasks.
+## Remote Call Procedures (RPC)
 
-In all modern computers, including yours, you have several cores each occupied with a number of task, in order to speed things up. This is particularly useful in blocking operations such as:
-- Controlling a servo motor, 
-- Loading a display,
-- Connecting to a network.
+RPC is a method that allows programs to make requests to programs located elsewhere. It is based on the client-server model (also referred to as caller/callee), where the client makes a request to the server. 
 
-### Choosing Core
+An RPC is a synchronous operation, and while a request is being made from the caller to another system, the operation is suspended. On return of the results, the operation is resumed. 
 
-Simply speaking, the M7 should always run your main program, or the most intensive program. It is overall a faster processor that reads memory and executes instructions faster.
+The server side then performs the subroutine on request, and suspends any other operation as well. After it sends the result to the client, it resumes its operation, while waiting for another request.
 
-For example, you should be running network applications on the M7, while you do sensor readings on the M4. 
+![Request routine.](assets/rpc-basics.png)
 
-***To get a more detailed view on the differences between M4 and M7, see [Arm Cortex-M Processor Comparison Table](https://developer.arm.com/documentation/102787/latest).***
+### RPCs in the Arduino Environment
 
-### Wi-Fi / Bluetooth®
+At the moment, only a limited amount of boards supports RPC, as in this context, it is designed to be a communication line between **two cores.** The GIGA R1 is one of them.
 
-Wi-Fi and Bluetooth® applications are best run on the M7, as they are more demanding. Lower level tasks, such as controlling relays, reading sensor data and so forth, can be distributed to the M4 core instead.
+What makes this implementation possible is the `RPC` library ([see API section](#rpc-library-api)), which utilises the [rpclib](https://github.com/rpclib/rpclib) C++ library as well as functions from the [Stream](https://www.arduino.cc/reference/en/language/functions/communication/stream/) class.
 
-### Displays
+The library makes it possible to set up either of the M4/M7 cores as a server/client, where remote calls can be made between them. This is done by "binding" a function to a name on the server side, and calling that function from the client side. 
 
-As the M7 is faster, it is best to run display sketches on the M7 core. Displays have a lot of blocking operations, and it is a good idea to separate the display's functionalities and other operations we want to perform.
+On the server side, it could look like this:
 
-Running the display application on the M7 leaves the M4 free for other applications, such as motor control. Particularly useful when building projects where you need to control a motor from a display.
+```arduino
+//server side, for example M7
+int addFunction(int a, int b){ 
+  return a + b;
+}
 
-### Robotics
+RPC.bind("addFunction", addFunction);
+```
 
-For robotics projects, separating the motor control **between the cores** can be beneficial. For example, servo control is a blocking operation, so if you are running several servos at the same time, performance can be reduced.
+On the client side, it could look like this:
 
-It can also be distributed so that one core handles servo motors, and one handles stepper motors, if you are using multiple types of motors.
+```arduino
+int x,y = 10;
 
-### Sensors
+RPC.call("addFunction", x, y);
+```
 
-Sensor readings in itself does not matter much which core you use. If you are simply running some tests, it is good to run it on the M7, as you are able to print the results using `Serial.print()` (not available on M4, only through RPC).
+When `call()` is used, a request is sent, it is processed on the server side, and returned. The `x` and `y` variables are used as arguments, and the result returned should be 20 (10+10).
 
-When used in relation to a e.g. a display, it is good practice to read sensors on the M4 core and on the M7, fetch the result and display it.
+![Communication between M7 and M4 core.](assets/rpc-m7-m4.png)
+
+## RPC Examples
+
+In this section, you will find a series of examples that is based on the `RPC` library. 
+
+### RPC Serial
+
+The `Serial.print()` command only works on the **M7 core**. In order to print values on the **M4**, we need to:
+- Use `RPC.println()` on the M4. This will print the values to the RPC1 stream.
+- Use `RPC.available()` and `RPC.read()`.
+
+**M4 Sketch:**
+
+```arduino
+#include <RPC.h>
+
+void setup() {
+RPC.begin();
+}
+
+void loop() {
+RPC.println("Printed from M4 core");
+delay(1000);
+}
+```
+
+**M7 Sketch:**
+
+```arduino
+#include <RPC.h>
+
+void setup() {
+Serial.begin(9600);
+RPC.begin();
+}
+
+void loop() {
+  String buffer = "";
+  while (RPC.available()) {
+    buffer += (char)RPC.read();  // Fill the buffer with characters
+  }
+  if (buffer.length() > 0) {
+    Serial.print(buffer);
+  }
+}
+```
+
+### RPC Sensor
+
+This example demonstrates how to request a sensor reading from one core to the other, using:
+- M4 as a client.
+- M7 as a server.
+
+**M4 Sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+using namespace rtos;
+
+Thread sensorThread;
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  /*
+  Starts a new thread that loops the requestReading() function
+  */
+  sensorThread.start(requestReading);
+}
+
+void loop() {
+}
+
+/*
+This thread calls the sensorThread() function remotely
+every second. Result is printed to the RPC1 stream.
+*/
+void requestReading() {
+  while (true) {
+    delay(1000);
+    auto result = RPC.call("sensorRead").as<int>();
+    RPC.println("Result is " + String(result));
+  }
+}
+```
+
+**M7 Sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  //Bind the sensorRead() function on the M7
+  RPC.bind("sensorRead", sensorRead);
+}
+
+void loop() {
+  // On M7, let's print everything that is received over the RPC1 stream interface
+  // Buffer it, otherwise all characters will be interleaved by other prints
+  String buffer = "";
+  while (RPC.available()) {
+    buffer += (char)RPC.read();  // Fill the buffer with characters
+  }
+  if (buffer.length() > 0) {
+    Serial.print(buffer);
+  }
+}
+
+/*
+Function on the M7 that returns an analog reading (A0)
+*/
+int sensorRead() {
+  int result = analogRead(A0);
+  return result;
+}
+```
+
+### RPC Servo Motor
+
+This example demonstrates how to request a servo motor on another core to move to a specific angle, using:
+- M4 as a client.
+- M7 as a server.
+
+Each example is written as a **single sketch** intended to be uploaded to **both cores**.
+
+**M4 sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+
+using namespace rtos;
+
+Thread servoThread;
+
+void setup() {
+  RPC.begin();
+  Serial.begin(115200);
+
+  /*
+  Starts a new thread that loops the requestServoMove() function
+  */
+  servoThread.start(requestServoMove);
+}
+
+void loop() {
+}
+
+/*
+This thread calls the servoMove() function remotely
+every second, passing the angle variable (0-180).
+*/
+void requestServoMove() {
+  while (true) {
+    //Read a pot meter
+    int rawAnalog = analogRead(A0);
+
+    //Map value to 180
+    int angle = map(rawAnalog, 0, 1023, 0, 180);
+
+    delay(1000);
+    auto result = RPC.call("servoMove", angle).as<int>();
+    RPC.println("Servo angle is: " + String(result));
+  }
+}
+```
+
+**M7 sketch:**
+
+```arduino
+#include "Arduino.h"
+#include "RPC.h"
+#include <Servo.h>
+
+Servo myservo;
+
+void setup() {
+  RPC.begin();
+  myservo.attach(5); //attach servo to pin 5
+
+  Serial.begin(115200);
+
+  //Bind the servoMove() function on the M7
+  RPC.bind("servoMove", servoMove);
+}
+
+void loop() {
+  // On M7, let's print everything that is received over the RPC1 stream interface
+  // Buffer it, otherwise all characters will be interleaved by other prints
+  String buffer = "";
+  while (RPC.available()) {
+    buffer += (char)RPC.read();  // Fill the buffer with characters
+  }
+  if (buffer.length() > 0) {
+    Serial.print(buffer);
+  }
+}
+
+/*
+Function on the M7 that returns an analog reading (A0)
+*/
+int servoMove(int angle) {
+  myservo.write(angle);
+  delay(10);
+  return angle;
+  /*
+  After the operation is done, return angle to the client.
+  The value passed to this function does not change, but this
+  verifies it has been passed correctly.
+  */
+}
+```
+
+## RPC Library API
+
+The `RPC` library is based on the [rpclib](https://github.com/rpclib/rpclib) C++ library which provides a client and server implementation. In addition, it provides a method for communication between the M4 and M7 cores. 
+
+This library is included in the GIGA core, so it is automatically installed with the core. To use this library, you need to include `RPC.h`:
+
+```arduino
+#include <RPC.h>
+```
+
+### RPC.begin()
+
+Initializes the library. This function also boots the M4 core.
+
+#### Syntax
+
+```arduino
+RPC.begin()
+```
+
+#### Returns
+
+- `1` on success.
+- `0` on failure.
+
+### RPC.bind()
+
+Used on the server side to bind a name to a function, and makes it possible for remotely calling it from another system.
+
+#### Syntax
+
+```arduino
+RPC.bind("this_function", thisfunction)
+```
+
+#### Parameters
+
+- `"name_of_func"` - name given for the function to be called from the client side.
+- `name_of_func` - name of the function on the server side.
+
+#### Returns
+
+- None.
+
+### RPC.call()
+
+Used on the client side to call a function with optional parameters.
+
+```arduino
+RPC.call("this_function", int args)
+```
+
+#### Parameters
+
+- `"name_of_func"` - the name of the function declared on the server side.
+- `args` - arguments to be passed to the function.
+
+#### Returns
+
+- Result of the function if arguments are passed.
+
+## RPC Serial API
+
+The RPC Serial methods are also included in the `RPC` library, and uses methods from the [Stream](https://www.arduino.cc/reference/en/language/functions/communication/stream/) base class, and is similar to the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class.
+
+As the `Serial` class is only available on the M7 core, the M4 core uses `RPC` library to print data, where the M7 can read the data and print it to a computer.
+
+### RPC.println()
+
+Prints data to a serial port. This is used on the M4 core to send data to the M7.
+
+#### Syntax
+
+```arduino
+RPC.println(val);
+```
+
+#### Parameters
+
+- The value to print. Can be any data type, but not multiple (e.g. string + integer in the same call).
+
+#### Returns
+
+- Number of bytes used. E.g. printing ("hello") returns 7. As hello (5) + new line (2) = 7. 
+
+### RPC.available()
+
+Get the number of available bytes to read from the M4.
+
+#### Syntax
+
+```arduino
+RPC.available();
+```
+
+#### Parameters
+
+- None.
+
+#### Returns
+
+- The number of bytes available to read.
+- `-1` if there is none.
+
+### RPC.read()
+
+Reads the first available byte from the M4.
+
+#### Syntax
+
+```arduino
+RPC.read();
+```
+
+#### Parameters
+
+- None.
+
+#### Returns
+
+- The first available byte from the M4.
+- `-1` if there is none.
