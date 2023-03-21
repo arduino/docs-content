@@ -60,7 +60,7 @@ Here you can also choose the update frequency, (either on change, or every `x` s
 
 ## Phone & Board Sync
 
-The sensor data from your phone is tracked through **variables** in the Arduino IoT Cloud, and can therefor be synchronized with other variables.
+The sensor data from your phone is tracked through **variables** in the Arduino IoT Cloud, and can therefore be synchronized with other variables.
 
 Head over to the [Arduino IoT Cloud - Things](https://create.arduino.cc/iot/things) and go to the Thing created for your phone (in this case, it is named `Karl_s S20_ Thing`), and select a variable you want to synchronize. In the following menu you can link it to other variables on other Things.
  
