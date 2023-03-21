@@ -352,7 +352,7 @@ void setup(){
 The `begin()` function starts the sensor by calling the `configure()` with default parameters, making it easy to start and use on-board sensors. The parameters in the `configure()` function are sample rate and latency. If specific parameters are needed, then simply call `configure()` with your preferred values. E.g.: `configure(10, 1)`. In this case, the sample rate would be set to `10 Hz` and the latency would be `1ms`.
 
 - **Sample rate** is used also to enable/disable the sensor. 0 to disable, > 0 to enable.
-- **Latency** indicates how much ms time a new value is retained in its fifo before a notification to the host is sent via interrupt expressed in 24 bit.
+- **Latency** is the longest delay, in milliseconds, before the host is notified of a new value from a sensor. Even though the latency parameter is a 32-bit integer, only the least significant 24 bits of it are actually used. A latency of 0 means that the host is notified immediately when a new value is available.
 
 Reading the sensor values:
 
