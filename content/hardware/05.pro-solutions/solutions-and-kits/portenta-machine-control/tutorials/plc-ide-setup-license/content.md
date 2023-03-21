@@ -110,7 +110,7 @@ To use your product license, paste the key in the blank next to **Product Key** 
 
 ![Connection success](assets/licenseActivation.png)
 
-After you click the **Activate** button, the IDE will bind the license to the hardware ID. A popup telling you to reboot the target (which is the device connected to the PLC IDE) will show up: press the reset button of your device to reboot.
+After you click the **Activate** button, the IDE will bind the license to the hardware ID. A popup telling you to reboot the target (which is the device connected to the PLC IDE) will show up; press the reset button of your device to reboot.
 
 ![Activation succeed](assets/connectedAndActivated.png)
 
