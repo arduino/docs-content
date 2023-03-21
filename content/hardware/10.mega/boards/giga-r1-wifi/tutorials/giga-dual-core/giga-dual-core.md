@@ -455,13 +455,11 @@ This library is included in the GIGA core, so it is automatically installed with
 #include <RPC.h>
 ```
 
-### `begin()`
-
-#### Description
+### RPC.begin()
 
 Initializes the library. This function also boots the M4 core.
 
-#### Syntax 
+#### Syntax
 
 ```arduino
 RPC.begin()
@@ -472,7 +470,7 @@ RPC.begin()
 - `1` on success.
 - `0` on failure.
 
-### `bind()`
+### RPC.bind()
 
 Used on the server side to bind a name to a function, and makes it possible for remotely calling it from another system.
 
@@ -491,7 +489,7 @@ RPC.bind("this_function", thisfunction)
 
 - None.
 
-### `call()`
+### RPC.call()
 
 Used on the client side to call a function with optional parameters.
 
@@ -514,13 +512,13 @@ The RPC Serial methods are also included in the `RPC` library, and uses methods 
 
 As the `Serial` class is only available on the M7 core, the M4 core uses `RPC` library to print data, where the M7 can read the data and print it to a computer.
 
-### `println()`
+### RPC.println()
 
 Prints data to a serial port. This is used on the M4 core to send data to the M7.
 
 #### Syntax
 
-```
+```arduino
 RPC.println(val);
 ```
 
@@ -532,7 +530,7 @@ RPC.println(val);
 
 - Number of bytes used. E.g. printing ("hello") returns 7. As hello (5) + new line (2) = 7. 
 
-### `available()`
+### RPC.available()
 
 Get the number of available bytes to read from the M4.
 
@@ -551,7 +549,7 @@ RPC.available();
 - The number of bytes available to read.
 - `-1` if there is none.
 
-### `read()`
+### RPC.read()
 
 Reads the first available byte from the M4.
 
