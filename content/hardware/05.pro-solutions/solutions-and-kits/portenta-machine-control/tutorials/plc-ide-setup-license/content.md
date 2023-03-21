@@ -9,6 +9,7 @@ description: Set up the PLC IDE, connect the board and activate its license.
 author: 'Pablo Marquínez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
+  - hardware/07.opta/opta-family/opta
 software:
   - ide-v1
   - ide-v2
