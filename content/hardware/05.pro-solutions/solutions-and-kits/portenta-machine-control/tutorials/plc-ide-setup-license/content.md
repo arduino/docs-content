@@ -29,11 +29,12 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 ### Required Hardware and Software
 
-- Board compatible with the Arduino PLC IDE (Portenta Machine Control)
+- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta™)
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
-- Unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
+- If you have a Portenta Machine Control, you will need an unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
+- If you have an Opta™ you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
 
-***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the **Arduino software page**** and the** [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
+***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the **Arduino software page** and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
 
 ## Instructions
 
