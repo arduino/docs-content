@@ -202,7 +202,7 @@ There are three ways to read from the on-board sensors:
 
 1. Read the sensors directly from Nicla Sense ME in standalone mode.
 2. Read sensor values through Bluetooth® Low Energy
-3. Read sensor values through UART by connecting an ESLOV cable
+3. Read sensor values through I2C by connecting an ESLOV cable
 
 To read from the sensors in any of these mode, you need to install the **Arduino_BHY2** and **Arduino_BHY2Host** libraries. These can be found in the library manager using the Arduino IDE. To do so in the IDE, select **Tools->Manage Libraries...**, now search for **Arduino_BHY2** and **Arduino_BHY2Host** in the new window that opened and click on the install button.
 
