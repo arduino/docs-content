@@ -37,7 +37,7 @@ In this tutorial, we will go through the steps of how to install, run and remove
 - ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
-***Make sure to have the Portenta X8 with the latest image as well as bootloader. Please check [how to flash your Portenta X8](/tutorials/portenta-x8/image-flashing) to have latest version.***
+***Make sure to have the Portenta X8 with the latest image as well as the bootloader. Please check [how to flash your Portenta X8](/tutorials/portenta-x8/image-flashing) to have the latest version.***
 
 ## Using Docker
 
@@ -49,15 +49,19 @@ docker -v
 
 ***To use this tool, you will need to connect to your device first. Check [how to connect using adb/ssh](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).***
 
-You can check the Docker's reference documentation, which covers all the features of the tool in depth at [docs.docker.com](https://docs.docker.com/).
+You can check Docker's reference documentation, which covers all the features of the tool in depth at [docs.docker.com](https://docs.docker.com/).
 
 The following steps will show how to install, run and uninstall the "Hello World" container.
 
+To avoid a lack of permissions while running the Docker's commands, you may need to run the next command to gain admin (root) access: ```sudo su -``` , which default password is ```fio```
+
+The previous command and other important info about Linux on your Portenta are described in the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux).
+
 ### How to Install a Container
 
-First, you will need to search for ["Hello World" container image](https://hub.docker.com/_/hello-world). The container image can be found within Docker hub, where you will be able to find variety of readily-available container images. It will be used to verify docker is working as intended with the Portenta X8.
+First, you will need to search for ["Hello World" container image](https://hub.docker.com/_/hello-world). The container image can be found within the Docker hub, where you will be able to find a variety of readily-available container images. It will be used to verify docker is working as intended with the Portenta X8.
 
-The following command must be used to pull the `hello-world` image. The Docker hub page for images have the instructions to pull the image and deploy the container.
+The following command must be used to pull the `hello-world` image. The Docker hub page for images has the instructions to pull the image and deploy the container.
 
 ```
 docker pull hello-world
@@ -87,7 +91,7 @@ docker ps -a
 
 ![Docker CLI listing all the active containers](assets/docker-ps.png)
 
-The list of available images, including installed `hello-world` image can be verified using the following command:
+The list of available images, including installed `hello-world` image, can be verified using the following command:
 
 ```
 docker images
@@ -97,7 +101,7 @@ docker images
 
 ### How to Uninstall A Container
 
-You will need to obtain assigned `CONTAINER ID` to be able to remove a container of choice. The list of active containers provides this information. The remove (`rm`) command is then used with the desired container identifier to proceed with removal process.
+You will need to obtain an assigned `CONTAINER ID` to be able to remove a container of your choice. The list of active containers provides this information. The remove (`rm`) command is then used with the desired container identifier to proceed with the removal process.
 
 ```
 docker container rm <CONTAINER ID>
@@ -105,7 +109,7 @@ docker container rm <CONTAINER ID>
 
 For this example, the command `docker ps -a` will show the `CONTAINER ID` of the `hello-world` container designated as: `c44ba77b65cb`. If you encounter an error stating that the container cannot be removed, it may mean that the container has an actively ongoing operation which can be checked with `STATUS` message.
 
-Granted that this is the case, you will need to stop the container and verify with `STATUS` message that it has exited successfully. To do this, following command is used:
+Granted that this is the case, you will need to stop the container and verify with `STATUS` message that it has exited successfully. To do this, the following command is used:
 
 ```
 docker stop <CONTAINER ID>
@@ -117,7 +121,7 @@ docker stop <CONTAINER ID>
 
 Using the `docker ps -a` after container removal, the `hello-world` container should no longer be present as an active container.
 
-The same goes for the images if you would like to free some space. The removal command will now be as follows using `IMAGE ID` found within image table:
+The same goes for the images if you would like to free some space. The removal command will now be as follows using `IMAGE ID` found within the image table:
 
 ```
 docker rmi <IMAGE ID>
@@ -133,4 +137,4 @@ In this tutorial, you have learned how to use Docker with Portenta X8. You have 
 
 - Now that you have the base of the workflow to use [Docker](https://docker.com), go to its docs page and make sure you understand all the features.
 - Look for a container image from [Docker hub](http://hub.docker.com), install it and make your own application out of it.
-- Create a container to run your custom made application. For this, it may interest you [Deploy a Custom Container with Portenta X8 Manager](https://docs.arduino.cc/tutorials/portenta-x8/custom-container) tutorial.
+- Create a container to run your custom-made application. For this, it may interest you [Deploy a Custom Container with Portenta X8 Manager](https://docs.arduino.cc/tutorials/portenta-x8/custom-container) tutorial.
