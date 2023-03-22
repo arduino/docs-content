@@ -37,7 +37,7 @@ In this tutorial, we will go through the steps of how to install, run and remove
 - ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
-***Make sure to have the Portenta X8 with the latest image as well as bootloader. Please check [how to flash your Portenta X8](/tutorials/portenta-x8/image-flashing) to have latest version.***
+***Make sure to have the Portenta X8 with the latest image as well as the bootloader. Please check [how to flash your Portenta X8](/tutorials/portenta-x8/image-flashing) to have the latest version.***
 
 ## Using Docker
 
@@ -49,15 +49,21 @@ docker -v
 
 ***To use this tool, you will need to connect to your device first. Check [how to connect using adb/ssh](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience).***
 
-You can check the Docker's reference documentation, which covers all the features of the tool in depth at [docs.docker.com](https://docs.docker.com/).
+You can check Docker's reference documentation, which covers all the features of the tool in depth at [docs.docker.com](https://docs.docker.com/).
 
 The following steps will show how to install, run and uninstall the "Hello World" container.
 
+To avoid a lack of permissions while running the Docker's commands, you may need to run the next command to gain admin(root) access:
+
+```sudo su -``` which default password is ```fio```
+
+The previous command and other important info about Linux on your Portenta are described in the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux).
+
 ### How to Install a Container
 
-First, you will need to search for ["Hello World" container image](https://hub.docker.com/_/hello-world). The container image can be found within Docker hub, where you will be able to find variety of readily-available container images. It will be used to verify docker is working as intended with the Portenta X8.
+First, you will need to search for ["Hello World" container image](https://hub.docker.com/_/hello-world). The container image can be found within the Docker hub, where you will be able to find a variety of readily-available container images. It will be used to verify docker is working as intended with the Portenta X8.
 
-The following command must be used to pull the `hello-world` image. The Docker hub page for images have the instructions to pull the image and deploy the container.
+The following command must be used to pull the `hello-world` image. The Docker hub page for images has the instructions to pull the image and deploy the container.
 
 ```
 docker pull hello-world
