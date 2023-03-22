@@ -61,7 +61,7 @@ Then you can attach some functions to the Generic Modbus item, they will appear 
 
 #### Baud Rate
 
-Bauds per second of the clock, options:
+Baud rate, options:
   * 600
   * 1200
   * 2400
