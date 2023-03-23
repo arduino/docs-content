@@ -115,7 +115,7 @@ Now you should see a webpage, like the following image, in your browser.
 
 You are now free to go through the WordPress setup process and configure it however you like.
 
-### Removing the container ###
+### Removing the containers ###
 
 If you want to remove the container, you have to go to ```/home/fio/wordpress-test``` directory (where we previously executed the docker-compose command) and execute the following commands according to your needs:
 
