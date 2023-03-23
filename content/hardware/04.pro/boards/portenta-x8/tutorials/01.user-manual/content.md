@@ -992,7 +992,7 @@ Unzipped folder
 └── u-boot-portenta-x8.itb
 ```
 
-The Portenta X8 can be set into programming mode by using carrier platform, such as Max Carrier or Breakout, which provides DIP swithces for convenient access; or using few more lines of command with barebone Portenta X8 via ADB.
+The Portenta X8 can be set into programming mode by using carrier platform, such as Max Carrier or Breakout, which provides DIP switches for convenient access; or using few more lines of command with barebone Portenta X8 via ADB.
 
 If you are to use a carrier, please check the board configuration of the carrier to be paired with Portenta X8. For Portenta Max Carrier, `BOOT SEL` and `BOOT` DIP switches must be set to ON position as shown in the figure:
 
