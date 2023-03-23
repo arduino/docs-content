@@ -91,7 +91,7 @@ First, we create a directory where we want to add our **docker-compose.yml** fil
 
 ![cd into correct directory](assets/webserver-mkdir.png)
 
-***Remember that you may need to run the next command to gain admin (root) access for running the Docker's commands: ```sudo su -``` , which default password is ```fio```***
+***Remember that you may need to run the next command to gain admin access for running the Docker's commands: ```sudo su -```  which default password is **```fio```** ***
 
 Before installing the containers, make sure that no other container is running on the ports that the WordPress container will use. You can check what containers are running and what port they are using by running the `docker ps -a` command. This will show a list of the currently installed and running containers on the Portenta X8. To remove a container first stop it with `docker stop <container id>`, then you can run `docker rm <container id>` to remove it. If you want more information about handling containers on your Portenta X8, take a look at our [Managing Containers with Docker tutorial](https://docs.arduino.cc/tutorials/portenta-x8/docker-container).
 
@@ -117,7 +117,7 @@ You are now free to go through the WordPress setup process and configure it howe
 
 ### Removing the container ###
 
-If you want to remove the container, you have to go to ```/home/fio/wordpress-test``` directory (where we previously executed the docker-compose command) and execute the following commands depending on what you want:
+If you want to remove the container, you have to go to ```/home/fio/wordpress-test``` directory (where we previously executed the docker-compose command) and execute the following commands according to your needs:
 
 Remove the container but preserves your WordPress database:
 ```
