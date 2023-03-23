@@ -28,6 +28,7 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [Docker-compose.yml](assets/docker-compose.yml) file used in this tutorial
 
 ## Instructions
 
@@ -35,7 +36,9 @@ First, make sure your Portenta X8 is set up correctly by following the [User Man
 
 ### Creating the Docker-compose.yml File
 
-The WordPress container we use is a multi-container application, which also requires a database server container. The WordPress multi-container application uses Apache as its web server. This is required to make the service work and it is already included in the container, so it is nothing for us to worry about. We will be using **MariaDB** as our database server container. This container can run on the Portenta X8's architecture. All we need to start using these containers is to write a **docker-compose.yml** file. This file will contain information about what image we want to install and some important configuration information, such as the username for the database, password, timezone and database name. The same goes for the WordPress container: it will contain the password and username and we will also enter the database hostname and which container will be used as the database. We recommend that you change the default passwords to more secure ones by replacing the default ones that are stated in the file below.
+The WordPress container we use is a multi-container application, which also requires a database server container. The WordPress multi-container application uses Apache as its web server. This is required to make the service work and it is already included in the container, so it is nothing for us to worry about. We will be using **MariaDB** as our database server container. 
+
+This container can run on the Portenta X8's architecture. All we need to start using these containers is to write a **docker-compose.yml** file. This file will contain information about what image we want to install and some important configuration information, such as the username for the database, password, timezone and database name. The same goes for the WordPress container: it will contain the password and username and we will also enter the database hostname and which container will be used as the database. We recommend that you change the default passwords to more secure ones by replacing the default ones that are stated in the file below.
 
 
 ### The Complete Docker-compose.yml File
@@ -64,23 +67,23 @@ services:
   Wordpress:
     depends_on:
       - db
-    image: Wordpress:latest
+    image: wordpress:latest
     volumes:
       - Wordpress_data:/var/www/html
     ports:
       - "8000:80"
     restart: always
     environment:
-      Wordpress_DB_HOST: db
-      Wordpress_DB_USER: Wordpress
-      Wordpress_DB_PASSWORD: Wordpress
-      Wordpress_DB_NAME: Wordpress
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: Wordpress
+      WORDPRESS_DB_PASSWORD: Wordpress
+      WORDPRESS_DB_NAME: Wordpress
 volumes:
   Wordpress_data: {}
   db_data: {}
 ```
 
-Now let's create a directory on our X8 and put this **docker-compose.yml** file on our device.
+Now let's create a directory on our X8 and put this **docker-compose.yml** file on our device. You can download the file by clicking [here](assets/docker-compose.yml).
 
 ### Installing The Containers
 
@@ -88,9 +91,13 @@ First, we create a directory where we want to add our **docker-compose.yml** fil
 
 ![cd into correct directory](assets/webserver-mkdir.png)
 
-Before installing the containers, make sure that no other container is running on the ports that the WordPress container will use. You can check what containers are running and what port they are using by running the `docker ps -a` command. This will show a list of the currently installed and running containers on the Portenta X8. To remove a container first stop it with `docker stop <container id>`, then you can run `docker rm <container id>` to remove it. If you want more information about handling containers on your Portenta X8, take a look at our [managing containers with docker tutorial](https://docs.arduino.cc/tutorials/portenta-x8/docker-container).
+***Remember that you may need to run the next command to gain admin (root) access for running the Docker's commands: ```sudo su -``` , which default password is ```fio```***
 
-When you are in the correct directory and no other container is running on the ports that WordPress will use, you can now run `docker compose up -d`. Using the `-d` tag in the command will allow running these containers in the background. If you run the command without the `-d` tag, the application will exit when you close the terminal. When the command is executed it will start installing the **WordPress** and **MariaDB** containers. This can take a while. To get the output from the containers use: `docker-compose logs -f`. Once it is done you can connect to the device and site.
+Before installing the containers, make sure that no other container is running on the ports that the WordPress container will use. You can check what containers are running and what port they are using by running the `docker ps -a` command. This will show a list of the currently installed and running containers on the Portenta X8. To remove a container first stop it with `docker stop <container id>`, then you can run `docker rm <container id>` to remove it. If you want more information about handling containers on your Portenta X8, take a look at our [Managing Containers with Docker tutorial](https://docs.arduino.cc/tutorials/portenta-x8/docker-container).
+
+When you are in the correct directory and no other container is running on the ports that WordPress will use, you can now run `docker compose up -d`. Using the `-d` tag in the command will allow running these containers in the background. If you run the command without the `-d` tag, the application will exit when you close the terminal.
+
+When the command is executed it will start installing the **WordPress** and **MariaDB** containers. This can take a while. To get the output from the containers use: `docker-compose logs -f`. Once it is done you can connect to the device and site.
 
 ![Containers install progress in the terminal](assets/webserver-container-install.png)
 
@@ -107,6 +114,25 @@ Now you should see a webpage, like the following image, in your browser.
 ![Wordpress setup site](assets/webserver-wordpress-site.png)
 
 You are now free to go through the WordPress setup process and configure it however you like.
+
+### Removing the container ###
+
+If you want to remove the container, you have to go to ```/home/fio/wordpress-test``` directory (where we previously executed the docker-compose command) and execute the following commands depending on what you want:
+
+```
+// Remove the container but preserves your WordPress database:
+
+docker compose down
+```
+
+```
+// Remove the container and the database:
+
+docker compose down --volumes
+```
+
+To make sure that it was successful, run ```docker ps -a``` and check that the WordPress and MariaDB containers have disappeared.
+
 
 ## Conclusion
 
