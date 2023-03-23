@@ -155,7 +155,7 @@ In case the hardware is being reflashed and the key got lost, the license can be
 
 The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop-up when done:
 
-![Online Activation Forgotten Key Activated](assets/activation-online.png)
+![Online Activation Forgotten Key Activated](assets/activation-online_resized.png)
 
 ### 9. Getting the Hardware-ID of Your Device
 
