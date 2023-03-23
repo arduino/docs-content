@@ -853,8 +853,14 @@ So, open a terminal window and create a Dockerfile integrating the following cod
 
 ```arduino
 FROM arduino/arduino-ootb-python-devel:latest
+```
+
+```arduino
 # Copy custom python cloud scripts
 COPY ./custom-examples /root/custom-examples
+```
+
+```arduino
 RUN chmod -R 755 /root/custom-examples
 ```
 
@@ -892,7 +898,12 @@ From that directory, you can pull the image to the location you prefer.
 
 ```arduino
 adb shell
-portenta-x8$: docker pull x8-custom-devel
+```
+
+With the Portenta X8's terminal, following command is used.
+
+```arduino
+docker pull x8-custom-devel
 ```
 
 Now your image is correctly deployed on your Portenta X8.
@@ -910,7 +921,7 @@ docker save x8-custom-devel:latest | gzip > x8-custom-devel_latest.tar.gz
 At this point, you can directly pull the image to your Portenta X8. To do so, connect to your Portenta X8 through ADB. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
 
 ```arduino
-portenta-x8$: docker import /home/fio/x8-custom-devel_latest.tar.gz x8-custom-devel:latest
+docker import /home/fio/x8-custom-devel_latest.tar.gz x8-custom-devel:latest
 ```
 
 Now your image is correctly deployed on your Portenta X8.
@@ -920,13 +931,13 @@ Now your image is correctly deployed on your Portenta X8.
 In order to launch your brand new image, you need to create a new `docker-compose.yml`. To do so, first you must stop the current `docker-compose.yml`.
 
 ```arduino
-portenta-x8$: cd /var/sota/compose-apps/arduino-ootb && docker compose stop
+cd /var/sota/compose-apps/arduino-ootb && docker compose stop
 ```
 
 You can now create the path for the new `docker-compose.yml`:
 
 ```arduino
-portenta-x8$: mkdir /var/sota/compose-apps/custom-devel && cd /var/sota/compose-apps/custom-devel && touch docker-compose.yml
+mkdir /var/sota/compose-apps/custom-devel && cd /var/sota/compose-apps/custom-devel && touch docker-compose.yml
 ```
 
 Before uploading, open the `docker-compose.yml` and edit it as follow to make it use the Docker image you have just created:
@@ -958,7 +969,7 @@ services:
 It is now time to upload the new `docker-compose.yml` to your Portenta X8:
 
 ```arduino
-portenta-x8$: docker-compose up --detach
+docker-compose up --detach
 ```
 
 And you are ready to go! Your Portenta X8 Dashboards and Things can be customized multiple times with the same process.
@@ -1081,6 +1092,9 @@ and restart the board.
 
 ```arduino
 echo "spi-dev" | sudo tee > /etc/modules-load.d/spi-dev.conf
+```
+
+```arduino
 sudo systemctl reboot
 ```
 
@@ -1159,6 +1173,9 @@ and restart the board.
 
 ```arduino
 echo "i2c-dev" | sudo tee > /etc/modules-load.d/i2c-dev.conf
+```
+
+```arduino
 sudo systemctl reboot
 ```
 
@@ -1233,8 +1250,7 @@ The `Wire` object is [mapped](https://github.com/arduino/ArduinoCore-mbed/blob/2
 Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the other GPIO. Just add the following line in the `setup()` definition to have it fully functional for `I2C` operations.
 
  ```arduino
- void setup()
- {
+ void setup() {
     pinMode(PA_12, INPUT);
  }    
  ```
