@@ -28,7 +28,7 @@ The Arduino Portenta X8 is a powerful board that has many features that can be e
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
-- [Docker-compose.yml](assets/docker-compose.yml) file used in this tutorial
+- [Docker-compose.yml](assets/docker-compose.rar) file used in this tutorial
 
 ## Instructions
 
@@ -83,7 +83,7 @@ volumes:
   db_data: {}
 ```
 
-Now let's create a directory on our X8 and put this **docker-compose.yml** file on our device. You can download the file by clicking [here](assets/docker-compose.yml).
+Now let's create a directory on our X8 and put this **docker-compose.yml** file on our device. You can download the file by clicking [here](assets/docker-compose.rar).
 
 ### Installing The Containers
 
@@ -119,15 +119,13 @@ You are now free to go through the WordPress setup process and configure it howe
 
 If you want to remove the container, you have to go to ```/home/fio/wordpress-test``` directory (where we previously executed the docker-compose command) and execute the following commands depending on what you want:
 
+Remove the container but preserves your WordPress database:
 ```
-// Remove the container but preserves your WordPress database:
-
 docker compose down
 ```
 
+Remove the container and the database:
 ```
-// Remove the container and the database:
-
 docker compose down --volumes
 ```
 
