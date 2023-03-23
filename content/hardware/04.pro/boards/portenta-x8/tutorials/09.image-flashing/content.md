@@ -106,7 +106,7 @@ To flash the Portenta X8, you need to begin by opening a terminal. Within the te
 uuu full_image.uuu
 ```
 
-If you have followed the __Flashing Mode without Carrier__ method to flash an OS image without a carrier, the `uuu` command should be running. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. This should trigger the waiting `uuu` task to run the flash process.
+If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking for the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. This should trigger the waiting `uuu` task to run the flash process.
 
 When the flashing operation is finished, you should see a similar result as the following figure:
 
