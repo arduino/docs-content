@@ -78,7 +78,7 @@ You will need to connect one USB-C® end to the Portenta X8 and the other end (U
 
 #### Flashing Mode without Carrier
 
-Do not worry if *Portenta Breakout* or *Portenta Max Carrier* is not available with you. The Portenta X8 can be configured for programming mode using few lines of command inside the Portenta X8's terminal via ADB. For this, please use following commands in exact sequence while you are in root environment with root permission.
+If *Portenta Breakout* or *Portenta Max Carrier* is not available to you, the Portenta X8 can be configured for programming mode using a few lines of command inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while you are in the root environment with root permission.
 
 ```arduino
 echo 0 > /sys/block/mmcblk2boot0/force_ro
@@ -96,7 +96,7 @@ echo 0 > /sys/block/mmcblk2boot1/force_ro
 dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
 ```
 
-This sequence of commands will allow you to reset Portenta X8's bootloader sector, defaulting internal bootloader to `uuu` mode.
+This sequence of commands will allow you to reset Portenta X8's bootloader sector, defaulting the internal bootloader to `uuu` mode.
 
 ### Flashing the Portenta X8
 
