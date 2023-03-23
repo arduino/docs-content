@@ -87,7 +87,7 @@ Plug your device to the computer, select the Serial Port of your board and click
 
 If for whatever reason the download of the program to the device fails, the following error message will appear:
 
-![Set up communication](assets/downloadSketchError.png)
+![Error message](assets/downloadSketchError.png)
 
 If the error message above appears, double-tap the reset button using the tip of a pen or a similar pointed object. The led above the reset button will start blinking indicating that the Opta is ready to be flashed with a new firmware. Click the **Download** button to start the process again.  
 
