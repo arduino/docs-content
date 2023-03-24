@@ -32,7 +32,7 @@ You will need to create this file, or remove the `#include "arduino_secrets.h"` 
 #define SECRET_PASS "yourpassword"
 ```
 
-***Storing network & password in a separate file minimizes the risk of you accidentially sharing your Wi-Fi credentials.***
+***Storing network & password in a separate file minimizes the risk of you accidentally sharing your Wi-Fi credentials.***
 
 ### WPA Connection
 
