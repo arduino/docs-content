@@ -697,6 +697,31 @@ In case the Portenta X8 was flashed barebone, you will just need to recycle the 
 
 ***For more in-depth tutorial for flashing Portenta X8, please check out [How To Flash Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) tutorial.***
 
+### Portenta X8 Post-Flash Operation
+
+After successfully flashing the Portenta X8 with the latest OS Image, following instructions can be followed to wrap up the board's initial configuration and registration with the FoundriesFactory.
+
+***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud). You can also check tutorial about [Using FoundriesFactory® Waves Fleet Management](https://docs.arduino.cc/tutorials/portenta-x8/waves-fleet-managment).***
+
+Make sure the name is not already being used in your Factory.
+
+```
+lmp-device-register -n <newDeviceName>
+```
+
+Once registered, it is possible to check the status `aktualizr-lite` using following command:
+
+```
+sudo journalctl -fu aktualizr-lite
+```
+
+**Not recommended:** In case you cannot register the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
+
+`sudo systemctl stop aktualizr-lite`
+`sudo systemctl stop fioconfig.path`
+`sudo systemctl stop fioconfig.service`
+`sudo rm /var/sota/sql.db`
+
 ## Portenta X8 with Arduino IDE
 
 In this section you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
