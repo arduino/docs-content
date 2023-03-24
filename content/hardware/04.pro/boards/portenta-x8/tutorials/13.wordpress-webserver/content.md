@@ -36,7 +36,7 @@ First, make sure your Portenta X8 is set up correctly by following the [User Man
 
 ### Creating the **docker-compose.yml** File
 
-The WordPress container we use is a multi-container application, which also requires a database server container. The WordPress multi-container application uses Apache as its web server. This is required to make the service work and it is already included in the container, so it is nothing for us to worry about. We will be using **MariaDB** as our database server container.
+The WordPress container we use is a multi-container application, which also requires a database server container. The WordPress multi-container application uses Apache as its web server. It is required to make the service operational and comes included within the container. We will be using MariaDB as our database server as a container instance.
 
 This container can run on the Portenta X8's architecture. To start using these containers is to build a docker-compose.yml file. This file contains information regarding what image we want to install and important configuration details, such as the username for the database, password, timezone, and database name. The same goes for the WordPress container: it will include the password and username. We will also enter the database hostname and which container will be used as the database. We recommend changing the default passwords to more secure ones by replacing the default password defined in the file below.
 
