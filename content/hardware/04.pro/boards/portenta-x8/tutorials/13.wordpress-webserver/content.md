@@ -118,7 +118,7 @@ When the command is executed it will start installing the **WordPress** and **Ma
 
 ### Connecting to the WordPress Site
 
-To connect to the WordPress setup site, you simply need to access it with your Portenta X8s unique id and port. So we can use the following address format:
+To connect to the WordPress setup site, you simply need to access it with your Portenta X8's unique id and port. So we can use the following address format:
 
 ```
 http://portenta-x8-<uuid>.local:<port>
