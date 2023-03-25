@@ -721,7 +721,7 @@ It is also possible to check the status of `aktualizr-lite` using following comm
 sudo journalctl -fu aktualizr-lite
 ```
 
-Following process is **not recommendable**, however if you ever encounter an issue blocking the registration process the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
+Following process is **not recommendable**, however if you ever encounter an issue blocking the registration process of the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
 
 `sudo systemctl stop aktualizr-lite`
 `sudo systemctl stop fioconfig.path`
