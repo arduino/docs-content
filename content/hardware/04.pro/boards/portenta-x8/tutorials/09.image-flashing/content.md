@@ -106,7 +106,7 @@ To flash the Portenta X8, you need to begin by opening a terminal. Within the te
 uuu full_image.uuu
 ```
 
-If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking for the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. This should trigger the waiting `uuu` task to run the flash process.
+If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking for the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. This should trigger the standing-by `uuu` task to run the flash process.
 
 When the flashing operation is finished, you should see a similar result as the following figure:
 
@@ -114,27 +114,35 @@ When the flashing operation is finished, you should see a similar result as the 
 
 Once you have verified it has successfully flashed the Portenta X8, the `BOOT` DIP switches that have been configured to the ON position, now need to be set to the OFF position. Otherwise, you will always have the Portenta X8 in Flashing mode whenever it is attached to a carrier. Recycle the power for Portenta X8 by reconnecting the board to your computer and start using with the latest updates.
 
+In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
+
 ***After booting, you will need to wait 10 seconds until the Portenta X8 starts blinking Blue LED. The Blue LED indicates it was able to boot successfully.***
 
 ### Portenta X8 Post-Flash Operation
 
-After successfully flashing the Portenta X8 with the latest OS Image, following instructions can be followed to wrap up the board's initial configuration and registration with the FoundriesFactory.
+After successfully flashing the Portenta X8 with the latest OS Image, the following instructions can be followed to wrap up the board's initial configuration and registration with the FoundriesFactory.
 
 ***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud). You can also check tutorial about [Using FoundriesFactory® Waves Fleet Management](https://docs.arduino.cc/tutorials/portenta-x8/waves-fleet-managment).***
 
-Make sure the name is not already being used in your Factory.
+The following command will help you register your Portenta X8 with the latest fresh OS Image. Please make sure the name is not already being used in your Factory.
 
 ```
 lmp-device-register -n <newDeviceName>
 ```
 
-Once registered, it is possible to check the status `aktualizr-lite` using following command:
+Once registered, `aktualizr-lite` will begin to pull the latest board support packages and it can be checked using following command:
+
+```
+aktualizr-lite --command status
+```
+
+It is also possible to check the status of `aktualizr-lite` using following command:
 
 ```
 sudo journalctl -fu aktualizr-lite
 ```
 
-**Not recommended:** In case you cannot register the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
+Following process is **not recommendable**, however if you ever encounter an issue blocking the registration process the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
 
 `sudo systemctl stop aktualizr-lite`
 `sudo systemctl stop fioconfig.path`
