@@ -18,7 +18,7 @@ This article highlights different approaches to making sounds and even entire so
 
 The examples are nevertheless still relevant as they explain some basic concepts of generating tone frequencies, interpolation and even provide you with some songs to try out. If you want to see an example for a simple melody using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library and familiarize yourself with the concept of external sound data files, you can check out [this example](https://docs.arduino.cc/built-in-examples/digital/toneMelody).
 
-Most sketches in this article use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your Arduino. Only the **PCMAudio** example uses pin 11 as it is making us of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
+Most sketches in this article use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your Arduino. Only the **PCMAudio** example uses pin 11 as it is making use of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
 
 ## Hardware Required
 
