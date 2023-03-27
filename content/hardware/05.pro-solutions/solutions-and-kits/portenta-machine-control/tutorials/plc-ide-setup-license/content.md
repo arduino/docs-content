@@ -23,7 +23,7 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 ## Goals
 
 - Install the Arduino PLC IDE and the Arduino PLC IDE Tools
-- Upload the PLC IDE bootloader to the board
+- Download the PLC IDE bootloader to the board
 - Connect the computer to your device through the IDE
 - Activate the device license
 - Test the connection
@@ -85,11 +85,9 @@ Plug your device to the computer, select the Serial Port of your board and click
 
 ***The device will show up two Serial Ports, the default one (generally with the lowest number) is the usual Serial Port, the secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
 
-If for whatever reason the download of the program to the device fails, the following error message will appear:
+If during the download procedure the following message appears, double-tap the reset button using the tip of a pen or a similar pointed object. The led above the reset button will start blinking indicating that the Opta is ready to be flashed with a new firmware. Click the **Download** button to start the process again. 
 
-![Error message](assets/downloadSketchError.png)
-
-If the error message above appears, double-tap the reset button using the tip of a pen or a similar pointed object. The led above the reset button will start blinking indicating that the Opta is ready to be flashed with a new firmware. Click the **Download** button to start the process again.  
+![Download error message](assets/downloadSketchError.png)
 
 ### 5. Connect to the Device
 
