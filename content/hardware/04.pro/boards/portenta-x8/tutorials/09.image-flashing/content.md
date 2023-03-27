@@ -118,37 +118,6 @@ In case the Portenta X8 was flashed barebone, you will just need to recycle the 
 
 ***After booting, you will need to wait 10 seconds until the Portenta X8 starts blinking Blue LED. The Blue LED indicates it was able to boot successfully.***
 
-### Portenta X8 Post-Flash Operation
-
-The following steps can be taken to complete the board's initial configuration and registration with the FoundriesFactory after the Portenta X8 has been successfully flashed with the latest OS Image.
-
-***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud). You can also check tutorial about [Using FoundriesFactory® Waves Fleet Management](https://docs.arduino.cc/tutorials/portenta-x8/waves-fleet-managment).***
-
-You can register your Portenta X8 with the latest OS Image by using the command below. Please check to see whether your Factory has already used the name.
-
-```
-lmp-device-register -n <newDeviceName>
-```
-
-Once registered, `aktualizr-lite` will start to download the most recent board support packages, and the status can be verified by using the command:
-
-```
-aktualizr-lite --command status
-```
-
-The following command can also be used to view the status of `aktualizr-lite`:
-
-```
-sudo journalctl -fu aktualizr-lite
-```
-
-The procedure below is **not recommendable**, but if you ever run into a problem preventing the registration process for a new device, you can clear the current device's information by halting OTA services and deleting `/var/sota/sql.db`. You can register the device once more after issuing these commands.
-
-`sudo systemctl stop aktualizr-lite`
-`sudo systemctl stop fioconfig.path`
-`sudo systemctl stop fioconfig.service`
-`sudo rm /var/sota/sql.db`
-
 ## Conclusion
 
 In this tutorial, you have learned to flash the Portenta X8 by getting the latest image, setting up the adequate file structure and the board, and finally flashing the board with these files.
