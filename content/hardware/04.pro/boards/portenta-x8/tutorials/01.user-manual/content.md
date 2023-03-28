@@ -651,7 +651,7 @@ Unzipped folder
 └── u-boot-portenta-x8.itb
 ```
 
-#### Flashing Mode with Carrier
+#### Set Flashing Mode with Carrier
 
 The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier or Breakout, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
 
@@ -663,7 +663,7 @@ For **Portenta Breakout**, `BT_SEL` and `BOOT`DIP switches must be set to ON pos
 
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
 
-#### Flashing Mode without Carrier
+#### Set Flashing Mode without Carrier
 
 If you decide to flash Portenta X8 without using the carrier, use the following command sequence inside the Portenta X8's terminal via ADB while you are in the root environment with root permission to reset Portenta X8's bootloader sector:
 
@@ -683,7 +683,7 @@ echo 0 > /sys/block/mmcblk2boot1/force_ro
 dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
 ```
 
-#### Flashing Using `uuu` Tool
+#### Flashing the Portenta X8 Using `uuu` Tool
 
 Now that we have the Portenta X8 in programming mode, we need to flash the OS image. Within the previously described OS image file structure, you need to navigate to `mfgtool-files-portenta-x8` directory. Inside the directory, you will find the `uuu` executable and its components. Here, you will open a terminal and run the following command:
 
@@ -691,7 +691,7 @@ Now that we have the Portenta X8 in programming mode, we need to flash the OS im
 uuu full_image.uuu
 ```
 
-It requires one additional step to flash Portenta X8 without a carrier. You will execute the command **first** to let it search for the board. Meanwhile, you will recycle the power source for Portenta X8 by unplugging and reconnecting the USB-C® cable. It will let the board begin its boot sequence, allowing it to enter programming mode as set with the defaulted internal bootloader. When the active `uuu` instance detects board is in programming mode, it will continue with its flashing process.
+If Portenta X8 is to be flashed without a carrier, you will want to execute the command **first** to let it search for the board. Subsequently, you will recycle the power source for Portenta X8 by unplugging and reconnecting the USB-C® cable. It will let the board begin its boot sequence, allowing it to enter programming mode as set with the defaulted internal bootloader. When the active `uuu` instance detects board has entered programming mode, it will continue with its flashing process.
 
 Once the flashing operation finishes, you will be greeted with a similar message in the terminal as the following figure:
 
