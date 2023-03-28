@@ -8,7 +8,7 @@ Microcontroller:
   Cortex-M7 core: Up to 480 MHz
   Cortex-M4 core: Up to 240 MHz
 Input:
-  Max input Voltage: 10V
+  Max input Voltage: 10 V
   Configurable digital / analog (0-10V) input: 8
 Relays:
   Nº of relays: 4
