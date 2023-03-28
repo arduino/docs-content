@@ -25,8 +25,10 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout) or [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- Portenta Family Carrier (Optional):
+- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
+- [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
 
 ## Instructions
 
