@@ -287,7 +287,7 @@ The table below describes LEDs meaning and functionalities.
 
 ### Out-Of-The-Box Experience
 
-***If you would like to have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to do it.***
+***It is recommended to have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to have your Portenta X8 up-to-date.***
 
 Once the Portenta X8 is correctly powered up, you can start interacting with it.
 
@@ -568,7 +568,7 @@ At this point, if you would to continue to use your Out-of-the-box, you can open
 
 #### Troubleshooting
 
-If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). Follow [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
+If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). You can follow [this section](#update-using-uuu-command) to learn to use `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
 
 ### Update With Portenta X8 Board Manager
 
@@ -651,6 +651,8 @@ Unzipped folder
 └── u-boot-portenta-x8.itb
 ```
 
+#### Flashing Mode with Carrier
+
 The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier or Breakout, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
 
 If you are to use a carrier, please check the carrier's configuration to be paired with Portenta X8. For **Portenta Max Carrier**, `BOOT SEL` and `BOOT` must be set to ON position with DIP switches as shown in the figure:
@@ -660,6 +662,8 @@ If you are to use a carrier, please check the carrier's configuration to be pair
 For **Portenta Breakout**, `BT_SEL` and `BOOT`DIP switches must be set to ON position as well as shown in the figure:
 
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
+
+#### Flashing Mode without Carrier
 
 If you decide to flash Portenta X8 without using the carrier, use the following command sequence inside the Portenta X8's terminal via ADB while you are in the root environment with root permission to reset Portenta X8's bootloader sector:
 
@@ -679,6 +683,8 @@ echo 0 > /sys/block/mmcblk2boot1/force_ro
 dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
 ```
 
+#### Flashing Using `uuu` Tool
+
 Now that we have the Portenta X8 in programming mode, we need to flash the OS image. Within the previously described OS image file structure, you need to navigate to `mfgtool-files-portenta-x8` directory. Inside the directory, you will find the `uuu` executable and its components. Here, you will open a terminal and run the following command:
 
 ```
@@ -696,37 +702,6 @@ This applies to both flashing scenarios. If you have the carrier attached and de
 In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
 
 ***For more in-depth tutorial for flashing Portenta X8, please check out [How To Flash Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) tutorial.***
-
-### Portenta X8 Post-Flash Operation
-
-After successfully flashing the Portenta X8 with the latest OS Image, the following instructions can be followed to wrap up the board's initial configuration and registration with the FoundriesFactory.
-
-***The integration with Foundries.io requires the Arduino Pro Cloud Subscription, subscribe at [Arduino PRO Cloud for Business](https://cloud.arduino.cc/plans), or learn more on the [Arduino Pro Page](https://www.arduino.cc/pro/hardware/product/portenta-x8#pro-cloud). You can also check tutorial about [Using FoundriesFactory® Waves Fleet Management](https://docs.arduino.cc/tutorials/portenta-x8/waves-fleet-managment).***
-
-The following command will help you register your Portenta X8 with the latest fresh OS Image. Please make sure the name is not already being used in your Factory.
-
-```
-lmp-device-register -n <newDeviceName>
-```
-
-Once registered, `aktualizr-lite` will begin to pull the latest board support packages and it can be checked using following command:
-
-```
-aktualizr-lite --command status
-```
-
-It is also possible to check the status of `aktualizr-lite` using following command:
-
-```
-sudo journalctl -fu aktualizr-lite
-```
-
-Following process is **not recommendable**, however if you ever encounter an issue blocking the registration process of the new device, you can erase the current device info by stopping the OTA services and removing `/var/sota/sql.db`. After these commands, you can register the device again.
-
-`sudo systemctl stop aktualizr-lite`
-`sudo systemctl stop fioconfig.path`
-`sudo systemctl stop fioconfig.service`
-`sudo rm /var/sota/sql.db`
 
 ## Portenta X8 with Arduino IDE
 
