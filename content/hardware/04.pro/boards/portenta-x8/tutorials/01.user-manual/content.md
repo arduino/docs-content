@@ -632,7 +632,7 @@ sudo aklite-offline install --src-dir /var/rootdirs/home/fio/offline-updates/
 
 After the update process is finalized, you need to restart your Portenta X8 by pressing its button for around 10 seconds. Once restarted, your Portenta X8 will immediately start running the latest OS release.
 
-### Update Using `uuu` Command
+### Update Using `uuu` Tool
 
 An alternative method to updating the Portenta X8 with the latest OS image is to use the `uuu` command. This flash method is helpful if you have built a custom image or desire a more manual approach. Nonetheless, you will need to prepare the OS image files and the board must be set into programming mode for this flashing process.
 
@@ -683,7 +683,7 @@ echo 0 > /sys/block/mmcblk2boot1/force_ro
 dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
 ```
 
-#### Flashing the Portenta X8 Using `uuu` Tool
+#### Flashing the Portenta X8 Using `uuu` Command
 
 Now that we have the Portenta X8 in programming mode, we need to flash the OS image. Within the previously described OS image file structure, you need to navigate to `mfgtool-files-portenta-x8` directory. Inside the directory, you will find the `uuu` executable and its components. Here, you will open a terminal and run the following command:
 
