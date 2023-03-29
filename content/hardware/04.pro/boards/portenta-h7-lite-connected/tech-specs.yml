@@ -41,7 +41,7 @@ Communication:
   I2S: 1
   SPI: 1
   PWM: 10
-  USB: USB 1.0/Full-Speed (x1) USB 2.0/Hi-Speed (x1)
+  USB: USB 1.0/Full-Speed (x1), USB 2.0/Hi-Speed (x1)
 Power:
   Board operating voltage: 3.3 V
   Board input voltage (VIN): 5 V
