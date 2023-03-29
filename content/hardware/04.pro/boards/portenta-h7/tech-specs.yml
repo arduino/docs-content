@@ -31,7 +31,7 @@ Wireless connectivity:
 Ethernet connectivity:
   Chipset: LAN8742AI
   Interface and rates: RMII 10/100 Mbps
-Secure element: NXP® SE050C2 and Micochip® ATECC608
+Secure element: NXP® SE050C2 and Microchip® ATECC608
 Communication:
   I2C: 3
   UART: 4
@@ -48,7 +48,7 @@ Clock speed:
   M7 core: 480 MHz
 Memory:
   Internal: 2 MB Flash, 1 MB RAM
-  External: 16 MB (QSPI Flash)
+  External: 16 MB NOR Flash, 8 MB SDRAM
 Dimensions:
   Width: 25.40 mm
   Length: 66.04 mm
