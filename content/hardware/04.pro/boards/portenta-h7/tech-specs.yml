@@ -33,14 +33,14 @@ Analog-to-digital converter:
   Channels: 8
   Resolution: 16 bits
 Digital-to-analog converter:
-  Channels: 1
+  Channels: 2 (only one accessible through A6 pin)
   Resolution: 12 bits 
 Communication:
   I2C: 3
   UART: 4
   CAN: 2
   I2S: 1
-  SPI: 2
+  SPI: 1
   PWM: 10
   USB: USB 1.0/Full-Speed (x1) and USB 2.0/Hi-Speed (x1)
 Power:
