@@ -1,0 +1,33 @@
+Board:
+  Name: Arduino® Nano 33 IoT
+  SKU: ABX00027
+Microcontroller: SAMD21 Cortex®-M0+ 32bit low power ARM MCU
+USB connector: Micro USB
+Pins:
+  Built-in LED Pin: 13
+  Digital I/O Pins: 14
+  Analog input pins: 8
+  PWM pins: 5
+  External interrupts: All digital pins
+Connectivity:
+  Wi-Fi: Nina W102 uBlox module
+  Bluetooth®: Nina W102 uBlox module
+Sensors:
+  IMU: LSM6DS3
+Communication:
+  UART: RX/TX 
+  I2C: A4 (SDA), A5 (SCL)
+  SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
+Power:
+  I/O Voltage: 3.3V
+  Input voltage (nominal): 5-18V
+  DC Current per I/O Pin: 7 mA
+Clock speed:
+  Processor: SAMD21G18A 48MHz
+Memory:
+  SAMD21G18A: 256 KB SRAM, 1MB flash
+  Nina W102 uBlox module: 448 KB ROM, 520KB SRAM, 2MB Flash
+Dimensions:
+  Weight: 5gr
+  Width: 18 mm
+  Length: 45 mm
