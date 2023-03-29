@@ -12,7 +12,7 @@ High-Density pins:
   UART pins: 16
   CAN pins: 4
   I2S pins: 4
-  USB: 2
+  USB: 6
 MKR-styled pins:
   Digital I/O pins: 22
   Analog pins: 8
