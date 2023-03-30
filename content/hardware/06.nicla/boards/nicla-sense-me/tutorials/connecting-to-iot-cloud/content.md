@@ -46,7 +46,7 @@ The Nicla Sense ME and Portenta H7 need to be connected independantly for the lo
 
 ![Nicla connection](assets/eslov-connection.svg)
 
-### Setup Eslov Communication with the NICLA Board
+### Setup ESLOV Communication with the NICLA Board
 
 There are three ways to read from the on-board sensors:
 
