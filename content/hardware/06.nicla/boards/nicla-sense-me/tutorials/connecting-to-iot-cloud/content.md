@@ -20,12 +20,12 @@ software:
 
 ## Overview
 
-In this tutorial you will learn how to upload data from the Nicla module to the IoT Cloud. You will use the **Portenta H7** to interface with the **Nicla Sense ME** using the ESLOV connector and upload the data using the Portenta Wireless capabilities.
+In this tutorial you will learn how to upload data from the Nicla module to the IoT Cloud. You will use the **Portenta H7** to interface with the **Nicla Sense ME** using the ESLOV connector and upload the data using over Wi-Fi®.
 
 ## Goals
 
 - How to configure the Portenta H7 to read temperature values from the Nicla Sense ME using the ESLOV connector.
-- How to Connect the Portenta H7 to the Arduino IoT Cloud
+- How to connect the Portenta H7 to the Arduino IoT Cloud
 - Publish the temperature values that you obtained from the Nicla board to the Arduino IoT Cloud.
 
 ### Required Hardware and Software
@@ -35,7 +35,7 @@ In this tutorial you will learn how to upload data from the Nicla module to the 
 - ESLOV cable (included with the Nicla Sense ME)
 - USB-C® to USB-A / C depending on your hardware (Portenta H7)
 - USB-A to micro USB-A (Nicla Sense ME)
-- Wi-Fi Access point with access to the internet
+- Wi-Fi® Access point with access to the internet
 - [Arduino Cloud](https://create.arduino.cc/) account
 
 ## Instructions
