@@ -138,7 +138,7 @@ Inside `void setup()` initialize the `Serial` communication, set up the variable
 
     delay(1500);
 
-    Serial.println("Initialize the Nicla communication")
+    Serial.println("Initialize the Nicla communication");
     BHY2Host.begin(false, NICLA_VIA_ESLOV);
 
     //If you want to connect the NICLA through Bluetooth® Low Energy use the following line instead of the above
