@@ -80,7 +80,7 @@ For the purposes of this tutorial we will only focus on the gesture readings, wh
 
 **1. Setting up** 
 
-Let's start by opening the Arduino Web Editor, click on the **Libraries** tab and search for the **APDS9960** library. Then in **> Examples**, open the **GestureSensor** sketch and once it opens, you could rename is as Gesture&LEDs.
+Let's start by opening the Arduino Web Editor, click on the **Libraries** tab and search for the **APDS9960** library. Then in **> Examples**, open the **GestureSensor** sketch and once it opens, you could rename it as Gesture&LEDs.
 
 ![Finding the library in the Web Editor.](./assets/nano33BS_07_library.png)
 
