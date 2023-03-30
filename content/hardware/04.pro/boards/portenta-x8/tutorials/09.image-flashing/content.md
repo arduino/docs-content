@@ -25,8 +25,10 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout) or [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- Portenta Family Carrier (Optional):
+- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
+- [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
 
 ## Instructions
 
@@ -62,6 +64,8 @@ Unzipped folder
 
 ### Setting the Portenta X8 to Flashing Mode
 
+#### Flashing Mode with Carrier
+
 Connect your Portenta X8 into your carrier of choice, either *Portenta Breakout* or *Portenta Max Carrier*, via High-Density connectors. After connecting the Portenta X8, you will need to set the `BOOT` DIP switches to the ON position. The `BOOT` switch configuration is important as it will put the board into Flashing mode.
 
 On the Portenta Max Carrier, the DIP switches are identified by the label `BOOT SEL` and `BOOT` as shown in the figure:
@@ -74,6 +78,28 @@ On the Portenta Breakout, the DIP switches are identified by the label `BT_SEL` 
 
 You will need to connect one USB-C® end to the Portenta X8 and the other end (USB-C® or USB-A) to your computer. If the connection is established correctly, you will be able to see a newly connected device called `SE Blank M845S`.
 
+#### Flashing Mode without Carrier
+
+If *Portenta Breakout* or *Portenta Max Carrier* is not available to you, the Portenta X8 can be configured for programming mode using a few lines of command inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while you are in the root environment with root permission.
+
+```arduino
+echo 0 > /sys/block/mmcblk2boot0/force_ro
+```
+
+```arduino
+dd if=/dev/zero of=/dev/mmcblk2boot0 bs=1024 count=4096 && sync
+```
+
+```arduino
+echo 0 > /sys/block/mmcblk2boot1/force_ro
+```
+
+```arduino
+dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
+```
+
+This sequence of commands will allow you to reset Portenta X8's bootloader sector, defaulting the internal bootloader to `uuu` mode.
+
 ### Flashing the Portenta X8
 
 To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where `mfgtool-files-portenta-x8` file is located using the `cd` command. Once it is inside the directory where the previous file is included, the following command is used:
@@ -82,11 +108,15 @@ To flash the Portenta X8, you need to begin by opening a terminal. Within the te
 uuu full_image.uuu
 ```
 
+If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking for the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. This should trigger the standing-by `uuu` task to run the flash process.
+
 When the flashing operation is finished, you should see a similar result as the following figure:
 
 ![uuu tool flashing success output](assets/uuu-flashing-success.png)
 
 Once you have verified it has successfully flashed the Portenta X8, the `BOOT` DIP switches that have been configured to the ON position, now need to be set to the OFF position. Otherwise, you will always have the Portenta X8 in Flashing mode whenever it is attached to a carrier. Recycle the power for Portenta X8 by reconnecting the board to your computer and start using with the latest updates.
+
+In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
 
 ***After booting, you will need to wait 10 seconds until the Portenta X8 starts blinking Blue LED. The Blue LED indicates it was able to boot successfully.***
 
