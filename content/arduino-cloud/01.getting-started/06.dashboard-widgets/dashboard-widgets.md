@@ -318,8 +318,48 @@ The chart widget is great for data analytics. It is used to track real time data
 An example of how it is used in a sketch:
 
 ```arduino
-locationChart = analogRead(A0);
+variable = analogRead(A0);
 ```
+
+### Advanced Chart
+
+![Advanced Chart Widget](assets/widget-advanced-chart.gif)
+
+The advanced chart widget allows you to track up to **5 variables simultaneously**. This widget also includes an additional configuration interface that appears while editing the widget.
+
+![Widget Configuration](assets/widget-advanced-chart-2.png)
+
+An example of how it is used in code:
+
+```arduino
+variable_1 = analogRead(A1)
+variable_2 = analogRead(A2)
+variable_3 = analogRead(A3)
+variable_4 = analogRead(A4)
+variable_5 = analogRead(A5)
+```
+
+***Check out the [Advanced Chart](/arduino-cloud/features/advanced-chart) guide for more information.***
+
+### Scheduler
+
+![Scheduler Widget](assets/widget-scheduler.png)
+
+The Scheduler Widget allows you to schedule a job in the future. With this widget, you can schedule:
+- A job to activate at a specific hour, minute and second. 
+- A job to execute only on specific days.
+- A job that should last for X amount of seconds, minutes or hours.
+
+In a sketch, use the `x.isActive()` boolean to check whether a state is active. 
+
+Example:
+
+```arduino
+if(scheduleVariable.isActive){}
+```
+
+
+***Check out the [Scheduler](/arduino-cloud/features/cloud-scheduler) guide for more information.***
 
 ### Sticky Note
 
