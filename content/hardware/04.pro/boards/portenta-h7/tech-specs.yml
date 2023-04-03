@@ -35,7 +35,7 @@ Analog-to-digital converter (ADC):
 Digital-to-analog converter (DAC):
   Channels: 2 (only one accessible through pin A6)
   Resolution: 12 bits 
-Communication:
+Communication Interfaces:
   I2C: 3
   UART: 4
   CAN: 2
