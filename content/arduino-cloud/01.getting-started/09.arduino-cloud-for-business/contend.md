@@ -66,20 +66,10 @@ Once your plan has been successfully purchased, you will be asked to define the 
 ![Create new shared space](assets/create-new-space.png "Create new shared space")
 
 Your Arduino Cloud for Business plan comes with two spaces by default: 
-* **My Cloud**. My Cloud is a private space that is automatically created once an Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards and 100MB of Sketch storage by default, but it can be further extended and customized by purchasing any [Individual plan available for Arduino IoT Cloud](https://cloud.arduino.cc/plans). Have a look at the [Arduino IT Cloud Getting Started](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) if you want to start using your private space.
+* **My Cloud**. My Cloud is a private space that is automatically created once an Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards and 100MB of Sketch storage by default, but it can be further extended and customized by going to *My plans* settings. Have a look at the [Arduino IT Cloud Getting Started](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) if you want to start using your private space.
 * **Shared space**. A shared space is the company space that you can use with all your team. As a matter of fact, a shared space can have any number of members, who can all access the resources inside of it. The level of access and specific permissions can be customized by the Space Admin (see [Invite members into your space section](#invite-members-into-your-space) to learn more). 
 
 In the next sections, you will learn more about Shared Space features and functionalities. 
-
-### Change Shared Space Settings
-
-To change the current settings of your Shared Space, navigate to the **General Settings** tab using the sidebar. 
-
-![Shared Space settings](assets/shared-space-settings.png "Shared space settings")
-
-There you will find multiple options to customize your Shared Space, including: 
-* Editing the Space name
-* Assigning your own logo
 
 ### Switch Between Spaces
 
@@ -90,6 +80,16 @@ Move your mouse over the Space-Selector, which you can find at the top right-han
 ![Switch between Spaces](assets/switch-spaces.png "Switch between Spaces")
 
 The Space-Selector shows you at any time which Space you are currently working on, in this case *Arduino PRO*. To switch to another Space, simply click with the mouse on the Space you would like to work on.
+
+### Change Shared Space Settings
+
+To change the current settings of your Shared Space, navigate to the **General Settings** tab using the sidebar. 
+
+![Shared Space settings](assets/shared-space-settings.png "Shared space settings")
+
+There you will find multiple options to customize your Shared Space, including: 
+* Editing the Space name
+* Assigning your own logo
 
 ### Create Additional Spaces
 
@@ -169,7 +169,7 @@ Arduino Cloud allows you to securely provision your devices through two differen
 #### Device Provisioning With Arduino IoT Cloud
 If your device is compatible with Arduino Cloud, you can start provisioning it into your Shared Space by connecting it to your computer through a USB cable. 
 
-In addition, Arduino IoT Cloud requires your computer to have the [Arduino Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). 
+In addition, Arduino IoT Cloud requires your computer to have the [Arduino Create Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). 
 
 When you are all set-up correctly, you can click on **Arduino IoT Cloud** button in your Shared Space. 
 
@@ -225,9 +225,12 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 It is now time to start uploading sketches on your devices. 
 
-For this purpose, Arduino Cloud integrates a [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally. 
+The Arduino Cloud has a feature capable of creating some pre-built sections of the sketch related to a Thing, in order to include some libraries necessary to interact with the cloud variables, as well as directly populating and updating the sketch once the new cloud variables are created and defined.
+The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of cloud variables is shown.
 
-In order to open the Web Editor, go to Arduino Cloud Home and click on the [Web Editor](https://create.arduino.cc/editor) button. 
+From this sketch view, by clicking the "</>Open full editor button", it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally. 
+
+Otherwise, in order to open the Web Editor to directly retrieve your sketches, go to Arduino Cloud Home and click on the [Web Editor](https://create.arduino.cc/editor) button. 
 
 ![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
 
@@ -287,7 +290,7 @@ Whether it is your teammate, your customer or your system integrator, you can fr
 
 ### Data Export
 
-Arduino Cloud for Business allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in `.csv` format to be ready for further evaluation or manipulation. 
+Arduino Cloud for Business allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further evaluation or manipulation. 
 
 The Arduino Cloud for Business plan includes 1 year data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 1 year. 
 
