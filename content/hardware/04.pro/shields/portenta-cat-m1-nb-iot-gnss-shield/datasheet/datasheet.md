@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
 
 # Description 
-Unleash global connectivity and positioning capabilities of your Portenta or MKR board with the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. This shield enables cellular connectivity to both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide with your choice of GPS, GLONASS, Galileo or BeiDou.
+Unleash the global connectivity and positioning capabilities of your Portenta or MKR board with the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. This shield enables cellular connectivity to both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide with your choice of GPS, GLONASS, Galileo or BeiDou.
 
 # Target areas:
 Internet of Things, outdoor asset tracking, positioning, cellular connectivity, fleet management
@@ -60,10 +60,10 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
   The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provides connectivity to four major satellite positioning networks, allowing you to track your inventory reliably. The multi-band cellular connectivity ensures you get live updates on your inventory nearly anywhere in the world.
 
 - **Remote node monitoring**
-  The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real time insight for increasing your business revenues. 
+  The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real-time insight for increasing your business revenues. 
 
 - **Fleet management**
-  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyse and dynamically manage your fleet to optimise fuel usage, increase your customers satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
+  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyze and dynamically manage your fleet to optimize fuel usage, increase your customer satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
 
 ### Accessories (Not Included)
 - Active GNSS Antenna (e.g. ECHO19/0.1M/UFL/S/S/17)
@@ -123,19 +123,19 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
 
 
 ### Cellular Connectivity
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provide access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1). Input impedance for the cellular antenna is 50Ω.
+The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provides access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1). The input impedance for the cellular antenna is 50Ω.
 
-***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano SIM for cellular connectivity. eSIM is not supported at this time.***
+***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano-SIM for cellular connectivity. eSIM is not supported at this time.***
 
 ### Positioning
-Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and should have a bias voltage of 3.0V. Input impedance for GNSS antenna connector is 50Ω. For compatibility with all GNSS system, the antenna should support bands over 1559 - 1606 MHz frequency range. 
+Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for the transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and should have a bias voltage of 3.0V. The input impedance for the GNSS antenna connector is 50Ω. For compatibility with all GNSS systems, the antenna should support bands over 1559 - 1606 MHz frequency range. 
 
 ***Note: GNSS and cellular services cannot be used simultaneously.***
 
 ### Power Tree
 ![Portenta Cat. M1/NB IoT GNSS Shield Power Tree](assets/thalesShieldPowerTree.svg)
 
-Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by the host Portenta board via the high density connector. A 3.0V voltage is provided via TC1185-3.0VCT713 (U8) for the active GNSS antenna.
+Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by the host Portenta board via the high-density connector. A 3.0V voltage is provided via TC1185-3.0VCT713 (U8) for the active GNSS antenna.
 
 ## Board Operation
 
@@ -155,16 +155,17 @@ Now that you have gone through the basics of what you can do with the board, you
 
 
 ## Certifications
+
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the
 essential requirements of the following EU Directives and therefore qualify for free movement
 within markets comprising the European Union (EU) and European Economic Area (EEA).
 Radio Equipment Directive (RED) 2014/53/EU
 
-We declare under our sole responsibility that the products above are in conformity with the
-essential requirements of the following EU Directives and therefore qualify for free movement
-within markets comprising the European Union (EU) and European Economic Area (EEA).
-Radio Equipment Directive (RED) 2014/53/EU
+### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3
+Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in
+electrical and electronic equipment
 
 
 | **Substance**                          | **Maximum Limit (ppm)** |
@@ -180,12 +181,12 @@ Radio Equipment Directive (RED) 2014/53/EU
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed. 
+Exemptions: No exemptions are claimed. 
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
 
 ## FCC Caution
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
@@ -202,7 +203,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
 English: 
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -221,7 +222,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English 
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
 
 French: 
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
