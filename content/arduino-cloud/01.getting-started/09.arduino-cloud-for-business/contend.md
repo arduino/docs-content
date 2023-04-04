@@ -51,7 +51,7 @@ It is now time to customize your plan. Select the billing frequency you prefer a
 
 Go on by flagging the optional add-ons that you may need in your projects and click on **Add billing information**. Do you want to learn more on these add-ons? Check the [dedicated section](#optional-add-ons) of this getting started.
 
-![Add-ons selection](assets/add-on-selection.png "Add-ons selection")
+![Add-ons section](assets/add-on-selection.png "Add-ons section")
 
 In the next steps, add all your billing and payment information and purchase your plan. 
 
