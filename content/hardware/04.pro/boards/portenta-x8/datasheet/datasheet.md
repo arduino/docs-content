@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The Arduino® Portenta X8 is a high performance system on module designed to power the upcoming generation of Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini (4+1-cores) hosting an embedded Linux OS with the STM32H7 (2-cores) for real-time applications in the Arduino environment. Shield and carrier boards are available to extend the functionality of the Portenta X8 or alternatively can be used as reference designs to develop your own custom solutions.
+The Arduino® Portenta X8 is a high-performance system module designed to power the upcoming generation of the Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini (4+1-cores) hosting an embedded Linux OS with the STM32H7 (2-cores) for real-time applications in the Arduino environment. Shield and carrier boards are available to extend the functionality of the Portenta X8 or alternatively can be used as reference designs to develop your own custom solutions.
 
 # Target Areas
 
@@ -269,30 +269,30 @@ Edge computing, industrial internet of things, system on module, artificial inte
 
 # Contents
 
-# The Board
+## The Board
 
-## Application Examples
+### Application Examples
 
-The Arduino® Portenta X8 has been designed for high performance embedded computing applications in mind, based on the quad core NXP® i.MX 8M Mini Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
+The Arduino® Portenta X8 has been designed with high-performance embedded computing applications in mind, based on the quad-core NXP® i.MX 8M Mini Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
 
-- **Embedded Linux:** Kickstart the deployment of Industry 4.0 with Linux Board Support Packages running on the feature packed and energy efficient Arduino® Portenta X8. Make use of the GNU toolchain to develop your solutions free from technological lock in.
-- **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi® and Bluetooth® connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications.
-- **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
+- **Embedded Linux:** Kickstart the deployment of Industry 4.0 with Linux Board Support Packages running on the feature packed and energy efficient Arduino® Portenta X8. Make use of the GNU toolchain to develop your solutions free from a technological lock-in.
+- **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi® and Bluetooth® connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, the Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications.
+- **High speed modular embedded development:** The Arduino® Portenta X8 is a great unit for developing a wide range of custom solutions. The high-density connector provides access to many functions, including PCIe connectivity, CAN, SAI and MIPI. Alternatively, use the Arduino ecosystem of professionally designed boards as a reference for your own designs. Low-code software containers allow for rapid deployment.
 
-## Accessories (Not Included)
+### Accessories (Not Included)
 
 - USB-C® Hub
 - USB-C® to HDMI Adapter
 - Heatsink (if required)
 
-## Related Products
+### Related Products
 
 - Arduino® Portenta Breakout Board (ASX00031)
 - Arduino® Portenta Max Carrier (ABX00043)
 
-# Rating
+## Rating
 
-## Recommended Operating Conditions
+### Recommended Operating Conditions
 
 | Symbol             | Description                                         | Min  | Typ | Max  | Unit |
 |:-------------------|:----------------------------------------------------|:----:|:---:|:----:|:----:|
@@ -307,7 +307,7 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 | V<sub>OH</sub>     | Output high voltage, 8 mA                           | 2.7  |  -  | 3.3  |  V   |
 | V<sub>OL</sub>     | Output low voltage, 8 mA                            |  0   |  -  | 0.4  |  V   |
 
-## Power Consumption
+### Power Consumption
 
 | Symbol          | Description                         | Min | Typ  | Max | Unit |
 |-----------------|:------------------------------------|:---:|:----:|:---:|:----:|
@@ -315,11 +315,11 @@ The Arduino® Portenta X8 has been designed for high performance embedded comput
 | P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     |  mW  |
 | P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     |  mW  |
 
-The use of a USB 3.0 compatible port will ensure that current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
+The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
-# Functional Overview
+## Functional Overview
 
-## Block Diagram
+### Block Diagram
 
 ![Block Diagram of Portenta X8](assets/x8BlockDiagram.svg)
 
@@ -361,15 +361,15 @@ The Arduino Portenta X8 makes use of two ARM®-based physical processing units.
 
 ### NXP® i.MX 8M Mini Quad Core Microprocessor
 
-The MIMX8MM6CVTKZAA iMX8M (U2) features a quad core ARM® Cortex® A53 running at up to 1.8 GHz for high performance applications alongside an ARM® Cortex® M4 running at up to 400 MHz. The ARM® Cortex® A53 is capable of running a fully fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The ARM® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
+The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core ARM® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an ARM® Cortex® M4 running at up to 400 MHz. The ARM® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The ARM® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
 
 ### STM32 Dual Core Microprocessor
 
-The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as a I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini. It achieves this by running a custom firmware [https://github.com/arduino/portentax8-stm32h7-fw](https://github.com/arduino/portentax8-stm32h7-fw) normally invisible to the User, which maps all its peripherals as Linux devices. Advanced users can customize the M7 firmware to fit their needs but this could break the seamless Linux integration. Users are instead encouraged to write custom Arduino programs (sketches) running on the M4, which can access all the peripherals supported by the M7. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2).
+The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual-core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as an I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real-time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini. It achieves this by running a custom firmware [https://github.com/arduino/portentax8-stm32h7-fw](https://github.com/arduino/portentax8-stm32h7-fw) normally invisible to the User, which maps all its peripherals as Linux devices. Advanced users can customize the M7 firmware to fit their needs but this could break the seamless Linux integration. Users are instead encouraged to write custom Arduino programs (sketches) running on the M4, which can access all the peripherals supported by the M7. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2).
 
 ## Wi-Fi®/Bluetooth® Connectivity
 
-The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra small package based on the Cypress CYW4343W. The IEEE 802.11b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi® and Bluetooth®. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded linux OS, Bluetooth® 5.1 is supported together with Wi-Fi® conforming to the IEEE802.11b/g/n standard.
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE 802.11b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as dual-mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J4 or ANT1) to be shared between Wi-Fi® and Bluetooth®. Module U9 interfaces with i.MX 8M Mini (U2) via a 4bit SDIO and UART interface. Based on the software stack of the wireless module in the embedded Linux OS, Bluetooth® 5.1 is supported together with Wi-Fi® conforming to the IEEE802.11b/g/n standard.
 
 ## Onboard Memories
 
@@ -377,11 +377,11 @@ The Arduino® Portenta X8 includes two onboard memory modules. A NT6AN512T32AV 2
 
 ## Crypto Capabilities
 
-The Arduino® Portenta X8 enables IC level edge-to-cloud security capability through the NXP® SE050C2 Crypto chip (U11). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage. It interacts with the NXP® i.MX 8M Mini via I2C.
+The Arduino® Portenta X8 enables IC-level edge-to-cloud security capability through the NXP® SE050C2 Crypto chip (U11). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage. It interacts with the NXP® i.MX 8M Mini via I2C.
 
 ## Gigabit Ethernet
 
-The NXP® i.MX 8M Mini Quad includes a 10/100/1000 Ethernet controller with support for Energy Efficient Ethernet (EEE), Ethernet AVB, and IEEE 1588. An external physical connector is required to complete the interface. This can be accessed via a high density connector with an external component such as the Arduino® Portenta Breakout board.
+The NXP® i.MX 8M Mini Quad includes a 10/100/1000 Ethernet controller with support for Energy Efficient Ethernet (EEE), Ethernet AVB, and IEEE 1588. An external physical connector is required to complete the interface. This can be accessed via a high-density connector with an external component such as the Arduino® Portenta Breakout board.
 
 ## USB-C® Connector
 
@@ -389,14 +389,14 @@ The NXP® i.MX 8M Mini Quad includes a 10/100/1000 Ethernet controller with supp
 The USB-C® connector provides multiple connectivity options over a single physical interface:
 
 - Provide board power supply in both DFP and DRP mode
-- Source power to external peripherals when board is powered through VIN
+- Source power to external peripherals when the board is powered through VIN
 - Expose High Speed (480 Mbps) or Full Speed (12 Mbps) USB Host/Device interface
 - Expose Displayport output interface
-The Displayport interface is usable in conjunction with USB and can be either used with a simple cable adapter when board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting Displayport and USB. Such dongles usually provide an ethernet over USB port, a 2 port USB hub and a USB-C® port that can be used to provide power to the system.
+The Displayport interface is usable in conjunction with USB and can be either used with a simple cable adapter when the board is powered via VIN or with dongles able to provide power to the board while simultaneously outputting Displayport and USB. Such dongles usually provide an ethernet over USB port, a 2-port USB hub and a USB-C® port that can be used to provide power to the system.
 
-## Real Time Clock
+## Real-Time Clock
 
-The Real Time clock allows keeping time of day with a very low power consumption.
+The Real-Time clock allows for keeping the time of day with very low power consumption.
 
 ## Power Tree
 
@@ -433,17 +433,17 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 **Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
 
-# Mechanical Information
+## Mechanical Information
 
-## Pinout
+### Pinout
 
 ![](assets/x8HDCPinout.jpg)
 
-## Mounting Holes and Board Outline
+### Mounting Holes and Board Outline
 
 ![](assets/x8Mechanical.svg)
 
-# Certifications
+## Certifications
 
 | Certification | Details                                                                   |
 |:--------------|:--------------------------------------------------------------------------|
@@ -456,11 +456,11 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | FCC (US)      | ID.<br />Radio: Part 15.247<br />MPE: Part 2.1091                         |
 | RCM (AU)      | Yes                                                                       |
 
-## Declaration of Conformity CE DoC (EU)
+### Declaration of Conformity CE DoC (EU)
 
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+We declare under our sole responsibility that the products above conform with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
-## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
+### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
@@ -477,13 +477,13 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed.
+Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-## Conflict Minerals Declaration
+### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
@@ -501,10 +501,10 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
-3. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
 English:
-User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
@@ -520,7 +520,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with minimum distance 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.  
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
