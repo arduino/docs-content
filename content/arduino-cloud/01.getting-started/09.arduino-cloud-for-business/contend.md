@@ -53,7 +53,7 @@ Go on by flagging the optional add-ons that you may need in your projects and cl
 
 ![Add-ons section](assets/add-on-selection.png "Add-ons section")
 
-In the next steps, add all your billing and payment information and purchase your plan. 
+In the next steps, add all your billing and payment information and then purchase your plan. 
 
 Now you are ready to get started with your brand new Arduino Cloud for Business plan. 
 
