@@ -145,6 +145,18 @@ You will be able to see similar output as following after the previous steps:
 
 ![Setup Portenta X8 DISTRO](assets/x8_distro_setup.png)
 
+### Migration of codeaurora.org
+
+As of March 31, 2023, all [codeaurora.org](https://www.codeaurora.org) repositories have been migrated to other platforms and the project has been shut down. This repo is used by several recipes inside our distribution to fetch packages during the image build. This can be fixed by manually adding the NXP GitHub mirrors to the conf/local.conf file
+
+```
+MIRRORS += " \
+    git://source.codeaurora.org/external/imx/ git://github.com/nxp-imx/ \n \
+    https://source.codeaurora.org/external/imx/ https://github.com/nxp-imx/ \n \
+    http://source.codeaurora.org/external/imx/ http://github.com/nxp-imx/ \n \
+    gitsm://source.codeaurora.org/external/imx/ gitsm://github.com/nxp-imx/ \n \
+```
+
 #### Build an Image With Bitbake
 
 To start building the image, following command is used:
