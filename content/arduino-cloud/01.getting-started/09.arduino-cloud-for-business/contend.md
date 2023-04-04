@@ -38,7 +38,7 @@ If you are not familiar with Arduino IoT Cloud, we strongly recommend you to tak
 In order to get started with Arduino Cloud for Business, you need to [subscribe a plan](https://cloud.arduino.cc/plans#business). 
 
 The Arduino Cloud for Business plan consists of two main subscriptions: 
-* **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plan, fleet management, Role-Based-Access-Control, Web Editor with Over-the-air updates, IoT Cloud with dashboards etc. Multiple of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
+* **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plane, fleet management, Role-Based-Access-Control, Web Editor with Over-the-air updates, IoT Cloud with dashboards etc. Multiples of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
 * **Optional Add-ons.** To address additional needs, Arduino Cloud for Business can be customized with optional add-ons. Check the [dedicated section](#optional-add-Ons) of this tutorial to learn more. 
 
 If you do not need any tailored plan, go to [Arduino Cloud for Business page](https://cloud.arduino.cc/plans#business) and select **Purchase**. You will be then asked to login with your Arduino credentials. If you do not have an account yet, feel free to create a new one. 
