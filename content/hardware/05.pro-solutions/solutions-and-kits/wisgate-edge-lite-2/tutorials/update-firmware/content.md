@@ -57,7 +57,7 @@ On the WisGate Dashboard, open the Settings page and click on the "Firmware" tab
 
 ![WisGate dashboard Settings page](assets/wisgate-firmware-settings.png)
 
-Now drag and drop or open the browse file option to select the firmware file downloaded in the previous step, it is the file with the `.bin.rwi` format, as you can see in the screenshot we uploaded the file called `WisGateOS_2.1.4_ARDUINO_b87_RAK636.bin.rwi`
+Now drag and drop or open the browse file option to select the firmware file downloaded in the previous step, it is the file with the `.bin.rwi` format, as you can see in the screenshot.
 
 ![WisGate firmware zip uploaded](assets/wisgate-firmware-update.png)
 
