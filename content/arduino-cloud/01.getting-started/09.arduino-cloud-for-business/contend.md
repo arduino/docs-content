@@ -368,7 +368,7 @@ Arduino Cloud for Business can be customized with optional add-ons:
 
 ![Arduino Cloud Homepage with Add-ons](assets/cloud-add-on.png "Arduino Cloud Homepage with Add-ons")
 
-In order to get started with them, it is sufficient to click on the corresponding tab.
+To get started with them, it is sufficient to click on the corresponding tab.
 
 ### Portenta X8 Manager
 
