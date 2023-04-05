@@ -40,4 +40,18 @@ hardware:
 
 ### Software Requirements
 
-## Tank Level Monitoring Model Setup
+## The Machine Learning Model
+
+## Intruder Detector System Setup
+
+## Intruder Detector System Overview
+
+### Nicla Voice Code
+
+### Portenta H7 Code
+
+### The Cloud Dashboard
+
+## Full Intruder Detector Example
+
+## Conclusion
