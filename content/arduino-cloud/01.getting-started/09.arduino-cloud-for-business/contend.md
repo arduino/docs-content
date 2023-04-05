@@ -94,7 +94,7 @@ To change the current settings of your Shared Space, navigate to the **General S
 There you will find multiple options to customize your Shared Space, including:
 
 * Editing the Space name
-* Assigning your own logo
+* Assigning your custom logo
 
 ### Create Additional Spaces
 
