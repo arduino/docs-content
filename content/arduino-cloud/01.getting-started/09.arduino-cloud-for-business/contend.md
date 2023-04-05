@@ -194,7 +194,7 @@ Select a board name to be able to correctly identify your device and click on **
 
 ![Device name configuration](assets/device-name-configuration.png "Device name configuration")
 
-Define which type of connection you want to use with your board and click on **Next.** The agent will start securely provisioning your device by leveraging the secure element embedded in your board. In this way, your security keys will be stored in the secure element and full data encryption will be guaranteed during data exchanges between Arduino devices and the Cloud.
+Define the connection type you want to use with your board and click on **Next.** The agent will start securely provisioning your device by leveraging the secure element embedded in your board. This way, your security keys will be stored in the secure element and full data encryption will be guaranteed during data exchanges between Arduino devices and the Cloud.
 
 ***If you want to learn more about security in Arduino Cloud, please check the [dedicated documentation](https://docs.arduino.cc/arduino-cloud/features/security-considerations).***
 
