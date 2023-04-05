@@ -30,7 +30,7 @@ The network server and the packet forwarder running on the Arduino Create platfo
 
 You can follow the [Arduino Pro Gateway Assembly](https://docs.arduino.cc/retired/getting-started-guides/lora-gateway-assembly) to learn about how to assemble your Arduino Pro Gateway.
 
-You can follow the next link to download the [Datasheet](./assets/AKX00016-datasheet.pdf)
+You can follow the next link to download the [Datasheet](https://content.arduino.cc/assets/AKX00016-datasheet.pdf)
 
 ### Need Help?
 
