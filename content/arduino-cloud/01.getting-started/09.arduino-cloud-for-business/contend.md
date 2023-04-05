@@ -138,7 +138,7 @@ The table below reports the list of supported roles and corresponding permission
 
 \[1\] It can add/remove only Editors or Viewers.
 
-Thus, the only role with full permissions is the Admin, which basically corresponds to the owner of the Arduino Cloud for Business plan.
+Thus, the only role with full permissions is the *Admin*, which corresponds to the owner of the Arduino Cloud for Business plan.
 
 In addition to manager/editor/viewer roles, we added a Service Account, which should be one dedicated to the creation and maintenance of API Keys Tokens. We recommend having at least one Service Account for each Shared Space and linking it to a non-personal email account. In this way, API Keys do not risk getting lost with the cancellation of a personal email address.
 
