@@ -309,7 +309,7 @@ To start exporting your data locally, navigate into one of your dashboards on th
 
 From here you can select all the variables you want to download by checking the boxes as well as the time frame you are interested in.
 
-When you have selected the data, click on **Select Data Source** button.
+When you have selected the data, click on the **Select Data Source** button.
 
 ![Export your data](assets/download-data.png "Exporte your data")
 
