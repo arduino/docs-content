@@ -18,8 +18,6 @@ libraries:
     url: https://github.com/arduino-libraries/ArduinoIoTCloud
   - name: Arduino_ConnectionsHandler
     url: https://github.com/arduino-libraries/Arduino_ConnectionHandler
-  - name: NDP
-    url: https://github.com/arduino-libraries/Arduino_ConnectionHandler
 software:
   - ide-v1
   - ide-v2
@@ -48,10 +46,31 @@ The goal of this application note is to showcase an intruder detection and monit
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
+- Nicla Voice
+- 3.7v LiPo battery
+- Portenta H7
+- USB-C® cable
+- 5VDC wall power adapter
+- DC brushless fan Model: LD3007MS
+- Nicla Voice 3D printed enclosure
+- Portenta H7 3D printed enclosure
 
 ### Software Requirements
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- If you are going to use an offline Arduino IDE, you must install the following libraries: `ArduinoBLE`, `ArduinoIoTCloud`, and `Arduino_ConnectionsHandler`. You can install them using the Arduino IDE Library Manager.
+- The [intruder detector example code](assets/intruder-detector-sketch.zip)
+- [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), which you can install following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation)
+- Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Edge Impulse.
+- [Syntiant uploader and precompiled ML model](assets/intruder-detector-ml-model.zip).
 
 ## The Machine Learning Model
+
+In simple words, Machine Learning is a way of programming in which we make our device to process raw data from sensors and extract meaningful features from it to be learned and later used for identifying or predicting the originally trained scenarios.
+
+To be able to identify when the door is being opened or when it is being forced by someone, we trained an artificial intelligence model using the [Edge Impulse](https://www.edgeimpulse.com/) integration with the [Arduino Cloud](https://cloud.arduino.cc/), that will be running repetitively in the Nicla Voice.
+
+We flashed the Nicla Voice with an audio ingestion firmware to record and upload samples to our Edge Impulse project.
+
 
 ## Intruder Detector System Setup
 
