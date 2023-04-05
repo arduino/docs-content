@@ -144,7 +144,7 @@ In addition to manager/editor/viewer roles, we added a Service Account, which sh
 
 #### Add A New Member
 
-In order to add a new member, click on **Add member** in the top right-hand corner.
+To add a new member, click on **Add member** in the top right-hand corner.
 
 ![Add a new member](assets/members-home.png "Add a new member")
 
