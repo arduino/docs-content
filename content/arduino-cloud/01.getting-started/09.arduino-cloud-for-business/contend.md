@@ -64,7 +64,7 @@ Check the next sections to understand how to set up your account and which featu
 
 ## Manage Your Spaces
 
-Once your plan has been successfully purchased, you will be asked to define the company/space name for your workspace. You are free to modify it a second time by navigating to `Arduino Cloud > General Settings > Space information > Edit info > Name`.
+Once your plan has been successfully activated, you will be asked to define the company/space name for your workspace. You are free to modify it later by navigating to `Arduino Cloud > General Settings > Space information > Edit info > Name`.
 
 ![Create new shared space](assets/create-new-space.png "Create new shared space")
 
