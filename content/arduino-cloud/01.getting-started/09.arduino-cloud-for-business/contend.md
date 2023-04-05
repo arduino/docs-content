@@ -83,7 +83,7 @@ Move your mouse over the Space-Selector, which you can find at the top right-han
 
 ![Switch between Spaces](assets/switch-spaces.png "Switch between Spaces")
 
-The Space-Selector shows you at any time which Space you are currently working on, in this case, *Arduino PRO*. To switch to another Space, simply click with the mouse on the Space you would like to work on.
+The Space-Selector shows you at any time which Space you are currently working on, in this case, *Arduino PRO*. To switch to another Space, simply select the Space you would like to work on.
 
 ### Change Shared Space Settings
 
