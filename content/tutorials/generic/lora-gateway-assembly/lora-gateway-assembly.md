@@ -3,6 +3,7 @@ title: 'Arduino Pro Gateway Assembly'
 author: 'Arduino'
 description: 'Learn how to assemble your Arduino Pro Gateway.'
 tags: [LoRa, Gateway]
+status: end-of-life
 ---
 
 In this page we are going to give you all the information needed to assemble your Arduino Pro Gateway LoRa Connectivity Kit. We will guide you through the process needed to have a device fully assembled and ready to be configured on the software and network side as documented in the [Arduino Pro Gateway Setup](https://create.arduino.cc/getting-started/loragw/welcome).

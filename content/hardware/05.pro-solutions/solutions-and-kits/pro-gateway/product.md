@@ -2,6 +2,7 @@
 title: "Pro Gateway - LoRa® CONNECTIVITY"
 description: "The Arduino Pro Gateway kit provides LoRa® (Long Range) connectivity using ultra-long range and high interference immunity on the 868 MHz radio bands."
 sku: "AKX00016"
+status: end-of-life
 ---
 
 ![Front View](./assets/AKX00016_front.jpg)
@@ -28,7 +29,7 @@ The network server and the packet forwarder running on the Arduino Create platfo
 
 ## Getting Started
 
-You can follow the [Arduino Pro Gateway Assembly](https://docs.arduino.cc/retired/getting-started-guides/lora-gateway-assembly) to learn about how to assemble your Arduino Pro Gateway.
+You can follow the [Arduino Pro Gateway Assembly](https://docs.arduino.cc/tutorials/generic/lora-gateway-assembly) to learn about how to assembly your Arduino Pro Gateway.
 
 You can follow the next link to download the [Datasheet](https://content.arduino.cc/assets/AKX00016-datasheet.pdf)
 
