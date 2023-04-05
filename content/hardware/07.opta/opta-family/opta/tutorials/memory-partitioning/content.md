@@ -36,8 +36,8 @@ The Opta™ is a secure, easy-to-use micro Programmable Logic Controller (PLC) w
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Memory partitioning installation sketch](assets/opta_memory_partitioning.ino)
-- [Certificates file](assets/certificates.h) used in the memory partitioning installation sketch
+- [Memory partitioning sketch](assets/opta_memory_partitioning.ino)
+- [Certificates file](assets/certificates.h) used in the memory partitioning sketch
 
 ## Memory Partitioning
 
