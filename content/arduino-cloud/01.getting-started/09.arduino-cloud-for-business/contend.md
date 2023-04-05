@@ -15,7 +15,7 @@ software:
 
 ## Overview
 
-The [Arduino Cloud for Business](https://www.arduino.cc/pro/software-arduino-iot-cloud/) is an Arduino IoT Cloud plan dedicated to companies and industrial clients wanting enhanced features in terms of device management, Role-Based-Access-Control, fleet management, and safe remote access.
+The [Arduino Cloud for Business](https://www.arduino.cc/pro/software-arduino-iot-cloud/) is an Arduino IoT Cloud plan dedicated to companies and industrial clients wanting enhanced features in terms of device management, Role-Based Access Control (RBAC), fleet management, and safe remote access.
 
 In this article, you will get a general overview of the major features of the Arduino Cloud for Business.
 
