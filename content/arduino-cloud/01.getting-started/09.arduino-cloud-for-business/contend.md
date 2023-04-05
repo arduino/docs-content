@@ -331,7 +331,7 @@ Leveraging the APIs, you can interact with any element of the Cloud: data, devic
 
 To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
 
-***We strongly recommend you to add a Service Account role in to your Shared Space to create/manage/maintain API Keys Tokens. The Service Account should not be linked to a personal email account, so that the API Keys which will be created do not risk getting lost if that email account gets canceled.***
+***We strongly recommend you add a Service Account role to your Shared Space to create/manage/maintain API Keys Tokens. The Service Account should not be linked to a personal email account so that the API Keys which will be created do not risk getting lost if that email account gets canceled.***
 
 ***If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).***
 
