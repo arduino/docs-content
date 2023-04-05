@@ -303,7 +303,7 @@ Arduino Cloud for Business allows any user to download historical data from Ardu
 
 The Arduino Cloud for Business plan includes 1-year of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 1 year.
 
-In order to start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the Download icon up in the right corner. This will open a new window that will allow you to select which historical data you would like to download.
+To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the Download icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
 ![Download icon](assets/download-button.png "Download icon")
 
