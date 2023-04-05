@@ -212,7 +212,7 @@ The device status indicates whether it is connected to the Arduino IoT Cloud (on
 
 If you need to provision more than one device at a time or you prefer to work through your terminal window, we have the right tool for you: [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli).
 
-In order to proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli), it will explain to you all the required steps to provision your board through your terminal.
+To proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli). It will explain to you all the required steps to provision your board through your terminal.
 
 ### Assign A Thing To Your Device
 
