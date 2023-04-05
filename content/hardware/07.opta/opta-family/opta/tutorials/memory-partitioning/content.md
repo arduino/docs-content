@@ -30,7 +30,7 @@ The Opta™ is a secure, easy-to-use micro Programmable Logic Controller (PLC) w
 
 ### Hardware Requirements
 
-- [Opta™ Lite](https://store.arduino.cc/collections/pro-family/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/collections/pro-family/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/collections/pro-family/products/opta-wifi) (x1)
+- [Opta™](https://store.arduino.cc/collections/pro-family) (x1)
 - USB-C® cable (x1)
 
 ### Software Requirements
@@ -59,14 +59,14 @@ The sketch below will guide us through partitioning the memory of an Opta™ dev
 
 
 ```arduino
-    /**
-    Opta memory partitioning
-    Name: opta_memory_partitioning.ino
-    Purpose: Partition the memory of an Opta device
+/**
+  Opta memory partitioning
+  Name: opta_memory_partitioning.ino
+  Purpose: Partition the memory of an Opta device
 
-    @author Arduino PRO Content team
-    @version 1.0 04/004/22
-    */
+  @author Arduino PRO Content team
+  @version 1.0 04/04/22
+*/
 
 // Include necessary libraries for working
 #include <BlockDevice.h>
@@ -78,7 +78,7 @@ The sketch below will guide us through partitioning the memory of an Opta™ dev
 
 // Ensure that the M7 core is being used instead of the M4 core
 #ifndef CORE_CM7
-#error Update the WiFi firmware by uploading the sketch to the M7 core instead of the M4 core.
+    #error Update the WiFi firmware by uploading the sketch to the M7 core instead of the M4 core.
 #endif
 
 using namespace mbed;
@@ -156,8 +156,8 @@ void setup() {
             }
         }
     }
-    Serial.println("Done");
 
+    Serial.println("Done");
     for (auto i = 0u; i < 5; i++) {
         digitalWrite(LED_BUILTIN, HIGH);
         delay(25);
@@ -188,8 +188,8 @@ void setup() {
             delay(150);
         }
     }
-    Serial.println("done.");
 
+    Serial.println("done.");
     Serial.print("Formatting OTA partition...");
     err = ota_data_fs.reformat(ota_data);
     if (err != 0) {
@@ -201,8 +201,8 @@ void setup() {
             delay(150);
         }
     }
-    Serial.println("done.");
 
+    Serial.println("done.");
     for (auto i = 0u; i < 10; i++) {
         digitalWrite(LED_BUILTIN, HIGH);
         delay(25);
