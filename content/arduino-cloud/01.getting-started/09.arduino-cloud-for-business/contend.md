@@ -169,7 +169,7 @@ To check the full list of compatible Hardware, have a look at [this tutorial](ht
 
 Arduino Cloud allows you to securely provision your devices through two different tools:
 
-* **Arduino IoT Cloud.** Arduino IoT Cloud is an App integrated into your Arduino Cloud Space, guaranteeing a simple and straightforward provisioning of Arduino or other Cloud-compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is the right choice in case you need to provision a few devices or you are not an advanced user.
+* **Arduino IoT Cloud.** Arduino IoT Cloud is an App integrated into your Arduino Cloud Space, guaranteeing straightforward provisioning of Arduino or other Cloud-compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is a great choice in case you need to provision a few devices or you are not an advanced user.
 * **Arduino Cloud CLI.** As explained in [this section](#arduino-cloud-cli), Arduino has developed a command line tool enabling the access of all Arduino IoT Cloud features from a terminal window. Arduino Cloud CLI is the right choice when you need to provision multiple devices at the same time and you are an advanced user.
 
 #### Device Provisioning With Arduino IoT Cloud
