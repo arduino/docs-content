@@ -104,7 +104,7 @@ In order to create a new Shared Space, click on **New Shared Space** in the Spac
 
 ![Switch between Spaces](assets/switch-spaces.png "Switch between Spaces")
 
-Then you will be asked which type of Shared Space you want to create (i.e. For Business or For Education). Click on the type of your interest and proceed with purchasing a new plan as shown in [this section](#get-started-with-arduino-cloud-for-business).
+Then you will be asked which type of Shared Space you want to create (i.e. For Business or For Education). Click on the type of your interest and proceed with purchasing a new plan.
 
 ![Shared Space type selection](assets/shared-space-type-selection.png "Shared Space Type Selection")
 
@@ -238,7 +238,7 @@ The sketch related to the thing is visible from the tab "Sketch" next to the "Se
 
 From this sketch view, by clicking the "</>Open full editor button", it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
 
-Otherwise, in order to open the Web Editor to directly retrieve your sketches, go to Arduino Cloud Home and click on the [Web Editor](https://create.arduino.cc/editor) button.
+Otherwise, to open the Web Editor to directly retrieve your sketches, go to Arduino Cloud Home and click on the [Web Editor](https://create.arduino.cc/editor) button.
 
 ![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
 
