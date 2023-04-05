@@ -19,7 +19,7 @@ hardware:
 
 The Opta™ is a secure, easy-to-use micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IIoT) capabilities. It can be programmed with the [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide/), simplifying PLC programming through any of the five programming languages defined by the IEC 61131-3 standard (Ladder, Functional Block Diagram, Structured Text, Sequential Function Chart, or Instruction List). Additionally, the Opta™ is compatible with other tools from the Arduino ecosystem, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the Arduino programming language. In this tutorial, we will learn how to partition the memory of an Opta™ device, enabling the full range of its functionalities to be programmed using the Arduino IDE.
 
-![The Opta™ Memory Map.](assets/bootloader-introduction.png)
+![The Opta™ Memory Map.](assets/memory-partitioning-introduction.png)
 
 ## Goals
 
@@ -335,7 +335,7 @@ The sketch shown above performs four main tasks:
 
 4. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using a built-in LED of the Opta™ device and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
 
-To upload the code, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch. 
+To upload the code, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch. 
 
 ![Uploading a sketch to the Opta™ the Arduino IDE.](assets/arduino-ide-2.png)
 
