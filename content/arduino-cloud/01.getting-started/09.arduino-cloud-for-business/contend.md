@@ -283,7 +283,7 @@ At this point, you can go back to the Things tab and start filtering your Things
 
 With Arduino Cloud for Business, you can create an unlimited number of dashboards. Push button, Switch, Scheduler, Map, Chart… These are just a few of the many widgets you can customize to visualize all your data or to remotely control your devices.
 
-In order to start creating your dashboard, go to **Dashboards** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards) and select the Thing you want to create a dashboard for.
+To start creating your dashboard, go to the **Dashboards** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards) and select the Thing you want to create a dashboard for.
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
