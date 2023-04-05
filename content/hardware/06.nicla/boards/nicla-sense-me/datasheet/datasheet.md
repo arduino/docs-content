@@ -82,7 +82,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 ## The Board
 
 ### Application Examples
-The Arduino® Nicla Sense ME is your gateway to developing wireless networking solutions with rapid development and high robustness. Get real-time insight into the operational characteristics of your processes. Take advantage of the high-quality sensors and networking capabilities to evaluate novel WSN architectures. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates of the firmware as well as remote monitoring.
+The Arduino® Nicla Sense ME is your gateway to develop wireless networking solutions with rapid development and high robustness. Get real-time insight into the operational characteristics of your processes. Take advantage of the high-quality sensors and networking capabilities to evaluate novel WSN architectures. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates of the firmware as well as remote monitoring.
 
 - **Warehouse & Inventory Management**: 
 The environmental sensor of the Arduino® Nicla Sense ME can detect the ripening state of fruits, vegetables and meat allowing for intelligent management of perishable assets alongside the Arduino Cloud.
@@ -177,7 +177,7 @@ The Bosch BMM150 (U4) provides accurate 3-axis measurements of the magnetic fiel
 An I2C LED driver (U8) drives the RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller. 
 
 ### USB Bridge
-The SAMD11 microcontroller (U1) is dedicated to acting as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in-between to translate 3.3V logic to 1.8V for the ANNA-B112. The 3.3V voltage is generated from the USB voltage by an LDO (U14).
+The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as well as the JTAG controller for the ANNA-B112. A logic level translator (U13) acts as an in-between to translate 3.3V logic to 1.8V for the ANNA-B112. The 3.3V voltage is generated from the USB voltage by an LDO (U14).
 
 ### Power Tree
 ![Nicla Sense ME Back View](assets/niclaSenseMEPowerTree.svg)
@@ -211,6 +211,8 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 All Arduino® boards have a built-in bootloader that allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
+
+<div style="page-break-after: always;"></div>
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
