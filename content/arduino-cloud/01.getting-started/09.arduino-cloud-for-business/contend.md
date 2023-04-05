@@ -378,7 +378,7 @@ Securely maintain Portenta X8 Linux distribution with this dedicated add-on, pow
 
 ### Machine Learning Tools Enterprise
 
-Build and train professional-grade predictive models with just few lines of code through this dedicated add-on, powered by [Edge Impulse®](https://www.edgeimpulse.com/). Deploy premade models out of the box to quickly develop your machine learning projects, starting from object detection, machine vision to audio segmentation.
+Build and train professional-grade predictive models with just a few lines of code through this dedicated add-on, powered by [Edge Impulse®](https://www.edgeimpulse.com/). Deploy premade models out of the box to quickly develop your machine learning projects, starting from object detection, and machine vision to audio segmentation.
 
 ***If you are interested in learning more about this add-on, have a look at [this documentation](https://cloud.arduino.cc/machine-learning-tools). Otherwise, we have plenty of tutorials already using Machine Learning Tools. Check if your device is compatible with it in the boards documentation available [here](https://docs.arduino.cc/).***
 
