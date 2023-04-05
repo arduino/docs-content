@@ -204,7 +204,7 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 You can now check its status under the Devices section. This section displays the name, status, and linked Things for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
-The status of the device indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
+The device status indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
 
 ![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
 
