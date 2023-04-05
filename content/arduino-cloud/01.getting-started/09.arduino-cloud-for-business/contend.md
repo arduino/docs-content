@@ -262,7 +262,7 @@ Get started with this awesome feature by going to **Things** or **Devices** tab 
 
 ![Search and filter among devices](assets/search-things.png "Search and filter among devices")
 
-If you want to create your own tag, which you can use as a filtering option, go to **Things** tab, click on the Thing you would like to tag, and go to the Metadata tab as shown in the figure below.
+If you want to create your tag, which you can use as a filtering option, go to **Things** tab, click on the Thing you would like to tag and go to the Metadata tab as shown in the figure below.
 
 ![Thing metadata](assets/thing-metadata.png "Thing metadata").
 
