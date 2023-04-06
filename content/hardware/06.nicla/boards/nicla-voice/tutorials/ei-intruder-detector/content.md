@@ -67,10 +67,13 @@ The goal of this application note is to showcase an intruder detection and monit
 
 In simple words, Machine Learning is a way of programming in which we make our device to process raw data from sensors and extract meaningful features from it to be learned and later used for identifying or predicting the originally trained scenarios.
 
-To be able to identify when the door is being opened or when it is being forced by someone, we trained an artificial intelligence model using the [Edge Impulse](https://www.edgeimpulse.com/) integration with the [Arduino Cloud](https://cloud.arduino.cc/), that will be running repetitively in the Nicla Voice.
+To be able to identify when the door is being opened or when it is being forced by someone, we trained a machine learning model using the [Edge Impulse](https://www.edgeimpulse.com/) integration with the [Arduino Cloud](https://cloud.arduino.cc/), that will be running repetitively in the Nicla Voice.
 
-We flashed the Nicla Voice with an audio ingestion firmware to record and upload samples to our Edge Impulse project.
+We flashed the Nicla Voice with an [audio ingestion firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to record and upload samples to our Edge Impulse project of three different scenarios that we want to identify later. 
 
+Here is a graphical representation of how the samples look before and after the digital signal processing.
+
+![Graphical representation of the audio samples after](assets/samples_dsp.svg)
 
 ## Intruder Detector System Setup
 
