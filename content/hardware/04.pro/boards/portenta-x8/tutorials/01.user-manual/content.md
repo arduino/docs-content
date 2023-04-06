@@ -940,8 +940,8 @@ Once your Portenta X8 is correctly connected to your PC, launch the following co
 user-pc$: adb shell
 
 portenta-x8$: cd /home/fio
-portenta-x8$: tar -xvf update-latest.tar.gz -C .
-portenta-x8$: tar -xvf aklite-offline-399.tar.gz -C .
+portenta-x8$: tar -mxvf update-latest.tar.gz -C .
+portenta-x8$: tar -mxvf aklite-offline-399.tar.gz -C .
 portenta-x8$: export LD_LIBRARY_PATH=usr/lib/
 portenta-x8$: usr/bin/aklite-offline install --src-dir /var/rootdirs/home/fio/offline-updates/
 ```
@@ -962,7 +962,6 @@ In this section you will learn how to make your Portenta X8 to communicate with 
 
 * [SPI](#SPI)
 * [I2C](#I2C)
-* [UART](#UART)
 * [Bluetooth®](#Bluetooth®)
 
 ### SPI
@@ -1148,20 +1147,6 @@ Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the 
     pinMode(PA_12, INPUT);
  }    
  ```
-
-### UART
-
-In this case, a Portenta X8 with Portenta Breakout board is used to explore UART communication.
-
-#### UART With Linux
-
-A standard UART is available as `/dev/ttymxc1` in Linux and is mapped to the **`UART1`** port on the Portenta Breakout.
-
-#### UART With Arduino
-
-The `Serial1` object in the Arduino sketch is mapped to the **`UART0`** port on the Portenta Breakout.
-
-Please note that the Arduino RS485 (thus the Arduino Modbus library) library is not supported on the Arduino core of the X8.
 
 ### Bluetooth®
 
