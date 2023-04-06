@@ -94,10 +94,15 @@ In the learning block:
     - This block includes the Neural Network architecture to learn patterns from audio data. 
 
 
-
 Here is a graphical representation of how the samples look before and after the digital signal processing:
 
 ![Graphical representation of the audio samples after](assets/samples_dsp.png)
+
+Here is the neural network classifier configuration for this application:
+
+![Neural Network Configuration](assets/nn_setup.png)
+
+After the model is trained with a lot of samples of a door being opened, being forced and nothing happening, we get
 
 ## Intruder Detector System Setup
 
