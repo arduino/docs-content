@@ -136,13 +136,82 @@ The Portenta H7 will be in charge of receiving the door event notification and u
 
 Now, we will go through some important code sections to make this application fully operative. We will begin with the required libraries:
 
-- Including `NDP.h` is mandatory to enable and run the Neural Decision Processor (NDP120).
-- Including `ArduinoBLE.h` is mandatory to enable BLE communication.
+- Including `NDP.h` will enable and run the Neural Decision Processor (NDP120), it's included in the BSP of the Nicla Voice.
+- Including `ArduinoBLE.h` will enable the BLE communication, install it by searching for it on the Library Manager.
 
 ```arduino
 #include "NDP.h"
 #include <ArduinoBLE.h>
+
+// Alert Service
+BLEService alertService("1802");  // Immediate alert
+
+// BLE Alert Characteristic
+BLEUnsignedCharCharacteristic alertLevel("2A06",                // standard 16-bit characteristic UUID
+                                         BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
+
+// Bluetooth® Low Energy Battery Level Characteristic
+BLEUnsignedCharCharacteristic batteryLevelChar("2A19",                // standard 16-bit characteristic UUID
+                                               BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
 ```
+The BLE services and characteristics are standardized for the specific use of this application features. The service is defined as "Immediate alert" which makes it ideal for the use that we will give of notifying on a door opening or forcing event, in addition to this, we defined two characteristics, one for the "Alert Level" that will advertise between both events and a "Battery Level" one, to advertise the Nicla Voice battery level to the host. Notice that they have specific and standardized UUIDs.
+
+```arduino
+  // Neural Desicion Processor firmware and ML model files loading
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("ei_model.synpkg");
+  Serial.println("packages loaded");
+  NDP.getInfo();
+  Serial.println("Configure mic");
+  NDP.turnOnMicrophone();
+```
+
+The Nicla Voice's integrated NDP needs some files stored in the external flash of the board which are:
+- mcu_fw_120_v91.synpkg
+- dsp_firmware_v91.synpkg
+- ei_model.synpkg
+
+> The files must be named exactly as showed above.
+To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.
+
+```arduino
+/**
+  Inference Interruption Callback to be executed with every triggered inference,
+  it controls the built-in LED's and send the alerts through BLE.
+  
+  Possible labels: NN0:opened, NN0:forcing
+
+  Alerts: 1 = mild alert (for door opened), 2 = high alert (for intruder detected)
+
+  @param label The infered category label
+*/
+void BLEsend(char* label) {
+
+  if (strcmp(label, "NN0:opened") == 0) {
+    alertLevel.writeValue(1);
+    NDP.noInterrupts();
+    nicla::leds.begin();
+    nicla::leds.setColor(green);
+    delay(3000);
+    nicla::leds.end();
+    NDP.interrupts();
+  }
+  if (strcmp(label, "NN0:forcing") == 0) {
+    alertLevel.writeValue(2);
+    NDP.noInterrupts();
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(3000);
+    nicla::leds.end();
+    NDP.interrupts();
+  }
+  if (!lowestPower) {
+    Serial.println(label);
+  }
+}
+```
+The main responsibility of the Nicla Voice code is to listen to and identify the trained sounds, the above code section is in charge of comparing the inferred category and taking a certain action between them. In the case the Nicla detects the door opening, the label parameter will turn to "NN0:opened", this will trigger a BLE alert sending command followed by a listening pause to avoid duplicated alerts and an LED green blinking to visually indicate the event. The same for the "NN0:forcing" label, with the difference that in this case the LED flashes red and the alert message changes.
 
 ### Portenta H7 Code
 
