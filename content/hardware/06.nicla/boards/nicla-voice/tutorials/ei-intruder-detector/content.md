@@ -71,7 +71,31 @@ To be able to identify when the door is being opened or when it is being forced 
 
 We flashed the Nicla Voice with an [audio ingestion firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to record and upload samples to our Edge Impulse project of three different scenarios that we want to identify later. 
 
-Here is a graphical representation of how the samples look before and after the digital signal processing.
+Here is our model design:
+
+![Edge Impulse Model blocks](assets/model_design.png)
+
+As we are using the Nicla Voice we must follow the showed model design to be supported by the onboard Syntiant AI accelerator, taking care of these characteristics:
+
+In the time series data block:
+
+- Window size: 968 ms.
+- Window increase: 484 ms.
+- Frequency: 16000 Hz.
+
+In the processing block:
+
+- Audio (Syntiant).
+    - This DSP block computes log Mel-filterbank energy features from audio signals.
+
+In the learning block:
+
+- Classification.
+    - This block includes the Neural Network architecture to learn patterns from audio data. 
+
+
+
+Here is a graphical representation of how the samples look before and after the digital signal processing:
 
 ![Graphical representation of the audio samples after](assets/samples_dsp.png)
 
