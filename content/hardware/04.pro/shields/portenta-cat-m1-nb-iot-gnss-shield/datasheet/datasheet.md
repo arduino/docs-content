@@ -63,7 +63,7 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
   The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real-time insight for increasing your business revenues. 
 
 - **Fleet management**
-  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyze and dynamically manage your fleet to optimize fuel usage, increase your customer satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
+  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyse and dynamically manage your fleet to optimize fuel usage, increase your customers satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
 
 ### Accessories (Not Included)
 - Active GNSS Antenna (e.g. ECHO19/0.1M/UFL/S/S/17)
