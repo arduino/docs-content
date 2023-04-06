@@ -18,7 +18,9 @@ software:
   - web-editor
 ---
 
-The Arduino® UNO R4 Minima is a development board with the classic UNO formfactor, based on the renesas microcontroller. Compared to the UNO R3 it now comes with 32 KB of RAM memory, a clock speed of 48 MHz and a USB-C® port.
+The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1]() microcontroller from [Renesas](). Compared to the UNO R3 it now comes with 32 KB of RAM memory, a clock speed of 48 MHz and a USB-C® port.
+
+This is the first UNO board that uses a 32-bit architecture, being previously based on the 8-bit AVR architecture.
 
 This article is a collection of guides, API calls, libraries and tutorials that help you getting started with the UNO R4 Minima.
 
