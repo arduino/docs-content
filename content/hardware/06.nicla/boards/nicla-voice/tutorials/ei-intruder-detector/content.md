@@ -94,13 +94,13 @@ In the time series data block:
 
 In the processing block:
 
-- Audio (Syntiant).
-    - This DSP block computes log Mel-filterbank energy features from audio signals.
+- **Audio (Syntiant).**
+- This DSP block computes log Mel-filterbank energy features from audio signals.
 
 In the learning block:
 
-- Classification.
-    - This block includes the Neural Network architecture to learn patterns from audio data. 
+- **Classification.**
+- This block includes the Neural Network architecture to learn patterns from audio data. 
 
 
 Here is a graphical representation of how the samples look before and after the digital signal processing:
