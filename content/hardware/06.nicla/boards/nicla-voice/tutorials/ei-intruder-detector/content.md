@@ -446,11 +446,11 @@ Finally, the Portenta verifies continuously if a characteristic is updated to up
 
 Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time as you can see below:
 
-![Photo of the Arduino Cloud monitoring dashboard and mobile phone](assets/dashboard.png)
+![Photo of the Arduino Cloud monitoring dashboard ](assets/dashboard.png)
 
 Within the Arduino Cloud's dashboard, the system variables can be monitored, we have a Battery Level indicator Widget accompanied by a time series graph, a chat-looking widget to store the events historically, a red LED to shine when an intruder is detected by the system, and a green LED to show the BLE connection status between the Nicla Voice and the Portenta H7 host. We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email whenever an alert is fired.
 
-[Demo Gif showing the project working]()
+![Demo Gif showing the project working](assets/demo_GIF.gif)
 
 ## Full Intruder Detector Example
 
