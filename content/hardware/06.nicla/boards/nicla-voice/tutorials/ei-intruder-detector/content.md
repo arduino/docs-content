@@ -10,7 +10,7 @@ tags:
   - Sound recognition
   - Arduino IoT Cloud
   - Application Note
-author: 'Christopher Mendez | MCMCHRIS'
+author: 'Christopher Mendez'
 libraries:
   - name: ArduinoBLE
     url: https://reference.arduino.cc/reference/en/libraries/arduinoble/
@@ -42,6 +42,10 @@ The goal of this application note is to showcase an intruder detection and monit
 - The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (WiFi in this case).
 - The cloud variables are updated just on change and will be presented on a Arduino IoT Cloud dashboard.
 - Gather real-world data to train a Machine Learning model.
+
+Here is a graphical setup of the whole application:
+
+[Picture showing the Nicla Voice, the host and the IoT Cloud]()
 
 ## Hardware and Software Requirements
 
@@ -104,11 +108,21 @@ Here is the neural network classifier configuration for this application:
 
 After the model is trained with a lot of samples of a door being opened, being forced and nothing happening, we got considerable good results that we can evidentiate on the "Confusion matrix" with a 97.4% of accuracy being achieved with a validation set of new data.
 
-> Note: The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the datasets with new samples and retrain the model for a new and upgraded deployment. 
+> **Note:** The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the datasets with new samples and retrain the model for a new and upgraded deployment. 
 
-
+For a new model deployment, use the [Syntiant uploader](assets/Syntiant_Uploader.zip) and replace the ei_model.synpkg with yours.
 
 ## Intruder Detector System Setup
+
+In this application, we don't need any particular wiring diagram other than the development boards themself. 
+
+The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good WiFi coverage and not so far from the Nicla Voice due to BLE's narrow range of a couple of meters.
+
+[Nicla Voice and Portenta H7 deployment spots photo]()
+
+The Nicla will communicate with the Portenta H7 through BLE advertising any event to the Portenta H7 that will receive and forward the notification to the Arduino IoT cloud using WiFi.
+
+The Nicla Voice is powered by a LiPo battery inside it's enclosure. The Portenta H7 will be powered by a 5VDC USB adapter accompanied by a cooling fan.
 
 ## Intruder Detector System Overview
 
