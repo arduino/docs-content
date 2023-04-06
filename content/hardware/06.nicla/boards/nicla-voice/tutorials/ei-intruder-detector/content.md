@@ -454,7 +454,7 @@ Within the Arduino Cloud's dashboard, the system variables can be monitored, we 
 
 ## Full Intruder Detector Example
 
-The complete code, 3D models, uploaders and needed files can be downloaded [here](assets/). The Edge Impulse project is public [here]() so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+The complete code can be downloaded [here](assets/Nicla_Portenta_Codes.zip), the 3D models can be downloaded [here](assets/Intruder_Detector_3D_Files.zip). The Edge Impulse project is public [here](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
 
 ## Conclusion
 
