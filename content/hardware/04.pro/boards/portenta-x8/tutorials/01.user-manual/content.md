@@ -1147,6 +1147,14 @@ Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the 
     pinMode(PA_12, INPUT);
  }    
  ```
+ 
+### UART
+
+In this case, a Portenta X8 with Portenta Breakout board is used to explore UART communication.
+
+#### UART With Linux
+
+A standard UART is available as `/dev/ttymxc1` in Linux and is mapped to the **`UART1`** port on the Portenta Breakout.
 
 ### Bluetooth®
 
