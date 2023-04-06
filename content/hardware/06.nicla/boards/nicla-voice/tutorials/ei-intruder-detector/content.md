@@ -5,6 +5,8 @@ difficulty: intermediate
 tags:
   - Intruder detector
   - Nicla
+  - Portenta
+  - BLE
   - Machine Learning
   - Edge Impulse
   - Sound recognition
@@ -24,6 +26,7 @@ software:
   - arduino-cli
   - web-editor
   - iot-cloud
+  - edge-impulse
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 ---
@@ -40,7 +43,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - Correctly identify if a door is opened or tried to be forced.
 - Report opening and intruder detection events through BLE to a Host.
 - The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (Wi-Fi® in this case).
-- The cloud variables are updated just on change and will be presented on a Arduino IoT Cloud dashboard.
+- The cloud variables are updated just on change and will be presented on an Arduino IoT Cloud dashboard.
 - Gather real-world data to train a Machine Learning model.
 
 Here is a graphical setup of the whole application:
@@ -102,7 +105,7 @@ In the learning block:
 
 Here is a graphical representation of how the samples look before and after the digital signal processing:
 
-![Graphical representation of the audio samples after](assets/samples_dsp.png)
+![Graphical representation of the audio samples after](assets/samples_dsp_white.png)
 
 Here is the neural network classifier configuration for this application:
 
@@ -112,7 +115,7 @@ After the model is trained with a lot of samples of a door being opened, being f
 
 > **Note:** The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the datasets with new samples and retrain the model for a new and upgraded deployment. 
 
-For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the ei_model.synpkg with yours.
+For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg` with yours.
 
 ## Intruder Detector System Setup
 
