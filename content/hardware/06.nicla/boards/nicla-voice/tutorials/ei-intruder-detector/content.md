@@ -39,7 +39,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - Analyze the surrounding sounds with the Nicla Voice integrated microphone and run artificial intelligence algorithms at the edge.
 - Correctly identify if a door is opened or tried to be forced.
 - Report opening and intruder detection events through BLE to a Host.
-- The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (WiFi in this case).
+- The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (Wi-Fi® in this case).
 - The cloud variables are updated just on change and will be presented on a Arduino IoT Cloud dashboard.
 - Gather real-world data to train a Machine Learning model.
 
@@ -116,15 +116,21 @@ For a new model deployment, use the [Syntiant uploader](assets/Syntiant_Uploader
 
 In this application, we don't need any particular wiring diagram other than the development boards themself. 
 
-The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good WiFi coverage and not so far from the Nicla Voice due to BLE's narrow range of a couple of meters.
+The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good Wi-Fi® coverage and not so far from the Nicla Voice due to BLE's narrow range of a couple of meters.
 
 [Nicla Voice and Portenta H7 deployment spots photo]()
 
-The Nicla will communicate with the Portenta H7 through BLE advertising any event to the Portenta H7 that will receive and forward the notification to the Arduino IoT cloud using WiFi.
+The Nicla will communicate with the Portenta H7 through BLE advertising any event to the Portenta H7 that will receive and forward the notification to the Arduino IoT cloud using Wi-Fi®.
 
 The Nicla Voice is powered by a LiPo battery inside it's enclosure. The Portenta H7 will be powered by a 5VDC USB adapter accompanied by a cooling fan.
 
 ## Intruder Detector System Overview
+
+The Nicla Voice attached to the door is running an ML model listening to the surrounding noises and searching for known sounds like the door being opened or the door lock being hit with a metallic tool, for example, in order to simulate a forcing process.
+
+If the sounds a recognized with a certainty higher than 70% the event will be considered as occurred and a BLE notification will be sent to the Portenta H7 host updating the door status.
+
+The Portenta H7 will be in charge of receiving the door event notification and updating the dashboard variables in the IoT Cloud immediately so the user can be aware in real time of any change. In addition to these features, the application dashboard will show a historic record of events, alongside an "Intruder Alert", the BLE connection status between both devices and the Nicla Voice battery level so we can know when to recharge it.
 
 ### Nicla Voice Code
 
