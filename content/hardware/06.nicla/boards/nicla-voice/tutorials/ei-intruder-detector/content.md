@@ -45,7 +45,7 @@ The goal of this application note is to showcase an intruder detection and monit
 
 Here is a graphical setup of the whole application:
 
-[Picture showing the Nicla Voice, the host and the IoT Cloud]()
+[Picture showing the Nicla Voice, the host and the IoT Cloud](assets/system_setup.png)
 
 ## Hardware and Software Requirements
 
