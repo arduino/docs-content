@@ -171,7 +171,7 @@ To store them in the Nicla Voice memory you must use the [Syntiant Uploader](ass
 
 
 ```arduino
-  // Neural Desicion Processor firmware and ML model files loading
+  // Neural Decision Processor firmware and ML model files loading
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
   NDP.load("ei_model.synpkg");
@@ -191,7 +191,7 @@ The main responsibility of the Nicla Voice code is to listen to and identify the
 
   Alerts: 1 = mild alert (for door opened), 2 = high alert (for intruder detected)
 
-  @param label The infered category label
+  @param label The inferred category label
 */
 void BLEsend(char* label) {
 
