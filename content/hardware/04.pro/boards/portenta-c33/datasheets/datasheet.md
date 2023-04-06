@@ -384,6 +384,8 @@ castellated/through-hole pins around the two long edges and two High-Density con
 The Portenta C33 is designed to be usable as a surface-mount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes. The Portenta C33 also has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
 </p>
 
+<div style="page-break-after: always;"></div>
+
 ### Board Dimensions
 
 Portenta C33 board main dimensions can be seen in Figure 2.
@@ -436,6 +438,8 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
+
+<div style="page-break-after: always;"></div>
 
 Exemptions: No exemptions are claimed.
 
