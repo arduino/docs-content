@@ -67,10 +67,10 @@ Here is a graphical setup of the whole application:
 ### Software Requirements
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `ArduinoBLE`, `ArduinoIoTCloud`, and `Arduino_ConnectionsHandler`. You can install them using the Arduino IDE Library Manager.
-- The [intruder detector example code](assets/Nicla_Portenta_Codes.zipzip)
+- The [intruder detector example code](assets/Nicla_Portenta_Codes.zip)
 - [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), which you can install following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation)
 - Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Edge Impulse.
-- [Syntiant® uploader and precompiled ML model](assets/Syntiant_Uploader.zip.zip).
+- [Syntiant® uploader and precompiled ML model](assets/Syntiant_Uploader.zip).
 
 ## The Machine Learning Model
 
