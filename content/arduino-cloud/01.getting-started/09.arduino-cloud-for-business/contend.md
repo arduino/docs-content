@@ -115,7 +115,7 @@ To add more members to your Shared Space, use the sidebar to navigate to the **M
 ![List of Shared Space Members](assets/members-home.png "List of Shared Space Members")
 
 There you will find the complete list of all members who have access to your Shared Space, as well as the current role of each member.
-
+The option to invite new members is only available to Admins or Managers
 #### Members Types
 
 There are multiple role types in Arduino Cloud for Business to allow the admin to have full control of the rights/permissions each user has in the Shared Space. In this way, the admin can set up Role-Based-Access-Control (RBAC) by assigning profiles and sharing with any number of users.
