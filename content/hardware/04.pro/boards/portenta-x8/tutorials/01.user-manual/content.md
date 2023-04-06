@@ -962,6 +962,7 @@ In this section you will learn how to make your Portenta X8 to communicate with 
 
 * [SPI](#SPI)
 * [I2C](#I2C)
+* [UART](#UART)
 * [Bluetooth®](#Bluetooth®)
 
 ### SPI
