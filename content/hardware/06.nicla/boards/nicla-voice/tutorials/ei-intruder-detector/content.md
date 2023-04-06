@@ -65,7 +65,7 @@ Here is a graphical setup of the whole application:
 - The [intruder detector example code](assets/intruder-detector-sketch.zip)
 - [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), which you can install following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation)
 - Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Edge Impulse.
-- [Syntiant uploader and precompiled ML model](assets/intruder-detector-ml-model.zip).
+- [Syntiant® uploader and precompiled ML model](assets/intruder-detector-ml-model.zip).
 
 ## The Machine Learning Model
 
@@ -79,7 +79,7 @@ Here is our model design:
 
 ![Edge Impulse Model blocks](assets/model_design.png)
 
-As we are using the Nicla Voice we must follow the showed model design to be supported by the onboard Syntiant AI accelerator, taking care of these characteristics:
+As we are using the Nicla Voice we must follow the showed model design to be supported by the onboard Syntiant® NDP120 Neural Decision Processor™, taking care of these characteristics:
 
 In the time series data block:
 
@@ -89,7 +89,7 @@ In the time series data block:
 
 In the processing block:
 
-- Audio (Syntiant).
+- Audio (Syntiant®).
     - This DSP block computes log Mel-filterbank energy features from audio signals.
 
 In the learning block:
@@ -110,7 +110,7 @@ After the model is trained with a lot of samples of a door being opened, being f
 
 > **Note:** The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the datasets with new samples and retrain the model for a new and upgraded deployment. 
 
-For a new model deployment, use the [Syntiant uploader](assets/Syntiant_Uploader.zip) and replace the ei_model.synpkg with yours.
+For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the ei_model.synpkg with yours.
 
 ## Intruder Detector System Setup
 
