@@ -73,7 +73,7 @@ We flashed the Nicla Voice with an [audio ingestion firmware](https://cdn.edgeim
 
 Here is a graphical representation of how the samples look before and after the digital signal processing.
 
-![Graphical representation of the audio samples after](assets/samples_dsp.svg)
+![Graphical representation of the audio samples after](assets/samples_dsp.png)
 
 ## Intruder Detector System Setup
 
