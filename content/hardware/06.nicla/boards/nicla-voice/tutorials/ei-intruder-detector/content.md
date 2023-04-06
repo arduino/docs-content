@@ -89,7 +89,7 @@ In the time series data block:
 
 In the processing block:
 
-- Audio (Syntiant®).
+- Audio (Syntiant).
     - This DSP block computes log Mel-filterbank energy features from audio signals.
 
 In the learning block:
@@ -133,6 +133,16 @@ If the sounds a recognized with a certainty higher than 70% the event will be co
 The Portenta H7 will be in charge of receiving the door event notification and updating the dashboard variables in the IoT Cloud immediately so the user can be aware in real time of any change. In addition to these features, the application dashboard will show a historic record of events, alongside an "Intruder Alert", the BLE connection status between both devices and the Nicla Voice battery level so we can know when to recharge it.
 
 ### Nicla Voice Code
+
+Now, we will go through some important code sections to make this application fully operative. We will begin with the required libraries:
+
+- Including `NDP.h` is mandatory to enable and run the Neural Decision Processor (NDP120).
+- Including `ArduinoBLE.h` is mandatory to enable BLE communication.
+
+```arduino
+#include "NDP.h"
+#include <ArduinoBLE.h>
+```
 
 ### Portenta H7 Code
 
