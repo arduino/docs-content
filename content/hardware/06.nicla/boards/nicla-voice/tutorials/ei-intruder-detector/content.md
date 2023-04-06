@@ -271,7 +271,172 @@ void initProperties(){
 
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
 ```
+The main responsibility of the Portenta H7 code is to connect to the Nicla Voice and be aware of new notifications to forward them to the Cloud. To achieve this, the first thing done by the Portenta is to initialize the BLE communication, then initialize the Arduino IoT Cloud service and start scanning for peripherals.
 
+```arduino
+  // Initialize BLE
+  if (!BLE.begin()) {
+    Serial.println("Starting BLE failed!");
+    while (1) {
+    }
+  }
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  if (!ArduinoCloud.begin(ArduinoIoTPreferredConnection)) {
+    Serial.println("ArduinoCloud.begin FAILED!");
+  }
+
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+    // start scanning for peripheral
+  BLE.scan();
+  Serial.println("Scanning for peripherals.");
+```
+The scanning process will automatically stop when it finds a "Nicla Lock" called device, then it will search for its services and characteristics with the `NiclaLockHandler()` function.
+
+```arduino
+
+void loop() {
+
+  // check if a peripheral has been discovered
+  BLEDevice peripheral = BLE.available();
+
+  // Turn on the Green LED if the board is successfully connected to the Cloud. On with Low.
+  if (ArduinoCloud.connected()) {
+    digitalWrite(LEDG, LOW);
+  } else {
+    digitalWrite(LEDG, HIGH);
+  }
+
+  if (peripheral) {
+    // peripheral discovered, print out address, local name, and advertised service
+    Serial.print("Found ");
+    Serial.print(peripheral.address());
+    Serial.print(" '");
+    Serial.print(peripheral.localName());
+    Serial.print("' ");
+    Serial.print(peripheral.advertisedServiceUuid());
+    Serial.println();
+
+    // Check if the peripheral is a Nicla Lock:
+    if (peripheral.localName() == "Nicla Lock") {
+      // stop scanning
+      BLE.stopScan();
+
+      // Nicla Voice node connection handler
+      NiclaLockHandler(peripheral);
+
+      // peripheral disconnected, start scanning again
+      BLE.scan();
+    }
+  }
+  ArduinoCloud.update();
+}
+
+```
+
+In order to just get connected with the Nicla Voice, the Portenta searches for the specific "Alert Service" using its UUID `1802` and for the necessary characteristics, the "Battery Level" using the `2A19` UUID  and the "Alert Level" using the `2A06` UUID.
+
+```arduino
+  // discover peripheral attributes
+  Serial.println("Searching for service 1802 ...");
+
+  if (peripheral.discoverService("1802")) {
+    Serial.println("Service discovered");
+  } else {
+    Serial.println("Attribute discovery failed.");
+    peripheral.disconnect();
+
+    while (1)
+      ;
+    return;
+  }
+
+  // retrieve the simple key characteristics
+  BLECharacteristic batteryLevelChar = peripheral.characteristic("2A19");
+  BLECharacteristic alertLevel = peripheral.characteristic("2A06");
+
+  // subscribe to the simple key characteristics process
+  Serial.println("Subscribing to simple key characteristic ...");
+  if (!batteryLevelChar || !alertLevel) {
+    Serial.println("no simple key characteristic found!");
+    peripheral.disconnect();
+    return;
+  } else if (!batteryLevelChar.canSubscribe() || !alertLevel.canSubscribe()) {
+    Serial.println("simple key characteristic is not subscribable!");
+    peripheral.disconnect();
+    return;
+  } else if (!batteryLevelChar.subscribe() || !alertLevel.subscribe()) {
+    Serial.println("subscription failed!");
+    peripheral.disconnect();
+    return;
+  } else {
+    Serial.println("Subscribed to Battery Level and Alert Characteristic");
+  }
+```
+Finally, the Portenta verifies continuously if a characteristic is updated to upload it to the Cloud.
+
+```arduino
+// while the peripheral is connected
+  while (peripheral.connected()) {
+    
+    // check if the value of the characteristic has been updated
+    if (batteryLevelChar.valueUpdated()) {
+
+      batteryLevelChar.readValue(BatteryValue);
+
+      Serial.print("Battery Level: ");
+      Serial.print(BatteryValue);
+      Serial.println(" %");
+
+      battery = BatteryValue;
+    }
+
+    // check if the value of the characteristic has been updated
+    if (alertLevel.valueUpdated()) {
+
+      alertLevel.readValue(AlertValue);
+
+      Serial.print("Alert: ");
+      Serial.println(AlertValue);
+
+      
+      if (AlertValue == 1) {    // if the Alert = 1 means the door was opened
+        control = !control;     // as variables are updated if they change, add a simple dot "." to be able to update it if happens twice consecutive.
+        if (control) {
+          DoorEvent = "Door opened";
+        } else {
+          DoorEvent = "Door opened.";
+        }
+
+        alertStatus = false;
+
+      } else if (AlertValue == 2) {   // if the Alert = 2 means the door was forced
+        control = !control;           // as variables are updated if they change, add a simple dot "." to be able to update it if happens twice consecutive.
+        if (control) {
+          DoorEvent = "Intruder detected!";
+        } else {
+          DoorEvent = "Intruder detected!.";
+        }
+
+        alertStatus = true;
+      }
+    }
+
+    // turn off green LED if disconnected from Cloud.
+    if (ArduinoCloud.connected()) {
+      digitalWrite(LEDG, LOW);
+    } else {
+      digitalWrite(LEDG, HIGH);
+    }
+
+    ArduinoCloud.update();
+  }
+```
 ### The Cloud Dashboard
 
 ## Full Intruder Detector Example
