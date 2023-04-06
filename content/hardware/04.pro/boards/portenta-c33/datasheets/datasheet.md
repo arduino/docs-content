@@ -424,18 +424,18 @@ We declare under our sole responsibility that the products above are in conformi
 
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
-|              **Substance**             | **Maximum Limit (ppm)** |
-|:--------------------------------------:|:-----------------------:|
-|                Lead (Pb)               |           1000          |
-|              Cadmium (Cd)              |           100           |
-|              Mercury (Hg)              |           1000          |
-|       Hexavalent chromium (Cr6+)       |           1000          |
-|     Poly brominated biphenyls (PBB)    |           1000          |
-| Poly brominated diphenyl ethers (PBDE) |           1000          |
-|   Bis(2-Ethylhexyl) phthalate (DEHP)   |           1000          |
-|      Benzyl butyl phthalate (BBP)      |           1000          |
-|         Dibutyl phthalate (DBP)        |           1000          |
-|       Diisobutyl phthalate (DIBP)      |           1000          |
+| **Substance**                          | **Maximum Limit (ppm)** |
+|----------------------------------------|-------------------------|
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
 
 Exemptions: No exemptions are claimed.
 
