@@ -102,7 +102,7 @@ Here is the neural network classifier configuration for this application:
 
 ![Neural Network Configuration](assets/nn_setup.png)
 
-After the model is trained with a lot of samples of a door being opened, being forced and nothing happening, we get
+After the model is trained with a lot of samples of a door being opened, being forced and nothing happening, we got considerable good results that we can evidentiate on the "Confusion matrix" with a 97.4% of accuracy being achieved with a validation set of new data.
 
 ## Intruder Detector System Setup
 
