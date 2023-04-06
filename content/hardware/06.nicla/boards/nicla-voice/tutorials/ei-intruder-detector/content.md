@@ -49,6 +49,8 @@ Here is a graphical setup of the whole application:
 
 ## Hardware and Software Requirements
 
+![Picture showing the Arduino Pro boards and 3D enclosures](assets/hardware.png)
+
 ### Hardware Requirements
 - Nicla Voice
 - 3.7v LiPo battery
@@ -118,11 +120,11 @@ In this application, we don't need any particular wiring diagram other than the 
 
 The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good Wi-Fi® coverage and not so far from the Nicla Voice due to BLE's narrow range of a couple of meters.
 
-[Nicla Voice and Portenta H7 deployment spots photo]()
+![Nicla Voice and Portenta H7 deployment spots photo](assets/project_deploy.png)
 
 The Nicla will communicate with the Portenta H7 through BLE advertising any event to the Portenta H7 that will receive and forward the notification to the Arduino IoT cloud using Wi-Fi®.
 
-The Nicla Voice is powered by a LiPo battery inside it's enclosure. The Portenta H7 will be powered by a 5VDC USB adapter accompanied by a cooling fan.
+The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5VDC USB adapter accompanied by a cooling fan.
 
 ## Intruder Detector System Overview
 
@@ -439,9 +441,9 @@ Finally, the Portenta verifies continuously if a characteristic is updated to up
 ```
 ### The Cloud Dashboard
 
-Taking advantage of the Arduino Cloud, we can seamlessly intregates a simple but powerfull dashboard to monitor and visualize the status of the system in real-time as you can see below:
+Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time as you can see below:
 
-[Photo of the Arduino Cloud monitoring dashboard and mobile phone]()
+![Photo of the Arduino Cloud monitoring dashboard and mobile phone](assets/dashboard.png)
 
 Within the Arduino Cloud's dashboard, the system variables can be monitored, we have a Battery Level indicator Widget accompanied by a time series graph, a chat-looking widget to store the events historically, a red LED to shine when an intruder is detected by the system, and a green LED to show the BLE connection status between the Nicla Voice and the Portenta H7 host. We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email whenever an alert is fired.
 
