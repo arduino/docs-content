@@ -1,8 +1,8 @@
 ---
 title: UNO R4 Minima
-url_shop: https://store.arduino.cc/arduino-uno-rev3
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-avr
-core: arduino:avr
+url_shop: https://store.arduino.cc/arduino-uno-r4
+url_guide: /tutorials/uno-r4/uno-r4-getting-started
+core: arduino:renesas
 certifications: [CE, FCC, GB4943, IC, RCM, REACH, RoHS, UKCA, WEEE]
 productCode: '001'
 ---
