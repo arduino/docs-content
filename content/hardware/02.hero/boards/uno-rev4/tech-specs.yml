@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® UNO R4 Minima
   SKU: ABX00080
-Microcontroller: Renesas R7FA4M1AB3CFM Arm® Cortex®-M4
+Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
 USB:
   USB-C: Programming Port
 Pins:
