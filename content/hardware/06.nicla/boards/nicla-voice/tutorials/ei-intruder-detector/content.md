@@ -445,6 +445,18 @@ Taking advantage of the Arduino Cloud, we can seamlessly intregates a simple but
 
 Within the Arduino Cloud's dashboard, the system variables can be monitored, we have a Battery Level indicator Widget accompanied by a time series graph, a chat-looking widget to store the events historically, a red LED to shine when an intruder is detected by the system, and a green LED to show the BLE connection status between the Nicla Voice and the Portenta H7 host. We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email whenever an alert is fired.
 
+[Demo Gif showing the project working]()
+
 ## Full Intruder Detector Example
 
+The complete code, 3D models, uploaders and needed files can be downloaded [here](assets/). The Edge Impulse project is public [here]() so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+
 ## Conclusion
+
+In this application note, we have learned how to implement a Machine learning project powered by Edge Impulse and the Arduino IoT Cloud at the edge using a Nicla Voice and a Portenta H7. This example could be a simple demonstration of how Arduino's environment simplifies the workflow for developing smart solutions to solve real-life situations by integrating "complex" and mighty algorithms with just a few easy-to-follow steps. We covered sound recognition, BLE communication and real-time Cloud monitoring.
+
+### Next Steps
+
+As you already know how to develop an Intruder Detector with the Nicla Voice and the Portenta H7, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your industrial setup and improve it with powerful solutions. 
+
+You can create your application by training your own model with different scenario sounds or using the built-in Nicla Voice's IMU to analyze machine vibrations and making smart your existing manufacturing setup.
