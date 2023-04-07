@@ -27,6 +27,7 @@ software:
   - web-editor
   - iot-cloud
   - edge-impulse
+  - arduino-agent
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 ---
@@ -72,6 +73,7 @@ Here is a graphical setup of the whole application:
 - [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), which you can install following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation).
 - Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Edge Impulse.
 - [Syntiant® uploader and precompiled ML model](assets/Syntiant_Uploader.zip).
+- [Arduino Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the Portenta H7 to the IoT Cloud.
 
 ## The Machine Learning Model
 
