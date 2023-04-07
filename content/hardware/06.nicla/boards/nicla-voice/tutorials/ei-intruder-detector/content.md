@@ -59,6 +59,7 @@ Here is a graphical setup of the whole application:
 - 3.7v LiPo battery.
 - Portenta H7.
 - USB-C® cable.
+- Micro USB cable.
 - 5VDC wall power adapter.
 - DC brushless fan Model: LD3007MS.
 - Nicla Voice 3D printed enclosure.
