@@ -976,7 +976,7 @@ You need to enable SPI support before using SPI devices.
 Open Portenta X8 Shell as explained [here](#working-with-linux).
 
 ```arduino
-sudo madprobe spi-dev
+sudo modprobe spi-dev
 ```
 
 Insert the user password `fio`.
