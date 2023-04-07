@@ -43,33 +43,31 @@ The goals of this tutorial are:
 
 ## Testing the "Alexa" Built-in Example
 
-The Nicla Voice comes with a built-in speech-recognition example: the Alexa demo. But before we can test the built-in example, we must update the NDP120 processor and the speech-recognition model with the latest release. The update process can be done in four steps explained next:
+The Nicla Voice comes with a built-in speech recognition example: the Alexa demo. But before we can test the built-in example, we must update the NDP120 processor and the speech-recognition model with the latest release. The update process can be done in four steps explained next:
 
 1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**.
 2. Extract this .zip file, which contains the compiled uploaders for various operating systems and the updated NDP120 processor firmware and speech recognition model. 
 3. Open a new terminal where the .zip file was extracted and execute the command:
 
-```console
+```
 ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
 ```
 
 Remember to replace `portName` and `filename` with the relevant information. In this case, we must upload three files into the board by executing three commands:
 
-```console
+```
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
 ```
 
-```console
+```
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
 ```
 
-```console
+```
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
 ```
 
- Make sure all executed commands return a `Successful upload` message in the console. After uploading the three files, we can upload the Alexa demo into the Nicla Voice. The Alexa demo can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**.
-
-The Nicla Voice comes pre-flashed with a wake up word detection demo. This demo can be found in the Arduino IDE, under **File->Examples->NDP->AlexaDemo**. To test this sketch connect the board to a computer or an alternative power source, and say "Alexa". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. 
+Make sure all executed commands return a `Successful upload` message in the console. After successfully uploading the three files, we can upload the Alexa demo into the Nicla Voice. The Alexa demo can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the Alexa demo, connect the board to a power supply and say "Alexa"; this should make the onboard LED of the Nicla Voice blink. If there is no response from the board, try with closer proximity or speaking louder. 
 
 Now let's replicate this behavior using our custom Machine Learning model.
 
