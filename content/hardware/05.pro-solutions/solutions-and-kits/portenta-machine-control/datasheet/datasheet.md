@@ -113,7 +113,7 @@ Industry 4.0, system integrators
 ![Block Diagram of Portenta Machine Control](assets/MachineControlBlockDiagram.svg)
 
 ### Board Topology
-![Machine Control topology](assets/MachineControlOutline.svg)
+![Portenta Machine Control topology](assets/MachineControlOutline.png)
 
 | **Ref.** | **Description**                                 | **Ref.** | **Description**                       |
 | -------- | ----------------------------------------------- | -------- | ------------------------------------- |
@@ -298,32 +298,18 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### HMI - Communication Protocols (J5)
 
-| Pin | **Type** | **Description**                                                                  |
-| --- | -------- | -------------------------------------------------------------------------------- |
-| 1   | 24V OUT  | Output voltage connected to the board input voltage. PTC protected, nominal 0.5A |
-| 2   | GND      | GND                                                                              |
-| 3   | TXP 485  | RS485 TX P , RS232 TX                                                            |
-| 4   | TXN 485  | RS485 TX N                                                                       |
-| 5   | RXP 485  | RS485 RX P , RS232 RX                                                            |
-| 6   | RXN 486  | RS485 RX N                                                                       |
-| 7   | GND      | GND                                                                              |
-| 8   | TX CAN   | CAN TX                                                                           |
-| 9   | RX CAN   | CAN RX                                                                           |
-| 10  | GND      | GND                                                                              |
-
-| Pin | **Communication Port** | **RS-232** | **RS-485 Full Duplex** | **RS-485 Half Duplex** | **RS-422** | **CAN** |
-| --- | ---------------------- | ------------------------------------------------------------------------------------------------- |
-| 1   | 24V OUT                |            |                        |           
-| 2   | GND                    |            |                        |
-            
-| 3   | TXP 485                |            | TX+                    |
-| 4   | TXN 485                | TXD        | TX-                    |
-| 5   | RXP 485                | RXD        | RX+                    |
-| 6   | RXN 486                |            | RX-                    |
-| 7   | GND                    | Ground     |                        |
-| 8   | TX CAN                 |            |                        |
-| 9   | RX CAN                 |            |                        |
-| 10  | GND                    |            |                        |
+| Pin | **Type**    | **RS-232** | **RS-485 Full Duplex** | **RS-485 Half Duplex** | **RS-422** | **CAN** |
+| --- | ----------- | ---------- | ---------------------- | -----------------------| ---------- | ------- |
+| 1   | 24V OUT     |            |                        |                        |            |         |
+| 2   | GND         |            |                        |                        |            |         |
+| 3   | TXP 485     |            | TX+                    | Data+                  | TX+        |         |
+| 4   | TXN 485     | TXD        | TX-                    | Data-                  | TX-        |         |
+| 5   | RXP 485     | RXD        | RX+                    |                        | RX+        |         |
+| 6   | RXN 485     |            | RX-                    |                        | RX-        |         |
+| 7   | GND         | Ground     | Ground                 | Ground                 | Ground     |         |
+| 8   | CANH/CAN TX |            |                        |                        |            | CAN_H   |
+| 9   | CANL/CAN RX |            |                        |                        |            | CAN_L   |
+| 10  | GND         |            |                        |                        |            | Ground  |
 
 ### Temperature Probes (J7)
 **NOTE**: RTD (**R**esistance **T**emperature **D**etector) is a PT100 sensor.
