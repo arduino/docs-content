@@ -89,3 +89,10 @@
   type: warning
   format: markdown
   errorMessage: Politically incorrect terminology found (master/slave)
+
+  # SOM (System-On-Module)
+- regex: "(?<!\\S)+SO[Mm][eE]\\b"
+  shouldMatch: false
+  type: warning
+  format: markdown
+  errorMessage: Possible ambiguous notation detected. Do you mean SOM (System-On-Module)?
