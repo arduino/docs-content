@@ -166,7 +166,7 @@ You will need the Docker files that will configure and let you build a working c
 
 ***If you are unfamiliar with Docker and containers, please read the tutorial on how to [Create and Upload a Custom Container to the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/custom-container)***
 
-You can access the files [here](assets/Multi_Protocol_Gateway_X8.zip). Meanwhile, let's go through SOM of the important details of the included files.
+You can access the files [here](assets/Multi_Protocol_Gateway_X8.zip). Meanwhile, let's go through some of the important details of the included files.
 
 #### Container Build File: Docker Compose
 

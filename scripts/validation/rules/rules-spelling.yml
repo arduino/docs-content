@@ -92,7 +92,7 @@
 
   # SOM (System-On-Module)
 - regex: "(?<!\\S)\\bSO[Mm][eE]\\b"
-  shouldMatch: false
+  shouldMatch: true
   type: warning
   format: markdown
   errorMessage: Possible ambiguous notation detected. Do you mean SOM (System-On-Module)?
