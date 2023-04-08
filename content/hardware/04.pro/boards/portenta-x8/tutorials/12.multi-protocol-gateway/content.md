@@ -58,7 +58,7 @@ The following image illustrates an architecture overview of a multi-protocol gat
 
 ![Multi-Protocol Gateway General Architecture Overview](assets/multi-protocol-arch-general.png)
 
-This tutorial focuses on developing a multi-protocol gateway using SOMe connectivity modules. Yet, this Portenta combination still has much to offer. To get the most out of it, we will go step by step through how to establish the multi-protocol gateway and add scalability to expand its capability.
+This tutorial focuses on developing a multi-protocol gateway using some connectivity modules. Yet, this Portenta combination still has much to offer. To get the most out of it, we will go step by step through how to establish the multi-protocol gateway and add scalability to expand its capability.
 
 We will go through how to use RPC to expose data received from the Arduino layer to the Linux layer if further development requires you to feed data to devices interfaced to communicate with the M4 core. We will leave the tasks running and open to interface for expanding the capability of the Portenta X8 and Max Carrier. It will let you develop a gateway system where:
 
