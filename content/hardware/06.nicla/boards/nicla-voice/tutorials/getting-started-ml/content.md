@@ -45,19 +45,19 @@ To make use of these keyword triggers, such as blinking the LED when the board r
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - To create your ML model, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet).
 
-## Testing the "Alexa" Built-in Example
+## Testing the Built-in Speech Recognition Example
 
-The Nicla Voice comes with a built-in speech recognition example: the Alexa demo. But before we can test the built-in example, we must update the NDP120 processor firmware and the speech-recognition model with the latest release. The update process can be done in four steps:
+The Nicla Voice has a built-in speech recognition example: **the Alexa demo**. You can test this example by just powering the board after unboxing it without flashing anything. To deploy the example again to the board, you must first update the NDP120 processor firmware and the speech recognition model to the latest release. Follow these four steps to complete the update process:
 
-1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. Remember to select the board first before navigating to the examples.
-2. Extract this .zip file, which contains the compiled uploaders for various operating systems and the updated NDP120 processor firmware and speech recognition model. 
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board first before navigating to the examples**.
+2. Extract this .zip file, which contains the compiled uploaders for various operating systems, as well as the updated NDP120 processor firmware and speech recognition model. 
 3. Open a new terminal where the .zip file was extracted and execute the following command:
 
 ```
 ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
 ```
 
-Remember to replace `portName` and `filename` with the relevant information. In this case, we must upload three different files into the board by executing the following three commands:
+Replace `portName` and `filename` with the relevant information. Upload three different files to the board by executing the following three commands:
 
 ```
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
@@ -71,15 +71,17 @@ Remember to replace `portName` and `filename` with the relevant information. In 
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
 ```
 
-Make sure all executed commands return a `Successful upload` message in the console as shown in the image below. 
+Ensure all executed commands return a `Successful upload` message in the console as shown in the image below. 
 
-After successfully uploading the three files, we can upload the Alexa demo into our Nicla Voice board. The Alexa demo can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the Alexa demo say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the word "Alexa" is recognized. If there is no response from the board, try with closer proximity or speaking louder. You should see also information i the Serial Monitor as shown in the image below: 
+![Uploader feedback messages](assets/nicla-cover-image.svg)
 
+4. After successfully uploading the three files, we can upload the speech recognition example to the Nicla Voice. The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the example say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the word "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected as shown in the image below:
 
+![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/nicla-cover-image.svg)
 
-Now let's replicate this behavior using a custom Machine Learning model.
+Now, let's replicate this behavior using a custom Machine Learning model.
 
-## The Machine Learning Model
+## The Custom Machine Learning Model
 
 To train a machine learning model to classify audio, we first need to feed it with an audio sample, which will be a sound that it should recognize. The model will be trained using a concept called *supervised learning*. With *supervised learning*, we train the model with data already known and tell it while it's "practicing" its predictions if they are correct or not. This is normally known as the *training* process. For the training on *supervised learning*, objects are labeled beforehand with their names, which you will see when we get to the audio recording section.
 
