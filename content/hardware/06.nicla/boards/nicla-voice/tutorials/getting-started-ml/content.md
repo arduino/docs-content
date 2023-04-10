@@ -1,10 +1,10 @@
 ---
-title: 'Getting Started with Nicla Voice'
-description: 'Learn how to start to use the Nicla Voice and create your own machine learning audio models using the Machine Learning Tools'
+title: 'Getting Started with the Nicla Voice'
+description: 'Learn to use the Nicla Voice to create your own Machine Learning audio models.'
 tags: 
   - Getting started
-  - Machine Learning Tools
-author: 'Benjamin Dannegård'
+  - Machine Learning tools
+author: 'Benjamin Dannegård and José Bagur'
 libraries: 
   - name: NDP
     url: https://github.com/edgeimpulse/firmware-syntiant-tinyml
@@ -19,41 +19,45 @@ software:
 
 ## Overview
 
-The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it recognizes different events and hears keywords simultaneously. It is capable of understanding and learning its surrounding sounds.
+The Arduino® Nicla Voice processes audio inputs using the powerful Syntiant® NDP120™ Neural Decision Processor™, which simulates human neural pathways to execute multiple artificial intelligence (AI) algorithms and automate complex tasks. The NDP120 is capable of understanding and learning the sounds in its surroundings, recognizing different events, and detecting keywords simultaneously.
 
-To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning model is required. With the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) powered by Edge Impulse® and integrated in Arduino Cloud, it is possible to build, train and easily deploy the machine learning model to the Nicla Voice. This tutorial will explain how to start with the board, test the default built-in sketch, and create your own models.
+To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning (ML) model is required. With the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) powered by Edge Impulse® and integrated into the Arduino Cloud, you can quickly build, train and deploy ML models onto the Nicla Voice. This tutorial will guide you through getting started with the Nicla Voice, testing a built-in speech recognition example, and creating your ML models with the Machine Learning Tools integrated into the Arduino Cloud.
 
 ![The Nicla Voice](assets/nicla-cover-image.svg)
 
 ## Goals
 
-The goals of this tutorial are:
+- Test the built-in speech recognition example
+- Learn how to capture audio data to train an ML model
+- Learn how to train an ML model using audio data
+- Learn how to export an ML model to the Nicla Voice
+- Learn how to test an ML model uploaded to the Nicla Voice
 
-- Test the "Alexa" built-in example
-- Learn how to capture audio to train a machine learning model
-- Learn how to train a machine learning model
-- Learn how to export the model to be used with the Nicla Voice
-- Learn how to test the model to see if it is working as it should be
+## Hardware and Software Requirements
 
-## Hardware & Software Needed
+### Hardware Requirements
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino Nicla Voice](https://store.arduino.cc/nicla-voice) (x1)
-- [Arduino Cloud](https://cloud.arduino.cc/)
+- [Nicla Voice](https://store.arduino.cc/nicla-voice) (x1)
+- Micro USB cable (x1)
+
+### Software Requirements
+
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- To create your ML model, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet).
 
 ## Testing the "Alexa" Built-in Example
 
-The Nicla Voice comes with a built-in speech recognition example: the Alexa demo. But before we can test the built-in example, we must update the NDP120 processor and the speech-recognition model with the latest release. The update process can be done in four steps explained next:
+The Nicla Voice comes with a built-in speech recognition example: the Alexa demo. But before we can test the built-in example, we must update the NDP120 processor firmware and the speech-recognition model with the latest release. The update process can be done in four steps:
 
-1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**.
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. Remember to select the board first before navigating to the examples.
 2. Extract this .zip file, which contains the compiled uploaders for various operating systems and the updated NDP120 processor firmware and speech recognition model. 
-3. Open a new terminal where the .zip file was extracted and execute the command:
+3. Open a new terminal where the .zip file was extracted and execute the following command:
 
 ```
 ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
 ```
 
-Remember to replace `portName` and `filename` with the relevant information. In this case, we must upload three files into the board by executing three commands:
+Remember to replace `portName` and `filename` with the relevant information. In this case, we must upload three different files into the board by executing the following three commands:
 
 ```
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
@@ -67,9 +71,13 @@ Remember to replace `portName` and `filename` with the relevant information. In 
 ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
 ```
 
-Make sure all executed commands return a `Successful upload` message in the console. After successfully uploading the three files, we can upload the Alexa demo into the Nicla Voice. The Alexa demo can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the Alexa demo, connect the board to a power supply and say "Alexa"; this should make the onboard LED of the Nicla Voice blink. If there is no response from the board, try with closer proximity or speaking louder. 
+Make sure all executed commands return a `Successful upload` message in the console as shown in the image below. 
 
-Now let's replicate this behavior using our custom Machine Learning model.
+After successfully uploading the three files, we can upload the Alexa demo into our Nicla Voice board. The Alexa demo can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the Alexa demo say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the word "Alexa" is recognized. If there is no response from the board, try with closer proximity or speaking louder. You should see also information i the Serial Monitor as shown in the image below: 
+
+
+
+Now let's replicate this behavior using a custom Machine Learning model.
 
 ## The Machine Learning Model
 
