@@ -50,7 +50,7 @@ To make use of these keyword triggers, such as blinking the LED when the board r
 The Nicla Voice has a built-in speech recognition example: **the Alexa demo**. You can test this example by just powering the board after unboxing it without flashing anything. To deploy the example again to the board, you must first update the NDP120 processor firmware and the speech recognition model to the latest release. Follow these four steps to complete the update process:
 
 1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board first before navigating to the examples**.
-2. Extract this .zip file, which contains the compiled uploaders for various operating systems, as well as the updated NDP120 processor firmware and speech recognition model. 
+2. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, as well as the updated NDP120 processor firmware and speech recognition model. 
 3. Open a new terminal where the .zip file was extracted and execute the following command:
 
 ```
@@ -73,11 +73,11 @@ Replace `portName` and `filename` with the relevant information. Upload three di
 
 Ensure all executed commands return a `Successful upload` message in the console as shown in the image below. 
 
-![Uploader feedback messages](assets/nicla-cover-image.svg)
+![Uploader feedback messages](assets/getting-started-1.png)
 
 4. After successfully uploading the three files, we can upload the speech recognition example to the Nicla Voice. The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the example say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the word "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected as shown in the image below:
 
-![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/nicla-cover-image.svg)
+![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/getting-started-2.png)
 
 Now, let's replicate this behavior using a custom Machine Learning model.
 
