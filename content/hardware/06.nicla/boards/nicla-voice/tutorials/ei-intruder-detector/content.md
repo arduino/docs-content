@@ -53,7 +53,7 @@ Here is a graphical setup of the whole application:
 
 ## Hardware and Software Requirements
 
-![Arduino Pro boards and 3D enclosures](assets/hardware.png)
+![Arduino Pro boards and 3D enclosures](assets/hardware.svg)
 
 ### Hardware Requirements
 - Nicla Voice.
