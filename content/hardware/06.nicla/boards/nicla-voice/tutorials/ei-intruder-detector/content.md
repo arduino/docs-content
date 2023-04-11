@@ -79,7 +79,7 @@ Here is a graphical setup of the whole application:
 
 ## The Machine Learning Model
 
-In simple words, Machine Learning is a way of programming in which we make our device to process raw data from sensors and extract meaningful features from it to be learned and later used for identifying or predicting the originally trained scenarios.
+The Machine Learning is a way of programming in which we make our device process raw data from sensors and learn based on extracted meaningful features that will be later used for identifying or predicting the originally trained scenarios.
 
 To be able to identify when the door is being opened or when it is being forced by someone, we trained a machine learning model using the [Edge Impulse](https://www.edgeimpulse.com/) integration with the [Arduino Cloud](https://cloud.arduino.cc/), that will be running repetitively in the Nicla Voice.
 
