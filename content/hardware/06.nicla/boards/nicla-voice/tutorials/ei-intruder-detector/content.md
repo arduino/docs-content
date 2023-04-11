@@ -174,8 +174,6 @@ The Nicla Voice's integrated NDP needs some files stored in the external flash o
 - ei_model.synpkg
 
 ***The files must be named exactly as shown above. To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.***
-To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.
-
 
 ```arduino
   // Neural Decision Processor firmware and ML model files loading
