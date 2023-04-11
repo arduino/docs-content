@@ -89,7 +89,7 @@ Here is our model design:
 
 ![Edge Impulse Model blocks](assets/model_design.png)
 
-As we are using the Nicla Voice we must follow the showed model design to be supported by the onboard Syntiant® NDP120 Neural Decision Processor™, taking care of these characteristics:
+As we are using the Nicla Voice, we must follow the model design to be supported by the onboard Syntiant® NDP120 Neural Decision Processor™, taking care of these characteristics.
 
 In the time series data block:
 
