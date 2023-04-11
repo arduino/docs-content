@@ -66,13 +66,13 @@ In case you need to flash the bootloaderyou can follow these steps:
 renesas\0.5.0\bootloaders\SANTIAGO"
 
 - Identify the **dfu.exe***
-- Instal the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
+- Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
 - To flash the bootloader:
     - Select dfu.exe.
     - Connet your board.
     - Short the BOOT and GND pin found on the UNO R4 Minima
     - Go to the Connect Settings tab.
-    - Select COM port in teh Tool > select the port shown in the IDE.
+    - Select COM port in the Tool > select the port shown in the IDE.
     - Press start. 
 
 ## Renesas R7FA4M1AB3CFM
@@ -419,7 +419,7 @@ The **UNO R4 Minima** also has a DAC pin (A0) that can act as genuine analog out
 analogWrite(pin, value);
 ```
 
-![DAC Pins](assets/audio-jack.png)
+![DAC Pin](assets/dacpin.png)
 
 This DAC pin has a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
 
