@@ -54,7 +54,7 @@ The goal of this application note is to showcase an intruder detection and monit
 
 ## Hardware and Software Requirements
 
-![Arduino Pro boards and 3D enclosures](assets/hardware.png)
+![Nicla Voice, Portenta H7, and 3D enclosures](assets/hardware.png)
 
 ### Hardware Requirements
 - Nicla Voice
