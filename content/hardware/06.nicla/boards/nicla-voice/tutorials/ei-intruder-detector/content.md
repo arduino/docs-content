@@ -1,6 +1,6 @@
 ---
 title: 'Door Intruder Detector Using ML with the Nicla Voice'
-description: "This application note describes how to identify ordinary door openings compared to a forced attempt, looking for intruders by analyzing surrounding sounds using Machine Learning with Edge Impulse®. The Nicla Voice will also monitor the scene with Dashboard on the Arduino IoT Cloud."
+description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino IoT Cloud"
 difficulty: intermediate
 tags:
   - Intruder detector
