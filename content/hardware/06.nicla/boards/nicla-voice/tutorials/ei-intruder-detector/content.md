@@ -57,7 +57,7 @@ The goal of this application note is to showcase an intruder detection and monit
 
 ### Hardware Requirements
 - Nicla Voice
-- 3.7v LiPo battery
+- 3.7 V LiPo battery
 - Portenta H7
 - USB-C® cable
 - Micro USB cable
