@@ -455,7 +455,9 @@ Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but 
 
 ![Arduino Cloud project dashboard ](assets/dashboard.png)
 
-Within the Arduino Cloud's dashboard, the system variables can be monitored. We have a battery level indicator widget accompanied by a time series graph, a chat-looking widget to store the events historically, a red LED to shine when an intruder is detected by the system, and a green LED to show the Bluetooth® Low Energy connection status between the Nicla Voice and the Portenta H7 host. We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email, an cellphone notification, or even triggering some automation like turning on all the lights at home whenever an alert is fired.
+Within the Arduino Cloud's dashboard, the system variables can be monitored. We have a battery level indicator widget accompanied by a time series graph, a chat-looking widget to store the events historically, a red LED to shine when an intruder is detected by the system, and a green LED to show the Bluetooth® Low Energy connection status between the Nicla Voice and the Portenta H7 host. 
+
+We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email, a cellphone notification, or even triggering some automation like turning on all the lights at home whenever an alert is fired.
 
 ![Door opening event](assets/opened_door.png)
 
