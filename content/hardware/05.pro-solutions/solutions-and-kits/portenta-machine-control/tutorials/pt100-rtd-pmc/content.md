@@ -98,7 +98,7 @@ In this case, **we will set the channel 0 configuration** as described in the Da
 
 ### Creating the project
 
-Once we have correctly connected the TP100 to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the neccessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the  [Configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
+Once we have correctly connected the TP100 to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the  [Configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
 
 First, we need to **create a new project**. To do this, open the Arduino PLC IDE and click on "New Project" or by clicking on ```File > New project```:
 
@@ -128,7 +128,7 @@ Once enabled, we are ready to continue to the next step creating the necessary v
 
 ***By default the project creates an automatic type int variable called "cnt", you can delete it by right-clicking on it and clicking delete.***
 
-To visualize the temperature values we need to create a variable to save the values. For doing it we need to go to **Global vars** section and right-click on it, select "New variable" and select "Automatic" type or go to ```Project > New objet > New variable > Automatic```. 
+To visualize the temperature values we need to create a variable to save the values. For doing it we need to go to **Global vars** section and right-click on it, select "New variable" and select "Automatic" type or go to ```Project > New object > New variable > Automatic```. 
 
 ![Creating a Global Variable](./assets/global-variable.png)
 
