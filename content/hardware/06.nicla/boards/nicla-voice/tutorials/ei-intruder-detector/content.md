@@ -46,7 +46,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - Correctly identify if a door has been opened in an ordinary manner or suffered a forced attempt.
 - Report opening and intruder detection events through BLE to a Host.
 - The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (Wi-Fi® in this case).
-- The cloud variables are updated just on change and will be presented on an Arduino IoT Cloud dashboard.
+- Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
 - Gather real-world data to train a Machine Learning model.
 
 Here is a graphical setup of the whole application:
