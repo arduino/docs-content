@@ -49,7 +49,6 @@ The goal of this application note is to showcase an intruder detection and monit
 - Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
 - Gather real-world data to train a Machine Learning model.
 
-Here is a graphical setup of the whole application:
 
 ![Intruder Detector final deployment](assets/system_setup.png)
 
