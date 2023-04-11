@@ -465,7 +465,7 @@ The complete code can be downloaded [here](assets/Nicla_Portenta_Codes.zip), the
 
 ## Conclusion
 
-In this application note, we have learned how to implement a Machine learning project powered by Edge Impulse and the Arduino IoT Cloud at the edge using a Nicla Voice and a Portenta H7. This example could be a simple demonstration of how Arduino's environment simplifies the workflow for developing smart solutions to solve real-life situations by integrating "complex" and mighty algorithms with just a few easy-to-follow steps. We covered sound recognition, BLE communication and real-time Cloud monitoring.
+In this application note, we have learned how to implement a Machine learning project powered by Edge Impulse and the Arduino Cloud at the edge using a Nicla Voice and a Portenta H7. This application could be a simple demonstration of how Arduino's environment simplifies the workflow for developing smart solutions to solve real-life situations by integrating "complex" and mighty algorithms with just a few easy-to-follow steps. We covered sound recognition, BLE communication, and real-time Cloud monitoring.
 
 ### Next Steps
 
