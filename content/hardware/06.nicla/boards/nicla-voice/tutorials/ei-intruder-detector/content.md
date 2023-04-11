@@ -149,7 +149,7 @@ The Portenta H7 will be in charge of receiving the door event notification and u
 
 ### Nicla Voice Code
 
-Now, we will go through some important code sections to make this application fully operative. We will begin with the required libraries:
+We will go through some important code sections to make this application fully operative. We will begin with the required libraries:
 
 - Including `NDP.h` will enable and run the Neural Decision Processor (NDP120), it's included in the BSP of the Nicla Voice.
 - Including `ArduinoBLE.h` will enable the BLE communication, install it by searching for it on the Library Manager.
