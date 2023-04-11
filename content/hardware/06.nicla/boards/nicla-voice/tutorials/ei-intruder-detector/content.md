@@ -107,7 +107,13 @@ In the learning block:
 
 Here is a graphical representation of how the samples look before and after the digital signal processing:
 
-![Raw audio samples of opened, forced and n and their spectrograms](assets/samples_dsp_white.png)
+![Raw audio samples and their spectrograms](assets/samples_dsp_white.png)
+
+Our three classes are:
+
+- Opened: here we record the sound of the door being opened.
+- Forcing: here we record the sound of the door lock being hit with a metallic tool.
+- Z_openset: here we record the environment noise when nothing is happening and unknown sounds like music and conversations.
 
 Here is the neural network classifier configuration for this application:
 
