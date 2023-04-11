@@ -142,7 +142,7 @@ The Nicla Voice attached to the door is running a machine learning model listeni
 If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a Bluetooth® Low Energy notification will be sent to the Portenta H7 host updating the door status.
 If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a Bluetooth® Low Energy notification will be sent to the Portenta H7 host updating the door status.
 
-The Portenta H7 will be in charge of receiving the door event notification and updating the dashboard variables in the IoT Cloud immediately so the user can be aware in real time of any change. In addition to these features, the application dashboard will show a historic record of events, alongside an "Intruder Alert", the Bluetooth® Low Energy connection status between both devices and the Nicla Voice battery level so we can know when to recharge it.
+The Portenta H7 will be in charge of receiving the door event notification and updating the dashboard variables in the IoT Cloud immediately so the user can be aware in real time of any change. In addition to these features, the application dashboard will show a historic record of events, alongside an "Intruder Alert notification", the BLE connection status between both devices and the Nicla Voice battery level so we can know when to recharge it.
 
 ### Nicla Voice Code
 
