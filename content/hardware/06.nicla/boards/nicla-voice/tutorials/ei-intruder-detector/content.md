@@ -129,7 +129,9 @@ For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Upload
 
 In this application, we don't need any particular wiring diagram other than the Nicla Voice and the Portenta H7. 
 
-The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good Wi-Fi® coverage and not so far from the Nicla Voice due to BLE's narrow range of a couple of meters.
+The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good Wi-Fi® coverage and not so far from the Nicla Voice due to Bluetooth® Low Energy narrow range of a couple of meters.
+
+Changed to Bluetooth® Low Energy following Arduino Trademarks rules
 
 ![Nicla Voice and Portenta H7 deployment spots](assets/project_deploy.png)
 
