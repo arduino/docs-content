@@ -63,7 +63,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - Micro USB cable
 - 5 VDC wall power adapter
 - DC brushless fan Model: LD3007MS
-- Nicla Voice and Portenta H7 3D Printed enclosures
+- [Nicla Voice and Portenta H7 3D Printed enclosures](assets/Intruder_Detector_3D_Files.zip)
 
 ### Software Requirements
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
@@ -121,7 +121,7 @@ For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Upload
 
 ## Intruder Detector System Setup
 
-In this application, we don't need any particular wiring diagram other than the development boards themself. 
+In this application, we don't need any particular wiring diagram other than the Nicla Voice and the Portenta H7. 
 
 The Nicla Voice will be attached to the guarded door and near the lock, the Portenta H7 host will be somewhere with good Wi-Fi® coverage and not so far from the Nicla Voice due to BLE's narrow range of a couple of meters.
 
