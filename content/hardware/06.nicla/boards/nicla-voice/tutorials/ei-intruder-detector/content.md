@@ -61,7 +61,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - Portenta H7
 - USB-C® cable
 - Micro USB cable
-- 5VDC wall power adapter
+- 5 VDC wall power adapter
 - DC brushless fan Model: LD3007MS
 - Nicla Voice 3D printed enclosure
 - Portenta H7 3D printed enclosure
