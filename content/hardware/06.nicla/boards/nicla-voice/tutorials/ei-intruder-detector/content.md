@@ -63,8 +63,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - Micro USB cable
 - 5 VDC wall power adapter
 - DC brushless fan Model: LD3007MS
-- Nicla Voice 3D printed enclosure
-- Portenta H7 3D printed enclosure
+- Nicla Voice and Portenta H7 3D Printed enclosures
 
 ### Software Requirements
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
