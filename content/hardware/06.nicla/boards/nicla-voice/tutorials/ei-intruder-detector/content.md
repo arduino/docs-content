@@ -469,6 +469,6 @@ In this application note, we have learned how to implement a Machine learning pr
 
 ### Next Steps
 
-As you already know how to develop an Intruder Detector with the Nicla Voice and the Portenta H7, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your industrial setup and improve it with powerful solutions. 
+As you already know how to develop an Intruder Detector with the Nicla Voice and the Portenta H7, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your professional setup and improve it with powerful solutions. 
 
 You can create your application by training your own model with different scenario sounds or using the built-in Nicla Voice's IMU to analyze machine vibrations and making smart your existing manufacturing setup.
