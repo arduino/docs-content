@@ -34,7 +34,7 @@ hardware:
 
 ## Introduction
 
-Security has always been a very important factor for our well-being, from the personal to the material, keeping our assets safe is something we struggle with every day, in our cars, lockers, computers, our houses, we insure everything is locked up, but there are times when that is not enough. 
+Security has always been a very important factor for our well-being. From the personal to the material, keeping our assets safe is something we struggle with every day, in our cars, lockers, computers, and our houses, we insure everything is locked up, but there are times when that is not enough. 
 
 In such a connected world, where we have a lot of information in the palm of our hand, it would also be very useful to have the status of those things that we have insured in a more analogous way, such as the front door of our home. Leveraging the integrated microphone of the Nicla Voice provides the possibility to build this kind of protection system.
 
