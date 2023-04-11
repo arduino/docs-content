@@ -123,7 +123,7 @@ After the model is trained with a lot of samples of a door being opened, being f
 
 ***The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the datasets with new samples and retrain the model for a new and upgraded deployment.***
 
-For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg` with yours.
+For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg` , which you can file inside the downloaded folder with yours.
 
 ## Intruder Detector System Setup
 
