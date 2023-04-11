@@ -45,6 +45,7 @@ Industry 4.0, system integrators
   - 12x High-side switches with current limit and inductive load kick-back protection
   - 12x Digital inputs
 - **3x Temperature channels**
+
   Each channel is software configurable to measure:
   - Thermocouple K, non-grounded, front-end **MAX31855KASA+T**
   - Thermocouple J, non-grounded, front-end **MAX31855KASA+T** with software multiplication coefficient
@@ -54,19 +55,19 @@ Industry 4.0, system integrators
 - **High-speed CAN**
   - **TJA1049T/3J** able to work at 12V/24V DC
   - On-board termination resistors
-- **RS232/RS422/RS485 software configurable**
-  - **SP335ECR1-L** with onboard termination resistors RS485 is configurable to be half duplex or full duplex
+- **RS-232/RS-422/RS-485 software configurable**
+  - **SP335ECR1-L** with onboard termination resistors. RS-485 is configurable to be half duplex or full duplex
 - **I2C**
   - Grove connector
-  - 10kΩ pull-ups on board
+  - 10 kΩ pull-ups on board
 - **Ethernet**
   - On-board LAN transformer
 - **Full-speed USB-A connector**
 - **Half-speed micro-USB Type B connector**
 - **RTC**
   - At least 48 hours of memory retention
-- **Wi-Fi/BLE**
-  - SMA connector 50Ω
+- **WiFi®/Bluetooth® Low Energy**
+  - SMA connector 50 Ω
 
 ***Note: ESD protection on all inputs/outputs***
 
@@ -115,19 +116,19 @@ Industry 4.0, system integrators
 ### Board Topology
 ![Portenta Machine Control topology](assets/MachineControlOutline.png)
 
-| **Ref.** | **Description**                                 | **Ref.** | **Description**                       |
-| -------- | ----------------------------------------------- | -------- | ------------------------------------- |
-| J3       | Digital inputs                                  | J10      | Encoders                              |
-| J4       | Power supply 24V                                | J11      | Analog out                            |
-| J5       | HMI - Comm protocols (RS232, RS422, RS485, CAN) | J13      | Ethernet                              |
-| J6       | Digital outputs                                 | J14      | WI-FI / Bluetooth® Low Energy SMA     |
-| J7       | Temperature probes                              | J15      | USB A                                 |
-| J8       | Digital programmable                            | J16      | USB micro                             |
-| J9       | Analog in                                       | J17      | Grove I2C                             |
-| PB1      | RESET Push Button                               | U10      | MAX31855KASA+T Thermocouple converter |
+| **Ref.** | **Description**                                    | **Ref.** | **Description**                       |
+| -------- | -------------------------------------------------- | -------- | ------------------------------------- |
+| J3       | Digital inputs                                     | J10      | Encoders                              |
+| J4       | Power supply 24V                                   | J11      | Analog out                            |
+| J5       | HMI - Comm protocols (RS-232, RS-422, RS-485, CAN) | J13      | Ethernet                              |
+| J6       | Digital outputs                                    | J14      | WI-FI / Bluetooth® Low Energy SMA     |
+| J7       | Temperature probes                                 | J15      | USB A                                 |
+| J8       | Digital programmable                               | J16      | USB micro                             |
+| J9       | Analog in                                          | J17      | Grove I2C                             |
+| PB1      | RESET Push Button                                  | U10      | MAX31855KASA+T Thermocouple converter |
 
 ### Digital Input
-8x channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
+8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
 
 ### Digital Output
 The digital output connector has a 24V IN pin which must be supplied with 24V DC.
@@ -157,7 +158,7 @@ The supply voltage can be the same 24V which is powering the board. There are 3x
 #### Kick-Back Protection
 There is an internal inductive loads kick-back protection with an additional external protection of a 60V, 2A Schottky diode **PMEG6020ER,115**:
 
-- 12x digital input channels, each is a 680kΩ and 100kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
+- 12x digital input channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
   Although the high-side switches are independent of the digital input channels, it is possible to read the status of the high-side switches through the digital input channels.
 
 ### Analog Input
@@ -166,11 +167,11 @@ The internal A/D converter of the microcontroller has a range resolution of 12-1
 There are three independent analog input channels available. Each of them has an analog switch **TS12A44514PWR** which is switching between three modes:
 
 - **0-10V**:
-The input is connected to a 100kΩ and 39kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V. The input impedance is approximately 28kΩ.
+The input is connected to a 100 kΩ and 39 kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V. The input impedance is approximately 28 kΩ.
 - **4-20mA**:
 The input is connected to a 120Ω resistor. Having 4-20mA current input for a 0.48V-2.4V voltage.
 - **NTC**:
-The input is connected to a 3V voltage reference (**REF3330AIRSER**) with a 100kΩ resistor in series, becoming part of a resistor divider powered by the voltage reference.
+The input is connected to a 3V voltage reference (**REF3330AIRSER**) with a 100 kΩ resistor in series, becoming part of a resistor divider powered by the voltage reference.
 
 An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protects the 24V output pin.
 
@@ -225,28 +226,28 @@ Connect a **three-wire RTD** to a channel `CH` (0-2):
 
 ### Encoders
   - Two independent ABZ encoder channels are available.
-  - Each channel is pulled-up to the board 24V supply with a 10kΩ pull-up resistor.
+  - Each channel is pulled-up to the board 24V supply with a 10 kΩ pull-up resistor.
 
 ### CAN
 The on-board transceiver is the **TJA1049T/3J** and implements the CAN physical layer as defined in *ISO 11898-2:2016* and *SAE J2284-1* to *SAE J2284-5*. It is compatible with a 12V or 24V bus:
-  - **Nominal** maximum data rate: 5Mbit/s.
+  - **Nominal** maximum data rate: 5 Mbit/s.
   - Integrated ESD protection.
-  - 60Ω termination resistors are on board, with 4.7nF to GND
+  - 60 Ω termination resistors are on board, with 4.7 nF to GND
 
 A 500mA PTC resettable fuse protects the 24V OUT pin.
 
-### RS232/RS422/RS485
-The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for RS232, RS442 or RS485 half/full duplex:
+### RS-232/RS-422/RS-485
+The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for RS-232, RS-442 or RS-485 half/full duplex:
 
-  - **Nominal** data rates are: 20Mbps for the RS485 and 1Mbps for the RS232.
-  - Selectable 250kbps Slew Limiting.
-  - Integrated RS485 120Ω differential cable termination, inactive for RS232.
+  - **Nominal** data rates are: 20 Mbps for the RS-485 and 1 Mbps for the RS-232.
+  - Selectable 250 kbps Slew Limiting.
+  - Integrated RS-485 120Ω differential cable termination, inactive for RS-232.
   - Integrated ESD protection.
   - A 500mA PTC resettable fuse protects the 24V output pin.
 
 ### I2C
   - Grove connector.
-  - 10kΩ pull-ups on board.
+  - 10 kΩ pull-ups on board.
 
 ### Ethernet
   - On-board transformer.
@@ -265,8 +266,8 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
 
 ### RTC
 The on-board real-time clock/calendar is the **PCF8563T/F4,118** which clock is provided by a dedicated external crystal oscillator:
-  - A 100mF supercapacitor (**FC0V104ZFTBR24**) provides power to the **PCF8563T/F4,118** when the board power supply is disconnected. The RTC chipset will be powered by the supercapacitor for at least 48 hours.
-  - 32,768kHz crystal clock (**Q13FC1350000400**).
+  - A 100 mF supercapacitor (**FC0V104ZFTBR24**) provides power to the **PCF8563T/F4,118** when the board power supply is disconnected. The RTC chipset will be powered by the supercapacitor for at least 48 hours.
+  - 32,768 kHz crystal clock (**Q13FC1350000400**).
 
 ### Power Tree
 ![Power Tree Machine Control](assets/MachineControlPowerTree.png)
@@ -298,18 +299,18 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### HMI - Communication Protocols (J5)
 
-| Pin | **Type**    | **RS-232** | **RS-485 Full Duplex** | **RS-485 Half Duplex** | **RS-422** | **CAN** |
-| --- | ----------- | ---------- | ---------------------- | -----------------------| ---------- | ------- |
-| 1   | 24V OUT     |            |                        |                        |            |         |
-| 2   | GND         |            |                        |                        |            |         |
-| 3   | TXP 485     |            | TX+                    | Data+                  | TX+        |         |
-| 4   | TXN 485     | TXD        | TX-                    | Data-                  | TX-        |         |
-| 5   | RXP 485     | RXD        | RX+                    |                        | RX+        |         |
-| 6   | RXN 485     |            | RX-                    |                        | RX-        |         |
-| 7   | GND         | Ground     | Ground                 | Ground                 | Ground     |         |
-| 8   | CANH/CAN TX |            |                        |                        |            | CAN_H   |
-| 9   | CANL/CAN RX |            |                        |                        |            | CAN_L   |
-| 10  | GND         |            |                        |                        |            | Ground  |
+| Pin | **Type**    | **RS-232** | **RS-485 Full Duplex/RS-422** | **RS-485 Half Duplex** | **CAN** |
+| --- | ----------- | ---------- | ----------------------------- | -----------------------| ------- |
+| 1   | 24V OUT     |            |                               |                        |         |
+| 2   | GND         |            |                               |                        |         |
+| 3   | TXP 485     |            | TX+                           | Data+                  |         |
+| 4   | TXN 485     | TXD        | TX-                           | Data-                  |         |
+| 5   | RXP 485     | RXD        | RX+                           |                        |         |
+| 6   | RXN 485     |            | RX-                           |                        |         |
+| 7   | GND         | Ground     | Ground                        | Ground                 |         |
+| 8   | CANH/CAN TX |            |                               |                        | CAN_H   |
+| 9   | CANL/CAN RX |            |                               |                        | CAN_L   |
+| 10  | GND         |            |                               |                        | Ground  |
 
 ### Temperature Probes (J7)
 **NOTE**: RTD (**R**esistance **T**emperature **D**etector) is a PT100 sensor.
@@ -328,17 +329,17 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Analog in (J9)
 
-| Pin | **Type** | **Channel** | **Description**                                                                                                |
-| --- | -------- | ----------- | -------------------------------------------------------------------------------------------------------------- |
+| Pin | **Type** | **Channel** | **Description**                                                                                                 |
+| --- | -------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
 | 1   | 24V OUT  | -           | Output voltage connected to the board input voltage. A single PTC protects pins 1, 4, 7. PTC nominal value 0.5A |
-| 2   | AI0      | 00          | Analog input                                                                                                   |
-| 3   | GND      | -           | GND                                                                                                            |
+| 2   | AI0      | 00          | Analog input                                                                                                    |
+| 3   | GND      | -           | GND                                                                                                             |
 | 4   | 24V OUT  | -           | Output voltage connected to the board input voltage. A single PTC protects pins 1, 4, 7. PTC nominal value 0.5A |
-| 5   | AI1      | 01          | Analog input                                                                                                   |
-| 6   | GND      | -           | GND                                                                                                            |
+| 5   | AI1      | 01          | Analog input                                                                                                    |
+| 6   | GND      | -           | GND                                                                                                             |
 | 7   | 24V OUT  | -           | Output voltage connected to the board input voltage. A single PTC protects pins 1, 4, 7. PTC nominal value 0.5A |
-| 8   | AI2      | 02          | Analog input                                                                                                   |
-| 9   | GND      | -           | GND                                                                                                            |
+| 8   | AI2      | 02          | Analog input                                                                                                    |
+| 9   | GND      | -           | GND                                                                                                             |
 
 ### Analog Out (J11)
 
@@ -543,3 +544,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 05/09/2022 | 2            | Remove PT1000, not compatible |
 | 09/26/2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
 | 10/13/2022 | 4            | Big improvements & Fixes |
+| 04/11/2023 | 5            | Updates and table improvements |
