@@ -143,7 +143,7 @@ The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta 
 
 The Nicla Voice attached to the door is running a machine learning model listening to the surrounding noises and searching for known sounds like the door being opened or the door lock being hit with a metallic tool, for example, to simulate a forcing process.
 
-If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a BLE notification will be sent to the Portenta H7 host updating the door status.
+If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a Bluetooth® Low Energy notification will be sent to the Portenta H7 host updating the door status.
 
 The Portenta H7 will be in charge of receiving the door event notification and updating the dashboard variables in the IoT Cloud immediately so the user can be aware in real time of any change. In addition to these features, the application dashboard will show a historic record of events, alongside an "Intruder Alert", the BLE connection status between both devices and the Nicla Voice battery level so we can know when to recharge it.
 
