@@ -121,7 +121,7 @@ After the model is trained with a lot of samples of a door being opened, being f
 
 ***The model performance can be affected if the application is implemented on a very different environment than the one used for training. It's recommended to feed the datasets with new samples and retrain the model for a new and upgraded deployment.***
 
-For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg` with yours.
+For a new model deployment, use the [Syntiant® uploader](assets/Syntiant_Uploader.zip) and replace the `ei_model.synpkg` , which you can file inside the downloaded folder with yours.
 
 ## Intruder Detector System Setup
 
@@ -133,19 +133,20 @@ The Nicla Voice will be attached to the guarded door and near the lock, the Port
 
 The Nicla will communicate with the Portenta H7 through Bluetooth® Low Energy advertising any event to the host that will receive and forward the notification to the Arduino IoT cloud using Wi-Fi®.
 
-The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5VDC USB adapter accompanied by a cooling fan.
+The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5 VDC USB adapter. Although the Portenta H7 can work for long periods without needing external cooling, it is always recommended to keep the devices that are working 24/7 as cool as possible, having the Portenta H7 enclosure a cooling fan connected.
 
 ## Intruder Detector System Overview
 
-The Nicla Voice attached to the door is running an ML model listening to the surrounding noises and searching for known sounds like the door being opened or the door lock being hit with a metallic tool, for example, to simulate a forcing process.
+The Nicla Voice attached to the door is running a machine learning model listening to the surrounding noises and searching for known sounds like the door being opened or the door lock being hit with a metallic tool, for example, to simulate a forcing process.
 
+If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a Bluetooth® Low Energy notification will be sent to the Portenta H7 host updating the door status.
 If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a Bluetooth® Low Energy notification will be sent to the Portenta H7 host updating the door status.
 
 The Portenta H7 will be in charge of receiving the door event notification and updating the dashboard variables in the IoT Cloud immediately so the user can be aware in real time of any change. In addition to these features, the application dashboard will show a historic record of events, alongside an "Intruder Alert", the Bluetooth® Low Energy connection status between both devices and the Nicla Voice battery level so we can know when to recharge it.
 
 ### Nicla Voice Code
 
-Now, we will go through some important code sections to make this application fully operative. We will begin with the required libraries:
+We will go through some important code sections to make this application fully operative. We will begin with the required libraries:
 
 - Including `NDP.h` will enable and run the Neural Decision Processor (NDP120), it's included in the BSP of the Nicla Voice.
 - Including `ArduinoBLE.h` will enable the Bluetooth® Low Energy communication, install it by searching for it on the Library Manager.
