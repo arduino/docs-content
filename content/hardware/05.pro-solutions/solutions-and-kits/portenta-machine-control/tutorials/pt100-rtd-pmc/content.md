@@ -43,7 +43,7 @@ The goals of this tutorial are:
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
 - If you have not done so, follow the steps to set up and activate the PMC license in [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
-## How RTD works
+## How RTD Works
 An RTD (Resistance Temperature Detector) is a temperature sensor that works by measuring the change in electrical resistance of a metal wire or element as temperature changes. The most common metal used for RTDs is platinum, and RTDs are sometimes referred to as PT100 sensors, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
 As temperature increases, the resistance of the metal element in the RTD increases predictably and linearly, which can be measured using an external circuit or instrument. The change in resistance is then converted into a temperature reading using a calibration curve or formula, which relates resistance to temperature.
 
@@ -96,7 +96,7 @@ In this case, **we will set the channel 0 configuration** as described in the Da
 
 ## PLC IDE
 
-### Creating the project
+### Creating the Project
 
 Once we have correctly connected the TP100 to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the  [Configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
 
@@ -124,7 +124,7 @@ By default the TP00 input is disabled. To enable it you only need to click next 
 
 Once enabled, we are ready to continue to the next step creating the necessary variables.
 
-### Creating the variables
+### Creating the Variables
 
 ***By default the project creates an automatic type int variable called "cnt", you can delete it by right-clicking on it and clicking delete.***
 
@@ -158,13 +158,13 @@ Next, plug in your device, make sure it is connected to the Arduino PLC IDE and 
 
 If you are not sure about how to connect your device, you can check it on [the setup tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#5-connect-to-the-device).
 
-![Compile](./assets/compiling.png)
+![Compiling Program](./assets/compiling.png)
 
 If there are no errors when compiling, you can download the code to the device by clicking on the button right to the connection symbol. You may see a warning message about the need to cold restart to download the code. Click Yes:
 
 ![Downloading Code](./assets/download-code.png)
 
-### Watch the values
+### Watch the Values
 
 To watch the values once we have downloaded the code into the PMC, we need to drop the variables in the "**Watch**" section as shown in the following animation. If you can't see the "Watch" window, you can try going to: ```Wiew > Tool Windows > Watch```
 
