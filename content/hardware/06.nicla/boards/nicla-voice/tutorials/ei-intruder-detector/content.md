@@ -173,7 +173,7 @@ The Nicla Voice's integrated NDP needs some files stored in the external flash o
 - dsp_firmware_v91.synpkg
 - ei_model.synpkg
 
-> The files must be named exactly as showed below.
+***The files must be named exactly as showed below. To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.***
 To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.
 
 
@@ -234,7 +234,7 @@ batteryLevelChar.writeValue(HigherBatteryLevel);
 
 ### Portenta H7 Code
 
-The Portenta H7 needs different libraries to work, in this case, are:
+The Portenta H7 needs the following libraries:
 
 - `ArduinoIoTCloud.h` This one handles the Arduino Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
 - `Arduino_ConnectionHandler.h` This one manages the Wi-Fi® connection and can be installed directly from the Arduino Library Manager.
