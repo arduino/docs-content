@@ -234,7 +234,7 @@ batteryLevelChar.writeValue(HigherBatteryLevel);
 
 ### Portenta H7 Code
 
-The Portenta H7 needs different libraries to work, in this case, are:
+The Portenta H7 needs the following libraries:
 
 - `ArduinoIoTCloud.h` This one handles the IoT Cloud connection and project variables publishing, it can be installed directly from the Arduino Library Manager.
 - `Arduino_ConnectionHandler.h` This one manages the Wi-Fi® connection and can be installed directly from the Arduino Library Manager.
