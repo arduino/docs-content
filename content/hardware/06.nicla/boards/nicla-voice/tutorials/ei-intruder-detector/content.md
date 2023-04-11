@@ -449,7 +449,7 @@ Finally, the Portenta verifies continuously if a characteristic is updated to up
 ```
 ### The Cloud Dashboard
 
-Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time as you can see below:
+Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time:
 
 ![Arduino Cloud project dashboard ](assets/dashboard.png)
 
