@@ -40,7 +40,7 @@ In such a connected world, where we have a lot of information in the palm of our
 
 ## Goals
 
-The goal of this application note is to showcase an intruder detection and monitoring system for a house front door using the Nicla Voice + a Portenta H7 as a host and the Arduino IoT Cloud. This project's objectives are the following:
+The goal of this application note is to showcase an intruder detection and monitoring system for the front door of the house using a combination of Nicla Voice and Portenta H7 as a host, and the Arduino IoT Cloud. This project's objectives are the following:
 
 - Analyze the surrounding sounds with the Nicla Voice integrated microphone and run artificial intelligence algorithms at the edge.
 - Correctly identify if a door is opened or tried to be forced.
