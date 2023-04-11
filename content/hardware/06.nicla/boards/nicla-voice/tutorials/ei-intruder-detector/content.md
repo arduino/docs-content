@@ -56,15 +56,15 @@ Here is a graphical setup of the whole application:
 ![Arduino Pro boards and 3D enclosures](assets/hardware.png)
 
 ### Hardware Requirements
-- Nicla Voice.
-- 3.7v LiPo battery.
-- Portenta H7.
-- USB-C® cable.
-- Micro USB cable.
-- 5VDC wall power adapter.
-- DC brushless fan Model: LD3007MS.
-- Nicla Voice 3D printed enclosure.
-- Portenta H7 3D printed enclosure.
+- Nicla Voice
+- 3.7v LiPo battery
+- Portenta H7
+- USB-C® cable
+- Micro USB cable
+- 5VDC wall power adapter
+- DC brushless fan Model: LD3007MS
+- Nicla Voice 3D printed enclosure
+- Portenta H7 3D printed enclosure
 
 ### Software Requirements
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
