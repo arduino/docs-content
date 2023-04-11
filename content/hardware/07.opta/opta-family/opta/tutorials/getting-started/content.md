@@ -68,7 +68,7 @@ Hereafter you can see the correspondence between each of them as identified in t
 - `LED_D2`: STATUS 3
 - `LED_D3`: STATUS 4
 - `LED_RESET`: LED above the reset button
-- `LED_USER`: LED above the user button (only available on the Opta™ with connectivity features)
+- `LED_USER`: LED above the user button (only available on the Opta™ with WiFi®/Bluetooth® Low Energy connectivity features)
 
 Select the correct **board** and **port** in the **Tools** section.
 Copy the sketch below into the Arduino IDE sketch editor, then upload it to Opta™.
