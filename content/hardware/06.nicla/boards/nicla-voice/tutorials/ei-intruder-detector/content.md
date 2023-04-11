@@ -137,7 +137,7 @@ Changed to Bluetooth® Low Energy following Arduino Trademarks rules
 
 The Nicla will communicate with the Portenta H7 through BLE advertising any event to the host that will receive and forward the notification to the Arduino IoT cloud using Wi-Fi®.
 
-The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5VDC USB adapter accompanied by a cooling fan.
+The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5 VDC USB adapter. Although the Portenta H7 can work for long periods without needing external cooling, it is always recommended to keep the devices that are working 24/7 as cool as possible, having the Portenta H7 enclosure a cooling fan connected.
 
 ## Intruder Detector System Overview
 
