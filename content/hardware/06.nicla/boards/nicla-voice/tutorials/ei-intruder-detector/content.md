@@ -141,7 +141,7 @@ The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta 
 
 ## Intruder Detector System Overview
 
-The Nicla Voice attached to the door is running an ML model listening to the surrounding noises and searching for known sounds like the door being opened or the door lock being hit with a metallic tool, for example, to simulate a forcing process.
+The Nicla Voice attached to the door is running a machine learning model listening to the surrounding noises and searching for known sounds like the door being opened or the door lock being hit with a metallic tool, for example, to simulate a forcing process.
 
 If the sounds are recognized with a certainty higher than 70% the event will be considered as occurred and a BLE notification will be sent to the Portenta H7 host updating the door status.
 
