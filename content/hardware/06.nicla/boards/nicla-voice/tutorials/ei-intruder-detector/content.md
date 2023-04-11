@@ -107,7 +107,7 @@ In the learning block:
 
 Here is a graphical representation of how the samples look before and after the digital signal processing:
 
-![Raw audio samples and their spectrograms](assets/samples_dsp_white.png)
+![Raw audio samples of opened, forced and n and their spectrograms](assets/samples_dsp_white.png)
 
 Here is the neural network classifier configuration for this application:
 
