@@ -36,6 +36,8 @@ hardware:
 
 Security has always been a very important factor for our well-being. From the personal to the material, keeping our assets safe is something we struggle with every day, in our cars, lockers, computers, and our houses, we insure everything is locked up, but there are times when that is not enough. 
 
+![Cloud-connected Intruder Detector using a Nicla Voice and a Portenta H7](assets/system_setup.png)
+
 In such a connected world, where we have a lot of information in the palm of our hand, it would also be very useful to have the status of those things that we have insured in a more analogous way, such as the front door of our home. Leveraging the integrated microphone of the Nicla Voice provides the possibility to build this kind of protection system.
 
 ## Goals
@@ -48,9 +50,6 @@ The goal of this application note is to showcase an intruder detection and monit
 - The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (Wi-Fi® in this case).
 - Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
 - Gather real-world data to train a Machine Learning model.
-
-
-![Intruder Detector final deployment](assets/system_setup.png)
 
 ## Hardware and Software Requirements
 
