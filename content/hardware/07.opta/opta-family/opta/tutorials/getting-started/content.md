@@ -302,14 +302,14 @@ Opta™ has 8 input pins that can be programmed to be used as analog or digital.
 | I7                | A6                  | PIN_A6             |
 | I8                | A7                  | PIN_A7             |
 
-The 8 input pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 24V).
+The 8 input pins can be used as digital (having the logical values of LOW or HIGH) or as analog inputs (within a range from 0 to 10V).
 
 * To use them as digital inputs, add the Arduino command `pinMode(pinName, INPUT);` inside the `setup()`.
 * To use them as analog inputs, add the command `analogReadResolution();` with the bit resolution that you want to use.
 
 ![Analog inputs on the Opta™](assets/opta-analog-inputs.svg)
 
-Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 24V.
+Now let's try a sketch that will read the analog inputs on the Opta™. The inputs can operate in a range between 0 and 10V.
 
 The maximum voltage managed by the microcontroller is 3V. This maximum voltage is important to calculate the input voltage using it in conjunction with the resolution factor of the ADCs. That resolution is configured inside the program within the range between 12 bits (4095) and 16 bits (65535).
 
@@ -370,7 +370,7 @@ void loop() {
 
 Once you have uploaded the code, open the serial monitor to see the values read in each analog input. If you have connected a device with an analog voltage value in I1, I2, and/or I3 you will see the voltage or analog value of each signal. In case you did not connect anything to the analog inputs, you will be able to observe the values oscillate around 0V because the pins are floating.
 
-You may notice from the output values that when the maximum value reaches 24V, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. This is due to the precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
+You may notice from the output values that when the maximum value reaches 10V, the corresponding numerical value is not 4095 as the maximum value with 12 bits resolution should be. This is due to the precautional margin taken on the maximum voltage level applied to the inputs to preserve the integrity of the microcontroller.
 
 ### Connecting Opta™ to the Cloud
 

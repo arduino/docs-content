@@ -287,7 +287,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
     <tbody>
         <tr>
             <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...24V </td>
+            <td>0...10V </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
@@ -447,7 +447,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 | Item | Feature                                                             | Item | Feature                                                             |
 |------|---------------------------------------------------------------------|------|---------------------------------------------------------------------|
 | 3A   | Power Supply Terminals 12...24 VDC                                  | 3H   | Ethernet Port Status LEDs                                           |
-| 3B   | I1...I8 digital/analog input terminals (0-24V) configurable via IDE | 3I   | Label Holder                                                        |
+| 3B   | I1...I8 digital/analog input terminals (0-10V) configurable via IDE | 3I   | Label Holder                                                        |
 | 3C   | Reset Button                                                        | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
 | 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                                |
 | 3E   | Status LEDs 1...4 (User Programmable)                               | 3M   | Ethernet port                                                       |

@@ -8,7 +8,7 @@ Microcontroller:
   Cortex-M7 core: Up to 480 MHz
   Cortex-M4 core: Up to 240 MHz
 Input:
-  Configurable digital / analog (0-24V) inputs: 8
+  Configurable digital / analog (0-10V) input: 8
 Relays:
   Nº of relays: 4
   Type: Normally Open (NO)
