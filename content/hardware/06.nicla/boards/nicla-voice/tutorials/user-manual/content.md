@@ -2,7 +2,7 @@
 title: 'Nicla Voice User Manual'
 difficulty: beginner
 compatible-products: [nicla-voice]
-description: 'Learn about the hardware and software features of the Arduino Nicla Voice'
+description: 'Learn about the hardware and software features of the Arduino® Nicla Voice.'
 tags: 
   - IMU
   - Cheat sheet
@@ -20,7 +20,7 @@ software:
 
 ## Overview
 
-This user manual will provide you with a comprehensive overview of the Arduino® Nicla Voice board, covering its main hardware and software features. With this user manual, you will also learn how to set up, configure and use these features. 
+This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. With this user manual, you will also learn how to set up, configure and use these features. 
 
 ## Hardware and Software Requirements
 
@@ -36,27 +36,39 @@ This user manual will provide you with a comprehensive overview of the Arduino®
 
 ## Product Overview
 
-The Nicla Voice is an innovative and versatile development board designed by the Arduino team for voice-enabled projects and applications. This board has an onboard always-on speech recognition processor, advanced sensors, and wireless connectivity via Bluetooth® Low Energy. The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
+The Nicla Voice is an innovative and versatile development board designed by the Arduino team for voice-enabled projects and applications. This board has an onboard always-on speech recognition processor, advanced motion sensors, and wireless connectivity via Bluetooth® Low Energy. The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
 
 ### Board Architecture Overview
 
-The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. Here is an overview of the board's architecture:
+The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. Here is an overview of the board's architecture main components shown in the image below:
 
 - **Microcontroller**: at the heart of the Nicla Voice is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
 - **Speech recognition processor**: the board features the NDP120 Neural Decision Processor™, an ultra-low power always-on speech processor from Syntiant®, which enables several applications including echo-cancellation, beamforming, noise suppression, speech enhancement, speaker identification, and keyword spotting. 
-- **Advanced sensors**: the board features the BMI270, a high-precision IMU by Bosch® Sensortec, which combines a 3-axis accelerometer and a 3-axis gyroscope for precise motion tracking and orientation detection. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
-- **High-performance microphone**:  The Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
-- **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
+- **Onboard advanced motion sensors**: the board features the BMI270, a high-precision IMU by Bosch® Sensortec, which combines a 3-axis accelerometer and a 3-axis gyroscope for precise motion tracking and orientation detection. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
+- **Onboard high-performance microphone**:  The Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
+- **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
 - **Power management**: The Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors.
 
-### Datasheet
+### Board Core and Libraries
 
-### Pinout
+The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to work with the board's components, such as its IMU, magnetometer and onboard. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or clicking the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
 
-### Schematics
+![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader.](assets/user-manual-1.png)
 
-### STEP Files
+### Board Pinout
 
+The Nicla Voice pinout is shown in the image below:
 
+![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader.](assets/nicla-voice-pinout.png)
 
+### Board Datasheet
 
+The Nicla Voice datasheet can be downloaded [here](assets/ABX00061-datasheet.pdf).
+
+### Board Schematics
+
+The Nicla Voice schematics can be downloaded [here](assets/ABX00061-schematics-pdf).
+
+### Board STEP Files
+
+The Nicla Voice STEP files can be downloaded [here](assets/ABX00061-step.zip).
