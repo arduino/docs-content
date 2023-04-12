@@ -1,14 +1,13 @@
 ---
 title: 'Door Intruder Detector Using ML with the Nicla Voice'
-description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino IoT Cloud"
+description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino IoT Cloud."
 difficulty: intermediate
 tags:
   - Intruder detector
   - Nicla
   - Portenta
   - BLE
-  - Machine Learning
-  - Edge Impulse
+  - Machine Learning Tools
   - Sound recognition
   - Arduino IoT Cloud
   - Application Note
@@ -26,7 +25,7 @@ software:
   - arduino-cli
   - web-editor
   - iot-cloud
-  - edge-impulse
+  - machine-learning-tools
   - arduino-agent
 hardware:
   - hardware/06.nicla/boards/nicla-voice
@@ -69,22 +68,23 @@ The goal of this application note is to showcase an intruder detection and monit
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `ArduinoBLE`, `ArduinoIoTCloud`, and `Arduino_ConnectionsHandler`. You can install them using the Arduino IDE Library Manager.
 - The [intruder detector example code](assets/Nicla_Portenta_Codes.zip)
-- [Edge Impulse® CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), which you can install following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation)
+- [Arduino Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/)
+- [Edge Impulse® CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-overview), to easily flash any Machine Learning model created with the Arduino Machine Learning Tools, we can install the Edge Impulse® Cli tool following these [instructions](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation)
 - Nicla Voice audio [firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to upload recordings to Edge Impulse®.
 - [Syntiant® uploader and precompiled ML model](assets/Syntiant_Uploader.zip)
-- [Arduino Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the Portenta H7 to the IoT Cloud
+- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the Portenta H7 to the IoT Cloud
 
 ## The Machine Learning Model
 
 The Machine Learning is a way of programming in which we make our device process raw data from sensors and learn based on extracted meaningful features that will be later used for identifying or predicting the originally trained scenarios.
 
-To be able to identify when the door is being opened or when it is being forced by someone, we trained a machine learning model using the [Edge Impulse](https://www.edgeimpulse.com/) integration with the [Arduino Cloud](https://cloud.arduino.cc/), that will be running repetitively in the Nicla Voice.
+To be able to identify when the door is being opened or when it is being forced by someone, we trained a machine learning model using the [Machine Learning Tools integration](https://cloud.arduino.cc/machine-learning-tools/) that will be running repetitively in the Nicla Voice.
 
-First, we flashed the Nicla Voice with an [audio ingestion firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to record and upload samples to our Edge Impulse project of three different scenarios that we want to identify later. 
+First, we flashed the Nicla Voice with an [audio ingestion firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-voice-firmware.zip) to record and upload samples to our Machine Learning Tools project of three different scenarios that we want to identify later. 
 
 Here is our model design:
 
-![Edge Impulse Model blocks](assets/model_design.png)
+![Machine Learning Model blocks](assets/model_design.png)
 
 As we are using the Nicla Voice, we must follow the model design to be supported by the onboard Syntiant® NDP120 Neural Decision Processor™, taking care of these characteristics.
 
@@ -463,16 +463,15 @@ We can easily access this dashboard from a PC, mobile phone or tablet from anywh
 
 ## Full Intruder Detector Example
 
-
 All the necessary files to replicate this application notes can be found below:
 
 * The complete code can be downloaded [here](assets/Nicla_Portenta_Codes.zip)
 * The enclosure 3D printed models can be downloaded [here](assets/Intruder_Detector_3D_Files.zip). 
-* The Edge Impulse project is public [here](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+* The Machine Learning Tools project is public [here](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
 
 ## Conclusion
 
-In this application note, we have learned how to implement a Machine learning project powered by Edge Impulse and the Arduino Cloud at the edge using a Nicla Voice and a Portenta H7. This application could be a simple demonstration of how Arduino's environment simplifies the workflow for developing smart solutions to solve real-life situations by integrating "complex" and mighty algorithms with just a few easy-to-follow steps. We covered sound recognition, Bluetooth® Low Energy communication, and real-time Cloud monitoring.
+In this application note, we have learned how to implement a Machine Learning Tools project powered by Edge Impulse and the Arduino Cloud at the edge using a Nicla Voice and a Portenta H7. This application could be a simple demonstration of how Arduino's environment simplifies the workflow for developing smart solutions to solve real-life situations by integrating "complex" and mighty algorithms with just a few easy-to-follow steps. We covered sound recognition, Bluetooth® Low Energy communication, and real-time Cloud monitoring.
 
 ### Next Steps
 
