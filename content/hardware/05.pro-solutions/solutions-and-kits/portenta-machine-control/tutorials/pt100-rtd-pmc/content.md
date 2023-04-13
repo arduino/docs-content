@@ -195,7 +195,7 @@ To visualize the values once we have downloaded the code into the PMC, we need t
 ![Watch Variables](./assets/watch-variables.gif)
 
 ## Conclusion
-We have learned to connect RTD and Thermocouple sensors to a Portenta Machine Control and how to monitor the temp values through the Arduino PLC IDE.
+We have learned to connect RTD and Thermocouple sensors to a Portenta Machine Control and how to monitor the temperature values through the Arduino PLC IDE.
 
 We have also learned that there are many different types of RTDs and thermocouples and that we have to choose one according to our needs.
 
