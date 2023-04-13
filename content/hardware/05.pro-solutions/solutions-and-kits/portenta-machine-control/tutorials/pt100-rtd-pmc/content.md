@@ -184,7 +184,7 @@ If you are not sure about how to connect your device, you can check it on [the s
 
 ![Program Compilation](./assets/compiling-connecting.png)
 
-If there are no errors when compiling, you can download the code to the device by clicking on the button right to the connection symbol. You may see a warning message about the need to cold restart to download the code. Click Yes:
+If there are no errors when compiling, you can download the code to the device by clicking on the button found next to the connection symbol. You may see a warning message about the need of cold restart to download the code. Click Yes:
 
 ![Downloading PLC Code](./assets/download-plc-code.png)
 
