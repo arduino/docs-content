@@ -41,7 +41,7 @@ The goals of this tutorial are:
 ### Hardware Requirements
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - Micro-USB cable (x1)
-- RTD or Thermocouple - We will use an PT100 RTD (x1)
+- PT100 RTD (x1)
 
 ### Software Requirements
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
