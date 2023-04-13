@@ -21,7 +21,7 @@ software:
 ---
 
 ## Introduction
-**RTDs** (Resistance Temperature Detectors) and Thermocouples are both used for temperature measurement in various industries. RTDs are sensors that change resistance in response to changes in temperature. They are commonly used in industries that require precise temperature measurements, such as food processing and pharmaceuticals. 
+**RTDs** (Resistance Temperature Detectors) and **Thermocouples** are used for temperature measurement in various industrial fields. RTDs are sensors that change resistance in response to changes in temperature. They are used regularly in industries that require precise temperature measurements, such as food processing and pharmaceuticals. 
 
 On the other hand, **Thermocouples** are temperature sensors that generate a voltage proportional to the temperature difference between two junctions. They are widely used in industrial applications such as HVAC systems, engines, and power plants. 
 
