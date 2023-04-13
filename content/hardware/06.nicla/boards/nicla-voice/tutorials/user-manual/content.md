@@ -63,9 +63,9 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to wor
 
 ### Board Pinout
 
-The Nicla Voice pinout is shown in the image below:
+The full pinout is available and downloadable as PDF from the link below:
 
-![Nicla Voice pinout](assets/nicla-voice-pinout.png)
+- [Nicla Voice pinout](assets/ABX00061-datasheet.pdf)
 
 ### Board Datasheet
 
@@ -136,3 +136,56 @@ The speech recognition example can be found in the board's built-in examples by 
 
 ## Board Pins
 
+The Nicla Voice pinout is shown in the image below:
+
+![Nicla Voice pinout](assets/nicla-voice-pinout.png)
+
+### Analog Pins
+
+The Nicla Voice has two analog pins mapped as `A0` and `A1`. Both pins can be used through the built-in functions of the Arduino programming language, as shown in the example code below: 
+
+```arduino
+int val = 0;
+
+void setup() {
+  Serial1.begin(9600);        // Baud rate configuration
+}
+
+void loop() {
+  val = analogRead(A0);       // Read analog pin A0, store value in val variable
+  Serial1.println(val);       // Print val variable value in the IDE Serial Monitor
+  delay(1000);                // Wait 1000 milliseconds
+}
+```
+
+### Digital Pins
+
+The Nicla Voice has ten digital pins, analog pins `A0` and `A1` can also be used as digital pins. The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language.
+
+The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+
+```arduino
+pinMode(pin, INPUT);          // Pin configured as an input
+pinMode(pin, OUTPUT);         // Pin configured as an output
+pinMode(pin, INPUT_PULLUP);   // Pin configured as an input, internal pull-up resistor enabled
+```
+
+The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+state = digitalRead(pin);     // Reads pin state, store value in state variable
+```
+
+The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
+
+```arduino
+digitalWrite(pin, HIGH);      // Set pin on
+```
+
+### PWM Pins
+
+Most digital and analog pins of the Nicla Voice can be used as PWM (Pulse Width Modulation) pins. This functionality  of the Nicla Voice pins can be used with the built-in function `analogWrite()` as shown below:
+
+```arduino
+analogWrite(pin, value);  
+```
