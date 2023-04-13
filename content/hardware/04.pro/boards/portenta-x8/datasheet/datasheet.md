@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The Arduino® Portenta X8 is a high-performance system module designed to power the upcoming generation of the Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini (4+1-cores) hosting an embedded Linux OS with the STM32H7 (2-cores) for real-time applications in the Arduino environment. Shield and carrier boards are available to extend the functionality of the Portenta X8 or alternatively can be used as reference designs to develop your own custom solutions.
+The Arduino® Portenta X8 is a high-performance system on module designed to power the upcoming generation of the Industrial Internet of Things. This board combines the NXP® i.MX 8M Mini (4+1-cores) hosting an embedded Linux OS with the STM32H7 (2-cores) for real-time applications in the Arduino environment. Shield and carrier boards are available to extend the functionality of the Portenta X8 or alternatively can be used as reference designs to develop your own custom solutions.
 
 # Target Areas
 
@@ -273,7 +273,7 @@ Edge computing, industrial internet of things, system on module, artificial inte
 
 ### Application Examples
 
-The Arduino® Portenta X8 has been designed with high-performance embedded computing applications in mind, based on the quad-core NXP® i.MX 8M Mini Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
+The Arduino® Portenta X8 has been designed for high-performance embedded computing applications in mind, based on the quad-core NXP® i.MX 8M Mini Processor. The Portenta form factor enables the use of a wide range of shields to expand upon its functionality.
 
 - **Embedded Linux:** Kickstart the deployment of Industry 4.0 with Linux Board Support Packages running on the feature packed and energy efficient Arduino® Portenta X8. Make use of the GNU toolchain to develop your solutions free from a technological lock-in.
 - **High performance networking:** The Arduino® Portenta X8 includes Wi-Fi® and Bluetooth® connectivity to interact with a wide range of external devices and networks providing high flexibility. Additionally, the Gigabit Ethernet interface provides high speed and low latency for the most demanding of applications.
@@ -458,7 +458,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Declaration of Conformity CE DoC (EU)
 
-We declare under our sole responsibility that the products above conform with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
@@ -483,7 +483,7 @@ Arduino Boards are fully compliant with the related requirements of European Uni
 
 ### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 
