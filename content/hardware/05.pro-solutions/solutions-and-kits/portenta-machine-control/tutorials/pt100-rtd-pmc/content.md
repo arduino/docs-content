@@ -45,7 +45,7 @@ The goals of this tutorial are:
 
 ### Software Requirements
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
-- If you have not done so, follow the steps to set up and activate the PMC license in [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
+- If you have not done so, set up and activate the PMC license following the steps in [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
 ## How It Works
 
