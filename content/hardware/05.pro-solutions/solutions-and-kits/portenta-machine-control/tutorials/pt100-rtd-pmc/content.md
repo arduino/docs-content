@@ -39,7 +39,7 @@ The goals of this tutorial are:
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
-- Portenta Machine Control (x1)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - Micro-USB cable (x1)
 - RTD or Thermocouple - We will use an PT100 RTD (x1)
 
