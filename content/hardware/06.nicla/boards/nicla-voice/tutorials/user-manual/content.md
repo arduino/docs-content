@@ -20,7 +20,9 @@ software:
 
 ## Overview
 
+<div style="text-align: justify">
 This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. With this user manual, you will also learn how to set up, configure and use these features. 
+ </div>
 
 ## Hardware and Software Requirements
 
@@ -36,10 +38,13 @@ This user manual will provide you with a comprehensive overview of the Arduino N
 
 ## Product Overview
 
+<div style="text-align: justify">
 The Nicla Voice is an innovative and versatile development board designed by the Arduino team for voice-enabled projects and applications. This board has an onboard always-on speech recognition processor, advanced motion sensors, and wireless connectivity via Bluetooth® Low Energy. The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
+ </div>
 
 ### Board Architecture Overview
 
+<div style="text-align: justify">
 The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. Here is an overview of the board's architecture main components shown in the image below:
 
 - **Microcontroller**: at the heart of the Nicla Voice is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
@@ -48,6 +53,7 @@ The Nicla Voice features a robust and efficient architecture that integrates var
 - **Onboard high-performance microphone**:  The Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
 - **Power management**: The Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors.
+ </div>
 
 ### Board Core and Libraries
 
