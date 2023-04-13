@@ -369,3 +369,38 @@ The sticky note widget can be used to write important notes or to categorize you
 
 The sticky note can **not** be linked with a variable, and is designed to keep notes only while using a dashboard. It does support the use of markdown, so that you can create titles, links, code blocks etc.
 
+### Value Selector
+
+![Value Selector](assets/widget-value-picker.png)
+
+The value selector widget can be used to switch between predetermined values through available buttons. Supported variable types are `int` and `String`. 
+
+Example:
+
+```arduino
+if(valueSelector == 0){
+  //if value matches, execute code
+}
+
+if(valueSelector == "string"){
+  //if string matches, execute code
+}
+```
+
+### Value Dropdown
+
+![Value Dropdown](assets/widget-dropdown.png)
+
+The value dropdown widget works similarly to **value selector**, and is be used to switch between predetermined values through a dropdown menu. Supported variable types are `int` and `String`. 
+
+Example:
+
+```arduino
+if(valueDropDown == 0){
+  //if value matches, execute code
+}
+
+if(valueDropDown == "string"){
+  //if string matches, execute code
+}
+```
