@@ -142,29 +142,34 @@ The Nicla Voice pinout is shown in the image below:
 
 ### Analog Pins
 
-The Nicla Voice has two analog pins mapped as `A0` and `A1`. Both pins can be used through the built-in functions of the Arduino programming language, as shown in the example code below: 
+The Nicla Voice has two analog pins mapped as `A0` and `A1`. Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
 
 ```arduino
-int val = 0;
+// Define the potentiometer pin and variable to store its value
+int potentiometerPin = A0;
+int potentiometerValue = 0;
 
 void setup() {
-  // Baud rate configuration
-  Serial1.begin(9600);       
+  // Initialize Serial communication
+  Serial1.begin(9600);
 }
 
 void loop() {
-  // Read analog pin A0, store value in val variable
-  val = analogRead(A0);       
+  // Read the voltage value from the potentiometer
+  potentiometerValue = analogRead(potentiometerPin);
 
-  // Print val variable value in the IDE Serial Monitor, wait 1000 milliseconds
-  Serial1.println(val);       
-  delay(1000);                
+  // Print the potentiometer voltage value to the Serial Monitor
+  Serial1.print("- Potentiometer voltage value: ");
+  Serial1.println(potentiometerValue);
+
+  // Wait for 1000 milliseconds
+  delay(1000);
 }
 ```
 
 ### Digital Pins
 
-The Nicla Voice has ten digital pins, analog pins `A0` and `A1` can also be used as digital pins. The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language.
+The Nicla Voice has ten digital pins mapped as `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8` and `9`; analog pins `A0` and `A1` can also be used as digital pins. The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language.
 
 The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
@@ -182,21 +187,93 @@ pinMode(pin, INPUT_PULLUP);
 The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
 
 ```arduino
-state = digitalRead(pin);     // Reads pin state, store value in state variable
+// Reads pin state, stores value in state variable
+state = digitalRead(pin);
 ```
 
 The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
 
 ```arduino
-digitalWrite(pin, HIGH);      // Set pin on
+// Set pin on
+digitalWrite(pin, HIGH);    
+
+// Set pin off
+digitalWrite(pin, HIGH);    
 ```
 
+The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
+
+```arduino
+// Define button and LED pin
+int buttonPin = 2;
+int ledPin = 3;
+
+// Variable to store the button state
+int buttonState = 0;
+
+void setup() {
+  // Configure button and LED pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize Serial communication
+  Serial1.begin(9600);
+}
+
+void loop() {
+  // Read the state of the button
+  buttonState = digitalRead(buttonPin);
+
+  // If the button is pressed, turn on the LED and print its state to the Serial Monitor
+  if (buttonState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Serial1.println("- Button is pressed. LED is on.");
+  } else {
+    // If the button is not pressed, turn off the LED and print to the Serial Monitor
+    digitalWrite(ledPin, LOW);
+    Serial1.println("- Button is not pressed. LED is off.");
+  }
+
+  // Wait for 1000 milliseconds
+  delay(1000);
+}
+```
 ### PWM Pins
 
 Most digital and analog pins of the Nicla Voice can be used as PWM (Pulse Width Modulation) pins. This functionality  of the Nicla Voice pins can be used with the built-in function `analogWrite()` as shown below:
 
 ```arduino
 analogWrite(pin, value);  
+```
+
+The example code shown below uses digital pin `9` PWM functionality to control the brightnees of an LED connected to it:
+
+```arduino
+// Define the LED pin, brightness, and fade amount variables
+int ledPin = 9;
+int brightness = 0;
+int fadeAmount = 5;
+
+void setup() {
+  // Configure the LED pin as an output
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Set the brightness of the LED
+  analogWrite(ledPin, brightness);
+
+  // Update the brightness value
+  brightness += fadeAmount;
+
+  // Reverse the fade direction when reaching the limits
+  if (brightness <= 0 || brightness >= 255) {
+    fadeAmount = -fadeAmount;
+  }
+
+  // Wait for 30 milliseconds
+  delay(30);
+}
 ```
 
 ## Board Actuators
