@@ -65,7 +65,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to wor
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Voice pinout](assets/ABX00061-datasheet.pdf)
+- [Nicla Voice pinout](assets/ABX00061-full-pinout.pdf)
 
 ### Board Datasheet
 
@@ -148,13 +148,17 @@ The Nicla Voice has two analog pins mapped as `A0` and `A1`. Both pins can be us
 int val = 0;
 
 void setup() {
-  Serial1.begin(9600);        // Baud rate configuration
+  // Baud rate configuration
+  Serial1.begin(9600);       
 }
 
 void loop() {
-  val = analogRead(A0);       // Read analog pin A0, store value in val variable
-  Serial1.println(val);       // Print val variable value in the IDE Serial Monitor
-  delay(1000);                // Wait 1000 milliseconds
+  // Read analog pin A0, store value in val variable
+  val = analogRead(A0);       
+
+  // Print val variable value in the IDE Serial Monitor, wait 1000 milliseconds
+  Serial1.println(val);       
+  delay(1000);                
 }
 ```
 
@@ -165,9 +169,14 @@ The Nicla Voice has ten digital pins, analog pins `A0` and `A1` can also be used
 The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
 ```arduino
-pinMode(pin, INPUT);          // Pin configured as an input
-pinMode(pin, OUTPUT);         // Pin configured as an output
-pinMode(pin, INPUT_PULLUP);   // Pin configured as an input, internal pull-up resistor enabled
+// Pin configured as an input
+pinMode(pin, INPUT);        
+
+// Pin configured as an output
+pinMode(pin, OUTPUT);        
+
+// Pin configured as an input, internal pull-up resistor enabled
+pinMode(pin, INPUT_PULLUP);  
 ```
 
 The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
@@ -188,4 +197,89 @@ Most digital and analog pins of the Nicla Voice can be used as PWM (Pulse Width 
 
 ```arduino
 analogWrite(pin, value);  
+```
+
+## Board Actuators
+
+### RGB LED
+
+The Nicla Voice features a built-in I2C RGB LED that can be utilized as a visual feedback indicator for the user. The LED is connected through the boards's I2C port, therefore specific functions need to be used to operated the LED colors. 
+
+To use the RGB LED, include the `Nicla System` header:
+
+```arduino
+// Include the Nicla System header to access the built-in RGB LED functions
+#include "Nicla_System.h" 
+```
+
+Since the functions are scoped under a specific class name called `nicla`, you need to explicitly write it before each statement. To initialize the board built-in RGB LED along with the Nicla system inside the void `setup()` function:
+
+```arduino
+void setup() {
+  // Initialize the Nicla system and the built-in RGB LED
+  nicla::begin();
+  nicla::leds.begin();
+}
+```
+
+The built-in RGB LED can be set to a desired color using the RGB color model in which the red, green and blue primary colors of light are added together in various ways to reproduce a broad array of colors. There are predefined colors: `red`, `green`, `blue`, `yellow`, `magenta`, and `cyan`; to turn off the LED use `off`. To set the built-in RBG LED to a predefined color, for example green or blue:
+
+```arduino
+void loop() {
+  // Set the LED color to green, wait for 1000 milliseconds
+  nicla::leds.setColor(green);
+  delay(1000);
+
+  // Set the LED color to blue, wait for 1000 milliseconds
+  nicla::leds.setColor(blue);
+  delay(1000);  
+}
+```
+
+To turn off the built-in RGB LED:
+
+```arduino
+// Turn off the LED
+nicla::leds.setColor(off);
+```
+
+You can also choose a value between o and 255 for each color component (red, green or blue) to set a custom color:
+
+```arduino
+void loop() {
+  // Define custom color values for red, green, and blue components
+  int red = 234;
+  int green = 72;
+  int blue = 122;
+
+  // Set the LED to the custom color, wait for 1000 milliseconds
+  nicla::leds.setColor(red, green, blue);
+  delay(1000);
+
+  // Turn off the LED and wait, wait for 1000 milliseconds
+  nicla::leds.setColor(off);
+  delay(1000); 
+}
+```
+Here's a complete example code to blink the built-in I2C RGB LED of the Nicla Voice:
+
+```arduino
+// Include the Nicla System header to access the built-in RGB LED functions
+#include "Nicla_System.h"
+
+void setup() {
+  // Initialize the Nicla system and the built-in RGB LED
+  nicla::begin();
+  nicla::leds.begin();  
+}
+
+void loop() {
+  // Set the LED color to red, wait for 1000 milliseconds
+  nicla::leds.setColor(red);
+  delay(1000);
+
+  // Turn off the LED and wait, wait for 1000 milliseconds
+  nicla::leds.setColor(off);
+  delay(1000); 
+}
 ```
