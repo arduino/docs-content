@@ -182,7 +182,7 @@ Next, plug in your device, make sure it is connected to the Arduino PLC IDE and 
 
 If you are not sure about how to connect your device, you can check it on [the setup tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#5-connect-to-the-device).
 
-![Compiling Program](./assets/compiling-connecting.png)
+![Program Compilation](./assets/compiling-connecting.png)
 
 If there are no errors when compiling, you can download the code to the device by clicking on the button right to the connection symbol. You may see a warning message about the need to cold restart to download the code. Click Yes:
 
