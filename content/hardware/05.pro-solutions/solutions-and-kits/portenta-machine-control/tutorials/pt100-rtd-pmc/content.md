@@ -25,7 +25,7 @@ software:
 
 On the other hand, **Thermocouples** are transducers that correlate and provide the voltage proportional to the temperature difference between two junctions. They are widely used in industrial applications such as HVAC systems, diesel engines, and power plants.
 
-Both RTDs and Thermocouples have their unique advantages and disadvantages, which make them suitable for different applications depending on the accuracy, speed, and temperature range required.
+Both RTDs and thermocouples have unique characteristics, which make them suitable for different applications depending on the required accuracy, speed, and temperature range.
 
 **In this tutorial**, we are going to connect a two-wire PT100 RTD but we will also explain how to connect a three-wire RTD and a thermocouple.
 
