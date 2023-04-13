@@ -20,11 +20,7 @@ software:
 
 ## Overview
 
-<div style="text-align: justify;">
-
 This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. With this user manual, you will also learn how to set up, configure and use these features. 
-
- </div>
 
 ## Hardware and Software Requirements
 
@@ -40,15 +36,9 @@ This user manual will provide you with a comprehensive overview of the Arduino N
 
 ## Product Overview
 
-<div style="text-align: justify;">
-
 The Nicla Voice is an innovative and versatile development board designed by the Arduino team for voice-enabled projects and applications. This board has an onboard always-on speech recognition processor, advanced motion sensors, and wireless connectivity via Bluetooth® Low Energy. The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
 
- </div>
-
 ### Board Architecture Overview
-
-<div style="text-align: justify;">
 
 The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. Here is an overview of the board's architecture main components shown in the image above:
 
@@ -58,16 +48,10 @@ The Nicla Voice features a robust and efficient architecture that integrates var
 - **Onboard high-performance microphone**:  The Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
 - **Power management**: The Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors. The Nicla Voice features the BQ25120 from Texas Instruments, this is a highly integrated battery charge managemet integrated circuit (IC) specially designed for wearables and Internet of Things (IoT) devices. 
-  
- </div>
 
 ### Board Core and Libraries
 
-<div style="text-align: justify;">
-
 The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to work with the board's components, such as its IMU, magnetometer and onboard. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or clicking the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
-
-</div>
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader.](assets/user-manual-1.png)
 
@@ -97,7 +81,7 @@ The Nicla voice can be powered in four ways:
 
 1. Using a Micro USB cable (not included). 
 2. Using an external 5 V power supply connected to `VIN_BQ25120` pin, **the recommended power supply voltage is 5 V**.
-3. Using a 3.7 V Lithium Polymer (Li-Po) battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A battery with an integrated NTC thermistor monitor is also recommended for thermal protection. 
+3. Using a 3.7 V Lithium Polymer (Li-Po) battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 4. Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
 
 ### NDP Processor Firmware Update
