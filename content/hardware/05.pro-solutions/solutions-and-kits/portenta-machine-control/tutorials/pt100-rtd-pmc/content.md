@@ -35,7 +35,7 @@ The goals of this tutorial are:
 - Understand the operation of the PMC's Temperature Probe inputs
 - Learn about PLC IDE functions and variables
 - Read the temperature values using the Arduino PLC IDE
-- Learn about the main differences between RTD and Thermocouples
+- Learn about the differences between RTD and thermocouples
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
