@@ -67,8 +67,19 @@ The Nicla Voice datasheet can be downloaded [here](assets/ABX00061-datasheet.pdf
 
 ### Board Schematics
 
-The Nicla Voice schematics can be downloaded [here](assets/ABX00061-schematics-pdf).
+The Nicla Voice schematics can be downloaded [here](assets/ABX00061-schematics.pdf).
 
 ### Board STEP Files
 
 The Nicla Voice STEP files can be downloaded [here](assets/ABX00061-step.zip).
+
+## Board First Use
+
+### Powering the Board
+
+The Nicla voice can be powered in four ways:
+
+1. Using a Micro USB cable. 
+2. Using an external 5 V power supply connected to `VIN_BQ25120` pin. The recommended voltage is 5 V; the minimum voltage is 3.4 V and the maximum is 5.5 V.
+3. Using a 3.7 V Lithium Polymer battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A battery with an integrated NTC thermistor monitor is also recommended for thermal protection. 
+4. Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
