@@ -69,15 +69,21 @@ The Nicla Voice pinout is shown in the image below:
 
 ### Board Datasheet
 
-The Nicla Voice datasheet can be downloaded [here](assets/ABX00061-datasheet.pdf).
+The full datasheet is available and downloadable as PDF from the link below:
+
+- [Nicla Voice datasheet](assets/ABX00061-datasheet.pdf).
 
 ### Board Schematics
 
-The Nicla Voice schematics can be downloaded [here](assets/ABX00061-schematics.pdf).
+The full schematics are available and downloadable as PDF from the link below:
+
+- [Nicla Voice schematics ](assets/ABX00061-schematics.pdf).
 
 ### Board STEP Files
 
-The Nicla Voice STEP files can be downloaded [here](assets/ABX00061-step.zip).
+The full STEP files are available and downloadable from the link below:
+
+- [Nicla Voice STEP files](assets/ABX00061-step.zip).
 
 ## Board First Use
 
@@ -92,7 +98,7 @@ The Nicla voice can be powered by:
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
-### NDP Processor Firmware Update
+### NDP120 Processor Firmware Update
 
 It is recommended to update the NDP120 processor firmware and the built-in speech recognition model to the latest release. Follow these three steps to complete the update process:
 
@@ -129,3 +135,4 @@ After successfully updating the NDP120 processor firmware and the speech recogni
 ![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-5.png)
 
 ## Board Pins
+
