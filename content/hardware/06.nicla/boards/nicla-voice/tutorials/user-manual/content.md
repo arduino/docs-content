@@ -40,7 +40,13 @@ The Nicla Voice is an innovative and versatile development board designed by the
 
 ### Board Architecture Overview
 
-The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. Here is an overview of the board's architecture main components shown in the image above:
+The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. 
+
+![The Nicla Voice main components (top view)](assets/user-manual-2.png)
+
+![The Nicla Voice main components (bottom view)](assets/user-manual-3.png)
+
+Here is an overview of the board's architecture main components shown in the images above:
 
 - **Microcontroller**: at the heart of the Nicla Voice is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
 - **Speech recognition processor**: the board features the NDP120 Neural Decision Processor™, an ultra-low power always-on speech processor from Syntiant®, which enables several applications including echo-cancellation, beamforming, noise suppression, speech enhancement, speaker identification, and keyword spotting. 
@@ -53,7 +59,7 @@ The Nicla Voice features a robust and efficient architecture that integrates var
 
 The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to work with the board's components, such as its IMU, magnetometer and onboard. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or clicking the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
 
-![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader.](assets/user-manual-1.png)
+![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/user-manual-1.png)
 
 ### Board Pinout
 
@@ -77,12 +83,12 @@ The Nicla Voice STEP files can be downloaded [here](assets/ABX00061-step.zip).
 
 ### Powering the Board
 
-The Nicla voice can be powered in four ways:
+The Nicla voice can be powered by:
 
-1. Using a Micro USB cable (not included). 
-2. Using an external 5 V power supply connected to `VIN_BQ25120` pin, **the recommended power supply voltage is 5 V**.
-3. Using a 3.7 V Lithium Polymer (Li-Po) battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-4. Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
+- Using a Micro USB cable (not included). 
+- Using an external 5 V power supply connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual), **the recommended power supply voltage is 5 V**.
+- Using a 3.7 V Lithium Polymer (Li-Po) battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and **the recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
 
 ### NDP Processor Firmware Update
 
@@ -112,12 +118,12 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 
     Ensure all executed commands return a `filename sent succesful` message in the console as shown in the image below. 
 
-    ![Uploader feedback messages](assets/user-manual-2.png)
+    ![Uploader feedback messages](assets/user-manual-4.png)
 
 ### Built-in Speech Recognition Example
 
 After successfully updating the NDP120 processor firmware and the speech recognition model to the latest release , we can upload the speech recognition example to the Nicla Voice. The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the example say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the keyword "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected as shown in the image below:
 
-![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-3.png)
+![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-5.png)
 
 ## Board Pins
