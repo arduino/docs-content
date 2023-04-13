@@ -142,6 +142,10 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
             <td>Ethernet, RS-485 (AFX00001 & AFX00002), Wi-Fi® 2.4 GHz and Bluetooth® LE 4.2 supported by firmware, 5.1 supported by hardware (AFX00002) </td>
         </tr>
         <tr>
+            <td style="vertical-align: top;">RTC</td>
+            <td>~10 days, NTP sync through Wi-Fi® (AFX00002 only) or Ethernet </td>
+        </tr>
+        <tr>
             <td style="vertical-align: top;">Security</td>
             <td>ATECC608B Crypto Microchip </td>
         </tr>
