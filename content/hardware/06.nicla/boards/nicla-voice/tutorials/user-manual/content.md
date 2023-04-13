@@ -33,18 +33,25 @@ This user manual will provide you with a comprehensive overview of the Arduino N
 
 ### Software Requirements
 
+<div style="text-align: justify;">
+
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - To create custom Machine Learning models, we will use the integrated Machine Learning Tools of the [Arduino Cloud](https://create.arduino.cc/iot/) (you will need to create an account if you don't have one yet)
 
+</div>
+
 ## Product Overview
 
-<div style="text-align: justify">
+<div style="text-align: justify;">
+
 The Nicla Voice is an innovative and versatile development board designed by the Arduino team for voice-enabled projects and applications. This board has an onboard always-on speech recognition processor, advanced motion sensors, and wireless connectivity via Bluetooth® Low Energy. The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
+
  </div>
 
 ### Board Architecture Overview
 
-<div style="text-align: justify">
+<div style="text-align: justify;">
+
 The Nicla Voice features a robust and efficient architecture that integrates various components to enable voice-enabled projects and applications. Here is an overview of the board's architecture main components shown in the image below:
 
 - **Microcontroller**: at the heart of the Nicla Voice is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
@@ -53,11 +60,16 @@ The Nicla Voice features a robust and efficient architecture that integrates var
 - **Onboard high-performance microphone**:  The Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
 - **Power management**: The Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors.
+  
  </div>
 
 ### Board Core and Libraries
 
+<div style="text-align: justify;">
+
 The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to work with the board's components, such as its IMU, magnetometer and onboard. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or clicking the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
+
+</div>
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader.](assets/user-manual-1.png)
 
@@ -85,9 +97,9 @@ The Nicla Voice STEP files can be downloaded [here](assets/ABX00061-step.zip).
 
 The Nicla voice can be powered in four ways:
 
-1. Using a Micro USB cable. 
-2. Using an external 5 V power supply connected to `VIN_BQ25120` pin. The recommended voltage is 5 V; the minimum voltage is 3.4 V and the maximum is 5.5 V.
-3. Using a 3.7 V Lithium Polymer battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A battery with an integrated NTC thermistor monitor is also recommended for thermal protection. 
+1. Using a Micro USB cable (not included). 
+2. Using an external 5 V power supply connected to `VIN_BQ25120` pin, **the recommended power supply voltage is 5 V**.
+3. Using a 3.7 V Lithium Polymer (Li-Po) battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A battery with an integrated NTC thermistor monitor is also recommended for thermal protection. 
 4. Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
 
 ### NDP Processor Firmware Update
@@ -125,3 +137,5 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 After successfully updating the NDP120 processor firmware and the speech recognition model to the latest release , we can upload the speech recognition example to the Nicla Voice. The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the example say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the keyword "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected as shown in the image below:
 
 ![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-3.png)
+
+## Board Pins
