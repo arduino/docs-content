@@ -1,7 +1,7 @@
 ---
 title: 'Connect an RTD/Thermocouple to the Portenta Machine Control'
 difficulty: beginner
-description: "How to connect an RTD (Resistance Temperature Detector) or a thermocouple the to Portenta Machine Control and monitor the values using the Arduino PLC IDE."
+description: "How to connect an RTD (Resistance Temperature Detector) or a thermocouple to Portenta Machine Control and monitor the values using the Arduino PLC IDE."
 tags:
   - RTD
   - Thermocouple
