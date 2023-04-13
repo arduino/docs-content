@@ -59,7 +59,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to wor
 
 The Nicla Voice pinout is shown in the image below:
 
-![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader.](assets/nicla-voice-pinout.png)
+![Nicla Voice pinout.](assets/nicla-voice-pinout.png)
 
 ### Board Datasheet
 
@@ -83,3 +83,39 @@ The Nicla voice can be powered in four ways:
 2. Using an external 5 V power supply connected to `VIN_BQ25120` pin. The recommended voltage is 5 V; the minimum voltage is 3.4 V and the maximum is 5.5 V.
 3. Using a 3.7 V Lithium Polymer battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the recommended battery capacity for the Nicla Voice is 200 mAh. A battery with an integrated NTC thermistor monitor is also recommended for thermal protection. 
 4. Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
+
+### NDP Processor Firmware Update
+
+It is recommended to update the NDP120 processor firmware and the built-in speech recognition model to the latest release. Follow these three steps to complete the update process:
+
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
+2. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, as well as the updated NDP120 processor firmware and speech recognition model, in a known location in your computer. 
+3. Open a new terminal in the location where the .zip file was extracted and execute the following command:
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
+    ```
+
+    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands:
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
+    ```
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
+    ```
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
+    ```
+
+    Ensure all executed commands return a `filename sent succesful` message in the console as shown in the image below. 
+
+    ![Uploader feedback messages](assets/user-manual-2.png)
+
+### Built-in Speech Recognition Example
+
+After successfully updating the NDP120 processor firmware and the speech recognition model to the latest release , we can upload the speech recognition example to the Nicla Voice. The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the example say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the keyword "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected as shown in the image below:
+
+![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-3.png)
