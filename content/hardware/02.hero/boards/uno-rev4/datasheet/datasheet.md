@@ -8,7 +8,7 @@ type: maker
 
 # Description 
 
-The Arduino® UNO R4 Minima is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on the 48MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is much larger than its predecessors, with 256KB Flash & 32KB SRAM.
+The Arduino® UNO R4 Minima is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is much larger than its predecessors, with 256KB flash, 32KB SRAM and 8KB data memory (EEPROM).
 
 The UNO R4 Minima board's operating voltage is 5V, making it hardware retro compatible with all accessories in the UNO form factor.
 
@@ -16,7 +16,7 @@ The UNO R4 Minima board's operating voltage is 5V, making it hardware retro comp
 Maker, beginner, education
 
 # Features
-* **R7FA4M1AB3CFM#AA0** Microcontroller
+* **R7FA4M1AB3CFM#AA0**
   * 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
   * 5V operating voltage
   * Realtime Clock (RTC)
@@ -39,7 +39,7 @@ Maker, beginner, education
     * 32.768 kHz low-speed on-chip oscillator (LOCO)
   * Segment LCD Controller (SLCDC)
 * **Power**
-  * Operating voltage for RA4M1 is 5V
+  * Operating voltage for R7FA4M1AB3CFM#AA0 is 5V
   * Recommended input voltage (VIN) is 6-24V
   * Barrel jack connected to VIN pin
   * Power via USB-C® at 5V
@@ -82,7 +82,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 | V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
 | T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
 
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 3.3V power rail. V<sub>AREF</sub> is for the analog logic.
+**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
 
 <div style="page-break-after: always;"> </div>
 
@@ -98,6 +98,8 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ![Top View of Arduino UNO R4 Minima]()
 
+***BELOW IS GIGA PLACEHOLDER DATA, IGNORE***
+
 | **Ref.** | **Description**                         | **Ref.** | **Description**                     |
 | -------- | --------------------------------------- | -------- | ----------------------------------- |
 | U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC     |
@@ -111,6 +113,8 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 | J14      | Micro UFL connector                     | J5       | Camera                              |
 | J6       | Camera                                  | DL1      | Power LED                           |
 | DL2      | RGB SMLP34RGB2W3 Common anode LED       | J12      | CX90B-16P USB-C® connector          |
+
+***ABOVE IS GIGA PLACEHOLDER DATA, IGNORE***
 
 ### Back View
 
