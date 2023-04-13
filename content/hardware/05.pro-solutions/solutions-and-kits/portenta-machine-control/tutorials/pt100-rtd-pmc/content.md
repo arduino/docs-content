@@ -50,10 +50,10 @@ The goals of this tutorial are:
 ## How It Works
 
 ### RTD 
-An **RTD** (Resistance Temperature Detector) is a temperature sensor that works by measuring the change in electrical resistance of a metal wire or element as temperature changes. The most common metal used for RTDs is platinum, and RTDs are sometimes referred to as PT100 sensors, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
+A **Resistance Temperature Detector**, or **RTD**, is a temperature sensor that works by measuring the change in electrical resistance of a metal wire or element as temperature changes. The most common metal used for RTDs is platinum and they are sometimes referred to as PT100 sensors, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
 As temperature increases, the resistance of the metal element in the RTD increases predictably and linearly, which can be measured using an external circuit or instrument. The change in resistance is then converted into a temperature reading using a calibration curve or formula, which relates resistance to temperature.
 
-RTDs are commonly used in industrial applications where temperature measurement is critical for process control and safety, and they are preferred over other types of temperature sensors because of their high accuracy, stability, and repeatability over a narrow temperature range.
+RTDs are commonly used in industrial applications where temperature measurement is critical for process control and safety. They are preferred over other types of temperature sensors because of their high accuracy, stability, and repeatability over a narrow temperature range.
 
 ### Thermocouples
 
@@ -63,13 +63,13 @@ Thermocouples are used in a wide range of applications where temperature measure
 
 ## Connections
 
-![Temp Probes Inputs](./assets/temp-probes-inputs.png)
+![Temperature Probe Inputs](./assets/temp-probes-inputs.png)
 
-Depending on the sensor you use, you will establish different connections. Below are three tables with information on how to connect a thermocouple, a two-wire RTD (PT100) or a three-wire RTD (PT1000). 
+Depending on the sensor you use, you will have to check connection settings. Below are three tables with information on how to connect a thermocouple, a two-wire RTD (PT100), or a three-wire RTD (PT1000). 
 
-### Connect Thermocouples
+### Thermocouples Connection
 
-Connect **only non-grounded thermocouples**. (Grounded thermocouples are not supported). Do not connect both a thermocouple and a PT100 to a channel.
+Connect **only non-grounded thermocouples** (grounded thermocouples are not supported). Do not connect both a thermocouple and a PT100 to a single same channel.
 The thermocouples supported by PMC are:
 - Thermocouple Type K, non-grounded
 - Thermocouple Type J, non-grounded
@@ -84,7 +84,7 @@ The thermocouples supported by PMC are:
 
 ![Thermocouple Connection](./assets/thermocouple-connection.png)
 
-### Connect Two Wires RTD 
+### Two Wires RTD Connection
 The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is more prone to errors.
 
 |     Channel 0                        |      Channel 1                        |       Channel 2                       |
@@ -93,7 +93,7 @@ The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is 
 | Connect the other RTD pin to TN0     | Connect the other RTD pin to TN1      | Connect the other RTD pin to TN2      |
 |Connect a jumper between TP0 and RTD0 | Connect a jumper between TP1 and RTD1 | Connect a jumper between TP2 and RTD2 |
 
-**In this tutorial**, we will use a two-wire RTD, so we will configure **channel 0** as described in the table, connecting one pin of the PT100 to the TP0 input, the other pin to TN0 and connecting a jumper between TP0 and RTD0 pins as you can see in the following picture:
+In this tutorial, we will use a two-wire RTD, so we will configure **channel 0** as described in the table. This is done by connecting one pin of the PT100 to the TP0 input, the other pin to TN0, and connecting a jumper between TP0 and RTD0 pins as you can see in the following picture:
 
 ![Two Wires Connection](./assets/two-wire-connection.png)
 
@@ -114,7 +114,7 @@ The 3-wire RTD configuration is the most commonly used RTD circuit design. In th
 
 ### Creating the Project
 
-Once we have correctly [connected](#connections) the sensor to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the  [Configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
+Once we have correctly [connected](#connections) the sensor to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the [Configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
 
 First, we need to **create a new project**. To do this, open the Arduino PLC IDE and click on "New Project" or by clicking on ```File > New project```:
 
@@ -126,17 +126,17 @@ Then, name the project and select "Portenta Machine Control 1.0" as the project 
 
 ### Behavior Setting
 
-Once the project has been created, to visualize the "Temperature probes" inputs of the board, you need to go to the **Resources** Tools window and click on "**Temperature probes**". If you don't see this window, you can try to click on: ```View > Tools Windows > Resources``` 
+Once the project has been created, to visualize the "Temperature probes" inputs of the board, you need to go to the **Resources** Tools window and click on "**Temperature probes**". If you cannot find this window, you can try to click on: ```View > Tools Windows > Resources``` 
 
 ![Resources Window](./assets/resources.png)
 
-After clicking on "Temperature Probes" we will see a table containing the three temperature probe inputs of the board. We have to make sure that the "**Behavior setting**" is set according to our RTD or Thermocouple sensor. 
+After clicking on "Temperature Probes" we will see a table containing the three temperature probe inputs of the board. We have to make sure that the "**Behavior setting**" is set according to our RTD or thermocouple sensor. 
 
 In this case, we are using a two-wires PT100 sensor, so we will select the "**RTD TWO WIRES**" option:
 
 ![Behavior Setting](./assets/behavior.png)
 
-By default the TP00 input is disabled. To enable it you only need to click next to "False" on TP00 "Enable" row and set it as "**True**":
+By default the TP00 input is disabled. To enable it, you only need to click next to "False" on TP00 "Enable" row and set it as "**True**":
 
 ![Enabling Input](./assets/enabling-input.png)
 
@@ -146,7 +146,7 @@ Once enabled, we are ready to continue to the next step creating the necessary v
 
 ***By default the project creates an automatic type int global variable called "cnt". You can delete it by right-clicking on it and clicking delete.***
 
-To visualize the temperature values we need to create a variable to save the values. For doing it we need to go to **Global vars** section and right-click on it, select "New variable" and select "Automatic" type or go to ```Project > New object > New variable > Automatic```. 
+To visualize the temperature values, we need to create a variable to save the values. To do this, we need to go to **Global vars** section and right-click on it, select "New variable" and select "Automatic" type or go to ```Project > New object > New variable > Automatic```. 
 
 ![Creating a Global Variable](./assets/global-variable.png)
 
