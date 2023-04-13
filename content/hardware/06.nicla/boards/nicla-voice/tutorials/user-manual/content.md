@@ -302,15 +302,13 @@ void setup() {
 The built-in RGB LED can be set to a desired color using the RGB color model in which the red, green and blue primary colors of light are added together in various ways to reproduce a broad array of colors. There are predefined colors: `red`, `green`, `blue`, `yellow`, `magenta`, and `cyan`; to turn off the LED use `off`. To set the built-in RBG LED to a predefined color, for example green or blue:
 
 ```arduino
-void loop() {
-  // Set the LED color to green, wait for 1000 milliseconds
-  nicla::leds.setColor(green);
-  delay(1000);
+// Set the LED color to green, wait for 1000 milliseconds
+nicla::leds.setColor(green);
+delay(1000);
 
-  // Set the LED color to blue, wait for 1000 milliseconds
-  nicla::leds.setColor(blue);
-  delay(1000);  
-}
+// Set the LED color to blue, wait for 1000 milliseconds
+nicla::leds.setColor(blue);
+delay(1000);  
 ```
 
 To turn off the built-in RGB LED:
@@ -323,20 +321,18 @@ nicla::leds.setColor(off);
 You can also choose a value between o and 255 for each color component (red, green or blue) to set a custom color:
 
 ```arduino
-void loop() {
-  // Define custom color values for red, green, and blue components
-  int red = 234;
-  int green = 72;
-  int blue = 122;
+// Define custom color values for red, green, and blue components
+int red = 234;
+int green = 72;
+int blue = 122;
 
-  // Set the LED to the custom color, wait for 1000 milliseconds
-  nicla::leds.setColor(red, green, blue);
-  delay(1000);
+// Set the LED to the custom color, wait for 1000 milliseconds
+nicla::leds.setColor(red, green, blue);
+delay(1000);
 
-  // Turn off the LED and wait, wait for 1000 milliseconds
-  nicla::leds.setColor(off);
-  delay(1000); 
-}
+// Turn off the LED and wait, wait for 1000 milliseconds
+nicla::leds.setColor(off);
+delay(1000); 
 ```
 Here's a complete example code to blink the built-in I2C RGB LED of the Nicla Voice:
 
@@ -360,3 +356,25 @@ void loop() {
   delay(1000); 
 }
 ```
+
+## Support
+
+If you encounter any issues or have questions while working with the Nicla Voice, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers you a comprehensive collection of articles and guides for the Nicla Voice. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Nicla Family Help Center](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+
+### Forum
+
+Join our community forum to connect with other Nicla Voice users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Voice.
+
+- [Nicla Voice category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-voice/180)
+
+### Contact Us
+
+If you need personalized assistance or have specific questions that are not covered by the help and support resources described before, feel free to reach out to our support team. We're happy to help you with any issues or inquiries related to the Nicla Voice.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/) 
