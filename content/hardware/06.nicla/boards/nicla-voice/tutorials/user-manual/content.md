@@ -86,9 +86,11 @@ The Nicla Voice STEP files can be downloaded [here](assets/ABX00061-step.zip).
 The Nicla voice can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external 5 V power supply connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual), **the recommended power supply voltage is 5 V**.
-- Using a 3.7 V Lithium Polymer (Li-Po) battery connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and **the recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- Using the onboard ESLOV connector, which has a dedicated 5 V line; the manufacturer part number of the ESLOV connector is SM05B-SRSS. 
+- Using an external **5 V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual).
+- Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and the **recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using the onboard **ESLOV connector**, which has a dedicated 5 V power line. The manufacturer part number of the ESLOV connector is SM05B-SRSS. 
+
+![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
 ### NDP Processor Firmware Update
 
