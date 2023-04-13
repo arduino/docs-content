@@ -13,16 +13,15 @@ author: 'Hannes Siebeneicher'
 hardware:
   - hardware/08.mega/boards/giga-r1-wifi
 software:
-  - ide-v1
-  - ide-v2
-  - web-editor
+- The [Arduino IDE](/software/ide-v2)
+- The [Web Editor](/arduino-cloud/getting-started/getting-started-web-editor) (Arduino Cloud). 
 ---
 
 The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1]() microcontroller from [Renesas](). Compared to the UNO R3 it now comes with 32 KB of RAM memory, a clock speed of 48 MHz and a USB-C® port.
 
 This is the first UNO board that uses a 32-bit architecture, being previously based on the 8-bit AVR architecture.
 
-This article is a collection of guides, API calls, libraries and tutorials that help you getting started with the UNO R4 Minima.
+This article is a technical reference to your board, introducing the various components on the board, as well as resources to getting started.
 
 ## Datasheet
 
@@ -36,7 +35,7 @@ To power the UNO R4 Minima you may either use a USB-C® cable, or the VIN pin.
 
 If you’re using the USB-C® connector you must power it with 5V.
 
-Powering the board with the VIN pin gives you more options, as you can safely power the board with any voltage between 6-24V.
+The board can be powered via the VIN pin, supporting a range between 6-24V.
 
 By connecting the OFF pin to GND you can cut the power supply to the board, turning it off completely. Read more about this feature in the [OFF-pin](#off-pin) section of this article.
 
@@ -53,11 +52,11 @@ The **UNO R4 Minima** can be programmed through:
 
 ## Core
 
-The UNO R4 Minima is based on the [Arduino Core for renesas devices](https://github.com/bcmi-labs/ArduinoCore-renesas), which also provides a set of examples that work out of the box.
+The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://github.com/bcmi-labs/ArduinoCore-renesas).
 
 ### Bootloader
 
-In case you need to flash the bootloaderyou can follow these steps:
+In case you need to flash the bootloader follow these steps:
 
 - Install the rensesas core.
 - Navigate to: 
@@ -75,7 +74,7 @@ renesas\0.5.0\bootloaders\SANTIAGO"
     - Select COM port in the Tool > select the port shown in the IDE.
     - Press start. 
 
-## Renesas R7FA4M1AB3CFM
+## Renesas RA4M1
 
 The UNO R4 Minima features the powerful and very robust renesas microcontroller also found on the UNO R4. Renesas microcontrollers are known for their high performance and robustness, including their built in peripheral set. 
 
@@ -377,7 +376,7 @@ You may use them as analog output pins with the function:
 analogWrite(pin, value);
 ```
 
-The **R7FA4M1AB3CFM** has an internal OPAMP that is exposed on the **UNO R4 Minima** as follows:
+The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 Minima** as follows:
 
 | Pin | OPAMP             |
 | --- | ------------------|
