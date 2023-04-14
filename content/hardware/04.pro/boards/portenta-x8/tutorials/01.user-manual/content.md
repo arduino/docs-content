@@ -920,33 +920,27 @@ If this is not the case, you can update your device using FoundriesFactory **Wav
 
 ### Update For OS Release V.399
 
-If your Portenta X8 is flashed with the OS release V.399, open a new Command Line window and type the following commands on your PC:
+If your Portenta X8 is flashed with the OS release V.399 and you have a carrier compatible with Portenta X8 (like Portenta Breakout), we recommend you to update it to the latest image release by following [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing#flashing-mode-with-carrier).
+
+Otherwise, you can also open a new Command Line window and connect to your Portenta X8 as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
 
 ```arduino
-user-pc$: wget https://downloads.arduino.cc/portentax8image/update-latest.tar.gz
-user-pc$: wget https://downloads.arduino.cc/portentax8image/aklite-offline-399.tar.gz
+portenta-x8$: wget https://downloads.arduino.cc/portentax8image/399-install-update
+portenta-x8$: chmod +x 399-install-update
+portenta-x8$: ./399-install-update
+```
 
-user-pc$: adb push update-latest.tar.gz /home/fio
-user-pc$: adb push aklite-offline-399.tar.gz /home/fio
+Now you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
+
+```arduino
+portenta-x8$: wget https://downloads.arduino.cc/portentax8image/399-finalize-update
+portenta-x8$: chmod +x 399-finalize-update
+portenta-x8$: ./399-finalize-update
 ```
 
 These commands will make your V.399 compatible with [aklite-offline](https://docs.foundries.io/latest/user-guide/offline-update/offline-update.html) tool and will allow you to update your Portenta X8 to the latest image version Arduino released at that point in time. Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
 
-After the updates have been correctly downloaded to your PC, you can open a Command Line window and connect to your Portenta X8 through `ADB Shell`, as explained in [this section](#working-with-linux) of this user manual.
-
-Once your Portenta X8 is correctly connected to your PC, launch the following commands to update your device to the latest released OS image version:
-
-```arduino
-user-pc$: adb shell
-
-portenta-x8$: cd /home/fio
-portenta-x8$: tar -mxvf update-latest.tar.gz -C .
-portenta-x8$: tar -mxvf aklite-offline-399.tar.gz -C .
-portenta-x8$: export LD_LIBRARY_PATH=usr/lib/
-portenta-x8$: usr/bin/aklite-offline install --src-dir /var/rootdirs/home/fio/offline-updates/
-```
-
-After the update process is finalized, you need to restart your Portenta X8 by pressing its button for around 10 seconds. Once restarted, your Portenta X8 will immediately start running the latest OS release.
+After the update process is finalized, your Portenta X8 will immediately start running the latest OS release.
 
 ## Pins
 
