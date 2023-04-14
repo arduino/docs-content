@@ -27,7 +27,7 @@ On the other hand, **Thermocouples** are transducers that correlate and provide 
 
 Both RTDs and thermocouples have unique characteristics, which make them suitable for different applications depending on the required accuracy, speed, and temperature range.
 
-In this tutorial, we will use a two-wire PT100 RTD to obtain temperature measurements. We will also briefly discuss how to connect a three-wire RTD and a thermocouple.
+In this tutorial, we will use a two-wire **PT100** RTD to obtain temperature measurements. We will also briefly discuss how to connect a three-wire RTD and a thermocouple.
 
 ## Goals
 The goals of this tutorial are:
