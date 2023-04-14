@@ -1,7 +1,7 @@
 ---
 title: 'Connect an RTD/Thermocouple to the Portenta Machine Control'
 difficulty: beginner
-description: "How to connect an RTD (Resistance Temperature Detector) or a thermocouple to Portenta Machine Control and monitor the values using the Arduino PLC IDE."
+description: "Connect an RTD (Resistance Temperature Detector) or a thermocouple to Portenta Machine Control and monitor the values using the Arduino PLC IDE."
 tags:
   - RTD
   - Thermocouple
@@ -21,7 +21,7 @@ software:
 ---
 
 ## Introduction
-RTDs (Resistance Temperature Detectors) and Thermocouples are used for temperature measurement in various industrial fields. **RTDs** are sensors that change resistance in response to changes in temperature. They are used regularly in industries that require precise temperature measurements, such as food processing and pharmaceuticals. 
+RTDs (Resistance Temperature Detectors) and Thermocouples are used for temperature measurement in various industrial fields. **RTDs** are sensors that change resistance in response to temperature variation. They are used regularly in industries that require precise temperature measurements, such as food processing and pharmaceuticals. 
 
 On the other hand, **Thermocouples** are transducers that correlate and provide the voltage proportional to the temperature difference between two junctions. They are widely used in industrial applications such as HVAC systems, diesel engines, and power plants.
 
@@ -51,6 +51,7 @@ The goals of this tutorial are:
 
 ### RTD 
 A **Resistance Temperature Detector**, or **RTD**, is a temperature sensor that works by measuring the change in electrical resistance of a metal wire or element as temperature changes. The most common metal used for RTDs is platinum and they are sometimes referred to as PT100 sensors, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
+
 As temperature increases, the resistance of the metal element in the RTD increases predictably and linearly, which can be measured using an external circuit or instrument. The change in resistance is then converted into a temperature reading using a calibration curve or formula, which relates resistance to temperature.
 
 RTDs are commonly used in industrial applications where temperature measurement is critical for process control and safety. They are preferred over other types of temperature sensors because of their high accuracy, stability, and repeatability over a narrow temperature range.
@@ -114,7 +115,7 @@ The 3-wire RTD configuration is the most commonly used RTD circuit design. In th
 
 ### Creating the Project
 
-Once we have correctly [connected](#connections) the sensor to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the [Configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
+Once we have correctly [connected](#connections) the sensor to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the [configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
 
 First, we need to **create a new project**. To do this, open the Arduino PLC IDE and click on "New Project" or by clicking on ```File > New project```:
 
