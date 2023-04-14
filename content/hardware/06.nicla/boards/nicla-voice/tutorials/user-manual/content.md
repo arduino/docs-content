@@ -361,6 +361,62 @@ void loop() {
 
 This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C),  Universal Asynchronous Receiver-Transmitter (UART) and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each of the mentioned communication protocols, making it easy to connect and communicate with different components, peripherals and sensors. 
 
+### SPI
+
+The Nicla Voice supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Voice for the SPI communication protocol are the following:
+
+- `CS`: `6`
+- `CIPO`: `7`
+- `COPI`: `8`
+- `SCLK`: `9`
+
+Please, refer to the [board pinout section](#board-pinout) of the user manual to find them on the board.
+
+Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+
+```arduino
+#include <SPI.h>
+```
+
+In the `setup()` function, initialize the SPI library, define and configure the chip select (`CS`) pin:
+
+```arduino
+const int chipSelectPin = 6; 
+
+void setup() {
+  // Set the chip select pin as output
+  pinMode(chipSelectPin, OUTPUT); 
+
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(chipSelectPin, HIGH); 
+  
+  // Initialize the SPI communication
+  SPI.begin();
+}
+```
+
+To transmit data to an SPI-compatible device, you can use the following commands:
+
+```arduino
+// Replace with the target device's address
+byte address = 0x00; 
+
+// Replace with the value to send
+byte value = 0xFF; 
+
+// Pull the CS pin LOW to select the device
+digitalWrite(chipSelectPin, LOW); 
+
+// Send the address
+SPI.transfer(address); 
+
+// Send the value
+SPI.transfer(value); 
+
+// Pull the CS pin HIGH to unselect the device
+digitalWrite(chipSelectPin, HIGH); 
+```
+
 ### I2C
 
 The Nicla Voice supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Voice for the I2C communication protocol are the following:
