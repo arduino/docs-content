@@ -93,8 +93,8 @@ The Nicla voice can be powered by:
 
 - Using a Micro USB cable (not included). 
 - Using an external **5 V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual).
-- Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS, and the **recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- Using the onboard **ESLOV connector**, which has a dedicated 5 V power line. The manufacturer part number of the ESLOV connector is SM05B-SRSS. 
+- Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using the onboard **ESLOV connector**, which has a dedicated 5 V power line.
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
@@ -281,6 +281,8 @@ void loop() {
 ### RGB LED
 
 The Nicla Voice features a built-in I2C RGB LED that can be utilized as a visual feedback indicator for the user. The LED is connected through the boards's I2C port, therefore specific functions need to be used to operated the LED colors. 
+
+![Nicla Voice built-in RGB LED](assets/user-manual-7.png)
 
 To use the RGB LED, include the `Nicla System` header:
 
@@ -654,6 +656,24 @@ The example code shown above creates a BLE service and characteristic for transm
 - The code begins by importing all the necessary libraries and defining the BLE service and characteristic.
 - In the `setup()` function, the code initializes the Nicla Voice board and sets up the BLE service and characteristic; then, it begins advertising the defined BLE service.
 - A BLE connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Voice, its built-in LED is turned on (red). The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined BLE characteristic.
+
+### ESLOV 
+
+The Nicla Voice board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Voice without soldering or wiring.
+
+![Nicla Voice built-in ESLOV connector](assets/user-manual-8.png)
+
+ The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
+
+The pin layout of the ESLOV connector is the following:
+
+1. VCC_IN (5 V input)
+2. INT
+3. SCL
+4. SDA
+5. GND
+
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
 ## Support
 
