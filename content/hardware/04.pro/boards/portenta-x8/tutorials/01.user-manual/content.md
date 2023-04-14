@@ -922,7 +922,7 @@ If this is not the case, you can update your device using FoundriesFactory **Wav
 
 If your Portenta X8 is flashed with the OS release V.399 and you have a carrier compatible with Portenta X8 (like Portenta Breakout), we recommend you to update it to the latest image release by following [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing#flashing-mode-with-carrier).
 
-Otherwise, you can also open a new Command Line window and connect to your Portenta X8 as exaplained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
+Otherwise, you can also open a new Command Line window and connect to your Portenta X8 as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
 
 ```arduino
 portenta-x8$: wget https://downloads.arduino.cc/portentax8image/399-install-update
