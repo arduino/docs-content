@@ -357,15 +357,129 @@ void loop() {
 }
 ```
 
+## Communication
+
+This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C),  Universal Asynchronous Receiver-Transmitter (UART) and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each of the mentioned communication protocols, making it easy to connect and communicate with different components, peripherals and sensors. 
+
+## BLE
+
+To enable BLE communication on the Nicla Voice, you can use the ArduinoBLE library. The library works with the Nicla Voice with some minor modifications. To get started with the ArduinoBLE library and the Nicla Voice, follow these steps:
+
+Include the `Nicla System` header:
+
+```arduino
+#include "Nicla_System.h" 
+```
+
+In the `setup()` function, call `nicla::begin()` to initialize the Nicla Voice board:
+
+```arduino
+void setup() {
+  nicla::begin();
+}
+```
+
+Here is an example of how to use the ArduinoBLE library to create a voltage level monitor application:
+
+```arduino
+#include "Nicla_System.h"
+#include <ArduinoBLE.h>
+
+// Define the voltage service and its characteristic
+BLEService voltageService("1101");
+BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
+
+const int analogPin = A0;
+
+/**
+  Read voltage level from an analog input of the Nicla Voice,
+  then maps the voltage reading to a percentage value ranging from 0 to 100.
+
+  @param none
+  @return the voltage level percentage (int).
+*/
+int readVoltageLevel() {
+  int voltage = analogRead(analogPin);
+  int voltageLevel = map(voltage, 0, 1023, 0, 100);
+  return voltageLevel;
+}
+
+void setup() {
+  // Initialize the Nicla system and the built-in RGB LED
+  nicla::begin();
+  nicla::leds.begin();
+
+  Serial.begin(9600);
+  // Wait for the serial connection to be established
+  while (!Serial)
+    ;
+
+  // Initialize the BLE module
+  if (!BLE.begin()) {
+    Serial.println("starting BLE failed!");
+    while (1)
+      ;
+  }
+
+  // Set the local name and advertised service for the BLE module
+  BLE.setLocalName("VoltageMonitor");
+  BLE.setAdvertisedService(voltageService);
+  voltageService.addCharacteristic(voltageLevelChar);
+  BLE.addService(voltageService);
+
+  // Start advertising the BLE service
+  BLE.advertise();
+  Serial.println("- Bluetooth device active, waiting for connections...");
+}
+
+void loop() {
+  // Check for incoming BLE connections
+  BLEDevice central = BLE.central();
+
+  // If a central device is connected
+  if (central) {
+    Serial.print("- Connected to central: ");
+    Serial.println(central.address());
+
+    // Set the LED color to red when connected
+    nicla::leds.setColor(red);
+
+    // While the central device is connected
+    while (central.connected()) {
+      // Read the voltage level and update the BLE characteristic with the level value
+      int voltageLevel = readVoltageLevel();
+
+      Serial.print("- Voltage level is: ");
+      Serial.println(voltageLevel);
+      voltageLevelChar.writeValue(voltageLevel);
+
+      delay(200);
+    }
+  }
+
+  // Turn off the LED when disconnected
+  nicla::leds.setColor(off);
+
+  Serial.print("- Disconnected from central: ");
+  Serial.println(central.address());
+}
+```
+
+The example code shown above creates a BLE service and characteristic for transmitting a voltage value read by one of the analog pins of the Nicla Voice to a central device. 
+
+- The code begins by importing all the necessary libraries and defining the BLE service and characteristic.
+- In the `setup()` function, the code initializes the Nicla Voice board and sets up the BLE service and characteristic; then, it begins advertising the defined BLE service.
+- A BLE connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Voice, its built-in LED is turned on (red). The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined BLE characteristic.
+
 ## Support
 
 If you encounter any issues or have questions while working with the Nicla Voice, we provide various support resources to help you find answers and solutions.
 
 ### Help Center
 
-Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers you a comprehensive collection of articles and guides for the Nicla Voice. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nicla Voice. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nicla Family Help Center](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+- [Nicla Family help center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
 
 ### Forum
 
@@ -375,6 +489,6 @@ Join our community forum to connect with other Nicla Voice users, share your exp
 
 ### Contact Us
 
-If you need personalized assistance or have specific questions that are not covered by the help and support resources described before, feel free to reach out to our support team. We're happy to help you with any issues or inquiries related to the Nicla Voice.
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla Voice.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/) 
