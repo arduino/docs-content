@@ -360,22 +360,24 @@ void loop() {
 
 Here's a step-by-step explanation of the code:
 
-- First, the necessary libraries are included: 
-  - `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
+First, the necessary libraries are included: 
+- `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
 - An instance of the `G722Encoder` class is created to handle audio encoding.
 - The `data` buffer is declared with a size of 2048 bytes to store audio data temporarily.
-- In the `setup()` function:
-  - The serial communication is initialized at a baud rate of 115200.
-  - The Nicla Voice board is initialized, and the LDO is disabled.
-  - The green LED is configured to turn on when an event occurs.
-  - The `G722Encoder` instance is set up with the proper audio parameters (1 channel, 16 kHz sample rate).
-  - The output stream for the encoder is set to the serial port.
-  - The NDP Processor is set up with the necessary firmware packages and the onboard microphone is turned on.
-  - The audio chunk size is checked to ensure it doesn't exceed the buffer size.
-- In the `loop()` function:
-  - Audio data is extracted from the NDP processor and stored in the `data` buffer.
-  - The length of the extracted audio data is stored in the `len` variable.
-  - The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
+
+In the `setup()` function:
+- The serial communication is initialized at a baud rate of 115200.
+- The Nicla Voice board is initialized, and the LDO is disabled.
+- The green LED is configured to turn on when an event occurs.
+- The `G722Encoder` instance is set up with the proper audio parameters (1 channel, 16 kHz sample rate).
+- The output stream for the encoder is set to the serial port.
+- The NDP Processor is set up with the necessary firmware packages and the onboard microphone is turned on.
+- The audio chunk size is checked to ensure it doesn't exceed the buffer size.
+
+In the `loop()` function:
+- Audio data is extracted from the NDP processor and stored in the `data` buffer.
+- The length of the extracted audio data is stored in the `len` variable.
+- The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
 
 To extract the audio data on a computer, you'll need to set up the serial port as raw and dump the data to a file (e.g., test.g722). Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
 
