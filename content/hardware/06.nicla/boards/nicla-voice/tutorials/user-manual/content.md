@@ -282,7 +282,7 @@ The Nicla Voice boards come with various onboard sensors that allow you to captu
 
 ### Microphone
 
-The onboard high-performance microphone of the Nicla Voice is the IM69D130 from Infineon® Technologies. The IM69D130 is specifically designed for applications that require high-quality audio recording and accurate voice detection, such as voice-controlled Internet of Things (IoT) oT devices, smart home systems, and mobile devices.
+The onboard high-performance microphone of the Nicla Voice is the IM69D130 from Infineon® Technologies. The IM69D130 is specifically designed for applications that require high-quality audio recording and accurate voice detection, such as voice-controlled Internet of Things (IoT) devices, smart home systems, and mobile devices.
 
 ![Nicla Voice onboard high-performance microphone](assets/user-manual-9.png)
 
