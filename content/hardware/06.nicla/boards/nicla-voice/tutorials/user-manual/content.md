@@ -441,7 +441,8 @@ To turn off the built-in RGB LED:
 nicla::leds.setColor(off);
 ```
 
-You can also choose a value between o and 255 for each color component (red, green, or blue) to set a custom color:
+You can also choose a value between 0 and 255 for each color component (red, green, or blue) to set a custom color:
+
 
 ```arduino
 // Define custom color values for red, green, and blue components
