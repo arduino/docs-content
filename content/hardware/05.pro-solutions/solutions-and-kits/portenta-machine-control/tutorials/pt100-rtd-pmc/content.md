@@ -98,7 +98,7 @@ In this tutorial, we will use a two-wire RTD, so we will configure **channel 0**
 
 ![Two Wires Connection](./assets/two-wire-connection.png)
 
-### Connect Three Wires RTD 
+### Three Wires RTD Connection
 The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
 
 |     Channel 0                     |      Channel 1                    |       Channel 2                   |
