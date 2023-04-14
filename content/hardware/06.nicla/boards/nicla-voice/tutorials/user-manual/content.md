@@ -364,7 +364,8 @@ void loop() {
 }
 ```
 
-Here's a step-by-step explanation of the code:
+Here you can find a step-by-step explanation of the code:
+
 
 First, the necessary libraries are included: 
 - `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
