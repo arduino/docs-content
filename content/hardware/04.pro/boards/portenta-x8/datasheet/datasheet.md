@@ -355,6 +355,8 @@ The use of a USB 3.0 compatible port will ensure that the current requirements f
 | Y2       | SIT1532AI-J4-DCC-32.768E 32.768KHz MEMS Oscillator IC | J1, J2       | High density connectors                              |
 | Q1       | 2N7002T-7-F N-Channel 60V 115mA MOSFET                |
 
+<div style="page-break-after: always;"></div>
+
 ## Processor
 
 The Arduino Portenta X8 makes use of two ARM®-based physical processing units.
@@ -382,6 +384,8 @@ The Arduino® Portenta X8 enables IC-level edge-to-cloud security capability thr
 ## Gigabit Ethernet
 
 The NXP® i.MX 8M Mini Quad includes a 10/100/1000 Ethernet controller with support for Energy Efficient Ethernet (EEE), Ethernet AVB, and IEEE 1588. An external physical connector is required to complete the interface. This can be accessed via a high-density connector with an external component such as the Arduino® Portenta Breakout board.
+
+<div style="page-break-after: always;"></div>
 
 ## USB-C® Connector
 
@@ -516,6 +520,8 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 (1) l’ appareil nedoit pas produire de brouillage
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+<div style="page-break-after: always;"></div>
 
 **IC SAR Warning:**
 
