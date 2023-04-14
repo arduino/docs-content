@@ -169,9 +169,9 @@ void loop() {
 
 ### Digital Pins
 
-The Nicla Voice has ten digital pins mapped as `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8` and `9`; analog pins `A0` and `A1` can also be used as digital pins. The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language.
+The Nicla Voice has ten digital pins mapped as `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8` and `9`; analog pins `A0` and `A1` can also be used as digital pins. Please, refer to the [board pinout section](#board-pinout) of the user manual to find them on the board.
 
-The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
 ```arduino
 // Pin configured as an input
@@ -361,9 +361,72 @@ void loop() {
 
 This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C),  Universal Asynchronous Receiver-Transmitter (UART) and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each of the mentioned communication protocols, making it easy to connect and communicate with different components, peripherals and sensors. 
 
-## BLE
+### UART
 
-To enable BLE communication on the Nicla Voice, you can use the ArduinoBLE library. The library works with the Nicla Voice with some minor modifications. To get started with the ArduinoBLE library and the Nicla Voice, follow these steps:
+The Nicla Voice supports UART communication. The pins used for this communication protocol are the following:
+
+- `RX`: `1`
+- `TX`: `2`
+
+Please, refer to the [board pinout section](#board-pinout) of the user manual to find them on the board.
+
+To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+
+```arduino
+// Start UART communication at 9600 baud
+Serial1.begin(9600); 
+```
+
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code show above stores the incoming characters in a String variables, and process the data when a line-ending character is received: 
+
+```arduino
+// Variable for storing incoming data
+String incoming = ""; 
+
+void loop() {
+  // Check for available data and read individual characters
+  while (Serial1.available()) {
+    // Allow data buffering and read a single character
+    delay(2); 
+    char c = Serial1.read();
+    
+    // Check if the character is a newline (line-ending)
+    if (c == '\n') {
+      // Process the received data
+      processData(incoming);
+
+      // Clear the incoming data string for the next message
+      incoming = ""; 
+    } else {
+      // Add the character to the incoming data string
+      incoming += c; 
+    }
+  }
+}
+```
+
+To transmit data to another device via UART, you can use the `write()` function:
+
+```arduino
+// Transmit the string "Hello world!
+Serial1.write("Hello world!");
+```
+
+You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
+
+```arduino
+// Transmit the string "Hello world!" 
+Serial1.print("Hello world!");
+
+// Transmit the string "Hello world!" followed by a newline character
+Serial1.println("Hello world!");
+```
+
+### BLE
+
+To enable BLE communication on the Nicla Voice, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/). The library works with the Nicla Voice with some minor modifications. 
+
+To get started with the ArduinoBLE library and the Nicla Voice, follow these steps:
 
 Include the `Nicla System` header:
 
