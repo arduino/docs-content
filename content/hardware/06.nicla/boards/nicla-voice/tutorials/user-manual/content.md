@@ -361,9 +361,74 @@ void loop() {
 
 This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C),  Universal Asynchronous Receiver-Transmitter (UART) and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each of the mentioned communication protocols, making it easy to connect and communicate with different components, peripherals and sensors. 
 
+### I2C
+
+The Nicla Voice supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Voice for the I2C communication protocol are the following:
+
+- `SDA`: `3`
+- `SCL`: `4`
+
+Please, refer to the [board pinout section](#board-pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Voice.
+
+To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
+
+```arduino
+#include <Wire.h>
+```
+
+In the `setup()` function, initialize the I2C library:
+
+```arduino
+ // Initialize the I2C communication
+Wire.begin();
+```
+
+To transmit data to an I2C-compatible device, you can use the following commands:
+
+```arduino
+// Replace with the target device's I2C address
+byte deviceAddress = 0x1; 
+
+// Replace with the appropriate instruction byte
+byte instruction = 0x00; 
+
+// Replace with the value to send
+byte value = 0xFF; 
+
+// Begin transmission to the target device
+Wire.beginTransmission(deviceAddress); 
+
+// Send the instruction byte
+Wire.write(instruction); 
+
+// Send the value
+Wire.write(value); 
+
+// End transmission
+Wire.endTransmission(); 
+```
+
+To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
+
+```arduino
+// The target device's I2C address
+byte deviceAddress = 0x1; 
+
+// The number of bytes to read
+int numBytes = 2; 
+
+// Request data from the target device
+Wire.requestFrom(deviceAddress, numBytes);
+
+// Read while there is data available
+while (Wire.available()) {
+  byte data = Wire.read(); 
+}
+```
+
 ### UART
 
-The Nicla Voice supports UART communication. The pins used for this communication protocol are the following:
+The pins used in the Nicla Voice for the UART communication protocol are the following:
 
 - `RX`: `1`
 - `TX`: `2`
@@ -377,7 +442,7 @@ To begin with UART communication, you'll need to configure it first. In the `set
 Serial1.begin(9600); 
 ```
 
-To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code show above stores the incoming characters in a String variables, and process the data when a line-ending character is received: 
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
 
 ```arduino
 // Variable for storing incoming data
