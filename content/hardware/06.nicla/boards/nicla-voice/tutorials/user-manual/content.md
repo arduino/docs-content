@@ -276,11 +276,123 @@ void loop() {
 }
 ```
 
+## Board Sensors
+
+The Nicla Voice boards come with various onboard sensors that allow you to capture and process environmental and motion data via a high-performance microphone, a 6-axis IMU, and a 3-axis magnetometer. The onboard sensors can be used for developing various applications, such as voice recognition, gesture control, and environmental monitoring.
+
+### Microphone
+
+The onboard high-performance microphone of the Nicla Voice is the IM69D130 from Infineon® Technologies. The IM69D130 is specifically designed for applications that require high-quality audio recording and accurate voice detection, such as voice-controlled Internet of Things (IoT) oT devices, smart home systems, and mobile devices.
+
+![Nicla Voice onboard high-performance microphone](assets/user-manual-9.png)
+
+The example code shown below captures audio from the onboard microphone of the Nicla Voice, compresses the audio using the G722 codec, and streams the compressed audio data to the serial port. The example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Record_and_stream**. 
+
+```arduino
+// Include necessary libraries for the Nicla Voice board, audio processing, and G722 codec support
+#include "Arduino.h"
+#include "NDP.h"
+#include "AudioTools.h"
+#include "AudioCodecs/CodecG722.h"
+
+// Create an instance of the G722Encoder class for handling audio encoding
+G722Encoder encoder;
+
+// Declare a buffer to temporarily store audio data
+uint8_t data[2048];
+
+// Define a function to turn on the green LED for a short duration as an event indicator
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+void setup() {
+  // Start UART communication at 115200 baud
+  Serial.begin(115200);
+
+  // Initialize the Nicla Voice board, disable the LDO
+  nicla::begin();
+  nicla::disableLDO();
+
+  // Initialize the built-in RGB LED, set up as an event indicator
+  nicla::leds.begin();
+  NDP.onEvent(ledGreenOn);
+
+  // Set up the G722 encoder (1 channel, 16 kHz sample rate)
+  AudioBaseInfo bi;
+  bi.channels = 1;
+  bi.sample_rate = 16000;
+  encoder.setOptions(0);
+  encoder.begin(bi);
+
+  // Set the output stream for the encoder to the serial port
+  encoder.setOutputStream(Serial);
+
+  // Load the required firmware packages for the NDP processor, turn on the onboard microphone
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("alexa_334_NDP120_B0_v11_v91.synpkg");
+  NDP.turnOnMicrophone();
+
+  // Check the audio chunk size to ensure it doesn't exceed the buffer size
+  int chunk_size = NDP.getAudioChunkSize();
+  if (chunk_size >= sizeof(data)) {
+    for(;;);
+  }
+}
+
+// Continuously read audio data from the microphone, encode it using the G722 codec, send it to the serial port
+void loop() {
+  // Declare a variable to store the length of the extracted audio data
+  unsigned int len = 0;
+
+  // Extract audio data from the NDP and store it in the data buffer
+  NDP.extractData(data, &len);
+
+  // Pass the extracted audio data to the G722 encoder and send it to the serial port
+  encoder.write(data, len);
+}
+```
+
+Here's a step-by-step explanation of the code:
+
+- First, the necessary libraries are included: 
+  - `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
+- An instance of the `G722Encoder` class is created to handle audio encoding.
+- The `data` buffer is declared with a size of 2048 bytes to store audio data temporarily.
+- In the `setup()` function:
+  - The serial communication is initialized at a baud rate of 115200.
+  - The Nicla Voice board is initialized, and the LDO is disabled.
+  - The green LED is configured to turn on when an event occurs.
+  - The `G722Encoder` instance is set up with the proper audio parameters (1 channel, 16 kHz sample rate).
+  - The output stream for the encoder is set to the serial port.
+  - The NDP Processor is set up with the necessary firmware packages and the onboard microphone is turned on.
+  - The audio chunk size is checked to ensure it doesn't exceed the buffer size.
+- In the `loop()` function:
+  - Audio data is extracted from the NDP processor and stored in the `data` buffer.
+  - The length of the extracted audio data is stored in the `len` variable.
+  - The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
+
+To extract the audio data on a computer, you'll need to set up the serial port as raw and dump the data to a file (e.g., test.g722). Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
+
+Keep in mind that this example code requires the following libraries:
+
+- [arduino-libg722](https://github.com/pschatzmann/arduino-libg722)
+- [arduino-audio-tools](https://github.com/pschatzmann/arduino-audio-tools)
+
+Make sure to install these libraries in the Arduino IDE before uploading the code to your Nicla Voice board.
+
+### IMU
+
 ## Board Actuators
 
 ### RGB LED
 
-The Nicla Voice features a built-in I2C RGB LED that can be utilized as a visual feedback indicator for the user. The LED is connected through the boards's I2C port, therefore specific functions need to be used to operated the LED colors. 
+The Nicla Voice features a built-in I2C RGB LED that can be a visual feedback indicator for the user. The LED is connected through the boards' I2C port; therefore, specific functions must be used to operate the LED colors. 
 
 ![Nicla Voice built-in RGB LED](assets/user-manual-7.png)
 
@@ -291,7 +403,7 @@ To use the RGB LED, include the `Nicla System` header:
 #include "Nicla_System.h" 
 ```
 
-Since the functions are scoped under a specific class name called `nicla`, you need to explicitly write it before each statement. To initialize the board built-in RGB LED along with the Nicla system inside the void `setup()` function:
+Since the functions are scoped under a class name called `nicla`, you must explicitly write it before each statement. To initialize the board's built-in RGB LED along with the Nicla system inside the void `setup()` function:
 
 ```arduino
 void setup() {
@@ -301,7 +413,7 @@ void setup() {
 }
 ```
 
-The built-in RGB LED can be set to a desired color using the RGB color model in which the red, green and blue primary colors of light are added together in various ways to reproduce a broad array of colors. There are predefined colors: `red`, `green`, `blue`, `yellow`, `magenta`, and `cyan`; to turn off the LED use `off`. To set the built-in RBG LED to a predefined color, for example green or blue:
+The built-in RGB LED can be set to a desired color using the RGB color model in which the red, green, and blue primary colors of light are added together in various ways to reproduce a broad array of colors. There are predefined colors: `red`, `green`, `blue`, `yellow`, `magenta`, and `cyan`; to turn off the LED, use `off`. To set the built-in RBG LED to a predefined color, for example, green or blue:
 
 ```arduino
 // Set the LED color to green, wait for 1000 milliseconds
@@ -320,7 +432,7 @@ To turn off the built-in RGB LED:
 nicla::leds.setColor(off);
 ```
 
-You can also choose a value between o and 255 for each color component (red, green or blue) to set a custom color:
+You can also choose a value between o and 255 for each color component (red, green, or blue) to set a custom color:
 
 ```arduino
 // Define custom color values for red, green, and blue components
@@ -361,7 +473,7 @@ void loop() {
 
 ## Communication
 
-This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C),  Universal Asynchronous Receiver-Transmitter (UART) and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each of the mentioned communication protocols, making it easy to connect and communicate with different components, peripherals and sensors. 
+This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each communication protocol, making it easy to connect and communicate with different components, peripherals, and sensors.
 
 ### SPI
 
