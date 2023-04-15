@@ -386,7 +386,8 @@ In the `loop()` function:
 - The length of the extracted audio data is stored in the `len` variable.
 - The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
 
-To extract the audio data on a computer, you'll need to set up the serial port as raw and dump the data to a file (e.g., test.g722). Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
+To extract the audio data on a computer, you will need to set up the serial port as raw and dump the data to a file (e.g., test.g722). Then, you can open the file with a software like [Audacity](https://www.audacityteam.org/) to play back the audio.
+
 
 Keep in mind that this example code requires the following libraries:
 
