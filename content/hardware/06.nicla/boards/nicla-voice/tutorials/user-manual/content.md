@@ -459,7 +459,8 @@ delay(1000);
 nicla::leds.setColor(off);
 delay(1000); 
 ```
-Here's a complete example code to blink the built-in I2C RGB LED of the Nicla Voice:
+Here you can find a complete example code to blink the built-in I2C RGB LED of the Nicla Voice:
+
 
 ```arduino
 // Include the Nicla System header to access the built-in RGB LED functions
