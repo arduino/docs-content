@@ -58,7 +58,8 @@ Here is an overview of the board's architecture's main components shown in the i
 
 ### Board Core and Libraries
 
-The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to work with the board's components, such as its IMU, magnetometer, and onboard. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
+The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and onboard microphone. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `nicla` and install the latest `Arduino Mbed OS Nicla Boards` version.
+
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/user-manual-1.png)
 
@@ -363,7 +364,8 @@ void loop() {
 }
 ```
 
-Here's a step-by-step explanation of the code:
+Here you can find a step-by-step explanation of the code:
+
 
 First, the necessary libraries are included: 
 - `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
@@ -439,7 +441,8 @@ To turn off the built-in RGB LED:
 nicla::leds.setColor(off);
 ```
 
-You can also choose a value between o and 255 for each color component (red, green, or blue) to set a custom color:
+You can also choose a value between 0 and 255 for each color component (red, green, or blue) to set a custom color:
+
 
 ```arduino
 // Define custom color values for red, green, and blue components
