@@ -36,11 +36,11 @@ This user manual will provide you with a comprehensive overview of the Arduino N
 
 ## Product Overview
 
-The Nicla Voice is an innovative and versatile development board designed by the Arduino team for voice-enabled projects and applications. This board has an onboard always-on speech recognition processor, advanced motion sensors, and wireless connectivity via Bluetooth® Low Energy. The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
+The Nicla Voice is an innovative and versatile development board designed by the Arduino team for sound-enabled projects and applications. This board has an onboard always-on speech recognition and sensor-fusion processor, advanced motion sensors, and wireless connectivity via Bluetooth® Low Energy (BLE). The Nicla Voice is an ideal solution for various applications, from ultra-low power predictive maintenance and gesture or voice recognition systems to contactless wireless applications.
 
 ### Board Architecture Overview
 
-The Nicla Voice features a robust and efficient architecture that integrates various components to enable speech and sound projects and applications. 
+The Nicla Voice features a robust and efficient architecture that integrates various components to enable speech, sound, and motion projects and applications. 
 
 ![The Nicla Voice main components (top view)](assets/user-manual-2.png)
 
@@ -53,8 +53,8 @@ Here is an overview of the board's architecture's main components shown in the i
 - **Onboard advanced motion sensors**: the board features the BMI270, a high-precision IMU by Bosch® Sensortec, which combines a 3-axis accelerometer and a 3-axis gyroscope for precise motion tracking and orientation detection. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
 - **Onboard high-performance microphone**:  the Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
 - **Onboard connector for external PDM microphone**: an external PDM microphone can be connected to the board via an onboard connector.  
-- **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
-- **Power management**: the Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors. The Nicla Voice features the BQ25120 from Texas Instruments; a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
+- **Wireless connectivity**: the board supports BLE connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
+- **Power management**: the Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors. The Nicla Voice features the BQ25120 from Texas Instruments®; a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
 
 ### Board Core and Libraries
 
@@ -94,9 +94,9 @@ The complete STEP files are available and downloadable from the link below:
 The Nicla voice can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **5 V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual).
-- Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- Using the onboard **ESLOV connector**, which has a dedicated 5 V power line.
+- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual).
+- Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
@@ -129,6 +129,8 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
     Ensure all executed commands return a `filename sent successful` message in the console, as shown in the image below. 
 
     ![Uploader feedback messages](assets/user-manual-4.png)
+
+After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
 
 ### Built-in Speech Recognition Example
 
@@ -366,7 +368,6 @@ void loop() {
 
 Here you can find a step-by-step explanation of the code:
 
-
 First, the necessary libraries are included: 
 - `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
 - An instance of the `G722Encoder` class is created to handle audio encoding.
@@ -485,7 +486,7 @@ void loop() {
 
 ## Communication
 
-This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each communication protocol, making it easy to connect and communicate with different components, peripherals, and sensors.
+This section of the user manual covers the different communication protocols that are supported by the Nicla Voice board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and BLE; communication via the onboard ESLOV connector is also explained in this section. The Nicla Voice features dedicated pins for each communication protocol, making connecting and communicating with different components, peripherals, and sensors easy.
 
 ### SPI
 
@@ -791,7 +792,7 @@ The Nicla Voice board features an onboard ESLOV connector meant as an **extensio
 
 The pin layout of the ESLOV connector is the following:
 
-1. VCC_IN (5 V input)
+1. VCC_IN (5V input)
 2. INT
 3. SCL
 4. SDA
