@@ -54,7 +54,7 @@ Here is an overview of the board's architecture's main components shown in the i
 - **Onboard high-performance microphone**:  the Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
 - **Onboard connector for external PDM microphone**: an external PDM microphone can be connected to the board via an onboard connector.  
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy (BLE) connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance BLE module allows the Nicla Voice to communicate wirelessly with other devices and systems.
-- **Power management**: the Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors. The Nicla Voice features the BQ25120 from Texas Instruments; a highly integrated battery charge management  integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
+- **Power management**: the Nicla Voice is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on speech recognition and multiple sensors. The Nicla Voice features the BQ25120 from Texas Instruments; a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
 
 ### Board Core and Libraries
 
@@ -62,31 +62,31 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries you need to wor
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/user-manual-1.png)
 
-### Board Pinout
+### Pinout
 
 The full pinout is available and downloadable as PDF from the link below:
 
 - [Nicla Voice pinout](assets/ABX00061-full-pinout.pdf)
 
-### Board Datasheet
+### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
 - [Nicla Voice datasheet](assets/ABX00061-datasheet.pdf)
 
-### Board Schematics
+### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
 - [Nicla Voice schematics](assets/ABX00061-schematics.pdf)
 
-### Board STEP Files
+### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
 
 - [Nicla Voice STEP files](assets/ABX00061-step.zip)
 
-## Board First Use
+## First Use
 
 ### Powering the Board
 
@@ -135,7 +135,7 @@ The speech recognition example can be found in the board's built-in examples by 
 
 ![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/user-manual-5.png)
 
-## Board Pins
+## Pins
 
 The Nicla Voice pinout is shown in the image below:
 
@@ -277,7 +277,7 @@ void loop() {
 }
 ```
 
-## Board Sensors
+## Onboard Sensors
 
 The Nicla Voice boards come with various onboard sensors that allow you to capture and process environmental and motion data via a high-performance microphone, a 6-axis IMU, and a 3-axis magnetometer. The onboard sensors can be used for developing various applications, such as voice recognition, gesture control, and environmental monitoring.
 
@@ -393,9 +393,9 @@ Keep in mind that this example code requires the following libraries:
 
 Make sure to install these libraries in the Arduino IDE before uploading the code to your Nicla Voice board.
 
-### IMU
+### IMU and Magnetometer
 
-## Board Actuators
+## Actuators
 
 ### RGB LED
 
