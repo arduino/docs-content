@@ -19,8 +19,7 @@
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
     "@arduino/docs-arduino-cc": "^1.8.5",
-    "gatsby": "^4.9.2",
-    "gatsby-transformer-sharp": "^5.8.0"
+    "gatsby": "^4.9.2"
   },
   "volta": {
     "node": "14.21.1",
