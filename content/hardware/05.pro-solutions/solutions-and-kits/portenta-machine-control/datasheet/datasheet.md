@@ -234,7 +234,7 @@ Connect a **three-wire RTD** to a channel `CH` (0-2):
 The on-board transceiver is the **TJA1049T/3J** and implements the CAN physical layer as defined in *ISO 11898-2:2016* and *SAE J2284-1* to *SAE J2284-5*. It is compatible with a 12V or 24V bus:
   - **Nominal** maximum data rate: 5 Mbit/s.
   - Integrated ESD protection.
-  - 60 Ω termination resistors are on board, with 4.7 nF to GND
+  - 60 Ω termination resistors are on board, with 4.7 nF to GND.
 
 A 500mA PTC resettable fuse protects the 24V OUT pin.
 
@@ -243,7 +243,7 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
 
   - **Nominal** data rates are: 20 Mbps for the RS-485 and 1 Mbps for the RS-232.
   - Selectable 250 kbps Slew Limiting.
-  - Integrated RS-485 120Ω differential cable termination, inactive for RS-232.
+  - Integrated RS-485 120 Ω differential cable termination, inactive for RS-232.
   - Integrated ESD protection.
   - A 500mA PTC resettable fuse protects the 24V output pin.
 
@@ -262,18 +262,18 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
   - ESD protection.
 
 ### Micro-USB Connector
-The Half-Speed USB interface of the Portenta board is connected to the Micro-USB connector of the Portenta Machine Control.
-  - It can be used to program the Portenta board via a micro-usb cable.
+The Half-Speed USB interface of the Portenta board is connected to the micro-USB connector of the Portenta Machine Control.
+  - It can be used to program the Portenta board via a micro-USB cable.
   - It can be used to power the Portenta board while the 24V power supply is off.
   - ESD protection.
 
 ### RTC
-The on-board real-time clock/calendar is the **PCF8563T/F4,118** which clock is provided by a dedicated external crystal oscillator:
-  - A 100 mF supercapacitor (**FC0V104ZFTBR24**) provides power to the **PCF8563T/F4,118** when the board power supply is disconnected. The RTC chipset will be powered by the supercapacitor for at least 48 hours.
+The on-board real-time clock/calendar is the **PCF8563T/F4** which clock is provided by a dedicated external crystal oscillator:
+  - A 100 mF supercapacitor (**FC0V104ZFTBR24**) provides power to the **PCF8563T/F4** when the board power supply is disconnected. The RTC chipset will be powered by the supercapacitor for at least 48 hours.
   - 32,768 kHz crystal clock (**Q13FC1350000400**).
 
 ### Power Tree
-![Power Tree Machine Control](assets/MachineControlPowerTree.png)
+![Portenta Machine Control Power Tree](assets/MachineControlPowerTree.png)
 
 ## Board Operation
 ### Getting Started - IDE
@@ -321,7 +321,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | Pin | **Type** | **Channel** | **Description**                                                |
 | --- | -------- | ----------- | -------------------------------------------------------------- |
 | 1   | TP0      | 00          | Thermocouples P RTD P                                          |
-| 2   | TN01     | 00          | Thermocouples N RTD N **NOTE:** DO NOT CONNECT THIS PIN TO GND |
+| 2   | TN0      | 00          | Thermocouples N RTD N **NOTE:** DO NOT CONNECT THIS PIN TO GND |
 | 3   | RTD0     | 00          | RTD P third wire                                               |
 | 4   | TP1      | 01          | Thermocouples P RTD P                                          |
 | 5   | TN1      | 01          | Thermocouples N RTD N **NOTE:** DO NOT CONNECT THIS PIN TO GND |
@@ -348,13 +348,13 @@ Now that you have gone through the basics of what you can do with the board you 
 
 | Pin | **Type** | **Channel** | **Description** |
 | --- | -------- | ----------- | --------------- |
-| 1   | A0       | 00          | Analog output   |
+| 1   | AO0      | 00          | Analog output   |
 | 2   | GND      | -           | GND             |
-| 3   | A1       | 01          | Analog output   |
+| 3   | AO1      | 01          | Analog output   |
 | 4   | GND      | -           | GND             |
-| 5   | A2       | 02          | Analog output   |
+| 5   | AO2      | 02          | Analog output   |
 | 6   | GND      | -           | GND             |
-| 7   | A3       | 03          | Analog output   |
+| 7   | AO3      | 03          | Analog output   |
 | 8   | GND      | -           | GND             |
 
 ### Digital Inputs (J3)
@@ -391,18 +391,18 @@ Now that you have gone through the basics of what you can do with the board you 
 | Pin | **Type** | **Channel** | **Description**                                                                                     |
 | --- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
 | 1   | 24V IN   | -           | Input voltage: this voltage is (non galvanically) isolated with respect to the board input voltage. |
-| 2   | 00       | 00          | Digital programmable output Digital programmable input                                              |
-| 3   | 01       | 01          | Digital programmable output Digital programmable input                                              |
-| 4   | 02       | 02          | Digital programmable output Digital programmable input                                              |
-| 5   | 03       | 03          | Digital programmable output Digital programmable input                                              |
-| 6   | 04       | 04          | Digital programmable output Digital programmable input                                              |
-| 7   | 05       | 05          | Digital programmable output Digital programmable input                                              |
-| 8   | 06       | 06          | Digital programmable output Digital programmable input                                              |
-| 9   | 07       | 07          | Digital programmable output Digital programmable input                                              |
-| 10  | 08       | 08          | Digital programmable output Digital programmable input                                              |
-| 11  | 09       | 09          | Digital programmable output Digital programmable input                                              |
-| 12  | 10       | 10          | Digital programmable output Digital programmable input                                              |
-| 13  | 11       | 11          | Digital programmable output Digital programmable input                                              |
+| 2   | 00       | 00          | Digital programmable Input/Output                                                                   |
+| 3   | 01       | 01          | Digital programmable Input/Output                                                                   |
+| 4   | 02       | 02          | Digital programmable Input/Output                                                                   |
+| 5   | 03       | 03          | Digital programmable Input/Output                                                                   |
+| 6   | 04       | 04          | Digital programmable Input/Output                                                                   |
+| 7   | 05       | 05          | Digital programmable Input/Output                                                                   |
+| 8   | 06       | 06          | Digital programmable Input/Output                                                                   |
+| 9   | 07       | 07          | Digital programmable Input/Output                                                                   |
+| 10  | 08       | 08          | Digital programmable Input/Output                                                                   |
+| 11  | 09       | 09          | Digital programmable Input/Output                                                                   |
+| 12  | 10       | 10          | Digital programmable Input/Output                                                                   |
+| 13  | 11       | 11          | Digital programmable Input/Output                                                                   |
 | 14  | GND      | -           | GND                                                                                                 |
 
 ### Encoders (J10)
@@ -440,7 +440,7 @@ Now that you have gone through the basics of what you can do with the board you 
 ## Mechanical Information
 ### Board Outline
 
-![Machine Control Outline](assets/MachineControlRail.svg)
+![Portenta Machine Control Outline](assets/MachineControlRail.svg)
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
