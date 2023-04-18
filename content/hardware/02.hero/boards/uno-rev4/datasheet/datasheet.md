@@ -98,23 +98,17 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ![Top View of Arduino UNO R4 Minima]()
 
-***BELOW IS GIGA PLACEHOLDER DATA, IGNORE***
+| **Ref.** | **Description**                      | **Ref.** | **Description**               |
+| -------- | ------------------------------------ | -------- | ----------------------------- |
+| U1       | R7FA4M1AB3CFM#AA0 Microcontroller IC | J4       | DC Jack                       |
+| U2       | ISL854102FRZ-T Buck Converter        | DL1      | LED TX (serial transmit)      |
+| PB1      | RESET Button                         | DL2      | LED RX (serial receive)       |
+| JANALOG  | Analog input/output headers          | DL3      | LED Power                     |
+| JDIGITAL | Digital input/output headers         | DL4      | LED SCK (serial clock)        |
+| J1       | ICSP header (SPI)                    | D2       | PMEG6020AELRX Schottky Diode  |
+| J2       | SWD/JTAG Connector                   | D3       | PMEG6020AELRX Schottky Diode  |
+| J3       | CX90B-16P USB-C® connector           | D4       | PRTR5V0U2X,215 ESD Protection |
 
-| **Ref.** | **Description**                         | **Ref.** | **Description**                     |
-| -------- | --------------------------------------- | -------- | ----------------------------------- |
-| U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC     |
-| U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
-| U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
-| U7       | MP2269GD-Z Buck Converter 5V IC         | JANALOG  | Analog input/output headers         |
-| JDIGITAL | Digital input/output headers            | JSIDE    | Digital input/output headers        |
-| SPI      | SPI headers                             | JTAG     | JTAG Headers                        |
-| J2       | USB 2.0 A Host                          | J15      | 3.5 mm audio in/out                 |
-| PB1      | RESET Button                            | PB2      | BOOT0 button                        |
-| J14      | Micro UFL connector                     | J5       | Camera                              |
-| J6       | Camera                                  | DL1      | Power LED                           |
-| DL2      | RGB SMLP34RGB2W3 Common anode LED       | J12      | CX90B-16P USB-C® connector          |
-
-***ABOVE IS GIGA PLACEHOLDER DATA, IGNORE***
 
 ### Back View
 
