@@ -19,15 +19,7 @@
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
     "@arduino/docs-arduino-cc": "^1.8.5",
-    "gatsby": "^4.9.2",
-    "gatsby-plugin-gatsby-cloud": "^5.8.0",
-    "gatsby-plugin-google-tagmanager": "^5.8.0",
-    "gatsby-plugin-mdx": "^3.20.0",
-    "gatsby-plugin-sharp": "^4.25.1",
-    "gatsby-remark-autolink-headers": "^6.8.0",
-    "gatsby-remark-copy-linked-files": "^6.8.0",
-    "gatsby-remark-images": "^7.8.0",
-    "gatsby-transformer-sharp": "^5.8.0"
+    "gatsby": "^4.9.2"
   },
   "volta": {
     "node": "14.21.1",
