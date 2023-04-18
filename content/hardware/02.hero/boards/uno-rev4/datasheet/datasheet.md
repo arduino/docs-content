@@ -4,7 +4,7 @@ title: Arduino® UNO R4 Minima
 type: maker
 ---
 
-![](assets/featured.png)
+![Arduino® UNO R4 Minima](assets/featured.png)
 
 # Description 
 
@@ -26,6 +26,10 @@ Maker, beginner, education
   * 256KB Flash Memory
   * 32KB SRAM
   * 8KB Data Memory (EEPROM)
+* **Pins**
+  * 14x digital pins (GPIO), D0-D13
+  * 6x analog input pins (ADC), A0-A5
+  * 6x PWM pins: D3,D5,D6,D9,D10,D11
 * **Peripherals**
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
@@ -90,7 +94,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ## Block Diagram
 
-![Arduino R4 Minima Block Diagram]()
+![Arduino R4 Minima Block Diagram](assets/UNO_R4_Minima_Block_Diagram.png)
 
 ## Board Topology
 
@@ -108,6 +112,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 | J1       | ICSP header (SPI)                    | D2       | PMEG6020AELRX Schottky Diode  |
 | J2       | SWD/JTAG Connector                   | D3       | PMEG6020AELRX Schottky Diode  |
 | J3       | CX90B-16P USB-C® connector           | D4       | PRTR5V0U2X,215 ESD Protection |
+
 
 
 ### Back View
@@ -151,15 +156,13 @@ Both VUSB and VIN pins are connected to the ISL854102FRZ buck converter, with Sc
 
 Power via USB supplies about ~4.7V (due to Schottky drop) to the RA4M1 microcontroller.
 
-![Buck Converter](assets/r4-power.png)
-
 ### Power Tree
 
-![Arduino UNO R4 Minima power tree.]()
+![Arduino UNO R4 Minima power tree.](assets/UNO_R4_Minima_Power_Tree.png)
 
 ### Pin Voltage
 
-The UNO R4 Minima operates on 5V, as does all pins on this board except for the **3.3V pin**. This pin draws power from the VCC_USB pin on the R7FA4M1AB3CFM#AA0, and is not connected to the buck converter.
+The UNO R4 Minima operates on 5V, as does all pins on this board except for the **3.3V pin**. This pin draws power from the `VCC_USB` pin on the R7FA4M1AB3CFM#AA0, and is not connected to the buck converter.
 
 ### Pin Current
 
@@ -167,33 +170,11 @@ The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 20 mA. Never
 
 For powering e.g. servo motors, use an external power supply.
 
-## Board Operation
-
-### Getting Started - IDE
-
-If you want to program your UNO R4 Minima while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 Minima to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
-
-### Getting Started - Arduino Web Editor
-
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
-
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
-
-### Getting Started - Arduino IoT Cloud
-
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
-
-### Online Resources
-
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
-
-### Board Recovery
-
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
-
 # Mechanical Information
 
 ## Pinout
+
+![Pinout for UNO R4 Minima.](assets/ABX00080-pinout.png)
 
 ### Analog
 
@@ -207,35 +188,35 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 6   | GND      | Power  | Ground                                          |
 | 7   | GND      | Power  | Ground                                          |
 | 8   | VIN      | Power  | Voltage Input                                   |
-| 9   | A0       | Analog | Analog input 0/DAC                              |
-| 10  | A1       | Analog | Analog input 1/OPAMP+                           |
-| 11  | A2       | Analog | Analog input 2/OPAMP-                           |
-| 12  | A3       | Analog | Analog input 3/OPAMPOut                         |
-| 13  | A4       | Analog | Analog input 4/I²C Serial Datal (SDA)           |
-| 14  | A5       | Analog | Analog input 5/I²C Serial Clock (SCL)           |
+| 9   | A0       | Analog | Analog input 0 / DAC                            |
+| 10  | A1       | Analog | Analog input 1 / OPAMP+                         |
+| 11  | A2       | Analog | Analog input 2 / OPAMP-                         |
+| 12  | A3       | Analog | Analog input 3 / OPAMPOut                       |
+| 13  | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA)         |
+| 14  | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL)         |
 
 ### Digital
 
-| Pin | Function  | Type    | Description                              |
-| --- | --------- | ------- | ---------------------------------------- |
-| 1   | SCL       | Digital | I²C Serial Clock (SCL)                   |
-| 2   | SDA       | Digital | I²C Serial Datal (SDA)                   |
-| 3   | AREF      | Digital | Analog Reference Voltage                 |
-| 4   | GND       | Power   | Ground                                   |
-| 5   | D13/SCK   | Digital | GPIO 13/SPI Clock                        |
-| 6   | D12/CIPO  | Digital | GPIO 12/SPI Controller In Peripheral Out |
-| 7   | D11/COPI  | Digital | GPIO 11/SPI Controller Out Peripheral In |
-| 8   | D10/CS    | Digital | GPIO 10/SPI Chip Select                  |
-| 9   | D9        | Digital | GPIO 9                                   |
-| 10  | D8        | Digital | GPIO 8                                   |
-| 11  | D7        | Digital | GPIO 7                                   |
-| 12  | D6        | Digital | GPIO 6                                   |
-| 13  | D5/CANRX0 | Digital | GPIO 5/CAN Transmitter (TX)              |
-| 14  | D4/CANTX0 | Digital | GPIO 4/CAN Receiver (RX)                 |
-| 15  | D3        | Digital | GPIO 3                                   |
-| 16  | D2        | Digital | GPIO 2                                   |
-| 17  | D1/TX0    | Digital | GPIO 1 / Serial 0 Transmitter (TX)       |
-| 18  | D0/TX0    | Digital | GPIO 0 / Serial 0 Receiver    (RX)       |
+| Pin | Function  | Type    | Description                                      |
+| --- | --------- | ------- | ------------------------------------------------ |
+| 1   | SCL       | Digital | I²C Serial Clock (SCL)                           |
+| 2   | SDA       | Digital | I²C Serial Datal (SDA)                           |
+| 3   | AREF      | Digital | Analog Reference Voltage                         |
+| 4   | GND       | Power   | Ground                                           |
+| 5   | D13/SCK   | Digital | GPIO 13 / SPI Clock                              |
+| 6   | D12/CIPO  | Digital | GPIO 12 / SPI Controller In Peripheral Out       |
+| 7   | D11/COPI  | Digital | GPIO 11 (PWM) / SPI Controller Out Peripheral In |
+| 8   | D10/CS    | Digital | GPIO 10 (PWM) / SPI Chip Select                  |
+| 9   | D9        | Digital | GPIO 9 (PWM~)                                    |
+| 10  | D8        | Digital | GPIO 8                                           |
+| 11  | D7        | Digital | GPIO 7                                           |
+| 12  | D6        | Digital | GPIO 6 (PWM~)                                    |
+| 13  | D5/CANRX0 | Digital | GPIO 5 (PWM~) / CAN Transmitter (TX)             |
+| 14  | D4/CANTX0 | Digital | GPIO 4 / CAN Receiver (RX)                       |
+| 15  | D3        | Digital | GPIO 3 (PWM~)                                    |
+| 16  | D2        | Digital | GPIO 2                                           |
+| 17  | D1/TX0    | Digital | GPIO 1 / Serial 0 Transmitter (TX)               |
+| 18  | D0/TX0    | Digital | GPIO 0 / Serial 0 Receiver    (RX)               |
 
 
 ### ICSP
@@ -271,6 +252,30 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ![Mechanical View of Arduino UNO R4 Minima]()
 
 <div style="page-break-after: always;"> </div>
+
+## Board Operation
+
+### Getting Started - IDE
+
+If you want to program your UNO R4 Minima while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 Minima to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+
+### Getting Started - Arduino Web Editor
+
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+
+### Getting Started - Arduino IoT Cloud
+
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
+### Online Resources
+
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+
+### Board Recovery
+
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
 
 # Certifications
 
