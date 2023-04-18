@@ -33,6 +33,7 @@ Industry 4.0, system integrators
   - Non-galvanic isolated 24V power input
   - 8x High-side switches with current limit and inductive load kick-back protection
 - **3x Analog input channels**
+  
   Each channel is software configurable to be:
   - 0-10V input
   - 4-20mA input
@@ -66,7 +67,7 @@ Industry 4.0, system integrators
 - **Half-speed micro-USB Type B connector**
 - **RTC**
   - At least 48 hours of memory retention
-- **WiFi®/Bluetooth® Low Energy**
+- **Wi-Fi®/Bluetooth® Low Energy**
   - SMA connector 50 Ω
 
 ***Note: ESD protection on all inputs/outputs***
@@ -74,7 +75,7 @@ Industry 4.0, system integrators
 # Contents
 ## The Board
 ### Application Examples
-- **Food processing:** The Portenta Machine Control is the perfect solution to meet your food processing needs by providing control to your lab and industrial operation's demands across the beverage, drying, and fermentation fields. Access professional support from Arduino or take advantage of the community support to reduce your time-to-market. With the Portenta Machine Control you will have real-time information about the status of your process being able to improve the yield and minimize waste by adjusting the food processing parameters using edge computing.
+- **Food processing:** The Portenta Machine Control is the perfect solution to meet your food processing needs by providing control to your lab and industrial operation's demands across the beverage, drying, and fermentation fields. Access professional support from Arduino or take advantage of the community support to reduce your time-to-market. With the Portenta Machine Control, you will have real-time information about the status of your process being able to improve the yield and minimize waste by adjusting the food processing parameters using edge computing.
 
 - **Glass bottle manufacturing:** Make use of the fast-edge computing capabilities of the Portenta range for minimal latency control of industrial components used in glass bottle manufacturing. Ensure the consistency of glass bottles created while simultaneously increasing the overall equipment effectiveness and increasing the generated revenue. Make use of custom thermal control algorithms to ensure optimum annealing processes with minimal resource consumption. All while increasing the bottles per minute ratio (BPM).
 
@@ -94,7 +95,7 @@ Industry 4.0, system integrators
 | --------------- | ------------------------------------------------ | -------------- | -------------- |
 | T<sub>Max</sub> | Conservative thermal limits for the whole board: | -40 °C (-40°F) | 85 °C (185 °F) |
 
-## Absolute Maximum Ratings
+### Absolute Maximum Ratings
 
 | Symbol                  | Description                                                                                                                                                                                                        | Min | Typ | Max | Unit |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | --- | --- | ---- |
@@ -109,6 +110,9 @@ Industry 4.0, system integrators
 | I<sub>OUT_24V</sub>     | Maximum output current from any 24V OUT pin                                                                                                                                                                        | 0   | -   | 500 | mA   |
 | I<sub>OUT_ENC</sub>     | Maximum output current from any ENCODERS pin                                                                                                                                                                       | 0   | -   | 2   | mA   |
 
+
+<div style="page-break-after:always;"></div>
+
 ## Functional Overview
 ### Block Diagram
 ![Block Diagram of Portenta Machine Control](assets/MachineControlBlockDiagram.svg)
@@ -121,16 +125,16 @@ Industry 4.0, system integrators
 | J3       | Digital inputs                                     | J10      | Encoders                              |
 | J4       | Power supply 24V                                   | J11      | Analog out                            |
 | J5       | HMI - Comm protocols (RS-232, RS-422, RS-485, CAN) | J13      | Ethernet                              |
-| J6       | Digital outputs                                    | J14      | WI-FI / Bluetooth® Low Energy SMA     |
+| J6       | Digital outputs                                    | J14      | Wi-Fi® / Bluetooth® Low Energy SMA    |
 | J7       | Temperature probes                                 | J15      | USB A                                 |
 | J8       | Digital programmable                               | J16      | USB micro                             |
 | J9       | Analog in                                          | J17      | Grove I2C                             |
 | PB1      | RESET Push Button                                  | U10      | MAX31855KASA+T Thermocouple converter |
 
-### Digital Input
-8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
+### Digital Inputs
+The digital inputs connector has 8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
 
-### Digital Output
+### Digital Outputs
 The digital output connector has a 24V IN pin which must be supplied with 24V DC.
 
 The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board.
@@ -140,12 +144,10 @@ The supply voltage can be the same 24V which is powering the board.
 - 8x high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel.
 - The current limit nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances, the real value can be higher, up to 0.9A.
 
-### Digital Programmable
-The **digital programmable** connector has a 24V IN pin which must be supplied with 24V DC.
+### Programmable Digital I/O
+The **programmable digital I/O** connector has a 24V IN pin which must be supplied with 24V DC.
 
 The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board.
-
-The supply voltage can be the same 24V which is powering the board. There are 12x high-side switches (3x **TPS4H160AQPWPRQ1**), one for each channel.
 
 The supply voltage can be the same 24V which is powering the board. There are 3x **TPS4H160AQPWPRQ1** chipsets, one for each channel, having a total of 12x high-side switches.
 
@@ -156,18 +158,18 @@ The supply voltage can be the same 24V which is powering the board. There are 3x
   - **Retry**: when the current limit is reached the channel is shut down and re-connected after a short period of time.
 
 #### Kick-Back Protection
-There is an internal inductive loads kick-back protection with an additional external protection of a 60V, 2A Schottky diode **PMEG6020ER,115**:
+There is an internal inductive loads kick-back protection with an additional external protection of a 60V, 2A Schottky diode **PMEG6020ER**:
 
 - 12x digital input channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
   Although the high-side switches are independent of the digital input channels, it is possible to read the status of the high-side switches through the digital input channels.
 
 ### Analog Input
-The internal A/D converter of the microcontroller has a range resolution of 12-16 bits, delivering values from 0 to 65535 and being configurable by the user via software.
+The internal A/D converter of the microcontroller has a range resolution of 12-16 bits, delivering decimal values from 0 to a maximum of 65535 and being configurable by the user via software.
 
 There are three independent analog input channels available. Each of them has an analog switch **TS12A44514PWR** which is switching between three modes:
 
 - **0-10V**:
-The input is connected to a 100 kΩ and 39 kΩ resistor divider: a 0-10V input is scaled down to 0-2.8V. The input impedance is approximately 28 kΩ.
+The input is connected to a 100 kΩ and 39 kΩ resistor divider. A 0-10V input is scaled down to 0-2.8V. The input impedance is approximately 28 kΩ.
 - **4-20mA**:
 The input is connected to a 120Ω resistor. Having 4-20mA current input for a 0.48V-2.4V voltage.
 - **NTC**:
@@ -178,7 +180,7 @@ An output pin provides 24V to power sensors. A 500mA PTC resettable fuse protect
 ### Analog Output
 Four independent analog output channels are available. Each of them has a double low-pass filter and a high-current op-amp arranged in a non-inverting topology with a gain of 3.3.
 
-![AnalogOutput](assets/MachineControlAnalogOutputScheme.svg)
+![Analog Output Circuit](assets/MachineControlAnalogOutputScheme.svg)
 
 At each input of each channel, a PWM from the Portenta board is provided and filtered by a double low-pass filter, obtaining a DC output with a small AC ripple. The signal is then fed to the channel non-inverting amplifier which amplifies it by 3.3.
 
@@ -259,8 +261,9 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
   - It can be used both as a host and as a device.
   - ESD protection.
 
-### Half Speed Micro-USB Portenta Half-Speed USB Is Connected To The Micro-USB Connector
-  - Useful to program the Portenta board via a micro-usb cable.
+### Micro-USB Connector
+The Half-Speed USB interface of the Portenta board is connected to the Micro-USB connector of the Portenta Machine Control.
+  - It can be used to program the Portenta board via a micro-usb cable.
   - It can be used to power the Portenta board while the 24V power supply is off.
   - ESD protection.
 
