@@ -908,7 +908,16 @@ At this point, if you would to continue to use your Out-of-the-box, you can open
 
 #### Troubleshooting
 
-If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). Follow [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
+If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the Linux image provided below in the [downloads menu](#downloads-menu). Follow [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
+
+#### Downloads Menu
+
+<details><summary><a>Click here to deploy the images download tree</a></summary>
+
+- <a href="https://downloads.arduino.cc/portentax8image/399.tar.gz">Download the factory firmware</a>
+- <a href="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz">Download the latest firmware (Recommended)</a>
+
+</details>
 
 ### Update With Portenta X8 Board Manager
 
