@@ -19,7 +19,7 @@
 <EssentialsColumn title="Firmware Images">
 
 <EssentialElement link="https://downloads.arduino.cc/portentax8image/399.tar.gz" title="v399 Firmware Version" type="library">
-        Download the factory firmware for Portenta X8.
+        Download the v399 firmware for Portenta X8.
     </EssentialElement>
 
 <EssentialElement link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz" title="Latest Firmware Version" type="library">
