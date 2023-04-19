@@ -299,7 +299,7 @@ void loop() {
   Get the size of a file
   
   @param bootloader fp (FP)
-  @return filse size
+  @return files size
 */
 long getFileSize(FILE* fp) {
   fseek(fp, 0, SEEK_END);
