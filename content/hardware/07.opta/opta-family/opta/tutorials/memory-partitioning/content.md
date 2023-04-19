@@ -71,7 +71,7 @@ The sketch below will guide us through partitioning the memory of an Opta™ dev
   Name: opta_memory_partitioning.ino
   Purpose: Partition the memory of an Opta device
 
-  @author Arduino PRO Content team
+  @author Arduino PRO team
   @version 1.0 04/04/22
 */
 
@@ -334,7 +334,7 @@ The sketch shown above performs four main tasks:
 
 1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ device and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
 
-2. **Create partitions and format them in the QSPI Flash memory**: The sketch creates and formats partitions in the QSPI Flash memory for the Wi-Fi firmware, Over-The-Air (OTA) updates functionality and certificates storage.
+2. **Create partitions and format them in the QSPI Flash memory**: The sketch creates and formats partitions in the QSPI Flash memory for the Wi-Fi firmware, Over-The-Air (OTA) updates functionality, and certificates storage.
 
 3. **Write Wi-Fi firmware and certificates data**: The sketch writes the Wi-Fi firmware and certificate data to the appropriate partitions in the QSPI Flash memory. It also flashes the memory-mapped Wi-Fi firmware and certificates.
 
@@ -348,8 +348,8 @@ After a while, you should see in the Serial Monitor information on the progress 
 
 ![Flashing process feedback of the Opta™ shown in the Arduino IDE's Serial Monitor.](assets/arduino-ide-3.png)
 
-You should see a success message in the Serial Monitor if everything is correct. Now we are ready to start using the full capabilities of the Opta™ with the Arduino IDE.
+If everything is correct, you should see a success message in the Serial Monitor. Now we are ready to start using the full capabilities of the Opta™ with the Arduino IDE.
 
 ## Conclusion
 
-In this tutorial, we successfully partitioned the memory of an Opta™ device, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language. We walked through initializing and erasing the QSPI Flash memory, partitioning and formatting the memory, and writing the Wi-Fi firmware and certificate data onto the device's memory. As you move forward, you can explore the extensive Arduino ecosystem, leverage various libraries and hardware add-ons, and create powerful, connected, and secure industrial solutions using the Opta™.
+In this tutorial, we successfully partitioned the memory of an Opta™ device, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language. We walked through initializing and erasing the QSPI Flash memory, partitioning and formatting the memory, and writing the Wi-Fi firmware and certificate data onto the device's memory. As you move forward, you can explore the extensive Arduino ecosystem, leverage various libraries and hardware add-ons, and create powerful, connected, and secure industrial solutions using the Opta™. Check out our getting started with Opta™ tutorial to learn more about its features.
