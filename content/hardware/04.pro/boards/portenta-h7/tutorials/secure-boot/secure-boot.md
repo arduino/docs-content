@@ -15,7 +15,7 @@ software:
 ## Introduction
 This short tutorial will guide the user through enabling the secure boot on the Portenta H7, generating custom security keys, and using them with the MCUboot bootloader.
 
-Secure boot is the process where compiled sketch is authenticated against the hardware before it is authorized to be used in the boot process. The hardware is pre-configured to authenticate code using trusted security credentials.
+Secure boot is the process where a compiled sketch is authenticated against the hardware before it is authorized to be used in the boot process. The hardware is pre-configured to authenticate code using trusted security credentials.
 
 In other words, secure boot ensures that the boot technology and operating system software are the legitimate manufacturer version and have not been altered or tampered with by any malicious actor or process.
 
