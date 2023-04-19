@@ -17,7 +17,9 @@ hardware:
 
 ## Overview
 
-The Opta™ is a secure, easy-to-use micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IIoT) capabilities. It can be programmed with the [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide/), a tool that simplifies programming the device through any of the five programming languages defined by the IEC 61131-3 standard. The Opta™ can also be programmed with other tools from the Arduino ecosystem, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the Arduino programming language. 
+The Opta™ is a secure, easy-to-use micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IIoT) capabilities. It can be programmed with the [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide/), a tool that simplifies programming the device through any of the five programming languages defined by the IEC 61131-3 standard. 
+
+The Opta™ can also be programmed with other tools from the Arduino ecosystem, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the Arduino programming language. In case we are using Opta™ with the Arduino PLC IDE and we want to start programming the device using the Arduino IDE and the rest of the Arduino ecosystem tools, we need to partition the memory of the device to enable all of the available features.
 
 In this tutorial, we will learn how to partition the memory of an Opta™ device to enable all of its functionalities to be programmed using the Arduino IDE and the Arduino programming language.
 
