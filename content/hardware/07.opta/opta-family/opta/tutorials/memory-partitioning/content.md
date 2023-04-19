@@ -1,6 +1,6 @@
 ---
 title: 'Opta™ Memory Partitioning for Use with the Arduino IDE'
-description: "Learn how to partition the memory of an Opta™ device using the Arduino® ecosystem tools."
+description: "Learn how to partition the memory of an Opta™ device to be used with the Arduino® ecosystem tools."
 
 difficulty: beginner 
 tags:
