@@ -25,7 +25,7 @@ In this tutorial, we will learn how to partition the memory of an Opta™ device
 
 ## Goals
 
-- Learn how to partition the memory of an Opta™ device using the Arduino ecosystem tools.
+- Learn how to partition the memory of an Opta™ device to be used with the Arduino IDE and other ecosystem tools
 - Program an Opta™ device using the Arduino IDE and the Arduino programming language. 
 
 ## Hardware and Software Requirements
