@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Nicla Voice'
+title: 'Getting Started with Speech Recognition and the Nicla Voice'
 description: 'Learn to use the Nicla Voice to create your own Machine Learning audio models.'
 tags: 
   - Getting started
