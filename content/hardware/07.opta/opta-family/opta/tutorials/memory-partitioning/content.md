@@ -61,7 +61,7 @@ Now we are ready to start compiling and uploading Arduino sketches to an Opta™
 
 ### Partitioning Memory of an Opta™ Device
 
-The sketch below will guide us through partitioning the memory of an Opta™ device. The complete sketch can be downloaded [here](assets/opta_memory_partitioning.ino), and the certificates file can be downloaded [here](assets/certificates.h). **Remember to store both files in the same folder**.
+The sketch below will guide us through partitioning the memory of an Opta™ device. The complete sketch and the certificates file can be downloaded [here](assets/opta_memory_partitioning.zip). **Remember to store both files in the same folder**.
 
 
 ```arduino
