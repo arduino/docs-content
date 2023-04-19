@@ -53,7 +53,8 @@ Now, we will guide the process of partitioning an Opta™'s memory to enable the
 
 This tutorial requires the latest version of the Arduino IDE; we can download it [here](https://www.arduino.cc/en/software). In the Arduino IDE, we need to install the core for Opta™ devices; this can be done by navigating to **Tools > Board > Boards Manager** or clicking the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
 
-![Installing the Opta™ core in the Arduino IDE bootloader.](assets/arduino-ide-1.png)
+![Installing the Opta™ core in the Arduino IDE bootloader](assets/arduino-ide-1.png)
+
 
 Now we are ready to start compiling and uploading Arduino sketches to an Opta™ device using the Arduino IDE. 
 
