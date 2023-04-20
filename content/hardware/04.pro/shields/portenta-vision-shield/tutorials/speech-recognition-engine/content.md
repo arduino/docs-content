@@ -165,6 +165,8 @@ Click next, you will see a new page to:
 
 #### Create a New Project
 
+***Warning: each project is bound to a single Arduino board with the declared Serial Number. If you would like to use the Arduino Speech Recognition Engine on another Arduino board, you need to create a new project from scratch and assign it to the new Serial Number.***
+
 To create a new project, first you need to select the desired language for the speech recognition. Once is set, click **create**.
 
 ![Cyberon, New Project](assets/newProject.png)
@@ -183,7 +185,9 @@ On the next page you will see all the configurations already set. Check it out t
 
 ![Cyberon finishing model configuration](assets/newProjectFinish.png)
 
-Once everything is checked, click **Confirm** and you will get the model header file (`model.h`). This header is part of your new project and you need to copy it onto your sketch folder to use it. Remember that once a model is confirmed, it cannot be further modified.
+Once everything is checked, click **Confirm** and you will get the model header file (`model.h`). This header is part of your new project and you need to copy it onto your sketch folder to use it. 
+
+***Warning: when a project is created and confirmed, it cannot be further modified.***
 
 You will now get some files in your e-mail inbox. Download them to your computer.
 
@@ -238,7 +242,7 @@ Click next, review your project options and press continue.
 
 You will get a new e-mail with the new License and Model headers.
 
-***In case you are using a Speech Recognition License (not Pro) please note that deployed models are not customizable. You can always purchase an additional voucher on [Arduino Store](https://store.arduino.cc/speech-recognition-engine) to generate a new model for the same hardware.***
+***Warning: in case you are using a Speech Recognition License (not Pro), please note that deployed models are not customizable. You can always purchase an additional voucher on [Arduino Store](https://store.arduino.cc/speech-recognition-engine) to generate a new model for the same hardware.***
 
 Open the sketch you have duplicated in the [Create New Project](#create-a-new-project) section.
 
