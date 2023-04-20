@@ -1,6 +1,6 @@
 ---
 title: 'Arduino Cloud Security Considerations'
-description: 'Learn how Arduino ensures your data is protected in secure in this security overview document.'
+description: 'Learn how Arduino ensures your data is protected and secured in this security overview document.'
 tags:
 - Arduino Cloud
 - Security
@@ -172,3 +172,4 @@ To establish such secure connections, devices must be able to connect to *.ardui
 ### Secrets Management
 
 In order to provide confidentiality and integrity of secrets stored within Arduino boards, a secure element chip is available on a selection of boards that provides hardware level encryption and tamperproofing protection. Integration with the Arduino Cloud leverages such a secure element to store the board certificate used to perform the mutual authentication with the MQTT server. Customers may also leverage the secure element chip to store sensitive information required by the board to operate based on the specific use cases.
+

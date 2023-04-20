@@ -3,6 +3,7 @@ title: MKR FOX 1200
 url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
 core: arduino:samd
 forumCategorySlug: '/mkr-boards/mkrfox1200/142'
+certifications: [CE]
 status: end-of-life
 productCode: '128'
 ---

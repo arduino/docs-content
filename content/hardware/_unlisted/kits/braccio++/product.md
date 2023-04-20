@@ -1,4 +1,4 @@
 ---
 title: Braccio++
-certifications: [CE]
+certifications: [CE,FCC,IC,RCM,RoHS,UKCA]
 ---

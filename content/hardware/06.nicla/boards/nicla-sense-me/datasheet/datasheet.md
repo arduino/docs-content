@@ -85,13 +85,13 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 The Arduino® Nicla Sense ME is your gateway to develop wireless networking solutions with rapid development and high robustness. Get real-time insight into the operational characteristics of your processes. Take advantage of the high-quality sensors and networking capabilities to evaluate novel WSN architectures. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates of the firmware as well as remote monitoring.
 
 - **Warehouse & Inventory Management**: 
-The environmental sensor of the Arduino® Nicla Sense ME is able to detect the ripening state of fruits, vegetables and meat allowing for intelligent management of perishable assets alongside the Arduino Cloud.
+The environmental sensor of the Arduino® Nicla Sense ME can detect the ripening state of fruits, vegetables and meat allowing for intelligent management of perishable assets alongside the Arduino Cloud.
 
 - **Distributed Industrial Sensing**:
 Identify operating conditions within your machine, factory or greenhouse remotely and even in hard-to-access or hazardous areas. Detect natural gas, toxic gases or other hazardous fumes using the AI capabilities on the **Arduino® Nicla Sense ME**. Improve safety levels with remote analysis. Mesh capabilities allow for simple deployment of WSN with minimal infrastructure requirements.
 
 - **Wireless Sensor Network Reference Design**:
-The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
+The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Get a head start by developing custom end-user solutions including Cloud-connected smart wearables and autonomous robotics. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
 ### Accessories (Not Included)
 - Single-cell Li-ion/Li-Po battery
@@ -103,7 +103,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector. ](assets/niclaSenseMEBattery.png)
 
-**Note** : The NTC pin on the battery connector is optional. This is a feature allowing safer use and thermal shutoff of the PMIC. 
+**Note** : The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff of the PMIC. 
 
 
 ## Ratings
@@ -172,7 +172,7 @@ The **Arduino Nicla Sense ME** is able to perform environmental monitoring via t
 ### Bosch BMP390 Pressure Sensor
 Industrial grade accuracy and stability in pressure measurements are provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high-resolution mode. The Bosch BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low-power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via an SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
 ### Bosch BMM150 3-Axis Magnetometer
-The Bosch BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
+The Bosch BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for the detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
 ### RGB LED
 An I2C LED driver (U8) drives the RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller. 
 
@@ -182,7 +182,7 @@ The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as we
 ### Power Tree
 ![Nicla Sense ME Back View](assets/niclaSenseMEPowerTree.svg)
 
-The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB Leds (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>. 
+The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>. 
 
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network. The battery charging current is set to 40mA with a termination current of 4mA (10%).
 
@@ -211,6 +211,8 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 All Arduino® boards have a built-in bootloader that allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
+
+<div style="page-break-after: always;"></div>
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
@@ -303,7 +305,22 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. Exemptions: No exemptions are claimed. 
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
+
+| Substance                              | **Maximum limit (ppm)** |
+|----------------------------------------|-------------------------|
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
+
+Exemptions: No exemptions are claimed. 
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
