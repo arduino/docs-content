@@ -53,7 +53,7 @@ Globally, interrupts are based on **hardware** and **software** events:
 
 ### Interrupt Triggers
 
-Interrupt signals are an important element to comprehend to set events with appropriate triggers, especially when it is to be implemented on programmable logic controllers such as Opta™. Since it will handle broad signal types, it is a good practice to understand which signal condition suits certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered**. They are characterized as follows:
+Interrupt signals are an important element to comprehend to set events with appropriate triggers, especially when it is to be implemented on programmable logic controllers such as Opta™. Since it will handle broad signal types, it is a good practice to understand which signal condition suits certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interruptions. They are characterized as follows:
 
 * **Level-Triggered:** this is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
 * **Edge-Triggered:** this is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
