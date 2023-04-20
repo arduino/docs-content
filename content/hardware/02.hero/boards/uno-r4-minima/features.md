@@ -8,20 +8,18 @@ The UNO R4 Minima features a total of 32 KB of SRAM and an additional 256 KB of 
 
 <FeatureList>
 
-<Feature title="Cheat Sheet" image="mega-form-factor">
+<Feature title="Cheat Sheet" image="uno-form-factor">
 A reference to all technical features on this board, with pointers to additional documents.
-<FeatureLink title="Cheat Sheet" url="/tutorials/uno-rev4-minima/cheat-sheet"/>
+<FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-minima/cheat-sheet"/>
 </Feature>
 
-<Feature title="Advanced ADC/DAC" image="microphone">
-Learn more about the ADC/DAC features of the GIGA R1 WiFi board, and discover examples for Audio projects.
-<FeatureLink title="ADC/DAC Guide" url="/tutorials/giga-r1-wifi/giga-audio"/>
+<Feature title="5V Logic" image="power">
+The UNO R4 Minima features a operating voltage of 5V reliable and easy to interface with other electronics.
 </Feature>
 
-<Feature title="USB" image="usb">
-This board has USB-C® for power/programming/communication line, and a USB-A for connecting USB devices (keyboards, mass storage).
-
-<FeatureLink title="USB Guide" url="/tutorials/giga-r1-wifi/giga-usb"/>
+<Feature title="DAC" image="microphone">
+Featuring an analog to digigal converter makes the UNO R4 Minima a great choice for people interested in audio projects.
+<FeatureLink title="Audio Guide" url=""/>
 </Feature>
 
 
