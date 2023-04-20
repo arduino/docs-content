@@ -143,6 +143,7 @@ The Arduino Cloud CLI provides a way for interacting with the Arduino IoT Cloud 
 The Arduino Create Agent fills the gap between your browser and your boards and allows users to deploy their sketches on their board using the Arduino Web Editor. The Arduino Create Agent runs a web server bound to localhost that receives requests from the Arduino Web Editor to operate on the boards. The security of such communication is ensured by cryptographic signature of the commands that are sent to the Arduino Create Agent. Whenever the Arduino Web Editor wants to send a command to the Arduino Create Agent, it cryptographically signs the command and appends the signature to the request sent to the agent. The agent verifies the signature and, if it is correct, accepts and executes the command.
 
 For usage with certain browsers, specifically with Safari on macOS, the Arduino Create Agent needs to run the web server using a TLS connection. A local Certificate Authority (CA) is generated and used to sign a certificate for the localhost domain. The private key of the CA is erased once the certificate for localhost is signed, while the public certificate of the CA is installed in the local system. The web server of the Arduino Create Agent will then run with a TLS connection. This is done to obey the mixed content specification implemented in Safari which is enforced also for resources loaded from localhost.
+
 ## Security Considerations for Arduino Boards
 
 ### Device Identity and Secure Communication
