@@ -21,7 +21,7 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Goals
 
-- Learn how to enable interrupts on Opta™
+- Learn how to configure an Opta™ program to use interrupts
 - Learn how to implement interrupts on Opta™
 
 ### Required Hardware and Software
