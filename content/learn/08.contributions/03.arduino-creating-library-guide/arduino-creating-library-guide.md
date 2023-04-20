@@ -61,6 +61,7 @@ class Morse
 {
   public:
     Morse(int pin);
+    void begin();
     void dot();
     void dash();
   private:
@@ -107,6 +108,7 @@ class Morse
 {
   public:
     Morse(int pin);
+    void begin();
     void dot();
     void dash();
   private:
@@ -125,19 +127,27 @@ First comes a couple of #include statements. These give the rest of the code acc
 #include "Morse.h"
 ```
 
-Then comes the constructor. Again, this explains what should happen when someone creates an instance of your class. In this case, the user specifies which pin they would like to use. We configure the pin as an output save it into a private variable for use in the other functions:
+Then comes the constructor. Again, this explains what should happen when someone creates an instance of your class. In this case, the user specifies which pin they would like to use. The constructor records that in a private variable for use in the other functions:
 
 ```arduino
 Morse::Morse(int pin)
 {
-  pinMode(pin, OUTPUT);
   _pin = pin;
 }
 ```
 
 There are a couple of strange things in this code. First is the **Morse::** before the name of the function. This says that the function is part of the **Morse** class. You'll see this again in the other functions in the class. The second unusual thing is the underscore in the name of our private variable, `_pin`. This variable can actually have any name you want, as long as it matches the definition in the header file. Adding an underscore to the start of the name is a common convention to make it clear which variables are private, and also to distinguish the name from that of the argument to the function (**pin** in this case).
 
-Next comes the actual code from the sketch that you're turning into a library (finally!). It looks pretty much the same, except with **Morse::** in front of the names of the functions, and `_pin` instead of **pin**:
+Next, you'll create a `begin()` function to handle hardware configuration. This will be called from the `setup()` function of the sketch. Hardware configuration is done in a dedicated function instead of the constructor because the hardware has not yet been initialized at the time the constructor code is executed. In our library, we need to set the pin as an output:
+
+```arduino
+void Morse::begin()
+{
+  pinMode(_pin, OUTPUT);
+}
+```
+
+Then comes the actual code from the sketch that you're turning into a library (finally!). It looks pretty much the same, except with **Morse::** in front of the names of the functions, and `_pin` instead of **pin**:
 
 ```arduino
 void Morse::dot()
@@ -163,6 +173,7 @@ Finally, it's typical to include the comment header at the top of the source fil
 /*
   Morse.cpp - Library for flashing Morse code.
   Created by David A. Mellis, November 2, 2007.
+  Updated by Jason A. Cox, February 18, 2023.
   Released into the public domain.
 */
 
@@ -171,8 +182,12 @@ Finally, it's typical to include the comment header at the top of the source fil
 
 Morse::Morse(int pin)
 {
-  pinMode(pin, OUTPUT);
   _pin = pin;
+}
+
+void Morse::begin()
+{
+  pinMode(_pin, OUTPUT);
 }
 
 void Morse::dot()
@@ -194,7 +209,7 @@ void Morse::dash()
 
 And that's all you need (there's some other nice optional stuff, but we'll talk about that later). Let's see how you use the library.
 
-First, make a **Morse** directory inside of the **libraries** sub-directory of your sketchbook directory. Copy or move the Morse.h and Morse.cpp files into that directory. Now launch the Arduino environment. If you open the **Sketch > Import Library** menu, you should see Morse inside. The library will be compiled with sketches that use it. If the library doesn't seem to build, make sure that the files really end in .cpp and .h (with no extra .pde or .txt extension, for example).
+First, make a **Morse** directory inside of the **libraries** sub-directory of your sketchbook directory. Copy or move the Morse.h and Morse.cpp files into that directory. Now launch the Arduino environment. If you open the **Sketch > Import Library** menu, you should see Morse inside. The library will be compiled with sketches that use it. If the library doesn't seem to build, make sure that the files really end in .cpp and .h (with no extra .ino, .pde or .txt extension, for example).
 
 Let's see how we can replicate our old SOS sketch using the new library:
 
@@ -205,6 +220,7 @@ Morse morse(13);
 
 void setup()
 {
+  morse.begin();
 }
 
 void loop()
@@ -228,7 +244,7 @@ Morse morse(13);
 
 When this line gets executed (which actually happens even before the `setup()` function), the constructor for the `Morse` class will be called, and passed the argument you've given here (in this case, just 13).
 
-Notice that our `setup()` is now empty; that's because the call to `pinMode()` happens inside the library (when the instance is constructed).
+Notice that our `setup()` now has a call to `morse.begin()` which configures the pin that was set in the constructor.
 
 Finally, to call the `dot()` and `dash()` functions, we need to prefix them with **morse**. - the name of the instance we want to use. We could have multiple instances of the `Morse` class, each on their own pin stored in the _pin private variable of that instance. By calling a function on a particular instance, we specify which instance's variables should be used during that call to a function. That is, if we had both:
 
@@ -243,6 +259,7 @@ If you tried the new sketch, you probably noticed that nothing from our library 
 
 ```arduino
 Morse	KEYWORD1
+begin	KEYWORD2
 dash	KEYWORD2
 dot	KEYWORD2
 ```
