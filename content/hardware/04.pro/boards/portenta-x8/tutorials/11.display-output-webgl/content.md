@@ -145,7 +145,7 @@ Now we need a USB Hub that has an available video output connector, for example,
 
 ***As a reference, a list of validated USB-C® to HDMI hubs that you can use are: [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) and [TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through).***
 
-By default, if you connect the board to a display, you will see the "home screen" with the `Arduino PRO` background wallpaper, and a bottom bar with real-time.
+By default, if you connect the board to a display, you will see the "home screen" with the `Arduino PRO` background wallpaper, and a bottom bar with a real-time clock.
 
 ***You can interact with the interface by plugging USB devices into your hub, like a mouse or a keyboard.***
 
