@@ -103,17 +103,18 @@ void setup(){
 
   ...
 
-  // Outputs
+  // Output Configuration
   for (int i = 0; i < 4; i++) {
     pinMode(relays[i], OUTPUT);
     pinMode(leds[i], OUTPUT);
   }
 
-  // Inputs
+  // Input Configuration 
   pinMode(A0, INPUT);
   pinMode(A1, INPUT);
   pinMode(BTN_USER, INPUT);
 
+  // Interrupt configuration
   attachInterrupt(digitalPinToInterrupt(BTN_USER), relayCounterISR, RISING);
   attachInterrupt(digitalPinToInterrupt(A0), batch01_ISR, RISING);
   attachInterrupt(digitalPinToInterrupt(A1), batch23_ISR, RISING);
@@ -143,7 +144,9 @@ void loop(){
 The `relayLinearCounter()` function runs a linear sequence for turning on and off the `D0` to `D3` relays with their corresponding status LEDs based on the interrupt triggered each time `BTN_USER` is pressed. The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses, and currently shifted relay status. The `relCntState` is used as a gatekeeper to allow only when a valid interrupt has occurred since the function is running inside the `loop()` function.
 
 ```arduino
-// Relay and status indicator state in linear sequence
+/**
+  Function to manage relay and status LED state in linear sequence based on BTN_USER interrupt.
+*/
 void relayLinearCounter(){
   if (relCntState == true){
     if (counter > 4){
@@ -163,11 +166,9 @@ void relayLinearCounter(){
 
     // Array indexes start at 0
     idx = relayLedState - 1;
-
     relayStateHandler(idx);
 
     relCntState = false;
-
   }
 }
 ```
@@ -175,7 +176,9 @@ void relayLinearCounter(){
 The `relayBatchInverter()` function checks to invert a relay batch and its corresponding status LEDs based on `A0` and `A1` interrupt pins. The `A0` controls the batch of relays `D0` and `D1`, while The `A1` controls `D2` and `D3` relays. Each input has an ISR function conditioned with `batchState01` and `batchState23` boolean variables. When either pin is triggered with an interrupt signal, it will invert the state of the corresponding relay batch based on present relay states.
 
 ```arduino
-// Interrupt based on A0 & A1 to invert its defined states in batch
+/**
+ Function to handle relay and status LED states based on A0 & A1 interrupts to invert its defined states in batch.
+*/
 void relayBatchInverter(){
   if (batchState01 == true){
     Serial.println(F("A0 interrupt: Relay Batch 0 & 1"));
@@ -198,6 +201,9 @@ void relayBatchInverter(){
 For both previous functions, the `relayStateHandler()` function is used to manage the relay status. The `digitalWrite()` function will use a special conditional which goes by `status`. It will seek the corresponding relay and compare its stored status to shift its state in a more automated way. It is a practical method to avoid writing the same lines of code in different parts of the sketch and helps maintain a cleaner code structure using a single function with an argument to process the data.
 
 ```arduino
+/**
+  Function to handle relay and status LED state by receiving relay designation.
+*/
 void relayStateHandler(int relayID){
   // Get current status
   auto status = statuses[relayID] ? HIGH : LOW;
@@ -214,7 +220,12 @@ void relayStateHandler(int relayID){
 These are all the ISR functions that help to shift relay states within the corresponding process whenever an interrupt has occurred. These functions are kept as short as possible to maintain quick responses for interrupts that can happen at any time. For good practice, please do not use `delay()` inside these functions as it might cause erratic behaviors, and use it as a quick state modifier to be used with functions that may be running continuously.
 
 ```arduino
-// All ISR functions
+/**
+  ISR functions. Below are related inputs with respective ISR function.
+  - BTN_USER: relayCounterISR()
+  - A0: batch01_ISR()
+  - A1: batch23_ISR()
+*/
 void relayCounterISR(){
   counter++;
   relCntState = true;
