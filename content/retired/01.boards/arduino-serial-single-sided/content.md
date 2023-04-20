@@ -3,9 +3,9 @@ title: "Arduino Board Serial Single Sided"
 source: "https://arduino.cc/en/Main/ArduinoBoardSerialSingleSided"
 ---
 
-## Single Sided Board
+***Note: This page refers to a product that is retired. The files mentioned on this page might no longer be available.***
 
-***Note that the files mentioned on this page might no longer be available.***
+## Single Sided Board
 
 For those that are in a hurry to produce a board or that don't have an easy access to the postal system (the way how we distribute the boards), it is possible to etch the circuit yourself using the following design.
 

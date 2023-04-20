@@ -7,6 +7,8 @@ sku: "A000111"
 source: "https://store.arduino.cc/m0-pro"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino M0 Pro board](./assets/a000111_front_1.jpg)
 
 With the new **Arduino M0 Pro** board, the more creative individual will have the potential to create one’s most imaginative and new ideas for IoT devices, wearable technologies, high tech automation, wild robotics and other not yet thinkable adventures in the world of makers. The Arduino M0 pro represents a simple, yet powerful, 32-bit extension of the Arduino UNO platform. The board is powered by Atmel’s SAMD21 MCU, featuring a 32-bit ARM Cortex® M0 core.

@@ -7,6 +7,8 @@ sku: "A000095"
 source: "https://store.arduino.cc/arduino-esplora"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Esplora board](./assets/A000095_top_2.jpg)
 
 The **Arduino Esplora** is a microcontroller board derived from the [Arduino Leonardo](https://www.arduino.cc/en/Guide/ArduinoLeonardo). The Esplora differs from all preceding Arduino boards in that it provides a number of built-in, ready-to-use set of onboard sensors for interaction. It's designed for people who want to get up and running with Arduino without having to learn about the electronics first. For a step-by-step introduction to the Esplora, check out the [Getting Started with Esplora](https://www.arduino.cc/en/Guide/ArduinoEsplora) guide.

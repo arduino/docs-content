@@ -7,6 +7,8 @@ sku: "A000108"
 source: "https://store.arduino.cc/arduino-yun-mini"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Yún Mini board](./assets/A000108_ArduinoYunMini1_featured_2.jpg)
 
 **Arduino Yún Mini** is a breadboard PCB developed with ATmega 32u4 MCU and QCA MIPS 24K SoC CPU operating up to 400 MHz. Qualcomm Atheros CPU supports a Linux distribution based on OpenWRT named Linino. The board has built- in WiFi ( IEEE 802.11b/g/n operations up to 150Mbps 1x1 2.4 GHz ) supports 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connector, an ICSP header, two reset buttons and one user button. The Arduino Yún Mini is similar to the Leonardo in that the ATmega32u4 has built-in USB communication, eliminating the need for a secondary processor. This allows the Arduino Yún Mini to appear to a connected computer as a mouse and keyboard, in addition to a virtual (CDC) serial / COM port.

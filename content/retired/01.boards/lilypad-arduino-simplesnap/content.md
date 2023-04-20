@@ -7,6 +7,8 @@ sku: "E000059"
 source: "https://store.arduino.cc/lilypad-arduino-simplesnap"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The LilyPad Arduino SimpleSnap board](./assets/store_e000059-featured_1.jpg)
 
 The **LilyPad Arduino SimpleSnap** is a microcontroller board designed for wearables and e-textiles. It is similar to the [LilyPad Arduino Simple](https://www.arduino.cc/en/Main/ArduinoBoardLilyPadSimple), except that it has a built in lithium polymer battery, and instead of through-holes, it has conductive snaps. By using matching snaps in your project, you can affix the LilyPad securely but remove it to wash your project or move it to another project. The LilyPad SimpleSnap has 9 pins for input/output. Additionally, it has a built in charging circuit for the battery. The board is based on the [ATmega328](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf).  

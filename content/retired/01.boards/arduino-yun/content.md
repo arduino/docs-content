@@ -7,6 +7,8 @@ sku: "A000008"
 source: "https://store.arduino.cc/arduino-yun"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Yún board](./assets/A000008_featured_2.jpg)
 
 The **Arduino Yún** is a microcontroller board based on the ATmega32u4 and the Atheros AR9331\. The Atheros processor supports a Linux distribution based on OpenWrt named Linino OS. The board has built-in Ethernet and WiFi support, a USB-A port, micro-SD card slot, 20 digital input/output pins (7 of them can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, an ICSP header, and 3 reset buttons.

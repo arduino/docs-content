@@ -7,6 +7,8 @@ sku: "E000023"
 source: "https://store.arduino.cc/arduino-pro"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Pro board](./assets/e000023_featured.jpg)
 
 The **Arduino Pro** is a microcontroller board based on the ATmega328\. The Pro comes in both 3.3V/8MHz and 5V/16MHz versions. It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a battery power jack, a power switch, a reset button, and holes for mounting a power jack, an ICSP header, and pin headers. A six pin header can be connected to an FTDI cable or Sparkfun breakout board to provide USB power and communication to the board. The Arduino Pro is intended for semi-permanent installation in objects or exhibitions. The board comes without pre-mounted headers, allowing the use of various types of connectors or direct soldering of wires. The pin layout is compatible with Arduino shields. The 3.3V versions of the Pro can be powered with a battery. The Arduino Pro was designed and manufactured by SparkFun Electronics.

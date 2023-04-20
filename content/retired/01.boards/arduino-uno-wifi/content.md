@@ -6,9 +6,9 @@ sku: "A000133"
 source: "https://store.arduino.cc/arduino-uno-wifi"
 ---
 
-![The Arduino UNO WiFi](./assets/a000133_featured.jpg)
+***Note: This page refers to a product that is retired. Check out the [Arduino UNO WiFi Rev2](https://docs.arduino.cc/hardware/uno-wifi-rev2)***
 
-**This product is retired, check out the [Arduino UNO WiFi Rev2](https://docs.arduino.cc/hardware/uno-wifi-rev2)**
+![The Arduino UNO WiFi](./assets/a000133_featured.jpg)
 
 The Arduino UNO WiFi is the same as a Arduino UNO Rev3 but with an integrated Wi-Fi module! The board is based on the ATmega328P with an ESP8266 Wi-Fi Module integrated (datasheet). It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 6 analog inputs, a 16 MHz ceramic resonator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with an AC-to-DC adapter or battery to get started.  
   
