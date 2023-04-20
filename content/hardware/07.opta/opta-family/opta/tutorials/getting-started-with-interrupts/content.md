@@ -244,7 +244,7 @@ void batch23_ISR() {
 
 ### Full Example Code
 
-You can access the complete example code [here](assets/Interrupts_Opta.zip). After extracting the compressed file, you will be able to upload and test it out with your Opta™.
+You can access the complete example code [here](assets/Interrupts_Opta.zip). After extracting the compressed file, you will be able to upload and test it out with your Opta™ device.
 
 ### Testing Interrupt Example
 
