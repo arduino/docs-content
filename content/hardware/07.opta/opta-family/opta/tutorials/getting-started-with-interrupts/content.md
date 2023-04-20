@@ -17,7 +17,7 @@ hardware:
 
 The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage delicate or dangerous tasks, being capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are one of many processes that could require attention at any moment, being the use of interrupts a critical feature to manage those events.
 
-The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupt on Opta™ using the [Arduino IDE](https://www.arduino.cc/en/software) found within Arduino ecosystem tools.
+The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the [Arduino IDE](https://www.arduino.cc/en/software) found within Arduino ecosystem tools.
 
 ## Goals
 
