@@ -74,7 +74,7 @@ Please refer to the following diagram to have an overview of the inputs and outp
 
 ### Example Overview
 
-The example will showcase different interrupt routines for Opta™, and you will be greeted with two scenarios. The `BTN_USER` is the user-programmable button that will be used to switch the relay and corresponding status LED state in sequence. The `A0` and `A1` inputs will be open to external devices that send signals periodically. The `A0` will be in charge of the `D0` and `D1` relays, while the `A1` will control the `D2` and `D3` relays. The following section will highlight the details of interest of the example code to help you understand it with ease.
+The example will showcase different interrupt routines for Opta™, and you will be greeted with two scenarios. The `BTN_USER` is the user-programmable button that will be used to switch the relay and corresponding status LED state in sequence. The `A0` and `A1` inputs will be open to external devices that send signals periodically. The `A0` will be in charge of the `D0` and `D1` relays, while the `A1` will control the `D2` and `D3` relays. These tasks will help you implement to test multiple interrupts and use Opta™ PLC's onboard relays and status LEDs. The following section will highlight the details of interest of the example code to help you understand it with ease.
 
 ### Example Description
 
