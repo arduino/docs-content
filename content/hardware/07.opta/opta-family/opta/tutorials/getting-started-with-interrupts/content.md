@@ -200,7 +200,7 @@ void relayBatchInverter(){
 }
 ```
 
-For both previous functions, the `relayStateHandler()` function is used to manage the relay status. The `digitalWrite()` function will use a special conditional which goes by `status`. It will seek the corresponding relay and compare its stored status to shift its state in a more automated way. It is a practical method to avoid writing the same lines of code in different parts of the sketch and helps maintain a cleaner code structure using a single function with an argument to process the data.
+For both previous functions, the `relayStateHandler()` function is used to manage the relay status. The `digitalWrite()` function will use a special conditional which goes by `status`. It will seek the corresponding relay and compare its stored status to shift its state in a more automated way. This is a practical method to avoid writing the same lines of code in different parts of the sketch and can help to maintain a cleaner code structure using a single function with an argument to process the data.
 
 ```arduino
 /**
