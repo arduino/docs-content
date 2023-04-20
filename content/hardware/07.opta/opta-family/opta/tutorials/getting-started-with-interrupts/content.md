@@ -41,7 +41,7 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 The **interrupts** are requests triggered based commonly on timed events caused by state changes. It will pause the current or active operations if the interrupt request gets accepted under parametrized conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that executes when an interrupt is generated. Usually, it is defined to run particular routines periodically. However, it can also be set to use external signal feedback to call interrupt routine or as an indication of system failure.
 
-### Interrupt Overall Type
+### Interrupt Types
 
 Globally, interrupts are based on **hardware** and **software** events. The *hardware interrupt* takes action based on the hardware state change provided by external feedback. This type of interrupt can occur at any instance while instructions are running. A button press could be interpreted as a hardware interrupt. For example, an external device may send a signal anytime, if certain conditions are met, to the main device resulting in the execution of an interrupt routine to make adjustments to the process.
 
@@ -53,8 +53,8 @@ The *software interrupts* occur when the device itself is exposed to internally 
 
 Interrupt signals are an important element to comprehend to set events with appropriate triggers, especially when it is to be implemented on programmable logic controllers such as Opta™. Since it will handle broad signal types, it is a good practice to understand which signal condition suits certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered**. They are characterized as follows:
 
-* Level-Triggered: this is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
-* Edge-Triggered: this is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
+* **Level-Triggered:** this is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
+* **Edge-Triggered:** this is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
 
 With this, you will now be able to follow the interrupt example on Opta™ with much ease.
 
@@ -244,7 +244,7 @@ void batch23_ISR() {
 
 You can access the complete example code [here](assets/Interrupts_Opta.zip). After extracting the compressed file, you will be able to upload and test it out with your Opta™.
 
-### Testing Interrupt
+### Testing Interrupt Example
 
 You will be able to observe the following results when testing if you were able to upload the example code correctly to the Opta™.
 
