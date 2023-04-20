@@ -42,9 +42,9 @@ The **interrupts** are requests triggered based commonly on timed events caused 
 
 ### Interrupt Overall Type
 
-Globally, interrupts are based on **hardware** and **software** events. The *hardware interrupt* takes action based on chage of the hardware state fed by an external feedback. This type of interrupt can occur at any instance while instructions are running. A button press could be interpreted as a hardware interrupt. For example, an external device may send a signal anytime, if certain conditions are met, to the main device resulting in execution of interrupt routine to make adjustments for the process.
+Globally, interrupts are based on **hardware** and **software** events. The *hardware interrupt* takes action based on the hardware state change fed by an external feedback. This type of interrupt can occur at any instance while instructions are running. A button press could be interpreted as a hardware interrupt. For example, an external device may send a signal anytime, if certain conditions are met, to the main device resulting in execution of interrupt routine to make adjustments for the process.
 
-The *software interrupts* are generated when the device itself is exposed to interally defined conditions or upon particular instruction call. It is similar to subroutine calls, but based on special conditionals that creates interrupt case. Such as examples are service requests within operating system or when interacting with device drivers as storage controllers for write and read operations.
+The *software interrupts* are generated when the device itself is exposed to internally defined conditions or upon particular instruction call. It is similar to subroutine calls, but based on special conditionals that creates interrupt case. Such as examples are service requests within operating system or when interacting with device drivers as storage controllers for write and read operations.
 
 ***Please check out more with [Nick Gammon's Notes](http://gammon.com.au/interrupts), if you would like to dive deeper about interrupts.***
 
@@ -53,7 +53,7 @@ The *software interrupts* are generated when the device itself is exposed to int
 For implementing on programmable logic controllers as Opta™, an important characteristic to know is about interrupt signals. Since it will handle broad types of signal, it is preferable to understand which signal condition suits certains applications. Generally they are **Level-Triggered** or **Edge-Triggered**. They are characterized as follows:
 
 * Level-Triggered: this is when an interrupt has been requested with signals at particular logic level, which can be either *HIGH* or *LOW*.
-* Edge-Triggered: this is when an interrupt has been requested due to signal at specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occured.
+* Edge-Triggered: this is when an interrupt has been requested due to signal at specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
 
 With this, you will be able to understand how the following interrupt example on Opta™ will work.
 
@@ -77,7 +77,7 @@ The example will showcase different interrupt routines for Opta™ and you will 
 
 ### Example Description
 
-First, becasue the variables used within interrupt should keep its value, it will be defined as `volatile` so that the variables found inside ISR can be shared with main program. In this case, `counter` will keep the number of `BTN_USER` presses and `relayLedState` to track status LED of the corresponding relay. The boolean variables `relCntState`, `batchState01`, and `batchState23` will be used to control the conditional flag when its respective interrupt is called.
+First, because the variables used within interrupt should keep its value, it will be defined as `volatile` so that the variables found inside ISR can be shared with main program. In this case, `counter` will keep the number of `BTN_USER` presses and `relayLedState` to track status LED of the corresponding relay. The boolean variables `relCntState`, `batchState01`, and `batchState23` will be used to control the conditional flag when its respective interrupt is called.
 
 ```arduino
 volatile unsigned int counter, relayLedState {};
@@ -144,7 +144,7 @@ void loop(){
 }
 ```
 
-The `relayLinearCounter()` function runs a linear sequence for turning on and off the D0 to D3 relays with its corresponding status LEDs based on `BTN_USER` response to trigger interrupt. The `counter` and `relayLedState` variables are used to track relay shift and also to provide button press counter to maintain total number of triggred interrupts. The `relCntState` is used as a gatekeeper to allow only when a valid interrupt has occured since the function is running inside the `loop()` function. The `counter` variable` is also incremented inside the ISR function which you will get to know later.
+The `relayLinearCounter()` function runs a linear sequence for turning on and off the D0 to D3 relays with its corresponding status LEDs based on `BTN_USER` response to trigger interrupt. The `counter` and `relayLedState` variables are used to track relay shift and also to provide button press counter to maintain total number of triggred interrupts. The `relCntState` is used as a gatekeeper to allow only when a valid interrupt has occurred since the function is running inside the `loop()` function. The `counter` variable` is also incremented inside the ISR function which you will get to know later.
 
 ```arduino
 // Relay and status indicator state in linear sequence
@@ -215,7 +215,7 @@ void relayStateHandler(int relayID){
 }
 ```
 
-These are all the ISR functions that helps to shift relay states of the correspoding process whenever an interrupt has ocurred. These functions are kept as short as possible to maintain quick responses for interrupts that can happen at any time. For good practice, please do not use `delay()` inside these functions as it might cause erratic behaviors and use it as a quick state modifier to be used with functions that may be running continuosly.
+These are all the ISR functions that helps to shift relay states of the corresponding process whenever an interrupt has occurred. These functions are kept as short as possible to maintain quick responses for interrupts that can happen at any time. For good practice, please do not use `delay()` inside these functions as it might cause erratic behaviors and use it as a quick state modifier to be used with functions that may be running continuously.
 
 ```arduino
 // All ISR functions
