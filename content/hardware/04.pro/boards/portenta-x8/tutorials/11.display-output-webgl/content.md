@@ -227,6 +227,5 @@ In this tutorial, we went through how to connect the board and display something
 - If you tried to connect with `ssh` and you get a **fingerprint** issue, you will need to remove the IP and fingerprint on your `.ssh` file. On Windows, the file is located at `C:\Users\<yourUsername>\.ssh\known_hosts` and try again with the **ssh** connection. An example is as follows:
 
 ```
-//<portentaX8-ip> <type> <fingerprint>
-192.168.50.8 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAasdaddgre<kopPOTYAAABBBM8EZPWPKdRRGHpSMosJM08R1d10G0h5g5rE4cNjXdJtYpmJNOR+X2FhNRpEdvyDGHfSomJepbaqBoRcCi0Y7M=
+$portenta-x8: ssh-keygen -R <name or IP address of the host>
 ```
