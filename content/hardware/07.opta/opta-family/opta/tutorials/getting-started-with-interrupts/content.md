@@ -98,7 +98,7 @@ int leds[]{ LED_D0, LED_D1, LED_D2, LED_D3 };
 bool statuses[]{ true, true, true, true };
 ```
 
-The `setup()` will define the relay and status LED outputs, and also the inputs that will be used to attach to interrupt cases. The `attachInterrupt()` function configures the inputs as interrupts with its trigger method and connects to the defined ISR functions that can be found later in the example description. Thus, all the defined input pins are set as interrupt pins with their dedicated ISR functions and are programmed to trigger with a `RISING` signal.
+The `setup()` will define the relay and status LED outputs, and also the inputs that will be used to attach to interrupt cases. The `attachInterrupt()` function configures the inputs as interrupts with its trigger method and connects to the defined ISR functions that can be found later in the example description. Thus, all the defined input pins are set as interrupt pins with their dedicated ISR functions and are programmed to trigger with a `RISING` signal. This way, every time one of the pins goes from LOW to HIGH (rising signal) the ISR or callback function will be executed as far as possible.
 
 ```arduino
 void setup(){
