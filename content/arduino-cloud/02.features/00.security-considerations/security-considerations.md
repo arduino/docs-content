@@ -121,26 +121,32 @@ If it is determined that a breach has occurred, system(s) or system component(s)
 
 PII data will only be stored as long as Arduino legitimately needs it and in accordance with Arduino’s Privacy Policy.
 
-## Security Considerations for Specific Arduino Cloud Components
+## Arduino Cloud Applications and Tools
 
-### Arduino Cloud CLI
+### Arduino Web Editor
 
-The Arduino Cloud CLI provides a way for interacting with the Arduino IoT Cloud via the command line. The communication is carried out via an HTTPS connection and authentication is performed via API key credentials stored on the local machine.
+The Arduino Web Editor allows customers to create sketches they can subsequently deploy on boards. Each customer has a separate area where their sketches are stored so that no other customer has access to them. Sketches can be made publicly available to everyone, in which case access is granted by whomever possesses the link to access them.
 
-### Arduino Cloud Editor
-
-The Arduino Cloud Editor allows customers to create sketches they can subsequently deploy on boards. Each customer has a separate area where their sketches are stored so that no other customer has access to them. Sketches can be made publicly available to everyone, in which case access is granted by whomever possesses the link to access them.
-
-The Arduino Cloud Editor also provides a secret tab that can be used to securely store sensitive information needed by the device (e.g. Wi-Fi credentials, API credentials). Secrets in this tab are encrypted with the AES-256 algorithm to safely store them in the Cloud.
-In order to communicate with the Arduino Cloud Editor, web browsers should be able to communicate over the internet to port 80, 443 and 8080 towards Arduino’s subdomains \*.arduino.cc.
+The Arduino Web Editor also provides a secret tab that can be used to securely store sensitive information needed by the device (e.g. Wi-Fi® credentials, API credentials). Secrets in this tab are encrypted with the AES-256 algorithm to safely store them in the Cloud.
+In order to communicate with the Arduino Web Editor, web browsers should be able to communicate over the internet to port 80, 443 and 8080 towards Arduino’s subdomains \*.arduino.cc.
 
 ### Arduino IoT Cloud
 
 The Arduino IoT Cloud collects MQTT events through a data pipeline which is accessible only by the owner of the data and access authorization is enforced via our backend API.
 
-### Arduino Boards Security
+### Arduino Cloud CLI
 
-#### Device Identity and Secure Communication
+The Arduino Cloud CLI provides a way for interacting with the Arduino IoT Cloud via the command line. The communication is carried out via an HTTPS connection and authentication is performed via API key credentials stored on the local machine.
+
+### Arduino Create Agent
+
+The Arduino Create Agent fills the gap between your browser and your boards and allows users to deploy their sketches on their board using the Arduino Web Editor. The Arduino Create Agent runs a web server bound to localhost that receives requests from the Arduino Web Editor to operate on the boards. The security of such communication is ensured by cryptographic signature of the commands that are sent to the Arduino Create Agent. Whenever the Arduino Web Editor wants to send a command to the Arduino Create Agent, it cryptographically signs the command and appends the signature to the request sent to the agent. The agent verifies the signature and, if it is correct, accepts and executes the command.
+
+For usage with certain browsers, specifically with Safari on macOS, the Arduino Create Agent needs to run the web server using a TLS connection. A local Certificate Authority (CA) is generated and used to sign a certificate for the localhost domain. The private key of the CA is erased once the certificate for localhost is signed, while the public certificate of the CA is installed in the local system. The web server of the Arduino Create Agent will then run with a TLS connection. This is done to obey the mixed content specification implemented in Safari which is enforced also for resources loaded from localhost.
+
+## Security Considerations for Arduino Boards
+
+### Device Identity and Secure Communication
 
 Devices onboarding and communication with the Arduino Cloud is ensured to protect the confidentiality of the data exchanged between Arduino devices and the Cloud. The following image shows the Device setup phase and the Device operation phase.
 
@@ -164,13 +170,7 @@ The device establishes a mutual-TLS authenticated connection with the IoTCloud M
 * The device can establish the identity of the MQTT server it is attempting to connect to;
 To establish such secure connections, devices must be able to connect to *.arduino.cc on port 8884 and 8883.
 
-#### Secrets Management
+### Secrets Management
 
 In order to provide confidentiality and integrity of secrets stored within Arduino boards, a secure element chip is available on a selection of boards that provides hardware level encryption and tamperproofing protection. Integration with the Arduino Cloud leverages such a secure element to store the board certificate used to perform the mutual authentication with the MQTT server. Customers may also leverage the secure element chip to store sensitive information required by the board to operate based on the specific use cases.
 
-
-### Arduino Create Agent
-
-The Arduino Create Agent fills the gap between your browser and your boards and allows users to deploy their sketches on their board using the Arduino Cloud Editor. The Arduino Create Agent runs a web server bound to localhost that receives requests from the Arduino Cloud Editor to operate on the boards. The security of such communication is ensured by cryptographic signature of the commands that are sent to the Arduino Create Agent. Whenever the Arduino Cloud Editor wants to send a command to the Arduino Create Agent, it cryptographically signs the command and appends the signature to the request sent to the agent. The agent verifies the signature and, if it is correct, accepts and executes the command.
-
-For usage with certain browsers, specifically with Safari on macOS, the Arduino Create Agent needs to run the web server using a TLS connection. A local Certificate Authority (CA) is generated and used to sign a certificate for the localhost domain. The private key of the CA is erased once the certificate for localhost is signed, while the public certificate of the CA is installed in the local system. The web server of the Arduino Create Agent will then run with a TLS connection. This is done to obey the mixed content specification implemented in Safari which is enforced also for resources loaded from localhost.
