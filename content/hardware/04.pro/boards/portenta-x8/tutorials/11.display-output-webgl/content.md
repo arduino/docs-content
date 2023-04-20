@@ -143,13 +143,34 @@ Now we need a USB Hub that has an available video output connector, for example,
 
 ![X8 usb hub setup](assets/portentaX8_hub_screen.svg)
 
-***As a reference, a list of validated USB-C® to HDMI hubs that you can use are: [ACT AC7022](https://www.act-connectivity.com/en-us/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-ac7022), [ACT AC7041](https://www.act-connectivity.com/en-us/usb-c-to-hdmi-multiport-adapter-with-ethernet-ac7041), [ACT AC7042](https://www.act-connectivity.com/en-us/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-ac7042)***
+***As a reference, a list of validated USB-C® to HDMI hubs that you can use are: [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) and [TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through).***
 
 By default, if you connect the board to a display, you will see the "home screen" with the `Arduino PRO` background wallpaper, and a bottom bar with real-time.
 
 ***You can interact with the interface by plugging USB devices into your hub, like a mouse or a keyboard.***
 
 ![X8 home-screen](assets/portentaX8-home-screen.png)
+
+If you need to change the resolution of your display/monitor to improve the video output quality, you need to add a specific resolution to the configuration file of the graphical server (Weston on Portenta X8). To do so, you need to generate the right **Modeline**, i.e. a row that specifies a custom mode for the graphical interface to correctly drive the display. 
+
+In the next steps, we provide an example of a 1600 x 758 display running at 60Hz. If you need to modify the modeline and generate a new one, you can use `cvt` command, which is already installed in the Linux image running on your Portenta X8 (see [here](https://wiki.ubuntu.com/X/Config/Resolution#Adding_undetected_resolutions) to get more information). 
+
+To get started in modifying the resolution of your display, connect to your Portenta X8 through ADB (check [this link](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux) to learn how to do it). 
+
+At this point, you are ready to modify the `/etc/xdg/weston/weston.ini` file with `Vim` command as follows: 
+
+```arduino
+sudo vim /etc/xdg/weston/weston.ini
+```
+
+You can now add the following lines to the `weston.ini` file: 
+
+```arduino
+[output]
+name=DP-1
+mode=98.00  1600 1680 1840 2080  758 761 771 787 -hsync +vsync
+```
+Save the file and exit. To see the changes in place, you have to reboot your Portenta X8 by using the command `sudo systemctl reboot`. When the board gets started again, you will be able to see your display with the right resolution. 
 
 ### Running The Container
 
