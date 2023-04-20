@@ -43,9 +43,11 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ### Interrupt Types
 
-Globally, interrupts are based on **hardware** and **software** events. The *hardware interrupt* takes action based on the hardware state change provided by external feedback. This type of interrupt can occur at any instance while instructions are running. A button press could be interpreted as a hardware interrupt. For example, an external device may send a signal anytime, if certain conditions are met, to the main device resulting in the execution of an interrupt routine to make adjustments to the process.
+Globally, interrupts are based on **hardware** and **software** events:
 
-The *software interrupts* occur when the device itself is exposed to internally defined conditions or upon a particular instruction call. It is similar to subroutine calls but based on special conditionals that create interrupt cases. A few examples are service requests within the operating system or when interacting with device drivers as storage controllers for write and read operations.
+* The *hardware interrupt* takes action based on the hardware state change provided by external feedback. This type of interrupt can occur at any instance while instructions are running. A button press could be interpreted as a hardware interrupt. For example, an external device may send a signal anytime to the main device resulting in the execution of an interrupt routine to make adjustments to the process.
+
+* The *software interrupts* occur when the device itself is exposed to internally defined conditions or upon a particular instruction call. It is similar to subroutine calls but based on special conditionals that create interrupt cases. A few examples are service requests within the operating system or when interacting with device drivers as storage controllers for write and read operations.
 
 ***Please check out [Nick Gammon's Notes](http://gammon.com.au/interrupts) for more in-depth information about interrupts.***
 
