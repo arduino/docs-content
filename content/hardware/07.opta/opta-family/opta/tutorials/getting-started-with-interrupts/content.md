@@ -58,7 +58,7 @@ Interrupt signals are an important element to comprehend to set events with appr
 * **Level-Triggered:** this is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
 * **Edge-Triggered:** this is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
 
-With this, you will now be able to follow the interrupt example on Opta™ with much ease.
+Now that you have a better knowledge about interrupts, let's see how to use interrupts with an Opta™ device.
 
 ## Instructions
 
