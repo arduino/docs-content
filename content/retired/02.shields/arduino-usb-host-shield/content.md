@@ -6,6 +6,8 @@ sku: "A000004"
 source: "https://store.arduino.cc/arduino-usb-host-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino USB Host Shield](./assets/a000004_featured.jpg)
 
 The **Arduino USB Host Shield** allows you to connect a USB device to your Arduino board. The Arduino USB Host Shield is based on the MAX3421E ([datasheet](http://www.maximintegrated.com/datasheet/index.mvp/id/3639)), which is a USB peripheral/host controller containing the digital logic and analog circuitry necessary to implement a full-speed USB peripheral or a full-/low-speed host compliant to USB specification rev 2.0\. The shield is TinkerKit compatible, which means you can quickly create projects by plugging TinkerKit modules onto the board.

@@ -6,6 +6,8 @@ sku: "A000072"
 source: "https://store.arduino.cc/arduino-ethernet-shield-without-poe-module"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Ethernet Shield without PoE](./assets/a000072_featured.jpg)
 
 The Arduino Ethernet Shield V1 connects your Arduino to the internet in mere minutes. Just plug this module onto your Arduino board, connect it to your network with an RJ45 cable (not included) and follow a few simple instructions to start controlling your world through the internet.

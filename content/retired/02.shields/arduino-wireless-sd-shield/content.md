@@ -7,6 +7,8 @@ sku: "A000065"
 source: "https://store.arduino.cc/arduino-wireless-sd-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Wireless SD Shield](./assets/A000065_featured_2.jpg)
 
 The **Arduino Wireless SD Shield** allows an Arduino board to communicate wirelessly using a wireless module. It is based on the [Xbee modules from Digi](http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/zigbee-mesh-module/xbee-zb-module), but can use any module with the same footprint. The module can communicate up to 100 feet indoors or 300 feet outdoors (with line-of-sight). It can be used as a serial/usb replacement or you can put it into a command mode and configure it for a variety of broadcast and mesh networking options. The shields breaks out each of the Xbee's pins to a through-hole solder pad.
