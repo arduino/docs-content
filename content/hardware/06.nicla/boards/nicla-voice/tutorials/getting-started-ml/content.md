@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started with Machine Learning Audio Models and the Nicla Voice'
-description: 'Learn to use the Nicla Voice to create your own Machine Learning audio models.'
+title: 'Audio Analysis with Machine Learning and the Nicla Voice'
+description: 'Learn to use the Nicla Voice to create your own Machine Learning audio models with this getting started tutorial.'
 tags: 
   - Getting started
   - Machine Learning tools
