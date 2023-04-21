@@ -12,7 +12,7 @@ libraries:
   - name: Arduino PDM
     url: https://www.arduino.cc/en/Reference/PDM
 hardware:
-  - hardware/05.nicla/boards/nicla-vision
+  - hardware/06.nicla/boards/nicla-vision
 software:
   - OpenMV
   - ide-v1

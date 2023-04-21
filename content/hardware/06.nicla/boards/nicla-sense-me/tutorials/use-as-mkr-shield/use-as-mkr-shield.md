@@ -15,7 +15,7 @@ libraries:
   - name: Arduino BHY2Host
     url: https://github.com/arduino-libraries/Arduino_BHY2Host
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/06.nicla/boards/nicla-sense-me
   - hardware/01.mkr/01.boards/mkr-wifi-1010
 software:
   - ide-v1

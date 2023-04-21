@@ -10,7 +10,7 @@ libraries:
   - name: Arduino BHY2Host
     url: https://www.github.com/Arduino-libraries/Arduino_BHY2Host
 hardware:
-  - hardware/05.nicla/boards/nicla-sense-me
+  - hardware/06.nicla/boards/nicla-sense-me
 software:
   - iot-cloud
   - web-editor
@@ -87,8 +87,7 @@ void loop(){
 
 ### Set up the Arduino IoT Cloud
 
-To configure the Arduino IoT cloud you can follow this [tutorial](content/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
-
+To configure the Arduino IoT cloud you can follow the tutorial [Getting Started with the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 Create a new Thing at <https://create.arduino.cc/iot/things>, you can call it "PRO - Portenta and Nicla". You will need to attach the Portenta H7 as a new device to your **Thing setup.** After that, go to **Variables**, click the **add** button and select a float variable called **temperature** to store the temperature readings.
 

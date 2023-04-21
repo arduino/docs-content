@@ -1,26 +1,53 @@
 Board:
   Name: Arduino® Portenta H7 Lite
   SKU: ABX00045
-Microcontroller: STM32H747XI dual Cortex®-M7+M4 32bit low power Arm® MCU
+Microcontroller: STMicroelectronics® STM32H747XI Dual 32-bit Arm® Cortex®-M7 and Cortex®-M4
 USB connector: USB-C®
-Pins:
-  Digital I/O Pins: 22
+High-Density pins:
+  Digital I/O pins: 78
   Analog input pins: 8
   PWM pins: 10
-Secure element: ATECC608
-Communication:
-  UART: Yes
-  I2C: Yes
-  SPI: Yes
+  SPI pins: 4 
+  I2C pins: 6
+  UART pins: 16
+  CAN pins: 4
+  I2S pins: 4
+  USB: 6
+  JTAG/SWD: 4
+MKR-styled pins:
+  Digital I/O pins: 22
+  Analog input pins: 7
+  PWM pins: 7
+  SPI pins: 4
+  I2C pins: 2
+  UART pins: 2
+Ethernet connectivity:
+  Chipset: LAN8742AI
+  Interface and rates: RMII 10/100 Mbps
+Analog-to-digital converter (ADC):
+  Channels: 8
+  Resolution: 16 bits
+Digital-to-analog converter (DAC):
+  Channels: 2 (only one accessible through pin A6)
+  Resolution: 12 bits 
+Communication Interfaces:
+  I2C: 3
+  UART: 4
+  CAN: 2
+  I2S: 1
+  SPI: 1
+  PWM: 10
+  USB: USB 1.0/Full-Speed (x1), USB 2.0/Hi-Speed (x1)
 Power:
-  Circuit operating voltage: 3.3V
-  Input voltage (VIN): 5V
-  DC Current per I/O Pin: 8 mA
+  Board operating voltage: 3.3 V
+  Board input voltage (VIN): 5 V
 Clock speed:
-  Main core: 480 MHz
-  Second core: 240 MHz
+  M4 core: 240 MHz
+  M7 core: 480 MHz
 Memory:
-  ST STM32H747XI: 2MB Flash, 1MB RAM
+  Internal: 2 MB Flash, 1 MB RAM
+  External: 16 MB NOR Flash, 8 MB SDRAM
+Hardware debugging interface: JTAG/SWD
 Dimensions:
-  Width: 25 mm
-  Length: 66 mm
+  Width: 25.40 mm
+  Length: 66.04 mm

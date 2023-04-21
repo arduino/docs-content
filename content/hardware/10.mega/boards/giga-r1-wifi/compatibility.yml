@@ -1,0 +1,13 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - web-editor
+  - iot-cloud
+hardware:
+  boards: ~
+  carriers: ~
+  shields:
+    - 4-relays-shield
+    - motor-shield-rev3
+    - ethernet-shield-rev2
+    - 9-axis-motion-shield
