@@ -43,7 +43,7 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 **Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
 
-The handler can be defined to run particular instructions periodically, use external signals, or as an indication of a system failure. It is a prioritized function triggered whenever specific states suffer a change.
+The handler can be defined to run particular instructions periodically, use external signals, or alert an indication of a system failure. It is a prioritized function that is triggered whenever specific states suffer a change.
 
 ### Interrupt Types
 
@@ -57,9 +57,7 @@ Globally, interrupts are based on **hardware** and **software** events:
 
 ### Interrupt Triggers
 
-Interrupt signals must be set with appropriate triggers to create interrupt requests correctly, and they become critical when implemented on programmable logic controllers such as Opta™.
-
-Because it handles broad signal types, it is a good practice to understand which signal circumstances suit certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interrupts. They are characterized as follows:
+Interrupt signals must be set with appropriate triggers to create interrupt requests correctly, and they become critical when implemented on programmable logic controllers such as Opta™. Because it handles broad signal types, it is a good practice to understand which signal circumstances suit certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interrupts. They are characterized as follows:
 
 * **Level-Triggered:** This is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
 * **Edge-Triggered:** This is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
