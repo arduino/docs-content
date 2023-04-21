@@ -39,7 +39,9 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Interrupt Basics
 
-**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised. The handler can be defined to run particular instructions periodically, use external signals, or as an indication of a system failure. It is a prioritized function triggered whenever specific states suffer a change.
+**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
+
+The handler can be defined to run particular instructions periodically, use external signals, or as an indication of a system failure. It is a prioritized function triggered whenever specific states suffer a change.
 
 ### Interrupt Types
 
@@ -53,7 +55,9 @@ Globally, interrupts are based on **hardware** and **software** events:
 
 ### Interrupt Triggers
 
-Interrupt signals must be set with appropriate triggers to create interrupt requests correctly, and they become critical when implemented on programmable logic controllers such as Opta™. Because it handles broad signal types, it is a good practice to understand which signal circumstances suit certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interrupts. They are characterized as follows:
+Interrupt signals must be set with appropriate triggers to create interrupt requests correctly, and they become critical when implemented on programmable logic controllers such as Opta™.
+
+Because it handles broad signal types, it is a good practice to understand which signal circumstances suit certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interrupts. They are characterized as follows:
 
 * **Level-Triggered:** This is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
 * **Edge-Triggered:** This is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
@@ -152,7 +156,9 @@ void loop(){
 }
 ```
 
-The `relayLinearCounter()` function runs a linear sequence for turning on and off the `D0` to `D3` relays with their corresponding status LEDs based on the interrupt triggered each time `BTN_USER` is pressed. The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses, and currently shifted relay status. The `relCntState` is used as a gatekeeper instance based on the `BTN_USER` interrupt request since it is an active function inside the `loop()` function.
+The `relayLinearCounter()` function runs a linear sequence for turning on and off the `D0` to `D3` relays with their corresponding status LEDs based on the interrupt triggered each time `BTN_USER` is pressed.
+
+The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses, and currently shifted relay status. The `relCntState` is used as a gatekeeper instance based on the `BTN_USER` interrupt request since it is an active function inside the `loop()` function.
 
 ```arduino
 /**
@@ -184,7 +190,9 @@ void relayLinearCounter(){
 }
 ```
 
-The `relayBatchInverter()` function checks to invert a relay batch and its corresponding status LEDs based on `A0` and `A1` interrupt pins. The `A0` controls the batch of relays `D0` and `D1`, while The `A1` controls `D2` and `D3` relays. Each input has an ISR function conditioned with `batchState01` and `batchState23` boolean variables. When either pin is triggered with an interrupt signal, it will invert the state of the corresponding relay batch based on present relay states.
+The `relayBatchInverter()` function checks to invert a relay batch and its corresponding status LEDs based on `A0` and `A1` interrupt pins. The `A0` controls the batch of relays `D0` and `D1`, while The `A1` controls `D2` and `D3` relays.
+
+Each input has an ISR function conditioned with `batchState01` and `batchState23` boolean variables. When either pin is triggered with an interrupt signal, it will invert the state of the corresponding relay batch based on present relay states.
 
 ```arduino
 /**
@@ -228,7 +236,9 @@ void relayStateHandler(int relayID){
 }
 ```
 
-These are all the ISR functions that help to shift relay states within the corresponding process whenever an interrupt has occurred. These functions are kept as short as possible to maintain quick responses for interrupts that can happen at any time. For good practice, please do not use `delay()` inside these functions as it might cause erratic behaviors, and use it as a quick state modifier to be used with functions that may be running continuously.
+These are all the ISR functions that help to shift relay states within the corresponding process whenever an interrupt has occurred. These functions are kept as short as possible to maintain quick responses for interrupts that can happen at any time.
+
+For good practice, please do not use `delay()` inside these functions as it might cause erratic behaviors, and use it as a quick state modifier to be used with functions that may be running continuously.
 
 ```arduino
 /**
@@ -275,3 +285,5 @@ Now that you are familiar with interrupts on the Opta™, take a look at the fol
 * Take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™
 
 * If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity)
+
+* To partition the memory of an Opta™ device, please check the [memory partitioning tutorial](/tutorials/opta/memory-partitioning)
