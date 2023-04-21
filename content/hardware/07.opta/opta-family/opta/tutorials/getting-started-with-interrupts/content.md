@@ -15,7 +15,7 @@ hardware:
 
 ## Overview
 
-The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks, and capable to handle large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are one of many processes that requires attention at any given moment, and interrupt is a critical feature to control and optimize these types of events.
+The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are one of many processes that requires attention at any given moment; therefore, the interrupt is a critical feature to control and optimize these types of events.
 
 The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the [Arduino IDE](https://www.arduino.cc/en/software) found within Arduino ecosystem tools.
 
@@ -39,7 +39,7 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Interrupt Basics
 
-**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs specific instruction set whenever an interrupt is raised. The handler can be defined to run particular instructions periodically, to use external signal, or as an indication of a system failure. Basically, it is a prioritized function triggered whenever specific states suffer a change.
+**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised. The handler can be defined to run particular instructions periodically, use external signals, or as an indication of a system failure. It is a prioritized function triggered whenever specific states suffer a change.
 
 ### Interrupt Types
 
@@ -55,8 +55,8 @@ Globally, interrupts are based on **hardware** and **software** events:
 
 Interrupt signals must be set with appropriate triggers to create interrupt requests correctly, and they become critical when implemented on programmable logic controllers such as Opta™. Because it handles broad signal types, it is a good practice to understand which signal circumstances suit certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interrupts. They are characterized as follows:
 
-* **Level-Triggered:** this is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
-* **Edge-Triggered:** this is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
+* **Level-Triggered:** This is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
+* **Edge-Triggered:** This is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* argument to interrupt whenever either signal transition has occurred.
 
 Now that you have a better knowledge about interrupts, let's see how to use interrupts with an Opta™ device.
 
@@ -152,7 +152,7 @@ void loop(){
 }
 ```
 
-The `relayLinearCounter()` function runs a linear sequence for turning on and off the `D0` to `D3` relays with their corresponding status LEDs based on the interrupt triggered each time `BTN_USER` is pressed. The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses, and currently shifted relay status. The `relCntState` is used as a gatekeeper instance based on the `BTN_USER` interrupt request since the function is running inside the `loop()` function.
+The `relayLinearCounter()` function runs a linear sequence for turning on and off the `D0` to `D3` relays with their corresponding status LEDs based on the interrupt triggered each time `BTN_USER` is pressed. The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses, and currently shifted relay status. The `relCntState` is used as a gatekeeper instance based on the `BTN_USER` interrupt request since it is an active function inside the `loop()` function.
 
 ```arduino
 /**
@@ -209,7 +209,7 @@ void relayBatchInverter(){
 }
 ```
 
-The `relayStateHandler()` function is used to manage the relay status and is implemented as a complementary function. The `digitalWrite()` function will use a special conditional that stores the applied state in a variable called `status`. It will seek the corresponding relay and compare its stored status to shift its state in a more automated way. This is a practical method to avoid writing the same lines of code in different parts of the sketch and can help to maintain a cleaner code structure using a single function with an argument to process the data.
+The `relayStateHandler()` function manages the relay status and is implemented as a complementary function. The `digitalWrite()` function will use a special conditional that stores the applied state in a variable called `status`. It will seek the corresponding relay and compare its stored status to shift its state in a more automated way. This is a practical method to avoid writing the same lines of code in different parts of the sketch and can help to maintain a cleaner code structure using a single function with an argument to process the data.
 
 ```arduino
 /**
