@@ -7,6 +7,8 @@ sku: "A000092"
 source: "https://store.arduino.cc/arduino-isp"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino ISP board](assets/A000092_last_featured_2.jpg)
 
 The **Arduino ISP** is a tiny AVR-ISP (in-system programmer) based on David Mellis' project FabISP([http://fab.cba.mit.edu/content/projects/fabisp/](http://fab.cba.mit.edu/content/archive/projects/fabisp/)). With this programmer you can upload sketches and burn the bootloader on any AVR based boards, including Arduinos. By uploading a sketch with an external programmer you can remove the bootloader and use the extra space for your sketch. The Arduino ISP can also be used to burn the Arduino bootloader, so you can recover your chip if you accidentally corrupt the bootloader. Burning the bootloader is also necessary when you use a new ATmega microcontroller in your Arduino, and you wish to use the bootloader to upload a sketch via the USB-Serial connection.

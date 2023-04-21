@@ -3,6 +3,8 @@ title: "Arduino BT v1"
 source: "https://arduino.cc/en/Main/ArduinoBoardBluetoothNew"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ## Arduino BT (Bluetooth®)
 
 ![](assets/ArduinoBT400.jpg)

@@ -6,6 +6,8 @@ sku: "A000096"
 source: "https://store.arduino.cc/arduino-lcd-screen"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino LCD Screen](./assets/A000096_featured_2.png)
 
 The Arduino LSD screen is a backlit LCD screen with headers. You can draw text, images, and shapes to the screen with the [TFT library](https://www.arduino.cc/en/Reference/TFTLibrary). There is an onboard micro-SD card slot on the back of the screen that can, among other things, store bitmap images for the screen to display.

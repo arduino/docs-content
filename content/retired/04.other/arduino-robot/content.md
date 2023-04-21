@@ -7,6 +7,8 @@ sku: "A000078"
 source: "https://store.arduino.cc/arduino-robot"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Robot](./assets/store_a000078_iso.jpg)
 
 The **Arduino Robot** is the first official Arduino on wheels. The robot has two processors, one on each of its two boards. The *Motor Board* controls the motors, and the *Control Board* reads sensors and decides how to operate. Each of the boards is a full Arduino board programmable using the Arduino IDE.

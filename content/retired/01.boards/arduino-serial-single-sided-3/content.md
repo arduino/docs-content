@@ -3,6 +3,8 @@ title: "Arduino Board Serial Single Sided v3"
 source: "https://arduino.cc/en/Main/ArduinoBoardSerialSingleSided3"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ## Arduino Single-Sided Serial Board (version 3)
 
 If you don't have an easy way to order an Arduino board or kit, you can etch this PCB design by hand and solder it together. It is pin-compatible with the Arduino Diecimila, and should work with any Arduino shield.

@@ -3,6 +3,8 @@ title: "Arduino Board Serial"
 source: "https://arduino.cc/en/Main/ArduinoBoardSerial"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ## Arduino Board - Serial Interface 
 
 **This page has been updated for historical purposes and we cannot guarantee that the files will be available forever.**   
