@@ -15,7 +15,7 @@ hardware:
 
 ## Overview
 
-The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage delicate or sensitive tasks, and capable to handle large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are one of many processes that requires attention at any moment, interrupts is a critical feature to manage these types of events.
+The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks, and capable to handle large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are one of many processes that requires attention at any given moment, and interrupt is a critical feature to control and optimize these types of events.
 
 The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the [Arduino IDE](https://www.arduino.cc/en/software) found within Arduino ecosystem tools.
 
@@ -39,15 +39,15 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Interrupt Basics
 
-**Interrupts** are execution requests that are normally triggered by a timed event or signal change. It will pause the current or active operations if the interrupt request gets accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that executes when an interrupt is generated. Usually, it is defined to run particular routines periodically. However, it can also be set to use external signal feedback to call interrupt routine or as an indication of a system failure.
+**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs specific instruction set whenever an interrupt is raised. The handler can be defined to run particular instructions periodically, to use external signal, or as an indication of a system failure. Basically, it is a prioritized function triggered whenever specific states suffer a change.
 
 ### Interrupt Types
 
 Globally, interrupts are based on **hardware** and **software** events:
 
-* The *hardware interrupt* takes action based on the hardware state change provided by external feedback. This type of interrupt can occur at any instance while instructions are running. A button press could be interpreted as a hardware interrupt. For example, an external device may send a signal anytime to the main device resulting in the execution of an interrupt routine to make adjustments to the process.
+* The *hardware interrupt* is an interrupt raised by a hardware signal sent from an external device. This interrupt class handles its asynchronously generated interrupt signal to synchronize within the subsequent instructions of the interrupted device. For example, a button press can send a signal that represents the change in hardware state to execute a task requiring immediate attention, such as an emergency stop alert.
 
-* The *software interrupts* occur when the device itself is exposed to internally defined conditions or upon a particular instruction call. It is similar to subroutine calls but based on special conditionals that create interrupt cases. A few examples are service requests within the operating system or when interacting with device drivers as storage controllers for write and read operations.
+* The *software interrupt* is raised when the device itself is exposed to internally defined conditions or upon a particular routine call. It watches for special conditionals that create interrupts based on the present parameters. For instance, read and write operations of the storage device interacting with the controller driver is one example that involves software interrupt.
 
 ***Please check out [Nick Gammon's Notes](http://gammon.com.au/interrupts) for more in-depth information about interrupts.***
 
