@@ -417,7 +417,7 @@ To extract the audio data on a computer, you will need to set up the serial port
 
 #### Machine Learning and Audio Analysis
 
-You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own audio analysis Machine Learning models. Check out this [tutorial](/content/hardware/06.nicla/boards/nicla-voice/tutorials/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
+You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own audio analysis Machine Learning models. Check out this [tutorial](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
 
 ### IMU and Magnetometer
 
