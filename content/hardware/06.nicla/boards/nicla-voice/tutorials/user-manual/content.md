@@ -252,7 +252,7 @@ Most digital and analog pins of the Nicla Voice can be used as PWM (Pulse Width 
 analogWrite(pin, value);  
 ```
 
-The example code shown below uses digital pin `9` PWM functionality to control the brightnees of an LED connected to it:
+The example code shown below uses digital pin `9` PWM functionality to control the brightness of an LED connected to it:
 
 ```arduino
 // Define the LED pin, brightness, and fade amount variables
