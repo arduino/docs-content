@@ -148,7 +148,7 @@ The Nicla Voice pinout is shown in the image below:
 
 ### Analog Pins
 
-The Nicla Voice has two analog pins mapped as `A0` and `A1`. Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
+The Nicla Voice has two analog pins, `ADC1` and `ADC2`, mapped in software as `A0` and `A1`. Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
 
 ```arduino
 // Define the potentiometer pin and variable to store its value
