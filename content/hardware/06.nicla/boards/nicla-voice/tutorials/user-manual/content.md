@@ -175,7 +175,24 @@ void loop() {
 
 ### Digital Pins
 
-The Nicla Voice has ten digital pins mapped as `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8` and `9`; analog pins `A0` and `A1` can also be used as digital pins. Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
+The Nicla Voice has **twelve digital pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_10`         |           `0`           |
+|         `P0_09`         |           `1`           |
+|         `P0_20`         |           `2`           |
+|         `P0_23`         |           `3`           |
+|         `P0_22`         |           `4`           |
+|         `P0_24`         |           `5`           |
+|         `P0_29`         |           `6`           |
+|         `P0_28`         |           `7`           |
+|         `P0_27`         |           `8`           |
+|         `P0_11`         |           `9`           |
+|         `P0_02`         |           `10`          |
+|         `P0_30`         |           `11`          |
+
+Notice that digital pins `10` and `11` (`P0_02` and `P0_30`) can also be analog input pins (`A0` and `A1` correspondingly). Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
 
 The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
