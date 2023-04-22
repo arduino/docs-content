@@ -69,25 +69,25 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples yo
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Voice pinout](/content/hardware/06.nicla/boards/nicla-voice/downloads/ABX00061-full-pinout.pdf)
+- [Nicla Voice pinout](https://docs.arduino.cc/static/bf3e42f2adad5dcf220f548f024c388a/ABX00061-full-pinout.pdf)
 
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- [Nicla Voice datasheet](/content/hardware/06.nicla/boards/nicla-voice/datasheet/)
+- [Nicla Voice datasheet](https://docs.arduino.cc/resources/datasheets/ABX00061-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Nicla Voice schematics](/content/hardware/06.nicla/boards/nicla-voice/downloads/ABX00061-schematics.pdf)
+- [Nicla Voice schematics](https://docs.arduino.cc/resources/schematics/ABX00061-schematics.pdf)
 
 ### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Voice STEP files](/content/hardware/06.nicla/boards/nicla-voice/downloads/ABX00061-step.zip)
+- [Nicla Voice STEP files](https://docs.arduino.cc/static/6329da6a0adf61028fa0c8b63a122f04/ABX00061-step.zip)
 
 ## First Use
 
