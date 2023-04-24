@@ -161,7 +161,7 @@ On type, press the **[...]** button and scroll down to find and select the "**sy
 
 When it is done, press the **OK** button:
 
-![TP00 Var](./assets/TP00-var.png)
+![TP00 Variable](./assets/TP00-var.png)
 
 Repeat the previous steps to create a new variable called "**temp0**" and type "**REAL**". With this last variable, we will directly store the temperature value of the sysTempProbesType variable in real numbers as you will see in the following steps.
 
