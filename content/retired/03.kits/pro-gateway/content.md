@@ -10,7 +10,7 @@ sku: "AKX00016"
 
 ## Description
 
-The gateway offers up to 8 LoRa® Channels in the 868Mhz frequency allowing it to receive up to 8 LoRa® packets simultaneously making it the ideal device to use in **LoRa WAN gateways applications**.
+The gateway offers up to 8 LoRa® Channels in the 868Mhz frequency allowing it to receive up to 8 LoRa® packets simultaneously making it the ideal device to use in **LoRaWAN® gateways applications**.
 
 It is designed around the SX1301 from Semtech, which enables robust connection between the gateway and a massive amount of wireless end-points spread over a very wide range of distances.
 It has the Listen Before Talk capability. When enabled, the device monitors channels continuously and transmits only if the channel is free.
