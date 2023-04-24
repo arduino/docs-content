@@ -41,13 +41,13 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Interrupt Basics
 
-**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions, executing new commands immediately and going back to the main process as soon as possible. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
+**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions, executing new high-priority commands immediately and returning to the main process as soon as possible. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
 
-The handler can be defined to run particular instructions periodically, use external signals, or alert an indication of a system failure. It is a prioritized function that is triggered whenever specific states suffer a change.
+The handler can be defined to run particular instructions periodically, use external signals, or alert an indication of a system failure. It is a prioritized function that is triggered whenever specific high-awareness states suffer a change.
 
 ### Interrupt Types
 
-Globally, interrupts are based on **hardware** and **software** events:
+Interrupts are based on **hardware** and **software** events:
 
 * The *hardware interrupt* is an interrupt raised by a hardware signal sent from an external device. This interrupt class handles its asynchronously generated interrupt signal to synchronize within the subsequent instructions of the interrupted device. For example, a button press can send a signal that represents the change in hardware state to execute a task requiring immediate attention, such as an emergency stop alert.
 
