@@ -29,7 +29,7 @@ This gateway enables people to leverage the LoRa® connectivity in many use case
 - Agricultural Monitoring
 
 The gateway radio hardware is powered by Embit and Arduino hardware design team.
-The network server and the packet forwarder running on the Arduino Create platform are powered by A2A
+The network server and the packet forwarder running on the Arduino Create platform are powered by A2A.
 
 ## Getting Started
 
