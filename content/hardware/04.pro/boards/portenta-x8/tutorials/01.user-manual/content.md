@@ -433,9 +433,9 @@ You can now start interacting with your Portenta X8. Portenta X8 comes with an e
 
 ### Power The Board
 
-Connect the Portenta X8  to your PC via a USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®).
+Connect the Portenta X8 to your PC via a USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®).
 
-Once connected, you will see the Portenta X8 LEDs starting blinking. Portenta X8 features two LEDs, a Power LED and a Status LED, which can blink in parallel.
+Once connected, you will see the Portenta X8 LEDs start blinking. Portenta X8 features two LEDs, a Power LED and a Status LED, which can blink in parallel.
 
 ![Portenta X8 LEDs](assets/portenta_x8_leds.png "Portenta X8 LEDs")
 
