@@ -41,7 +41,7 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Interrupt Basics
 
-**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
+**Interrupts** are execution requests triggered usually by a timed event or signal. It will pause the active process if the interrupt request is accepted under certain conditions, executing new commands immediately and going back to the main process as soon as possible. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
 
 The handler can be defined to run particular instructions periodically, use external signals, or alert an indication of a system failure. It is a prioritized function that is triggered whenever specific states suffer a change.
 
