@@ -196,11 +196,11 @@ To visualize the values once we have downloaded the code into the PMC, we need t
 ![Watch Variables](./assets/watch-variables.gif)
 
 ## Conclusion
+RTDs are best for high-accuracy temperature measurements within a narrow range of up to 600°C. Thermocouples are better for high-temperature applications up to 2300°C, fast response times, and harsh environments. RTDs are used in laboratories and industrial process control, while thermocouples are used in industrial applications like furnaces and aerospace.
+
 We have learned how to connect RTD and Thermocouple sensors to a Portenta Machine Control and how to monitor the temperature values through the Arduino PLC IDE.
 
 We have also learned that there are many different types of RTDs and thermocouples and that we have to choose one according to our needs.
-
-RTDs are best for high-accuracy temperature measurements within a narrow range of up to 600°C. Thermocouples are better for high-temperature applications up to 2300°C, fast response times, and harsh environments. RTDs are used in laboratories and industrial process control, while thermocouples are used in industrial applications like furnaces and aerospace.
 
 ## Next Steps
 Now that we know how to use these temperature sensors, we can implement them in a real industrial or domestic environment, such as an ambient temperature monitoring project.
