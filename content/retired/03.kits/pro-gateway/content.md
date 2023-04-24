@@ -36,7 +36,7 @@ The network server and the packet forwarder running on the Arduino Cloud platfor
 
 You can follow the [Arduino Pro Gateway Assembly](https://docs.arduino.cc/tutorials/generic/lora-gateway-assembly) to learn about how to assemble your Arduino Pro Gateway.
 
-If you have already set up your Pro Gateway, you can go directly to the [setup page](https://create.arduino.cc/getting-started/loragw/welcome) to connect your LoRaWAN devices to the Arduino Device Manager.
+If you have already set up your Pro Gateway, you can go directly to the [setup page](https://create.arduino.cc/getting-started/loragw/welcome) to connect your LoRaWAN® devices to the Arduino Device Manager.
 
 ### Datasheet
 You can follow the next link to [download the datasheet](https://content.arduino.cc/assets/AKX00016-datasheet.pdf).
