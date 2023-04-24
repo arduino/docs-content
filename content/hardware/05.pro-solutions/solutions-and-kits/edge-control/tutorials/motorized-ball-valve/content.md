@@ -74,7 +74,7 @@ void setup(){
 }
 ```
 
-As mentioned earlier, the 2 Input Pins of the latching circuit are primarily used to control the direction of the output signal. The `<Arduino_EdgeControl.h>` provides various methods to access and control these pins. The command `Latching.chennalDirection(LATCHING_OUT_1, direction)` is a method that can be used to assign a signal direction to a specific pin on the board through the parameters.  
+As mentioned earlier, the 2 Input Pins of the latching circuit are primarily used to control the direction of the output signal. The `<Arduino_EdgeControl.h>` provides various methods to access and control these pins. The command `Latching.channelDirection(LATCHING_OUT_1, direction)` is a method that can be used to assign a signal direction to a specific pin on the board through the parameters.  
 
 Inside the `loop()` you will add the instructions to open and close the valve. `Latching.channelDirection()` with the parameter `LATCHING_OUT_1` to access the 1N:1P pins and the parameters,  `POSITIVE` or `NEGATIVE` for the direction. If you want the valve to open you can use the function as such, 
 
