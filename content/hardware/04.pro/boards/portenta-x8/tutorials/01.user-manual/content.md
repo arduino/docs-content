@@ -487,9 +487,9 @@ This web page is hosted on the Portenta X8 and allows a user to:
 - [Provision your device to Arduino Cloud](#portenta-x8-with-arduino-cloud)
 - Manage the Linux distribution with the dedicated [Portenta X8 Board Manager](#portenta-x8-board-manager)
 
-#### Wi-Fi Configuration
+#### Wi-Fi® Configuration
 
-Click **Wi-Fi Settings** to start configuring your network connectivity. Otherwise, you can also connect your Portenta X8 to the Internet through an Ethernet cable, using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
+Click **Wi-Fi® Settings** to start configuring your network connectivity. Otherwise, you can also connect your Portenta X8 to the Internet through an Ethernet cable, using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
 
 ![Out-of-the-box Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Out-of-the-box Wi-Fi® Settings")
 
@@ -511,7 +511,7 @@ Now you can click **OK** and you will be redirected to the Out-of-the-box homepa
 
 ![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
 
-***You can change your network by clicking on the Wi-Fi Settings button and repeat the steps from above.***
+***You can change your network by clicking on the Wi-Fi® Settings button and repeat the steps from above.***
 
 #### Portenta X8 with Python Alpine Shell
 
