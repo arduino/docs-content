@@ -153,23 +153,23 @@ To visualize the temperature values, we need to create a variable to save the va
 
 A New Variable Window will appear, set **TP00** as the variable name (This is just a name, not related to the name of the input, so you can set a name of your choice). 
 
-![Set a Variable Name](./assets/variable-name.png)
+![](./assets/variable-name.png)
 
 On type, press the **[...]** button and scroll down to find and select the "**sysTempProbesType**". This variable has the automatic process to convert the RTD values into real-type temperature values.
 
-![Choosing Variable Type](./assets/variable-type.png)
+![](./assets/variable-type.png)
 
 When it is done, press the **OK** button:
 
-![TP00 Variable](./assets/TP00-var.png)
+![](./assets/TP00-var.png)
 
-Repeat the previous steps to create a new variable called "**temp0**" and type "**REAL**". With this last variable, we will directly store the temperature value of the sysTempProbesType variable in real numbers as you will see in the following steps.
+Repeat the previous steps to create a new variable called "**temp0**" and type "**REAL**". With this last variable, we will directly store the temperature value of the sysTempProbesType variable in [real numbers](https://en.wikipedia.org/wiki/Real_number) as you will see in the following steps.
 
-![Temp0 Var](./assets/temp0-var.png)
+![](./assets/temp0-var.png)
 
 If everything is correct, when you double-click on **Global_vars**, a table with the two variables should appear as in the following image:
 
-![Global Variables](./assets/all-variables.png)
+![](./assets/all-variables.png)
 
 ### Main Program Code
 
