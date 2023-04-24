@@ -153,23 +153,23 @@ To visualize the temperature values, we need to create a variable to save the va
 
 A New Variable Window will appear, set **TP00** as the variable name (This is just a name, not related to the name of the input, so you can set a name of your choice). 
 
-![](./assets/variable-name.png)
+![Set a Variable Name](./assets/variable-name.png)
 
 On type, press the **[...]** button and scroll down to find and select the "**sysTempProbesType**". This variable has the automatic process to convert the RTD values into real-type temperature values.
 
-![](./assets/variable-type.png)
+![Choosing Variable Type](./assets/variable-type.png)
 
 When it is done, press the **OK** button:
 
-![](./assets/TP00-var.png)
+![TP00 Variable](./assets/TP00-var.png)
 
 Repeat the previous steps to create a new variable called "**temp0**" and type "**REAL**". With this last variable, we will directly store the temperature value of the sysTempProbesType variable in [real numbers](https://en.wikipedia.org/wiki/Real_number) as you will see in the following steps.
 
-![](./assets/temp0-var.png)
+![Temp0 Variable](./assets/temp0-var.png)
 
 If everything is correct, when you double-click on **Global_vars**, a table with the two variables should appear as in the following image:
 
-![](./assets/all-variables.png)
+![Global Variables](./assets/all-variables.png)
 
 ### Main Program Code
 
@@ -205,6 +205,6 @@ We have also learned that there are many different types of RTDs and thermocoupl
 ## Next Steps
 Now that we know how to use these temperature sensors, we can implement them in a real industrial or domestic environment, such as an ambient temperature monitoring project.
 
-- For more information on programming in the Arduino PLC IDE using IEC-61131-3 languages, please refer to the tutorial [Introduction to programming with the Arduino PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-programming-introduction) tutorial.
+- For more information on programming in the Arduino PLC IDE using IEC-61131-3 languages, please refer to the tutorial [Introduction to Programming with the Arduino PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-programming-introduction) tutorial.
 
 - If you are interested in how to set up the CAN bus communication, you can check out the [CAN Bus Setup with Arduino PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/can-setup) tutorial.
