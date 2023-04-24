@@ -27,7 +27,7 @@ The STM32H747XI has two cores that can be programmed separately (M4/M7). You can
 <Feature title="Wi-Fi®/Bluetooth®" image="connection">
 The GIGA R1 WiFi comes with a Murata LBEE5KL1DX-883 radio module for Wi-Fi/Bluetooth® communication.
 
-<FeatureLink title="See Documentation" url="/tutorials/giga-r1-wifi/cheat-sheet#wi-fi--bluetooth-le"/>
+<FeatureLink title="See Documentation" url="/tutorials/giga-r1-wifi/cheat-sheet#radio-module"/>
 </Feature>
 
 <Feature title="MicroPython" image="python">
@@ -47,5 +47,9 @@ Learn how to connect a camera via the dedicated connector.
 <FeatureLink title="Camera Guide" url="/tutorials/giga-r1-wifi/giga-camera"/>
 </Feature>
 
+<Feature title="Arduino IoT Cloud" image="wifi">
+The GIGA R1 WiFi is compatible with the Arduino IoT Cloud platform. Build IoT projects in just minutes!
+<FeatureLink title="Go to Platform" url="https://create.arduino.cc/iot/"/>
+</Feature>
 
 </FeatureList>

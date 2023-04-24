@@ -3,6 +3,8 @@ title: "Retired products - Hardware"
 source: "https://arduino.cc/en/Main/HardwarePictures"
 ---
 
+***Note: This page refers to products that are retired.***
+
 There are multiple versions of the Arduino board. The current basic board, the Duemilanove, uses the Atmel ATmega328 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc8161.pdf)). The older Diecimila, and the first run of Duemilanoves used the Atmel ATmega168 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2545.pdf)), while older boards use the ATmega8 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2486.pdf)). The Arduino Mega is based on the ATmega1280 ([datasheet](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2549.pdf)). 
 
 Note: The reference designs for arduino are distributed under a Creative Commons license [Attribution-ShareAlike 2.5](http://creativecommons.org/licenses/by-sa/2.5/). See [So you want to make an Arduino?](//www.arduino.cc/en/Main/Policy) for more information and guidelines on producing your own hardware.

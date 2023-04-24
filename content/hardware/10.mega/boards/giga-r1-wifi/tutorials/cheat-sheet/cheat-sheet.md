@@ -161,18 +161,29 @@ This can be very useful, as this flash storage **does not get deleted when you u
 
 ***Note: In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches. To upload a new sketch you need to put the GIGA R1 in DFU mode by double pressing the RST button.***
 
-## Wi-Fi® / Bluetooth® LE
+## Radio Module
 
 ![Murata LBEE5KL1DX-883 radio module + antenna connector.](assets/wifi.png)
 
-The Wi-Fi / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX-883. This module does not come with a built-in antenna, but an external antenna is included when purchasing the board.
+The Wi-Fi® / Bluetooth® module onboard the GIGA R1 WiFi is the Murata LBEE5KL1DX-883. This module does not come with a built-in antenna, but an external antenna is included when purchasing the board.
 
 The antenna connector (see image above) is located right next to the USB-C connector, and is of a **U.FL.** type.
 
+### Wi-Fi®
+
+Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the core.
+
+To use the Wi-Fi® features on this board, please refer to the [GIGA R1 WiFi Network Examples](/tutorials/giga-r1-wifi/giga-wifi) guide.
+
+***The easiest way to connect your board to the Internet is via the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
+
+### Bluetooth® Low Energy
+
 To use the BLE features on this board, refer to the [ArduinoBLE library documentation](https://reference.arduino.cc/reference/en/libraries/arduinoble/).
 
-### Ethernet
-If you want to add Ethernet connectivity to your project, there are many many ways of doing that, one of the easiest ways is to use the [Arduino Ethernet Shield Rev2](/hardware/ethernet-shield-rev2).
+## Ethernet
+
+If you want to add Ethernet connectivity to your project, the [Arduino Ethernet Shield Rev2](/hardware/ethernet-shield-rev2) is compatible. In the shield's documentation, you will find a series of examples.
 
 ## Audio Jack
 

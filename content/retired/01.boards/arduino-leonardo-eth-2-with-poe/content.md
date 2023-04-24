@@ -6,6 +6,8 @@ sku: "A000023"
 source: "https://store.arduino.cc/arduino-leonardo-eth-2-with-poe"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Leonardo ETH with PoE](assets/a000023_iso.jpg)
 
 The Arduino Leonardo ETH is the Leonardo with a built-in ethernet controller (Wiznet 5500 controller with RJ45 connector). Optional PoE (Power over Ethernet)

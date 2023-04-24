@@ -102,9 +102,7 @@ The Arduino IoT Cloud supports a wide range of third party boards based on the E
 
 The Arduino IoT Cloud supports connection via Ethernet on a number of devices. The options to connect via Ethernet are the following:
 - Connect with the [Portenta H7](https://store.arduino.cc/products/portenta-h7) in combination with an Ethernet compatible carrier/shield (see below).
-- Connect with the [Opta](https://docs.arduino.cc/hardware/opta).\* 
-
-\* The Opta is scheduled to be released soon, along with documentation how to use it. Read more at the [Opta communications page](https://store.arduino.cc/pages/opta).
+- Connect with the [Opta](https://docs.arduino.cc/hardware/opta).
 
 To connect with the **Portenta H7** board, you will need one of the following shields/carriers:
 - [Portenta Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
@@ -146,7 +144,7 @@ The journey always begin by creating a new **Thing**. In the Thing overview, we 
 
 ### 4. Configuring a Device
 
-Devices can easily be added and linked to a Thing. The Arduino IoT Cloud requires your computer to have the [Arduino Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). The configuration process is quick and easy, and can be done by clicking on the **“Select device”** button in the Thing overview. Here, we can choose from any board that has been configured, or select the **“Configure new device”** option.
+Devices can easily be added and linked to a Thing. The Arduino IoT Cloud requires your computer to have the [Arduino Create Agent installed](https://create.arduino.cc/getting-started/plugin/welcome). The configuration process is quick and easy, and can be done by clicking on the **“Select device”** button in the Thing overview. Here, we can choose from any board that has been configured, or select the **“Configure new device”** option.
 
 ![Configuring a device.](assets/gs-device-attach.png)
 

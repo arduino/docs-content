@@ -3,6 +3,8 @@ title: "Arduino On Android Kit"
 source: "https://arduino.cc/en/Main/ArduinoOnAndroidKit"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 Use your **Arduino MEGA ADK (usb cable included)** to connect an Android device. Mount all your experiments on the **breadboard** and join your components using your **wire kit**. Build visual indicators using some of the **40 LEDs** in the kit; you have them in **4 different colors**. 
 
 Build your own physical controller to your phone using some **potentiometers (you get a total of 10)**. Make a simple robot using **2 continuous rotation servo motors**. Measure the amount of light using some of the **5 light sensors** included. Display texts and small graphics on the **2 bicolor dot matrix LED display (32x16 LEDs)**. Control your physical world with a **relay module (wires included)**. 

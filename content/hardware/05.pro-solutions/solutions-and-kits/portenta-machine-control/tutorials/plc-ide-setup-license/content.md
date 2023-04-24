@@ -23,7 +23,7 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 ## Goals
 
 - Install the Arduino PLC IDE and the Arduino PLC IDE Tools
-- Upload the PLC IDE bootloader to the board
+- Download the PLC IDE bootloader to the board
 - Connect the computer to your device through the IDE
 - Activate the device license
 - Test the connection
@@ -34,6 +34,7 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
 - If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
 - If you have an Opta, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), [Arduino Web Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
 
 ***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
 
@@ -83,6 +84,10 @@ The board needs to run a specific program (runtime) in order to interact with th
 Plug your device to the computer, select the Serial Port of your board and click the **Download** button.
 
 ***The device will show up two Serial Ports, the default one (generally with the lowest number) is the usual Serial Port, the secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
+
+If during the download procedure the following message appears, double-tap the reset button using the tip of a pen or a similar pointed object. The led above the reset button will start blinking indicating that the Opta is ready to be flashed with a new firmware. Click the **Download** button to start the process again. 
+
+![Download error message](assets/downloadSketchError.png)
 
 ### 5. Connect to the Device
 
@@ -148,7 +153,7 @@ In case the hardware is being reflashed and the key got lost, the license can be
 
 The IDE will then connect to a server, validate the hardware and recover the activation, showing a confirmation pop-up when done:
 
-![Online Activation Forgotten Key Activated](assets/activation-online.png)
+![Online Activation Forgotten Key Activated](assets/activation-online_resized.png)
 
 ### 9. Getting the Hardware-ID of Your Device
 
@@ -161,7 +166,7 @@ To do it follow the next steps:
 
 ### 10. Download a Program
 
-Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter. To upload that program to your PLC, it is needed to compile the program and send it to the target device.
+Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter. Double-click on the file _main_ inside the _Project_ to see the counter program. To download that program to your PLC, it is needed to compile the program and send it to the target device.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 

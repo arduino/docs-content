@@ -7,6 +7,8 @@ sku: "ASX00001"
 source: "https://store.arduino.cc/arduino-wifi-101-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino WiFi Shield 101](./assets/store_asx00001_featured.jpg)
 
 **Arduino WiFi Shield 101** is a powerful IoT shield with crypto-authentication, developed with[ ATMEL](http://www.atmel.com/), that connects your Arduino or Genuino board to the internet wirelessly. Connecting it to a WiFi network is simple, no further configuration in addition to the SSID and the password are required. The WiFi 101 Shield comes with an [easy-to-use library](https://www.arduino.cc/en/Reference/WiFi101) that allows to connect your Arduino or Genuino board to the internet with few instructions. As always, every element of the platform – hardware, software and documentation – are freely available and open-source. This means that you can learn exactly how it's made and use its design as the starting point for your own projects.

@@ -6,6 +6,8 @@ sku: "A000058"
 source: "https://store.arduino.cc/arduino-wifi-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino WiFi Shield](./assets/store_a000058_featured.jpg)
 
 The **Arduino WiFi Shield** connects your Arduino to the internet wirelessly. Connect it to your wireless network by following a few simple instructions to start controlling your world through the internet. As always with Arduino, every element of the platform – hardware, software and documentation – is freely available and open-source. This means you can learn exactly how it's made and use its design as the starting point for your own circuits.

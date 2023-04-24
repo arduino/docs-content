@@ -8,7 +8,11 @@ Microcontroller:
   Cortex-M7 core: Up to 480 MHz
   Cortex-M4 core: Up to 240 MHz
 Input:
-  Configurable digital / analog (0-10V) input: 8
+  Configurable digital / analog input: 8
+  Digital Operational Range: 0-24 V
+  Digital VIL Max: 4.46 V
+  Digital VIH Min: 6.6 V
+  Analog Operational Range: 0-10 V
 Relays:
   Nº of relays: 4
   Type: Normally Open (NO)

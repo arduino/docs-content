@@ -580,57 +580,39 @@ If this is not the case, you can update your device using FoundriesFactory **Wav
 
 ### Update For OS Release V.399
 
-If your Portenta X8 is flashed with the OS release V.399, open a new Command Line window and type the following commands on your PC:
+If your Portenta X8 is flashed with the OS release V.399 and you have a carrier compatible with Portenta X8 (like Portenta Breakout), we recommend you to update it to the latest image release by following [this tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing#flashing-mode-with-carrier).
+
+Otherwise, you can also open a new Command Line window and connect to your Portenta X8 as explained [here](#working-with-linux). At this point, verify that your Portenta X8 is connected to the Internet and type the following commands:
 
 ```arduino
-wget https://downloads.arduino.cc/portentax8image/update-latest.tar.gz
+wget https://downloads.arduino.cc/portentax8image/399-install-update
 ```
 
 ```arduino
-wget https://downloads.arduino.cc/portentax8image/aklite-offline-399.tar.gz
-```
-
-Previous commands will allow you to get the latest OS image within the `update-latest.tar.gz` and `aklite-offline-399.tar.gz` packages. If `wget` command is not recognized or causing trouble, you may use a browser and use the direct link without the `wget` command and download the files. The files should then be located inside the `adb` tool directory. Further detail regarding `ADB` is explained in [Working with Linux section](#working-with-linux) of this user manual.
-
-```arduino
-adb push update-latest.tar.gz /home/fio
+chmod +x 399-install-update
 ```
 
 ```arduino
-adb push aklite-offline-399.tar.gz /home/fio
+./399-install-update
+```
+
+Now you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
+
+```arduino
+wget https://downloads.arduino.cc/portentax8image/399-finalize-update
+```
+
+```arduino
+chmod +x 399-finalize-update
+```
+
+```arduino
+./399-finalize-update
 ```
 
 These commands will make your V.399 compatible with [aklite-offline](https://docs.foundries.io/latest/user-guide/offline-update/offline-update.html) tool and will allow you to update your Portenta X8 to the latest image version Arduino released at that point in time. Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
 
-After the updates have been correctly downloaded to your PC, you can open a Command Line window and connect to your Portenta X8 through `ADB Shell`, as explained in [this section](#working-with-linux) of this user manual.
-
-Once your Portenta X8 is correctly connected to your PC, launch the following commands in sequence to update your device to the latest released OS image version:
-
-```arduino
-adb shell
-```
-
-```arduino
-cd /home/fio
-```
-
-```arduino
-tar -xvf update-latest.tar.gz -C .
-```
-
-```arduino
-tar -xvf aklite-offline-399.tar.gz -C .
-```
-
-```arduino
-export LD_LIBRARY_PATH=usr/lib/
-```
-
-```arduino
-sudo aklite-offline install --src-dir /var/rootdirs/home/fio/offline-updates/
-```
-
-After the update process is finalized, you need to restart your Portenta X8 by pressing its button for around 10 seconds. Once restarted, your Portenta X8 will immediately start running the latest OS release.
+After the update process is finalized, your Portenta X8 will immediately start running the latest OS release.
 
 ### Update Using `uuu` Tool
 
@@ -817,9 +799,8 @@ The USB-C® port on your Portenta X8 supports video output. As a consequence, yo
 
 Here you can find a list of validated compatible USB-C® to HDMI hubs:
 
-* [ACT AC7022](https://www.act-connectivity.com/en-us/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-ac7022)
-* [ACT AC7041](https://www.act-connectivity.com/en-us/usb-c-to-hdmi-multiport-adapter-with-ethernet-ac7041)
-* [ACT AC7042](https://www.act-connectivity.com/en-us/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-ac7042)
+* [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub)
+* [TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through)
 
 ***Learn more on how to output WebGL content on a screen with Portenta X8 by checking the [dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/display-output-webgl).***
 
@@ -1083,7 +1064,7 @@ You need to enable SPI support before using SPI devices.
 Open Portenta X8 Shell as explained [here](#working-with-linux).
 
 ```arduino
-sudo madprobe spi-dev
+sudo modprobe spi-dev
 ```
 
 Insert the user password `fio`.
@@ -1260,7 +1241,7 @@ Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the 
     pinMode(PA_12, INPUT);
  }    
  ```
-
+ 
 ### UART
 
 In this case, a Portenta X8 with Portenta Breakout board is used to explore UART communication.
@@ -1268,12 +1249,6 @@ In this case, a Portenta X8 with Portenta Breakout board is used to explore UART
 #### UART With Linux
 
 A standard UART is available as `/dev/ttymxc1` in Linux and is mapped to the **`UART1`** port on the Portenta Breakout.
-
-#### UART With Arduino
-
-The `Serial1` object in the Arduino sketch is mapped to the **`UART0`** port on the Portenta Breakout.
-
-Please note that the Arduino RS485 (thus the Arduino Modbus library) library is not supported on the Arduino core of the X8.
 
 ### Bluetooth®
 
@@ -1287,3 +1262,25 @@ In order to communicate with Bluetooth® devices via the Portenta X8 Shell, you 
 * `bluetoothctl disconnect [mac_address]` to disconnect from a paired device
 
 ***Do you want to send data from your Nicla to Portenta X8 via BLE? Check [this link](https://github.com/Zalmotek/arduino-environmental-monitoring-with-arduino-pro) to get started.***
+
+## Support
+
+If you encounter any issues or have questions while working with the Portenta X8, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Portenta X8. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Portenta Family help center page](https://support.arduino.cc/hc/en-us/sections/360004767859-Portenta-Family)
+
+### Forum
+
+Join our community forum to connect with other Portenta X8 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Portenta X8.
+
+- [Portenta X8 category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/portenta-x8/172)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Portenta X8.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)

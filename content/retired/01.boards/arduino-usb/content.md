@@ -2,6 +2,8 @@
 title: Arduino USB
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ## Assembling the Arduino USB Board v2.0
 
 *by Tom Igoe* 

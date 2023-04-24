@@ -28,7 +28,7 @@ You will need the following software/tools installed:
 
 ## Installation
 
-**1.** Download the [GIGAR1_MP_FW.dfu](/resources/firmware/GIGAR1_MP_FW.dfu) firmware.
+**1.** Download the [GIGAR1_MP_FW.dfu](/resources/firmware/GIGAR1_MP_FW.dfu) firmware (latest firmware is always available at the [MicroPython with Arduino](/micropython/) page).
 
 **2.** Download the [dfu-util](https://dfu-util.sourceforge.net/) tool, or install via Brew (or other package managers). Make sure it is in your PATH.
 
@@ -73,8 +73,6 @@ If it is printed in the REPL, it means it works, and you're ready to take on big
 To find out examples and more fundamental knowledge, please visit the [MicroPython with Arduino documentation](/learn/programming/arduino-and-python). Here you will find an introduction to this environment and useful examples to get started.
 
 ***It is important to note that different Arduino boards have different implementations. This is mainly due to what microcontroller the board is based on. For example, to access digital pin 2, on the GIGA R1, you will need to use `'PA3'` (with the quotation marks). See more in [GIGA R1 Pin Map](#pin-map)***
-
-## Main.py
 
 ## File System (Mass Storage)
 
