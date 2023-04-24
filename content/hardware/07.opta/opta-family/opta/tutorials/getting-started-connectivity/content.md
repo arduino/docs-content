@@ -34,7 +34,7 @@ The Opta™ is a powerful micro PLC device with many features that can be custom
 
 - Opta™ PLC with connectivity support (x1)
 - Ethernet (RJ45) cable (x1)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
 - Wi-Fi® Access Point with Internet Access
 

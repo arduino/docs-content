@@ -29,7 +29,7 @@ Thus you will learn how to do that. If you haven't done so, read through the [us
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8) board
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout) board
 - Any sensor (in this example, we'll use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
 ## Python® on the X8
 

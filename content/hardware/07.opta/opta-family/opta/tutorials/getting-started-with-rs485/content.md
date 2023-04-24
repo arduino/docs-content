@@ -33,7 +33,7 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 - 12-24VDC/1A power supply (x1)
 - 24AWG twisted-pair cable (used for electrical connections)
 - USB-C® cable (x1)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/)
 - [RS-485 example code](assets/Opta_RS485_Example.zip)
 

@@ -42,7 +42,7 @@ To make use of these keyword triggers, such as blinking the LED when the board r
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - To create your ML model, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet)
 - [The compiled uploaders for various operating systems and the updated NDP120 processor firmware and speech recognition model files](assets/nicla_voice_uploader_and_firmwares.zip)
 
