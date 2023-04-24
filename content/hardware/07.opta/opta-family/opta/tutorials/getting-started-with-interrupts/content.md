@@ -289,5 +289,3 @@ Now that you are familiar with interrupts on the Opta™, take a look at the fol
 * Take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™
 
 * If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity)
-
-* To partition the memory of an Opta™ device, please check the [memory partitioning tutorial](/tutorials/opta/memory-partitioning)
