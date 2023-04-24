@@ -191,7 +191,7 @@ If there are no errors when compiling, you can download the code to the device b
 
 ### Watch the Values
 
-To visualize the values once we have downloaded the code into the PMC, we need to drop the variables in the "**Watch**" section as shown in the following animation. If you can't see the "Watch" window, you can try going to: ```View > Tool Windows > Watch```
+To visualize the values once we have downloaded the code into the PMC, we need to drop the variables in the "**Watch**" section as shown in the following animation. If you can't see the "Watch" window, you can try going to: ```View > Tool Windows > Watch```.
 
 ![Watch Variables](./assets/watch-variables.gif)
 
