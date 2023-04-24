@@ -7,7 +7,7 @@ author: 'Jorge Trujillo Román'
 
 ***Note: The documentation of this product is no longer maintained***
 
-![](./assets/AKX00016_front.jpg)
+![Front View](./assets/AKX00016_front.jpg)
 
 ## Description
 
