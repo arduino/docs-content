@@ -148,7 +148,14 @@ The Nicla Voice pinout is shown in the image below:
 
 ### Analog Pins
 
-The Nicla Voice has two analog pins, `ADC1` and `ADC2`, mapped in software as `A0` and `A1`. Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
+The Nicla Voice has **two analog input pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_02`         |           `A0`          |
+|         `P0_30`         |           `A1`          |
+
+Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
 
 ```arduino
 // Define the potentiometer pin and variable to store its value
@@ -186,13 +193,13 @@ The Nicla Voice has **twelve digital pins**, mapped as follows:
 |         `P0_22`         |           `4`           |
 |         `P0_24`         |           `5`           |
 |         `P0_29`         |           `6`           |
-|         `P0_28`         |           `7`           |
-|         `P0_27`         |           `8`           |
+|         `P0_27`         |           `7`           |
+|         `P0_28`         |           `8`           |
 |         `P0_11`         |           `9`           |
-|         `P0_02`         |           `10`          |
-|         `P0_30`         |           `11`          |
+|         `P0_02`         |           `A0`          |
+|         `P0_30`         |           `A1`          |
 
-Notice that digital pins `10` and `11` (`P0_02` and `P0_30`) can also be analog input pins (`A0` and `A1` correspondingly). Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
+Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
 
 The digital pins of the Nicla Voice can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
@@ -421,6 +428,110 @@ You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.ardui
 
 ### IMU and Magnetometer
 
+The Nicla Voice features an advanced IMU and a magnetometer, which allows the board to sense motion, orientation, and magnetic fields. The IMU on the Nicla Voice board is the BMI270 from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BMI270 is designed for wearables and offers low power consumption and high performance, making it suitable for various applications, such as gesture recognition, motion tracking, or stabilization.
+
+![Nicla Voice onboard IMU](assets/user-manual-11.png)
+
+The onboard magnetometer of the Nicla Voice can be used to determine the board's orientation relative to Earth's magnetic field, which is helpful for compass applications, navigation, or detecting the presence of nearby magnetic objects. The magnetometer on the Nicla Voice board is the BMM150®, also from Bosch. It is a 3-axis sensor that measures the strength and direction of magnetic fields surrounding the board.
+
+![Nicla Voice onboard magnetometer](assets/user-manual-12.png)
+
+The example code below demonstrates using the Nicla Voice board to perform Machine Learning inference on IMU (Inertial Measurement Unit) data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> IMUDemo**.
+
+```arduino
+#include "NDP.h"
+
+// Set to 'true' for the lowest power consumption mode, 'false' otherwise
+const bool lowestPower = false;
+
+// Function to turn on the blue LED and print a label to the serial monitor if not in the lowest power mode
+void ledBlueOn(char* label) {
+  nicla::leds.begin();
+  nicla::leds.setColor(blue);
+  delay(200);
+  nicla::leds.setColor(off);
+  if (!lowestPower) {
+    Serial.println(label);
+  }
+  nicla::leds.end();
+}
+
+// Function to turn on the green LED briefly
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+// Function to make the red LED blink continuously
+void ledRedBlink() {
+  while (1) {
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  nicla::begin();
+  nicla::disableLDO();
+  nicla::leds.begin();
+
+  // Register event handlers for error, match, and event
+  NDP.onError(ledRedBlink);
+  NDP.onMatch(ledBlueOn);
+  NDP.onEvent(ledGreenOn);
+
+  // Load Edge Impulse model and related firmware
+  Serial.println("Loading synpackages");
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("ei_model_imu.synpkg");
+  Serial.println("packages loaded");
+
+  NDP.getInfo();
+  NDP.configureInferenceThreshold(1088);
+  NDP.interrupts();
+
+  // Enter the lowest power mode, if set
+  nicla::leds.end();
+  if (lowestPower) {
+    NRF_UART0->ENABLE = 0;
+  }
+}
+
+// Predefined IMU data for testing
+extern "C" const unsigned char data_opensset_bin[];
+extern "C" const unsigned char data_circ_bin[];
+extern "C" const unsigned int data_opensset_bin_len;
+extern "C" const unsigned int data_circ_bin_len;
+
+void loop() {
+  // Send openset data (no match expected)
+  Serial.println("Sending openset data... (no match expected)");
+  NDP.sendData((uint8_t*)data_opensset_bin, data_opensset_bin_len);
+  delay(1000);
+
+  // Send circular IMU data (match expected)
+  Serial.println("Sending circular IMU data.... (match expected)");
+  NDP.sendData((uint8_t*)data_circ_bin, data_circ_bin_len);
+  delay(5000);
+}
+```
+
+Here you can find a step-by-step explanation of the code:
+
+
+#### Machine Learning and Motion Analysis
+
+You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own motion analysis Machine Learning models. Check out this [tutorial](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
+
 ## Actuators
 
 ### RGB LED
@@ -514,10 +625,12 @@ This section of the user manual covers the different communication protocols tha
 
 The Nicla Voice supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Voice for the SPI communication protocol are the following:
 
-- `CS`: `6`
-- `CIPO`: `7`
-- `COPI`: `8`
-- `SCLK`: `9`
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_29`         |       `SS` or `6`       |
+|         `P0_27`         |       `SCK` or `9`      |
+|         `P0_28`         |      `MOSI` or `8`      |
+|         `P0_11`         |      `MISO` or `7`      |
 
 Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
 
@@ -530,14 +643,12 @@ Include the `SPI` library at the top of your sketch to use the SPI communication
 In the `setup()` function, initialize the SPI library, define and configure the chip select (`CS`) pin:
 
 ```arduino
-const int chipSelectPin = 6; 
-
 void setup() {
   // Set the chip select pin as output
-  pinMode(chipSelectPin, OUTPUT); 
+  pinMode(SS, OUTPUT); 
 
   // Pull the CS pin HIGH to unselect the device
-  digitalWrite(chipSelectPin, HIGH); 
+  digitalWrite(SS, HIGH); 
   
   // Initialize the SPI communication
   SPI.begin();
@@ -554,7 +665,7 @@ byte address = 0x00;
 byte value = 0xFF; 
 
 // Pull the CS pin LOW to select the device
-digitalWrite(chipSelectPin, LOW); 
+digitalWrite(SS, LOW); 
 
 // Send the address
 SPI.transfer(address); 
@@ -563,15 +674,17 @@ SPI.transfer(address);
 SPI.transfer(value); 
 
 // Pull the CS pin HIGH to unselect the device
-digitalWrite(chipSelectPin, HIGH); 
+digitalWrite(SS, HIGH); 
 ```
 
 ### I2C
 
 The Nicla Voice supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Voice for the I2C communication protocol are the following:
 
-- `SDA`: `3`
-- `SCL`: `4`
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_23`         |       `SCL` or `3`      |
+|         `P0_22`         |       `SDA` or `4`      |
 
 Please, refer to the [board pinout section](#pins) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Voice.
 
@@ -635,8 +748,10 @@ while (Wire.available()) {
 
 The pins used in the Nicla Voice for the UART communication protocol are the following:
 
-- `RX`: `1`
-- `TX`: `2`
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_09`         |       `TX` or `1`       |
+|         `P0_20`         |       `RX` or `2`       |
 
 Please, refer to the [board pinout section](#board-pinout) of the user manual to find them on the board.
 
