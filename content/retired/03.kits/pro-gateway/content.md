@@ -5,7 +5,7 @@ sku: "AKX00016"
 author: 'Jorge Trujillo Román'
 ---
 
-***Note: The documentation of this product is no longer maintained***
+***Note: The documentation of this product is no longer maintained.***
 
 ![Front View](./assets/AKX00016_front.jpg)
 
