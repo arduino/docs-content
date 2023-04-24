@@ -45,11 +45,11 @@ The UNO Mini LE can be programmed through the **Classic Arduino IDE 1.8.X**. To 
 
 - [Installing classic AVR boards.](/software/ide-v1/tutorials/getting-started/cores/arduino-avr)
 
-### Arduino IDE 2.0.X 
+### Arduino IDE 2 
 
-The UNO Mini LE can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
+The UNO Mini LE can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
-- [How to use the board manager with the Arduino IDE 2.0](/software/ide-v2/tutorials/ide-v2-board-manager)
+- [How to use the board manager with the Arduino IDE 2](/software/ide-v2/tutorials/ide-v2-board-manager)
 
 ### Web Editor
 

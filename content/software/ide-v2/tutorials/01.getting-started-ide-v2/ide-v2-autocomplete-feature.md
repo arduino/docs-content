@@ -1,7 +1,7 @@
 ---
-title: 'Getting Started with Arduino IDE 2.0'
+title: 'Getting Started with Arduino IDE 2'
 difficulty: beginner
-description: 'An introductory guide to the Arduino IDE 2.0.'
+description: 'An introductory guide to the Arduino IDE 2.'
 tags:
  - Arduino IDE 2
  - Software Tools
@@ -10,23 +10,23 @@ author: 'Karl Söderby'
 
 Makers, students & professionals have been using the classic Arduino IDE (Integrated Development Environment) ever since Arduino was born.
 
-The Arduino IDE 2.0 is an improvement of the classic IDE, with increased performance, improved user interface and many new features, such as [autocompletion](/software/ide-v2/tutorials/ide-v2-autocomplete-feature), a [built-in debugger](/software/ide-v2/tutorials/ide-v2-debugger) and [syncing sketches with Arduino Cloud](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).
+The Arduino IDE 2 is an improvement of the classic IDE, with increased performance, improved user interface and many new features, such as [autocompletion](/software/ide-v2/tutorials/ide-v2-autocomplete-feature), a [built-in debugger](/software/ide-v2/tutorials/ide-v2-debugger) and [syncing sketches with Arduino Cloud](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).
 
-In this guide, we will cover the basics of the Arduino IDE 2.0, where you will find links to more detailed resources on how to use specific features!
+In this guide, we will cover the basics of the Arduino IDE 2, where you will find links to more detailed resources on how to use specific features!
 
-***You can download the IDE 2.0 from the [Arduino Software page](https://www.arduino.cc/en/software).*** 
+***You can download the IDE 2 from the [Arduino Software page](https://www.arduino.cc/en/software).*** 
 
-***You can also follow the [downloading and installing the Arduino IDE 2.0](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.***
+***You can also follow the [downloading and installing the Arduino IDE 2](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.***
 
 ## Requirements
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software) installed. 
+- [Arduino IDE 2](https://www.arduino.cc/en/software) installed. 
 
 ## Overview
 
-The Arduino IDE 2.0 features a new sidebar, making the  most commonly used tools more accessible.
+The Arduino IDE 2 features a new sidebar, making the  most commonly used tools more accessible.
 
-![Arduino IDE 2.0](assets/ide-2-overview.png)
+![Arduino IDE 2](assets/ide-2-overview.png)
 
 - **Verify / Upload** - compile and upload your code to your Arduino Board.
 - **Select Board & Port** - detected Arduino boards automatically show up here, along with the port number.
@@ -39,7 +39,7 @@ The Arduino IDE 2.0 features a new sidebar, making the  most commonly used tools
 
 ## Features
 
-The Arduino IDE 2.0 is a versatile editor with many features. You can install libraries directly, sync your sketches with Arduino Cloud, debug your sketches and much more. In this section, some of the core features are listed, along with a link to a more detailed article.
+The Arduino IDE 2 is a versatile editor with many features. You can install libraries directly, sync your sketches with Arduino Cloud, debug your sketches and much more. In this section, some of the core features are listed, along with a link to a more detailed article.
 
 ### Sketchbook
 
@@ -126,8 +126,8 @@ You can upgrade and downgrade the firmware version for your Wi-Fi boards (with a
 
 ## Contribute
 
-The Arduino IDE 2.0 is an open-source project that is free for anyone to download. You can contribute to the project through [donations](https://www.arduino.cc/en/donate/), or by reporting issues at [our GitHub repository](https://github.com/arduino/arduino-ide).
+The Arduino IDE 2 is an open-source project that is free for anyone to download. You can contribute to the project through [donations](https://www.arduino.cc/en/donate/), or by reporting issues at [our GitHub repository](https://github.com/arduino/arduino-ide).
 
 ## Conclusion
 
-In this guide, we have presented a series of features & more detailed articles to follow, so that you can enjoy each and every one of the features included in the IDE 2.0.
+In this guide, we have presented a series of features & more detailed articles to follow, so that you can enjoy each and every one of the features included in the IDE 2.

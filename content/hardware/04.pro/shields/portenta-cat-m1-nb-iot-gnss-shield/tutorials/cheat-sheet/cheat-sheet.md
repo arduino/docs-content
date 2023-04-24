@@ -40,11 +40,11 @@ The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Classic 
 
 - [Installing the Arduino Mbed OS Portenta Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta)
 
-### Arduino IDE 2.0.X 
+### Arduino IDE 2 
 
 The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
-- [How to use the board manager with the Arduino IDE 2.0](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
+- [How to use the board manager with the Arduino IDE 2](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
 ### Web Editor
 

@@ -30,7 +30,7 @@ In this tutorial, we will look into the applications of using Node-RED together 
 ## Hardware & Software Requirements
 
 - [Arduino Create Agent](https://github.com/arduino/arduino-create-agent)
-- [Node.js](https://nodejs.org/en/) and [Node-RED installed]()
+- [Node.js](https://nodejs.org/en/) and [Node-RED installed](https://nodered.org/)
 - An [Arduino account](http://create.arduino.cc/iot).
 
 For this tutorial, you will need a cloud compatible board. You will find all compatible boards in the link below:

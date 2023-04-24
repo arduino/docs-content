@@ -21,7 +21,7 @@ In other words, secure boot ensures that the boot technology and operating syste
 
 ## Hardware & Software Required
 -   [Portenta H7](https://store.arduino.cc/portenta-h7)
--   Arduino IDE 1.8.19+  or Arduino IDE 2.0.0-rc5+ (https://www.arduino.cc/en/software)
+-   Arduino IDE 1.8.19+  or Arduino IDE 2.0-rc5+ (https://www.arduino.cc/en/software)
 -   [Arduino Core for mbed enabled devices](https://github.com/arduino/ArduinoCore-mbed) version 3.1.0+
 -   [imgtool](https://github.com/arduino/imgtool-packing/releases/latest) (optional)
 

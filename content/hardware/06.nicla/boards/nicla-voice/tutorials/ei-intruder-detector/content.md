@@ -65,7 +65,7 @@ The goal of this application note is to showcase an intruder detection and monit
 - [Nicla Voice and Portenta H7 3D Printed enclosures](assets/Intruder_Detector_3D_Files.zip)
 
 ### Software Requirements
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `ArduinoBLE`, `ArduinoIoTCloud`, and `Arduino_ConnectionsHandler`. You can install them using the Arduino IDE Library Manager.
 - The [intruder detector example code](assets/Nicla_Portenta_Codes.zip).
 - [Arduino Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/)
