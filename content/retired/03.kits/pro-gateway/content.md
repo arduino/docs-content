@@ -17,7 +17,7 @@ It is designed around the SX1301 from Semtech, which enables robust connection b
 It has the Listen Before Talk capability, and when enabled, the device monitors channels continuously and transmits only if the channel is free.
 
 It's the perfect companion for the Arduino MKR WAN 1300.
-Installation, provisioning and remote management of the Gateway are made incredibly simple through the Arduino Create platform.
+Installation, provisioning and remote management of the Gateway are made incredibly simple through the Arduino Cloud platform.
 This gateway enables people to leverage the LoRa® connectivity in many use cases:
 
 - Automated Meter Reading
@@ -30,7 +30,7 @@ This gateway enables people to leverage the LoRa® connectivity in many use case
 - Agricultural Monitoring
 
 The gateway radio hardware is powered by Embit and Arduino hardware design team.
-The network server and the packet forwarder running on the Arduino Create platform are powered by A2A.
+The network server and the packet forwarder running on the Arduino Cloud platform are powered by A2A.
 
 ## Getting Started
 
