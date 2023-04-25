@@ -58,7 +58,7 @@ As mentioned, by default the ESP32 is acting as a serial bridge, however if you 
 ### Bluetooth
 
 ### Programmable (Advanced)
-A more advanced user will be able to program the ESP32 individually from the RA4M1, and even integrate them with each other to create what is esentially a multi-core development board. You could for example use the RA4M1 chip to read sensordata with high speed and send it to the ESP32 where it gets processed and then sent to a webserver, or logged in a spreadsheet, all without adding any extra hardware to your board apart from the sensors. 
+A more advanced user will be able to program the ESP32 individually from the RA4M1, and even integrate them with each other to create what is essentially a multi-core development board. You could for example use the RA4M1 chip to read sensordata with high speed and send it to the ESP32 where it gets processed and then sent to a webserver, or logged in a spreadsheet, all without adding any extra hardware to your board apart from the sensors. 
 
 To reprogram the ESP32 board you can find UART-pads next to the ESP32 Module, that are laid out as shown in the image below:
 
