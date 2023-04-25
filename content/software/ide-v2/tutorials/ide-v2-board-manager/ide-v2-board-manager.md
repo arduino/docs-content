@@ -1,7 +1,7 @@
 ---
 title: 'Using the Board Manager'
 difficulty: beginner
-description: 'Learn how the new board manager tool works, and how to easily install the boards you want to use in the Arduino IDE 2.0.'
+description: 'Learn how the new board manager tool works, and how to easily install the boards you want to use in the Arduino IDE 2.'
 tags:
  - Installation
  - Tools
@@ -12,11 +12,11 @@ The board manager is a great tool for installing the necessary cores to use your
 
 You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
-You can also follow the [downloading and installing the Arduino IDE 2.0](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
+You can also follow the [downloading and installing the Arduino IDE 2](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
 ## Requirements
 
-- Arduino IDE 2.0 installed. 
+- Arduino IDE 2 installed. 
 
 ## Why Use the Board Manager?
 
@@ -32,7 +32,7 @@ In conclusion, to use a specific board, we need to install a specific core.
 
 Installing a core is quick and easy, but let's take a look at what we need to do. 
 
-**1.** Open the Arduino IDE 2.0. 
+**1.** Open the Arduino IDE 2. 
 
 **2.** With the editor open, let's take a look at the left column. Here, we can see a couple of icons. Let's click the on the **Arduino board** icon.
 

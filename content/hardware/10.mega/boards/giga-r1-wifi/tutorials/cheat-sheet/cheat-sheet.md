@@ -59,7 +59,7 @@ It should however be noted that the internal operating voltage of the microcontr
 The **GIGA R1** can be programmed through:
 
 - The **Classic Arduino IDE 1.8.X**, 
-- the **Arduino IDE 2.0.X**, 
+- the **Arduino IDE 2**, 
 - and the Web-editor. 
 
 ## Core

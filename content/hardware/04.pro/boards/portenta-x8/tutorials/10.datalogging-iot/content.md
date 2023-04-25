@@ -45,7 +45,7 @@ These four blocks will be running locally on the [Arduino® Portenta X8](https:/
 - Wi-Fi® Access Point (AP) with Internet access
 - ADB or SSH
 - Command-line interface
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software)
+- [Arduino IDE 2](https://www.arduino.cc/en/software)
   
 ***If you are new to the Portenta X8 board, check out this [User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) on controlling your board using a terminal or command-line interface.***
 
@@ -518,7 +518,7 @@ The sketch shown above connects the MKR WiFi 1010 to the local MQTT broker of th
 
 If everything is ok, we should see the following in the Serial monitor of the Arduino IDE :
 
-![Debug messages in the Arduino IDE 2.0 Serial Monitor.](assets/x8-data-logging-img_25.png)
+![Debug messages in the Arduino IDE 2 Serial Monitor.](assets/x8-data-logging-img_25.png)
 
 Check out now the Grafana dashboard we configured earlier; we should see data coming from the MKR WiFi 1010 board.
 

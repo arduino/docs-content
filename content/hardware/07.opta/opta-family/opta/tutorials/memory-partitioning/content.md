@@ -39,7 +39,7 @@ In this tutorial, we will learn how to partition the memory of an Opta™ device
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [The memory partitioning sketch and the certificates file](assets/opta_memory_partitioning.zip)
 
 ## Memory Partitioning

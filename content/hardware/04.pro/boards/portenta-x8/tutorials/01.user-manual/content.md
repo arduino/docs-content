@@ -31,7 +31,7 @@ Portenta X8 is a powerful, industrial-grade System on Module with Linux OS prelo
 
 ## Required Software
 
-* [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+* [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 * Latest "Arduino Mbed OS Portenta Boards" Core > 3.0.1
 * Latest Linux image available, check [this section](#portenta-x8-os-image-update) to verify if your Portenta X8 is already updated.
 

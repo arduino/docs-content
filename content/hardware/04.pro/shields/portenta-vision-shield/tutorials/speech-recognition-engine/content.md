@@ -64,7 +64,7 @@ In the case of the Portenta H7, remember that is always possible to add an exter
 
 Additionally, you will need the following hardware and software:
 - 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software), [Arduino Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
+- [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
 
 ## Instructions
 
