@@ -1,15 +1,17 @@
 ---
-identifier: ABX00027
-title: Arduino® Nano 33 IoT
+identifier: ABX00083
+title: Arduino® Nano ESP32
 type: maker
 ---
 ![](assets/featured.jpg)
 
 # Description 
-The Arduino Nano 33 IoT and Arduino Nano 33 IoT with headers are a miniature sized module containing a Cortex M0+ SAMD21 processor, a Wi-Fi®+Bluetooth® module based on ESP32, a crypto chip which can securely store certificates and pre-shared keys and a 6 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+The Arduino® Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 microcontroller unit (MCU). This is the first Arduino board to be based fully on an ESP32 MCU, and features Wi-Fi, Bluetooth® LE, debugging via native USB in the Arduino IDE.
+
+The Nano ESP32 is compatible with the Arduino IoT Cloud, and has MicroPython support.
 
 # Target areas:
-Maker, enhancements, basic IoT application scenarios
+Maker, Debugging, IoT, MicroPython
 
 # Features
 - **SAMD21G18A** 
