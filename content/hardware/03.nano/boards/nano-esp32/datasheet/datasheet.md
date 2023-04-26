@@ -14,25 +14,35 @@ The Nano ESP32 is compatible with the Arduino IoT Cloud, and has MicroPython sup
 Maker, Debugging, IoT, MicroPython
 
 # Features
-- **SAMD21G18A** 
-    - **Processor**
-        - 256KB Flash
-        - 32KB Flash
-        - Power On Reset (POR) and Brown Out Detection (BOD) 
-    - **Peripherals**
-        - 12 channel DMA
-        - 12 channel event system
-        - 5x 16 bit Timer/Counter
-        - 3x 24 bit timer/counter with extended functions
-        - 32 bit RTC
-        - Watchdog Time
-        - CRC-32 generator
-        - Full speed Host/Device USB with 8 end points
-        - 6x SERCOM (USART, I<sup>2</sup>C, SPI, LIN)
-        - Two channel I<sup>2</sup>S
-        - 12 bit 350ksps ADC (up to 16 bit with oversampling)
-        - 10 bit 350ksps DAC
-        - External Interrupt Controller (up to 16 lines)
+* **Espressif ESP32-S3** 
+    * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
+      * Up to 240 MHz
+      * 384 KB ROM
+      * 512 KB SRAM
+      * 16 KB SRAM in RTC (low power mode).
+    * **Communication Ports**
+      * SPI
+      * I2C
+      * I2S
+      * UART
+* 1 × LCD interface (8-bit ~16-bit parallel RGB, I8080 and MOTO6800), supporting conversion between RGB565, YUV422, YUV420 and YUV411
+* 1 × DVP 8-bit ~16-bit camera interface
+* 1 × RMT (TX/RX)
+* 1 × pulse counter
+* 1 × full-speed USB OTG
+* 1 × USB Serial/JTAG controller
+* 2 × MCPWM
+* 1 × SDIO host controller with 2 slots
+* General DMA controller (GDMA), with 5 transmit channels and 5 receive channels
+* 1 × TWAI® controller, compatible with ISO 11898-1 (CAN Specification 2.0)
+* Analog interfaces:
+* 2 × 12-bit SAR ADCs, up to 20 channels – 1 × temperature sensor
+* 14 × touch sensing IOs
+* Timers:
+* 4 × 54-bit general-purpose timers – 1 × 52-bit system timer
+* 3 × watchdog timers        
+
+
 - **Nina W102** 
     - **Module**
         - Dual Core Tensilica LX6 CPU at up to 240MHz
