@@ -299,7 +299,7 @@ chmod +x 399-install-update
 ```
 
 ```arduino
-sudo su ./399-install-update
+sudo ./399-install-update
 ```
 
 Remember that the default password for admin access is `fio`.
@@ -315,7 +315,7 @@ chmod +x 399-finalize-update
 ```
 
 ```arduino
-sudo su ./399-finalize-update
+sudo ./399-finalize-update
 ```
 
 These commands will make your V.399 compatible with [aklite-offline](https://docs.foundries.io/latest/user-guide/offline-update/offline-update.html) tool and will allow you to update your Portenta X8 to the latest image version Arduino released at that point in time. Arduino provides this tool for free for any Portenta X8 user to enable offline secure updates to all devices, even if those devices are not connected to any FoundriesFactory.
