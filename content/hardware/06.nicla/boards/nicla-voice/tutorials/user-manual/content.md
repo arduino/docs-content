@@ -943,6 +943,12 @@ The pin layout of the ESLOV connector is the following:
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
+## Application Notes
+
+This section provides a list of available application notes for the Nicla Voice board:
+
+- **Door Intruder Detector Using ML with the Nicla Voice**: This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds with the Nicla Voice and the Machine Learning Tools of the Arduino Cloud. Check it out [here](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector). 
+
 ## Support
 
 If you encounter any issues or have questions while working with the Nicla Voice, we provide various support resources to help you find answers and solutions.
