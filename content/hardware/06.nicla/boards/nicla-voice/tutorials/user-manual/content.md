@@ -152,8 +152,8 @@ The Nicla Voice has **two analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         `P0_02`         |           `A0`          |
-|         `P0_30`         |           `A1`          |
+|      `ADC1`/`P0_02`     |           `A0`          |
+|      `ADC2`/`P0_30`     |           `A1`          |
 
 Both pins can be used through the built-in functions of the Arduino programming language. The example code shown below reads the voltage value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
 
@@ -402,11 +402,13 @@ void loop() {
 Here you can find a step-by-step explanation of the code:
 
 First, the necessary libraries are included: 
+
 - `Arduino.h` and `NDP.h` for the Nicla Voice board's basic functions and microphone control; `AudioTools.h` and `CodecG722.h` for audio processing and G722 codec support.
 - An instance of the `G722Encoder` class is created to handle audio encoding.
 - The `data` buffer is declared with a size of 2048 bytes to store audio data temporarily.
 
 In the `setup()` function:
+
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO is disabled.
 - The green LED is configured to turn on when an event occurs.
@@ -416,6 +418,7 @@ In the `setup()` function:
 - The audio chunk size is checked to ensure it doesn't exceed the buffer size.
 
 In the `loop()` function:
+
 - Audio data is extracted from the NDP processor and stored in the `data` buffer.
 - The length of the extracted audio data is stored in the `len` variable.
 - The extracted audio data is passed to the G722 encoder, which compresses the audio and sends it to the serial port.
@@ -432,7 +435,7 @@ The Nicla Voice features an advanced IMU and a magnetometer, which allows the bo
 
 ![Nicla Voice onboard IMU](assets/user-manual-11.png)
 
-The onboard magnetometer of the Nicla Voice can be used to determine the board's orientation relative to Earth's magnetic field, which is helpful for compass applications, navigation, or detecting the presence of nearby magnetic objects. The magnetometer on the Nicla Voice board is the BMM150®, also from Bosch. It is a 3-axis sensor that measures the strength and direction of magnetic fields surrounding the board.
+The onboard magnetometer of the Nicla Voice can be used to determine the board's orientation relative to Earth's magnetic field, which is helpful for compass applications, navigation, or detecting the presence of nearby magnetic objects. The magnetometer on the Nicla Voice board is the BMM150, also from Bosch®. It is a 3-axis sensor that measures the strength and direction of magnetic fields surrounding the board.
 
 ![Nicla Voice onboard magnetometer](assets/user-manual-12.png)
 
@@ -525,8 +528,11 @@ void loop() {
 }
 ```
 
-Here you can find a step-by-step explanation of the code:
+In the example code above, a Machine Learning model is loaded into the Nicla Voice board, and predefined IMU data is sent to the Machine Learning model for inferencing. Depending on the result, the board will light its built-in RGB LED with different colors:
 
+- If the model matches the input data with a known motion pattern, the built-in RGB LED is turned blue, and the event label is printed to the IDE's Serial Monitor.
+- If an error occurs, the built-in RGB LED will blink red continuously. 
+- While an event is recognized, the built-in RGB LED is turned on green.
 
 #### Machine Learning and Motion Analysis
 
@@ -627,10 +633,10 @@ The Nicla Voice supports SPI communication, which allows data transmission betwe
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         `P0_29`         |       `SS` or `6`       |
-|         `P0_27`         |       `SCK` or `9`      |
-|         `P0_28`         |      `MOSI` or `8`      |
-|         `P0_11`         |      `MISO` or `7`      |
+|       `CS`/`P0_29`      |       `SS` or `6`       |
+|      `COPI`/`P0_27`     |       `SCK` or `9`      |
+|      `CIPO`/`P0_28`     |      `MOSI` or `8`      |
+|      `SCLK`/`P0_11`     |      `MISO` or `7`      |
 
 Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
 
