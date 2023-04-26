@@ -7,7 +7,7 @@
 
 <EssentialsColumn title="Suggested Libraries">
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_PortentaBreakout" title="Portenta Breakout Library" type="library">
-        The Arduino_PortentaBreakout library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
+        The Official Arduino library to use the Portenta Breakout.
     </EssentialElement>
     <EssentialElement link="https://www.arduino.cc/en/Reference/WiFi" title="WiFi" type="library">
         The WiFi library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
