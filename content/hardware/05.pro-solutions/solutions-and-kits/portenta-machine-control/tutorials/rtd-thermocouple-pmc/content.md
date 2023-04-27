@@ -31,11 +31,11 @@ In this tutorial, we will use a two-wire **PT100** RTD to obtain temperature mea
 
 ## Goals
 The goals of this tutorial are:
+- Learn about the differences between RTD and thermocouples
 - Learn how to connect an RTD or thermocouple to the PMC
 - Understand the operation of the PMC's Temperature Probe inputs
 - Learn about PLC IDE functions and variables
 - Read the temperature values using the Arduino PLC IDE
-- Learn about the differences between RTD and thermocouples
 
 ## Hardware and Software Requirements
 ### Hardware Requirements
@@ -68,6 +68,32 @@ Thermocouples are used in a wide range of applications where temperature measure
 
 Depending on the sensor you use, you will need to perform different connection settings. Find below three tables showing how to connect a two-wire RTD (PT100), a three-wire RTD (PT100) or a thermocouple. 
 
+### Two Wires RTD Connection
+The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is more prone to errors.
+
+|     Channel 0                        |      Channel 1                        |       Channel 2                       |
+|--------------------------------------|---------------------------------------|---------------------------------------|
+| Connect RTD pin to TP0               | Connect RTD pin to TP1                | Connect RTD pin to TP2                |
+| Connect RTD pin to TN0               | Connect RTD pin to TN1                | Connect RTD pin to TN2                |
+| Jumper between TP0 and RTD0          | Jumper between TP1 and RTD1           | Jumper between TP2 and RTD2           |
+
+In this tutorial, we will use a two-wire RTD, so we will configure **channel 0** as described in the table. This is done by connecting one pin of the PT100 to the TP0 input, the other pin to TN0, and connecting a jumper between TP0 and RTD0 pins as you can see in the following picture:
+
+![Two Wires Connection to Channel 0](./assets/two-wire-connection.png)
+
+### Three Wires RTD Connection
+The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
+
+|     Channel 0                     |      Channel 1                    |       Channel 2                   |
+|-----------------------------------|-----------------------------------|-----------------------------------|
+| Connect RTD pin to TP0            | Connect RTD pin to TP1            | Connect RTD pin to TP2            |
+| Connect RTD pin to TN0            | Connect RTD pin to TN1            | Connect RTD pin to TN2            |
+| Connect the RTD pin to the RTD0   | Connect the RTD pin tothe  RTD0   | Connect the RTD pin to the RTD0   |
+
+***Do not connect the second pin to GND***
+
+![Three Wires Connection to Channel 0](./assets/three-wire-connection.png)
+
 ### Thermocouples Connection
 
 Connect **only non-grounded thermocouples** (grounded thermocouples are not supported). Do not connect both a thermocouple and a PT100 to a single same channel.
@@ -85,32 +111,6 @@ The thermocouples supported by the Portenta Machine Control are:
 
 ![Thermocouple Connection to Channel 0](./assets/thermocouple-connection.png)
 
-### Two Wires RTD Connection
-The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is more prone to errors.
-
-|     Channel 0                        |      Channel 1                        |       Channel 2                       |
-|--------------------------------------|---------------------------------------|---------------------------------------|
-| Connect one RTD pin to TP0           | Connect one RTD pin to TP1            | Connect one RTD pin to TP2            |
-| Connect the other RTD pin to TN0     | Connect the other RTD pin to TN1      | Connect the other RTD pin to TN2      |
-|Connect a jumper between TP0 and RTD0 | Connect a jumper between TP1 and RTD1 | Connect a jumper between TP2 and RTD2 |
-
-In this tutorial, we will use a two-wire RTD, so we will configure **channel 0** as described in the table. This is done by connecting one pin of the PT100 to the TP0 input, the other pin to TN0, and connecting a jumper between TP0 and RTD0 pins as you can see in the following picture:
-
-![Two Wires Connection to Channel 0](./assets/two-wire-connection.png)
-
-### Three Wires RTD Connection
-The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
-
-|     Channel 0                     |      Channel 1                    |       Channel 2                   |
-|-----------------------------------|-----------------------------------|-----------------------------------|
-| Connect one RTD pin to TP0        | Connect one RTD pin to TP1        | Connect one RTD pin to TP2        |
-| Connect a second RTD pin to TN0   | Connect a second RTD pin to TN1   | Connect a second RTD pin to TN2   |
-| Connect the third RTD pin to RTD0 | Connect the third RTD pin to RTD0 | Connect the third RTD pin to RTD0 |
-
-***Do not connect the second pin to GND***
-
-![Three Wires Connection to Channel 0](./assets/three-wire-connection.png)
-
 ## PLC IDE
 
 ### Creating the Project
@@ -127,7 +127,7 @@ Name the project and select "Portenta Machine Control 1.0" as the project target
 
 ### Behavior Setting
 
-Once the project has been created, to visualize the "Temperature probes" inputs of the board, you need to go to the **Resources** Tools window and click on "**Temperature probes**". If you cannot find this window, you can try to click on: ```View > Tools Windows > Resources``` .
+Once the project has been created, to visualize the "Temperature probes" inputs of the board, you need to go to the **Resources** Tools window and click on "**Temperature probes**". If you cannot find this window, you can try to click on: ```View > Tools Windows > Resources```.
 
 ![Resources Window](./assets/resources.png)
 
@@ -185,7 +185,7 @@ If you are not sure about how to connect your device, you can check it on [the s
 
 ![Program Compilation](./assets/compiling-connecting.png)
 
-If there are no errors when compiling, you can download the code to the device by clicking on the button found next to the connection symbol. You may see a warning message about the need of cold restart to download the code. Click Yes:
+If there are no errors when compiling, you can download the code to the device by clicking on the button found next to the connection symbol. You may see a warning message about the need for a cold restart to download the code. Click Yes:
 
 ![Downloading PLC Code](./assets/download-plc-code.png)
 
