@@ -15,7 +15,7 @@ hardware:
 
 ## Overview
 
-The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are one of many processes that requires attention at any given moment; therefore, the interrupt is a critical feature to control and optimize these types of events.
+The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment, therefore, the interrupt management is critical  to control and optimize these types of events.
 
 ![General Overview of Interrupt on Opta™](assets/opta_interrupt_overview.svg)
 
