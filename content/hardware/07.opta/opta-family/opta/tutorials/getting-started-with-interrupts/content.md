@@ -15,7 +15,7 @@ hardware:
 
 ## Overview
 
-The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment, therefore, interrupt management is critical to control and optimize these types of events.
+The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment. Therefore, interrupt management is critical to control and optimize these event classes.
 
 ![General Overview of Interrupt on Opta™](assets/opta_interrupt_overview.svg)
 
@@ -43,7 +43,7 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 **Interrupts** are execution requests triggered usually by a timed event or signal which will pause the active process if the interrupt request is accepted under certain conditions, executing new high-priority commands immediately and returning to the main process as soon as possible. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
 
-The handler can be defined to run particular instructions periodically, use external signals, or send an alert in case of a system failure. It is a function that is launched as a priority task among the other operations, whenever a specific high-awareness change of state of a trigger occurs.
+The handler can be defined to run particular instructions periodically, use external signals, or send an alert in case of a system failure. It is a function launched as a priority task among the other operations, whenever a specific high-awareness state change occurs respective to an assigned trigger.
 
 ### Interrupt Types
 
