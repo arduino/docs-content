@@ -534,10 +534,6 @@ In the example code above, a Machine Learning model is loaded into the Nicla Voi
 - If an error occurs, the built-in RGB LED will blink red continuously. 
 - While an event is recognized, the built-in RGB LED is turned on green.
 
-#### Machine Learning and Motion Analysis
-
-You can use the Nicla Voice and the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the Arduino Cloud to create your own motion analysis Machine Learning models. Check out this [tutorial](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml) and start with Machine Learning with the Nicla Voice. 
-
 ## Actuators
 
 ### RGB LED
@@ -634,9 +630,9 @@ The Nicla Voice supports SPI communication, which allows data transmission betwe
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
 |       `CS`/`P0_29`      |       `SS` or `6`       |
-|      `COPI`/`P0_27`     |       `SCK` or `9`      |
-|      `CIPO`/`P0_28`     |      `MOSI` or `8`      |
-|      `SCLK`/`P0_11`     |      `MISO` or `7`      |
+|      `COPI`/`P0_27`     |       `SCK` or `8`      |
+|      `CIPO`/`P0_28`     |      `MOSI` or `7`      |
+|      `SCLK`/`P0_11`     |      `MISO` or `9`      |
 
 Please, refer to the [board pinout section](#pins) of the user manual to find them on the board.
 
@@ -942,12 +938,6 @@ The pin layout of the ESLOV connector is the following:
 5. GND
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
-
-## Application Notes
-
-This section provides a list of available application notes for the Nicla Voice board:
-
-- **Door Intruder Detector Using ML with the Nicla Voice**: This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds with the Nicla Voice and the Machine Learning Tools of the Arduino Cloud. Check it out [here](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector). 
 
 ## Support
 
