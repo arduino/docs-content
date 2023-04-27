@@ -30,7 +30,7 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
 - Cellular Connectivity
   - LTE Cat. M1/NB1/NB2
   - 3GPP Rel.14 Compliant Protocol LTE Cat. M1/NB1/NB2
-    - (UMTS BANDS: 1 / 2 / 3 / 4 / 5 / 8 / 1217) / 13 / 18 / 19 / 20 / 25 / 26 / 27 / 28 / 66 / 71 / 85
+    - (UMTS BANDS: 1 / 2 / 3 / 4 / 5 / 8 / 12 / 17) / 13 / 18 / 19 / 20 / 25 / 26 / 27 / 28 / 66 / 71 / 85
   - LTE Bands
     - LTE Cat.M1 DL: max. 300 kbps, UL: max. 1.1 Mbps 
     - LTE Cat.NB1 DL: max. 27 kbps, UL: max. 63 kbps 
