@@ -15,7 +15,7 @@ hardware:
 
 ## Overview
 
-The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment, therefore, the interrupt management is critical  to control and optimize these types of events.
+The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment, therefore, interrupt management is critical to control and optimize these types of events.
 
 ![General Overview of Interrupt on Opta™](assets/opta_interrupt_overview.svg)
 
@@ -49,7 +49,7 @@ The handler can be defined to run particular instructions periodically, use exte
 
 Interrupts are based on **hardware** and **software** events:
 
-* The *hardware interrupt* is an interrupt raised by a hardware signal sent from an external device. This interrupt class handles its asynchronously generated interrupt signal to synchronize it with the subsequent instructions of the interrupted device. For example, the pression of a button can send a signal that represents the change in the hardware state to execute a task requiring immediate attention, such as an emergency stop alert.
+* The *hardware interrupt* is an interrupt raised by a hardware signal sent from an external device. This interrupt class handles its asynchronously generated interrupt signal to synchronize it with the subsequent instructions of the interrupted device. For example, the button press can send a signal that represents the change in the hardware state to execute a task requiring immediate attention, such as an emergency stop alert.
 
 * The *software interrupt* is raised when the device itself is exposed to internally defined conditions or upon a particular routine call. It watches for special conditionals that create interrupts based on the present parameters. For instance, read and write operations of the storage device interacting with the controller driver is one example that involves software interrupt.
 
