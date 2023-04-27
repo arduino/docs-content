@@ -5,7 +5,7 @@ description: 'An introductory guide to the Arduino IDE 2.'
 tags:
  - Arduino IDE 2
  - Software Tools
-author: 'Karl Söderby'
+author: 'Karl Söderby & Jacob Hylén'
 ---
 
 Makers, students & professionals have been using the classic Arduino IDE (Integrated Development Environment) ever since Arduino was born.
@@ -55,9 +55,9 @@ To access your sketchbook, click on the **folder icon** located in the sidebar.
 
 ![Boards Manager.](assets/board-manager.png)
 
-With the Boards Manager, you can browse and install packages, or "cores" for your boards. A board package is always required when compiling and uploading code for your board.
+With the Boards Manager, you can browse and install packages, or "cores" for your boards. A core is always required when compiling and uploading code for your board.
 
-There are several Arduino board packages available, such as **avr, samd, megaavr** and more.
+There are several Arduino cores available, such as **avr, samd, megaavr** and more.
 
 ***To learn more about the Boards Manager, visit the [Installing new boards tutorial](/software/ide-v2/tutorials/ide-v2-board-manager).***
 
@@ -102,7 +102,7 @@ The debugger tool is used to test and **debug** programs, hence the name. It can
 
 ![Autocompletion tool.](assets/autocomplete.png)
 
-Autocompletion is a must-have for code editors, and the 2.0 version comes well equipped. When writing code, this is useful to understand more about the elements of the Arduino API.
+Autocompletion is a must-have for code editors, and the 2 version comes well equipped. When writing code, this is useful to understand more about the elements of the Arduino API.
 
 Note that you always need to select your board for autocompletion to work. 
 
@@ -113,6 +113,10 @@ Note that you always need to select your board for autocompletion to work.
 ![Push and pull your sketches.](assets/remote-sketchbook.gif)
 
 The Remote Sketchbook feature lets you sync sketches from your [Arduino Cloud](https://cloud.arduino.cc/) sketchbook with your local computer. To enable this feature, you will need to login to your Arduino Cloud account.
+
+You can also create a new cloud sketch directly in the IDE.
+
+![New cloud sketch](./assets/new-cloud.png)
 
 ***To learn more about the Remote Sketchbook feature, visit the [Synchronizing Sketches tutorial](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).***
 
@@ -126,7 +130,7 @@ You can upgrade and downgrade the firmware version for your Wi-Fi boards (with a
 
 ## Contribute
 
-The Arduino IDE 2 is an open-source project that is free for anyone to download. You can contribute to the project through [donations](https://www.arduino.cc/en/donate/), or by reporting issues at [our GitHub repository](https://github.com/arduino/arduino-ide).
+The Arduino IDE 2 is an open-source project that is free for anyone to download. You can contribute to the project through [donations](https://www.arduino.cc/en/donate/), or by reporting issues to [our GitHub repository](https://github.com/arduino/arduino-ide).
 
 ## Conclusion
 
