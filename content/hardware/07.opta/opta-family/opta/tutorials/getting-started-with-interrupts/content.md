@@ -19,7 +19,7 @@ The Opta™ micro PLC is designed to operate in several industrial environments 
 
 ![General Overview of Interrupt on Opta™](assets/opta_interrupt_overview.svg)
 
-The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the [Arduino IDE](https://www.arduino.cc/en/software) found within Arduino ecosystem tools.
+The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the Arduino programming language and the [Arduino IDE](https://www.arduino.cc/en/software).
 
 ## Goals
 
