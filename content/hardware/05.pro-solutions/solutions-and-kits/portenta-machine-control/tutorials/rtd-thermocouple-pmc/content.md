@@ -151,7 +151,7 @@ To visualize the temperature values, we need to create a variable to save the va
 
 ![Creating a Global Variable](./assets/global-variable.png)
 
-A New Variable Window will appear, set **TP00** as the variable name (This is just a name, not related to the name of the input, so you can set a name of your choice). 
+A New Variable Window will appear, set **TP00** as the variable name. This is just a name, not related to the name of the input, so you can set a name of your choice. 
 
 ![Set a Variable Name](./assets/variable-name.png)
 
