@@ -19,69 +19,36 @@ Maker, Debugging, IoT, MicroPython
       * Up to 240 MHz
       * 384 KB ROM
       * 512 KB SRAM
-      * 16 KB SRAM in RTC (low power mode).
+      * 16 KB SRAM in RTC (low power mode)
+      * Built-in temperature sensor (not ambient)
+      * DMA Controller
+    * **Power**
+      * Operating voltage 3.3V
+      * VUSB supplies 5V via USB-C connector
+      * VIN range is 6-18V
+    * **Connectivity**
+      * Wi-Fi
+      * Bluetooth® LE
+      * Built-in antenna
+      * 2.4 GHz transmitter/receiver
+      * Up to 150 Mbps
+    * **Pins**
+      * 14x digital (21x including analog)
+      * 8x analog (available in RTC mode)
+      * SPI(D11,D12,D13), I2C (A4/A5), UART(D0/D1)
     * **Communication Ports**
       * SPI
       * I2C
       * I2S
       * UART
-* 1 × LCD interface (8-bit ~16-bit parallel RGB, I8080 and MOTO6800), supporting conversion between RGB565, YUV422, YUV420 and YUV411
-* 1 × DVP 8-bit ~16-bit camera interface
-* 1 × RMT (TX/RX)
-* 1 × pulse counter
-* 1 × full-speed USB OTG
-* 1 × USB Serial/JTAG controller
-* 2 × MCPWM
-* 1 × SDIO host controller with 2 slots
-* General DMA controller (GDMA), with 5 transmit channels and 5 receive channels
-* 1 × TWAI® controller, compatible with ISO 11898-1 (CAN Specification 2.0)
-* Analog interfaces:
-* 2 × 12-bit SAR ADCs, up to 20 channels – 1 × temperature sensor
-* 14 × touch sensing IOs
-* Timers:
-* 4 × 54-bit general-purpose timers – 1 × 52-bit system timer
-* 3 × watchdog timers        
-
-
-- **Nina W102** 
-    - **Module**
-        - Dual Core Tensilica LX6 CPU at up to 240MHz
-        - 448 KB ROM, 520KB SRAM, 2MB Flash 
-    - **WiFi**
-        - IEEE 802.11b up to 11Mbit
-        - IEEE 802.11g up to 54MBit
-        - IEEE 802.11n up to 72MBit
-        - 2.4 GHz, 13 channels
-        - -96 dBm sensitivity 
-    - **Bluetooth®  BR/EDR**
-        - Max 7 peripherals
-        - 2.4 GHz, 79 channels
-        - Up to 3 Mbit/s
-        - 8 dBm output power at 2/3 Mbit/s
-        - 11 dBm EIRP at 2/3 Mbit/s
-        - -88 dBm sensitivity 
-    - **Bluetooth® Low Energy**
-        - Bluetooth®  4.2 dual mode
-        - 2.4GHz 40 channels
-        - 6 dBm output power
-        - 9 dBm EIRP
-        - -88 dBm sensitivity
-        - Up to 1 Mbit/ 
-    - **MPM3610** (DC-DC)
-        - Regulates input voltage from up to 21V with a minimum of 65% efficiency @minimum load
-        - More than 85% efficiency @12V        
-    - **ATECC608A** (Crypto Chip)
-        - Cryptographic co-processor with secure hardware based key storage
-        - Protected storage for up to 16 keys, certificates or data
-        - ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman
-        - NIST standard P256 elliptic curve support
-        - SHA-256 & HMAC hash including off-chip context save/restore
-        - AES-128 encrypt/decrypt, galois field multiply for GCM
-    - **LSM6DSL** (6 axis IMU)
-        - Always-on 3D accelerometer and 3D gyroscope
-        - Smart FIFO up to 4 KByte based
-        - ±2/±4/±8/±16 g full scale
-        - ±125/±250/±500/±1000/±2000 dps full scale
+      * CAN (TWAI®)
+    * **Low Power**
+      * 7 μA consumption in deep sleep mode
+      * 240 μA consumption in light sleep mode
+      * RTC Memory
+      * Ultra Low Power (ULP) Coprocessor
+      * Power Management Unit (PMU)
+      * ADC in RTC mode
 
 # Contents
 
