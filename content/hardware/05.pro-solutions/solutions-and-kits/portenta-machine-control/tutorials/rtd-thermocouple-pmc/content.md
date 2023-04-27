@@ -45,20 +45,20 @@ The goals of this tutorial are:
 
 ### Software Requirements
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
-- If you have not done so, set up and activate the PMC license following the steps in [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
+- If you have not done so, set up and activate the PMC license following the steps of [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
-## How It Works
+## Temperature Sensors
 
 ### RTD 
-A **Resistance Temperature Detector**, or **RTD**, is a temperature sensor that works by measuring the change in electrical resistance of a metal wire or element as temperature changes. The most common metal used for RTDs is platinum and they are sometimes referred to as PT100 sensors, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
+A **Resistance Temperature Detector**, or **RTD**, is a temperature sensor that works by measuring the variation in the electrical resistance of a metallic element as a function of the temperature changes. The most commonly used metal for RTDs is platinum: one common type of RTD sensor is the PT100, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
 
-As temperature increases, the resistance of the metal element in the RTD increases predictably and linearly, which can be measured using an external circuit or instrument. The change in resistance is then converted into a temperature reading using a calibration curve or formula, which relates resistance to temperature.
+As the temperature increases, the resistance of the metal element in the RTD increases predictably and linearly. The resistance variation can be measured using an external circuit or measuring instrument and converted into a temperature reading, using a calibration curve or formula putting into relation the resistance value with the temperature.
 
-RTDs are commonly used in industrial applications where temperature measurement is critical for process control and safety. They are preferred over other types of temperature sensors because of their high accuracy, stability, and repeatability over a narrow temperature range.
+RTDs are commonly used in industrial applications where the temperature measurement is critical for process control and safety. They are preferred over other types of temperature sensors because of their high accuracy, stability, and repeatability over a narrow temperature range.
 
 ### Thermocouples
 
-A **thermocouple** is a temperature sensor made of two dissimilar metals, typically joined together at one end to form a junction. When the junction is heated or cooled, a voltage is generated due to the thermoelectric effect, which is the phenomenon where a temperature difference between two dissimilar conductors produces an electric potential. This voltage can be measured and converted into a temperature reading.
+A **thermocouple** is a temperature sensor made of two different metals, having dissimilar electrical conductivity, joined together at one end. When the junction is heated or cooled, a voltage is generated due to the thermoelectric effect: this voltage can be measured and converted into a temperature reading.
 
 Thermocouples are used in a wide range of applications where temperature measurement is necessary, including industrial processes such as furnace and boiler monitoring, temperature control of plastic extrusion machines, and temperature measurement in power plants. They are also used in HVAC systems, automotive engines, and aerospace applications.
 
@@ -66,12 +66,12 @@ Thermocouples are used in a wide range of applications where temperature measure
 
 ![Temperature Probe Inputs](./assets/temp-probes-inputs.png)
 
-Depending on the sensor you use, you will have to check connection settings. Below are three tables with information on how to connect a thermocouple, a two-wire RTD (PT100), or a three-wire RTD (PT1000). 
+Depending on the sensor you use, you will need to perform different connection settings. Find below three tables showing how to connect a two-wire RTD (PT100), a three-wire RTD (PT100) or a thermocouple. 
 
 ### Thermocouples Connection
 
 Connect **only non-grounded thermocouples** (grounded thermocouples are not supported). Do not connect both a thermocouple and a PT100 to a single same channel.
-The thermocouples supported by PMC are:
+The thermocouples supported by the Portenta Machine Control are:
 - Thermocouple Type K, non-grounded
 - Thermocouple Type J, non-grounded
 
@@ -83,7 +83,7 @@ The thermocouples supported by PMC are:
 
 ***Do not connect the thermocouple negative pin to GND***
 
-![Thermocouple Connection](./assets/thermocouple-connection.png)
+![Thermocouple Connection to Channel 0](./assets/thermocouple-connection.png)
 
 ### Two Wires RTD Connection
 The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is more prone to errors.
@@ -96,7 +96,7 @@ The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is 
 
 In this tutorial, we will use a two-wire RTD, so we will configure **channel 0** as described in the table. This is done by connecting one pin of the PT100 to the TP0 input, the other pin to TN0, and connecting a jumper between TP0 and RTD0 pins as you can see in the following picture:
 
-![Two Wires Connection](./assets/two-wire-connection.png)
+![Two Wires Connection to Channel 0](./assets/two-wire-connection.png)
 
 ### Three Wires RTD Connection
 The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
@@ -109,7 +109,7 @@ The 3-wire RTD configuration is the most commonly used RTD circuit design. In th
 
 ***Do not connect the second pin to GND***
 
-![Three Wires Connection](./assets/three-wire-connection.png)
+![Three Wires Connection to Channel 0](./assets/three-wire-connection.png)
 
 ## PLC IDE
 
@@ -121,13 +121,13 @@ First, we need to **create a new project**. To do this, open the Arduino PLC IDE
 
 ![New Project](./assets/new-project.png)
 
-Then, name the project and select "Portenta Machine Control 1.0" as the project target. Then press OK:
+Name the project and select "Portenta Machine Control 1.0" as the project target; press OK:
 
 ![Project Info](./assets/project-info.png)
 
 ### Behavior Setting
 
-Once the project has been created, to visualize the "Temperature probes" inputs of the board, you need to go to the **Resources** Tools window and click on "**Temperature probes**". If you cannot find this window, you can try to click on: ```View > Tools Windows > Resources``` 
+Once the project has been created, to visualize the "Temperature probes" inputs of the board, you need to go to the **Resources** Tools window and click on "**Temperature probes**". If you cannot find this window, you can try to click on: ```View > Tools Windows > Resources``` .
 
 ![Resources Window](./assets/resources.png)
 
