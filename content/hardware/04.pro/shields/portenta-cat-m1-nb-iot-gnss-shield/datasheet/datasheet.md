@@ -259,3 +259,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | **Date**   | **Revision** | **Changes**     |
 | ---------- | ------------ | --------------- |
 | 31-01-2022 | 01           | Initial Version |
+| 27-04-2023 | 02           | Fix UMTS Bands typo  |
