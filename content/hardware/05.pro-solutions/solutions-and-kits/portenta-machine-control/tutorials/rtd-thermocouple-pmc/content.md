@@ -135,7 +135,7 @@ Once the project has been created, to visualize the "Temperature probes" inputs 
 
 After clicking on "Temperature Probes" we will see a table containing the three temperature probe inputs of the board. We have to make sure that the "**Behavior setting**" is set according to our RTD or thermocouple sensor. 
 
-In this case, we are using a two-wires PT100 sensor, so we will select the "**RTD TWO WIRES**" option:
+In this case, we are using a two-wires PT100 sensor, so we will select the "**RTD TWO WIRES**" option. In case a different sensor is connected, the right choice must be operated (i.e. THERMOCOUPLE for thermocouple):
 
 ![Behavior Setting](./assets/behavior.png)
 
