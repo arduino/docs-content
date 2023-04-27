@@ -32,8 +32,8 @@ In this tutorial, we will use a two-wire **PT100** RTD to obtain temperature mea
 ## Goals
 The goals of this tutorial are:
 - Learn about the differences between RTD and thermocouples
-- Learn how to connect an RTD or thermocouple to the PMC
-- Understand the operation of the PMC's Temperature Probe inputs
+- Learn how to connect an RTD or thermocouple to the Portenta Machine Control
+- Understand the operation of the Portenta Machine Control's Temperature Probe inputs
 - Learn about PLC IDE functions and variables
 - Read the temperature values using the Arduino PLC IDE
 
@@ -45,7 +45,7 @@ The goals of this tutorial are:
 
 ### Software Requirements
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
-- If you have not done so, set up and activate the PMC license following the steps of [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
+- If you have not done so, set up and activate the Portenta Machine Control license following the steps of [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
 ## Temperature Sensors
 
@@ -115,7 +115,7 @@ The thermocouples supported by the Portenta Machine Control are:
 
 ### Creating the Project
 
-Once we have correctly [connected](#connections) the sensor to the PMC, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the PMC and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the [configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
+Once we have correctly [connected](#connections) the sensor to the Portenta Machine Control, the following steps are carried out in the Arduino PLC IDE. We assume that you have previously made the initial configuration of the Portenta Machine Control and activated [the necessary license](https://store.arduino.cc/products/plc-key-portenta-machine-control) to use it. If you have not done this, it is explained in the [configuration tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) mentioned above.
 
 First, we need to **create a new project**. To do this, open the Arduino PLC IDE and click on "New Project" or by clicking on ```File > New project```:
 
@@ -191,7 +191,7 @@ If there are no errors when compiling, you can download the code to the device b
 
 ### Watch the Values
 
-To visualize the values once we have downloaded the code into the PMC, we need to drop the variables in the "**Watch**" section as shown in the following animation. If you can't see the "Watch" window, you can try going to: ```View > Tool Windows > Watch```.
+To visualize the values once we have downloaded the code into the Portenta Machine Control, we need to drop the variables in the "**Watch**" section as shown in the following animation. If you can't see the "Watch" window, you can try going to: ```View > Tool Windows > Watch```.
 
 ![Watch Variables](./assets/watch-variables.gif)
 
