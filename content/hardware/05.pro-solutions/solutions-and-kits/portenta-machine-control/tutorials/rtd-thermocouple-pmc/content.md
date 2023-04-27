@@ -90,7 +90,7 @@ The 3-wire RTD configuration is the most commonly used RTD circuit design. In th
 |-----------------------------------|-----------------------------------|-----------------------------------|
 | Connect RTD pin to TP0            | Connect RTD pin to TP1            | Connect RTD pin to TP2            |
 | Connect RTD pin to TN0            | Connect RTD pin to TN1            | Connect RTD pin to TN2            |
-| Connect the RTD pin to the RTD0   | Connect the RTD pin tothe  RTD0   | Connect the RTD pin to the RTD0   |
+| Connect the RTD pin to the RTD0   | Connect the RTD pin to the RTD0   | Connect the RTD pin to the RTD0   |
 
 ***Do not connect any pin to GND***
 
