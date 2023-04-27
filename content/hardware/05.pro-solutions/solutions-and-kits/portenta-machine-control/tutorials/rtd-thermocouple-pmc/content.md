@@ -23,6 +23,8 @@ software:
 ## Introduction
 RTDs (Resistance Temperature Detectors) and Thermocouples are used for temperature measurement in various industrial fields. **RTDs** are sensors that change resistance in response to temperature variation. They are used regularly in industries that require precise temperature measurements, such as food processing and pharmaceuticals. 
 
+![RTD & Thermocouples with the Portenta Machine Control](./assets/initial-image.png)
+
 On the other hand, **Thermocouples** are transducers that provide a voltage proportional to the temperature difference between two junctions. They are widely used in industrial applications such as HVAC systems, diesel engines, and power plants.
 
 Both RTDs and thermocouples have unique characteristics, which make them suitable for different applications depending on the required accuracy, speed, and temperature range.
@@ -90,7 +92,7 @@ The 3-wire RTD configuration is the most commonly used RTD circuit design. In th
 | Connect RTD pin to TN0            | Connect RTD pin to TN1            | Connect RTD pin to TN2            |
 | Connect the RTD pin to the RTD0   | Connect the RTD pin tothe  RTD0   | Connect the RTD pin to the RTD0   |
 
-***Do not connect the second pin to GND***
+***Do not connect any pin to GND***
 
 ![Three Wires Connection to Channel 0](./assets/three-wire-connection.png)
 
@@ -107,7 +109,7 @@ The thermocouples supported by the Portenta Machine Control are:
 | Connect the negative pin to TN0 | Connect the negative pin to TN1 | Connect the negative pin to TN2 |
 
 
-***Do not connect the thermocouple negative pin to GND***
+***Do not connect any pin to GND***
 
 ![Thermocouple Connection to Channel 0](./assets/thermocouple-connection.png)
 
@@ -147,7 +149,7 @@ Once enabled, we are ready to continue to the next step creating the necessary v
 
 ***By default the project creates an automatic type int global variable called "cnt". You can delete it by right-clicking on it and clicking delete.***
 
-To visualize the temperature values, we need to create a variable to save the values. To do this, we need to go to **Global vars** section and right-click on it, select "New variable" and select "Automatic" type or go to ```Project > New object > New variable > Automatic```. 
+To visualize the temperature values, we need to create a variable to save the values. To do this, we need to go to **Global vars** section and right-click on it, select "New variable" and select "Automatic" type. You can also do it by going to ```Project > New object > New variable > Automatic```. 
 
 ![Creating a Global Variable](./assets/global-variable.png)
 
@@ -155,9 +157,11 @@ A New Variable Window will appear, set **TP00** as the variable name. This is ju
 
 ![Set a Variable Name](./assets/variable-name.png)
 
-On type, press the **[...]** button and scroll down to find and select the "**sysTempProbesType**". This variable has the automatic process to convert the RTD values into real-type temperature values.
+On type, press the **[...]** button and scroll down to find and select the "**sysTempProbesType**". This variable has the automatic process to convert the RTD values into real-type temperature values. 
 
 ![Choosing Variable Type](./assets/variable-type.png)
+
+***Note: ensure that you have marked the User Type option to visualize the sysTempProbesType variable type***
 
 When it is done, press the **OK** button:
 
