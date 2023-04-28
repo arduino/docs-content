@@ -184,6 +184,12 @@ You have now pushed your changes to the cloud. You can easily check if it has be
 
 ![Changes visible in the cloud.](assets/cloud-sketch-sync-img15.png)
 
+## New Cloud Sketches
+
+With the IDE 2.1 and newer, you can also create new Cloud sketches, directly from the offline IDE. When you are in the Cloud sketchbook, at the bottom of the window there's a button to create a fresh sketch.
+
+![Create a New Cloud Sketch](./assets/cloud-sketch-sync-img16.png)
+
 ## Disabling the Remote Sketchbook
 
 If you do not want to use the Remote Sketchbook feature, you can simply disable it in the editor. Navigate to **File > Advanced > Show/Hide Remote Sketchbook** to disable it. If you want to enable it again, simply click the same option!

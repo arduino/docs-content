@@ -6,7 +6,7 @@ tags:
  - Libraries
  - Installation
  - Tools
-author: 'Karl Söderby'
+author: 'Karl Söderby & Jacob Hylén'
 ---
 
 A large part of the Arduino programming experience is the **use of libraries.** There are thousands of libraries that can be found online, and the best documented ones can be found and installed directly through the editor.
@@ -60,6 +60,9 @@ To use a library, you first need to include the library at the top of the sketch
 Almost all libraries come with already made examples that you can use. These are accessible through **File > Examples > {Library} > {Example}**. In this example, we are choosing the **RTCZero > SimpleRTC**.
 
 ![Choosing an example sketch from a library.](assets/installing-a-library-img06.png)
+
+You can also access library examples directly in the library manager, by clicking the three dots next to the installed library, like this:
+![Library examples](./assets/installing-a-library-img06.5.png)
 
 The chosen example will now open up in a new window, and you can start using it however you want to.
 
