@@ -36,11 +36,11 @@ Uploading a sketch is quick and easy, but let's take a look at what we need to d
 
 ![Verifying and uploading buttons.](assets/uploading-a-sketch-img01.png)
 
-**3.** But before doing any of that, we should choose what board we are uploading to. Beside the verify and upload button you should see a a drop down menu, this will display any Arduino board that is connected to your computer. 
+**3.** But before doing any of that, we should choose what board we are uploading to. Beside the verify and upload button you should see a a drop down menu, this will, in most cases, display Arduino boards that are connected to your computer. If your board is not automatically detected, you can either press "Select other board and port..." in the drop-down and follow the instructions, or go to **Tools > Board** and **Tools > Port** in the toolbar menu to select the board and port manually.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
 
-So connect your board to the computer and select it from the drop down menu. You'll know that there is a connection to the board when the board name appears in **bold** and there's a USB icon next to it.
+So connect your board to the computer and select it from the drop down menu. You'll know that there is a connection to the board when the board name appears in **bold**.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.5.png)
 
