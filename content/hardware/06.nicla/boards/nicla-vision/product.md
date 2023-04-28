@@ -1,7 +1,6 @@
 ---
 title: Nicla Vision
 url_shop: https://store.arduino.cc/products/nicla-vision
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla
 core: arduino:mbed_nicla
 certifications: [CE]
 productCode: '120'

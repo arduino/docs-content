@@ -1,7 +1,6 @@
 ---
 title: Nano
 url_shop: https://store.arduino.cc/arduino-nano
-url_guide: https://www.arduino.cc/en/Guide/ArduinoNano
 core: arduino:avr
 forumCategorySlug: '/hardware/nano-family/nano/166'
 productCode: '003'
