@@ -1,8 +1,4 @@
 <EssentialsColumn title="Guides">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla">
-    All you need to know to get started with your new Arduino Nicla board.
-  </EssentialElement>
-
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
