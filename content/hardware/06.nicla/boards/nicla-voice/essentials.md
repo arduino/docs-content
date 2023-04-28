@@ -1,4 +1,10 @@
-<EssentialsColumn title="Guides">
+<EssentialsColumn title="First Steps">
+    <EssentialElement title="User Manual" type="getting-started" link="https://docs.arduino.cc/tutorials/nicla-voice/user-manual">
+        A full guide to the basics of the Nicla Voice
+    </EssentialElement>
+    <EssentialElement link="https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml" title="Audio Analysis with Machine Learning and the Nicla Voice" type="tutorial">
+        Learn to use the Nicla Voice to create your own Machine Learning audio models with this getting started tutorial.
+    </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
