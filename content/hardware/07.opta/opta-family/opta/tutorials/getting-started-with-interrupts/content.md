@@ -53,8 +53,6 @@ Interrupts are based on **hardware** and **software** events:
 
 * The *software interrupt* is raised when the device itself is exposed to internally defined conditions or upon a particular routine call. It watches for special conditionals that create interrupts based on the present parameters. For instance, read and write operations of the storage device interacting with the controller driver is one example that involves software interrupt.
 
-***Please check out [Nick Gammon's Notes](http://gammon.com.au/interrupts) for more in-depth information about interrupts.***
-
 ### Interrupt Triggers
 
 Interrupt signals must be set with appropriate triggers to create interrupt requests correctly, and they become critical when implemented on programmable logic controllers such as Opta™. Because it handles broad signal types, it is a good practice to understand which signal circumstances suit certain applications. Generally, they are **Level-Triggered** or **Edge-Triggered** interrupts. They are characterized as follows:
