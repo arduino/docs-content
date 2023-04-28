@@ -1,5 +1,5 @@
 ---
-title: Using the IMU to determine orientation of the Giga Display Shield
+title: Using IMU to determine orientation of the Giga Display Shield
 description: 'Learn how to use the shields IMU to determine the orientation of the Giga Display Shield'
 author: Benjamin Dannegård
 tags: [Display, IMU, orientation]
@@ -20,7 +20,7 @@ Any modern device uses sensors to determine the correct orientation that an imag
 
 Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150** and install it, this library will help us with reading values from the IMU.
 
-## Getting IMU readings
+## Getting IMU Readings
 
 The three axis that we will measure will be:
 
@@ -32,13 +32,13 @@ This tutorial will assume that the screen is oriented as in the image below.
 
 ![Orientation of screen normally]()
 
-## Creating an image
+## Creating an Image
 
 Any image could be used here. This tutorial will use the following image of the Arduino logo. Alternatively, any raw RGB565 image can be used. If you have an image you want to use, you can use this [online image converter](https://lvgl.io/tools/imageconverter), or any other software that lets you convert an image to a raw RGB565 image. This website will output in the Binary RGB565 format.
 
 [In sketch image]()
 
-## Using the IMU readings with the image
+## Using the IMU Readings With the Image
 
 Now to first get the readings from the IMU. The following sketch will read the values from the boards IMU:
 
@@ -112,7 +112,7 @@ Now to put it all together where the image will change depending on how we rotat
 
 ```
 
-## Testing it out
+## Testing it Out
 
 Now try and rotating your device to see if the image behaves correctly. If the image does not rotate correctly have another look at the values you entered into the previous sketch. It might help to try and run a simple IMU readings printer sketch to take a quick look at the IMU values in the serial monitor. This will help you figure out what values should be considered when the device is being moved. 
 
