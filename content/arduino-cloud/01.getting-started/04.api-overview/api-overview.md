@@ -40,7 +40,7 @@ With this API, you can:
 - Send and receive input and commands from and to dashboards
 - Listen for variables' values changes and act upon them
 
-Inside the Device API we have:
+As a wrapper for the Device API, we have the following libraries:
 	
 - An official Arduino IoT Cloud Library for your Arduino sketches: `ArduinoIoTCloud.h` 
 - An NPM Javascript package: `arduino-iot-js`  
