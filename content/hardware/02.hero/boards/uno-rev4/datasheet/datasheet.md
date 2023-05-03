@@ -100,7 +100,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ### Front View
 
-![Top View of Arduino UNO R4 Minima]()
+![Top View of Arduino UNO R4 Minima](assets/topViewMinima.svg)
 
 | **Ref.** | **Description**                      | **Ref.** | **Description**               |
 | -------- | ------------------------------------ | -------- | ----------------------------- |
@@ -117,7 +117,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ### Back View
 
-![Back View of Arduino R4 Minima]()
+![Back View of Arduino R4 Minima](assets/backViewMinima.svg)
 
 ## Microcontroller (R7FA4M1AB3CFM#AA0)
 
@@ -249,7 +249,7 @@ For powering e.g. servo motors, use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Arduino UNO R4 Minima]()
+![Mechanical View of Arduino UNO R4 Minima](assets/mechanicalDrawingwMinima.svg)
 
 <div style="page-break-after: always;"> </div>
 
