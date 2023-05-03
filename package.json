@@ -20,6 +20,7 @@
   "dependencies": {
     "@arduino/docs-arduino-cc": "^1.8.7",
     "gatsby": "^4.9.2",
+    "gatsby-source-filesystem": "^5.9.0",
     "gatsby-transformer-sharp": "^5.9.0"
   },
   "volta": {
