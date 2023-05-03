@@ -22,7 +22,7 @@
     </EssentialElement>
 
   <EssentialElement title="PDM" type="library" link="https://www.arduino.cc/en/Reference/PDM">
-The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT05.
+The PDM library allows you to use PDM (Pulse-density modulation) microphones, like the MP34DT06JTR.
   </EssentialElement>
     
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_LSM6DSOX" title="Arduino_LSM6DSOX" type="library">

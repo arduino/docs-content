@@ -33,7 +33,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 <Feature title="Omnidirectional Microphone" image="microphone">
 
-  The Nano RP2040 connect comes with the MP34DT05 microphone. It allows you to capture and analyze sound in real time and can be used to create a voice interface to control your peripherals through sound.
+  The Nano RP2040 connect comes with the MP34DT06JTR microphone. It allows you to capture and analyze sound in real time and can be used to create a voice interface to control your peripherals through sound.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-microphone-basics"/>
   <FeatureLink variant="secondary" title="Library" url="/learn/built-in-libraries/pdm"/>
