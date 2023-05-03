@@ -505,7 +505,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)              | https://www.arduino.cc/en/Main/Software                                                     |
 | Arduino IDE (Cloud)                | https://create.arduino.cc/editor                                                            |
 | Arduino Cloud - Getting started    | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
-| Portenta C33 Documentation | https://docs.arduino.cc/hardware/portenta-c33                                               |
+| Portenta C33 Documentation         | https://docs.arduino.cc/hardware/portenta-c33                                               |
 | Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
 | Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                       | https://store.arduino.cc/                                                                   |
