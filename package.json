@@ -21,6 +21,7 @@
     "@arduino/docs-arduino-cc": "^1.8.7",
     "gatsby": "^4.9.2",
     "gatsby-plugin-image": "^3.9.0",
+    "gatsby-plugin-sharp": "^5.9.0",
     "gatsby-source-filesystem": "^5.9.0",
     "gatsby-transformer-sharp": "^5.9.0"
   },
