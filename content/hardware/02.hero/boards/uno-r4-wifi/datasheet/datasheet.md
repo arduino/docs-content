@@ -123,7 +123,7 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 
 ### Front View
 
-![Top View of Arduino UNO R4 WiFi]()
+![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.svg)
 
 | **Ref.**    | **Description**                                |
 | ----------- | ---------------------------------------------- |
@@ -155,7 +155,7 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 
 ### Back View
 
-![Back View of Arduino R4 WiFi]()
+![Back View of Arduino R4 WiFi](assets/backViewWiFi.svg)
 
 ## Microcontroller (R7FA4M1AB3CFM#AA0)
 
@@ -378,7 +378,7 @@ For powering e.g. servo motors, use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Arduino UNO R4 WiFi]()
+![Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
 
 <div style="page-break-after: always;"> </div>
 
