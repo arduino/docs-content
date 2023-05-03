@@ -1,6 +1,6 @@
 ---
 identifier: ABX00074
-title: Portenta C33
+title: Arduino® Portenta C33
 type: pro
 ---
 
