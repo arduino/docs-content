@@ -15,15 +15,15 @@ A reference to all technical features on this board, with pointers to additional
 <FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-wifi/cheat-sheet"/>
 </Feature>
 
-<Feature title="Advanced ADC/DAC" image="microphone">
-Learn more about the ADC/DAC features of the GIGA R1 WiFi board, and discover examples for Audio projects.
-<FeatureLink title="ADC/DAC Guide" url="/tutorials/giga-r1-wifi/giga-audio"/>
+<Feature title="Getting Started Guide" image="microphone">
+Get off the ground and upload your first program to your new UNO R4 WiFi board by following this guide.
+<FeatureLink title="ADC/DAC Guide" url="/tutorials/uno-r4-wifi/r4-wifi-getting-started"/>
 </Feature>
 
-<Feature title="USB" image="usb">
-This board has USB-C® for power/programming/communication line, and a USB-A for connecting USB devices (keyboards, mass storage).
+<Feature title="LED Matrix" image="usb">
+Learn the basic principles of creating animations and graphics on the UNO R4 WiFi's built in LED matrix with this guide.
 
-<FeatureLink title="USB Guide" url="/tutorials/giga-r1-wifi/giga-usb"/>
+<FeatureLink title="USB Guide" url="/tutorials/uno-r4-wifi/led-matrix"/>
 </Feature>
 
 
