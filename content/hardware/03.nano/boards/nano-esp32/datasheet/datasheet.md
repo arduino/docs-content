@@ -113,14 +113,75 @@ The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation o
 
 ![Back View of Arduino Nano ESP32]()
 
-## Microcontroller (NORA-W106-10B)
+## NORA-W106-10B (Radio Module / MCU)
 
-The Nano ESP32 is based on the 
+The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embedding an ESP32-S3 series SoC as well as an antenna. The ESP32-S3 is based on a LX7 Microprocessor with a clock frequency at up to 240 MHz and 512kB SRAM.
 
-The ESP32-S3 features:
-* 
+The ESP32-S3 SoC includes 
 
-For more technical details on this microcontroller, visit [ESP32-S3 series]().
+### Wi-Fi
+
+Data rate up to 150 Mbps
+
+* 802.11b: 11 Mbit/s
+* 802.11g: 54 Mbit/s 
+* 802.11n: 72 Mbit/s max at HT-20 (20 MHz), 150 Mbit/s max at HT-40 (40 MHz)
+
+
+### Bluetooth
+
+
+
+## Serial Communication Protocols
+
+The ESP32-S3 chip provides flexibility for the various serial protocols it supports. For example, the I2C bus can be assigned to almost any available GPIO.
+
+### I2C  
+
+Default pins:
+- A4 - SDA
+- A5 - SCL
+
+The I2C bus is by default assigned to the A4/A5 (SDA/SCL) pins for retro compatibility. This pin assignment can however be changed, due to the flexibility of the ESP32-S3 chip.
+
+The SDA and SCL pins can be assigned to most available GPIOs, however some of these pins may have other essential functions that prevents I2C operations to run successfully.
+
+**Please note:** many software libraries uses the standard pin assignment (A4/A5) and requires manual changes in the library code to work.   
+
+### I2S
+
+There two I2S controllers that are typically used for communication with audio devices. There are no specific pins assigned for I2S, this can be used by any free GPIO.
+
+Using standard or TDM mode, the following lines are used:
+- **MCLK** - master clock
+- **BCLK** - bit clock
+- **WS** - word select
+- **DIN/DOUT** - serial data
+
+Using PDM mode:
+- **CLK** - PDM clock
+- **DIN/DOUT** serial data
+
+Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds (I2S)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2s.html)  
+
+### SPI
+
+- SCK - D13
+- COPI - D12
+- CIPO - D11  
+- CS - D10
+
+The SPI controller 
+
+### UART
+
+- D0 / TX
+- D1 / RX
+
+The 
+
+### CAN (TWAI®)
+
 
 
 ## USB Connector
@@ -128,57 +189,6 @@ For more technical details on this microcontroller, visit [ESP32-S3 series]().
 The Nano ESP32 has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
 
 Note that you should not power the board with more than 5V via the USB-C® port.
-
-## LED Matrix
-
-The Nano ESP32 features a 12x8=96 LED matrix (U_LEDMATRIX), connected using the charlieplexing technique. The LEDs are red.
-
-The following pins on the RA4M1 MCU is used for the matrix:
-- P003
-- P004
-- P011
-- P012
-- P013
-- P015
-- P204
-- P205
-- P206
-- P212
-- P213
-
-![LED matrix schematics.](assets/matrix.png)
-
-These LEDs can be accessed as an array, using a specific library. See the mapping below:
-
-![LED matrix number mapping.](assets/matrix-2.png)
-
-This matrix can be used for a number of projects and prototyping purposes, and supports animation, simple game designs and scrolling text among other things.
-
-## Digital Analog Converter (DAC)
-
-The Nano ESP32 has one 8-bit & one 12-bit DAC attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal. 
-
-The DAC is connected to 
-
-<div style="page-break-after: always;"> </div>
-
-## I²C Connector
-
-The I²C connector SM04B-SRSS-TB(LF)(SN) is connected to the main I²C bus on the board. Note that this connector is powered via 3.3V.
-
-![I²C connector.](assets/i2c-connector.png)
-
-This connector also shares the following pin connections:
-
-**JANALOG header**
-- A4
-- A5
-
-**JDIGITAL header**
-- SDA
-- SCL
-
-**Please note:** as A4/A5 is connected to the main I²C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I²C devices to each of these pins and connector simultaneously.
 
 ## Power Options
 
