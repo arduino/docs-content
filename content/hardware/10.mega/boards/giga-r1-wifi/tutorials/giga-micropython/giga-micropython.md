@@ -28,6 +28,10 @@ You will need the following software/tools installed:
 
 ## Installation
 
+Following the steps below will install MicroPython on the **M7** core. 
+
+***Please note that after this installation is complete, your board will no longer be detected as an Arduino device. In order to go back to using the Arduino programming environment, you need to reset the board. This is simply done by double tapping the reset button.***
+
 **1.** Download the [GIGAR1_MP_FW.dfu](/resources/firmware/GIGAR1_MP_FW.dfu) firmware (latest firmware is always available at the [MicroPython with Arduino](/micropython/) page).
 
 **2.** Download the [dfu-util](https://dfu-util.sourceforge.net/) tool, or install via Brew (or other package managers). Make sure it is in your PATH.
