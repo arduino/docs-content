@@ -115,28 +115,35 @@ The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation o
 
 ## NORA-W106-10B (Radio Module / MCU)
 
-The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embedding an ESP32-S3 series SoC as well as an antenna. The ESP32-S3 is based on a LX7 Microprocessor with a clock frequency at up to 240 MHz and 512kB SRAM.
+The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embedding an ESP32-S3 series SoC as well as an embedded antenna. The ESP32-S3 is based on an Xtensa® LX7 series microprocessor.
 
-The ESP32-S3 SoC includes 
+### Xtensa® Dual-core 32-bit LX7 Microprocessor
+
+The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-core 32-bit Xtensa® LX7. Each core can run at up to 240 MHz and has 512kB SRAM memory. The LX7 features:
+- 32-bit customized instruction set
+- 128-bit data bus 
+- 32-bit multiplier / divider
+- Support for JTAG debugging
+
+The LX7 has a 384 KB ROM (Read Only Memory), and 512 KB of SRAM (Static Random Access Memory). It also features an 8 KB **RTC FAST** and **RTC SLOW** memory. These memories are designed for low power operations, where the **SLOW** memory can be accessed by the ULP (Ulta Low Power) coprocessor, retaining the data in deep sleep mode.
 
 ### Wi-Fi
 
-Data rate up to 150 Mbps
+The NORA-W106-10B module supports the WiFi 4 IEEE 802.11 standards b/g/n, with an output power EIRP at up to 10 dBm. The max range for this module is 500 meters.
 
 * 802.11b: 11 Mbit/s
 * 802.11g: 54 Mbit/s 
 * 802.11n: 72 Mbit/s max at HT-20 (20 MHz), 150 Mbit/s max at HT-40 (40 MHz)
 
-
 ### Bluetooth
 
-
+The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP at up to 10 dBm.
 
 ## Serial Communication Protocols
 
-The ESP32-S3 chip provides flexibility for the various serial protocols it supports. For example, the I2C bus can be assigned to almost any available GPIO.
+The ESP32-S3 chip provides flexibility for the various serial protocols it supports. For example, the I2C bus can be assigned to almost any available GPIO. Please bare in mind that the de
 
-### I2C  
+### Inter-Integrated Circuit (I2C)
 
 Default pins:
 - A4 - SDA
@@ -148,7 +155,7 @@ The SDA and SCL pins can be assigned to most available GPIOs, however some of th
 
 **Please note:** many software libraries uses the standard pin assignment (A4/A5) and requires manual changes in the library code to work.   
 
-### I2S
+### Inter-IC Sound (I2S)
 
 There two I2S controllers that are typically used for communication with audio devices. There are no specific pins assigned for I2S, this can be used by any free GPIO.
 
@@ -164,25 +171,27 @@ Using PDM mode:
 
 Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds (I2S)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2s.html)  
 
-### SPI
+### Serial Peripheral Interface (SPI)
 
 - SCK - D13
 - COPI - D12
 - CIPO - D11  
 - CS - D10
 
-The SPI controller 
+The SPI controller is by default assigned to the pins above. This is connected to the ESP32-S3's **SPI2** controller.
 
-### UART
+### Universal Asynchronous Receiver/Transmitter (UART)
 
 - D0 / TX
 - D1 / RX
 
-The 
+The UART controller is by default assigned to the the pins above.  
 
 ### CAN (TWAI®)
 
+## Flash Memory
 
+Nano ESP32 features a 128 Mbit (16MB) external flash, the GD25B128EWIGR (U3). This memory is connected to the ESP32 via QSPI,  
 
 ## USB Connector
 
