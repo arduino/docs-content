@@ -73,7 +73,7 @@ Following bulletpoints are **sub-sections of the workspace pre-configuration**.
 - TCP server and client simultaneous operation (Configuration details) - To briefly explain how the PLC IDE handles the configuration and clarify such confusions that may arise
 - IP address configuration related details (DHCP address or manual configuration) - This is to explain how to setup for both approaches when configuring to use Modbus TCP on PLC IDE. This is to help clarify the user the difference found between two approaches and why is it important.
 
-Following are additional sub-sections to explain how set up for Modbus TCP communication with Opta and other devices when using PLC IDE.
+Following are additional sub-sections to explain how set up (role based) for Modbus TCP communication with Opta and other devices when using PLC IDE.
 - Node configurations (TENTATIVE)
 - Modbus Custom editor (TENTATIVE)
   
