@@ -15,11 +15,11 @@ hardware:
   - hardware/07.opta/opta-family/opta
 ---
 
+**IT IS CURRENTLY IN TBD PHASE**
+
 ## Overview
 
 ## Goals
-
-TBD
 
 - Learn how to configure Modus TCP on Opta™ using PLC IDE
 - Learn how to configure workspace environment to work with Modbus TCP using PLC IDE
@@ -29,14 +29,10 @@ TBD
 
 ### Hardware Requirements
 
-TBD
-
 - Opta™ PLC (x1)
 - USB-C® cable (x1)
 
 ### Software Requirements
-
-TBD
 
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
 
@@ -44,11 +40,16 @@ TBD
 
 ## Modbus TCP
 
+To briefly explain the Modbus TCP protocol:
+- what is it
+- why is it useful
+- How it is intended to be used
+
 ## Instructions
 
 ### Setting Up the Arduino PLC IDE
 
-TBD
+To explain PLC IDE environment setup requirement
 
 To use the Arduino PLC IDE software, go to the [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide) and click on the download button. Download the following two executables:
 
@@ -61,32 +62,36 @@ The first one will install all the required drivers, libraries and cores that yo
 
 ### Ethernet Connection on Opta™
 
+To explain how the hardware configuration is set up
+
 IMAGE SHAREHOLDER - ETHERNET CONNECTION
 
 ### Workspace Pre-Configuration
 
-TBD
+Following bulletpoints are **sub-sections of the workspace pre-configuration**.
 
-- TCP server and client simultaneous operation (Configuration details)
-- IP address configuration related details (DHCP address or manual configuration)
-- Node configurations
-- Modbus Custom editor (As a reference)
+- TCP server and client simultaneous operation (Configuration details) - To briefly explain how the PLC IDE handles the configuration and clarify such confusions that may arise
+- IP address configuration related details (DHCP address or manual configuration) - This is to explaing how to setup for both approaches when configurating to use Modbus TCP on PLC IDE. This is to help clarify the user the difference found between two approaches and why is it important.
 
+Following are additional sub-sections to explain how set up for Modbus TCP communication with Opta and other devices when using PLC IDE.
+- Node configurations (TENTATIVE)
+- Modbus Custom editor (TENTATIVE)
+  
 ### Project Overview
 
-#### Modbus TCP Client (Master)
+***EXAMPLE/PROJECT SECTION IS INTENDED TO SHOWCASE A SIMPLE METHOD TO VERIFY THE MODBUS TCP IS CORRECTLY IMPLEMENTED BETWEEN 2 OPTAS USING PLC IDE. (TENTATIVE)***
+- Use `cnt` variable to pass this active variable over Modbus TCP triggered by a simple Modbus Function request. (CURRENT EXAMPLE IDEA)
+- Maybe use STATUS LEDs as part of the example for visual indication..?
 
-TBD
+#### Modbus TCP Client (Master)
 
 WILL EXPLAIN HOW TO SET AND USE MODBUS TCP MASTER (CLLIENT) OPTION FOR OPTA
 
 #### Modbus TCP Server (Slave)
 
-TBD
-
 WILL EXPLAIN HOW TO SET AND USE MODBUS TCP SLAVE (SERVER) OPTION FOR OPTA
 
-### Testing the Modbus TCP
+### Testing the Modbus TCP on Opta (PLC IDE)
 
 IMAGE SHAREHOLDER - MODBUS TCP TEST
 
