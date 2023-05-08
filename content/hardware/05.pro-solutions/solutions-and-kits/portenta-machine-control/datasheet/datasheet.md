@@ -206,13 +206,13 @@ The front ends are multiplexed to the three channels via:
   - Three quadruple single pole single throw analog switches **TMUX1511RSVR** which are switching the active channel between the three available.
 
 ### Connecting Thermocouples
-**NOTE**: Connect only **non-grounded** thermocouples. Do not connect a thermocouple and a PT100 to the same channel.
+**WARNING**: Connect only **non-grounded** thermocouples. Do not connect a thermocouple and a PT100 to the same channel.
 
 Connect a **thermocouple** to a channel `CH` (0-2):
   - Connect the thermocouple positive pin to **TP**`CH`.
   - Connect the thermocouple negative pin to **TN**`CH`.
 
-**NOTE**: Do not connect the thermocouple negative pin to GND.
+**NOTE**: Depending on the region and normative, thermocouples can have different cables color codes. Please check the meaning of each cable code before connecting them do the device. Do not connect the thermocouple negative pin to GND.
 
 ### Connecting Two Wires RTDs (PT100)
 Connect a **two-wire RTD** to a channel `CH` (0-2):
@@ -220,11 +220,15 @@ Connect a **two-wire RTD** to a channel `CH` (0-2):
   - Connect the other RTD pin to **TN**`CH`.
   - Connect a jumper between TP0 and **RTD**`CH`.
 
+**NOTE**: Depending on the region and normative, RTD sensors like the PT100 can have different cables color codes. Please check the meaning of each cable code before connecting them do the device. Do not connect the RTD negative pin to GND.
+
 ### Connecting Three Wires RTDs (PT100)
 Connect a **three-wire RTD** to a channel `CH` (0-2):
   - Connect one RTD pin to **TP**`CH`.
   - Connect a second RTD pin to **TN**`CH`. **Do not connect this pin to GND**.
   - Connect the third RTD pin to **RTD**`CH`.
+
+**NOTE**: Depending on the region and normative, RTD sensors like the PT100 can have different cables color codes. Please check the meaning of each cable code before connecting them do the device. Do not connect the RTD negative pin to GND.
 
 ### Encoders
   - Two independent ABZ encoder channels are available.
@@ -541,10 +545,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 04/13/2021 | 1            | First Release |
-| 05/09/2022 | 2            | Remove PT1000, not compatible |
-| 09/26/2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
-| 10/13/2022 | 4            | Big improvements & Fixes |
-| 04/11/2023 | 5            | Updates and table improvements |
+| Date        | **Revision** | **Changes**   |
+| ----------- | ------------ | ------------- |
+| 13/04/2021  | 1            | First Release |
+| 09/05//2022 | 2            | Remove PT1000, not compatible |
+| 26/09//2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
+| 13/10/2022  | 4             | Big improvements & Fixes |
+| 11/04//2023 | 5            | Updates and table improvements        |
+| 08/05//2023 | 6            | RTD and Thermocouples new information |
