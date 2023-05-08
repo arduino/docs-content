@@ -84,6 +84,8 @@ Industry 4.0, system integrators
 ### Related Products
 - Portenta H7
 
+<div style="page-break-after:always;"></div>
+
 ### Solution Overview
 
 ![The Portenta Machine control exploded view](assets/MachineControlMount3D.png)
