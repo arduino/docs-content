@@ -71,7 +71,7 @@ IMAGE SHAREHOLDER - ETHERNET CONNECTION
 Following bulletpoints are **sub-sections of the workspace pre-configuration**.
 
 - TCP server and client simultaneous operation (Configuration details) - To briefly explain how the PLC IDE handles the configuration and clarify such confusions that may arise
-- IP address configuration related details (DHCP address or manual configuration) - This is to explaing how to setup for both approaches when configurating to use Modbus TCP on PLC IDE. This is to help clarify the user the difference found between two approaches and why is it important.
+- IP address configuration related details (DHCP address or manual configuration) - This is to explain how to setup for both approaches when configuring to use Modbus TCP on PLC IDE. This is to help clarify the user the difference found between two approaches and why is it important.
 
 Following are additional sub-sections to explain how set up for Modbus TCP communication with Opta and other devices when using PLC IDE.
 - Node configurations (TENTATIVE)
@@ -92,6 +92,8 @@ WILL EXPLAIN HOW TO SET AND USE MODBUS TCP MASTER (CLLIENT) OPTION FOR OPTA
 WILL EXPLAIN HOW TO SET AND USE MODBUS TCP SLAVE (SERVER) OPTION FOR OPTA
 
 ### Testing the Modbus TCP on Opta (PLC IDE)
+
+To show the expected result when testing the example project
 
 IMAGE SHAREHOLDER - MODBUS TCP TEST
 
