@@ -6,6 +6,8 @@ sku: "3DP0002"
 source: "https://store.arduino.cc/arduino-materia-101-assembled"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Materia 101 assembled](./assets/3dp0002_iso.jpg)
 
 **Arduino Materia 101** is the first official Arduino 3D printer. It uses an Arduino Mega2560 with a shield specifically made for controlling 3D printers. It's a small machine, with a sheet metal design housing the moving parts. The design is straightforward and easy to understand, which makes it a good machine for beginners, or up-and-coming hardware hackers who want to improve and experiment.  

@@ -34,7 +34,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 * Arduino Nano 33 BLE Sense Rev2.
 * This project uses no external sensors or components. 
-* [IDE 2.0](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide)
+* [IDE 2](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide)
 
 
 

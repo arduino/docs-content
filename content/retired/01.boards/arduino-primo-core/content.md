@@ -6,6 +6,8 @@ sku: "A000138"
 source: "https://store.arduino.cc/arduino-primo-core"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Primo Core board](./assets/a000138_featured.jpg)
 
 Arduino Primo Core is the compact Arduino board developed in cooperation with [Nordic Semiconductor](http://www.nordicsemi.com/).  

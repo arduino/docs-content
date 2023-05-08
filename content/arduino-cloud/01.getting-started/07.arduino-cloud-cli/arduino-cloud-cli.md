@@ -410,7 +410,7 @@ arduino-cloud-cli ota mass-upload --fqbn <deviceFQBN> --device-tags <key0>=<valu
 When uploading a sketch using OTA, you will need to compile the binary file (`.bin`) first. This is **not** a feature in the `arduino-cloud-cli`, so you will need to use the following options:
 
 - [Arduino CLI](https://arduino.github.io/arduino-cli/)
-- [Arduino IDE 1.8.x or 2.0](https://www.arduino.cc/en/software) 
+- [Arduino IDE](https://www.arduino.cc/en/software) 
 
 #### Compile with Arduino CLI
 

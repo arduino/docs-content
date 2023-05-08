@@ -211,7 +211,7 @@ For all the information detailed as above for it to be used, we will need to dev
 
 The Arduino® IDE 2 allows the developers to design and upload the code to Portenta H7 in offline. It will also help you with organizing packages needed to program the Portenta H7. It will require a USB-C® Type cable that will allow to connect and program the Portenta H7. In [here](https://www.arduino.cc/en/software), you will be able to find the latest version of the Arduino IDE 2.
 
-***If you want to know how to setup the Arduino® IDE 2 adequately, please look into [Quick Guide to Arduino® IDE 2.0](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).***
+***If you want to know how to setup the Arduino® IDE 2 adequately, please look into [Quick Guide to Arduino® IDE 2](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).***
 
 #### 4.2. Using Arduino® Web Editor
 

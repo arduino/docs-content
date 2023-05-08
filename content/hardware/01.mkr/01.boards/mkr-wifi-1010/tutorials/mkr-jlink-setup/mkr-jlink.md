@@ -6,10 +6,10 @@ description: This tutorial teaches you how to set up a MKR board with the Segger
 ---
 
 ## Overview
-This tutorial will show you how to debug an Arduino sketch using an Arduino MKR board and the Segger J-Link probe. It will go through how to connect these and use the Arduino IDE 2.0 to then debug a sketch.
+This tutorial will show you how to debug an Arduino sketch using an Arduino MKR board and the Segger J-Link probe. It will go through how to connect these and use the Arduino IDE 2 to then debug a sketch.
 
 ### Required Hardware and Software
--   [Arduino IDE 2.0](https://www.arduino.cc/en/software)
+-   [Arduino IDE 2](https://www.arduino.cc/en/software)
 -   Segger J-link device ([EDU](https://store.arduino.cc/products/j-link-edu) or [BASE](https://store.arduino.cc/products/j-link-base-compact))
 -   [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) (other boards from the MKR family works as well).
 -   Soldering equipment
@@ -55,15 +55,15 @@ When the connections have been made, simply power the J-link probe and the MKR v
 
 ### Installing the J-Link GDB Server Software
 
-If you haven't already, download and install the [Arduino IDE 2.0](https://www.arduino.cc/en/software), this will be used to debug our sketch. You will also need to download the J-Link GDB Server software, [here](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/about-j-link-gdb-server/). The J-Link GDB Server is a remote server for the GNU Debugger (GDB) which allows to use a J-Link probe with GDB or any toolchain which uses GDB as debugging interface, like the Arduino IDE 2.0.
+If you haven't already, download and install the [Arduino IDE 2](https://www.arduino.cc/en/software), this will be used to debug our sketch. You will also need to download the J-Link GDB Server software, [here](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/about-j-link-gdb-server/). The J-Link GDB Server is a remote server for the GNU Debugger (GDB) which allows to use a J-Link probe with GDB or any toolchain which uses GDB as debugging interface, like the Arduino IDE 2.
 
 > Note: write down where you installed the J-Link GDB Server software in your computer, this install path will be useful in the next step.
 
-### Debugging in Arduino IDE 2.0
+### Debugging in Arduino IDE 2
 
-Now we are ready to start debugging our sketch. Connect the power to the MKR board and the J-link to power them up. Start Arduino IDE 2.0 and select your MKR board in the deployable menu where you specify the board and port.
+Now we are ready to start debugging our sketch. Connect the power to the MKR board and the J-link to power them up. Start Arduino IDE 2 and select your MKR board in the deployable menu where you specify the board and port.
 
-![Selecting board and port in Arduino IDE 2.0](assets/mkr_jlink_IDE_board_select.png)
+![Selecting board and port in Arduino IDE 2](assets/mkr_jlink_IDE_board_select.png)
 
 Then create or open the sketch that you want to debug. If you don't already have a sketch in mind, feel free to use the example sketch found at the end of this tutorial.
 
@@ -85,17 +85,17 @@ The `"serverpath"` field needs to be set to the path of the "J-Link GDB Server C
 
 When you have finished creating the `debug_custom.json` file, click on the debugging icon.
 
-![Start debug feature in Arduino IDE 2.0](assets/mkr_jlink_IDE_debugging_button.png)
+![Start debug feature in Arduino IDE 2](assets/mkr_jlink_IDE_debugging_button.png)
 
 You should see a window similar to the one shown below. Do not close this window, just minimize it and you are now ready to start debugging. You can add breakpoints, inspect variables, halt the execution and more.
 
-![J-link debug window in Arduino IDE 2.0](assets/mkr_jlink_IDE_debugging_window.png)
+![J-link debug window in Arduino IDE 2](assets/mkr_jlink_IDE_debugging_window.png)
 
 ## Conclusion
 
-In this tutorial you learned how to connect your MKR board to a Segger J-Link probe. And then how to use this setup to debug a sketch with Arduino IDE 2.0.
+In this tutorial you learned how to connect your MKR board to a Segger J-Link probe. And then how to use this setup to debug a sketch with Arduino IDE 2.
 
-Now that you have your hardware set up, you can learn how to use the IDE 2.0 Debugger through the Debugging with the [Arduino IDE 2.0 tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger). This tutorial goes through some key features of the Debugger, and includes pointers to get started.
+Now that you have your hardware set up, you can learn how to use the IDE 2 Debugger through the Debugging with the [Arduino IDE 2 tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger). This tutorial goes through some key features of the Debugger, and includes pointers to get started.
 
 ### Example Sketch
 

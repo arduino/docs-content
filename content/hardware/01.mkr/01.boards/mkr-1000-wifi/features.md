@@ -5,7 +5,7 @@ The MKR 1000 WiFi is a great choice for any beginner, maker or professional to g
 </FeatureDescription>
 
 <FeatureList>
-<Feature title="WiFI" image="wifi">
+<Feature title="Wi-Fi" image="wifi">
 
   This Wi-Fi module from Atmel is part of the SmartConnect family, with focus on power consumption and power saving modes.
 

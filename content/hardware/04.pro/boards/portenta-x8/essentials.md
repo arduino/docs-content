@@ -16,11 +16,15 @@
     </EssentialElement>
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested libraries">
-      <EssentialElement link="https://www.arduino.cc/en/Reference/Wire" title="Arduino Wire" type="library">
-            The M4 processor exposes the I<sup>2</sup>C protocol, this is the "Wire" library documentation.
+<EssentialsColumn title="Firmware Images">
+
+<EssentialElement link="https://downloads.arduino.cc/portentax8image/399.tar.gz" title="v399 Firmware Version" type="library">
+        Download the v399 firmware for Portenta X8.
     </EssentialElement>
-      <EssentialElement link="https://www.arduino.cc/reference/en/language/functions/communication/spi/" title="Arduino SPI" type="library">
-            The M4 processor exposes the SPI protocol. This library allows you to communicate with SPI devices, with the Arduino as the controller device.
+
+<EssentialElement link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz" title="Latest Firmware Version" type="library">
+        Download the latest firmware for Portenta X8 (Recommended).
     </EssentialElement>
+
+
 </EssentialsColumn>
