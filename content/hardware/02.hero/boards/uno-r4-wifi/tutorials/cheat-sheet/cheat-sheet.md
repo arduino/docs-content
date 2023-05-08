@@ -33,6 +33,29 @@ The Arduino UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://creat
 
 ***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
+## QWIIC Connector
+
+The Arduino UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisychain several modules and control all of them through the single connector.
+
+QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+
+If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
+
+The Arduino UNO R4 WiFi features two I2C busses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you use the `Wire1` object rather than the `Wire` object, like this:
+
+```arduino
+#include <Wire.h>
+
+void setup(){
+  Wire1.begin();
+  Wire1.beginTransmission(1);   //begin transmit to device 1
+  Wire1.write(byte(0x00));      //send instruction byte 
+  Wire1.write(val);             //send a value
+  Wire1.endTransmission();      //stop transmit
+}
+```
+
+
 ## ESP32
 By default, the ESP32-S3 module onboard the UNO R4 WiFi is acting as a Serial bridge, handling the connection to your computer as well as rebooting the main MCU, the Renesas RA4M1 when it is needed, for example when receiving a new sketch and resetting. On the UNO R3, there is an ATMEGA16U2 serving this exact purpose. The difference here is that the ESP32-S3 is much more capable, and the UNO R4 WiFi takes advantage of those capabilities by using its connectivity features, as well as  exposing the ESP32s data lines to make it programmable by itself.
 
