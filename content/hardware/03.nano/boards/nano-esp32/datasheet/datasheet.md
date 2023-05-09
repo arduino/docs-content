@@ -151,9 +151,9 @@ Default pins:
 
 The I2C bus is by default assigned to the A4/A5 (SDA/SCL) pins for retro compatibility. This pin assignment can however be changed, due to the flexibility of the ESP32-S3 chip.
 
-The SDA and SCL pins can be assigned to most available GPIOs, however some of these pins may have other essential functions that prevents I2C operations to run successfully.
+The SDA and SCL pins can be assigned to most GPIOs, however some of these pins may have other essential functions that prevents I2C operations to run successfully.
 
-**Please note:** many software libraries uses the standard pin assignment (A4/A5) and requires manual changes in the library code to work.   
+**Please note:** many software libraries uses the standard pin assignment (A4/A5).
 
 ### Inter-IC Sound (I2S)
 
@@ -185,13 +185,19 @@ The SPI controller is by default assigned to the pins above. This is connected t
 - D0 / TX
 - D1 / RX
 
-The UART controller is by default assigned to the the pins above.  
+The UART controller is by default assigned to the the pins above.
 
-### CAN (TWAI®)
+### Two Wire Automotive Interface (TWAI®)
 
-## Flash Memory
+The CAN/TWAI® controller is used to communicate with systems using the CAN/TWAI® protocol, particularly common in the automotive industry. There are no specific pins assigned for the CAN/TWAI® controller, any free GPIO can be used. 
 
-Nano ESP32 features a 128 Mbit (16MB) external flash, the GD25B128EWIGR (U3). This memory is connected to the ESP32 via QSPI,  
+**Please note:** TWAI® is also known as the CAN2.0B, or "CAN classic". The CAN controller is **NOT** compatible with CAN FD frames.
+
+## External Flash Memory
+
+Nano ESP32 features a 128 Mbit (16MB) external flash, the GD25B128EWIGR (U3). This memory is connected to the ESP32 via Quad Serial Peripheral Interface (QSPI).
+
+The operating frequency for this IC is 133 MHz, and has a data transfer rate at up to 664Mbit/s.
 
 ## USB Connector
 
@@ -201,13 +207,7 @@ Note that you should not power the board with more than 5V via the USB-C® port.
 
 ## Power Options
 
-Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5V.
-
-Both VUSB and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
-
-Power via USB supplies about ~4.7V (due to Schottky drop) to the RA4M1 MCU.
-
-The linear regulator (SGM2205-3.3XKC3G/TR) converts 5V from either the buck converter or USB, and provides 3.3V to a number of components, including the ESP32-S3 module.
+Power can either be supplied via the VIN pin, or via USB-C® connector. Any voltage input either via USB or VIN is stepped down to 3.3V using the MP2322GQH (U2) converter.
 
 ### Power Tree
 
@@ -222,6 +222,10 @@ The general operating voltage for Nano ESP32 is 5V, however the ESP32-S3 module'
 The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 20 mA. Never connect devices that draw higher current directly to a GPIO.
 
 For powering e.g. servo motors, use an external power supply.
+
+### Solder Jumper (SJ1)
+
+The solder pad located on the bottom of the board is SJ1.  
 
 # Mechanical Information
 
