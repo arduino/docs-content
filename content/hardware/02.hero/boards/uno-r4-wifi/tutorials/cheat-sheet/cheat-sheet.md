@@ -41,7 +41,7 @@ QWIIC or STEMMA are both names for a type of connector developed by SparkFun and
 
 If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
 
-The Arduino UNO R4 WiFi features two I2C busses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you use the `Wire1` object rather than the `Wire` object, like this:
+The Arduino UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you use the `Wire1` object rather than the `Wire` object, like this:
 
 ```arduino
 #include <Wire.h>
