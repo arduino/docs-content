@@ -239,13 +239,15 @@ Note that you should not power the board with more than 5V via the USB-C® port.
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. Any voltage input either via USB or VIN is stepped down to 3.3V using the MP2322GQH (U2) converter.
 
+The operating voltage is 3.3V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5V when the board is powered via USB.
+
 ### Power Tree
 
-![Arduino Nano ESP32 power tree.](assets/UNO_R4_WiFi_Power_Tree.png)
+![Arduino Nano ESP32 power tree.]()
 
 ### Pin Voltage
 
-The general operating voltage for Nano ESP32 is 5V, however the ESP32-S3 module's operating voltage is 3.3V. 
+The operating voltage for Nano ESP32 is 3.3V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5V when the board is powered via USB. 
 
 ### Pin Current
 
