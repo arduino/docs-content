@@ -39,10 +39,15 @@ hardware:
 
 ## Modbus TCP
 
-To briefly explain the Modbus TCP protocol:
-- what is it
-- why is it useful
-- How it is intended to be used
+The **Modbus TCP/IP**, also briefly referred as **Modbus TCP**, is a Modbus RTU procol on Transmission Control Protocol and Internet Protocol (TCP/IP) interface over Ethernet to exchange data between compatible devices.
+
+***For more information regarding the Modbus RTU protocol implementation on an Opta™, it may interest you to check out ["Getting Started with Modbus RTU on Opta™"](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial.***
+
+The Modbus protocol is a messaging service structure using the Client/Server or Master/Slave communication. This is an *application protocol* to manage the data independent from the transmission method.
+
+For the transmission, the *Transmission Control Protocol and Internet Protocol (TCP/IP)* is the transmission protocol integrating the TCP to handle the exchanging packets and IP to define the addresses for routing message destinations.
+
+Thus, the Modbus TCP/IP is an integration of TCP/IP networking standard on the Ethernet using Modbus messaging service as the data handler. The connected devices are usually Modbus TCP/IP Client and Server devices, but also interconnections established via routers, gateways, or bridges constructing a TCP/IP network.
 
 ## Instructions
 
@@ -59,9 +64,9 @@ The `Arduino PLC IDE` will install the IDE software, while the `Arduino PLC IDE 
 
 ### Ethernet Connection on Opta™
 
-The two Opta™ devices will communicate using Modbus TCP, and for this to work, you will need to use the Ethernet LAN cable attached on both devices on `ETH RJ45` port. The following diagram shows the connection how two Opta™ devices will establish communication.
+The two Opta™ devices will communicate using Modbus TCP. It will need to use the Ethernet LAN cable attached on both devices on `ETH RJ45` port. The following image shows a simple connection diagram for two Opta™ devices.
 
-IMAGE SHAREHOLDER - ETHERNET CONNECTION
+![RJ45 Connection for two Opta™ devices](assets/opta_plcide_hardware_connection.svg)
 
 ### Workspace Pre-Configuration
 
@@ -81,7 +86,15 @@ The following image will show how the PLC IDE will welcome you when accessing th
 
 IMAGE SHAREHOLDER - MODBUS TCP CONFIG PANEL PLC IDE
 
+#### General Node Configuration
+
+![Modbus General Node Configuration](assets/opta_plcide_generalNode.svg)
+
 Following bulletpoints are **sub-sections of the workspace pre-configuration**.
+
+#### PLC IDE Modbus Custom Editor
+
+![Arduino PLC IDE Modbus Custom Editor Configuration](assets/opta_plcide_customModbus.svg)
 
 - TCP server and client simultaneous operation (Configuration details) - To briefly explain how the PLC IDE handles the configuration and clarify such confusions that may arise
 - IP address configuration related details (DHCP address or manual configuration) - This is to explain how to setup for both approaches when configuring to use Modbus TCP on PLC IDE. This is to help clarify the user the difference found between two approaches and why is it important.
