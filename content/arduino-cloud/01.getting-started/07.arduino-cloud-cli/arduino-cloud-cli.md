@@ -125,7 +125,7 @@ Here's follows the FQBN's list of the supported devices:
 * `arduino:samd:mkr1000` [Arduino MKR1000](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 * `arduino:samd:mkrgsm1400` [Arduino MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
 * `arduino:samd:mkrnb1500` [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) 
-* `arduino:mbed_opta:opta` [Arduino OPTA](https://docs.arduino.cc/hardware/opta) 
+* `arduino:mbed_opta:opta` [Arduino Opta](https://docs.arduino.cc/hardware/opta) 
 
 ### LoRaWAN® Devices
 
