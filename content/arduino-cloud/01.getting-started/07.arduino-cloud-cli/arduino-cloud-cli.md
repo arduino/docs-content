@@ -122,7 +122,7 @@ Here's follows the FQBN's list of the supported devices:
 * `arduino:mbed_nano:nanorp2040connect` [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect)
 * `arduino:mbed_portenta:envie_m7` [Arduino Portenta H7](https://docs.arduino.cc/hardware/portenta-h7) / [Arduino Portenta H7 Lite connected](https://docs.arduino.cc/hardware/portenta-h7-lite-connected) / [Arduino Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
 * `arduino:mbed_nicla:nicla_vision` [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
-* `arduino:samd:mkr1000` [Arduino MKR1000](https://docs.arduino.cc/hardware/mkr-1000-wifi)
+* `arduino:samd:mkr1000` [Arduino MKR 1000 WiFi](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 * `arduino:samd:mkrgsm1400` [Arduino MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
 * `arduino:samd:mkrnb1500` [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) 
 * `arduino:mbed_opta:opta` [Arduino Opta](https://docs.arduino.cc/hardware/opta) 
