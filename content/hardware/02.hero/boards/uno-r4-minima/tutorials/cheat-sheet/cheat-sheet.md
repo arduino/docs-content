@@ -11,7 +11,7 @@ tags:
   - DAC
 author: 'Hannes Siebeneicher'
 hardware:
-  - hardware/08.mega/boards/giga-r1-wifi
+  - hardware/02.hero/boards/uno-r4-minima
 software:
 - The [Arduino IDE](/software/ide-v2)
 - The [Web Editor](/arduino-cloud/getting-started/getting-started-web-editor) (Arduino Cloud). 
