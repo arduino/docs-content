@@ -84,7 +84,7 @@ There are some considerations that you will need to take it into account beforeh
 
 #### Opta™ Basic Configuration
 
-To use Modbus TCP, the device address used to identify for this protocol is by using IP address. Basically, if you attach the Opta™ and leave the ethernet configuration as default, the external DHCP server will provide IP address by assigning automatically for the Opta™. You will later need to scan for the address and use that IP address as the device address of the Opta™.
+To use Modbus TCP, the device address used to identify for this protocol is by using IP address. If you attach the Opta™ and leave the ethernet configuration as default, the external DHCP server will provide IP address by assigning automatically for the Opta™. You will later need to scan for the address and use that IP address as the device address of the Opta™.
 
 The Opta™ can also be configured with a specific IP address via a manual approach. This method is viable to assign the devices with specific addresses to operate under certain policy for example. To do this, you will have to define the IP setting by enabling the sketch found within `Resources` tab of the PLC IDE. The following image shows how the configuration could look like.
 
