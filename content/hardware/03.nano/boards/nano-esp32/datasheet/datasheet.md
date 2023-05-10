@@ -86,7 +86,7 @@ The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation o
 
 ## Block Diagram
 
-![Arduino Nano ESP32 Block Diagram](assets/UNO_R4_WiFi_Block_Diagram.png)
+![Arduino Nano ESP32 Block Diagram]()
 
 ## Board Topology
 
@@ -135,13 +135,43 @@ The NORA-W106-10B module supports the WiFi 4 IEEE 802.11 standards b/g/n, with a
 * 802.11g: 54 Mbit/s 
 * 802.11n: 72 Mbit/s max at HT-20 (20 MHz), 150 Mbit/s max at HT-40 (40 MHz)
 
-### Bluetooth
+### Bluetooth®
 
-The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP at up to 10 dBm.
+The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP at up to 10 dBm and data rates up to 2 Mbps. It has the option to scan and advertise simultaneously, as well as supporting multiple connections in peripheral/central mode.
+
+## System
+
+### Resets
+
+The ESP32-S3 has support for four levels of reset:
+- **CPU:** resets CPU0/CPU1 core 
+- **Core:** resets the digital system, except for the RTC peripherals (ULP coprocessor, RTC memory).
+- **System:** resets the entire digital system, including the RTC peripherals.
+- **Chip:** resets the entire chip.
+
+It is possible to conduct a software reset of this board, as well as obtaining the reset reason.
+
+To do a hardware reset of the board, use the onboard reset button (PB1). 
+
+### Timers
+
+The Nano ESP32 has the following timers:
+- 52-bit system timer with 2x 52-bit counters (16 MHz) and 3x comparators. 
+- 4x general-purpose 54-bit timers
+- 3x watchdog timers, two in main system (MWDT0/1), one in the RTC module (RWDT).
+
+### Interrupts
+
+All GPIOs on the Nano ESP32 can be configured to be used as interrupts, and is provided by an interrupt matrix. Interrupt pins are configured on an application level, using the following configurations:
+- LOW
+- HIGH
+- CHANGE
+- FALLING	
+- RISING
 
 ## Serial Communication Protocols
 
-The ESP32-S3 chip provides flexibility for the various serial protocols it supports. For example, the I2C bus can be assigned to almost any available GPIO. Please bare in mind that the de
+The ESP32-S3 chip provides flexibility for the various serial protocols it supports. For example, the I2C bus can be assigned to almost any available GPIO.
 
 ### Inter-Integrated Circuit (I2C)
 
