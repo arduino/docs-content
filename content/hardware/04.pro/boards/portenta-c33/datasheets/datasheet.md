@@ -497,7 +497,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Company name** |                **Arduino SRL**               |
 |:----------------:|:--------------------------------------------:|
-|  Company address | Via Andrea Appiani, 25 - 20900 MONZA, Italy  |
+|  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 |        **Ref**                     | **Link**                                                                                    |
