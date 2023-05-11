@@ -17,7 +17,7 @@ The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is avail
 
 ## Goals
 
-The matrix and its' API is developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations.
+The matrix and its' API is developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations. While highlighting two different ways of handling the LEDs to create animations and images. Making it easier for you to decide what method fits your needs best!
 
 ## Hardware & Software Needed
 To follow along with this guide, you will of course need:
