@@ -138,7 +138,7 @@ The digital inputs connector has 8x channels, each is a 680 kΩ and 100 kΩ resi
 
 ### Digital Outputs
 
-The Portenta Machine Control has the following outputs speficications:
+The Portenta Machine Control has the following outputs specifications:
 
 - 8x high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel.
 - The current limit nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances, the real value can be higher, up to 0.9A.
