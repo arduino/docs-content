@@ -29,19 +29,19 @@ The full datasheet is available as a downloadable PDF from the link below:
 - [Download the UNO R4 WiFi datasheet](/resources/datasheets/ABX00087-datasheet.pdf)
 
 ## Arduino IoT Cloud
-The Arduino UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+The UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
 
 ***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
 ## QWIIC Connector
 
-The Arduino UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisychain several modules and control all of them through the single connector.
+The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
 QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
 
 If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
 
-The Arduino UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you use the `Wire1` object rather than the `Wire` object, like this:
+The UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
 
 ```arduino
 #include <Wire.h>
@@ -56,8 +56,14 @@ void setup(){
 ```
 
 
-## ESP32
-By default, the ESP32-S3 module onboard the UNO R4 WiFi is acting as a Serial bridge, handling the connection to your computer as well as rebooting the main MCU, the Renesas RA4M1 when it is needed, for example when receiving a new sketch and resetting. On the UNO R3, there is an ATMEGA16U2 serving this exact purpose. The difference here is that the ESP32-S3 is much more capable, and the UNO R4 WiFi takes advantage of those capabilities by using its connectivity features, as well as  exposing the ESP32s data lines to make it programmable by itself.
+## ESP32-S3-MINI-1-N8
+By default, the ESP32-S3 module onboard the UNO R4 WiFi acts as a Serial bridge, handling the connection to your computer. It also handles the rebooting of the main MCU, the Renesas RA4M1 when it is needed, for example when receiving a new sketch and resetting.
+
+On the UNO R3, the ATMEGA16U2 serves the same purpose. The onboard ESP32 module is a more advanced SoC, adding Wi-Fi® & Bluetooth® connectivity to the board.
+
+The ESP32 also exposes the ESP32's data lines, so that you can program the ESP32 directly. These data lines are exposed by 3x2 header at the top of the board, or through pads on the bottom side.
+
+***Please note that the ESP32 has a default firmware installed, which is set to communicate with the RA4M1 chip. Any direct programming of the ESP32 will override that firmware and the communication between the chips may be disrupted until the default firmware is restored ***
 
 ![UNO R4 & UNO R3](./assets/UNO-serial.png)
 
@@ -80,8 +86,10 @@ As mentioned, by default the ESP32 is acting as a serial bridge, however if you 
 
 ### Bluetooth
 
-### Programmable (Advanced)
-A more advanced user will be able to program the ESP32 individually from the RA4M1, and even integrate them with each other to create what is essentially a multi-core development board. You could for example use the RA4M1 chip to read sensordata with high speed and send it to the ESP32 where it gets processed and then sent to a webserver, or logged in a spreadsheet, all without adding any extra hardware to your board apart from the sensors. 
+### Programming the ESP32 (Advanced)
+The ESP32 can be programmed individually from the RA4M1, with access to the data lines in the ESP header. By default, the ESP32's is used mainly as a radio module using Wi-Fi and Bluetooth®.
+
+Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. 
 
 To reprogram the ESP32 board you can find UART-pads next to the ESP32 Module, that are laid out as shown in the image below:
 
