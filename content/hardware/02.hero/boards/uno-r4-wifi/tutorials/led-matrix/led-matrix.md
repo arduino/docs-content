@@ -87,7 +87,7 @@ uint8_t frame[8][12] = {
 };
 
 ```
-To target an individual pixel you select its' address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, and change it to turn on:
+To target an individual pixel you select its' address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
 ```
 frame[2][1] = 1;
 matrix.renderBitmap(frame, 8, 12);
