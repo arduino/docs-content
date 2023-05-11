@@ -137,14 +137,15 @@ Industry 4.0, system integrators
 The digital inputs connector has 8x channels, each is a 680 kΩ and 100 kΩ resistor divider: a 0-24V input is scaled down to 0-3V.
 
 ### Digital Outputs
-The digital output connector has a 24V IN pin which must be supplied with 24V DC.
 
-The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board.
-
-The supply voltage can be the same 24V which is powering the board.
+The Portenta Machine Control has the following outputs speficications:
 
 - 8x high side switches (2x **TPS4H160AQPWPRQ1**), one for each channel.
 - The current limit nominal value is 0.6A per channel. Due to internal **TPS4H160AQPWPRQ1** circuit tolerances, the real value can be higher, up to 0.9A.
+
+The digital output connector (J6) has a 24V IN pin which must be supplied with 24V DC. The 24V IN pin is not galvanically isolated: the input voltage must be referred to the same GND of the board.
+
+The supply voltage can be the same 24V which is powering the board.
 
 ### Programmable Digital I/O
 The **programmable digital I/O** connector has a 24V IN pin which must be supplied with 24V DC.
@@ -260,7 +261,6 @@ The on-board transceiver is the **TJA1049T/3J**, which can be SW configured for 
 ### Ethernet
   - On-board transformer.
   - The 10/100 Ethernet physical interface is directly connected to the internal Ethernet MAC and provides full duplex communication with automatic *MDIX* support.
-  - The *Wake-On-Lan* functionality allows the reduction of power consumption when the board is in sleep mode.
 
 ### USB-A Connector
   - Transfer rates of up to 480 Mbps.
