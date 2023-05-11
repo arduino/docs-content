@@ -120,7 +120,7 @@ Have fun creating interactive interfaces or animation on your UNO R4 WiFi!
 `public void` [`next`](#)`()` | Manually move to the next frame in the sequence.
 `public void` [`loadFrame`](#)`(const uint32_t buffer[3])` | Load a new single frame that is not in any sequence.
 `public void` [`renderFrame`](#)`(uint8:t frameNumber)` | Render the loaded frame.
-`public void` [`play`](#)`(bool loop = false)` | Start playing the sequence of frames, with the option to loop indefinetly or play once.
+`public void` [`play`](#)`(bool loop = false)` | Start playing the sequence of frames, with the option to loop indefinitely or play once.
 `public bool` [`sequenceDone`](#)`()` | checks if the sequence has finished playing.
 `public void` [`loadPixels`](#)`(uint8_t *arr, size_t size)` |Loads the pixels into the buffer but does not display them.
 `public void` [`loadWrapper`](#)`(`[`const uint32_t frames[][4], uint32_t howMany`](#)` callback)` | Sets the current frame to number 0 in the sequence.
