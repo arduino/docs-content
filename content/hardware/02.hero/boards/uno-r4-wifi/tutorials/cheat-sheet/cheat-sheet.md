@@ -17,7 +17,11 @@ software:
   - web-editor
 ---
 
-The **Arduino UNO** is our most popular and important line of development boards, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** is a new flavour of UNO, and in this cheat sheet you will a collection of links to resources and guides to let you take advantage of all the improvements from the previous revisions of this board. The **UNO R4 WiFi** comes with a large 12x8 LED Matrix that you can create animations and simple graphics with, as well as an onboard ESP32-S3 module giving the board WiFi and Bluetooth functionality.
+The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
+
+The **UNO R4 WiFi** features a large 12x8 LED Matrix that you can create animations and simple graphics with, as well as an onboard ESP32-S3 module giving the board Wi-Fi and Bluetooth® functionality. It also features a DAC and an Op-Amp.
+
+This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get get started with your next project. 
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (Although this is an advanced option and requires some hacking).
 
