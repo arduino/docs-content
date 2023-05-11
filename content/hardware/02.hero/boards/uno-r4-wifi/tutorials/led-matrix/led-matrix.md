@@ -1,5 +1,5 @@
 ---
-title: 'Using the Arduino UNO R4 WiFi LED matrix.
+title: 'Using the Arduino UNO R4 WiFi LED matrix.'
 description: 'Get off the ground with the Arduino UNO R4 WiFi's built in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games.'
 tags:
   - Guide
