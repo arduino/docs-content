@@ -19,7 +19,7 @@ Maker, beginner, education
 
 ## R7FA4M1AB3CFM#AA0
 
-The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pins on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
+The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
 
 * **Overview**
   * 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
