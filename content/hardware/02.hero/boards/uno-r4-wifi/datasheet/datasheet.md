@@ -85,7 +85,7 @@ The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, be
 
 The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. It has compared to its predecessors much larger memory: 8 times more flash memory (256KB) and 16 times more SRAM (32KB).
 
-Additionally, it features an ESP32-S3 module for IoT projects, as well as a built-in 96 LED matrix, making it the most visually unique Arduino board to date.
+Additionally, it features an ESP32-S3 module for IoT projects, as well as a built-in 12x8 LED matrix, making it the most visually unique Arduino board to date.
 
 **Entry level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation (both official + 3rd party).
 
