@@ -35,7 +35,7 @@ The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pin h
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
   * 14-bit ADC
-  * 8/12-bit DAC
+  * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
   * Multiple Clock Sources
     * 1-20 MHz main clock oscillator (MOSC)
