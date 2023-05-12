@@ -161,7 +161,7 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 
 The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 Minima, it is fixed at 5V as to be fully retro compatible with other UNO accessories. 
+This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 WiFi, it is fixed at 5V as to be fully retro compatible with other UNO accessories. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256KB flash / 32KB SRAM / 8KB data flash (EEPROM)
