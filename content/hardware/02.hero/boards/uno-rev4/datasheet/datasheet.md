@@ -64,7 +64,7 @@ The UNO R4 Minima is the first UNO series 32-bit development board, being previo
 
 The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256KB) and 16 times more SRAM (32KB).
 
-**Entry level projects:** If this is your first project within coding and electronics, the UNO R4 Minima is a good fit. It is easy to get started with, has a lot of online documentation (both official + 3rd party).
+**Entry level projects:** If this is your first project within coding and electronics, the UNO R4 Minima is a good fit. It is easy to get started with and has a lot of online documentation (both official + 3rd party).
 
 **Easy power management:** the UNO R4 has barrel jack connector and support input voltages from 6-24V. This connector is widely popular and removes the need for additional circuitry to stepping down voltage.
 
