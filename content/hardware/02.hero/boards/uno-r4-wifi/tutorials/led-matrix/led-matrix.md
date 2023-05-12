@@ -22,6 +22,7 @@ The matrix and its' API is developed to be programmed in a few different ways, e
 ## Hardware & Software Needed
 To follow along with this guide, you will of course need:
 - an [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi),
+- The latest version of the [UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas) 
 - and the [Arduino IDE](https://www.arduino.cc/en/software).
 
 ## Initializing Matrix
@@ -40,6 +41,8 @@ void setup() {
 
 ## How to Write a Frame
 The LED matrix library for the UNO R4 WiFi works on the principle of creating a frame, and then loading it into a buffer which displays the frame.
+
+A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
 How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in 3 32bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display states of a program or interfaces. You can create frames and animations such as this one by using tools such as [FotogramMatrice](#fotogrammatrice). Such a frame may look similar to this:
 
@@ -93,6 +96,113 @@ frame[2][1] = 1;
 matrix.renderBitmap(frame, 8, 12);
 ```
 
+## Testing it Out
+
+Let's apply these concepts, with two basic sketches that display different frames on your board. First, let's load 3x32bit integer frames and load them one by one.
+
+Here's a sketch that will first load a smiley face on your matrix, and then change it to a heart.
+
+```
+#include "Arduino_LED_Matrix.h"
+ArduinoLEDMatrix matrix;
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+const uint32_t happy[] = {
+	0x19819,
+	0x80000001,
+	0x81f8000
+};
+const uint32_t heart[] = {
+	0x3184a444,
+	0x44042081,
+	0x100a0040
+};
+  
+void loop(){
+  matrix.loadFrame(happy);
+  delay(500);
+  matrix.loadFrame(heart);
+  delay(500);
+}
+```
+
+The sketch is pretty simple, and yet the outcome is very expressive and can help you easily indicate states of your projects.
+
+Now let's change approach and create a bitmap that we change in runtime. This sketch includes several functions that each draw part of a face, and then winks the left eye by turning off certain pixels. 
+
+```
+#include "Arduino_LED_Matrix.h"
+ArduinoLEDMatrix matrix;
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+uint8_t frame[8][12] = {
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+};
+
+void leftEye(){
+//Left eye
+  frame[1][3] = 1;
+  frame[1][4] = 1;
+  frame[2][3] = 1;
+  frame[2][4] = 1;
+}
+
+void wink(){
+  //Wink with the left eye
+  frame[1][3] = 0;
+  frame[1][4] = 0;
+  frame[2][3] = 1;
+  frame[2][4] = 1;
+}
+
+void rightEye(){
+//Right eye
+  frame[1][8] = 1;
+  frame[1][9] = 1;
+  frame[2][8] = 1;
+  frame[2][9] = 1;
+}
+
+void mouth(){
+//Mouth
+  frame[5][3] = 1;
+  frame[5][9] = 1;
+  frame[6][3] = 1;
+  frame[6][4] = 1;
+  frame[6][5] = 1;
+  frame[6][6] = 1;
+  frame[6][7] = 1;
+  frame[6][8] = 1;
+  frame[6][9] = 1;
+}
+
+void loop(){
+leftEye();
+rightEye();
+mouth();
+
+matrix.renderBitmap(frame, 8, 12);
+
+delay(1000);
+wink();
+matrix.renderBitmap(frame, 8, 12);
+delay(1000);
+}
+```
+ 
 ## FotogramMatrice
 The FotogramMatrice tool is used to generate frames and animations to be rendered on the LED matrix. 
 
@@ -104,11 +214,13 @@ With the live preview sketch loaded on your board, connect the port to the brows
 // waiting for the interface to be developed 
 
 ## Conclusion
-In this article we've gone over the basics of using the LED matrix built in on the Arduino UNO R4 WiFi, we've gone over the differnet practices for building frames and animations, as well as how to load them onto your board. 
+In this article we've gone over the basics of using the LED matrix built in on the Arduino UNO R4 WiFi, we've gone over the different practices for building frames and animations, as well as how to load them onto your board. 
 
 Have fun creating interactive interfaces or animation on your UNO R4 WiFi!
 
 ## API 
+
+To write more advanced sketches on your own, you may use the full API of the library as found below.
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
