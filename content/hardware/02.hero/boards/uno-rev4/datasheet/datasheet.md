@@ -23,9 +23,9 @@ Maker, beginner, education
   * Memory Protection Unit (MPU)
   * Digital Analog Converter (DAC)
 * **Memory**
-  * 256KB Flash Memory
-  * 32KB SRAM
-  * 8KB Data Memory (EEPROM)
+  * 256 kB Flash Memory
+  * 32 kB SRAM
+  * 8 kB Data Memory (EEPROM)
 * **Pins**
   * 14x digital pins (GPIO), D0-D13
   * 6x analog input pins (ADC), A0-A5
