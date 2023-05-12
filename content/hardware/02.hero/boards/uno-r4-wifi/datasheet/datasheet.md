@@ -91,7 +91,7 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 
 **Easy IoT applications:** build projects without writing any networking code in the Arduino IoT Cloud. Monitor your board, connect it with other boards and services, and develop cool IoT projects.
 
-**LED Matrix:** the 96 LED matrix on the board can be used for animations, text scrolling or mini-games. It is also a fun feature that can be used to personalise your board!
+**LED Matrix:** the 12x8 LED matrix on the board can be used for animations, text scrolling or mini-games. It is also a fun feature that can be used to personalise your board!
 
 ### Related Products
 * UNO R3
