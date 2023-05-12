@@ -10,7 +10,7 @@ type: maker
 
 The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is much larger than its predecessors, with 256KB Flash & 32KB SRAM.
 
-The RA4M1's operating voltage is fixed at 5V, whereas the ESP32-S3 module is 3.3V. Communication between these two ICs are performed via a logic level translator (TXB0108DQSR).
+The RA4M1's operating voltage is fixed at 5V, whereas the ESP32-S3 module is 3.3V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
 
 # Target areas:
 Maker, beginner, education
@@ -19,7 +19,7 @@ Maker, beginner, education
 
 ## R7FA4M1AB3CFM#AA0
 
-The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pins on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
+The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
 
 * **Overview**
   * 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
@@ -35,7 +35,7 @@ The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pins 
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
   * 14-bit ADC
-  * 8/12-bit DAC
+  * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
   * Multiple Clock Sources
     * 1-20 MHz main clock oscillator (MOSC)
@@ -85,13 +85,13 @@ The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, be
 
 The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. It has compared to its predecessors much larger memory: 8 times more flash memory (256KB) and 16 times more SRAM (32KB).
 
-Additionally, it features an ESP32-S3 module for IoT projects, as well as a built-in 96 LED matrix, making it the most visually unique Arduino board to date.
+Additionally, it features an ESP32-S3 module for IoT projects, as well as a built-in 12x8 LED matrix, making it the most visually unique Arduino board to date.
 
 **Entry level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation (both official + 3rd party).
 
 **Easy IoT applications:** build projects without writing any networking code in the Arduino IoT Cloud. Monitor your board, connect it with other boards and services, and develop cool IoT projects.
 
-**LED Matrix:** the 96 LED matrix on the board can be used for animations, text scrolling or mini-games. It is also a fun feature that can be used to personalise your board!
+**LED Matrix:** the 12x8 LED matrix on the board can be used for animations, text scrolling or mini-games. It is also a fun feature that can be used to personalise your board!
 
 ### Related Products
 * UNO R3
@@ -161,14 +161,14 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 
 The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 Minima, it is fixed at 5V as to be fully retro compatible with other UNO accessories. 
+This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 WiFi, it is fixed at 5V as to be fully retro compatible with other UNO accessories. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256KB flash / 32KB SRAM / 8KB data flash (EEPROM)
 * Real Time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
-* 8/12-bit DAC
+* up to 12-bit DAC
 * 4x OPAMP
 * CAN bus
 
@@ -386,7 +386,7 @@ For powering e.g. servo motors, use an external power supply.
 
 ### Getting Started - IDE
 
-If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 Minima to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
