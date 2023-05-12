@@ -60,7 +60,7 @@ Maker, beginner, education
 
 ### Application Examples
 
-The UNO R4 Minima is the first UNO series 32-bit development board, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where UNO R4 Minima continues it legacy.
+The UNO R4 Minima is the first UNO series 32-bit development board, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where UNO R4 Minima continues its legacy.
 
 The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. It has compared to its predecessors much larger memory: 8 times more flash memory (256KB) and 16 times more SRAM (32KB).
 
