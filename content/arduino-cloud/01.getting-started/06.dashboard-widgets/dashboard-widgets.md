@@ -318,8 +318,48 @@ The chart widget is great for data analytics. It is used to track real time data
 An example of how it is used in a sketch:
 
 ```arduino
-locationChart = analogRead(A0);
+variable = analogRead(A0);
 ```
+
+### Advanced Chart
+
+![Advanced Chart Widget](assets/widget-advanced-chart.gif)
+
+The advanced chart widget allows you to track up to **5 variables simultaneously**. This widget also includes an additional configuration interface that appears while editing the widget.
+
+![Widget Configuration](assets/widget-advanced-chart-2.png)
+
+An example of how it is used in code:
+
+```arduino
+variable_1 = analogRead(A1)
+variable_2 = analogRead(A2)
+variable_3 = analogRead(A3)
+variable_4 = analogRead(A4)
+variable_5 = analogRead(A5)
+```
+
+***Check out the [Advanced Chart](/arduino-cloud/features/advanced-chart) guide for more information.***
+
+### Scheduler
+
+![Scheduler Widget](assets/widget-scheduler.png)
+
+The Scheduler Widget allows you to schedule a job in the future. With this widget, you can schedule:
+- A job to activate at a specific hour, minute and second. 
+- A job to execute only on specific days.
+- A job that should last for X amount of seconds, minutes or hours.
+
+In a sketch, use the `x.isActive()` boolean to check whether a state is active. 
+
+Example:
+
+```arduino
+if(scheduleVariable.isActive){}
+```
+
+
+***Check out the [Scheduler](/arduino-cloud/features/cloud-scheduler) guide for more information.***
 
 ### Sticky Note
 
@@ -329,3 +369,38 @@ The sticky note widget can be used to write important notes or to categorize you
 
 The sticky note can **not** be linked with a variable, and is designed to keep notes only while using a dashboard. It does support the use of markdown, so that you can create titles, links, code blocks etc.
 
+### Value Selector
+
+![Value Selector](assets/widget-value-picker.png)
+
+The value selector widget can be used to switch between predetermined values through available buttons. Supported variable types are `int` and `String`. 
+
+Example:
+
+```arduino
+if(valueSelector == 0){
+  //if value matches, execute code
+}
+
+if(valueSelector == "string"){
+  //if string matches, execute code
+}
+```
+
+### Value Dropdown
+
+![Value Dropdown](assets/widget-dropdown.png)
+
+The value dropdown widget works similarly to **value selector**, and is be used to switch between predetermined values through a dropdown menu. Supported variable types are `int` and `String`. 
+
+Example:
+
+```arduino
+if(valueDropDown == 0){
+  //if value matches, execute code
+}
+
+if(valueDropDown == "string"){
+  //if string matches, execute code
+}
+```

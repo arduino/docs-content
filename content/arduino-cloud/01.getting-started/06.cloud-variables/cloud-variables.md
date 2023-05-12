@@ -182,6 +182,19 @@ You can use them just like a normal variable of the wrapped type, since they sup
 
 The following variable types hold multiple values internally and are used to represent more complex data. In order to access such values, methods are provided.
 
+#### CloudSchedule
+
+`CloudSchedule` is used to check for an active state or to retrieve the timestamp.
+
+| Description            | Type   | Read value              |
+| ---------------------- | ------ | ----------------------- |
+| Check for active state | `bool` | `x.isActive()`          |
+| From (start date)      | `int`  | `x.getCloudValue().frm` |
+| To (end date)\*        | `int`  | `x.getCloudValue().to`  |
+| Length of Timestamp    | `int`  | `x.getCloudValue().len` |
+
+\*If no end date is selected, value is defaulted to `0`.
+
 #### DimmedLight
 
 Declared as `CloudDimmedLight x;`
@@ -195,12 +208,13 @@ Declared as `CloudDimmedLight x;`
 
 Declared as `CloudColoredLight x;`
 
-| Property   | Type            | Read value          | Set value           |
-| ---------- | --------------- | ------------------- | ------------------- |
-| Switch     | `bool`          | `x.getSwitch()`     | `x.setSwitch()`     |
-| Hue        | `float` (0-360) | `x.getHue()`        | `x.setHue()`        |
-| Saturation | `float` (0-100) | `x.getSaturation()` | `x.setSaturation()` |
-| Brightness | `float` (0-100) | `x.getBrightness()` | `x.setBrightness()` |
+| Property   | Type              | Read value          | Set value           |
+| ---------- | ----------------- | ------------------- | ------------------- |
+| Switch     | `bool`            | `x.getSwitch()`     | `x.setSwitch()`     |
+| Hue        | `float` (0-360)   | `x.getHue()`        | `x.setHue()`        |
+| Saturation | `float` (0-100)   | `x.getSaturation()` | `x.setSaturation()` |
+| Brightness | `float` (0-100)   | `x.getBrightness()` | `x.setBrightness()` |
+| Color      | `uint8_t` (0-255) | `x.getRGB(r,g,b)`   | `x.setRGB(r,g,b)`   |
 
 #### CloudColor
 
@@ -208,11 +222,12 @@ Declared as `CloudColor x;`.
 
 To read the Color values, we can use the following method `Color colorValues = x.getValue();`. This will assign the hue, saturation, and brightness values to the `colorValues` variable.
 
-| Property   | Type    | Read value        | Set value                              |
-| ---------- | ------- | ----------------- | -------------------------------------- |
-| Hue        | `float` | `colorValues.hue` | `x = Color(hue,saturation,brightness)` |
-| Saturation | `float` | `colorValues.sat` | `x = Color(hue,saturation,brightness)` |
-| Brightness | `float` | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
+| Property   | Type              | Read value        | Set value                              |
+| ---------- | ----------------- | ----------------- | -------------------------------------- |
+| Hue        | `float` (0-360)   | `colorValues.hue` | `x = Color(hue,saturation,brightness)` |
+| Saturation | `float` (0-100)   | `colorValues.sat` | `x = Color(hue,saturation,brightness)` |
+| Brightness | `float` (0-100)   | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
+| Color      | `uint8_t` (0-255) | `x.getRGB(r,g,b)` | `x.set(r,g,b)`                         |
 
 To set the color, we can assign the CloudColor variable directly to float variables `x = {hue,saturation,brightness}`, or using the method ` x = Color(hue,saturation,brightness)`.
 

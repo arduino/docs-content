@@ -51,11 +51,11 @@ The Nicla Sense ME can be programmed through the **Classic Arduino IDE 1.8.X**. 
 
 - [Installing the Arduino Mbed OS Nicla Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla)
 
-### Arduino IDE 2.0.X 
+### Arduino IDE 2 
 
-The Nicla Sense ME can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
+The Nicla Sense ME can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
-- [How to use the board manager with the Arduino IDE 2.0](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
+- [How to use the board manager with the Arduino IDE 2](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
 ### Web Editor
 
@@ -202,7 +202,7 @@ There are three ways to read from the on-board sensors:
 
 1. Read the sensors directly from Nicla Sense ME in standalone mode.
 2. Read sensor values through Bluetooth® Low Energy
-3. Read sensor values through UART by connecting an ESLOV cable
+3. Read sensor values through I2C by connecting an ESLOV cable
 
 To read from the sensors in any of these mode, you need to install the **Arduino_BHY2** and **Arduino_BHY2Host** libraries. These can be found in the library manager using the Arduino IDE. To do so in the IDE, select **Tools->Manage Libraries...**, now search for **Arduino_BHY2** and **Arduino_BHY2Host** in the new window that opened and click on the install button.
 
@@ -352,7 +352,7 @@ void setup(){
 The `begin()` function starts the sensor by calling the `configure()` with default parameters, making it easy to start and use on-board sensors. The parameters in the `configure()` function are sample rate and latency. If specific parameters are needed, then simply call `configure()` with your preferred values. E.g.: `configure(10, 1)`. In this case, the sample rate would be set to `10 Hz` and the latency would be `1ms`.
 
 - **Sample rate** is used also to enable/disable the sensor. 0 to disable, > 0 to enable.
-- **Latency** indicates how much ms time a new value is retained in its fifo before a notification to the host is sent via interrupt expressed in 24 bit.
+- **Latency** is the longest delay, in milliseconds, before the host is notified of a new value from a sensor. Even though the latency parameter is a 32-bit integer, only the least significant 24 bits of it are actually used. A latency of 0 means that the host is notified immediately when a new value is available.
 
 Reading the sensor values:
 
@@ -475,7 +475,7 @@ void loop(){
 
 To get readings from the pressure sensor in standalone mode, you also need to use the Arduino_BHY2 library as described in the section above.
 
-Follow these steps to use the library to read the sensor values.
+Follow these steps to use the library to read the sensor values in hPa.
 
 Include the library's header file:
 

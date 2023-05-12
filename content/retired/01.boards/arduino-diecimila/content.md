@@ -3,6 +3,8 @@ title: "Arduino Diecimila"
 source: "https://arduino.cc/en/Main/ArduinoBoardDiecimila"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ## Arduino Diecimila
 
 ![](assets/ArduinoDiecimila400.jpg)

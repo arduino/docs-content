@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="Quickstart Guide" type="getting-started" link="http://docs.arduino.cc/tutorials/portenta-x8/out-of-the-box">
-        A quick guide to installing your board with the Arduino IDE.
+    <EssentialElement title="User Manual" type="getting-started" link="http://docs.arduino.cc/tutorials/portenta-x8/user-manual">
+        A full guide to the basics of the Portenta X8
     </EssentialElement>
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals" title="Fundamentals of Portenta X8" type="tutorial">
         This article contains information about the fundamental concepts of the Portenta X8.
@@ -12,21 +12,19 @@
     
 <EssentialsColumn title="Suggested Repositories">
     <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
-        Some containers examples for Portenta X8, this containers are accessible through your Foundries.io factory.
-    </EssentialElement>
-    <EssentialElement link="https://github.com/arduino/lmp-manifest/releases" title="OS Images" type="tutorial">
-        Releases section from the lmp-manifest repo, lists all the builds also available on the Foundries.io factory.
-    </EssentialElement>
-    <EssentialElement link="https://github.com/arduino/lmp-manifest" title="Manifest repository" type="article">
-        This repository contains a Repo manifest and setup scripts for the Linux microPlatform build system. If you want to modify, extend or port Linux microPlatform to a new hardware platform, this is the manifest repository to use.
+        Some containers examples for Portenta X8, these containers are accessible through your Foundries.io factory.
     </EssentialElement>
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested libraries">
-      <EssentialElement link="https://www.arduino.cc/en/Reference/Wire" title="Arduino Wire" type="library">
-            The M4 processor exposes the I<sup>2</sup>C protocol, this is the "Wire" library documentation.
+<EssentialsColumn title="Firmware Images">
+
+<EssentialElement link="https://downloads.arduino.cc/portentax8image/399.tar.gz" title="v399 Firmware Version" type="library">
+        Download the v399 firmware for Portenta X8.
     </EssentialElement>
-      <EssentialElement link="https://www.arduino.cc/reference/en/language/functions/communication/spi/" title="Arduino SPI" type="library">
-            The M4 processor exposes the SPI protocol. This library allows you to communicate with SPI devices, with the Arduino as the controller device.
+
+<EssentialElement link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz" title="Latest Firmware Version" type="library">
+        Download the latest firmware for Portenta X8 (Recommended).
     </EssentialElement>
+
+
 </EssentialsColumn>

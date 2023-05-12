@@ -1,24 +1,24 @@
 ---
-title: 'How to upload a sketch with the Arduino IDE 2.0'
+title: 'How to upload a sketch with the Arduino IDE 2'
 difficulty: beginner
-description: 'Learn the basics of verifying and uploading sketches with the new IDE 2.0.'
+description: 'Learn the basics of verifying and uploading sketches with the new IDE 2.'
 tags:
  - Uploading
  - Basics
-author: 'Karl Söderby'
+author: 'Karl Söderby & Jacob Hylén'
 ---
 
-## How to Upload a Sketch with the Arduino IDE 2.0
+## How to Upload a Sketch with the Arduino IDE 2
 
-In the Arduino environment, we write **sketches** that can be uploaded to Arduino boards. In this tutorial, we will go through how to select a board connected to your computer, and how to upload a sketch to that board, using the Arduino IDE 2.0.
+In the Arduino environment, we write **sketches** that can be uploaded to Arduino boards. In this tutorial, we will go through how to select a board connected to your computer, and how to upload a sketch to that board, using the Arduino IDE 2.
 
 You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
-You can also follow the [downloading and installing the Arduino IDE 2.0](./ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
+You can also follow the [downloading and installing the Arduino IDE 2](./ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
 ### Requirements
 
-- Arduino IDE 2.0 installed. 
+- Arduino IDE 2 installed. 
 
 ### Verify VS Upload
 
@@ -30,15 +30,19 @@ A good practice is to use the verifying tool before attempting to upload anythin
 
 Uploading a sketch is quick and easy, but let's take a look at what we need to do. 
 
-**1.** Open the Arduino IDE 2.0. 
+**1.** Open the Arduino IDE 2. 
 
 **2.** With the editor open, let's take a look at the toolbar at the top. At the very left, there is a **checkmark** and an **arrow pointing right**. The checkmark is used to **verify**, and the arrow is used to **upload.** 
 
 ![Verifying and uploading buttons.](assets/uploading-a-sketch-img01.png)
 
-**3.** First, we need to select the board that we are going to use. We can do this by navigating to **Tools > Port > {Board}**. The board(s) that are connected to your computer should appear here, and we need to select it by clicking it. In this case, our board is displayed as **COM17 (Arduino MKR WiFi1010)**.
+**3.** But before doing any of that, we should choose what board we are uploading to. Beside the verify and upload button you should see a a drop down menu, this will, in most cases, display Arduino boards that are connected to your computer. If your board is not automatically detected, you can either press "Select other board and port..." in the drop-down and follow the instructions, or go to **Tools > Board** and **Tools > Port** in the toolbar menu to select the board and port manually.
 
 ![Selecting the board.](assets/uploading-a-sketch-img03.png)
+
+So connect your board to the computer and select it from the drop down menu. You'll know that there is a connection to the board when the board name appears in **bold**.
+
+![Selecting the board.](assets/uploading-a-sketch-img03.5.png)
 
 **4.** Click on the verify tool (checkmark). Since we are verifying an empty sketch, we can be sure it is going to compile. After a few seconds, we can see the result of the action in the console (black box in the bottom). 
 

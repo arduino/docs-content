@@ -7,6 +7,8 @@ sku: "A000116"
 source: "https://store.arduino.cc/arduino-tian"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Tian board](./assets/A000116_Tian_featured_2.jpg)
 
 The new **Arduino Tian** board is powered by Atmel’s SAMD21 MCU, featuring a 32-bit ARM Cortex® M0+ core and a Qualcomm Atheros AR9342, which is an highly integrated MIPS processor operating at up to 533MHz and feature-rich IEEE802.11n 2x2 2.4/5 GHz dual-band WiFi module. Qualcomm Atheros MIPS supports a Linux distribution, based on OpenWRT named Linino. The Arduino Tian has also a build in 4GB eMMC memory that will can be helpful to build your projects. It is possible to Switch ON/OFF the Linux port from the MCU to reduce the power consumption.

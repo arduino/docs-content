@@ -4,16 +4,16 @@ description: 'A guide for flashing the MicroPython firmware to your Arduino Nano
 tags: 
   - MicroPython
 difficulty: Intermediate
-libraries:
 hardware:
   - hardware/03.nano/boards/nano-33-ble
   - hardware/03.nano/boards/nano-rp2040-connect
   - hardware/04.pro/boards/portenta-h7
 software:
   - ide-v2
-contributeURL: "content/tutorials/generic"
-author: "Jacob Hylén"
+author: 'Jacob Hylén'
+contributeURL: content/tutorials/generic
 ---
+
 ## Introduction
 
 For some time you have been able to program selected Arduino boards using the OpenMV IDE and MicroPython. This gives you easy access to powerful technologies such as machine vision and machine learning.

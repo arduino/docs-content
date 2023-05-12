@@ -6,6 +6,8 @@ sku: "A000074"
 source: "https://store.arduino.cc/arduino-ethernet-rev3-with-poe"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Ethernet Rev3 with PoE](./assets/a000074_front.jpg)
 
 The **Arduino Ethernet** is a microcontroller board based on the ATmega328P. It has 14 digital input/output pins, 6 analog inputs, a 16 MHz crystal oscillator, a RJ45 connection, a power jack, an ICSP header, and a reset button.

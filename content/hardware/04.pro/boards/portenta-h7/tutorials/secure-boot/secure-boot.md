@@ -15,13 +15,13 @@ software:
 ## Introduction
 This short tutorial will guide the user through enabling the secure boot on the Portenta H7, generating custom security keys, and using them with the MCUboot bootloader.
 
-Secure boot is the process where compiled sketch is authenticated against the hardware before it is authorized to be used in the boot process. The hardware is pre-configured to authenticate code using trusted security credentials.
+Secure boot is the process where a compiled sketch is authenticated against the hardware before it is authorized to be used in the boot process. The hardware is pre-configured to authenticate code using trusted security credentials.
 
 In other words, secure boot ensures that the boot technology and operating system software are the legitimate manufacturer version and have not been altered or tampered with by any malicious actor or process.
 
 ## Hardware & Software Required
 -   [Portenta H7](https://store.arduino.cc/portenta-h7)
--   Arduino IDE 1.8.19+  or Arduino IDE 2.0.0-rc5+ (https://www.arduino.cc/en/software)
+-   Arduino IDE 1.8.19+  or Arduino IDE 2.0-rc5+ (https://www.arduino.cc/en/software)
 -   [Arduino Core for mbed enabled devices](https://github.com/arduino/ArduinoCore-mbed) version 3.1.0+
 -   [imgtool](https://github.com/arduino/imgtool-packing/releases/latest) (optional)
 
@@ -31,7 +31,7 @@ In other words, secure boot ensures that the boot technology and operating syste
 In order to have secure boot enabled, you must update the bootloader on your Portenta H7 and use [MCUboot](https://www.mcuboot.com/). You can find more info on how to perform the update in [this other tutorial](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
 
 ### Use Default Security Keys
-Once The bootloader has been updated to MCUboot, it is possible to use [secure boot](https://www.keyfactor.com/blog/what-is-secure-boot-its-where-iot-security-starts/) to have an additional layer of security. From that point on, it is required to upload a compiled sketch with the Custom Board Option **"Security settings"** set to **"Signature + Encryption"** (the option can be found under **Tools > Security settings** in the IDE when selecting Portenta H7 as board or you can use `--board-options security=sien` if using the Arduino CLI). Failing to provide such option will cause the bootloader not to run the compiled sketch because it is not trusted.
+Once the bootloader has been updated to MCUboot, it is possible to use [secure boot](https://www.keyfactor.com/blog/what-is-secure-boot-its-where-iot-security-starts/) to have an additional layer of security. From that point on, it is required to upload a compiled sketch with the Custom Board Option **"Security settings"** set to **"Signature + Encryption"** (the option can be found under **Tools > Security settings** in the IDE when selecting Portenta H7 as board or you can use `--board-options security=sien` if using the Arduino CLI). Failing to provide such option will cause the bootloader not to run the compiled sketch because it is not trusted.
 
 If the security keys are not overridden, the default ones are used.
 Two keys are embedded in the example sketch `STM32H747_manageBootloader`, which can be found in **Files > Examples > STM32H747_System > STM32H747_manageBootloader** and used by the bootloader.

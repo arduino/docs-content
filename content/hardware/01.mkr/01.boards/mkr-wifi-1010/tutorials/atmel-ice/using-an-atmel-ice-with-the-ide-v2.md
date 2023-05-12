@@ -1,8 +1,8 @@
 ---
 title: 'Debugging SAM-Based Arduino® Boards with Atmel-ICE'
-description: 'Learn how to debug SAM-based Arduino boards using the Atmel-ICE debugger and the Arduino IDE 2.0'
+description: 'Learn how to debug SAM-based Arduino boards using the Atmel-ICE debugger and the Arduino IDE 2'
 tags: 
-  - IDE 2.0
+  - IDE 2
   - Debugging
   - Debugger
   - Atmel-ICE
@@ -11,20 +11,20 @@ author: 'José Bagur'
 
 ## Introduction
 
-In this tutorial, we will learn how to use the [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software) for debugging SAM-based Arduino® boards. Using an [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board and a simple program, we will learn about the debugging functionalities that are integrated with the debugger tool of the new IDE 2.0.
+In this tutorial, we will learn how to use the [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2](https://www.arduino.cc/en/software) for debugging SAM-based Arduino® boards. Using an [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board and a simple program, we will learn about the debugging functionalities that are integrated with the debugger tool of the new IDE 2.
 
 ## Goals
 
 The goals with this tutorial are: 
 
-- Learn how to use an [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2.0](https://www.arduino.cc/en/software) and a SAM-based Arduino® board.
-- Learn about the debugging functionalities of the new [Arduino IDE 2.0](https://www.arduino.cc/en/software).
+- Learn how to use an [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool with the new [Arduino IDE 2](https://www.arduino.cc/en/software) and a SAM-based Arduino® board.
+- Learn about the debugging functionalities of the new [Arduino IDE 2](https://www.arduino.cc/en/software).
 
 ## Hardware and Software Needed
 
 The hardware and software used in this tutorial:
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software).
+- [Arduino IDE 2](https://www.arduino.cc/en/software).
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board.
 - [Atmel-ICE](https://www.microchip.com/DevelopmentTools/ProductDetails/ATATMEL-ICE) development tool.
 - 10-pin mini-squid cable (included with the Atmel-ICE development tool)
@@ -95,19 +95,19 @@ We used the SAM port in this tutorial; this means we used the pins **4**, **2**,
 
 > Note: be careful and **double-check the connections between the Atmel-ICE and the MKR WiFi 1010 board SWD interfaces to avoid damaging one or both devices**. 
 
-If the SWD interfaces of the debugger and the board are connected properly, a **green LED should turn on in the debugger**. Now that we have both devices, the Atmel-ICE and the MKR WiFi 1010 board, SWD interfaces connected, its time to use the **debugger tool** of the Arduino IDE 2.0.
+If the SWD interfaces of the debugger and the board are connected properly, a **green LED should turn on in the debugger**. Now that we have both devices, the Atmel-ICE and the MKR WiFi 1010 board, SWD interfaces connected, its time to use the **debugger tool** of the Arduino IDE 2.
 
 ## Using the Debugger Tool
 
-Now that we have our hardware set up, we can learn how to use the IDE 2.0 Debugger Tool main functionalities through the [**Debugging with the Arduino IDE 2.0 tutorial**](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger). This tutorial goes through some key features of the Debugger Tool, and includes pointers to get started. 
+Now that we have our hardware set up, we can learn how to use the IDE 2 Debugger Tool main functionalities through the [**Debugging with the Arduino IDE 2 tutorial**](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger). This tutorial goes through some key features of the Debugger Tool, and includes pointers to get started. 
 
-As explained in the [**Debugging with the Arduino IDE 2.0 tutorial**](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger), before we can use the Debugger Tool of the Arduino IDE 2.0, we need to upload a sketch to our MKR WiFi 1010 board, making sure it is optimized for debugging. Let's try a simple program that blinks the onboard LED of our MKR WiFi 1010 board and changes the value of several variables while running. 
+As explained in the [**Debugging with the Arduino IDE 2 tutorial**](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger), before we can use the Debugger Tool of the Arduino IDE 2, we need to upload a sketch to our MKR WiFi 1010 board, making sure it is optimized for debugging. Let's try a simple program that blinks the onboard LED of our MKR WiFi 1010 board and changes the value of several variables while running. 
 
 ### 1. Setting Up
 
-Let's start by opening the Arduino IDE 2.0 and connecting our MKR WiFi 1010 board to our computer with a micro USB cable. The IDE should recognize automatically the board, if so, the board and port should appear as shown in the image below:
+Let's start by opening the Arduino IDE 2 and connecting our MKR WiFi 1010 board to our computer with a micro USB cable. The IDE should recognize automatically the board, if so, the board and port should appear as shown in the image below:
 
-![The board and port recognized by the Arduino IDE 2.0.](assets/ide_v2_t1_img05.png)
+![The board and port recognized by the Arduino IDE 2.](assets/ide_v2_t1_img05.png)
 
 ### 2. Creating the Test Code
 
@@ -120,7 +120,7 @@ Let's try the example code show below, it is a simple program that blinks the on
   This example blinks the onboard LED of an Arduino board and changes 
   the value of the variables x and y wwhile running. The purpose of 
   this example is to test the debugging functionalities of the Arduino 
-  IDE 2.0.
+  IDE 2.
 
   The circuit:
   - Arduino MKR WiFi 1010
@@ -153,15 +153,15 @@ void loop() {
 
 Before uploading the code to our board, we must optimize it for debugging. This can be made easily by clicking on the **Sketch** tab and then selecting the option **Optimize for Debbuging**:
 
-![The "Optimize for Debugging" option in the Arduino IDE 2.0](assets/ide_v2_t1_img06.png)
+![The "Optimize for Debugging" option in the Arduino IDE 2](assets/ide_v2_t1_img06.png)
 
 With the **Optimize for Debugging** option selected, now its time to upload the code to our board and start debugging it.
 
 ### 3. Using the Debugger Tool with the Test Code
 
-We can easily access to the Debugger Tool menu from the left sidebar of the Arduino IDE 2.0 where we can find also the **Board Manager**, **Library Manager**, **Search** and **Sketchbook Explorer**.  
+We can easily access to the Debugger Tool menu from the left sidebar of the Arduino IDE 2 where we can find also the **Board Manager**, **Library Manager**, **Search** and **Sketchbook Explorer**.  
 
-![The debugger tool menu option in the left sidebar of the Arduino IDE 2.0](assets/ide_v2_t1_img07.png)
+![The debugger tool menu option in the left sidebar of the Arduino IDE 2](assets/ide_v2_t1_img07.png)
 
 Now, we can see the Debugger Tool menu expanded. Let's start using the debugger tool by selecting the **Start Debugging** button that is located near the **Upload** button:
 
@@ -187,7 +187,7 @@ As expected, we can see that the value of x increases in one unit while the valu
 
 ## Conclusion
 
-In this tutorial, we have learned how to use the Atmel-ICE development tool with the new Arduino IDE 2.0 for debugging SAM-based Arduino® boards. We learn how to connect the SWD interface of the Atmel-ICE development tool with the SWD interface of a MKR WiFi 1010 board. With a simple program, we learned also about the debugging functionalities of the debugger tool of the new Arduino IDE 2.0.
+In this tutorial, we have learned how to use the Atmel-ICE development tool with the new Arduino IDE 2 for debugging SAM-based Arduino® boards. We learn how to connect the SWD interface of the Atmel-ICE development tool with the SWD interface of a MKR WiFi 1010 board. With a simple program, we learned also about the debugging functionalities of the debugger tool of the new Arduino IDE 2.
 
 ### Troubleshoot
 
@@ -197,6 +197,6 @@ Sometimes errors occur, there are some common issues we can troubleshoot:
 - Arduino board connected to the wrong port.
 - Accidental interruption of cable connection of the board or the debugger.
 - SWD interfaces of the debugger hardware tool and the board are not connected properly. 
-- The debugging session in the IDE 2.0 didn't initialize correctly. 
+- The debugging session in the IDE 2 didn't initialize correctly. 
 
 We hope you enjoy the Debugger, and if you are having issues, please report them in [Arduino IDE GitHub repository](https://github.com/arduino/arduino-ide/issues).

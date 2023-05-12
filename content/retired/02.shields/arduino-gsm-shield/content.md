@@ -6,6 +6,8 @@ sku: "A000043"
 source: "https://store.arduino.cc/arduino-gsm-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino GSM Shield](./assets/a000043_featured.jpg)
 
 The Arduino GSM Shield V1 connects your Arduino to the internet using the GPRS wireless network. Just plug this module onto your Arduino board, plug in a SIM card from an operator offering GPRS coverage and follow a few simple instructions to start controlling your world through the internet. You can also make/receive voice calls (you will need an external speaker and microphone circuit) and send/receive SMS messages.

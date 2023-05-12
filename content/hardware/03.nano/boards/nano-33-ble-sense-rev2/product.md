@@ -3,6 +3,7 @@ title: Nano 33 BLE Sense Rev2
 url_shop: https://store.arduino.cc/nano-33-ble-sense-rev2
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble-sense-rev2/160'
+certifications: [CE]
 productCode: '032'
 ---
 

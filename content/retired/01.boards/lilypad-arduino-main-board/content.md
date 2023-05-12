@@ -7,6 +7,8 @@ sku: "DEV-13342"
 source: "https://store.arduino.cc/lilypad-arduino-main-board"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The LilyPad Arduino Main Board](assets/lilypad_main.jpg)
 
 The **LilyPad Arduino Main Board** is based on the ATmega168V (the low-power version of the ATmega168) or the ATmega328V. The LilyPad Arduino was designed and developed by Leah Buechley and SparkFun Electronics.

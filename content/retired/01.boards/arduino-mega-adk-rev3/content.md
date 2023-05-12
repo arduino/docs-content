@@ -7,6 +7,8 @@ sku: "A000069"
 source: "https://store.arduino.cc/arduino-mega-adk-rev3"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Mega ADK Rev3 board](./assets/A000069_front_2.jpg)
 
 The **Arduino MEGA ADK** is a microcontroller board based on the ATmega2560\. It has a USB host interface to connect with Android based phones, based on the MAX3421e IC. It has 54 digital input/output pins (of which 15 can be used as PWM outputs), 16 analog inputs, 4 UARTs(hardware serial ports), a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button.

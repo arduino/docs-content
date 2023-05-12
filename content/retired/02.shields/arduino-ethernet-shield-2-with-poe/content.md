@@ -6,6 +6,8 @@ sku: "A000025"
 source: "https://store.arduino.cc/arduino-ethernet-shield-2-with-poe"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Ethernet Shield 2 with PoE](./assets/a000025_featured.jpg)
 
 The **Arduino Ethernet Shield 2 with PoE** connects your Arduino to the internet in mere minutes. Just plug this shield into your Arduino Board, connect it to your network with an RJ45 cable (not included) and follow a few simple steps to start controlling your world through the internet. As always with Arduino, every element of the platform – hardware, software and documentation – is freely available and open-source. This means you can learn exactly how it's made and use its design as the starting point for your own circuits. Hundreds of thousands of Arduino Boards are already fueling people’s creativity all over the world, everyday. Join us now, Arduino is you!   
