@@ -17,7 +17,7 @@ software:
   - web-editor
 ---
 
-The **Arduino UNO** is our most popular and important line of development boards, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** is a new flavour of UNO, and in this cheat sheet you will a collection of links to resources and guides to let you take advantage of all the improvements from the previous revisions of this board. The **UNO R4 WiFi** comes with a large 12x8 LED Matrix that you can create animations and simple graphics with, as well as an onboard ESP32-S3 module giving the board WiFi and Bluetooth functionality.
+The **Arduino UNO** is our most popular and important line of development boards, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** is a new flavour of UNO, and in this cheat sheet you will a collection of links to resources and guides to let you take advantage of all the improvements from the previous revisions of this board. The **UNO R4 WiFi** comes with a large 12x8 LED Matrix that you can create animations and simple graphics with, as well as an onboard ESP32-S3 module giving the board WiFi and Bluetooth® functionality.
 
 You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)  
 
@@ -82,13 +82,13 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 ![RA4M1 USB solder pads](./assets/RA4M1-usb.png)
 
-### Wi-Fi^®^
+### Wi-Fi®
 
-The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi^®^ capabilities. The Wi-Fi module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth^®^ module, which means that you cannot use Bluetooth and Wi-Fi at the same time.
+The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
-### Bluetooth^®^
+### Bluetooth®
 
-Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth^®^ LE and Bluetooth^®^ 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth^®^ module, which means that you cannot use Bluetooth and Wi-Fi at the same time.
+Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
 ### Programming the ESP32 (Advanced)
 
