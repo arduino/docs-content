@@ -239,7 +239,7 @@ The pin layout of the Nicla Voice ESLOV connector is the following:
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
 
-**Notice**: Pin 1 of the ESLOV connector of the Nicla Voice board is a **5V voltage input**, not a voltage output. This means that the Nicla Voice is intended to be used as a secondary or a peripheral board of a main board or controller with an ESLOV connector with a 5V output, for example, the Portenta H7.
+**Note**: Pin 1 of the ESLOV connector of the Nicla Voice board is a **5V voltage input**, not a voltage output. This means that the Nicla Voice is intended to be used as a secondary or a peripheral board of a main board or controller with an ESLOV connector with a 5V output like, for example, the Portenta H7.
 
 ### Sample Sketches
 Sample sketches for the Arduino® Nicla Voice can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**.
