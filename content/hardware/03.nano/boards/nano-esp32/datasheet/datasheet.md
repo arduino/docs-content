@@ -239,7 +239,7 @@ Note that you should not power the board with more than 5V via the USB-C® port.
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. Any voltage input either via USB or VIN is stepped down to 3.3V using the MP2322GQH (U2) converter.
 
-The operating voltage is 3.3V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5V when the board is powered via USB.
+The operating voltage for this board is 3.3V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5V when the board is powered via USB.
 
 ### Power Tree
 
@@ -247,11 +247,35 @@ The operating voltage is 3.3V. Please note that there's no 5V pin available on t
 
 ### Pin Voltage
 
-The operating voltage for Nano ESP32 is 3.3V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5V when the board is powered via USB. 
+All digital & analog pins on the Nano ESP32 are 3.3V. Do not connect any higher voltage devices to any of the pins as it will risk damaging the board.
+
+### VIN Rating
+
+The recommended input voltage range is **3-22V**, based on the MP2322GQH converter specifications. 
+
+You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 22V.
+
+The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:  
+- **4.5V** - >90%.
+- **12V** - 85-90%
+- **22V** - 80-85%
+
+This information is extracted from the [MP2322GQH's datasheet](), with a board with a current draw of ~200mA.
+
+### VUSB
+
+There is no 5V pin available on the Nano ESP32. 5V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
+
+While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5V from the board unless powered via USB or externally.
+
+### 3.3V Pin
+
 
 ### Pin Current
 
-The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 20 mA. Never connect devices that draw higher current directly to a GPIO.
+The GPIOs on the Nano ESP32 can handle currents up to **40 mA**. Never connect devices that draw higher current directly to a GPIO. 
+
+The absolute maximum rating of acculumative current for the ESP32-S3 is specified at **1500mA**. This is a lmit 
 
 For powering e.g. servo motors, use an external power supply.
 
