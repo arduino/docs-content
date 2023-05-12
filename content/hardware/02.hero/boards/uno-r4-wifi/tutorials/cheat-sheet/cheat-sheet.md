@@ -17,6 +17,7 @@ software:
   - web-editor
 ---
 
+
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
 
 The **UNO R4 WiFi** features a large 12x8 LED Matrix that you can create animations and simple graphics with, as well as an onboard ESP32-S3 module giving the board Wi-Fi and Bluetooth® functionality. It also features a DAC and an Op-Amp.
@@ -71,12 +72,14 @@ The ESP32 also exposes the ESP32's data lines, so that you can program the ESP32
 
 ![UNO R4 & UNO R3](./assets/UNO-serial.png)
 
-The way this is implemented on the UNO R3 also means that the board is not able to emulate an HID device, such as a keyboard or a mouse. This is, however, not true for the UNO R4.
-
 ### USB Bridge
-As mentioned, by default the ESP32 is acting as a serial bridge, however if you wish you can change this and get direct access to the serial bus on the RA4M1 MCU either with software or hardware. 
+By default the ESP32 acts as a serial bridge between a computer and the RA4M1 MCU. The USB data lines are routed through switches, and by default, these switches are set for communication to go via the ESP32 module.
 
-1. Software - By pulling D40 to HIGH you will close the circuit that controls which MCU is connected to USB. While D40 is HIGH, the RA4M1 is connected to the USB Serial port.
+![Switches for Serial Communication.](./assets/RA4M1-usb-switches.png)
+
+If you wish you can change this and get direct access to the serial bus on the RA4M1 MCU either with software or hardware. See the instructions below:
+
+1. Software - By pulling D40 to HIGH you will close the circuit that controls which MCU is connected to USB. While D40 is HIGH, the RA4M1 is connected to the USB Serial port, and while D40 is LOW the ESP32 is connected, like the default configuration.
   You can do this by including the following code in `void setup()`
   ```arduino
   pinMode(40, OUTPUT);
@@ -86,30 +89,36 @@ As mentioned, by default the ESP32 is acting as a serial bridge, however if you 
 
 ![RA4M1 USB solder pads](./assets/RA4M1-usb.png)
 
-### WiFi
+### Wi-Fi®
 
-### Bluetooth
+The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+
+### Bluetooth®
+
+Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
 ### Programming the ESP32 (Advanced)
-The ESP32 can be programmed individually from the RA4M1, with access to the data lines in the ESP header. By default, the ESP32's is used mainly as a radio module using Wi-Fi and Bluetooth®.
+
+The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi and Bluetooth®.
 
 Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. 
 
-To reprogram the ESP32 board you can find UART-pads next to the ESP32 Module, that are laid out as shown in the image below:
+To reprogram the ESP32 board you can either find UART-pads next to the ESP32 Module, that are laid out as shown in the image below:
 
 ![Exposed ESP32 pads](./assets/ESP32-pads.png)
+
+or you can use the pins exposed directly on the ESP32 header, shown here:
+
+![ESP-header](./assets/ESP32-header.png)
 
 ## LED Matrix
 The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. Bundled in the core for the UNO R4 is a library for displaying frames on the matrix.
 
-### LED_Matrix
-Initialise a LED_matrix by for example adding this code to the start of your sketch:
-```arduino
-LED_matrix matrix;
-```
+To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
 
-### LED_Matrix.load()
-If you've written your sketch to hold your frames as child-arrays inside of a parent-array, `load()` can be used to load the parent-array, as such:
+-  `Arduino_LED_Matrix matrix` - Initialises a LED matrix. 
+-  `Arduino_LED_Matrix.load()` - Loads a frame into the frame buffer.
+Here's a basic example:
 
 ```arduino
 // creates an array of two frames
@@ -133,21 +142,8 @@ const uint32_t frames[][4] = {
 
   ```
 
-### LED_Matrix.begin()
-The `begin()` method starts displaying the frames you have loaded into the matrix buffer one after the other.
-
-### LED_Matrix.autoscroll()
-`autoscroll()` lets you set an automatic time interval for the matrix to move to the next frame, and is used as such:
-
-```arduino
-  matrix.autoscroll(300);
-```
-
-### LED_Matrix.next()
-`next()` will manually let you move to the next frame, if the autoscroll is not suitable for your program.
-
-### LED_Matrix.on()
-`on()` will manually turn a single pixel on.
-
-### LED_Matrix.off()
-`off()` will manually turn a single pixel off. 
+- `Arduino_LED_Matrix.begin()` - Initialises the LED matrix itself, making it ready to display frames.
+- `Arduino_LED_Matrix.autoscroll()` - Sets an automatic time interval in ms for the matrix to scroll through the frames.
+- `Arduino_LED_Matrix.next()` -  Manually moves to the next frame.
+- `Arduino_LED_Matrix.on()` -  Manually turn a single pixel on.
+- `Arduino_LED_Matrix.off()` -  Manually turn a single pixel off.
