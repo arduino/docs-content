@@ -70,7 +70,7 @@ The `Arduino PLC IDE` will install the IDE software, while the `Arduino PLC IDE 
 
 ***For more details regarding Arduino PLC IDE setup, please have a look into [Arduino PLC IDE Setup and Board's License Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) tutorial.***
 
-### Harware Setup
+### Hardware Setup
 
 The two Opta™ devices will communicate using Modbus TCP. It will need to use the Ethernet LAN cable attached on both devices on `ETH RJ45` port. The following image shows a simple connection diagram for two Opta™ devices.
 
@@ -212,7 +212,7 @@ These are the properties you have to set for the Modbus TCP Server (Slave) Opta�
 
 The modbus node for server Opta™ is defined but it now needs which Modbus functions will be used to retrieve the counter (`cnt`) information from the server Opta™. Right clicking on `Opta_TCP_1` in this case, or the name you choose to use, will show you `Add` option and will open a device catalog window listing all the available Modbus functions.
 
-The `Modbus FC-04 (Read Input Registers)` function is chosen to request and retrieve the counter data from the server Opta™. You will need to set some parameters in `General` tab to access the data apropriately, and it uses the following parameters:
+The `Modbus FC-04 (Read Input Registers)` function is chosen to request and retrieve the counter data from the server Opta™. You will need to set some parameters in `General` tab to access the data appropriately, and it uses the following parameters:
 
 * Start address: 25000
 * Polling time: 0 ms (Continuous Read)
