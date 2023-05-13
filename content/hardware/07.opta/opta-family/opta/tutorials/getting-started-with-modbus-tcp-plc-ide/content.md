@@ -76,7 +76,7 @@ The two Opta™ devices will communicate using Modbus TCP. It will need to use t
 
 ![RJ45 Connection for two Opta™ devices](assets/opta_plcide_hardware_connection.svg)
 
-The following connection diagram includes an Ethernet switch. This setup enables you to observe both Opta™ devices using PLC IDE and watch in live how the information exchanges. It is a recommendable hardware setup for this tutorial. However, the first hardware setup illustrates how the Opta™ devices will communicate using Modbus TCP.
+The following connection diagram includes an Ethernet switch. This setup enables you to observe both Opta™ devices using PLC IDE and watch in live how the information exchanges. It is a recommendable hardware setup for this tutorial. However, the first hardware setup illustrates how the Opta™ devices will communicate using Modbus TCP in a field.
 
 ![RJ45 Connection for two Opta™ devices with Ethernet Switch](assets/opta_plcide_hardware_connection_eth.svg)
 
@@ -138,6 +138,8 @@ It will allow to define device version and information with Modbus functions pre
 Now that the pre-requisites are ready and you have the tools for Modbus TCP configuration for Opta™ using PLC IDE, an example project will be used to briefly test Modbus TCP communication between two Opta™ devices.
 
 The example project will make a slight change to default example code using counter (`cnt`) variable and transmit the counter data to achieve a live handshake verification operation. The Modbus TCP Master (Client) Opta™ will trigger status LED and relay activation based on the counter information requested to the Modbus TCP Slave (Server) Opta™. With the dedicated role sections, you will be able to understand and how to set Modbus TCP role to each Opta™ device.
+
+The continuing sections will show you how to configure each Opta™ based on its role for Modbus TCP communication.
 
 #### Modbus TCP Server (Slave) Opta™
 
@@ -286,10 +288,10 @@ IF counter >= 2500 THEN
 	relay_2 := FALSE;
 	relay_3 := FALSE;
 	relay_4 := FALSE;
-	LED1 := FALSE;	
-	LED2 := FALSE;	
-	LED3 := FALSE;	
-	LED4 := FALSE;	
+	LED1 := FALSE;
+	LED2 := FALSE;
+	LED3 := FALSE;
+	LED4 := FALSE;
 END_IF;
 ```
 
@@ -303,6 +305,8 @@ Finally, the Opta™ is ready as a Modbus TCP Master (Client).
 
 ### Testing Modbus TCP Communication Between Opta™ Devices (PLC IDE)
 
+You can access the complete example project [here](assets/ModbusTCP_Opta_Example.zip). You can download the compressed file, extract, and use the pre-configured example project for your Opta™ devices.
+
 Setting both Opta™ devices running with corresponding main PLC code, you will be able to observe following results on master Opta™:
 
 * Counter value = `500`: The status LED #1 and relay #1 will turn on
@@ -311,9 +315,9 @@ Setting both Opta™ devices running with corresponding main PLC code, you will 
 * Counter value = `2000`: The status LED #4 and relay #4 will turn on
 * Counter value = `2500`: All status LEDs and relays will turn off
 
-The following image and short clip shows a brief expected bahvior of the example project.
+The following short clip shows a brief expected bahvior of the example project.
 
-![Example Project Result](assets/opta_plcide_example_result.svg)
+![Example Project Result](assets/opta_plcide_example_result.gif)
 
 ## Conclusion
 
