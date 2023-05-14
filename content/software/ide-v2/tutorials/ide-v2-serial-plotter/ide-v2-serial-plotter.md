@@ -59,6 +59,8 @@ void loop() {
   Serial.print(",");
   Serial.print("Variable_2:");
   Serial.println(static_variable);
+
+  delay(20);
 }
 ```
 
@@ -83,6 +85,8 @@ void loop() {
   Serial.print(",");
   Serial.print("Variable_2:");
   Serial.println(static_variable);
+
+  delay(20);
 }
 ```
 ***The Serial Plotter recognizes only CRLF`(\r\n)` & LF`(\n)` as linebreak characters. So ensure that the either there is a linebreak character after the last variable. You can use `Serial.print("\n")` or `Serial.print("\r\n")` to introduce a linebreak character at the end. Conversely, `Serial.println()` introduces a CRLF character automatically. Further, you can also use `\t`(tab) or ` `(space) as a delimiter instead of `,`(comma) in the above example.***
