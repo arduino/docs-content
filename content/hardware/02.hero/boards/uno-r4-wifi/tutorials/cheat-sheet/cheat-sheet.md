@@ -381,7 +381,7 @@ To reprogram the ESP32 board you can either find UART-pads next to the ESP32 Mod
 
 or you can use the pins exposed directly on the ESP32 header, shown here:
 
-![ESP-header](./assets/ESP32-header.png)
+![ESP32 Data Pin Header](./assets/ESP32-header.png)
 
 ## LED Matrix
 The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. Bundled in the core for the UNO R4 is a library for displaying frames on the matrix.
