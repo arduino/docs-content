@@ -377,7 +377,7 @@ Overwriting the ESP32's firmware disrupts the communication between the two MCUs
 
 To reprogram the ESP32 board you can either find UART-pads next to the ESP32 Module, that are laid out as shown in the image below:
 
-![Exposed ESP32 pads](./assets/ESP32-pads.png)
+![Exposed ESP32 Data Pads](./assets/ESP32-pads.png)
 
 or you can use the pins exposed directly on the ESP32 header, shown here:
 
