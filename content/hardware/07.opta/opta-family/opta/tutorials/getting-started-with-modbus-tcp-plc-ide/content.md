@@ -34,7 +34,7 @@ The Modbus TCP is one of the protocols available within Opta™. In this tutoria
 - Opta™ PLC (x2)
 - USB-C® cable (x2)
 - Ethernet LAN cable (x3)
-- Ethernet Switch (x1) (Optional)
+- Ethernet Switch (x1) (Recommended)
 
 ### Software Requirements
 
