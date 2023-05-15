@@ -6,13 +6,13 @@ Board:
     US: TPX00097
 Computing: MT7628, DDR2 RAM 128 MB
 Operating temperature: -30 ºC to +55 ºC
-Wi-Fi:
+Wi-Fi®:
   Frequency: 2.4 GHz (802.11 bgn)
   Antennas: 2x2 MIMO
   RX Sensitivity: -95 dBm (Min)
   TX Power: 20 dBm (Max)
   Operation channels: 2.4 GHz 1-13
-LoRa:
+LoRa®:
   Controller: SX1303 mPCIe card
   Channels: 16
   RX Sensitivity: -139 dBm (Min)

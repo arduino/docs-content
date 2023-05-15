@@ -1,6 +1,6 @@
 ---
-title: 'Mounting WisGate Edge PRO Gateway on a Pole'
-description: 'Tutorial for mounting the WisGate Edge Lo-Ra Gateway in an antenna Pole'
+title: 'Mounting WisGate Edge Pro Gateway on a Pole'
+description: 'Tutorial for mounting the WisGate Edge LoRa® Gateway in an antenna Pole'
 difficulty: beginner
 tags: 
   - Mechanical
@@ -10,9 +10,9 @@ hardware:
   - hardware/05.pro-solutions/solutions-and-kits/wisgate-edge-pro
 ---
 
-## Introduction 
+## Introduction
 
-This tutorial will show you how to mount your **WisGate Edge** gateway on an outdoors pole.
+This tutorial will show you how to mount your **WisGate Edge Pro** gateway on an outdoors pole.
 
 ## Goals
 
@@ -28,6 +28,7 @@ The goals of this article are:
 ## Instructions
 
 The mechanical pieces are included with the device, those will make the device fit on an outdoors pole firmly and safe.
+
 * 2 Clamps
 * 1 Bracket
 * 2 Antennas
@@ -90,10 +91,12 @@ On the top side of the gateway fasten both N-Type fiberglass antennas.
 ### Waterproof Sealing
 
 The device is meant to be on the outside, so the it includes:
+
 * **Vulcanising tape** which will vulcanize with itself providing a single piece protection (the edges of the tape will seem almost joint into one like a thermo-retractable tubes, making the water harder to go inside that layer)
 * **PVC tape** to increase the sealing.
 
-To make a proper waterproof sealing you should
+To make a proper waterproof sealing you should:
+
 1. start with the PVC tape (around 50cm of tape) starting from the bottom of the connector surrounding fully the cable and connector, using this direction you will make the water slide better, as it does not have any resistance caused by the edge of each loop (it will if you do it from top to bottom)
 2. Repeat it in the same way adding one layer of vulcanising tape.
 

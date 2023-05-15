@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-The **WisGate Edge PRO** gateway is an industrial-graded device with high reliability and suits every requirements for an IoT commercial deployment.
+The **WisGate Edge Pro** gateway is an industrial-graded device with high reliability and suits every requirements for an IoT commercial deployment.
 
-It supports 16 LoRaWAN® channels thanks to a Dual LoRaWAN® Concentrator, and multi backhaul connectivity  via Ethernet, Wi-Fi, and Cellular LTE. The design of its enclosure allows internal antennas for LTE, Wi-Fi, and GPS.
+It supports 16 LoRaWAN® channels thanks to a Dual LoRaWAN® Concentrator, and multi backhaul connectivity via Ethernet, Wi-Fi, and Cellular LTE. The design of its enclosure allows internal antennas for LTE, Wi-Fi, and GPS.
 
 It is powered by OpenWRT which allows to develop custom applications.
 
@@ -15,7 +15,7 @@ It is powered by OpenWRT which allows to develop custom applications.
 </Feature>
 
 <Feature title="Wi-Fi Access Point" image="wifi">
-  WiFi configurable as a traditional Access Point.
+  Wi-Fi configurable as a traditional Access Point.
 </Feature>
 
 <Feature title="Cellular Connectivity" image="cellular">
