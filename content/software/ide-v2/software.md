@@ -1,5 +1,5 @@
 ---
-title: Arduino IDE 2 Tutorials
+title: Arduino IDE 2
 ---
 
 Discover all the new features of the Arduino IDE 2, our faster and more powerful programming tool.
