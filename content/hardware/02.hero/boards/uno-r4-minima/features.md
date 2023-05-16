@@ -13,14 +13,18 @@ A reference to all technical features on this board, with pointers to additional
 <FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-minima/cheat-sheet"/>
 </Feature>
 
-<Feature title="5V Logic" image="power">
-The UNO R4 Minima features a operating voltage of 5V reliable and easy to interface with other electronics.
+<Feature title="Getting Started" image="mcu">
+Get off the ground and upload your first program to your new UNO R4 Minima board by following this guide.
+<FeatureLink title="Getting Started Guide" url="/tutorials/uno-r4-wifi/r4-minima-getting-started"/>
 </Feature>
 
-<Feature title="DAC" image="microphone">
-Featuring an analog to digigal converter makes the UNO R4 Minima a great choice for people interested in audio projects.
-<FeatureLink title="Audio Guide" url=""/>
+<Feature title="6-24V" image="power">
+Power your UNO R4 WiFi board through the VIN Pin with any voltage between 6-24V.
 </Feature>
 
+<Feature title="DAC" image="configurability">
+Use the onboard 12bit DAC to build sophisticated audio projects.
+
+</Feature>
 
 </FeatureList>
