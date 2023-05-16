@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started with WisGate Edge Gateway'
-description: 'Tutorial for setting up the WisGate Edge LoRa® Gateway'
+title: 'Getting Started with WisGate Edge Gateway Devices'
+description: 'Tutorial for setting up the WisGate Edge gateway device variants'
 difficulty: beginner
 tags: [Getting Started, Setup]
 author: 'Pablo Marquínez'
