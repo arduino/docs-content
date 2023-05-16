@@ -28,7 +28,7 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 - Activate the device license
 - Test the connection
 
-### Required Hardware and Software
+## Required Hardware and Software
 
 - Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta).
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide)).
@@ -167,7 +167,9 @@ To do it follow the next steps:
 
 ### 10. Download a Program
 
-Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter. Double-click on the file _main_ inside the _Project_ to see the counter program. To download that program to your PLC, it is needed to compile the program and send it to the target device.
+Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter.
+
+Double-click on the file _main_ inside the _Project_ to see the counter program. To download that program to your PLC, it is needed to compile the program and send it to the target device.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 
