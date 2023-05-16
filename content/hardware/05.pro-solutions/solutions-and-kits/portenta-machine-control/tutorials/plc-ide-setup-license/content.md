@@ -49,7 +49,7 @@ To use the Arduino PLC IDE software, go to the [Arduino PLC IDE official website
 
 The first one will install all the required drivers, libraries and cores that you are going to need, while the second one will install the IDE software.
 
-### 1. Arduino® PLC IDE Tools
+### Arduino® PLC IDE Tools
 
 Before installing the Arduino PLC IDE you need to install all the required tools to make it work on your computer. Once you have downloaded the Arduino PLC IDE Tools executable, double-click on it and follow the installation instructions.
 
@@ -57,7 +57,7 @@ Once the installation is finished, all the required drivers, libraries and Ardui
 
 ***It is possible that during the installation some windows terminals will be opened and closed by the installation program. Do not worry about it, those windows are required by the program to install all the tools that your computer needs.***
 
-### 2. Arduino® PLC IDE Installation
+### Arduino® PLC IDE Installation
 
 Once the Arduino PLC IDE Tools are installed, double-click on the executable of the Arduino Pro IDE that you downloaded. Follow the installation instructions and, once the process is done, click on finish.
 
@@ -67,7 +67,7 @@ Open the Arduino PLC IDE program to see the welcome screen.
 
 ![Welcome screen](assets/welcome.png)
 
-### 3. Project Setup
+### Project Setup
 
 Create a new project by clicking the middle **New project ...** button or **File > New Project**
 
@@ -77,7 +77,7 @@ After creating the project, there are some new windows on the screen, click on t
 
 ![Board configuration page](assets/projectWelcome.png)
 
-### 4. Download the Runtime
+### Download the Runtime
 
 The board needs to run a specific program (runtime) in order to interact with the **PLC IDE**. Go to the **"Other"** section below the **"Device Info"** block.
 
@@ -89,7 +89,7 @@ If during the download procedure the following message appears, double-tap the r
 
 ![Download error message](assets/downloadSketchError.png)
 
-### 5. Connect to the Device
+### Connect to the Device
 
 After the runtime is up and running, set up the communication by going to **On-line > Set up communication**.
 
@@ -107,7 +107,7 @@ Click OK to save the settings and press the connect button on **On-line > Connec
 
 ![Connect to the board](assets/connect.png)
 
-### 6. License Activation with Product Key (Portenta Machine Control)
+### License Activation with Product Key (Portenta Machine Control)
 
 If the communication is successful the main panel will show the license section to be filled in and a status indicator.
 
@@ -133,7 +133,7 @@ Follow the instructions provided using our Contact [form](https://www.arduino.cc
 
 Once you receive the **Activation file**, drag and drop the file in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
 
-### 7. License Activation with Pre-Licensed Products (Opta™)
+### License Activation with Pre-Licensed Products (Opta™)
 
 When a product is **Pre-licensed**, the following scenario will be displayed:
 
@@ -145,7 +145,7 @@ By clicking the **Activate PLC Runtime** button, the product activation will be 
 
 Now the product is ready to be used with the PLC IDE.
 
-### 8. Activation Recovery
+### Activation Recovery
 
 In case the hardware is being reflashed and the key got lost, the license can be recovered just by clicking the "**Forgot your Product Key?**" button:
 
@@ -155,7 +155,7 @@ The IDE will then connect to a server, validate the hardware and recover the act
 
 ![Online Activation Forgotten Key Activated](assets/activation-online_resized.png)
 
-### 9. Getting the Hardware-ID of Your Device
+### Getting the Hardware-ID of Your Device
 
 To do it follow the next steps:
 
@@ -165,7 +165,7 @@ To do it follow the next steps:
 - Go to **Tools** > **Port** to select the proper port (the default one shown before in the PLC IDE inside the **Arduino PMC Configuration** > **Other** section)
 - Go to **Tools** > **Serial Monitor** and reset the board. Look at the end of the boot report to find the "Hardware-ID" and store it in a safe place.
 
-### 10. Download a Program
+### Download a Program
 
 Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter.
 
@@ -173,7 +173,7 @@ Double-click on the file _main_ inside the _Project_ to see the counter program.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 
-### 11. Communication Test
+### Communication Test
 
 Open the **Watch** window by clicking on "View > Tool Windows > Watch", it will attach a new window on the right side called **Watch**. This window shows the real-time variables value.
 
