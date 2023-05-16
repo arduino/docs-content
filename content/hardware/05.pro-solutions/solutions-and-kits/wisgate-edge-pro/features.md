@@ -15,7 +15,7 @@ It is powered by OpenWRT which allows to develop custom applications.
 </Feature>
 
 <Feature title="Wi-Fi Access Point" image="wifi">
-  Wi-Fi configurable as a traditional Access Point.
+  Wi-Fi® configurable as a traditional Access Point.
 </Feature>
 
 <Feature title="Cellular Connectivity" image="cellular">
