@@ -26,8 +26,28 @@ To follow along with this guide, you will of course need:
 - and the [Arduino IDE](https://www.arduino.cc/en/software).
 
 ## Initializing Matrix
+To use the LED Matrix library, there are a few things that need to be added to your sketch to get off the ground. 
 
+First, include the library at the top of your sketch, like this:
+
+```arduino
+#include "Arduino_LED_Matrix.h"
 ```
+
+Then, you'll need to create a LED Matrix object in your sketch, by adding the following line directly underneath the first one:
+
+```arduino
+ArduinoLEDMatrix matrix;
+```
+
+And then lastly, start the led matrix by adding this line in `void setup()`:
+```arduino
+matrix.begin();
+```
+
+The entire thing should look like this;
+
+```arduino
 #include "Arduino_LED_Matrix.h"
 
 ArduinoLEDMatrix matrix;
