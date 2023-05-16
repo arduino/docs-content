@@ -1,5 +1,5 @@
 ---
-title: 'Update WisGate Edge Gateway Device's Firmware'
+title: 'Update WisGate Edge Gateway Device Firmware'
 description: 'Tutorial to update the firmware version of the WisGate Edge gateway device variants'
 difficulty: beginner
 tags: [Maintenance, Firmware, WisGate]
