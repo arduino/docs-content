@@ -1,6 +1,6 @@
 ---
 title: 'Update WisGate Edge Gateway Device's Firmware'
-description: 'Learn to update to the latest firmware for the WisGate Edge gateway device variants'
+description: 'Tutorial to update the firmware version of the WisGate Edge gateway device variants'
 difficulty: beginner
 tags: [Maintenance, Firmware, WisGate]
 author: 'Pablo Marquínez'
