@@ -165,7 +165,7 @@ To do it follow the next steps:
 - Go to **Tools** > **Port** to select the proper port (the default one shown before in the PLC IDE inside the **Arduino PMC Configuration** > **Other** section)
 - Go to **Tools** > **Serial Monitor** and reset the board. Look at the end of the boot report to find the "Hardware-ID" and store it in a safe place.
 
-### 10. Download the Program
+### 10. Download a Program
 
 Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter.
 
