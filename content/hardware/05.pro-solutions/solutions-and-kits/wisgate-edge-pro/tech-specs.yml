@@ -2,7 +2,7 @@ Board:
   Name: Arduino® WisGate Edge Pro
   SKU: 
     EU: TPX00095
-    ENZ: TPX00096
+    ANZ: TPX00096
     US: TPX00097
 Computing: MT7628, DDR2 RAM 128 MB
 Operating temperature: -30 ºC to +55 ºC
@@ -20,8 +20,8 @@ LoRa®:
   Extra: Listen Before Talk
 Antennas:
   LTE: Internal
-  Wi-Fi: Internal
-  LoRa: 2x external fiberglass 5dB antennas with N-Type connectors
+  Wi-Fi®: Internal
+  LoRa®: 2x external fiberglass 5dB antennas with N-Type connectors
 Ethernet: RJ45 (10/100 Mbps)
 Power:
   DC Input: 12V or Solar panel
