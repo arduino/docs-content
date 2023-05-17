@@ -440,10 +440,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date (DD/MM/YY)**   | **Revision** | **Changes**   |
-| --------------------- | ------------ | ------------- |
-| 05-01-2023            | 01           | First release |
-
+| **Date (DD/MM/YY)**   | **Revision** | **Changes**               |
+| --------------------- | ------------ | ------------------------- |
+| 05-01-2023            | 01           | First release             |
+| 17-05-2023            | 02           | ESLOV Information updated |
 ## Product Warnings and Disclaimers
 
 THESE PRODUCTS ARE INTENDED FOR SALE TO AND INSTALLATION BY QUALIFIED PROFESSIONALS. ARDUINO CANNOT PROVIDE ANY ASSURANCE THAT ANY PERSON OR ENTITY BUYING ITS PRODUCTS, INCLUDING ANY “AUTHORIZED DEALER” OR “AUTHORIZED RESELLER”, IS PROPERLY TRAINED OR EXPERIENCED TO CORRECTLY INSTALL RELATED PRODUCTS.
