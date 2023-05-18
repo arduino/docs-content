@@ -547,11 +547,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date        | **Revision** | **Changes**   |
-| ----------- | ------------ | ------------- |
-| 13/04/2021  | 1            | First Release |
-| 09/05//2022 | 2            | Remove PT1000, not compatible |
-| 26/09//2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
-| 13/10/2022  | 4             | Big improvements & Fixes |
-| 11/04//2023 | 5            | Updates and table improvements        |
+| **Date**    | **Revision** | **Changes**                           |
+| ----------- | ------------ | ------------------------------------- |
 | 08/05//2023 | 6            | RTD and Thermocouples new information |
+| 11/04//2023 | 5            | Updates and table improvements        |
+| 13/10/2022  | 4            | Big improvements & Fixes |
+| 26/09//2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side)                              |
+| 09/05//2022 | 2            | Remove PT1000, not compatible         |
+| 13/04/2021  | 1            | First Release                         |
