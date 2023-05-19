@@ -132,6 +132,16 @@ value = analogRead(pin, value);
 
 The reference voltage of these pins is 3.3V. 
 
+### OPAMP Pins
+
+The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 WiFi** as follows:
+
+| Pin | OPAMP     |
+| --- | --------- |
+| A1  | OPAMP +   |
+| A2  | OPAMP -   |
+| A3  | OPAMP OUT |
+
 #### Additional PWM Pins
 
 The following pins are PWM capable but may interfer with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
@@ -196,9 +206,9 @@ You may use them as analog output pins with the function:
 analogWrite(pin, value);
 ```
 
-### DAC Pin
+## DAC
 
-The **UNO R4 WiFi** also has a DAC pin (A0) that can act as genuine analog output pin which means it's even more capable than PWM pins.
+The **UNO R4 WiFi** also has a DAC with up to 12-bit resolution, that can act as genuine analog output pin which means it's even more capable than PWM pins.
 
 ```arduino
 analogWrite(pin, value);
@@ -214,15 +224,49 @@ However you may change this write resolution if you need to, to up to 12-bits, a
 analogWriteResolution(12);
 ```
 
-### OPAMP Pins
+## RTC
 
-The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 WiFi** as follows:
+A real-time clock (RTC) is used to measure the time, and is useful in any time-tracking applications.
 
-| Pin | OPAMP     |
-| --- | --------- |
-| A1  | OPAMP +   |
-| A2  | OPAMP -   |
-| A3  | OPAMP OUT |
+Below is a minimal example that shows how to obtain the date and time from the RTC:
+
+```arduino
+#include "RTC.h"
+
+void setup() {
+  Serial.begin(9600);
+
+  RTC.begin();
+  RTCTime mytime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
+
+  RTC.setTime(mytime);
+}
+
+void loop() {
+  RTCTime currenttime;
+
+ // Get current time from RTC
+  RTC.getTime(currenttime);
+  
+  // Print out date (DD/MM//YYYY)
+  Serial.print(currenttime.getDayOfMonth());
+  Serial.print("/");
+  Serial.print(Month2int(currenttime.getMonth()));
+  Serial.print("/");
+  Serial.print(currenttime.getYear());
+  Serial.print(" - ");
+
+  // Print time (HH/MM/SS)
+  Serial.print(currenttime.getHour());
+  Serial.print(":");
+  Serial.print(currenttime.getMinutes());
+  Serial.print(":");
+  Serial.println(currenttime.getSeconds());
+
+  delay(1000);
+}
+
+```
 
 ## EEPROM
 
