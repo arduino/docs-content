@@ -1,0 +1,27 @@
+Board:
+  Name: Arduino® UNO R4 Minima
+  SKU: ABX00080
+Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
+USB:
+  USB-C: Programming Port
+Pins:
+  Digital I/O Pins: 14
+  Analog input pins: 6
+  DAC: 1
+  PWM pins: 6
+Communication:
+  UART: Yes, 4x
+  I2C: Yes, 1x
+  SPI: Yes, 1x
+  CAN: Yes 1 CAN Bus
+Power:
+  Circuit opera ting voltage: 5V
+  Input voltage (VIN): 6-24V
+  DC Current per I/O Pin: 8 mA
+Clock speed:
+  Main core: 48 MHz
+Memory:
+  RA4M1: 256kB Flash, 32kB RAM
+Dimensions:
+  Width: 68.85 mm
+  Length: 53.34 mm
