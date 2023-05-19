@@ -44,9 +44,10 @@ Maker, beginner, education
   * Segment LCD Controller (SLCDC)
 * **Power**
   * Recommended input voltage (VIN) is 6-24V
-  * Operating voltage for R7FA4M1AB3CFM#AA0 is 5V
+  * 5V operating voltage
   * Barrel jack connected to VIN pin
   * Power via USB-C® at 5V
+  * Schottky diodes for overvoltage and reverse polarity protection 
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
