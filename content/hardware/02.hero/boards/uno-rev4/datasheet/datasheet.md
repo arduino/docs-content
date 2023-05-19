@@ -126,7 +126,7 @@ The UNO R4 Minima is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1
 This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 Minima, it is fixed at 5V to be fully retro compatible with other UNO accessories. 
 
 The R7FA4M1AB3CFM#AA0 features:
-* 256KB flash / 32KB SRAM / 8KB data flash (EEPROM)
+* 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
 * Real Time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
