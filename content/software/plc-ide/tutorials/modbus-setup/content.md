@@ -1,5 +1,5 @@
 ---
-title: 'Modbus Setup with Arduino PLC IDE'
+title: 'Modbus Setup with Arduino® PLC IDE'
 description: 'This tutorial will show you how to set up the Modbus communication with the Arduino PLC IDE.'
 tags:
   - PLC
@@ -13,7 +13,7 @@ software:
 
 ## Overview
 
-The Arduino Portenta Machine Control (PMC) is a fully-centralized, low-power, industrial control unit. For equipment and machinery control, industrial communication protocols, such as Modbus RTU over RS485 and Modbus TCP/IP over Ethernet, can be implemented in the PMC. In this tutorial, we will learn about how to get started on how to configure the Modbus communication with the Arduino PLC IDE.
+The Arduino Portenta Machine Control (PMC) is a fully-centralized, low-power, industrial control unit. For equipment and machinery control, industrial communication protocols, such as Modbus RTU over RS-485 and Modbus TCP/IP over Ethernet, can be implemented in the PMC. In this tutorial, we will learn about how to get started on how to configure the Modbus communication with the Arduino PLC IDE.
 
 ## Goals
 
@@ -37,7 +37,7 @@ In order to configure the Portenta Machine Control you will need to connect to t
 
 ## Configure The Modbus RTU Communication
 
-***Important: Once you use the Modbus Mode to Master/Slave the RS485 ports will be only dedicated to Modbus, so the RS485 protocol is not accessible while using Modbus***
+***Important: Once you use the Modbus Mode to Master/Slave the RS-485 ports will be only dedicated to Modbus, so the RS-485 protocol is not accessible while using Modbus***
 
 ### Modbus RTU Configuration
 

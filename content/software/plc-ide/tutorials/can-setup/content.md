@@ -1,5 +1,5 @@
 ---
-title: 'CAN Bus Setup with Arduino PLC IDE'
+title: 'CAN Bus Setup with Arduino® PLC IDE'
 description: 'This tutorial will show you how to set up the CAN bus communication with the Arduino PLC IDE.'
 tags:
   - PLC

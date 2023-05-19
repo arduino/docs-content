@@ -1,5 +1,5 @@
 ---
-title: 'Programming Introduction With Arduino PLC IDE'
+title: 'Programming Introduction With Arduino® PLC IDE'
 difficulty: intermediate
 description: "Create programs with all the IEC-61131-3 languages on the Arduino PLC IDE"
 tags:
@@ -14,7 +14,7 @@ software:
   - plc-ide
 ---
 
-## Introduction 
+## Introduction
 
 The IEC-61131-3 standard collects 5 programming languages to help you creating your programs; you can use them together to make an entire program, grouping them in functions and function blocks. In addition to the standard languages, an Arduino sketch can be integrated, interacting with the other languages by means of Shared Variables. This kind of development can be accomplished using Arduino PLC IDE. In this tutorial you will familiarize with all of them while having an Arduino sketch in mind as a reference.
 
