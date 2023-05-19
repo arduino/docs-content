@@ -34,7 +34,7 @@ Maker, beginner, education
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
   * 14-bit ADC
-  * 8/12-bit DAC
+  * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
   * Multiple Clock Sources
     * 1-20 MHz main clock oscillator (MOSC)
