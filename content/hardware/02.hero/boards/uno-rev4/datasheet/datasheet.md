@@ -123,7 +123,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 The UNO R4 Minima is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 Minima, it is fixed at 5V as to be fully retro compatible with other UNO accessories. 
+This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 Minima, it is fixed at 5V to be fully retro compatible with other UNO accessories. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256KB flash / 32KB SRAM / 8KB data flash (EEPROM)
