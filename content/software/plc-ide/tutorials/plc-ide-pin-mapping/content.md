@@ -1,5 +1,5 @@
 ---
-title: 'Arduino PLC IDE Pin Mapping'
+title: 'Arduino® PLC IDE Pin Mapping'
 difficulty: beginner
 description: "Assign the pins to variables and interact with them on the Arduino PLC IDE"
 tags:
