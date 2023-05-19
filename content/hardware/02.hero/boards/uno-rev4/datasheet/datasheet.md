@@ -130,7 +130,7 @@ The R7FA4M1AB3CFM#AA0 features:
 * Real Time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
-* 8/12-bit DAC
+* up to 12-bit DAC
 * 4x OPAMP
 * CAN bus
 
