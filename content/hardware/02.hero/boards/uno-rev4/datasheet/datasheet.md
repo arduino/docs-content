@@ -131,8 +131,8 @@ The R7FA4M1AB3CFM#AA0 features:
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
 * up to 12-bit DAC
-* 4x OPAMP
-* CAN bus
+* OPAMP
+* 1x CAN bus
 
 For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
 
@@ -140,19 +140,19 @@ For more technical details on this microcontroller, visit [Renesas - RA4M1 serie
 
 The UNO R4 Minima has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
 
-Note that you should not power the board with more than 5V via the USB-C® port.
+***Note: You should not power the board with more than 5V via the USB-C® port.***
 
 ## Digital Analog Converter (DAC)
 
-The UNO R4 Minima has one 8-bit & one 12-bit DAC attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal. 
+The UNO R4 Minima has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal. 
 
 <div style="page-break-after: always;"> </div>
 
 ## Power Options
 
-Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5V.
+Power can either be supplied via the VIN pin, the barrel jack, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5V.
 
-Both VUSB and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
+The VUSB, barrel jack connector and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
 
 Power via USB supplies about ~4.7V (due to Schottky drop) to the RA4M1 microcontroller.
 
@@ -352,9 +352,6 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands      | Maximum output power (ERP) |
-| -------------------- | -------------------------- |
-| 2.4 GHz, 40 channels | TBD                        |
 
 ## Company Information
 
