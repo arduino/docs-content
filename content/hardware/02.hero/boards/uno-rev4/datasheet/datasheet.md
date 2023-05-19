@@ -43,8 +43,8 @@ Maker, beginner, education
     * 32.768 kHz low-speed on-chip oscillator (LOCO)
   * Segment LCD Controller (SLCDC)
 * **Power**
-  * Operating voltage for R7FA4M1AB3CFM#AA0 is 5V
   * Recommended input voltage (VIN) is 6-24V
+  * Operating voltage for R7FA4M1AB3CFM#AA0 is 5V
   * Barrel jack connected to VIN pin
   * Power via USB-C® at 5V
 * **Communication**
