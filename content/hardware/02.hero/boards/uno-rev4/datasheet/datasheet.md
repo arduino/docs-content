@@ -168,7 +168,7 @@ The UNO R4 Minima operates on 5V, as does all pins on this board except for the 
 
 The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 20mA. Never connect devices that draw higher current directly to a GPIO.
 
-For powering e.g. servo motors, use an external power supply.
+In case you need to power external devices that require more power, like e.g. servo motors, use an external power supply.
 
 # Mechanical Information
 
