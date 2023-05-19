@@ -1,10 +1,10 @@
 ---
-title: 'Getting Started with Nicla Voice'
-description: 'Learn how to start to use the Nicla Voice and create your own machine learning audio models using the Machine Learning Tools'
+title: 'Audio Analysis with Machine Learning and the Nicla Voice'
+description: 'Learn to use the Nicla Voice to create your own Machine Learning audio models with this getting started tutorial.'
 tags: 
   - Getting started
-  - Machine Learning Tools
-author: 'Benjamin Dannegård'
+  - Machine Learning tools
+author: 'Benjamin Dannegård and José Bagur'
 libraries: 
   - name: NDP
     url: https://github.com/edgeimpulse/firmware-syntiant-tinyml
@@ -19,35 +19,71 @@ software:
 
 ## Overview
 
-The Arduino® Nicla Voice runs audio inputs through the powerful Syntiant NDP120 Neural Decision processor, which mimics human neural pathways to run multiple AI algorithms and automate complex tasks. In other words, it recognizes different events and hears keywords simultaneously. It is capable of understanding and learning its surrounding sounds.
+The Arduino® Nicla Voice processes audio inputs using the powerful Syntiant® NDP120™ Neural Decision Processor™, which simulates human neural pathways to execute multiple artificial intelligence (AI) algorithms and automate complex tasks. The NDP120 is capable of understanding and learning the sounds in its surroundings, recognizing different events, and detecting keywords simultaneously.
 
-To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning model is required. With the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) powered by Edge Impulse® and integrated in Arduino Cloud, it is possible to build, train and easily deploy the machine learning model to the Nicla Voice. This tutorial will explain how to start with the board, test the default built-in sketch, and create your own models.
+To make use of these keyword triggers, such as blinking the LED when the board recognizes a specific word, a machine learning (ML) model is required. With the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) powered by Edge Impulse® and integrated into the Arduino Cloud, you can quickly build, train and deploy ML models onto the Nicla Voice. This tutorial will guide you through getting started with the Nicla Voice, testing a built-in speech recognition example, and creating your ML models with the Machine Learning Tools integrated into the Arduino Cloud.
 
-![The Nicla Voice](assets/nicla-cover-image.svg)
+![The Nicla Voice board](assets/nicla-cover-image.svg)
 
 ## Goals
 
-The goals of this tutorial are:
+- Test the built-in speech recognition example
+- Learn how to capture audio data to train an ML model
+- Learn how to train an ML model using audio data
+- Learn how to export an ML model to the Nicla Voice
+- Learn how to test an ML model uploaded to the Nicla Voice
 
-- Test the built-in example to check that the board is working well
-- Learn how to capture audio to train a machine learning model
-- Learn how to train a machine learning model
-- Learn how to export the model to be used with the Nicla Voice
-- Learn how to test the model to see if it is working as it should be
+## Hardware and Software Requirements
 
-## Hardware & Software Needed
+### Hardware Requirements
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino Nicla Voice](https://store.arduino.cc/nicla-voice) (x1)
-- [Arduino Cloud](https://cloud.arduino.cc/)
+- [Nicla Voice](https://store.arduino.cc/nicla-voice) (x1)
+- Micro USB cable (x1)
 
-## Testing the Built-in Example
+### Software Requirements
 
-The Nicla Voice comes pre-flashed with a wake up word detection demo. This demo can be found in the Arduino IDE, under **File->Examples->NDP->AlexaDemo**. To test this sketch, simply connect the Nicla Voice to a computer or an alternative power source, and say "Alexa". This should make the on-board LED blink. If there is no response from the board, try with closer proximity or try speaking louder. In this tutorial, we are going to replicate this behavior using our custom Machine Learning model.
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- To create your ML model, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet)
+- [The compiled uploaders for various operating systems and the updated NDP120 processor firmware and speech recognition model files](assets/nicla_voice_uploader_and_firmwares.zip)
 
-Now let's take a look at how to create a machine learning model using the Machine Learning Tools integration.
+## Testing the Built-in Speech Recognition Example
 
-## The Machine Learning Model
+The Nicla Voice has a built-in speech recognition example: **the Alexa demo**. You can test this example by just powering the board after unboxing it **without flashing anything**. To deploy the example again after flashing your board, you must first update the NDP120 processor firmware and the speech recognition model to the latest release. Follow these four steps to complete the update process:
+
+
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board first before navigating to the examples**.
+2. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, as well as the updated NDP120 processor firmware and speech recognition model. 
+3. Open a new terminal where the .zip file was extracted and execute the following command:
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
+    ```
+
+    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands:
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
+    ```
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
+    ```
+
+    ```
+    ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
+    ```
+
+    Ensure all executed commands return a `filename sent succesful` message in the console as shown in the image below. 
+
+    ![Uploader feedback messages](assets/getting-started-1.png)
+
+4. After successfully uploading the three files, we can upload the speech recognition example to the Nicla Voice. The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. To test the example say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the word "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected as shown in the image below:
+
+![AlexaDemo example feedback in the Arduino IDE Serial Monitor](assets/getting-started-2.png)
+
+Now, let's replicate this behavior using a custom Machine Learning model.
+
+## The Custom Machine Learning Model
 
 To train a machine learning model to classify audio, we first need to feed it with an audio sample, which will be a sound that it should recognize. The model will be trained using a concept called *supervised learning*. With *supervised learning*, we train the model with data already known and tell it while it's "practicing" its predictions if they are correct or not. This is normally known as the *training* process. For the training on *supervised learning*, objects are labeled beforehand with their names, which you will see when we get to the audio recording section.
 
@@ -94,8 +130,6 @@ Make sure to have a good training/test data split ratio of around 80/20. The tes
 ### Create an Impulse
 
 Now that we acquired the data samples, we can move on to designing the Impulse. In a nutshell, an Impulse is a pipeline that the model will use for training and it consists of an input block, a processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data and the audio that was captured in the previous step and provides a probability that indicates how likely it is that the input data belongs to a particular class as its output.
-
-Now that we have the data samples, we can move on to designing the Impulse. An Impulse is in a nutshell the pipeline that the model will use for training. Consisting of an input block, processing block and a learning block. The input block indicates the type of data being used in the model, which will be audio in this case. The processing block extracts meaningful features from your data. The Audio Syntiant processing block we are using in this tutorial extracts time and frequency features from the audio used in the model. The learning block uses a neural network classifier that will take the input data, the audio that was captured in the previous step, and then give us a probability that indicates how likely it is that the input data belongs to a particular class.
 
 In the menu navigate to "Create Impulse" under "Impulse Design" and add an Audio processing block, which will be "Syntiant" in this case, as well as a Classification block. The page should now look like the image below.
 

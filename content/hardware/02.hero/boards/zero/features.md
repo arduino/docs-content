@@ -10,7 +10,7 @@ bootloader programming.
 
 <Feature title="Embedded Debugger" image="mcu">
 
-The Zero comes with a built-in debugger, which can be used with the Arduino IDE 2.0 version.
+The Zero comes with a built-in debugger, which can be used with the Arduino IDE 2 version.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/zero/debugging-with-zero"/>
 </Feature>

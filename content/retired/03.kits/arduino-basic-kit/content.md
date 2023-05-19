@@ -6,9 +6,11 @@ sku: "AKX00001"
 source: "https://store.arduino.cc/arduino-basic-kit"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Basic Kit](./assets/store_akx00001_featured.jpg)
 
-This kit includes all the components you need to build simple projects and learn how to turn an idea into reality using Arduino. Arduino Basic Kit has been developed in collaboration with Autodesk. When you purchase the kit you will receive [online access to 15 step-by-step tutorials](http://projectignite.autodesk.com/arduino) to make simple projects using components that let you control the physical world through different kinds of sensors and actuators.
+This kit includes all the components you need to build simple projects and learn how to turn an idea into reality using Arduino. Arduino Basic Kit has been developed in collaboration with Autodesk. When you purchase the kit you will receive [online access to 15 step-by-step tutorials](http://projectignite.autodesk.com/arduino) to make simple projects using components that let you control the physical world through different kinds of sensors and actuators.
 
 Once you have mastered this knowledge, you will have a palette of code and circuits to create something beautiful and useful. So build, hack and share!
 

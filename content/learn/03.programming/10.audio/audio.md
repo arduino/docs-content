@@ -18,7 +18,7 @@ This article highlights different approaches to making sounds and even entire so
 
 The examples are nevertheless still relevant as they explain some basic concepts of generating tone frequencies, interpolation and even provide you with some songs to try out. If you want to see an example for a simple melody using the [tone()](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/) library and familiarize yourself with the concept of external sound data files, you can check out [this example](https://docs.arduino.cc/built-in-examples/digital/toneMelody).
 
-Most sketches in this article use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your Arduino. Only the **PCMAudio** example uses pin 11 as it is making us of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
+Most sketches in this article use pin 8 as output for the piezo buzzer or speaker which means you only need to connect your components a shown below and try out the different examples by uploading them to your Arduino. Only the **PCMAudio** example uses pin 11 as it is making use of [PWM](https://www.arduino.cc/en/Tutorial/Foundations/PWM).
 
 ## Hardware Required
 
@@ -276,7 +276,7 @@ j++; // Increments j by 1.
 
 ## PCMAudio
 
-The following example was created by Michael Smith and is the precursor for the [PCM](https://www.arduino.cc/reference/en/libraries/pcm/) library created by David Mellis. It play's 8-bit PCM audio on pin 11 using pulse-width modulation [(PWM)](https://www.arduino.cc/en/Tutorial/Foundations/PWM). It uses two timers. The first changes the sample value 8000 times a second. The second holds pin 11 high for 0-255 ticks out of a 256-tick cycle, depending on the sample value. The second timer repeats 62500 times per second (16000000 / 256), which is much faster than the playback rate (8000 Hz), so it almost sounds halfway decent, just really quiet on a PC speaker.
+The following example was created by Michael Smith and is the precursor for the [PCM](https://www.arduino.cc/reference/en/libraries/pcm/) library created by David Mellis. It plays 8-bit PCM audio on pin 11 using pulse-width modulation [(PWM)](https://www.arduino.cc/en/Tutorial/Foundations/PWM). It uses two timers. The first changes the sample value 8000 times a second. The second holds pin 11 high for 0-255 ticks out of a 256-tick cycle, depending on the sample value. The second timer repeats 62500 times per second (16000000 / 256), which is much faster than the playback rate (8000 Hz), so it almost sounds halfway decent, just really quiet on a PC speaker.
 
 Takes over Timer 1 (16-bit) for the 8000 Hz timer. This breaks PWM (analogWrite()) for Arduino pins 9 & 10. It then takes Timer 2 (8-bit) for the pulse width modulation, breaking the PWM for pins 11 & 13.
 

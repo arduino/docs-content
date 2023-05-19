@@ -6,6 +6,8 @@ sku: "A000107"
 source: "https://store.arduino.cc/arduino-usb-2-serial-micro"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino USB 2 Serial Micro board](./assets/A000107_featured_2.jpg)
 
 This board converts a USB connection into a 5 volt Serial TX and RX that you can connect straight to the Arduino Mini, Arduino Ethernet or other microcontrollers, allowing them to talk to the computer. It features an Atmega16U2 programmed as a USB-to-serial converter, the same chip found on the [Arduino Uno](https://www.arduino.cc/en/Main/ArduinoBoardUno). The *16U2 firmware* uses the standard USB COM drivers, and no external driver is needed. However, on Windows, a .inf file is required.

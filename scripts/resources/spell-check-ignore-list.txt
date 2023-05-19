@@ -11,3 +11,5 @@ synopsys
 trun
 complies
 ro
+som
+ser

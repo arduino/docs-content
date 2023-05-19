@@ -59,11 +59,11 @@ The Nano RP2040 Connect can be programmed through the **Classic Arduino IDE 1.8.
 
 - [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano)
 
-### Arduino IDE 2.0.X 
+### Arduino IDE 2 
 
-The Nano RP2040 Connect can be programmed through the **Arduino IDE 2.0.X**. To install your board, you can check out the guide below:
+The Nano RP2040 Connect can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
-- [How to use the board manager with the Arduino IDE 2.0](/software/ide-v2/tutorials/ide-v2-board-manager)
+- [How to use the board manager with the Arduino IDE 2](/software/ide-v2/tutorials/ide-v2-board-manager)
 
 ### Web Editor
 
@@ -265,15 +265,15 @@ If you want to learn more on how to use the IMU, please check out the tutorial b
 
 ## Microphone
 
-![The MP34DT05 microphone sensor.](assets/MP34DT05-NANORP2040CONNECT.png)
+![The MP34DT06JTR microphone sensor.](assets/MP34DT06JTR-NANORP2040CONNECT.png)
 
-### MP34DT05 
+### MP34DT06JTR 
 
-The **MP34DT05** is a compact, low-power omnidirectional digital MEMS microphone with an IC interface. It has a 64 dB signal-to-noise ratio, is capable of sensing acoustic waves and can operate in temperatures of -40 °C to +85 °C.
+The **MP34DT06JTR** is a compact, low-power omnidirectional digital MEMS microphone with an IC interface. It has a 64 dB signal-to-noise ratio, is capable of sensing acoustic waves and can operate in temperatures of -40 °C to +85 °C.
 
 ### PDM Library
 
-To access the data from the MP34DT05, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards** core. If the core is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
+To access the data from the MP34DT06JTR, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards** core. If the core is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
 
 - **Please note:** The sampling frequency in the PDMSerialPlotter example is set to 16000 Hz. If the microphone appears to not be working (monitor is printing a value of -128), try to change this rate to 20000 Hz. You can change this at the top of the PDMSerialPlotter example sketch, as shown in the example below:
 

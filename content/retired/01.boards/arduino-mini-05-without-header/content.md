@@ -6,6 +6,8 @@ sku: "A000088"
 source: "https://store.arduino.cc/arduino-mini-05-without-header"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Mini 05 board, without headers](./assets/a000088_featured.jpg)
 
 The **Arduino Mini 05** is a small microcontroller board originally based on the ATmega168, but now supplied with the 328.([datasheet](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf)), intended for use on breadboards and when space is at a premium. It has 14 digital input/output pins (of which 6 can be used as PWM outputs), 8 analog inputs, and a 16 MHz crystal oscillator. It can be programmed with the [USB Serial adapter](https://www.arduino.cc/en/Main/USBSerial) or other USB or RS232 to TTL serial adapter.

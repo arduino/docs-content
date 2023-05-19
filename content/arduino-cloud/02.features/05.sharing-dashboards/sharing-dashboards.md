@@ -19,7 +19,7 @@ If you want to get started with the Arduino Cloud IoT, you can check out [gettin
 
 ## Sharing your dashboards
 
->**Note:** Before we start, let's make sure that we have a **Thing** and **Dashboard** already set up. If you haven't got that set up, head over to the [Setting up the Arduino IoT Cloud in detail]() tutorial.
+>**Note:** Before we start, let's make sure that we have a **Thing** and **Dashboard** already set up. If you haven't got that set up, check out the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial.
 
 The Arduino IoT Cloud's dashboard feature is a really good tool for sending, receiving and storing data through the cloud. You can now also share your dashboards with other people, so that they can access your devices as well, without having access to your account!
 

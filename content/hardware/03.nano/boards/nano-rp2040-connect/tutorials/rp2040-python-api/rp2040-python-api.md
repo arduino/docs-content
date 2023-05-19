@@ -168,7 +168,7 @@ while (True):
     time.sleep_ms(100)
 ```
 
-### Microphone (MP34DT05)
+### Microphone (MP34DT06JTR)
 
 Below example can be used with OpenMV's frame buffer window (top right corner).
 

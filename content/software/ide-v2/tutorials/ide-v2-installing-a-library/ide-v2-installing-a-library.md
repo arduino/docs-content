@@ -1,25 +1,25 @@
 ---
 title: 'Installing libraries'
 difficulty: beginner
-description: 'Learn how to install software libraries with the new library manager tool in the Arduino IDE 2.0.'
+description: 'Learn how to install software libraries with the new library manager tool in the Arduino IDE 2.'
 tags:
  - Libraries
  - Installation
  - Tools
-author: 'Karl Söderby'
+author: 'Karl Söderby & Jacob Hylén'
 ---
 
 A large part of the Arduino programming experience is the **use of libraries.** There are thousands of libraries that can be found online, and the best documented ones can be found and installed directly through the editor.
 
-In this tutorial, we will go through how to install a library using the library manager in the Arduino IDE 2.0. We will also show how to access examples from a library that you have installed.
+In this tutorial, we will go through how to install a library using the library manager in the Arduino IDE 2. We will also show how to access examples from a library that you have installed.
 
 You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
-You can also follow the [downloading and installing the Arduino IDE 2.0](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
+You can also follow the [downloading and installing the Arduino IDE 2](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
 ## Requirements
 
-- Arduino IDE 2.0 installed. 
+- Arduino IDE 2 installed. 
 
 ## Why Use Libraries?
 
@@ -31,7 +31,7 @@ Arduino has many official libraries, but the real heroes are the Arduino communi
 
 Installing a library is quick and easy, but let's take a look at what we need to do. 
 
-**1.** Open the Arduino IDE 2.0. 
+**1.** Open the Arduino IDE 2. 
 
 **2.** With the editor open, let's take a look at the left column. Here, we can see a couple of icons. Let's click the on the **"library"** icon.
 
@@ -60,6 +60,9 @@ To use a library, you first need to include the library at the top of the sketch
 Almost all libraries come with already made examples that you can use. These are accessible through **File > Examples > {Library} > {Example}**. In this example, we are choosing the **RTCZero > SimpleRTC**.
 
 ![Choosing an example sketch from a library.](assets/installing-a-library-img06.png)
+
+You can also access library examples directly in the library manager, by clicking the three dots next to the installed library, like this:
+![Library examples](./assets/installing-a-library-img06.5.png)
 
 The chosen example will now open up in a new window, and you can start using it however you want to.
 
