@@ -1,0 +1,52 @@
+Kit:
+  Name: Arduino® Make Your UNO Kit
+  SKU: AKX00037
+PCB:
+  Board PCB Sheet: 1x
+  Shield PCB Sheet: 1x
+Integrated Circuits:
+  ATmega328P: 1x
+  LM386 (amplifier): 1x
+  USB-C® Module: 1x
+LEDs:
+  Green: 1x
+  Yellow: 4x
+Resistors: 
+  10Ω: 1x
+  1kΩ: 7x
+  10kΩ: 2x
+  100kΩ: 1x
+  1MΩ: 2x
+Capacitors:
+  Yellow 22pF: 3x 
+  Yellow 47pF: 1x
+  Electrolytic Black 47μF: 3x
+  Electrolytic Black 220μF: 1x
+  Blue 100nF: 8x
+Other Electronics:
+  Speaker 8Ω 1W: 1x
+  Crystal 16mHz, 20pF: 1x 
+  Diode: 1x
+  Potentiometer 10kΩ: 6x
+  Potentiometer Knob: 6x
+  Pushbutton: 1x
+  LDO (3.3V): 1x
+  LDO (5V): 1x
+  Power Jack: 1x
+Connectors: 
+  UNO I/O Connector: 2x
+  ICPS Connector: 1x
+  ATmega328P Socket: 1x
+  1x10 Pin Header: 1x
+  1x8 Pin Header: 2x
+  1x6 Pin Header: 1x
+Mechanical Components:
+  M3 Spacer 12mm: 5x
+  M3 Screw 6mm: 11x
+  M3 Screw 12mm: 2x
+  M3 Bolt: 5x
+
+
+
+
+

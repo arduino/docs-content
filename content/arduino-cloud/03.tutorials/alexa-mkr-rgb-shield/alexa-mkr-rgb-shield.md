@@ -20,7 +20,7 @@ This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/pro
 
 ***While this tutorial focuses on creating a smart lamp, it also shows the steps needed to integrate the two services, so you can essentially follow this tutorial to create other cool projects!***
 
-***You can also find all variables that can be synchronized between Arduino Cloud and Alexa in the [IoT Cloud Variables guide](/arduino-cloud/tutorials/alexa-mkr-rgb-shield#alexa-variables).***
+***You can also find all variables that can be synchronized between Arduino Cloud and Alexa in the [IoT Cloud Variables guide](/arduino-cloud/getting-started/cloud-variables#alexa-variables).***
 
 ## Goals
 
@@ -31,7 +31,7 @@ The goals of this project are:
 - Install the Arduino Skill on the Alexa app.
 - Sync the Arduino IoT Cloud with Alexa.
 
-## Hardware & Software needed
+## Hardware & Software Needed
 
 - [Arduino IoT Cloud](https://create.arduino.cc/iot/)
 - [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
@@ -50,7 +50,7 @@ Let's start by navigating to the <a href="https://create.arduino.cc/iot/" target
 
 >**Note:** You will need a Arduino account to use the Arduino IoT Cloud. If you do not have one, you will be directed to the account registration.
 
-### Configure a new device
+### Configure a New Device
 
 Once we are in the Arduino IoT Cloud, we will need to click on the **"Devices"** tab. This will open a new page which will ask you to add a new device. Click on the **"Add device"** button.
 
@@ -78,7 +78,7 @@ Once it is done, we will be directed to the devices page, where we can see our d
 
 ![Configuration complete!](assets/device_overview.png)
 
-### Creating a Thing and linking your device
+### Creating a Thing and Linking Your Device
 
 After our device is configured, we can move on to the next step: creating our very first Thing. Click on the **"Things"** tab. You should now see a button that says **"Create thing"**, which we will need to click.
 
@@ -102,7 +102,7 @@ Name the variable **LoungeArea**, and for variable type, select the **Colored Li
 
 ![Adding a variable.](assets/alexa-mkr-rgb-shield-img-03.png)
 
-### Adding your network details
+### Adding Your Network Details
 
 Now that we have created a variable, we can configure the **network details**. This is done by clicking on the **"Configure"** button in the **"Network"** section.
 
@@ -110,7 +110,7 @@ Now that we have created a variable, we can configure the **network details**. T
 
 >**Note:** You can't enter any network details until you have added a variable.
 
-### Creating the program
+### Creating the Program
 
 With all configurations done, we can move onto creating the program. By clicking on the **"Sketch"** tab, we can start editing the code right away.
 
@@ -188,7 +188,7 @@ void onLoungeAreaChange() {
 }
 ```
 
-### Uploading the program
+### Uploading the Program
 
 Upload the code in the snippet above to your MKR WiFi 1010 board. When it has successfully uploaded, go to the **"Serial Monitor"** tab to initialize the program. If the connection is successful, we should see the following:
 
@@ -220,7 +220,7 @@ Let's go through the steps necessary to install the Arduino Alexa Skill.
 
 ![Looking for devices.](assets/alexa_phone_3.png)
 
-### Amazon Alexa devices setup
+### Amazon Alexa Devices Setup
 
 After waiting a little bit, we should see a new screen appear, where it says **"1 light found and connected"**.
 
@@ -230,7 +230,7 @@ Click **"Set Up Device"**. If you like you can also add it to a group (this way 
 
 Congratulations! You should now be able to control the lights through your Alexa app.
 
-## Step 3: Controlling the lights
+## Step 3: Controlling the Lights
 
 To control the lights on our setup, we will need to head over to the **"Devices"** tab in the Alexa app. Once in the Devices tab, click on the **"Lights"** button. We will now see the available lights. If you have other lights already connected, they will appear here as well. In our case, we only have one, which is **LoungeArea**, which is the same name as the variable we created earlier in the Arduino IoT Cloud. If we click on **LoungeArea** we will access the color / brightness control.
 
@@ -250,7 +250,7 @@ In this tutorial, we went through a few simple steps to integrate a MKR WiFi 101
 
 As a result, we now have a smart light that can be controlled directly through the Alexa app, and if you have a physical Alexa device, you can start playing around with different voice commands, such as changing the color and brightness of your lamp!
 
-## More tutorials
+## More Tutorials
 
 You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
 

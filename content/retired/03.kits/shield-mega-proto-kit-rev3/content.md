@@ -6,6 +6,8 @@ sku: "A000081"
 source: "https://store.arduino.cc/shield-mega-proto-kit-rev3"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Shield - MEGA Proto Kit Rev3 ](assets/a000081_top.jpg)
 
 Base kit to extend your Arduino MEGA with your own wired circuit. The kit is composed from: 

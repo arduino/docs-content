@@ -49,7 +49,7 @@ In this section you will learn how to set up your development environment as wel
 
   - [A Typical Workflow](#a-typical-workflow)
   - [Arduino IDE 1.8.x](#arduino-ide-18x)
-  - [Arduino IDE 2.0.x](#arduino-ide-20x)
+  - [Arduino IDE 2](#arduino-ide-20x)
   - [Arduino IoT Cloud](#arduino-iot-cloud)
   - [Web Editor](#web-editor)
   - [Library Manager](#library-manager)
@@ -376,7 +376,7 @@ The Arduino IDE facilitates all this, from the first line of code written, to ha
 Today, there are three Arduino IDEs available:
 
 - Arduino IDE 1.8.x (classic)
-- Arduino IDE 2.0.x (new)
+- Arduino IDE 2 (new)
 - Arduino Web Editor (online)
 
 ### A Typical Workflow
@@ -401,11 +401,11 @@ For what is now considered the "legacy" editor, the Arduino IDE 1.8.X, or "Java 
 
 ***Learn more by visiting the [Arduino IDE 1 documentation](/software/ide-v1).***
 
-### Arduino IDE 2.0.x
+### Arduino IDE 2
 
 ![The new Arduino IDE.](assets/ide-2.png)
 
-In 2021, the Arduino IDE 2.0 was released. The new IDE has the same functionality, but also supports features such as auto-completion and debugging. 
+In 2021, the Arduino IDE 2 was released. The new IDE has the same functionality, but also supports features such as auto-completion and debugging. 
 
 ***Learn more by visiting the [Arduino IDE 2 documentation](/software/ide-v2).***
 
@@ -430,7 +430,7 @@ The cloud is made for **anyone** to use, and it does not require much previous e
 
 ### Library Manager
 
-![Library manager on IDE 1.8.x and IDE 2.0.x](assets/lib-manager.png)
+![Library manager on IDE 1.8.x and IDE 2](assets/lib-manager.png)
 
 Every version of the IDE has a library manager for installing Arduino software libraries. Thousands of libraries, both official and contributed libraries, are available for direct download. Code examples for each library is made available on download.
 

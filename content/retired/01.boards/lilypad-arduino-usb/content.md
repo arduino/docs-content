@@ -7,6 +7,8 @@ sku: "E000017"
 source: "https://store.arduino.cc/lilypad-arduino-usb"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The LilyPad Arduino USB board](./assets/store_e000017_featured_1.jpg)
 
 The **LilyPad Arduino USB** is a microcontroller board based on the [ATmega32u4](http://www.atmel.com/Images/Atmel-7766-8-bit-AVR-ATmega16U4-32U4_Datasheet.pdf). It has 9 digital input/output pins (of which 4 can be used as PWM outputs and 4 as analog inputs), an 8 MHz resonator, a micro USB connection, a JST connector for a 3.7V LiPo battery, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a battery to get started.

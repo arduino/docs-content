@@ -13,7 +13,7 @@ This article contains information about the Modbus serial communication protocol
 - All boards compatible with the [Ethernet Shield Rev2](https://docs.arduino.cc/hardware/ethernet-shield-rev2)
 - [Portenta Machine Control](https://docs.arduino.cc/hardware/portenta-machine-control)
 - [Portenta Max Carrier](https://docs.arduino.cc/hardware/portenta-max-carrier)
-- Opta™
+- [Opta™](https://docs.arduino.cc/hardware/opta)
 
 ### Libraries
 - [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/)
@@ -22,7 +22,7 @@ This article contains information about the Modbus serial communication protocol
 ***Controller/peripheral is formerly known as master/slave. Arduino no longer supports the use of this terminology. Devices formerly known as master are referred to as controller and devices formerly known as slaves are referred to as peripheral.***
 
 ## What is Modbus?
-Modbus is an open serial communication protocol used for transmitting information over serial lines between electronic devices. It was originally published by Modicon (now Schneider Electric) in 1979. The Modbus protocol is the oldest and by far the most popular automation protocol in the field of automation process. It enables devices, such as energy meters or humidity sensors connected to the same network to communicate the results to a supervisory computer or a Programmable Logic Computer (PLC).
+Modbus is an open serial communication protocol used for transmitting information over serial lines between electronic devices. It was originally published by Modicon (now Schneider Electric) in 1979. The Modbus protocol is the oldest and by far the most popular automation protocol in the field of automation process. It enables devices, such as energy meters or humidity sensors connected to the same network to communicate the results to a supervisory computer or a Programmable Logic Controller (PLC).
 
 Several versions of the Modbus protocol exist such as Modbus RTU, Modbus ASCII, Modbus TCP and Modbus Plus. It is based on a controller-peripheral (formerly known as master-slave) architecture and communication between nodes is achieved with send request and read response type messages. Modbus communicates over several types of physical media such as RS-232/RS-485 or Ethernet. The original Modbus interface ran on RS-232 serial communication but most of the later Modbus implementations use RS-485 because it allows for longer distances, higher speeds and the possibility of multiple devices on a single multi-drop network. The communication over serial RS-485 physical media works with two-wire transmit and receive connections.
 

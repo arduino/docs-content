@@ -1,5 +1,5 @@
 ---
-title: 'Synchronizing Sketches between IDE 2.0 and Arduino Cloud'
+title: 'Synchronizing Sketches between IDE 2 and Arduino Cloud'
 difficulty: beginner
 description: 'Learn how to enable your Remote Sketchbook, and how to pull, edit and push Sketches to the Arduino Cloud.'
 tags:
@@ -15,7 +15,7 @@ In this tutorial, we will describe the benefits of this new feature, go through 
 ## Benefits
 
 - **Code anywhere**:
-Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2.0 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure cloud and retrieve them easily on any other workstation.
+Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure cloud and retrieve them easily on any other workstation.
 
 - **Code from your browser**:
 If you want to work on a computer that doesn’t have the Arduino IDE installed, just open the Arduino Web Editor: you’ll get an online IDE with all your sketches just there, plus all the libraries.
@@ -51,11 +51,11 @@ In a nutshell, the steps required to make this integration are the following:
 - Pull a Sketch you want to edit.
 - When you have finished editing, push it back to the cloud. 
 
-***The Remote Sketchbook integration with IDE 2.0 does not yet support pushing your local Sketches to the cloud. The Sketch needs to have been originally created in the Arduino Cloud platform.***
+***The Remote Sketchbook integration with IDE 2 does not yet support pushing your local Sketches to the cloud. The Sketch needs to have been originally created in the Arduino Cloud platform.***
 
 ### Requirements
 
-- [Arduino IDE 2.0](https://www.arduino.cc/en/software)
+- [Arduino IDE 2](https://www.arduino.cc/en/software)
 - Arduino account, [click here to register](https://login.arduino.cc/login).
 
 ## Understanding the Remote Sketchbook Concept
@@ -72,9 +72,9 @@ B) You are using the Arduino Cloud platform, where Sketches are stored in the cl
 
 ![The online Sketchbook.](assets/cloud-sketch-sync-img02.png)
 
-But, with the latest integration of **Arduino Cloud** in the **Arduino IDE 2.0**, we are now able to synchronize our Sketches between the online and offline applications. This is made possible through a quick and easy authentication process that can be completed within a minute!
+But, with the latest integration of **Arduino Cloud** in the **Arduino IDE 2**, we are now able to synchronize our Sketches between the online and offline applications. This is made possible through a quick and easy authentication process that can be completed within a minute!
 
-![The new IDE 2.0 and Arduino Cloud integration.](assets/cloud-sketch-sync-img03.png)
+![The new IDE 2 and Arduino Cloud integration.](assets/cloud-sketch-sync-img03.png)
 
 But without further ado, let's take a look at how to start using this incredible feature.
 
@@ -115,11 +115,11 @@ void loop() {
 
 ## Enabling the Remote Sketchbook
 
-After we have created a Sketch in the Arduino Cloud, we can move on to **authenticating the Cloud and the IDE 2.0**. To continue, you need to have installed the Arduino IDE 2.0.
+After we have created a Sketch in the Arduino Cloud, we can move on to **authenticating the Cloud and the IDE 2**. To continue, you need to have installed the Arduino IDE 2.
 
->You can download the IDE 2.0 from the [software page](https://www.arduino.cc/en/software). If you need help installing it, you can visit [this installation guide](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).
+>You can download the IDE 2 from the [software page](https://www.arduino.cc/en/software). If you need help installing it, you can visit [this installation guide](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).
 
-**1.** Open the Arduino IDE 2.0, and click on the folder at the top left corner. This is your **Sketchbook**.
+**1.** Open the Arduino IDE 2, and click on the folder at the top left corner. This is your **Sketchbook**.
 
 ![Open the Sketchbook.](assets/cloud-sketch-sync-img06.png)
 
@@ -139,7 +139,7 @@ Once you click on it, you should get a message in the browser that looks like th
 
 ![Successful authorization.](assets/cloud-sketch-sync-img10.png)
 
-Congratulations, you have now synced your Arduino account with your local Arduino IDE 2.0, and your Sketches should now be available under the **Remote Sketchbook tab.**
+Congratulations, you have now synced your Arduino account with your local Arduino IDE 2, and your Sketches should now be available under the **Remote Sketchbook tab.**
 
 ## Pulling, Editing and Pushing
 
@@ -184,6 +184,12 @@ You have now pushed your changes to the cloud. You can easily check if it has be
 
 ![Changes visible in the cloud.](assets/cloud-sketch-sync-img15.png)
 
+## New Cloud Sketches
+
+With the IDE 2.1 and newer, you can also create new Cloud sketches, directly from the offline IDE. When you are in the Cloud sketchbook, at the bottom of the window there's a button to create a fresh sketch.
+
+![Create a New Cloud Sketch](./assets/cloud-sketch-sync-img16.png)
+
 ## Disabling the Remote Sketchbook
 
 If you do not want to use the Remote Sketchbook feature, you can simply disable it in the editor. Navigate to **File > Advanced > Show/Hide Remote Sketchbook** to disable it. If you want to enable it again, simply click the same option!
@@ -192,7 +198,7 @@ If you do not want to use the Remote Sketchbook feature, you can simply disable 
 
 ## Wrapping Up
 
-The integration of the Remote Sketchbook in the IDE 2.0 is an important milestone. It gives us great control of our Sketchbooks, and makes it really easy to move across computers and editors.
+The integration of the Remote Sketchbook in the IDE 2 is an important milestone. It gives us great control of our Sketchbooks, and makes it really easy to move across computers and editors.
 
 ## Next Steps
 

@@ -163,7 +163,7 @@ The **Arduino_BHY2** library contains these sensors:
     BHY2.update();
     
     Serial.print("quaternion w :");
-    Serial.println(orientation.w());
+    Serial.println(quaternion.w());
     delay(500);
   }
 ```

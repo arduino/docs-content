@@ -32,7 +32,7 @@ Let us take a look into each one of the debugging tools and techniques.
 
 **Compiling** is transforming high-level code into machine language that can be understood by a processor, for example a microcontroller. In this process, the compiler also helps to identify **syntax errors**. Syntax errors indicate something wrong with the program's syntax; for example, **when a semi-colon is omitted at the end of a statement in a program**, the compiler generates a syntax error. 
 
-![The Arduino IDE 2.0 compiler showing a syntax error in a sketch.](assets/debugging_img04.png)
+![The Arduino IDE 2 compiler showing a syntax error in a sketch.](assets/debugging_img04.png)
 
 Using the compiler for debugging syntax errors can be sometimes tricky; let us analyze two commonly encountered situations: 
 
@@ -117,7 +117,7 @@ Remote debuggers usually have two essential parts: a **front-end debugger** and 
 * The front-end debugger contains the user interface (can be graphical or command-line-based) and offers the programmer choices about the execution of the code in the embedded system hardware.
 * The back-end debugger, also known as the "debug monitor," is specific for a particular processor architecture or family an usually work with an external hardware tool, like an in-circuit emulator or an in-circuit debugger. It starts when the processor resets and handles the runtime instruction between the front-end debugger and the embedded system hardware. 
 
-***The debugger tool is a newly introduced yet less famous feature of Arduino IDE 2.0. Check out [this tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger) that shows how to use the Arduino® IDE 2.0 debugger with supported boards.***
+***The debugger tool is a newly introduced yet less famous feature of Arduino IDE 2. Check out [this tutorial](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger) that shows how to use the Arduino® IDE 2 debugger with supported boards.***
 
 ### Simulators
 
@@ -158,11 +158,11 @@ The Arduino® boards with a SAMD microcontroller support ICD debugging; these bo
 * [MKR GSM 1400](https://store.arduino.cc/products/arduino-mkr-gsm-1400).
 * [MKR Vidor 4000](https://store.arduino.cc/products/arduino-mkr-vidor-4000).
 
-The Arduino® Zero board features an on-board debugger, the Atmel® Embedded Debugger (EDGB). In addition to programming and debugging support, the EDGB also offers data streaming capabilities between the host computer and the target processor. Check out [this tutorial](https://docs.arduino.cc/tutorials/zero/debugging-with-zero) to learn how to use the Arduino® Zero board debugging capabilities with the [Arduino IDE 2.0](https://www.arduino.cc/en/software). 
+The Arduino® Zero board features an on-board debugger, the Atmel® Embedded Debugger (EDGB). In addition to programming and debugging support, the EDGB also offers data streaming capabilities between the host computer and the target processor. Check out [this tutorial](https://docs.arduino.cc/tutorials/zero/debugging-with-zero) to learn how to use the Arduino® Zero board debugging capabilities with the [Arduino IDE 2](https://www.arduino.cc/en/software). 
 
 ![Arduino® Zero EDGB.](assets/debugging_img07.png)
 
-Arduino® boards with a SAMD microcontroller feature native on-chip debug capabilities; these debugging capabilities can be used with an external ICD tool over JTAG or SWD interfaces. **CMSIS-DAP compliant debug probes can be used with the Arduino IDE 2.0** out of the box without any configuration file; non-standard debug probes require a special configuration. Check out these tutorials to learn how to use an external ICD tool with SAMD based Arduino boards and the Arduino IDE 2.0:
+Arduino® boards with a SAMD microcontroller feature native on-chip debug capabilities; these debugging capabilities can be used with an external ICD tool over JTAG or SWD interfaces. **CMSIS-DAP compliant debug probes can be used with the Arduino IDE 2** out of the box without any configuration file; non-standard debug probes require a special configuration. Check out these tutorials to learn how to use an external ICD tool with SAMD based Arduino boards and the Arduino IDE 2:
 
 * [Debugging with the SEGGER J-Link](https://docs.arduino.cc/tutorials/mkr-wifi-1010/mkr-jlink-setup).
 * [Debugging with the Atmel-ICE](https://docs.arduino.cc/tutorials/mkr-wifi-1010/atmel-ice).

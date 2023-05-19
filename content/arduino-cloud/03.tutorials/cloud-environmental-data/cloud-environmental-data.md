@@ -105,7 +105,7 @@ Now, we need to add the rest of the variables in a very similar fashion, but cha
 | **uvb**\*       | float     |
 | **uvIndex**\*   | float     |
 
->**Note:** the `uva`, `uvb` and `uvIndex` variables will only work with the MKR ENV Shield v1. Newer versions does not have the UV sensor. If you have a newer version, do not add these variables. You can read more about the different versions in the this [Arduino Help Center article]().
+>**Note:** the `uva`, `uvb` and `uvIndex` variables will only work with the MKR ENV Shield v1. Newer versions does not have the UV sensor. If you have a newer version, do not add these variables. You can read more about the different versions in the this [Arduino Help Center article](https://support.arduino.cc/hc/en-us/articles/360019197540-Different-MKR-ENV-Shield-versions).
 
 When we have added these, the variable list will look something like this:
 

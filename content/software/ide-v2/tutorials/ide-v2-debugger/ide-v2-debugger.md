@@ -1,8 +1,8 @@
 ---
-title: 'Debugging with the Arduino IDE 2.0'
+title: 'Debugging with the Arduino IDE 2'
 difficulty: advanced
 author: 'Karl Söderby & Ubi De Feo'
-description: 'Learn how to set up a Zero board, J-Link and Atmel-ICE debuggers with the Arduino IDE 2.0, and how to debug a program.'
+description: 'Learn how to set up a Zero board, J-Link and Atmel-ICE debuggers with the Arduino IDE 2, and how to debug a program.'
 tags:
  - Debugger
  - J-Link
@@ -11,7 +11,7 @@ tags:
 
 ## Overview
 
-A newly introduced, yet less famous feature of Arduino IDE 2.0 is the **Debugger**. 
+A newly introduced, yet less famous feature of Arduino IDE 2 is the **Debugger**. 
 
 A debugger is a software tool which is used to test and debug programs, hence the name.
 
@@ -38,7 +38,7 @@ The debugger is compatible with all SAMD boards. Boards using the SAMD architect
 
 ## Requirements
 
-- Arduino IDE 2.0 installed.
+- Arduino IDE 2 installed.
 
 You will also need one of the following hardware setups:
 - [Arduino Zero](https://store.arduino.cc/arduino-zero) or
@@ -74,9 +74,9 @@ Below you will find three different tutorials that will help you set up and test
 
 ## Getting to Know the Debugger
 
-Once you have your hardware set up, we can continue to explore the Debugger tool in the Arduino IDE 2.0.
+Once you have your hardware set up, we can continue to explore the Debugger tool in the Arduino IDE 2.
 
-The Debugger is a brand new tool integrated in the Arduino IDE 2.0. You can easily access it from the sidebar on the left, grouped with the **Board Manager**, **Library Manager**, **Search** and **Sketchbook Explorer**. 
+The Debugger is a brand new tool integrated in the Arduino IDE 2. You can easily access it from the sidebar on the left, grouped with the **Board Manager**, **Library Manager**, **Search** and **Sketchbook Explorer**. 
 
 ![The Debugger button.](assets/debugger-img01.png)
 
@@ -131,7 +131,7 @@ The step in/out actions can be very useful, you can use them to learn how comman
 
 ## Conclusion
 
-In this guide, we have covered some basics on using the Arduino IDE 2.0 Debugger. We explored some different hardware setups that we can use, how to navigate the Debugger tool, and linked some more elaborate hardware guides to make your debugging experience more smooth!
+In this guide, we have covered some basics on using the Arduino IDE 2 Debugger. We explored some different hardware setups that we can use, how to navigate the Debugger tool, and linked some more elaborate hardware guides to make your debugging experience more smooth!
 
 We hope you enjoy the Debugger, and if you are having issues, please report them in [Arduino IDE GitHub repository](https://github.com/arduino/arduino-ide/issues). 
 

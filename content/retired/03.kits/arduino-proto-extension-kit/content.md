@@ -6,6 +6,8 @@ sku: "K000083"
 source: "https://store.arduino.cc/arduino-proto-extension-kit"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Proto Extension Kit](./assets/a000083_iso.jpg)
 
 ### Features & Benefits of the Proto Shield

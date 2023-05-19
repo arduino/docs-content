@@ -6,6 +6,8 @@ sku: "A000125"
 source: "https://store.arduino.cc/arduino-lucky-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Lucky Shield](./assets/A000125_featured_2.jpg)
 
 Arduino Lucky Shield is an easy way to use your Arduino boards, that grants you access to barometric pressure, relative altitude, luminosity, temperature, motion and presence. You can also turn it into a simple controller and OLED (organic light-emitting diode) display system. It is the perfect shield for IoT.

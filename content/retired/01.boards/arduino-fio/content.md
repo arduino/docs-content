@@ -3,6 +3,8 @@ title: Arduino Fio
 source: https://www.arduino.cc/en/Main/ArduinoBoardFio
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Fio board.](./assets/ArduinoFio.jpg)
 
 ## Overview

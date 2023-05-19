@@ -7,6 +7,8 @@ sku: "GSX00102"
 source: "https://store.arduino.cc/genuino-yun-shield"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Yún Shield](./assets/GSX00102_featured_2.jpg)
 
 The **Arduino Yún Shield** extends your Arduino & Genuino board with the power of a Linux based system that enables advanced network connections and applications.  

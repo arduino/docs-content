@@ -7,6 +7,8 @@ sku: "E000025"
 source: "https://store.arduino.cc/arduino-pro-mini"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Pro Mini board](./assets/e000025_featured.jpg)
 
 The **Arduino Pro Mini** is a microcontroller board based on the [ATmega328P](http://www.atmel.com/Images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet.pdf).  
