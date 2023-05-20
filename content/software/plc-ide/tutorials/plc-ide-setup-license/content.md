@@ -1,11 +1,11 @@
 ---
 beta: true
-title: Arduino® PLC IDE Setup and Board's License Activation
+title: Arduino® PLC IDE Installation and License Activation Guide
 difficulty: beginner
 tags: 
   - PLC
   - PLC-IDE
-description: Set up the PLC IDE, connect the board, and activate its license.
+description: A brief user guide to show how to install the Arduino PLC IDE, interface the board, and activate license for compatible devices.
 author: 'Pablo Marquínez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
@@ -47,11 +47,19 @@ To use the Arduino PLC IDE software, go to the [Arduino PLC IDE official website
 * The Arduino PLC IDE Tools
 * The Arduino PLC IDE
 
-The first one will install all the required drivers, libraries and cores that you are going to need, while the second one will install the IDE software.
+The software requires for **Windows** 10 or newer version of the operating system for x64 bits architecture.
+
+The first executable file will install all the required drivers, libraries and cores that you are going to need. While the second executable will install the IDE software.
 
 ### 1. Arduino® PLC IDE Tools
 
-Before installing the Arduino PLC IDE you need to install all the required tools to make it work on your computer. Once you have downloaded the Arduino PLC IDE Tools executable, double-click on it and follow the installation instructions.
+Before installing the Arduino PLC IDE you need to install all the required tools to make it work on your computer.
+
+When you download the Arduino PLC IDE Tools executable, the file naming scheme is as following:
+
+`Arduino-PLC-IDE-Tools_X.X.X_Windows_64bit`
+
+If you have got the correct toolchain, it should follow the previous naming scheme with the `X.X.X` that represents the version of the toolchain. Once you have verified and downloaded the Arduino PLC IDE Tools executable, double-click on it and follow the installation instructions.
 
 Once the installation is finished, all the required drivers, libraries and Arduino cores will be installed and ready to be used. Your computer is now ready to install the Arduino PLC IDE.
 
@@ -59,7 +67,15 @@ Once the installation is finished, all the required drivers, libraries and Ardui
 
 ### 2. Arduino® PLC IDE Installation
 
-Once the Arduino PLC IDE Tools are installed, double-click on the executable of the Arduino Pro IDE that you downloaded. Follow the installation instructions and, once the process is done, click on finish.
+Once the Arduino PLC IDE Tools are installed, double-click on the executable of the Arduino Pro IDE that you downloaded.
+
+When you download the Arduino PLC IDE executable, the file naming scheme is as following:
+
+`Setup_Arduino PLC IDE_X.X.X.X_20230329`
+
+If you have got the correct IDE software, it should follow the previous naming scheme with the `X.X.X` that represents the version of the IDE software and latest version release date.
+
+Follow the installation instructions and, once the process is done, click on finish.
 
 ***In case you have any problem, perform a reboot to be sure that all the drivers, libraries, and dependencies are working and up to date.***
 
