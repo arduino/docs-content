@@ -103,7 +103,7 @@ ___
 First, we need to include the **ArduinoBLE** library, and create a new service. We will name the service **"180A"** which is translated to **"Device Information"**.  We will then create two characteristics, one for the LED, and one for the analog pin. The name **"2A57"** is translated to **"Digital Output"** and **"2A58** is translated to **"Analog"**. 
 
 ```arduino
-#include <ArduinoBLE.h
+#include <ArduinoBLE.h>
 BLEService newService("180A"); // creating the service
 
 BLEUnsignedCharCharacteristic randomReading("2A58", BLERead | BLENotify); // creating the Analog Value characteristic
