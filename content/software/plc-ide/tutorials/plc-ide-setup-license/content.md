@@ -18,7 +18,7 @@ software:
 
 ## Overview
 
-The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation. This tutorial will show you how to connect the Portenta Machine Control and Opta to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
+The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation. This tutorial will show you how to connect the Portenta Machine Control and Opta™ to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
 
 ## Goals
 
@@ -30,10 +30,10 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 ## Required Hardware and Software
 
-- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta).
+- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta™).
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide)).
 - If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control).
-- If you have an Opta, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
+- If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Web Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
 
 ***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
@@ -83,6 +83,8 @@ Once you have completed the setup, open the Arduino PLC IDE program, and the wel
 
 ![Welcome screen](assets/welcome.png)
 
+The following sections will guide you to create a project, download the runtime, and properly interface the Portenta Machine Control or Opta™ with its dedicated license activation procedure.
+
 ### 3. Project Setup
 
 Create a new project by clicking the middle **New project ...** button or **File > New Project**
@@ -101,7 +103,7 @@ Plug your device to the computer, select the Serial Port of your board and click
 
 ***The device will show up two Serial Ports, the default one (generally with the lowest number) is the usual Serial Port, the secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
 
-If during the download procedure the following message appears, double-tap the reset button using the tip of a pen or a similar pointed object. The led above the reset button will start blinking indicating that the Opta is ready to be flashed with a new firmware. Click the **Download** button to start the process again.
+If during the download procedure the following message appears, double-tap the reset button using the tip of a pen or a similar pointed object. The LED above the reset button will start blinking indicating that the Opta™ is ready to be flashed with a new firmware. Click the **Download** button to start the process again.
 
 ![Download error message](assets/downloadSketchError.png)
 
@@ -153,11 +155,11 @@ Once you receive the **Activation file**, drag and drop the file in the dashed r
 
 When a product is **Pre-licensed**, the following scenario will be displayed:
 
-![Opta Activation No License](assets/opta-activation-no-license.png)
+![Opta™ Activation No License](assets/opta-activation-no-license.png)
 
 By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC **Status** will be set as OK:
 
-![Opta Activation Status OK](assets/opta-activation-status-ok.png)
+![Opta™ Activation Status OK](assets/opta-activation-status-ok.png)
 
 Now the product is ready to be used with the PLC IDE.
 
