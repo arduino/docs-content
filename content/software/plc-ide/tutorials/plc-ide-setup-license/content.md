@@ -1,6 +1,6 @@
 ---
 beta: true
-title: Arduino® PLC IDE Installation and License Activation Guide
+title: Arduino® PLC IDE Setup & Device License Activation Guide
 difficulty: beginner
 tags: 
   - PLC
@@ -79,7 +79,7 @@ Follow the installation instructions and finish the IDE setup process.
 
 ***If you have any problem, try rebooting your computer to ensure that all the drivers, libraries, and dependencies are working and up to date.***
 
-Once you have completed the setup, open the Arduino PLC IDE program, and the welcome screen will greet you.
+Once the setup is complete, open the Arduino PLC IDE program, and the welcome screen will greet you.
 
 ![Welcome screen](assets/welcome.png)
 
