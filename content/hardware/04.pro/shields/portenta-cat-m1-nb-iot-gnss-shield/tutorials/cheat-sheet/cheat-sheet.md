@@ -40,7 +40,7 @@ The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Classic 
 
 - [Installing the Arduino Mbed OS Portenta Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta)
 
-### Arduino IDE 2 
+### Arduino IDE 2
 
 The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
 
@@ -53,6 +53,7 @@ The board can be programmed through the **Web Editor**. To get started with your
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 ## Pins
+
 As a Portenta family shield, it uses High Density Connectors to interface with the Portenta board which is connected to.
 
 ![The pinout of the Portenta Cat. M1/NB IoT GNSS Shield.](assets/ASX00027-pinout.png)
@@ -73,9 +74,9 @@ Make sure you go to the `arduino_secrets.h` tab and:
 * Enter the PIN of your SIM card and store it in the variable `SECRET_PIN`.
 * Check the mobile APN of your SIM card provider, e.g "online.provider.com", and save it inside the `SECRET_APN`. You can find this information by searching online for APN + provider name.
 
-APN stands for 'Access Point Name'. An APN is a gateway between a cellular network and the Internet.
+APN stands for `Access Point Name`. An APN is a gateway between a cellular network and the Internet.
 
-After finishing this setup, compile and upload the program. If everything went fine, you should see the HTML content of the webpage printed in the Serial Monitor.
+After finishing this setup, compile, and upload the program. If everything went fine, you should see the HTML content of the webpage printed in the Serial Monitor.
 
 ***Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and verify whether Cat. M1 is enabled on your SIM card.***
 
@@ -84,8 +85,6 @@ After finishing this setup, compile and upload the program. If everything went f
 To get familiar with the commands, you can take a look at the [GSM library](https://www.arduino.cc/en/Reference/GSM) which uses the same API.
 
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
-
-
 
 | Command | Information |
 | :----------------------------------------------------: | :----------------------------------------------------------: |
@@ -100,45 +99,7 @@ This library contains some commands that are quite different, because it leverag
 | `GSMClient.read()` | Returns data from the server |
 | `GSMClient.stop()` | Disconnects from the server |
 
-#### Connect to Your Provider
-
-You need to enter the Pin code and the APN link of your provider.
-The user name and password depend on your provider; they are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials + provider name. Sometimes they can be left blank.
-
-This sketch will initialize the SIM card and connect to your provider network
-
-```cpp
-#include <GSM.h>
-
-char pin[]      = SECRET_PIN; 		//example "1234"
-char apn[]      = SECRET_APN;		//example "live.provider.com"
-char username[] = SECRET_USERNAME;
-char pass[]     = SECRET_PASSWORD;
-
-void setup() {
-  Serial.begin(115200);
-  while(!Serial) {}
-
-	if(GSM.begin(pin, apn, username, pass, CATM1)){
-		Serial.println("connected");
-    // ...
-	}
-}
-```
-
-To have a specific frequency band configured, the `GSM.begin()` method requires one additional argument defining frequency band to be used.
-
-```cpp
-void setup() {
-  Serial.begin(115200);
-  while(!Serial) {}
-
-	if(GSM.begin(pin, apn, username, pass, CATM1, BAND_20 | BAND_19)){
-		Serial.println("connected");
-    // ...
-	}
-}
-```
+#### Frequency Bands
 
 Here are the details regarding the frequency bands. REQUIRES DETAIL EXPANSION & FOLLOWING INFORMATION EXPLAINED. RAW INFORMATION FROM TX62-W AT COMMAND SPECIFICATION
 
@@ -256,6 +217,49 @@ using AT^SCFG="Radio/Band/CatNB","0","0" is possible.
 
 ABOVE INFORMATION COMES FROM TX62-W AT COMMAND SPECIFICATION. IN PROGRESS
 
+#### Connect to Your Provider
+
+You need to enter the Pin code and the APN link of your provider.
+
+The user name and password depends on your provider; these are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials and provider name. Sometimes they can be left blank.
+
+This sketch will initialize the SIM card and connect to your provider network
+
+```cpp
+#include <GSM.h>
+
+char pin[]      = SECRET_PIN; 		//example "1234"
+char apn[]      = SECRET_APN;		//example "live.provider.com"
+char username[] = SECRET_USERNAME;
+char pass[]     = SECRET_PASSWORD;
+
+void setup() {
+  Serial.begin(115200);
+  while(!Serial) {}
+
+	if(GSM.begin(pin, apn, username, pass, CATM1)){
+		Serial.println("connected");
+    // ...
+	}
+}
+```
+
+To have a specific frequency band configured, the `GSM.begin()` method allows an additional argument field to define desired frequency band to configure, which can be used to mask multiple bands to be used. The following `GSM.begin()` example shows how it would look like if you were to define the frequency band.
+
+```cpp
+void setup() {
+  Serial.begin(115200);
+  while(!Serial) {}
+
+	if(GSM.begin(pin, apn, username, pass, CATM1, BAND_20 | BAND_19)){
+		Serial.println("connected");
+    // ...
+	}
+}
+```
+
+The available frequency band for the shield's cellular connectivity configuration can be found in the previous [Frequency Band section](#frequency-bands).
+
 #### Send a HTTP GET Request and Receive Data
 
 The following sketch will connect to your provider and use a HTTP GET request to get data from the server you are connected to. In this case, it connects to "example.com" and prints out the content through the Serial Monitor.
@@ -340,7 +344,6 @@ Make sure you go to the `arduino_secrets.h` tab and:
 
 ### API
 
-
 | Command | Information |
 | :--------------------------------------------------: | :----------------------------------------------------------: |
 | `GPS.begin()` | Initialize the GPS modem |
@@ -350,7 +353,6 @@ Make sure you go to the `arduino_secrets.h` tab and:
 | `GPS.readAndPrint()` | Output data on the Serial Monitor, only if there is new data.|
 | `GPS.readAndDrop()` | Read the data and do nothing with it. |
 | `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly. |
-
 
 #### Get GPS Data
 
