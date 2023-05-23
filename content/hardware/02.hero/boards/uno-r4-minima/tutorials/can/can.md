@@ -1,8 +1,8 @@
 ---
-title: 'Arduino UNO R4 Minima Real Time Clock'
-description: 'Learn how to access the real-time clock (RTC) on the UNO R4 Minima.'
+title: 'Arduino UNO R4 Minima CAN Bus'
+description: 'Learn how to send messages using the CAN bus on the UNO R4 Minima.'
 tags:
-  - RTC
+  - CAN
 author: 'Karl Söderby'
 ---
 
