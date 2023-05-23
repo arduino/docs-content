@@ -439,6 +439,248 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 ![Nicla Voice onboard magnetometer](assets/user-manual-12.png)
 
+#### Accelerometer and Gyroscope Data
+
+The example code below shows how to get acceleration (in meters per second squared) and angular velocity (in degrees per second) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
+
+```arduino
+/**
+  Nicla Voice accelerometer and gyroscope test sketch
+  Name: nv_acc_gyro_test.ino
+  Purpose: Sketch tests onboard accelerometer and gyroscope (BMI270)
+
+  @author Arduino PRO Content Team
+  @version 1.0 22/05/23
+*/
+
+#include "NDP.h"
+#include "BMI270_Init.h"
+
+// Named constants
+#define READ_START_ADDRESS  0x0C
+#define READ_BYTE_COUNT     16
+#define SENSOR_DATA_LENGTH  16
+#define ACCEL_SCALE_FACTOR  ((2.0 / 32767.0) * 9.8)
+#define GYRO_SCALE_FACTOR   (1 / 16.4)
+
+/**
+  Turns on and off the onboard blue LED.
+  
+  @param None.
+  @return None.
+*/
+void ledBlueOn(char* label) {
+  nicla::leds.begin();
+  nicla::leds.setColor(blue);
+  delay(200);
+  nicla::leds.setColor(off);
+  Serial.println(label);
+  nicla::leds.end();
+}
+
+/**
+  Turns on and off the onboard green LED.
+  
+  @param None.
+  @return None.
+*/
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+/**
+  Blinks onboard red LED periodically every 200 ms.
+  
+  @param None.
+  @return None.
+*/
+void ledRedBlink() {
+  while (1) {
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+// Macros for checking the sensor status.
+#define CHECK_STATUS(s) do {if (s) {Serial.print("SPI access error in line "); Serial.println(__LINE__); for(;;);}} while (0)
+
+void setup() {
+  int status;
+  uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
+
+  // Initiate Serial communication for debugging and monitoring. 
+  Serial.begin(115200);
+
+  // Initialize Nicla Voice board's system functions.
+  // Disable the LDO regulator on the Nicla Voice board for power saving.
+  // Initialize the built-in RGB LED of the Nicla Voice board.
+  nicla::begin();
+  nicla::disableLDO();
+  nicla::leds.begin();
+
+  // Set up error and event handlers:
+  // - In case of error, the red LED will blink.
+  // - In case of match, the blue LED will turn on.
+  // - In case of any event, the green LED will turn on.
+  NDP.onError(ledRedBlink);
+  NDP.onMatch(ledBlueOn);
+  NDP.onEvent(ledGreenOn);
+
+  // Load sensor packages.
+  Serial.println("- NDP processor initialization...");
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("alexa_334_NDP120_B0_v11_v91.synpkg");
+  Serial.println("- NDP processor initialization done!");
+
+  // Set the BMI270 sensor in SPI mode, then read sensor data.
+  status = NDP.sensorBMI270Read(0x0, 1, sensor_data);
+  CHECK_STATUS(status);
+  status = NDP.sensorBMI270Read(0x0, 1, sensor_data);
+  CHECK_STATUS(status);
+
+  // Perform a software reset of the sensor.
+  status = NDP.sensorBMI270Write(0x7E, 0xB6);
+  CHECK_STATUS(status);
+  delay(20);
+
+  // Set the sensor back to SPI mode after the software reset.
+  status = NDP.sensorBMI270Read(0x0, 1, sensor_data);
+  CHECK_STATUS(status);
+  status = NDP.sensorBMI270Read(0x0, 1, sensor_data);
+  CHECK_STATUS(status);
+
+  // Disable power configurations.
+  status = NDP.sensorBMI270Write(0x7C, 0x00);
+  CHECK_STATUS(status);
+  delay(20);
+
+  // Prepare to load the sensor configuration.
+  status = NDP.sensorBMI270Write(0x59, 0x00);
+  CHECK_STATUS(status);
+
+  // Sensor configuration. 
+  Serial.println("- BMI270 initialization starting...");
+  status = NDP.sensorBMI270Write(0x5E, sizeof(bmi270_maximum_fifo_config_file), (uint8_t*)bmi270_maximum_fifo_config_file);
+  CHECK_STATUS(status);
+  Serial.println("- BMI270 Initialization done!");
+  status = NDP.sensorBMI270Write(0x59, 0x01);
+  CHECK_STATUS(status);
+  delay(200);
+
+  // Check sensor status.
+  status = NDP.sensorBMI270Read(0x21, 1, sensor_data);
+  CHECK_STATUS(status);
+
+  // Configure the device to normal power mode with both accelerometer and gyroscope operational.
+  // Set the accelerometer and gyroscope settings such as measurement range and data rate.
+  status = NDP.sensorBMI270Write(0x7D, 0x0E);  // Normal power mode 
+  CHECK_STATUS(status);
+  status = NDP.sensorBMI270Write(0x40, 0xA8);  // Accelerometer configuration.
+  CHECK_STATUS(status);
+  status = NDP.sensorBMI270Write(0x41, 0x00);  // Set the accelerometer range to +/- 2g.
+  CHECK_STATUS(status);
+  status = NDP.sensorBMI270Write(0x42, 0xA9);  // Gyroscope configuration. 
+  CHECK_STATUS(status);
+  status = NDP.sensorBMI270Write(0x43, 0x00);  // Set the gyroscope range to +/- 2000 dps.
+  CHECK_STATUS(status);
+}
+
+void loop() {
+  // Allocate space for raw sensor data.
+  uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
+
+  // Declare variables for accelerometer and gyroscope data.
+  int16_t x_acc_raw, y_acc_raw, z_acc_raw, x_gyr_raw, y_gyr_raw, z_gyr_raw;
+  float x_acc, y_acc, z_acc, x_gyr, y_gyr, z_gyr;
+
+  // Read operation status variable.
+  int status;
+
+  // Perform data read from the BMI270 sensor. The data read includes accelerometer and gyroscope data.
+  // The sensor's read function is called with 0x0C as the start address and 16 as the number of bytes to read.
+  // Collected data is placed into sensor_data array.
+  status = NDP.sensorBMI270Read(READ_START_ADDRESS, READ_BYTE_COUNT, &sensor_data[0]);
+
+  // Check the status of the read operation.
+  CHECK_STATUS(status);
+
+  // Parse the read sensor data. Data is in 16-bit format, where lower byte comes first (little endian).
+  // Data for each axis (X, Y, Z) of the accelerometer and gyroscope is extracted from the array.
+  x_acc_raw = (0x0000 | sensor_data[0] | sensor_data[1] << 8);
+  y_acc_raw = (0x0000 | sensor_data[2] | sensor_data[3] << 8);
+  z_acc_raw = (0x0000 | sensor_data[4] | sensor_data[5] << 8);
+  x_gyr_raw = (0x0000 | sensor_data[6] | sensor_data[7] << 8);
+  y_gyr_raw = (0x0000 | sensor_data[8] | sensor_data[9] << 8);
+  z_gyr_raw = (0x0000 | sensor_data[10] | sensor_data[11] << 8);
+
+  // Convert raw accelerometer data to acceleration expressed in meters per second squared. 
+  x_acc = x_acc_raw * ACCEL_SCALE_FACTOR;
+  y_acc = y_acc_raw * ACCEL_SCALE_FACTOR;
+  z_acc = z_acc_raw * ACCEL_SCALE_FACTOR;
+
+  // Convert raw gyroscope data to angular velocity expressed in degrees per second.
+  x_gyr = x_gyr_raw * GYRO_SCALE_FACTOR;
+  y_gyr = y_gyr_raw * GYRO_SCALE_FACTOR;
+  z_gyr = z_gyr_raw * GYRO_SCALE_FACTOR;
+  
+  // Print accelerometer data (expressed in meters per second squared). 
+  Serial.print("x_acc:");
+  Serial.print(x_acc);
+  Serial.print(",");
+  Serial.print("y_acc:");
+  Serial.print(y_acc);
+  Serial.print(",");
+  Serial.print("z_acc:");
+  Serial.println(z_acc);
+
+  // Print gyroscope data (expressed in degrees per second). 
+  Serial.print("x_gyr:");
+  Serial.print(x_gyr);
+  Serial.print(",");
+  Serial.print("y_gyr:");
+  Serial.print(y_gyr);
+  Serial.print(",");
+  Serial.print("z_gyr:");
+  Serial.println(z_gyr);
+
+  delay(1000);
+}
+```
+
+Here you can find a step-by-step explanation of the code:
+
+First, the necessary libraries are included: 
+
+- `NDP.h` and `BMI270_Init.h` for the Nicla Voice board's basic functions and the IMU control.
+- Macros are defined for checking the status of the IMU; these macros allow the sketch to detect and handle sensor errors. 
+
+Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition; these functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
+
+Next, in the `setup()` function:
+
+- The serial communication is initialized at a baud rate of 115200.
+- The Nicla Voice board is initialized, and the LDO is disabled.
+- The green LED is configured to turn on when an event occurs.
+- The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
+
+Finally, in the `loop()` function:
+
+- Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
+- Raw sensor data is then parsed and extracted into raw accelerometer and gyroscope data. This data is represented as 16-bit signed integers ranging from -32,768 to 32,767.
+- Raw sensor data is converted into understandable and standard unit measurements; for the accelerometer, data is converted to meters per second squared, and for the gyroscope, data is converted to degrees per second. 
+- Converted accelerometer and gyroscope data are printed to the Serial Monitor, allowing one to observe sensor data in real time. 
+
+#### IMU and Machine Learning
+
 The example code below demonstrates using the Nicla Voice board to perform Machine Learning inference on IMU (Inertial Measurement Unit) data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> IMUDemo**.
 
 ```arduino
