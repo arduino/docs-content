@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="User Manual" type="getting-started" link="/tutorials/portenta-x8/user-manual">
+    <EssentialElement title="User Manual-Test" type="getting-started" link="/tutorials/portenta-x8/user-manual">
         A full guide to the basics of the Portenta X8
     </EssentialElement>
     <EssentialElement link="https://docs.arduino.cc/tutorials/portenta-x8/x8-fundamentals" title="Fundamentals of Portenta X8" type="tutorial">
