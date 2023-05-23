@@ -89,7 +89,7 @@ This library contains some commands that are quite different, because it leverag
 
 | Command | Information |
 | :----------------------------------------------------: | :----------------------------------------------------------: |
-| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
+| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
 | `GSMClient`| Client constructor, on the examples we define it as client  |
 | `GSM.getTime()`|Returns the time, you can set a new one with setTime()|
 | `GSM.getLocalTime()`| Returns the local time|
@@ -125,6 +125,136 @@ void setup() {
 	}
 }
 ```
+
+To have a specific frequency band configured, the `GSM.begin()` method requires one additional argument defining frequency band to be used.
+
+```cpp
+void setup() {
+  Serial.begin(115200);
+  while(!Serial) {}
+
+	if(GSM.begin(pin, apn, username, pass, CATM1, BAND_20 | BAND_19)){
+		Serial.println("connected");
+    // ...
+	}
+}
+```
+
+Here are the details regarding the frequency bands. REQUIRES DETAIL EXPANSION & FOLLOWING INFORMATION EXPLAINED. RAW INFORMATION FROM TX62-W AT COMMAND SPECIFICATION
+
+<rbacatm-1> determines Cat.M frequency bands the UE is allowed to use. Values are given in hexadecimal
+32-bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatm-1> covers band 1 to band 32.
+
+“1“ LTE 2100 (B1)
+“2“ LTE 1900 (B2)
+“4“ LTE 1800 (B3)
+“8“ LTE 1700 (B4)
+“10“ LTE 850 (B5)
+“80“ LTE 900 (B8)
+“800“ LTE 700 (B12)
+“1000“ LTE 700 (B13)
+“20000“ LTE 850 (B18)
+“40000“ LTE 800 (B19)
+“80000“ LTE 800 (B20)
+“1000000“ LTE 1900 (B25)
+“2000000“ LTE 850 (B26)
+“4000000“ LTE 800 (B27)
+“8000000“ LTE 700 (B28)
+
+Factory default of <rbacatm-1> is the combination of all available bands meaning that all supported bands are
+allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a fullfeatured automatic network selection when trying to register.
+Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
+allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
+to reduce the power consumption. In such case, <rbacatm-1> may be one of the supported single values listed
+below.
+
+Any change to this parameter will take effect immediately. So, <rbacatm-1> is a parameter that may be used
+to read out the current band combination any time, but the read value is used for reinitializing the UE after next
+restart.
+
+Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
+using AT^SCFG="Radio/Band/CatM","0","0" is possible.
+
+<rbacatm-2> determines Cat.M frequency bands the UE is allowed to use. Values are given in hexadecimal
+bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatm-2> covers
+band 33 to max possible band. If the UE does not support bands higher than 32 the AT^SCFG test command
+returns the value range 0 - 0, and the AT^SCFG read command response does not display <rbacatm-2>.
+
+“200000000“ LTE 1745 (B66)
+“10000000000000“ LTE 700 (B85)
+
+Factory default of <rbacatm-2> is the combination of all available bands meaning that all supported bands are
+allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a fullfeatured automatic network selection when trying to register.
+Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
+allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
+to reduce the power consumption. In such case, <rbacatm-2> may be one of the supported single values listed
+below.
+
+Any change to this parameter will take effect immediately. So, <rbacatm-2> is a parameter that may be used
+to read out the current band combination any time, but the read value is used for reinitializing the UE after next
+restart.
+
+Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
+using AT^SCFG="Radio/Band/CatM","0","0" is possible.
+
+<rbacatnb-1> determines Cat.NB frequency bands the UE is allowed to use. Values are given in hexadecimal
+32-bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatnb-1>
+covers band 1 to band 32.
+“1“ LTE 2100 (B1)
+“2“ LTE 1900 (B2)
+“4“ LTE 1800 (B3)
+“8“ LTE 1700 (B4)
+“10“ LTE 850 (B5)
+“80“ LTE 900 (B8)
+“800“ LTE 700 (B12)
+“1000“ LTE 700 (B13)
+“20000“ LTE 850 (B18)
+“40000“ LTE 800 (B19)
+“80000“ LTE 800 (B20)
+“1000000“ LTE 1900 (B25)
+“2000000“ LTE 850 (B26)
+“8000000“ LTE 700 (B28)
+
+Factory default of <rbacatnb-1> is the combination of all available bands meaning that all supported bands
+are allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a
+full-featured automatic network selection when trying to register.
+Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
+allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
+to reduce the power consumption. In such case, <rbacatnb-1> may be one of the supported single values
+listed below.
+
+Any change to this parameter will take effect immediately. So, <rbacatnb-1> is a parameter that may be used
+to read out the current band combination any time, but the read value is used for reinitializing the UE after next
+restart.
+
+Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
+using AT^SCFG="Radio/Band/CatNB","0","0" is possible. 
+
+<rbacatnb-2> determines Cat.NB frequency bands the UE is allowed to use. Values are given in hexadecimal
+bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatnb-2> covers band 33 to max possible band. If the UE does not support bands higher than 32 the AT^SCFG test command
+returns the value range 0 - 0, and the AT^SCFG read command response does not display <rbacatnb-2>.
+
+“200000000“ LTE 1745 (B66)
+“4000000000“ LTE 600 (B71)
+“10000000000000“ LTE 700 (B85)
+
+Factory default of <rbacatnb-2> is the combination of all available bands meaning that all supported bands
+are allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a
+full-featured automatic network selection when trying to register.
+
+Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
+allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
+to reduce the power consumption. In such case, <rbacatnb-2> may be one of the supported single values
+listed below.
+
+Any change to this parameter will take effect immediately. So, <rbacatnb-2> is a parameter that may be used
+to read out the current band combination any time, but the read value is used for reinitializing the UE after next
+restart.
+
+Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
+using AT^SCFG="Radio/Band/CatNB","0","0" is possible. 
+
+ABOVE INFORMATION COMES FROM TX62-W AT COMMAND SPECIFICATION. IN PROGRESS
 
 #### Send a HTTP GET Request and Receive Data
 
