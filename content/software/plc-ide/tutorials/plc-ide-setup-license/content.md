@@ -77,7 +77,7 @@ Run the Arduino PLC IDE installer after you have installed the Arduino PLC IDE T
 
 Follow the installation instructions and finish the IDE setup process.
 
-***If you have any problem, try rebooting your computer to ensure that all the drivers, libraries, and dependencies are working and up to date.***
+***If you have any problem, try rebooting your computer to ensure that all the drivers, libraries, and dependencies are applied and up to date.***
 
 Once the setup is complete, open the Arduino PLC IDE program, and the welcome screen will greet you.
 
