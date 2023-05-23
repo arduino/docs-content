@@ -5,7 +5,7 @@ difficulty: beginner
 tags: 
   - PLC
   - PLC-IDE
-description: A brief user guide to show how to install the Arduino PLC IDE, interface the board, and activate license for Portenta Machine Control or Opta™.
+description: A brief user guide to show how to install the Arduino PLC IDE, interface the board, and activate the license for Portenta Machine Control or Opta™.
 author: 'Pablo Marquínez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
