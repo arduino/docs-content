@@ -121,8 +121,95 @@ We will go through some important code sections to make this application fully o
 - Including `Arduino_EdgeControl.h` will enable the support for the Arduino Edge Control board peripherals, install it by searching for it on the Library Manager.
 - Including `Wire.h` will enable the I2C communication needed between the Edge Control, the MKR and the other peripherals, it's included in the BSP of the Arduino Edge Control.
 
-There are two extra directories included in the project code that handles some helper functions and structures:
+There are two headers included in the project code that handles some helper functions and structures:
 
 - `SensorValues.hpp` handles the shared variables between the Arduino Edge Control and the MKR WiFi 1010 through I2C.
 - `helpers.h` handles the Real Time Clock functions to retrieve the local date and time.
 
+Here is also defined a structure to handle the number of button taps to control each valve manually.
+
+```arduino
+#include "Helpers.h"
+#include <Arduino_EdgeControl.h>
+#include <Wire.h>
+#include "SensorValues.hpp"
+
+// The MKR1 board I2C address
+#define EDGE_I2C_ADDR 0x05
+
+/** UI Management **/
+// Button statuses
+enum ButtonStatus : byte {
+  ZERO_TAP,
+  SINGLE_TAP,
+  DOUBLE_TAP,
+  TRIPLE_TAP,
+  QUAD_TAP,
+  FIVE_TAP,
+  LOT_OF_TAPS
+};
+```
+
+In order to save energy and resources, the Arduino Edge Control has different power lines that must be enabled so we can power the different internal and external peripherals. In this case, we need to enable the 3.3v, 5v, Battery, MKR1 slot, and the +19v reference for the 4-20mA sensor's current loop. To handle all the IOs we also need to initialize the IO Expander, together with the Enclosure Kit LCD and the sensors inputs. 
+
+With the `setSystemClock` function, we define a starting date reference for the Real Time Clock, and if you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds. 
+
+***You just need to set the RTC once and make sure to have a CR2032 3V battery in the Arduino Edge Control holder to maintain the RTC configurations.***
+
+```arduino
+/**
+  Main section setup
+*/
+void setup() {
+  EdgeControl.begin();
+  Wire.begin();
+  delay(500);
+  Serial.begin(115200);
+
+  Serial.println("Init begin");
+
+  // Enable power lines
+  Power.enable3V3();
+  Power.enable5V();
+  Power.on(PWR_3V3);
+  Power.on(PWR_VBAT);
+  Power.on(PWR_MKR1);
+  delay(5000);    // wait for the MKR board to boot
+  Power.on(PWR_19V);
+
+  // Init Edge Control IO Expander
+  Serial.print("IO Expander initializazion ");
+  if (!Expander.begin()) {
+    Serial.println("failed.");
+    Serial.println("Please, be sure to enable gated 3V3 and 5V power rails");
+    Serial.println("via Power.enable3V3() and Power.enable5V().");
+  } else Serial.println("succeeded.");
+
+  // LCD button definition
+  pinMode(POWER_ON, INPUT);
+  attachInterrupt(POWER_ON, buttonPress, RISING);
+
+  // Arduino Edge Control ports init
+  Input.begin();
+  Input.enable();
+  Latching.begin();
+
+  analogReadResolution(adcResolution);
+
+  setSystemClock(__DATE__, __TIME__);  // define system time as a reference for the RTC
+
+  //RealTimeClock.setEpoch(1684803771-(3600*4));  // use this to set the RTC time once.
+
+  // Init the LCD display
+  LCD.begin(16, 2);
+  LCD.backlight();
+
+  LCD.home();
+  LCD.print("Smart Irrigation");
+  LCD.setCursor(5, 1);
+  LCD.print("System");
+  delay(2000);
+
+  LCD.clear();
+}
+```
