@@ -124,7 +124,7 @@ These are Cat.M and Cat.NB frequency bands that are available for use with TX62-
 
 The band configuration is available to allow the user to restrict to a specific or combination of frequency bands. It helps to operate under enforced frequency policy requirements, or to lower the network search time, reducing the device power consumption.
 
-If you leave the frequency band argument field blank for the `GSM.begin()` method, it will configure using the default setting, which allows it to search for all available supported bands. The Portenta Cat. M1/NB IoT GNSS Shield will then select a compatible network automatically depending on the region.
+If you leave the frequency band argument field blank for the `GSM.begin()` method, it will configure using the default setting, which allows it to search within all available supported bands. The Portenta Cat. M1/NB IoT GNSS Shield will then select a compatible network automatically depending on the region.
 
 Each country has a compatible frequency band, so it is a good practice to check the desired band is suitable for its region. You can check the frequency band compatibility of the region by using a website that compiles network status such as [here](https://www.frequencycheck.com/countries).
 
