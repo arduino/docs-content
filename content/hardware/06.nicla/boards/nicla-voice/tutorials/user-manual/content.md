@@ -534,7 +534,7 @@ void setup() {
   NDP.onMatch(ledBlueOn);
   NDP.onEvent(ledGreenOn);
 
-  // Load sensor packages.
+  // NDP processor initialization with firmwares and models
   Serial.println("- NDP processor initialization...");
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
@@ -663,13 +663,16 @@ First, the necessary libraries are included:
 - `NDP.h` and `BMI270_Init.h` for the Nicla Voice board's basic functions and the IMU control.
 - Macros are defined for checking the status of the IMU; these macros allow the sketch to detect and handle sensor errors. 
 
-Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition; these functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
+Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition: 
+
+- These functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
 
 Next, in the `setup()` function:
 
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO is disabled.
-- The green LED is configured to turn on when an event occurs.
+- Error and event handlers are initialized.
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
