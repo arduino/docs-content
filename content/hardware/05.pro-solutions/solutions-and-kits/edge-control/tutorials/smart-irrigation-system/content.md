@@ -99,3 +99,17 @@ The water level transmitter will be connected to +19V reference and 4-20mA input
 
 ## Smart Irrigation System Overview
 
+The irrigation system works as a whole, integrating the level measurement, and the control of the valves with the Arduino Edge Control, together with the communication with the cloud using the MKR Wi-Fi 1010.
+
+The Edge Control is responsible for keeping time with its integrated Real Time Clock, in order to time the use of the valves and know when a day has passed. In addition, it measures the level of the stored water with a 4-20mA liquid level transmitter to calculate its use. It controls at the same time an LCD screen where the status of the valves and timers is shown, and it also allows to manually control the valves through the LCD push button.
+
+For communication with the cloud, the MKR WiFi 1010 serves as a bridge, it notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to the valves, in addition, it reports the values of the Edge Control sensors to the Cloud. The communication between both is by I2C.
+
+### Valves control
+If a valve is activated from the cloud, the message "opening valve" will appear on the screen at the same time that it is being activated. If the valve is activated by a cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The valves working time is reported to the cloud for a visualization of the daily use average.
+
+### Water usage
+Regarding the use of water, at the system startup, the current amount of water is measured and saved, in this way any decrease in it is translated as a use, the use of water is daily reset to have an average daily use graph in the Cloud.
+
+### Weather forecast consideration
+Regarding the weather, the MKR WiFi 1010 requires the forecast of the city's weather using the OpenWeather API, if the probability of rain is greater than 90%, the automatic watering timers will be ignored, however, it will be possible to continue watering manually if the user so wishes.
