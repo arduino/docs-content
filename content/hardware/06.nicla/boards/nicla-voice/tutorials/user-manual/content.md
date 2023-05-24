@@ -441,7 +441,7 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 #### Accelerometer and Gyroscope Data
 
-The example code below shows how to get acceleration (m/s) and angular velocity (in degrees per second) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
+The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
 
 ```arduino
 /**
@@ -622,17 +622,17 @@ void loop() {
   y_gyr_raw = (0x0000 | sensor_data[8] | sensor_data[9] << 8);
   z_gyr_raw = (0x0000 | sensor_data[10] | sensor_data[11] << 8);
 
-  // Convert raw accelerometer data to acceleration expressed in meters per second squared. 
+  // Convert raw accelerometer data to acceleration expressed in m/s^2. 
   x_acc = x_acc_raw * ACCEL_SCALE_FACTOR;
   y_acc = y_acc_raw * ACCEL_SCALE_FACTOR;
   z_acc = z_acc_raw * ACCEL_SCALE_FACTOR;
 
-  // Convert raw gyroscope data to angular velocity expressed in degrees per second.
+  // Convert raw gyroscope data to angular velocity expressed in °/s.
   x_gyr = x_gyr_raw * GYRO_SCALE_FACTOR;
   y_gyr = y_gyr_raw * GYRO_SCALE_FACTOR;
   z_gyr = z_gyr_raw * GYRO_SCALE_FACTOR;
   
-  // Print accelerometer data (expressed in meters per second squared). 
+  // Print accelerometer data (expressed in m/s^2). 
   Serial.print("x_acc:");
   Serial.print(x_acc);
   Serial.print(",");
@@ -642,7 +642,7 @@ void loop() {
   Serial.print("z_acc:");
   Serial.println(z_acc);
 
-  // Print gyroscope data (expressed in degrees per second). 
+  // Print gyroscope data (expressed in °/s). 
   Serial.print("x_gyr:");
   Serial.print(x_gyr);
   Serial.print(",");
@@ -686,12 +686,36 @@ After uploading the example code, you should see accelerometer and gyroscope dat
 
 ![Nicla Voice onboard IMU data on the IDE's Serial Monitor](assets/user-manual-13.png)
 
-Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's visualize first only accelerometer data. To do this, **comment the gyroscope data output to the IDE's Serial monitor and upload the example sketch again**; then, open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing data from the board's onboard accelerometer, as shown below (move the board):
+Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's visualize first only accelerometer data. To do this, comment the gyroscope data output as shown below: 
+
+```arduino 
+  // Print accelerometer data (expressed in meters per second squared). 
+  Serial.print("x_acc:");
+  Serial.print(x_acc);
+  Serial.print(",");
+  Serial.print("y_acc:");
+  Serial.print(y_acc);
+  Serial.print(",");
+  Serial.print("z_acc:");
+  Serial.println(z_acc);
+
+  /* Print gyroscope data (expressed in degrees per second). 
+  Serial.print("x_gyr:");
+  Serial.print(x_gyr);
+  Serial.print(",");
+  Serial.print("y_gyr:");
+  Serial.print(y_gyr);
+  Serial.print(",");
+  Serial.print("z_gyr:");
+  Serial.println(z_gyr); */
+```
+
+Upload the example sketch again and open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing data from the board's onboard accelerometer, as shown below (move the board):
 
 
 ![Nicla Voice onboard accelerometer data on the IDE's Serial Plotter](assets/user-manual-14.gif)
 
-When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s^2). If you want to visualize gyroscope readings, uncomment the gyroscope data output and comment on the accelerometer data output; when the board is not moving, you should see gyroscope measurements on the three-axis close to zero.
+When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s<sup>2</sup>). If you want to visualize gyroscope readings, uncomment the gyroscope data output and comment on the accelerometer data output; when the board is not moving, you should see gyroscope measurements on the three-axis close to zero.
 
 #### IMU and Machine Learning
 
