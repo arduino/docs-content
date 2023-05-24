@@ -20,15 +20,15 @@ libraries:
     url: https://github.com/107-systems/107-Arduino-NMEA-Parser
 ---
 
-![The Arduino® Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
+![The Arduino Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
 
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide by choosing among GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
+The **Arduino Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide by choosing among GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
 
-This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino® Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino® Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
+This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino® Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
 
 ## Core
 
-The Arduino® Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
+The Arduino Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
 
 ***The libraries are included in the mbed Core version greater than 2.6.1***
 
@@ -101,121 +101,26 @@ This library contains some commands that are quite different, because it leverag
 
 #### Frequency Bands
 
-Here are the details regarding the frequency bands. REQUIRES DETAIL EXPANSION & FOLLOWING INFORMATION EXPLAINED. RAW INFORMATION FROM TX62-W AT COMMAND SPECIFICATION
+When the Portenta Cat. M1/NB IoT GNSS Shield starts establishing connection, it is possible to define frequency band. The list of available frequency bands that can be used to set the device when it configures the credentials into the device is as follows:
 
-<rbacatm-1> determines Cat.M frequency bands the UE is allowed to use. Values are given in hexadecimal
-32-bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatm-1> covers band 1 to band 32.
+| Compatible Frequency Band List |
+| 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
+| 0x01 | LTE 2100 | B1 | BAND_1 |
+| 0x02 | LTE 1900 | B2 | BAND_2 |
+| 0x04 | LTE 1800 | B3 | BAND_3 |
+| 0x08 | LTE 1700 | B4 | BAND_4 |
+| 0x10 | LTE 850 | B5 | BAND_5 |
+| 0x80 | LTE 900 | B8 | BAND_8 |
+| 0x800 | LTE 700 | B12 | BAND_12 |
+| 0x1000 | LTE 700 | B13 | BAND_13 |
+| 0x20000 | LTE 850 | B18 | BAND_18 |
+| 0x40000 | LTE 800 | B19 | BAND_19 |
+| 0x80000 | LTE 800 | B20 | BAND_20 |
+| 0x1000000 | LTE 1900 | B25 | BAND_25 |
+| 0x2000000 | LTE 850 | B26 | BAND_26 |
+| 0x8000000 | LTE 700 | B28 | BAND_28 |
 
-“1“ LTE 2100 (B1)
-“2“ LTE 1900 (B2)
-“4“ LTE 1800 (B3)
-“8“ LTE 1700 (B4)
-“10“ LTE 850 (B5)
-“80“ LTE 900 (B8)
-“800“ LTE 700 (B12)
-“1000“ LTE 700 (B13)
-“20000“ LTE 850 (B18)
-“40000“ LTE 800 (B19)
-“80000“ LTE 800 (B20)
-“1000000“ LTE 1900 (B25)
-“2000000“ LTE 850 (B26)
-“4000000“ LTE 800 (B27)
-“8000000“ LTE 700 (B28)
-
-Factory default of <rbacatm-1> is the combination of all available bands meaning that all supported bands are
-allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a fullfeatured automatic network selection when trying to register.
-Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
-allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
-to reduce the power consumption. In such case, <rbacatm-1> may be one of the supported single values listed
-below.
-
-Any change to this parameter will take effect immediately. So, <rbacatm-1> is a parameter that may be used
-to read out the current band combination any time, but the read value is used for reinitializing the UE after next
-restart.
-
-Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
-using AT^SCFG="Radio/Band/CatM","0","0" is possible.
-
-<rbacatm-2> determines Cat.M frequency bands the UE is allowed to use. Values are given in hexadecimal
-bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatm-2> covers
-band 33 to max possible band. If the UE does not support bands higher than 32 the AT^SCFG test command
-returns the value range 0 - 0, and the AT^SCFG read command response does not display <rbacatm-2>.
-
-“200000000“ LTE 1745 (B66)
-“10000000000000“ LTE 700 (B85)
-
-Factory default of <rbacatm-2> is the combination of all available bands meaning that all supported bands are
-allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a fullfeatured automatic network selection when trying to register.
-Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
-allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
-to reduce the power consumption. In such case, <rbacatm-2> may be one of the supported single values listed
-below.
-
-Any change to this parameter will take effect immediately. So, <rbacatm-2> is a parameter that may be used
-to read out the current band combination any time, but the read value is used for reinitializing the UE after next
-restart.
-
-Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
-using AT^SCFG="Radio/Band/CatM","0","0" is possible.
-
-<rbacatnb-1> determines Cat.NB frequency bands the UE is allowed to use. Values are given in hexadecimal
-32-bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatnb-1>
-covers band 1 to band 32.
-“1“ LTE 2100 (B1)
-“2“ LTE 1900 (B2)
-“4“ LTE 1800 (B3)
-“8“ LTE 1700 (B4)
-“10“ LTE 850 (B5)
-“80“ LTE 900 (B8)
-“800“ LTE 700 (B12)
-“1000“ LTE 700 (B13)
-“20000“ LTE 850 (B18)
-“40000“ LTE 800 (B19)
-“80000“ LTE 800 (B20)
-“1000000“ LTE 1900 (B25)
-“2000000“ LTE 850 (B26)
-“8000000“ LTE 700 (B28)
-
-Factory default of <rbacatnb-1> is the combination of all available bands meaning that all supported bands
-are allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a
-full-featured automatic network selection when trying to register.
-Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
-allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
-to reduce the power consumption. In such case, <rbacatnb-1> may be one of the supported single values
-listed below.
-
-Any change to this parameter will take effect immediately. So, <rbacatnb-1> is a parameter that may be used
-to read out the current band combination any time, but the read value is used for reinitializing the UE after next
-restart.
-
-Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
-using AT^SCFG="Radio/Band/CatNB","0","0" is possible. 
-
-<rbacatnb-2> determines Cat.NB frequency bands the UE is allowed to use. Values are given in hexadecimal
-bit-value order. Every bit corresponds to a dedicated band number. The number range of <rbacatnb-2> covers band 33 to max possible band. If the UE does not support bands higher than 32 the AT^SCFG test command
-returns the value range 0 - 0, and the AT^SCFG read command response does not display <rbacatnb-2>.
-
-“200000000“ LTE 1745 (B66)
-“4000000000“ LTE 600 (B71)
-“10000000000000“ LTE 700 (B85)
-
-Factory default of <rbacatnb-2> is the combination of all available bands meaning that all supported bands
-are allowed. If AT+COPS equals "0" (automatic mode) this solution allows the subscriber to take advantage of a
-full-featured automatic network selection when trying to register.
-
-Therefore, changes to the band configuration are recommended only if the subscriber wishes to restrict the
-allowed bands to a specific band or band combination, in particular to speed up the network search, and thus,
-to reduce the power consumption. In such case, <rbacatnb-2> may be one of the supported single values
-listed below.
-
-Any change to this parameter will take effect immediately. So, <rbacatnb-2> is a parameter that may be used
-to read out the current band combination any time, but the read value is used for reinitializing the UE after next
-restart.
-
-Note: The AT^SCFG=? test command shows the minimum and maximum band values. Switching off all bands
-using AT^SCFG="Radio/Band/CatNB","0","0" is possible. 
-
-ABOVE INFORMATION COMES FROM TX62-W AT COMMAND SPECIFICATION. IN PROGRESS
+Because each country has a compatible frequency band, it is a good practice to ensure the configured band is suitable with its region. You can check the frequency band compatibility with the region by using a website that compiles network status as this [site](https://www.frequencycheck.com/countries).
 
 #### Connect to Your Provider
 
