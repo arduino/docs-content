@@ -121,7 +121,7 @@ It is possible to establish connection within desired frequency band for the Por
 | 0x2000000 | LTE 850 | B26 | BAND_26 |
 | 0x8000000 | LTE 700 | B28 | BAND_28 |
 
-These bands are applicable for both Cat.M and Cat.NB radios, enabling shield to use within Cat. M1 and NB-IoT networks. The Cat.M radio provides high data rates of upto 1 Mbps; while the Cat.NB radio provides lower data rate of 250 Kbps but it is suitable for environments with high variability in its condition. These connectivities are granted thanks to TX62-W Cellular-GNSS LPWAN modem.
+These are Cat.M and Cat.NB frequency bands available for use with TX62-W LTE Cat.M1 and Cat.NB1 Engine, of which the Portenta Cat. M1/NB IoT GNSS Shield operates on. The network connectivities are granted thanks to TX62-W Cellular-GNSS LPWAN modem.
 
 The band configuration is available to allow the user to restrict to specific or combination of frequency bands. This helps to operate under certain policy requirements, or to reduce the time used for network search, and helping to reduce power consumption of the device.
 
