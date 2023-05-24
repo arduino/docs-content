@@ -120,7 +120,7 @@ It is possible to establish a connection within desired frequency band for the P
 | 0x2000000 | LTE 850 | B26 | BAND_26 |
 | 0x8000000 | LTE 700 | B28 | BAND_28 |
 
-These are Cat.M and Cat.NB frequency bands are available for use with TX62-W, which is referred to as the LTE Cat.M1 and Cat.NB1 Engine. The Portenta Cat. M1/NB IoT GNSS Shield is capable of the present network connectivity thanks to its onboard TX62-W Cellular-GNSS LPWAN modem.
+These are Cat.M and Cat.NB frequency bands that are available for use with TX62-W, referred to as the LTE Cat.M1 and Cat.NB1 Engine. The Portenta Cat. M1/NB IoT GNSS Shield is capable of the present network connectivity thanks to its onboard TX62-W Cellular-GNSS LPWAN modem.
 
 The band configuration is available to allow the user to restrict to a specific or combination of frequency bands. It helps to operate under enforced frequency policy requirements, or to lower the network search time, reducing the device power consumption.
 
