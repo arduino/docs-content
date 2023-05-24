@@ -86,7 +86,6 @@ To get familiar with the commands, you can take a look at the [GSM library](http
 
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
-|          :------------------------------------------:          |                    :--------------------------------------------------------------------------------------:             |
 |                            Command                             |                                                        Information                                                      |
 |          :------------------------------------------:          |                    :--------------------------------------------------------------------------------------:             |
 | `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider                                                |
