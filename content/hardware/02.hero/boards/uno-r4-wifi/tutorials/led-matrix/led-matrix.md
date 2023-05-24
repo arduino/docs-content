@@ -1,5 +1,5 @@
 ---
-title: "Using the Arduino UNO R4 WiFi LED matrix"
+title: "Using the Arduino UNO R4 WiFi LED Matrix"
 description: "Get off the ground with the Arduino UNO R4 WiFi's built in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games."
 tags:
   - Guide
@@ -116,7 +116,7 @@ frame[2][1] = 1;
 matrix.renderBitmap(frame, 8, 12);
 ```
 
-## Testing it Out
+## Testing It Out
 
 Let's apply these concepts, with two basic sketches that display different frames on your board. First, let's load 3x32bit integer frames and load them one by one.
 
