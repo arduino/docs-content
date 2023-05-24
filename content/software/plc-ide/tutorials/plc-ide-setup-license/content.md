@@ -1,6 +1,6 @@
 ---
 beta: true
-title: Arduino® PLC IDE Setup & Device License Activation Guide
+title: Arduino® PLC IDE Setup & Device License Activation
 difficulty: beginner
 tags: 
   - PLC
@@ -18,7 +18,11 @@ software:
 
 ## Overview
 
-The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation. This tutorial will show you how to connect the Portenta Machine Control and Opta™ to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
+The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation.
+
+![Arduino PLC IDE](assets/plc-ide-sw.svg)
+
+This tutorial will show you how to connect the Portenta Machine Control and Opta™ to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
 
 ## Goals
 
