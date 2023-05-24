@@ -101,9 +101,8 @@ This library contains some commands that are quite different, because it leverag
 
 #### Available Frequency Bands
 
-It is possible to establish connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The list of available frequency bands that can be used for the device's credential configuration are as follows:
+It is possible to establish connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The **list of available frequency bands** that can be used for the device's credential configuration are as follows:
 
-**Compatible Frequency Band List**
 | 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
 | :----------------------: | :------: | :--------------: | :------------------: |
 | 0x01 | LTE 2100 | B1 | BAND_1 |
@@ -156,7 +155,7 @@ void setup() {
 }
 ```
 
-To have a specific frequency band configured, the `GSM.begin()` method allows an additional argument field to define desired frequency band to configure, which can be applied to mask multiple bands to be used or searched. You may check the how this frequncy band configuration works by checking the [Available Frequency Bands section](#available-frequency-bands). The following `GSM.begin()` example shows how it would look like if you were to define the frequency band.
+To have a specific frequency band configured, the `GSM.begin()` method allows an additional argument field to define desired frequency band to configure, which can be applied to mask multiple bands to be used or searched. The following `GSM.begin()` example shows how it would look like if you were to define the frequency band.
 
 ```cpp
 void setup() {
@@ -170,7 +169,7 @@ void setup() {
 }
 ```
 
-The available frequency band for the shield's cellular connectivity configuration can be found in the previous [Frequency Band section](#frequency-bands).
+Please check how the frequency band configuration works briefly within the [Available Frequency Bands section](#available-frequency-bands). The list of available frequency bands for the shield's cellular connectivity configuration can also be found in the previous [section](#available-frequency-bands).
 
 #### Send a HTTP GET Request and Receive Data
 
