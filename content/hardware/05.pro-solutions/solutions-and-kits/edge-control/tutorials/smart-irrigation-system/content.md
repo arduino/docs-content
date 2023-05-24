@@ -86,8 +86,16 @@ The goal of this application note is to showcase a smart farming irrigation syst
 - The [smart irrigation system codes](assets/Edge-Control_MKR_Codes.zip).
 - [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the Portenta H7 to the IoT Cloud.
 
-## Intruder Detector System Setup
+## Smart Irrigation System Setup
 
 The electrical connections of the intended application are shown in the diagram below:
 
 ![Electrical connections of the irrigation system](assets/wiring-diagram.png)
+
+The Arduino Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
+The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT3.
+The water level transmitter will be connected to +19V reference and 4-20mA input 1 of J7 connector.
+
+
+## Smart Irrigation System Overview
+
