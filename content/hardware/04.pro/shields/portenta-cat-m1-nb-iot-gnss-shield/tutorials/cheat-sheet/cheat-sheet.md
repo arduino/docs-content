@@ -86,18 +86,18 @@ To get familiar with the commands, you can take a look at the [GSM library](http
 
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
-| Command | Information |
-| :----------------------------------------------------: | :----------------------------------------------------------: |
-| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
-| `GSMClient`| Client constructor, on the examples we define it as client  |
-| `GSM.getTime()`|Returns the time, you can set a new one with setTime()|
-| `GSM.getLocalTime()`| Returns the local time|
-| `GSM.setTime()`| Set the time, it will be saved and it can be read with getTime() |
-| `GSM.debug()`| After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
-| `GSMClient.connect(server,port)` | Connect to a remote server |
-| `GSMClient.available()` | Check if the server that is connected to has some bytes ready to be read |
-| `GSMClient.read()` | Returns data from the server |
-| `GSMClient.stop()` | Disconnects from the server |
+|                            Command                             |                                                        Information                                                      |
+| :------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: |
+| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider                                                |
+| `GSMClient`                                                    | Client constructor, on the examples we define it as client                                                              |
+| `GSM.getTime()`                                                | Returns the time, you can set a new one with setTime()                                                                  |
+| `GSM.getLocalTime()`                                           | Returns the local time                                                                                                  |
+| `GSM.setTime()`                                                | Set the time, it will be saved and it can be read with getTime()                                                        |
+| `GSM.debug()`                                                  | After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
+| `GSMClient.connect(server,port)`                               | Connect to a remote server                                                                                              |
+| `GSMClient.available()`                                        | Check if the server that is connected to has some bytes ready to be read                                                |
+| `GSMClient.read()`                                             | Returns data from the server                                                                                            |
+| `GSMClient.stop()`                                             | Disconnects from the server                                                                                             |
 
 #### Available Frequency Bands
 
@@ -105,20 +105,20 @@ It is possible to establish a connection within desired frequency band for the P
 
 | 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
 | :----------------------: | :------: | :--------------: | :------------------: |
-| 0x01 | LTE 2100 | B1 | BAND_1 |
-| 0x02 | LTE 1900 | B2 | BAND_2 |
-| 0x04 | LTE 1800 | B3 | BAND_3 |
-| 0x08 | LTE 1700 | B4 | BAND_4 |
-| 0x10 | LTE 850 | B5 | BAND_5 |
-| 0x80 | LTE 900 | B8 | BAND_8 |
-| 0x800 | LTE 700 | B12 | BAND_12 |
-| 0x1000 | LTE 700 | B13 | BAND_13 |
-| 0x20000 | LTE 850 | B18 | BAND_18 |
-| 0x40000 | LTE 800 | B19 | BAND_19 |
-| 0x80000 | LTE 800 | B20 | BAND_20 |
-| 0x1000000 | LTE 1900 | B25 | BAND_25 |
-| 0x2000000 | LTE 850 | B26 | BAND_26 |
-| 0x8000000 | LTE 700 | B28 | BAND_28 |
+|           0x01           | LTE 2100 |        B1        |        BAND_1        |
+|           0x02           | LTE 1900 |        B2        |        BAND_2        |
+|           0x04           | LTE 1800 |        B3        |        BAND_3        |
+|           0x08           | LTE 1700 |        B4        |        BAND_4        |
+|           0x10           | LTE 850  |        B5        |        BAND_5        |
+|           0x80           | LTE 900  |        B8        |        BAND_8        |
+|           0x800          | LTE 700  |        B12       |        BAND_12       |
+|           0x1000         | LTE 700  |        B13       |        BAND_13       |
+|           0x20000        | LTE 850  |        B18       |        BAND_18       |
+|           0x40000        | LTE 800  |        B19       |        BAND_19       |
+|           0x80000        | LTE 800  |        B20       |        BAND_20       |
+|           0x1000000      | LTE 1900 |        B25       |        BAND_25       |
+|           0x2000000      | LTE 850  |        B26       |        BAND_26       |
+|           0x8000000      | LTE 700  |        B28       |        BAND_28       |
 
 These are Cat.M and Cat.NB frequency bands that are available for use with TX62-W, referred to as the LTE Cat.M1 and Cat.NB1 Engine. The Portenta Cat. M1/NB IoT GNSS Shield is capable of the present network connectivity thanks to its onboard TX62-W Cellular-GNSS LPWAN modem.
 
