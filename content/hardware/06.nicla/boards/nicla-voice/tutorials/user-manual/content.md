@@ -695,7 +695,8 @@ When the board is not moving, you should see acceleration measurements close to 
 
 #### IMU and Machine Learning
 
-The example code below demonstrates using the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> IMUDemo**.
+The example code below demonstrates using the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
+
 
 ```arduino
 #include "NDP.h"
