@@ -441,7 +441,7 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 #### Accelerometer and Gyroscope Data
 
-The example code below shows how to get acceleration (in meters per second squared) and angular velocity (in degrees per second) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
+The example code below shows how to get acceleration (m/s) and angular velocity (in degrees per second) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
 
 ```arduino
 /**
