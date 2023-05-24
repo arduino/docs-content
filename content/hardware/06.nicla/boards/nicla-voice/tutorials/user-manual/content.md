@@ -683,9 +683,9 @@ After uploading the example code, you should see accelerometer and gyroscope dat
 
 ![Nicla Voice onboard IMU data on the IDE's Serial Monitor](assets/user-manual-13.png)
 
-Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's visualize first only accelerometer data. To do this, **comment the gyroscope data output to the IDE's Serial monitor and upload the example sketch again**; then, open the IDE's Serial Plotter by navigating to **Tools -> Serial Plotter**. After a while, you should see a real-time graph showing data from the board's onboard accelerometer, as shown in the image below:
+Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's visualize first only accelerometer data. To do this, **comment the gyroscope data output to the IDE's Serial monitor and upload the example sketch again**; then, open the IDE's Serial Plotter by navigating to **Tools -> Serial Plotter**. After a while, you should see a real-time graph showing data from the board's onboard accelerometer, as shown below (move the board):
 
-![Nicla Voice onboard accelerometer data on the IDE's Serial Plotter](assets/user-manual-14.png)
+![Nicla Voice onboard accelerometer data on the IDE's Serial Plotter](assets/user-manual-14.gif)
 
 When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s^2). If you want to visualize gyroscope readings, uncomment the gyroscope data output and comment on the accelerometer data output; when the board is not moving, you should see gyroscope measurements on the three-axis close to zero.
 
