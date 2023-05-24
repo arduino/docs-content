@@ -101,7 +101,7 @@ This library contains some commands that are quite different, because it leverag
 
 #### Available Frequency Bands
 
-It is possible to establish connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The **list of available frequency bands** that can be used for the device's credential configuration are as follows:
+It is possible to establish a connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The **list of available frequency bands** that can be used for the device's credential configuration is as follows:
 
 | 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
 | :----------------------: | :------: | :--------------: | :------------------: |
@@ -120,27 +120,27 @@ It is possible to establish connection within desired frequency band for the Por
 | 0x2000000 | LTE 850 | B26 | BAND_26 |
 | 0x8000000 | LTE 700 | B28 | BAND_28 |
 
-These are Cat.M and Cat.NB frequency bands available for use with TX62-W, which is referred to as the LTE Cat.M1 and Cat.NB1 Engine. The Portenta Cat. M1/NB IoT GNSS Shield is capable of the present network connectivity thanks to its on-board TX62-W Cellular-GNSS LPWAN modem.
+These are Cat.M and Cat.NB frequency bands are available for use with TX62-W, which is referred to as the LTE Cat.M1 and Cat.NB1 Engine. The Portenta Cat. M1/NB IoT GNSS Shield is capable of the present network connectivity thanks to its onboard TX62-W Cellular-GNSS LPWAN modem.
 
-The band configuration is available to allow the user to restrict to specific or combination of frequency bands. This helps to operate under certain policy requirements, or to lower the network search time, reducing power consumption of the device.
+The band configuration is available to allow the user to restrict to a specific or combination of frequency bands. It helps to operate under enforced frequency policy requirements, or to lower the network search time, reducing the device power consumption.
 
-If you leave the frequency band argument field blank for the `GSM.begin()` method, it will configure using default setting which allows to search for all supported bands that are available. Thus, the Portenta Cat. M1/NB IoT GNSS Shield will proceed to select a compatible network automatically depending on the region.
+If you leave the frequency band argument field blank for the `GSM.begin()` method, it will configure using the default setting, which allows it to search for all available supported bands. The Portenta Cat. M1/NB IoT GNSS Shield will then select a compatible network automatically depending on the region.
 
-Each country has a compatible frequency band, so it is a good practice to check the desired band is suitable with its region. You can check the frequency band compatibility of the region by using a website that compiles network status such as [here](https://www.frequencycheck.com/countries).
+Each country has a compatible frequency band, so it is a good practice to check the desired band is suitable for its region. You can check the frequency band compatibility of the region by using a website that compiles network status such as [here](https://www.frequencycheck.com/countries).
 
 #### Connect to Your Provider
 
 You need to enter the Pin code and the APN link of your provider.
 
-The user name and password depends on your provider; these are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials and provider name. Sometimes they can be left blank.
+The username and password depend on your provider; these are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials and provider names. Sometimes they can be left blank.
 
 The following sketch will initialize the SIM card and connect to your provider network within supported bands:
 
 ```cpp
 #include <GSM.h>
 
-char pin[]      = SECRET_PIN; 		//example "1234"
-char apn[]      = SECRET_APN;		//example "live.provider.com"
+char pin[]      = SECRET_PIN;     //example "1234"
+char apn[]      = SECRET_APN;   //example "live.provider.com"
 char username[] = SECRET_USERNAME;
 char pass[]     = SECRET_PASSWORD;
 
@@ -148,24 +148,24 @@ void setup() {
   Serial.begin(115200);
   while(!Serial) {}
 
-	if(GSM.begin(pin, apn, username, pass, CATM1)){
-		Serial.println("connected");
+  if(GSM.begin(pin, apn, username, pass, CATM1)){
+    Serial.println("connected");
     // ...
-	}
+  }
 }
 ```
 
-To have a specific frequency band configured, the `GSM.begin()` method allows an additional argument field to define desired frequency band to configure, which can be applied to mask multiple bands to be used or searched. The following `GSM.begin()` example shows how it would look like if you were to define the frequency band.
+To have a specific frequency band configured, the `GSM.begin()` method allows an additional argument field to define desired frequency band to configure, which applies to mask multiple bands to be used or searched. The following `GSM.begin()` example shows how it would look if you were to define the frequency band.
 
 ```cpp
 void setup() {
   Serial.begin(115200);
   while(!Serial) {}
 
-	if(GSM.begin(pin, apn, username, pass, CATM1, BAND_20 | BAND_19)){
-		Serial.println("connected");
+  if(GSM.begin(pin, apn, username, pass, CATM1, BAND_20 | BAND_19)){
+    Serial.println("connected");
     // ...
-	}
+  }
 }
 ```
 
