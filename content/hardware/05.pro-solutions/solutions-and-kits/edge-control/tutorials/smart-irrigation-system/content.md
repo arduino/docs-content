@@ -113,3 +113,16 @@ Regarding the use of water, at the system startup, the current amount of water i
 
 #### Weather forecast consideration
 Regarding the weather, the MKR WiFi 1010 requires the forecast of the city's weather using the OpenWeather API, if the probability of rain is greater than 90%, the automatic watering timers will be ignored, however, it will be possible to continue watering manually if the user so wishes.
+
+### Arduino Edge Control Code
+
+We will go through some important code sections to make this application fully operative. We will begin with the required libraries:
+
+- Including `Arduino_EdgeControl.h` will enable the support for the Arduino Edge Control board peripherals, install it by searching for it on the Library Manager.
+- Including `Wire.h` will enable the I2C communication needed between the Edge Control, the MKR and the other peripherals, it's included in the BSP of the Arduino Edge Control.
+
+There are two extra directories included in the project code that handles some helper functions and structures:
+
+- `SensorValues.hpp` handles the shared variables between the Arduino Edge Control and the MKR WiFi 1010 through I2C.
+- `helpers.h` handles the Real Time Clock functions to retrieve the local date and time.
+
