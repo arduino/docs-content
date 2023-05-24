@@ -90,7 +90,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical connections of the irrigation system](assets/wiring-diagram.png)
+![Electrical connections of the irrigation system](assets/wiring-diagram-1.png)
 
 The Arduino Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
 The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT3.
