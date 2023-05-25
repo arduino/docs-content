@@ -474,3 +474,12 @@ All the necessary files to replicate this application note can be found below:
 
 * The complete code can be downloaded [here](assets/Edge-Control_MKR_Codes.zip)
 
+## Conclusion
+
+In this application note, we have learned how to build a smart irrigation system to water our crops automatically, manually and remotely, also analyzing the weather to avoid irrigation when it's raining so we can save water, using an Arduino Edge Control allows us to easily implement this kind of agriculture systems ready for field deployment. It is known that normally in remote areas we don't have WiFi access but this is to showcase the Edge Control capabilities to connect to the Cloud and be remotely controlled. The Arduino Pro product series is a great choice to develop robust and industrial environment prove solutions.
+
+### Next Steps
+
+As you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WiFi 1010, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your professional setup and improve it with powerful solutions. 
+
+You can add different connectivity modules like LoRaWAN®, GSM, RS485 or Ethernet by using the [Arduino MKR family](https://store-usa.arduino.cc/collections/mkr-family)
