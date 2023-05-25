@@ -140,7 +140,7 @@ The following sketch will initialize the SIM card and connect to your provider n
 #include <GSM.h>
 
 char pin[]      = SECRET_PIN;     //example "1234"
-char apn[]      = SECRET_APN;   //example "live.provider.com"
+char apn[]      = SECRET_APN;    //example "live.provider.com"
 char username[] = SECRET_USERNAME;
 char pass[]     = SECRET_PASSWORD;
 
