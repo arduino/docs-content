@@ -472,7 +472,7 @@ We can easily access this dashboard from a PC, mobile phone or tablet from anywh
 
 All the necessary files to replicate this application note can be found below:
 
-* The complete code can be downloaded [here](assets/Edge-Control_MKR_Codes.zip)
+- The complete code can be downloaded [here](assets/Edge-Control_MKR_Codes.zip)
 
 ### Project Working Images
 
