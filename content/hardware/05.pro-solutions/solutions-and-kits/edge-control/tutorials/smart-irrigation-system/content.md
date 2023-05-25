@@ -162,7 +162,7 @@ In order to save energy and resources, the Arduino Edge Control has different po
 
 With the `setSystemClock` function, we define a starting date reference for the Real Time Clock, and if you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds. 
 
-*** You just need to set the RTC once and make sure to have a CR2032 3V battery in the Arduino Edge Control holder to maintain the RTC configurations. ***
+**You just need to set the RTC once and make sure to have a CR2032 3V battery in the Arduino Edge Control holder to maintain the RTC configurations.**
 
 ```arduino
 /**
@@ -228,7 +228,7 @@ The `updateSensors()` function send the local sensor's values and valves statuse
 
 To measure the water level we are using a 4-20mA 0 to 1 meter sensor, the Arduino Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor to be read by the Analog to Digital Converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
 
-*** float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25; ***
+**float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;**
 
 As we want to show an intuitive graph for the valve's active time, we decided to reset the accumulated time each day at midnight so we can have a daily use graph con the Arduino IoT Cloud.
 
