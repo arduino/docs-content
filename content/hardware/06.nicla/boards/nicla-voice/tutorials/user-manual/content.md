@@ -677,7 +677,7 @@ Next, in the `setup()` function:
 Finally, in the `loop()` function:
 
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
-- Raw sensor data is then parsed and extracted into raw accelerometer and gyroscope data. This data is represented as 16-bit signed integers ranging from -32,768 to 32,767.
+- Raw sensor data is then parsed and extracted into raw accelerometer and gyroscope data. This data is represented as 16-bit signed integers ranging from -32 768 to 32 767.
 - Raw sensor data is converted into understandable and standard unit measurements; for the accelerometer, data is converted to meters per second squared, and for the gyroscope, data is converted to degrees per second. 
 - Converted accelerometer and gyroscope data are printed to the Serial Monitor, allowing one to observe sensor data in real time.
 
