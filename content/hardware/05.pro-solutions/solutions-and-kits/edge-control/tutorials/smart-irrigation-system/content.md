@@ -40,7 +40,7 @@ hardware:
 
 The health of our crops depends on being able to provide favorable environmental conditions for their proper development. Among the most important factors is irrigation, water allows the assimilation and transport of nutrients in plants, among many other things vital to life.
 
-![Thumbnail](assets/)
+![Project result](assets/Thumbnail.png)
 
 Smart farming is more accessible today than ever using the Arduino series of professional solutions. Taking advantage of the control capabilities and analysis of sensor variables, Arduino Edge Control is perfect for managing our crops.
 
@@ -59,7 +59,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 
 ## Hardware and Software Requirements
 
-![Materials](assets/)
+![Project main hardware and materials](assets/hardware.png)
 
 ### Hardware Requirements
 - Arduino Edge Control
@@ -98,8 +98,7 @@ The Arduino Edge Control board will be powered with an external 12V DC power sup
 The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT6.
 The water level transmitter will be connected to +19V reference and 4-20mA input 1 of J7 connector.
 
-![Project physical deployment](assets/)
-
+![Project physical deployment](assets/Thumbnail.png)
 
 ## Smart Irrigation System Overview
 
