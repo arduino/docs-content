@@ -476,7 +476,7 @@ All the necessary files to replicate this application note can be found below:
 
 * The complete code can be downloaded [here](assets/Edge-Control_MKR_Codes.zip)
 
-### Project working images
+### Project Working Images
 
 ![Zone 1 manual irrigation](assets/manual-irrigation.png)
 ![Automatic Irrigation Timer Countdown in Zone 2 (1.4 minutes left)](assets/timer-LCD.png)
