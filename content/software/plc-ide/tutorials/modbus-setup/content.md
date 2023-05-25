@@ -29,7 +29,7 @@ The Arduino Portenta Machine Control (PMC) is a fully-centralized, low-power, in
 In order to configure the Portenta Machine Control you will need to connect to the device through the Arduino PLC IDE.
 
 1. Connect the device to the computer through USB
-2. Click "Connects to the target" button on the PLC IDE
+2. Click "Connect to the target" button on the PLC IDE
 
 ***The device needs to be activated with a license, check the steps on the [PLC IDE Set-up tutorial](./plc-ide-setup-license)***
 
@@ -43,7 +43,7 @@ In order to configure the Portenta Machine Control you will need to connect to t
 
 Inside the Arduino PLC IDE navigate to the left side panel and click on the "Resources" tab.
 
-To configure the Modbus communication click on the "RS485 Serialport" label, it will open a new window on the middle to customize:
+To configure the Modbus communication click on the "RS485 Serialport" label, it will open a new window in the middle to customize:
 
 ![Arduino PLC IDE Resources panel, -> RS485 settings](assets/PLC-IDE-ModBus.png)
 
@@ -87,7 +87,7 @@ Baud rate, options:
 (Only available on slave mode)
 
 * Modbus address
-  Address of the device, from 1 to 247, it can not be repeated within the same Modbus net.
+  Address of the device: from 1 to 247. It can not be repeated within the same Modbus net.
 
 #### Modbus Node Configuration
 
@@ -103,7 +103,7 @@ Once you have configured your device as a **Modbus Master** you can attach some 
 
 Inside the Arduino PLC IDE navigate to the left side panel and click on the "Resources" tab.
 
-To configure the Modbus communication click on the "Ethernet" label, it will open a new window on the middle to customize:
+To configure the Modbus communication click on the "Ethernet" label, it will open a new window in the middle to customize:
 
 ![Arduino PLC IDE Resources panel, -> Ethernet configuration](assets/modbusTCP-configuration.png)
 
@@ -157,5 +157,5 @@ This is a table to link all the coils, registers or variables that the function 
 
 ### Next Steps
 
-- Configure it as a Modbus Master device and connect a Modbus sensor to get data from.
+- Configure it as a Modbus Master device and connect a Modbus sensor to get data from it.
 - Interconnect two Portenta Machine Control boards and create a sketch to communicate between them.
