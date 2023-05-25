@@ -154,7 +154,7 @@ void setup() {
 }
 ```
 
-The following `GSM.begin()` example shows how it would look if you were to define the frequency band for the shield to mask multiple bands to be used or searched.
+The following example shows how the `GSM.begin()` method would look if you were to define the frequency band for the shield to mask multiple bands to be used or searched. The `BAND_20` and `BAND_19` are one example of a combination of bands to configure credential to restrict the shield's network to the compatible region. It will allow to increase the network search speed and reduce the time spent seeking, saving power consumption of the device.
 
 ```cpp
 void setup() {
