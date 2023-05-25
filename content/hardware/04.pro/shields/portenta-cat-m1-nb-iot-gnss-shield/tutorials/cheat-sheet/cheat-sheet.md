@@ -98,7 +98,9 @@ This library contains some commands that are quite different, because it leverag
 
 ### Available Frequency Bands
 
-It is possible to establish a connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The **list of available frequency bands** that can be used for the device's credential configuration is as follows:
+It is possible to establish a connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. To do this, you need to define frequency bands for `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` by replacing `BAND_#` with desired band.
+
+The **list of available frequency bands** that can be used for the device's credential configuration is as follows:
 
 | 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
 | ------------------------ | -------- | ---------------- | -------------------- |
@@ -121,7 +123,7 @@ These are Cat.M and Cat.NB frequency bands that are available for use with TX62-
 
 The band configuration is available to allow the user to restrict to a specific or combination of frequency bands. It helps to operate under enforced frequency policy requirements, or to lower the network search time, reducing the device power consumption.
 
-If you leave the frequency band argument field blank for the `GSM.begin()` method, it will configure using the default setting, which allows it to search within all available supported bands. The Portenta Cat. M1/NB IoT GNSS Shield will then select a compatible network automatically depending on the availability in the operating region.
+If you leave the frequency band `BAND_#` field blank for the `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` method, it will configure using the default setting, which allows it to search within all available supported bands. The Portenta Cat. M1/NB IoT GNSS Shield will then select a compatible network automatically depending on the availability in the operating region.
 
 Each country has a compatible frequency band, so it is a good practice to check the if desired band is suitable for its region. You can check the frequency band compatibility of the region by using a website that compiles network status such as [here](https://www.frequencycheck.com/countries).
 
@@ -152,7 +154,7 @@ void setup() {
 }
 ```
 
-To have a specific frequency band configured, the `GSM.begin()` method allows an additional argument field to define desired frequency band to configure, which applies to mask multiple bands to be used or searched. The following `GSM.begin()` example shows how it would look if you were to define the frequency band.
+The following `GSM.begin()` example shows how it would look if you were to define the frequency band for the shield to mask multiple bands to be used or searched.
 
 ```cpp
 void setup() {
