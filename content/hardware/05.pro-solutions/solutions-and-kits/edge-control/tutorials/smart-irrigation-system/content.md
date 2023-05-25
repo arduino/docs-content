@@ -160,7 +160,7 @@ In order to save energy and resources, the Arduino Edge Control has different po
 
 With the `setSystemClock` function, we define a starting date reference for the Real Time Clock, and if you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds. 
 
-***You just need to set the RTC once and make sure to have a CR2032 3V battery in the Arduino Edge Control holder to maintain the RTC configurations.***
+*** You just need to set the RTC once and make sure to have a CR2032 3V battery in the Arduino Edge Control holder to maintain the RTC configurations. ***
 
 ```arduino
 /**
