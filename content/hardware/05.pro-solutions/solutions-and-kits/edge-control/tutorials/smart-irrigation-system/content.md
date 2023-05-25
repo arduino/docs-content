@@ -98,7 +98,7 @@ The Arduino Edge Control board will be powered with an external 12V DC power sup
 The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT6.
 The water level transmitter will be connected to +19V reference and 4-20mA input 1 of J7 connector.
 
-![Project physical deployment](assets/Thumbnail.png)
+![Project physical connections](assets/connections.JPG)
 
 ## Smart Irrigation System Overview
 
