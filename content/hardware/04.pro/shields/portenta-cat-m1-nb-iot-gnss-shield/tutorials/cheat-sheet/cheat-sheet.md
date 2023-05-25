@@ -86,7 +86,7 @@ To get familiar with the commands, you can take a look at the [GSM library](http
 
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
-|                            Command                             |                                                        Information                                                      |
+| Command                                                        | Information                                                                                                             |
 |          :------------------------------------------:          |                    :--------------------------------------------------------------------------------------:             |
 | `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider                                                |
 | `GSMClient`                                                    | Client constructor, on the examples we define it as client                                                              |
@@ -99,7 +99,7 @@ This library contains some commands that are quite different, because it leverag
 | `GSMClient.read()`                                             | Returns data from the server                                                                                            |
 | `GSMClient.stop()`                                             | Disconnects from the server                                                                                             |
 
-#### Available Frequency Bands
+### Available Frequency Bands
 
 It is possible to establish a connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The **list of available frequency bands** that can be used for the device's credential configuration is as follows:
 
@@ -255,15 +255,15 @@ Make sure you go to the `arduino_secrets.h` tab and:
 
 ### API
 
-| Command | Information |
-| :--------------------------------------------------: | :----------------------------------------------------------: |
-| `GPS.begin()` | Initialize the GPS modem |
-| `GPS.end()` | Turn OFF the GPS modem. |
-| `GPS.available()` | Check if the GPS has new data to be read. |
-| `GPS.read()` | Returns a `char` with the reading from the GPS module. |
-| `GPS.readAndPrint()` | Output data on the Serial Monitor, only if there is new data.|
-| `GPS.readAndDrop()` | Read the data and do nothing with it. |
-| `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly. |
+| Command                 | Information                                                  |
+| :---------------------: | :----------------------------------------------------------: |
+| `GPS.begin()`           | Initialize the GPS modem                                     |
+| `GPS.end()`             | Turn OFF the GPS modem                                       |
+| `GPS.available()`       | Check if the GPS has new data to be read                     |
+| `GPS.read()`            | Returns a `char` with the reading from the GPS module        |
+| `GPS.readAndPrint()`    | Output data on the Serial Monitor, only if there is new data |
+| `GPS.readAndDrop()`     | Read the data and do nothing with it                         |
+| `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly          |
 
 #### Get GPS Data
 
@@ -319,7 +319,7 @@ To do so, you can use an **NMEA parser**. This will convert messages received fr
 
 In this way, it is possible to interact with the data that you need for your application, for instance getting only latitude and longitude. You will be able to save those values into variables, instead of having the whole NMEA messages.
 
-Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and add the following: 
+Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and add the following:
 
 Include the needed libraries.
 
@@ -380,6 +380,7 @@ One way to save power on your project is to enable the GPS module only when it n
   //stop and disable the GNSS engine
   GPS.end();
 ```
+
 By using this method, you don't need to initialize the GPS inside the `setup()`.
 
 ## Conclusion
