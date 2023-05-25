@@ -486,7 +486,7 @@ All the necessary files to replicate this application note can be found below:
 
 ## Conclusion
 
-In this application note, we have learned how to build a smart irrigation system to water our crops automatically, manually and remotely, also analyzing the weather to avoid irrigation when it's raining so we can save water, using an Arduino Edge Control allows us to easily implement this kind of agriculture systems ready for field deployment. It is known that normally in remote areas we don't have WiFi access but this is to showcase the Edge Control capabilities to connect to the Cloud and be remotely controlled. The Arduino Pro product series is a great choice to develop robust and industrial environment prove solutions.
+In this application note, we have learned how to build a smart irrigation system to water our crops automatically, manually and remotely, also analyzing the weather to avoid irrigation when it's raining so we can save water, using an Arduino Edge Control allows us to easily implement this kind of agriculture systems ready for field deployment. It is known that normally in remote areas we don't have WiFi access but this is to showcase the Edge Control capabilities to connect to the Cloud and be remotely controlled. The Arduino Pro product series is a great choice to develop robust and industrial environment proof solutions.
 
 ### Next Steps
 
