@@ -251,5 +251,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
-| 08/03/2022 | 2            | Reference documentation links updates |
-| 04/12/2022 | 1            | First Release                         |
+| 03/08/2022 | 2            | Reference documentation links updates |
+| 12/04/2022 | 1            | First Release                         |

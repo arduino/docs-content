@@ -1,11 +1,11 @@
 ---
 beta: true
-title: Arduino PLC IDE Setup and Board's License Activation
+title: Arduino® PLC IDE Setup & Device License Activation
 difficulty: beginner
 tags: 
   - PLC
   - PLC-IDE
-description: Set up the PLC IDE, connect the board and activate its license.
+description: A brief user guide to show how to install the Arduino PLC IDE and activate the license for your compatible device.
 author: 'Pablo Marquínez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
@@ -18,7 +18,11 @@ software:
 
 ## Overview
 
-The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation. This tutorial will show you how to connect the Portenta Machine Control and Opta to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
+The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** programming languages (LD, SFC, FBD, ST, IL) with the **Portenta Machine Control and Opta™**. The PLC IDE offers a wide set of standard features commonly used in industrial automation.
+
+![Arduino PLC IDE](assets/plc-ide-sw.svg)
+
+This tutorial will show you how to connect the Portenta Machine Control and Opta™ to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
 
 ## Goals
 
@@ -28,44 +32,62 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 - Activate the device license
 - Test the connection
 
-### Required Hardware and Software
+## Required Hardware and Software
 
-- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta)
-- Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
-- If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device (https://store.arduino.cc/products/plc-key-portenta-machine-control)
-- If you have an Opta, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta)__ to know more.
+- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta™).
+- Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide)).
+- If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control).
+- If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Web Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
 
-***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control)***
+***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
 
 ## Instructions
 
+To get the Arduino PLC IDE software, go to the [official software website of the Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) and choose to download the PLC IDE software files. You will need two following executables:
+
+* Arduino PLC IDE Tools
+* Arduino PLC IDE
+
 ![Arduino IDE Download page](assets/IdeDownloadPage.png)
 
-To use the Arduino PLC IDE software, go to the [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide) and click on the download button. Download the following two executables:
+The software requires **Windows 10** or a newer operating system version for the x64 architecture.
 
-  * The Arduino PLC IDE Tools
-  * The Arduino PLC IDE
+The first executable file packages all the required drivers, libraries, and cores that you will need. The second executable will install the IDE software. The continuing sections will help you install the Arduino PLC IDE software properly.
 
-The first one will install all the required drivers, libraries and cores that you are going to need, while the second one will install the IDE software.
+### 1. Arduino PLC IDE Tools Setup
 
-### 1. Arduino PLC IDE Tools
+For a proper Arduino PLC IDE setup, you will need to install all the required tools before IDE software setup.
 
-Before installing the Arduino PLC IDE you need to install all the required tools to make it work on your computer. Once you have downloaded the Arduino PLC IDE Tools executable, double-click on it and follow the installation instructions.
+When you download the Arduino PLC IDE Tools executable, the file naming scheme is as follows:
 
-Once the installation is finished, all the required drivers, libraries and Arduino cores will be installed and ready to be used. Your computer is now ready to install the Arduino PLC IDE.
+`Arduino-PLC-IDE-Tools_X.X.X_Windows_64bit`
 
-***It is possible that during the installation some windows terminals will be opened and closed by the installation program. Do not worry about it, those windows are required by the program to install all the tools that your computer needs***
+If you have got the correct tool package, it should follow the previous naming scheme with the `X.X.X` that represents the version of the tool package. Once you have verified and downloaded the Arduino PLC IDE Tools executable, run the installer and follow the installation instructions.
 
-### 2. Arduino PLC IDE Installation
+Once the installation has finished, all the required drivers, libraries, and Arduino cores will be installed and ready to be used. Your computer is now ready to install the Arduino PLC IDE.
 
-Once the Arduino PLC IDE Tools are installed, double-click on the executable of the Arduino Pro IDE that you downloaded. Follow the installation instructions and, once the process is done, click on finish.
+***It is possible that during the installation, some terminal windows will pop by the installation program. Do not worry about it, these windows are required by the program to install all the tools that your computer needs.***
 
-***In case you have any problem, perform a reboot to be sure that all the drivers, libraries and dependencies are working and up to date.***
+### 2. Arduino PLC IDE Setup
 
-Open the Arduino PLC IDE program to see the welcome screen.
+When you download the Arduino PLC IDE executable, the file naming scheme is as follows:
+
+`Setup_Arduino PLC IDE_X.X.X.X_20230329`
+
+If you have got the correct IDE software, it should follow the previous naming scheme with the `X.X.X` that represents the version of the IDE software and its latest version release date.
+
+Run the Arduino PLC IDE installer after you have installed the Arduino PLC IDE Tools. If you have not installed the PLC IDE tools, please check [Arduino® PLC IDE Tools Setup section](#1-arduino-plc-ide-tools-setup) before proceeding as it needs to have the tools set before IDE software installation.
+
+Follow the installation instructions and finish the IDE setup process.
+
+***If you have any problem, try rebooting your computer to ensure that all the drivers, libraries, and dependencies are applied and up to date.***
+
+Once the setup is complete, open the Arduino PLC IDE program, and the welcome screen will greet you.
 
 ![Welcome screen](assets/welcome.png)
+
+The following sections will guide you to create a project, download the runtime, and properly interface the Portenta Machine Control or Opta™ with its dedicated license activation procedure.
 
 ### 3. Project Setup
 
@@ -85,7 +107,7 @@ Plug your device to the computer, select the Serial Port of your board and click
 
 ***The device will show up two Serial Ports, the default one (generally with the lowest number) is the usual Serial Port, the secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Take note of the port number assigned to the secondary port (virtual port for Modbus) as it will be needed in a second step.***
 
-If during the download procedure the following message appears, double-tap the reset button using the tip of a pen or a similar pointed object. The led above the reset button will start blinking indicating that the Opta is ready to be flashed with a new firmware. Click the **Download** button to start the process again. 
+If during the download procedure the following message appears, double-tap the reset button using the tip of a pen or a similar pointed object. The LED above the reset button will start blinking indicating that the Opta™ is ready to be flashed with a new firmware. Click the **Download** button to start the process again.
 
 ![Download error message](assets/downloadSketchError.png)
 
@@ -103,7 +125,7 @@ Make sure the Modbus protocol is using the secondary Serial port number, the Mod
 
 ![Setting up the Modbus protocol](assets/onlineSetupProperties.png)
 
-Click OK to save the settings and press the connect button on **On-line > connect**.
+Click OK to save the settings and press the connect button on **On-line > Connect**.
 
 ![Connect to the board](assets/connect.png)
 
@@ -133,15 +155,15 @@ Follow the instructions provided using our Contact [form](https://www.arduino.cc
 
 Once you receive the **Activation file**, drag and drop the file in the dashed rectangle or select it from the folder where it is stored to complete your Offline Activation.
 
-### 7. License Activation with Pre-Licensed Products (Opta)
+### 7. License Activation with Pre-Licensed Products (Opta™)
 
 When a product is **Pre-licensed**, the following scenario will be displayed:
 
-![Opta Activation No License](assets/opta-activation-no-license.png)
+![Opta™ Activation No License](assets/opta-activation-no-license.png)
 
 By clicking the **Activate PLC Runtime** button, the product activation will be completed and the PLC **Status** will be set as OK:
 
-![Opta Activation Status OK](assets/opta-activation-status-ok.png)
+![Opta™ Activation Status OK](assets/opta-activation-status-ok.png)
 
 Now the product is ready to be used with the PLC IDE.
 
@@ -158,6 +180,7 @@ The IDE will then connect to a server, validate the hardware and recover the act
 ### 9. Getting the Hardware-ID of Your Device
 
 To do it follow the next steps:
+
 - Be sure that your device is disconnected from the Arduino PLC IDE
 - Open the **Arduino IDE** software
 - Go to **Tools** > **Board** > **Arduino Mbed OS Portenta Boards** > **Arduino Portenta H7 (M7 Core)**
@@ -166,7 +189,9 @@ To do it follow the next steps:
 
 ### 10. Download a Program
 
-Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter. Double-click on the file _main_ inside the _Project_ to see the counter program. To download that program to your PLC, it is needed to compile the program and send it to the target device.
+Let's download and run the first program on your device. We are going to use the default program that is included in a project: a counter.
+
+Double-click on the file _main_ inside the _Project_ to see the counter program. To download that program to your PLC, it is needed to compile the program and send it to the target device.
 
 ![Send the program to the device (download)](assets/downloadCode.png)
 
