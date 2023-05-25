@@ -160,7 +160,7 @@ Here is a video doing that from scratch:
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/0EdATSgIc9o" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Sequential Function Chart
-This language approaches the script in a similar way as a flow-chart so you have blocks that do some work, you check the result of that work, and afterwards you keep flowing with the choices.
+This language approaches the script in a similar way as a flowchart, meaning you have blocks that do some work, you check the result of that work, and afterward you keep flowing with the choices.
 
 SFC language can not interact directly with the machine, meaning you can not make an output be OFF directly, to do so you will need to create **actions**
 
