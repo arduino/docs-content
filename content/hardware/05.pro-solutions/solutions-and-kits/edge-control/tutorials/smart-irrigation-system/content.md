@@ -93,7 +93,7 @@ The electrical connections of the intended application are shown in the diagram 
 ![Electrical connections of the irrigation system](assets/wiring-diagram-1.png)
 
 The Arduino Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
-The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT3.
+The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT6.
 The water level transmitter will be connected to +19V reference and 4-20mA input 1 of J7 connector.
 
 
@@ -212,4 +212,104 @@ void setup() {
 
   LCD.clear();
 }
+```
+
+Repetitively the Arduino Edge Control will be detecting button taps for the valve's manual control and handle the right action with a switch case that can recognize from zero to five button taps.
+
+The `updateSensors()` function send the local sensor's values and valves statuses and also requests the updated status of externally controlled variables from the Cloud. 
+
+To measure the water level we are using a 4-20mA 0 to 1 meter sensor, the Arduino Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohm resistor to be read by the Analog to Digital Converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expresion we use to convert voltage in centimeters.
+
+***float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;***
+
+As we want to show an intuitive graph for the valve's active time, we decided to reset the accumulated time each day at midnight so we can have a daily use graph con the Arduino IoT Cloud.
+
+The `valvesHandler()` function activates, deactivates and keeps the active time of each zone valve.
+
+```arduino
+void loop() {
+  // LCD button taps detector function
+  detectTaps();
+
+  // Different button taps handler
+  switch (buttonStatus) {
+    case ZERO_TAP:  // will execute always the button is not being pressed.
+      if (controlLCD == 1 && showTimeLCD == 0) {
+        ValvesStatusLCD();  // when there is not an active timer
+        controlLCD = 0;
+      }
+
+      if (showTimeLCD == 1) {
+        ValvesTimersLCD();  // when there is an active timer
+      }
+
+      break;
+
+    case SINGLE_TAP:  // will execute when the button is pressed once.
+      Serial.println("Single Tap");
+      vals.z1_local = !vals.z1_local;
+      sendValues(&vals);
+      buttonStatus = ZERO_TAP;
+      break;
+
+    case DOUBLE_TAP:  // will execute when the button is pressed twice.
+      Serial.println("Double Tap");
+      vals.z2_local = !vals.z2_local;
+      sendValues(&vals);
+      buttonStatus = ZERO_TAP;
+      break;
+
+    case TRIPLE_TAP:  // will execute when the button is pressed three times.
+      Serial.println("Triple Tap");
+      vals.z3_local = !vals.z3_local;
+      sendValues(&vals);
+      buttonStatus = ZERO_TAP;
+      break;
+
+    case QUAD_TAP:  // will execute when the button is pressed four times.
+      Serial.println("Quad Tap");
+      vals.z4_local = !vals.z4_local;
+      sendValues(&vals);
+      buttonStatus = ZERO_TAP;
+      break;
+
+    case FIVE_TAP:  // will execute when the button is pressed five times.
+      Serial.println("Five Tap");
+      LCD.backlight();
+      LCD.home();
+      
+      break;
+
+    default:
+      Serial.println("Too Many Taps");
+      buttonStatus = ZERO_TAP;
+      break;
+  }
+
+  // reset the valves accumuldated on time every day at midnight
+  if (getLocalhour() == " 00:00:00") {
+    Serial.println("Resetting accumulators every day");
+    vals.z1_on_time = 0;
+    vals.z2_on_time = 0;
+    vals.z3_on_time = 0;
+    vals.z4_on_time = 0;
+    delay(1000);
+  }
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    //Serial.println(getLocalhour());
+
+    // send local sensors values and retrieve cloud variables status back and forth
+    updateSensors();
+  }
+
+  // activate, deactive and keep time of valves function
+  valvesHandler();
+}
+
 ```
