@@ -40,7 +40,7 @@ hardware:
 
 The health of our crops depends on being able to provide favorable environmental conditions for their proper development. Among the most important factors is irrigation, water allows the assimilation and transport of nutrients in plants, among many other things vital to life.
 
-![Project result](assets/Thumbnail-green.png)
+![Project final result](assets/Thumbnail-green.png)
 
 Smart farming is more accessible today than ever by using the Arduino series of professional solutions. Taking advantage of the control capabilities and sensor data analysis, Arduino Edge Control is perfect for managing our crops.
 
@@ -224,7 +224,7 @@ Repetitively the Arduino Edge Control will be detecting button taps for the valv
 
 The `updateSensors()` function send the local sensor's values and valves statuses and also requests the updated status of externally controlled variables from the Cloud. 
 
-To measure the water level we are using a 4-20mA 0 to 1 meter sensor, the Arduino Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohm resistor to be read by the Analog to Digital Converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
+To measure the water level we are using a 4-20mA 0 to 1 meter sensor, the Arduino Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor to be read by the Analog to Digital Converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
 
 *** float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25; ***
 
@@ -479,7 +479,7 @@ All the necessary files to replicate this application note can be found below:
 ### Project Working Images
 
 ![Zone 1 manual irrigation](assets/manual-irrigation.png)
-![Automatic Irrigation Timer Countdown in Zone 2 (1.4 minutes left)](assets/timer-LCD.png)
+![Automatic irrigation timer countdown in zone 2 (1.4 minutes left)](assets/timer-LCD.png)
 ![Zone 2 after the motorized valve is opened](assets/zone2.png)
 ![Zone 2 automatic irrigation](assets/irrigation-process.jpg)
 
