@@ -221,7 +221,7 @@ Repetitively the Arduino Edge Control will be detecting button taps for the valv
 
 The `updateSensors()` function send the local sensor's values and valves statuses and also requests the updated status of externally controlled variables from the Cloud. 
 
-To measure the water level we are using a 4-20mA 0 to 1 meter sensor, the Arduino Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohm resistor to be read by the Analog to Digital Converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expresion we use to convert voltage into centimeters.
+To measure the water level we are using a 4-20mA 0 to 1 meter sensor, the Arduino Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohm resistor to be read by the Analog to Digital Converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
 
 ***float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;***
 
@@ -311,7 +311,7 @@ void loop() {
     updateSensors();
   }
 
-  // activate, deactive and keep time of valves function
+  // activate, deactivate and keep time of valves function
   valvesHandler();
 }
 
@@ -377,7 +377,7 @@ Repetitively the MKR WiFi 1010 update its connection with the Arduino IoT Cloud,
 
 ```arduino
 void loop() {
-  // function that ask for schedule timers setted on the Cloud
+  // function that ask for schedule timers set on the Cloud
   scheduleHandler();
 
   unsigned long currentMillis = millis();
