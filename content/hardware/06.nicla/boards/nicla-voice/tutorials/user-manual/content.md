@@ -669,7 +669,7 @@ Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definiti
 Next, in the `setup()` function:
 
 - The serial communication is initialized at a baud rate of 115200.
-- The Nicla Voice board is initialized, and the LDO is disabled.
+- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving modes) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
 - NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
