@@ -44,6 +44,8 @@ The health of our crops depends on being able to provide favorable environmental
 
 Smart farming is more accessible today than ever using the Arduino series of professional solutions. Taking advantage of the control capabilities and analysis of sensor variables, Arduino Edge Control is perfect for managing our crops.
 
+The project shown is intended to replicate a scale smart farming application, it can be implemented on real agriculture fields using the same hardware and firmware.
+
 ## Goals
 
 The goal of this application note is to showcase a smart farming irrigation system using a combination of an Arduino Edge Control, an MKR WiFi 1010, and the Arduino IoT Cloud. The project's objectives are the following:
@@ -95,6 +97,8 @@ The electrical connections of the intended application are shown in the diagram 
 The Arduino Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
 The four motorized ball valves will be connected to the Arduino Edge Control Latching outputs of J9 connector from OUT0 to OUT6.
 The water level transmitter will be connected to +19V reference and 4-20mA input 1 of J7 connector.
+
+![Project physical deployment](assets/)
 
 
 ## Smart Irrigation System Overview
@@ -451,3 +455,22 @@ Using flow control variables we store the initial water level as a reference poi
     currentWater = water_volume;
   }
 ```
+
+### The Cloud Dashboard
+
+Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time, resulting in a professional Human-Computer Interaction (HCI) as can be seen below:
+
+![Arduino Cloud project dashboard ](assets/dashboard.png)
+
+Within the Arduino Cloud's dashboard, the system variables can be monitored and controlled. We have temperature, humidity and rain probability gauges showing the current weather status and forecast, toggle switches to control each motorized valve accompanied by a scheduler widget to set automatic irrigation routines, also we have time series graphs showing the daily activated time of each valve. Finally, there are water supply monitoring widgets, one that shows the current water level in percentage from 0-100%, a water volume widget that shows the raiming liters of water in the tank, and a water usage widget that shows the liters used daily.
+
+![Arduino Cloud project dashboard on a smartphone](assets/dashboard-cel.png)
+
+We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are.
+
+## Full Smart Irrigation System Example
+
+All the necessary files to replicate this application note can be found below:
+
+* The complete code can be downloaded [here](assets/Edge-Control_MKR_Codes.zip)
+
