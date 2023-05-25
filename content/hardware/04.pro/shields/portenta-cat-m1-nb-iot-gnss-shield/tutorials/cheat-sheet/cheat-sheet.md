@@ -86,18 +86,18 @@ To get familiar with the commands, you can take a look at the [GSM library](http
 
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
-| Command                                                        | Information                                                                                                             |
-|          :------------------------------------------:          |                    :--------------------------------------------------------------------------------------:             |
-| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider                                                |
-| `GSMClient`                                                    | Client constructor, on the examples we define it as client                                                              |
-| `GSM.getTime()`                                                | Returns the time, you can set a new one with setTime()                                                                  |
-| `GSM.getLocalTime()`                                           | Returns the local time                                                                                                  |
-| `GSM.setTime()`                                                | Set the time, it will be saved and it can be read with getTime()                                                        |
-| `GSM.debug()`                                                  | After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
-| `GSMClient.connect(server,port)`                               | Connect to a remote server                                                                                              |
-| `GSMClient.available()`                                        | Check if the server that is connected to has some bytes ready to be read                                                |
-| `GSMClient.read()`                                             | Returns data from the server                                                                                            |
-| `GSMClient.stop()`                                             | Disconnects from the server                                                                                             |
+|                           **Command**                          |                                                     **Information**                                                     |
+|:--------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
+| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` |                         Unlock the SIM card using the PIN parameter and connects to the provider                        |
+|                           `GSMClient`                          |                                Client constructor, on the examples we define it as client                               |
+|                         `GSM.getTime()`                        |                                  Returns the time, you can set a new one with setTime()                                 |
+|                      `GSM.getLocalTime()`                      |                                                  Returns the local time                                                 |
+|                         `GSM.setTime()`                        |                             Set the time, it will be saved and it can be read with getTime()                            |
+|                          `GSM.debug()`                         | After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
+|                `GSMClient.connect(server,port)`                |                                                Connect to a remote server                                               |
+|                     `GSMClient.available()`                    |                         Check if the server that is connected to has some bytes ready to be read                        |
+|                       `GSMClient.read()`                       |                                               Returns data from the server                                              |
+|                       `GSMClient.stop()`                       |                                               Disconnects from the server                                               |
 
 ### Available Frequency Bands
 
