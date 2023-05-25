@@ -369,3 +369,45 @@ String openWeatherMapApiKey = "<API Key>";
 String city = "Santiago de los Caballeros";
 String countryCode = "DO";
 ```
+
+Repetitively the MKR WiFi 1010 update its connection with the Arduino IoT Cloud, and checks for changes on every variable, from the valves switches to the scheduled activated timers. It shows when it's successfully connected to the cloud by turning on its blue LED. Also, it asks for a weather forecast every 10 minutes to update the temperature, humidity and rain probability in the Cloud dashboard.
+
+```arduino
+void loop() {
+  // function that ask for schedule timers setted on the Cloud
+  scheduleHandler();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= intervalStat) {
+    // save the last time you asked for connectivity status
+    previousMillis = currentMillis;
+
+    // Turn on the blue LED if the board is successfully connected to the Cloud.
+    if (ArduinoCloud.connected()) {
+      WiFiDrv::analogWrite(27, 122);
+    } else {
+      WiFiDrv::analogWrite(27, 0);
+    }
+  }
+
+  // doing this just once after there's a WiFi connections
+  if (bootForecast == 1 && WiFi.status() == WL_CONNECTED) {
+    getForecast();  // request rain probability
+    getWeather();   // request temperature and humidity
+    bootForecast = 0;
+  }
+
+
+  if (millis() - lastRequest > interval) {
+    // request weather variables each interval
+    if (WiFi.status() == WL_CONNECTED) {
+      getForecast();
+      getWeather();
+    }
+    lastRequest = millis();
+  }
+
+  ArduinoCloud.update();
+}
+```
