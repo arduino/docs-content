@@ -1,36 +1,34 @@
 Board:
-  Name: Nicla Sense ME
+  Name: Arduino® Nicla Sense ME
   SKU: ABX00050
-Microcontroller: Cortex-M4 nRF52832
+Microcontroller: Nordic Semiconductor® nRF52832 32-bit Arm® Cortex®-M4 
 USB connector: Micro USB (USB-B)
 Pins:
-  LED built-in: 1 RGB LED (I2C)
-  Digital I/O Pins: 10 (of which 2 are shared with I2C and 4 are shared with SPI)
-  Analog input pins: 2, both shared with PWM
-  PWM pins: 12 (of which 2 are shared with analog, 2 are shared with I2C and 4 are shared with SPI)
+  Digital I/O Pins: 10 
+  Analog input pins: 2
+  ADC resolution: 8, 10 or 12 bits
+  PWM pins: 12
   External interrupts: 12
-Connectivity:
-  Bluetooth®: ANNA B112 Bluetooth® module
-  Wi-Fi: No
-  Secure element: No
+Wireless connectivity:
+  Chipset: u-blox® ANNA-B112
+  Bluetooth®: Bluetooth® 4.1
 Communication:
-  UART: Yes
+  UART: 1
   I2C: 1
   SPI: 1
 Power:
-  Microcontroller operating voltage: 1.8V translated to 3.3V on external pins
-  Board Power Supply (USB/VIN): 5V
-  Supported battery: Li-ion/Li-Po Single Cell, 3.7V
-  Battery connector: JST 3-pin 1.2mm pitch 
-  DC Current per I/O pin: 4.7mA
-Clock speed:
-  Processor: 64MHz
-  RTC: On board of the ANNA-B112
+  Circuit operating voltage: 1.8 V (translated to 3.3 V on external pins)
+  Input voltage (VIN): 5 V
+Clock speed: 64 MHz
 Memory:
-  nRF52832 System-on-chip: 64kB SRAM, 512kB flash
-  2x MX25R1635FZUIH0: 2MB for data logging, 2MB storage for BHI260AP
+  Internal: 512 kB Flash, 64 kB SRAM
+  External: 2 MB (QSPI Flash) x2
 Dimensions:
-  Weight: 2g
-  Width: 22.86mm (900mils)
-  Length: 22.86mm (900mils)
-  PCB Thickness: 1mm (39.3701mils)
+  Width: 22.86 mm
+  Length: 22.86 mm
+  Weight: 2 gr
+Onboard sensors:
+  BHI260AP: 16-bit 6-axis IMU (3-axis accelerometer and 3-axis gyroscope)
+  BMP390: 24-bit absolute barometric pressure sensor
+  BMM150: 12-bit 3-axis geomagnetic sensor
+  BME688: gas sensor with integrated high-accuracy pressure, humidity, and temperature sensors. The gas sensors detects Volatile Organic Compounds (TVOCs), Volatile Sulfur Compounds (VSCs), and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
