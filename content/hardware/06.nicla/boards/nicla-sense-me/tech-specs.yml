@@ -2,16 +2,18 @@ Board:
   Name: Arduino® Nicla Sense ME
   SKU: ABX00050
 Microcontroller: Nordic Semiconductor® nRF52832 32-bit Arm® Cortex®-M4 
-USB connector: Micro USB (USB-B)
+USB connector: Micro-USB
 Pins:
   Digital I/O Pins: 10 
   Analog input pins: 2
-  ADC resolution: 8, 10 or 12 bits
+  ADC resolution: 8, 10, or 12 bits
   PWM pins: 12
-  External interrupts: 12
+  SPI pins: 4
+  I2C pins: 2
+  UART pins: 2
 Wireless connectivity:
   Chipset: u-blox® ANNA-B112
-  Bluetooth®: Bluetooth® 4.1
+  Bluetooth®: Bluetooth® 5.0
 Communication:
   UART: 1
   I2C: 1
@@ -31,4 +33,4 @@ Onboard sensors:
   BHI260AP: 16-bit 6-axis IMU (3-axis accelerometer and 3-axis gyroscope)
   BMP390: 24-bit absolute barometric pressure sensor
   BMM150: 12-bit 3-axis geomagnetic sensor
-  BME688: gas sensor with integrated high-accuracy pressure, humidity, and temperature sensors. The gas sensors detects Volatile Organic Compounds (TVOCs), Volatile Sulfur Compounds (VSCs), and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
+  BME688: Gas sensor with integrated high-accuracy pressure, humidity, and temperature sensors. The gas sensor detects Volatile Organic Compounds (TVOCs), Volatile Sulfur Compounds (VSCs), and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
