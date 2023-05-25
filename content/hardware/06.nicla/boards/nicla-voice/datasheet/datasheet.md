@@ -440,10 +440,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**              | **Revision** | **Changes**   |
-| --------------------- | ------------ | ------------- |
-| 05/01/2023            | 1           | First release |
-
+| **Date**              | **Revision** | **Changes**               |
+| --------------------- | ------------ | ------------------------- |
+| 17-05-2023            | 2            | ESLOV Information updated |
+| 05/01/2023            | 1            | First release             |
 
 ## Product Warnings and Disclaimers
 
