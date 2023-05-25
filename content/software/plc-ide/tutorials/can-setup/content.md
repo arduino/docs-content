@@ -137,5 +137,5 @@ You can edit the table by adding or removing new variables. You can also assign 
 ### Next Steps
 
 Now that you have completed the setup of the Portenta Machine Control and its CAN bus communication with the Arduino PLC IDE, you can continue with:
-- Plug a CAN sensor into your device and get its data.
+- Plug a CAN sensor to your device and get its data.
 - Expand your CAN bus network with more nodes sending and receiving messages from each one of them.

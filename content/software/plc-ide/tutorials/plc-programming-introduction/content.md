@@ -94,7 +94,7 @@ If you want to configure the task, right-click on it and press `Task configurati
 
 To check that our program is running and counting correctly, we will use the **watch** feature which allows you to see the value of a variable in real time.
 
-To do so you need to go to **View**** > Tool** windows > Watch** and you will have a new tool window.
+To do so you need to go to **View > Tool windows > Watch** and you will have a new tool window.
 
 Inside the **Tool window** you can drag and drop variables, or click the **Insert new item** button to add a specific variable.
 
