@@ -256,7 +256,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 ### API
 
 | Command                 | Information                                                  |
-| ----------------------- | ------------------------------------------------------------ |
+| :---------------------: | :----------------------------------------------------------: |
 | `GPS.begin()`           | Initialize the GPS modem                                     |
 | `GPS.end()`             | Turn OFF the GPS modem                                       |
 | `GPS.available()`       | Check if the GPS has new data to be read                     |
