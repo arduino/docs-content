@@ -108,13 +108,16 @@ The Edge Control is responsible for keeping time with its integrated Real Time C
 
 For communication with the cloud, the MKR WiFi 1010 serves as a bridge, it notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to the valves, in addition, it reports the values of the Edge Control sensors to the Cloud. The communication between both is by I2C.
 
-#### Valves control
+#### Valves Control
+
 If a valve is activated from the cloud, the message "opening valve" will appear on the screen at the same time that it is being activated. If the valve is activated by a cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The valves working time is reported to the cloud for a visualization of the daily use average.
 
-#### Water usage
+#### Water Usage
+
 Regarding the use of water, at the system startup, the current amount of water is measured and saved, in this way any decrease in it is translated as a use, the use of water is daily reset to have an average daily use graph in the Cloud.
 
-#### Weather forecast consideration
+#### Weather Forecast Consideration
+
 Regarding the weather, the MKR WiFi 1010 requires the forecast of the city's weather using the OpenWeather API, if the probability of rain is greater than 90%, the automatic watering timers will be ignored, however, it will be possible to continue watering manually if the user so wishes.
 
 ### Arduino Edge Control Code
