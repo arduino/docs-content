@@ -1,7 +1,7 @@
 ---
 title: 'Arduino® PLC IDE Pin Mapping'
 difficulty: beginner
-description: "Assign the pins to variables and interact with them on the Arduino PLC IDE"
+description: "Assign the pins to variables and interact with them on the Arduino PLC IDE."
 tags:
   - PLC IDE
   - IO
@@ -20,7 +20,7 @@ In this tutorial you will see how to access the available pins of your device as
 
 A **mapping table** is a table that **links** a **source**, like the memory address of an I/O, and its **target name** which functions as an alias. For example, if a microcontroller has an I/O with the name `PA01`, a mapping table can be used to access that resource with the name `digitalOut01`.
 
-***If you are familiar with the C languages, it is similar with the way a pointer works.***
+***If you are familiar with the C languages, it is similar to the way a pointer works.***
 
 Using **mapping tables** makes your programs easier to read, which is always a good practice for long-term maintenance.
 
@@ -42,7 +42,7 @@ First of all, open the **Arduino PLC IDE** and create a new project (or open an 
 
 ### Resources Tab
 
-Navigate to the **Resources** tile window, you will see a list of the available mappings for your device, in the case of the **Portenta Machine Control** you have:
+Navigate to the **Resources** tile window and you will see a list of the available mappings for your device. In the case of the **Portenta Machine Control** you have:
 * Digital Inputs
 * Digital Outputs
 * Analog Inputs

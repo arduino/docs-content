@@ -1,7 +1,7 @@
 ---
 title: 'Programming Introduction With Arduino® PLC IDE'
 difficulty: intermediate
-description: "Create programs with all the IEC-61131-3 languages on the Arduino PLC IDE"
+description: "Create programs with all the IEC-61131-3 languages on the Arduino PLC IDE."
 tags:
   - Getting started
   - IEC-61131-3
@@ -16,7 +16,7 @@ software:
 
 ## Introduction
 
-The IEC-61131-3 standard collects 5 programming languages to help you creating your programs; you can use them together to make an entire program, grouping them in functions and function blocks. In addition to the standard languages, an Arduino sketch can be integrated, interacting with the other languages by means of Shared Variables. This kind of development can be accomplished using Arduino PLC IDE. In this tutorial you will familiarize with all of them while having an Arduino sketch in mind as a reference.
+The IEC-61131-3 standard collects 5 programming languages to help you to create your programs; you can use them together to make an entire program, grouping them into functions and function blocks. In addition to the standard languages, an Arduino sketch can be integrated, interacting with the other languages by means of Shared Variables. This kind of development can be accomplished using Arduino PLC IDE. In this tutorial you will familiarize yourself with all of them while having an Arduino sketch in mind as a reference.
 
 ## Goals
 
@@ -34,7 +34,7 @@ The goals of this tutorial are:
 
 There are 2 types of variables:
 * Global variables: All of the 5 programs can access it.
-* Local variables: Only the one program has access to it.
+* Local variables: Only one program has access to it.
 
 #### Global Variable
 Click inside the **Project** tab and click the **Global_vars** section, a table is available to see the full list of global variables on your project.
@@ -42,30 +42,30 @@ Click inside the **Project** tab and click the **Global_vars** section, a table 
 To add a new one, right-click on the table and click the **insert** button.
 ![Add global variable](assets/newGlobalVariable.png)
 
-It will add a new row with the default settings, you can double click each field and change them as you need.
+It will add a new row with the default settings, you can double-click each field and change them as you need.
 ![Global variables table](assets/declareNewGlobalVariable.png)
 
-After setting the new variable, you will be able to access it from all your languages's programs.
+After setting the new variable, you will be able to access it from all your language programs.
 
-You will see a list with all the glboal variables in the **Global_vars** section.
+You will see a list with all the global variables in the **Global_vars** section.
 ![Using a global variable inside a program](assets/usingGlobalVariable.png)
 
 #### Local Variable
 
-Go inside the **Project** tab and select a program by double clicking it, once it has been opened you will see a **Local Variables** table on the top panel.
+Go inside the **Project** tab and select a program by double-clicking it, once it has been opened you will see a **Local Variables** table on the top panel.
 ![Default Ladder Diagram Program](assets/default_LD_program.png)
 
 Following the same steps explained previously, you can right-click the table, and press the **insert** button.
-![Add new local variable on the local variables table](assets/newLocalVariable.png)
+![Add a new local variable on the local variables table](assets/newLocalVariable.png)
 
-A new variable will be added with default settings, double click each of them to change them as you need.
+A new variable will be added with default settings, double-click each of them to change them as you need.
 
 ### Adding Blocks
 The blocks are features or functions available from libraries and the PLC IDE.
 
 These will help you to perform tasks, like AND gates, ADD function, etc...
 
-To add a block on your program (only possible with LD, SFC, FBD) you can drag and drop them from the right side window called "Library Tree"
+To add a block to your program (only possible with LD, SFC, FBD) you can drag and drop them from the right side window called "Library Tree"
 ![Library tree window, drag and drop blocks](assets/LD_add_block.png)
 
 Once you drag and drop it on your canvas it will generate a block with some input and output pins fully customizable, most of the time you can right-click the block and add more pins in case you need more than the default.
@@ -82,11 +82,11 @@ There are 4 Tasks:
 To assign a program to a task, you can easily drag and drop your program to the task.
 ![Drag and drop a program to task](assets/dragAndDrop_task.png)
 
-By default the `main` program is attached to the `Fast` task, you can remove it by right clicking and pressing the "remove program" option.
+By default the `main` program is attached to the `Fast` task, you can remove it by right-clicking and pressing the "remove program" option.
 
-You can also assign a new program by right clicking the task and pressing `Add program`, then select the program from the list shown in the pop up window.
+You can also assign a new program by right-clicking the task and pressing `Add program`, then select the program from the list shown in the pop-up window.
 
-If you want to configure the task, right click on it and press `Task configuration`, you will be able to, for example, change the cycle time of the task.
+If you want to configure the task, right-click on it and press `Task configuration`, you will be able to, for example, change the cycle time of the task.
 
 ***The execution order will be from top to bottom, the order shown inside each task.***
 
@@ -94,7 +94,7 @@ If you want to configure the task, right click on it and press `Task configurati
 
 To check that our program is running and counting correctly, we will use the **watch** feature which allows you to see the value of a variable in real time.
 
-To do so you need to go **View > Tool windows > Watch** and you will have a new tool window.
+To do so you need to go to **View**** > Tool** windows > Watch** and you will have a new tool window.
 
 Inside the **Tool window** you can drag and drop variables, or click the **Insert new item** button to add a specific variable.
 
@@ -117,7 +117,7 @@ void loop(){
 ### IEC-61131-3 Languages
 To create a new program open your project tab, go to the toolbar **Project > New object > New program**, set a name for your program and select its language.
 
-![New program from Project's drop down menu](assets/newProgram.png)
+![New program from Project's drop-down menu](assets/newProgram.png)
 
 ![Set up pop-up when creating a new program](assets/newProgramPopUp.png)
 
@@ -160,14 +160,14 @@ Here is a video doing that from scratch:
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/0EdATSgIc9o" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Sequential Function Chart
-This languages approaches the script similar to a flow-chart so you have blocks which do some work, you check the result of that work, and afterwards you keep flowing with the choices.
+This language approaches the script in a similar way as a flow-chart so you have blocks that do some work, you check the result of that work, and afterwards you keep flowing with the choices.
 
 SFC language can not interact directly with the machine, meaning you can not make an output be OFF directly, to do so you will need to create **actions**
 
 #### Actions
-An action is a script in another language (i.e structured text) that performs the work, this will get triggered depending on the chart.
+An action is a script in another language (i.e. structured text) that performs the work, this will get triggered depending on the chart.
 
-To create one go on your project tree, right-click the SFC script and click the "New action" button.
+To create one go to your project tree, right-click the SFC script and click the "New action" button.
 
 ![Creating new action](assets/newAction.png)
 
@@ -180,7 +180,7 @@ A **Step** is the job to do, and a **Transition** is the result of that work.
 
 A **Jump** is a link to another **Step** of the chart. In order to make a loop you will need to use the jump to point the "init" step.
 
-The counter program should look like the following picture. Note the action inside the "count" Step: you can see a small "counter" text which is the action's name of the program done in Structured Text which code is the same as shown on the Structured Text section.
+The counter program should look like the following picture. Note the action inside the "count" Step: you can see a small "counter" text which is the action's name of the program done in Structured Text which code is the same as shown in the Structured Text section.
 ![Sequential Function Chart counter program](assets/SFCprogram.png)
 
 Here is a video doing that from scratch:
@@ -189,7 +189,7 @@ Here is a video doing that from scratch:
 ### Functional Block Diagram
 This is similar to the SFC Programming, but in this case there is no sequential path on the program, you add blocks to do the needed work.
 
-For example adding the **Add** block will do the Add function each cycle.
+For example, adding the **Add** block will do the Add function each cycle.
 
 This is how the counter program looks:
 ![Functional Block Diagram](assets/FBDprogram.png)
@@ -197,7 +197,7 @@ This is how the counter program looks:
 Here is a video doing that from scratch:
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/l1L4jzDVKyE" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-***On the previous programs, we used local variables, remember to select the program's specific variables to be watched, or you will not see any data***
+***In the previous programs, we used local variables, remember to select the program's specific variables to be watched, or you will not see any data***
 
 ## Conclusion
 You have:

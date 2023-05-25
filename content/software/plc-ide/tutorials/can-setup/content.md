@@ -29,7 +29,7 @@ The main advantages of the CAN bus protocol are:
 
 Structure of a CAN network:
 * **Main device:** Main controller or orchestrator of the communication. It interacts with the rest of the devices on the network, sending and receiving data from them. It usually is a controller device like the Portenta Machine control.
-* **Node or ECU (Electronic Control Unit):** Devices capable of interacting on the data bus. Although every device on the network can listen to the data that is being transferred on the bus each device has an unique number (ID) to communicate with that is included in every message, ignoring the messages that do not match their ID. However, all the nodes have access to the messages of the network, being possible for a node to read and use the data from another node if necessary.
+* **Node or ECU (Electronic Control Unit):** Devices capable of interacting on the data bus. Although every device on the network can listen to the data that is being transferred on the bus each device has a unique number (ID) to communicate with that is included in every message, ignoring the messages that do not match their ID. However, all the nodes have access to the messages of the network, being possible for a node to read and use the data from another node if necessary.
 
 CAN has built-in error detection so the application can handle its own errors in case of data loss (like CRC).
 
@@ -74,9 +74,9 @@ To configure in depth the settings you need to add the **Generic CANopen device*
 
 ![Add Items to CANopen's resource](assets/CAN-configuration-add.png)
 
-![Item from the catalogue](assets/CAN-configuration-add-catalog.png)
+![Item from the catalog](assets/CAN-configuration-add-catalog.png)
 
-Once the **Generic CANOpen device** has been added you can customize the configuration to comply your needs.
+Once the **Generic CANOpen device** has been added you can customize the configuration to comply with your needs.
 
 ![CANopen configuration window](assets/CAN-configuration-general.png)
 
@@ -111,7 +111,7 @@ Modes:
 Modes:
 * User Defined Mode
 * Sync Mode
-* Evemt Mode
+* Event Mode
 -->
 
 ### Parametrization Tab
@@ -122,9 +122,9 @@ This window allows to create objects and set the addresses, this is called a map
 
 ### PDO Tables
 
-This table customize the PDO (Process Data Object) dictionary, so you will set the variables for the information that you want to have usually cause they are time-critical, any device can overwrite those addresses, so it acts like shared variables.
+This table customizes the PDO (Process Data Object) dictionary, so you will set the variables for the information that you want to have usually cause they are time-critical, any device can overwrite those addresses, so it acts like shared variables.
 
-You can edit the table by adding, removing new variables, you can also assign and unassign existing variables on your programs (Global Variables) to this table.
+You can edit the table by adding or removing new variables. You can also assign and unassign existing variables on your programs (Global Variables) to this table.
 
 #### PDO Tx Input Tab
 
@@ -137,5 +137,5 @@ You can edit the table by adding, removing new variables, you can also assign an
 ### Next Steps
 
 Now that you have completed the setup of the Portenta Machine Control and its CAN bus communication with the Arduino PLC IDE, you can continue with:
-- Plug a CAN sensor to your device and get its data.
+- Plug a CAN sensor into your device and get its data.
 - Expand your CAN bus network with more nodes sending and receiving messages from each one of them.
