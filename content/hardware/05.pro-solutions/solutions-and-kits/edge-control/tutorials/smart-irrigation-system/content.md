@@ -42,7 +42,7 @@ The health of our crops depends on being able to provide favorable environmental
 
 ![Project result](assets/Thumbnail-green.png)
 
-Smart farming is more accessible today than ever using the Arduino series of professional solutions. Taking advantage of the control capabilities and analysis of sensor variables, Arduino Edge Control is perfect for managing our crops.
+Smart farming is more accessible today than ever by using the Arduino series of professional solutions. Taking advantage of the control capabilities and sensor data analysis, Arduino Edge Control is perfect for managing our crops.
 
 The project shown is intended to replicate a scale smart farming application, it can be implemented on real agriculture fields using the same hardware and firmware.
 
