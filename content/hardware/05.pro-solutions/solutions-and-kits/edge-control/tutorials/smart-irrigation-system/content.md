@@ -480,7 +480,7 @@ All the necessary files to replicate this application note can be found below:
 ![Automatic irrigation timer countdown in zone 2 (1.4 minutes left)](assets/timer-LCD.png)
 ![Zone 2 after the motorized valve is opened](assets/zone2.png)
 ![Zone 2 automatic irrigation](assets/irrigation-process.jpg)
-
+![Irrigation in all zones](assets/4zones.gif)
 
 ## Conclusion
 
