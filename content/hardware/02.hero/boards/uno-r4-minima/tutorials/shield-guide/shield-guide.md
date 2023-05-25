@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 Shield Guide'
+title: 'Arduino UNO R4 Shield Compatibility'
 description: 'This article covers popular shields and their compatibility including the libraries used.'
 tags:
   - shields
@@ -11,8 +11,7 @@ hardware:
   - hardware/02.hero/boards/uno-r4-minima
 ---
 
-This article covers a list of shields compatible with the UNO R4 series. For those who want to go a step further this article also covers the basics of creating your own UNO compatible shield.
-
+This article covers a list of shields compatible with the UNO R4 series.
 ## Compatible Shields
 
 ### Official Arduino Shields
