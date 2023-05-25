@@ -29,7 +29,8 @@ Dimensions:
   Width: 22.86 mm
   Length: 22.86 mm
   Weight: 2 gr
-BHI260AP: 16-bit 6-axis IMU (3-axis accelerometer and 3-axis gyroscope)
-BMP390: 24-bit absolute barometric pressure sensor
-BMM150: 12-bit 3-axis geomagnetic sensor
-BME688: Gas sensor with integrated high-accuracy pressure, humidity, and temperature sensors. The gas sensor detects Volatile Organic Compounds (TVOCs), Volatile Sulfur Compounds (VSCs), and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
+Onboard sensors:
+  BHI260AP: 16-bit 6-axis IMU (3-axis accelerometer and 3-axis gyroscope)
+  BMP390: 24-bit absolute barometric pressure sensor
+  BMM150: 12-bit 3-axis geomagnetic sensor
+  BME688: Gas sensor with integrated high-accuracy pressure, humidity, and temperature sensors. The gas sensor detects Volatile Organic Compounds (TVOCs), Volatile Sulfur Compounds (VSCs), and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
