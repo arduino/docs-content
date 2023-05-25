@@ -390,4 +390,4 @@ This cheat sheet is written as a quick reference to look up the GSM and GPS feat
 ## Troubleshooting
 
 - If you are getting compiling errors using GPS and GSM, make sure you included first the `GPS.h` library and then the `GSM.h`.
-- Sometimes, while the GPS module is getting readings, you will not be able to upload a new sketch. Double tap the reset button on your Portenta H7 and upload the new sketch.s
+- Sometimes, while the GPS module is getting readings, you will not be able to upload a new sketch. Double tap the reset button on your Portenta H7 and upload the new sketch.
