@@ -1,6 +1,6 @@
 ---
 title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat Sheet'
-description: 'Learn how to set up the Arduino® Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of its functionality. Obtain information regarding pins and how to use the different communication technologies.'
+description: 'Learn how to set up the Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of its functionality. Obtain information regarding pins and how to use the different communication technologies.'
 tags:
   - Installation
   - Cat. M1
@@ -20,30 +20,27 @@ libraries:
     url: https://github.com/107-systems/107-Arduino-NMEA-Parser
 ---
 
-![The Arduino® Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
+![The Arduino Portenta Cat. M1/NB IoT GNSS Shield](assets/featured.png)
 
-The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide by choosing among GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
+The **Arduino Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide by choosing among GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
 
-This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino® Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino® Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
+This article is a collection of guides, API calls and tutorials that can help you get started with the Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
 
 ## Core
 
-The Arduino® Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
+The Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
 
 ***The libraries are included in the mbed Core version greater than 2.6.1***
 
 ## Installation
 
-### Arduino IDE 1.8.X
+### Arduino IDE
 
-The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
+The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Classic Arduino IDE 1.8.X** and **Arduino IDE 2**.
+
+To install your board, you can check out the guides below:
 
 - [Installing the Arduino Mbed OS Portenta Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta)
-
-### Arduino IDE 2 
-
-The Portenta Cat. M1/NB IoT GNSS Shield can be programmed through the **Arduino IDE 2**. To install your board, you can check out the guide below:
-
 - [How to use the board manager with the Arduino IDE 2](https://www.arduino.cc/en/Tutorial/getting-started-with-ide-v2/ide-v2-board-manager)
 
 ### Web Editor
@@ -53,6 +50,7 @@ The board can be programmed through the **Web Editor**. To get started with your
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
 ## Pins
+
 As a Portenta family shield, it uses High Density Connectors to interface with the Portenta board which is connected to.
 
 ![The pinout of the Portenta Cat. M1/NB IoT GNSS Shield.](assets/ASX00027-pinout.png)
@@ -75,7 +73,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 
 APN stands for 'Access Point Name'. An APN is a gateway between a cellular network and the Internet.
 
-After finishing this setup, compile and upload the program. If everything went fine, you should see the HTML content of the webpage printed in the Serial Monitor.
+After finishing this setup, compile, and upload the program. If everything went fine, you should see the HTML content of the webpage printed in the Serial Monitor.
 
 ***Sometimes it takes time to connect to the provider's APN, please be patient, it can take up to 30 minutes. If you cannot connect after that time, make sure you entered the correct SIM pin and the APN. If the issue persists, contact your provider and verify whether Cat. M1 is enabled on your SIM card.***
 
@@ -85,33 +83,63 @@ To get familiar with the commands, you can take a look at the [GSM library](http
 
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
+| Command                                                        | Information                                                                                                             |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` | Unlock the SIM card using the PIN parameter and connects to the provider                                                |
+| `GSMClient`                                                    | Client constructor, on the examples we define it as client                                                              |
+| `GSM.getTime()`                                                | Returns the time, you can set a new one with setTime()                                                                  |
+| `GSM.getLocalTime()`                                           | Returns the local time                                                                                                  |
+| `GSM.setTime()`                                                | Set the time, it will be saved and it can be read with getTime()                                                        |
+| `GSM.debug()`                                                  | After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
+| `GSMClient.connect(server,port)`                               | Connect to a remote server                                                                                              |
+| `GSMClient.available()`                                        | Check if the server that is connected to has some bytes ready to be read                                                |
+| `GSMClient.read()`                                             | Returns data from the server                                                                                            |
+| `GSMClient.stop()`                                             | Disconnects from the server                                                                                             |
 
+### Available Frequency Bands
 
-| Command | Information |
-| :----------------------------------------------------: | :----------------------------------------------------------: |
-| `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1)` | Unlock the SIM card using the PIN parameter and connects to the provider. |
-| `GSMClient`| Client constructor, on the examples we define it as client  |
-| `GSM.getTime()`|Returns the time, you can set a new one with setTime()|
-| `GSM.getLocalTime()`| Returns the local time|
-| `GSM.setTime()`| Set the time, it will be saved and it can be read with getTime() |
-| `GSM.debug()`| After this command, the Serial Monitor will output more detailed info about the GSM class commands, connections, etc... |
-| `GSMClient.connect(server,port)` | Connect to a remote server |
-| `GSMClient.available()` | Check if the server that is connected to has some bytes ready to be read |
-| `GSMClient.read()` | Returns data from the server |
-| `GSMClient.stop()` | Disconnects from the server |
+It is possible to establish a connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. To do this, you need to define frequency bands for `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` by replacing `BAND_#` with desired band.
+
+The **list of available frequency bands** that can be used for the device's credential configuration is as follows:
+
+| 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
+| ------------------------ | -------- | ---------------- | -------------------- |
+| 0x01                     | LTE 2100 | B1               | BAND_1               |
+| 0x02                     | LTE 1900 | B2               | BAND_2               |
+| 0x04                     | LTE 1800 | B3               | BAND_3               |
+| 0x08                     | LTE 1700 | B4               | BAND_4               |
+| 0x10                     | LTE 850  | B5               | BAND_5               |
+| 0x80                     | LTE 900  | B8               | BAND_8               |
+| 0x800                    | LTE 700  | B12              | BAND_12              |
+| 0x1000                   | LTE 700  | B13              | BAND_13              |
+| 0x20000                  | LTE 850  | B18              | BAND_18              |
+| 0x40000                  | LTE 800  | B19              | BAND_19              |
+| 0x80000                  | LTE 800  | B20              | BAND_20              |
+| 0x1000000                | LTE 1900 | B25              | BAND_25              |
+| 0x2000000                | LTE 850  | B26              | BAND_26              |
+| 0x8000000                | LTE 700  | B28              | BAND_28              |
+
+These are Cat.M and Cat.NB frequency bands that are available for use with TX62-W, referred to as the LTE Cat.M1 and Cat.NB1 Engine. The Portenta Cat. M1/NB IoT GNSS Shield is capable of the present network connectivity thanks to its onboard TX62-W Cellular-GNSS LPWAN modem.
+
+The band configuration is available to allow the user to restrict to a specific or combination of frequency bands. It helps to operate under enforced frequency policy requirements, or to lower the network search time, reducing the device power consumption.
+
+If you leave the frequency band `BAND_#` field blank for the `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` method, it will configure using the default setting, which allows it to search within all available supported bands. The Portenta Cat. M1/NB IoT GNSS Shield will then select a compatible network automatically depending on the availability in the operating region.
+
+Each country has a compatible frequency band, so it is a good practice to check the if desired band is suitable for its region. You can check the frequency band compatibility of the region by using a website that compiles network status such as [here](https://www.frequencycheck.com/countries).
 
 #### Connect to Your Provider
 
 You need to enter the Pin code and the APN link of your provider.
-The user name and password depend on your provider; they are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials + provider name. Sometimes they can be left blank.
 
-This sketch will initialize the SIM card and connect to your provider network
+The username and password depend on your provider; these are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials and provider names. Sometimes they can be left blank.
+
+The following sketch will initialize the SIM card and connect to your provider network within supported bands:
 
 ```cpp
 #include <GSM.h>
 
-char pin[]      = SECRET_PIN; 		//example "1234"
-char apn[]      = SECRET_APN;		//example "live.provider.com"
+char pin[]      = SECRET_PIN;     //example "1234"
+char apn[]      = SECRET_APN;    //example "live.provider.com"
 char username[] = SECRET_USERNAME;
 char pass[]     = SECRET_PASSWORD;
 
@@ -119,12 +147,28 @@ void setup() {
   Serial.begin(115200);
   while(!Serial) {}
 
-	if(GSM.begin(pin, apn, username, pass, CATM1)){
-		Serial.println("connected");
+  if(GSM.begin(pin, apn, username, pass, CATM1)){
+    Serial.println("connected");
     // ...
-	}
+  }
 }
 ```
+
+The following example shows how the `GSM.begin()` method would look if you were to define the frequency band for the shield to mask multiple bands to be used or searched. The `BAND_20` and `BAND_19` are one example of a combination of bands to configure credential to restrict the shield's network to the compatible region. It will allow to increase the network search speed and reduce the time spent seeking, saving power consumption of the device.
+
+```cpp
+void setup() {
+  Serial.begin(115200);
+  while(!Serial) {}
+
+  if(GSM.begin(pin, apn, username, pass, CATM1, BAND_20 | BAND_19)){
+    Serial.println("connected");
+    // ...
+  }
+}
+```
+
+Please check how the frequency band configuration works briefly within the [Available Frequency Bands section](#available-frequency-bands). The list of available frequency bands for the shield's cellular connectivity configuration can also be found in the previous [section](#available-frequency-bands).
 
 #### Send a HTTP GET Request and Receive Data
 
@@ -210,17 +254,15 @@ Make sure you go to the `arduino_secrets.h` tab and:
 
 ### API
 
-
-| Command | Information |
-| :--------------------------------------------------: | :----------------------------------------------------------: |
-| `GPS.begin()` | Initialize the GPS modem |
-| `GPS.end()` | Turn OFF the GPS modem. |
-| `GPS.available()` | Check if the GPS has new data to be read. |
-| `GPS.read()` | Returns a `char` with the reading from the GPS module. |
-| `GPS.readAndPrint()` | Output data on the Serial Monitor, only if there is new data.|
-| `GPS.readAndDrop()` | Read the data and do nothing with it. |
-| `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly. |
-
+| Command                 | Information                                                  |
+| ----------------------- | ------------------------------------------------------------ |
+| `GPS.begin()`           | Initialize the GPS modem                                     |
+| `GPS.end()`             | Turn OFF the GPS modem                                       |
+| `GPS.available()`       | Check if the GPS has new data to be read                     |
+| `GPS.read()`            | Returns a `char` with the reading from the GPS module        |
+| `GPS.readAndPrint()`    | Output data on the Serial Monitor, only if there is new data |
+| `GPS.readAndDrop()`     | Read the data and do nothing with it                         |
+| `GPS.checkGNSSEngine()` | Check if the GNSS modem is receiving data correctly          |
 
 #### Get GPS Data
 
@@ -276,7 +318,7 @@ To do so, you can use an **NMEA parser**. This will convert messages received fr
 
 In this way, it is possible to interact with the data that you need for your application, for instance getting only latitude and longitude. You will be able to save those values into variables, instead of having the whole NMEA messages.
 
-Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and add the following: 
+Open the example from the library at **Examples > 107-Arduino-NMEA-Parser > NMEA-Basic** and add the following:
 
 Include the needed libraries.
 
@@ -337,6 +379,7 @@ One way to save power on your project is to enable the GPS module only when it n
   //stop and disable the GNSS engine
   GPS.end();
 ```
+
 By using this method, you don't need to initialize the GPS inside the `setup()`.
 
 ## Conclusion
@@ -345,10 +388,5 @@ This cheat sheet is written as a quick reference to look up the GSM and GPS feat
 
 ## Troubleshooting
 
-### Getting Compiling Errors Using GPS and GSM
-
-Make sure you included first the `GPS.h` library and then the `GSM.h`
-
-### Can't Upload the Sketch
-
-Sometimes, while the GPS module is getting readings, you will not be able to upload a new sketch. Double tap the reset button on your Portenta H7 and upload the new sketch.
+- If you are getting compiling errors using GPS and GSM, make sure you included first the `GPS.h` library and then the `GSM.h`.
+- Sometimes, while the GPS module is getting readings, you will not be able to upload a new sketch. Double tap the reset button on your Portenta H7 and upload the new sketch.
