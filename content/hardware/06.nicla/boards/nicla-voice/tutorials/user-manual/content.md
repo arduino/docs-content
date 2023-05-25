@@ -460,14 +460,19 @@ The example code below shows how to get acceleration (m/s<sup>2</sup>) and angul
 #define READ_START_ADDRESS  0x0C
 #define READ_BYTE_COUNT     16
 #define SENSOR_DATA_LENGTH  16
+
+// Accelerometer range is set to +/-2g
+// Raw accelerometer data is represented as a signed 16-bit integer 
+// Raw accelerometer data can be converted to acceleration in m/s^2 units using the following scale factor: 
 #define ACCEL_SCALE_FACTOR  ((2.0 / 32767.0) * 9.8)
+
+// Gyroscope has a sensitivity of 16.4 LSB/dps
 #define GYRO_SCALE_FACTOR   (1 / 16.4)
 
 /**
   Turns on and off the onboard blue LED.
   
-  @param None.
-  @return None.
+  @param label to be printed on the Serial Monitor.
 */
 void ledBlueOn(char* label) {
   nicla::leds.begin();
@@ -480,9 +485,6 @@ void ledBlueOn(char* label) {
 
 /**
   Turns on and off the onboard green LED.
-  
-  @param None.
-  @return None.
 */
 void ledGreenOn() {
   nicla::leds.begin();
@@ -494,9 +496,6 @@ void ledGreenOn() {
 
 /**
   Blinks onboard red LED periodically every 200 ms.
-  
-  @param None.
-  @return None.
 */
 void ledRedBlink() {
   while (1) {
