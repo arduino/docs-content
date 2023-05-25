@@ -366,10 +366,6 @@ Replace the `city` and `countryCode` variables with yours.
 const char serverAddress[] = "api.openweathermap.org";
 int port = 443;
 
-.
-.
-.
-
 // Your OpenWeather API Key
 String openWeatherMapApiKey = "<API Key>";
 
