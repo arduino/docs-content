@@ -104,7 +104,7 @@ The water level transmitter will be connected to +19V reference and 4-20mA input
 
 The irrigation system works as a whole, integrating the level measurement, and the control of the valves with the Arduino Edge Control, together with the communication with the cloud using the MKR Wi-Fi 1010.
 
-The Edge Control is responsible for keeping time with its integrated Real Time Clock, in order to time the use of the valves and know when a day has passed. In addition, it measures the level of the stored water with a 4-20mA liquid level transmitter to calculate its use. It controls at the same time an LCD screen where the status of the valves and timers is shown, and it also allows to manually control the valves through the LCD push button.
+The Edge Control is responsible for keeping time with its integrated Real Time Clock, in order to time the use of the valves and know when a day has passed. In addition, it measures the level of the stored water with a 4-20mA liquid level transmitter to calculate its use. It controls at the same time an LCD screen where the status of the valves and timers is shown, and it also allows to manual control of the valves through the LCD push button.
 
 For communication with the cloud, the MKR WiFi 1010 serves as a bridge, it notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to the valves, in addition, it reports the values of the Edge Control sensors to the Cloud. The communication between both is by I2C.
 
@@ -472,6 +472,14 @@ We can easily access this dashboard from a PC, mobile phone or tablet from anywh
 All the necessary files to replicate this application note can be found below:
 
 * The complete code can be downloaded [here](assets/Edge-Control_MKR_Codes.zip)
+
+### Project working images
+
+![Zone 1 manual irrigation](assets/manual-irrigation.png)
+![Automatic Irrigation Timer Countdown in Zone 2 (1.4 minutes left)](assets/timer-LCD.png)
+![Zone 2 after the motorized valve is opened](assets/zone2.png)
+![Zone 2 automatic irrigation](assets/irrigation-process.jpg)
+
 
 ## Conclusion
 
