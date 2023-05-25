@@ -87,7 +87,7 @@ To get familiar with the commands, you can take a look at the [GSM library](http
 This library contains some commands that are quite different, because it leverages mbed APIs. In this case, it uses the NetworkInterface, CellularContext and CellularDevice classes. For more information about API visit [https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html](https://os.mbed.com/docs/mbed-os/v6.14/apis/network-interface-apis.html).
 
 |                           **Command**                          |                                                     **Information**                                                     |
-|:--------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | `GSM.begin(PIN, APN, USERNAME, PASSWORD, CATNB/CATM1, BAND_#)` |                         Unlock the SIM card using the PIN parameter and connects to the provider                        |
 |                           `GSMClient`                          |                                Client constructor, on the examples we define it as client                               |
 |                         `GSM.getTime()`                        |                                  Returns the time, you can set a new one with setTime()                                 |
@@ -104,7 +104,7 @@ This library contains some commands that are quite different, because it leverag
 It is possible to establish a connection within desired frequency band for the Portenta Cat. M1/NB IoT GNSS Shield. The **list of available frequency bands** that can be used for the device's credential configuration is as follows:
 
 | 32-bit Hexadecimal Value | LTE Band | Band Designation | Argument Designation |
-| :----------------------: | :------: | :--------------: | :------------------: |
+| ------------------------ | -------- | ---------------- | -------------------- |
 |           0x01           | LTE 2100 |        B1        |        BAND_1        |
 |           0x02           | LTE 1900 |        B2        |        BAND_2        |
 |           0x04           | LTE 1800 |        B3        |        BAND_3        |
@@ -256,7 +256,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 ### API
 
 | Command                 | Information                                                  |
-| :---------------------: | :----------------------------------------------------------: |
+| ----------------------- | ------------------------------------------------------------ |
 | `GPS.begin()`           | Initialize the GPS modem                                     |
 | `GPS.end()`             | Turn OFF the GPS modem                                       |
 | `GPS.available()`       | Check if the GPS has new data to be read                     |
