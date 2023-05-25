@@ -1,6 +1,6 @@
 ---
 title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat Sheet'
-description: 'Learn how to set up the Arduino Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of its functionality. Obtain information regarding pins and how to use the different communication technologies.'
+description: 'Learn how to set up the Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of its functionality. Obtain information regarding pins and how to use the different communication technologies.'
 tags:
   - Installation
   - Cat. M1
@@ -24,11 +24,11 @@ libraries:
 
 The **Arduino Portenta Cat. M1/NB IoT GNSS Shield** is a board that enables cellular connectivity with both Cat. M1 and NB-IoT networks. Easily track your valuable assets across the city or worldwide by choosing among GPS, GLONASS, Galileo or BeiDou Satellite navigation system.
 
-This article is a collection of guides, API calls and tutorials that can help you get started with the Arduino Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Arduino Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
+This article is a collection of guides, API calls and tutorials that can help you get started with the Portenta Cat. M1/NB IoT GNSS Shield board. You can also visit the [documentation product page for the Portenta Cat. M1/NB IoT GNSS Shield](/hardware/portenta-cat-m1-nb-iot-gnss-shield) for more in-depth tutorials about the different features.
 
 ## Core
 
-The Arduino Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
+The Portenta Cat. M1/NB IoT GNSS Shield uses the libraries from the [Arduino Mbed OS Portenta core](https://github.com/arduino/ArduinoCore-mbed).
 
 ***The libraries are included in the mbed Core version greater than 2.6.1***
 
@@ -74,7 +74,7 @@ Make sure you go to the `arduino_secrets.h` tab and:
 * Enter the PIN of your SIM card and store it in the variable `SECRET_PIN`.
 * Check the mobile APN of your SIM card provider, e.g "online.provider.com", and save it inside the `SECRET_APN`. You can find this information by searching online for APN + provider name.
 
-APN stands for `Access Point Name`. An APN is a gateway between a cellular network and the Internet.
+APN stands for 'Access Point Name'. An APN is a gateway between a cellular network and the Internet.
 
 After finishing this setup, compile, and upload the program. If everything went fine, you should see the HTML content of the webpage printed in the Serial Monitor.
 
