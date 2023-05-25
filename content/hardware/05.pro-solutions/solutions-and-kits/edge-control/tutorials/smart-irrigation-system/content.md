@@ -411,3 +411,43 @@ void loop() {
   ArduinoCloud.update();
 }
 ```
+
+The system needs to be as fast as possible when a valve activation is requested, this is why there is one function for each valve that is fired once the valve switch is changed on the Arduino IoT Cloud.
+
+```arduino
+/*
+  Since Z1 is READ_WRITE variable, onZ1Change() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onZ1Change() {
+  // Add your code here to act upon Z1 change
+  Serial.println("Z1 changed!!");
+  SensorValues_t vals;
+  vals.z1_local = z1;
+  delay(1000);
+}
+```
+
+The `uploadValues(SensorValues_t *vals)` is executed every time the Edge Control requests data through I2C from the MKR. It updates all the local and Cloud shared variables to be sent, also it converts the water level variable to water volume using the cylinder volume formula `v = πr²h` where `r` is the tank radius in meters and `h` is the tank height in millimeters so the volume result is in liters.
+
+Using flow control variables we store the initial water level as a reference point, any level measured below that point will be considered as water use updating the `water_usage` variable, if we refill the tank, it will save the higher value of water level as a new reference point.
+
+```arduino
+  water_level = vals->water_level_local;
+  water_volume = PI * (radius) * (radius) * (int)water_level * 10;
+
+  if (waterCtrl == 0) {
+    currentWater = water_volume;
+    Serial.println("Initial Water Volumen: ");
+    Serial.println(currentWater);
+    water_usage = 0;
+    waterCtrl = 1;
+  }
+
+  if (water_volume < currentWater) {
+    water_usage += currentWater - water_volume;
+    currentWater = water_volume;
+  } else if (water_volume > currentWater) {
+    currentWater = water_volume;
+  }
+```
