@@ -361,7 +361,7 @@ Table 8 summarizes the power consumption of the Portenta C33 on different test c
 </tbody>
 </table>
 
-**<caption>Table 8: Board Currrent Consumption</caption>**
+**<caption>Table 8: Board Current Consumption</caption>**
 
 </div>
 
