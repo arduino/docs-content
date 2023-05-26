@@ -15,7 +15,7 @@ Communication:
   SPI: Yes, 1x
   CAN: Yes 1 CAN Bus
 Power:
-  Circuit opera ting voltage: 5V
+  Circuit operating voltage: 5V
   Input voltage (VIN): 6-24V
   DC Current per I/O Pin: 8 mA
 Clock speed:
