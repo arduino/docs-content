@@ -1,5 +1,5 @@
 ---
-title: 'Smart Irrigation System Using Edge Control'
+title: 'Smart Irrigation System Using Arduino Edge Control'
 description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino IoT Cloud."
 difficulty: intermediate
 tags:
