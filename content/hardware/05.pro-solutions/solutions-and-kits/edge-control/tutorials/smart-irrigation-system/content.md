@@ -33,7 +33,6 @@ software:
 hardware:
   - hardware/05.pro-solutions/boards/solutions-and-kits/edge-control
   - hardware/05.pro-solutions/boards/solutions-and-kits/enclosure-kit
-  - hardware/01.mkr/01.boards/mkr-wifi-1010
 ---
 
 ## Introduction
@@ -326,7 +325,7 @@ void loop() {
 
 The MKR WiFi 1010 needs the following libraries:
 
-- `ArduinoIoTCloud.h` This one handles the Arduino Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
+- `ArduinoIoTCloud.h` This one handles the Arduino IoT Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
 - `Arduino_ConnectionHandler.h` This one manages the Wi-Fi® connection and can be installed directly from the Arduino Library Manager.
 - `ArduinoJson.h` and `Arduino_JSON` This one let us parse and create JSON structures for the HTTP requests. They can be installed directly from the Arduino Library Manager.
 - `ArduinoHttpClient.h` This library lets us request weather data from the Open Weather API. It can be installed directly from the Arduino Library Manager.
@@ -456,7 +455,7 @@ Using flow control variables we store the initial water level as a reference poi
   }
 ```
 
-### The Cloud Dashboard
+### The Arduino IoT Cloud Dashboard
 
 Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time, resulting in a professional Human-Computer Interaction (HCI) as can be seen below:
 
