@@ -564,6 +564,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |  **Changes**  |
-|:----------:|:------------:|:-------------:|
-| 14/03/2023 |       1      | First release |
+|  **Date**  | **Revision** |                     **Changes**                    |
+|:----------:|:------------:|:--------------------------------------------------:|
+| 14/03/2023 |       1      |                    First release                   |
+| 26/05/2023 |       2      | Board's current consumption table and pinout added |
