@@ -107,6 +107,8 @@ The Edge Control is responsible for keeping time with its integrated Real Time C
 
 For communication with the cloud, the MKR WiFi 1010 serves as a bridge, it notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to the valves, in addition, it reports the values of the Edge Control sensors to the cloud. The communication between both is by I2C.
 
+![Smart irrigation system with Edge Control](assets/project-setup.png)
+
 ### Valves Control
 
 If a valve is activated from the cloud, the message "opening valve" will appear on the screen at the same time that it is being activated. If the valve is activated by a cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The valves working time is reported to the cloud for a visualization of the daily use average.
