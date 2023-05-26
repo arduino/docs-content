@@ -43,7 +43,19 @@ The resulting thing and dashboard should look similar to the following:
 
 ![Dashboard with an LED and a Switch widget.](./assets/dashboard.png)
 
-Also, your device needs to be registered. Follow the flow for MicroPython when clicking "Add" in the "Devices" tab. You will obtain a pair of device id and device key after registration. Store these details, along with your Wi-Fi credentials, in a `secrets.py` file. Here is an example of how `secrets.py` should look like:
+Also, your device needs to be registered. Follow the flow "Any Device" ("Manual") when clicking "Add" in the "Devices" tab.
+
+![Dialog prompting to select setup flow](./assets/setup-device-prompt.png)
+
+Give your board the desired name.
+
+![Give your device a name of your choice.](./assets/set-device-name.png)
+
+Eventually write down the Device ID / Secret Key pair that you will need to connect your device to Arduino IoT Cloud.
+
+![The connection credentials to be written down.](./assets/get-key.png)
+
+You will obtain a pair of device id and device key after registration. Store these details, along with your Wi-Fi credentials, in a `secrets.py` file. Here is an example of how `secrets.py` should look like:
 
 ```python
 WIFI_SSID = "myNetwork"   # Network SSID
@@ -148,6 +160,13 @@ if __name__ == "__main__":
     client.start()
 
 ```
+
+**Explanations:**
+
+- `wifi_connect()` Connects to your local WiFi using the credentials specified in secrets.py.
+- `client.register` Registers a variable that will be synced with the cloud.
+- `on_switch_changed` Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the cloud dashboard. This function in turn toggles the on-board LED and updates the cloud variable `led` that reflects the state of the on-board LED to be displayed in the cloud dashboard.
+- `client.start()`Enters a loop that runs as long as the board is connected to the cloud and synchronises data as it runs.
 
 
 
