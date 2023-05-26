@@ -58,7 +58,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 
 ## Hardware and Software Requirements
 
-![Project main hardware and materials](assets/hardware.png)
+![Project main hardware and materials](assets/hardware_16-9.png)
 
 ### Hardware Requirements
 - Arduino Edge Control
@@ -97,7 +97,7 @@ The Edge Control board will be powered with an external 12V DC power supply conn
 The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6.
 The water level transmitter will be connected to +19V reference and 4-20mA input 1 of J7 connector.
 
-![Project physical connections](assets/connections-labeled.png)
+![Project physical connections](assets/connections-labeled_16-9.png)
 
 ## Smart Irrigation System Overview
 
