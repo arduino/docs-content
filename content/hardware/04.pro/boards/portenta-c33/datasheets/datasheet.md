@@ -320,6 +320,51 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 **<caption>Table 7: Recommended Operating Conditions</caption>**
 </div>
 
+### Current Consumption
+
+<p style="text-align: justify;">
+Table 8 summarizes the power consumption of the Portenta C33 on different test cases. Notice that the operating current of the board will depend greatly on the application.
+</p>
+
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th style="text-align: center; vertical-align: middle;">Parameter</th>
+    <th style="text-align: center; vertical-align: middle;">Symbol</th>
+    <th style="text-align: center; vertical-align: middle;">Min</th>
+    <th style="text-align: center; vertical-align: middle;">Typ</th>
+    <th style="text-align: center; vertical-align: middle;">Max</th>
+    <th style="text-align: center; vertical-align: middle;">Unit</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">Deep Sleep Mode Current Consumption<sup>1</sup></td>
+    <td style="text-align: center; vertical-align: middle;">I<sub>DS</sub></td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">86</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">µA</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">Normal Mode Current Consumption<sup>2</sup></td>
+    <td style="text-align: center; vertical-align: middle;">I<sub>NM</sub></td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">180</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">mA</td>
+  </tr>
+  <tr>
+    <td colspan="6"><b>Note:</b><br><sup>1</sup> All peripherals off, wake-up on RTC interrupt.<br><sup>2</sup> All peripherals on, continuous data download via Wi-Fi. </td>
+  </tr>
+</tbody>
+</table>
+
+**<caption>Table 8: Board Currrent Consumption</caption>**
+
+</div>
+
 <div style="page-break-after:always;"></div>
 
 ## Hardware
@@ -386,19 +431,25 @@ The Portenta C33 is designed to be usable as a surface-mount module as well as p
 
 <div style="page-break-after: always;"></div>
 
+### Pinout 
+
+The MKR-styled connectors pinout is shown in Figure 2.
+
+**![Figure 2. Portenta C33 pinout (MKR-styled connectors)](assets/Portenta_C33_Pinout.png)**
+
 ### Board Dimensions
 
-Portenta C33 board main dimensions can be seen in Figure 2.
+Portenta C33 board main dimensions can be seen in Figure 3.
 
-**![Figure 2. Portenta C33 dimensions (top view on the left and bottom view on the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
+**![Figure 3. Portenta C33 dimensions (top view on the left and bottom view on the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
 
 ### Board Connectors
 
-Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 3 and 4.
+Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 4 and 5.
 
-**![Figure 3. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
+**![Figure 4. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
 
-**![Figure 4. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
+**![Figure 5. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
 
 ## Certifications
 
