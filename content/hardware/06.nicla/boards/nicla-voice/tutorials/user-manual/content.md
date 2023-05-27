@@ -50,7 +50,7 @@ Here is an overview of the board's architecture's main components shown in the i
 
 - **Microcontroller**: at the heart of the Nicla Voice is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
 - **Speech and sensor-fusion processor**: the board features the NDP120 Neural Decision Processor™, an ultra-low power always-on audio and sensor-fusion processor from Syntiant®, which enables several applications, including echo-cancellation, beamforming, noise suppression, speech enhancement, speaker identification, keyword spotting, acoustic event and scene classification, and multi-sensor fusion. 
-- **Onboard advanced motion sensors**: the board features the BMI270, a high-precision Inertial Measurement Unit (IMU) by Bosch® Sensortec, which combines a 3-axis accelerometer and a 3-axis gyroscope for precise motion tracking and orientation detection. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
+- **Onboard advanced motion sensors**: the board features the BMI270, a high-precision Inertial Measurement Unit (IMU) from Bosch® Sensortec, which combines a 3-axis accelerometer and a 3-axis gyroscope for precise motion tracking and orientation detection. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
 - **Onboard high-performance microphone**:  the Nicla Voice is equipped with the IM69D130, a high-quality MEMS microphone by Infineon® Technologies. The IM69D130 offers excellent audio quality and low noise performance, ensuring accurate and distortion-free audio capturing.
 - **Onboard connector for external PDM microphone**: an external PDM microphone can be connected to the board via an onboard connector.  
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance Bluetooth® Low Energy module allows the Nicla Voice to communicate wirelessly with other devices and systems.
@@ -679,13 +679,13 @@ Finally, in the `loop()` function:
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
 - Raw sensor data is then parsed and extracted into raw accelerometer and gyroscope data. This data is represented as 16-bit signed integers ranging from -32 768 to 32 767.
 - Raw sensor data is converted into understandable and standard unit measurements; for the accelerometer, data is converted to meters per second squared, and for the gyroscope, data is converted to degrees per second. 
-- Converted accelerometer and gyroscope data are printed to the Serial Monitor, allowing one to observe sensor data in real time.
+- Converted accelerometer and gyroscope data are printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
 
 After uploading the example code, you should see accelerometer and gyroscope data on the IDE's Serial Monitor as shown below:
 
 ![Nicla Voice onboard IMU data on the IDE's Serial Monitor](assets/user-manual-13.png)
 
-Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's visualize first only accelerometer data. To do this, comment the gyroscope data output as shown below: 
+Let's use also the Arduino IDE Serial Plotter to test the example IMU sketch; let's start visualizing only accelerometer data. To do so, comment the gyroscope data output as shown below:
 
 ```arduino 
   // Print accelerometer data (expressed in meters per second squared). 
@@ -718,7 +718,7 @@ When the board is not moving, you should see acceleration measurements close to 
 
 #### IMU and Machine Learning
 
-The example code below demonstrates using the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
+The example code below demonstrates how to use the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
 
 
 ```arduino
