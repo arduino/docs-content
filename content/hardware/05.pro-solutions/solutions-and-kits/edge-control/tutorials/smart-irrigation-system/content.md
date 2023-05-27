@@ -1,5 +1,5 @@
 ---
-title: 'Smart Irrigation System Using Arduino Edge Control'
+title: 'Smart Irrigation System Using Arduino® Edge Control'
 description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino IoT Cloud."
 difficulty: intermediate
 tags:
@@ -490,6 +490,6 @@ In this application note, we have learned how to build a smart irrigation system
 
 ### Next Steps
 
-As you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WiFi 1010, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your professional setup and improve it with powerful solutions. 
+As you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WiFi 1010, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your professional setup and improve it with powerful solutions.
 
 You can add different connectivity modules like LoRaWAN®, GSM, RS485 or Ethernet by using the [Arduino MKR family](https://store-usa.arduino.cc/collections/mkr-family)
