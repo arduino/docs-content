@@ -436,13 +436,13 @@ void onZ1Change() {
 }
 ```
 
-The `uploadValues(SensorValues_t *vals)` is executed every time the Edge Control requests data through I2C from the MKR. It updates all the local and Cloud shared variables to be sent, also it converts the water level variable to water volume using the cylinder volume formula `v = πr²h` where `r` is the tank radius in meters and `h` is the tank height in millimeters so the volume result is in liters.
+The `uploadValues(SensorValues_t *vals)` is executed every time the Edge Control requests data through I2C from the MKR. It updates all the local and Cloud shared variables to be sent, also it converts the water level variable to water volume using the cylinder volume formula `v = πr²h, if `r` (tank radius) and `h` (tank height) are in meters the volume result is in cubic meters (m³), for a more intuitive perception of water quantity we will convert it to liters, 1m³ = 1000 L, and as our level sensor output is in centimeters we can convert (height) to meters dividing by 100, resulting on a m³ volume that we just need to multiply by 1000 to convert it to liters.
 
 Using flow control variables we store the initial water level as a reference point, any level measured below that point will be considered as water use updating the `water_usage` variable, if we refill the tank, it will save the higher value of water level as a new reference point.
 
 ```arduino
   water_level = vals->water_level_local;
-  water_volume = PI * (radius) * (radius) * (int)water_level * 10;
+  water_volume = PI * (radius) * (radius) * ((int)water_level/100) * 1000;
 
   if (waterCtrl == 0) {
     currentWater = water_volume;
