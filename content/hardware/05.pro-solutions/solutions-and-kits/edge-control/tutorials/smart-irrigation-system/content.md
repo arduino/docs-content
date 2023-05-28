@@ -95,9 +95,10 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Electrical connections of the irrigation system](assets/wiring-diagram-1.png)
 
-The Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
-The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. You can also use 3 wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.
-The water level transmitter will be connected to the +19V reference and the 4-20mA input number 1 of the J7 connector.
+- The Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
+- The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
+***You can also use 3 wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
+- The water level transmitter will be connected to the +19V reference and the 4-20mA input number 1 of the J7 connector.
 
 ![Project physical connections](assets/connections-labeled_16-9.png)
 
