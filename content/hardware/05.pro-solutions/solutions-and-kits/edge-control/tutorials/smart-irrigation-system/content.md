@@ -52,7 +52,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 
 - Independently control 4 irrigation zones using motorized ball valves.
 - Get water from a smart tank with water level monitoring.
-- Program irrigation timers from remote through Arduino IoT Cloud by using WiFi connectivity.
+- Program irrigation timers from remote through Arduino IoT Cloud by using Wi-Fi® connectivity.
 - Manually activate irrigation from Arduino IoT Cloud through dedicated widgets.
 - Monitor average irrigation time and water consumption on dedicated charts on Arduino IoT Cloud.
 - Provide a weather station on Arduino IoT Cloud, using API connected to a weather website to decide on whether to irrigate or not.
