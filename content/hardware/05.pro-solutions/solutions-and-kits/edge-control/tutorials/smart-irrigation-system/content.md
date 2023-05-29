@@ -124,7 +124,7 @@ If a valve is activated from the cloud, the message "opening valve" will appear 
 
 ### Water Usage
 
-Regarding the use of water, at the system startup, the current amount of water is measured and saved, in this way any decrease in it is translated as a use, the use of water is daily reset to have an average daily use graph in the cloud.
+At every system startup the current amount of water is measured and saved. This way any decrease in it is considered as used. The use of water is daily reset to have an average daily use graph in the cloud.
 
 ### Weather Forecast Consideration
 
