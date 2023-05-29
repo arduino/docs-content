@@ -7,7 +7,7 @@ tags:
   - Arduino Edge Control
   - Arduino MKR WiFi 1010
   - Motorized Valve
-  - 4-20mA Sensors
+  - 4-20 mA Sensors
   - Arduino IoT Cloud
   - Application Note
 author: 'Christopher Mendez'
@@ -65,8 +65,8 @@ The goal of this application note is to showcase a smart farming irrigation syst
 - Arduino Edge Control
 - Arduino MKR WiFi 1010
 - Arduino Edge Control Enclosure Kit
-- 4-20mA (0-1 meter) Liquid Level Sensor
-- 4x 2 Wires Motorized ball Valves (3 Wires version are also supported)
+- 4-20 mA (0-1 meter) Liquid Level Sensor
+- 4x two Wires Motorized ball Valves (three Wires version are also supported)
 - 12V DC power supply 
 - 11' of 1/2" PVC pipes
 - 3x 1/2" PVC TEE
@@ -101,9 +101,9 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
 
-![2 wires valve and 4-20mA sensor connection detail](assets/valve-connection.svg.svg)
-***You can also use 3 wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
-- The water level transmitter will be connected to the +19V reference and the 4-20mA input number 1 of the J7 connector.
+![Two wires valve and 4-20 mA sensor connection detail](assets/valve-connection.svg.svg)
+***You can also use three wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
+- The water level transmitter will be connected to the +19V reference and the 4-20 mA input number one of the J7 connector.
 
 ![Project physical connections](assets/connections-labeled_16-9.png)
 
@@ -111,7 +111,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 The irrigation system works as a whole, integrating the level measurement and the activation of the valves by the Edge Control, together with the communication with the cloud using the MKR WiFi 1010.
 
-The Edge Control is responsible for keeping time with its integrated real-time clock (RTC), in order to time the use of the valves and know when a day has passed. In addition, it measures the level of the stored water with a 4-20mA liquid level transmitter to calculate its use. It controls at the same time an LCD screen where the status of the valves and timers is shown, and it also allows manual control of the valves through the LCD push button.
+The Edge Control is responsible for keeping time with its integrated real-time clock (RTC), in order to time the use of the valves and know when a day has passed. In addition, it measures the level of the stored water with a 4-20 mA liquid level transmitter to calculate its use. It controls at the same time an LCD screen where the status of the valves and timers is shown, and it also allows manual control of the valves through the LCD push button.
 
 For communication with the cloud, the MKR WiFi 1010 serves as a bridge, it notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to the valves, in addition, it reports the values of the Edge Control sensors to the cloud. The communication between both is by I2C.
 
@@ -167,7 +167,7 @@ enum ButtonStatus : byte {
 
 ```
 
-In order to save energy and resources, the Edge Control has different power lines that must be enabled so we can power the different internal and external peripherals. In this case, we need to enable the 3.3v, 5v, Battery, MKR1 slot, and the +19v reference for the 4-20mA sensor's current loop. To handle all the IOs we also need to initialize the IO Expander, together with the Enclosure Kit LCD and the sensors inputs. 
+In order to save energy and resources, the Edge Control has different power lines that must be enabled so we can power the different internal and external peripherals. In this case, we need to enable the 3.3v, 5v, Battery, MKR1 slot, and the +19v reference for the 4-20 mA sensor's current loop. To handle all the IOs we also need to initialize the IO Expander, together with the Enclosure Kit LCD and the sensors inputs. 
 
 With the `setSystemClock` function, we define a starting date reference for the real-time clock, and if you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds. 
 
@@ -235,7 +235,7 @@ Repetitively the Edge Control will be detecting button taps for the valve's manu
 
 The `updateSensors()` function send the local sensor's values and valves statuses and also requests the updated status of externally controlled variables from the Cloud. 
 
-To measure the water level we are using a 4-20mA (0 to 1 meter) sensor, the Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor to be read by the analog-to-digital converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
+To measure the water level we are using a 4-20 mA (0 to 1 meter) sensor, the Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor to be read by the analog-to-digital converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20 mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
 
 `float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
 
@@ -487,9 +487,9 @@ All the necessary files to replicate this application note can be found below:
 
 ### Project Working Images
 
-![Zone 1 manual irrigation](assets/manual-irrigation.png)
-![Automatic irrigation timer countdown in zone 2 (1.4 minutes left)](assets/timer-LCD.png)
-![Zone 2 after the motorized valve is opened](assets/zone2.png)
+![Zone one manual irrigation](assets/manual-irrigation.png)
+![Automatic irrigation timer countdown in zone two (1.4 minutes left)](assets/timer-LCD.png)
+![Zone two after the motorized valve is opened](assets/zone2.png)
 ![Irrigation in all zones](assets/4zones.gif)
 
 ## Conclusion
