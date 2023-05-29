@@ -97,11 +97,11 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The Edge Control board will be powered with an external 12 VDC power supply connected to BATT+ and GND of J11 respectively.
 
-![Connecting the power supply](assets/Edge-control_power.svg)
+![Connecting the power supply](assets/Edge-control_power.png)
 
 - The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
 
-![2-Wires valve and 4-20 mA sensor connection detail](assets/valve-connection.svg)
+![2-Wires valve and 4-20 mA sensor connection detail](assets/valve-connection.png)
 ***You can also use 3-Wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 
 - The water level transmitter will be connected to the +19 V reference and the 4-20 mA input number one of the J7 connector.
