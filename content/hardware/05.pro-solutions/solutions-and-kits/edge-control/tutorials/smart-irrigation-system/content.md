@@ -135,7 +135,7 @@ The system is capable of knowing the weather thanks to the use of the MKR WiFi 1
 We will go through some important code sections to make this application fully operative. We will begin with the required libraries:
 
 - Including `Arduino_EdgeControl.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
-- Including `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It's included in the BSP of the Edge Control.
+- Including `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It's included in the Board Support Package (BSP) of the Edge Control.
 
 There are two headers included in the project code that handles some helper functions and structures:
 
@@ -236,7 +236,16 @@ The Edge Control will check the number of button taps for the valve's manual con
 
 The `updateSensors()` function handles the update of system variables, including the valves statutes. It uploads the local sensor values to the cloud and retrieves online changes to maintain the synchrony.
 
-To measure the water level we are using a 4-20 mA (0 to 1 meter) sensor, the Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor to be read by the analog-to-digital converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20 mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
+To measure the water level we are using a 4-20 mA (0 to 1 meter) sensor, but we need to express that current information in centimeters. The Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor which is read by the internal ADC. To convert this voltage back to a current value, we use the following equation from a 4-20 mA sensor:
+
+`y = 16x + 4`
+
+Where:
+* First we solve for x, having the formula: `x = (y - 4)/16` where x is in meters.
+* As we are working in centimeters, we multiply the expression by 100: `x = (y - 4)*(100/16)`.
+* Finally, we simplify the expression resulting on: `x = (y - 4)*6.25`.
+
+This is a brief explanation of the mathematical expression used inside the sketch to convert the original sensor value voltage into centimeters:
 
 `float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
 
@@ -336,12 +345,12 @@ void loop() {
 
 The MKR WiFi 1010 needs the following libraries:
 
-- `ArduinoIoTCloud.h` This one handles the Arduino IoT Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
-- `Arduino_ConnectionHandler.h` This one manages the Wi-Fi® connection and can be installed directly from the Arduino Library Manager.
-- `ArduinoJson.h` and `Arduino_JSON` These let us parse and create JSON structures for the HTTP requests. They can be installed directly from the Arduino Library Manager.
-- `ArduinoHttpClient.h` This library lets us request weather data from the Open Weather API. It can be installed directly from the Arduino Library Manager.
+- `ArduinoIoTCloud.h` It handles the Arduino IoT Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
+- `Arduino_ConnectionHandler.h` It manages the Wi-Fi® connection and can be installed directly from the Arduino Library Manager.
+- `ArduinoJson.h` and `Arduino_JSON` These libraries parse and create JSON structures for the HTTP requests. They can be installed directly from the Arduino Library Manager.
+- `ArduinoHttpClient.h` This library requests weather data from the Open Weather API. It can be installed directly from the Arduino Library Manager.
 - `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals, it's included in the BSP of the MKR WiFi board.
-- `utility/wifi_drv.h` This library lets us control the MKR built-in RGB LED, it's included in the BSP of the MKR WiFi 1010.
+- `utility/wifi_drv.h` This library controls the MKR built-in RGB LED. It's included in the BSP of the MKR WiFi 1010.
 
 There are two headers included in the project code that handles some helper functions and structures:
 
