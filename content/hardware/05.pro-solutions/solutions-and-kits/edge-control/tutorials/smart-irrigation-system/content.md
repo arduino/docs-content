@@ -65,7 +65,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 - Arduino Edge Control
 - Arduino MKR WiFi 1010
 - Arduino Edge Control Enclosure Kit
-- 4-20 mA (0-1 meter) Liquid Level Sensor
+- Differential pressure Liquid Level Sensor - 4-20 mA (0-1 meter) Submersible.
 - 4x two Wires Motorized ball Valves (three Wires version are also supported)
 - 12V DC power supply 
 - 11' of 1/2" PVC pipes
