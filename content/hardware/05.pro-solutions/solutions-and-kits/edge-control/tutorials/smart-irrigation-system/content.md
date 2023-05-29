@@ -38,13 +38,13 @@ hardware:
 
 ## Introduction
 
-The health of our crops depends on being able to provide favorable environmental conditions for their proper development. Among the most important factors is irrigation, water allows the assimilation and transport of nutrients in plants, among many other things vital to life.
+Agriculture has always been a key part of human development. Humanity is constantly growing and the demand of more efficient, profitable, and green agriculture is one of the challenges that the industry has been working on during the last years.
 
 ![Application Note Overview. Each pot represents one individual irrigation zone capable of watering a crop field](assets/Thumbnail-green.png)
 
-Smart farming is more accessible today than ever by using the Arduino series of professional solutions. Taking advantage of the control capabilities and sensor data analysis, Arduino Edge Control is perfect for managing our crops.
+Smart farming is one of the most important actors in this revolution and is more accessible today than ever by using the Arduino Pro solutions. Taking advantage of the control capabilities, sensor data analysis and cloud connectivity, Arduino Edge Control is perfect for managing agriculture applications.
 
-The project shown is intended to replicate a scale smart farming application, it can be implemented on real agriculture fields using the same hardware and firmware.
+The application note shown is intended to replicate a scale smart farming application, that can be implemented on real agriculture fields using the same hardware and firmware.
 
 ## Goals
 
