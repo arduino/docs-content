@@ -40,7 +40,7 @@ hardware:
 
 The health of our crops depends on being able to provide favorable environmental conditions for their proper development. Among the most important factors is irrigation, water allows the assimilation and transport of nutrients in plants, among many other things vital to life.
 
-![Project final result](assets/Thumbnail-green.png)
+![Application Note Overview. Each pot represents one individual irrigation zone capable of watering a crop field](assets/Thumbnail-green.png)
 
 Smart farming is more accessible today than ever by using the Arduino series of professional solutions. Taking advantage of the control capabilities and sensor data analysis, Arduino Edge Control is perfect for managing our crops.
 
