@@ -170,7 +170,7 @@ enum ButtonStatus : byte {
 
 In order to save energy and resources, the Edge Control has different power lines that must be enabled so we can power the different internal and external peripherals. In this case, we need to enable the 3.3 V, 5 V, Battery, MKR1 slot, and the +19 V reference for the 4-20 mA sensor's current loop. To handle all the I/O we also need to initialize the I/O Expander together with the Enclosure Kit LCD and the sensors inputs. 
 
-With the `setSystemClock` function, we define a starting date reference for the real-time clock, and if you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds. 
+With the `setSystemClock` function we define a starting date reference for the real-time clock. If you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds.  
 
 ***You just need to set the RTC once and make sure to have a CR2032 3V battery in the Edge Control holder to maintain the RTC configurations.***
 
@@ -232,9 +232,9 @@ void setup() {
 }
 ```
 
-Repetitively the Edge Control will be detecting button taps for the valve's manual control and handle the right action with a switch case that can recognize from zero to five button taps.
+The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
 
-The `updateSensors()` function send the local sensor's values and valves statuses and also requests the updated status of externally controlled variables from the Cloud. 
+The `updateSensors()` function handles the update of system variables, including the valves statutes. It uploads the local sensor values to the cloud and retrieves online changes to maintain the synchrony.
 
 To measure the water level we are using a 4-20 mA (0 to 1 meter) sensor, the Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor to be read by the analog-to-digital converter (ADC), to convert this voltage back to a current value, we divide by 220 and following the characteristic equation of a 4-20 mA sensor `y = 16x + 4`, we solve for x, `x = (y - 4)/16` with a result in meters for x, as we are working on a centimeters range we multiply by 100 resulting on `x = (y - 4)*(100/16) = (y - 4)*6.25` this is the brief explanation of the mathematical expression we use to convert voltage into centimeters.
 
