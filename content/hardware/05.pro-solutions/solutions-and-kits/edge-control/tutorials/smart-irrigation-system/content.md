@@ -66,21 +66,21 @@ The goal of this application note is to showcase a smart farming irrigation syst
 - Arduino MKR WiFi 1010
 - Arduino Edge Control Enclosure Kit
 - Differential pressure Liquid Level Sensor - 4-20 mA (0-1 meter) Submersible.
-- 4x two Wires Motorized ball Valves (three Wires version are also supported)
-- 12V DC power supply 
-- 11' of 1/2" PVC pipes
-- 3x 1/2" PVC TEE
-- 8x 1/2" PVC elbow
-- 1/2" Manual Valve
-- 4x 1/2" PVC caps
-- 11x 1/2" PVC male adapters
-- 7x 1/2" wall pipe brackets
-- 4x Rectangular planters
-- DIN rail
-- 6x Cable glands
-- 20' Duplex cable AWG 18
-- Electrical Register Box
-- Water Tank
+- 2-Wires Motorized ball Valves (3-Wires version are also supported) (x4)
+- 12 VDC power supply (x1)
+- 3.4 meters of 15 mm PVC pipes (x1)
+- 15 mm PVC TEE pipes (x3)
+- 15 mm PVC elbow (x8)
+- 15 mm Manual Valve (x1)
+- 15 mm PVC caps (x4)
+- 15 mm PVC male adapters (x11)
+- 15 mm wall pipe brackets (x7)
+- Rectangular planters (x4)
+- DIN rail (x1)
+- Cable glands (x6)
+- 6 meters of duplex cable AWG 18 (x1)
+- Electrical Register Box (x1)
+- Water Tank (x1)
 
 ### Software Requirements
 
@@ -101,8 +101,8 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
 
-![Two wires valve and 4-20 mA sensor connection detail](assets/valve-connection.svg.svg)
-***You can also use three wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
+![2-Wires valve and 4-20 mA sensor connection detail](assets/valve-connection.svg.svg)
+***You can also use 3-Wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 - The water level transmitter will be connected to the +19V reference and the 4-20 mA input number one of the J7 connector.
 
 ![Project physical connections](assets/connections-labeled_16-9.png)
