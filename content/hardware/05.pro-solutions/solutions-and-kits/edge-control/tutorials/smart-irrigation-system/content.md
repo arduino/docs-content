@@ -124,18 +124,18 @@ If a valve is activated from the cloud, the message "opening valve" will appear 
 
 ### Water Usage
 
-Regarding the use of water, at the system startup, the current amount of water is measured and saved, in this way any decrease in it is translated as a use, the use of water is daily reset to have an average daily use graph in the cloud.
+At every system startup the current amount of water is measured and saved. This way any decrease in it is considered as used. The use of water is daily reset to have an average daily use graph in the cloud.
 
 ### Weather Forecast Consideration
 
-Regarding the weather, the MKR WiFi 1010 requires the forecast of the city's weather using the OpenWeather API, if the probability of rain is greater than 90%, the automatic watering timers will be ignored, however, it will be possible to continue watering manually if the user so wishes.
+The system is capable of knowing the weather thanks to the use of the MKR WiFi 1010 and the OpenWeather API. If the probability of rain is greater than 90%, the automatic watering timers will be ignored. However, it will be possible to continue watering manually if the user so wishes.
 
 ### Arduino Edge Control Code
 
 We will go through some important code sections to make this application fully operative. We will begin with the required libraries:
 
-- Including `Arduino_EdgeControl.h` will enable the support for the Edge Control peripherals, install it by searching for it on the Library Manager.
-- Including `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals, it's included in the BSP of the Edge Control.
+- Including `Arduino_EdgeControl.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
+- Including `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It's included in the BSP of the Edge Control.
 
 There are two headers included in the project code that handles some helper functions and structures:
 
