@@ -469,7 +469,7 @@ To turn m³ into liters we just need to multiply by 1000: `water_volume = PI*(ra
 
 This is the brief why of the expression used in the code.
 
-Using flow control variables we store the initial water level as a reference point, any level measured below that point will be considered as water use updating the `water_usage` variable, if we refill the tank, it will save the higher value of water level as a new reference point.
+Using flow control variables we store the initial water level as a reference point. Any level measured below that point will be considered as water used updating the `water_usage` variable. If we refill the tank, it will save the higher value of water level as a new reference point.
 
 ```arduino
   water_level = vals->water_level_local;
