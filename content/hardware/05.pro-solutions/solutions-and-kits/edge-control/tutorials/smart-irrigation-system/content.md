@@ -97,7 +97,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The Edge Control board will be powered with an external 12 VDC power supply connected to BATT+ and GND of J11 respectively.
 
-![Connecting the power supply](assets/Edge-control_power.png)
+![Connecting the power supply](assets/edge-control_power.png)
 
 - The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
 
