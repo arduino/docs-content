@@ -466,7 +466,7 @@ Using flow control variables we store the initial water level as a reference poi
 
 Taking advantage of the Arduino IoT Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time, resulting in a professional Human-Computer Interaction (HCI) as can be seen below:
 
-![Arduino Cloud project dashboard ](assets/dashboard.png)
+![Arduino Cloud project dashboard ](assets/dashboard_16-9.png)
 
 Within the Arduino IoT Cloud's dashboard, the system variables can be monitored and controlled. We have temperature, humidity and rain probability gauges showing the current weather status and forecast, toggle switches to control each motorized valve accompanied by a scheduler widget to set automatic irrigation routines, also we have time series graphs showing the daily activated time of each valve. Finally, there are water supply monitoring widgets, one that shows the current water level in percentage from 0-100%, a water volume widget that shows the remaining liters of water in the tank, and a water usage widget that shows the liters used daily.
 
