@@ -87,7 +87,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `ArduinoIoTCloud`, `Arduino_JSON`, `ArduinoJson`, `ArduinoHttpClient` and `Arduino_ConnectionsHandler`. You can install them using the Arduino IDE Library Manager.
 - The [smart irrigation system codes](assets/Edge-Control_MKR_Codes.zip).
-- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the Arduino Portenta H7 to the Arduino IoT Cloud.
+- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the MKR WiFi 1010 to the Arduino IoT Cloud.
 
 ## Smart Irrigation System Setup
 
@@ -96,7 +96,12 @@ The electrical connections of the intended application are shown in the diagram 
 ![Electrical connections of the irrigation system](assets/wiring-diagram-1.png)
 
 - The Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
+
+![Connecting the power supply](assets/Edge-control_power.svg)
+
 - The four motorized ball valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
+
+![2 wires valve and 4-20mA sensor connection detail](assets/valve-connection.svg.svg)
 ***You can also use 3 wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 - The water level transmitter will be connected to the +19V reference and the 4-20mA input number 1 of the J7 connector.
 
