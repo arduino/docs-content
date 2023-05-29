@@ -93,9 +93,9 @@ The goal of this application note is to showcase a smart farming irrigation syst
 
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical connections of the irrigation system](assets/wiring-diagram-1.png)
+![Electrical connections of the irrigation system](assets/wiring-diagram.png)
 
-- The Edge Control board will be powered with an external 12V DC power supply connected to BATT+ and GND of J11 respectively.
+- The Edge Control board will be powered with an external 12 VDC power supply connected to BATT+ and GND of J11 respectively.
 
 ![Connecting the power supply](assets/Edge-control_power.svg)
 
@@ -103,7 +103,8 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![2-Wires valve and 4-20 mA sensor connection detail](assets/valve-connection.svg.svg)
 ***You can also use 3-Wires motorized valves without any changes in the code. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
-- The water level transmitter will be connected to the +19V reference and the 4-20 mA input number one of the J7 connector.
+
+- The water level transmitter will be connected to the +19 V reference and the 4-20 mA input number one of the J7 connector.
 
 ![Project physical connections](assets/connections-labeled_16-9.png)
 
@@ -167,7 +168,7 @@ enum ButtonStatus : byte {
 
 ```
 
-In order to save energy and resources, the Edge Control has different power lines that must be enabled so we can power the different internal and external peripherals. In this case, we need to enable the 3.3v, 5v, Battery, MKR1 slot, and the +19v reference for the 4-20 mA sensor's current loop. To handle all the IOs we also need to initialize the IO Expander, together with the Enclosure Kit LCD and the sensors inputs. 
+In order to save energy and resources, the Edge Control has different power lines that must be enabled so we can power the different internal and external peripherals. In this case, we need to enable the 3.3 V, 5 V, Battery, MKR1 slot, and the +19 V reference for the 4-20 mA sensor's current loop. To handle all the I/O we also need to initialize the I/O Expander together with the Enclosure Kit LCD and the sensors inputs. 
 
 With the `setSystemClock` function, we define a starting date reference for the real-time clock, and if you need to configure the RTC time with your time zone, use the commented function `RealTimeClock.setEpoch(<Your region unixTime>)` replacing the parameter with your region unix time in seconds. 
 
