@@ -50,7 +50,7 @@ The application note shown is intended to replicate a scale smart farming applic
 
 The goal of this application note is to showcase a smart farming irrigation system using a combination of an Edge Control, an MKR WiFi 1010, and the Arduino IoT Cloud. The project's objectives are the following:
 
-- Independently control 4 irrigation zones using motorized ball valves.
+- Independently control four irrigation zones using motorized ball valves.
 - Get water from a smart tank with water level monitoring.
 - Program irrigation timers from remote through Arduino IoT Cloud by using Wi-Fi® connectivity.
 - Manually activate irrigation from Arduino IoT Cloud through dedicated widgets.
