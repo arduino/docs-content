@@ -18,7 +18,7 @@ Human-Machine Interface, Display, Shield
 # Features
 Note: This board is passive and requires a GIGA or Portenta board to function.
 
-- **KD040WVFID026-01-C025A** 4.0" TFT Display
+- **KD040WVFID026-01-C025A** 3.97" TFT Display
   - 480x800 resolution
   - 16.7 Million Colours
   - 0.108 mm pixel size
@@ -51,7 +51,7 @@ Note: This board is passive and requires a GIGA or Portenta board to function.
 ## Application Examples
 The GIGA Display Shield provides easy cross-form factor support for an external touch display, together with several useful peripherals.
 
-- **Human-Machine Interface Systems:** The GIGA Display Shield can be paired together with a Portenta or GIGA board for rapid development of a Human-Machine Interface system. The included gyroscope allows for easy orientation detection to adjust the visual element orientation
+- **Human-Machine Interface Systems:** The GIGA Display Shield can be paired together with a Portenta or GIGA board for rapid development of a Human-Machine Interface system. The included gyroscope allows for easy orientation detection to adjust the visual element orientation.
 
 - **Interaction Design Prototyping:** Quickly explore novel interaction design concepts and develop new ways to communicate with technology, including social robots that respond to sound.
 
@@ -107,7 +107,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 |----------|----------------------------------------|----------|----------------------------------------|
 | U2       | IS31FL3197-QFLS2-TR RGB LED Driver IC  | U3       | LV52204MTTBG LED Driver IC             |
-| U4       | ISL97634IRT14Z-T LED Driver IC         | U5       | AP7335-28WG-7 2V8 LDO IC               |
+| U4       | ISL97634IRT14Z-T White LED Driver IC         | U5       | AP7335-28WG-7 2V8 LDO IC               |
 | U6       | AP7311-WG-7 1V8 LDO IC                 | U7       | BMI270 6-axis IMU                      |
 | J1       | DF40HC(3.5)-80DS-0.4V(51) HD Connector | J2       | DF40HC(3.5)-80DS-0.4V(51) HD Connector |
 | J3       | Camera Connector 2.54mm Header         | J4       | F32Q-1A7H1-11020 Display Connector     |
