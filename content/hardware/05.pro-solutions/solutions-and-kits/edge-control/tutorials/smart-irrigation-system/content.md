@@ -236,7 +236,7 @@ void setup() {
 
 The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
 
-The `updateSensors()` function handles the update of system variables, including the valves statutes. It uploads the local sensor values to the cloud and retrieves online changes to maintain the synchrony.
+The `updateSensors()` function handles the update of system variables, including the valves' states. It uploads the local sensor values to the cloud and retrieves online changes to maintain synchrony.
 
 To measure the water level we are using a 4-20 mA (0 to 1 meter) sensor, but we need to express that current information in centimeters. The Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor which is read by the internal ADC. To convert this voltage back to a current value, we use the following equation from a 4-20 mA sensor:
 
