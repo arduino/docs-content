@@ -524,7 +524,7 @@ In this application note, you have learned how to build a smart irrigation syste
 
 Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. However, if Wi-Fi® access is limited in your area, the connectivity can be extended using alternative boards, like the [Arduino MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310).  
 
-Thanks to the Edge Control capabilities to connect to the cloud and be remotely controlled, the Arduino Pro product series is a great choice for developing robust and industrial environment-proof solutions.
+Thanks to the Edge Control capabilities to connect to the cloud and be remotely controlled, it is a great choice for developing robust and agriculture environment-proof solutions.
 
 ### Next Steps
 
