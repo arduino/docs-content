@@ -41,4 +41,4 @@ void loop(){
 
 ## Summary
 
-This short tutorial show how to update the resolution for your ADC, a new feature available on the UNO R4 Minima board. 
+This short tutorial show how to update the resolution for your ADC, a new feature available on the UNO R4 Minima board.
