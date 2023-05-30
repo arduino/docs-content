@@ -137,7 +137,7 @@ The system is capable of knowing the weather forecast thanks to the use of the M
 We will go through some important code sections to make this application fully operative. We will begin with the required libraries:
 
 - `Arduino_EdgeControl.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
-- Including `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It's included in the Board Support Package (BSP) of the Edge Control.
+- `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It is included in the Board Support Package (BSP) of the Edge Control.
 
 There are two headers included in the project code that handles some helper functions and structures:
 
