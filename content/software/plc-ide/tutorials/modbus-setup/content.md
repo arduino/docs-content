@@ -8,7 +8,6 @@ author: 'Pablo Marquínez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
 software:
-<<<<<<< HEAD
   - plc-ide
 contributeURL: /software/plc-ide
 ---
