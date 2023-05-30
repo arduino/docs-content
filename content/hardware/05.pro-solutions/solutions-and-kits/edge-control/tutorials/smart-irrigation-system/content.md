@@ -238,7 +238,7 @@ The Edge Control will check the number of button taps for the valve's manual con
 
 The `updateSensors()` function handles the update of system variables, including the valves' states. It uploads the local sensor values to the cloud and retrieves online changes to maintain synchrony.
 
-To measure the water level we are using a 4-20 mA (0 to 1 meter) sensor, but we need to express that current information in centimeters. The Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor which is read by the internal ADC. To convert this voltage back to a current value, we use the following equation from a 4-20 mA sensor:
+To measure the water level, a 4-20 mA (0 to 1 meter) sensor can be used, but you need to express that current information in centimeters first. The Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor, which is read by the internal ADC. To convert this voltage back to a current value, the following equation from a 4-20 mA sensor can be used:
 
 `y = 16x + 4`
 
