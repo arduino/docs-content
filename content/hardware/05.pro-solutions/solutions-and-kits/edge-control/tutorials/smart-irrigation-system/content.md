@@ -126,7 +126,7 @@ If a valve is activated from the cloud, the message "opening valve" will appear 
 
 ### Water Usage
 
-At every system startup the current amount of water is measured and saved. This way any decrease in it is considered as used. The use of water is daily reset to have an average daily use graph in the cloud.
+At every system startup, the current amount of water is measured and saved. In this way, any decrease in it is counted as consumed water. The water use is reset daily to be able to monitor the average daily use on a dedicated  Arduino IoT Cloud chart.
 
 ### Weather Forecast Consideration
 
