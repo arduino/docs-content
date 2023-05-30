@@ -122,7 +122,7 @@ To communicate the system with the cloud, the MKR WiFi 1010 serves as a bridge. 
 
 ### Valves Control
 
-If a valve is activated from the cloud, the message "opening valve" will appear on the screen at the same time that it's being opened. If the valve is activated by a cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The working time of the valves is reported to the cloud for a visualization of the average daily use.
+If a valve is activated from the cloud, the message "opening valve" will appear on the LCD screen when the valve gets opened. If the valve is activated by a cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
 
 ### Water Usage
 
