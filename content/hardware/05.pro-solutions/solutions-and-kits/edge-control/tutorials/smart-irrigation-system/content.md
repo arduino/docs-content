@@ -244,7 +244,7 @@ To measure the water level, a 4-20 mA (0 to 1 meter) sensor can be used, but you
 
 Where:
 * First we solve for x, having the formula: `x = (y - 4)/16` where x is in meters.
-* As we are working in centimeters, we multiply the expression by 100: `x = (y - 4)*(100/16)`.
+* To be able to work in centimeters, you can multiply the expression by 100: `x = (y - 4)*(100/16)`.
 * Finally, we simplify the expression resulting on: `x = (y - 4)*6.25`.
 
 This is a brief explanation of the mathematical expression used inside the sketch to convert the original sensor value voltage into centimeters:
