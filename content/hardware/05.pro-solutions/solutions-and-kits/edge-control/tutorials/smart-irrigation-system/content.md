@@ -144,7 +144,7 @@ There are two headers included in the project code that handles some helper func
 - `SensorValues.hpp` handles the shared variables between the Edge Control and the MKR WiFi 1010 through I2C.
 - `helpers.h` handles the real-time clock (RTC) functions to retrieve the local date and time.
 
-Here is also defined a structure to handle the number of button taps to control each valve manually.
+This code's section also contains the defined structure to handle the number of enclosure button taps to control each valve manually.
 
 ```arduino
 
