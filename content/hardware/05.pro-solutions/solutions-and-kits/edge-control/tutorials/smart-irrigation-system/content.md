@@ -522,7 +522,7 @@ Below you can find some additional images and animations showing how the system 
 
 In this application note, you have learned how to build a smart irrigation system to water your crops automatically, manually or remotely. Thanks to real-time weather analysis, you can avoid irrigation when it is raining, saving water and avoiding over-irrigation or flooding problems. 
 
-Arduino Edge Control allows us to easily implement this kind of agriculture systems ready for field deployment. It is known that normally in remote areas Wi-Fi® access is limited by its use is increasing in the creation of new smart farms and the connectivity can be extended using alternatives boards like the Arduino MKR Lora board.  
+Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. However, if Wi-Fi® access is limited in your area, the connectivity can be extended using alternative boards, like the [Arduino MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310).  
 
 Thanks to the Edge Control capabilities to connect to the cloud and be remotely controlled, the Arduino Pro product series is a great choice for developing robust and industrial environment-proof solutions.
 
