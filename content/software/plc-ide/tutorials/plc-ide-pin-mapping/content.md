@@ -10,7 +10,7 @@ hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
 software:
   - plc-ide
-contributeURL: content/software/plc-ide
+contributeURL: /software/plc-ide
 ---
 
 ## Introduction

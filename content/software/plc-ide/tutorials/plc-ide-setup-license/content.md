@@ -14,7 +14,7 @@ software:
   - ide-v1
   - ide-v2
   - plc-ide
-contributeURL: content/software/plc-ide
+contributeURL: /software/plc-ide
 ---
 
 ## Overview
