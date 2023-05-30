@@ -116,7 +116,7 @@ The Edge Control is responsible for keeping track of the time with its integrate
 -  Measure the level of the tank water with a 4-20 mA liquid level transmitter to calculate its consumption
 - Control an LCD screen where the status of the valves and timers are shown. In addition, the LDC push button can be used to manually activate the valves.
 
-To communicate the system with the cloud, the MKR WiFi 1010 serves as a bridge. It notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to control the valves. In addition, it reports the values of the Edge Control sensors to the cloud. The communication between both devices is done using the I2C communication protocol.
+Moreover, the MKR WiFi 1010 is used to implement the communication between the setup and the cloud. It notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to control the valves. In addition, it reports the values of the Edge Control sensors on the cloud. The communication between both devices is done leveraging the I2C communication protocol.
 
 ![Smart irrigation system with Edge Control](assets/project-setup.png)
 
