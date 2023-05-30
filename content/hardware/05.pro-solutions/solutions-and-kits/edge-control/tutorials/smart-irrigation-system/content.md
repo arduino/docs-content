@@ -110,7 +110,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 ## Smart Irrigation System Overview
 
-The irrigation system works as a whole, integrating the level measurement and the activation of the valves by the Edge Control, together with the communication with the cloud using the MKR WiFi 1010.
+The irrigation system works as a whole: it integrates the level measurement and the activation of the valves, done by the Edge Control, with the Cloud communication, using the MKR WiFi 1010.
 
 The Edge Control is responsible for keeping track of the time with its integrated real-time clock (RTC), in order to schedule the use of the valves and know when a day has passed. In addition, it measures the level of the stored water with a 4-20 mA liquid level transmitter to calculate its use. It controls at the same time an LCD screen where the status of the valves and timers is shown. Manual control of the valves it is also possible using the LCD push button.
 
