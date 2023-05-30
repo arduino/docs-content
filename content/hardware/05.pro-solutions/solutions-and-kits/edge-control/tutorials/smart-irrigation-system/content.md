@@ -44,7 +44,7 @@ Agriculture has always been a key part of human development. Humanity is constan
 
 Smart farming is one of the most important actors in this revolution and is more accessible today than ever by using the Arduino Pro solutions. Taking advantage of the control capabilities, sensor data analysis and cloud connectivity, Arduino Edge Control is perfect for managing agriculture applications.
 
-The application note shown is intended to replicate a scale smart farming application, that can be implemented on real agriculture fields using the same hardware and firmware.
+The shown application note is intended to replicate a scaled smart farming application, that can be implemented on real agriculture fields using the same hardware and firmware.
 
 ## Goals
 
