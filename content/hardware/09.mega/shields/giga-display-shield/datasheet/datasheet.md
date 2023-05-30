@@ -107,16 +107,16 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 |----------|----------------------------------------|----------|----------------------------------------|
 | U2       | IS31FL3197-QFLS2-TR RGB LED Driver IC  | U3       | LV52204MTTBG LED Driver IC             |
-| U4       | ISL97634IRT14Z-T White LED Driver IC         | U5       | AP7335-28WG-7 2V8 LDO IC               |
-| U6       | AP7311-WG-7 1V8 LDO IC                 | U7       | BMI270 6-axis IMU                      |
+| U4       | ISL97634IRT14Z-T White LED Driver IC         | U5       | AP7335-28WG-7 2.8V V-REG LDO IC            |
+| U6       | AP7311-WG-7 1.8V LDO IC                 | U7       | BMI270 6-axis IMU                      |
 | J1       | DF40HC(3.5)-80DS-0.4V(51) HD Connector | J2       | DF40HC(3.5)-80DS-0.4V(51) HD Connector |
-| J3       | Camera Connector 2.54mm Header         | J4       | F32Q-1A7H1-11020 Display Connector     |
+| J3       | 21TW-247 Camera Connector 2.54mm Header         | J4       | F32Q-1A7H1-11020 Display Connector     |
 | J5       | F32Q-1A7H1-11008 Touch Connector       | J6       | 2.54mm Header GIGA Connector           |
 | J7       | 2.54mm Header GIGA Connector           | J8       | 505550-2420 Arducam Connector          |
 
 ## TFT Display
 
-The KD040WVFID026-01-C025A TFT Display has a 4.0" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) and ISL97634IRT14Z-T (U4) LED Drivers.
+The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) and ISL97634IRT14Z-T (U4) LED Drivers.
 
 ## 6-Axis IMU
 The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the Portenta or GIGA main board via a common I2C connection.
