@@ -253,7 +253,7 @@ This is a brief explanation of the mathematical expression used inside the sketc
 
 In order to monitor the daily trend of the valve's active time on Arduino IoT Cloud, the accumulated time is reset each day at midnight.
 
-The `valvesHandler()` function activates, deactivates and keeps the active time of each zone valve.
+The `valvesHandler()` function activates, deactivates and keeps track of the active time of each zone valve.
 
 ```arduino
 void loop() {
