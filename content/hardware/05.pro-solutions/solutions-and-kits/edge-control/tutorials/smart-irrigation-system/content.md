@@ -38,7 +38,7 @@ hardware:
 
 ## Introduction
 
-Agriculture has always been a key part of human development. Humanity is constantly growing and the demand of more efficient, profitable, and green agriculture is one of the challenges that the industry has been working on during the last years.
+Agriculture has always been a key part of human development. Humanity is constantly growing and the demand for more efficient, profitable, and green agriculture is one of the challenges that the industry has been working on during the last years.
 
 ![Application Note Overview. Each pot represents one individual irrigation zone capable of watering a crop field](assets/Thumbnail-green.png)
 
@@ -130,7 +130,7 @@ At every system startup, the current amount of water is measured and saved. In t
 
 ### Weather Forecast Consideration
 
-The system is capable of knowing the weather forecast thanks to the use of the MKR WiFi 1010 and the OpenWeather API. If the rain probability gets greater than 90%, the automatic watering timers will be ignored and the smart irrigation will not start. However, it will be possible to continue irrigating manually if the user wishes so.
+The system is capable of knowing the weather forecast thanks to the use of the MKR WiFi 1010 and the OpenWeather API. If the rain probability gets greater than 90%, the automatic watering timers will be ignored and the smart irrigation will not start. However, it will be possible to continue irrigating manually if the user wishes to.
 
 ### Arduino Edge Control Code
 
@@ -395,7 +395,7 @@ String city = "Santiago de los Caballeros";
 String countryCode = "DO";
 ```
 
-The MKR WiFi 1010 communicates with the Arduino IoT Cloud and checks for changes on every variable, from the valves switches to the scheduled activated timers. The board turns its LED blue when it is successfully connected to the cloud. Also, it asks for a weather forecast every 10 minutes to update the temperature, humidity and rain probability in the Arduino IoT Cloud dashboard.
+The MKR WiFi 1010 communicates with the Arduino IoT Cloud and checks for changes on every variable, from the valves' switches to the scheduled activated timers. The board turns its LED blue when it is successfully connected to the cloud. Also, it asks for a weather forecast every 10 minutes to update the temperature, humidity and rain probability in the Arduino IoT Cloud dashboard.
 
 ```arduino
 void loop() {
@@ -534,6 +534,6 @@ Thanks to the Edge Control capabilities to connect to the cloud and be remotely 
 
 ### Next Steps
 
-Since you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WiFi 1010, it is time for you to continue exploring all the capabilities of the Arduino Pro portfolio and integrating it in your professional setup.
+Since you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WiFi 1010, it is time for you to continue exploring all the capabilities of the Arduino Pro portfolio and integrating it into your professional setup.
 
 You can extend the capabilities of your Edge Control-based system by adding different connectivity options, leveraging the [Arduino MKR family](https://store-usa.arduino.cc/collections/mkr-family) like LoRaWAN®, GSM, RS-485 or Ethernet.
