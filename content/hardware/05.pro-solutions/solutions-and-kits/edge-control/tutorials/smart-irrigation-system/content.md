@@ -251,7 +251,7 @@ This is a brief explanation of the mathematical expression used inside the sketc
 
 `float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
 
-As we want to show an intuitive graph for the valve's active time, the accumulated time is reset each day at midnight so we can have a daily use graph on the Arduino IoT Cloud.
+In order to monitor the daily trend of the valve's active time on Arduino IoT Cloud, the accumulated time is reset each day at midnight.
 
 The `valvesHandler()` function activates, deactivates and keeps the active time of each zone valve.
 
