@@ -130,7 +130,7 @@ At every system startup, the current amount of water is measured and saved. In t
 
 ### Weather Forecast Consideration
 
-The system is capable of knowing the weather thanks to the use of the MKR WiFi 1010 and the OpenWeather API. If the probability of rain is greater than 90%, the automatic watering timers will be ignored. However, it will be possible to continue watering manually if the user so wishes.
+The system is capable of knowing the weather forecast thanks to the use of the MKR WiFi 1010 and the OpenWeather API. If the rain probability gets greater than 90%, the automatic watering timers will be ignored and the smart irrigation will not start. However, it will be possible to continue irrigating manually if the user wishes so.
 
 ### Arduino Edge Control Code
 
