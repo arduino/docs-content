@@ -17,38 +17,38 @@ software:
 
 The Arduino® Portenta Max Carrier provides developers an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Portenta Max Carrier possibilities are endless. The Portenta Max Carrier can be used as a single-board computer (SBC) or reference design. It couples the Arduino® Portenta H7 board as a central high-performance unit, granting Edge AI and cutting edge connectivity features into an industry-standard embedded Next Unit of Computing (eNUC) form factor ready. In this tutorial, you will learn about the core features of the Portenta Max Carrier and how to get started with it.
 
-## Goals 
+## Goals
 
-- Describe the core features of the Portenta Max Carrier.	
-- Describe the power sources of the Portenta Max Carrier. 
+- Describe the core features of the Portenta Max Carrier.
+- Describe the power sources of the Portenta Max Carrier.
 - Describe the relevant peripherals, headers, and connectors of the Portenta Max Carrier.
 
 ## Required Hardware and Software
 
-- [Portenta H7](https://store.arduino.cc/products/portenta-h7).
-- [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®).
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier)
+- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - LoRa® antenna (868-915MHz) with SMA connector.
-- LTE antenna (698-960/1710-2690MHz) with SMA connector. 
-- 3.7V 2600mAh 18650 Li-Ion battery.
-- DC 4.5-20V power supply with barrel jack. 
-- Micro SD Card 
-- [Arduino IDE (online or offline)](https://www.arduino.cc/en/software). 
+- LTE antenna (698-960/1710-2690MHz) with SMA connector
+- 3.7V 2600mAh 18650 Li-Ion battery
+- DC 4.5-20V power supply with barrel jack
+- Micro SD Card
+- [Arduino IDE (online or offline)](https://www.arduino.cc/en/software)
 
-## Instructions 
+## Instructions
 
 ### 1. Get to Know the Portenta Max Carrier
 
-The Portenta Max Carrier was designed to augment the capabilities of the Portenta H7 board and provide easy access to its onboard peripherals. It is designed to enable research and develop industrial grade advanced applications, from fast prototyping to a deployable robust single board computer. The Portenta Max Carrier establishes connection with Portenta H7 via High Density connectors. This interface grants access to extensive modules and peripherals on-board Portenta Max Carrier.
+The Portenta Max Carrier was designed to augment the capabilities of the Portenta H7 board and provide easy access to its onboard peripherals. It is designed to enable research and develop industrial grade advanced applications, from rapid prototyping to a deployable robust single board computer. The Portenta Max Carrier establishes connection with Portenta H7 via High Density connectors. This interface grants access to extensive modules and peripherals on-board the Portenta Max Carrier.
 
 In this tutorial, we will describe the following features of the Portenta Max Carrier:
 
-- Power distribution.
-- Connectors.
-- On-board memory units.
-- Wireless connectivity. 
-- Audio interfaces.
-- On-board debugger.
+- Power distribution
+- Connectors
+- On-board memory units
+- Wireless connectivity
+- Audio interfaces
+- On-board debugger
 
 #### 1.1. Power Distribution
 
@@ -60,15 +60,15 @@ You can see the detailed Portenta Max Carrier's power tree in the image below:
 
 The Portenta Max Carrier's power inputs are indicated in the following image:
 
-![Portenta Max Carrier Power Input](assets/mc_ard_power.png)
+![Portenta Max Carrier Power Inputs](assets/mc_ard_power.png)
 
-These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C® cable while attached to Portenta Max Carrier enables Audio, LoRa, USB Hub, SD ports, Camera, and Fieldbus including the Debugger while it is also possible to upload the Code. This power line use case will be useful to develop and debug the code.
+These power feed line options power up different peripherals and modules depending on the line configuration. The Portenta H7 powered by USB-C® cable while attached to Portenta Max Carrier enables Audio, LoRa®, USB Hub, SD port, and Fieldbus including the Debugger while it is also possible to upload the Code. This power line use case will be useful to develop and debug the code.
 
 **If the Arduino IDE throws an error failing to upload the Code, please put the Portenta H7 in Bootloader Mode before uploading.**
 
-The external power supply goes through [**MPM3550EGLE**](https://www.mouser.com/datasheet/2/277/MPS_05172019_MPM3550E_r1.0-1595120.pdf), which is a DC/DC power module, to provide +5V to power up the peripherals and the modules. The module provides the power to [**BQ24195RGET**](https://www.ti.com/lit/ds/symlink/bq24195.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&ts=1647034752895&ref_url=https%253A%252F%252Fwww.mouser.com%252F), which is a battery charge and power path management, and it is used in Portenta Max Carrier for the Li-Ion battery source and to boost the voltage to +5V. The battery charger IC feeds the power to Modem above all the peripherals and modules mentioned previously. The external power supply has the highest priority in the power line. 
+The external power supply goes through [**MPM3550EGLE**](https://www.mouser.com/datasheet/2/277/MPS_05172019_MPM3550E_r1.0-1595120.pdf), which is a DC/DC power module, to provide +5V to power up the peripherals and the modules. The module provides the power to [**BQ24195RGET**](https://www.ti.com/lit/ds/symlink/bq24195.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&ts=1647034752895&ref_url=https%253A%252F%252Fwww.mouser.com%252F), which is a battery charge and power path management, and it is used in Portenta Max Carrier for the Li-Ion battery source and to boost the voltage to +5V. The battery charger IC feeds the power to Modem above all the peripherals and modules mentioned previously. The external power supply has the highest priority in the power line.
 
-A Micro USB port is available for debbugging on the Arduino® Portenta Max Carrier. The debugging module is a separate segment, and it is powered by Micro USB port using its own power supply [**AP2112K**](https://www.diodes.com/assets/Datasheets/AP2112.pdf), which is a low-dropout linear regulator. The debugger is available for use without the Portenta H7 paired to the Portenta Max Carrier. 
+A Micro USB port is available for debbugging on the Arduino® Portenta Max Carrier. The debugging module is a separate segment, and it is powered by Micro USB port using its own power supply [**AP2112K**](https://www.diodes.com/assets/Datasheets/AP2112.pdf), which is a low-dropout linear regulator. The debugger is available for use without the Portenta H7 paired to the Portenta Max Carrier.
 
 #### 1.2. Connectors
 
@@ -119,7 +119,7 @@ The Portenta Max Carrier equips two different memory units on-board: Flash Memor
 
 **Mini SD Card slot**
 
-- The Mini SD card interface grants the possibility to extend the storage size. It can be used to process hefty amount of log data, which can be from sensors or programmed on-board computer registry. 
+- The Mini SD card interface grants the possibility to extend the storage size. It can be used to process hefty amount of log data, which can be from sensors or programmed on-board computer registry.
 
 ***To learn on how to use the Mini SD card slot to expand the storage size, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).***
 
@@ -132,17 +132,17 @@ The Portenta Max Carrier has on-board Murata CMWX1ZZABZ-078 LoRaWAN® Module and
 ![Portenta Max Carrier Connectivity Module](assets/mc_ard_conn_module.png)
 
 #### LoRaWAN® Module - Murata CMWX1ZZABZ-078
-One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput. 
+One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 
-Depending on the region, it will require to use the appropriate antenna for the respective frequencies. The common frequencies are 915 MHz for North America and Australia, and 863 MHz for European region. Frequencies are on a range, so for example Australia region it is possible to use 928 MHz compatible antenna and configuration. 
+Depending on the region, it will require to use the appropriate antenna for the respective frequencies. The common frequencies are 915 MHz for North America and Australia, and 863 MHz for European region. Frequencies are on a range, so for example Australia region it is possible to use 928 MHz compatible antenna and configuration.
 
 ***For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101).***
 
-The LoRa® Connection tutorial with in-depth details on how to power up the module and establish connection to The Things Network (TTN), please go [here]() for more information. 
+The LoRa® Connection tutorial with in-depth details on how to power up the module and establish connection to The Things Network (TTN), please go [here](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn) for more information.
 
 #### Cell Modem - SARA-R412M-02B
 
-The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing **2G / Cat-M1 / NB-IoT** connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires SIM card integration, which can be fulfilled by intriducing SIM card in the available microSIM slot (SIM1). The modem has dedicated SMA connector (J3) for the antenna. 
+The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing **2G / Cat-M1 / NB-IoT** connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires SIM card integration, which can be fulfilled by intriducing SIM card in the available microSIM slot (SIM1). The modem has dedicated SMA connector (J3) for the antenna.
 
 ***Please DO NOT USE the cellular modem without the external antenna attached to the SMA connector. It might damage the Portenta Max Carrier if used without.***
 
@@ -168,7 +168,7 @@ The Portenta Max Carrier features a stereo CODEC, the [CS42L52](https://www.mous
 
 You can use [this](https://www.digikey.ca/en/products/detail/adafruit-industries-llc/5244/16056943) cable assembly and make your mono speaker. The CS42L52 stereo CODEC operates using an I2C interface, with the CODEC acting as a secondary device. 
 
-Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, can be expanded via Header Connector J5 for I2C interface interoperability. External modules requiring I2C interface can be established via header Connector J5 with up to 2 available I2C bridges. 
+Arduino Portenta H7 establishes I2C interface using the `Wire` library included in `ArduinoCore-mbed` package. The Arduino Portenta Max Carrier, while having paired the Portenta H7 via High-Density Connectors, can be expanded via Header Connector J5 for I2C interface interoperability. External modules requiring I2C interface can be established via header Connector J5 with up to 2 available I2C bridges.
 
 ***For more information on I2C protocol, please have a look at this [guide to Arduino & the I2C Protocol (Two Wire)](https://docs.arduino.cc/learn/communication/wire).***
 
@@ -185,23 +185,23 @@ The following image indicates the connectors that enables and allows to establis
 ![Portenta Max Carrier On-Board Debugger Connections](assets/mc_ard_debug_conn.png)
 
 ### 2. Basic Setup of the Portenta Max Carrier
-The Portenta Max Carrier only requires the Portenta H7 as main unit to be able to use it. External components are required to enable the on-board module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed. 
+The Portenta Max Carrier only requires the Portenta H7 as main unit to be able to use it. External components are required to enable the on-board module's capability and correct operation, such as cellular modem and LoRaWAN® connectivity. As the Portenta H7 is the central control unit of the Portenta Max Carrier, it will need to have the latest **Arduino Mbed OS Portenta Core** installed.
 
-In case it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update. 
+In case it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update.
 
 To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires to set **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
-Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. This will help to understand the board is in Boot mode and not turned off due to unavailable electric supply as it shutted off. As the power lines are alive even if the board shows no indication of operating instance. 
+Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. This will help to understand the board is in Boot mode and not turned off due to unavailable electric supply as it shutted off. As the power lines are alive even if the board shows no indication of operating instance.
 
 ![Portenta Max Carrier Power DIP Switch](assets/mc_ard_boot_sel.png)
 
 ### 3. The Circuit
 
-The Arduino® Portenta Max Carrier uses the Arduino® Portenta H7 as the main central processing unit and that powers up the carrier's modules mentioned above. Both systems possess High-Density Connectors to establish communication interface in between. It is simple as attaching the Portenta H7 to Portenta Max Carrier's High-Density Connectors. The following connection scheme shows how exactly the device is paired with correct orientation. 
+The Arduino® Portenta Max Carrier uses the Arduino® Portenta H7 as the main central processing unit and that powers up the carrier's modules mentioned above. Both systems possess High-Density Connectors to establish communication interface in between. It is simple as attaching the Portenta H7 to Portenta Max Carrier's High-Density Connectors. The following connection scheme shows how exactly the device is paired with correct orientation.
 
 ![Portenta Max Carrier Hardware Setup](assets/mc_ard_hd_connectors.png)
 
-Rest of the connection population will depend on the development requirement. It is important that if the connectivity modules are to be utilized, respective antennas should be attached before powering up. Otherwise, the Portenta Max Carrier may suffer from severe electronic hardware damage. Such details are drawn on the table with briefly mentioned content above in `1.4. Wireless Connectivity` section. 
+Rest of the connection population will depend on the development requirement. It is important that if the connectivity modules are to be utilized, respective antennas should be attached before powering up. Otherwise, the Portenta Max Carrier may suffer from severe electronic hardware damage. Such details are drawn on the table with briefly mentioned content above in `1.4. Wireless Connectivity` section.
 
 ### 4. Getting up to Pro with Development Environment
 
@@ -226,7 +226,8 @@ The Arduino® boards that are IoT enabled, can use the Arduino® IoT Cloud to de
 ***If you want to know how to get started with Arduino® IoT Cloud, please look into [Getting Started With the Arduino® IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).***
 
 ### 5. Portenta Max Carrier Quick Peripheral Table
-The following peripheral table will help you guide through quickly about the select available connectors on Portenta Max Carrier. 
+
+The following peripheral table will help you guide through quickly about the select available connectors on Portenta Max Carrier.
 
 | PERIPHERAL                 | PIN       | FUNCTION      | TYPE    | DESCRIPTION                         |
 | -------------------------- | --------- | ------------- | ------- | ----------------------------------- |
@@ -318,17 +319,14 @@ The following peripheral table will help you guide through quickly about the sel
 ***These are a quick reference to commonly used interfaces and if custom connectors are to be used, above quick peripheral table will assist you to verify the correct polarity of connector pins.***
 
 ## Conclusion
-You now have a quickstart guide of the Portenta Max Carrier with its rich modules and peripherals to design and implement real world solutions. The Portenta Max Carrier provides wide spectrum of tools and ports to enable a scalable design solution. With this guide, you now also acquired brief knowledge about the Portenta Max Carrier and will be able to solidify the requirements and devise more clearly. 
+You now have a quickstart guide of the Portenta Max Carrier with its rich modules and peripherals to design and implement real world solutions. The Portenta Max Carrier provides wide spectrum of tools and ports to enable a scalable design solution. With this guide, you now also acquired brief knowledge about the Portenta Max Carrier and will be able to solidify the requirements and devise more clearly.
 
 ### Next Steps
-In-depth guides for each distinctive module on-board Portenta Max Carrier can be found under each section of the features listed previously on this guide. 
+In-depth guides for each distinctive module on-board Portenta Max Carrier can be found under each section of the features listed previously on this guide.
 
 ## Troubleshooting
-One may encounter issues setting up and initializing for the first time the Portenta Max Carrier. Following troubleshooting will help you with the possible issues that might occur in the beginning. 
+One may encounter issues setting up and initializing for the first time the Portenta Max Carrier. Following troubleshooting will help you with the possible issues that might occur in the beginning.
 
 - When sketch upload fails, please check if the Portenta H7 attached to Portenta Max Carrier is in bootloader mode. Double-press the RESET button and the Green LED will be waving, indicating it has entered bootloader mode. Please retry uploading the sketch afterward.
 
-- Verify that the BOOT DIP switch of the Portenta Max Carrier has been configured to an address. Otherwise, the paired Portenta H7 will go into bootloader mode after power-on and it will not initialize the program. 
-
-
-
+- Verify that the BOOT DIP switch of the Portenta Max Carrier has been configured to an address. Otherwise, the paired Portenta H7 will go into bootloader mode after power-on and it will not initialize the program.
