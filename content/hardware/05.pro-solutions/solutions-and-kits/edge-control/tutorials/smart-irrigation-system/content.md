@@ -85,7 +85,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
-- If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `ArduinoIoTCloud`, `Arduino_JSON`, `ArduinoJson`, `ArduinoHttpClient` and `Arduino_ConnectionsHandler`. You can install them using the Arduino IDE Library Manager.
+- If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `ArduinoIoTCloud`, `Arduino_JSON`, `ArduinoJson`, `ArduinoHttpClient` and `Arduino_ConnectionsHandler`. You can install them through the Arduino IDE Library Manager.
 - The [Smart Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
 - [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to add the MKR WiFi 1010 to the Arduino IoT Cloud.
 
