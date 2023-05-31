@@ -441,7 +441,7 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 #### Accelerometer and Gyroscope Data
 
-The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
+The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter.
 
 ```arduino
 /**
@@ -718,7 +718,7 @@ When the board is not moving, you should see acceleration measurements close to 
 
 #### Magnetometer Data
 
-The example code below shows how to get magnetic field (µT) data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor.
+The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter.
 
 ```arduino
 /**
