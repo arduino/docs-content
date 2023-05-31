@@ -671,7 +671,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
@@ -718,7 +718,7 @@ When the board is not moving, you should see acceleration measurements close to 
 
 #### Magnetometer Data
 
-The example code below shows how to get magnetic field (µT) data from the onboard magnetometer and streams it to the Arduino IDE Serial Monitor.
+The example code below shows how to get magnetic field (µT) data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor.
 
 ```arduino
 /**
@@ -880,7 +880,7 @@ Here you can find a step-by-step explanation of the code:
 First, the necessary libraries are included: 
 
 - `NDP.h` for the Nicla Voice board's basic functions and the magnetometer control.
-- Macros are defined for checking the status of the IMU; these macros allow the sketch to detect and handle sensor errors. 
+- Macros are defined for checking the status of the magnetometer; these macros allow the sketch to detect and handle sensor errors. 
 
 Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition: 
 
@@ -889,19 +889,19 @@ Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definiti
 Next, in the `setup()` function:
 
 - The serial communication is initialized at a baud rate of 115200.
-- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
+- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
-- The BMM150 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the magnetometer operational. 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate of 10 Hz. 
 
 Finally, in the `loop()` function:
 
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
-- Raw sensor data is then parsed and extracted into raw magnetometer data. The raw sensor data (8 bits at a time from the sensor_data array), is combined to form a 16-bit integer for each axis (X, Y, Z) and Hall resistance value. 
+- Raw sensor data is then parsed and extracted into raw magnetometer data. It is read 8 bits at a time from the sensor_data array and then combined to form a 16-bit integer for each axis (X, Y, Z) and Hall resistance value. 
 - Raw sensor data is converted into understandable and standard unit measurements; data is converted to microteslas (µT).
 - Converted magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
 
-After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor as shown below:
+After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor, as shown below:
 
 #### IMU and Machine Learning
 
