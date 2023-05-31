@@ -149,7 +149,7 @@ The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 WiFi** as fo
 
 #### Additional PWM Pins
 
-The following pins are PWM capable but may interfer with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
+The following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
 
 | Pin       | RA4M1 | Timer   |
 | --------- | ----- | ------- |
@@ -418,7 +418,7 @@ Serial1.write("Hello world!");
 
 The UNO R4 WiFi's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
 
-The pins CANRX and CANTX can be connected to a CAN tranceiver, such as a MCP2551 or TJA1050 ICs.
+The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP2551 or TJA1050 ICs.
 
 | Pin | Function |
 | --- | -------- |
