@@ -18,7 +18,7 @@ This tutorial guides you on how to use the MicroPython library to connect your A
 
 The goals of this tutorial are:
 
-- Connect your Arduino device to your Wi-Fi network.
+- Connect your Arduino device to your Wi-Fi® network.
 - Connect your Arduino device to the Arduino IoT Cloud.
 - Control an LED using the Arduino IoT Cloud.
 
@@ -32,18 +32,18 @@ The goals of this tutorial are:
 
 ## Setting Up Your Device and IoT Cloud
 
-Before we start, make sure you have MicroPython installed on your board. If you haven't you can follow [this tutorial](https://docs.arduino.cc/micropython/basics/board-installation). Then configure a "thing" in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) consisting of two boolean variables called `led` and `ledSwitch`. To set up a "thing" and a corresponding dashboard, please follow these two tutorials:
+Before we start, make sure you have MicroPython installed on your board. If you haven't you can follow [this tutorial](https://docs.arduino.cc/micropython/basics/board-installation). Then configure a Thing in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) consisting of two boolean variables called `led` and `ledSwitch`. To set up a Thing and a corresponding dashboard, please follow these two tutorials:
 
 - [IoT Cloud Variables](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables)
 - [IoT Cloud Dashboards & Widgets](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets)
 
-The resulting thing and dashboard should look similar to the following:
+The resulting Thing and dashboard should look similar to the following:
 
 ![Thing with two boolean variables.](./assets/thing.png)
 
 ![Dashboard with an LED and a Switch widget.](./assets/dashboard.png)
 
-Also, your device needs to be registered. Follow the flow "Any Device" ("Manual") when clicking "Add" in the "Devices" tab.
+Also, your device needs to be registered. Follow the flow "Any Device" ("Manual") when clicking **Add** in the "Devices" tab.
 
 ![Dialog prompting to select setup flow](./assets/setup-device-prompt.png)
 
@@ -55,7 +55,7 @@ Eventually write down the Device ID / Secret Key pair that you will need to conn
 
 ![The connection credentials to be written down.](./assets/get-key.png)
 
-You will obtain a pair of device id and device key after registration. Store these details, along with your Wi-Fi credentials, in a `secrets.py` file. Here is an example of how `secrets.py` should look like:
+You will obtain a pair of device id and device key after registration. Store these details, along with your Wi-Fi® credentials, in a `secrets.py` file. Here is an example of how `secrets.py` should look like:
 
 ```python
 WIFI_SSID = "myNetwork"   # Network SSID
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 
 **Explanations:**
 
-- `wifi_connect()` - Connects to your local WiFi using the credentials specified in secrets.py.
+- `wifi_connect()` - Connects to your local Wi-Fi® using the credentials specified in secrets.py.
 - `client.register` - Registers a variable that will be synced with the cloud.
 - `on_switch_changed` - Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the cloud dashboard. This function in turn toggles the on-board LED and updates the cloud variable `led` that reflects the state of the on-board LED to be displayed in the cloud dashboard.
 - `client.start()` - Enters a loop that runs as long as the board is connected to the cloud and synchronises data as it runs.
@@ -181,9 +181,9 @@ Open Arduino Lab for MicroPython and connect to your board. Pasting the above co
 If the code is not working, there are some common issues we can troubleshoot:
 
 - Make sure MicroPython >= 1.2 is installed on your board.
-- Check the Wi-Fi credentials in the `secrets.py` file.
+- Check the Wi-Fi® credentials in the `secrets.py` file.
 - Ensure the device ID and Cloud password in the `secrets.py` file match with what is registered on the IoT Cloud.
-- Make sure your IoT Cloud "thing" is correctly set up and your device is assigned to it.
+- Make sure your IoT Cloud Thing is correctly set up and your device is assigned to it.
 
 
 
