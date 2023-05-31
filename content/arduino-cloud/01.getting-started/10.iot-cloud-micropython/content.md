@@ -24,9 +24,9 @@ The goals of this tutorial are:
 
 ## Hardware & Software Needed
 
-- Arduino Lab for MicroPython
-- Arduino Giga or Portenta H7
-- MicroPython >= 1.2 (installed on your Arduino device)
+- [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi) or [Portenta H7](/hardware/portenta-h7)
+- MicroPython >= 1.2 installed on your Arduino device (download firmware [here](/micropython/#firmware)).
 
 
 
@@ -163,10 +163,10 @@ if __name__ == "__main__":
 
 **Explanations:**
 
-- `wifi_connect()` Connects to your local WiFi using the credentials specified in secrets.py.
-- `client.register` Registers a variable that will be synced with the cloud.
-- `on_switch_changed` Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the cloud dashboard. This function in turn toggles the on-board LED and updates the cloud variable `led` that reflects the state of the on-board LED to be displayed in the cloud dashboard.
-- `client.start()`Enters a loop that runs as long as the board is connected to the cloud and synchronises data as it runs.
+- `wifi_connect()` - Connects to your local WiFi using the credentials specified in secrets.py.
+- `client.register` - Registers a variable that will be synced with the cloud.
+- `on_switch_changed` - Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the cloud dashboard. This function in turn toggles the on-board LED and updates the cloud variable `led` that reflects the state of the on-board LED to be displayed in the cloud dashboard.
+- `client.start()` - Enters a loop that runs as long as the board is connected to the cloud and synchronises data as it runs.
 
 
 
