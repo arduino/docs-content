@@ -853,23 +853,18 @@ void loop() {
   z_mag_raw = (0x0000 | sensor_data[4] >> 1 | sensor_data[5] << 7);
   hall_raw  = (0x0000 | sensor_data[6] >> 2 | sensor_data[7] << 6);
 
-  // Convert raw magnetometer data magnetic expressed in µT.
-  // According to the sensor datasheet, raw data has to be divided by a certain factor to convert it into µT. 
-  // For X and Y axis, the factor is 16.
-  // For Z axis, the factor is 2.
-  x_mag = x_mag_raw / 16.0f;
-  y_mag = y_mag_raw / 16.0f;
-  z_mag = z_mag_raw / 2.0f;
-
-// Print magnetometer data (expressed in µT). 
-  Serial.print("x_mag:");
-  Serial.print(x_mag);
+  // Print raw magnetometer data.
+  Serial.print("x_mag_raw:");
+  Serial.print(x_mag_raw);
   Serial.print(",");
-  Serial.print("y_mag:");
-  Serial.print(y_mag);
+  Serial.print("y_mag_raw:");
+  Serial.print(y_mag_raw);
   Serial.print(",");
-  Serial.print("z_mag:");
-  Serial.println(z_mag);
+  Serial.print("z_mag_raw:");
+  Serial.print(z_mag_raw);
+  Serial.print(",");
+  Serial.print("hall_raw:");
+  Serial.println(hall_raw);
 
   delay(1000);
 }
@@ -892,16 +887,17 @@ Next, in the `setup()` function:
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
 - Error and event handlers are initialized.
 - NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
-- The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate of 10 Hz. 
+- The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate (ODR) of 10 Hz. 
 
 Finally, in the `loop()` function:
 
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
-- Raw sensor data is then parsed and extracted into raw magnetometer data. It is read 8 bits at a time from the sensor_data array and then combined to form a 16-bit integer for each axis (X, Y, Z) and Hall resistance value. 
-- Raw sensor data is converted into understandable and standard unit measurements; data is converted to microteslas (µT).
-- Converted magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
+- Raw sensor data is then extracted and parsed into raw magnetometer data. It is read 8 bits at a time from the `sensor_data` array and then combined to form a 16-bit integer for each axis (X, Y, Z) and Hall resistance value. 
+- Raw magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
 
 After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor, as shown below:
+
+
 
 #### IMU and Machine Learning
 
