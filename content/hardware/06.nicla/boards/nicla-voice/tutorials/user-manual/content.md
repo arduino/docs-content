@@ -537,7 +537,7 @@ void setup() {
   Serial.println("- NDP processor initialization...");
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
-  NDP.load("alexa_334_NDP120_B0_v11_v91.synpkg");
+  NDP.load("ei_model.synpkg");
   Serial.println("- NDP processor initialization done!");
 
   // Set the BMI270 sensor in SPI mode, then read sensor data.
@@ -669,7 +669,7 @@ Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definiti
 Next, in the `setup()` function:
 
 - The serial communication is initialized at a baud rate of 115200.
-- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving modes) is disabled to avoid communication problems with the IMU. 
+- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
 - NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
@@ -715,6 +715,193 @@ Upload the example sketch again and open the IDE's Serial Plotter by navigating 
 ![Nicla Voice onboard accelerometer data on the IDE's Serial Plotter](assets/user-manual-14.gif)
 
 When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s<sup>2</sup>). If you want to visualize gyroscope readings, uncomment the gyroscope data output and comment on the accelerometer data output; when the board is not moving, you should see gyroscope measurements on the three-axis close to zero.
+
+#### Magnetometer Data
+
+The example code below shows how to get magnetic field (µT) data from the onboard magnetometer and streams it to the Arduino IDE Serial Monitor.
+
+```arduino
+/**
+  Nicla Voice magnetometer test sketch
+  Name: nv_mag_test.ino
+  Purpose: Sketch tests onboard magnetometer (BMM150)
+
+  @author Arduino PRO Content Team
+  @version 1.0 30/05/23
+*/
+
+#include "NDP.h"
+
+// Named constants
+#define READ_START_ADDRESS  0x42
+#define READ_BYTE_COUNT     8
+#define SENSOR_DATA_LENGTH  16
+
+/**
+  Turns on and off the onboard blue LED.
+  
+  @param label to be printed on the Serial Monitor.
+*/
+void ledBlueOn(char* label) {
+  nicla::leds.begin();
+  nicla::leds.setColor(blue);
+  delay(200);
+  nicla::leds.setColor(off);
+  Serial.println(label);
+  nicla::leds.end();
+}
+
+/**
+  Turns on and off the onboard green LED.
+*/
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+/**
+  Blinks onboard red LED periodically every 200 ms.
+*/
+void ledRedBlink() {
+  while (1) {
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+// Macros for checking the sensor status, print error if SPI access fails.
+#define CHECK_STATUS(s) do {if (s) {Serial.print("SPI access error in line "); Serial.println(__LINE__); for(;;);}} while (0)
+
+void setup() {
+  int status;
+  uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
+
+  // Initiate Serial communication for debugging and monitoring. 
+  Serial.begin(115200);
+
+  // Initialize Nicla Voice board's system functions.
+  // Disable the LDO regulator on the Nicla Voice board for power saving.
+  // Initialize the built-in RGB LED of the Nicla Voice board.
+  nicla::begin();
+  nicla::disableLDO();
+  nicla::leds.begin();
+
+  // Set up error and event handlers:
+  // - In case of error, the red LED will blink.
+  // - In case of match, the blue LED will turn on.
+  // - In case of any event, the green LED will turn on.
+  NDP.onError(ledRedBlink);
+  NDP.onMatch(ledBlueOn);
+  NDP.onEvent(ledGreenOn);
+
+  // NDP processor initialization with firmwares and models.
+  Serial.println("- NDP processor initialization...");
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("ei_model.synpkg");
+  Serial.println("- NDP processor initialization done!");
+
+  // Enable power control bit
+  status = NDP.sensorBMM150Write(0x4B, 0x01);
+  CHECK_STATUS(status);
+  delay(20);
+
+  // Read power control byte 
+  status = NDP.sensorBMM150Read(0x4B, 1, sensor_data);
+  CHECK_STATUS(status);
+
+  // Set the magnetometer to active mode (normal operation), with an output data rate of 10 Hz.
+  status = NDP.sensorBMM150Write(0x4C, 0x00);
+  CHECK_STATUS(status);
+
+  // Read chip ID
+  status = NDP.sensorBMM150Read(0x40, 1, sensor_data);
+  CHECK_STATUS(status);
+}
+
+void loop() {
+  // Allocate space for raw sensor data.
+  uint8_t __attribute__((aligned(4)))  sensor_data[SENSOR_DATA_LENGTH];
+
+  // Declare variables for magnetometer data.
+  int16_t x_mag_raw, y_mag_raw, z_mag_raw, hall_raw ;
+  float x_mag, y_mag, z_mag;
+
+  // Read operation status variable.
+  int status;
+
+  // Perform data read from the BMM150 sensor.
+  // The sensor's read function is called with 0x42 as the start address and 8 as the number of bytes to read.
+  // Collected data is placed into sensor_data array.
+  status = NDP.sensorBMM150Read(READ_START_ADDRESS, READ_BYTE_COUNT, sensor_data);
+
+  // Check the status of the read operation.
+  CHECK_STATUS(status);
+
+  // The sensor data is read into an array of bytes (8-bit values). Each measurement from the magnetometer consists
+  // of two bytes, hence the bit shifting and bitwise OR operations to combine these two bytes into one 16-bit value.
+  // Data for each axis (X, Y, Z) of the magnetometer is extracted from the array.
+  x_mag_raw = (0x0000 | sensor_data[0] >> 3 | sensor_data[1] << 5);
+  y_mag_raw = (0x0000 | sensor_data[2] >> 3 | sensor_data[3] << 5);
+  z_mag_raw = (0x0000 | sensor_data[4] >> 1 | sensor_data[5] << 7);
+  hall_raw  = (0x0000 | sensor_data[6] >> 2 | sensor_data[7] << 6);
+
+  // Convert raw magnetometer data magnetic expressed in µT.
+  // According to the sensor datasheet, raw data has to be divided by a certain factor to convert it into µT. 
+  // For X and Y axis, the factor is 16.
+  // For Z axis, the factor is 2.
+  x_mag = x_mag_raw / 16.0f;
+  y_mag = y_mag_raw / 16.0f;
+  z_mag = z_mag_raw / 2.0f;
+
+// Print magnetometer data (expressed in µT). 
+  Serial.print("x_mag:");
+  Serial.print(x_mag);
+  Serial.print(",");
+  Serial.print("y_mag:");
+  Serial.print(y_mag);
+  Serial.print(",");
+  Serial.print("z_mag:");
+  Serial.println(z_mag);
+
+  delay(1000);
+}
+```
+
+Here you can find a step-by-step explanation of the code:
+
+First, the necessary libraries are included: 
+
+- `NDP.h` for the Nicla Voice board's basic functions and the magnetometer control.
+- Macros are defined for checking the status of the IMU; these macros allow the sketch to detect and handle sensor errors. 
+
+Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition: 
+
+- These functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
+
+Next, in the `setup()` function:
+
+- The serial communication is initialized at a baud rate of 115200.
+- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
+- Error and event handlers are initialized.
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- The BMM150 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the magnetometer operational. 
+
+Finally, in the `loop()` function:
+
+- Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
+- Raw sensor data is then parsed and extracted into raw magnetometer data. The raw sensor data (8 bits at a time from the sensor_data array), is combined to form a 16-bit integer for each axis (X, Y, Z) and Hall resistance value. 
+- Raw sensor data is converted into understandable and standard unit measurements; data is converted to microteslas (µT).
+- Converted magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
+
+After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor as shown below:
 
 #### IMU and Machine Learning
 
