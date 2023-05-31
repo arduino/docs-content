@@ -15,9 +15,9 @@ software:
 
 ## Overview
 
-The Arduino Portenta Max Carrier provides developers with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Portenta Max Carrier possibilities are endless. The Portenta Max Carrier can be used as a single-board computer (SBC) or reference design.
+The Arduino Portenta Max Carrier provides developers with an unlimited range of applications, from robotics and medical devices to industrial or automotive applications; the Portenta Max Carrier possibilities are endless. The Portenta Max Carrier can be used as a single-board computer (SBC) or reference design. It couples the Arduino Portenta H7 board as a central high-performance unit, granting Edge AI and cutting-edge connectivity features into an industry-standard embedded Next Unit of Computing (eNUC) form factor ready.
 
-It couples the Arduino Portenta H7 board as a central high-performance unit, granting Edge AI and cutting-edge connectivity features into an industry-standard embedded Next Unit of Computing (eNUC) form factor ready. In this tutorial, you will learn about the core features of the Portenta Max Carrier and how to get started with it.
+In this tutorial, you will learn about the core features of the Portenta Max Carrier and how to get started with it.
 
 ## Goals
 
@@ -35,7 +35,7 @@ It couples the Arduino Portenta H7 board as a central high-performance unit, gra
 - 3.7V 2600mAh 18650 Li-Ion battery
 - DC 4.5-20V power supply with barrel jack
 - Micro SD Card
-- [Arduino IDE (online or offline)](https://www.arduino.cc/en/software)
+- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 
 ## Instructions
 
@@ -138,6 +138,7 @@ The Portenta Max Carrier has on-board Murata CMWX1ZZABZ-078 LoRaWAN® Module and
 ![Portenta Max Carrier Connectivity Module](assets/mc_ard_conn_module.png)
 
 #### LoRaWAN® Module - Murata CMWX1ZZABZ-078
+
 One of the notable features of Portenta Max Carrier is the Murata [CMWX1ZZABZ-078](https://www.murata.com/products/connectivitymodule/lpwa/overview/lineup/type-abz-078) that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 
 Depending on the region, it will require to use an appropriate antenna for the respective frequencies. The common frequencies are 915 MHz for North America and Australia, and 863 MHz for European region. Frequencies are on a range, so for example, Australian region is possible to use a 928 MHz compatible antenna and configuration.
