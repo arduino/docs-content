@@ -23,7 +23,7 @@ The goals of this project are:
 - [Arduino R4 Minima]().
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 
-## Real-time Clock (RTC)
+## Real-Time Clock (RTC)
 
 The RTC on the UNO R4 Minima can be accessed using the [RTC]() library that is included in the [Renesas]() core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
@@ -384,7 +384,7 @@ The `RTCTime` class represents a specific time and date. It provides methods for
 
 ## Structures
 
-### timeval
+### Timeval
 - `time_t tv_sec`
 - `useconds_t tv_usec`
 
