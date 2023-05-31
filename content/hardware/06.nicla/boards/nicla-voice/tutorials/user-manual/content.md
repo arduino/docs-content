@@ -892,12 +892,16 @@ Next, in the `setup()` function:
 Finally, in the `loop()` function:
 
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
-- Raw sensor data is then extracted and parsed into raw magnetometer data. It is read 8 bits at a time from the `sensor_data` array and then combined to form a 16-bit integer for each axis (X, Y, Z) and Hall resistance value. 
+- Raw sensor data is then extracted and parsed into raw magnetometer data. It is read 8 bits at a time from the `sensor_data` array and then combined to form a 16-bit integer for each axis (X, Y, Z) and raw Hall resistance value. 
 - Raw magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
 
 After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor, as shown below:
 
+![Nicla Voice onboard raw magnetometer data on the IDE's Serial Monitor](assets/user-manual-15.png)
 
+Now, open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing raw data from the board's onboard magnetometer, as shown below (move the board):
+
+![Nicla Voice onboard raw magnetometer data on the IDE's Serial Plotter](assets/user-manual-16.gif)
 
 #### IMU and Machine Learning
 
