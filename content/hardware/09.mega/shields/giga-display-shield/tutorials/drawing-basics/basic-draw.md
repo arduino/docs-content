@@ -17,7 +17,7 @@ The most basic use of the Giga display shield is to draw an image on the screen 
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **ArduinoGraphics** and install it.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics** and install it.
 
 ## Using Draw Feature in a Sketch
 
@@ -25,6 +25,7 @@ First we need to include the library that we will be using and define the displa
 
 ```arduino
 #include "Arduino_H7_Video.h"
+#include "ArduinoGraphics.h"
 
 Arduino_H7_Video Display(800, 480, GigaDisplayShield);
 ```
