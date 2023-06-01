@@ -223,15 +223,46 @@ delay(1000);
 }
 ```
  
-## FotogramMatrice
-The FotogramMatrice tool is used to generate frames and animations to be rendered on the LED matrix. 
+## Animation Generation
+Arduino has developed a tool that is used to generate frames and animations to be rendered on the LED matrix in your browser. 
+
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
 
 It also features a live preview of the frames you're creating displayed right on the LED matrix of the Arduino UNO R4 WiFi, although this is only supported in Google Chrome. 
-// THIS PART IS UNFINISHED, waiting to learn where the live preview sketch will be hosted.
+
+To use the live preview feature of this tool, you need to upload this sketch to your board
+
+```arduino
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+  char myText[8];
+  String numero = dtostrf(1.9f, 5, 2, myText );
+}
+
+uint32_t frame[] = {
+  0, 0, 0, 0xFFFF
+};
+
+void loop() {
+  if(Serial.available() >= 12){
+    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    matrix.loadFrame(frame);
+  }
+}
+```
 
 With the live preview sketch loaded on your board, connect the port to the browser, and watch as the pixels turn on and off as you edit the grid in your browser. 
 
-// waiting for the interface to be developed 
+Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
+
+You can find more tips on how to use this tool on [its site](https://ledmatrix-editor.arduino.cc).
 
 ## Conclusion
 In this article we've gone over the basics of using the LED matrix built in on the Arduino UNO R4 WiFi, we've gone over the different practices for building frames and animations, as well as how to load them onto your board. 
