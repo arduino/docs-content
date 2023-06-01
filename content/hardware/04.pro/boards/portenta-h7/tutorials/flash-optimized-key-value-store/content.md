@@ -161,11 +161,15 @@ void setup()
   srand(micros());
 
   // Initialize the flash IAP block device and print the memory layout
-  blockDevice.init();
-  Serial.printf("FlashIAP block device size: %llu\r\n", blockDevice.size());
-  Serial.printf("FlashIAP block device read size: %llu\r\n", blockDevice.get_read_size());
-  Serial.printf("FlashIAP block device program size: %llu\r\n", blockDevice.get_program_size());
-  Serial.printf("FlashIAP block device erase size: %llu\r\n", blockDevice.get_erase_size());
+  blockDevice.init();  
+  Serial.print("FlashIAP block device size: ");
+  Serial.println(blockDevice.size());
+  Serial.print("FlashIAP block device read size: ");
+  Serial.println(blockDevice.get_read_size());
+  Serial.print("FlashIAP block device program size: ");
+  Serial.println(blockDevice.get_program_size());
+  Serial.print("FlashIAP block device erase size: ");
+  Serial.println(blockDevice.get_erase_size());
   // Deinitialize the device
   blockDevice.deinit();
 
