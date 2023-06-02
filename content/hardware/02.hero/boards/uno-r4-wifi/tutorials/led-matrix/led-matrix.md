@@ -19,6 +19,8 @@ The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is avail
 
 The matrix and its' API is developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations. While highlighting two different ways of handling the LEDs to create animations and images. Making it easier for you to decide what method fits your needs best!
 
+![The UNO R4 WiFi LED Matrix](./assets/matrix-closeup.png)
+
 ## Hardware & Software Needed
 To follow along with this guide, you will of course need:
 - an [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi),
@@ -64,7 +66,7 @@ The LED matrix library for the UNO R4 WiFi works on the principle of creating a 
 
 A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
-How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in 3 32bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display states of a program or interfaces. You can create frames and animations such as this one by using tools such as [FotogramMatrice](#fotogrammatrice). Such a frame may look similar to this:
+How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in 3 32bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display states of a program or interfaces. You can create frames and animations such as this one by [this browser tool](#animation-generation) developed by Arduino. Such a frame may look similar to this:
 
 ```
 const uint32_t heart[] = {
@@ -228,6 +230,8 @@ Arduino has developed a tool that is used to generate frames and animations to b
 
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
 
+
+![LED Matrix Editor](./assets/led-matrix-editor.png)
 It also features a live preview of the frames you're creating displayed right on the LED matrix of the Arduino UNO R4 WiFi, although this is only supported in Google Chrome. 
 
 To use the live preview feature of this tool, you need to upload this sketch to your board
