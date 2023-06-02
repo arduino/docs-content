@@ -559,8 +559,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes**                            |
-|------------|----------------------------------------|
-| 26/01/2023 | Clarify open-source nature of M7 core  |
-| 12/09/2022 | Make cores clear, minor fixes          |
-| 24/03/2022 | Release                                |
+| **Date**   | **Revision** | **Changes**                            |
+|------------|--------------|----------------------------------------|
+| 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
+| 12/09/2022 | 2            | Make cores clear, minor fixes          |
+| 24/03/2022 | 1            | Release                                |

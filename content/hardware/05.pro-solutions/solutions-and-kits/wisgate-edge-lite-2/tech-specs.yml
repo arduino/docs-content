@@ -2,16 +2,16 @@ Board:
   Name: Arduino® WisGate Edge Lite 2
   SKU: 
     EU: TXP00098
-    ENZ: TXP00100
+    ANZ: TXP00100
     US: TXP00099
 Computing: MT7628, DDR2 RAM 128 MB
 Operating temperature: -10 ºC to +55 ºC
-Wi-Fi:
+Wi-Fi®:
   Frequency: 2.4 GHz (802.11 bgn)
   RX Sensitivity: -95 dBm (Min)
   TX Power: 20 dBm (Max)
   Operation channels: 2.4 GHz 1-13
-LoRa:
+LoRa®:
   Controller: SX1302 Mini PCIe card
   Channels: 8
   RX Sensitivity: -139 dBm (Min)
@@ -19,8 +19,8 @@ LoRa:
   Extra: Listen Before Talk
 Antennas:
   LTE: Internal
-  Wi-Fi: Internal
-  Lo-Ra: RP-SMA female connector
+  Wi-Fi®: Internal
+  LoRa®: RP-SMA female connector
 Ethernet: RJ45 (10/100 Mbps)
 Power:
   Input: 12V 1A (Power supply Included)

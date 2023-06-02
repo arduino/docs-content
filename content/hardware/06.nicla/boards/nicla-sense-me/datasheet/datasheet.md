@@ -397,10 +397,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                        |
 |------------|--------------|------------------------------------|
-| 27-05-2021 | 01           | Initial Version                    |
-| 20-07-2021 | 02           | Technical Revisions                |
-| 13-12-2022 | 03           | Change Solution Overview Image     |
-| 22-12-2022 | 04           | Add NTC Image & addition pins info |
+| 22/12/2022 | 4           | Add NTC Image & addition pins info |
+| 13/12/2022 | 3           | Change Solution Overview Image     |
+| 20/07/2021 | 2           | Technical Revisions                |
+| 27/05/2021 | 1           | Initial Version                    |
 
 ## Product Warnings and Disclaimers
 
