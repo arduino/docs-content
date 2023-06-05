@@ -20,12 +20,12 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino R4 Minima]().
+- [Arduino R4 Minima](/hardware/uno-r4-minima).
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 - CAN transceiver module\* 
 - Jumper wires
 
-In this tutorial, we are using a CANXXXXX breakout module. 
+In this tutorial, we are using a SN65HVD230 breakout module. 
 
 ## Controller Area Network (CAN)
 
@@ -33,7 +33,7 @@ The CAN bus uses two wires: **CAN high** and **CAN low**. On the Arduino UNO R4 
 - D5/CANRX0 (receive)
 - D4/CANTX0 (transmit)
 
-To communicate with other CAN devices however, you need a transceiver module. In this tutorial, we will be using a CANXXXX module based on the XXX chip. To connect this, you can follow the circuit diagram available in the section below.
+To communicate with other CAN devices however, you need a transceiver module. In this tutorial, we will be using a SN65HVD230 breakout. To connect this, you can follow the circuit diagram available in the section below.
 
 For this tutorial, we will use a simple example that sends a CAN message between two UNO R4 Minima devices. If you wish, you can also connect an existing CAN device to the UNO R4 Minima.
 
@@ -54,10 +54,6 @@ Then, between the CAN transceivers, connect the following:
 | ----------------- | ----------------- |
 | CANH (HIGH)       | CANH (HIGH)       |
 | CANL (LOW)        | CANL (LOW)        |
-
-The complete circuit diagram can be seen below:
-
-![CAN circuit.]()
 
 ## Code Examples
 
@@ -162,4 +158,4 @@ void loop()
 
 This tutorial shows how to use the CAN bus available on the UNO R4 Minima, and how to send and receive data using the Arduino_CAN library.
 
-Read more about this board in the [Arduino UNO R4 Minima documentation]().
+Read more about this board in the [Arduino UNO R4 Minima documentation](/hardware/uno-r4-minima).
