@@ -5,25 +5,25 @@ author: Karl Söderby
 tags: [IoT Cloud, Device API, Node.js, Python, MicroPython]
 ---
 
-Authentication & sending data is automatically handled when you choose the automatic configuration option in the Arduino IoT Cloud. 
+Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the Arduino IoT Cloud. 
 
-You can during the setup of your device instead choose the manual configuration option. This will allow you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
+You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
 
 ***Manual configuration is recommended for more advanced users, mainly those that are looking to integrate existing projects with the Arduino IoT Cloud.***
 
 ## Goals
 
-In this article you will learn:
-- How to create a generic device,
-- how to connect using MicroPython,
-- how to connect using Node.js.
+In this article you will learn how to configure a manual device, and how to connect to the Arduino IoT Cloud with:
+- MicroPython
+- Python
+- Node.js
 
 ## Hardware & Software Needed
 
-Depending on what method you choose, you will need various requirements.
-- To connect using Python you need to have a [version of Python](python.org) installed on your machine (check `python --version`). This has been tested with Python version **3.11**.
-- To connect using MicroPython you need to have a [GIGA R1 WiFi]() / [Portenta H7](), with MicroPython => 1.2 installed.
-- To connect using JavaScript, you will need to install [Node.js] is required to be installed to connect via JS.
+Depending on what framework you choose to connect with, you will need various requirements.
+- To connect using Python you need to have a [version of Python](https://www.python.org/) installed on your machine (check `python --version`). This has been tested with Python version **3.11**.
+- To connect using MicroPython you need to have a [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) / [Portenta H7](https://store.arduino.cc/products/portenta-h7), with MicroPython => 1.2 installed.
+- To connect using JavaScript, you will need to install [Node.js](https://nodejs.org/en) is required to be installed to connect via JS.
 
 Each method of interaction with the Device API requires various levels of complexity.
 
@@ -34,15 +34,31 @@ The **Device API** allows you to interact with the Arduino IoT Cloud MQTT broker
 This API is ideal for you who'd like to integrate existing Python or JavaScript projects with Arduino.
 
 This API is currently split between two repositories:
-- [arduino-iot-js]() - for Node.js / JavaScript
-- [arduino-iot-cloud-py]() for Python / MicroPython
+- [arduino-iot-js](https://github.com/arduino/arduino-iot-js) - for Node.js / JavaScript
+- [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) for Python / MicroPython
+
+Note that the Device API is designed to interact with the MQTT broker. To manage devices, Things etc., please refer to the [Application API](https://www.arduino.cc/reference/en/iot/api) which can be interacted with using HTTP requests.
+
+## Configure Manual Devices
+
+To configure a manual device, go to [devices in the IoT Cloud](https://create.arduino.cc/iot/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
+
+![Add a new device.](assets/configure-manual-device.png)
+
+Follow the steps (name your device), and at the end of the wizard you will receive your credentials, which you can also download as a PDF.
+
+![Device ID & Secret Key](assets/api-key.png)
+
+***Make sure to save the credentials, as the Secret Key will no longer be obtainable after completing the installation.***
+
+After you have created your device, you need to link it to a Thing before using it. This is done in the Thing interface, under **"Associated Devices"**.
 
 ## MicroPython
 
 The pre-requisities for connecting the the IoT Cloud via MicroPython are:
-- A [GIGA R1 WiFi]() / [Portenta H7]() board with MicroPython installed,
-- [MicroPython Lab for Arduino]() code editor,
-- [arduino-iot-cloud-py]() installed,
+- A [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) / [Portenta H7](https://store.arduino.cc/products/portenta-h7) board with MicroPython installed,
+- [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) code editor,
+- [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) installed,
 
 
 To install MicroPython, you can check out the [Installation Guide](/micropython/basics/board-installation#giga-r1-wifi). The installation process is the same for both boards as they are based on the same MCU (STM32H7).
@@ -123,17 +139,17 @@ For a more details, you can visit a more complete guide at [Connecting to Arduin
 ## Python
 
 The pre-requisities for connecting with Python is:
-- [Python]() installed on your machine (this is tested and confirmed to work with v3.11),
-- [arduino-iot-cloud-py]() installed,
+- [Python](https://www.python.org/) installed on your machine (this is tested and confirmed to work with v3.11),
+- [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) installed,
 - a Thing + device created in the Arduino IoT Cloud.
 
-Connection to the cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py]() module, we can use `pip`.
+Connection to the cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) module, we can use `pip`.
 
 ```py
 pip install arduino-iot-cloud-py
 ```
 
-You will also need to have created a generic device in the cloud. The **Device ID** and **Secret Key** are required in your script to authenticate. To connect, we use the following command:
+You will also need to have configured a manual device in the cloud. The **Device ID** and **Secret Key** are required in your script to authenticate. To connect, we use the following command:
 
 ```python
 client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
@@ -200,11 +216,11 @@ Once you run the script, you will start the client and you will be able to inter
 ## JavaScript/Node.js
 
 The pre-requisities for connecting with Node.js is:
-- [Node.js]() installed on your machine (this is tested and confirmed to work with v20.2.0),
-- [arduino-iot-js]() installed,
+- [Node.js](https://nodejs.org/en) installed on your machine (this is tested and confirmed to work with v20.2.0),
+- [arduino-iot-js](https://github.com/arduino/arduino-iot-js) installed,
 - a Thing created in the Arduino IoT Cloud.
 
-Connection to the cloud via Node.js/Javascript requires you to first install the [arduino-iot-js]() package.
+Connection to the cloud via Node.js/Javascript requires you to first install the [arduino-iot-js](https://github.com/arduino/arduino-iot-js) package.
 
 ```sh
 npm install arduino-iot-js
@@ -254,7 +270,11 @@ Property value correctly sent:  test_variable 40
 
 This means you have succcessfully updated the `test_variable` with a value of `40`.
 
+## Summary
 
+In this article, you have learned about the Arduino IoT Cloud's **Device API**, and how to connect to it using MicroPython, Python & Node.js (JavaScript). 
+
+This API makes it easier to integrate existing software projects written in Python & JavaScript.
 
 
 
