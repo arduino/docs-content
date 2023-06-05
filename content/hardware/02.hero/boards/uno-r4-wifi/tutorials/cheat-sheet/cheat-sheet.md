@@ -17,16 +17,13 @@ software:
   - web-editor
 ---
 
-
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
-
-The **UNO R4 WiFi** features a large 12x8 LED Matrix that you can create animations and simple graphics with, as well as an onboard ESP32-S3 module giving the board Wi-Fi and Bluetooth® functionality. It also features a DAC and an Op-Amp.
 
 This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get get started with your next project. 
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (Although this is an advanced option and requires some hacking).
 
-You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)  
+You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)
 
 ## Datasheet 
 The full datasheet is available as a downloadable PDF from the link below:
@@ -39,44 +36,255 @@ To power the UNO R4 WiFi you may either use a USB-C® cable, or the VIN pin.
 
 If you’re using the USB-C® connector you must power it with 5V.
 
-The board can be powered via the VIN pin, supporting a range between 6-24V.
-
-## Installation
-
-***For detailed instructions on how to install the UNO R4 WiFi core, please refer to the [Getting Started with the UNO R4 WiFi]() guide.***
-
-The **UNO R4 WiFi** can be programmed through:
-
-- the **IDE 1**, 
-- the **IDE 2**, 
-- and the **Web-Editor**. 
+The board can be powered via the VIN pin, supporting a range between 6-24V. The VIN pin is also connected to the DC-jack (barrel plug connector).
 
 ## Core
 
 The UNO R4 WiFi is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
 
+## Installation
+
+The UNO R4 WiFi can be programmed either via the Arduino IDE, Arduino Web Editor or Arduino CLI.
+
+### Arduino IDE
+
+To install the board in the Arduino IDE, search for "Renesas" in the board manager, and install the core/package.
+
+Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r4-wifi-getting-started) guide.
+
+### Arduino Web Editor
+
+The Web Editor is an online IDE that includes all official boards, no need for installing the core/package. You will need the Create Plugin installed on your computer to use the Web Editor.
+
+Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
+
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built in peripheral set. 
+The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
 ![Microcontroller on the UNO R4 WiFi](assets/R7FA4M1AB3CFM.png)
 
-## Memory
+### Memory
 
-### RAM
-
-The **UNO R4 WiFi** comes equipped with 32 KB of RAM memory.
-
-### Flash
-
-The flash memory comes in 256 KB code and 8 KB data.
+The board features 
+- 32 kB of SRAM 
+- 256 kB flash 
+- 8 KB data (EEPROM).
 
 ## Arduino IoT Cloud
+
 The UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
 
 ***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
+
+
+## Pins
+
+The **UNO R4 WiFi** gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+
+If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **UNO R4 WiFi** 
+
+| Pin | Type      | Function                          |
+| --- | --------- | --------------------------------- |
+| D0  | Digital   | UART Receive                      |
+| D1  | Digital   | UART Transmit                     |
+| D2  | Digital   | GPIO pin, Interrupt               |
+| D3  | Digital   | GPIO pin, Interrupt, PWM          |
+| D4  | Digital   | GPIO pin                          |
+| D5  | Digital   | GPIO pin, PWM                     |
+| D6  | Digital   | GPIO pin, PWM                     |
+| D7  | Digital   | GPIO pin                          |
+| D8  | Digital   | GPIO pin                          |
+| D9  | Digital   | GPIO pin, PWM                     |
+| D10 | Digital   | SPI (CS), GPIO pin, PWM           |
+| D11 | Digital   | SPI (CIPO), GPIO pin, PWM         |
+| D12 | Digital   | SPI (COPI), GPIO pin              |
+| D13 | Digital   | SPI (SCK), GPIO pin, Built-in LED |
+| D15 | Digital   | I2C (SCL)                         |
+| D14 | Digital   | I2C (SDA)                         |
+| A0  | Digital   | Analog In, DAC                    |
+| A1  | Analog in | Analog In, OPAMP +                |
+| A2  | Analog in | Analog In, OPAMP -                |
+| A3  | Analog in | Analog In, OPAMP OUT              |
+| A4  | Analog in | Analog In, SDA\*                  |
+| A5  | Analog in | Analog In, SCL\*                  |
+
+***\*A4 and A5 pins are both connected to the same I2C bus.***
+
+### Analog Pins
+
+| Pin | Function  | Notes          |
+| --- | --------- | -------------- |
+| A0  | DAC       | Analog In, DAC |
+| A1  | Analog in | Analog In      |
+| A2  | Analog in | Analog In      |
+| A3  | Analog in | Analog In      |
+| A4  | Analog in | Analog In      |
+| A5  | Analog in | Analog In      |
+
+The **UNO R4 WiFi** has 6 analog input pins (A0-A5) that can be read by using the `analogRead()` function.
+
+```arduino
+value = analogRead(pin, value);
+```
+
+The reference voltage of these pins is 5V.
+
+The default resolution is set to 10-bit, but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
+- `analogReadResolution(10)` (default)
+- `analogReadResolution(12)`
+- `analogReadResolution(14)`
+
+### OPAMP Pins
+
+The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 WiFi** as follows:
+
+| Pin | OPAMP     |
+| --- | --------- |
+| A1  | OPAMP +   |
+| A2  | OPAMP -   |
+| A3  | OPAMP OUT |
+
+#### Additional PWM Pins
+
+The following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
+
+| Pin       | RA4M1 | Timer   |
+| --------- | ----- | ------- |
+| D0        | P301  | GTIOC4B |
+| D1        | P302  | GTIOC4A |
+| D2        | P104  | GTIOC1B |
+| D4        | P106  | GTIOC0B |
+| D7        | P112  | GTIOC3B |
+| D8        | P304  | GTIOC7A |
+| D12       | P410  | GTIOC6B |
+| D13       | P102  | GTIOC2B |
+| D14 / SDA | P101  | GTIOC5A |
+| D15 / SCL | P100  | GTIOC5B |
+
+### Digital Pins
+
+The **UNO R4 WiFi** features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
+
+
+| Pin | Function | Notes                |
+| --- | -------- | -------------------- |
+| 0   | RX       | Serial communication |
+| 1   | TX       | Serial communication |
+| 2   | GPIO     | Digital IO pin       |
+| 3   | PWM      | Digital IO pin, PWM  |
+| 4   | GPIO     | Digital IO pin       |
+| 5   | PWM      | Digital IO pin, PWM  |
+| 6   | PWM      | Digital IO pin, PWM  |
+| 7   | GPIO     | Digital IO pin       |
+| 8   | GPIO     | Digital IO pin       |
+| 9   | PWM      | Digital IO pin, PWM  |
+| 10  | PWM      | Digital IO pin, PWM  |
+| 11  | PWM      | Digital IO pin, PWM  |
+| 12  | GPIO     | Digital IO pin       |
+| 13  | GPIO     | Digital IO pin       |
+| 14  | SDA      | Serial communication |
+| 15  | SCL      | Serial communication |
+
+The reference voltage of all digital pins is 5V.
+
+### PWM
+
+PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
+
+The UNO R4 WiFi has supports PWM on pins marked with ~ on the headers. Officially supported pins are:
+
+| Pin | RA4M1 | Timer   |
+| --- | ----- | ------- |
+| D3  | P105  | GTIOC1A |
+| D5  | P107  | GTIOC0A |
+| D6  | P111  | GTIOC3A |
+| D9  | P303  | GTIOC7B |
+| D10 | P103  | GTIOC2A |
+| D11 | P411  | GTIOC6A |
+
+You may use them as analog output pins with the function: 
+
+```arduino
+analogWrite(pin, value);
+```
+
+## DAC
+
+The **UNO R4 WiFi** also has a DAC with up to 12-bit resolution, that can act as genuine analog output pin which means it's even more capable than PWM pins.
+
+```arduino
+analogWrite(pin, value);
+```
+
+![DAC Pin](assets/dacpin.png)
+
+This DAC pin has a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
+
+However you may change this write resolution if you need to, to up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
+
+```arduino
+analogWriteResolution(12);
+```
+
+## RTC
+
+A real-time clock (RTC) is used to measure the time, and is useful in any time-tracking applications.
+
+Below is a minimal example that shows how to obtain the date and time from the RTC:
+
+```arduino
+#include "RTC.h"
+
+void setup() {
+  Serial.begin(9600);
+
+  RTC.begin();
+  RTCTime mytime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
+
+  RTC.setTime(mytime);
+}
+
+void loop() {
+  RTCTime currenttime;
+
+ // Get current time from RTC
+  RTC.getTime(currenttime);
+  
+  // Print out date (DD/MM//YYYY)
+  Serial.print(currenttime.getDayOfMonth());
+  Serial.print("/");
+  Serial.print(Month2int(currenttime.getMonth()));
+  Serial.print("/");
+  Serial.print(currenttime.getYear());
+  Serial.print(" - ");
+
+  // Print time (HH/MM/SS)
+  Serial.print(currenttime.getHour());
+  Serial.print(":");
+  Serial.print(currenttime.getMinutes());
+  Serial.print(":");
+  Serial.println(currenttime.getSeconds());
+
+  delay(1000);
+}
+
+```
+
+## EEPROM
+
+EEPROM, also referred to as 'data' memory, is type of memory that can retain data even after the board has been powered off.
+
+```arduino
+EEPROM.write(address, val);
+EEPROM.read(address)
+```
+
+It has a limited amount of write cycles, meaning that it is best suited for read-only applications. Make sure to never use `write()` inside `void loop()` because you may use all write cycles for the chip.
+
+Read more in the [Guide to EEPROM](/learn/programming/eeprom-guide).
 
 ## SPI
 
@@ -150,26 +358,41 @@ Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
 
-## Serial Ports
+## USB Serial & UART
 
+The **Uno R4 WiFi** board features 2 separate hardware serial ports. 
 
-The **UNO R4 WiFi** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **Uno R4 WiFi** board features 2 separate serial ports. 
-
-This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **2 different serial enabled devices** simultaneously.
+- One port is exposed via USB-C®, and 
+- One is exposed via RX/TX pins.
 
 The pins used for UART on the **UNO R4 WiFi** are the following:
 
-- RX0 - D0
-- TX0 - D1
+| Pin | Function      |
+| --- | ------------- |
+| D0  | RX (Receive)  |
+| D1  | TX (Transmit) |
 
-Each Serial port works in the same way as the one you're used to, but you use different functions to target them:
+### Native USB
+
+Sending serial data to your computer is done using the standard `Serial` object. I
 
 ```arduino
 Serial.begin(9600);
-Serial1.begin(9600);
+Serial.print("hello world");
 ```
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
+
+### UART
+
+The pins used for UART on the **UNO R4 WiFi** are the following:
+
+| Pin | Function |
+| --- | -------- |
+| D0  | RX0      |
+| D1  | TX0      |
+
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial1` object.
 
 ```arduino
 Serial1.begin(9600);
@@ -191,126 +414,44 @@ And to write something, we can use the following command:
 Serial1.write("Hello world!");
 ```
 
-## Pins
+## CAN Module
 
-The **UNO R4 WiFi** gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+The UNO R4 WiFi's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
 
-If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **UNO R4 WiFi** 
+The pins CANRX and CANTX can be connected to a CAN transceiver, such as a MCP2551 or TJA1050 ICs.
 
-| Pin | Function  | Notes                      |
-| --- | --------- | --------------------       |
-| 0   | RX        | Serial communication       |
-| 1   | TX        | Serial communication       |
-| 2   | GPIO      | Digital IO pin             |
-| 3   | PWM       | Digital IO pin, PWM        |
-| 4   | GPIO      | Digital IO pin             |
-| 5   | PWM       | Digital IO pin, PWM        |
-| 6   | PWM       | Digital IO pin, PWM        |
-| 7   | GPIO      | Digital IO pin             |
-| 8   | GPIO      | Digital IO pin             |
-| 9   | PWM       | Digital IO pin, PWM        |
-| 10  | PWM       | Digital IO pin, PWM        |
-| 11  | PWM       | Digital IO pin, PWM        |
-| 12  | GPIO      | Digital IO pin             |
-| 13  | GPIO      | Digital IO pin             |
-| 14  | SDA       | Serial communication       |
-| 15  | SCL       | Serial communication       |
-| 16  | DAC       | Analog In, DAC             |
-| 17  | OPAMP+    | Analog In, OPAMP+          |
-| 18  | OPAMP-    | Analog In, OPAMP-          |
-| 19  | OPAMP OUT | Analog In, OPAMP OUT       |
-| 20  | GPIO      | Analog in, Digital IO pin  |
-| 21  | GPIO      | Analog in, Digital IO pin  |
-| A0  | DAC       | Analog In, DAC             |
-| A1  | Analog in | Analog In                  |
-| A2  | Analog in | Analog In                  |
-| A3  | Analog in | Analog In                  |
-| A4  | Analog in | Analog In                  |
-| A5  | Analog in | Analog In                  |
+| Pin | Function |
+| --- | -------- |
+| D10 | CANRX    |
+| D13 | CANTX    |
 
-### Analog Pins
-
-The **UNO R4 WiFi** has 6 analog input pins (A0-A5) that can be read by using the `analogRead()` function.
+The built-in **Arduino_CAN** library is used to communicate with other CAN devices. 
 
 ```arduino
-value = analogRead(pin, value);
+//set CAN bit rate and init library at
+//choose from BR_125k,BR_250k,BR_500k,BR_1000k 
+CAN.begin(CanBitRate::BR_250k); 
 ```
 
-The reference voltage of these pins is 3.3V. 
-
-
-### PWM
-
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
-
-The **UNO R4 WiFi** has 6 PWM capable pins which are marked with ~ on the headers. The PWM capable pins are:
-
-- D3~
-- D5~
-- D6~
-- D9~
-- D10~
-- D11~
-
-You may use them as analog output pins with the function: 
+Construct a CAN message and send it:
 
 ```arduino
-analogWrite(pin, value);
+uint8_t const msg_data[] = {0xCA,0xFE,0,0,0,0,0,0};
+memcpy((void *)(msg_data + 4), &msg_cnt, sizeof(msg_cnt));
+CanMsg msg(CAN_ID, sizeof(msg_data), msg_data);
+CAN.write(msg);
 ```
-The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 WiFi** as follows:
 
-| Pin | OPAMP             |
-| --- | ------------------|
-| A1  | OPAMP +           |
-| A2  | OPAMP -           |
-| A3  | OPAMP OUT         |
-
-### Digital Pins
-
-The **UNO R4 WiFi** features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
-
-
-| Pin | Function  | Notes                      |
-| --- | --------- | --------------------       |
-| 0   | RX        | Serial communication       |
-| 1   | TX        | Serial communication       |
-| 2   | GPIO      | Digital IO pin             |
-| 3   | PWM       | Digital IO pin, PWM        |
-| 4   | GPIO      | Digital IO pin             |
-| 5   | PWM       | Digital IO pin, PWM        |
-| 6   | PWM       | Digital IO pin, PWM        |
-| 7   | GPIO      | Digital IO pin             |
-| 8   | GPIO      | Digital IO pin             |
-| 9   | PWM       | Digital IO pin, PWM        |
-| 10  | PWM       | Digital IO pin, PWM        |
-| 11  | PWM       | Digital IO pin, PWM        |
-| 12  | GPIO      | Digital IO pin             |
-| 13  | GPIO      | Digital IO pin             |
-| 14  | SDA       | Serial communication       |
-| 15  | SCL       | Serial communication       |
-
-The reference voltage of all digital pins is 5V.
-
-### DAC Pin
-
-The **UNO R4 WiFi** also has a DAC pin (A0) that can act as genuine analog output pin which means it's even more capable than PWM pins.
-
+Read an incoming CAN message.
 ```arduino
-analogWrite(pin, value);
+CanMsg const msg = CAN.read(); //read
 ```
 
-![DAC Pin](assets/dacpin.png)
-
-This DAC pin has a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
-
-However you may change this write resolution if you need to, to up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
-
-```arduino
-analogWriteResolution(12);
-```
-
+***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
 
 ## QWIIC Connector
+
+![QWIIC Connector on UNO WiFi R4](assets/QWIIC.png)
 
 The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
@@ -332,8 +473,8 @@ void setup(){
 }
 ```
 
-
 ## ESP32-S3-MINI-1-N8
+
 By default, the ESP32-S3 module onboard the UNO R4 WiFi acts as a Serial bridge, handling the connection to your computer. It also handles the rebooting of the main MCU, the Renesas RA4M1 when it is needed, for example when receiving a new sketch and resetting.
 
 On the UNO R3, the ATMEGA16U2 serves the same purpose. The onboard ESP32 module is a more advanced SoC, adding Wi-Fi® & Bluetooth® connectivity to the board.
@@ -345,6 +486,7 @@ The ESP32 also exposes the ESP32's data lines, so that you can program the ESP32
 ![UNO R4 & UNO R3](./assets/UNO-serial.png)
 
 ### USB Bridge
+
 By default the ESP32 acts as a serial bridge between a computer and the RA4M1 MCU. The USB data lines are routed through switches, and by default, these switches are set for communication to go via the ESP32 module.
 
 ![Switches for Serial Communication.](./assets/RA4M1-usb-switches.png)
@@ -384,6 +526,7 @@ or you can use the pins exposed directly on the ESP32 header, shown here:
 ![ESP32 Data Pin Header](./assets/ESP32-header.png)
 
 ## LED Matrix
+
 The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. Bundled in the core for the UNO R4 is a library for displaying frames on the matrix.
 
 To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
