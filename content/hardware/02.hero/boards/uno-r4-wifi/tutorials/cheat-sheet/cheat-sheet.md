@@ -381,7 +381,7 @@ Serial.begin(9600);
 Serial.print("hello world");
 ```
 
-Data printed here can be directly viewed in the Serial Monitor in the Arduino IDE.
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
 
 ### UART
 
