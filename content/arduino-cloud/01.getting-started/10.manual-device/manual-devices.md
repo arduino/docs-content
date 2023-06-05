@@ -268,7 +268,7 @@ On success, we should see the following:
 Property value correctly sent:  test_variable 40
 ```
 
-This means you have succcessfully updated the `test_variable` with a value of `40`.
+This means you have successfully updated the `test_variable` with a value of `40`.
 
 ## Summary
 
