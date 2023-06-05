@@ -18,7 +18,7 @@ The goals of this tutorials are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino R4 Minima]().
+- [Arduino R4 Minima](/hardware/uno-r4-minima).
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 
 ## Analog-to-Digital Converter (ADC) 
