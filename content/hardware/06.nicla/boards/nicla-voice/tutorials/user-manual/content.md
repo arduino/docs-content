@@ -899,7 +899,7 @@ After uploading the example code, you should see the magnetometer data on the ID
 
 ![Nicla Voice onboard raw magnetometer data on the IDE's Serial Monitor](assets/user-manual-15.png)
 
-Now, open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing raw data from the board's onboard magnetometer, as shown below (move the board):
+Now open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing raw data from the board's onboard magnetometer, as shown below (move the board):
 
 ![Nicla Voice onboard raw magnetometer data on the IDE's Serial Plotter](assets/user-manual-16.gif)
 
