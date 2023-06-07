@@ -273,15 +273,15 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
-### J1 Fins
+### J2 Fins
 
 | Pin | **Function** | **Type** | **Description**              |
 |-----|--------------|----------|------------------------------|
 | P1  | SDA_PMIC     | Digital  | PMIC I2C Data Line           |
 | P2  | SCL_PMIC     | Digital  | PMIC I2C Clock Line          |
-| P3  | SWD          | Digital  | Data SWD JTAG Interface      |
-| P4  | SCK          | Digital  | Clock of SWD JTAG            |
-| P5  | NRST         | Digital  | Reset Pin                    |
+| P3  | TDO/SWD      | Digital  | Data SWD JTAG Interface      |
+| P4  | TCK/SCK      | Digital  | Clock of SWD JTAG            |
+| P5  | TMS/NRST     | Digital  | Reset Pin                    |
 | P6  | SWO          | Digital  | Output of SWD JTAG Interface |
 | P7  | +1V8         | Power    | +1.8V Voltage Rail           |
 | P8  | VOTP_PMIC    | Digital  | Reserved                     |
