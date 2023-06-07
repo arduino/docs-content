@@ -60,7 +60,7 @@ Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/a
 
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 WiFi. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
@@ -413,6 +413,17 @@ And to write something, we can use the following command:
 ```arduino
 Serial1.write("Hello world!");
 ```
+
+## USB HID
+
+This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
+
+```arduino
+keyboard.press('W');
+mouse.move(x,y);
+```
+
+This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
 
 ## CAN Module
 
