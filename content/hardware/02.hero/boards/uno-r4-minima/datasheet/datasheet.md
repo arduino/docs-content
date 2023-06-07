@@ -8,7 +8,7 @@ type: maker
 
 # Description 
 
-The Arduino® UNO R4 Minima is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is much larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
+The Arduino® UNO R4 Minima is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
 
 The UNO R4 Minima board's operating voltage is 5V, making it hardware compatible with UNO form factor accessories with the same operating voltage. Shields designed for previous UNO revisions are therefore safe to use with this board, but is not guaranteed to be software compatible due the change of microcontroller.
 
@@ -33,7 +33,7 @@ Maker, beginner, education
 * **Peripherals**
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
-  * 14-bit ADC
+  * up to 14-bit ADC
   * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
   * Multiple Clock Sources
@@ -41,7 +41,6 @@ Maker, beginner, education
     * 32.768 kHz sub-clock oscillator (SOSC)
     * 24-64 MHz high-speed on-chip oscillator (HOCO)
     * 32.768 kHz low-speed on-chip oscillator (LOCO)
-  * Segment LCD Controller (SLCDC)
 * **Power**
   * Recommended input voltage (VIN) is 6-24V
   * 5V operating voltage
@@ -74,6 +73,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 ### Related Products
 * UNO R3
 * UNO R3 SMD
+* UNO R4 WiFi
 
 # Rating
 
@@ -124,13 +124,13 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 The UNO R4 Minima is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 Minima, it is fixed at 5V to be fully retro compatible with other UNO accessories. 
+On the UNO R4 Minima, the operating voltage is fixed at 5V to be fully retro compatible with shields, accessories & circuits originally designed for older UNO revisions. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
 * Real Time Clock (RTC)
-* 4x Direct Memory Access Controller (DMAC) 
-* 14-bit ADC
+* 4x Direct Memory Access Controller (DMAC)
+* up to 14-bit ADC
 * up to 12-bit DAC
 * OPAMP
 * 1x CAN bus
@@ -145,9 +145,7 @@ The UNO R4 Minima has one USB-C® port, used to power and program your board as 
 
 ## Digital Analog Converter (DAC)
 
-The UNO R4 Minima has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal. 
-
-<div style="page-break-after: always;"> </div>
+The UNO R4 Minima has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
 
 ## Power Options
 
@@ -167,9 +165,11 @@ The UNO R4 Minima operates on 5V, as does all pins on this board except for the 
 
 ### Pin Current
 
-The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 20mA. Never connect devices that draw higher current directly to a GPIO.
+The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 8mA. Never connect devices that draw higher current directly to a GPIO.
 
-In case you need to power external devices that require more power, like e.g. servo motors, use an external power supply.
+In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
+
+<div style="page-break-after: always;"> </div>
 
 # Mechanical Information
 
@@ -181,7 +181,7 @@ In case you need to power external devices that require more power, like e.g. se
 
 | Pin | Function | Type   | Description                                     |
 | --- | -------- | ------ | ----------------------------------------------- |
-| 1   | BOOT     | NC     | Not Connected                                   |
+| 1   | BOOT     | MD     | Mode selection                                  |
 | 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5V |
 | 3   | Reset    | Reset  | Reset                                           |
 | 4   | +3V3     | Power  | +3V3 Power Rail                                 |
@@ -251,8 +251,6 @@ In case you need to power external devices that require more power, like e.g. se
 ## Mounting Holes And Board Outline
 
 ![Mechanical View of Arduino UNO R4 Minima](assets/mechanicalDrawingwMinima.svg)
-
-<div style="page-break-after: always;"> </div>
 
 ## Board Operation
 
