@@ -1,13 +1,15 @@
 ---
-title: Arduino IoT Cloud Device API
-description: Learn how to use the Device API to connect to the Arduino IoT Cloud via Python, MicroPython & Node.js 
+title: Configuring Manual Devices
+description: Connect to the Arduino IoT Cloud any kind of device that uses Python, MicroPython or JavaScript (Node.js)
 author: Karl Söderby
-tags: [IoT Cloud, Device API, Node.js, Python, MicroPython]
+tags: [IoT Cloud, Device API, JavaScript, Node.js, Python, MicroPython]
 ---
 
-Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the Arduino IoT Cloud. 
+Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the [Arduino IoT Cloud](https://create.arduino.cc/iot/).
 
 You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
+
+This opens up possibilities to connect more kinds of devices, mainly Linux based, to connect to the Arduino IoT Cloud.
 
 ***Manual configuration is recommended for more advanced users, mainly those that are looking to integrate existing projects with the Arduino IoT Cloud.***
 
@@ -16,7 +18,7 @@ You can during the setup of your device instead choose the manual configuration 
 In this article you will learn how to configure a manual device, and how to connect to the Arduino IoT Cloud with:
 - MicroPython
 - Python
-- Node.js
+- JavaScript (Node.js)
 
 ## Hardware & Software Needed
 
@@ -272,7 +274,7 @@ This means you have successfully updated the `test_variable` with a value of `40
 
 ## Summary
 
-In this article, you have learned about the Arduino IoT Cloud's **Device API**, and how to connect to it using MicroPython, Python & Node.js (JavaScript). 
+In this article, you have learned about the Arduino IoT Cloud's **Device API**, and how to connect to it using MicroPython, Python & JavaScript (Node.js). 
 
 This API makes it easier to integrate existing software projects written in Python & JavaScript.
 
