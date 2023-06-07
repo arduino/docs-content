@@ -13,17 +13,21 @@ A reference to all technical features on this board, with pointers to additional
 <FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-minima/cheat-sheet"/>
 </Feature>
 
-<Feature title="Real-Time Clock (RTC)" image="power">
+<Feature title="USB-C" image="usb">
+The UNO R4 Minima is the first UNO to feature a USB-C connector.
+</Feature>
+
+<Feature title="Real-Time Clock (RTC)" image="mcu">
 Keep track of time & date and set alarms with the built-in RTC.
 <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/rtc"/>
 </Feature>
 
-<Feature title="Digital-to-Analog Converter (DAC)" image="configurability">
+<Feature title="Digital-to-Analog Converter (DAC)" image="mcu">
 Use the onboard 12-bit DAC to build sophisticated audio projects.
 <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/dac"/>
 </Feature>
 
-<Feature title="Mouse/Keyboard Emulation (HID)" image="configurability">
+<Feature title="Mouse/Keyboard Emulation (HID)" image="usb">
 Build game controllers by emulating a mouse/keyboard.
 <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/usb-hid"/>
 </Feature>
@@ -32,12 +36,12 @@ Build game controllers by emulating a mouse/keyboard.
 Power your UNO R4 WiFi board through the VIN Pin with any voltage between 6-24V.
 </Feature>
 
-<Feature title="CAN Bus" image="configurability">
+<Feature title="CAN Bus" image="communication">
 Connect your board to other CAN devices.
 <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/can"/>
 </Feature>
 
-<Feature title="ADC Resolution" image="configurability">
+<Feature title="ADC Resolution" image="pressure-sensor">
 This board supports analog read resolutions at up to 14-bit.
 <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/adc"/>
 </Feature>
