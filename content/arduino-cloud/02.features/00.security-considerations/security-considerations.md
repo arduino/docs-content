@@ -71,12 +71,12 @@ Arduino follows the **Secure by Design** principle in every stage of the softwar
    * Usage of mechanisms, patterns and tools to reduce or eliminate the need for direct data access or manual processing data with the aim of reducing the risk of mishandling or modification and human error when handling sensitive data. 
 
 In particular the following pillars are taken into consideration as part of the Arduino Secure Software Development Lifecycle
-* **Education and Guidance**: in order to ensure that developers have specific know-how and receive training on secure architectural and coding standards.
-* **Secure Data Management**: in order to ensure that environments, sensitive data, PII are managed properly and in accordance with legislation, adopting and implementing in a correct way, the necessary security standards.
-* **Secure Repository Management**: with the purpose of guaranteeing that the Least of privilege and Separation of duties principles are in place to protect the software repositories.
-* **Secure Environment**: in order to ensure the adequate segregation of the services and data contained into Development / Staging / Production environments
-* **Secure Development**: with the purpose of guaranteeing that security risks, security requirements and best practices are taken into consideration in all the steps of the development lifecycle for Hardware, Software and Infrastructure artifacts and reducing the residual risk associated with security flaws and bugs managed through the internal Vulnerability Management Program.
-* **Security Testing**: in order to ensure that all required security activities such as, but not limited to: Design Review, Threat and Risk Analysis, Code Review, Penetration Test, Vulnerability Assessment and all fixing activities related to the Vulnerability Management Program are performed by the security team, with the help of the developers, along all stages of the development lifecycle.
+- **Education and Guidance**: developers have specific know-how and receive training on secure architectural and coding standards.
+- **Secure Data Management**: sensitive data (such as PII) are properly managed in accordance with legislation and recommended security standards are properly implemented.
+- **Secure Repository Management**: software repositories are protected with the Least of privilege and Separation of duties principles.
+- **Secure Environment**: services and data are segregated between different environments: Development, Staging and Production.
+- **Secure Development**: security requirements and best practices are taken into consideration in all the steps of the development lifecycle.
+- **Security Testing**: activities performed by the security team to identify residual vulnerabilities as a result of the artifacts being developed.
 
 
 ### Logical Access Control
