@@ -9,7 +9,7 @@ Authentication & data synchronisation is automatically handled when you choose t
 
 You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
 
-This opens up possibilities to connect more kinds of devices, mainly Linux based, to connect to the Arduino IoT Cloud.
+This opens up possibilities for more kinds of devices, mainly Linux based, to connect to the Arduino IoT Cloud.
 
 ***Manual configuration is recommended for more advanced users, mainly those that are looking to integrate existing projects with the Arduino IoT Cloud.***
 
