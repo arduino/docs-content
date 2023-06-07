@@ -776,8 +776,14 @@ void ledRedBlink() {
   }
 }
 
-// Macros for checking the sensor status, print error if SPI access fails.
-#define CHECK_STATUS(s) do {if (s) {Serial.print("SPI access error in line "); Serial.println(__LINE__); for(;;);}} while (0)
+// Macro definition used for checking the sensor status, print error if SPI access fails.
+#define CHECK_STATUS(s) do {\
+    if (s) {\
+        Serial.print("SPI access error in line ");\
+        Serial.println(__LINE__);\
+        for(;;);\
+    }\
+} while (0)
 
 void setup() {
   int status;
@@ -892,7 +898,7 @@ Next, in the `setup()` function:
 Finally, in the `loop()` function:
 
 - Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
-- Raw sensor data is then extracted and parsed into raw magnetometer data. It is read 8 bits at a time from the `sensor_data` array and then combined to form a 16-bit integer for each axis (X, Y, Z) and raw Hall resistance value. 
+- Raw sensor data is then extracted and parsed into raw magnetometer data. Raw sensor data is extracted from the `sensor_data` array, 8-bits at a time, and then combined to form a 16-bit integer for each axis (X, Y, Z) and raw Hall resistance value. 
 - Raw magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
 
 After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor, as shown below:
