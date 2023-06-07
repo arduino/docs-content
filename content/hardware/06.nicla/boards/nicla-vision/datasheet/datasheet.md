@@ -248,28 +248,28 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 | Pin | **Function** | **Type** | **Description**                    |
 |-----|--------------|----------|------------------------------------|
-| 1   | LPIO0_EXT    | Digital  | Low Power IO Pin 0                 |
-| 2   | NC           | N/A      | N/A                                |
-| 3   | CS           | Digital  | SPI Cable Select                   |
+| 1   | D0/LPIO0     | Digital  | Digital IO 0 / Low Power IO Pin 0  |
+| 2   | A2/D18       | Analog   | Analog Input 2 / Digital IO 18     |
+| 3   | SS           | Digital  | SPI Slave Select                   |
 | 4   | COPI         | Digital  | SPI Controller Out / Peripheral In |
 | 5   | CIPO         | Digital  | SPI Controller In / Peripheral Out |
-| 6   | SCLK         | Digital  | SPI Clock                          |
-| 7   | ADC2         | Analog   | Analog Input 2                     |
-| 8   | ADC1         | Analog   | Analog Input 1                     |
+| 6   | SCK          | Digital  | SPI Clock                          |
+| 7   | A1/D17       | Analog   | Analog Input 1 / Digital IO 17     |
+| 8   | A0/D16       | Analog   | Analog Input 0 / Digital IO 16     |
 
 ### J2 Pin Header
 
-| Pin | **Function** | **Type** | **Description**       |
-|-----|--------------|----------|-----------------------|
-| 1   | SDA          | Digital  | I2C Data Line         |
-| 2   | SCL          | Digital  | I2C Clock             |
-| 3   | LPIO1_EXT    | Digital  | Low Power IO Pin 1    |
-| 4   | LPIO2_EXT    | Digital  | Low Power IO Pin 2    |
-| 5   | LPIO3_EXT    | Digital  | Low Power IO Pin 3    |
-| 6   | GND          | Power    | Ground                |
-| 7   | VDDIO_EXT    | Digital  | Logic Level Reference |
-| 8   | N/C          | N/A      | N/A                   |
-| 9   | VIN          | Digital  | Input Voltage         |
+| Pin |    **Function**     | **Type** |                       **Description**                        |
+|-----|---------------------|----------|--------------------------------------------------------------|
+| 1   | SDA                 | Digital  | I2C Data Line                                                |
+| 2   | SCL                 | Digital  | I2C Clock                                                    |
+| 3   | D1/LPIO1/UART_TX    | Digital  | Digital IO 1 / Low Power IO Pin 1 / Serial Transmission Pin  |
+| 4   | D2/LPIO2/UART_RX    | Digital  | Digital IO 2 / Low Power IO Pin 2 / Serial Reception Pin     |
+| 5   | D3/LPIO3            | Digital  | Digital IO 3 / Low Power IO Pin 3                            |
+| 6   | GND                 | Power    | Ground                                                       |
+| 7   | VDDIO_EXT           | Digital  | Logic Level Reference                                        |
+| 8   | N/C                 | N/A      | N/A                                                          |
+| 9   | VIN                 | Digital  | Input Voltage                                                |
 
 **Note:** For further information on how Low Power I/Os work, check [Nicla Family Form Factor](https://docs.arduino.cc/learn/hardware/nicla-form-factor) documentation.
 
