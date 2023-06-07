@@ -1,7 +1,7 @@
 ---
 title: UNO R4 Minima
-url_shop: https://store.arduino.cc/arduino-uno-r4
-url_guide: /tutorials/uno-r4/uno-r4-getting-started
+url_shop: https://store.arduino.cc/arduino-uno-r4-minima
+url_guide: /tutorials/uno-r4-minima/minima-getting-started
 core: arduino:renesas
 ---
 
