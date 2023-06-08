@@ -441,7 +441,7 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 #### Accelerometer and Gyroscope Data
 
-The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor.
+The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter.
 
 ```arduino
 /**
@@ -537,7 +537,7 @@ void setup() {
   Serial.println("- NDP processor initialization...");
   NDP.begin("mcu_fw_120_v91.synpkg");
   NDP.load("dsp_firmware_v91.synpkg");
-  NDP.load("alexa_334_NDP120_B0_v11_v91.synpkg");
+  NDP.load("ei_model.synpkg");
   Serial.println("- NDP processor initialization done!");
 
   // Set the BMI270 sensor in SPI mode, then read sensor data.
@@ -669,9 +669,9 @@ Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definiti
 Next, in the `setup()` function:
 
 - The serial communication is initialized at a baud rate of 115200.
-- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving modes) is disabled to avoid communication problems with the IMU. 
+- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
@@ -715,6 +715,199 @@ Upload the example sketch again and open the IDE's Serial Plotter by navigating 
 ![Nicla Voice onboard accelerometer data on the IDE's Serial Plotter](assets/user-manual-14.gif)
 
 When the board is not moving, you should see acceleration measurements close to zero on the x and y-axis, while the z-axis will be close to 1g (approximately 9.81 m/s<sup>2</sup>). If you want to visualize gyroscope readings, uncomment the gyroscope data output and comment on the accelerometer data output; when the board is not moving, you should see gyroscope measurements on the three-axis close to zero.
+
+#### Magnetometer Data
+
+The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter.
+
+```arduino
+/**
+  Nicla Voice magnetometer test sketch
+  Name: nv_mag_test.ino
+  Purpose: Sketch tests onboard magnetometer (BMM150)
+
+  @author Arduino PRO Content Team
+  @version 1.0 30/05/23
+*/
+
+#include "NDP.h"
+
+// Named constants
+#define READ_START_ADDRESS  0x42
+#define READ_BYTE_COUNT     8
+#define SENSOR_DATA_LENGTH  16
+
+/**
+  Turns on and off the onboard blue LED.
+  
+  @param label to be printed on the Serial Monitor.
+*/
+void ledBlueOn(char* label) {
+  nicla::leds.begin();
+  nicla::leds.setColor(blue);
+  delay(200);
+  nicla::leds.setColor(off);
+  Serial.println(label);
+  nicla::leds.end();
+}
+
+/**
+  Turns on and off the onboard green LED.
+*/
+void ledGreenOn() {
+  nicla::leds.begin();
+  nicla::leds.setColor(green);
+  delay(200);
+  nicla::leds.setColor(off);
+  nicla::leds.end();
+}
+
+/**
+  Blinks onboard red LED periodically every 200 ms.
+*/
+void ledRedBlink() {
+  while (1) {
+    nicla::leds.begin();
+    nicla::leds.setColor(red);
+    delay(200);
+    nicla::leds.setColor(off);
+    delay(200);
+    nicla::leds.end();
+  }
+}
+
+// Macro definition used for checking the sensor status, print error if SPI access fails.
+#define CHECK_STATUS(s) do {\
+    if (s) {\
+        Serial.print("SPI access error in line ");\
+        Serial.println(__LINE__);\
+        for(;;);\
+    }\
+} while (0)
+
+void setup() {
+  int status;
+  uint8_t __attribute__((aligned(4))) sensor_data[SENSOR_DATA_LENGTH];
+
+  // Initiate Serial communication for debugging and monitoring. 
+  Serial.begin(115200);
+
+  // Initialize Nicla Voice board's system functions.
+  // Disable the LDO regulator on the Nicla Voice board for power saving.
+  // Initialize the built-in RGB LED of the Nicla Voice board.
+  nicla::begin();
+  nicla::disableLDO();
+  nicla::leds.begin();
+
+  // Set up error and event handlers:
+  // - In case of error, the red LED will blink.
+  // - In case of match, the blue LED will turn on.
+  // - In case of any event, the green LED will turn on.
+  NDP.onError(ledRedBlink);
+  NDP.onMatch(ledBlueOn);
+  NDP.onEvent(ledGreenOn);
+
+  // NDP processor initialization with firmwares and models.
+  Serial.println("- NDP processor initialization...");
+  NDP.begin("mcu_fw_120_v91.synpkg");
+  NDP.load("dsp_firmware_v91.synpkg");
+  NDP.load("ei_model.synpkg");
+  Serial.println("- NDP processor initialization done!");
+
+  // Enable power control bit
+  status = NDP.sensorBMM150Write(0x4B, 0x01);
+  CHECK_STATUS(status);
+  delay(20);
+
+  // Read power control byte 
+  status = NDP.sensorBMM150Read(0x4B, 1, sensor_data);
+  CHECK_STATUS(status);
+
+  // Set the magnetometer to active mode (normal operation), with an output data rate of 10 Hz.
+  status = NDP.sensorBMM150Write(0x4C, 0x00);
+  CHECK_STATUS(status);
+
+  // Read chip ID
+  status = NDP.sensorBMM150Read(0x40, 1, sensor_data);
+  CHECK_STATUS(status);
+}
+
+void loop() {
+  // Allocate space for raw sensor data.
+  uint8_t __attribute__((aligned(4)))  sensor_data[SENSOR_DATA_LENGTH];
+
+  // Declare variables for magnetometer data.
+  int16_t x_mag_raw, y_mag_raw, z_mag_raw, hall_raw ;
+  float x_mag, y_mag, z_mag;
+
+  // Read operation status variable.
+  int status;
+
+  // Perform data read from the BMM150 sensor.
+  // The sensor's read function is called with 0x42 as the start address and 8 as the number of bytes to read.
+  // Collected data is placed into sensor_data array.
+  status = NDP.sensorBMM150Read(READ_START_ADDRESS, READ_BYTE_COUNT, sensor_data);
+
+  // Check the status of the read operation.
+  CHECK_STATUS(status);
+
+  // The sensor data is read into an array of bytes (8-bit values). Each measurement from the magnetometer consists
+  // of two bytes, hence the bit shifting and bitwise OR operations to combine these two bytes into one 16-bit value.
+  // Data for each axis (X, Y, Z) of the magnetometer is extracted from the array.
+  x_mag_raw = (0x0000 | sensor_data[0] >> 3 | sensor_data[1] << 5);
+  y_mag_raw = (0x0000 | sensor_data[2] >> 3 | sensor_data[3] << 5);
+  z_mag_raw = (0x0000 | sensor_data[4] >> 1 | sensor_data[5] << 7);
+  hall_raw  = (0x0000 | sensor_data[6] >> 2 | sensor_data[7] << 6);
+
+  // Print raw magnetometer data.
+  Serial.print("x_mag_raw:");
+  Serial.print(x_mag_raw);
+  Serial.print(",");
+  Serial.print("y_mag_raw:");
+  Serial.print(y_mag_raw);
+  Serial.print(",");
+  Serial.print("z_mag_raw:");
+  Serial.print(z_mag_raw);
+  Serial.print(",");
+  Serial.print("hall_raw:");
+  Serial.println(hall_raw);
+
+  delay(1000);
+}
+```
+
+Here you can find a step-by-step explanation of the code:
+
+First, the necessary libraries are included: 
+
+- `NDP.h` for the Nicla Voice board's basic functions and the magnetometer control.
+- Macros are defined for checking the status of the magnetometer; these macros allow the sketch to detect and handle sensor errors. 
+
+Next, user functions `ledBlueOn()`, `ledGreenOn()`, and `ledRedBlink()` definition: 
+
+- These functions allow the onboard LEDs to flash specific colors to indicate different states: blue for a successful match, green for an event, and red to indicate an error.
+
+Next, in the `setup()` function:
+
+- The serial communication is initialized at a baud rate of 115200.
+- The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
+- Error and event handlers are initialized.
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate (ODR) of 10 Hz. 
+
+Finally, in the `loop()` function:
+
+- Memory is allocated for the sensor data; data is then read from the sensor and stored in this allocated space.
+- Raw sensor data is then extracted and parsed into raw magnetometer data. Raw sensor data is extracted from the `sensor_data` array, 8-bits at a time, and then combined to form a 16-bit integer for each axis (X, Y, Z) and raw Hall resistance value. 
+- Raw magnetometer data is printed on the Serial Monitor, allowing the user to observe sensor data in real-time.
+
+After uploading the example code, you should see the magnetometer data on the IDE's Serial Monitor, as shown below:
+
+![Nicla Voice onboard raw magnetometer data on the IDE's Serial Monitor](assets/user-manual-15.png)
+
+Now open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. After a while, you should see a real-time graph showing raw data from the board's onboard magnetometer, as shown below (move the board):
+
+![Nicla Voice onboard raw magnetometer data on the IDE's Serial Plotter](assets/user-manual-16.gif)
 
 #### IMU and Machine Learning
 
