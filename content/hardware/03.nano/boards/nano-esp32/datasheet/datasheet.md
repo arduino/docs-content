@@ -86,7 +86,7 @@ The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation o
 
 ## Block Diagram
 
-![Arduino Nano ESP32 Block Diagram]()
+![Arduino Nano ESP32 Block Diagram](assets/Nano_ESP32_Block_Diagram.png)
 
 ## Board Topology
 
@@ -243,7 +243,7 @@ The operating voltage for this board is 3.3V. Please note that there's no 5V pin
 
 ### Power Tree
 
-![Arduino Nano ESP32 power tree.]()
+![Arduino Nano ESP32 power tree.](assets/Nano_ESP32_Power_Tree.png)
 
 ### Pin Voltage
 
@@ -251,14 +251,14 @@ All digital & analog pins on the Nano ESP32 are 3.3V. Do not connect any higher 
 
 ### VIN Rating
 
-The recommended input voltage range is **3-22V**, based on the MP2322GQH converter specifications. 
+The recommended input voltage range is **5-18V**.
 
-You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 22V.
+You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 18V.
 
 The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:  
 - **4.5V** - >90%.
 - **12V** - 85-90%
-- **22V** - 80-85%
+- **18V** - <85%
 
 This information is extracted from the [MP2322GQH's datasheet](), with a board with a current draw of ~200mA.
 
@@ -270,6 +270,7 @@ While powering the board via the VIN pin, the VUSB pin is not activated. This me
 
 ### 3.3V Pin
 
+The 3.3V pin is connected to the 3.3V rail which is connected to the output of the MP2322GQH step down converter. This pin is primarily used to power external components.
 
 ### Pin Current
 
@@ -289,48 +290,171 @@ The solder pad located on the bottom of the board is SJ1.
 
 ![Pinout for Nano ESP32.](assets/ABX00080-pinout.png)
 
-### Analog
+### Analog (JP1)
 
-| Pin | Function | Type   | Description                                     |
-| --- | -------- | ------ | ----------------------------------------------- |
-| 1   | BOOT     | NC     | Not Connected                                   |
-| 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5V |
-| 3   | Reset    | Reset  | Reset                                           |
-| 4   | +3V3     | Power  | +3V3 Power Rail                                 |
-| 5   | +5V      | Power  | +5V Power Rail                                  |
-| 6   | GND      | Power  | Ground                                          |
-| 7   | GND      | Power  | Ground                                          |
-| 8   | VIN      | Power  | Voltage Input                                   |
-| 9   | A0       | Analog | Analog input 0 / DAC                            |
-| 10  | A1       | Analog | Analog input 1 / OPAMP+                         |
-| 11  | A2       | Analog | Analog input 2 / OPAMP-                         |
-| 12  | A3       | Analog | Analog input 3 / OPAMPOut                       |
-| 13  | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA)         |
-| 14  | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL)         |
+| Pin | Function | Type   | Description                             |
+| --- | -------- | ------ | --------------------------------------- |
+| 1   | SCK      | NC     | Serial Clock                            |
+| 2   | +3V3     | Power  | +3V3 Power Rail                         |
+| 3   | BOOT0    | Mode   | Board Reset 0                           |
+| 4   | A0       | Analog | Analog input 0                          |
+| 5   | A1       | Analog | Analog input 1                          |
+| 6   | A2       | Analog | Analog input 2                          |
+| 7   | A3       | Analog | Analog input 3                          |
+| 8   | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA) |
+| 9   | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL) |
+| 10  | A6       | Analog | Analog input 6                          |
+| 11  | A7       | Analog | Analog input 7                          |
+| 12  | VUSB     | Power  | USB power (5V)                          |
+| 13  | BOOT1    | Mode   | Board Reset 1                           |
+| 14  | GND      | Power  | Ground                                  |
+| 15  | VIN      | Power  | Voltage Input                           |
 
-### Digital
+### Digital (JP2)
 
-| Pin | Function  | Type    | Description                                      |
-| --- | --------- | ------- | ------------------------------------------------ |
-| 1   | SCL       | Digital | I²C Serial Clock (SCL)                           |
-| 2   | SDA       | Digital | I²C Serial Datal (SDA)                           |
-| 3   | AREF      | Digital | Analog Reference Voltage                         |
-| 4   | GND       | Power   | Ground                                           |
-| 5   | D13/SCK   | Digital | GPIO 13 / SPI Clock                              |
-| 6   | D12/CIPO  | Digital | GPIO 12 / SPI Controller In Peripheral Out       |
-| 7   | D11/COPI  | Digital | GPIO 11 (PWM) / SPI Controller Out Peripheral In |
-| 8   | D10/CS    | Digital | GPIO 10 (PWM) / SPI Chip Select                  |
-| 9   | D9        | Digital | GPIO 9 (PWM~)                                    |
-| 10  | D8        | Digital | GPIO 8                                           |
-| 11  | D7        | Digital | GPIO 7                                           |
-| 12  | D6        | Digital | GPIO 6 (PWM~)                                    |
-| 13  | D5/CANRX0 | Digital | GPIO 5 (PWM~) / CAN Transmitter (TX)             |
-| 14  | D4/CANTX0 | Digital | GPIO 4 / CAN Receiver (RX)                       |
-| 15  | D3        | Digital | GPIO 3 (PWM~)                                    |
-| 16  | D2        | Digital | GPIO 2                                           |
-| 17  | D1/TX0    | Digital | GPIO 1 / Serial 0 Transmitter (TX)               |
-| 18  | D0/TX0    | Digital | GPIO 0 / Serial 0 Receiver    (RX)               |
+| Pin | Function | Type     | Description                        |
+| --- | -------- | -------- | ---------------------------------- |
+| 1   | CIPO\*   | Digital  | Controller In Peripheral Out       |
+| 2   | COPI\*   | Digital  | Controller Out Peripheral In       |
+| 3   | D10      | Digital  | GPIO 10                            |
+| 4   | D9       | Digital  | GPIO 9                             |
+| 5   | D8       | Digital  | GPIO 8                             |
+| 6   | D7       | Digital  | GPIO 7                             |
+| 7   | D6       | Digital  | GPIO 6                             |
+| 8   | D5       | Digital  | GPIO 5                             |
+| 9   | D4       | Digital  | GPIO 4                             |
+| 10  | D3       | Digital  | GPIO 3                             |
+| 11  | D2       | Digital  | GPIO 2                             |
+| 12  | GND      | Power    | Ground                             |
+| 13  | RST      | Internal | Reset                              |
+| 14  | D1/RX    | Digital  | GPIO 4 / Serial 0 Receiver (RX)    |
+| 15  | D0/TX    | Digital  | GPIO 3 / Serial 0 Transmitter (TX) |
+
+\*CIPO/COPI replaces the MISO/MOSI terminology. 
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Arduino Nano ESP32]()
+![Mechanical View of Nano ESP32]()
+
+## Board Operation
+
+### Getting Started - IDE
+
+If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+
+### Getting Started - Arduino Web Editor
+
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+
+### Getting Started - Arduino IoT Cloud
+
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
+### Online Resources
+
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+
+### Board Recovery
+
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
+
+# Certifications
+
+## Declaration of Conformity CE DoC (EU)
+
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
+
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
+
+| **Substance**                          | **Maximum Limit (ppm)** |
+| -------------------------------------- | ----------------------- |
+| Lead (Pb)                              | 1000                    |
+| Cadmium (Cd)                           | 100                     |
+| Mercury (Hg)                           | 1000                    |
+| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Poly Brominated Biphenyls (PBB)        | 1000                    |
+| Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
+| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Benzyl butyl phthalate (BBP)           | 1000                    |
+| Dibutyl phthalate (DBP)                | 1000                    |
+| Diisobutyl phthalate (DIBP)            | 1000                    |
+
+Exemptions : No exemptions are claimed.
+
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+
+## Conflict Minerals Declaration
+
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+
+## FCC Caution
+
+Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+(1) This device may not cause harmful interference
+
+(2) this device must accept any interference received, including interference that may cause undesired operation.
+
+**FCC RF Radiation Exposure Statement:**
+
+1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
+
+2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
+
+3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
+
+English:
+User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+
+(1) this device may not cause interference
+
+(2) this device must accept any interference, including interference that may cause undesired operation of the device.
+
+French:
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
+
+(1) l’ appareil nedoit pas produire de brouillage
+
+(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**IC SAR Warning:**
+
+English
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+
+French:
+Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
+
+**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
+
+## Company Information
+
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+
+
+## Reference Documentation
+
+| Ref                       | Link                                                                                            |
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
+| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
+| Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
+| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
+| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
+| Online Store              | <https://store.arduino.cc/>                                                                     |
+
+## Change Log
+
+| **Date**   | **Changes** |
+| ---------- | ----------- |
+| 08/06/2023 | Release     |
