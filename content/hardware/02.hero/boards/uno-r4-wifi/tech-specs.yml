@@ -15,13 +15,15 @@ Communication:
   SPI: Yes, 1x
   CAN: Yes 1 CAN Bus
 Power:
-  Circuit operating voltage: 5V
+  Circuit operating voltage: 5V (ESP32-S3 is 3.3V)
   Input voltage (VIN): 6-24V
   DC Current per I/O Pin: 8 mA
 Clock speed:
-  Main core: 48 MHz
+  RA4M1: 48 MHz
+  ESP32-S3: up to 240 MHz
 Memory:
-  RA4M1: 256kB Flash, 32kB RAM
+  RA4M1: 256 kB Flash, 32 kB RAM
+  ESP32-S3: 384 kB ROM, 512 kB SRAM
 Dimensions:
   Width: 68.85 mm
   Length: 53.34 mm
