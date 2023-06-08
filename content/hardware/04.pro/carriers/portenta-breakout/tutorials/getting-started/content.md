@@ -47,7 +47,7 @@ In order to build this example circuit, we need our Portenta Breakout with the P
 
 ![Connecting the LEDS and the Portenta](assets/breakout_gs_circuit_diagram.svg) 
 
-For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case **PWM 9**. For the potentiometer, on the other hand, we can use one of the analog pins (A0 to A7) in order to read the potentiometer current value, in this example we use **A7**. The potentiometer also needs a 3.3V power source, which we take from the GPIO section on the Portenta Breakout, considering it being located most conveniently and close by. Eventually, potentiometer and LED have to be connected to GND to finilize the circuit. 
+For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case **PWM 9**. For the potentiometer, on the other hand, we can use one of the analog pins (A0 to A7) in order to read the potentiometer current value, in this example we use **A7**. The potentiometer also needs a 3.3V power source, which we take from the GPIO section on the Portenta Breakout, considering it being located most conveniently and close by. Eventually, potentiometer and LED have to be connected to GND to finalize the circuit. 
 
 After having connected everything, the Portenta H7 can be plugged into the computer using a USB-C® cable and we can start with the code.
 
