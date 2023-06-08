@@ -14,17 +14,19 @@ software:
   - web-editor
 ---
 
-***NOTE: As both the Arduino UNO R4 Minima and the Arduino UNO R4 WiFi has a DAC, this feature works identically on both versions of the board. This means that you can follow along with this tutorial regardless of what version of the board you have in front of you.***
 
-The Arduino UNO R4 has a built in **DAC** (Digital to Analog Converter) which means that it natively supports analog output. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment as a cheap function generator, for example.
+The Arduino UNO R4 WiFi has a built in **DAC** (Digital to Analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment as a cheap function generator, for example.
 
 ## Goals
-By following along with this article, you will learn how to use the DAC features of the UNO R4 WiFi boards to generate waveforms, either to make sound or to generate functions, in ways that cannot be done with PWM.
 
-We will go over the difference between PWM and analog output, and we'll apply these learnings in a quick project where we 
+In this article, you will learn:
+- About the DAC feature onboard the UNO R4 WiFi,
+- differences between PWM and DAC techniques,
+- how to generate a waveform (sawtooth),
+- how to output this waveform on a piezo speaker.
 
 ### Analog Output VS. PWM
-For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output, this method is called PWM. 
+For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
 
 For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 
 
@@ -33,7 +35,7 @@ However this will not always be the case, and for many uses you will need to use
 ## Hardware & Software Needed
   To follow along with this article, you will need the following hardware: 
   
-  - Arduino UNO R4 Minima or Arduino UNO R4 WiFi
+  - [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi)
   - Piezo buzzer 
   - Potentiometer
   - Jumper wires
