@@ -189,6 +189,24 @@ void loop() {
 }
 ```
 
+Here is a step-by-step breakdown of the code shown above:
 
+Import libraries:
+
+- The necessary libraries are imported at the beginning of the code. `Arduino_USBHostMbed5` enables USB host functionality, while `FATFileSystem` allows us to interact with the FAT file system on the USB memory stick.
+
+Define variables and instances:
+
+- Instances for handling the USB mass storage device (`USBHostMSD msd`) and the file system (`mbed::FATFileSystem usb("KINGSTON")`) are created. Arrays are also created to store analog input pin numbers and the onboard LED numbers. Timing variables and a file pointer are also defined.
+
+`setup()` function:
+
+- The Opta™ device is initialized. The analog-to-digital converter's resolution is set, onboard LEDs are initialized, and a connection to the USB memory stick is established. If the USB memory stick is successfully connected and mounted, a file named "analog_inputs_data.txt" is opened in read/write mode.
+
+Main `loop()` function:
+
+- The connection between the Opta™ device and the USB memory stick is checked, and reconnection is made if both devices are disconnected. Then, readings are taken from the analog pins at an interval of one second, and those readings are written to a file on the USB memory stick. After a certain number of iterations, the file is closed, and one of the onboard LEDs is made to blink continuously.
 
 ## Conclusion
+
+In this tutorial, you have learned how to interface an Opta™ device with a USB memory stick, read analog input data, and store it on the USB memory stick. You also learned how to use the onboard LEDs to display the status and error information to the user.
