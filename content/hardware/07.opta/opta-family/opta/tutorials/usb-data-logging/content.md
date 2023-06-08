@@ -61,6 +61,132 @@ This tutorial also requires the latest version of the `Arduino_USBHostMbed5` lib
 
 ### Writing Data to a USB Memory Stick
 
+The example code shown below shows how to interface an Opta™ device with a USB memory stick, storing readings from four analog inputs into a file on the USB memory stick: 
 
+```arduino
+/**
+  Opta USB data logging example sketch
+  Name: usb_data_logging_opta.ino
+  Purpose: Sketch stores readings from four analog inputs of an Opta device into a file on a USB memory stick 
+
+  @author Arduino PRO Content Team
+  @version 1.0 07/06/23
+*/
+
+// Include necessary libraries for USB host and FAT file system functionality
+#include <Arduino_USBHostMbed5.h>
+#include <FATFileSystem.h>
+
+// Create an instance of USBHostMSD to handle USB mass storage devices
+USBHostMSD msd;
+
+// Create an instance of the FATFileSystem class to handle the file system on the device
+mbed::FATFileSystem usb("KINGSTON");
+
+// Define arrays for analog input pin numbers and built-in LEDs
+const int analog_pins[] = { A0, A1, A2, A3 };
+const int led_pins[] = { LED_D0, LED_D1, LED_D2, LED_D3 };
+
+// Variables for time tracking without using delay() function
+unsigned long previousMillis = 0;
+const long interval = 1000;
+
+// Variables to control the maximum number of write operations
+const long maxIterations = 5;
+long iterationCount = 0;
+
+// File pointer for the data file
+FILE *f;
+
+void setup() {
+  // Set the ADC resolution to 12 bits
+  analogReadResolution(12);
+
+  // Initialize LED pins
+  for (int i = 0; i < 4; i++) {
+    pinMode(led_pins[i], OUTPUT);
+    digitalWrite(led_pins[i], LOW);
+  }
+
+  // Wait for USB mass storage device connection
+  while (!msd.connect()) {
+    digitalWrite(led_pins[0], HIGH);  // Blink LED to indicate waiting
+    delay(500);
+    digitalWrite(led_pins[0], LOW);
+    delay(500);
+  }
+
+  // Try to mount the file system on the device
+  int err = usb.mount(&msd);
+  if (err) {  // If there's an error, blink a different LED
+    while (1) {
+      digitalWrite(led_pins[1], HIGH);
+      delay(500);
+      digitalWrite(led_pins[1], LOW);
+      delay(500);
+    }
+  }
+
+  // Open the data file on the USB device for writing
+  f = fopen("/KINGSTON/analog_inputs_data.txt", "w+");
+  if (f == NULL) {  // If there's an error, blink another LED
+    while (1) {
+      digitalWrite(led_pins[2], HIGH);
+      delay(500);
+      digitalWrite(led_pins[2], LOW);
+      delay(500);
+    }
+  }
+}
+
+void loop() {
+  delay(1000);
+
+  // Check if the device is still connected and try to reconnect if not
+  if (!msd.connected()) {
+    msd.connect();
+  }
+
+  // Take analog readings and write to file every second
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+    // Loop over the analog pins, read values, and write to the data file
+    for (int i = 0; i < 4; i++) {
+      int value = analogRead(analog_pins[i]);
+
+      // Write the analog reading to the file
+      if (i < 3) {
+        fprintf(f, "Pin A%d: %d, ", i, value);
+      } else {
+        fprintf(f, "Pin A%d: %d\n", i, value);
+      }
+
+      // Check if there was an error writing to the file
+      if (ferror(f)) {
+        error("error: %s (%d)\n", strerror(errno), -errno);
+      }
+    }
+
+    // Flush the file output
+    fflush(f);
+
+    // If we have reached the maximum number of iterations, close the file
+    iterationCount++;
+    if (iterationCount >= maxIterations) {
+      fclose(f);
+
+      // Indicate completion by blinking another LED
+      while (1) {
+        digitalWrite(led_pins[3], HIGH);
+        delay(500);
+        digitalWrite(led_pins[3], LOW);
+        delay(500);
+      }
+    }
+  }
+}
+```
 
 ## Conclusion
