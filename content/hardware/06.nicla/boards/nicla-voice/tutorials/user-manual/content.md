@@ -228,7 +228,7 @@ The state of a digital pin, configured as an output, can be changed using the bu
 digitalWrite(pin, HIGH);    
 
 // Set pin off
-digitalWrite(pin, HIGH);    
+digitalWrite(pin, LOW);    
 ```
 
 The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
