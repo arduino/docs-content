@@ -1,5 +1,5 @@
 ---
-title: "Using the Arduino UNO R4 Built-in DAC
+title: "Arduino UNO R4 WiFi Digital-to-Analog Converter (DAC)
 description: "Start building "
 tags:
   - Guide
