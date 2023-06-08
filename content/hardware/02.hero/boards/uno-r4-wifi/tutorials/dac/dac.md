@@ -29,7 +29,7 @@ For example when dimming an LED, you can freely use a PWM enabled digital pin as
 
 However this will not always be the case, and for many uses you will need to use a genuine analog output to get your desired results. One such case is in audio purposes, where a PWM output simply will not give the same quality of sound as a genuine analog output, and requires some fiddling to work in the first place.
 
-## Hardware and Software needed
+## Hardware & Software Needed
   To follow along with this article, you will need the following hardware: 
   
   - Arduino UNO R4 Minima or Arduino UNO R4 WiFi
