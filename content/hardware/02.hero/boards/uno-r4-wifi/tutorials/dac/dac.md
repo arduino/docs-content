@@ -1,6 +1,6 @@
 ---
 title: "Arduino UNO R4 WiFi Digital-to-Analog Converter (DAC)
-description: "Start building "
+description: "Learn how create waveforms and output them on a piezo, using the DAC on the UNO R4 WiFi board."
 tags:
   - Guide
   - DAC
