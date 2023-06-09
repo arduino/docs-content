@@ -311,6 +311,8 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | 4   | SDA          | Digital  | I2C Data Line   |
 | 5   | GND          | Power    | Ground          |
 
+<div style="page-break-after:always;"></div>
+
 ## Mechanical Information
 
 ![Nicla Vision Mechanical Drawing](assets/niclaVisionMech.svg)
