@@ -60,7 +60,7 @@ Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/a
 
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 WiFi. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
