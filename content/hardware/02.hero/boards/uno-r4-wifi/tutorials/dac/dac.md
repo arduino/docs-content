@@ -25,13 +25,6 @@ In this article, you will learn:
 - how to generate a waveform (sawtooth),
 - how to output this waveform on a piezo speaker.
 
-### Analog Output VS. PWM
-For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
-
-For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 
-
-However this will not always be the case, and for many uses you will need to use a genuine analog output to get your desired results. One such case is in audio purposes, where a PWM output simply will not give the same quality of sound as a genuine analog output, and requires some fiddling to work in the first place.
-
 ## Hardware & Software Needed
   To follow along with this article, you will need the following hardware: 
   
@@ -44,6 +37,13 @@ However this will not always be the case, and for many uses you will need to use
 The circuit required for this tutorial can be found in the diagram below:
 
 ![Piezo buzzer connected to UNO R4](./assets/circuit.png)
+
+## Analog Output VS. PWM
+For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
+
+For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 
+
+However this will not always be the case, and for many uses you will need to use a genuine analog output to get your desired results. One such case is in audio purposes, where a PWM output simply will not give the same quality of sound as a genuine analog output, and requires some fiddling to work in the first place.
 
 ## Code
 The code for this tutorial is split in two part, one main sketch and a header file containing a pre-generated sawtooth-waveform.
