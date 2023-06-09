@@ -750,6 +750,17 @@ To gain admin (root) access, type `sudo su -` and the password, which by default
 
 You can now freely program your Portenta X8 Linux OS. In the sections below you can check some basic commands to get started.
 
+### Change default user password
+
+Your X8 comes with the default user fio with password fio.
+
+For security reasons, we strongly suggest to change the default password. To do so, when logged in into your X8, launch this command to change the 
+password of the fio account:
+
+```arduino
+passwd fio
+```
+
 ### Manage Your Network Via CLI
 
 In order to connect to a Wi-Fi® Access Point via CLI, you can use the network manager tool **nmcli**. These are some of the most used commands:
