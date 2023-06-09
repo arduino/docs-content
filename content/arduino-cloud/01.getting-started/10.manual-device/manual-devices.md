@@ -220,57 +220,54 @@ Once you run the script, you will start the client and you will be able to inter
 The pre-requisities for connecting with Node.js is:
 - [Node.js](https://nodejs.org/en) installed on your machine (this is tested and confirmed to work with v20.2.0),
 - [arduino-iot-js](https://github.com/arduino/arduino-iot-js) installed,
-- a Thing created in the Arduino IoT Cloud.
+- a Thing created in the Arduino IoT Cloud,
+- a manual device created in the Arduino IoT Cloud, associated to your Thing.
 
-Connection to the cloud via Node.js/Javascript requires you to first install the [arduino-iot-js](https://github.com/arduino/arduino-iot-js) package.
+Connection to the cloud via Node.js/Javascript requires you to first install the [arduino-iot-js](https://github.com/arduino/arduino-iot-js) package. You will also need to configure a manual device in the cloud, which will generate the **Device ID** and **Secret Key** needed to connect. 
 
 ```sh
 npm install arduino-iot-js
 ```
 
-After installation, you can use the example below to connect and send variable updates to the cloud. Replace the following variables with your credentials:
-
-- `THING_ID` - obtained from your Thing,
-- `NAME_OF_VARIABLE` - name of your variable, obtained from your Thing,
-- `CLIENT_ID` - obtained from [API key section](https://cloud.arduino.cc/home/api-keys),
-- `CLIENT_SECRET` - only obtainable during creation of your API key. 
-
+After installation, you can use the example below to connect and send variable updates to the cloud.
 
 ### JavaScript Example
 
-This example connects to the cloud (MQTT broker), and sends a variable update with `sendProperty()`. The parameters of `sendProperty()` are `thingId`, `variableName` and `value`.  
+This example connects to the cloud (MQTT broker), and sends a variable update with `sendProperty()`, and then listens for updates using the `onPropertyValue()` method.
 
-***Please note: the variable name you enter in the script needs to match the variable name in the cloud.*** 
+***Please note: `cloudVar` needs to contain the variable name you create in the Arduino IoT Cloud. In this case, we are calling it `test_variable`*** 
 
 ```js
 const { ArduinoIoTCloud } = require('arduino-iot-js');
-const thingId = "THING_ID"
-const variableName = "NAME_OF_VARIABLE"
 
-const options = {
-    clientId: "CLIENT_ID",
-    clientSecret: "CLIENT_SECRET",
-    onDisconnect: message => {
-        console.error(message);
-    }
-}
-
-ArduinoIoTCloud.connect(options).then(() => {
-  console.log("Connected to Arduino IoT Cloud broker");
-  ArduinoIoTCloud.sendProperty(thingId, variableName, 40).then(() => {
-      console.log("Property value correctly sent: ", variableName, 40);
+(async () => {
+  const client = await ArduinoIoTCloud.connect({
+    deviceId: 'YOUR_DEVICE_ID',
+    secretKey: 'YOUR_SECRET_KEY',
+    onDisconnect: (message) => console.error(message),
   });
 
-});
+  const value = 20;
+  let cloudVar = "test_variable"
+
+  client.sendProperty(cloudVar, value);
+  console.log(cloudVar, ":", value);
+
+  client.onPropertyValue(cloudVar, (value) => console.log(cloudVar, ":", value));
+})();
 ```
 
-On success, we should see the following:
+On successful connection, we should receive the following:
 
 ```sh
-Property value correctly sent:  test_variable 40
+found association to thing: <thingid>
 ```
 
-This means you have successfully updated the `test_variable` with a value of `40`.
+And upon receiving an update (if you change the value in the dashboard), you should see:
+
+```sh
+test_variable: <value>
+```
 
 ## Summary
 
