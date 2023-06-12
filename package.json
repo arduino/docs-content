@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-    "@arduino/docs-arduino-cc": "^1.8.92",
+    "@arduino/docs-arduino-cc": "^1.8.97",
     "gatsby": "^4.9.2"
   },
   "volta": {
