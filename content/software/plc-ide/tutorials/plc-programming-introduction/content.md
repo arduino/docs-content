@@ -122,7 +122,7 @@ Once you have followed previous steps, you will now have the added library avail
 
 The following figure shows how the library is added to the PLC IDE Arduino Sketch in motion.
 
-GIF SHOWING LIBRARY ADDITION IN PLC IDE
+![Library addition example](assets/plcide-library-management.gif)
 
 ## Sample Program
 
