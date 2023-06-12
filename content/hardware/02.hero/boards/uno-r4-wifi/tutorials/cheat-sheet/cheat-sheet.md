@@ -414,6 +414,17 @@ And to write something, we can use the following command:
 Serial1.write("Hello world!");
 ```
 
+## USB HID
+
+This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
+
+```arduino
+keyboard.press('W');
+mouse.move(x,y);
+```
+
+This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
+
 ## CAN Module
 
 The UNO R4 WiFi's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 

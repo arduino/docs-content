@@ -8,7 +8,7 @@ type: maker
 
 # Description 
 
-The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is much larger than its predecessors, with 256KB Flash & 32KB SRAM.
+The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
 
 The RA4M1's operating voltage is fixed at 5V, whereas the ESP32-S3 module is 3.3V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
 
@@ -17,9 +17,7 @@ Maker, beginner, education
 
 # Features
 
-## R7FA4M1AB3CFM#AA0
-
-The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
+The **R7FA4M1AB3CFM#AA0** is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
 
 * **Overview**
   * 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
@@ -28,9 +26,9 @@ The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pin h
   * Memory Protection Unit (MPU)
   * Digital Analog Converter (DAC)
 * **Memory**
-  * 256KB Flash Memory
-  * 32KB SRAM
-  * 8KB Data Memory (EEPROM)
+  * 256 kB Flash Memory
+  * 32 kB SRAM
+  * 8 kB Data Memory (EEPROM)
 * **Peripherals**
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
@@ -55,11 +53,9 @@ The R7FA4M1AB3CFM#AA0 is the main MCU on the UNO R4 WiFi, connected to all pin h
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
-- [R7FA4M1AB3CFM#AA0 datasheet](assets/ra4m1.pdf)
+- [R7FA4M1AB3CFM#AA0 datasheet](/resources/datasheets/ra4m1.pdf)
 
-## ESP32-S3-MINI-1-N8
-
-The ESP32-S3-MINI-1-N8 is the secondary MCU with a built-in antenna for Wi-Fi & Bluetooth® connectivity. This module operates on 3.3V and communicates with the RA4M1 using a logic level translator (TXB0108DQSR).
+The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi & Bluetooth® connectivity. This module operates on 3.3V and communicates with the RA4M1 using a logic level translator (TXB0108DQSR).
 
 * **Overview**
   * Xtensa® dual-core 32-bit LX7 microprocessor
@@ -73,7 +69,7 @@ The ESP32-S3-MINI-1-N8 is the secondary MCU with a built-in antenna for Wi-Fi & 
   * Bluetooth 5
 
 See the full datasheet for the ESP32-S3-MINI-1-N8 in the link below:
-- [ESP32-S3-MINI-1-N8 datasheet](assets/esp32-s3-mini.pdf)
+- [ESP32-S3-MINI-1-N8 datasheet](/resources/datasheets/esp32-s3-mini.pdf)
 
 # CONTENTS
 
@@ -81,11 +77,11 @@ See the full datasheet for the ESP32-S3-MINI-1-N8 in the link below:
 
 ### Application Examples
 
-The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where UNO R4 WiFi continues it legacy.
+The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where the UNO R4 WiFi continues it legacy.
 
-The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. It has compared to its predecessors much larger memory: 8 times more flash memory (256KB) and 16 times more SRAM (32KB).
+The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. It has a significantly larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB). With a 48 MHz clock speed, it is also 3x faster than its predecessors.
 
-Additionally, it features an ESP32-S3 module for IoT projects, as well as a built-in 12x8 LED matrix, making it the most visually unique Arduino board to date.
+In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making one of the most visually unique Arduino board to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
 
 **Entry level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation (both official + 3rd party).
 
@@ -96,6 +92,7 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 ### Related Products
 * UNO R3
 * UNO R3 SMD
+* UNO R4 Minima
 
 # Rating
 
@@ -110,8 +107,6 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 | T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
-
-<div style="page-break-after: always;"> </div>
 
 # Functional Overview
 
@@ -161,10 +156,10 @@ Additionally, it features an ESP32-S3 module for IoT projects, as well as a buil
 
 The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 WiFi, it is fixed at 5V as to be fully retro compatible with other UNO accessories. 
+This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 WiFi, it is fixed at 5V as to be hardware compatible with shields, accessories & circuits based on an previous UNO revision. 
 
 The R7FA4M1AB3CFM#AA0 features:
-* 256KB flash / 32KB SRAM / 8KB data flash (EEPROM)
+* 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
 * Real Time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
@@ -181,8 +176,8 @@ The Wi-Fi / Bluetooth® LE module on the UNO R4 WiFi is from the ESP32-S3 SoCs. 
 The ESP32-S3-MINI-1-N8 features:
 * Wi-Fi / Bluetooth® LE support
 * 3.3V operating voltage
-* 384 KB ROM
-* 512 KB SRAM
+* 384  kB ROM
+* 512  kB SRAM
 * Up to 150 Mbps bit rate
 
 This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic level translator. Note that this module operates on 3.3V as opposed to the RA4M1's 5V operating voltage. 
@@ -208,7 +203,7 @@ When programming the UNO R4 WiFi, the RA4M1 MCU is programmed via the ESP32-S3 m
 
 ![](assets/usb_switch.png)
 
-Soldering together the `SJ1` pads permanently sets the USB communication directly to the RA4M1, bypassing the ESP32-S3. 
+Soldering together the **SJ1** pads permanently sets the USB communication directly to the RA4M1, bypassing the ESP32-S3.
 
 ## USB Connector
 
@@ -218,7 +213,7 @@ Note that you should not power the board with more than 5V via the USB-C® port.
 
 ## LED Matrix
 
-The UNO R4 WiFi features a 12x8=96 LED matrix (U_LEDMATRIX), connected using the charlieplexing technique. The LEDs are red.
+The UNO R4 WiFi features a 12x8 matrix of red LEDs (**U_LEDMATRIX**), connected using the charlieplexing technique.
 
 The following pins on the RA4M1 MCU is used for the matrix:
 - P003
@@ -243,11 +238,9 @@ This matrix can be used for a number of projects and prototyping purposes, and s
 
 ## Digital Analog Converter (DAC)
 
-The UNO R4 WiFi has one 8-bit & one 12-bit DAC attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal. 
+The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
 
-The DAC is connected to 
-
-<div style="page-break-after: always;"> </div>
+The DAC can be used for signal generation for e.g. audio applications. You can for example generate and alter a sawtooth wave.  
 
 ## I²C Connector
 
@@ -285,11 +278,13 @@ The linear regulator (SGM2205-3.3XKC3G/TR) converts 5V from either the buck conv
 
 The general operating voltage for UNO R4 WiFi is 5V, however the ESP32-S3 module's operating voltage is 3.3V. 
 
+It is **very** important that ESP32-S3's pins (3.3V)do not come in contact with any of the RA4M1's pins (5V), as this may damage the circuits.
+
 ### Pin Current
 
-The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 20 mA. Never connect devices that draw higher current directly to a GPIO.
+The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can safely handle up to 8 mA of current. Never connect devices that draw higher current directly to a GPIO as this may damage the circuit.
 
-For powering e.g. servo motors, use an external power supply.
+For powering e.g. servo motors, always use an external power supply.
 
 # Mechanical Information
 
@@ -318,26 +313,26 @@ For powering e.g. servo motors, use an external power supply.
 
 ### Digital
 
-| Pin | Function  | Type    | Description                                      |
-| --- | --------- | ------- | ------------------------------------------------ |
-| 1   | SCL       | Digital | I²C Serial Clock (SCL)                           |
-| 2   | SDA       | Digital | I²C Serial Datal (SDA)                           |
-| 3   | AREF      | Digital | Analog Reference Voltage                         |
-| 4   | GND       | Power   | Ground                                           |
-| 5   | D13/SCK   | Digital | GPIO 13 / SPI Clock                              |
-| 6   | D12/CIPO  | Digital | GPIO 12 / SPI Controller In Peripheral Out       |
-| 7   | D11/COPI  | Digital | GPIO 11 (PWM) / SPI Controller Out Peripheral In |
-| 8   | D10/CS    | Digital | GPIO 10 (PWM) / SPI Chip Select                  |
-| 9   | D9        | Digital | GPIO 9 (PWM~)                                    |
-| 10  | D8        | Digital | GPIO 8                                           |
-| 11  | D7        | Digital | GPIO 7                                           |
-| 12  | D6        | Digital | GPIO 6 (PWM~)                                    |
-| 13  | D5/CANRX0 | Digital | GPIO 5 (PWM~) / CAN Transmitter (TX)             |
-| 14  | D4/CANTX0 | Digital | GPIO 4 / CAN Receiver (RX)                       |
-| 15  | D3        | Digital | GPIO 3 (PWM~)                                    |
-| 16  | D2        | Digital | GPIO 2                                           |
-| 17  | D1/TX0    | Digital | GPIO 1 / Serial 0 Transmitter (TX)               |
-| 18  | D0/TX0    | Digital | GPIO 0 / Serial 0 Receiver    (RX)               |
+| Pin | Function       | Type    | Description                                            |
+| --- | -------------- | ------- | ------------------------------------------------------ |
+| 1   | SCL            | Digital | I²C Serial Clock (SCL)                                 |
+| 2   | SDA            | Digital | I²C Serial Datal (SDA)                                 |
+| 3   | AREF           | Digital | Analog Reference Voltage                               |
+| 4   | GND            | Power   | Ground                                                 |
+| 5   | D13/SCK/CANRX0 | Digital | GPIO 13 / SPI Clock / CAN Receiver (RX)                |
+| 6   | D12/CIPO       | Digital | GPIO 12 / SPI Controller In Peripheral Out             |
+| 7   | D11/COPI       | Digital | GPIO 11 (PWM) / SPI Controller Out Peripheral In       |
+| 8   | D10/CS/CANTX0  | Digital | GPIO 10 (PWM) / SPI Chip Select / CAN Transmitter (TX) |
+| 9   | D9             | Digital | GPIO 9 (PWM~)                                          |
+| 10  | D8             | Digital | GPIO 8                                                 |
+| 11  | D7             | Digital | GPIO 7                                                 |
+| 12  | D6             | Digital | GPIO 6 (PWM~)                                          |
+| 13  | D5             | Digital | GPIO 5 (PWM~)                                          |
+| 14  | D4             | Digital | GPIO 4                                                 |
+| 15  | D3             | Digital | GPIO 3 (PWM~)                                          |
+| 16  | D2             | Digital | GPIO 2                                                 |
+| 17  | D1/TX0         | Digital | GPIO 1 / Serial 0 Transmitter (TX)                     |
+| 18  | D0/TX0         | Digital | GPIO 0 / Serial 0 Receiver    (RX)                     |
 
 ### OFF
 
@@ -359,28 +354,9 @@ For powering e.g. servo motors, use an external power supply.
 | 5   | RESET    | Internal | Reset                        |
 | 6   | GND      | Internal | Ground                       |
 
-
-### SWD/JTAG
-
-| Pin | Function | Type     | Description        |
-| --- | -------- | -------- | ------------------ |
-| 1   | +5V      | Internal | Power Supply of 5V |
-| 2   | SWDIO    | Internal | Data I/O pin       |
-| 3   | GND      | Internal | Ground             |
-| 4   | SWCLK    | Internal | Clock Pin          |
-| 5   | GND      | Internal | Ground             |
-| 6   | NC       | Internal | Not connected      |
-| 7   | RX       | Internal | Serial Receiver    |
-| 8   | TX       | Internal | Serial Transmitter |
-| 9   | GND      | Internal | Ground             |
-| 10  | NC       | Internal | Not connected      |
-
-
 ## Mounting Holes And Board Outline
 
 ![Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
-
-<div style="page-break-after: always;"> </div>
 
 ## Board Operation
 
@@ -481,10 +457,6 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands      | Maximum output power (ERP) |
-| -------------------- | -------------------------- |
-| 2.4 GHz, 40 channels | TBD                        |
-
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
@@ -507,4 +479,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Changes** |
 | ---------- | ----------- |
-| 25/04/2023 | Release     |
+| 08/06/2023 | Release     |
