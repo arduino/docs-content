@@ -1,8 +1,8 @@
 Board:
-  Name: Arduino® Nano 33 IoT
+  Name: Arduino® Nano ESP32
   SKU: ABX00027
-Microcontroller: SAMD21 Cortex®-M0+ 32bit low power ARM MCU
-USB connector: Micro USB
+Microcontroller: uBlox NORA-W106 (ESP32-S3)
+USB connector: USB-C®
 Pins:
   Built-in LED Pin: 13
   Digital I/O Pins: 14
@@ -10,10 +10,8 @@ Pins:
   PWM pins: 5
   External interrupts: All digital pins
 Connectivity:
-  Wi-Fi: Nina W102 uBlox module
-  Bluetooth®: Nina W102 uBlox module
-Sensors:
-  IMU: LSM6DS3
+  Wi-Fi: uBlox NORA-W106 (ESP32-S3)
+  Bluetooth®: uBlox NORA-W106 (ESP32-S3)
 Communication:
   UART: RX/TX 
   I2C: A4 (SDA), A5 (SCL)
@@ -21,13 +19,14 @@ Communication:
 Power:
   I/O Voltage: 3.3V
   Input voltage (nominal): 5-18V
-  DC Current per I/O Pin: 7 mA
+  Source Current per I/O Pin: 40 mA
+  Sink Current per I/O Pin: 28 mA
 Clock speed:
-  Processor: SAMD21G18A 48MHz
+  Processor: up to 240 MHz
 Memory:
-  SAMD21G18A: 256 KB SRAM, 1MB flash
-  Nina W102 uBlox module: 448 KB ROM, 520KB SRAM, 2MB Flash
+  ROM: 384 kB
+  SRAM: 512 kB
+  External Flash: 128 Mbit (16MB)  
 Dimensions:
-  Weight: 5gr
   Width: 18 mm
   Length: 45 mm

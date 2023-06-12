@@ -274,11 +274,7 @@ The 3.3V pin is connected to the 3.3V rail which is connected to the output of t
 
 ### Pin Current
 
-The GPIOs on the Nano ESP32 can handle currents up to **40 mA**. Never connect devices that draw higher current directly to a GPIO. 
-
-The absolute maximum rating of acculumative current for the ESP32-S3 is specified at **1500mA**. This is a lmit 
-
-For powering e.g. servo motors, use an external power supply.
+The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and **sink currents** up to **28 mA**. Never connect devices that draw higher current directly to a GPIO. 
 
 ### Solder Jumper (SJ1)
 
