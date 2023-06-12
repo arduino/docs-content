@@ -30,6 +30,7 @@ The goals of this tutorial are:
 - [Arduino® Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 
 ## Common Features
+
 ### Variables Addition
 
 There are 2 types of variables:
@@ -37,6 +38,7 @@ There are 2 types of variables:
 * Local variables: Only one program has access to it.
 
 #### Global Variable
+
 Click inside the **Project** tab and click the **Global_vars** section, a table is available to see the full list of global variables on your project.
 
 To add a new one, right-click on the table and click the **insert** button.
@@ -61,6 +63,7 @@ Following the same steps explained previously, you can right-click the table, an
 A new variable will be added with default settings, double-click each of them to change them as you need.
 
 ### Adding Blocks
+
 The blocks are features or functions available from libraries and the PLC IDE.
 
 These will help you to perform tasks, like AND gates, ADD function, etc...
@@ -71,6 +74,7 @@ To add a block to your program (only possible with LD, SFC, FBD) you can drag an
 Once you drag and drop it on your canvas it will generate a block with some input and output pins fully customizable, most of the time you can right-click the block and add more pins in case you need more than the default.
 
 ### Task Attachment
+
 Once you have your programs you can attach them to a task inside the runtime.
 
 There are 4 Tasks:
@@ -100,10 +104,32 @@ Inside the **Tool window** you can drag and drop variables, or click the **Inser
 
 ![Watch a variable](assets/watch.png)
 
+### Library Management
+
+The PLC IDE manages the library add-on and usage in a different manner. The traditional method of using `#include` macro cannot be used in this environment.
+
+To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
+
+![Sketch Libraries](assets/plcide-sketch-libraries-blank.png)
+
+The 'Sketch Libraries' window will show up, click on **Add** and fill out the library name. The library name is the same name meta-data value that is found within 'library.properties', which is the 'Properties Source File'. You will have to fill the needed library version.
+
+Once you have followed previous steps, you will now have the added library available. It can be removed by clicking on **Remove** option within 'Sketch Libraries' window.
+
+![Sketch Libraries with ArduinoModbus added](assets/plcide-sketch-libraries-added.png)
+
+***Only publicly available libraries can be added to the PLC IDE Arduino Sketch at the moment.So, it is not possible to add custom libraries.***
+
+The following figure shows how the library is added to the PLC IDE Arduino Sketch in motion.
+
+GIF SHOWING LIBRARY ADDITION IN PLC IDE
+
 ## Sample Program
+
 The program will be a simple counter, increasing the count by X over time.
 
 ### Arduino Sketch
+
 ```cpp
 int count = 0;
 const int addition = 1;
@@ -115,6 +141,7 @@ void loop(){
 ```
 
 ### IEC-61131-3 Languages
+
 To create a new program open your project tab, go to the toolbar **Project > New object > New program**, set a name for your program and select its language.
 
 ![New program from Project's drop-down menu](assets/newProgram.png)
@@ -131,6 +158,7 @@ There are 5 languages available:
 * Function Block Diagram (FBD)
 
 ### Structured Text
+
 This language is similar to C, the code to assign a value to a variable is the following:
 ```
 count := count + addition;
@@ -139,6 +167,7 @@ count := count + addition;
 ![Structured Text counter program](assets/STprogram.png)
 
 ### Instruction List
+
 This programming language is similar to Assembly programming.
 
 The code for a counter script is:
@@ -151,6 +180,7 @@ ST count
 ![Instruction List counter program](assets/ILprogram.png)
 
 ### Ladder Diagram
+
 This programming environment is based on lines and blocks, a line has a path from left to right that needs to pass all the in between blocks in order to continue towards the right, if it does pass all the different blocks (like AND gates) it will end on the right on a brackets symbol (coil) triggering whatever you have set up to do, which could be for example a relay latching to Normally-Open (NO).
 
 This is how a counter program looks:
@@ -160,11 +190,13 @@ Here is a video doing that from scratch:
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/0EdATSgIc9o" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Sequential Function Chart
+
 This language approaches the script in a similar way as a flowchart, meaning you have blocks that do some work, you check the result of that work, and afterward you keep flowing with the choices.
 
 SFC language can not interact directly with the machine, meaning you can not make an output be OFF directly, to do so you will need to create **actions**
 
 #### Actions
+
 An action is a script in another language (i.e. structured text) that performs the work, this will get triggered depending on the chart.
 
 To create one go to your project tree, right-click the SFC script and click the "New action" button.
@@ -172,6 +204,7 @@ To create one go to your project tree, right-click the SFC script and click the 
 ![Creating new action](assets/newAction.png)
 
 #### SFC Program
+
 You have blocks available by right-clicking inside the canvas or on the top bar, you can drag and drop them.
 
 The SFC program has one rule which is following the order of **Step<sub>0</sub> > Transition<sub>0</sub> > Step<sub>n</sub> > Transition<sub>n</sub> > ... > Jump**
@@ -187,6 +220,7 @@ Here is a video doing that from scratch:
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/olQooS4bX4A" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Functional Block Diagram
+
 This is similar to the SFC Programming, but in this case there is no sequential path on the program, you add blocks to do the needed work.
 
 For example, adding the **Add** block will do the Add function each cycle.
@@ -200,6 +234,7 @@ Here is a video doing that from scratch:
 ***In the previous programs, we used local variables, remember to select the program's specific variables to be watched, or you will not see any data***
 
 ## Conclusion
+
 You have:
 * Created a simple counter with each language
 * Learned how to watch live variable's value
