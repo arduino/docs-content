@@ -35,12 +35,6 @@ The **R7FA4M1AB3CFM#AA0** is the main MCU on the UNO R4 WiFi, connected to all p
   * 14-bit ADC
   * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
-  * Multiple Clock Sources
-    * 1-20 MHz main clock oscillator (MOSC)
-    * 32.768 kHz sub-clock oscillator (SOSC)
-    * 24-64 MHz high-speed on-chip oscillator (HOCO)
-    * 32.768 kHz low-speed on-chip oscillator (LOCO)
-  * Segment LCD Controller (SLCDC)
 * **Power**
   * Operating voltage for RA4M1 is 5V
   * Recommended input voltage (VIN) is 6-24V
@@ -164,7 +158,7 @@ The R7FA4M1AB3CFM#AA0 features:
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
 * up to 12-bit DAC
-* 4x OPAMP
+* OPAMP
 * CAN bus
 
 For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
