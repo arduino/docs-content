@@ -108,9 +108,9 @@ Inside the **Tool window** you can drag and drop variables, or click the **Inser
 
 The PLC IDE manages the library add-on and usage differently. To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
 
-With the 'Sketch Libraries' window opened up, click the **Add** option and fill out the library name. You will have to fill in the needed version of the added library as well. It is possible to find these information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to local libraries directory and obtain meta-data from 'library.properties', if you have the released library file locally.
+With the 'Sketch Libraries' window opened up, click the **Add** option and fill out the library name. You will have to fill in the needed version of the added library as well. It is possible to find this information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to the local libraries directory and obtaining meta-data from 'library.properties' if you have the released library file locally.
 
-For example, if you want to add 1.0.8 version of the 'ArduinoModbus' library, respective information must be introduced to its fields accordingly.
+For example, if you want to add the 1.0.8 version of the 'ArduinoModbus' library, respective information must be introduced to its fields accordingly.
 
 ![Sketch Libraries window with ArduinoModbus library added](assets/plcide-sketch-libraries-added.png)
 
