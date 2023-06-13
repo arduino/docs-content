@@ -120,9 +120,6 @@ Once you have followed the previous steps, the libraries will be available for u
 
 ***Currently only publicly available libraries can be added to the PLC IDE Arduino Sketch, and you can check them by searching in the [Arduino Library List](https://www.arduinolibraries.info/).***
 
-The following short clip shows how a library is added to the PLC IDE Arduino Sketch.
-
-![Adding a library to the PLC IDE Arduino Sketch](assets/plcide-library-management.gif)
 
 ## Sample Program
 
