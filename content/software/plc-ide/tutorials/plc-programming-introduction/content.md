@@ -110,9 +110,9 @@ The PLC IDE manages the library add-on and usage differently. To add the desired
 
 With the 'Sketch Libraries' window open, click the **Add** option and fill out the library name. You will have to fill in the needed library version as well. It is possible to find this information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to the local libraries directory and obtaining meta-data from 'library.properties' if you have the released library file locally.
 
-For example, if you want to add the 1.0.8 version of the 'ArduinoModbus' library, respective information must be introduced to its fields accordingly.
+For example, if you want to add the 1.1.1 version of the 'Arduino_MachineControl' library, respective information must be introduced to its fields accordingly.
 
-![Sketch Libraries window with ArduinoModbus library added](assets/plcide-sketch-libraries-added.png)
+![Sketch Libraries window with Arduino_MachineControl library added](assets/plcide-sketch-libraries-added.png)
 
 Once you have followed the previous steps, the libraries will be available for use. A library of choice can be removed by clicking on the **Remove** option within the 'Sketch Libraries' window.
 
