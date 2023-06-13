@@ -68,17 +68,78 @@ The size of the screen space needs to be set for the pointer that is declared. T
 
 ### Creating a grid layout
 
+Creating a grid that you can then fill with elements will consist of a defined column and row. This `col_dsc[] = {370, 370, LV_GRID_TEMPLATE_LAST};` will create two columns with 370 px width. To add more columns simply add more values, like so `col_dsc[] = {100, 100, 100, 100, LV_GRID_TEMPLATE_LAST};`, this will create four columns with 100 px width. The same logic is applied to the row defenition.
+
+```arduino
+  static lv_coord_t col_dsc[] = {370, 370, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = {215, 215, LV_GRID_TEMPLATE_LAST};
+```
+
+Then like before a pointer for the screenspace needs to be created. Here it will be called `grid`. 
+
+```arduino
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+```
+
+To set the grid description that we defined before use:
+
+```arduino
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+```
+
+Now that the columns and rows have been defined the overal screen needs to be taken into account. This is achieved by using `lv_obj_set_size(grid, Display.width(), Display.height())`, to make it easy we will allow the `grid` to use the entire screen. 
+
+```arduino
+  lv_obj_set_size(grid, Display.width(), Display.height());
+```
+
+Then if we want to center the grid on the screen, simply use:
+
+```arduino
+  lv_obj_center(grid);
+```
+
 ### Update loop
+
+```arduino
+void loop() { 
+  /* Feed LVGL engine */
+  lv_timer_handler();
+}
+```
+
+## Visual elements
 
 ### Image
 
+To display an image on the screen we first need to define what that image that should be. Take the desired image, convert it into the correct format and place the image in the same folder as the sketch. Now use `LV_IMG_DECLARE(filename);`. For example the image we use will be named `img_arduinologo`.
+
 ```arduino
   LV_IMG_DECLARE(img_arduinologo);
-  lv_obj_t * img1 = lv_img_create(obj);
+```
+
+`obj` will be a pointer that will be used to hold the information about the screenspace information for the image. The `img1` pointer will be used for the elements of the image itself.
+
+```arduino
+  lv_obj_t * obj;
+  lv_obj_t * img1;
+```
+
+Then create the image object with `obj` as a parent. Then we can link the image and image pointer together.
+
+```arduino
+  img1 = lv_img_create(obj);
   lv_img_set_src(img1, &img_arduinologo);
+```
+
+To make sure we see the image use the align function to make it centered. Then at last set the size of image with `lv_obj_set_size(img1, WIDTH, HEIGHT)`.
+
+```arduino
   lv_obj_align(img1, LV_ALIGN_CENTER, 0, 0);
   lv_obj_set_size(img1, 200, 150);
 ```
+
+## Functional elements
 
 ### Checkbox
 
@@ -106,6 +167,8 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
 
 ### Radio button
 
+A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element.
+
 ```arduino
   static lv_style_t style_radio;
   static lv_style_t style_radio_chk;
@@ -127,31 +190,71 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
+```arduino
+  lv_anim_t a;
+  lv_anim_init(&a);
+  lv_anim_set_exec_cb(&a, set_slider_val);
+  lv_anim_set_time(&a, 3000);
+  lv_anim_set_playback_time(&a, 3000);
+  lv_anim_set_var(&a, bar);
+  lv_anim_set_values(&a, 0, 100);
+  lv_anim_set_repeat_count(&a, LV_ANIM_REPEAT_INFINITE);
+  lv_anim_start(&a);
+```
+
+```arduino
+static void set_slider_val(void * bar, int32_t val) {
+  lv_bar_set_value((lv_obj_t *)bar, val, LV_ANIM_ON);
+}
+```
+
 ### Button
 
 A button will need two parts, the design of the button itself and the callback event function which determines what happens when the button is pressed. Lets start with designing the button.
 
 
+`obj` will be a pointer that will be used to hold the information about the screenspace information for the button. The `button` pointer will be used for the elements in the button itself. The `label` pointer will be used for the text that will be put on the button.
 
 ```arduino
-  lv_obj_t * btn = lv_btn_create(obj);
-  lv_obj_set_size(btn, 100, 40);
-  lv_obj_center(btn);
-  lv_obj_add_event_cb(btn, btn_event_cb, LV_EVENT_CLICKED, NULL);
+  lv_obj_t * obj;
+  lv_obj_t * button;
+  lv_obj_t * label;
+```
 
-  label = lv_label_create(btn);
+Now the button can be created with:
+
+```arduino
+  button = lv_btn_create(obj);
+```
+
+Set the size of the button with `lv_obj_set_size(btn, WIDTH, HEIGHT)`. For example:
+
+```arduino
+  lv_obj_set_size(btn, 100, 40);
+```
+
+Lets make the label on the button a child of the button by using `label = lv_label_create(button)`. Then the label can be set to whatever text it needs to be and center the text on top of the button so that it looks correct. The button will now say `Click me!` at the center of it.
+
+```arduino
+  label = lv_label_create(button);
   lv_label_set_text(label, "Click me!");
   lv_obj_center(label);
 ```
 
+When the button is clicked we need to assign it a function to execute, lets call this function `button_event_callback`. Assign it to the correct button and set it to be executed when the button is clicked with `LV_EVENT_CLICKED`.
 
 ```arduino
-static void btn_event_callback(lv_event_t * e) {
-  static uint32_t cnt = 1;
-  lv_obj_t * btn = lv_event_get_target(e);
-  lv_obj_t * label = lv_obj_get_child(btn, 0);
-  lv_label_set_text_fmt(label, "%"LV_PRIu32, cnt);
-  cnt++;
+  lv_obj_add_event_cb(button, button_event_callback, LV_EVENT_CLICKED, NULL);
+```
+
+Now lets create the callback function that will be called when the button is clicked. By creating pointers that will point to the original elements we can change them easily in our function. This function will make it so that when the button is clicked the label text on the button will be changed to `Clicked!`.
+
+
+```arduino
+static void button_event_callback(lv_event_t * e) {
+  lv_obj_t * button = lv_event_get_target(e);
+  lv_obj_t * label = lv_obj_get_child(button, 0);
+  lv_label_set_text_fmt(label, "%"LV_PRIu32, "Clicked!");
 }
 ```
 
