@@ -1,5 +1,5 @@
 ---
-title: 'Programming Introduction With Arduino® PLC IDE'
+title: 'Programming Introduction with Arduino® PLC IDE'
 difficulty: intermediate
 description: "Create programs with all the IEC-61131-3 languages on the Arduino PLC IDE."
 tags:
@@ -27,7 +27,7 @@ The goals of this tutorial are:
 
 ### Required Hardware and Software
 
-- [Arduino® Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 
 ## Common Features
 
