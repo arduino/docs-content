@@ -106,23 +106,21 @@ Inside the **Tool window** you can drag and drop variables, or click the **Inser
 
 ### Library Management
 
-The PLC IDE manages the library add-on and usage in a different manner. The traditional method of using `#include` macro cannot be used in this environment.
+The PLC IDE manages the library add-on and usage differently. To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
 
-To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
+The 'Sketch Libraries' window will show up, click on **Add** and fill out the library name. The library name is the same name meta-data value that can be found within 'library.properties', which is a 'Properties Source File'. You will have to fill in the version of the needed library as well.
 
-![Sketch Libraries](assets/plcide-sketch-libraries-blank.png)
+For example, if you need to add 1.0.8 'ArduinoModbus' library, the 'ArduinoModbus' is the name and '1.0.8' is the version of the ArduinoModbus you desire to use.
 
-The 'Sketch Libraries' window will show up, click on **Add** and fill out the library name. The library name is the same name meta-data value that is found within 'library.properties', which is the 'Properties Source File'. You will have to fill the needed library version.
+![Sketch Libraries window with ArduinoModbus library added](assets/plcide-sketch-libraries-added.png)
 
-Once you have followed previous steps, you will now have the added library available. It can be removed by clicking on **Remove** option within 'Sketch Libraries' window.
+Once you have followed the previous steps, the libraries will be available for use. A library of choice can be removed by clicking on the **Remove** option within the 'Sketch Libraries' window.
 
-![Sketch Libraries with ArduinoModbus added](assets/plcide-sketch-libraries-added.png)
+***Currently only publicly available libraries can be added to the PLC IDE Arduino Sketch. It is not possible to add custom libraries at the moment.***
 
-***Only publicly available libraries can be added to the PLC IDE Arduino Sketch at the moment.So, it is not possible to add custom libraries.***
+The following short clip shows how a library is added to the PLC IDE Arduino Sketch.
 
-The following figure shows how the library is added to the PLC IDE Arduino Sketch in motion.
-
-![Library addition example](assets/plcide-library-management.gif)
+![Adding a library to the PLC IDE Arduino Sketch](assets/plcide-library-management.gif)
 
 ## Sample Program
 
