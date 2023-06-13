@@ -108,15 +108,15 @@ Inside the **Tool window** you can drag and drop variables, or click the **Inser
 
 The PLC IDE manages the library add-on and usage differently. To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
 
-The 'Sketch Libraries' window will show up, click on **Add** and fill out the library name. The library name is the same name meta-data value that can be found within 'library.properties', which is a 'Properties Source File'. You will have to fill in the version of the needed library as well.
+With the 'Sketch Libraries' window opened up, click the **Add** option and fill out the library name. You will have to fill in the needed version of the added library as well. It is possible to find these information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to local libraries directory and obtain meta-data from 'library.properties', if you have the released library file locally.
 
-For example, if you need to add 1.0.8 'ArduinoModbus' library, the 'ArduinoModbus' is the name and '1.0.8' is the version of the ArduinoModbus you desire to use.
+For example, if you want to add 1.0.8 version of the 'ArduinoModbus' library, respective information must be introduced to its fields accordingly.
 
 ![Sketch Libraries window with ArduinoModbus library added](assets/plcide-sketch-libraries-added.png)
 
 Once you have followed the previous steps, the libraries will be available for use. A library of choice can be removed by clicking on the **Remove** option within the 'Sketch Libraries' window.
 
-***Currently only publicly available libraries can be added to the PLC IDE Arduino Sketch. It is not possible to add custom libraries at the moment.***
+***Currently only publicly available libraries can be added to the PLC IDE Arduino Sketch, and you can check them by searching in the [Arduino Library List](https://www.arduinolibraries.info/).***
 
 The following short clip shows how a library is added to the PLC IDE Arduino Sketch.
 
