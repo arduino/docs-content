@@ -238,7 +238,7 @@ The DAC can be used for signal generation for e.g. audio applications. You can f
 
 ## I²C Connector
 
-The I²C connector SM04B-SRSS-TB(LF)(SN) is connected to the main I²C bus on the board. Note that this connector is powered via 3.3V.
+The I²C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I²C bus on the board. Note that this connector is powered via 3.3V. Using the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library, use the `Wire1` object as opposed to the standard `Wire` object. 
 
 ![I²C connector.](assets/i2c-connector.png)
 
