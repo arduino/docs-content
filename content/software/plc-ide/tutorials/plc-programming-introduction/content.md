@@ -106,7 +106,7 @@ Inside the **Tool window** you can drag and drop variables, or click the **Inser
 
 ### Library Management
 
-The PLC IDE manages the library add-on and usage differently. To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
+The PLC IDE manages the library add-on and usage differently from the traditional Arduino IDE. To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
 
 With the 'Sketch Libraries' window open, click the **Add** option and fill out the library name. You will have to fill in the needed library version as well.
 
