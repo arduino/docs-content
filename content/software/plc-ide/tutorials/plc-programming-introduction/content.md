@@ -110,7 +110,7 @@ The PLC IDE manages the library add-on and usage differently. To add the desired
 
 With the 'Sketch Libraries' window open, click the **Add** option and fill out the library name. You will have to fill in the needed library version as well.
 
-It is possible to find this information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to the local libraries directory and obtaining meta-data from 'library.properties' if you have the released library file locally.
+It is possible to find this information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to the local libraries directory and obtaining meta-data from 'library.properties' as a reference if you have the released library file locally.
 
 For example, if you want to add the 1.1.1 version of the 'Arduino_MachineControl' library, respective information must be introduced to its fields accordingly.
 
