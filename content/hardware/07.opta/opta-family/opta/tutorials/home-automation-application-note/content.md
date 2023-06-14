@@ -34,7 +34,7 @@ This application note shows a home automation system based on an Opta™️, cap
 
 - Implementing the roller window shade control (opening and closing) upon a programmed scenario
 - Get inputs from limit switches included in the roller window shade's control system, for feedback and security reinforcement
-- Control and monitor the roller window shade via [Arduino IoT Cloud](https://cloud.arduino.cc/)
+- Control and monitor the roller window shade via [Arduino IoT Cloud](https://create.arduino.cc/iot/)
 
 ## Hardware and Software Requirements
 
@@ -519,7 +519,7 @@ void printCurrentNet() {
 
 ### Arduino IoT Cloud Integration
 
-The example code explained before can be modified to connect the roller window shade to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), leveraging the wireless connectivity features of the Opta™️; **remember that you must have an Arduino IoT Cloud account**. With the Arduino IoT Cloud integration, we are going to add more advanced functionalities such as remote programming, actuation and monitoring to the application:
+The example code explained before can be modified to connect the roller window shade to the [Arduino IoT Cloud](https://create.arduino.cc/iot/), leveraging the wireless connectivity features of the Opta™️; **remember that you must have an Arduino IoT Cloud account**. With the Arduino IoT Cloud integration, we are going to add more advanced functionalities such as remote programming, actuation and monitoring to the application:
 
 - Change the programmed scenarios (hours and minutes).
 - Open or close the roller window shade at any time.
