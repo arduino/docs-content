@@ -68,6 +68,8 @@ The Opta™️ controls a DC motor via a driver using digital output terminals `
 
 ## Demonstration Description
 
+### Application Overview
+
 First, the Opta™️ will attempt to connect to a predefined Wi-Fi® network; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
 
 ***The NTP is a protocol used to synchronize the clocks of servers and clients across the Internet; it is intended to synchronize computers participating in the network within a few milliseconds of Coordinated Universal Time (UTC). You can read more about the NTP protocol [here](https://en.wikipedia.org/wiki/Network_Time_Protocol).***
@@ -77,7 +79,7 @@ After the RTC is synced, Opta™️ will be programmed for **opening** and **clo
 - The roller window shade will open automatically in the morning as the sun rises (e.g. 6:00 AM) and close in the evening (e.g. 6:00 PM)
 - The NO SPDT limit switches will provide Opta™️ a feedback for the sun shield's upper or lower end limit, triggering the motor's stop
 
-### Example Sketch of the Demonstration
+### Example Sketch of the Application 
 
 Hereafter the sketch explained. Note that **this code must be updated considering the proper parameters of your roller window shade and DC motor characteristics**.
 
@@ -227,7 +229,7 @@ The main loop can be divided into two essential steps:
 - The `getLocalHour()` and `getLocalMinutes()` functions are used to acquire Opta™'s local time (from its RTC); this is then compared to the programmed scenarios times (in this example, 6:00 AM and 6:00 PM). The roller window shade must be opened or closed if Optas™'s RTC time matches the programmed scenarios.
 - The Opta™️ RTC is updated periodically (every 30 minutes in the example) using the `updateTime()` function.
 
-### Complete Example Sketch of the Demonstration
+### Complete Example Sketch of the Application
 
 The complete example sketch explained before is shown below; pay attention to the `updateTime()`, `getLocalTime()`, `getLocalHour()`, `roll_down_shade()`, `roll_up_shade()`, `stop_shade()`, `printWifiData()`, and `printCurrentNet()` functions:
 
