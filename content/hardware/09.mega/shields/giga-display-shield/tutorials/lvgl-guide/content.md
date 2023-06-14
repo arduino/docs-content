@@ -6,6 +6,10 @@ tags: [Display, LVGL]
 ---
 
 
+## Introduction
+
+LVGL is a very powerful graphical framework that is compatible with the Giga Display Shield. It will allow you to put components on the screen like buttons, images, loading bars, sliders, checkboxes etc. It also allows you fully customize the screenspace on the display. This guide will go through the different components in detail so you can learn how to best implement it to your project.
+
 ## Hardware & Software Needed
 
 - [GIGA R1 WiFi](/hardware/giga-r1).
@@ -101,9 +105,10 @@ Then if we want to center the grid on the screen, simply use:
 
 ### Update loop
 
+Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
+
 ```arduino
 void loop() { 
-  /* Feed LVGL engine */
   lv_timer_handler();
 }
 ```
@@ -166,12 +171,22 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
 
 ### Radio button
 
-A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element.
+A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element. Adding these two style elements will allow for them to be added to the checkbox options.
 
 ```arduino
   static lv_style_t style_radio;
   static lv_style_t style_radio_chk;
+```
+
+Now initialize the style variable that was set in the previous step:
+
+```arduino
   lv_style_init(&style_radio);
+```
+
+The size of the radio button is set with `lv_style_set_radius`. To make the radio button checkable use `lv_style_init(&style_radio_chk);`. And the color or background of the filled radio check can be set with `lv_style_set_bg_img_src`.
+
+```arduino
   lv_style_set_radius(&style_radio, LV_RADIUS_CIRCLE);
   lv_style_init(&style_radio_chk);
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
@@ -331,3 +346,5 @@ static void button_event_callback(lv_event_t * e) {
 ```
 
 ## Conclusion
+
+This guide went through the building blocks of the different components that can be implemented with lvgl. To see these examples in a full running example sketch go to **File->Examples->Arduino_H7_Video->LVGLDemo**. This example sketch will show the different components in a 2x2 grid.
