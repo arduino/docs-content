@@ -42,6 +42,17 @@ The shown application note is intended to replicate a scaled smart farming appli
 
 ## Goals
 
+The goal of this application note is to showcase a sensorized farming irrigation system using a combination of an Edge Control, an MKR WAN 1310, and the Arduino IoT Cloud. The project's objectives are the following:
+
+- Independently control four irrigation zones using latching valves.
+- Leverage MKR WAN 1310 with LoRa and a Wisgate (Lite or PRO) to communicate with Arduino IoT Cloud.
+- Monitor soil moisture and decide whether to irrigate based on it. 
+- Display the soil humidity level on the Edge Control Enclosure kit LCD.
+- Manually activate irrigation through Enclosure Kit built-in push button.
+- Monitor average humidity level, irrigation time and water consumption on dedicated charts on Arduino IoT Cloud.
+- Get water from a garden hose with a flow sensor able to evaluate the amount of consumed water.
+
+
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
