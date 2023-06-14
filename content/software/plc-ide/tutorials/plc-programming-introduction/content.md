@@ -107,10 +107,12 @@ Inside the **Tool window** you can drag and drop variables, or click the **Inser
 ### Library Management
 
 The PLC IDE manages the library add-on and usage differently from the traditional Arduino IDE. To add the desired library, go to **Resources** tab and click the **Libraries** listed under the **Sketch**.
+
 ![Adding a library to the PLC IDE Arduino Sketch](assets/plcide-library-management.gif)
+
 With the 'Sketch Libraries' window open, click the **Add** option and fill out the library name. You will have to fill in the needed library version as well.
 
-It is possible to find this information using the [Arduino Library List](https://www.arduinolibraries.info/) or by navigating manually to the local libraries directory and obtaining meta-data from 'library.properties' as a reference if you have the released library file locally.
+It is possible to find this information using the [Arduino Library List](https://www.arduinolibraries.info/) or referencing the indexed library on your development environment. The information from local library can be obtained by navigating manually to the local libraries directory and accessing the meta-data from 'library.properties'. **Please make sure that it is a publicly released library and not with a custom profile, otherwise the PLC IDE won't be able to include the desired component.**
 
 For example, if you want to add the 1.1.1 version of the 'Arduino_MachineControl' library, respective information must be introduced to its fields accordingly.
 
@@ -119,7 +121,6 @@ For example, if you want to add the 1.1.1 version of the 'Arduino_MachineControl
 Once you have followed the previous steps, the libraries will be available for use. A library of choice can be removed by clicking on the **Remove** option within the 'Sketch Libraries' window.
 
 ***Currently only publicly available libraries can be added to the PLC IDE Arduino Sketch, and you can check them by searching in the [Arduino Library List](https://www.arduinolibraries.info/).***
-
 
 ## Sample Program
 
