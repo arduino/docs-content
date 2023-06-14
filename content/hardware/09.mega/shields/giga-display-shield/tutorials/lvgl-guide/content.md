@@ -164,7 +164,6 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-
 ### Radio button
 
 A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element.
@@ -180,30 +179,103 @@ A radio button is created in the same way as a checkbox, but with some additiona
 
 ### Slider
 
+To make a slider bar feel correct with reaction to our touch we need to include some animation. Lets first set up the slider itself and then move on to the animation.
+
+`obj` will be a pointer that will be used to hold the information about the screenspace information for the slider. The `slider` pointer will be used for the elements of the slider itself. The `label` pointer will be used for the text that will attached to the slider.
 
 ```arduino
-  lv_obj_t * slider = lv_slider_create(obj);
+  lv_obj_t * obj;
+  lv_obj_t * slider;
+  lv_obj_t * label;
+```
+
+Now the slider can be created with:
+
+```arduino
+  slider = lv_slider_create(obj);
+```
+
+Now the value of the slider needs to be defined, here the max value of the slider will be `75` and the animation will be default set as off as it is only needed when it is interacted with.
+
+```arduino
   lv_slider_set_value(slider, 75, LV_ANIM_OFF);
-  lv_obj_center(slider);
+```
+
+If you want a label by your slider it can be created like you would create any other label. Using `lv_obj_align_to` allows for the label to be attached to the slider element. Changing the `LV_ALIGN_OUT_BOTTOM_MID` to determine where the text will be relative to the slider. You can find all the different options for alignment [here.](https://docs.lvgl.io/master/widgets/obj.html#coordinates)
+
+```arduino
   label = lv_label_create(obj);
   lv_label_set_text(label, "Drag me!");
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
-```arduino
-  lv_anim_t a;
-  lv_anim_init(&a);
-  lv_anim_set_exec_cb(&a, set_slider_val);
-  lv_anim_set_time(&a, 3000);
-  lv_anim_set_playback_time(&a, 3000);
-  lv_anim_set_var(&a, bar);
-  lv_anim_set_values(&a, 0, 100);
-  lv_anim_set_repeat_count(&a, LV_ANIM_REPEAT_INFINITE);
-  lv_anim_start(&a);
-```
+### Bar
+
+To make a bar, for example a loading bar, we need to include some animation. Lets first set up the slider itself and then move on to the animation.
+
+`obj` will be a pointer that will be used to hold the information about the screenspace information for the bar. The `bar` pointer will be used for the elements of the bar itself.
 
 ```arduino
-static void set_slider_val(void * bar, int32_t val) {
+  lv_obj_t * obj;
+  lv_obj_t * bar;
+```
+
+Now the bar can be created with:
+
+```arduino
+  bar = lv_bar_create(obj);
+```
+
+Set the desired size of the bar with `lv_obj_set_size`. The value of the bar needs to be defined, here the max value of the bar will be `70` and the animation will be default set as off.
+
+```arduino
+  lv_obj_set_size(bar, 200, 20);
+  lv_bar_set_value(bar, 70, LV_ANIM_OFF);
+```
+
+Now for the animation. First create the slider variable and initialize it:
+
+```arduino
+  lv_anim_t animation;
+  lv_anim_init(&animation);
+```
+
+The animation time needs to be defined. It can be set with `lv_anim_set_time` which sets the duration of the animation and `lv_anim_set_playback_time` which makes the animation play back to when the forward direction is ready. The animation variable and the time in milliseconds has to be defined.
+
+```arduino
+  lv_anim_set_time(&animation, 3000);
+  lv_anim_set_playback_time(&animation, 3000);
+```
+
+To connect the animation to the bar use:
+
+```arduino
+  lv_anim_set_var(&animation, bar);
+```
+
+The start and end values of the animation has to be set, here they are `0` and `100` respectivly.
+
+```arduino
+  lv_anim_set_values(&animation, 0, 100);
+```
+
+How many times the animation will repeat can also be set, with this code the animation will repeat forever. And then at last we can create the animation with `lv_anim_start`.
+
+```arduino
+  lv_anim_set_repeat_count(&animation, LV_ANIM_REPEAT_INFINITE);
+  lv_anim_start(&animation);
+```
+
+When the bar animates we can set it so that a seperate callback function will be called. Here that function will be named `set_bar_val`.
+
+```arduino
+  lv_anim_set_exec_cb(&animation, set_bar_val);
+```
+
+In this seperate callback function the bar value will be reset and the animation will be turned on again.
+
+```arduino
+static void set_bar_val(void * bar, int32_t val) {
   lv_bar_set_value((lv_obj_t *)bar, val, LV_ANIM_ON);
 }
 ```
