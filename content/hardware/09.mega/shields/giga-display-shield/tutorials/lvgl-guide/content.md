@@ -1,5 +1,5 @@
 ---
-title: Guide for using LVGL with the Giga Display Shield
+title: Guide for Using LVGL With the Giga Display Shield
 description: 'Learn how to use LVGL with the GIGA display shield'
 author: Benjamin Dannegård
 tags: [Display, LVGL]
@@ -33,7 +33,7 @@ In the sketch include the libraries like this:
 #include "Arduino_GigaDisplayTouch.h"
 ```
 
-### Initializing the libraries
+### Initializing the Libraries
 
 We then will also need to define the screen we are using, do this by adding this line of code after the library inclusions. This function will use the **Arduino_H7_Video** library:
 
@@ -54,9 +54,9 @@ Display.begin();
 TouchDetector.begin();
 ```
 
-## General set up
+## General Set Up
 
-### Screen configuration
+### Screen Configuration
 
 When creating elements, information about the screen and placement needs to be provided. Lets create a pointer variable that can be used whenever the screenspace needs to be used. The pointer variable will be named `screen` and to use the current screen for the pointer use `lv_scr_act()`.
 
@@ -64,15 +64,15 @@ When creating elements, information about the screen and placement needs to be p
   lv_obj_t * screen = lv_obj_create(lv_scr_act());
 ```
 
-The size of the screen space needs to be set for the pointer that is declared. The size can be set to anything within the displays size paramaters. To make it easy we can use the entire size:
+The size of the screen space needs to be set for the pointer that is declared. The size can be set to anything within the displays size parameters. To make it easy we can use the entire size:
 
 ```arduino
   lv_obj_set_size(screen, Display.width(), Display.height());
 ```
 
-### Creating a grid layout
+### Creating a Grid Layout
 
-Creating a grid that you can then fill with elements will consist of a defined column and row. This `col_dsc[] = {370, 370, LV_GRID_TEMPLATE_LAST};` will create two columns with 370 px width. To add more columns simply add more values, like so `col_dsc[] = {100, 100, 100, 100, LV_GRID_TEMPLATE_LAST};`, this will create four columns with 100 px width. The same logic is applied to the row defenition.
+Creating a grid that you can then fill with elements will consist of a defined column and row. This `col_dsc[] = {370, 370, LV_GRID_TEMPLATE_LAST};` will create two columns with 370 px width. To add more columns simply add more values, like so `col_dsc[] = {100, 100, 100, 100, LV_GRID_TEMPLATE_LAST};`, this will create four columns with 100 px width. The same logic is applied to the row definition.
 
 ```arduino
   static lv_coord_t col_dsc[] = {370, 370, LV_GRID_TEMPLATE_LAST};
@@ -91,7 +91,7 @@ To set the grid description that we defined before use:
   lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
 ```
 
-Now that the columns and rows have been defined the overal screen needs to be taken into account. This is achieved by using `lv_obj_set_size(grid, Display.width(), Display.height())`, to make it easy we will allow the `grid` to use the entire screen. 
+Now that the columns and rows have been defined the overall screen needs to be taken into account. This is achieved by using `lv_obj_set_size(grid, Display.width(), Display.height())`, to make it easy we will allow the `grid` to use the entire screen. 
 
 ```arduino
   lv_obj_set_size(grid, Display.width(), Display.height());
@@ -103,7 +103,7 @@ Then if we want to center the grid on the screen, simply use:
   lv_obj_center(grid);
 ```
 
-### Update loop
+### Update Loop
 
 Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
 
@@ -113,7 +113,7 @@ void loop() {
 }
 ```
 
-## Visual elements
+## Visual Elements
 
 ### Image
 
@@ -144,7 +144,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
-## Functional elements
+## Functional Elements
 
 ### Checkbox
 
@@ -169,7 +169,7 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-### Radio button
+### Radio Button
 
 A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element. Adding these two style elements will allow for them to be added to the checkbox options.
 
@@ -268,7 +268,7 @@ To connect the animation to the bar use:
   lv_anim_set_var(&animation, bar);
 ```
 
-The start and end values of the animation has to be set, here they are `0` and `100` respectivly.
+The start and end values of the animation has to be set, here they are `0` and `100` respectively.
 
 ```arduino
   lv_anim_set_values(&animation, 0, 100);
@@ -281,13 +281,13 @@ How many times the animation will repeat can also be set, with this code the ani
   lv_anim_start(&animation);
 ```
 
-When the bar animates we can set it so that a seperate callback function will be called. Here that function will be named `set_bar_val`.
+When the bar animates we can set it so that a separate callback function will be called. Here that function will be named `set_bar_val`.
 
 ```arduino
   lv_anim_set_exec_cb(&animation, set_bar_val);
 ```
 
-In this seperate callback function the bar value will be reset and the animation will be turned on again.
+In this separate callback function the bar value will be reset and the animation will be turned on again.
 
 ```arduino
 static void set_bar_val(void * bar, int32_t val) {
