@@ -26,11 +26,11 @@ MKR-styled Pins:
   UART pins: 2
 Wireless connectivity:
   Chipset: ESP32-C3-MINI-1U
-  Wi-Fi®: 2.4GHz Wi-Fi® (802.11 b/g/n)
+  Wi-Fi®: 2.4 GHz Wi-Fi® (802.11 b/g/n)
   Bluetooth®: Bluetooth® Low Energy 5.0
 Ethernet connectivity:
   Chipset: LAN8742AI-CZ-TR
-  Interface: 10/100Mbit Ethernet interface (PHY)
+  Interface: RMII 10/100 Mbps Ethernet interface (PHY)
 Secure element: NXP® SE050C2
 Communication:
   I2C: 3
