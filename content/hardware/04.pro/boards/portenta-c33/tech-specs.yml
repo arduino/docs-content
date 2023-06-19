@@ -6,9 +6,7 @@ USB connector: USB-C®
 High-Density Pins:
   Digital I/O pins: 78
   Analog input pins: 8
-  ADC resolution: 12 bits 
   PWM pins: 10
-  DAC resolution: 12 bits
   SPI pins: 8 
   I2C pins: 6 
   UART pins: 16
@@ -19,9 +17,7 @@ High-Density Pins:
 MKR-styled Pins:
   Digital I/O pins: 22 
   Analog input pins: 7
-  ADC resolution: 12 bits 
   PWM pins: 7
-  DAC resolution: 12 bits
   SPI pins: 4 
   I2C pins: 2 
   UART pins: 2
@@ -32,6 +28,12 @@ Wireless connectivity:
 Ethernet connectivity:
   Chipset: LAN8742AI-CZ-TR
   Interface: RMII 10/100 Mbps Ethernet interface (PHY)
+Analog-to-digital converter (ADC):
+  Channels: 8
+  Resolution: 12 bits
+Digital-to-analog converter (DAC):
+  Channels: 2
+  Resolution: 12 bits 
 Secure element: NXP® SE050C2
 Communication:
   I2C: 3
