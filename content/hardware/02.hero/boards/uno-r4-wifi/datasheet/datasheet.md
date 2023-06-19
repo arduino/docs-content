@@ -293,7 +293,7 @@ For powering e.g. servo motors, always use an external power supply.
 | 1   | BOOT     | NC     | Not Connected                                   |
 | 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
 | 3   | Reset    | Reset  | Reset                                           |
-| 4   | +3V3     | Power  | +3V3 Power Rail                                 |
+| 4   | +3.3V     | Power  | +3V3 Power Rail                                 |
 | 5   | +5V      | Power  | +5V Power Rail                                  |
 | 6   | GND      | Power  | Ground                                          |
 | 7   | GND      | Power  | Ground                                          |
