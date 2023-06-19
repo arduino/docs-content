@@ -13,7 +13,7 @@ High-Density Pins:
   CAN pins: 4
   I2S pins: 4
   USB pins: 8
-  JTAG/SWD: 6
+  JTAG/SWD pins: 6
 MKR-styled Pins:
   Digital I/O pins: 22 
   Analog input pins: 7
@@ -50,6 +50,7 @@ Clock speed: 200 MHz
 Memory:
   Internal: 2 MB Flash, 512 KB RAM
   External: 16 MB (QSPI Flash)
+Hardware debugging interface: JTAG/SWD
 Dimensions:
   Width: 25.40 mm
   Length: 66.04 mm
