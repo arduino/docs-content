@@ -36,7 +36,7 @@ Connect the camera to the connector on the front of the display shield as shown 
 
 ## Example Code
 
-Open the example sketch by going to **File->Examples->Camera->GigaCameraDisplay** in the Arduino IDE. Whichever of the compatible cameras you are using the sketch will include libraries and defenitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print the captured frame onto the display. The LED will then blink 20 times and re-do the process. 
+Open the example sketch by going to **File->Examples->Camera->GigaCameraDisplay** in the Arduino IDE. Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print the captured frame onto the display. The LED will then blink 20 times and re-do the process. 
 
 ## Conclusion
 
