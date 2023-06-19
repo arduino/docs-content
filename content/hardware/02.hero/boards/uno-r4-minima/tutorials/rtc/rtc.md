@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 Minima Real Time Clock'
+title: 'Arduino UNO R4 Minima Real-time Clock'
 description: 'Learn how to access the real-time clock (RTC) on the UNO R4 Minima.'
 tags:
   - RTC
@@ -19,8 +19,8 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino R4 Minima](/hardware/uno-r4-minima).
+- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
+- [Arduino R4 Minima](/hardware/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 
 ## Real-Time Clock (RTC)

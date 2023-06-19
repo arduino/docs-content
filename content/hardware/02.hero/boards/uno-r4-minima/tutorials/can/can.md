@@ -15,12 +15,12 @@ In this tutorial you will learn how to use the CAN controller on the **Arduino U
 The goals of this tutorial are:
 - Get an overview of the built-in CAN library
 - Learn how to connect a board to a CAN transceiver module
-- Send a CAN message between two Arduinos
+- Send a CAN message between two Arduino boards
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino R4 Minima](/hardware/uno-r4-minima).
+- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
+- [Arduino R4 Minima](/hardware/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 - CAN transceiver module\* 
 - Jumper wires
@@ -45,7 +45,7 @@ To connect the CAN transceiver, follow the table and circuit diagram below:
 | ------------- | --------------- |
 | D5 (CANRX0)   | CANRX           |
 | D4 (CANTX0)   | CANTX           |
-| 5V            | VIN/VCC/5V      |
+| 5 V            | VIN/VCC/5 V      |
 | GND           | GND             |
 
 Then, between the CAN transceivers, connect the following:

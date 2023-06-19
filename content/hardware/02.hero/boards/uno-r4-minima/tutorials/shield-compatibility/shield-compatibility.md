@@ -19,9 +19,9 @@ This article covers a list of shields compatible with the UNO R4 series.
 | Name                     | Compatible | Libraries         |
 | -------------            | ---------- | -----------       |
 | Arduino 4 Relays Shield  | Yes        | None              |
-| Ethernet shield          | Yes        | [Ethernet.h](https://github.com/arduino-libraries/Ethernet)        |
-| Motor shield             | Yes        | None              |
-| 9 axis motion shield     | Yes        | [Adafruit_BNO055](https://github.com/adafruit/Adafruit_BNO055)   |
+| Arduino Ethernet Shield Rev2         | Yes        | [Ethernet.h](https://github.com/arduino-libraries/Ethernet)        |
+| Arduino Motor Shield Rev3             | Yes        | None              |
+| Arduino 9 Axis Motion Shield     | Yes        | [Arduino_NineAxesMotion](https://github.com/arduino-libraries/Arduino_NineAxesMotion)   |
 | Arduino Education Shield | Yes        | [EducationShield.h](https://github.com/arduino-libraries/EducationShield) |
 
 ### Third-Party Shields

@@ -1,5 +1,5 @@
 ---
-title: Getting Started with UNO R4 Minima
+title: Getting Started with Arduino UNO R4 Minima
 description: A step-by-step guide to install the board package needed for the UNO R4 Minima board.
 author: Hannes Siebeneicher
 tags: [UNO R4 Minima, Installation, IDE]

@@ -3,7 +3,7 @@ Board:
   SKU: ABX00080
 Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
 USB:
-  USB-C: Programming Port
+  USB-C®: Programming Port
 Pins:
   Digital I/O Pins: 14
   Analog input pins: 6
@@ -15,13 +15,13 @@ Communication:
   SPI: Yes, 1x
   CAN: Yes 1 CAN Bus
 Power:
-  Circuit operating voltage: 5V
-  Input voltage (VIN): 6-24V
+  Circuit operating voltage: 5 V
+  Input voltage (VIN): 6-24 V
   DC Current per I/O Pin: 8 mA
 Clock speed:
   Main core: 48 MHz
 Memory:
-  RA4M1: 256kB Flash, 32kB RAM
+  RA4M1: 256 kB Flash, 32 kB RAM
 Dimensions:
   Width: 68.85 mm
   Length: 53.34 mm
