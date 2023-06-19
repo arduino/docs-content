@@ -22,10 +22,10 @@ The matrix and its' API is developed to be programmed in a few different ways, e
 ![The UNO R4 WiFi LED Matrix](./assets/matrix-closeup.png)
 
 ## Hardware & Software Needed
-To follow along with this guide, you will of course need:
-- an [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi),
-- The latest version of the [UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas) 
-- and the [Arduino IDE](https://www.arduino.cc/en/software).
+
+- [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi)
+- [UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas) (latest version)
+- [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Initializing Matrix
 To use the LED Matrix library, there are a few things that need to be added to your sketch to get off the ground. 
@@ -66,7 +66,7 @@ The LED matrix library for the UNO R4 WiFi works on the principle of creating a 
 
 A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
-How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in 3 32bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display states of a program or interfaces. You can create frames and animations such as this one by [this browser tool](#animation-generation) developed by Arduino. Such a frame may look similar to this:
+How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in three 32-bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display the states of a program or interfaces. You can create frames and animations such as this one by [this browser tool](#animation-generation) developed by Arduino. Such a frame may look similar to this:
 
 ```
 const uint32_t heart[] = {
@@ -112,7 +112,7 @@ uint8_t frame[8][12] = {
 };
 
 ```
-To target an individual pixel you select its' address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
+To target an individual pixel you select its address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
 ```
 frame[2][1] = 1;
 matrix.renderBitmap(frame, 8, 12);
@@ -120,7 +120,7 @@ matrix.renderBitmap(frame, 8, 12);
 
 ## Testing It Out
 
-Let's apply these concepts, with two basic sketches that display different frames on your board. First, let's load 3x32bit integer frames and load them one by one.
+Let's apply these concepts, with two basic sketches that display different frames on your board. First, let's load 3x32-bit integer frames and load them one by one.
 
 Here's a sketch that will first load a smiley face on your matrix, and then change it to a heart.
 
@@ -226,15 +226,15 @@ delay(1000);
 ```
  
 ## Animation Generation
-Arduino has developed a tool that is used to generate frames and animations to be rendered on the LED matrix in your browser. 
+We have developed a tool that is used to generate frames and animations to be rendered on the LED matrix in your browser. 
 
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
 
 
 ![LED Matrix Editor](./assets/led-matrix-editor.png)
-It also features a live preview of the frames you're creating displayed right on the LED matrix of the Arduino UNO R4 WiFi, although this is only supported in Google Chrome. 
+It also features a live preview of the frames you're creating displayed right on the LED matrix of the UNO R4 WiFi, although this is only supported in Google Chrome. 
 
-To use the live preview feature of this tool, you need to upload this sketch to your board
+To use the live preview feature of this tool, you need to upload this sketch to your board:
 
 ```arduino
 #include "Arduino_LED_Matrix.h"
@@ -280,7 +280,7 @@ To write more advanced sketches on your own, you may use the full API of the lib
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
 `public ` [`ArduinoLEDMatrix`](#)`()` | The main class for controlling the LED matrix.
-`public void` [`autoscroll`](#)`(int32_t interval_ms)` | Sets the time in ms for each frame to be displayed
+`public void` [`autoscroll`](#)`(int32_t interval_ms)` | Sets the time in ms for each frame to be displayed.
 `public void` [`on`](#)`(size_t pin)` | Turn an individual pixel on.
 `public void` [`off`](#)`(size_t pin)` | Turn an individual pixel off.
 `public void` [`begin`](#)`()` | Start the LED matrix.

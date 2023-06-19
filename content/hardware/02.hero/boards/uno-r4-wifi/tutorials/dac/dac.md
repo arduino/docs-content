@@ -56,7 +56,7 @@ Open a new sketch and paste the following code into your window.
 
 ```arduino
 /*
-  Simple Sawtooth Waveform generator with Arduino UNO R4 
+  Simple Sawtooth Waveform generator with Arduino UNO R4 WiFi
 
  */
 
@@ -123,7 +123,7 @@ static int waveformsTable[maxSamplesNum] = {
 ## Testing It Out
 Once you have uploaded the code to the board, it should start generating a sawtooth wave oscillation on the DAC, that depending on the frequency could be used to produce sound on a piezo buzzer or speaker. If you have an oscilloscope at hand, connecting its probe to the DAC output might be an interesting exercise so see what the wave looks like. 
 
-Now try twisting the potentioometer, and listen to how the sound changes.
+Now try twisting the potentiometer, and listen to how the sound changes.
 
 ## Conclusion
 By following this tutorials you've experimented with the DAC on the Arduino UNO R4 boards and used it to generate a sawtooth wave. 

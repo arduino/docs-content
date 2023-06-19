@@ -6,7 +6,7 @@ tags:
   - I2C
   - SPI
   - UART
-  - WiFi
+  - Wi-Fi
   - Bluetooth
 author: 'Jacob Hylén'
 hardware:
@@ -21,9 +21,9 @@ The **Arduino UNO** is our most popular and globally recognized development boar
 
 This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get get started with your next project. 
 
-The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (Although this is an advanced option and requires some hacking).
+The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
 
-You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)
+You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi).
 
 ## Datasheet 
 The full datasheet is available as a downloadable PDF from the link below:
@@ -34,9 +34,9 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 To power the UNO R4 WiFi you may either use a USB-C® cable, or the VIN pin.
 
-If you’re using the USB-C® connector you must power it with 5V.
+If you’re using the USB-C® connector you must power it with 5 V.
 
-The board can be powered via the VIN pin, supporting a range between 6-24V. The VIN pin is also connected to the DC-jack (barrel plug connector).
+The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
 
 ## Core
 
@@ -71,7 +71,7 @@ These peripherals include analog-to-digital converters, timers, pulse width modu
 The board features 
 - 32 kB of SRAM 
 - 256 kB flash 
-- 8 KB data (EEPROM).
+- 8 kB data (EEPROM).
 
 ## Arduino IoT Cloud
 
@@ -82,9 +82,9 @@ The UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduin
 
 ## Pins
 
-The **UNO R4 WiFi** gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+The UNO R4 WiFi gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
 
-If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **UNO R4 WiFi** 
+If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the UNO R4 WiFi.
 
 | Pin | Type      | Function                          |
 | --- | --------- | --------------------------------- |
@@ -130,7 +130,7 @@ The **UNO R4 WiFi** has 6 analog input pins (A0-A5) that can be read by using th
 value = analogRead(pin, value);
 ```
 
-The reference voltage of these pins is 5V.
+The reference voltage of these pins is 5 V.
 
 The default resolution is set to 10-bit, but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
 - `analogReadResolution(10)` (default)
@@ -139,7 +139,7 @@ The default resolution is set to 10-bit, but can be updated to 12 and 14-bit res
 
 ### OPAMP Pins
 
-The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 WiFi** as follows:
+The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 WiFi as follows:
 
 | Pin | OPAMP     |
 | --- | --------- |
@@ -166,7 +166,7 @@ The following pins are PWM capable but may interfere with other functionalities 
 
 ### Digital Pins
 
-The **UNO R4 WiFi** features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
+The UNO R4 WiFi features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
 
 
 | Pin | Function | Notes                |
@@ -188,7 +188,7 @@ The **UNO R4 WiFi** features a total of digital 14 pins. Though some of them ser
 | 14  | SDA      | Serial communication |
 | 15  | SCL      | Serial communication |
 
-The reference voltage of all digital pins is 5V.
+The reference voltage of all digital pins is 5 V.
 
 ### PWM
 
@@ -213,7 +213,7 @@ analogWrite(pin, value);
 
 ## DAC
 
-The **UNO R4 WiFi** also has a DAC with up to 12-bit resolution, that can act as genuine analog output pin which means it's even more capable than PWM pins.
+The UNO R4 WiFi also has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
 
 ```arduino
 analogWrite(pin, value);
@@ -290,7 +290,7 @@ Read more in the [Guide to EEPROM](/learn/programming/eeprom-guide).
 
 ![SPI Pins](assets/spipins.png)
 
-The **UNO R4 WiFi** features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
+The UNO R4 WiFi features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
 
 - (COPI) - D11
@@ -325,11 +325,11 @@ void loop() {
 
 ## I2C
 
-I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7 bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
+I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
-The **UNO R4 WiFi** has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
+The UNO R4 WiFi has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
-The pins used for I2C on the **UNO R4 WiFi** are the following:
+The pins used for I2C on the UNO R4 WiFi are the following:
 - SDA - D14
 - SCL - D15
 
@@ -360,12 +360,12 @@ Wire.endTransmission(); //stop transmit
 
 ## USB Serial & UART
 
-The **Uno R4 WiFi** board features 2 separate hardware serial ports. 
+The UNO R4 WiFi board features 2 separate hardware serial ports. 
 
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
 
-The pins used for UART on the **UNO R4 WiFi** are the following:
+The pins used for UART on the UNO R4 WiFi are the following:
 
 | Pin | Function      |
 | --- | ------------- |
@@ -385,7 +385,7 @@ To send and receive data through UART, we will first need to set the baud rate i
 
 ### UART
 
-The pins used for UART on the **UNO R4 WiFi** are the following:
+The pins used for UART on the UNO R4 WiFi are the following:
 
 | Pin | Function |
 | --- | -------- |
@@ -492,7 +492,7 @@ On the UNO R3, the ATMEGA16U2 serves the same purpose. The onboard ESP32 module 
 
 The ESP32 also exposes the ESP32's data lines, so that you can program the ESP32 directly. These data lines are exposed by 3x2 header at the top of the board, or through pads on the bottom side.
 
-***Please note that the ESP32 has a default firmware installed, which is set to communicate with the RA4M1 chip. Any direct programming of the ESP32 will override that firmware and the communication between the chips may be disrupted until the default firmware is restored ***
+***Please note that the ESP32 has a default firmware installed, which is set to communicate with the RA4M1 chip. Any direct programming of the ESP32 will override that firmware and the communication between the chips may be disrupted until the default firmware is restored.***
 
 ![UNO R4 & UNO R3](./assets/UNO-serial.png)
 
@@ -516,7 +516,7 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 ### Wi-Fi®
 
-The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
 ### Bluetooth®
 
@@ -524,7 +524,7 @@ Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5
 
 ### Programming the ESP32 (Advanced)
 
-The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi and Bluetooth®.
+The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi® and Bluetooth®.
 
 Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. 
 
