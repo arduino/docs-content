@@ -36,11 +36,6 @@ Maker, beginner, education
   * up to 14-bit ADC
   * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
-  * Multiple Clock Sources
-    * 1-20 MHz main clock oscillator (MOSC)
-    * 32.768 kHz sub-clock oscillator (SOSC)
-    * 24-64 MHz high-speed on-chip oscillator (HOCO)
-    * 32.768 kHz low-speed on-chip oscillator (LOCO)
 * **Power**
   * Recommended input voltage (VIN) is 6-24 V
   * 5 V operating voltage
@@ -75,19 +70,17 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 * UNO R3 SMD
 * UNO R4 WiFi
 
+<div style="page-break-after: always;"> </div>
+
 # Rating
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min                | Typ | Max                | Unit |
-| --------------- | -------------------------------- | ------------------ | --- | ------------------ | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6                  | 7.0 | 24                 | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
-| V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
-| V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
-
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
+| Symbol          | Description                          | Min | Typ | Max | Unit |
+| --------------- | ------------------------------------ | --- | --- | --- | ---- |
+| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 24  | V    |
+| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
 
 <div style="page-break-after: always;"> </div>
 
@@ -165,7 +158,7 @@ The UNO R4 Minima operates on 5 V, as does all pins on this board except for the
 
 ### Pin Current
 
-The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 8 mA. Never connect devices that draw higher current directly to a GPIO.
+The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to **8 mA**. Never connect devices that draw higher current directly to a GPIO.
 
 In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
 
@@ -225,7 +218,7 @@ In case you need to power external devices that require more power, e.g. servo m
 | Pin | Function | Type     | Description                  |
 | --- | -------- | -------- | ---------------------------- |
 | 1   | CIPO     | Internal | Controller In Peripheral Out |
-| 2   | +5V      | Internal | Power Supply of 5 V           |
+| 2   | +5V      | Internal | Power Supply of 5 V          |
 | 3   | SCK      | Internal | Serial Clock                 |
 | 4   | COPI     | Internal | Controller Out Peripheral In |
 | 5   | RESET    | Internal | Reset                        |
@@ -366,7 +359,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
 | Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Arduino Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
+| Arduino Project Hub       | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | Library Reference         | <https://github.com/arduino-libraries/>                                                         |
 | Online Store              | <https://store.arduino.cc/>                                                                     |
 
@@ -374,4 +367,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Changes** |
 | ---------- | ----------- |
-| 03/02/2023 | Release     |
+| 06/19/2023 | Release     |
