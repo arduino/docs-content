@@ -44,8 +44,10 @@ Communication:
   PWM: 10
   USB: 2 (1x USB 2.0 Full Speed + 1x USB 2.0 High Speed)
 Power:
-  Circuit operating voltage: 3.3 V
-  Input voltage (VIN): 5 V
+  Board operating voltage: 3.3 V
+  Board input voltage (VIN): 5 V
+  Supported battery: Li-ion/Li-Po Single Cell 3.7 V
+  Battery connector: JST 3-pin 1.2 mm pitch
 Clock speed: 200 MHz 
 Memory:
   Internal: 2 MB Flash, 512 KB RAM
