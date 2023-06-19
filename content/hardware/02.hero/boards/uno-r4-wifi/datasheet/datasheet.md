@@ -8,9 +8,9 @@ type: maker
 
 # Description 
 
-The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
+The Arduino® UNO R4 WiFi (from now on referred to as UNO R4 WiFi) is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
 
-The RA4M1's operating voltage is fixed at 5V, whereas the ESP32-S3 module is 3.3V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
+The RA4M1's operating voltage is fixed at 5 V, whereas the ESP32-S3 module is 3.3 V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
 
 # Target areas:
 Maker, beginner, education
@@ -20,11 +20,11 @@ Maker, beginner, education
 The **R7FA4M1AB3CFM#AA0** is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
 
 * **Overview**
-  * 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
-  * 5V operating voltage
-  * Realtime Clock (RTC)
+  * 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
+  * 5 V operating voltage
+  * Real-time Clock (RTC)
   * Memory Protection Unit (MPU)
-  * Digital Analog Converter (DAC)
+  * Digital-to-analog Converter (DAC)
 * **Memory**
   * 256 kB Flash Memory
   * 32 kB SRAM
@@ -36,31 +36,31 @@ The **R7FA4M1AB3CFM#AA0** is the main MCU on the UNO R4 WiFi, connected to all p
   * up to 12-bit DAC
   * Operational Amplifier (OPAMP)
 * **Power**
-  * Operating voltage for RA4M1 is 5V
-  * Recommended input voltage (VIN) is 6-24V
+  * Operating voltage for RA4M1 is 5 V
+  * Recommended input voltage (VIN) is 6-24 V
   * Barrel jack connected to VIN pin
-  * Power via USB-C® at 5V
+  * Power via USB-C® at 5 V
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
-  * 1x I²C (pin A4, A5, SDA, SCL)
+  * 1x I2C (pin A4, A5, SDA, SCL)
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
 - [R7FA4M1AB3CFM#AA0 datasheet](/resources/datasheets/ra4m1.pdf)
 
-The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi & Bluetooth® connectivity. This module operates on 3.3V and communicates with the RA4M1 using a logic level translator (TXB0108DQSR).
+The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi® & Bluetooth® connectivity. This module operates on 3.3 V and communicates with the RA4M1 using a logic level translator (TXB0108DQSR).
 
 * **Overview**
   * Xtensa® dual-core 32-bit LX7 microprocessor
-  * 3.3V operating voltage
+  * 3.3 V operating voltage
   * 40 MHz crystal oscillator
-* **Wi-Fi**
-  * Wi-Fi support with 802.11 b/g/n standard (Wi-Fi 4).
+* **Wi-Fi®**
+  * Wi-Fi® support with 802.11 b/g/n standard (Wi-Fi® 4).
   * Bit rate at up to 150 Mbps
-  * 2.4 GHz frequency range (2.412 - 2.484 GHz)
+  * 2.4 GHz band (2.412 - 2.484 GHz)
 * **Bluetooth®**
-  * Bluetooth 5
+  * Bluetooth® 5
 
 See the full datasheet for the ESP32-S3-MINI-1-N8 in the link below:
 - [ESP32-S3-MINI-1-N8 datasheet](/resources/datasheets/esp32-s3-mini.pdf)
@@ -71,13 +71,13 @@ See the full datasheet for the ESP32-S3-MINI-1-N8 in the link below:
 
 ### Application Examples
 
-The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where the UNO R4 WiFi continues it legacy.
+The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where the UNO R4 WiFi continues its legacy.
 
-The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. It has a significantly larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB). With a 48 MHz clock speed, it is also 3x faster than its predecessors.
+The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART connections. It has a significantly larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB). With a 48 MHz clock speed, it is also 3x faster than its predecessors.
 
 In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making one of the most visually unique Arduino board to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
 
-**Entry level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation (both official + 3rd party).
+**Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation (both official + third-party).
 
 **Easy IoT applications:** build projects without writing any networking code in the Arduino IoT Cloud. Monitor your board, connect it with other boards and services, and develop cool IoT projects.
 
@@ -119,8 +119,8 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | U1          | R7FA4M1AB3CFM#AA0 Microcontroller IC           |
 | U2          | NLASB3157DFT2G Multiplexer                     |
 | U3          | ISL854102FRZ-T Buck Converter                  |
-| U4          | TXB0108DQSR logic level translator (5V - 3.3V) |
-| U5          | SGM2205-3.3XKC3G/TR 3.3V linear regulator      |
+| U4          | TXB0108DQSR logic level translator (5 V - 3.3 V) |
+| U5          | SGM2205-3.3XKC3G/TR 3.3 V linear regulator      |
 | U6          | NLASB3157DFT2G Multiplexer                     |
 | U_LEDMATRIX | Matrix with 96x LEDs                           |
 | M1          | ESP32-S3-MINI-1-N8                             |
@@ -148,9 +148,9 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ## Microcontroller (R7FA4M1AB3CFM#AA0)
 
-The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
+The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-This microcontroller can operate on a range between 1.6V - 5.5V, but on the UNO R4 WiFi, it is fixed at 5V as to be hardware compatible with shields, accessories & circuits based on an previous UNO revision. 
+The operating voltage for the RA4M1 is fixed at 5V as to be hardware compatible with shields, accessories & circuits based on an previous UNO revision. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
@@ -165,22 +165,22 @@ For more technical details on this microcontroller, visit [Renesas - RA4M1 serie
 
 ## Radio Module (ESP32-S3-MINI-1-N8)
 
-The Wi-Fi / Bluetooth® LE module on the UNO R4 WiFi is from the ESP32-S3 SoCs. It features the Xtensa® dual-core 32-bit LX7 MCU, a built-in antenna and support for 2.4 GHz bands.
+The Wi-Fi® / Bluetooth® LE module on the UNO R4 WiFi is from the ESP32-S3 SoCs. It features the Xtensa® dual-core 32-bit LX7 MCU, a built-in antenna and support for 2.4 GHz bands.
 
 The ESP32-S3-MINI-1-N8 features:
-* Wi-Fi / Bluetooth® LE support
-* 3.3V operating voltage
+* Wi-Fi® / Bluetooth® LE support
+* 3.3 V operating voltage
 * 384  kB ROM
 * 512  kB SRAM
 * Up to 150 Mbps bit rate
 
-This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic level translator. Note that this module operates on 3.3V as opposed to the RA4M1's 5V operating voltage. 
+This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage. 
 
 ### ESP Header
 
 ![ESP header.](assets/esp-header.png)
 
-The header located close to the RESET pushbutton can be used to access the ESP32-S3 module directly. The pins accessible are:
+The header located close to the RESET button can be used to access the ESP32-S3 module directly. The pins accessible are:
 
 * `ESP_IO41` - MTDI debugging 
 * `ESP_IO42` - MTMS debugging 
@@ -203,7 +203,7 @@ Soldering together the **SJ1** pads permanently sets the USB communication direc
 
 The UNO R4 WiFi has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
 
-Note that you should not power the board with more than 5V via the USB-C® port.
+Note that you should not power the board with more than 5 V via the USB-C® port.
 
 ## LED Matrix
 
@@ -236,11 +236,11 @@ The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog
 
 The DAC can be used for signal generation for e.g. audio applications. You can for example generate and alter a sawtooth wave.  
 
-## I²C Connector
+## I2C Connector
 
-The I²C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I²C bus on the board. Note that this connector is powered via 3.3V. Using the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library, use the `Wire1` object as opposed to the standard `Wire` object. 
+The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V. Using the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library, use the `Wire1` object as opposed to the standard `Wire` object. 
 
-![I²C connector.](assets/i2c-connector.png)
+![I2C connector.](assets/i2c-connector.png)
 
 This connector also shares the following pin connections:
 
@@ -252,17 +252,17 @@ This connector also shares the following pin connections:
 - SDA
 - SCL
 
-**Please note:** as A4/A5 is connected to the main I²C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I²C devices to each of these pins and connector simultaneously.
+**Please note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connector simultaneously.
 
 ## Power Options
 
-Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5V.
+Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5 V.
 
 Both VUSB and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
 
-Power via USB supplies about ~4.7V (due to Schottky drop) to the RA4M1 MCU.
+Power via USB supplies about ~4.7 V (due to Schottky drop) to the RA4M1 MCU.
 
-The linear regulator (SGM2205-3.3XKC3G/TR) converts 5V from either the buck converter or USB, and provides 3.3V to a number of components, including the ESP32-S3 module.
+The linear regulator (SGM2205-3.3XKC3G/TR) converts 5 V from either the buck converter or USB, and provides 3.3 V to a number of components, including the ESP32-S3 module.
 
 ### Power Tree
 
@@ -270,9 +270,9 @@ The linear regulator (SGM2205-3.3XKC3G/TR) converts 5V from either the buck conv
 
 ### Pin Voltage
 
-The general operating voltage for UNO R4 WiFi is 5V, however the ESP32-S3 module's operating voltage is 3.3V. 
+The general operating voltage for UNO R4 WiFi is 5 V, however the ESP32-S3 module's operating voltage is 3.3 V. 
 
-It is **very** important that ESP32-S3's pins (3.3V)do not come in contact with any of the RA4M1's pins (5V), as this may damage the circuits.
+It is **very** important that ESP32-S3's pins (3.3 V) do not come in contact with any of the RA4M1's pins (5 V), as this may damage the circuits.
 
 ### Pin Current
 
@@ -291,7 +291,7 @@ For powering e.g. servo motors, always use an external power supply.
 | Pin | Function | Type   | Description                                     |
 | --- | -------- | ------ | ----------------------------------------------- |
 | 1   | BOOT     | NC     | Not Connected                                   |
-| 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5V |
+| 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
 | 3   | Reset    | Reset  | Reset                                           |
 | 4   | +3V3     | Power  | +3V3 Power Rail                                 |
 | 5   | +5V      | Power  | +5V Power Rail                                  |
@@ -302,15 +302,15 @@ For powering e.g. servo motors, always use an external power supply.
 | 10  | A1       | Analog | Analog input 1 / OPAMP+                         |
 | 11  | A2       | Analog | Analog input 2 / OPAMP-                         |
 | 12  | A3       | Analog | Analog input 3 / OPAMPOut                       |
-| 13  | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA)         |
-| 14  | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL)         |
+| 13  | A4       | Analog | Analog input 4 / I2C Serial Datal (SDA)         |
+| 14  | A5       | Analog | Analog input 5 / I2C Serial Clock (SCL)         |
 
 ### Digital
 
 | Pin | Function       | Type    | Description                                            |
 | --- | -------------- | ------- | ------------------------------------------------------ |
-| 1   | SCL            | Digital | I²C Serial Clock (SCL)                                 |
-| 2   | SDA            | Digital | I²C Serial Datal (SDA)                                 |
+| 1   | SCL            | Digital | I2C Serial Clock (SCL)                                 |
+| 2   | SDA            | Digital | I2C Serial Datal (SDA)                                 |
 | 3   | AREF           | Digital | Analog Reference Voltage                               |
 | 4   | GND            | Power   | Ground                                                 |
 | 5   | D13/SCK/CANRX0 | Digital | GPIO 13 / SPI Clock / CAN Receiver (RX)                |
@@ -342,7 +342,7 @@ For powering e.g. servo motors, always use an external power supply.
 | Pin | Function | Type     | Description                  |
 | --- | -------- | -------- | ---------------------------- |
 | 1   | CIPO     | Internal | Controller In Peripheral Out |
-| 2   | +5V      | Internal | Power Supply of 5V           |
+| 2   | +5V      | Internal | Power Supply of 5 V           |
 | 3   | SCK      | Internal | Serial Clock                 |
 | 4   | COPI     | Internal | Controller Out Peripheral In |
 | 5   | RESET    | Internal | Reset                        |
@@ -370,7 +370,7 @@ All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
@@ -447,9 +447,9 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 ## Company Information
 
