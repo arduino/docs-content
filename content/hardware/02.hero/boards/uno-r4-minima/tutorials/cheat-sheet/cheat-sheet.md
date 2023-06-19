@@ -34,7 +34,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 To power the UNO R4 Minima you may either use a USB-C® cable, or the VIN pin.
 
-If you’re using the USB-C® connector you must power it with 5V.
+If you’re using the USB-C® connector you must power it with 5 V.
 
 The board can be powered via the VIN pin, supporting a range between 6-24V.
 
@@ -85,36 +85,36 @@ The **UNO R4 Minima** gives you access to many different pins and many of them h
 
 If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **UNO R4 Minima** 
 
-| Pin | Function  | Notes                     |
-| --- | --------- | ------------------------- |
-| 0   | RX        | Serial communication      |
-| 1   | TX        | Serial communication      |
-| 2   | GPIO      | Digital IO pin            |
-| 3   | PWM       | Digital IO pin, PWM       |
-| 4   | GPIO      | Digital IO pin            |
-| 5   | PWM       | Digital IO pin, PWM       |
-| 6   | PWM       | Digital IO pin, PWM       |
-| 7   | GPIO      | Digital IO pin            |
-| 8   | GPIO      | Digital IO pin            |
-| 9   | PWM       | Digital IO pin, PWM       |
-| 10  | PWM       | Digital IO pin, PWM       |
-| 11  | PWM       | Digital IO pin, PWM       |
-| 12  | GPIO      | Digital IO pin            |
-| 13  | GPIO      | Digital IO pin            |
-| 14  | SDA       | Serial communication      |
-| 15  | SCL       | Serial communication      |
-| 16  | DAC       | Analog In, DAC            |
-| 17  | OPAMP+    | Analog In, OPAMP+         |
-| 18  | OPAMP-    | Analog In, OPAMP-         |
-| 19  | OPAMP OUT | Analog In, OPAMP OUT      |
-| 20  | GPIO      | Analog in, Digital IO pin |
-| 21  | GPIO      | Analog in, Digital IO pin |
-| A0  | DAC       | Analog In, DAC            |
-| A1  | Analog in | Analog In                 |
-| A2  | Analog in | Analog In                 |
-| A3  | Analog in | Analog In                 |
-| A4  | Analog in | Analog In                 |
-| A5  | Analog in | Analog In                 |
+| Pin | Function  | Notes                         |
+| --- | --------- | ----------------------------- |
+| 0   | RX        | Serial communication          |
+| 1   | TX        | Serial communication          |
+| 2   | GPIO      | Digital IO pin                |
+| 3   | PWM       | Digital IO pin, PWM           |
+| 4   | GPIO      | Digital IO pin                |
+| 5   | PWM       | Digital IO pin, PWM           |
+| 6   | PWM       | Digital IO pin, PWM           |
+| 7   | GPIO      | Digital IO pin                |
+| 8   | GPIO      | Digital IO pin                |
+| 9   | PWM       | Digital IO pin, PWM           |
+| 10  | PWM       | Digital IO pin, PWM           |
+| 11  | PWM       | Digital IO pin, PWM           |
+| 12  | GPIO      | Digital IO pin                |
+| 13  | GPIO      | Digital IO pin                |
+| 14  | SDA       | Serial Data (I2C)             |
+| 15  | SCL       | Serial Clock (I2C)            |
+| 16  | DAC       | Analog In, DAC                |
+| 17  | OPAMP+    | Analog In, OPAMP+             |
+| 18  | OPAMP-    | Analog In, OPAMP-             |
+| 19  | OPAMP OUT | Analog In, OPAMP OUT          |
+| 20  | GPIO      | Analog in, Digital IO pin     |
+| 21  | GPIO      | Analog in, Digital IO pin     |
+| A0  | DAC       | Analog In, DAC                |
+| A1  | Analog in | Analog In                     |
+| A2  | Analog in | Analog In                     |
+| A3  | Analog in | Analog In                     |
+| A4  | Analog in | Analog In, Serial Data (I2C)  |
+| A5  | Analog in | Analog In, Serial Clock (I2C) |
 
 ### Analog Pins
 
@@ -124,7 +124,7 @@ The **UNO R4 Minima** has 6 analog input pins (A0-A5) that can be read by using 
 value = analogRead(pin, value);
 ```
 
-The reference voltage of these pins is 5V. 
+The reference voltage of these pins is 5 V. 
 
 ### PWM
 
@@ -176,7 +176,7 @@ The **UNO R4 Minima** features a total of digital 14 pins. Though some of them s
 | 14  | SDA      | Serial communication |
 | 15  | SCL      | Serial communication |
 
-The reference voltage of all digital pins is 5V.
+The reference voltage of all digital pins is 5 V.
 
 ## DAC
 
@@ -291,13 +291,13 @@ void loop() {
 
 ## I2C
 
-I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7 bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
+I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
 The **UNO R4 Minima** has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
 The pins used for I2C on the **UNO R4 Minima** are the following:
-- SDA - D14
-- SCL - D15
+- SDA - D14 or A4
+- SCL - D15 or A5
 
 ![I2C Pins](assets/i2cpins.png)
 
@@ -438,8 +438,8 @@ Install the Renesas flash programmer ([download page](https://www.renesas.com/us
 
 To flash the bootloader:
   - Select dfu.exe.
-  - Connet your board.
-  - Short the BOOT and GND pin found on the UNO R4 Minima
+  - Connect your board.
+  - Short the BOOT and GND pin found on the UNO R4 Minima.
   - Go to the Connect Settings tab.
   - Select COM port in the Tool > select the port shown in the IDE.
   - Press start. 
