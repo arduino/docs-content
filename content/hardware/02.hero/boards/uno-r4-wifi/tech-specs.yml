@@ -2,6 +2,7 @@ Board:
   Name: Arduino® UNO R4 WiFi
   SKU: ABX00087
 Microcontroller: Renesas RA4M1 (Arm® Cortex®-M4)
+Radio Module: ESP32-S3-MINI-1-N8
 USB:
   USB-C®: Programming Port
 Pins:
@@ -10,7 +11,7 @@ Pins:
   DAC: 1
   PWM pins: 6
 Communication:
-  UART: Yes, 4x
+  UART: Yes, 1x
   I2C: Yes, 1x
   SPI: Yes, 1x
   CAN: Yes 1 CAN Bus
@@ -20,10 +21,10 @@ Power:
   DC Current per I/O Pin: 8 mA
 Clock speed:
   RA4M1: 48 MHz
-  ESP32-S3: up to 240 MHz
+  ESP32-S3-MINI-1-N8: up to 240 MHz
 Memory:
   RA4M1: 256 kB Flash, 32 kB RAM
-  ESP32-S3: 384 kB ROM, 512 kB SRAM
+  ESP32-S3-MINI-1-N8: 384 kB ROM, 512 kB SRAM
 Dimensions:
   Width: 68.85 mm
   Length: 53.34 mm
