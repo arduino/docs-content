@@ -103,6 +103,8 @@ Then if we want to center the grid on the screen, simply use:
   lv_obj_center(grid);
 ```
 
+![Show a grid layout on the screen]()
+
 ### Update Loop
 
 Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
@@ -144,6 +146,8 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
+![Show how this could look on the screen]()
+
 ## Functional Elements
 
 ### Checkbox
@@ -169,6 +173,8 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
+![Show how this could look on the screen]()
+
 ### Radio Button
 
 A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element. Adding these two style elements will allow for them to be added to the checkbox options.
@@ -191,6 +197,8 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_init(&style_radio_chk);
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
+
+![Show how this could look on the screen]()
 
 ### Slider
 
@@ -223,6 +231,8 @@ If you want a label by your slider it can be created like you would create any o
   lv_label_set_text(label, "Drag me!");
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
+
+![Show how this could look on the screen]()
 
 ### Bar
 
@@ -295,6 +305,8 @@ static void set_bar_val(void * bar, int32_t val) {
 }
 ```
 
+![Show how this could look on the screen]()
+
 ### Button
 
 A button will need two parts, the design of the button itself and the callback event function which determines what happens when the button is pressed. Lets start with designing the button.
@@ -344,6 +356,8 @@ static void button_event_callback(lv_event_t * e) {
   lv_label_set_text_fmt(label, "%"LV_PRIu32, "Clicked!");
 }
 ```
+
+![Show how this could look on the screen]()
 
 ## Conclusion
 
