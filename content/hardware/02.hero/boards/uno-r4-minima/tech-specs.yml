@@ -10,7 +10,7 @@ Pins:
   DAC: 1
   PWM pins: 6
 Communication:
-  UART: Yes, 4x
+  UART: Yes, 1x
   I2C: Yes, 1x
   SPI: Yes, 1x
   CAN: Yes 1 CAN Bus

@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino UNO R4 Minima is a 32-bit microcontroller based on the Renesas RA4M1 (Arm® Cortex®-M4) with an operating voltage of 5 V. It has 14 digital I/O, 6 analog inputs with up to 14-bit resolution, a clock speed of 48 MHz, and 32 kB SRAM, 256 kB flash memory & 8 kB of EEPROM.
+The UNO R4 Minima features a microcontroller based on the Renesas RA4M1 (Arm® Cortex®-M4) with an operating voltage of 5 V. It has 14 digital I/O, 6 analog inputs with up to 14-bit resolution, a clock speed of 48 MHz, and 32 kB SRAM, 256 kB flash memory & 8 kB of EEPROM.
 
 This boards also features a 12-bit DAC, RTC and can emulate an HID.
 
@@ -37,7 +37,7 @@ Power your UNO R4 Minima board through the VIN Pin with any voltage between 6-24
 </Feature>
 
 <Feature title="CAN Bus" image="communication">
-Connect your board to other CAN devices.
+Connect your board to other CAN devices. This requires an external transceiver.
 <FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/can"/>
 </Feature>
 

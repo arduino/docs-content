@@ -311,8 +311,6 @@ Inside `void setup()` you need to initialize the library, and initialize the I2C
 
 ```arduino
 Wire.begin() //SDA & SDL
-Wire1.begin(); //SDA1 & SDL1
-Wire2.begin(); //SDA2 & SDL2
 ```
 
 And to write something to a device connected via I2C, we can use the following commands:
@@ -325,7 +323,7 @@ Wire.endTransmission(); //stop transmit
 ```
 ## USB Serial & UART
 
-The **Uno R4 Minima** board features 2 separate hardware serial ports. 
+The **UNO R4 Minima** board features 2 separate hardware serial ports. 
 
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
