@@ -52,14 +52,46 @@ The goal of this application note is to showcase a sensorized farming irrigation
 - Monitor average humidity level, irrigation time and water consumption on dedicated charts on Arduino IoT Cloud.
 - Get water from a garden hose with a flow sensor able to evaluate the amount of consumed water.
 
-
 ## Hardware and Software Requirements
 
+![Project main hardware and materials](assets/hardware_16-9.png)
+
 ### Hardware Requirements
+- Arduino Edge Control
+- Arduino MKR WAN 1310
+- Arduino Edge Control Enclosure Kit
+- Water flow sensor (YF-B2 15 mm)
+- WATERMARK Soil Moisture Sensors.
+- 2-Wires Solenoid Valves (x4)
+- 12 VDC 5Ah acid/lead SLA battery (x1)
+- 18 VDC 180 W solar panel.
+- 3.4 meters of 15 mm PVC pipes (x1)
+- 15 mm PVC TEE pipes (x3)
+- 15 mm PVC elbow (x8)
+- 15 mm Manual Valve (x1)
+- 15 mm PVC caps (x4)
+- 15 mm PVC male adapters (x11)
+- 15 mm wall pipe brackets (x7)
+- Rectangular planters (x4)
+- DIN rail (x1)
+- Cable glands (x6)
+- 6 meters of duplex cable AWG 18 (x1)
+- Electrical Register Box (x1)
 
 ### Software Requirements
 
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
+- If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl` and `ArduinoIoTCloud`. You can install them through the Arduino IDE Library Manager.
+- The [Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
+- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WAN 1310 on the Arduino IoT Cloud.
+
 ## Sensorized Irrigation System Setup
+
+The electrical connections of the intended application are shown in the diagram below:
+
+[!]()
+
+- The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively, the battery will be recharged with a 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
 ## Sensorized Irrigation System Overview
 
