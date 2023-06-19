@@ -55,14 +55,12 @@ void LCD_ST7701_Init();
 BoschSensorClass imu(Wire1);
 ```
 
-initialize the display with `void LCD_ST7701_Init();`, start recieving IMU readings with `imu.begin();`. Next we can give the image its attributes.
+initialize the display with `Display.begin();` and start recieving IMU readings with `imu.begin();`. Next we can give the image its attributes.
 
 ```arduino
 void setup() {
   Serial.begin(115200);
-  giga_init_video();
-  LCD_ST7701_Init();
-  //lv_demo_widgets();
+  Display.begin();
   imu.begin();
 
   LV_IMG_DECLARE(arduino_logo_1);
