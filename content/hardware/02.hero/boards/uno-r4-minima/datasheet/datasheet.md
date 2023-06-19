@@ -10,16 +10,16 @@ type: maker
 
 The Arduino UNO R4 Minima (from here on referred to as UNO R4 Minima) is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
 
-The UNO R4 Minima board's operating voltage is 5V, making it hardware compatible with UNO form factor accessories with the same operating voltage. Shields designed for previous UNO revisions are therefore safe to use with this board, but is not guaranteed to be software compatible due the change of microcontroller.
+The UNO R4 Minima board's operating voltage is 5 V, making it hardware compatible with UNO form factor accessories with the same operating voltage. Shields designed for previous UNO revisions are therefore safe to use with this board but are not guaranteed to be software compatible due to the change of microcontroller.
 
 # Target areas:
 Maker, beginner, education
 
 # Features
 * **R7FA4M1AB3CFM#AA0**
-  * 48MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
-  * 5V operating voltage
-  * Realtime Clock (RTC)
+  * 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
+  * 5 V operating voltage
+  * Real-time Clock (RTC)
   * Memory Protection Unit (MPU)
   * Digital Analog Converter (DAC)
 * **Memory**
@@ -42,10 +42,10 @@ Maker, beginner, education
     * 24-64 MHz high-speed on-chip oscillator (HOCO)
     * 32.768 kHz low-speed on-chip oscillator (LOCO)
 * **Power**
-  * Recommended input voltage (VIN) is 6-24V
-  * 5V operating voltage
+  * Recommended input voltage (VIN) is 6-24 V
+  * 5 V operating voltage
   * Barrel jack connected to VIN pin
-  * Power via USB-C® at 5V
+  * Power via USB-C® at 5 V
   * Schottky diodes for overvoltage and reverse polarity protection 
 * **Communication**
   * 1x UART (pin D0, D1)
@@ -62,13 +62,13 @@ Maker, beginner, education
 
 The UNO R4 Minima is the first UNO series 32-bit development board, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where UNO R4 Minima continues its legacy.
 
-The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256KB) and 16 times more SRAM (32KB).
+The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB).
 
 **Entry level projects:** If this is your first project within coding and electronics, the UNO R4 Minima is a good fit. It is easy to get started with and has a lot of online documentation (both official + 3rd party).
 
 **Easy power management:** the UNO R4 has barrel jack connector and supports input voltages from 6-24 V. This connector is widely popular and removes the need for additional circuitry required to stepping down the voltage.
 
-**Cross compatibility:** the UNO form factor automatically makes it compatible with hundreds of existing 3rd party shields and other accessories.
+**Cross compatibility:** the UNO form factor automatically makes it compatible with hundreds of existing third-party shields and other accessories.
 
 ### Related Products
 * UNO R3
@@ -124,11 +124,11 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 The UNO R4 Minima is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-On the UNO R4 Minima, the operating voltage is fixed at 5V to be fully retro compatible with shields, accessories & circuits originally designed for older UNO revisions. 
+On the UNO R4 Minima, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older UNO revisions. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
-* Real Time Clock (RTC)
+* Real-time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC)
 * up to 14-bit ADC
 * up to 12-bit DAC
@@ -141,7 +141,7 @@ For more technical details on this microcontroller, visit [Renesas - RA4M1 serie
 
 The UNO R4 Minima has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
 
-***Note: You should not power the board with more than 5V via the USB-C® port.***
+***Note: You should not power the board with more than 5 V via the USB-C® port.***
 
 ## Digital Analog Converter (DAC)
 
@@ -149,11 +149,11 @@ The UNO R4 Minima has a DAC with up to 12-bit resolution attached to the A0 anal
 
 ## Power Options
 
-Power can either be supplied via the VIN pin, the barrel jack, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5V.
+Power can either be supplied via the VIN pin, the barrel jack, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5 V.
 
 The VUSB, barrel jack connector and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
 
-Power via USB supplies about ~4.7V (due to Schottky drop) to the RA4M1 microcontroller.
+Power via USB supplies about ~4.7 V (due to Schottky drop) to the RA4M1 microcontroller.
 
 ### Power Tree
 
@@ -161,11 +161,11 @@ Power via USB supplies about ~4.7V (due to Schottky drop) to the RA4M1 microcont
 
 ### Pin Voltage
 
-The UNO R4 Minima operates on 5V, as does all pins on this board except for the **3.3V pin**. This pin draws power from the `VCC_USB` pin on the R7FA4M1AB3CFM#AA0, and is not connected to the buck converter.
+The UNO R4 Minima operates on 5 V, as does all pins on this board except for the **3.3V pin**. This pin draws power from the `VCC_USB` pin on the R7FA4M1AB3CFM#AA0, and is not connected to the buck converter.
 
 ### Pin Current
 
-The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 8mA. Never connect devices that draw higher current directly to a GPIO.
+The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can handle up to 8 mA. Never connect devices that draw higher current directly to a GPIO.
 
 In case you need to power external devices that require more power, e.g. servo motors, use an external power supply.
 
@@ -225,7 +225,7 @@ In case you need to power external devices that require more power, e.g. servo m
 | Pin | Function | Type     | Description                  |
 | --- | -------- | -------- | ---------------------------- |
 | 1   | CIPO     | Internal | Controller In Peripheral Out |
-| 2   | +5V      | Internal | Power Supply of 5V           |
+| 2   | +5V      | Internal | Power Supply of 5 V           |
 | 3   | SCK      | Internal | Serial Clock                 |
 | 4   | COPI     | Internal | Controller Out Peripheral In |
 | 5   | RESET    | Internal | Reset                        |
@@ -270,7 +270,7 @@ All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
@@ -347,7 +347,7 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
@@ -366,7 +366,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
 | Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
+| Arduino Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | Library Reference         | <https://github.com/arduino-libraries/>                                                         |
 | Online Store              | <https://store.arduino.cc/>                                                                     |
 
