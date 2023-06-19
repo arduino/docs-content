@@ -232,37 +232,6 @@ We have developed a tool that is used to generate frames and animations to be re
 
 
 ![LED Matrix Editor](./assets/led-matrix-editor.png)
-It also features a live preview of the frames you're creating displayed right on the LED matrix of the UNO R4 WiFi, although this is only supported in Google Chrome. 
-
-To use the live preview feature of this tool, you need to upload this sketch to your board:
-
-```arduino
-#include "Arduino_LED_Matrix.h"
-
-ArduinoLEDMatrix matrix;
-
-void setup() {
-  Serial.begin(115200);
-  matrix.begin();
-  char myText[8];
-  String numero = dtostrf(1.9f, 5, 2, myText );
-}
-
-uint32_t frame[] = {
-  0, 0, 0, 0xFFFF
-};
-
-void loop() {
-  if(Serial.available() >= 12){
-    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
-    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
-    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
-    matrix.loadFrame(frame);
-  }
-}
-```
-
-With the live preview sketch loaded on your board, connect the port to the browser, and watch as the pixels turn on and off as you edit the grid in your browser. 
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 
