@@ -303,6 +303,7 @@ For powering e.g. servo motors, always use an external power supply.
 | 13  | A4       | Analog | Analog input 4 / I2C Serial Datal (SDA)          |
 | 14  | A5       | Analog | Analog input 5 / I2C Serial Clock (SCL)          |
 
+
 ### Digital
 
 | Pin | Function       | Type    | Description                                            |
