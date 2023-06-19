@@ -1,25 +1,12 @@
 Board:
   Name: Arduino® GIGA Display Shield
-  SKU: 
-Microcontroller: 
-USB:
-  USB-C: 
-  USB-A: 
-Pins:
-  Digital I/O Pins: 
-  Analog input pins: 
-  DAC: 
-  PWM pins: 
-  Misc: 
-Communication:
-  UART: 
-  I2C: 
-  SPI: 
-  CAN: 
+  SKU: ASX00039
 Connectors:
   Camera: 
-  Display: 
-  Audio Jack: 
+  Display: 3.97”, 480x800 RGB
+Sensors:
+  IMU: BMI270
+  Microphone: MP34DT06JTR
 Power:
   Circuit operating voltage: 
   Input voltage (VIN): 

@@ -18,11 +18,6 @@ A reference to all technical features on this board, with pointers to additional
 <FeatureLink title="" url=""/>
 </Feature>
 
-<Feature title="Arducam 20 pin camera connector / GC2145" image="">
-
-<FeatureLink title="" url=""/>
-</Feature>
-
 <Feature title="MP34DT06JTR Digital microphone" image="microphone">
 The microphone on the shield is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface.
 <FeatureLink title="datasheet" url="https://eu.mouser.com/datasheet/2/389/mp34dt06j-1387393.pdf"/>
@@ -31,11 +26,6 @@ The microphone on the shield is an ultra-compact, low-power, omnidirectional, di
 <Feature title="Bosch BMI270 6 Axis IMU" image="IMU">
 The shield has an IMU that can provide precise acceleration, angular rate measurement and intelligent on-chip motion-triggered interrupt features.
 <FeatureLink title="datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf"/>
-</Feature>
-
-<Feature title="High density connector for Portenta" image="">
-
-<FeatureLink title="" url=""/>
 </Feature>
 
 </FeatureList>
