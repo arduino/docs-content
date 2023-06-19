@@ -14,8 +14,8 @@ High-Density Pins:
   UART pins: 16
   CAN pins: 4
   I2S pins: 4
-  USB: 6
-  JTAG/SWD: 4
+  USB pins: 8
+  JTAG/SWD: 6
 MKR-styled Pins:
   Digital I/O pins: 22 
   Analog input pins: 7
