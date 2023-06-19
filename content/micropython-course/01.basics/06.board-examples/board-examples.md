@@ -2,8 +2,8 @@
 title: Examples by Board
 description: Find examples that work only with specific boards, such as reading built-in sensors.
 author: Karl Söderby
-micropython_type: basics
-featured: micropython
+micropython_type: '101'
+featured: 'micropython-101'
 hero_image: "./hero-banner.png"
 ---
 

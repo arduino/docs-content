@@ -2,7 +2,7 @@
 title: Digital and Analog Pins
 description: Learn how to use digital and analog Pins with Micropython
 author: Francesca Sanfilippo & Karl Söderby
-micropython_type: basics
+micropython_type: '101'
 ---
 
 In this chapter we will learn about managing digital and analog pins. 

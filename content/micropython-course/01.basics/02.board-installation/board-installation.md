@@ -2,8 +2,8 @@
 title: Board Installation
 description: A list of Arduino boards compatible with MicroPython and how to install them.
 author: Francesca Sanfilippo, Karl Söderby & Jacob Hylén
-micropython_type: basics
-featured: micropython
+micropython_type: '101'
+featured: 'micropython-101'
 hero_image: "./hero-banner.png"
 ---
 

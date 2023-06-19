@@ -2,7 +2,7 @@
 title: Overview
 description: An introduction to Arduino and MicroPython
 author: Francesca Sanfilippo
-micropython_type: basics
+micropython_type: '101'
 ---
 
 MicroPython is an implementation of the Python programming language, and includes some of the standard Python libraries. It is designed to run on microcontrollers with constrained environments.

@@ -2,8 +2,8 @@
 title: Code Editors
 description: Explore the available code editors for programming your Arduino board with MicroPython
 author: Francesca Sanfilippo & Karl Söderby
-micropython_type: basics
-featured: micropython
+micropython_type: '101'
+featured: 'micropython-101'
 hero_image: "./hero-banner.png"
 ---
 

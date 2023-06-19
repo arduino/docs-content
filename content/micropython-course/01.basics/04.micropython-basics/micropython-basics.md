@@ -2,7 +2,7 @@
 title: MicroPython Basics
 description: An introduction to MicroPython
 author: Francesca Sanfilippo & Karl Söderby
-micropython_type: basics
+micropython_type: '101'
 ---
 
 As you read in the Overview, MicroPython is an implementation of Python. In this page, you will find some basic and intermediate MicroPython scripts that can be used by any Arduino board. This includes some very common concepts such as variables, loops, delays, how to print and more.
