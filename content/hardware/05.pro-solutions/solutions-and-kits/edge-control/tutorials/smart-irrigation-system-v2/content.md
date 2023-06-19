@@ -99,7 +99,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 [!]()
 
-- The water flow sensor will be connected to the of the XX connector.
+- The water flow sensor will be connected to .... of the XX connector.
 
 
 ## Sensorized Irrigation System Overview
