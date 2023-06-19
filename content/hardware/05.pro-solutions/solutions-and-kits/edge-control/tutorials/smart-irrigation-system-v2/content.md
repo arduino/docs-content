@@ -93,6 +93,15 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively, the battery will be recharged with a 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
+[!]()
+
+- The four solenoid valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
+
+[!]()
+
+- The water flow sensor will be connected to the of the XX connector.
+
+
 ## Sensorized Irrigation System Overview
 
 ### Valves Control
