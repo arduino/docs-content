@@ -137,6 +137,8 @@ The default resolution is set to 10-bit, but can be updated to 12 and 14-bit res
 - `analogReadResolution(12)`
 - `analogReadResolution(14)`
 
+To learn more about the ADC capabilities of the UNO R4 WiFi, check out the [ADC-Resolution Guide](/tutorials/uno-r4-wifi/adc-resolution).
+
 ### OPAMP Pins
 
 The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 WiFi as follows:
@@ -229,6 +231,8 @@ However you may change this write resolution if you need to, to up to 12-bits, a
 analogWriteResolution(12);
 ```
 
+To learn more about the DAC capabilities of the UNO R4 WiFi, check out the [DAC Guide](/tutorials/uno-r4-wifi/dac).
+
 ## RTC
 
 A real-time clock (RTC) is used to measure the time, and is useful in any time-tracking applications.
@@ -273,6 +277,8 @@ void loop() {
 
 ```
 
+To learn more about the RTC capabilities of the UNO R4 WiFi, check out the [RTC Guide](/tutorials/uno-r4-wifi/rtc).
+
 ## EEPROM
 
 EEPROM, also referred to as 'data' memory, is type of memory that can retain data even after the board has been powered off.
@@ -285,6 +291,8 @@ EEPROM.read(address)
 It has a limited amount of write cycles, meaning that it is best suited for read-only applications. Make sure to never use `write()` inside `void loop()` because you may use all write cycles for the chip.
 
 Read more in the [Guide to EEPROM](/learn/programming/eeprom-guide).
+
+To learn more about the EEPROM capabilities of the UNO R4 WiFi, check out the [EEPROM Guide](/tutorials/uno-r4-wifi/eeprom).
 
 ## SPI
 
@@ -358,6 +366,30 @@ Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
 
+## QWIIC Connector
+
+![QWIIC Connector on UNO WiFi R4](assets/QWIIC.png)
+
+The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
+
+QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+
+If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
+
+The UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
+
+```arduino
+#include <Wire.h>
+
+void setup(){
+  Wire1.begin();
+  Wire1.beginTransmission(1);   //begin transmit to device 1
+  Wire1.write(byte(0x00));      //send instruction byte 
+  Wire1.write(val);             //send a value
+  Wire1.endTransmission();      //stop transmit
+}
+```
+
 ## USB Serial & UART
 
 The UNO R4 WiFi board features 2 separate hardware serial ports. 
@@ -425,6 +457,8 @@ mouse.move(x,y);
 
 This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
 
+To learn more about the HID capabilities of the UNO R4 WiFi, check out the [HID Guide](/tutorials/uno-r4-wifi/usb-hid).
+
 ## CAN Module
 
 The UNO R4 WiFi's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
@@ -460,29 +494,7 @@ CanMsg const msg = CAN.read(); //read
 
 ***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
 
-## QWIIC Connector
-
-![QWIIC Connector on UNO WiFi R4](assets/QWIIC.png)
-
-The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
-
-QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
-
-If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
-
-The UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
-
-```arduino
-#include <Wire.h>
-
-void setup(){
-  Wire1.begin();
-  Wire1.beginTransmission(1);   //begin transmit to device 1
-  Wire1.write(byte(0x00));      //send instruction byte 
-  Wire1.write(val);             //send a value
-  Wire1.endTransmission();      //stop transmit
-}
-```
+To learn more about the CAN capabilities of the UNO R4 WiFi, check out the [CAN Guide](/tutorials/uno-r4-wifi/can).
 
 ## ESP32-S3-MINI-1-N8
 
@@ -517,6 +529,8 @@ If you wish you can change this and get direct access to the serial bus on the R
 ### Wi-Fi®
 
 The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
+
+To learn more about the WiFi capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
 
 ### Bluetooth®
 
