@@ -92,13 +92,11 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min                | Typ | Max                | Unit |
-| --------------- | -------------------------------- | ------------------ | --- | ------------------ | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6                  | 7.0 | 24                 | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
-| V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
-| V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
+| Symbol          | Description                          | Min | Typ | Max | Unit |
+| --------------- | ------------------------------------ | --- | --- | --- | ---- |
+| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 24  | V    |
+| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
 
@@ -114,32 +112,32 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.svg)
 
-| **Ref.**    | **Description**                                |
-| ----------- | ---------------------------------------------- |
-| U1          | R7FA4M1AB3CFM#AA0 Microcontroller IC           |
-| U2          | NLASB3157DFT2G Multiplexer                     |
-| U3          | ISL854102FRZ-T Buck Converter                  |
+| **Ref.**    | **Description**                                  |
+| ----------- | ------------------------------------------------ |
+| U1          | R7FA4M1AB3CFM#AA0 Microcontroller IC             |
+| U2          | NLASB3157DFT2G Multiplexer                       |
+| U3          | ISL854102FRZ-T Buck Converter                    |
 | U4          | TXB0108DQSR logic level translator (5 V - 3.3 V) |
-| U5          | SGM2205-3.3XKC3G/TR 3.3 V linear regulator      |
-| U6          | NLASB3157DFT2G Multiplexer                     |
-| U_LEDMATRIX | Matrix with 96x LEDs                           |
-| M1          | ESP32-S3-MINI-1-N8                             |
-| PB1         | RESET Button                                   |
-| JANALOG     | Analog input/output headers                    |
-| JDIGITAL    | Digital input/output headers                   |
-| JOFF        | OFF, VRTC header                               |
-| J1          | CX90B-16P USB-C® connector                     |
-| J2          | SM04B-SRSS-TB(LF)(SN) I2C connector            |
-| J3          | ICSP header (SPI)                              |
-| J5          | DC Jack                                        |
-| J6          | ESP header                                     |
-| DL1         | LED TX (serial transmit)                       |
-| DL2         | LED RX (serial receive)                        |
-| DL3         | LED Power (green)                              |
-| DL4         | LED SCK (serial clock)                         |
-| D1          | PMEG6020AELRX Schottky Diode                   |
-| D2          | PMEG6020AELRX Schottky Diode                   |
-| D3          | PRTR5V0U2X,215 ESD Protection                  |
+| U5          | SGM2205-3.3XKC3G/TR 3.3 V linear regulator       |
+| U6          | NLASB3157DFT2G Multiplexer                       |
+| U_LEDMATRIX | Matrix with 96x LEDs                             |
+| M1          | ESP32-S3-MINI-1-N8                               |
+| PB1         | RESET Button                                     |
+| JANALOG     | Analog input/output headers                      |
+| JDIGITAL    | Digital input/output headers                     |
+| JOFF        | OFF, VRTC header                                 |
+| J1          | CX90B-16P USB-C® connector                       |
+| J2          | SM04B-SRSS-TB(LF)(SN) I2C connector              |
+| J3          | ICSP header (SPI)                                |
+| J5          | DC Jack                                          |
+| J6          | ESP header                                       |
+| DL1         | LED TX (serial transmit)                         |
+| DL2         | LED RX (serial receive)                          |
+| DL3         | LED Power (green)                                |
+| DL4         | LED SCK (serial clock)                           |
+| D1          | PMEG6020AELRX Schottky Diode                     |
+| D2          | PMEG6020AELRX Schottky Diode                     |
+| D3          | PRTR5V0U2X,215 ESD Protection                    |
 
 
 ### Back View
@@ -288,22 +286,22 @@ For powering e.g. servo motors, always use an external power supply.
 
 ### Analog
 
-| Pin | Function | Type   | Description                                     |
-| --- | -------- | ------ | ----------------------------------------------- |
-| 1   | BOOT     | NC     | Not Connected                                   |
+| Pin | Function | Type   | Description                                      |
+| --- | -------- | ------ | ------------------------------------------------ |
+| 1   | BOOT     | NC     | Not Connected                                    |
 | 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
-| 3   | Reset    | Reset  | Reset                                           |
-| 4   | +3V3     | Power  | +3V3 Power Rail                                 |
-| 5   | +5V      | Power  | +5V Power Rail                                  |
-| 6   | GND      | Power  | Ground                                          |
-| 7   | GND      | Power  | Ground                                          |
-| 8   | VIN      | Power  | Voltage Input                                   |
-| 9   | A0       | Analog | Analog input 0 / DAC                            |
-| 10  | A1       | Analog | Analog input 1 / OPAMP+                         |
-| 11  | A2       | Analog | Analog input 2 / OPAMP-                         |
-| 12  | A3       | Analog | Analog input 3 / OPAMPOut                       |
-| 13  | A4       | Analog | Analog input 4 / I2C Serial Datal (SDA)         |
-| 14  | A5       | Analog | Analog input 5 / I2C Serial Clock (SCL)         |
+| 3   | Reset    | Reset  | Reset                                            |
+| 4   | +3V3     | Power  | +3V3 Power Rail                                  |
+| 5   | +5V      | Power  | +5V Power Rail                                   |
+| 6   | GND      | Power  | Ground                                           |
+| 7   | GND      | Power  | Ground                                           |
+| 8   | VIN      | Power  | Voltage Input                                    |
+| 9   | A0       | Analog | Analog input 0 / DAC                             |
+| 10  | A1       | Analog | Analog input 1 / OPAMP+                          |
+| 11  | A2       | Analog | Analog input 2 / OPAMP-                          |
+| 12  | A3       | Analog | Analog input 3 / OPAMPOut                        |
+| 13  | A4       | Analog | Analog input 4 / I2C Serial Datal (SDA)          |
+| 14  | A5       | Analog | Analog input 5 / I2C Serial Clock (SCL)          |
 
 ### Digital
 
@@ -342,7 +340,7 @@ For powering e.g. servo motors, always use an external power supply.
 | Pin | Function | Type     | Description                  |
 | --- | -------- | -------- | ---------------------------- |
 | 1   | CIPO     | Internal | Controller In Peripheral Out |
-| 2   | +5V      | Internal | Power Supply of 5 V           |
+| 2   | +5V      | Internal | Power Supply of 5 V          |
 | 3   | SCK      | Internal | Serial Clock                 |
 | 4   | COPI     | Internal | Controller Out Peripheral In |
 | 5   | RESET    | Internal | Reset                        |

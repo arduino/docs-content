@@ -358,6 +358,30 @@ Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
 
+## QWIIC Connector
+
+![QWIIC Connector on UNO WiFi R4](assets/QWIIC.png)
+
+The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
+
+QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+
+If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
+
+The UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
+
+```arduino
+#include <Wire.h>
+
+void setup(){
+  Wire1.begin();
+  Wire1.beginTransmission(1);   //begin transmit to device 1
+  Wire1.write(byte(0x00));      //send instruction byte 
+  Wire1.write(val);             //send a value
+  Wire1.endTransmission();      //stop transmit
+}
+```
+
 ## USB Serial & UART
 
 The UNO R4 WiFi board features 2 separate hardware serial ports. 
@@ -459,30 +483,6 @@ CanMsg const msg = CAN.read(); //read
 ```
 
 ***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
-
-## QWIIC Connector
-
-![QWIIC Connector on UNO WiFi R4](assets/QWIIC.png)
-
-The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
-
-QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
-
-If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
-
-The UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
-
-```arduino
-#include <Wire.h>
-
-void setup(){
-  Wire1.begin();
-  Wire1.beginTransmission(1);   //begin transmit to device 1
-  Wire1.write(byte(0x00));      //send instruction byte 
-  Wire1.write(val);             //send a value
-  Wire1.endTransmission();      //stop transmit
-}
-```
 
 ## ESP32-S3-MINI-1-N8
 
