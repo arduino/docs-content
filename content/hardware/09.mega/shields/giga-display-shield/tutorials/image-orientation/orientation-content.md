@@ -136,6 +136,8 @@ Now to put it all together where the image will change depending on how we rotat
 
 Now try and rotating your device to see if the image behaves correctly. If the image does not rotate correctly have another look at the values you entered into the previous sketch. It might help to try and run the simple IMU readings printer sketch to take a quick look at the IMU values in the serial monitor. This will help you figure out what values should be considered when the device is being moved. 
 
+![Gif of the orientation sketch running on the screen]()
+
 ## Conclusion
 
 Now you know how to use the GIGA Display Shields IMU sensor to gather readings for device orientation. And how to use these readings to make an image on the GIGA display shield maintain the correct orientation depending on what way it is facing. 
