@@ -8,7 +8,7 @@ type: maker
 
 # Description 
 
-The Arduino® UNO R4 Minima is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
+The Arduino UNO R4 Minima (from here on referred to as UNO R4 Minima) is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
 
 The UNO R4 Minima board's operating voltage is 5V, making it hardware compatible with UNO form factor accessories with the same operating voltage. Shields designed for previous UNO revisions are therefore safe to use with this board, but is not guaranteed to be software compatible due the change of microcontroller.
 
