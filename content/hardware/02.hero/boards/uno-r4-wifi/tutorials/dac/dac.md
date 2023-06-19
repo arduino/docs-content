@@ -15,7 +15,7 @@ software:
 ---
 
 
-The Arduino UNO R4 WiFi has a built in **DAC** (Digital to Analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment as a cheap function generator, for example.
+The Arduino UNO R4 WiFi has a built in **DAC** (Digital-to-analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment as a cheap function generator, for example.
 
 ## Goals
 
@@ -38,7 +38,7 @@ The circuit required for this tutorial can be found in the diagram below:
 
 ![Piezo buzzer connected to UNO R4](./assets/circuit.png)
 
-## Analog Output VS. PWM
+## Analog Output vs PWM
 For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
 
 For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 

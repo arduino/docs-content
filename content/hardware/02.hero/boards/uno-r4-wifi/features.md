@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The MCU on the board is the high performance Renesas RA4M1 (Arm Cortex®-M4) with a 48 MHz clock speed, 32 kB SRAM and 256 kB flash memory. This MCU features an RTC, a DAC and a CAN bus and has support for HID via USB.
+The MCU on the board is the high performance Renesas RA4M1 (Arm® Cortex®-M4) with a 48 MHz clock speed, 32 kB SRAM and 256 kB flash memory. This MCU features an RTC, a DAC and a CAN bus and has support for HID via USB.
 
 The UNO R4 WiFi also features an ESP32-S3 for Wi-Fi®/Bluetooth® connectivity, which can also be separately programmed via a specific header.
 
@@ -14,7 +14,7 @@ A reference to all technical features on this board, with pointers to additional
 </Feature>
 
 <Feature title="5V Operating Voltage" image="power">
-The RA4M1 and the GPIOs of this board operates on 5V!
+The RA4M1 and the GPIOs of this board operates on 5 V.
 </Feature>
 
 <Feature title="LED Matrix" image="led">
@@ -38,7 +38,7 @@ Build game controllers by emulating a mouse/keyboard.
 </Feature>
 
 <Feature title="Input Voltage" image="power">
-Power your the VIN pin/barrel jack at up to 6-24V.
+Power your the VIN pin/barrel jack at up to 6-24 V.
 </Feature>
 
 </FeatureList>

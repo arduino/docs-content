@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 WiFi Real Time Clock'
+title: 'Arduino UNO R4 WiFi Real-time Clock'
 description: 'Learn how to access the real-time clock (RTC) on the UNO R4 WiFi.'
 tags:
   - RTC
@@ -19,13 +19,13 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino R4 WiFi](/hardware/uno-r4-wifi).
+- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
+- [Arduino R4 WiFi](/hardware/uno-r4-wifi)
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 
 ## Real-Time Clock (RTC)
 
-The RTC on the UNO R4 WiFi can be accessed using the [RTC]() library that is included in the [Renesas]() core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
+The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
 There are many practical examples using an RTC, and the examples provided in this page will help you get started with it.
 

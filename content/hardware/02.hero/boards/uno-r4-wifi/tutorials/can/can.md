@@ -19,17 +19,17 @@ The goals of this tutorial are:
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino R4 WiFi](/hardware/uno-r4-wifi).
+- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
+- [Arduino R4 WiFi](/hardware/uno-r4-wifi)
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 - CAN transceiver module\* 
 - Jumper wires
 
-In this tutorial, we are using a SN65HVD230 breakout module. 
+\*In this tutorial, we are using a SN65HVD230 breakout module. 
 
 ## Controller Area Network (CAN)
 
-The CAN bus uses two wires: **CAN high** and **CAN low**. On the Arduino UNO R4 WiFi, these pins are: 
+The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 WiFi, these pins are: 
 - D5/CANRX0 (receive)
 - D4/CANTX0 (transmit)
 
