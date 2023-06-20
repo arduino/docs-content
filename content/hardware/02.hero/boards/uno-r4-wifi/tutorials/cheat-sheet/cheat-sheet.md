@@ -530,6 +530,8 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
+To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Core.
+
 To learn more about the WiFi capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
 
 ### Bluetooth®
