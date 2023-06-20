@@ -23,7 +23,7 @@ The goals of this tutorials are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)
+- [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi)
 - [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
 
 ## Human Interface Device (HID) 
