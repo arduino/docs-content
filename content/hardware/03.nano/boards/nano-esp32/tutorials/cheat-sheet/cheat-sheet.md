@@ -1,573 +1,210 @@
 ---
 title: 'Arduino Nano ESP32 Cheat Sheet'
-description: 'A technical summary of the Nano ESP32 development board, including installation, pin reference, communication ports, microcontroller specifics and much more.'
+description: 'A technical summary of the Nano ESP32 development board, including installation, pin reference, communication ports and microcontroller specifics.'
 tags:
   - ESP32
   - Installation
   - I2C
   - SPI
   - UART
+  - Wi-Fi®
+  - Bluetooth® LE
 author: 'Karl Söderby'
 ---
 
-## Datasheet
+The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [-S3 series](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **uBlox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
-The full datasheets are available as a downloadable PDF from the link below:
+In this document, you will find information regarding features your board, and links to resources. 
 
-- [Download the GIGA R1 datasheet]()
+***Note that this board is compatible with many ESP32 examples out of the box, but that the pinout may vary. You can find the complete API at [ESP32-S3 API reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html).*** 
 
-## Power Considerations
-
-To power the Nano ESP32 you may either use a USB-C cable, or the VIN pin.
-
-### Input Voltage (VIN)
-
-- If you're using the USB-C connector you must power it with 5V.
-- The recommended input voltage on the VIN pin is 6-24V.
-
-### Operating Voltage
-
-The internal operating voltage of the microcontroller is 3.3V, and you should not apply voltages higher than that to the GPIO pins.
-
-### 5V Pin
-
-The Nano ESP32 is the first board to not have the classic **5V** pin. It has instead been replaced with VBUS, which is a more accurate description of the pin's capabilities.
-
-`VBUS` provides 5V whenever powered via USB. If powered via the VIN pin, it is disabled. This means that while powering the board through the VIN pin, you can't get 5V from the board, and you need to use a logic level shifter or an external 5V power supply.
-
-This measure is taken to prevent the board's microcontroller from accidentially receiving 5V, which will damage it.
-
-## Installation
-
-***For detailed instructions on how to install the ESP32 core, please refer to the [Getting Started with Nano ESP32]() guide.***
-
-The Nano ESP32 can be programmed through:
-
-- [Arduino IDE](/software/ide-v2)
-- [Arduino Web Editor](arduino-cloud/getting-started/getting-started-web-editor)
-
-## Core
-
-The Nano ESP32 is based on the [ESP32 core]() which can be installed directly through the Arduino IDE, and is automatically installed in the Web Editor.
-
-## ESP32-S3 Microcontroller
+## NORA-W106 (ESP32-S3)
 
 The Nano ESP32 features the **ESP32-S3** system on a chip (SoC) from Espressif, which is embedded in the **NORA-W106** module. The ESP32-S3 has a dual-core microprocessor Xtensa® 32-bit LX7, and has support for the 2.4 GHz Wi-Fi band as well as Bluetooth 5. The operating voltage of this SoC is 3.3V.
+
+The NORA-W106 also embeds an antenna for Bluetooth® and Wi-Fi® connectivity.
 
 ### Memory
 
 The memory of the ESP32-S3 has 
 - 384 KB ROM
 - 512 KB SRAM
-- 128MB of Flash
+- 128MB of Flash (external, provided via GD25B128EWIGR)
 
-## Wi-Fi® / Bluetooth® LE
+## Datasheet
+
+The full datasheet is available as a downloadable PDF from the link below:
+
+- [Download the Nano ESP32 datasheet]()
+
+## Nano ESP32 Core
+
+This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), a derivation of the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
+
+![ESP32 examples in the IDE.](assets/esp32-examples.png)
+
+To install the core, go the **board manager** and search for **Nano ESP32**. If you need more instructions to install the core, please refer to the [Getting Started with Nano ESP32]() article.
+
+You can also program your board via the [Arduino Web Editor](arduino-cloud/getting-started/getting-started-web-editor), an online IDE.
+
+## API
+
+Please refer to the well documented [ESP32-S3 API](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html#) for more information regarding the API and accessing the boards peripherals.
+
+To access the ESP32-S3's peripherals (e.g. ADC, I2C, SPI), refer to the [Peripherals API section](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/index.html#).
+
+
+## MicroPython
+
+The Nano ESP32 has support for MicroPython, a micro-implementation of Python that can easily be installed on your board.
+
+To get started with MicroPython, please visit [MicroPython 101](), a course dedicated towards learning MicroPython on the Nano ESP32.
+
+In this course, you will fundamental knowledge to get started, as well as a large selection of examples for popular third-party components.
+
+## Arduino IoT Cloud
+
+Nano ESP32 is fully supported by [Arduino IoT Cloud](). You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
+- [Getting Started with Arduino IoT Cloud (classic)]()
+- [MicroPython with Arduino IoT Cloud]()
+
+## Power Considerations
+
+To power the Nano ESP32 you may either use a USB-C cable, or the VIN pin. Never exceed 5-18V as the **MP2322GQH** converter on the board is not designed for any higher voltages. 
+
+### Input Voltage (VIN)
+
+- If you're using the USB-C connector you must power it with 5V.
+- The recommended input voltage on the VIN pin is 5-18V.
+
+### Operating Voltage
+
+The internal operating voltage of the microcontroller is 3.3V, and you should not apply voltages higher than that to the GPIO pins.
+
+### 5V Pin / VUSB
+
+The Nano ESP32 is the first board to not feature a **5V** pin. It has instead been replaced with VBUS, which is a more accurate description of the pin's capabilities.
+
+`VBUS` provides 5V whenever powered via USB. If powered via the VIN pin, it is disabled. This means that while powering the board through the VIN pin, you can't get 5V from the board, and you need to use a logic level shifter or an external 5V power supply.
+
+This measure is taken to prevent the board's microcontroller from accidentially receiving 5V, which will damage it.
+
+## Pins
+
+The Nano ESP32 has two headers: the **analog** and **digital**. Listed here are the **default** pins that comply with previous Nano form factor designs.
+
+### Analog Header
+| Function | Type   | Description                                 |
+| -------- | ------ | ------------------------------------------- |
+| D13/SCK  | NC     | **SPI** Serial Clock / LED Built in         |
+| +3V3     | Power  | +3V3 Power Rail                             |
+| BOOT0    | Mode   | Board Reset 0                               |
+| A0       | Analog | Analog input 0                              |
+| A1       | Analog | Analog input 1                              |
+| A2       | Analog | Analog input 2                              |
+| A3       | Analog | Analog input 3                              |
+| A4       | Analog | Analog input 4 / **I2C** Serial Datal (SDA) |
+| A5       | Analog | Analog input 5 / **I2C** Serial Clock (SCL) |
+| A6       | Analog | Analog input 6                              |
+| A7       | Analog | Analog input 7                              |
+| VUSB     | Power  | USB power (5V)                              |
+| BOOT1    | Mode   | Board Reset 1                               |
+| GND      | Power  | Ground                                      |
+| VIN      | Power  | Voltage Input                               |
+
+### Digital Header
+
+| Pin      | Type     | Description                          |
+| -------- | -------- | ------------------------------------ |
+| D12/CIPO | Digital  | **SPI** Controller In Peripheral Out |
+| D11/COPI | Digital  | **SPI** Controller Out Peripheral In |
+| D10      | Digital  | GPIO                                 |
+| D9       | Digital  | GPIO                                 |
+| D8       | Digital  | GPIO                                 |
+| D7       | Digital  | GPIO                                 |
+| D6       | Digital  | GPIO                                 |
+| D5       | Digital  | GPIO                                 |
+| D4       | Digital  | GPIO                                 |
+| D3       | Digital  | GPIO                                 |
+| D2       | Digital  | GPIO                                 |
+| GND      | Power    | Ground                               |
+| RST      | Internal | Reset                                |
+| D1/RX    | Digital  | GPIO 1 / **UART** Receiver (RX)      |
+| D0/TX    | Digital  | GPIO 0 / **UART** Transmitter (TX)   |
+
+## IO Mux & GPIO Matrix
+
+The ESP32-S3 SoC features an IO mux (input/output multiplexer) and a GPIO matrix. The IO mux acts as a data selector and allows for different peripherals to be connected to a physical pin. 
+
+The ESP32-S3 chip has 45 physical GPIOs, but many more digital peripherals. The IO mux provides the flexibility of changing the functionality of the GPIO.
+
+This technique is well known and applied within ESP32 boards, but on the Nano ESP32 we use a set of default pins for the I2C, SPI & UART peripherals to remain consistent with previous designs.
+
+As an example, the Nano ESP32's SDA/SCL pins are attached to A4/A5 by default. These pins can be changed to e.g. D8,D9 if you need to use another set of pins. This is done through the mux / GPIO matrix.
+
+### Re-assigning Pins
+
+You can read more about re-assigning the peripherals through the links below:
+- [I2C configuration (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2c.html#i2c-api-configure-driver)
+- [UART configuration (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/uart.html#uart-api-setting-communication-pins)
+- [SPI (link to Espressif docs)]()
+
+### Read More
+
+- [IO MUX and GPIO Matrix (ESP32-S3 technical reference manual)](https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf#iomuxgpio)
+
+## Wi-Fi®
 
 ![NORA-W106 module.](assets/wifi.png)
 
-The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi communication over the 2.4GHz band as well as 
+The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi communication over the 2.4GHz band.
 
+There are several Wi-Fi® examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
 
-### DAC Output
+## RGB
 
-In order to output audio from the DAC, you can use the `AdvancedAnalogRedux` library from Arduino. You will need to connect a speaker to your board either through the audio jack or the DAC pins.
+The ESP32 features an RGB that can be controlled with the `0`, `45` and `46` GPIO. These are not connected to any physical pins. 
 
-Include the library and create the `AdvancedDAC` object, such as the `dac1(A12)`, with the following code in the beginning of your sketch, outside of the `void setup()` function:
-
-```arduino
-#include "AdvancedDAC.h"
-
-AdvancedDAC dac1(A12);
-```
-
-To initialize the library, and check that everything went as expected with the following piece of code:
+To control them, use:
 
 ```arduino
- if (!dac1.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
-        Serial.println("Failed to start DAC!");
-        while (1);
-    }
+digitalWrite(46, STATE); //red
+digitalWrite(45, STATE); //green
+digitalWrite(0, STATE); //blue
 ```
 
-Then lastly, add the following code to `void loop()` to start:
-```arduino
-if (dac1.available()) {
+## USB HID
 
-        // Get a free buffer for writing
-        SampleBuffer buf = dac1.dequeue();
+Nano ESP32 can be used to emulate an HID device by using e.g. `Mouse.move(x,y)` or `Keyboard.press('w')`. The API documentation can be found in Arduino's language reference:
 
-        // Write data to buffer
-        for (int i=0; i<buf.size(); i++) {
-            buf.data()[i] =  (i % 2 == 0) ? 0: 0xfff;
-        }
+- [Keyboard API](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
+- [Mouse API](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
 
-        // Write the buffer data to DAC
-        dac1.write(buf);
-    }
-```
-
-***The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
-
-### ADC Input
-
-The audio jack on the GIGA R1 is also connected to pin A7, for microphone capabilities. 
-
-To take advantage of this, you can use the `AdvancedAnalogRedux` library from Arduino, start off by including the library and setting up the pin as an `AdvancedADC` pin in the beginning of your sketch, outside of `void setup()`.
-
-```arduino
-#include "AdvancedADC.h"
-
-AdvancedADC adc1(A7);
-```
-
-Now, initialise the library and run a check to make sure everything went as expected with the following code within `void setup()`:
-```arduino
-
-  Serial.begin(9600);
-
-  // Resolution, sample rate, number of samples per channel, and queue depth of the ADC
-   if (!adc1.begin(AN_RESOLUTION_16, 16000, 32, 64)) {
-       Serial.println("Failed to start analog acquisition!");
-       while (1);
-   }
-```
-Finally, read the ADC, and store it in a way that you can use it, do this within `void loop()`:
-```arduino
-  if (adc1.available()) {
-        SampleBuffer buf = adc1.read();
-
-        // Print first sample
-        Serial.println(buf[0]);
-
-        // Release the buffer to return it to the pool
-        buf.release();
-```
-
-***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
-
-## MIPI Display Interface
-
-The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface. 
-
-This means that the **GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build an interactive interface.
-
-## USB Features
-
-***To learn about all the USB features in more detail, visit the [Guide to GIGA R1 USB Features](/tutorials/giga-r1-wifi/giga-usb).***
-
-### USB HID
-
-The GIGA R1 comes with support for HID, and can be used as either a keyboard or mouse. For more information, visit the [USB HID section](/tutorials/giga-r1-wifi/giga-usb#usb-hid).
-
-### USBHost
-
-![USB-A connector.](assets/usb.png)
-
-The USB-A port you find on the **GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. 
-
-The board can receive keyboard input, effectively enabling a few hundred more inputs without any wiring, or be used to read & write files on a USB flash drive, which makes it possible to for example, build a [datalogger](/tutorials/giga-r1-wifi/giga-usb#datalogger-example).
-
-For more information, go to the following sections:
-- [USBHost Keyboard](/tutorials/giga-r1-wifi/giga-usb#usb-host-keyboard).
-- [USB mass storage](/tutorials/giga-r1-wifi/giga-usb#usb-mass-storage).
-
-## RTC
-
-### RTC Manual Example
-
-The following sketch will continuously print the time in the Serial monitor.
-
-```arduino
-#include "mbed.h"
-#include <mbed_mktime.h>
-
-constexpr unsigned long printInterval { 1000 };
-unsigned long printNow {};
-
-void setup() {
-  Serial.begin(9600);
-  RTCset();
-}
-
-void loop() {
-      if (millis() > printNow) {
-        Serial.print("System Clock:          ");
-        Serial.println(getLocaltime());
-        printNow = millis() + printInterval;
-    }
-}
-
-void RTCset()  // Set cpu RTC
-{    
-  tm t;
-            t.tm_sec = (0);       // 0-59
-            t.tm_min = (52);        // 0-59
-            t.tm_hour = (14);         // 0-23
-            t.tm_mday = (18);   // 1-31
-            t.tm_mon = (11);       // 0-11  "0" = Jan, -1 
-            t.tm_year = ((22)+100);   // year since 1900,  current year + 100 + 1900 = correct year
-            set_time(mktime(&t));       // set RTC clock                                 
-}
-
-String getLocaltime()
-{
-    char buffer[32];
-    tm t;
-    _rtc_localtime(time(NULL), &t, RTC_4_YEAR_LEAP_YEAR_SUPPORT);
-    strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
-    return String(buffer);
-}
-```
-
-To get accurate time, you'll want to change the values in `void RTCset()` to whatever time it is when you're starting this clock. As long as the VRTC pin is connected to power, the clock will keep ticking and time will be kept accurately.
-
-### RTC Wi-Fi® Example
-
-With the following sketch, you can automatically set the time by requesting the time from a Network Time Protocol (NTP), using the UDP protocol.
-
-```arduino
-/*
- Udp NTP Client
-
- Get the time from a Network Time Protocol (NTP) time server
- Demonstrates use of UDP sendPacket and ReceivePacket
- For more on NTP time servers and the messages needed to communicate with them,
- see http://en.wikipedia.org/wiki/Network_Time_Protocol
-
- created 4 Sep 2010
- by Michael Margolis
- modified 9 Apr 2012
- by Tom Igoe
- modified 28 Dec 2022
- by Giampaolo Mancini
-
-This code is in the public domain.
- */
-
-#include <WiFi.h>
-#include <WiFiUdp.h>
-#include <mbed_mktime.h>
-
-int status = WL_IDLE_STATUS;
-#include "arduino_secrets.h"
-///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-char ssid[] = ""; // your network SSID (name)
-char pass[] = ""; // your network password (use for WPA, or use as key for WEP)
-int keyIndex = 0; // your network key index number (needed only for WEP)
-
-unsigned int localPort = 2390; // local port to listen for UDP packets
-
-// IPAddress timeServer(162, 159, 200, 123); // pool.ntp.org NTP server
-
-constexpr auto timeServer { "pool.ntp.org" };
-
-const int NTP_PACKET_SIZE = 48; // NTP timestamp is in the first 48 bytes of the message
-
-byte packetBuffer[NTP_PACKET_SIZE]; // buffer to hold incoming and outgoing packets
-
-// A UDP instance to let us send and receive packets over UDP
-WiFiUDP Udp;
-
-constexpr unsigned long printInterval { 1000 };
-unsigned long printNow {};
-
-void setup()
-{
-    // Open serial communications and wait for port to open:
-    Serial.begin(9600);
-    while (!Serial) {
-        ; // wait for serial port to connect. Needed for native USB port only
-    }
-
-    // check for the WiFi module:
-    if (WiFi.status() == WL_NO_SHIELD) {
-        Serial.println("Communication with WiFi module failed!");
-        // don't continue
-        while (true)
-            ;
-    }
-
-    // attempt to connect to WiFi network:
-    while (status != WL_CONNECTED) {
-        Serial.print("Attempting to connect to SSID: ");
-        Serial.println(ssid);
-        // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-        status = WiFi.begin(ssid, pass);
-
-        // wait 10 seconds for connection:
-        delay(10000);
-    }
-
-    Serial.println("Connected to WiFi");
-    printWifiStatus();
-
-    setNtpTime();
-
-}
-
-void loop()
-{
-    if (millis() > printNow) {
-        Serial.print("System Clock:          ");
-        Serial.println(getLocaltime());
-        printNow = millis() + printInterval;
-    }
-}
-
-void setNtpTime()
-{
-    Udp.begin(localPort);
-    sendNTPpacket(timeServer);
-    delay(1000);
-    parseNtpPacket();
-}
-
-// send an NTP request to the time server at the given address
-unsigned long sendNTPpacket(const char * address)
-{
-    memset(packetBuffer, 0, NTP_PACKET_SIZE);
-    packetBuffer[0] = 0b11100011; // LI, Version, Mode
-    packetBuffer[1] = 0; // Stratum, or type of clock
-    packetBuffer[2] = 6; // Polling Interval
-    packetBuffer[3] = 0xEC; // Peer Clock Precision
-    // 8 bytes of zero for Root Delay & Root Dispersion
-    packetBuffer[12] = 49;
-    packetBuffer[13] = 0x4E;
-    packetBuffer[14] = 49;
-    packetBuffer[15] = 52;
-
-    Udp.beginPacket(address, 123); // NTP requests are to port 123
-    Udp.write(packetBuffer, NTP_PACKET_SIZE);
-    Udp.endPacket();
-}
-
-unsigned long parseNtpPacket()
-{
-    if (!Udp.parsePacket())
-        return 0;
-
-    Udp.read(packetBuffer, NTP_PACKET_SIZE);
-    const unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
-    const unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
-    const unsigned long secsSince1900 = highWord << 16 | lowWord;
-    constexpr unsigned long seventyYears = 2208988800UL;
-    const unsigned long epoch = secsSince1900 - seventyYears;
-    set_time(epoch);
-
-#if defined(VERBOSE)
-    Serial.print("Seconds since Jan 1 1900 = ");
-    Serial.println(secsSince1900);
-
-    // now convert NTP time into everyday time:
-    Serial.print("Unix time = ");
-    // print Unix time:
-    Serial.println(epoch);
-
-    // print the hour, minute and second:
-    Serial.print("The UTC time is "); // UTC is the time at Greenwich Meridian (GMT)
-    Serial.print((epoch % 86400L) / 3600); // print the hour (86400 equals secs per day)
-    Serial.print(':');
-    if (((epoch % 3600) / 60) < 10) {
-        // In the first 10 minutes of each hour, we'll want a leading '0'
-        Serial.print('0');
-    }
-    Serial.print((epoch % 3600) / 60); // print the minute (3600 equals secs per minute)
-    Serial.print(':');
-    if ((epoch % 60) < 10) {
-        // In the first 10 seconds of each minute, we'll want a leading '0'
-        Serial.print('0');
-    }
-    Serial.println(epoch % 60); // print the second
-#endif
-
-    return epoch;
-}
-
-String getLocaltime()
-{
-    char buffer[32];
-    tm t;
-    _rtc_localtime(time(NULL), &t, RTC_FULL_LEAP_YEAR_SUPPORT);
-    strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
-    return String(buffer);
-}
-
-void printWifiStatus()
-{
-    // print the SSID of the network you're attached to:
-    Serial.print("SSID: ");
-    Serial.println(WiFi.SSID());
-
-    // print your board's IP address:
-    IPAddress ip = WiFi.localIP();
-    Serial.print("IP Address: ");
-    Serial.println(ip);
-
-    // print the received signal strength:
-    long rssi = WiFi.RSSI();
-    Serial.print("signal strength (RSSI):");
-    Serial.print(rssi);
-    Serial.println(" dBm");
-}
-
-```
-
-
-### VRTC Pin
-
-The GIGA R1 also features a `VRTC` pin, giving you the ability to power the RTC with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
-
-![VRTC pin on the GIGA R1](./assets/rtc.png)
-
-## Camera Interface
-
-The Arduino GIGA features an onboard Arducam compatible connector.
-
-To learn more about the camera capabilities of the GIGA R1, check out the [GIGA R1 Camera Guide](/tutorials/giga-r1-wifi/giga-camera)
-
-## JTAG
-
-The **GIGA R1** features a 2x5 pin JTAG (Joint Test Action Group) connector, giving advanced debug functionalities for more advanced users. 
-
-![JTAG Connector](assets/jtag.png)
-
-## CAN Bus
-
-The **GIGA R1** features a dedicated CAN bus. 
-
-![CAN Bus](assets/canpins.png)
-
-***The CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transceiver as a breakout board.***
-
-CAN, or **Controller Area Network**, is a communication standard that allows microcontroller-based devices to communicate with each other without the need for a host computer. This means that building a complex system with many different subsystems within becomes much easier. 
-
-This makes the **GIGA R1** a powerful option for complex multilayered systems, as it can be integrated into existing systems or be used to build a new one from scratch. 
-
-The CAN pins on the **GIGA R1** are labelled `CANRX` and `CANTX`. Typically, transceiver breakouts are labelled with a similar syntax, and to connect them to the board, use the following wiring scheme:
-
-| GIGA R1 | Transceiver |
-| ------- | ----------- |
-| VCC     | 3.3V        |
-| GND     | GND         |
-| CANTX   | CANTX\*     |
-| CANRX   | CANRX\*     |
-
-***\*The name of CANTX/CANRX differs from product to product.***
-
-Below is an example of how to send & receive data using a CAN bus.
-
-```arduino
-#include "CAN.h"
-
-mbed::CAN can1(PB_5, PB_13);
-uint8_t counter = 0;
-
-void send() {
-  Serial.println("send()");
-  if (can1.write(mbed::CANMessage(1337, &counter, 1))) {
-    Serial.println("wloop()");
-    counter++;
-    Serial.print("Message sent: ");
-    Serial.println(counter);
-  } else {
-    Serial.println("Transmission error");
-    Serial.println(can1.tderror());
-    can1.reset();
-  }
-}
-
-void receive() {
-  mbed::CANMessage msg;
-  if (can1.read(msg)) {
-    Serial.print("Message received: ");
-    Serial.println(msg.data[0]);
-  }
-}
-
-
-void setup() {
-  Serial.begin(115200);
-  can1.frequency(1000000);
-}
-
-bool receiver = false;
-void loop() {
-  if (receiver) {
-    receive();
-  } else {
-    send();
-  }
-  delay(1000);
-}
-```
+Several ready to use examples are also available in the core at **Examples > USB**.
 
 ## SPI 
 
 ![SPI Pins](assets/spipins.png)
 
-The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
+The **Nano ESP32** SPI peripheral is attached to the following pins: 
 
-The first bus (connector), `SPI` uses the following pins:
+`SPI` uses the following pins:
 
-- (CIPO) - D89
-- (COPI) - D90
-- (SCK) - D91
-- (CS) - D10
-
-The second bus (header), `SPI1`, uses the following pins: 
-
+- (SCK) - D13
 - (CIPO) - D12
 - (COPI) - D11
-- (SCK) - D13
-- (CS) - unassigned, use any free GPIO for this.
+- (CS) - D10\*
 
-For using both SPI buses simultaneously, check out the following example:
-
-```arduino
-#include <SPI.h>
-
-const int CS_1 = 10;
-const int CS_2 = 5;
-
-void setup() {
-  pinMode(CS_1, OUTPUT);
-  pinMode(CS_2, OUTPUT);
-
-  SPI.begin();
-  SPI1.begin();
-
-  digitalWrite(CS_1, LOW);
-  digitalWrite(CS_2, LOW);
-
-  SPI.transfer(0x00);
-  SPI1.transfer(0x00);
-  
-  digitalWrite(CS_1, HIGH);
-  digitalWrite(CS_2, HIGH);
-}
-
-void loop() {
-}
-```
-
-Please note that the in the GIGA R1 schematics and the code does not match exactly. In the schematics, you will notice that `SPI` is `SPI1` and `SPI1` is `SPI5`.
-
-![SPI ports in the schematics.](assets/schematics-spi.png)
+\*CS (Chip Select) can be changed to any free GPIO
 
 
-## I2C Pins
+## I2C
 
-I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7 bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
+I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128.
 
-The **GIGA R1** has three separate I2C buses of which two are usable without external components, letting you control more devices.
-
-The pins used for I2C on the **GIGA R1** are the following:
-- SDA - D20
-- SCL - D21
-- SDA1 - also available on the camera connector.
-- SCL1 - also available on the camera connector.
-- SDA2 - D9
-- SCL2 - D8
+The pins used for I2C on the **Nano ESP32** are the following:
+- SDA - A4
+- SCL - A5
 
 ![I2C Pins](assets/i2cpins.png)
 
@@ -580,9 +217,7 @@ To connect I2C devices you will need to include the [Wire](https://www.arduino.c
 Inside `void setup()` you need to initialize the library, and initialize the I2C port you want to use.
 
 ```arduino
-Wire.begin() //SDA & SDL
-Wire1.begin(); //SDA1 & SDL1
-Wire2.begin(); //SDA2 & SDL2
+Wire.begin(); //initialize library
 ```
 
 And to write something to a device connected via I2C, we can use the following commands:
@@ -594,40 +229,40 @@ Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
 
-If you pay close attention you may notice that there are three sets of I2C pins. The two first sets (SDA, SCL, SDA1, SCL1) have internal pullup resistors connected to them which are required to make them function as I2C pins. 
-
-If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use external pullup resistors.
-
 ## Serial/UART Pins
 
-The **GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **GIGA R1** board features 4 separate serial ports. 
+The **Nano ESP32** supports hardware serial communication with UART (Universal Asynchronous, Receiver-Transmitter). 
 
-This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **4 different serial enabled devices** simultaneously. 
-
-The pins used for UART on the **GIGA R1** are the following:
+The default UART pins are the following:
 
 - RX0 - D0
 - TX0 - D1
-- RX1 - D19
-- TX1 - D18
-- RX2 - 17
-- TX2 - 16
-- RX3 - 15
-- TX3 - 14
 
-Each Serial port works in the same way as the one you're used to, but you use different functions to target them:
+Serial communication is handled via the `Serial` API, where `Serial` handles communication over USB, and `Serial1` over D0/D1.
 
 ```arduino
-Serial.begin(9600);
-Serial1.begin(9600);
-Serial2.begin(9600);
-Serial3.begin(9600);
+Serial //serial over USB
+Serial1 //serial over D0/D1
 ```
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
 
 ```arduino
-Serial1.begin(9600);
+Serial.begin(9600); //serial over USB
+Serial1.begin(9600); //serial using D0/D1
+```
+
+To print something to the computer over USB, we use the `print()` / `println()` function.
+
+```arduino
+Serial.print(); //prints content 
+Serial.println(); //prints content + new line
+```
+
+And to write something using D0/D1 (UART), we can use the following command:
+
+```arduino
+Serial1.write("Hello world!");
 ```
 
 To read incoming data, we can use a while loop() to read each individual character and add it to a string.
@@ -640,229 +275,4 @@ To read incoming data, we can use a while loop() to read each individual charact
   }
 ```
 
-And to write something, we can use the following command:
-
-```arduino
-Serial1.write("Hello world!");
-```
-
-## Pins
-
-The **GIGA R1** gives you access to more pins than any other Arduino board that is this accessible for makers. Many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
-
-If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **GIGA R1**  
-
-| Pin | Function  | Notes                |
-| --- | --------- | -------------------- |
-| 0   | TX        | Serial communication |
-| 1   | RX        | Serial communication |
-| 2   | PWM       | PWM, Digital IO pin  |
-| 3   | PWM       | PWM, Digital IO pin  |
-| 4   | PWM       | PWM, Digital IO pin  |
-| 5   | PWM       | PWM, Digital IO pin  |
-| 6   | PWM       | PWM, Digital IO pin  |
-| 7   | PWM       | PWM, Digital IO pin  |
-| 8   | PWM/SCL2  | PWM, Digital IO, I2C |
-| 9   | PWM/SDA2  | PWM, Digital IO, I2C |
-| 10  | PWM/CS    | PWM, Digital IO, SPI |
-| 11  | PWM/COPI  | PWM, Digital IO, SPI |
-| 12  | PWM/CIPO  | PWM, Digital IO, SPI |
-| 13  | PWM/SCK   | PWM, Digital IO, SPI |
-| 14  | TX3       | Serial communication |
-| 15  | RX3       | Serial communication |
-| 16  | TX2       | Serial communication |
-| 17  | RX2       | Serial communication |
-| 18  | TX1       | Serial communication |
-| 19  | RX1       | Serial communication |
-| 20  | SDA       | Digital IO, I2C      |
-| 21  | SCL       | Digital IO, I2C      |
-| 22  | GPIO      | Digital IO pin       |
-| 23  | GPIO      | Digital IO pin       |
-| 24  | GPIO      | Digital IO pin       |
-| 25  | GPIO      | Digital IO pin       |
-| 26  | GPIO      | Digital IO pin       |
-| 27  | GPIO      | Digital IO pin       |
-| 28  | GPIO      | Digital IO pin       |
-| 29  | GPIO      | Digital IO pin       |
-| 30  | GPIO      | Digital IO pin       |
-| 31  | GPIO      | Digital IO pin       |
-| 32  | GPIO      | Digital IO pin       |
-| 33  | GPIO      | Digital IO pin       |
-| 34  | GPIO      | Digital IO pin       |
-| 35  | GPIO      | Digital IO pin       |
-| 36  | GPIO      | Digital IO pin       |
-| 37  | GPIO      | Digital IO pin       |
-| 38  | GPIO      | Digital IO pin       |
-| 39  | GPIO      | Digital IO pin       |
-| 40  | GPIO      | Digital IO pin       |
-| 41  | GPIO      | Digital IO pin       |
-| 42  | GPIO      | Digital IO pin       |
-| 43  | GPIO      | Digital IO pin       |
-| 44  | GPIO      | Digital IO pin       |
-| 45  | GPIO      | Digital IO pin       |
-| 46  | GPIO      | Digital IO pin       |
-| 47  | GPIO      | Digital IO pin       |
-| 48  | GPIO      | Digital IO pin       |
-| 49  | GPIO      | Digital IO pin       |
-| 50  | GPIO      | Digital IO pin       |
-| 51  | GPIO      | Digital IO pin       |
-| 52  | GPIO      | Digital IO pin       |
-| 53  | GPIO      | Digital IO pin       |
-| 54  | GPIO      | Digital IO pin       |
-| 55  | GPIO      | Digital IO pin       |
-| 56  | GPIO      | Digital IO pin       |
-| 57  | GPIO      | Digital IO pin       |
-| 58  | GPIO      | Digital IO pin       |
-| 59  | GPIO      | Digital IO pin       |
-| 60  | GPIO      | Digital IO pin       |
-| 61  | GPIO      | Digital IO pin       |
-| 62  | GPIO      | Digital IO pin       |
-| 63  | GPIO      | Digital IO pin       |
-| 64  | GPIO      | Digital IO pin       |
-| 65  | GPIO      | Digital IO pin       |
-| 66  | GPIO      | Digital IO pin       |
-| 67  | GPIO      | Digital IO pin       |
-| 68  | GPIO      | Digital IO pin       |
-| 69  | GPIO      | Digital IO pin       |
-| 70  | GPIO      | Digital IO pin       |
-| 71  | GPIO      | Digital IO pin       |
-| 72  | GPIO      | Digital IO pin       |
-| 73  | GPIO      | Digital IO pin       |
-| 74  | GPIO      | Digital IO pin       |
-| 75  | GPIO      | Digital IO pin       |
-| A0  | Analog in | Analog In            |
-| A1  | Analog in | Analog In            |
-| A2  | Analog in | Analog In            |
-| A3  | Analog in | Analog In            |
-| A4  | Analog in | Analog In            |
-| A5  | Analog in | Analog In            |
-| A6  | Analog in | Analog In            |
-| A7  | Analog in | Analog In            |
-| A8  | Analog in | Analog In            |
-| A9  | Analog in | Analog In            |
-| A10 | Analog in | Analog In            |
-| A11 | Analog in | Analog In            |
-| A12 | DAC0      | Analog In, DAC       |
-| A13 | DAC1      | Analog In, DAC       |
-| A14 | CANRX     | Analog In, CAN       |
-| A15 | CANTX     | Analog In, CAN       |
-
-
-
-### Analog Pins
-
-The **GIGA R1** has 12 analog input pins that can be read with a resolution of 16 Bits, by using the `analogRead()` function.
-
-```arduino
-value = analogRead(pin, value);
-```
-
-The reference voltage of these pins is 3.3V. 
-
-Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as analog input pins.
-
-***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
-
-
-### PWM Pins
-
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
-
-The **GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-12. You may use them as analog output pins with the function: 
-
-```arduino
-analogWrite(pin, value);
-```
-
-### Digital Pins
-
-The **GIGA R1** features more pins than any other Arduino board for makers, a full 76 digital pins. Though many of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
-
-- 0 - RX0
-- 1 - TX0
-- 8 - SCL2
-- 9 - SDA2
-- 10 - CS
-- 11 - COPI
-- 12 - CIPO
-- 13 - SCK 
-- 14 - TX3
-- 15 - RX3
-- 16 - TX2
-- 17 - RX2
-- 18 - TX1
-- 19 - RX1
-- 20 - SDA
-- 21 - SCL
-
-The reference voltage of all digital pins is 3.3V.
-
-### DAC Pins
-
-The **GIGA R1** also has two DAC pins, A12 & A13, that can act as genuine analog output pins which means they are even more capable than PWM pins.
-```arduino
-analogWrite(pin, value);
-```
-
-![DAC Pins](assets/audio-jack.png)
-
-These DAC pins have a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
-
-However you may change this write resolution if you need to, to up to 12-bits:
-
-```arduino
-analogWriteResolution(12);
-```
-
-***For advanced usage of the DAC, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced DAC section](/tutorials/giga-r1-wifi/giga-audio#digital-to-analog-converters).***
-
-### OFF Pin
-
-On the **GIGA R1** you will find a pin labelled **"OFF"**. If you connect this pin to ground, the board will power down even if power is supplied to the board.
-
-You can install a flip-switch to the board to let you turn your device on and off easily, which can be a handy option for a more permanent fixture. 
-
-## Interrupts 
-
-If you're creating a project that relies heavily on accurate sensordata, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function. 
-
-This feature might be extra valuable to the maker with an **GIGA R1**, as their circuit gets more and more complex.
-
-All GPIO pins on the **GIGA R1** can be used for interrupts. 
-
-The syntax for creating an interrupt function should be included in `void setup()` and is as follows:
-```arduino
-attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
-```
-
-- `pin` represents the pin number of the pin your input sensor is connected to, 
-- `ISR` is the function that is called whenever the interrupt is triggered, and should be defined bt you somewhere in your sketch.
-- `mode` defines when the interrupt should be triggered, and can be one of four pre-defined modes.
-
-The different modes that can be used are: 
-- `LOW` triggers the interrupt when the pin is low.
-- `CHANGE` triggers whenever the pin changes values.
-- `RISING` triggers when the pin goes from low to high. 
-- `FALLING` triggers when the pin goes from high to low.
-
-This example sketch will turn on or off an LED connected to pin 13 whenever a pushbutton connected to pin 2 is pressed or released:
-
-```arduino
-const byte ledPin = 13;
-const byte interruptPin = 2;
-volatile byte state = LOW;
-
-void setup() {
-  pinMode(ledPin, OUTPUT);
-  pinMode(interruptPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(interruptPin), blink, CHANGE);
-}
-
-void loop() {
-  digitalWrite(ledPin, state);
-}
-
-void blink() {
-  state = !state;
-}
-```
+## Test Pads

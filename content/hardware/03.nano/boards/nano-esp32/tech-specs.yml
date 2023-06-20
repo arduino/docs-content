@@ -13,12 +13,12 @@ Connectivity:
   Wi-Fi: uBlox NORA-W106 (ESP32-S3)
   Bluetooth®: uBlox NORA-W106 (ESP32-S3)
 Communication:
-  UART: RX/TX 
-  I2C: A4 (SDA), A5 (SCL)
+  UART: 1x, D0 (TX), D1, (RX)
+  I2C: 1x, A4 (SDA), A5 (SCL)
   SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
 Power:
-  I/O Voltage: 3.3V
-  Input voltage (nominal): 5-18V
+  I/O Voltage: 3.3 V
+  Input voltage (nominal): 5-18 V
   Source Current per I/O Pin: 40 mA
   Sink Current per I/O Pin: 28 mA
 Clock speed:
@@ -26,7 +26,7 @@ Clock speed:
 Memory:
   ROM: 384 kB
   SRAM: 512 kB
-  External Flash: 128 Mbit (16MB)  
+  External Flash: 128 Mbit (16 MB)
 Dimensions:
   Width: 18 mm
   Length: 45 mm
