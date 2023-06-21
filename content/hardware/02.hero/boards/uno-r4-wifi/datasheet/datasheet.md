@@ -166,7 +166,8 @@ For more technical details on this microcontroller, visit the Renesas - RA4M1 se
 The Wi-Fi® / Bluetooth® LE module on the UNO R4 WiFi is from the ESP32-S3 SoCs. It features the Xtensa® dual-core 32-bit LX7 MCU, a built-in antenna and support for 2.4 GHz bands.
 
 The ESP32-S3-MINI-1-N8 features:
-* Wi-Fi® / Bluetooth® LE support
+* Wi-Fi® 4 - 2.4 GHz band
+* Bluetooth® 5 LE support
 * 3.3 V operating voltage
 * 384  kB ROM
 * 512  kB SRAM
@@ -180,12 +181,12 @@ This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with th
 
 The header located close to the RESET button can be used to access the ESP32-S3 module directly. The pins accessible are:
 
-* `ESP_IO41` - MTDI debugging 
-* `ESP_IO42` - MTMS debugging 
-* `ESP_TXD0` - Serial Transmit (UART)
-* `ESP_RXD0` - Serial Receive (UART)
-* `ESP_DOWNLOAD` - boot
-* `GND` - ground. 
+* `ESP_IO42` - MTMS debugging (Pin 1)  
+* `ESP_IO41` - MTDI debugging (Pin 2)
+* `ESP_TXD0` - Serial Transmit (UART) (Pin 3)
+* `ESP_DOWNLOAD` - boot (Pin 4)
+* `ESP_RXD0` - Serial Receive (UART) (Pin 5)
+* `GND` - ground (Pin 6)
 
 ![ESP header (schematic)](assets/esp-header-2.png)
 
@@ -201,13 +202,13 @@ Soldering together the **SJ1** pads permanently sets the USB communication direc
 
 The UNO R4 WiFi has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
 
-Note that you should not power the board with more than 5 V via the USB-C® port.
+**Note:** The board should not be powered with more than 5 V via the USB-C® port.
 
 ## LED Matrix
 
-The UNO R4 WiFi features a 12x8 matrix of red LEDs (**U_LEDMATRIX**), connected using the charlieplexing technique.
+The UNO R4 WiFi features a 12x8 matrix of red LEDs (**U_LEDMATRIX**), connected using the technique known as charlieplexing.
 
-The following pins on the RA4M1 MCU is used for the matrix:
+The following pins on the RA4M1 MCU are used for the matrix:
 - P003
 - P004
 - P011
@@ -232,7 +233,7 @@ This matrix can be used for a number of projects and prototyping purposes, and s
 
 The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
 
-The DAC can be used for signal generation for e.g. audio applications. You can for example generate and alter a sawtooth wave.  
+The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth wave.
 
 ## I2C Connector
 
@@ -250,7 +251,7 @@ This connector also shares the following pin connections:
 - SDA
 - SCL
 
-**Please note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connector simultaneously.
+**Note:** as A4/A5 is connected to the main I2C bus, these should not be used as ADC inputs whenever the bus is in use. You can however connect I2C devices to each of these pins and connectors simultaneously.
 
 ## Power Options
 
@@ -270,7 +271,7 @@ The linear regulator (SGM2205-3.3XKC3G/TR) converts 5 V from either the buck con
 
 The general operating voltage for UNO R4 WiFi is 5 V, however the ESP32-S3 module's operating voltage is 3.3 V. 
 
-It is **very** important that ESP32-S3's pins (3.3 V) do not come in contact with any of the RA4M1's pins (5 V), as this may damage the circuits.
+**Note:** It is **very** important that ESP32-S3's pins (3.3 V) do not come in contact with any of the RA4M1's pins (5 V), as this may damage the circuits.
 
 ### Pin Current
 
@@ -349,7 +350,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
+![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
 
 ## Board Operation
 
@@ -470,6 +471,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 08/06/2023 | Release     |
+| Date       | **Revision** | **Changes**                        |
+|------------|--------------|------------------------------------|
+| 08/06/2023 | 1            | First Release                      |
