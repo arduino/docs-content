@@ -14,11 +14,15 @@ author: 'Karl Söderby'
 
 The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [-S3 series](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **uBlox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
+![Nano ESP32 overview](assets/nano-esp32-overview.png)
+
 In this document, you will find information regarding features your board, and links to resources. 
 
 ***Note that this board is compatible with many ESP32 examples out of the box, but that the pinout may vary. You can find the complete API at [ESP32-S3 API reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html).*** 
 
 ## NORA-W106 (ESP32-S3)
+
+![NORA-W106 module.](assets/nano-esp32-wifi.png)
 
 The Nano ESP32 features the **ESP32-S3** system on a chip (SoC) from Espressif, which is embedded in the **NORA-W106** module. The ESP32-S3 has a dual-core microprocessor Xtensa® 32-bit LX7, and has support for the 2.4 GHz Wi-Fi band as well as Bluetooth 5. The operating voltage of this SoC is 3.3V.
 
@@ -64,9 +68,9 @@ In this course, you will fundamental knowledge to get started, as well as a larg
 
 ## Arduino IoT Cloud
 
-Nano ESP32 is fully supported by [Arduino IoT Cloud](). You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
-- [Getting Started with Arduino IoT Cloud (classic)]()
-- [MicroPython with Arduino IoT Cloud]()
+Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
+- [Getting Started with Arduino IoT Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
+- [MicroPython with Arduino IoT Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
 
 ## Power Considerations
 
@@ -132,11 +136,21 @@ The Nano ESP32 has two headers: the **analog** and **digital**. Listed here are 
 | D1/RX    | Digital  | GPIO 1 / **UART** Receiver (RX)      |
 | D0/TX    | Digital  | GPIO 0 / **UART** Transmitter (TX)   |
 
+## Boot Pins
+
+To enter bootloader mode (chip boot mode), you can use either the BOOT0 or BOOT1 pins, which are connected to the ESP32-S3's `GPIO0` and `GPIO46`.
+
+Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding LED will  
+
+You can read more about different this in the [Strapping Pins section](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf#page=23) in the ESP32-S3's datasheet.
+
 ## IO Mux & GPIO Matrix
 
 The ESP32-S3 SoC features an IO mux (input/output multiplexer) and a GPIO matrix. The IO mux acts as a data selector and allows for different peripherals to be connected to a physical pin. 
 
-The ESP32-S3 chip has 45 physical GPIOs, but many more digital peripherals. The IO mux provides the flexibility of changing the functionality of the GPIO.
+The ESP32-S3 chip has 45 physical GPIOs, but many more digital peripherals. The IO mux provides the flexibility of routing the signals to different GPIOs, thus changing the function of a specific pin.
+
+![](assets/IO_MUX.png)
 
 This technique is well known and applied within ESP32 boards, but on the Nano ESP32 we use a set of default pins for the I2C, SPI & UART peripherals to remain consistent with previous designs.
 
@@ -147,19 +161,16 @@ As an example, the Nano ESP32's SDA/SCL pins are attached to A4/A5 by default. T
 You can read more about re-assigning the peripherals through the links below:
 - [I2C configuration (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2c.html#i2c-api-configure-driver)
 - [UART configuration (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/uart.html#uart-api-setting-communication-pins)
-- [SPI (link to Espressif docs)]()
 
-### Read More
+You can also 
 
 - [IO MUX and GPIO Matrix (ESP32-S3 technical reference manual)](https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf#iomuxgpio)
 
 ## Wi-Fi®
 
-![NORA-W106 module.](assets/wifi.png)
-
 The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi communication over the 2.4GHz band.
 
-There are several Wi-Fi® examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
+There are several examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
 
 ## RGB
 
@@ -184,7 +195,7 @@ Several ready to use examples are also available in the core at **Examples > USB
 
 ## SPI 
 
-![SPI Pins](assets/spipins.png)
+![SPI Pins](assets/nano-esp32-spi.png)
 
 The **Nano ESP32** SPI peripheral is attached to the following pins: 
 
@@ -200,13 +211,13 @@ The **Nano ESP32** SPI peripheral is attached to the following pins:
 
 ## I2C
 
+![I2C Pins](assets/nano-esp32-i2c.png)
+
 I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128.
 
 The pins used for I2C on the **Nano ESP32** are the following:
 - SDA - A4
 - SCL - A5
-
-![I2C Pins](assets/i2cpins.png)
 
 To connect I2C devices you will need to include the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library at the top of your sketch.
 
@@ -276,3 +287,7 @@ To read incoming data, we can use a while loop() to read each individual charact
 ```
 
 ## Test Pads
+
+There are several test pads on the bottom side of the Nano ESP32. See the image below:
+
+![Test pads on Nano ESP32](assets/nano-esp32-testpads.png)

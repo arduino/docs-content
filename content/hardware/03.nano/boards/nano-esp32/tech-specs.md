@@ -1,4 +1,4 @@
-Here you will find the technical specifications for the Arduino® Nano 33 IoT.
+Here you will find the technical specifications for the Arduino® Nano ESP32.
 
 **Please read: operating voltage**
 
