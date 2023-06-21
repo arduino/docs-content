@@ -85,7 +85,7 @@ The goal of this application note is to showcase a sensorized farming irrigation
 - The [Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
 - [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WAN 1310 on the Arduino IoT Cloud.
 
-## Sensorized Irrigation System Setup
+## Irrigation System Setup
 
 The electrical connections of the intended application are shown in the diagram below:
 
@@ -99,10 +99,29 @@ The electrical connections of the intended application are shown in the diagram 
 
 [!]()
 
-- The water flow sensor will be connected to .... of the XX connector.
+- The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector.
 
+[!]()
 
-## Sensorized Irrigation System Overview
+- The four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
+
+## Irrigation System Overview
+
+The irrigation system works as a whole: it integrates the water flow measurement and the activation of the valves, done by the Edge Control, with the Cloud communication, using the MKR WAN 1310.
+
+The Edge Control is responsible of:
+
+- Measuring the water usage with a water flow sensor.
+- Measuring the soil humidity level using watermark sensors.
+- Controlling an LCD screen where different system variables will be shown, including soil humidity.
+- Deciding whether to irrigate based on local humidity.
+
+The MKR WAN 1310 is responsible of:
+
+- Providing Cloud connectivity using LoRaWAN.
+- Reporting the values of the Edge Control sensors on the cloud. 
+
+The communication between both devices is done leveraging the I2C communication protocol.
 
 ### Valves Control
 
