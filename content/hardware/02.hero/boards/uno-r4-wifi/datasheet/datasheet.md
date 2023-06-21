@@ -17,7 +17,7 @@ Maker, beginner, education
 
 # Features
 
-The **R7FA4M1AB3CFM#AA0** is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses. Often referred to as RA4M1 in this datasheet.
+The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the main MCU on the UNO R4 WiFi, connected to all pin headers on the board as well as all communication buses.
 
 * **Overview**
   * 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU)
@@ -33,12 +33,12 @@ The **R7FA4M1AB3CFM#AA0** is the main MCU on the UNO R4 WiFi, connected to all p
   * Capacitive Touch Sensing Unit (CTSU)
   * USB 2.0 Full-Speed Module (USBFS)
   * 14-bit ADC
-  * up to 12-bit DAC
+  * Up to 12-bit DAC
   * Operational Amplifier (OPAMP)
 * **Power**
   * Operating voltage for RA4M1 is 5 V
   * Recommended input voltage (VIN) is 6-24 V
-  * Barrel jack connected to VIN pin
+  * Barrel jack connected to VIN pin (6-24 V)
   * Power via USB-C® at 5 V
 * **Communication**
   * 1x UART (pin D0, D1)
@@ -56,9 +56,9 @@ The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-F
   * 3.3 V operating voltage
   * 40 MHz crystal oscillator
 * **Wi-Fi®**
-  * Wi-Fi® support with 802.11 b/g/n standard (Wi-Fi® 4).
+  * Wi-Fi® support with 802.11 b/g/n standard (Wi-Fi® 4)
   * Bit rate at up to 150 Mbps
-  * 2.4 GHz band (2.412 - 2.484 GHz)
+  * 2.4 GHz band
 * **Bluetooth®**
   * Bluetooth® 5
 
@@ -81,7 +81,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 **Easy IoT applications:** build projects without writing any networking code in the Arduino IoT Cloud. Monitor your board, connect it with other boards and services, and develop cool IoT projects.
 
-**LED Matrix:** the 12x8 LED matrix on the board can be used for animations, text scrolling or mini-games. It is also a fun feature that can be used to personalise your board!
+**LED Matrix:** the 12x8 LED matrix on the board can be used for showing animations, text scrolling, create mini-games and much more, being the perfect feature to give your project more personality.
 
 ### Related Products
 * UNO R3
@@ -120,7 +120,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | U4          | TXB0108DQSR logic level translator (5 V - 3.3 V) |
 | U5          | SGM2205-3.3XKC3G/TR 3.3 V linear regulator       |
 | U6          | NLASB3157DFT2G Multiplexer                       |
-| U_LEDMATRIX | Matrix with 96x LEDs                             |
+| U_LEDMATRIX | 12x8 LED Red Matrix                             |
 | M1          | ESP32-S3-MINI-1-N8                               |
 | PB1         | RESET Button                                     |
 | JANALOG     | Analog input/output headers                      |
@@ -148,7 +148,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-The operating voltage for the RA4M1 is fixed at 5V as to be hardware compatible with shields, accessories & circuits based on an previous UNO revision. 
+The operating voltage for the RA4M1 is fixed at 5 V as to be hardware compatible with shields, accessories & circuits based on previous Arduino UNO boards. 
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
@@ -159,9 +159,9 @@ The R7FA4M1AB3CFM#AA0 features:
 * OPAMP
 * CAN bus
 
-For more technical details on this microcontroller, visit [Renesas - RA4M1 series](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra4m1-32-bit-microcontrollers-48mhz-arm-cortex-m4-and-lcd-controller-and-cap-touch-hmi).
+For more technical details on this microcontroller, visit the Renesas - RA4M1 series official documentation.
 
-## Radio Module (ESP32-S3-MINI-1-N8)
+## Wi-Fi® / Bluetooth® Module (ESP32-S3-MINI-1-N8)
 
 The Wi-Fi® / Bluetooth® LE module on the UNO R4 WiFi is from the ESP32-S3 SoCs. It features the Xtensa® dual-core 32-bit LX7 MCU, a built-in antenna and support for 2.4 GHz bands.
 
