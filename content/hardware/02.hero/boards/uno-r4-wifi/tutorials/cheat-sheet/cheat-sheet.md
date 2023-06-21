@@ -73,13 +73,6 @@ The board features
 - 256 kB flash 
 - 8 kB data (EEPROM).
 
-## Arduino IoT Cloud
-
-The UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
-
-***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
-
-
 ## Pins
 
 The UNO R4 WiFi gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
