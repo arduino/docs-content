@@ -95,8 +95,6 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 | D11 | Digital   | SPI (CIPO), GPIO pin, PWM         |
 | D12 | Digital   | SPI (COPI), GPIO pin              |
 | D13 | Digital   | SPI (SCK), GPIO pin, Built-in LED |
-| D15 | Digital   | I2C (SCL)                         |
-| D14 | Digital   | I2C (SDA)                         |
 | A0  | Digital   | Analog In, DAC                    |
 | A1  | Analog in | Analog In, OPAMP +                |
 | A2  | Analog in | Analog In, OPAMP -                |
@@ -108,16 +106,18 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 
 ### Analog Pins
 
-| Pin | Function  | Notes          |
-| --- | --------- | -------------- |
-| A0  | DAC       | Analog In, DAC |
-| A1  | Analog in | Analog In      |
-| A2  | Analog in | Analog In      |
-| A3  | Analog in | Analog In      |
-| A4  | Analog in | Analog In      |
-| A5  | Analog in | Analog In      |
+The UNO R4 WiFi has six analog input pins (A0-A5) that can be read by using the `analogRead()` function.
 
-The **UNO R4 WiFi** has 6 analog input pins (A0-A5) that can be read by using the `analogRead()` function.
+| Pin | Type   | Function             |
+| --- | ------ | -------------------- |
+| A0  | Analog | Analog In, DAC       |
+| A1  | Analog | Analog In, OPAMP +   |
+| A2  | Analog | Analog In, OPAMP -   |
+| A3  | Analog | Analog In, OPAMP OUT |
+| A4  | Analog | Analog In, SDA\*     |
+| A5  | Analog | Analog In, SCL\*     |
+
+***\*A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
 value = analogRead(pin, value);
@@ -142,23 +142,6 @@ The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 WiFi as follow
 | A2  | OPAMP -   |
 | A3  | OPAMP OUT |
 
-#### Additional PWM Pins
-
-The following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
-
-| Pin       | RA4M1 | Timer   |
-| --------- | ----- | ------- |
-| D0        | P301  | GTIOC4B |
-| D1        | P302  | GTIOC4A |
-| D2        | P104  | GTIOC1B |
-| D4        | P106  | GTIOC0B |
-| D7        | P112  | GTIOC3B |
-| D8        | P304  | GTIOC7A |
-| D12       | P410  | GTIOC6B |
-| D13       | P102  | GTIOC2B |
-| D14 / SDA | P101  | GTIOC5A |
-| D15 / SCL | P100  | GTIOC5B |
-
 ### Digital Pins
 
 The UNO R4 WiFi features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
@@ -180,8 +163,6 @@ The UNO R4 WiFi features a total of digital 14 pins. Though some of them serve a
 | 11  | PWM      | Digital IO pin, PWM  |
 | 12  | GPIO     | Digital IO pin       |
 | 13  | GPIO     | Digital IO pin       |
-| 14  | SDA      | Serial communication |
-| 15  | SCL      | Serial communication |
 
 The reference voltage of all digital pins is 5 V.
 
@@ -205,6 +186,21 @@ You may use them as analog output pins with the function:
 ```arduino
 analogWrite(pin, value);
 ```
+
+**PLease Note:** the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
+
+| Pin       | RA4M1 | Timer   |
+| --------- | ----- | ------- |
+| D0        | P301  | GTIOC4B |
+| D1        | P302  | GTIOC4A |
+| D2        | P104  | GTIOC1B |
+| D4        | P106  | GTIOC0B |
+| D7        | P112  | GTIOC3B |
+| D8        | P304  | GTIOC7A |
+| D12       | P410  | GTIOC6B |
+| D13       | P102  | GTIOC2B |
+| D18 / SDA | P101  | GTIOC5A |
+| D19 / SCL | P100  | GTIOC5B |
 
 ## DAC
 
