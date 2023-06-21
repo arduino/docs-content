@@ -64,7 +64,7 @@ If you need help to get started, you can go through the [Arduino IoT Cloud tutor
 
 ![The pinout for MKR IoT Carrier Rev2](assets/mkrIoTCarrier-pinout.png)
 
-The full pinout is available in the [resources section](/hardware/mkr-iot-carrie-rev2#resources).
+The full pinout is available in the [resources section](/hardware/mkr-iot-carrier-rev2#resources).
 
 ## Grove Connectors
 

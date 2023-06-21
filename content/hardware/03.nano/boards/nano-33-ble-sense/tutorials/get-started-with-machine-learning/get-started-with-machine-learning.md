@@ -9,7 +9,7 @@ tags:
 author: 'Sandeep Mistry and Dominic Pajak'
 libraries: 
   - name: Arduino_TensorFlowLite
-    url: https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/
+    url: https://github.com/tensorflow/tflite-micro-arduino-examples
   - name: Arduino_LSM9DS1
     url: https://www.arduino.cc/en/Reference/ArduinoLSM9DS1
 hardware:
@@ -45,10 +45,10 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 
 ## Goals 
 - Learn the fundamentals of TinyML implementation and training.
-- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [Arduino_TensorFlowLite](https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/) libraries
+- Use the [Arduino_LSM9DS1](https://www.arduino.cc/en/Reference/ArduinoLSM9DS1) and [Arduino_TensorFlowLite](https://github.com/tensorflow/tflite-micro-arduino-examples) libraries
 
 ## Hardware & Software Needed
-- An [Arduino Nano 33 BLE Sense](https://store.arduino.cc/nano-33-ble-sense) board
+- An [Arduino Nano 33 BLE Sense](/hardware/nano-33-ble-sense) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
 - To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
 - [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) (download only available via GitHub).

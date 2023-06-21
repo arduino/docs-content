@@ -30,7 +30,7 @@ This tutorial demonstrates how to use an Arduino board (Arduino Zero, MKRZero or
 
 ## Hardware & Software Needed
 
-- [Arduino Zero](https://store.arduino.cc/arduino-zero), [MKRZero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)  or [MKR1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi-with-headers-mounted) board
+- [Arduino Zero](https://store.arduino.cc/arduino-zero), [MKRZero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)  or [MKR1000 WiFi](/hardware/mkr-1000-wifi) board
 - [AudioZero](https://www.arduino.cc/en/Reference/AudioZero) library 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 
@@ -38,7 +38,7 @@ This tutorial demonstrates how to use an Arduino board (Arduino Zero, MKRZero or
 - Breadboard
 - Jumper wires
 
-- Arduino shield with an SD card with CS on pin 4 (like the [Proto Wireless SD Shield](http://store.arduino.cc/product/A000065))
+- Arduino shield with an SD card with CS on pin 4 (like the [MKR SD Proto Shield](/hardware/mkr-sd-proto-shield))
 
 ### Components to Build an External Audio amplifier:
 
