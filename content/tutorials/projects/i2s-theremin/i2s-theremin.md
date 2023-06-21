@@ -10,7 +10,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/i2s-theremin-cec47
 
 ## Components and Supplies
 
-- [Arduino MKR Zero](https://store.arduino.cc/arduino-mkrzero-with-headers)
+- [Arduino MKR Zero](/hardware/mkr-zero)
 - [Breadboard (generic)](https://www.newark.com/99W1759?COM=ref_hackster)
 - [Jumper wires (generic)](https://www.newark.com/88W2571?COM=ref_hackster)
 - [Adafruit MAX98357A](https://www.adafruit.com/product/3006)

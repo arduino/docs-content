@@ -10,7 +10,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/gnome-traveller-3a
 
 ## Components and Supplies
 
-- [Arduino Nano Every](https://store.arduino.cc/usa/nano-every)
+- [Arduino Nano Every](/hardware/nano-every)
 - [Arduino MKR GPS Shield](https://store.arduino.cc/mkr-gps-shield)
 - [Digilent MicroSD Card with Adapter](http://store.digilentinc.com/)
 - [SparkFun Level Shifter Board](https://www.sparkfun.com/products/12009)
@@ -255,7 +255,7 @@ Please note that on Google Maps you can import the logged data to get every line
 ![This is the result of a trip in the surroundings of Jumeirah Lake Towers with our Gnome](assets/googlemaps_8nJagPTFWD.jpg)
 
 
-If you want to see the correct position in the 3D space, with elevation, you need to create a **KML** file from the CSV and among the various solutions available online we have found that **ATSB KML Creator** does this conversion perfectly. The ATSB KML Creator utilizes spreadsheets containing recorded GPS parameters (latitude, longitude and altitude) to create a flight path in KML format, viewable using Google Earth. The ATSB KML Creator also incorporates the display of user selected parameters in conjunction with the flight path using the 'Elevation Profile' feature in Google Earth. You can find it here: <https://www.atsb.gov.au/utilities/atsb-kml-creator/>
+If you want to see the correct position in the 3D space, with elevation, you need to create a **KML** file from the CSV and among the various solutions available online we have found that **ATSB KML Creator** does this conversion perfectly. The ATSB KML Creator utilizes spreadsheets containing recorded GPS parameters (latitude, longitude and altitude) to create a flight path in KML format, viewable using Google Earth. The ATSB KML Creator also incorporates the display of user selected parameters in conjunction with the flight path using the 'Elevation Profile' feature in Google Earth. You can find it here: <https://www.atsb.gov.au/atsb-kml-creator>
 
 ![We put our gnome on a balcony at the 86th floor and the yellow path is what was logged. Some jitter in the position is part of the approximation of the GPS reception](assets/gnome_earth2_nIKi4yVsT2.jpg)
 

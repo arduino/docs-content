@@ -25,7 +25,7 @@ The debugger is compatible with all SAMD boards. Boards using the SAMD architect
 
 - [MKR Zero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data)
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
-- [MKR FOX 1200](https://store.arduino.cc/arduino-mkr-fox-1200)
+- [MKR FOX 1200](/hardware/mkr-fox-1200)
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300)
 - [MKR WAN 1310](https://store.arduino.cc/arduino-mkr-wan-1310)
 - [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)
@@ -90,7 +90,7 @@ Now, in order to use the debugger, we need specific hardware instruments, the ch
 
 In order to use the Debugger, we need to upload a sketch to our board first, making sure that the built program will be optimized for debugging, so let's check that option right away.
 
-![Enable "Optimize for Debugging" option.](assets/debugger-extra-img-01.png)
+![Enable "Optimize for Debugging" option.](assets/debugger-extra-img01.png)
 
 >**Important:** You should connect the Arduino Zero through its **programming USB port**.
 

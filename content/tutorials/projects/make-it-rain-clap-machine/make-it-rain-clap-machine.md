@@ -10,9 +10,9 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/make-it-rain-clap-
 
 ## Components and Supplies
 
-- [Arduino MKR Zero](https://store.arduino.cc/arduino-mkrzero-with-headers)
-- [Medium breadboard](https://store.arduino.cc/product/C000767)
-- [Jumper Wires](https://store.arduino.cc/product/C000034)
+- [Arduino MKR Zero](/hardware/mkr-zero)
+- Medium breadboard
+- [Jumper Wires](https://store.arduino.cc/products/breadboard-jumper-wire-pack-200mm-100mm)
 - [Diode](https://store.arduino.cc/product/C000018)
 - Mosfet N-Channel
 - ICS43432 I2S digital microphone

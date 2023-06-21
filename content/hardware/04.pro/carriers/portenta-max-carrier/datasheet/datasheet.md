@@ -481,15 +481,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
-| Reference                        | **Link**                                                                     |
-| -------------------------------- | ---------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                      |
-| Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                             |
-| Cloud Web Editor Getting Started | https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started/ |
-| Arduino Pro Website              | https://www.arduino.cc/pro                                                   |
-| Library Reference                | https://www.arduino.cc/reference/en/                                         |
-| Online Store                     | https://store.arduino.cc/                                                    |
-| Arduino Max Carrier Docs         | https://docs.arduino.cc/hardware/portenta-max-carrier                        |
+| Reference                        | **Link**                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                         |
+| Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                                |
+| Cloud Web Editor Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+| Arduino Pro Website              | https://www.arduino.cc/pro                                                      |
+| Library Reference                | https://www.arduino.cc/reference/en/                                            |
+| Online Store                     | https://store.arduino.cc/                                                       |
+| Arduino Max Carrier Docs         | https://docs.arduino.cc/hardware/portenta-max-carrier                           |
 
 ## Revision History
 | Date       | **Revision** | **Changes**   |
