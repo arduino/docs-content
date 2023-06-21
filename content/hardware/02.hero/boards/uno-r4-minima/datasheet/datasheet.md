@@ -172,22 +172,22 @@ In case you need to power external devices that require more power, e.g. servo m
 
 ### Analog
 
-| Pin | Function | Type   | Description                                     |
-| --- | -------- | ------ | ----------------------------------------------- |
-| 1   | BOOT     | MD     | Mode selection                                  |
-| 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5V |
-| 3   | Reset    | Reset  | Reset                                           |
-| 4   | +3V3     | Power  | +3V3 Power Rail                                 |
-| 5   | +5V      | Power  | +5V Power Rail                                  |
-| 6   | GND      | Power  | Ground                                          |
-| 7   | GND      | Power  | Ground                                          |
-| 8   | VIN      | Power  | Voltage Input                                   |
-| 9   | A0       | Analog | Analog input 0 / DAC                            |
-| 10  | A1       | Analog | Analog input 1 / OPAMP+                         |
-| 11  | A2       | Analog | Analog input 2 / OPAMP-                         |
-| 12  | A3       | Analog | Analog input 3 / OPAMPOut                       |
-| 13  | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA)         |
-| 14  | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL)         |
+| Pin | Function | Type   | Description                                      |
+| --- | -------- | ------ | ------------------------------------------------ |
+| 1   | BOOT     | MD     | Mode selection                                   |
+| 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5 V |
+| 3   | Reset    | Reset  | Reset                                            |
+| 4   | +3V3     | Power  | +3V3 Power Rail                                  |
+| 5   | +5V      | Power  | +5V Power Rail                                   |
+| 6   | GND      | Power  | Ground                                           |
+| 7   | GND      | Power  | Ground                                           |
+| 8   | VIN      | Power  | Voltage Input                                    |
+| 9   | A0       | Analog | Analog input 0 / DAC                             |
+| 10  | A1       | Analog | Analog input 1 / OPAMP+                          |
+| 11  | A2       | Analog | Analog input 2 / OPAMP-                          |
+| 12  | A3       | Analog | Analog input 3 / OPAMPOut                        |
+| 13  | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA)          |
+| 14  | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL)          |
 
 ### Digital
 
@@ -227,18 +227,18 @@ In case you need to power external devices that require more power, e.g. servo m
 
 ### SWD/JTAG
 
-| Pin | Function | Type     | Description        |
-| --- | -------- | -------- | ------------------ |
-| 1   | +5V      | Internal | Power Supply of 5V |
-| 2   | SWDIO    | Internal | Data I/O pin       |
-| 3   | GND      | Internal | Ground             |
-| 4   | SWCLK    | Internal | Clock Pin          |
-| 5   | GND      | Internal | Ground             |
-| 6   | NC       | Internal | Not connected      |
-| 7   | RX       | Internal | Serial Receiver    |
-| 8   | TX       | Internal | Serial Transmitter |
-| 9   | GND      | Internal | Ground             |
-| 10  | NC       | Internal | Not connected      |
+| Pin | Function | Type     | Description         |
+| --- | -------- | -------- | ------------------- |
+| 1   | +5V      | Internal | Power Supply of 5 V |
+| 2   | SWDIO    | Internal | Data I/O pin        |
+| 3   | GND      | Internal | Ground              |
+| 4   | SWCLK    | Internal | Clock Pin           |
+| 5   | GND      | Internal | Ground              |
+| 6   | NC       | Internal | Not connected       |
+| 7   | RX       | Internal | Serial Receiver     |
+| 8   | TX       | Internal | Serial Transmitter  |
+| 9   | GND      | Internal | Ground              |
+| 10  | NC       | Internal | Not connected       |
 
 
 ## Mounting Holes And Board Outline

@@ -8,7 +8,6 @@ tags:
   - UART
   - JTAG
   - DAC
-  - CAN
 author: 'Hannes Siebeneicher'
 hardware:
   - hardware/02.hero/boards/uno-r4-minima
@@ -18,11 +17,11 @@ software:
   - ide-v2
 ---
 
-The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1](/resources/datasheets/RA4M1.pdf) microcontroller from [Renesas](/resources/datasheets/ra4m1-datasheet.pdf). It features 32 kB of RAM memory, a clock speed of 48 MHz, USB-C® port as well as a built-in RTC, DAC and CAN bus.
+The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1]() microcontroller from [Renesas](/resources/datasheets/ra4m1-datasheet.pdf) microcontroller from [Renesas](https://www.renesas.com/). It now comes with 32 kB of RAM memory, a clock speed of 48 MHz, and a USB-C® port.
 
 This is the first UNO board that uses a 32-bit architecture, being previously based on an 8-bit AVR architecture.
 
-In this article you will find a technical reference to your board, with links to useful resources to get you started with this board.
+This article is a technical reference to your board, introducing the various components of the board, as well as resources to get started.
 
 ## Datasheet
 
@@ -32,15 +31,15 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Power Supply
 
-To power the UNO R4 Minima you may either use a USB-C® cable, or the VIN pin.
+To power the UNO R4 Minima you may either use a USB-C® cable or the VIN pin.
 
 If you’re using the USB-C® connector you must power it with 5 V.
 
-The board can be powered via the VIN pin, supporting a range between 6-24V.
+The board can be powered via the VIN pin, supporting a range between 6-24 V.
 
 ## Installation
 
-The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Editor or Arduino CLI.
+The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Editor, or Arduino CLI.
 
 ### Arduino IDE
 
@@ -58,11 +57,34 @@ Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/a
 
 The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
 
+### Bootloader
+
+In case you need to flash the bootloader follow these steps:
+
+Install the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core.
+
+Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
+renesas\0.5.0\bootloaders\SANTIAGO"
+
+Identify the **dfu.exe**
+
+Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
+
+***\*The Renesas flash programmer is currently only available on Windows.***
+
+To flash the bootloader:
+  - Select dfu.exe.
+  - Connect your board.
+  - Short the BOOT and GND pin found on the UNO R4 Minima.
+  - Go to the Connect Settings tab.
+  - Select the COM port in the Tool > select the port shown in the IDE.
+  - Press start. 
+
 ## Renesas RA4M1
 
-The UNO R4 Minima features the powerful and very robust renesas microcontroller also found on the UNO R4. Renesas microcontrollers are known for their high performance and robustness, including their built in peripheral set. 
+The UNO R4 Minima features the powerful and very robust Renesas microcontroller also found on the UNO R4 WiFi. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
-These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
+These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C), and more.
 
 ![Microcontroller on the UNO R4 Minima](assets/R7FA4M1AB3CFM.png)
 
@@ -71,19 +93,19 @@ These peripherals include analog-to-digital converters, timers, pulse width modu
 The board features 
 - 32 kB of SRAM 
 - 256 kB flash 
-- 8 KB data (EEPROM).
+- 8 kB data (EEPROM).
 
 ## SWD Connector
 
 ![SWD Connector](assets/swd.png)
 
-On the R4 Minima there is a a debugging option available using the SWD connector pins, giving advanced debug functionalities for more advanced users.
+On the UNO R4 Minima, there is a debugging option available using the SWD connector pins, giving advanced debug functionalities for more advanced users.
 
 ## Pins
 
-The **UNO R4 Minima** gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
+The UNO R4 Minima gives you access to many different pins and many of them have special features that will be accounted for in the upcoming sections of this article. Keep reading to learn what you can do with them. 
 
-If you just need a quick overview of the pins functionality, this is a full table of all the IO pins on the **UNO R4 Minima** 
+This is a full table of all the IO pins on the UNO R4 Minima: 
 
 | Pin | Function  | Notes                         |
 | --- | --------- | ----------------------------- |
@@ -116,9 +138,11 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 | A4  | Analog in | Analog In, Serial Data (I2C)  |
 | A5  | Analog in | Analog In, Serial Clock (I2C) |
 
+***\*A4 and A5 pins are both connected to the same I2C bus.***
+
 ### Analog Pins
 
-The **UNO R4 Minima** has 6 analog input pins (A0-A5) that can be read by using the `analogRead()` function.
+The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using the `analogRead()` function.
 
 ```arduino
 value = analogRead(pin, value);
@@ -130,7 +154,7 @@ The reference voltage of these pins is 5 V.
 
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-The **UNO R4 Minima** has 6 PWM capable pins which are marked with ~ on the headers. The PWM capable pins are:
+The UNO R4 Minima has six PWM-capable pins marked with ~ on the headers. The PWM-capable pins are:
 
 - D3~
 - D5~
@@ -144,7 +168,7 @@ You may use them as analog output pins with the function:
 ```arduino
 analogWrite(pin, value);
 ```
-The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 Minima** as follows:
+The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 Minima as follows:
 
 | Pin | OPAMP     |
 | --- | --------- |
@@ -154,7 +178,7 @@ The **RA4M1** has an internal OPAMP that is exposed on the **UNO R4 Minima** as 
 
 ### Digital Pins
 
-The **UNO R4 Minima** features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
+The UNO R4 Minima features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
 
 
 | Pin | Function | Notes                |
@@ -180,7 +204,7 @@ The reference voltage of all digital pins is 5 V.
 
 ## DAC
 
-The **UNO R4 Minima** has a DAC with up to 12-bit resolution, that can act as genuine analog output pin which means it's even more capable than PWM pins.
+The UNO R4 Minima has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
 
 ```arduino
 analogWrite(pin, value);
@@ -188,17 +212,19 @@ analogWrite(pin, value);
 
 ![DAC Pin](assets/dacpin.png)
 
-This DAC pin has a default write resolution of 8-bits. This means that values that are written to the pin should be between 0-255.
+This DAC pin has a default write resolution of 8 bits. This means that values that are written to the pin should be between 0-255.
 
-However you may change this write resolution if you need to, to up to 12-bits, and in this case the values you write to the pin should be between 0-4096.
+However you may change this write resolution if you need to, to up to 12 bits, and in this case, the values you write to the pin should be between 0-4096.
 
 ```arduino
 analogWriteResolution(12);
 ```
 
+If you want to read more about the DAC pin check out [this article about the Arduino UNO R4 Minima Digital-to-Analog Converter (DAC)](/tutorials/uno-r4-minima/dac).
+
 ## RTC
 
-A real-time clock (RTC) is used to measure the time, and is useful in any time-tracking applications.
+A real-time clock (RTC) is used to measure the time and is useful in any time-tracking application.
 
 Below is a minimal example that shows how to obtain the date and time from the RTC:
 
@@ -240,9 +266,11 @@ void loop() {
 
 ```
 
+If you want to read more about RTC check out [this article about the Arduino UNO R4 Minima Real-time Clock](/tutorials/uno-r4-minima/rtc).
+
 ## EEPROM
 
-EEPROM, also referred to as 'data' memory, is type of memory that can retain data even after the board has been powered off.
+EEPROM, also referred to as 'data' memory, is a type of memory that can retain data even after the board has been powered off.
 
 ```arduino
 EEPROM.write(address, val);
@@ -253,11 +281,13 @@ It has a limited amount of write cycles, meaning that it is best suited for read
 
 Read more in the [Guide to EEPROM](/learn/programming/eeprom-guide).
 
+If you want to read more about the EEPROM check out [this article about Arduino UNO R4 Minima EEPROM](/tutorials/uno-r4-minima/eeprom).
+
 ## SPI
 
 ![SPI Pins](assets/spipins.png)
 
-The **UNO R4 Minima** features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
+The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
 - (COPI) - D11
 - (CIPO) - D12
@@ -291,11 +321,11 @@ void loop() {
 
 ## I2C
 
-I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
+I2C lets you connect multiple I2C-compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
-The **UNO R4 Minima** has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNO's are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
+The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNOs are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
-The pins used for I2C on the **UNO R4 Minima** are the following:
+The pins used for I2C on the UNO R4 Minima are the following:
 - SDA - D14 or A4
 - SCL - D15 or A5
 
@@ -307,7 +337,7 @@ To connect I2C devices you will need to include the [Wire](https://www.arduino.c
 #include <Wire.h>
 ```
 
-Inside `void setup()` you need to initialize the library, and initialize the I2C port you want to use.
+Inside `void setup()` you need to initialize the library and initialize the I2C port you want to use.
 
 ```arduino
 Wire.begin() //SDA & SDL
@@ -323,12 +353,12 @@ Wire.endTransmission(); //stop transmit
 ```
 ## USB Serial & UART
 
-The **UNO R4 Minima** board features 2 separate hardware serial ports. 
+The UNO R4 Minima board features two separate hardware serial ports. 
 
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
 
-The pins used for UART on the **UNO R4 Minima** are the following:
+The pins used for UART on the UNO R4 Minima are the following:
 
 | Pin | Function      |
 | --- | ------------- |
@@ -348,7 +378,7 @@ To send and receive data through UART, we will first need to set the baud rate i
 
 ### UART
 
-The pins used for UART on the **UNO R4 Minima** are the following:
+The pins used for UART on the UNO R4 Minima are the following:
 
 | Pin | Function |
 | --- | -------- |
@@ -388,6 +418,8 @@ mouse.move(x,y);
 
 This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
 
+If you want to read more about USB HID check out [this article about Arduino UNO R4 Minima USB HID](/tutorials/uno-r4-minima/usb-hid).
+
 ## CAN Module
 
 The UNO R4 Minima's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
@@ -422,24 +454,3 @@ CanMsg const msg = CAN.read(); //read
 ```
 
 ***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
-
-## Flashing Bootloader
-
-In case you need to flash the bootloader follow these steps:
-
-Install the [Renesas](future-link.com) core. 
-
-Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
-renesas\0.5.0\bootloaders\SANTIAGO"
-
-Identify the **dfu.exe***
-
-Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
-
-To flash the bootloader:
-  - Select dfu.exe.
-  - Connect your board.
-  - Short the BOOT and GND pin found on the UNO R4 Minima.
-  - Go to the Connect Settings tab.
-  - Select COM port in the Tool > select the port shown in the IDE.
-  - Press start. 

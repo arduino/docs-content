@@ -1,5 +1,5 @@
 ---
-title: 'Arduino UNO R4 Minima Real-time Clock'
+title: 'Arduino UNO R4 Minima Real-Time Clock'
 description: 'Learn how to access the real-time clock (RTC) on the UNO R4 Minima.'
 tags:
   - RTC
