@@ -8,7 +8,7 @@ type: maker
 
 # Description 
 
-The Arduino® UNO R4 WiFi (from now on referred to as UNO R4 WiFi) is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
+The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
 
 The RA4M1's operating voltage is fixed at 5 V, whereas the ESP32-S3 module is 3.3 V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
 
@@ -77,7 +77,7 @@ The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I
 
 In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making one of the most visually unique Arduino board to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
 
-**Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation (both official + third-party).
+**Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation.
 
 **Easy IoT applications:** build projects without writing any networking code in the Arduino IoT Cloud. Monitor your board, connect it with other boards and services, and develop cool IoT projects.
 
@@ -140,9 +140,6 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | D3          | PRTR5V0U2X,215 ESD Protection                    |
 
 
-### Back View
-
-![Back View of Arduino R4 WiFi](assets/backViewWiFi.svg)
 
 ## Microcontroller (R7FA4M1AB3CFM#AA0)
 
@@ -155,7 +152,7 @@ The R7FA4M1AB3CFM#AA0 features:
 * Real Time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
-* up to 12-bit DAC
+* Up to 12-bit DAC
 * OPAMP
 * CAN bus
 
@@ -237,7 +234,7 @@ The DAC can be used for signal generation for e.g. audio applications, like gene
 
 ## I2C Connector
 
-The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V. Using the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library, use the `Wire1` object as opposed to the standard `Wire` object. 
+The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V. 
 
 ![I2C connector.](assets/i2c-connector.png)
 
