@@ -353,7 +353,7 @@ Now lets create the callback function that will be called when the button is cli
 static void button_event_callback(lv_event_t * e) {
   lv_obj_t * button = lv_event_get_target(e);
   lv_obj_t * label = lv_obj_get_child(button, 0);
-  lv_label_set_text_fmt(label, "%"LV_PRIu32, "Clicked!");
+  lv_label_set_text_fmt(label, "Clicked!");
 }
 ```
 
