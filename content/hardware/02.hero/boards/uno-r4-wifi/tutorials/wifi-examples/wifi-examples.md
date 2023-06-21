@@ -322,7 +322,7 @@ void printMacAddress(byte mac[]) {
  connect to any network, so no encryption scheme is specified.
 
  Circuit:
- * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and Uno WiFi Rev.2)
+ * Arduino UNO R4 WiFi
 
  created 13 July 2010
  by dlf (Metodo2 srl)
@@ -445,7 +445,7 @@ void printMacAddress(byte mac[]) {
   BSSID and WiFi channel are printed
 
   Circuit:
-  * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and Uno WiFi Rev.2)
+  * Arduino UNO R4 WiFi
 
   This example is based on ScanNetworks
 
@@ -597,7 +597,7 @@ void printMacAddress(byte mac[]) {
  WEP or WPA, change the WiFi.begin() call accordingly.
 
  Circuit:
- * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and Uno WiFi Rev.2)
+ * Arduino UNO R4 WiFi
  * LED attached to pin 9
 
  created 25 Nov 2012
@@ -805,7 +805,7 @@ void loop() {
 
 
  Circuit:
- * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and Uno WiFi Rev.2)
+ * Arduino UNO R4 WiFi
 
  created 18 Dec 2009
  by David A. Mellis
@@ -927,7 +927,7 @@ void printWifiStatus() {
 
 
  Circuit:
- * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and Uno WiFi Rev.2)
+ * Arduino UNO R4 WiFi
 
  created 18 Dec 2009
  by David A. Mellis
@@ -1050,7 +1050,7 @@ void printWifiStatus() {
 
 
  Circuit:
- * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and Uno WiFi Rev.2)
+ * Arduino UNO R4 WiFi
 
  created 18 Dec 2009
  by David A. Mellis
