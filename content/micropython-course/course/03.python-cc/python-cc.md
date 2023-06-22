@@ -1,5 +1,5 @@
 ---
-micropython_type: "101"
+featured: micropython-101
 title: 'Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
 ---
