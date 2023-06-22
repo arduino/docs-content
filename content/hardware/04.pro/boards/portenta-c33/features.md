@@ -15,7 +15,7 @@ The board also supports MicroPython and other high-level programming languages, 
 
 <Feature title="Renesas R7FA6M5BH2CBG microcontroller" image="mcu">
 
-  The Portenta C33 main microcontroller is the Arm® Cortex®-M33, a 32-bit processor that offers efficient performance, low power consumption, and advanced security features, making it an ideal choice for a wide range of embedded systems applications.
+  The R7FA6M5BH2CBG microcontroller of the Portenta C33 uses the Arm® Cortex®-M33, a 32-bit processor that offers efficient performance, low power consumption, and advanced security features, making it an ideal choice for a wide range of embedded systems applications.
 
   <FeatureLink title="Datasheet" url="https://www.renesas.com/us/en/document/dst/ra6m5-group-datasheet?r=1493931" download/>
 </Feature>
@@ -42,7 +42,7 @@ The board also supports MicroPython and other high-level programming languages, 
 
 <Feature title="Low-power design" image="power">
 
-  The Portenta C33 was designed with low power consumption in mind, making it well-suited for battery-powered IoT devices that require long battery life. Its microcontroller is designed for efficient power usage, allowing it to perform real-time processing tasks while consuming minimal energy.
+  The Portenta C33 was designed with low power consumption in mind, making it well qualified for battery-powered IoT devices that require long battery life. Its microcontroller is designed for efficient power usage, allowing it to perform real-time processing tasks while consuming minimal energy.
   
 </Feature>
 
