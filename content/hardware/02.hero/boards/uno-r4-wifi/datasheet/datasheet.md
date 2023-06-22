@@ -77,7 +77,7 @@ The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I
 
 In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making one of the most visually unique Arduino board to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
 
-**Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, has a lot of online documentation.
+**Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, and it has a lot of online documentation.
 
 **Easy IoT applications:** build projects without writing any networking code in the Arduino IoT Cloud. Monitor your board, connect it with other boards and services, and develop cool IoT projects.
 
@@ -149,7 +149,7 @@ The operating voltage for the RA4M1 is fixed at 5 V as to be hardware compatible
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
-* Real Time Clock (RTC)
+* Real-time Clock (RTC)
 * 4x Direct Memory Access Controller (DMAC) 
 * 14-bit ADC
 * Up to 12-bit DAC
@@ -367,7 +367,7 @@ All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking existing projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
