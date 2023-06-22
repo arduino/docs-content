@@ -45,7 +45,7 @@ Maker, beginner, education
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
-  * 1x I²C (pin A4, A5, SDA, SCL)
+  * 1x I2C (pin A4, A5, SDA, SCL)
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 
@@ -57,11 +57,11 @@ Maker, beginner, education
 
 The UNO R4 Minima is the first UNO series 32-bit development board, being previously based on 8-bit AVR microcontrollers. There are thousands of guides, tutorials and books written about the UNO board, where UNO R4 Minima continues its legacy.
 
-The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I²C, SPI and UART connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB).
+The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB).
 
 **Entry level projects:** If this is your first project within coding and electronics, the UNO R4 Minima is a good fit. It is easy to get started with and has a lot of online documentation (both official + 3rd party).
 
-**Easy power management:** the UNO R4 has barrel jack connector and supports input voltages from 6-24 V. This connector is widely popular and removes the need for additional circuitry required to stepping down the voltage.
+**Easy power management:** the UNO R4 Minima has a barrel jack connector and supports input voltages from 6-24 V. This connector is widely popular and removes the need for additional circuitry required to step down the voltage.
 
 **Cross compatibility:** the UNO form factor automatically makes it compatible with hundreds of existing third-party shields and other accessories.
 
@@ -132,7 +132,7 @@ For more technical details on this microcontroller, visit [Renesas - RA4M1 serie
 
 ## USB Connector
 
-The UNO R4 Minima has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
+The UNO R4 Minima has one USB-C® port, used to power and program your board as well as send & receive serial communication.
 
 ***Note: You should not power the board with more than 5 V via the USB-C® port.***
 

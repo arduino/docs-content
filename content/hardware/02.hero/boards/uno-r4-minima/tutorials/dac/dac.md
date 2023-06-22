@@ -28,7 +28,7 @@ In this article, you will learn:
 ## Hardware & Software Needed
   To follow along with this article, you will need the following hardware: 
   
-  - [Arduino UNO R4 minima](https://store.arduino.cc/products/arduino-uno-r4-minima)
+  - [Arduino UNO R4 minima](https://store.arduino.cc/uno-r4-minima)
   - Piezo buzzer 
   - Potentiometer
   - Jumper wires
