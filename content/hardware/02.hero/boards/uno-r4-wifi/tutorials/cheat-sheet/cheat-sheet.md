@@ -60,7 +60,7 @@ Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/a
 
 ## Renesas RA4M1
 
-The UNO R4 WiFi features the powerful and very robust renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
+The UNO R4 WiFi features the powerful and very robust Renesas microcontroller also found on the UNO R4 Minima. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C) and more.
 
@@ -170,7 +170,7 @@ The reference voltage of all digital pins is 5 V.
 
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-The UNO R4 WiFi has supports PWM on pins marked with ~ on the headers. Officially supported pins are:
+The UNO R4 WiFi supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
 | Pin | RA4M1 | Timer   |
 | --- | ----- | ------- |
@@ -187,7 +187,7 @@ You may use them as analog output pins with the function:
 analogWrite(pin, value);
 ```
 
-**PLease Note:** the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are officially supported PWM pins. 
+**Please Note:** the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are not officially supported PWM pins. 
 
 | Pin       | RA4M1 | Timer   |
 | --------- | ----- | ------- |
@@ -357,15 +357,15 @@ Wire.endTransmission(); //stop transmit
 
 ## QWIIC Connector
 
-![QWIIC Connector on UNO WiFi R4](assets/QWIIC.png)
+![Qwiic Connector on UNO WiFi R4](assets/QWIIC.png)
 
-The UNO R4 WiFi features a QWIIC/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
+The UNO R4 WiFi features a Qwiic/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
-QWIIC or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a QWIIC or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
+Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
 
-If your breakout board features more than one of these connector, which many do, you can use the second one to daisychain *another* QWIIC module to add another interactive node to your project.
+If your breakout board features more than one of these connectors, which many do, you can use the second one to daisychain *another* Qwiic module to add another interactive node to your project.
 
-The UNO R4 WiFi features two I2C buses, and the QWIIC connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
+The UNO R4 WiFi features two I2C buses, and the Qwiic connector is connected to the secondary one. What this means is that if you are using the [Wire](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) library, you will need to use the `Wire1` object rather than the `Wire` object, like the following example:
 
 ```arduino
 #include <Wire.h>
@@ -521,7 +521,7 @@ The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities
 
 To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Core.
 
-To learn more about the WiFi capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
+To learn more about the Wi-Fi® capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
 
 ### Bluetooth®
 

@@ -5,7 +5,7 @@ author: Hannes Siebeneicher
 tags: [UNO R4 WiFi, Installation, IDE]
 ---
 
-To use the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) board, you will need to install the UNO R4 WiFi board package, which is part of the [Arduino Core for renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+To use the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) board, you will need to install the UNO R4 WiFi board package, which is part of the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
 
 To install it, you will need the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 

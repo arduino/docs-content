@@ -21,7 +21,7 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi)
-- [Arduino Renesas Core](https://github.com/bcmi-labs/ArduinoCore-renesas)
+- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
 
 ## Real-Time Clock (RTC)
 

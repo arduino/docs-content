@@ -17,7 +17,7 @@ The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is avail
 
 ## Goals
 
-The matrix and its' API is developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations. While highlighting two different ways of handling the LEDs to create animations and images. Making it easier for you to decide what method fits your needs best!
+The matrix and its API are developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations, while highlighting two different ways of handling the LEDs to create animations and images. This makes it easier for you to decide what method fits your needs best!
 
 ![The UNO R4 WiFi LED Matrix](./assets/matrix-closeup.png)
 
@@ -42,7 +42,7 @@ Then, you'll need to create a LED Matrix object in your sketch, by adding the fo
 ArduinoLEDMatrix matrix;
 ```
 
-And then lastly, start the led matrix by adding this line in `void setup()`:
+And then lastly, start the LED Matrix by adding this line in `void setup()`:
 ```arduino
 matrix.begin();
 ```
@@ -62,7 +62,7 @@ void setup() {
 
 
 ## How to Write a Frame
-The LED matrix library for the UNO R4 WiFi works on the principle of creating a frame, and then loading it into a buffer which displays the frame.
+The LED Matrix library for the UNO R4 WiFi works on the principle of creating a frame, and then loading it into a buffer which displays the frame.
 
 A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
@@ -97,7 +97,7 @@ matrix.loadFrame(happy);
 ```
 
 
-You may also represent your frame with an array of individual bits, where each pixel is represented by a bit, and can be accessed by its row and column(this way being a good choice if you need to generate frames from within a sketch, for instance if you are making a game). This `frame` array contains a representation of each pixel in the matrix laid out in the same 12x8 grid.
+You may also represent your frame with an array of individual bits, where each pixel is represented by a bit, and can be accessed by its row and column (this way being a good choice if you need to generate frames from within a sketch, for instance if you are making a game). This `frame` array contains a representation of each pixel in the matrix laid out in the same 12x8 grid.
 
 ```
 uint8_t frame[8][12] = {
@@ -226,7 +226,7 @@ delay(1000);
 ```
  
 ## Animation Generation
-We have developed a tool that is used to generate frames and animations to be rendered on the LED matrix in your browser. 
+We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. 
 
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
 
@@ -238,7 +238,7 @@ Once you've made your animations, you can export them from the tool in the forma
 You can find more tips on how to use this tool on [its site](https://ledmatrix-editor.arduino.cc).
 
 ## Conclusion
-In this article we've gone over the basics of using the LED matrix built in on the Arduino UNO R4 WiFi, we've gone over the different practices for building frames and animations, as well as how to load them onto your board. 
+In this article we've gone over the basics of using the LED Matrix built in on the Arduino UNO R4 WiFi, we've gone over the different practices for building frames and animations, as well as how to load them onto your board. 
 
 Have fun creating interactive interfaces or animation on your UNO R4 WiFi!
 
