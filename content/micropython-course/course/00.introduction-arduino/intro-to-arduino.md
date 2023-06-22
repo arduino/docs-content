@@ -1,7 +1,8 @@
 ---
-
+featured: micropython-101
 title: 'Introduction to Arduino'
 description: 'Learn about the Arduino platform'
+hero_image: "./hero-banner.png"
 ---
 
 ***This page is an introduction to the Arduino platform. If you are already familiar with Arduino, we recommend skipping to the next page.***
