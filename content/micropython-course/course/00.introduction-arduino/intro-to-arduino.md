@@ -2,6 +2,7 @@
 featured: micropython-101
 title: 'Introduction to Arduino'
 description: 'Learn about the Arduino platform'
+author: 'Karl Söderby'
 hero_image: "./hero-banner.png"
 ---
 
@@ -25,7 +26,6 @@ The Arduino board is the connection with the physical world, and can be used to 
 
 ![Application example]()
 
-
 ## Microcontroller Basics
 
 The tiny computer on the board, also known as the **microcontroller**, can be programmed and communicated with over USB. This microcontroller has very limited memory compared to the computers you are used to. For example, the board used in this course has about **30000 times less RAM memory** than a modern computer, such as a Mac.
@@ -36,7 +36,7 @@ A microcontroller is designed to run the instructions it is programmed with, as 
 
 So how do we actually get the board to do what we want?
 
-There are two "main" ways of programming an Arduino board, either using the Arduino programming language (a subset of C/C++), or with MicroPython, an implementation of Python specifically for microcontrollers. In this course, we will be using **MicroPython**. 
+There are two options of programming an Arduino board, either using the Arduino programming language (a subset of C/C++), or with MicroPython, an implementation of Python specifically for microcontrollers. In this course, we will be using **MicroPython**. 
 
 ### Arduino Programming Language
 
@@ -46,10 +46,10 @@ The compiler is very strict, and will point out where in your code you have a pr
 
 ### MicroPython
 
-Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python on your board permantently, and then you send instructions to it. This means you can change the code for your board and loads it in real time.
+Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python on your board permantently, and then you send instructions to it. This means you can change the code for your board and loads it in real time. MicroPython also implements a file system on your board.
 
-
-
-## Learn More
+## Summary
 
 Arduino has over the years released over a hundred different development boards, each different from the other. You choose the board depending on what you want to achieve, e.g. some boards have a Wi-Fi module that allows you to connect to the Internet, and some have onboard sensors that allows you to record sensor data.
+
+- [Next chapter: Introduction to MicroPython]()

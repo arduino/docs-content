@@ -1,4 +1,6 @@
 ---
+author: 'Jacob Hylen'
+hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
 title: 'Installing Arduino Labs for MicroPython'

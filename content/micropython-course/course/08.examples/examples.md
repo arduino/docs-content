@@ -1,177 +1,26 @@
 ---
+author: 'Karl Söderby'
+hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
 title: 'Component Examples'
 description: 'Practical examples for Neopixels, sensors, servo motors and more.'
 ---
 
-Internet of Things (IoT) is a collective term for any devices that are connected to the Internet, and your Nano ESP32 is one of them. Using its built-in antenna, the board can connect and communicate over the Internet.
+## Component 1
 
-In this chapter, we are going to look into the essential steps needed to connect your board to a Wi-Fi network, and how to make a test call to the Internet.
+## Component 2
 
-You will learn the following in this chapter:
-- How to connect your Nano ESP32 to a Wi-Fi network,
-- how to make a request to an API over the Internet,
-- how to convert the response in to a readable format using JSON.
+## Component 3
 
-## Internet of Things (IoT)
+## Component 4
 
-Internet of Things is a very vast area to explore, and in this chapter, we will solely focus on how to achieve a simple request to the Internet.
+## Component 5
 
-When working with IoT, there are a number of important factors to consider. For the sake of simplicity, we are going to divide them into two separate parts:
-- How to connect to a Wi-Fi network (a router),
-- how to make a request over the Internet.
+## Component 6
 
-In this chapter, we will be using a number of new modules: `network`, `socket` & `urequests`. These make it possible to connect, maintain the connection, and make requests to the Internet.
+## Component 7
 
-### Connect to Wi-Fi
+## Component 8
 
-Connecting to Wi-Fi is pretty straightforward concept, and is very similar to how we connect using our phones / computers.
-
-With MicroPython, we can do it with just a few lines of code, seen in the script below:
-
-```python
-SSID='your_network_name'
-KEY='your_network_password'
-
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(SSID, KEY)
-
-print("Connected to ",SSID)
-```
-
-Here we simply add our network name/password, create teh `wlan` object, set it to `active` and then `connect` to the Wi-Fi network!
-
-Once we are connected to the Wi-Fi network, we can move on to make requests to the Internet!
-
-### Make a Request
-
-Being connected to a Wi-Fi network means we now have access to the Internet. We will now test out our connection, by making a request to a server!
-
-To make a request, we need to use the `urequests` module. With `urequests` module, we can input an URL (and more information), to construct a request that is sent to a server. In this case, we will send a test request to google.com.
-
-To do this, we need first to include the Wi-Fi connection code we used in the previous example, and add a few more lines to make the request!
-
-```python
-import urequests
-import network
-
-url = "https://meowfacts.herokuapp.com/"
-
-SSID=''
-KEY=''
-
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(SSID, KEY)
-
-print("Connected to ",SSID)
-
-response = urequests.get(url)
-
-print(response.text)
-```
-
-What we just did, was to connect a server, and request something. This is one of the most common methods to exchange data over the Internet, and is a fundamental building block when working with IoT devices.
-
-## Exercise 1: Extract Weather Data
-
-In this exercise, we will be making a request to an API that provides weather data. We will see how we can manipulate the request to specify which city in the world we want the data from, and what data we would like to print out!
-
-**In this exercise, no additional circuit is required.**
-
-Open the code editor, and copy paste the following script to the `main.py` file:
-
-```python
-
-```
-
-Then, click on the **”PLAY"** symbol to run the script.
-
-Once we run the script, after a while, we should be receiving the response. This script is designed to:
-
-1. Make a request, and receive a response.
-2. The response is not very readable for humans (it has a lot of data), so we convert it to a JSON object, which allows us to access specific data!
-3. Once we have accessed the data, we print it out. 
-
-![Screenshot temrinal]().
-
-We now have a device that is capable of accessing the weather from anywhere in the world!
-
-## Exercise 2: Internet Clock
-
-In this exercise, we will make a request to something called an network time protocol (NTP) server. 
-
-As our board does not know the current time, it is necessary for it to make a request to a server that keeps track on it.
-
-**In this exercise, no additional circuit is required.**
-
-Open the code editor, and copy paste the following script to the `main.py` file:
-
-```python
-import network, usocket, ustruct, utime
-
-SSID='' # Network SSID
-KEY=''  # Network key
-
-TIMESTAMP = 2208988800
-
-# Init wlan module and connect to network
-print("Trying to connect... (may take a while)...")
-
-wlan = network.WLAN()
-wlan.active(True)
-wlan.connect(SSID, key=KEY, security=wlan.WPA_PSK)
-
-# We should have a valid IP now via DHCP
-print(wlan.ifconfig())
-
-# Create new socket
-client = usocket.socket(usocket.AF_INET, usocket.SOCK_DGRAM)
-client.bind(("", 8080))
-#client.settimeout(3.0)
-
-# Get addr info via DNS
-addr = usocket.getaddrinfo("pool.ntp.org", 123)[0][4]
-
-# Send query
-client.sendto('\x1b' + 47 * '\0', addr)
-data, address = client.recvfrom(1024)
-
-# Print time
-t = ustruct.unpack(">IIIIIIIIIIII", data)[10] - TIMESTAMP
-print ("Year:%d Month:%d Day:%d Time: %d:%d:%d" % (utime.localtime(t)[0:6]))
-```
-
-Then, click on the **”PLAY"** symbol to run the script. 
-
-Note that this example is a little bit more advanced compared to the previous examples we have worked with. But in a nutshell, what happens is:
-
-1. We make a request to a specific server (ntp.pool.org). This server stores the current time, and makes it available for other devices to request it.
-2. The response comes in a Year/Month/Day/Hour/Minute/Second format, and is printed in the terminal.
-
-![Screenshot of time in terminal]()
-
-Congratulations, you have now succesfully retrieved the latest time, meaning your board is in sync with the rest of the world!
-
-## Project Idea: Alarm Clock
-
-In the exercises above, we retrieved **weather data** and **current time**. Combined, this makes for an excellent alarm clock that can keep track of time, set alarms and also give you weather updates!
-
-If you want to make this, you should look into getting a display, in which you can print out the time, as well as a short weather summary, or an icon to represent what the weather is!
-
-Below are some links that you may find useful:
-
-- [OLED Display Example]()
-
-## Summary
-
-In this chapter, we got a brief introduction to the Internet of Things (IoT), a collective term for devices connected to the Internet.
-
-We learned how to:
-- succesfully connect to a Wi-Fi network,
-- how to make an HTTP request over the Internet and,
-- how to obtain useful data (weather data + current time)
-
-IoT is a *very* broad field and you have only just discovered a fraction of it. MicroPython makes it easier for you to build projects that are in sync with the world.
+## Component 9

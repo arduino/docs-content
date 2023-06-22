@@ -1,4 +1,6 @@
 ---
+author: 'Karl Söderby'
+hero_image: "./hero-banner.png"
 featured: micropython-101
 title: 'Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
@@ -189,3 +191,5 @@ The above function *returns* a value of `10`, because we fed `5`,`5` into it. Th
 In this Python crash course, we've covered some of the very fundamental aspects of the Python programming language. 
 
 In this course, we are focused on MicroPython, which is a micro-implementation of the language. This means that most core functionalites of the language is available, such as **operators, statements, loops & functions.**
+
+- [Next Chapter: Digital Signals](/micropython-course/course/digital)
