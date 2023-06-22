@@ -2,6 +2,7 @@
 identifier: ABX00074
 title: Arduino® Portenta C33
 type: pro
+author: José Bagur
 ---
 
 ![](assets/Portenta_C33_Top_View.png)
@@ -25,6 +26,7 @@ Thanks to its high-performance processor, the Portenta C33 supports many applica
     - **Machine monitoring to track OEE/OPE:** Track Overall Equipment Efficiency (OEE) and Overall Process Effectiveness (OPE) with the Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.
     - **Inline Quality Assurance:** Leverage full compatibility between Portenta C33 and Nicla family to carry out quality control in your production lines. Collect Nicla smart sensing data with the Portenta C33 to catch defects early and resolve them before they travel down the line.
 - **Prototyping:** The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use Wi-Fi®/Bluetooth® connectivity and various peripheral interfaces, including CAN, SAI, SPI, and I2C. Moreover, the Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.
+
 - **Building Automation:** The Portenta C33 can be used in multiple building automation applications:
     - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino IoT Cloud charts, providing an overall image for energy management optimization and cost reduction.
     - **Appliances Control System**: Leverage high-performing Portenta C33 microcontroller to control in real-time your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from the remote.
@@ -294,11 +296,20 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 
 ### Related Products
 
-- ESLOV connector
 - Arduino® Portenta H7 (SKU: ABX00042)
 - Arduino® Portenta H7 Lite (SKU: ABX00045)
 - Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 - Arduino® Nicla Sense ME (SKU: ABX00050)
+- Arduino® Nicla Vision (SKU: ABX00051)
+- Arduino® Nicla Voice (SKU: ABX00061)
+- Arduino® Portenta Max Carrier (SKU: ABX00043)
+- Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
+- Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
+- Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
+- Arduino® Portenta Breakout (SKU: ABX00031)
+- Arduino® boards with an onboard ESLOV connector
+
+**Note**: The Portenta Vision Shields (Ethernet and LoRa® variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
 
 ## Ratings
 
@@ -320,31 +331,98 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 **<caption>Table 7: Recommended Operating Conditions</caption>**
 </div>
 
-<div style="page-break-after:always;"></div>
+### Current Consumption
 
-## Hardware
+<p style="text-align: justify;">
+Table 8 summarizes the power consumption of the Portenta C33 on different test cases. Notice that the operating current of the board will depend greatly on the application.
+</p>
+
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th style="text-align: center; vertical-align: middle;">Parameter</th>
+    <th style="text-align: center; vertical-align: middle;">Symbol</th>
+    <th style="text-align: center; vertical-align: middle;">Min</th>
+    <th style="text-align: center; vertical-align: middle;">Typ</th>
+    <th style="text-align: center; vertical-align: middle;">Max</th>
+    <th style="text-align: center; vertical-align: middle;">Unit</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">Deep Sleep Mode Current Consumption<sup>1</sup></td>
+    <td style="text-align: center; vertical-align: middle;">I<sub>DS</sub></td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">86</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">µA</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">Normal Mode Current Consumption<sup>2</sup></td>
+    <td style="text-align: center; vertical-align: middle;">I<sub>NM</sub></td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">180</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+    <td style="text-align: center; vertical-align: middle;">mA</td>
+  </tr>
+</tbody>
+</table>
+
+**<caption>Table 8: Board Current Consumption</caption>**
+
+</div>
+
+<sup>1</sup> All peripherals off, wake-up on RTC interrupt.\
+<sup>2</sup> All peripherals on, continuous data download via Wi-Fi®.
+
+<div style="page-break-after: always;"></div>
+
+## Functional Overview
 
 <p style="text-align: justify;">
 The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller.
 </p>
 
+### Pinout 
+
+The MKR-styled connectors pinout is shown in Figure 1.
+
+**![Figure 1. Portenta C33 pinout (MKR-styled connectors)](assets/Portenta_C33_Pinout_MKR.png)**
+
+<div style="page-break-after: always;"></div>
+
+The High-Density connectors pinout is shown in Figure 2.
+
+**![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)**
+
+<div style="page-break-after: always;"></div>
+
 ### Block Diagram
 
-An overview of the Portenta C33 high-level architecture is illustrated in Figure 1.
+An overview of the Portenta C33 high-level architecture is illustrated in Figure 3.
 
-**![Figure 1. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)**
+**![Figure 3. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)**
+
+
+<div style="page-break-after: always;"></div>
 
 ### Power Supply
+
+<div style="text-align:justify;">
 
 The Portenta C33 can be powered through one of these interfaces:
 
 - USB-C® port
-- 3.7V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
-- External 5V power supply connected through the MKR-styled pins
+- 3.7 V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
+- External 5 V power supply connected through the MKR-styled pins
 
-<p style="text-align: justify;">
-The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp-style connector as shown in Figure 4. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
-</p>
+The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp-style connector as shown in Figure 3. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
+
+Figure 4 shows the power options available on the Portenta C33 and illustrates the main system power architecture.
+</div>
+
+**![Figure 4. Power architecture of the Portenta C33](assets/Portenta_C33_Power_Tree.svg)**
 
 ## Device Operation
 
@@ -380,25 +458,26 @@ The Portenta C33 is a double-sided 66.04 mm x 25.40 mm board with a USB-C® port
 castellated/through-hole pins around the two long edges and two High-Density connectors on the bottom side of the board. The onboard wireless antenna connector is located on the bottom edge of the board.
 </p>
 
-<p style="text-align: justify;">
-The Portenta C33 is designed to be usable as a surface-mount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes. The Portenta C33 also has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
-</p>
-
-<div style="page-break-after: always;"></div>
-
 ### Board Dimensions
 
-Portenta C33 board main dimensions can be seen in Figure 2.
+Portenta C33 board outline and mounting holes dimensions can be seen in Figure 5. 
 
-**![Figure 2. Portenta C33 dimensions (top view on the left and bottom view on the right)](assets/Portenta_C33_Top_View_Dimensions.png)**
+**![Figure 5. Portenta C33 board outline (left) and mounting holes dimensions (right)](assets/Portenta_C33_Mechanical_1.png)**
+
+The Portenta C33 has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
 
 ### Board Connectors
 
-Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figures 3 and 4.
+Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figure 6.
 
-**![Figure 3. Portenta C33 connectors placement (top view)](assets/Portenta_C33_Top_View_Connectors.png)**
+**![Figure 6. Portenta C33 connectors placement (top view left, bottom view right)](assets/Portenta_C33_Mechanical_2.png)**
 
-**![Figure 4. Portenta C33 connectors placement (bottom view)](assets/Portenta_C33_Bottom_View_Connectors.png)**
+
+<p style="text-align: justify;">
+The Portenta C33 is designed to be usable as a surface-mount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes.
+</p>
+
+<div style="page-break-after: always;"></div>
 
 ## Certifications
 
@@ -415,8 +494,6 @@ Connectors of the Portenta C33 are placed on the top and bottom side of the boar
 |        RoHS       |     Yes    |
 |       REACH       |     Yes    |
 |        WEEE       |     Yes    |
-|    SRRC (China)   |     Yes    |
-|    CCC (China)    |     Yes    |
  
 ### Declaration of Conformity CE DoC (EU)
 
@@ -513,6 +590,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |  **Changes**  |
-|:----------:|:------------:|:-------------:|
-| 14/03/2023 |       1      | First release |
+|  **Date**  | **Revision** |                       **Changes**                      |
+|:----------:|:------------:|:------------------------------------------------------:|
+| 20/06/2023 |       3      | Power tree added, related products information updated |
+| 09/06/2023 |       2      |       Board's power consumption information added      |
+| 14/03/2023 |       1      |                      First release                     |
