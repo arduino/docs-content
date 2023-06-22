@@ -477,7 +477,7 @@ One of the standout features of the Arduino Cloud Dashboard is the ability to up
 
 Additionally, the dashboard lets you select the installation voltage to meet the requirements of your site. This adaptability underscores the flexibility and user-friendliness of the Arduino Cloud Dashboard, making it an invaluable tool for handling real-time sensor data.
 
-![Arduino Cloud Modbile Dashboard Example](assets/C33_application_cloud_mobile.png)
+![Arduino Cloud Modbile Dashboard Example](assets/C33_application_cloud_mobile.jpg)
 
 On a mobile phone, the Arduino Cloud dashboard displays the information as the previous figure. It provides the complete interface you would use on a desktop platform, making it a very useful feature to access the dashboard wherever you are.
 
