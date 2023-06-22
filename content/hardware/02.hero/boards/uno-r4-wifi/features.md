@@ -13,7 +13,7 @@ A reference to all technical features on this board, with pointers to additional
 <FeatureLink title="Cheat Sheet" url="/tutorials/uno-r4-wifi/cheat-sheet"/>
 </Feature>
 
-<Feature title="5V Operating Voltage" image="power">
+<Feature title="5 V Operating Voltage" image="power">
 The RA4M1 and the GPIOs of this board operates on 5 V.
 </Feature>
 
