@@ -59,19 +59,25 @@ The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://git
 
 ### Bootloader
 
+**Step 1**
 In case you need to flash the bootloader follow these steps:
 
+**Step 2**
 Install the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core.
 
+**Step 3**
 Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
 renesas\0.5.0\bootloaders\SANTIAGO"
 
+**Step 4**
 Identify the **dfu.exe**
 
+**Step 5**
 Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
 
 ***\*The Renesas flash programmer is currently only available on Windows.***
 
+**Step 6**
 To flash the bootloader:
   - Select dfu.exe.
   - Connect your board.
@@ -302,10 +308,12 @@ If you want to read more about the EEPROM check out [this article about Arduino 
 
 The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
-- (COPI) - D11
-- (CIPO) - D12
-- (SCK) - D13
-- (CS) - D10
+| Pin  | Type | 
+| ---- | ---- | 
+| D13  | SCK  |
+| D12  | CIP  |
+| D11  | COP  |
+| D10  | CS   |
 
 The following example shows how to use SPI:
 
@@ -371,13 +379,6 @@ The UNO R4 Minima board features two separate hardware serial ports.
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
 
-The pins used for UART on the UNO R4 Minima are the following:
-
-| Pin | Function      |
-| --- | ------------- |
-| D0  | RX (Receive)  |
-| D1  | TX (Transmit) |
-
 ### Native USB
 
 Sending serial data to your computer is done using the standard `Serial` object. I
@@ -393,10 +394,10 @@ To send and receive data through UART, we will first need to set the baud rate i
 
 The pins used for UART on the UNO R4 Minima are the following:
 
-| Pin | Function |
-| --- | -------- |
-| D0  | RX0      |
-| D1  | TX0      |
+| Pin | Function      |
+| --- | ------------- |
+| D0  | RX (Receive)  |
+| D1  | TX (Transmit) |
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial1` object.
 
