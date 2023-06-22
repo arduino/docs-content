@@ -107,34 +107,45 @@ The UNO R4 Minima gives you access to many different pins and many of them have 
 
 This is a full table of all the IO pins on the UNO R4 Minima: 
 
-| Pin  | Function   | Notes                             |
-| ---- | ---------- | --------------------------------- |
-| D0   | Digital    | UART Receive                      |
-| D1   | Digital    | UART Transmit                     |
-| D2   | Digital    | GPIO pin, Interrupt               |
-| D3   | Digital    | GPIO pin, Interrupt, PWM          |
-| D4   | Digital    | GPIO pin                          |
-| D5   | Digital    | GPIO pin, PWM                     |
-| D6   | Digital    | GPIO pin, PWM                     |
-| D7   | Digital    | GPIO pin                          |
-| D8   | Digital    | GPIO pin                          |
-| D9   | Digital    | GPIO pin, PWM                     |
-| D10  | Digital    | SPI (CS), GPIO pin, PWM           |
-| D11  | Digital    | SPI (COPI), GPIO pin, PWM         |
-| D12  | Digital    | SPI (CIPO), GPIO pin, PWM         |
-| D13  | Digital    | SPI (SCK), GPIO pin, Built-in LED |
-| A0   | Analog in  | Analog In, DAC                    |
-| A1   | Analog in  | Analog In, OPAMP +                |
-| A2   | Analog in  | Analog In, OPAMP -                |
-| A3   | Analog in  | Analog In, OPAMP OUT              |
-| A4   | Analog in  | Analog In, SDA*                   |
-| A5   | Analog in  | Analog In, SCL*                   |
+| Pin | Type    | Function                          |
+| --- | ------- | --------------------------------- |
+| D0  | Digital | UART Receive                      |
+| D1  | Digital | UART Transmit                     |
+| D2  | Digital | GPIO pin, Interrupt               |
+| D3  | Digital | GPIO pin, Interrupt, PWM          |
+| D4  | Digital | GPIO pin                          |
+| D5  | Digital | GPIO pin, PWM                     |
+| D6  | Digital | GPIO pin, PWM                     |
+| D7  | Digital | GPIO pin                          |
+| D8  | Digital | GPIO pin                          |
+| D9  | Digital | GPIO pin, PWM                     |
+| D10 | Digital | SPI (CS), GPIO pin, PWM           |
+| D11 | Digital | SPI (CIPO), GPIO pin, PWM         |
+| D12 | Digital | SPI (COPI), GPIO pin              |
+| D13 | Digital | SPI (SCK), GPIO pin, Built-in LED |
+| A0  | Analog  | Analog In, DAC                    |
+| A1  | Analog  | Analog In, OPAMP +                |
+| A2  | Analog  | Analog In, OPAMP -                |
+| A3  | Analog  | Analog In, OPAMP OUT              |
+| A4  | Analog  | Analog In, SDA\*                  |
+| A5  | Analog  | Analog In, SCL\*                  |
 
 ***\*A4 and A5 pins are both connected to the same I2C bus.***
 
 ### Analog Pins
 
 The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using the `analogRead()` function.
+
+| Pin | Type   | Function             |
+| --- | ------ | -------------------- |
+| A0  | Analog | Analog In, DAC       |
+| A1  | Analog | Analog In, OPAMP +   |
+| A2  | Analog | Analog In, OPAMP -   |
+| A3  | Analog | Analog In, OPAMP OUT |
+| A4  | Analog | Analog In, SDA\*     |
+| A5  | Analog | Analog In, SCL\*     |
+
+***\*A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
 value = analogRead(pin, value);
@@ -183,24 +194,24 @@ analogWrite(pin, value);
 The UNO R4 Minima features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
 
 
-| Pin | Function | Notes                |
-| --- | -------- | -------------------- |
-| 0   | RX       | Serial communication |
-| 1   | TX       | Serial communication |
-| 2   | GPIO     | Digital IO pin       |
-| 3   | PWM      | Digital IO pin, PWM  |
-| 4   | GPIO     | Digital IO pin       |
-| 5   | PWM      | Digital IO pin, PWM  |
-| 6   | PWM      | Digital IO pin, PWM  |
-| 7   | GPIO     | Digital IO pin       |
-| 8   | GPIO     | Digital IO pin       |
-| 9   | PWM      | Digital IO pin, PWM  |
-| 10  | PWM      | Digital IO pin, PWM  |
-| 11  | PWM      | Digital IO pin, PWM  |
-| 12  | GPIO     | Digital IO pin       |
-| 13  | GPIO     | Digital IO pin       |
-| 14  | SDA      | Serial communication |
-| 15  | SCL      | Serial communication |
+| Pin | Type      | Function                          |
+| --- | --------- | --------------------------------- |
+| D0  | Digital   | UART Receive                      |
+| D1  | Digital   | UART Transmit                     |
+| D2  | Digital   | GPIO pin, Interrupt               |
+| D3  | Digital   | GPIO pin, Interrupt, PWM          |
+| D4  | Digital   | GPIO pin                          |
+| D5  | Digital   | GPIO pin, PWM                     |
+| D6  | Digital   | GPIO pin, PWM                     |
+| D7  | Digital   | GPIO pin                          |
+| D8  | Digital   | GPIO pin                          |
+| D9  | Digital   | GPIO pin, PWM                     |
+| D10 | Digital   | SPI (CS), GPIO pin, PWM           |
+| D11 | Digital   | SPI (CIPO), GPIO pin, PWM         |
+| D12 | Digital   | SPI (COPI), GPIO pin              |
+| D13 | Digital   | SPI (SCK), GPIO pin, Built-in LED |
+
+In addition, analog pins A0-A5 can also be used as digital pins. Note that **A4/A5** are reserved for the I2C bus.
 
 The reference voltage of all digital pins is 5 V.
 
@@ -328,8 +339,8 @@ I2C lets you connect multiple I2C-compatible devices in series using only two pi
 The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNOs are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
 The pins used for I2C on the UNO R4 Minima are the following:
-- SDA - D14 or A4
-- SCL - D15 or A5
+- SDA - D18 or A4
+- SCL - D19 or A5
 
 ![I2C Pins](assets/i2cpins.png)
 
