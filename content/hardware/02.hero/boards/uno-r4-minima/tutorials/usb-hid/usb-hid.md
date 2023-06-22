@@ -36,7 +36,7 @@ To turn your board into an HID, you can use the **keyboard/mouse** API that is b
 - [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
 - [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
 
-In the section below, you will a couple of useful examples to get you started!
+In the section below, you will see a couple of useful examples to get you started!
 
 ## Keyboard
 

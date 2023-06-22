@@ -1,6 +1,6 @@
 ---
 title: "Arduino UNO R4 Minima Digital-to-Analog Converter (DAC)"
-description: "Learn how create waveforms and output them on a piezo, using the DAC on the UNO R4 Minima board."
+description: "Learn how to create waveforms and output them on a piezo, using the DAC on the UNO R4 Minima board."
 tags:
   - Waveform Generation
   - Analog
@@ -15,7 +15,7 @@ software:
 ---
 
 
-The Arduino UNO R4 Minima has a built in **DAC** (Digital to Analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment as a cheap function generator, for example.
+The Arduino UNO R4 Minima has a built in **DAC** (Digital to Analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment or as a cheap function generator, for example.
 
 ## Goals
 
@@ -46,9 +46,9 @@ For example when dimming an LED, you can freely use a PWM enabled digital pin as
 However this will not always be the case, and for many uses you will need to use a genuine analog output to get your desired results. One such case is in audio purposes, where a PWM output simply will not give the same quality of sound as a genuine analog output, and requires some fiddling to work in the first place.
 
 ## Code
-The code for this tutorial is split in two part, one main sketch and a header file containing a pre-generated sawtooth-waveform.
+The code for this tutorial is split in two parts, one main sketch and a header file containing a pre-generated sawtooth-waveform.
 
-With this sketch, we have pre-generated a sawtooth waveform. You cpould also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice. 
+With this sketch, we have pre-generated a sawtooth waveform. You could also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice. 
 
 The waveform is being stored as samples in an array, and with every loop of the sketch we'll update the DACs output value to the next value in the array.  
 
