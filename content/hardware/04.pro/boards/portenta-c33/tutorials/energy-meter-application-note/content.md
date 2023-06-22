@@ -471,7 +471,7 @@ The complete example code can be downloaded [here](assets/current_transformer.zi
 
 The Arduino Cloud allows to create a dashboard with professional real-time Human-Computer Interaction (HCI) as can be seen in the following animation, showing an active Portenta C33 board:
 
-![Arduino Cloud Dashboard Example](assets/C33_application_cloud.gif)
+![Arduino Cloud Dashboard Example](assets/C33_desktop_cloud.gif)
 
 One of the standout features of the Arduino Cloud Dashboard is the ability to update the current transformer's ratio in real time. This feature becomes particularly useful when you need to switch to a different current transformer in a live deployment scenario. Different current transformers can possess different electrical characteristics more or less convenient for different scenarios, and the real-time update capability simplifies the swap between them.
 
