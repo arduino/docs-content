@@ -1,5 +1,5 @@
 ---
 featured: micropython-101-projects
-title: 'Example Project 1'
-description: 'Example 1 desc'
+title: 'Temperature Display'
+description: 'Use a temperature sensor together with a neopixel stick, giving you visual feedback on the current temperature.'
 ---

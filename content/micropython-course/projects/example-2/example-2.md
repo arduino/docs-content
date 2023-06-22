@@ -1,5 +1,5 @@
 ---
 featured: micropython-101-projects
-title: 'Example 2'
-description: 'Example 2 desc'
+title: 'Alarm Clock'
+description: 'Build your own alarm clock using a 4-digit-display and a buzzer to get you out of bed.'
 ---
