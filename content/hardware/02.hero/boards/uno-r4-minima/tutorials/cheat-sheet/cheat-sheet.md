@@ -107,36 +107,28 @@ The UNO R4 Minima gives you access to many different pins and many of them have 
 
 This is a full table of all the IO pins on the UNO R4 Minima: 
 
-| Pin | Function  | Notes                         |
-| --- | --------- | ----------------------------- |
-| 0   | RX        | Serial communication          |
-| 1   | TX        | Serial communication          |
-| 2   | GPIO      | Digital IO pin                |
-| 3   | PWM       | Digital IO pin, PWM           |
-| 4   | GPIO      | Digital IO pin                |
-| 5   | PWM       | Digital IO pin, PWM           |
-| 6   | PWM       | Digital IO pin, PWM           |
-| 7   | GPIO      | Digital IO pin                |
-| 8   | GPIO      | Digital IO pin                |
-| 9   | PWM       | Digital IO pin, PWM           |
-| 10  | PWM       | Digital IO pin, PWM           |
-| 11  | PWM       | Digital IO pin, PWM           |
-| 12  | GPIO      | Digital IO pin                |
-| 13  | GPIO      | Digital IO pin                |
-| 14  | SDA       | Serial Data (I2C)             |
-| 15  | SCL       | Serial Clock (I2C)            |
-| 16  | DAC       | Analog In, DAC                |
-| 17  | OPAMP+    | Analog In, OPAMP+             |
-| 18  | OPAMP-    | Analog In, OPAMP-             |
-| 19  | OPAMP OUT | Analog In, OPAMP OUT          |
-| 20  | GPIO      | Analog in, Digital IO pin     |
-| 21  | GPIO      | Analog in, Digital IO pin     |
-| A0  | DAC       | Analog In, DAC                |
-| A1  | Analog in | Analog In                     |
-| A2  | Analog in | Analog In                     |
-| A3  | Analog in | Analog In                     |
-| A4  | Analog in | Analog In, Serial Data (I2C)  |
-| A5  | Analog in | Analog In, Serial Clock (I2C) |
+| Pin  | Function   | Notes                             |
+| ---- | ---------- | --------------------------------- |
+| D0   | Digital    | UART Receive                      |
+| D1   | Digital    | UART Transmit                     |
+| D2   | Digital    | GPIO pin, Interrupt               |
+| D3   | Digital    | GPIO pin, Interrupt, PWM          |
+| D4   | Digital    | GPIO pin                          |
+| D5   | Digital    | GPIO pin, PWM                     |
+| D6   | Digital    | GPIO pin, PWM                     |
+| D7   | Digital    | GPIO pin                          |
+| D8   | Digital    | GPIO pin                          |
+| D9   | Digital    | GPIO pin, PWM                     |
+| D10  | Digital    | SPI (CS), GPIO pin, PWM           |
+| D11  | Digital    | SPI (COPI), GPIO pin, PWM         |
+| D12  | Digital    | SPI (CIPO), GPIO pin, PWM         |
+| D13  | Digital    | SPI (SCK), GPIO pin, Built-in LED |
+| A0   | Analog in  | Analog In, DAC                    |
+| A1   | Analog in  | Analog In, OPAMP +                |
+| A2   | Analog in  | Analog In, OPAMP -                |
+| A3   | Analog in  | Analog In, OPAMP OUT              |
+| A4   | Analog in  | Analog In, SDA*                   |
+| A5   | Analog in  | Analog In, SCL*                   |
 
 ***\*A4 and A5 pins are both connected to the same I2C bus.***
 
@@ -148,7 +140,24 @@ The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using th
 value = analogRead(pin, value);
 ```
 
-The reference voltage of these pins is 5 V. 
+The reference voltage of these pins is 5 V.
+
+The default resolution is set to 10-bit but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
+- `analogReadResolution(10)` (default)
+- `analogReadResolution(12)`
+- `analogReadResolution(14)`
+
+To learn more about the ADC capabilities of the UNO R4 Minima, check out the [ADC-Resolution Guide](/tutorials/uno-r4-minima/adc-resolution).
+
+### OPAMP Pins
+
+The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 Minima as follows:
+
+| Pin | OPAMP     |
+| --- | --------- |
+| A1  | OPAMP +   |
+| A2  | OPAMP -   |
+| A3  | OPAMP OUT |
 
 ### PWM
 
@@ -168,13 +177,6 @@ You may use them as analog output pins with the function:
 ```arduino
 analogWrite(pin, value);
 ```
-The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 Minima as follows:
-
-| Pin | OPAMP     |
-| --- | --------- |
-| A1  | OPAMP +   |
-| A2  | OPAMP -   |
-| A3  | OPAMP OUT |
 
 ### Digital Pins
 
@@ -220,7 +222,7 @@ However you may change this write resolution if you need to, to up to 12 bits, a
 analogWriteResolution(12);
 ```
 
-If you want to read more about the DAC pin check out [this article about the Arduino UNO R4 Minima Digital-to-Analog Converter (DAC)](/tutorials/uno-r4-minima/dac).
+To learn more about the ADC capabilities of the UNO R4 Minima, check out the [DAC Guide](/tutorials/uno-r4-minima/dac).
 
 ## RTC
 
@@ -266,7 +268,7 @@ void loop() {
 
 ```
 
-If you want to read more about RTC check out [this article about the Arduino UNO R4 Minima Real-time Clock](/tutorials/uno-r4-minima/rtc).
+To learn more about the RTC capabilities of the UNO R4 Minima, check out the [RTC Guide](/tutorials/uno-r4-minima/rtc).
 
 ## EEPROM
 
@@ -418,7 +420,7 @@ mouse.move(x,y);
 
 This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
 
-If you want to read more about USB HID check out [this article about Arduino UNO R4 Minima USB HID](/tutorials/uno-r4-minima/usb-hid).
+To learn more about the HID capabilities of the UNO R4 Minima, check out the [HID Guide](/tutorials/uno-r4-minima/usb-hid).
 
 ## CAN Module
 
