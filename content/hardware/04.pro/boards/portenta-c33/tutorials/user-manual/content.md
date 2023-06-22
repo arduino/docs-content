@@ -72,7 +72,7 @@ The **Arduino Renesas Boards** core contains the libraries and examples to work 
 
 The complete pinout is available and downloadable as PDF from the link below:
 
-- Portenta C33 pinout
+- [Portenta C33 pinout](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
 
 ### Datasheet
 
@@ -84,13 +84,13 @@ The complete datasheet is available and downloadable as PDF from the link below:
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Portenta C33 schematics](https://docs.arduino.cc/static/baeb885ab6554722072a7a5a75183282/ABX00074-schematics.pdf)
+- [Portenta C33 schematics](https://docs.arduino.cc/static/d7e16a6657c086a034a14a6619cffe7b/ABX00074-schematics.pdf)
 
 ### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Portenta C33 STEP files](https://docs.arduino.cc/static/ce20870743b1638d819713953770dcc8/ABX00074-step.zip)
+- [Portenta C33 STEP files](https://docs.arduino.cc/static/0d1ade945a6d5105667ee3a0e50b96c7/ABX00074-step.zip)
 
 ## First Use
 
@@ -1434,7 +1434,7 @@ If you encounter any issues or have questions while working with the Portenta C3
 
 Explore our Help Center, which offers a comprehensive collection of articles and guides for the Portenta C33. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- Portenta C33 help center page
+- [Portenta C33 help center page](https://support.arduino.cc/hc/en-us/sections/360004767859-Portenta-Family)
 
 ### Forum
 
