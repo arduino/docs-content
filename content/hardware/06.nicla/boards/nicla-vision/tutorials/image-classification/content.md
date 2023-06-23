@@ -143,7 +143,7 @@ The ML model is trained and already optimized to be used with microcontrollers. 
 
 ### Deploy
 
-Deploying the ML model to your board requires a few steps. The Edge Impulse® Studio provides an export feature for OpenMV. Switch to the deployment section in the menu, select OpenMV under "Build firmware" and click "build". This will create an OpenMV compatible library and download it as a zip file. Unzip it.
+Deploying the ML model to your board requires a few steps. The Edge Impulse® Studio provides an export feature for OpenMV. Switch to the deployment section in the menu, select OpenMV under "Create Library" and click "build". This will create an OpenMV compatible library and download it as a zip file. Unzip it.
 
 ![The Edge Impulse® Studio has a built-in export function for OpenMV](assets/deployment.png)
 
