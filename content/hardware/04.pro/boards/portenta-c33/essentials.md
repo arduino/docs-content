@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="User Manual" type="getting-started">
+    <EssentialElement title="User Manual" type="getting-started" link="/tutorials/portenta-c33/user-manual">
         A full guide to the basics of the Portenta C33.
     </EssentialElement>
 </EssentialsColumn>
