@@ -1,8 +1,7 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="Quickstart Guide" type="getting-started">
-        A quick guide to installing your board with the Arduino IDE.
+    <EssentialElement title="User Manual" type="getting-started">
+        A full guide to the basics of the Portenta C33.
     </EssentialElement>
-
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
