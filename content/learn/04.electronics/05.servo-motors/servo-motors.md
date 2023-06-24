@@ -7,7 +7,7 @@ author: Arduino
 
 The [Servo Library](https://www.arduino.cc/reference/en/libraries/servo/) is a great library for controlling servo motors. In this article, you will find two easy examples that can be used by any Arduino board.
 
-The first example controls the position of a RC (hobby) [servo motor](http://en.wikipedia.org/wiki/Servo_motor#RC_servos) with your Arduino and a potentiometer. The second example sweeps the shaft of a RC [servo motor](http://en.wikipedia.org/wiki/Servo_motor#RC_servos) back and forth across 180 degrees.
+The first example controls the position of a RC (hobby) [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) with your Arduino and a potentiometer. The second example sweeps the shaft of a RC [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) back and forth across 180 degrees.
 
 You can also visit the [Servo GitHub repository](https://github.com/arduino-libraries/Servo) to learn more about this library.
 
