@@ -208,6 +208,45 @@ analogWrite(pin, value);
 | D18 / SDA | P101  | GTIOC5A |
 | D19 / SCL | P100  | GTIOC5B |
 
+
+## LED Matrix
+
+The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The Renesas core includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
+
+To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
+
+-  `Arduino_LED_Matrix matrix` - Initialises a LED matrix. 
+-  `Arduino_LED_Matrix.load()` - Loads a frame into the frame buffer.
+Here's a basic example:
+
+```arduino
+// creates an array of two frames
+const uint32_t frames[][4] = {
+  {
+    0x0,
+    0x0,
+    0xc00c0000,
+    150
+  },
+  {
+    0x0,
+    0x1e01,
+    0x201201e0,
+    150
+  }
+}
+
+  // loads the frames into the matrix buffer
+  matrix.load(frames);
+
+  ```
+
+- `Arduino_LED_Matrix.begin()` - Initialises the LED matrix itself, making it ready to display frames.
+- `Arduino_LED_Matrix.autoscroll()` - Sets an automatic time interval in ms for the matrix to scroll through the frames.
+- `Arduino_LED_Matrix.next()` -  Manually moves to the next frame.
+- `Arduino_LED_Matrix.on()` -  Manually turn a single pixel on.
+- `Arduino_LED_Matrix.off()` -  Manually turn a single pixel off.
+
 ## DAC
 
 The UNO R4 WiFi also has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
@@ -546,41 +585,3 @@ To reprogram the ESP32 board you can either find UART-pads next to the ESP32 Mod
 or you can use the pins exposed directly on the ESP32 header, shown here:
 
 ![ESP32 Data Pin Header](./assets/ESP32-header.png)
-
-## LED Matrix
-
-The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The Renesas core includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
-
-To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
-
--  `Arduino_LED_Matrix matrix` - Initialises a LED matrix. 
--  `Arduino_LED_Matrix.load()` - Loads a frame into the frame buffer.
-Here's a basic example:
-
-```arduino
-// creates an array of two frames
-const uint32_t frames[][4] = {
-  {
-    0x0,
-    0x0,
-    0xc00c0000,
-    150
-  },
-  {
-    0x0,
-    0x1e01,
-    0x201201e0,
-    150
-  }
-}
-
-  // loads the frames into the matrix buffer
-  matrix.load(frames);
-
-  ```
-
-- `Arduino_LED_Matrix.begin()` - Initialises the LED matrix itself, making it ready to display frames.
-- `Arduino_LED_Matrix.autoscroll()` - Sets an automatic time interval in ms for the matrix to scroll through the frames.
-- `Arduino_LED_Matrix.next()` -  Manually moves to the next frame.
-- `Arduino_LED_Matrix.on()` -  Manually turn a single pixel on.
-- `Arduino_LED_Matrix.off()` -  Manually turn a single pixel off.
