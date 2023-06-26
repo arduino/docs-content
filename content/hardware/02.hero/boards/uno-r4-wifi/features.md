@@ -19,7 +19,7 @@ The RA4M1 and the GPIOs of this board operates on 5 V.
 
 <Feature title="LED Matrix" image="led">
 Learn how to create animations and graphics on the 12x8 LED matrix.
-<FeatureLink title="LED Matrix Guide" url="/tutorials/uno-r4-wifi/led-matrix"/>
+<FeatureLink title="Documentation" url="/tutorials/uno-r4-wifi/led-matrix"/>
 </Feature>
 
 <Feature title="Real-Time Clock (RTC)" image="mcu">
