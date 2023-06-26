@@ -40,7 +40,7 @@ The board can be powered via the VIN pin, supporting a range between 6-24 V. The
 
 ## Core
 
-The UNO R4 WiFi is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+The UNO R4 WiFi is based on the [Arduino UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas).
 
 ## Installation
 
