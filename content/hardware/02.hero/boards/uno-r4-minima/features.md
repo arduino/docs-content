@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-The UNO R4 Minima features a microcontroller based on the Renesas RA4M1 (Arm® Cortex®-M4) with an operating voltage of 5 V. It has 14 digital I/O, 6 analog inputs with up to 14-bit resolution, a clock speed of 48 MHz, and 32 kB SRAM, 256 kB flash memory & 8 kB of EEPROM.
+The UNO R4 Minima features a microcontroller based on the Renesas RA4M1 (Arm® Cortex®-M4) with an operating voltage of 5 V. It has 14 digital I/O, 6 analog inputs with up to 14-bit resolution, a clock speed of 48 MHz, and 32 kB SRAM, 256 kB flash memory & 8 kB of EEPROM. 
 
-This boards also features a 12-bit DAC, RTC and can emulate an HID.
+It features a DAC for audio projects, RTC for accurate time tracking and HID for emulating a keyboard/mouse. The barrel jack plug (VIN) supports voltages at up to 24V, making it compatible with common higher voltage adapters. 
 
 </FeatureDescription>
 
