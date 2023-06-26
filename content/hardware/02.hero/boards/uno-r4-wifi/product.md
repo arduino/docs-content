@@ -1,6 +1,6 @@
 ---
 title: UNO R4 WiFi
-url_shop: https://store.arduino.cc/arduino-uno-r4-wifi
+url_shop: https://store.arduino.cc/uno-r4-wifi
 url_guide: /tutorials/uno-r4-wifi/r4-wifi-getting-started
 ---
 

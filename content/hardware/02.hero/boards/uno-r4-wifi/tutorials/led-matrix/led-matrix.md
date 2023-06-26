@@ -23,7 +23,7 @@ The matrix and its API are developed to be programmed in a few different ways, e
 
 ## Hardware & Software Needed
 
-- [Arduino UNO R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi)
+- [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
 - [UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas) (latest version)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
