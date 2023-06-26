@@ -48,7 +48,7 @@ The UNO R4 WiFi can be programmed either via the Arduino IDE, Arduino Web Editor
 
 ### Arduino IDE
 
-To install the board in the Arduino IDE, search for "Renesas" in the board manager, and install the core/package.
+To install the board in the Arduino IDE, search for "UNO R4" in the board manager, and install the core/package.
 
 Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r4-wifi-getting-started) guide.
 
