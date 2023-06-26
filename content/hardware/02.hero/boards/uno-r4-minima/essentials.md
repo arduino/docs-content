@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
   
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="https://www.arduino.cc/en/Guide/ArduinoUno">
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="https://docs.arduino.cc/tutorials/uno-r4-minima/minima-getting-started">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 

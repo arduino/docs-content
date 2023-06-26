@@ -18,7 +18,7 @@ The goals of this tutorials are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Arduino R4 WiFi](https://store.arduino.cc/products/arduino-uno-r4-wifi)
+- [Arduino R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
 
 ## Analog-to-Digital Converter (ADC) 
