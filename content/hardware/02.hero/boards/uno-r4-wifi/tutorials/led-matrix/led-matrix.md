@@ -226,7 +226,7 @@ delay(1000);
 ```
  
 ## Animation Generation
-We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. 
+We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
 
