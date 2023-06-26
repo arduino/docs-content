@@ -43,7 +43,7 @@ Connect your board to other CAN devices. This requires an external transceiver.
 
 <Feature title="ADC Resolution" image="pressure-sensor">
 This board supports analog read resolutions at up to 14-bit.
-<FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/adc"/>
+<FeatureLink title="Documentation" url="/tutorials/uno-r4-minima/adc-resolution"/>
 </Feature>
 
 </FeatureList>

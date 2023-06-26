@@ -17,7 +17,7 @@ software:
   - ide-v2
 ---
 
-The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1]() microcontroller from [Renesas](/resources/datasheets/ra4m1-datasheet.pdf) microcontroller from [Renesas](https://www.renesas.com/). It now comes with 32 kB of RAM memory, a clock speed of 48 MHz, and a USB-C® port.
+The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1](/resources/datasheets/ra4m1-datasheet.pdf) microcontroller from Renesas microcontroller from [Renesas](https://www.renesas.com/). It now comes with 32 kB of RAM memory, a clock speed of 48 MHz, and a USB-C® port.
 
 This is the first UNO board that uses a 32-bit architecture, being previously based on an 8-bit AVR architecture.
 
@@ -75,7 +75,7 @@ Identify the **dfu.exe**
 **Step 5**
 Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
 
-***\*The Renesas flash programmer is currently only available on Windows.***
+***The Renesas flash programmer is currently only available on Windows.***
 
 **Step 6**
 To flash the bootloader:
@@ -136,7 +136,7 @@ This is a full table of all the IO pins on the UNO R4 Minima:
 | A4  | Analog  | Analog In, SDA\*                  |
 | A5  | Analog  | Analog In, SCL\*                  |
 
-***\*A4 and A5 pins are both connected to the same I2C bus.***
+***A4 and A5 pins are both connected to the same I2C bus.***
 
 ### Analog Pins
 
@@ -151,7 +151,7 @@ The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using th
 | A4  | Analog | Analog In, SDA\*     |
 | A5  | Analog | Analog In, SCL\*     |
 
-***\*A4 and A5 pins are both connected to the same I2C bus.***
+***A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
 value = analogRead(pin, value);
