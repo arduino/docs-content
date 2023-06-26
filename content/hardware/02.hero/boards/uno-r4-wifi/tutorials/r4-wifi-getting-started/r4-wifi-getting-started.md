@@ -50,4 +50,4 @@ There are several examples available for the UNO R4 WiFi board, which can be acc
 
 In this tutorial, we have installed the UNO R4 WiFi board package, using the Arduino IDE.
 
-For any issues regarding the UNO R4 WiFi board package, please refer to the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+For any issues regarding the UNO R4 WiFi board package, please refer to the [Arduino UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas).
