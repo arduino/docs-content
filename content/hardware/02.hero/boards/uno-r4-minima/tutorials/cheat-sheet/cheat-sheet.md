@@ -37,6 +37,10 @@ If you’re using the USB-C® connector you must power it with 5 V.
 
 The board can be powered via the VIN pin, supporting a range between 6-24 V.
 
+## Core
+
+The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+
 ## Installation
 
 The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Editor, or Arduino CLI.
@@ -53,39 +57,6 @@ The Web Editor is an online IDE that includes all official boards, no need for i
 
 Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
-## Core
-
-The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
-
-### Bootloader
-
-**Step 1**
-In case you need to flash the bootloader follow these steps:
-
-**Step 2**
-Install the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core.
-
-**Step 3**
-Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
-renesas\0.5.0\bootloaders\SANTIAGO"
-
-**Step 4**
-Identify the **dfu.exe**
-
-**Step 5**
-Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
-
-***The Renesas flash programmer is currently only available on Windows.***
-
-**Step 6**
-To flash the bootloader:
-  - Select dfu.exe.
-  - Connect your board.
-  - Short the BOOT and GND pin found on the UNO R4 Minima.
-  - Go to the Connect Settings tab.
-  - Select the COM port in the Tool > select the port shown in the IDE.
-  - Press start. 
-
 ## Renesas RA4M1
 
 The UNO R4 Minima features the powerful and very robust Renesas microcontroller also found on the UNO R4 WiFi. Renesas microcontrollers are known for their high performance and robustness, including their built-in peripheral set. 
@@ -100,12 +71,6 @@ The board features
 - 32 kB of SRAM 
 - 256 kB flash 
 - 8 kB data (EEPROM).
-
-## SWD Connector
-
-![SWD Connector](assets/swd.png)
-
-On the UNO R4 Minima, there is a debugging option available using the SWD connector pins, giving advanced debug functionalities for more advanced users.
 
 ## Pins
 
@@ -223,13 +188,13 @@ The reference voltage of all digital pins is 5 V.
 
 ## DAC
 
+![DAC Pin](assets/dacpin.png)
+
 The UNO R4 Minima has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
 
 ```arduino
 analogWrite(pin, value);
 ```
-
-![DAC Pin](assets/dacpin.png)
 
 This DAC pin has a default write resolution of 8 bits. This means that values that are written to the pin should be between 0-255.
 
@@ -342,6 +307,8 @@ void loop() {
 
 ## I2C
 
+![I2C Pins](assets/i2cpins.png)
+
 I2C lets you connect multiple I2C-compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
 The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNOs are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
@@ -349,8 +316,6 @@ The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are sha
 The pins used for I2C on the UNO R4 Minima are the following:
 - SDA - D18 or A4
 - SCL - D19 or A5
-
-![I2C Pins](assets/i2cpins.png)
 
 To connect I2C devices you will need to include the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library at the top of your sketch.
 
@@ -434,6 +399,12 @@ This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/la
 
 To learn more about the HID capabilities of the UNO R4 Minima, check out the [HID Guide](/tutorials/uno-r4-minima/usb-hid).
 
+## SWD Connector
+
+![SWD Connector](assets/swd.png)
+
+On the UNO R4 Minima, there is a debugging option available using the SWD connector pins, giving advanced debug functionalities for more advanced users.
+
 ## CAN Module
 
 The UNO R4 Minima's RA4M1 has a built-in CAN module that complies with the CAN 2.0A/CAN 2.0B standard. 
@@ -468,3 +439,31 @@ CanMsg const msg = CAN.read(); //read
 ```
 
 ***Please note that without a CAN transceiver it is not possible to communicate with other CAN devices.*** 
+
+## Bootloader
+
+In case you need to flash the bootloader on the UNO R4 Minima, you can follow the steps below:
+
+**Step 1**
+Install the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core.
+
+**Step 2**
+Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
+renesas\0.5.0\bootloaders\SANTIAGO"
+
+**Step 3**
+Identify the **dfu.exe**
+
+**Step 4**
+Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
+
+***The Renesas flash programmer is currently only available on Windows.***
+
+**Step 5**
+To flash the bootloader:
+  - Select dfu.exe.
+  - Connect your board.
+  - Short the BOOT and GND pin found on the UNO R4 Minima.
+  - Go to the Connect Settings tab.
+  - Select the COM port in the Tool > select the port shown in the IDE.
+  - Press start.
