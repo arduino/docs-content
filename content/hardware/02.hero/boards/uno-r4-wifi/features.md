@@ -38,7 +38,7 @@ Build game controllers by emulating a mouse/keyboard.
 </Feature>
 
 <Feature title="Input Voltage" image="power">
-Power your the VIN pin/barrel jack at up to 6-24 V.
+Power your UNO R4 board through the VIN pin or the barrel jack at up to 6-24 V.
 </Feature>
 
 </FeatureList>
