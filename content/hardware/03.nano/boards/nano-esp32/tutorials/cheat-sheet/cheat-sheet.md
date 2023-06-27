@@ -47,22 +47,33 @@ This board is based on the [Arduino ESP32 Core](https://github.com/arduino/ardui
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
-To install the core, go the **board manager** and search for **Nano ESP32**. If you need more instructions to install the core, please refer to the [Getting Started with Nano ESP32]() article.
+To install the core, go the **board manager** and search for **Nano ESP32**. If you need more instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
 You can also program your board via the [Arduino Web Editor](arduino-cloud/getting-started/getting-started-web-editor), an online IDE.
 
 ## API
 
-Please refer to the well documented [ESP32-S3 API](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html#) for more information regarding the API and accessing the boards peripherals.
+The Nano ESP32 can be programmed using the same API as for other Arduino boards (see [language reference](https://www.arduino.cc/reference/en/)).
 
-To access the ESP32-S3's peripherals (e.g. ADC, I2C, SPI), refer to the [Peripherals API section](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/index.html#).
+However, the ESP32 platform provides additional libraries and built-in functionalities that may not available in the standard Arduino API.
 
+For more information, see the [ESP32-S3 API](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html#)
+
+### Peripherals API
+
+To learn more about the ESP32-S3's peripherals (e.g. ADC, I2C, SPI, I2S, RTC), refer to the [Peripherals API section](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/index.html#).
+
+### Sleep Modes
+
+The Nano ESP32 can be programmed to draw a minimal amount of power, making it suitable for power constrained designs, such as solar/battery powered projects. 
+
+The [Sleep Modes](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/system/sleep_modes.html) section in the ESP32 docs explains how to configure your board to draw minimal power, introducing the **light sleep** and **deep sleep**
 
 ## MicroPython
 
 The Nano ESP32 has support for MicroPython, a micro-implementation of Python that can easily be installed on your board.
 
-To get started with MicroPython, please visit [MicroPython 101](), a course dedicated towards learning MicroPython on the Nano ESP32.
+To get started with MicroPython, please visit [MicroPython 101](/micropython-course), a course dedicated towards learning MicroPython on the Nano ESP32.
 
 In this course, you will fundamental knowledge to get started, as well as a large selection of examples for popular third-party components.
 
@@ -97,52 +108,177 @@ This measure is taken to prevent the board's microcontroller from accidentially 
 
 The Nano ESP32 has two headers: the **analog** and **digital**. Listed here are the **default** pins that comply with previous Nano form factor designs.
 
-### Analog Header
-| Function | Type   | Description                                 |
-| -------- | ------ | ------------------------------------------- |
-| D13/SCK  | NC     | **SPI** Serial Clock / LED Built in         |
-| +3V3     | Power  | +3V3 Power Rail                             |
-| BOOT0    | Mode   | Board Reset 0                               |
-| A0       | Analog | Analog input 0                              |
-| A1       | Analog | Analog input 1                              |
-| A2       | Analog | Analog input 2                              |
-| A3       | Analog | Analog input 3                              |
-| A4       | Analog | Analog input 4 / **I2C** Serial Datal (SDA) |
-| A5       | Analog | Analog input 5 / **I2C** Serial Clock (SCL) |
-| A6       | Analog | Analog input 6                              |
-| A7       | Analog | Analog input 7                              |
-| VUSB     | Power  | USB power (5V)                              |
-| BOOT1    | Mode   | Board Reset 1                               |
-| GND      | Power  | Ground                                      |
-| VIN      | Power  | Voltage Input                               |
+The following pins are available on the board.
 
-### Digital Header
+| Pin      | Type    | Function                                    |
+| -------- | ------- | ------------------------------------------- |
+| D13/SCK  | Digital | **SPI** Serial Clock / LED Built in         |
+| D12/CIPO | Digital | **SPI** Controller In Peripheral Out        |
+| D11/COPI | Digital | **SPI** Controller Out Peripheral In        |
+| D10      | Digital | GPIO                                        |
+| D9       | Digital | GPIO                                        |
+| D8       | Digital | GPIO                                        |
+| D7       | Digital | GPIO                                        |
+| D6       | Digital | GPIO                                        |
+| D5       | Digital | GPIO                                        |
+| D4       | Digital | GPIO                                        |
+| D3       | Digital | GPIO                                        |
+| D2       | Digital | GPIO                                        |
+| D1/RX    | Digital | GPIO 1 / **UART** Receiver (RX)             |
+| D0/TX    | Digital | GPIO 0 / **UART** Transmitter (TX)          |
+| A0       | Analog  | Analog input 0                              |
+| A1       | Analog  | Analog input 1                              |
+| A2       | Analog  | Analog input 2                              |
+| A3       | Analog  | Analog input 3                              |
+| A4       | Analog  | Analog input 4 / **I2C** Serial Datal (SDA) |
+| A5       | Analog  | Analog input 5 / **I2C** Serial Clock (SCL) |
+| A6       | Analog  | Analog input 6                              |
+| A7       | Analog  | Analog input 7                              |
 
-| Pin      | Type     | Description                          |
-| -------- | -------- | ------------------------------------ |
-| D12/CIPO | Digital  | **SPI** Controller In Peripheral Out |
-| D11/COPI | Digital  | **SPI** Controller Out Peripheral In |
-| D10      | Digital  | GPIO                                 |
-| D9       | Digital  | GPIO                                 |
-| D8       | Digital  | GPIO                                 |
-| D7       | Digital  | GPIO                                 |
-| D6       | Digital  | GPIO                                 |
-| D5       | Digital  | GPIO                                 |
-| D4       | Digital  | GPIO                                 |
-| D3       | Digital  | GPIO                                 |
-| D2       | Digital  | GPIO                                 |
-| GND      | Power    | Ground                               |
-| RST      | Internal | Reset                                |
-| D1/RX    | Digital  | GPIO 1 / **UART** Receiver (RX)      |
-| D0/TX    | Digital  | GPIO 0 / **UART** Transmitter (TX)   |
+### Digital
 
-## Boot Pins
+The Nano ESP32 has 14 digital pins (D0-D13), that can be read by using `digitalRead()` or written to using `digitalWrite()`.
+
+| Pin      | Type    | Function                             |
+| -------- | ------- | ------------------------------------ |
+| D12/CIPO | Digital | **SPI** Controller In Peripheral Out |
+| D11/COPI | Digital | **SPI** Controller Out Peripheral In |
+| D10      | Digital | GPIO                                 |
+| D9       | Digital | GPIO                                 |
+| D8       | Digital | GPIO                                 |
+| D7       | Digital | GPIO                                 |
+| D6       | Digital | GPIO                                 |
+| D5       | Digital | GPIO                                 |
+| D4       | Digital | GPIO                                 |
+| D3       | Digital | GPIO                                 |
+| D2       | Digital | GPIO                                 |
+| D1/RX    | Digital | GPIO 1 / **UART** Receiver (RX)      |
+| D0/TX    | Digital | GPIO 0 / **UART** Transmitter (TX)   |
+
+### Analog
+
+| Pin | Type   | Function                                    |
+| --- | ------ | ------------------------------------------- |
+| A0  | Analog | Analog input 0                              |
+| A1  | Analog | Analog input 1                              |
+| A2  | Analog | Analog input 2                              |
+| A3  | Analog | Analog input 3                              |
+| A4  | Analog | Analog input 4 / **I2C** Serial Datal (SDA) |
+| A5  | Analog | Analog input 5 / **I2C** Serial Clock (SCL) |
+| A6  | Analog | Analog input 6                              |
+| A7  | Analog | Analog input 7                              |
+
+### PWM
+
+Pulse width modulation (PWM) is supported on all digital pins (D0-D13).
+
+### Boot Pins
 
 To enter bootloader mode (chip boot mode), you can use either the BOOT0 or BOOT1 pins, which are connected to the ESP32-S3's `GPIO0` and `GPIO46`.
 
 Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding LED will  
 
 You can read more about different this in the [Strapping Pins section](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf#page=23) in the ESP32-S3's datasheet.
+
+## I2C
+
+The default pins used for I2C on the Nano ESP32 are the following:
+- SDA - A4
+- SCL - A5
+
+![I2C Pins]()
+
+To connect I2C devices you will need to include the [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/) library at the top of your sketch.
+
+```arduino
+#include <Wire.h>
+```
+
+Inside `void setup()` you need to initialize the library, and initialize the I2C port you want to use.
+
+```arduino
+Wire.begin() //SDA & SDL
+```
+
+And to write something to a device connected via I2C, we can use the following commands:
+
+```arduino
+Wire.beginTransmission(1); //begin transmit to device 1
+Wire.write(byte(0x00)); //send instruction byte 
+Wire.write(val); //send a value
+Wire.endTransmission(); //stop transmit
+```
+
+## SPI
+
+![SPI Pins]()
+
+The Nano ESP32's SPI pins are listed below:
+
+| Pin      | Type | Function                      |
+| -------- | ---- | ----------------------------- |
+| D11      | COPI | Controller In, Peripheral Out |
+| D12      | CIPO | Controller Out, Peripheral In |
+| D13      | SCK  | Serial Clock                  |
+| Any GPIO | CS   | Chip Select                   |
+
+
+
+The following example shows how to use SPI:
+
+
+```arduino
+#include <SPI.h>
+
+const int CS = 10;
+
+
+void setup() {
+  pinMode(CS, OUTPUT);
+
+  SPI.begin();
+
+  digitalWrite(CS, LOW);
+
+  SPI.transfer(0x00);
+  
+  digitalWrite(CS, HIGH);
+}
+
+void loop() {
+}
+```
+
+## UART
+
+The pins used for UART on the Nano ESP32 are the following:
+
+| Pin | Function |
+| --- | -------- |
+| D0  | RX0      |
+| D1  | TX0      |
+
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial1` object.
+
+```arduino
+Serial1.begin(9600);
+```
+
+To read incoming data, we can use a while loop() to read each individual character and add it to a string.
+
+```arduino
+  while(Serial1.available()){
+    delay(2);
+    char c = Serial1.read();
+    incoming += c;
+  }
+```
+
+And to write something, we can use the following command:
+
+```arduino
+Serial1.write("Hello world!");
+```
 
 ## IO Mux & GPIO Matrix
 
