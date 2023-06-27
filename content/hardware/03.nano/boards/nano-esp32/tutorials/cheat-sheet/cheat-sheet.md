@@ -12,7 +12,7 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [-S3 series](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **uBlox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
+The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **uBlox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
 ![Nano ESP32 overview](assets/nano-esp32-overview.png)
 
@@ -39,7 +39,7 @@ The memory of the ESP32-S3 has
 
 The full datasheet is available as a downloadable PDF from the link below:
 
-- [Download the Nano ESP32 datasheet]()
+- [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
 ## Nano ESP32 Core
 
