@@ -15,10 +15,10 @@ This feature can be used to create game controllers, keyboard extensions or othe
 
 ## Goals
 
-The goals of this tutorials are:
+The goals of this tutorial is:
 
 - Learn how to emulate a keyboard (keypresses),
-- learn how to emulate a mouse (x,y coordinates).
+- Learn how to emulate a mouse (x,y coordinates).
 
 ## Hardware & Software Needed
 
@@ -28,11 +28,11 @@ The goals of this tutorials are:
 
 ## Human Interface Device (HID) 
 
-Human interface devices (HID) are devices designed for humans (keyboards, mice, game controllers etc.), that frequently sends data over USB to a computer. When you press a key on a keyboard, you send data to a computer, which reads it and in turn activates the corresponding key.
+Human interface devices (HID) are devices designed for humans (keyboards, mice, game controllers etc.), that frequently send data over USB to a computer. When you press a key on a keyboard, you send data to a computer, which reads it and in turn activates the corresponding key.
 
 The UNO R4 Minima has built-in support for HID, a feature found on most modern day development boards, but not on previous UNO revisions. 
 
-To turn your board into an HID, you can use the **keyboard/mouse** API that is built in to the core. You can visit the documentation for this API in the language reference at:
+To turn your board into an HID, you can use the **keyboard/mouse** API that is built into the core. You can visit the documentation for this API in the language reference at:
 - [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
 - [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
 
