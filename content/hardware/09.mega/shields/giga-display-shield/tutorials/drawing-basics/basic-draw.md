@@ -51,7 +51,7 @@ Next let's draw the circle that will be the base of the logo. First, set the col
   Display.circle(Display.width()/2, Display.height()/2, 300);
 ```
 
-Next we want to draw the two circles that are in the bigger circle of the Arduino logo. First we will set the color of the circles we are drawing. To change the color of the lines we are drawing use `Display.stroke()`, where the color of the stroke will be the RGB value entered into the parenthases, in this case they will be white. The we use `Display.noFill()` to indicate that we don't want to fill the circles we are drawing. Lastly to get the thickness of the circles we can use a simple `for` loop that will draw circles in a slightly changed position 30 times, to give the apperance of the thick circless in the logo. 
+Next, we want to draw the two circles that are in the bigger circle of the Arduino logo. First, we will set the color of the circles we are drawing. To change the color of the lines we are drawing use `Display.stroke()`, where the color of the stroke will be the RGB value entered into the parentheses, in this case they will be white. Then we use `Display.noFill()` to indicate that we don't want to fill the circles we are drawing. Lastly, to get the thickness of the circles we can use a simple `for` loop that will draw circles in a slightly changed position 30 times, to give the appearance of the thick circles in the logo. 
 
 ```arduino
   Display.stroke(255, 255, 255);
