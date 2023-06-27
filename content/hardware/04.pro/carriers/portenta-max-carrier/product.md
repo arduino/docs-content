@@ -6,4 +6,4 @@ core: arduino:mbed_portenta
 certifications: [CE]
 ---
 
-Transform your Portenta board to a edge computer solution with the Portenta Max Carrier.
+Transform your Portenta board to an edge computer solution with the Portenta Max Carrier.
