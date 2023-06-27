@@ -112,4 +112,4 @@ If you want to learn how to use the MKR GPS Shield, check out the tutorials belo
 
 * [1] "SAM-M8Q Data Sheet", u-blox.com, 2020. [Online]. Available: https://www.u-blox.com/en/docs/UBX-16012619. [Accessed: 05- Oct- 2021].
 * [2] "u-blox 8 / u-blox M8 Receiver Description", u-blox.com, 2021. [Online]. Available: https://www.u-blox.com/en/docs/UBX-16018358. [Accessed: 05- Oct- 2021].
-* [3] "NMEA 0183 Interface Standard", NMEA, 2021. [Online]. Available: https://www.nmea.org/content/STANDARDS/NMEA_0183_Standard. [Accessed: 05- Oct- 2021].
+* [3] "NMEA 0183 Interface Standard", NMEA, 2021. [Online]. Available: https://www.nmea.org/nmea-0183.html. [Accessed: 05- Oct- 2021].

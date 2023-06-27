@@ -24,7 +24,7 @@ This tutorial will guide you in the process of updating the firmware or loading 
 
 ## Hardware & Software Needed
 
-- [MKR1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi-with-headers-mounted) or WiFi Shield 101 connected to an Arduino board
+- [MKR1000 WiFi](/hardware/mkr-1000-wifi) or WiFi Shield 101 connected to an Arduino board
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 
 

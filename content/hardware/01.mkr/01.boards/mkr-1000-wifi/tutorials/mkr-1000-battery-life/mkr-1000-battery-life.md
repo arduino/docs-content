@@ -30,7 +30,7 @@ This tutorial gives an overview on how to determine the duration of a rechargeab
 
 ## Hardware & Software Needed
 
-- [Arduino MKR1000 WiFi Board](https://store.arduino.cc/arduino-mkr1000-wifi-with-headers-mounted)
+- [Arduino MKR1000 WiFi Board](/hardware/mkr-1000-wifi)
 
 - 1400mAh LiPo battery
 - Ammeter

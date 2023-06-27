@@ -11,8 +11,8 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/sd-sketch-update-5
 ## Components and Supplies
 
 - [Arduino MKR1000](https://store.arduino.cc/arduino-mkr1000)
-- [Arduino MKR Zero](https://store.arduino.cc/arduino-mkrzero-with-headers)
-- [Arduino SD card](https://store.arduino.cc/product/X000009)
+- [Arduino MKR Zero](/hardware/mkr-zero)
+- SD card
 
 ## Apps and Online Services
 

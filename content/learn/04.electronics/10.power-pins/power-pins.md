@@ -242,5 +242,5 @@ This option is recommended when a regulated power supply without a barrel jack c
 If you want to learn more about power supplies, check out the following links: 
 
 
-- Power supplies are one of the most popular and most needed electronic testing equipment. Check out more about them in [this](https://www.bkprecision.com/support/downloads/power-supply-guide.html) guide from BK Precision®.
+- Power supplies are one of the most popular and most needed electronic testing equipment. Check out more about them in [this](https://l.bkprecision.com/support/downloads/power-supply-guide.html) guide from BK Precision®.
 - LiPo batteries are everywhere. Check out [this](https://rogershobbycenter.com/lipoguide) guide from Roger's Hobby Center to learn more about LiPo batteries. 

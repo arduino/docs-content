@@ -1328,7 +1328,7 @@ The pins used for SPI on the Portenta H7 are the following:
 |  PI1  |    CK    |
 |  PC2  |   CIPO   |
 
-You can refer to the [pinout](#pins) above to find them on the board.
+You can refer to the [pinout](#gpio-map-2) above to find them on the board.
 
 First, you have to import the relevant module from `pyb`.
 
@@ -1367,7 +1367,7 @@ The pins used for I2C (Inter-Integrated Circuit) on the Portenta H7 are the foll
 |  PH8  |   SDA    |
 |  PH7  |   SCL    |
 
-You can refer to the [pinout](#pins) above to find them on the board.
+You can refer to the [pinout](##gpio-map-2) above to find them on the board.
 
 To use the I2C, you import the relevant module.
 
@@ -1419,7 +1419,7 @@ The pins used for UART on the Portenta H7 are the following:
 | PA10  |    RX    |
 |  PA9  |    TX    |
 
-You can refer to the [pinout](#pins) above to find them on the board.
+You can refer to the [pinout](#gpio-map-2) above to find them on the board.
 
 To use the UART, you need to import the relevant module.
 

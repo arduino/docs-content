@@ -359,7 +359,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | PDM (microphone)     Library          | https://www.arduino.cc/en/Reference/PDM                                                             |
 | WiFiNINA (Wi-Fi, W102)  Library       | https://www.arduino.cc/en/Reference/WiFiNINA                                                        |
 | ArduinoBLE (Bluetooth®, W-102) Library | https://www.arduino.cc/en/Reference/ArduinoBLE                                                     |
-| IMU Library                           | https://www.arduino.cc/en/Reference/Arduino_LSM6DS3                                                 |
+| IMU Library                           | https://reference.arduino.cc/reference/en/libraries/arduino_lsm6ds3/                                |
 | Online Store                          | https://store.arduino.cc/                                                                           |
 
 ## Revision History

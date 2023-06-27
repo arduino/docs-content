@@ -25,7 +25,7 @@ This example for a MKR Fox 1200 device allows you to use the board's low power f
 
 ## Hardware Required
 
-- MKR FOX 1200 [(link to store)](https://store.arduino.cc/arduino-mkr-fox-1200-1408)
+- [MKR FOX 1200](/hardware/mkr-fox-1200)
 - Antenna [(link to store)](https://store.arduino.cc/antenna)
 - Jumper wires
 - 2x pushbuttons

@@ -9,7 +9,7 @@ tags:
 author: 'Sandeep Mistry and Dominic Pajak'
 libraries: 
   - name: Arduino_TensorFlowLite
-    url: https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/
+    url: https://github.com/tensorflow/tflite-micro-arduino-examples
   - name: Arduino_BMI270_BMM150
     url: https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/
 hardware:
@@ -25,7 +25,7 @@ software:
 
 ***Important notice! The [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) is no longer available in the Arduino Library Manager. This library will need to be manually downloaded, and included in your IDE.***
 
-[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense Rev2](https://store.arduino.cc/arduino-nano-33-ble-sense-rev2). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
+[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
 
 The first tutorial below shows you how to install a neural network on your Arduino board to recognize simple voice commands.
 
@@ -45,10 +45,10 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 
 ## Goals 
 - Learn the fundamentals of TinyML implementation and training.
-- Use the [BMI270_BMM150](https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/) and [Arduino_TensorFlowLite](https://www.arduino.cc/reference/en/libraries/arduino_tensorflowlite/) libraries
+- Use the [BMI270_BMM150](https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/) and [Arduino_TensorFlowLite](https://github.com/tensorflow/tflite-micro-arduino-examples) libraries
 
 ## Hardware & Software Needed
-- An [Arduino Nano 33 BLE Sense Rev2](https://store.arduino.cc/nano-33-ble-sense) board
+- An [Arduino Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
 - To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
 
@@ -141,7 +141,7 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ![Install the necessary libraries](assets/libManager.png)
 
-There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://www.arduino.cc/en/Guide/Troubleshooting) guides on the Arduino site if you need help.
+There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://support.arduino.cc/hc/en-us) guides on the Arduino site if you need help.
 
 ## Streaming Sensor Data From the Arduino Board
 

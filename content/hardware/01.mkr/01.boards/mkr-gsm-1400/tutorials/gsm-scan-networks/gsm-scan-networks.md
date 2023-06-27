@@ -49,7 +49,7 @@ It is also designed to operate in temperature conditions between -40 °C to +85 
 
 The module also provides an interface for SIM cards, and supports both 1.8V and 3V SIM cards, which can be automatically detected. 
 
-You can find out much more information about this component in the <a href="https://www.u-blox.com/sites/default/files/SARA-U2_DataSheet_(UBX-13005287).pdf" target="_blank">uBlox SARA-02 datasheet</a>.
+You can find out much more information about this component in the <a href="https://www.u-blox.com/sites/default/files/SARA-U2_DataSheet_UBX-13005287.pdf" target="_blank">uBlox SARA-02 datasheet</a>.
 
 ### Circuit
 

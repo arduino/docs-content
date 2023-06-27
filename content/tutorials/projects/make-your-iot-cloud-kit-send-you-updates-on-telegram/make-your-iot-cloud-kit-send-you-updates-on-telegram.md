@@ -180,7 +180,7 @@ void loop() {
 
 ### Adding the Relays
 
-The MKR Relay Proto Shield has two relays on pin 1 and 2. We are going to add them. I have adapted this needs to a very powerful conversational UI example made by [Giancarlo Bacchio and Brian Lough for the Universal Telegram Bot Library ](https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot/tree/master/examples/101/FlashledBot)
+The MKR Relay Proto Shield has two relays on pin 1 and 2. We are going to add them. I have adapted this needs to a very powerful conversational UI example made by [Giancarlo Bacchio and Brian Lough for the Universal Telegram Bot Library ](https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot/tree/v1.1.0/examples/101/FlashledBot)
 
 Feel free to change `bot_name` to match the name of your real bot! Have fun!
 

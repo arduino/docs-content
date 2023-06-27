@@ -12,7 +12,7 @@ Port registers allow for lower-level and faster manipulation of the i/o pins of 
 * C (analog input pins)
 * D (digital pins 0 to 7)
 
-Each port is controlled by three registers, which are also defined variables in the arduino language. The DDR register, determines whether the pin is an INPUT or OUTPUT. The PORT register controls whether the pin is HIGH or LOW, and the PIN register reads the state of INPUT pins set to input with pinMode(). The maps of the [ATmega8](http://www.arduino.cc/en/Hacking/PinMapping) and [ATmega168](//www.arduino.cc/en/Reference/Atmega168Hardware) chips show the ports. The newer Atmega328p chip follows the pinout of the Atmega168 exactly.
+Each port is controlled by three registers, which are also defined variables in the arduino language. The DDR register, determines whether the pin is an INPUT or OUTPUT. The PORT register controls whether the pin is HIGH or LOW, and the PIN register reads the state of INPUT pins set to input with pinMode(). The maps of the [ATmega8](/hacking/hardware/PinMapping) and [ATmega168](/hacking/hardware/Atmega168Hardware) chips show the ports. The newer Atmega328p chip follows the pinout of the Atmega168 exactly.
 
 DDR and PORT registers may be both written to, and read. PIN registers correspond to the state of inputs and may only be read.
 
@@ -40,7 +40,7 @@ PORTC - The Port C Data Register - read/write
 
 PINC - The Port C Input Pins Register - read only 
 
-Each bit of these registers corresponds to a single pin; e.g. the low bit of DDRB, PORTB, and PINB refers to pin PB0 (digital pin 8). For a complete mapping of Arduino pin numbers to ports and bits, see the diagram for your chip: [ATmega8](//www.arduino.cc/en/Hacking/PinMapping), [ATmega168](//www.arduino.cc/en/Hacking/PinMapping168). (Note that some bits of a port may be used for things other than i/o; be careful not to change the values of the register bits corresponding to them.)
+Each bit of these registers corresponds to a single pin; e.g. the low bit of DDRB, PORTB, and PINB refers to pin PB0 (digital pin 8). For a complete mapping of Arduino pin numbers to ports and bits, see the diagram for your chip: [ATmega8](/hacking/hardware/PinMapping), [ATmega168](/hacking/hardware/PinMapping168). (Note that some bits of a port may be used for things other than i/o; be careful not to change the values of the register bits corresponding to them.)
 
 ## Examples
 
