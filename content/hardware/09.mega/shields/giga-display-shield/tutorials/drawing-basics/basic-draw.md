@@ -86,7 +86,7 @@ The complete code can be found as an example in the **Arduino_H7_video** library
 
 Now that it is all uploaded your display shield should look like the image below:
 
-[Sketch running on the Giga Display Shield]()
+![Sketch running on the Giga Display Shield](assets/draw-on-shield.jpg)
 
 
 ## Conclusion
