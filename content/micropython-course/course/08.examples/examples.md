@@ -18,18 +18,19 @@ This example shows how to use a pushbutton with MicroPython.
 | GND            | -             |
 
 ```python
-from machine import Pin
-from time import sleep
+from machine import Pin    # Import the Pin class from the machine module
+from time import sleep     # Import the sleep function from the time module
 
-button = Pin(5, Pin.IN, Pin.PULL_UP)
+button = Pin(5, Pin.IN, Pin.PULL_UP)    # Create a Pin object for pin 5 as an input with a pull-up resistor
 
-while True:
-    button_state = button.value()
-    if button_state == 0:
-        print("Button not pressed")
+while True:    # Start an infinite loop
+    button_state = button.value()    # Read the current state of the button
+    if button_state == 0:    # Check if the button state is LOW (0)
+        print("Button not pressed")    # If the button is not pressed, print a message
     else:
-        print("Button pressed")
-    sleep(0.5)
+        print("Button pressed")    # If the button is pressed, print a message
+    sleep(0.5)    # Pause the program for 0.5 seconds
+
 ```
 
 ## LED
@@ -42,16 +43,17 @@ This example shows how to create the classic blink example using MicroPython.
 | GND            | -             |
 
 ```python
-from machine import Pin
-from time import sleep
+from machine import Pin    # Import the Pin class from the machine module
+from time import sleep     # Import the sleep function from the time module
 
-led = Pin(5, Pin.OUT)
+led = Pin(5, Pin.OUT)    # Create a Pin object for pin 5 as an output
 
-while(True):
-    led.on()
-    sleep(1)
-    led.off()
-    sleep(1)
+while True:    # Start an infinite loop
+    led.on()    # Turn on the LED
+    sleep(1)    # Pause the program for 1 second
+    led.off()   # Turn off the LED
+    sleep(1)    # Pause the program for 1 second
+
 ```
 
 ## Servo
@@ -65,17 +67,18 @@ This code controls a servo motor connected to Pin 5 (D2) using PWM. As with any 
 | GND            | -             |
 
 ```python
-from machine import Pin,PWM
-import time
+from machine import Pin, PWM   # Import the Pin and PWM classes from the machine module
+import time                    # Import the time module
 
-servo = PWM(Pin(5, mode=Pin.OUT))
-servo.freq(50)
+servo = PWM(Pin(5, mode=Pin.OUT))    # Create a PWM object named 'servo' on pin 5 configured as an output
+servo.freq(50)                      # Set the frequency of the PWM signal to 50Hz
 
-while True:
-    servo.duty(26)
-    time.sleep(1)
-    servo.duty(123)
-    time.sleep(1)
+while True:    # Start an infinite loop
+    servo.duty(26)    # Set the duty cycle of the PWM signal to 26 (position 1 of the servo)
+    time.sleep(1)     # Pause the program for 1 second
+    servo.duty(123)   # Set the duty cycle of the PWM signal to 123 (position 2 of the servo)
+    time.sleep(1)     # Pause the program for 1 second
+
 ```
 
 ## Neopixel
@@ -90,54 +93,42 @@ This example shows how to use a Neopixel strip with 10 RGB leds.
 
 
 ```python
-# NeoPixel driver for MicroPython
-# MIT license; Copyright (c) 2016 Damien P. George, 2021 Jim Mussared
+from machine import Pin
+from time import sleep
+import neopixel
 
-from machine import bitstream
-class NeoPixel:
-    # G R B W
-    ORDER = (1, 0, 2, 3)
+PIXEL_NUMBER = 24
+np = neopixel.NeoPixel(Pin(21), PIXEL_NUMBER)   # Create a NeoPixel object with 24 pixels connected to pin 21
 
-    def __init__(self, pin, n, bpp=3, timing=1):
-        self.pin = pin
-        self.n = n
-        self.bpp = bpp
-        self.buf = bytearray(n * bpp)
-        self.pin.init(pin.OUT)
-        # Timing arg can either be 1 for 800kHz or 0 for 400kHz,
-        # or a user-specified timing ns tuple (high_0, low_0, high_1, low_1).
-        self.timing = (
-            ((400, 850, 800, 450) if timing else (800, 1700, 1600, 900))
-            if isinstance(timing, int)
-            else timing
-        )
+purple = (200, 0, 200)
+black = (0, 0, 0)
 
-    def __len__(self):
-        return self.n
+np.fill(black)   # Fill the entire strip with black color (turn off all pixels)
+np.write()       # Update the NeoPixel strip to reflect the changes
 
-    def __setitem__(self, i, v):
-        offset = i * self.bpp
-        for i in range(self.bpp):
-            self.buf[offset + self.ORDER[i]] = v[i]
-
-    def __getitem__(self, i):
-        offset = i * self.bpp
-        return tuple(self.buf[offset + self.ORDER[i]] for i in range(self.bpp))
-
-    def fill(self, v):
-        b = self.buf
-        l = len(self.buf)
-        bpp = self.bpp
-        for i in range(bpp):
-            c = v[i]
-            j = self.ORDER[i]
-            while j < l:
-                b[j] = c
-                j += bpp
-
-    def write(self):
-        # BITSTREAM_TYPE_HIGH_LOW = 0
-        bitstream(self.pin, 0, self.timing, self.buf)
+def ringUp():
+    for i in range(0, PIXEL_NUMBER):
+        np[i] = purple   # Set the i-th pixel to purple color
+        np.write()       # Update the NeoPixel strip to reflect the changes
+        sleep(0.1)       # Pause for 0.1 seconds
+        
+def ringDown():
+    for i in range(0, PIXEL_NUMBER):
+        np[i] = black    # Set the i-th pixel to black color
+        np.write()       # Update the NeoPixel strip to reflect the changes
+        sleep(0.1)       # Pause for 0.1 seconds
+        
+def ringOff():
+    for i in range(0, PIXEL_NUMBER):
+        np[i] = black    # Set the i-th pixel to black color
+    np.write()           # Update the NeoPixel strip to reflect the changes
+    
+def runPixelRun():
+    while(1):             # Loop indefinitely
+        ringUp()          # Turn on pixels from 0 to 23 in sequence
+        ringDown()        # Turn off pixels from 0 to 23 in sequence
+    
+runPixelRun()             # Start running the pixel animation
 ```
 
 ## DHT11
@@ -157,14 +148,14 @@ from time import sleep_ms
 
 SENSOR_PIN = 5
 
-TEMP_SENSOR = dht.DHT11(Pin(SENSOR_PIN))
-sleep_ms(500)
+TEMP_SENSOR = dht.DHT11(Pin(SENSOR_PIN))   # Create a DHT11 object with the specified pin number
+sleep_ms(500)                             # Pause for 500 milliseconds to allow the sensor to stabilize
 
-while(1):
-    TEMP_SENSOR.measure()
-    print(TEMP_SENSOR.temperature())
-    print(TEMP_SENSOR.humidity())
-    sleep_ms(1000)
+while(1):                                 # Loop indefinitely
+    TEMP_SENSOR.measure()                  # Trigger a measurement from the DHT11 sensor
+    print(TEMP_SENSOR.temperature())       # Print the measured temperature
+    print(TEMP_SENSOR.humidity())          # Print the measured humidity
+    sleep_ms(1000)                         # Pause for 1 second before taking the next measurement
 
 ```
 
@@ -184,28 +175,35 @@ import ssd1306_1315 as ssd1306
 import gc
 from random import randint
 from time import sleep_ms
-DISPLAY_WIDTH = 128
-DISPLAY_HEIGHT = 64
+
+DISPLAY_WIDTH = 128   # Set the display width to 128 pixels
+DISPLAY_HEIGHT = 64   # Set the display height to 64 pixels
+
 class Point():
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = x   # Initialize the x-coordinate of the point
+        self.y = y   # Initialize the y-coordinate of the point
+    
     def set_coords(coords):
-        return
-old_coords = Point(64, 32)
-new_coords = Point(64, 32)
-# old_coords = ["x": 0, "y":0]
-# new_coords = ["x": 0, "y": 0]
-i2cbus = SoftI2C(scl = Pin(9), sda = Pin(8), freq = 100000)
+        return  # Placeholder method, does not perform any action
+
+old_coords = Point(64, 32)   # Create a Point object with initial coordinates (64, 32)
+new_coords = Point(64, 32)   # Create a Point object with initial coordinates (64, 32)
+# old_coords = {"x": 0, "y":0}
+# new_coords = {"x": 0, "y": 0}
+
+i2cbus = SoftI2C(scl=Pin(9), sda=Pin(8), freq=100000)   # Create a SoftI2C object for I2C communication with the specified pins and frequency
 print(i2cbus)
-oled = ssd1306.SSD1306_I2C(DISPLAY_WIDTH, DISPLAY_HEIGHT, i2cbus)
+
+oled = ssd1306.SSD1306_I2C(DISPLAY_WIDTH, DISPLAY_HEIGHT, i2cbus)   # Create an SSD1306 OLED object with the specified width, height, and I2C bus
 # oled.fill(0)
 oled.show()
-oled.text('Arduino', 40, 12)
-oled.text('vs', 60, 26)
-oled.text('MicroPython', 23, 45)
-oled.show()
 
+oled.text('Arduino', 40, 12)         # Display the text "Arduino" at the specified coordinates
+oled.text('vs', 60, 26)              # Display the text "vs" at the specified coordinates
+oled.text('MicroPython', 23, 45)     # Display the text "MicroPython" at the specified coordinates
+
+oled.show()                          # Update the OLED display to reflect the changes
 ```
 
 ## Buzzer
@@ -318,18 +316,19 @@ This example shows how to use a sound sensor.
 from machine import Pin, ADC
 import time
 
-pin_adc = ADC(Pin(5))
-pin_adc.atten(ADC.ATTN_11DB)
+pin_adc = ADC(Pin(5))      # Create an ADC object and associate it with pin 5
+pin_adc.atten(ADC.ATTN_11DB)   # Set the attenuation level to 11dB, which allows for a wider input voltage range
 
 while True:
     sum_value = 0
+
     for i in range(32):
-        sum_value += pin_adc.read()
+        sum_value += pin_adc.read()   # Read the ADC value and add it to the sum
 
-    sum_value >>= 5
+    sum_value >>= 5   # Right shift the sum by 5 bits (equivalent to dividing by 32) to get the average value
 
-    print(sum_value)
-    time.sleep_ms(100)
+    print(sum_value)   # Print the average value
+    time.sleep_ms(100)   # Pause for 100 milliseconds
 
 ```
 
@@ -350,19 +349,20 @@ import tm1637
 
 tm = tm1637.TM1637(clk=Pin(10), dio=Pin(11))
 
-tm.write([63, 191, 63, 63])
+tm.write([63, 191, 63, 63])  # Write a specific pattern of segments to the TM1637 display
 sleep(1)
 
-tm.numbers(17,23)
+tm.numbers(17, 23)  # Display the numbers 17 and 23 on the TM1637 display
 sleep(1)
-tm.show('abcd')
+tm.show('abcd')  # Display the characters 'abcd' on the TM1637 display
 sleep(1)
-tm.show('bcde')
+tm.show('bcde')  # Display the characters 'bcde' on the TM1637 display
 sleep(1)
-tm.show('cdef')
+tm.show('cdef')  # Display the characters 'cdef' on the TM1637 display
 sleep(1)
 
-tm.temperature(20)
+tm.temperature(20)  # Display the temperature value 20 on the TM1637 display
+
 ```
 
 ## Moisture Sensor
