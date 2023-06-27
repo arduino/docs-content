@@ -1,6 +1,6 @@
 <EssentialsColumn title="Guides">
   <EssentialElement title="User Manual" type="getting-started" link="/tutorials/nicla-voice/user-manual">
-    All you need to know to get started with your new Arduino Nicla board.
+    A full guide to the basics of the Nicla Voice.
   </EssentialElement>
 
 </EssentialsColumn>
