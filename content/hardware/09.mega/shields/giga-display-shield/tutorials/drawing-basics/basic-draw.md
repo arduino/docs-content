@@ -44,7 +44,7 @@ void setup() {
   Display.clear();
 ```
 
-Next lets draw the circle that will be the base of the logo. First set the color of the circle with `Display.fill(0x008184);`. Then draw the circle with the command `Display.circle()`. Inside the parantheses enter the x position, y position and diameter of the circle. We can make the positioning easy by using the displays total width and height as a base for our position measurments.
+Next let's draw the circle that will be the base of the logo. First, set the color of the circle with `Display.fill(0x008184);`. Then draw the circle with the command `Display.circle()`. Inside the parentheses enter the x position, y position, and diameter of the circle. We can make the positioning easy by using the display's total width and height as a base for our position measurements.
 
 ```arduino
   Display.fill(0x008184);
