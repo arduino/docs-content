@@ -21,7 +21,7 @@ Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board 
 
 ## Using Draw Feature in a Sketch
 
-First we need to include the library that we will be using and define the display screen that we are using:
+First, we need to include the library that we will be using and define the display screen:
 
 ```arduino
 #include "Arduino_H7_Video.h"
