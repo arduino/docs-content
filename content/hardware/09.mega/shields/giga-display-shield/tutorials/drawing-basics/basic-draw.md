@@ -5,7 +5,7 @@ author: Benjamin Dannegård
 tags: [Display, Draw]
 ---
 
-The most basic use of the Giga display shield is to draw an image on the screen using code. This is made easy by using the library `ArduinoGraphics`. In this tutorial we will go through how to draw the Arduino logo on the Giga display shield with the commands that this library provides. This is a great tutorial for getting started with your shield and exploring what possibilities the library gives us.
+The most basic use of the Giga display shield is to draw an image on the screen using code. This is made easy by using the library `ArduinoGraphics`. In this tutorial we will go through how to draw the Arduino logo on the Giga display shield with the commands provided by this library. This is a great tutorial for getting started with your shield and exploring what possibilities the library gives us.
 
 ## Hardware & Software Needed
 
