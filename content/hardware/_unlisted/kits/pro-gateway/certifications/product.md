@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit
+title: Pro Gateway
 certifications: [CE]
 ---

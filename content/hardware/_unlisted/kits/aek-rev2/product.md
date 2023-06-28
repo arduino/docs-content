@@ -1,4 +1,4 @@
 ---
-title: CTC GO! Core Module
+title: Engineering Kit Rev2
 certifications: [CE, UKCA]
 ---

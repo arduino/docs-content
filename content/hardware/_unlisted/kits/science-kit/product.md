@@ -1,4 +1,4 @@
 ---
-title: Science Kit
+title: Science Kit Physics Lab
 certifications: [CE]
 ---

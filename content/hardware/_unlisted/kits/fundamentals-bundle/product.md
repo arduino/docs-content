@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit
+title: Fundamentals Bundle
 certifications: [CE]
 ---

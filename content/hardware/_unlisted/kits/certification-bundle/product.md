@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit
+title: Certification Bundle
 certifications: [CE]
 ---
