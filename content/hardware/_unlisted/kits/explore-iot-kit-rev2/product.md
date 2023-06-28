@@ -1,4 +1,4 @@
 ---
-title: Starter Kit 6-Pack
+title: Explore IoT Kit Rev2
 certifications: [CE]
 ---
