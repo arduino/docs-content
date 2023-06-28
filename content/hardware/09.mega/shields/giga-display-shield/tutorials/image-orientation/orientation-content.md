@@ -132,7 +132,7 @@ Now to put it all together where the image will change depending on how we rotat
 
 ## Testing it Out
 
-Now try and rotating your device to see if the image behaves correctly. If the image does not rotate correctly have another look at the values you entered into the previous sketch. It might help to try and run the simple IMU readings printer sketch to take a quick look at the IMU values in the serial monitor. This will help you figure out what values should be considered when the device is being moved. 
+Now try rotating your device to see if the image behaves correctly. If the image does not rotate correctly have another look at the values you entered into the previous sketch. It might help to try and run the simple IMU readings printer sketch to take a quick look at the IMU values in the serial monitor. This will help you figure out what values should be considered when the device is being moved. 
 
 ![Gif of the orientation sketch running on the screen]()
 
