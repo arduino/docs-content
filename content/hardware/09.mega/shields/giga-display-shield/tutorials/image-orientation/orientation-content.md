@@ -5,7 +5,7 @@ author: Benjamin Dannegård
 tags: [Display, IMU, orientation]
 ---
 
-Any modern device uses sensors to determine the correct orientation that an image should be displayed with. Using the Arduino GIGA R1 WiFi with the GIGA Display Shield we can read values given by the on board IMU to determine what orientation an image should be given. This tutorial will show you how to manipulate an image on the GIGA Display Shield using readings from the IMU sensor. 
+Any modern device uses sensors to determine the correct orientation in which an image should be displayed. Using the Arduino GIGA R1 WiFi with the GIGA Display Shield we can read values given by the onboard IMU to determine what orientation an image should be given. This tutorial will show you how to manipulate an image on the GIGA Display Shield using readings from the IMU sensor. 
 
 ## Hardware & Software Needed
 
