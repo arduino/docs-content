@@ -22,7 +22,7 @@ Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board 
 
 ## Getting IMU Readings
 
-The three axis that we will measure will be:
+The three-axis that we will measure will be:
 
 - x-axis: Measures horizontally
 - y-axis: Measures vertically
