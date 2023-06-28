@@ -18,7 +18,7 @@ Any modern device uses sensors to determine the correct orientation in which an 
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150** and install it, this library will help us with reading values from the IMU.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU.
 
 ## Getting IMU Readings
 
