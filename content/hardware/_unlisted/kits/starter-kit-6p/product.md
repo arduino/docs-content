@@ -1,4 +1,4 @@
 ---
-title: Starter Kit 6-pack
+title: Starter Kit 6-Pack
 certifications: [CE]
 ---

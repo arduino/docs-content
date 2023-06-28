@@ -1,4 +1,4 @@
 ---
-title: Engineering Kit Rev2
-certifications: [CE, UKCA]
+title: Engineering Kit
+certifications: [CE]
 ---
