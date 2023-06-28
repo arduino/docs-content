@@ -48,7 +48,7 @@ The UNO R4 WiFi can be programmed either via the Arduino IDE, Arduino Web Editor
 
 ### Arduino IDE
 
-To install the board in the Arduino IDE, search for "UNO R4" in the board manager, and install the core/package.
+To use the board in the Arduino IDE, you need to install the latest version of the **Arduino UNO R4 Boards** package from the boards manager.
 
 Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r4-wifi-getting-started) guide.
 
@@ -241,12 +241,6 @@ const uint32_t frames[][4] = {
 
   ```
 
-- `Arduino_LED_Matrix.begin()` - Initialises the LED matrix itself, making it ready to display frames.
-- `Arduino_LED_Matrix.autoscroll()` - Sets an automatic time interval in ms for the matrix to scroll through the frames.
-- `Arduino_LED_Matrix.next()` -  Manually moves to the next frame.
-- `Arduino_LED_Matrix.on()` -  Manually turn a single pixel on.
-- `Arduino_LED_Matrix.off()` -  Manually turn a single pixel off.
-
 ## DAC
 
 The UNO R4 WiFi also has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
@@ -431,6 +425,8 @@ The UNO R4 WiFi board features 2 separate hardware serial ports.
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
 
+This is one of the few things that are distinctly different from UNO R3 to UNO R4, as the UNO R3 only features one hardware serial port, that is connected to **both** the USB port and the RX/TX pins on the board.
+
 The pins used for UART on the UNO R4 WiFi are the following:
 
 | Pin | Function      |
@@ -489,7 +485,7 @@ keyboard.press('W');
 mouse.move(x,y);
 ```
 
-This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
+This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that you can install from the library manager in the IDE.
 
 To learn more about the HID capabilities of the UNO R4 WiFi, check out the [HID Guide](/tutorials/uno-r4-wifi/usb-hid).
 
