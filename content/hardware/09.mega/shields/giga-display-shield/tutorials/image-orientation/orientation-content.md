@@ -74,7 +74,7 @@ void setup() {
 
 ```
 
-Now all that is left is to change the image depending on the IMU readings. First declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`. Next we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end we render the image with the correct rotation.
+Now all that is left is to change the image depending on the IMU readings. First, declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`. Next, we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end, we render the image with the correct rotation.
 
 ```arduino
 
