@@ -100,7 +100,7 @@ void loop() {
 }
 ```
 
-The easiest way to tell what values you are getting depending on the orientation of the device you can use a simple sketch. Like the one below that will simply print the IMU values in the serial monitor. Take note of the values you are getting when you rotate the shield and you can use them in the previous sketch.
+The easiest way to tell what values you are getting depending on the orientation of the device is to use a simple sketch, like the one below that will simply print the IMU values in the serial monitor. Take note of the values you are getting when you rotate the shield and you can use them in the previous sketch.
 
 ```arduino
 #include "Arduino_BMI270_BMM150.h"
