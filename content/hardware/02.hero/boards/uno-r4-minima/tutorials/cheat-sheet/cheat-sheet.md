@@ -47,7 +47,7 @@ The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Edit
 
 ### Arduino IDE
 
-To install the board in the Arduino IDE, search for "Renesas" in the board manager, and install the core/package.
+To use the board in the Arduino IDE, you need to install the latest version of the **Arduino UNO R4 Boards** package from the boards manager.
 
 Read more in the [Getting Started with the UNO R4 Minima](/tutorials/uno-r4-minima/minima-getting-started) guide.
 
