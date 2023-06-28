@@ -22,7 +22,12 @@ LVGL is a very powerful graphical framework that is compatible with the Giga Dis
 
 The Giga core includes a library that will help us handle the display so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
 
-For touch features we will be using the **Arduino_GigaDisplayTouch** library. The LVGL library is called **lvgl** which also needs to be downloaded. Go to the library manager in the Arduino IDE and make sure these library is installed.
+In this guide we will be using three different libraries:
+- **Arduino_H7_Video**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
+- **Arduino_GigaDisplayTouch**
+- **lvgl** 
+
+Open the library manager and install the latest version of **Arduino_GigaDisplayTouch** and **lvgl** .
 
 In the sketch include the libraries like this:
 
