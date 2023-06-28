@@ -1,5 +1,5 @@
 ---
-title: Using IMU to determine orientation of the Giga Display Shield
+title: Using IMU to determine the orientation of the Giga Display Shield
 description: 'Learn how to use the shields IMU to determine the orientation of the Giga Display Shield'
 author: Benjamin Dannegård
 tags: [Display, IMU, orientation]
