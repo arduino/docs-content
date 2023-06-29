@@ -11,11 +11,7 @@ description: 'Practical examples for Neopixels, sensors, servo motors and more.'
 
 This example shows how to use a pushbutton with MicroPython.
 
-| Arduino        | Button        |
-| -------------- | ------------- |
-| Signal         | Pin 5 (D2)    |
-| 3.3 V / 5 V    | +             |
-| GND            | -             |
+![Button Circuit](./assets/circuitButton.png)
 
 ```python
 from machine import Pin    # Import the Pin class from the machine module
@@ -37,10 +33,7 @@ while True:    # Start an infinite loop
 
 This example shows how to create the classic blink example using MicroPython.
 
-| Arduino        | Button        |
-| -------------- | ------------- |
-| LED            | Pin 5 (D2)    |
-| GND            | -             |
+![LED Circuit](./assets/circuitLED.png)
 
 ```python
 from machine import Pin    # Import the Pin class from the machine module
@@ -60,11 +53,7 @@ while True:    # Start an infinite loop
 
 This code controls a servo motor connected to Pin 5 (D2) using PWM. As with any motor if the current being drawn due to the motor needing too much power the board resets.
 
-| Arduino        | Line Finder   |
-| -------------- | ------------- |
-| Signal         | Pin 5 (D2)    |
-| 3.3 V / 5 V    | +             |
-| GND            | -             |
+![Servo Motor Circuit](./assets/servo.png)
 
 ```python
 from machine import Pin, PWM   # Import the Pin and PWM classes from the machine module
@@ -85,12 +74,7 @@ while True:    # Start an infinite loop
 
 This example shows how to use a Neopixel strip with 10 RGB leds.
 
-| Arduino        | RGB Strip     |
-| -------------- | ------------- |
-| Signal         | Pin 5 (D2)    |
-| 3.3 V / 5 V    | +             |
-| GND            | -             |
-
+![Neopixel Circuit](./assets/neopixel.png)
 
 ```python
 from machine import Pin
@@ -135,11 +119,8 @@ runPixelRun()             # Start running the pixel animation
 
 This example shows how to use a DHT11 with an Arduino Nano ESP32.
 
-| Arduino        | DHT11         |
-| -------------- | ------------- |
-| Signal         | Pin 5 (D2)    |
-| 3.3 V / 5 V    | +             |
-| GND            | -             |
+
+![DHT11 Circuit](./assets/dht11.png)
 
 ```python
 import dht
@@ -163,11 +144,7 @@ while(1):                                 # Loop indefinitely
 
 This example shows how to use an OLED screen via I2C.
 
-| Arduino        | Oled_Button               |
-| -------------- | ------------------------- |
-| Oled           | SDA=8(D5), SCL=9(D6)      |
-| 3.3 V / 5 V    | +                         |
-| GND            | -                         |
+![OLED Circuit](./assets/oled.png)
 
 ```python
 from machine import SoftI2C, Pin
@@ -192,7 +169,7 @@ new_coords = Point(64, 32)   # Create a Point object with initial coordinates (6
 # old_coords = {"x": 0, "y":0}
 # new_coords = {"x": 0, "y": 0}
 
-i2cbus = SoftI2C(scl=Pin(9), sda=Pin(8), freq=100000)   # Create a SoftI2C object for I2C communication with the specified pins and frequency
+i2cbus = SoftI2C(scl=Pin(12), sda=Pin(11), freq=100000)   # Create a SoftI2C object for I2C communication with the specified pins and frequency
 print(i2cbus)
 
 oled = ssd1306.SSD1306_I2C(DISPLAY_WIDTH, DISPLAY_HEIGHT, i2cbus)   # Create an SSD1306 OLED object with the specified width, height, and I2C bus
@@ -210,11 +187,7 @@ oled.show()                          # Update the OLED display to reflect the ch
 
 This example shows how to use a Grove Buzzer.
 
-| Arduino        | Buzzer        |
-| -------------- | ------------- |
-| Signal         | Pin 5 (D2)    |
-| 3.3 V / 5 V    | +             |
-| GND            | -             |
+![Buzzer Circuit](./assets/buzzer.png)
 
 ```python
 from machine import Pin, PWM
@@ -245,11 +218,7 @@ play_sound(FREQUENCY, DURATION)
 
 This example shows how to use a Grove Accelerometer using I2C.
 
-| Arduino        | Accelerometer              |
-| -------------- | -------------------------- |
-| Signal         |sda=8 (D5), scl=9 (D6)      |
-| 3.3 V / 5 V    | +                          |
-| GND            | -                          |
+![Accelerometer](./assets/accelerometer.png)
 
 ```python
 import lis3dh, time, math
@@ -306,11 +275,7 @@ if imu.device_check():
 
 This example shows how to use a sound sensor.
 
-| Arduino        | Sound Sensor  |
-| -------------- | ------------- |
-| Signal         | Pin 5 (D2)    |
-| 3.3 V / 5 V    | +             |
-| GND            | -             |
+![Sound Sensor Circuit](./assets/soundSensor.png)
 
 ```python
 from machine import Pin, ADC
@@ -336,11 +301,7 @@ while True:
 
 This example shows how to use a Grove 4-digit display.
 
-| Arduino        | Display                    |
-| -------------- | -------------------------- |
-| Signal         |clk=12 (A5), dio=11 (A4)    |
-| 3.3 V / 5 V    | +                          |
-| GND            | -                          |
+![4 Digit Display Circuit](./assets/4DigitDisplay.png)
 
 ```python
 from machine import Pin
@@ -369,11 +330,7 @@ tm.temperature(20)  # Display the temperature value 20 on the TM1637 display
 
 This example shows how to use a moisture sensor.
 
-| Arduino        | Moisture Sensor  |
-| -------------- | ---------------- |
-| Signal         | Pin 5 (D2)       |
-| 3.3 V / 5 V    | +                |
-| GND            | -                |
+![Moisture Sensor Circuit](./assets/moisture.png)
 
 ```python
 import machine
