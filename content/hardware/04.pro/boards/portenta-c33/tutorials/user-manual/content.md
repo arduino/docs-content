@@ -692,7 +692,7 @@ The Portenta C33 supports UART communication. The pins used in the Portenta C33 
 |           `92`          |          `P603`         |
 |           `93`          |          `P604`         |
 
-Please, refer to the board pinout section of the user manual to find them on the board. The UART pins can be used through the built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions.
+Please, refer to the board pinout section of the user manual to find them on the board. The built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions can use the UART pins.
 
 
 To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
@@ -1205,7 +1205,7 @@ Some key advantages of having an onboard QSPI Flash memory are the following:
 - **Extended functionality**: The additional memory space allows more complex applications to be developed and run on your Portenta C33. This application includes data logging, image processing, audio processing, and executing complex algorithms.
 - **Firmware updates**: The MX25L12833F QSPI Flash memory can also store firmware or software updates for your Arduino board. This means you can update the firmware without requiring a complete reprogramming of the board.
 
-The Arduino Renesas Core has built-in libraries and drivers that let you use the onboard QSPI Flash memory immediately. Let's walk through an example code demonstrating some of the onboard Flash memory capabilities; the main tasks performed in the sketch are initializing the Flash memory, writing to a file, and reading from a file.
+The Arduino Renesas Core has built-in libraries and drivers that immediately let you use the onboard QSPI Flash memory. Let's walk through an example code demonstrating some of the onboard Flash memory capabilities; the main tasks performed in the sketch are initializing the Flash memory, writing to a file, and reading from a file.
 
 ```arduino
 /**
@@ -1425,6 +1425,56 @@ Here's what each section of the example code does:
 - **Input hash and signature**: The SHA256 hash of the input buffer is computed and printed, then signed using the generated private key.
 - **Public key import**: The public key derived from the generated private key is imported to the secure element with key ID 899.
 - **Signature verification**: The example code then verifies the signature using the imported public key and prints a success or failure message accordingly.
+
+## Arduino IoT Cloud 
+
+The Portenta C33 is fully compatible with the Arduino Cloud IoT, making it easy to develop professional IoT applications fast. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware remotely also. 
+
+***To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/). To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*j3wvu*_ga*MTg2NzgyMTU2NC4xNjY5NjU5MDY5*_ga_NEXN8H46L5*MTY4ODAzMDc0MS4xOTAuMS4xNjg4MDMyNTA3LjAuMC4w).***
+
+Let's walk through an step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud. Log in to your Arduino IoT Cloud account; you should see the following:
+
+![Arduino IoT Cloud initial page](assets/user-manual-13.png) 
+
+First, associate your Portenta C33 board with your Arduino IoT Cloud. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+
+![Arduino IoT Cloud Devices page](assets/user-manual-14.png) 
+
+The **Setup Device** pop-up window will appear, navigate into **AUTOMATIC** and select the **Arduino board** option:
+
+![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-15.png) 
+
+After a while, your Portenta C33 board should be discovered by the Arduino IoT Cloud, as shown below: 
+
+![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-16.png) 
+
+Click the **CONFIGURE** button, give your board a name, and select the connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to communicate securely with the Arduino IoT Cloud. This process can take a while. 
+
+![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-17.png) 
+
+Now that you have your Portenta C33 and your Arduino IoT Cloud configured let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name. 
+
+![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png) 
+
+Then, navigate into **Associate Device** and click the **Select Device** button, select your Portenta C33 board and associate it to your "Thing". Then, navigate into **Network** and click the **Configure** button; enter your network credentials. Now you are ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
+
+![Arduino IoT Cloud "Thing" setup](assets/user-manual-19.png) 
+
+Add one variable with the following characteristics:
+
+- **Name**: `LED`
+- **Variable type**: `boolean`
+- **Variable permission** `Read & Write`
+- **Variable update policy**: `On change`
+
+You should see the `LED` variable on the **Cloud Variables** section. Now, navigate into **Dashboards** and select the **BUILD DASHBOARD** button, this will create a new dashboard; give your dashboard a name. Now, add the following to your widgets to your dashboard:
+
+- **Switch**: name the widget `Switch` and link it to the `LED` variable you created before. 
+- **LED**: name the widget `LED` and link it to the `LED` variable you created before. 
+
+Your dashboard should see like the following:
+
+![Arduino IoT Cloud "Thing" setup](assets/user-manual-20.png)
 
 ## Support
 
