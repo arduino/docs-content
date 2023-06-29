@@ -750,7 +750,7 @@ To gain admin (root) access, type `sudo su -` and the password, which by default
 
 You can now freely program your Portenta X8 Linux OS. In the sections below you can check some basic commands to get started.
 
-### Change default user password
+### Change Default User Password
 
 Your Portenta X8 comes with the default user fio with password fio.
 
