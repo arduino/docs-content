@@ -30,8 +30,8 @@ The goals of this tutorial are:
 ## Controller Area Network (CAN)
 
 The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 WiFi, these pins are: 
-- D5/CANRX0 (receive)
-- D4/CANTX0 (transmit)
+- D13/CANRX0 (receive)
+- D10/CANTX0 (transmit)
 
 To communicate with other CAN devices however, you need a transceiver module. In this tutorial, we will be using a SN65HVD230 breakout. To connect this, you can follow the circuit diagram available in the section below.
 
@@ -43,9 +43,9 @@ To connect the CAN transceiver, follow the table and circuit diagram below:
 
 | UNO R4 WiFi | CAN Transceiver |
 | ------------- | --------------- |
-| D5 (CANRX0)   | CANRX           |
-| D4 (CANTX0)   | CANTX           |
-| 5V            | VIN/VCC/5V      |
+| D13 (CANRX0)   | CANRX           |
+| D10 (CANTX0)   | CANTX           |
+| 3.3V         | VIN/VCC/5V      |
 | GND           | GND             |
 
 Then, between the CAN transceivers, connect the following:

@@ -120,7 +120,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | U4          | TXB0108DQSR logic level translator (5 V - 3.3 V) |
 | U5          | SGM2205-3.3XKC3G/TR 3.3 V linear regulator       |
 | U6          | NLASB3157DFT2G Multiplexer                       |
-| U_LEDMATRIX | 12x8 LED Red Matrix                             |
+| U_LEDMATRIX | 12x8 LED Red Matrix                              |
 | M1          | ESP32-S3-MINI-1-N8                               |
 | PB1         | RESET Button                                     |
 | JANALOG     | Analog input/output headers                      |
@@ -468,6 +468,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 08/06/2023 | 1            | First Release                      |
+| Date       | **Revision** | **Changes**        |
+| ---------- | ------------ | ------------------ |
+| 08/06/2023 | 1            | First Release      |
+| 30/06/2023 | 2            | Update Pinout File |
