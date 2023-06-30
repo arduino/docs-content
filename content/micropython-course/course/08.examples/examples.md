@@ -7,9 +7,11 @@ title: 'Component Examples'
 description: 'Practical examples for Neopixels, sensors, servo motors and more.'
 ---
 
+The following section shows how to use a selection of the most popular sensors used together with Arduino. All the sensors have Grove connections and are linked in every example.
+
 ## Button
 
-This example shows how to use a pushbutton with MicroPython.
+This example shows how to use a [pushbutton](https://store.arduino.cc/products/grove-button-p?queryID=3db0c95a3af43412f59d48a243453a53) with MicroPython.
 
 ![Button Circuit](./assets/circuitButton.png)
 
@@ -35,7 +37,7 @@ while True:    # Start an infinite loop
 
 ## LED
 
-This example shows how to create the classic blink example using MicroPython.
+This example shows how to create the classic blink example using MicroPython and a [Grove LED](https://www.seeedstudio.com/Grove-Red-LED.html).
 
 ![LED Circuit](./assets/circuitLED.png)
 
@@ -59,7 +61,7 @@ while True:    # Start an infinite loop
 
 ## Servo
 
-This code controls a servo motor connected to Pin 5 (D2) using PWM. As with any motor if the current being drawn due to the motor needing too much power the board resets.
+This code controls a [servo motor](https://store.arduino.cc/products/grove-servo?queryID=5a2a481038aab78eec2ab1d0b51687a0) connected to Pin 5 (D2) using PWM. As with any motor if the current being drawn due to the motor needing too much power the board resets.
 
 ![Servo Motor Circuit](./assets/circuitServo.png)
 
@@ -80,7 +82,7 @@ while True:    # Start an infinite loop
 
 ## Neopixel
 
-This example shows how to use a Neopixel strip with 10 RGB leds.
+This example shows how to use a [Neopixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB leds.
 
 ![Neopixel Circuit](./assets/circuitNeopixel.png)
 
@@ -129,7 +131,7 @@ runPixelRun()             # Start running the pixel animation
 
 ## DHT11
 
-This example shows how to use a DHT11 with an Arduino Nano ESP32.
+This example shows how to use a [DHT11](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT11.html?queryID=feac683b68679492e4f168b43f6a6bdd&objectID=1826&indexName=bazaar_retailer_products) with an Arduino Nano ESP32.
 
 
 ![DHT11 Circuit](./assets/circuitDHT11.png)
@@ -154,7 +156,7 @@ while(1):                                 # Loop indefinitely
 
 ## OLED Screen
 
-This example shows how to use an OLED screen via I2C.
+This example shows how to use an [OLED](https://store.arduino.cc/products/grove-oled-display-0-96?queryID=e9abc3d3ad2ef916bd26c57c9b311ce9) screen via I2C.
 
 ![OLED Circuit](./assets/circuitOled.png)
 
@@ -197,7 +199,7 @@ oled.show()                          # Update the OLED display to reflect the ch
 
 ## Buzzer
 
-This example shows how to use a Grove Buzzer.
+This example shows how to use a [Grove Buzzer](https://store.arduino.cc/products/grove-buzzer-piezo?queryID=9655030cc2165861ec71fa900ef46f8b).
 
 ![Buzzer Circuit](./assets/circuitBuzzer.png)
 
@@ -228,7 +230,7 @@ play_sound(FREQUENCY, DURATION)
 
 ## Accelerometer
 
-This example shows how to use a Grove Accelerometer using I2C.
+This example shows how to use a [Grove Accelerometer](https://store.arduino.cc/products/grove-3-axis-digital-accelerometer-16g?queryID=cf10960cf012640816efcf27f84dc92c) using I2C.
 
 ![Accelerometer](./assets/circuitAccelerometer.png)
 
@@ -287,7 +289,7 @@ if imu.device_check():
 
 ## Sound Sensor
 
-This example shows how to use a sound sensor.
+This example shows how to use a [sound sensor](https://store.arduino.cc/products/grove-sound-sensor?queryID=undefined).
 
 ![Sound Sensor Circuit](./assets/circuitSoundSensor.png)
 
@@ -313,7 +315,7 @@ while True:
 
 ## 4 Digit Display
 
-This example shows how to use a Grove 4-digit display.
+This example shows how to use a [Grove 4-digit display](https://store.arduino.cc/products/grove-4-digit-display?queryID=a24e1359995118c4ec489ddc59e622c4).
 
 ![4 Digit Display Circuit](./assets/circuit4DigitDisplay.png)
 
@@ -342,7 +344,7 @@ tm.temperature(20)  # Display the temperature value 20 on the TM1637 display
 
 ## Moisture Sensor
 
-This example shows how to use a moisture sensor.
+This example shows how to use a [moisture sensor](https://store.arduino.cc/products/grove-moisture-sensor?queryID=undefined).
 
 ![Moisture Sensor Circuit](./assets/circuitMoisture.png)
 
