@@ -7,7 +7,7 @@ title: 'Component Examples'
 description: 'Practical examples for Neopixels, sensors, servo motors and more.'
 ---
 
-The following section shows how to use a selection of the most popular sensors used together with Arduino. All the sensors have Grove connections and are linked in every example.
+The following section shows how to use a selection of the most popular sensors used together with Arduino. All the sensors have Grove connections and are linked in every example. 
 
 ## Button
 
