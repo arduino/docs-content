@@ -52,4 +52,4 @@ Programming an Arduino using MicroPython is a slightly different experience. In 
 
 Arduino has over the years released over a hundred different development boards, each different from the other. You choose the board depending on what you want to achieve, e.g. some boards have a Wi-Fi module that allows you to connect to the Internet, and some have onboard sensors that allows you to record sensor data.
 
-- [Next chapter: Introduction to MicroPython]()
+- [Next chapter: Introduction to MicroPython](/micropython-course/course/introduction-python)

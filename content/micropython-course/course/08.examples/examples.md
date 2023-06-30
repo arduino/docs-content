@@ -29,6 +29,10 @@ while True:    # Start an infinite loop
 
 ```
 
+<video width="100%" loop autoplay>
+<source src="assets/button.mp4" type="video/mp4" />
+</video>
+
 ## LED
 
 This example shows how to create the classic blink example using MicroPython.
@@ -48,6 +52,10 @@ while True:    # Start an infinite loop
     sleep(1)    # Pause the program for 1 second
 
 ```
+
+<video width="100%" loop autoplay>
+<source src="assets/led.mp4" type="video/mp4" />
+</video>
 
 ## Servo
 
@@ -114,6 +122,10 @@ def runPixelRun():
     
 runPixelRun()             # Start running the pixel animation
 ```
+
+<video width="100%" loop autoplay>
+<source src="assets/neopixel.mp4" type="video/mp4" />
+</video>
 
 ## DHT11
 
@@ -270,6 +282,8 @@ if imu.device_check():
         # Small delay to keep things responsive but give time for interrupt processing.
         time.sleep(0.1)
 ```
+
+![Alt text](assets/repl-i2c-sensor.gif)
 
 ## Sound Sensor
 
