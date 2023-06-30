@@ -17,7 +17,7 @@ In this guide, we will focus on the advanced ADC/DAC features, utilizing the [Ar
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino_AdvancedAnalog](https://github.com/arduino-libraries/Arduino_AdvancedAnalog) library.
 

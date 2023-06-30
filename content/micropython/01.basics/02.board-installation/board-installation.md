@@ -13,9 +13,9 @@ In order to understand which board is more suitable to your project, you can vis
 
 ## Nano 33 BLE & Nano 33 BLE Sense
 
-- [Nano 33 BLE documentation](/hardware/nano-ble).
-- [Nano 33 BLE Sense documentation.](/hardware/nano-ble-sense)
-- [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-ble-sense-rev2)
+- [Nano 33 BLE documentation](/hardware/nano-33-ble).
+- [Nano 33 BLE Sense documentation.](/hardware/nano-33-ble-sense)
+- [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-33-ble-sense-rev2)
 
 ![Nano 33 BLE.](assets/ble.png)
 

@@ -43,7 +43,7 @@ RGB LEDs with a common anode share a common power pin. Instead of turning a pin 
 
 ### Code
 
-You'll first set up some [global variables](/reference/en/language/variables/variable-scope-qualifiers/scope/) for the pins your LED will connect to. This will make it easier to differentiate which one is red, green, and blue in the main part of your program:
+You'll first set up some [global variables](https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/scope/) for the pins your LED will connect to. This will make it easier to differentiate which one is red, green, and blue in the main part of your program:
 
 ```arduino
 const int redPin = 3;

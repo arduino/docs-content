@@ -1,4 +1,4 @@
 ---
-title: CTC GO!
+title: CTC GO! Core Module
 certifications: [CE, UKCA]
 ---

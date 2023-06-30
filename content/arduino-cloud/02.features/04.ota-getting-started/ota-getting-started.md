@@ -63,7 +63,7 @@ In order to configure the feature, we will need to create a project in the IoT C
 
 ![Adding a variable.](assets/adding_variable.png)
 
-> **Note:** If you want to know more about how to get started with the Arduino IoT Cloud, visit the [getting started tutorial](https://drive.google.com/file/d/1yW_kH0-O9ehJATrGQUvpuyhWPXLUc_uN/view?usp=sharing).
+> **Note:** If you want to know more about how to get started with the Arduino IoT Cloud, visit the [getting started tutorial](/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 
 **3.** Once you have added the variable, you’ll need to associate your device (Arduino MKR WiFi 1010 or Arduino Nano 33 IoT) to this new thing and add your network credentials.

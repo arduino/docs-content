@@ -15,7 +15,7 @@ The radio module also supports Bluetooth® Low Energy, which is supported via th
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1) + \*antenna (included with the board).
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi) + \*antenna (included with the board).
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ***\*The GIGA R1 WiFi has no built-in antenna, so connectivity will be very poor unless you connect an antenna.***
