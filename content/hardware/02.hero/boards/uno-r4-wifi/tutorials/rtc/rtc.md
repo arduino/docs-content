@@ -27,7 +27,7 @@ The goals of this project are:
 
 The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
-The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the board is turned off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.
+***The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the boards power supply is is cut off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.***
 
 There are many practical examples using an RTC, and the examples provided in this page will help you get started with it.
 

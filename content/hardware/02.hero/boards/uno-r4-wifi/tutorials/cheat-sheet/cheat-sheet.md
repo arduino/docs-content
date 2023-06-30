@@ -266,7 +266,7 @@ To learn more about the DAC capabilities of the UNO R4 WiFi, check out the [DAC 
 
 A real-time clock (RTC) is used to measure the time, and is useful in any time-tracking applications.
 
-The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the board is turned off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.
+***The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the boards power supply is is cut off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.***
 
 Below is a minimal example that shows how to obtain the date and time from the RTC:
 
