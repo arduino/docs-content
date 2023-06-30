@@ -53,7 +53,7 @@ while True:    # Start an infinite loop
 
 This code controls a servo motor connected to Pin 5 (D2) using PWM. As with any motor if the current being drawn due to the motor needing too much power the board resets.
 
-![Servo Motor Circuit](./assets/servo.png)
+![Servo Motor Circuit](./assets/circuitServo.png)
 
 ```python
 from machine import Pin, PWM   # Import the Pin and PWM classes from the machine module
@@ -74,7 +74,7 @@ while True:    # Start an infinite loop
 
 This example shows how to use a Neopixel strip with 10 RGB leds.
 
-![Neopixel Circuit](./assets/neopixel.png)
+![Neopixel Circuit](./assets/circuitNeopixel.png)
 
 ```python
 from machine import Pin
@@ -120,7 +120,7 @@ runPixelRun()             # Start running the pixel animation
 This example shows how to use a DHT11 with an Arduino Nano ESP32.
 
 
-![DHT11 Circuit](./assets/dht11.png)
+![DHT11 Circuit](./assets/circuitDHT11.png)
 
 ```python
 import dht
@@ -144,7 +144,7 @@ while(1):                                 # Loop indefinitely
 
 This example shows how to use an OLED screen via I2C.
 
-![OLED Circuit](./assets/oled.png)
+![OLED Circuit](./assets/circuitOled.png)
 
 ```python
 from machine import SoftI2C, Pin
@@ -187,7 +187,7 @@ oled.show()                          # Update the OLED display to reflect the ch
 
 This example shows how to use a Grove Buzzer.
 
-![Buzzer Circuit](./assets/buzzer.png)
+![Buzzer Circuit](./assets/circuitBuzzer.png)
 
 ```python
 from machine import Pin, PWM
@@ -218,7 +218,7 @@ play_sound(FREQUENCY, DURATION)
 
 This example shows how to use a Grove Accelerometer using I2C.
 
-![Accelerometer](./assets/accelerometer.png)
+![Accelerometer](./assets/circuitAccelerometer.png)
 
 ```python
 import lis3dh, time, math
@@ -275,7 +275,7 @@ if imu.device_check():
 
 This example shows how to use a sound sensor.
 
-![Sound Sensor Circuit](./assets/soundSensor.png)
+![Sound Sensor Circuit](./assets/circuitSoundSensor.png)
 
 ```python
 from machine import Pin, ADC
@@ -301,7 +301,7 @@ while True:
 
 This example shows how to use a Grove 4-digit display.
 
-![4 Digit Display Circuit](./assets/4DigitDisplay.png)
+![4 Digit Display Circuit](./assets/circuit4DigitDisplay.png)
 
 ```python
 from machine import Pin
@@ -330,7 +330,7 @@ tm.temperature(20)  # Display the temperature value 20 on the TM1637 display
 
 This example shows how to use a moisture sensor.
 
-![Moisture Sensor Circuit](./assets/moisture.png)
+![Moisture Sensor Circuit](./assets/circuitMoisture.png)
 
 ```python
 import machine
