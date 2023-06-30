@@ -398,7 +398,7 @@ Wire.endTransmission(); //stop transmit
 
 ![Qwiic Connector on UNO WiFi R4](assets/QWIIC.png)
 
-***The Qwiic connector on the UNO R4 WiFi is connected to the secondary I2C bus, meaning that it uses the Wire1 object rather than the Wire object.***
+***The Qwiic connector on the UNO R4 WiFi is connected to the secondary I2C bus (IIC0), which uses the `Wire1` object rather than the `Wire` object. Please note that the Qwiic connector is 3.3 V only.***
 
 The UNO R4 WiFi features a Qwiic/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
