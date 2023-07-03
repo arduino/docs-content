@@ -24,7 +24,28 @@ The Arduino board is the connection with the physical world and can be used to c
 - A robotic arm that is controlled with a joystick,
 - A weather station recording data and posting it online.
 
-![Application example]()
+## Hardware Required
+
+This course is designed around two main components:
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32) - an Arduino board with a Wi-Fi chip and antenna. 
+- [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal) - a carrier with screw terminal connections.
+
+Additionally, as we progress in the course, we introduce the option of using third party components from [Seeed](https://www.seeedstudio.com/), which uses the **Grove connector standard.** These components can easily be connected to the Nano Screw Terminal Adapter via a [grove-to-male cable](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs).
+
+![Mount the Nano ESP32 on the Nano Screw terminal.](assets/esp32-terminal.png)
+
+### Nano ESP32
+
+The [Nano ESP32](https://store.arduino.cc/products/nano-esp32) is the board used in this course, which is very suitable for MicroPython due to its quick processor, large flash memory and Wi-Fi enabled chip packed into a tiny circuit board.
+
+***You can find out more about this board in the [Nano ESP32 documentation](/hardware/nano-esp32).***
+
+### Nano Screw Terminal
+
+The [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal) is a carrier that you insert your Nano board into. With the carrier, you can very easily connect cables and secure them tightly with a screwdriver. This makes it easy to maintain and your circuits more robust.
+
+***You can find out more about this board in the [Nano Screw Terminal Adapter documentation](/hardware/nano-screw-terminal-adapter).***
+
 
 ## Microcontroller Basics
 
