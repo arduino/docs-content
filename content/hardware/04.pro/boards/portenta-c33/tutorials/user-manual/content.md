@@ -1455,7 +1455,8 @@ Click the **CONFIGURE** button, give your board a name, and select the connectio
 
 ![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-17.png) 
 
-Now that you have your Portenta C33 and your Arduino IoT Cloud configured let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name. 
+Once the Portenta C33 has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name. 
+
 
 ![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png) 
 
