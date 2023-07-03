@@ -141,7 +141,7 @@ For the Portenta C33, the `LED_BUILTIN` macro represents the **green LED** of th
 
 To upload the code to the Portenta C33, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
-![Uploading a sketch to the Portenta C33 in the Arduino IDE.](assets/user-manual-6.png)
+![Uploading a sketch to the Portenta C33 in the Arduino IDE](assets/user-manual-6.png)
 
 You should see now the green LED of the built-in RGB LED turn on for one second, then off for one second, repeatedly. 
 
@@ -1433,7 +1433,7 @@ The Portenta C33 is fully compatible with the Arduino Cloud IoT, making it easy 
 In case it is the first time you are using the Arduino IoT Cloud:
 
 - To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/). 
-- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.  cc/getting-started/plugin/welcome).
+- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
 Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud. Log in to your Arduino IoT Cloud account; you should see the following:
 
@@ -1461,7 +1461,7 @@ Once the Portenta C33 has been configured, let's create a "Thing" to test the co
 
 ![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png) 
 
-Navigate into **Associate Device** and click the **Select Device** button, select your Portenta C33 board and associate it to your "Thing". Then, navigate into **Network** and click the **Configure** button; enter your network credentials. The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
+Navigate into **Associate Device** and click the **Select Device** button, select your Portenta C33 board and associate it to your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials. The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
 
 ![Arduino IoT Cloud "Thing" setup](assets/user-manual-19.png) 
 
@@ -1474,18 +1474,18 @@ Add one variable with the following characteristics:
 
 ![Arduino IoT Cloud "Thing" variable setup](assets/user-manual-21.png) 
 
-You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button, this will create a new dashboard; give your dashboard a name. 
+You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard; give your dashboard a name. 
 
 Add the following widgets to your dashboard:
 
 - **Switch**: name the widget `Switch` and link it to the `led` variable you created before. 
 - **LED**: name the widget `led` and link it to the `led` variable you created before. 
 
-Your dashboard should see like the following:
+Your dashboard should see the following:
 
 ![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
 
-Go back to your **Things** and open the "Thing" you just created. In the "Thing" setup page, navigate into **Sketch** where you should see the online editor. 
+Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into **Sketch**, where you should see the online editor. 
 
 
 In the generated sketch, define `LED_BUILTIN` pin as an output in the `setup()` function:
@@ -1518,7 +1518,7 @@ void setup() {
 }
 ```
 
-In the `onLedChange()` function, you just need to set the LED state with the `led` variable.
+In the `onLedChange()` function, you must set the LED state with the `led` variable.
 
 ```arduino
 /*
@@ -1530,7 +1530,7 @@ void onLedChange()  {
 }
 ```
 
-The full example code can be found below: 
+The complete example code can be found below: 
 
 ```arduino
 /* 
@@ -1583,9 +1583,15 @@ void loop() {
   executed every time a new value is received from IoT Cloud.
 */
 void onLedChange()  {
-  digitalWrite(LED_BUILTIN, led);
+  digitalWrite(LED_BUILTIN, !led);
 }
 ```
+
+To upload the code to the Portenta C33 from the online editor, click the green **Verify** button to compile the sketch and check for errors, then click the green **Upload** button to program the board with the sketch.
+
+![Uploading a sketch to the Portenta C33 in the Arduino IoT Cloud](assets/user-manual-22.png) 
+
+Navigate into Dashboards again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's green LED should light on or off when the position of the switch is changed. 
 
 ## Support
 
