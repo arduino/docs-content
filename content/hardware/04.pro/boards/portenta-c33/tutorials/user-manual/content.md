@@ -1458,12 +1458,9 @@ After a while, your Portenta C33 board should be discovered by the Arduino IoT C
 
 Click the **CONFIGURE** button, give your board a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), a [Portenta Vision Shield](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet) or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to securely communicate with the Arduino IoT Cloud. This process can take a while. 
 
-
-
 ![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-17.png) 
 
 Once the Portenta C33 has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name. 
-
 
 ![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png) 
 
@@ -1471,9 +1468,7 @@ Navigate into **Associate Device** and click the **Select Device** button. Selec
 
 The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
 
-
 ![Add variable button](assets/user-manual-19.png) 
-
 
 Add one variable with the following characteristics:
 
@@ -1493,11 +1488,9 @@ Add the following widgets to your dashboard:
 
 Your dashboard should look like the following:
 
-
 ![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
 
 Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into **Sketch**, where you should see the online editor. 
-
 
 In the generated sketch, define `LED_BUILTIN` pin as an output in the `setup()` function:
 
@@ -1529,7 +1522,7 @@ void setup() {
 }
 ```
 
-In the `onLedChange()` function, which is generated automatically by the Arduino IoT Cloud when you create the variable `led` before, you must set the LED state with the `led` variable:
+In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
 
 ```arduino
 /*
@@ -1537,7 +1530,7 @@ In the `onLedChange()` function, which is generated automatically by the Arduino
   executed every time a new value is received from IoT Cloud.
 */
 void onLedChange()  {
-  digitalWrite(LED_BUILTIN, led);
+  digitalWrite(LED_BUILTIN, !led);
 }
 ```
 
