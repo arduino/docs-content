@@ -1428,11 +1428,14 @@ Here's what each section of the example code does:
 
 ## Arduino IoT Cloud 
 
-The Portenta C33 is fully compatible with the Arduino Cloud IoT, making it easy to develop professional applications in a simple and fast way. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware via OTA. 
+The Portenta C33 is fully compatible with the Arduino Cloud IoT, making it easy to develop professional applications simply and quickly. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware via OTA. 
 
-***To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/). To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).***
+In case it is the first time you are using the Arduino IoT Cloud:
 
-Let's walk through an step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud. Log in to your Arduino IoT Cloud account; you should see the following:
+- To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/). 
+- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.  cc/getting-started/plugin/welcome).
+
+Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud. Log in to your Arduino IoT Cloud account; you should see the following:
 
 ![Arduino IoT Cloud initial page](assets/user-manual-13.png) 
 
