@@ -1,5 +1,76 @@
 ---
+author: 'Benjamin Dannegård'
+hero_image: ""
 featured: micropython-101-projects
 title: 'Temperature Display'
 description: 'Use a temperature sensor together with a neopixel stick, giving you visual feedback on the current temperature.'
 ---
+
+This project will take the temperature reading from a DHT11 sensor and change the color of the LEDs on the Neopixel accordingly.
+
+You will need the following to build this project:
+
+- Nano ESP32
+- Screw terminal
+- Neopixel light
+- DHT11 temperature sensor
+
+## Circuit
+
+Assemble the components according to the circuit diagram:
+
+![Circuit for the temperature display](assets/temperature-light.svg)
+
+## Code
+
+Feel free to change the temperature thresholds to fit your environemnt more accuratly, the script will print the temperature reading in the terminal so you can easily determine what thresholds to use. Then upload this code to your board.
+
+```python
+from machine import Pin
+from time import sleep
+import neopixel
+import dht
+
+PIXEL_NUMBER = 10
+np = neopixel.NeoPixel(Pin(10), PIXEL_NUMBER) # Pin D7
+
+SENSOR_PIN = 5 # Pin D2
+TEMP_SENSOR = dht.DHT11(Pin(SENSOR_PIN))
+sleep(1)
+
+red = (255, 0, 0) # set to red
+green = (0, 128, 0) # set to green
+blue = (0, 0, 64)  # set to blue
+
+def hotLED():
+    for i in range(0, PIXEL_NUMBER):
+        np[i] = red
+        np.write()
+
+        
+def coldLED():
+    for i in range(0, PIXEL_NUMBER):
+        np[i] = blue
+        np.write()
+        
+def neutralLED():
+    for i in range(0, PIXEL_NUMBER):
+        np[i] = green
+        np.write()
+
+while(1):
+    TEMP_SENSOR.measure()
+    print(TEMP_SENSOR.temperature())
+    temp = TEMP_SENSOR.temperature()
+
+    if(temp >= 28): #Threshold for when the LEDs indicate a hot temperature
+        hotLED()
+        
+    if(temp <= 22): #Threshold for when the LEDs indicate a cold temperature
+        coldLED()
+        
+    if(temp > 22 and temp < 28): #Threshold for when the LEDs indicate a neutral temperature
+        neutralLED()
+
+    sleep(1)
+```
