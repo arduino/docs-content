@@ -1480,7 +1480,7 @@ Add the following widgets to your dashboard:
 
 Your dashboard should see like the following:
 
-![Arduino IoT Cloud "Thing" setup](assets/user-manual-20.png)
+![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
 
 Now, go back to your **Things** and open the "Thing" you just have created. In the "Thing" setup page, navigate into **Sketch**, you should see now an online editor. 
 
