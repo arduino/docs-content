@@ -1483,7 +1483,8 @@ Your dashboard should see like the following:
 
 ![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
 
-Now, go back to your **Things** and open the "Thing" you just have created. In the "Thing" setup page, navigate into **Sketch**, you should see now an online editor. 
+Go back to your **Things** and open the "Thing" you just created. In the "Thing" setup page, navigate into **Sketch** where you should see the online editor. 
+
 
 In the generated sketch, you just need to define the `led` pin as an output:
 
