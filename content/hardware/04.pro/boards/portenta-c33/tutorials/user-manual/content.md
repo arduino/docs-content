@@ -1471,7 +1471,9 @@ Add one variable with the following characteristics:
 - **Variable permission** `Read & Write`
 - **Variable update policy**: `On change`
 
-You should see the `led` variable on the **Cloud Variables** section. Now, navigate into **Dashboards** and select the **BUILD DASHBOARD** button, this will create a new dashboard; give your dashboard a name. Now, add the following to your widgets to your dashboard:
+You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button, this will create a new dashboard; give your dashboard a name. 
+
+Add the following widgets to your dashboard:
 
 - **Switch**: name the widget `Switch` and link it to the `led` variable you created before. 
 - **LED**: name the widget `led` and link it to the `led` variable you created before. 
