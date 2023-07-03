@@ -1472,6 +1472,8 @@ Add one variable with the following characteristics:
 - **Variable permission** `Read & Write`
 - **Variable update policy**: `On change`
 
+![Arduino IoT Cloud "Thing" variable setup](assets/user-manual-21.png) 
+
 You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button, this will create a new dashboard; give your dashboard a name. 
 
 Add the following widgets to your dashboard:
