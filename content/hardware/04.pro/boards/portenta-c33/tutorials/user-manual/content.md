@@ -1491,7 +1491,8 @@ Add the following widgets to your dashboard:
 - **Switch**: name the widget `Switch` and link it to the `led` variable you created before. 
 - **LED**: name the widget `led` and link it to the `led` variable you created before. 
 
-Your dashboard should see the following:
+Your dashboard should look like the following:
+
 
 ![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
 
