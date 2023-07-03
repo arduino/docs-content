@@ -301,6 +301,24 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 **Note:** The measurements have been performed by activating the temperature sensor, accelerometer and gyroscope, which have been configured with a 1Hz sample rate and 1ms latency.
 
 ## Certifications
+
+### Certifications Summary
+
+| **Certification** | **Status** |
+|:-----------------:|:----------:|
+|         CE        |     Yes    |
+|     UKCA (UK)     |     Yes    |
+|     FCC (USA)     |     Yes    |
+|    IC (Canada)    |     Yes    |
+| MIC (Japan)       |     Yes    |
+|  RCM (Australia)  |     Yes    |
+|  SRRC             |     Yes    |
+|  CCC              |     Yes    |
+| GB4943            |     Yes    |
+|        RoHS       |     Yes    |
+|       REACH       |     Yes    |
+|        WEEE       |     Yes    |
+
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
