@@ -22,7 +22,7 @@ Arduino Ethernet Shield is open-source hardware! You can build your own board us
 
 [EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-shield-06-reference-design.zip) 
 
-[SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-shield-06-schematic.pdf)
+[SCHEMATICS IN .PDF](assets/arduino-ethernet-shield-06-schematic.pdf)
 
 The most recent revision of the board exposes the 1.0 pinout on rev 3 of the Arduino UNO board.
 
