@@ -1451,7 +1451,8 @@ After a while, your Portenta C33 board should be discovered by the Arduino IoT C
 
 ![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-16.png) 
 
-Click the **CONFIGURE** button, give your board a name, and select the connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to communicate securely with the Arduino IoT Cloud. This process can take a while. 
+Click the **CONFIGURE** button, give your board a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to communicate securely with the Arduino IoT Cloud. This process can take a while. 
+
 
 ![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-17.png) 
 
