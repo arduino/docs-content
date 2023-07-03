@@ -1443,7 +1443,8 @@ Log in to your Arduino IoT Cloud account; you should see the following:
 
 ![Arduino IoT Cloud initial page](assets/user-manual-13.png) 
 
-First, associate your Portenta C33 board with your Arduino IoT Cloud. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+First, provision your Portenta C33 board on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+
 
 ![Arduino IoT Cloud Devices page](assets/user-manual-14.png) 
 
