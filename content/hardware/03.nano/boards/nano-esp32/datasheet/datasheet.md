@@ -3,10 +3,10 @@ identifier: ABX00083
 title: Arduino® Nano ESP32
 type: maker
 ---
-![](assets/featured.jpg)
+![](assets/featured.png)
 
 # Description 
-The Arduino® Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 microcontroller unit (MCU). This is the first Arduino board to be based fully on an ESP32 MCU, and features Wi-Fi, Bluetooth® LE, debugging via native USB in the Arduino IDE as well as low power.
+The Arduino® Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from uBlox). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi®, Bluetooth® LE, debugging via native USB in the Arduino IDE as well as low power.
 
 The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
@@ -14,73 +14,67 @@ The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for Mic
 Maker, Debugging, IoT, MicroPython
 
 # Features
-* **Espressif ESP32-S3** 
-    * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
-      * Up to 240 MHz
-      * 384 KB ROM
-      * 512 KB SRAM
-      * 16 KB SRAM in RTC (low power mode)
-      * Built-in temperature sensor (not ambient)
-      * DMA Controller
-    * **Power**
-      * Operating voltage 3.3V
-      * VUSB supplies 5V via USB-C connector
-      * VIN range is 6-18V
-    * **Connectivity**
-      * Wi-Fi
-      * Bluetooth® LE
-      * Built-in antenna
-      * 2.4 GHz transmitter/receiver
-      * Up to 150 Mbps
-    * **Pins**
-      * 14x digital (21x including analog)
-      * 8x analog (available in RTC mode)
-      * SPI(D11,D12,D13), I2C (A4/A5), UART(D0/D1)
-    * **Communication Ports**
-      * SPI
-      * I2C
-      * I2S
-      * UART
-      * CAN (TWAI®)
-    * **Low Power**
-      * 7 μA consumption in deep sleep mode
-      * 240 μA consumption in light sleep mode
-      * RTC Memory
-      * Ultra Low Power (ULP) Coprocessor
-      * Power Management Unit (PMU)
-      * ADC in RTC mode
+* **Xtensa® Dual-core 32-bit LX7 Microprocessor**
+  * Up to 240 MHz
+  * 384 KB ROM
+  * 512 KB SRAM
+  * 16 KB SRAM in RTC (low power mode)
+  * DMA Controller
+* **Power**
+  * Operating voltage 3.3V
+  * VUSB supplies 5V via USB-C connector
+  * VIN range is 6-18V
+* **Connectivity**
+  * Wi-Fi
+  * Bluetooth® LE
+  * Built-in antenna
+  * 2.4 GHz transmitter/receiver
+  * Up to 150 Mbps
+* **Pins**
+  * 14x digital (21x including analog)
+  * 8x analog (available in RTC mode)
+  * SPI(D11,D12,D13), I2C (A4/A5), UART(D0/D1)
+* **Communication Ports**
+  * SPI
+  * I2C
+  * I2S
+  * UART
+  * CAN (TWAI®)
+* **Low Power**
+  * 7 μA consumption in deep sleep mode
+  * 240 μA consumption in light sleep mode
+  * RTC Memory
+  * Ultra Low Power (ULP) Coprocessor
+  * Power Management Unit (PMU)
+  * ADC in RTC mode
 
 # Contents
 
 ## The Board
 
-Nano ESP32 is a 3.3V development board based on the NORA-W106-10B from uBlox, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi and Bluetooth® Low Energy (LE), with amplified communication through a a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies up to 240 MHz and has native support for debugging via the USB-C connector. 
+Nano ESP32 is a 3.3V development board based on the NORA-W106-10B from uBlox, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies at up to 240 MHz and has native support for debugging via the USB-C connector.
 
 ### Application Examples
 
 **Home automation:** an ideal board for building home automations for your home, such as smart switches, automatic lighting and motor control for e.g. motor controlled blinds. 
 
-**IoT sensors:** with several dedicated ADC channels, accessible I2C/SPI buses and a robust ESP32 based radio module, this board can easily be deployed to monitor sensor values. 
+**IoT sensors:** with several dedicated ADC channels, accessible I2C/SPI buses and a robust ESP32-S3 based radio module, this board can easily be deployed to monitor sensor values. 
 
-**Low power design:** create battery powered applications with low power consumption, utilising the built in low power modes of the ESP32-S3 SoC. 
+**Low power designs:** create battery powered applications with low power consumption, utilising the built in low power modes of the ESP32-S3 SoC.
 
 ## ESP32 Core
 
-The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
+The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
 
 # Rating
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min                | Typ | Max                | Unit |
-| --------------- | -------------------------------- | ------------------ | --- | ------------------ | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6                  | 7.0 | 24                 | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
-| V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
-| V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
-
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
+| Symbol          | Description                      | Min | Typ | Max | Unit |
+| --------------- | -------------------------------- | --- | --- | --- | ---- |
+| V<sub>IN</sub>  | Input voltage from VIN pad       | 5   | 7.0 | 18  | V    |
+| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85  | °C   |
 
 # Functional Overview
 
@@ -92,7 +86,7 @@ The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation o
 
 ### Front View
 
-![Top View of Arduino Nano ESP32]()
+![Top View of Arduino Nano ESP32](assets/top.svg)
 
 | **Ref.** | **Description**                                  |
 | -------- | ------------------------------------------------ |
@@ -107,11 +101,6 @@ The Nano ESP32 is based on the [Arduino Core for ESP32 boards](), a derivation o
 | DL3      | LED Power (green)                                |
 | D2       | PMEG6020AELRX Schottky Diode                     |
 | D3       | PRTR5V0U2X,215 ESD Protection                    |
-
-
-### Back View
-
-![Back View of Arduino Nano ESP32]()
 
 ## NORA-W106-10B (Radio Module / MCU)
 
@@ -208,7 +197,7 @@ Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds
 - CIPO - D11  
 - CS - D10
 
-The SPI controller is by default assigned to the pins above. This is connected to the ESP32-S3's **SPI2** controller.
+The SPI controller is by default assigned to the pins above.
 
 ### Universal Asynchronous Receiver/Transmitter (UART)
 
@@ -247,44 +236,40 @@ The operating voltage for this board is 3.3V. Please note that there's no 5V pin
 
 ### Pin Voltage
 
-All digital & analog pins on the Nano ESP32 are 3.3V. Do not connect any higher voltage devices to any of the pins as it will risk damaging the board.
+All digital & analog pins on the Nano ESP32 are 3.3 V. Do not connect any higher voltage devices to any of the pins as it will risk damaging the board.
 
 ### VIN Rating
 
-The recommended input voltage range is **5-18V**.
+The recommended input voltage range is **5-18V **.
 
-You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 18V.
+You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 18 V.
 
 The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:  
-- **4.5V** - >90%.
-- **12V** - 85-90%
-- **18V** - <85%
+- **4.5V ** - >90%.
+- **12V ** - 85-90%
+- **18V ** - <85%
 
 This information is extracted from the [MP2322GQH's datasheet](), with a board with a current draw of ~200mA.
 
 ### VUSB
 
-There is no 5V pin available on the Nano ESP32. 5V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
+There is no 5 V pin available on the Nano ESP32. 5V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
 
-While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5V from the board unless powered via USB or externally.
+While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
 
-### 3.3V Pin
+### 3.3 V Pin
 
-The 3.3V pin is connected to the 3.3V rail which is connected to the output of the MP2322GQH step down converter. This pin is primarily used to power external components.
+The 3.3 V pin is connected to the 3.3 V rail which is connected to the output of the MP2322GQH step down converter. This pin is primarily used to power external components.
 
 ### Pin Current
 
 The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and **sink currents** up to **28 mA**. Never connect devices that draw higher current directly to a GPIO. 
 
-### Solder Jumper (SJ1)
-
-The solder pad located on the bottom of the board is SJ1.  
-
 # Mechanical Information
 
 ## Pinout
 
-![Pinout for Nano ESP32.](assets/ABX00080-pinout.png)
+![Pinout for Nano ESP32.]()
 
 ### Analog (JP1)
 
@@ -308,35 +293,35 @@ The solder pad located on the bottom of the board is SJ1.
 
 ### Digital (JP2)
 
-| Pin | Function | Type     | Description                        |
-| --- | -------- | -------- | ---------------------------------- |
-| 1   | CIPO\*   | Digital  | Controller In Peripheral Out       |
-| 2   | COPI\*   | Digital  | Controller Out Peripheral In       |
-| 3   | D10      | Digital  | GPIO 10                            |
-| 4   | D9       | Digital  | GPIO 9                             |
-| 5   | D8       | Digital  | GPIO 8                             |
-| 6   | D7       | Digital  | GPIO 7                             |
-| 7   | D6       | Digital  | GPIO 6                             |
-| 8   | D5       | Digital  | GPIO 5                             |
-| 9   | D4       | Digital  | GPIO 4                             |
-| 10  | D3       | Digital  | GPIO 3                             |
-| 11  | D2       | Digital  | GPIO 2                             |
-| 12  | GND      | Power    | Ground                             |
-| 13  | RST      | Internal | Reset                              |
-| 14  | D1/RX    | Digital  | GPIO 4 / Serial 0 Receiver (RX)    |
-| 15  | D0/TX    | Digital  | GPIO 3 / Serial 0 Transmitter (TX) |
+| Pin | Function     | Type     | Description                        |
+| --- | ------------ | -------- | ---------------------------------- |
+| 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out       |
+| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In       |
+| 3   | D10          | Digital  | Chip Select                        |
+| 4   | D9           | Digital  | GPIO 9                             |
+| 5   | D8           | Digital  | GPIO 8                             |
+| 6   | D7           | Digital  | GPIO 7                             |
+| 7   | D6           | Digital  | GPIO 6                             |
+| 8   | D5           | Digital  | GPIO 5                             |
+| 9   | D4           | Digital  | GPIO 4                             |
+| 10  | D3           | Digital  | GPIO 3                             |
+| 11  | D2           | Digital  | GPIO 2                             |
+| 12  | GND          | Power    | Ground                             |
+| 13  | RST          | Internal | Reset                              |
+| 14  | D1/RX        | Digital  | GPIO 4 / Serial 0 Receiver (RX)    |
+| 15  | D0/TX        | Digital  | GPIO 3 / Serial 0 Transmitter (TX) |
 
 \*CIPO/COPI replaces the MISO/MOSI terminology. 
 
 ## Mounting Holes And Board Outline
 
-![Mechanical View of Nano ESP32]()
+![Mechanical View of Nano ESP32](assets/top-measurements.svg)
 
 ## Board Operation
 
 ### Getting Started - IDE
 
-If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your Nano ESP32 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano ESP32 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
