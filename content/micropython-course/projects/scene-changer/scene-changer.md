@@ -18,7 +18,7 @@ You will need the following to build this project:
 
 Assemble the components according to the circuit diagram:
 
-![Circuit for the ](assets/)
+![Circuit for the scene changer](assets/scene-change.svg)
 
 ## Code
 
