@@ -1436,7 +1436,10 @@ In case it is the first time you are using the Arduino IoT Cloud:
 - To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/). 
 - To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
-Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud. Log in to your Arduino IoT Cloud account; you should see the following:
+Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud. 
+
+Log in to your Arduino IoT Cloud account; you should see the following:
+
 
 ![Arduino IoT Cloud initial page](assets/user-manual-13.png) 
 
