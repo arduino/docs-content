@@ -1602,7 +1602,7 @@ To upload the code to the Portenta C33 from the online editor, click the green *
 
 ![Uploading a sketch to the Portenta C33 in the Arduino IoT Cloud](assets/user-manual-22.png) 
 
-Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's green LED should light on or off when the position of the switch is changed. 
+Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's green LED should light on or off when the position of the switch changes. 
 
 ## Support
 
