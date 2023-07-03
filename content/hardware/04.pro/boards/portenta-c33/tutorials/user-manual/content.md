@@ -1460,7 +1460,7 @@ Once the Portenta C33 has been configured, let's create a "Thing" to test the co
 
 ![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png) 
 
-Then, navigate into **Associate Device** and click the **Select Device** button, select your Portenta C33 board and associate it to your "Thing". Then, navigate into **Network** and click the **Configure** button; enter your network credentials. Now you are ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
+Navigate into **Associate Device** and click the **Select Device** button, select your Portenta C33 board and associate it to your "Thing". Then, navigate into **Network** and click the **Configure** button; enter your network credentials. The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
 
 ![Arduino IoT Cloud "Thing" setup](assets/user-manual-19.png) 
 
