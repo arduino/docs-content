@@ -20,7 +20,7 @@ You will need the following to build this project:
 
 Assemble the components according to the circuit diagram:
 
-![Circuit for the alarm clock]()
+![Circuit for the alarm clock](assets/alarm-clock.svg)
 
 ## Code
 
@@ -72,7 +72,7 @@ def play_sound(frequency, duration):
 connect("SSID", "password") #Replace the SSID with the name of your network and password with the networks password
 rtc = RTC()
 
-alarm = [16, 13, 1] #The time for the set alarm [hour, minutes, enabled status(1=true)]
+alarm = [08, 30, 1] #The time for the set alarm [hour, minutes, enabled status(1=true)]
 isPoint = True
 
 while(1):
