@@ -12,9 +12,9 @@ This project will use the ntptime module to keep track of the time and display i
 You will need the following to build this project:
 
 - Nano ESP32
-- Screw terminal
-- 4-digit-display
-- Piezo buzzer
+- [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
+- [4-digit-display](https://store.arduino.cc/products/grove-4-digit-display)
+- [Piezo buzzer](https://store.arduino.cc/products/grove-buzzer-piezo)
 
 ## Circuit
 

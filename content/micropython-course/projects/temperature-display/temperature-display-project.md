@@ -11,7 +11,7 @@ This project will take the temperature reading from a DHT11 sensor and change th
 You will need the following to build this project:
 
 - Nano ESP32
-- Screw terminal
+- [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - Neopixel light
 - DHT11 temperature sensor
 
