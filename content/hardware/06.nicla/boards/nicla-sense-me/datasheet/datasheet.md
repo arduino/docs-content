@@ -493,7 +493,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                        |
 |------------|--------------|------------------------------------|
-| 03/07/2023 | 5           | Add NTC Image & addition pins info |
+| 03/07/2023 | 5           | Certification Summary Table Updated |
 | 22/12/2022 | 4           | Add NTC Image & addition pins info |
 | 13/12/2022 | 3           | Change Solution Overview Image     |
 | 20/07/2021 | 2           | Technical Revisions                |
