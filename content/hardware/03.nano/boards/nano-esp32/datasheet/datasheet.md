@@ -249,7 +249,7 @@ The efficiency of the converter depends on the input voltage via the VIN pin. Se
 - **12V ** - 85-90%
 - **18V ** - <85%
 
-This information is extracted from the [MP2322GQH's datasheet](), with a board with a current draw of ~200mA.
+This information is extracted from the [MP2322GQH's datasheet](/resources/datasheets/MP2322.pdf).
 
 ### VUSB
 
