@@ -1529,7 +1529,7 @@ void setup() {
 }
 ```
 
-In the `onLedChange()` function, you must set the LED state with the `led` variable.
+In the `onLedChange()` function, which is generated automatically by the Arduino IoT Cloud when you create the variable `led` before, you must set the LED state with the `led` variable:
 
 ```arduino
 /*
