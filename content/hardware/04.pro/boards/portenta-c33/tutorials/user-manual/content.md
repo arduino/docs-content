@@ -1428,7 +1428,8 @@ Here's what each section of the example code does:
 
 ## Arduino IoT Cloud 
 
-The Portenta C33 is fully compatible with the Arduino Cloud IoT, making it easy to develop professional applications simply and quickly. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware via OTA. 
+The Portenta C33 is fully compatible with the Arduino Cloud IoT, which simplifies how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware over-the-air. 
+
 
 In case it is the first time you are using the Arduino IoT Cloud:
 
