@@ -23,7 +23,7 @@ Assemble the components according to the circuit diagram:
 
 ## Code
 
-Feel free to change the temperature thresholds to fit your environemnt more accuratly, the script will print the temperature reading in the terminal so you can easily determine what thresholds to use. Then upload this code to your board.
+Feel free to change the temperature thresholds to fit your environment more accurately, the script will print the temperature reading in the terminal so you can easily determine what thresholds to use. Then upload this code to your board.
 
 ```python
 from machine import Pin
