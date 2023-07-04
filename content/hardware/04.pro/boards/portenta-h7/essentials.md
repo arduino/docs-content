@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
     <EssentialElement link="/tutorials/portenta-h7/setting-up-portenta" title="Quickstart Guide" type="getting-started">
-        A quick guide to installing and testing your board with the Arduino IDE.
+        A quick guide to installing and setting up your board with the Arduino IDE.
     </EssentialElement>
 
 </EssentialsColumn>

@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta" title="Quickstart Guide" type="getting-started">
-        A quick guide to installing your board with the Arduino IDE.
+    <EssentialElement link="/tutorials/portenta-cat-m1-nb-iot-gnss-shield/getting-started" title="Quickstart Guide" type="getting-started">
+        All you need to know to get started with your new Portenta Cat. M1/NB IoT GNSS Shield.
     </EssentialElement>
 </EssentialsColumn>
 
