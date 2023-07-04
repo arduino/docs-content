@@ -1,6 +1,6 @@
 ---
 author: 'Benjamin Dannegård'
-hero_image: ""
+hero_image: "./hero-banner.png"
 featured: micropython-101-projects
 title: 'Scene Changer'
 description: 'Learn how to change the scene on an OLED screen with the press of a button'
@@ -8,9 +8,11 @@ description: 'Learn how to change the scene on an OLED screen with the press of 
 
 This project will show you how to interact with a screen using a button. The script will follow a sequence when the button is pressed and change what is displayed. It will call different functions depending on the current function that is displayed.
 
+## Required Hardware
+
 You will need the following to build this project:
 
-- Nano ESP32
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - [OLED Display 0.96"](https://store.arduino.cc/products/grove-oled-display-0-96)
 - [Button](https://store.arduino.cc/products/grove-button-p)

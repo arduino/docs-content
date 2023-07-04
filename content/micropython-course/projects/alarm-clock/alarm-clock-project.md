@@ -1,6 +1,6 @@
 ---
 author: 'Benjamin Dannegård'
-hero_image: ""
+hero_image: "./hero-banner.png"
 featured: micropython-101-projects
 title: 'Alarm Clock'
 description: 'Build your own alarm clock using a 4-digit-display and a buzzer to get you out of bed.'
@@ -9,9 +9,11 @@ description: 'Build your own alarm clock using a 4-digit-display and a buzzer to
 
 This project will use the ntptime module to keep track of the time and display it on a 4-digit-display. An alarm can then be set in the code, which will turn on the buzzer at a specified time. To keep track of time accurately the board will also connect to a wifi network.
 
+## Required Hardware
+
 You will need the following to build this project:
 
-- Nano ESP32
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - [4-digit-display](https://store.arduino.cc/products/grove-4-digit-display)
 - [Piezo buzzer](https://store.arduino.cc/products/grove-buzzer-piezo)

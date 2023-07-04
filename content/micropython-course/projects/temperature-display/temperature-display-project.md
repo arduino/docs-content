@@ -1,6 +1,6 @@
 ---
 author: 'Benjamin Dannegård'
-hero_image: ""
+hero_image: "./hero-banner.png"
 featured: micropython-101-projects
 title: 'Temperature Display'
 description: 'Use a temperature sensor together with a neopixel stick, giving you visual feedback on the current temperature.'
@@ -8,9 +8,11 @@ description: 'Use a temperature sensor together with a neopixel stick, giving yo
 
 This project will take the temperature reading from a DHT11 sensor and change the color of the LEDs on the Neopixel accordingly.
 
+## Required Hardware
+
 You will need the following to build this project:
 
-- Nano ESP32
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - [Neopixel light](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html)
 - [DHT11 temperature sensor](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT11.html)
