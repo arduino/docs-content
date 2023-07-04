@@ -46,7 +46,7 @@ There are several examples available for the UNO R4 WiFi board, which can be acc
 
 ![UNO R4 WiFi examples.](assets/wifi-examples.png)
 
-### Pre-loaded Animation
+### Tetris Animation Sketch
 The UNO R4 WiFi comes preloaded with a Tetris animation. If you've overwritten that sketch and want to restore the board to play the animation again, the sketch can be found here:
 ```arduino
 const uint32_t frames[][4] = {
