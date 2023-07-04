@@ -21,7 +21,7 @@ You will need the following to build this project:
 
 Assemble the components according to the circuit diagram:
 
-![Circuit for the temperature display](assets/temperature-light.svg)
+![Circuit for the temperature display](assets/temperature-light.png)
 
 ## Code
 
