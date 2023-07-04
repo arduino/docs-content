@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
     <EssentialElement link="/tutorials/edge-control/getting-started-edge-control" title="Quickstart Guide" type="getting-started">
-        A quick guide to installing your board with the Arduino IDE.
+        A quick guide to installing and testing your board with the Arduino IDE.
     </EssentialElement>
 
 </EssentialsColumn>

@@ -1,6 +1,7 @@
 ---
 title: Portenta Vision Shield
 url_shop: https://store.arduino.cc/portenta-vision-shield
+url_guide: /tutorials/portenta-vision-shield/getting-started-camera
 core: arduino:mbed_portenta
 certifications: [CE, REACH, RoHS, WEEE, UKCA, FCC, RCM]
 ---
