@@ -14,7 +14,6 @@ software:
 ---
 
 The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is available to be programmed to display graphics, animations, act as an interface, or even play games on. 
-
 ## Goals
 
 The matrix and its API are developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations, while highlighting two different ways of handling the LEDs to create animations and images. This makes it easier for you to decide what method fits your needs best!
@@ -68,7 +67,7 @@ A frame is what we call the "image" that is displayed at any given moment on the
 
 How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in three 32-bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display the states of a program or interfaces. You can create frames and animations such as this one by [this browser tool](#animation-generation) developed by Arduino. Such a frame may look similar to this:
 
-```
+```arduino
 const uint32_t heart[] = {
 	0x3184a444,
 	0x44042081,
@@ -77,7 +76,7 @@ const uint32_t heart[] = {
 ```
 
 Now if you've got several different frames, you can load and display them like this:
-```
+```arduino
 const uint32_t happy[] = {
 	0x19819,
 	0x80000001,
@@ -90,8 +89,9 @@ const uint32_t heart[] = {
 	0x100a0040
 };
 
-matrix.loadFrame(happy);
+  matrix.loadFrame(happy);
   delay(500);
+
   matrix.loadFrame(heart);
   delay(500);
 ```
@@ -99,7 +99,7 @@ matrix.loadFrame(happy);
 
 You may also represent your frame with an array of individual bits, where each pixel is represented by a bit, and can be accessed by its row and column (this way being a good choice if you need to generate frames from within a sketch, for instance if you are making a game). This `frame` array contains a representation of each pixel in the matrix laid out in the same 12x8 grid.
 
-```
+```arduino
 uint8_t frame[8][12] = {
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -113,8 +113,9 @@ uint8_t frame[8][12] = {
 
 ```
 To target an individual pixel you select its address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
-```
+```arduino
 frame[2][1] = 1;
+
 matrix.renderBitmap(frame, 8, 12);
 ```
 
@@ -124,9 +125,11 @@ Let's apply these concepts, with two basic sketches that display different frame
 
 Here's a sketch that will first load a smiley face on your matrix, and then change it to a heart.
 
-```
+```arduino
 #include "Arduino_LED_Matrix.h"
+
 ArduinoLEDMatrix matrix;
+
 void setup() {
   Serial.begin(115200);
   matrix.begin();
@@ -146,6 +149,7 @@ const uint32_t heart[] = {
 void loop(){
   matrix.loadFrame(happy);
   delay(500);
+
   matrix.loadFrame(heart);
   delay(500);
 }
@@ -155,9 +159,11 @@ The sketch is pretty simple, and yet the outcome is very expressive and can help
 
 Now let's change approach and create a bitmap that we change in runtime. This sketch includes several functions that each draw part of a face, and then winks the left eye by turning off certain pixels. 
 
-```
+```arduino
 #include "Arduino_LED_Matrix.h"
+
 ArduinoLEDMatrix matrix;
+
 void setup() {
   Serial.begin(115200);
   matrix.begin();
@@ -175,7 +181,7 @@ uint8_t frame[8][12] = {
 };
 
 void leftEye(){
-//Left eye
+  //Left eye
   frame[1][3] = 1;
   frame[1][4] = 1;
   frame[2][3] = 1;
@@ -191,7 +197,7 @@ void wink(){
 }
 
 void rightEye(){
-//Right eye
+  //Right eye
   frame[1][8] = 1;
   frame[1][9] = 1;
   frame[2][8] = 1;
@@ -199,7 +205,7 @@ void rightEye(){
 }
 
 void mouth(){
-//Mouth
+  //Mouth
   frame[5][3] = 1;
   frame[5][9] = 1;
   frame[6][3] = 1;
@@ -220,6 +226,7 @@ matrix.renderBitmap(frame, 8, 12);
 
 delay(1000);
 wink();
+
 matrix.renderBitmap(frame, 8, 12);
 delay(1000);
 }
