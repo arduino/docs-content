@@ -57,6 +57,7 @@ To emulate a keyboard, we can use the `press()` and `releaseAll()` methods. This
 
 void setup() {
   Keyboard.begin();
+  delay(1000);
 }
 
 void loop() {
@@ -66,6 +67,14 @@ void loop() {
   delay(1000); 
 }
 ```
+
+To see more examples, please refer to links below:
+
+- [Keyboard and Mouse Control Tutorial](/built-in-examples/usb/KeyboardAndMouseControl)
+- [Keyboard Reprogram Tutorial](/built-in-examples/usb/KeyboardReprogram)
+- [Keyboard Serial Tutorial](/built-in-examples/usb/KeyboardSerial)
+- [Keyboard Logout Tutorial](/built-in-examples/usb/KeyboardLogout)
+- [Keyboard Message Tutorial](/built-in-examples/usb/KeyboardMessage)
 
 ## Mouse 
 
@@ -86,6 +95,7 @@ The following example moves both axis of mouse just slightly (10 points), back a
 
 void setup() {
   Mouse.begin();
+  delay(1000);
 }
 
 void loop() {
@@ -95,6 +105,12 @@ void loop() {
   delay(1000); 
 }
 ```
+
+To see more examples, please refer to links below:
+
+- [Keyboard and Mouse Control Tutorial](/built-in-examples/usb/KeyboardAndMouseControl)
+- [Button Mouse Control Tutorial](/built-in-examples/usb/ButtonMouseControl)
+- [Joystick Mouse Control Tutorial](/built-in-examples/usb/JoystickMouseControl)
 
 ## Summary
 
