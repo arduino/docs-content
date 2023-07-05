@@ -410,7 +410,7 @@ void setup() {
   // you can also load frames at runtime, without stopping the refresh
   matrix.loadSequence(frames);
   matrix.begin();
-  // turn on autoscroll to avoid calling next() to show the next frame; the paramenter is in milliseconds
+  // turn on autoscroll to avoid calling next() to show the next frame; the parameter is in milliseconds
   // matrix.autoscroll(300);
   matrix.play(true);
   pinMode(LED_BUILTIN, OUTPUT);
