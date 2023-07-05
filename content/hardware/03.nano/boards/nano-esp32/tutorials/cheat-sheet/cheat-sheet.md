@@ -12,7 +12,7 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **uBlox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
+The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
 ![Nano ESP32 overview](assets/nano-esp32-overview.png)
 
@@ -24,16 +24,16 @@ In this document, you will find information regarding features your board, and l
 
 ![NORA-W106 module.](assets/nano-esp32-wifi.png)
 
-The Nano ESP32 features the **ESP32-S3** system on a chip (SoC) from Espressif, which is embedded in the **NORA-W106** module. The ESP32-S3 has a dual-core microprocessor Xtensa® 32-bit LX7, and has support for the 2.4 GHz Wi-Fi band as well as Bluetooth 5. The operating voltage of this SoC is 3.3V.
+The Nano ESP32 features the **ESP32-S3** system on a chip (SoC) from Espressif, which is embedded in the **NORA-W106** module. The ESP32-S3 has a dual-core microprocessor Xtensa® 32-bit LX7, and has support for the 2.4 GHz Wi-Fi® band as well as Bluetooth 5. The operating voltage of this SoC is 3.3 V.
 
 The NORA-W106 also embeds an antenna for Bluetooth® and Wi-Fi® connectivity.
 
 ### Memory
 
 The memory of the ESP32-S3 has 
-- 384 KB ROM
-- 512 KB SRAM
-- 128MB of Flash (external, provided via GD25B128EWIGR)
+- 384 kB ROM
+- 512 kB SRAM
+- 16 MB of Flash (external, provided via GD25B128EWIGR)
 
 ## Datasheet
 
@@ -87,24 +87,24 @@ The [Sleep Modes](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/
 
 ![Nano ESP32 Power Tree.](assets/nano-esp32-powertree.png)
 
-To power the Nano ESP32 you may either use a USB-C cable, or the VIN pin. Never exceed 5-18V as the **MP2322GQH** converter on the board is not designed for any higher voltages. 
+To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. Never exceed 5-18 V as the **MP2322GQH** converter on the board is not designed for any higher voltages. 
 
 ### Input Voltage (VIN)
 
-- If you're using the USB-C connector you must power it with 5V.
-- The recommended input voltage on the VIN pin is 5-18V.
+- If you're using the USB-C connector you must power it with 5 V.
+- The recommended input voltage on the VIN pin is 5-18 V.
 
 ### Operating Voltage
 
-The internal operating voltage of the ESP32-S3 SoC is 3.3V, and you should not apply voltages higher than that to the GPIO pins.
+The internal operating voltage of the ESP32-S3 SoC is 3.3 V, and you should not apply voltages higher than that to the GPIO pins.
 
 ### 5V Pin / VUSB
 
 The Nano ESP32 is the first board to not feature a **5V** pin. It has instead been replaced with VBUS, which is a more accurate description of the pin's capabilities.
 
-`VBUS` provides 5V whenever powered via USB. If powered via the VIN pin, it is disabled. This means that while powering the board through the VIN pin, you can't get 5V from the board, and you need to use a logic level shifter or an external 5V power supply.
+`VBUS` provides 5V whenever powered via USB. If powered via the VIN pin, it is disabled. This means that while powering the board through the VIN pin, you can't get 5 V from the board, and you need to use a logic level shifter or an external 5V power supply.
 
-This measure is taken to prevent the board's microcontroller from accidentially receiving 5V, which will damage it.
+This measure is taken to prevent the board's microcontroller from accidentally receiving 5V, which will damage it.
 
 ## Pins
 
@@ -177,7 +177,7 @@ There are 8 analog input pins on the Nano ESP32, with 2 reserved for I2C communi
 | A6  | Analog | Analog input 6                              | `ADC2_CH3`  |
 | A7  | Analog | Analog input 7                              | `ADC2_CH4`  |
 
-***Please note that `ADC2` is also used for Wi-Fi® communication and can fail if used simultanenously.***
+***Please note that `ADC2` is also used for Wi-Fi® communication and can fail if used simultaneously.***
 
 For more details, see [Analog to Digital Converter (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32s3/api-reference/peripherals/adc.html).
 
@@ -327,7 +327,7 @@ You can also
 
 ## Wi-Fi®
 
-The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi communication over the 2.4GHz band.
+The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi® communication over the 2.4 GHz band.
 
 There are several examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
 
