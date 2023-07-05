@@ -5,7 +5,6 @@ author: Benjamin Dannegård
 tags: [Display, LVGL]
 ---
 
-
 ## Introduction
 
 LVGL is a very powerful graphical framework that is compatible with the Giga Display Shield. It will allow you to put components on the screen like buttons, images, loading bars, sliders, checkboxes etc. It also allows you fully customize the screenspace on the display. This guide will go through the different components in detail so you can learn how to best implement it to your project.
@@ -108,8 +107,6 @@ Then if we want to center the grid on the screen, simply use:
   lv_obj_center(grid);
 ```
 
-![Show a grid layout on the screen]()
-
 ### Update Loop
 
 Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
@@ -151,7 +148,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
-![Show how this could look on the screen]()
+![An image rendered on the display shield with LVGL](assets/image.jpg)
 
 ## Functional Elements
 
@@ -178,7 +175,7 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-![Show how this could look on the screen]()
+![Checkboxes rendered on the display shield with LVGL](assets/checkboxes.jpg)
 
 ### Radio Button
 
@@ -203,11 +200,9 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
 
-![Show how this could look on the screen]()
+![Radio buttons rendered on the display shield with LVGL](assets/radiobuttons.jpg)
 
 ### Slider
-
-To make a slider bar feel correct with reaction to our touch we need to include some animation. Lets first set up the slider itself and then move on to the animation.
 
 `obj` will be a pointer that will be used to hold the information about the screenspace information for the slider. The `slider` pointer will be used for the elements of the slider itself. The `label` pointer will be used for the text that will attached to the slider.
 
@@ -237,7 +232,7 @@ If you want a label by your slider it can be created like you would create any o
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
-![Show how this could look on the screen]()
+![Slider rendered on the display shield with LVGL](assets/slider.jpg)
 
 ### Bar
 
@@ -310,7 +305,7 @@ static void set_bar_val(void * bar, int32_t val) {
 }
 ```
 
-![Show how this could look on the screen]()
+![A bar rendered on the display shield with LVGL](bar.gif)
 
 ### Button
 
@@ -362,7 +357,8 @@ static void button_event_callback(lv_event_t * e) {
 }
 ```
 
-![Show how this could look on the screen]()
+![A button rendered on the display shield with LVGL](assets/button.jpg)
+![Button when it has been clicked](assets/button-clicked.jpg)
 
 ## Conclusion
 
