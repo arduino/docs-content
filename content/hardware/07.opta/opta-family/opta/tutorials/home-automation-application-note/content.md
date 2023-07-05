@@ -25,7 +25,9 @@ The home automation systems allow to control electronic devices remotely and to 
 
 
 
-Some examples of home automation applications are turning on or off lights, and controlling HVAC systems. With its industrial IoT capabilities, the Opta™️ is an excellent product for home automation applications.
+Home automation applications allow, for example, smart lights management and HVAC control. 
+Thanks to its industrial IoT capabilities, Opta™️ is an excellent product for home automation applications.
+
 
 ![Opta™️ with Wi-Fi® connectivity support](assets/opta-device.png)
 
