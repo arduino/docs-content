@@ -33,7 +33,8 @@ Thanks to its industrial IoT capabilities, Opta™️ is an excellent product fo
 
 ## Goals
 
-This application note shows a home automation system based on an Opta™️, capable of controlling a roller window shade, also known as roller blind, based on a programmed scenario. The application note's goals are:
+This application note shows a home automation system based on an Opta™️, capable of controlling a roller window shade, also known as roller blind, based on a programmed scenario. The application note's goals are to:
+
 
 - Implementing the roller window shade control (opening and closing) upon a programmed scenario
 - Get inputs from limit switches included in the roller window shade's control system, for feedback and security reinforcement
