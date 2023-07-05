@@ -49,6 +49,11 @@ There are several examples available for the UNO R4 WiFi board, which can be acc
 ### Tetris Animation Sketch
 The UNO R4 WiFi comes preloaded with a Tetris animation. If you've overwritten that sketch and want to restore the board to play the animation again, the sketch can be found here:
 ```arduino
+#include "Arduino_LED_Matrix.h"
+#include <stdint.h>
+
+ArduinoLEDMatrix matrix;
+
 const uint32_t frames[][4] = {
   {
     0xe0000000,
@@ -399,6 +404,24 @@ const uint32_t frames[][4] = {
     0xFFFFFFFF
   }
 };
+
+void setup() {
+  Serial.begin(115200);
+  // you can also load frames at runtime, without stopping the refresh
+  matrix.loadSequence(frames);
+  matrix.begin();
+  // turn on autoscroll to avoid calling next() to show the next frame; the paramenter is in milliseconds
+  // matrix.autoscroll(300);
+  matrix.play(true);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
 ```
 
 ## Summary
