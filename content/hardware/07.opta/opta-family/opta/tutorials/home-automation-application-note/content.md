@@ -76,7 +76,7 @@ The Opta™️ controls a DC motor via a driver using the digital output termina
 
 ### Application Overview
 
-First, the Opta™️ will attempt to connect to a Wi-Fi® network previously configured by the user in the Arduino IoT Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
+The first task of the program is to create the connection between the Opta™️ and the predefined Wi-Fi® network by the user in the Arduino IoT Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
 
 ***The NTP is a protocol used to synchronize the clocks of servers and clients across the Internet; it is intended to synchronize computers participating in the network within a few milliseconds of Coordinated Universal Time (UTC). You can read more about the NTP protocol [here](https://en.wikipedia.org/wiki/Network_Time_Protocol).***
 
