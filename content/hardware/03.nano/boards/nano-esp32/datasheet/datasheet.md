@@ -6,7 +6,7 @@ type: maker
 ![](assets/featured.png)
 
 # Description 
-The Arduino® Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from uBlox). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi®, Bluetooth® LE, debugging via native USB in the Arduino IDE as well as low power.
+The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi®, Bluetooth® LE, debugging via native USB in the Arduino IDE as well as low power.
 
 The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
@@ -16,16 +16,16 @@ Maker, Debugging, IoT, MicroPython
 # Features
 * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
   * Up to 240 MHz
-  * 384 KB ROM
-  * 512 KB SRAM
-  * 16 KB SRAM in RTC (low power mode)
+  * 384 kB ROM
+  * 512 kB SRAM
+  * 16 kB SRAM in RTC (low power mode)
   * DMA Controller
 * **Power**
-  * Operating voltage 3.3V
-  * VUSB supplies 5V via USB-C connector
-  * VIN range is 6-18V
+  * Operating voltage 3.3 V
+  * VUSB supplies 5 V via USB-C® connector
+  * VIN range is 6-18 V
 * **Connectivity**
-  * Wi-Fi
+  * Wi-Fi®
   * Bluetooth® LE
   * Built-in antenna
   * 2.4 GHz transmitter/receiver
@@ -52,11 +52,11 @@ Maker, Debugging, IoT, MicroPython
 
 ## The Board
 
-Nano ESP32 is a 3.3V development board based on the NORA-W106-10B from uBlox, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies at up to 240 MHz and has native support for debugging via the USB-C connector.
+Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies at up to 240 MHz and has native support for debugging via the USB-C connector.
 
 ### Application Examples
 
-**Home automation:** an ideal board for building home automations for your home, such as smart switches, automatic lighting and motor control for e.g. motor controlled blinds. 
+**Home automation:** an ideal board for building home automation for your home, such as smart switches, automatic lighting and motor control for e.g. motor controlled blinds. 
 
 **IoT sensors:** with several dedicated ADC channels, accessible I2C/SPI buses and a robust ESP32-S3 based radio module, this board can easily be deployed to monitor sensor values. 
 
@@ -91,7 +91,7 @@ The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/ardui
 | **Ref.** | **Description**                                  |
 | -------- | ------------------------------------------------ |
 | M1       | NORA-W106-10B (ESP32-S3 SoC)                     |
-| J1       | CX90B-16P USB-C connector                        |
+| J1       | CX90B-16P USB-C® connector                        |
 | JP1      | 1x15 analog header                               |
 | JP2      | 1x15 digital header                              |
 | U2       | MP2322GQH step down converter                    |
@@ -108,17 +108,17 @@ The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embeddin
 
 ### Xtensa® Dual-core 32-bit LX7 Microprocessor
 
-The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-core 32-bit Xtensa® LX7. Each core can run at up to 240 MHz and has 512kB SRAM memory. The LX7 features:
+The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-core 32-bit Xtensa® LX7. Each core can run at up to 240 MHz and has 512 kB SRAM memory. The LX7 features:
 - 32-bit customized instruction set
 - 128-bit data bus 
 - 32-bit multiplier / divider
 - Support for JTAG debugging
 
-The LX7 has a 384 KB ROM (Read Only Memory), and 512 KB of SRAM (Static Random Access Memory). It also features an 8 KB **RTC FAST** and **RTC SLOW** memory. These memories are designed for low power operations, where the **SLOW** memory can be accessed by the ULP (Ulta Low Power) coprocessor, retaining the data in deep sleep mode.
+The LX7 has a 384 kB ROM (Read Only Memory), and 512 KB of SRAM (Static Random Access Memory). It also features an 8 kB **RTC FAST** and **RTC SLOW** memory. These memories are designed for low power operations, where the **SLOW** memory can be accessed by the ULP (Ulta Low Power) coprocessor, retaining the data in deep sleep mode.
 
-### Wi-Fi
+### Wi-Fi®
 
-The NORA-W106-10B module supports the WiFi 4 IEEE 802.11 standards b/g/n, with an output power EIRP at up to 10 dBm. The max range for this module is 500 meters.
+The NORA-W106-10B module supports the Wi-Fi® 4 IEEE 802.11 standards b/g/n, with an output power EIRP at up to 10 dBm. The max range for this module is 500 meters.
 
 * 802.11b: 11 Mbit/s
 * 802.11g: 54 Mbit/s 
@@ -216,19 +216,19 @@ The CAN/TWAI® controller is used to communicate with systems using the CAN/TWAI
 
 Nano ESP32 features a 128 Mbit (16MB) external flash, the GD25B128EWIGR (U3). This memory is connected to the ESP32 via Quad Serial Peripheral Interface (QSPI).
 
-The operating frequency for this IC is 133 MHz, and has a data transfer rate at up to 664Mbit/s.
+The operating frequency for this IC is 133 MHz, and has a data transfer rate at up to 664 Mbit/s.
 
 ## USB Connector
 
 The Nano ESP32 has one USB-C® port, used to power and program your board as well as sending & receiving serial communication.
 
-Note that you should not power the board with more than 5V via the USB-C® port.
+Note that you should not power the board with more than 5 V via the USB-C® port.
 
 ## Power Options
 
-Power can either be supplied via the VIN pin, or via USB-C® connector. Any voltage input either via USB or VIN is stepped down to 3.3V using the MP2322GQH (U2) converter.
+Power can either be supplied via the VIN pin, or via USB-C® connector. Any voltage input either via USB or VIN is stepped down to 3.3 V using the MP2322GQH (U2) converter.
 
-The operating voltage for this board is 3.3V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5V when the board is powered via USB.
+The operating voltage for this board is 3.3 V. Please note that there's no 5V pin available on this board, only the VBUS can provide 5 V when the board is powered via USB.
 
 ### Power Tree
 
@@ -240,26 +240,26 @@ All digital & analog pins on the Nano ESP32 are 3.3 V. Do not connect any higher
 
 ### VIN Rating
 
-The recommended input voltage range is **5-18V **.
+The recommended input voltage range is **5-18 V**.
 
 You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 18 V.
 
 The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:  
-- **4.5V ** - >90%.
-- **12V ** - 85-90%
-- **18V ** - <85%
+- **4.5 V** - >90%.
+- **12 V** - 85-90%
+- **18 V** - <85%
 
 This information is extracted from the [MP2322GQH's datasheet](/resources/datasheets/MP2322.pdf).
 
 ### VUSB
 
-There is no 5 V pin available on the Nano ESP32. 5V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
+There is no 5V pin available on the Nano ESP32. 5 V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
 
 While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
 
 ### 3.3 V Pin
 
-The 3.3 V pin is connected to the 3.3 V rail which is connected to the output of the MP2322GQH step down converter. This pin is primarily used to power external components.
+The 3.3V pin is connected to the 3.3 V rail which is connected to the output of the MP2322GQH step down converter. This pin is primarily used to power external components.
 
 ### Pin Current
 
@@ -321,11 +321,11 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 
 ### Getting Started - IDE
 
-If you want to program your Nano ESP32 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Nano ESP32 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your Nano ESP32 while offline you need to install the Arduino IDE **[1]**. To connect the Nano ESP32 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
@@ -335,7 +335,7 @@ All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
@@ -412,7 +412,7 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
@@ -428,8 +428,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Ref                       | Link                                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
-| Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
+| Arduino Web Editor (Cloud)       | <https://create.arduino.cc/editor>                                                              |
+| Web Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
 | Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | Library Reference         | <https://github.com/arduino-libraries/>                                                         |
 | Online Store              | <https://store.arduino.cc/>                                                                     |
