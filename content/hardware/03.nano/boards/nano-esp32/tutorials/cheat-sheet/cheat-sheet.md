@@ -33,7 +33,7 @@ The NORA-W106 also embeds an antenna for Bluetooth® and Wi-Fi® connectivity.
 The memory of the ESP32-S3 has 
 - 384 kB ROM
 - 512 kB SRAM
-- 128 MB of Flash (external, provided via GD25B128EWIGR)
+- 16 MB of Flash (external, provided via GD25B128EWIGR)
 
 ## Datasheet
 
