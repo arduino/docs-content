@@ -56,7 +56,7 @@ Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox, 
 
 ### Application Examples
 
-**Home automation:** an ideal board for building home automation for your home, such as smart switches, automatic lighting and motor control for e.g. motor controlled blinds. 
+**Home automation:** an ideal board for automating your home, and can be used for smart switches, automatic lighting and motor control for e.g. motor controlled blinds. 
 
 **IoT sensors:** with several dedicated ADC channels, accessible I2C/SPI buses and a robust ESP32-S3 based radio module, this board can easily be deployed to monitor sensor values. 
 
