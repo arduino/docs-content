@@ -46,4 +46,4 @@ To use the OFF pin, all you need to do is to create a short circuit from it to a
 
 ## Summary
 
-This short tutorial show how to use the VRTC and OFF pins that are found on the new header on the Arduino UNO R4 WiFi, features that are brand new to the UNO family.
+This short tutorial shows how to use the VRTC and OFF pins that are found on the new header on the Arduino UNO R4 WiFi, features that are brand new to the UNO family.
