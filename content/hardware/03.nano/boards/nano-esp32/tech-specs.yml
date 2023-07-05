@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Nano ESP32
   SKU: ABX00083 / ABX00092
-Microcontroller: uBlox NORA-W106 (ESP32-S3)
+Microcontroller: u-blox NORA-W106 (ESP32-S3)
 USB connector: USB-C®
 Pins:
   Built-in LED Pin: 13
@@ -10,8 +10,8 @@ Pins:
   PWM pins: 5
   External interrupts: All digital pins
 Connectivity:
-  Wi-Fi: uBlox NORA-W106 (ESP32-S3)
-  Bluetooth®: uBlox NORA-W106 (ESP32-S3)
+  Wi-Fi®: u-blox NORA-W106 (ESP32-S3)
+  Bluetooth®: u-blox NORA-W106 (ESP32-S3)
 Communication:
   UART: 1x, D0 (TX), D1, (RX)
   I2C: 1x, A4 (SDA), A5 (SCL)

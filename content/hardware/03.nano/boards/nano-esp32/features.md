@@ -1,5 +1,5 @@
 <FeatureDescription>
-The Arduino Nano ESP32 features the NORA-W106, a module with a ESP32-S3 chip inside. This module supports both Wi-Fi and Bluetooth (5.0 and above), making it an ideal device for IoT development. The popular Nano form factor also makes it compatible with many hardware accessories.
+The Arduino Nano ESP32 features the NORA-W106, a module with a ESP32-S3 chip inside. This module supports both Wi-Fi® and Bluetooth® (5.0 and above), making it an ideal device for IoT development. The popular Nano form factor also makes it compatible with many hardware accessories.
 </FeatureDescription>
 
 <FeatureList>
@@ -15,7 +15,7 @@ The Nano ESP32 is compatible with the Arduino IoT Cloud platform. Build IoT proj
 </Feature>
 
 <Feature title="Bluetooth®" image="bluetooth">
-This board is Bluetooth® enabled allowing you to control peripheral devices via bluetooth and start implementing  Bluetooth® Low Energy applications.
+This board is Bluetooth® enabled allowing you to control peripheral devices and start implementing Bluetooth® Low Energy applications.
 </Feature>
 
 <Feature title="ESP32 Platform" image="mcu">
