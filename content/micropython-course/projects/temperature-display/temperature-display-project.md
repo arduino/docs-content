@@ -16,10 +16,11 @@ You will need the following to build this project:
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - [Neopixel light](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html)
 - [DHT11 temperature sensor](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT11.html)
+- [Grove to male cables](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs)
 
 ## Circuit
 
-Assemble the components according to the circuit diagram:
+Assemble the components according to the circuit diagram below:
 
 ![Circuit for the temperature display](assets/temperature-light.png)
 

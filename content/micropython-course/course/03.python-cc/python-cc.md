@@ -47,7 +47,7 @@ print(func()) # prints the return value of a function
 print('Value: ', data) # prints "Value: <value of data variable>"
 ```
 
-There are many different approaches on how to print things to the terminal.
+As you can see, there are many different approaches on how to print things to the terminal.
 
 ***The `print()` function is one of the most commonly used functions. When programming your board, this function allows you to see what happens on the board in real time.***
 
@@ -97,7 +97,7 @@ x = 5+5
 if x > 10:
     print("x is larger than 10")
 elif x == 10:
-    print("x is exactly 10")
+    print("x is exactly 10") #this will print, since x is 10
 else:
     print("x is smaller than 10")
 ```

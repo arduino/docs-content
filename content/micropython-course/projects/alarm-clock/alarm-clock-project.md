@@ -7,7 +7,7 @@ description: 'Build your own alarm clock using a 4-digit-display and a buzzer to
 ---
 
 
-This project will use the ntptime module to keep track of the time and display it on a 4-digit-display. An alarm can then be set in the code, which will turn on the buzzer at a specified time. To keep track of time accurately the board will also connect to a wifi network.
+This project will use the `ntptime` module to keep track of the time and display it on a 4-digit-display. An alarm can then be set in the code, which will turn on the buzzer at a specified time. To keep track of time accurately the board will also connect to a wifi network.
 
 ## Required Hardware
 
@@ -17,10 +17,11 @@ You will need the following to build this project:
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - [4-digit-display](https://store.arduino.cc/products/grove-4-digit-display)
 - [Piezo buzzer](https://store.arduino.cc/products/grove-buzzer-piezo)
+- [Grove to male cables](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs)
 
 ## Circuit
 
-Assemble the components according to the circuit diagram:
+Assemble the components according to the circuit diagram below:
 
 ![Circuit for the alarm clock](assets/alarm-clock.png)
 

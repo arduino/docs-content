@@ -16,10 +16,11 @@ You will need the following to build this project:
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal)
 - [OLED Display 0.96"](https://store.arduino.cc/products/grove-oled-display-0-96)
 - [Button](https://store.arduino.cc/products/grove-button-p)
+- [Grove to male cables](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs)
 
 ## Circuit
 
-Assemble the components according to the circuit diagram:
+Assemble the components according to the circuit diagram below:
 
 ![Circuit for the scene changer](assets/scene-changer.png)
 
