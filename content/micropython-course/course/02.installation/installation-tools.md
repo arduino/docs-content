@@ -65,9 +65,7 @@ In the Arduino Lab for Micropython app, press **connect** in the top left corner
 
 **6. Verify**
 
-Now, to verify things are working as they should, copy the code from the snippet below, and paste it into the code editor. After this, press the **"Run"** button.
-
-This will make a green light blink every second on your board.
+Now, to verify things are working as they should, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 from machine import Pin

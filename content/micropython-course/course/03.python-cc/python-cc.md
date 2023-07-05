@@ -10,16 +10,29 @@ We ended last chapter by running the `print('Hello world!')` command, to make su
 
 ***In this chapter we will cover a small part of the Python programming language. This will help you to better understand the rest of the course. If you are familiar with Python, this chapter is not a requirement.***
 
+## Overview
+
+This chapter introduces a number of Python syntax that will prove very useful throughout this course. The intention of this chapter is for you to get familiar with Python, so that the MicroPython examples in this course will be easier to understand.
+
+Many of the examples presented in this chapter are just fragments. Try to combine different elements to test your Python skills!
+
+### Learn Python
+
+While this chapter provides some fundamental Python syntax, it does not cover all. If you are interested in learning more about Python, we recommend you checking out some of the links below:
+- [learnpython.org](https://www.learnpython.org/)
+- [W3Schools](https://www.w3schools.com/python/default.asp)
 
 ## Variables
 
-To create a variable in Python, you do not need to name the data type:
+Let's get to it! The very first thing to learn in Python is how to create a variable. Using Python, you do not need to name the data type, that is automatically handled.
 
 ```python
 stringVar = 'This is a String' # string
 numVar = 250 # numeric value
 arrayVar = [1,3,6,7] # array
 ```
+
+A variable can store just about anything, but pay attention to *how* they are stored. For example, a string (which holds characters, or text), needs the quotation marks, while a number does not need anything.
 
 ## Print
 
