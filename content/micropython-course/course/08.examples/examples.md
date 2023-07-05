@@ -4,47 +4,56 @@ hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
 title: 'Component Examples'
-description: 'Practical examples for Neopixels, sensors, servo motors and more.'
+description: 'Ready to use code & circuit examples for popular components such as Neopixel, DHT11 & Servo motor.'
 ---
 
-Congratulations you have almost reached the end of your MicroPython 101 course. This chapter introduces you to several popular sensors and motors, showing you how to connect them, what code you need, and also what the intended outcome should look like. Try out all examples and feel free to combine them and create new exciting projects as you go.
+In this final chapter of the MicroPython 101 course, you will find code & circuit examples for popular components, such as motors, displays and sensors. These components can be combined to make fun projects, and works out of the box with the Nano ESP32 & MicroPython.
 
-**Before getting started** we need to make sure we install all necessary modules for the sensors we will be using. If you skipped the chapter where we talk about modules or need a quick refresh you can go back to "[Introduction to MicroPython](../01.introduction-python/02.intro-to-micropython.md)". Copy the script below and paste it into your ``main.py`` file. Don't forget to add your **network credentials** to the scripts otherwise, it won't work.
+
+## Module Installation
+
+Many of these modules are not included in your MicroPython installation, but don't worry, installing them are very easy and require no additional software!
+
+To install an external module, use the script below. Inside the script, the `URL` variable needs to be replaced with a valid URL that leads to a module. The URL can look like the following:
+- https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/neopixel.py
+
+***Make sure to add your own Wi-Fi® network & password to the `WIFI_NETWORK` and `WIFI_PASSWORD` variables.***
 
 ```python
-#import modules
-import mip
+"""
+This script first connects to Wi-Fi,
+then installs the module specified
+in the URL variable.
+"""
+
 import network
+import mip
 
-#connect to network
-sta_if = network.WLAN(network.STA_IF)
-if not sta_if.isconnected():
-    print('connecting to network...')
-    sta_if.active(True)
+WIFI_NETWORK='YOUR_NETWORK_NAME'
+WIFI_PASSWORD='YOUR_NETWORK_PASSWORD'
+URL = "github.com/example"
 
-    #enter your network credentials here
-    sta_if.connect('<ssid>', '<key>')
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(WIFI_NETWORK, WIFI_PASSWORD)
 
-    while not sta_if.isconnected():
-        pass
-    print('network config:', sta_if.ifconfig())
-    
-#import modules from Github
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/lis3dh.py")
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/neopixel.py")
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/ssd1306_1315.py")
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/tm1637.py")
+print()
+print("Connected to ",WIFI_NETWORK)
+
+mip.install(URL)
 ```
 
-When you run the code you should see some feedback in the REPL.
+Running this script will install the module on your board, inside a folder called `lib`. You can check this out under **"Files"** while your board is connected via your MicroPython editor.
 
-If everything worked you should now see a library folder with all the necessary modules on your board memory and you can continue trying out the examples listed below.
+***How to install modules are explained in more detail in the [Introduction to MicroPython](/micropython-course/course/introduction-python) chapter.***
 
 ## Button
 
-This example shows how to use a [pushbutton](https://store.arduino.cc/products/grove-button-p?queryID=3db0c95a3af43412f59d48a243453a53) with MicroPython. Connect the button as shown below. Even though the Grove cable has four cables we only need three (Power, GND, Signal). Copy the code to ``main.py``, and press play.
+This example shows how to use a [pushbutton](https://store.arduino.cc/products/grove-button-p) with MicroPython. Connect the button as shown below. Even though the Grove cable has four cables we only need three (Power, GND, Signal).
 
 ![Button Circuit](./assets/circuitButton.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import the Pin class from the machine module
@@ -70,7 +79,7 @@ while True:
     sleep(0.5)    
 ```
 
-Now whenever you press the button you should see ``Button pressed`` being printed in the REPL. 
+Now whenever you press the button you should see `Button pressed` being printed in the REPL. 
 
 <video width="100%" loop autoplay>
 <source src="assets/Button.mp4" type="video/mp4" />
@@ -78,9 +87,11 @@ Now whenever you press the button you should see ``Button pressed`` being printe
 
 ## LED
 
-This example shows how to create the classic blink example using MicroPython and a [Grove LED](https://www.seeedstudio.com/Grove-Red-LED.html). Connect the LED according to the circuit shown below, copy the code to ``main.py``, and press play to see it in action.
+This example shows how to create the classic blink example using MicroPython and a [Grove LED](https://www.seeedstudio.com/Grove-Red-LED.html).
 
 ![LED Circuit](./assets/circuitLED.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import the Pin class from the machine module
@@ -111,9 +122,13 @@ You should now see the led blinking. Change the code to make it speed up or slow
 
 ## Servo
 
-This code controls a [servo motor](https://store.arduino.cc/products/grove-servo?queryID=5a2a481038aab78eec2ab1d0b51687a0) connected to Pin 5 (D2) using PWM. As with any motor if the current is being drawn due to the motor needing too much power the board resets. Copy the code to ``main.py`` and press play.
+This code controls a [servo motor](https://store.arduino.cc/products/grove-servo) connected to Pin 5 (D2) using PWM. As with any motor if the current is being drawn due to the motor needing too much power the board resets.
+
+***You should always use an external power supply when powering a servo. Servo motor consume very high amounts of current when initiated, which can reset your board or damage it.***
 
 ![Servo Motor Circuit](./assets/circuitServo.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import the Pin and PWM classes from the machine module
@@ -146,9 +161,17 @@ You should now see the servo moving back and forth in an endless loop.
 
 ## Neopixel
 
-This example shows how to use a [Neopixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB LEDs. Although we are addressing 10 LEDs at once we luckily still only need one signal pin making our setup super easy. Connect the RGB strip as seen in the circuit below, copy the code to ``main.py`` and press play.
+This example shows how to use a [Neopixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB LEDs. Although we are addressing 10 LEDs at once we luckily still only need one signal pin making our setup super easy. Connect the RGB strip as seen in the circuit below, copy the code to `main.py` and press play.
 
 ![Neopixel Circuit](./assets/circuitNeopixel.png)
+
+This module is not part of the MicroPython installation, and needs to be installed via the following command:
+
+```python
+mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/neopixel.py")
+```
+
+Once installed, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import the Pin class from the machine module
@@ -206,7 +229,7 @@ def runPixelRun():
 runPixelRun()             
 ```
 
-You should now see a nice animation lighting up your LED RGB strip.
+You should now see a the LED RGB strip fade in and out.
 
 <video width="100%" loop autoplay>
 <source src="assets/neopixel.mp4" type="video/mp4" />
@@ -214,10 +237,11 @@ You should now see a nice animation lighting up your LED RGB strip.
 
 ## DHT11
 
-This example shows how to use a [DHT11](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT11.html?queryID=feac683b68679492e4f168b43f6a6bdd&objectID=1826&indexName=bazaar_retailer_products) with an Arduino Nano ESP32. DHT sensors are temperature and humidity sensors and make use of the built-in ``dht`` module. Connect the sensors as shown below, copy the code to ``main.py``, and press play.
-
+This example shows how to use a [DHT11](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT11.html) with an Arduino Nano ESP32. DHT sensors are temperature and humidity sensors and make use of the built-in `dht` module.
 
 ![DHT11 Circuit](./assets/circuitDHT11.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 #import dht module
@@ -240,15 +264,14 @@ while(1):
     # Trigger a measurement from the DHT11 sensor                              
     TEMP_SENSOR.measure()               
     # Print the measured temperature   
-    print(TEMP_SENSOR.temperature())  
-    # Uncomment the line below if you want to measure humidity    
-    # print(TEMP_SENSOR.humidity())          
+    print("Temperature:",TEMP_SENSOR.temperature())   
+    print("Humidity:",TEMP_SENSOR.humidity())          
     # Pause for 1 second before taking the next measurement
     sleep_ms(1000)                         
 
 ```
 
-You should now see the moisture being printed in the REPL.
+You should now see the temperature and humidity printed in the REPL, every second.
 
 <video width="100%" loop autoplay>
 <source src="assets/DHT11.mp4" type="video/mp4" />
@@ -256,9 +279,19 @@ You should now see the moisture being printed in the REPL.
 
 ## OLED Screen
 
-This example shows how to use an [OLED](https://store.arduino.cc/products/grove-oled-display-0-96?queryID=e9abc3d3ad2ef916bd26c57c9b311ce9) screen via I2C. If you are using a different OLED screen make sure to adjust the screen size in the code to display the content properly. Copy the code to ``main.py`` and press play to see it in action.
+This example demonstrates how to use an [OLED](https://store.arduino.cc/products/grove-oled-display-0-96) screen via I2C.
 
 ![OLED Circuit](./assets/circuitOled.png)
+
+This module is not part of the MicroPython installation, and needs to be installed via the following command:
+
+```python
+mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/ssd1306_1315.py")
+```
+
+Once installed, you can run the script below, by clicking the **"Run"** button.
+
+***If you are using a different OLED screen make sure to adjust the screen size in the code to display the content properly.***
 
 ```python
 # Import the Pin class and SoftI2C class (for using I2C) form the machine module
@@ -305,15 +338,17 @@ oled.text('MicroPython', 23, 45)
 oled.show()                          
 ```
 
-You should now see Arduino + MicroPython being printed on the screen.
+You should now see Arduino + MicroPython printed on the screen.
 
 ![OLED screen output](./assets/Oled.png)
 
 ## Buzzer
 
-This example shows how to use a [Grove Buzzer](https://store.arduino.cc/products/grove-buzzer-piezo?queryID=9655030cc2165861ec71fa900ef46f8b). Following the same principle connect the button as shown in the circuit below, copy the code to ``main.py``, and press play to see it in action.
+This example shows how to use a [Grove Buzzer](https://store.arduino.cc/products/grove-buzzer-piezo). Following the same principle connect the button as shown in the circuit below.
 
 ![Buzzer Circuit](./assets/circuitBuzzer.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 from machine import Pin, PWM
@@ -340,13 +375,21 @@ def play_sound(frequency, duration):
 play_sound(FREQUENCY, DURATION)
 ```
 
-Now your buzzer should be buzzing away. Change the code and play with the intensity and duration.
+Now your buzzer should be making a buzzing sound. You can now change the code and play with the intensity and duration.
 
 ## Accelerometer
 
-This example shows how to use a [Grove Accelerometer](https://store.arduino.cc/products/grove-3-axis-digital-accelerometer-16g?queryID=cf10960cf012640816efcf27f84dc92c) using I2C. This particular sensor can measure acceleration and its position in space. Because it's using I2C it needs all four wires as shown in the circuit below.
+This example shows how to use a [Grove Accelerometer](https://store.arduino.cc/products/grove-3-axis-digital-accelerometer-16g) using I2C. This particular sensor can measure acceleration and its position in space. Because it's using I2C it needs all four wires as shown in the circuit below.
 
 ![Accelerometer](./assets/circuitAccelerometer.png)
+
+This module is not part of the MicroPython installation, and needs to be installed via the following command:
+
+```python
+mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/lis3dh.py")
+```
+
+Once installed, you can run the script below, by clicking the **"Run"** button.
 
 ```python
 # Import lis3dh, time, and math classes
@@ -400,7 +443,8 @@ if imu.device_check():
         # Small delay to keep things responsive but give time for interrupt processing.
         time.sleep(0.1)
 ```
-Move around your sensor to see the numbers in the REPL change. Maybe try to connect the led and turn it on when you move the Accelerometer in a certain way.
+
+Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movements is initalized.
 
 <video width="100%" loop autoplay>
 <source src="assets/Accelerometer.mp4" type="video/mp4" />
@@ -408,9 +452,11 @@ Move around your sensor to see the numbers in the REPL change. Maybe try to conn
 
 ## Sound Sensor
 
-This example shows how to use a [sound sensor](https://store.arduino.cc/products/grove-sound-sensor?queryID=undefined). It's used to measure sound and display it to the REPL. Connect it as shown below, copy the code to ``main.py``, and press play to try it out.
+This example shows how to use a [sound sensor](https://store.arduino.cc/products/grove-sound-sensor). This is a simple microphone that provides an analog output signal.
 
 ![Sound Sensor Circuit](./assets/circuitSoundSensor.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import Pin and ADC class from the machine module
@@ -439,7 +485,7 @@ while True:
     time.sleep_ms(100)   
 ```
 
-If you make a sound you should see the output change in the REPL.
+After running the script, test it out by clapping your hands or making other loud noises next to the sensor. You should see the output change in the REPL. 
 
 <video width="100%" loop autoplay>
 <source src="assets/SoundSensor.mp4" type="video/mp4" />
@@ -447,9 +493,19 @@ If you make a sound you should see the output change in the REPL.
 
 ## 4 Digit Display
 
-This example shows how to use a [Grove 4-digit display](https://store.arduino.cc/products/grove-4-digit-display?queryID=a24e1359995118c4ec489ddc59e622c4). 4 digit displays are very basic types of displays that are often seen in alarm clocks as they can display any number between 0 - 9. This sensors also uses I2C which is why we need all four wires as shown below. Copy the code to ``main.py``, and press play to see it in action.
+This example shows how to use a [Grove 4-digit display](https://store.arduino.cc/products/grove-4-digit-display). 
+
+4 digit displays are very basic types of displays that are often seen in alarm clocks as they can display any number between 0 - 9. This sensors also uses I2C which is why we need all four wires as shown below.
 
 ![4 Digit Display Circuit](./assets/circuit4DigitDisplay.png)
+
+This module is not part of the MicroPython installation, and needs to be installed via the following command:
+
+```python
+mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/tm1637.py")
+```
+
+Once installed, you can run the script below, by clicking the **"Run"** button.
 
 ```python
 from machine import Pin
@@ -474,15 +530,19 @@ tm.temperature(20)  # Display the temperature value 20 on the TM1637 display
 
 ```
 
-You should now see the display showing different numbers.
+You should now see the display showing different numbers, where the final frame is a simulated temperature value (20).
 
 ![4 digit display](./assets/4DigitDisplay.png)
 
 ## Moisture Sensor
 
-This example shows how to use a [moisture sensor](https://store.arduino.cc/products/grove-moisture-sensor?queryID=undefined). As the name suggests this sensor is used to measure moisture by measuring the resistance between the two probes. Dry soil has less conductivity than wet soil and the difference in resistance and the resulting drop/increase in voltage can be measured by the Arduino. Copy the code to ``main.py``, press play, and ideally try it out on a plant nearby. Otherwise just put your hand around the sensor and you should already see a slight change in values.
+This example shows how to use a [moisture sensor](https://store.arduino.cc/products/grove-moisture-sensor). 
+
+This sensor is used to measure moisture by measuring the resistance between the two probes. Dry soil has less conductivity than wet soil and the difference in resistance and the resulting drop/increase in voltage can be measured by the Arduino.
 
 ![Moisture Sensor Circuit](./assets/circuitMoisture.png)
+
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import machine module
@@ -510,6 +570,8 @@ while True:
     # Add short sleep timer for improved readability
     time.sleep_ms(500)
 ```
+
+After running the script, you should see the values from the moisture sensor printed in the REPl. 
 
 <video width="100%" loop autoplay>
 <source src="assets/Moisture.mp4" type="video/mp4" />
