@@ -21,7 +21,8 @@ hardware:
 
 ## Introduction
 
-The automatic control of electronic devices, known as home automation allow to control electronic devices remotely and to perform automatic routines based on the user's programming preferences, making domestic environments more convenient, comfortable, and efficient, also optimizing energy costs.
+The home automation systems allow to control electronic devices remotely and to perform automatic routines based on the user's programming preferences, making domestic environments more convenient, comfortable, and efficient, also optimizing energy costs.
+
 
 
 Some examples of home automation applications are turning on or off lights, and controlling HVAC systems. With its industrial IoT capabilities, the Opta™️ is an excellent product for home automation applications.
