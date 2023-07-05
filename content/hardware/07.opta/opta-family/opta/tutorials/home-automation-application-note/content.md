@@ -76,7 +76,7 @@ The Opta™️ controls a DC motor via a driver using the digital output termina
 
 ### Application Overview
 
-First, the Opta™️ will attempt to connect to a predefined Wi-Fi® network; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
+First, the Opta™️ will attempt to connect to a Wi-Fi® network previously configured by the user in the Arduino IoT Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
 
 ***The NTP is a protocol used to synchronize the clocks of servers and clients across the Internet; it is intended to synchronize computers participating in the network within a few milliseconds of Coordinated Universal Time (UTC). You can read more about the NTP protocol [here](https://en.wikipedia.org/wiki/Network_Time_Protocol).***
 
@@ -539,13 +539,47 @@ The example code explained before can be modified to connect the roller window s
 
 After associating your Opta™️ device to your Arduino IoT Cloud account, create a thing; in this example, we called the thing "Shade Controller." In the "Shade Controller" thing, create the cloud variables explained below:
 
-- `programmed_hour_1` (`int` type, read and write permission): this variable defines the hour of the first programmed scenario.
-- `programmed_hour_2` (`int` type, read and write permission): this variable defines the hour of the second programmed scenario.
-- `programmed_minutes_1` (`int` type, read and write permission): this variable defines the minutes of the first programmed scenario.
-- `programmed_minutes_2` (`int` type, read and write permission): this variable defines the minutes of the second programmed scenario.
-- `open_shade` (`bool` type, read and write permission): this variable is used to open the roller window shade if it is set to `true`.
-- `close_shade` (`bool` type, read and write permission): this variable is used to close the roller window shade if it is set to `true`.
-- `shade_state` (`bool` type, read and write permission): this variable is used to monitor the current status of the roller window shade, `true` for open and `false` for closed.
+Variable: `programmed_hour_1`
+- Type: `int`
+- Permission: `Read & Write`
+- Update policy: `On change`
+- Description: this variable defines the hour of the first programmed scenario.
+
+Variable: `programmed_hour_2`
+- Type: `int`
+- Permission: `Read & Write`
+- Update policy: `On change`
+- Description: this variable defines the hour of the second programmed scenario.
+
+Variable: `programmed_minutes_1`
+- Type: `int`
+- Permission: `Read & Write`
+- Update policy: `On change`
+- Description: this variable defines the minutes of the first programmed scenario.
+
+Variable: `programmed_minutes_2`
+- Type: `int`
+- Permission: `Read & Write`
+- Update policy: `On change`
+- Description: this variable defines the minutes of the second programmed scenario.
+
+Variable: `open_shade`
+- Type: `bool`
+- Permission: `Read & Write`
+- Update policy: `On change`
+- Description: this variable is used to open the roller window shade if it is set to `true`.
+
+Variable: `close_shade`
+- Type: `bool`
+- Permission: `Read & Write`
+- Update policy: `On change`
+- Description: this variable is used to close the roller window shade if it is set to `true`.
+
+Variable: `shade_shade`
+- Type: `bool`
+- Permission: `Read & Write`
+- Update policy: `Periodically`
+- Description: this variable is used to monitor the current status of the roller window shade, `true` for open and `false` for closed.
 
 ![Variables created in the Arduino IoT Cloud thing of the application](assets/arduino-cloud-1.png)
 
