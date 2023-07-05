@@ -202,7 +202,8 @@ There are five essential steps in the setup function:
 - After establishing a Wi-Fi® connection, the connected network information is displayed using the `printCurrentNet()` and `printWifiData()` functions in the Arduino IDE Serial Monitor. This information will be used for debugging purposes.
 - The NTP client is initialized, and Opta™️ PLC's RTC is aligned with the updated time retrieved from the NTP server.
 
-- Two digital inputs, two digital outputs, and two built-in LEDs of Opta™️ are initialized, the roller window shade is stopped from moving using the `stop_shade()` function. The built-in LEDs of Opta™️ are used in the application as visual feedback for user feedback and debugging purposes.
+- Two digital inputs, two digital outputs, and two built-in LEDs of Opta™️ are initialized, the roller window shade is stopped using the `stop_shade()` function. The built-in LEDs of Opta™️ are used in the application as visual feedback for user feedback and debugging purposes.
+
 
 The main loop shown below:
 
