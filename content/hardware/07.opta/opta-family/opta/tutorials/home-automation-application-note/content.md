@@ -322,7 +322,8 @@ void setup() {
 }
 
 void loop() {
-  // Check and verify if its time to move up or down the roller window shade
+  // Check and verify if it's time to move up or down the roller window shade
+
   local_hour = getLocalHour();
   local_minutes = getLocalMinutes();
 
