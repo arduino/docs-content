@@ -67,7 +67,8 @@ The following diagram shows the electrical connections of the intended applicati
 
 ![Application electrical connections](assets/home-automation-electrical-connections.png)
 
-The Opta™️ controls a DC motor via a driver using digital output terminals `D0` and `D1`; two NO SPDT limit switches are connected to digital input terminals `A3` and `A4` of the Opta™️. A 12V DC/2A power supply is used to power the Opta™️, the DC motor, and the rest of the application.
+The Opta™️ controls a DC motor via a driver using the digital output terminals `D0` and `D1`; two NO SPDT limit switches are connected to digital input terminals `I3` and `I4` of the Opta™️. A 12V DC/2A power supply is used to power the Opta™️, the DC motor, and the rest of the application.
+
 
 ***Note: The maximum voltage of Opta™️ digital input pins is 24 VDC.***
 
