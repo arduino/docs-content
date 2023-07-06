@@ -19,14 +19,14 @@ LVGL is a very powerful graphical framework that is compatible with the Giga Dis
 
 ## Downloading the Library and Core
 
-The Giga core includes a library that will help us handle the display so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
+The Giga core includes a library that will help us handle the display, so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
 
-In this guide we will be using three different libraries:
+In this guide, we will be using three different libraries:
 - **Arduino_H7_Video**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
 - **Arduino_GigaDisplayTouch**
 - **lvgl** 
 
-Open the library manager and install the latest version of **Arduino_GigaDisplayTouch** and **lvgl** .
+Open the library manager and install the latest version of **Arduino_GigaDisplayTouch** and **lvgl**.
 
 In the sketch include the libraries like this:
 
@@ -366,5 +366,5 @@ This guide went through the building blocks of the different components that can
 ![Example in the IDE](assets/example-in-ide.svg)
 This example sketch will show the different components in a 2x2 grid.
 
-## Next step
-If you are interested in finding out how to use LVGL with the on-board IMU check out our [Orientation tutorial](). There are more features of the display shield to discover, for example using the camera connector. For more information on that have a look at our [Camera tutorial](). LVGL has a lot of customizibality, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield, just remember to use the display specific configuration that was shown at the [start of this tutorial](#Display Shield Configuration).
+## Next Step
+If you are interested in finding out how to use LVGL with the on-board IMU check out our [Orientation tutorial](). There are more features of the display shield to discover, for example using the camera connector. For more information on that have a look at our [Camera tutorial](). LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#Display Shield Configuration).
