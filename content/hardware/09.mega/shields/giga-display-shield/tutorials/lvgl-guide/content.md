@@ -148,7 +148,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
-![An image rendered on the display shield with LVGL](assets/image.jpg)
+![An image rendered on the display shield with LVGL](assets/image.svg)
 
 ## Functional Elements
 
@@ -175,7 +175,7 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-![Checkboxes rendered on the display shield with LVGL](assets/checkboxes.jpg)
+![Checkboxes rendered on the display shield with LVGL](assets/checkboxes.svg)
 
 ### Radio Button
 
@@ -200,7 +200,7 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
 
-![Radio buttons rendered on the display shield with LVGL](assets/radiobuttons.jpg)
+![Radio buttons rendered on the display shield with LVGL](assets/radiobuttons.svg)
 
 ### Slider
 
@@ -232,7 +232,7 @@ If you want a label by your slider it can be created like you would create any o
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
-![Slider rendered on the display shield with LVGL](assets/slider.jpg)
+![Slider rendered on the display shield with LVGL](assets/slider.svg)
 
 ### Bar
 
@@ -357,8 +357,8 @@ static void button_event_callback(lv_event_t * e) {
 }
 ```
 
-![A button rendered on the display shield with LVGL](assets/button.jpg)
-![Button when it has been clicked](assets/button-clicked.jpg)
+![A button rendered on the display shield with LVGL](assets/button.svg)
+![Button when it has been clicked](assets/button-clicked.svg)
 
 ## Conclusion
 
