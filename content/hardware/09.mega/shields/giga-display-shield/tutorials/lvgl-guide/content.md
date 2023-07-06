@@ -200,7 +200,7 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
 
-![Radio buttons rendered on the display shield with LVGL](assets/radiobuttons.svg)
+![Radio buttons rendered on the display shield with LVGL](assets/radio-buttons.svg)
 
 ### Slider
 
@@ -362,4 +362,6 @@ static void button_event_callback(lv_event_t * e) {
 
 ## Conclusion
 
-This guide went through the building blocks of the different components that can be implemented with lvgl. To see these examples in a full running example sketch go to **File->Examples->Arduino_H7_Video->LVGLDemo**. This example sketch will show the different components in a 2x2 grid.
+This guide went through the building blocks of the different components that can be implemented with lvgl. To see these examples in a full running example sketch go to **File->Examples->Arduino_H7_Video->LVGLDemo**.
+![Example in the IDE](assets/example-in-ide.svg)
+This example sketch will show the different components in a 2x2 grid.
