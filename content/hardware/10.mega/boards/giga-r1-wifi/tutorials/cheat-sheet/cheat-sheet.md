@@ -911,7 +911,7 @@ The **STM32H7** has an internal OPAMP and comparator that are exposed on the **G
 
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-The **GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-12. You may use them as analog output pins with the function: 
+The **GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-13. You may use them as analog output pins with the function: 
 
 ```arduino
 analogWrite(pin, value);
