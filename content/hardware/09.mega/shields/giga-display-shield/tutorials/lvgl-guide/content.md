@@ -37,7 +37,9 @@ In the sketch include the libraries like this:
 #include "Arduino_GigaDisplayTouch.h"
 ```
 
-### Initializing the Libraries
+## General Set Up
+
+### Display Shield Configuration
 
 We then will also need to define the screen we are using, do this by adding this line of code after the library inclusions. This function will use the **Arduino_H7_Video** library:
 
@@ -58,9 +60,7 @@ Display.begin();
 TouchDetector.begin();
 ```
 
-## General Set Up
-
-### Screen Configuration
+### LVGL Screen Configuration
 
 When creating elements, information about the screen and placement needs to be provided. Lets create a pointer variable that can be used whenever the screenspace needs to be used. The pointer variable will be named `screen` and to use the current screen for the pointer use `lv_scr_act()`.
 
@@ -365,3 +365,6 @@ static void button_event_callback(lv_event_t * e) {
 This guide went through the building blocks of the different components that can be implemented with lvgl. To see these examples in a full running example sketch go to **File->Examples->Arduino_H7_Video->LVGLDemo**.
 ![Example in the IDE](assets/example-in-ide.svg)
 This example sketch will show the different components in a 2x2 grid.
+
+## Next step
+If you are interested in finding out how to use LVGL with the on-board IMU check out our [Orientation tutorial](). There are more features of the display shield to discover, for example using the camera connector. For more information on that have a look at our [Camera tutorial](). LVGL has a lot of customizibality, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield, just remember to use the display specific configuration that was shown at the [start of this tutorial](#Display Shield Configuration).
