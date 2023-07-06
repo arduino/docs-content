@@ -65,11 +65,11 @@ The LED Matrix library for the UNO R4 WiFi works on the principle of creating a 
 
 A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
-In order to control the 12x8 LED matrix on the Uno R4 WiFi, you need a space in memory that's at least 96 bits in size. The library provides two ways to do this. 
+In order to control the 12x8 LED matrix on the UNO R4 WiFi, you need a space in memory that's at least 96 bits in size. The library provides two ways to do this. 
 
 The first is simply to make a two-dimensional array of bytes like so:
 ```arduino
-byte pixels[8][12] = {
+byte frame[8][12] = {
   { 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
   { 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0 },
   { 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0 },
@@ -98,7 +98,7 @@ In this section we'll walk through the process and the concept of how you may cr
 Here's the same heart in that form:
 
 ```arduino
-unsigned long pixels[] = {
+unsigned long frame[] = {
   0x3184a444,
   0x42081100,
   0xa0040000
@@ -110,7 +110,7 @@ But how do those hexadecimal values relate to the positions of the pixels? To fi
 
 ```arduino
 for (int b = 0; b < 3; b++) {
-    Serial.println(pixels[b], BIN);
+    Serial.println(frame[b], BIN);
   }
 ```
 
