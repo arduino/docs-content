@@ -328,18 +328,17 @@ oled = ssd1306.SSD1306_I2C(DISPLAY_WIDTH, DISPLAY_HEIGHT, i2cbus)
 # oled.fill(0)
 oled.show()
 
-# Display the text "Arduino" at the specified coordinates
+# Display the text "Hello" at the specified coordinates
 oled.text('Arduino', 40, 12)      
-# Display the text "vs" at the specified coordinates   
-oled.text('+', 60, 26)      
-# Display the text "MicroPython" at the specified coordinates        
+
+# Display the text "World" at the specified coordinates        
 oled.text('MicroPython', 23, 45)     
 
 # Update the OLED display to reflect the changes
 oled.show()                          
 ```
 
-You should now see Arduino + MicroPython printed on the screen.
+You should now see `Hello World` printed on the screen.
 
 ![OLED screen output](./assets/Oled.png)
 
