@@ -305,7 +305,7 @@ static void set_bar_val(void * bar, int32_t val) {
 }
 ```
 
-![A bar rendered on the display shield with LVGL](bar.gif)
+![A bar rendered on the display shield with LVGL](assets/bar.gif)
 
 ### Button
 
