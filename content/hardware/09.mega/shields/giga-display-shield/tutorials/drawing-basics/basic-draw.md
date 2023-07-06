@@ -62,7 +62,7 @@ Next, we want to draw the two circles that are in the bigger circle of the Ardui
   }
 ```
 
-Lastly, let's draw the plus and minus symbols inside the two circles of the logo. The easiest way to draw these is to use the `Display.rect()` function, which will draw a rectangle with the parameters given. Let's first give the color with `Display.fill` as we have done before. When using `Display.rect()` we can like with the circles before make it easier and use the display's dimensions as the base of the sizes. After entering the width and height of the rectangle we can enter:
+Lastly, let's draw the plus and minus symbols inside the two circles of the logo. The easiest way to draw these is to use the `Display.rect()` function, which will draw a rectangle with the parameters given. Let's first give the color with `Display.fill` as we have done before. When using `Display.rect()` we can make it easier and use the display's dimensions as the base of the sizes. After entering the width and height of the rectangle we can enter:
 
 ```arduino
   Display.fill(255, 255, 255);
