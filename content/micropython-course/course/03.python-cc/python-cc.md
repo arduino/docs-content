@@ -6,7 +6,7 @@ title: 'Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
 ---
 
-We ended last chapter by running the `print('Hello world!')` command, to make sure our setup was working properly. In this chapter, we will take you through some useful Python syntax that will be of help when you are creating MicroPython scripts.
+We ended last chapter by making **a light blink**, to make sure our setup was working properly. In this chapter, we will take you through some useful Python syntax that will be of help when you are creating MicroPython scripts.
 
 ***In this chapter we will cover a small part of the Python programming language. This will help you to better understand the rest of the course. If you are familiar with Python, this chapter is not a requirement.***
 

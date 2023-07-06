@@ -9,13 +9,14 @@ description: 'Ready to use code & circuit examples for popular components such a
 
 In this final chapter of the MicroPython 101 course, you will find code & circuit examples for popular components, such as motors, displays and sensors. These components can be combined to make fun projects, and works out of the box with the Nano ESP32 & MicroPython.
 
+***External odules used in this chapter are third party and has not been developed by the Arduino team. Credit is due to the developers of these modules.***
 
 ## Module Installation
 
 Many of these modules are not included in your MicroPython installation, but don't worry, installing them are very easy and require no additional software!
 
 To install an external module, use the script below. Inside the script, the `URL` variable needs to be replaced with a valid URL that leads to a module. The URL can look like the following:
-- https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/neopixel.py
+- https://raw.githubusercontent.com/stlehmann/micropython-ssd1306/master/ssd1306.py
 
 ***Make sure to add your own Wi-Fi® network & password to the `WIFI_NETWORK` and `WIFI_PASSWORD` variables.***
 
@@ -46,6 +47,12 @@ mip.install(URL)
 Running this script will install the module on your board, inside a folder called `lib`. You can check this out under **"Files"** while your board is connected via your MicroPython editor.
 
 ***How to install modules are explained in more detail in the [Introduction to MicroPython](/micropython-course/course/introduction-python) chapter.***
+
+### Removing Modules
+
+If you install too many modules, you will run out of space. You can remove a module directly in the editor, by selecting the file and clicking on the **"Delete"** icon.
+
+***For more detailed instructions, see the [Removing Modules](/micropython-course/course/introduction-python#removing-modules) section in the second chapter.***
 
 ## Button
 
@@ -165,13 +172,7 @@ This example shows how to use a [Neopixel](https://www.seeedstudio.com/Grove-RGB
 
 ![Neopixel Circuit](./assets/circuitNeopixel.png)
 
-This module is not part of the MicroPython installation, and needs to be installed via the following command:
-
-```python
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/neopixel.py")
-```
-
-Once installed, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
+To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
 ```python
 # Import the Pin class from the machine module
@@ -286,7 +287,7 @@ This example demonstrates how to use an [OLED](https://store.arduino.cc/products
 This module is not part of the MicroPython installation, and needs to be installed via the following command:
 
 ```python
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/ssd1306_1315.py")
+mip.install("https://raw.githubusercontent.com/micropython/micropython-lib/master/micropython/drivers/display/ssd1306/ssd1306.py")
 ```
 
 Once installed, you can run the script below, by clicking the **"Run"** button.
@@ -297,7 +298,7 @@ Once installed, you can run the script below, by clicking the **"Run"** button.
 # Import the Pin class and SoftI2C class (for using I2C) form the machine module
 from machine import SoftI2C, Pin
 # Import Oled module
-import ssd1306_1315 as ssd1306
+import ssd1306
 # Import the sleep_ms class from the time module
 from time import sleep_ms
 
@@ -386,7 +387,7 @@ This example shows how to use a [Grove Accelerometer](https://store.arduino.cc/p
 This module is not part of the MicroPython installation, and needs to be installed via the following command:
 
 ```python
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/lis3dh.py")
+mip.install("https://raw.githubusercontent.com/tinypico/tinypico-micropython/master/lis3dh%20library/lis3dh.py")
 ```
 
 Once installed, you can run the script below, by clicking the **"Run"** button.
@@ -502,7 +503,7 @@ This example shows how to use a [Grove 4-digit display](https://store.arduino.cc
 This module is not part of the MicroPython installation, and needs to be installed via the following command:
 
 ```python
-mip.install("https://raw.githubusercontent.com/Hannes7eicher/MicroPython/main/modules/tm1637.py")
+mip.install("https://raw.githubusercontent.com/mcauser/micropython-tm1637/master/tm1637.py")
 ```
 
 Once installed, you can run the script below, by clicking the **"Run"** button.
