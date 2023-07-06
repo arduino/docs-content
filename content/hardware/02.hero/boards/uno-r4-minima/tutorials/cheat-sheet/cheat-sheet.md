@@ -145,14 +145,16 @@ The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 Minima as foll
 
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-The UNO R4 Minima has six PWM-capable pins marked with ~ on the headers. The PWM-capable pins are:
+The UNO R4 Minima supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
-- D3~
-- D5~
-- D6~
-- D9~
-- D10~
-- D11~
+| Pin | RA4M1 | Timer   |
+| --- | ----- | ------- |
+| D3  | P105  | GTIOC1B |
+| D5  | P102  | GTIOC2B |
+| D6  | P106  | GTIOC0B |
+| D9  | P303  | GTIOC7B |
+| D10 | P112  | GTIOC3B |
+| D11 | P109  | GTIOC1A |
 
 You may use them as analog output pins with the function: 
 
