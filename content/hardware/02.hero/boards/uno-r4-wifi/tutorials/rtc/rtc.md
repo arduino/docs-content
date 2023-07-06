@@ -77,7 +77,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop(){
@@ -111,7 +111,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop() {
@@ -146,7 +146,6 @@ void loop() {
 To retrieve the Unix timestamp, use the `getUnixTime()` method.
 
 ```arduino
-```arduino
 #include "RTC.h"
 
 void setup() {
@@ -156,7 +155,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop() {
