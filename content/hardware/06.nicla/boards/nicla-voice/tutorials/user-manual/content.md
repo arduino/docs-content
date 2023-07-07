@@ -107,14 +107,15 @@ The Nicla voice can be powered by:
 It is recommended to update the NDP120 processor firmware and the built-in speech recognition model to the latest release. Follow these three steps to complete the update process:
 
 1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
-2. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
-3. Open a new terminal in the location where the .zip file was extracted and execute the following command:
+2. After uploading the sketch, **format your board's external Flash memory** before uploading the updated NDP120 processor firmwares files. You can do this by navigating to the Arduino IDE Serial Monitor and typing `F` and then Enter.
+3. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
+4. Open a new terminal in the location where the .zip file was extracted and execute the following command:
 
     ```
-    ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
+    syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
     ```
 
-    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands:
+    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands, for example in Windows the commands are the following:
 
     ```
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
@@ -1411,6 +1412,15 @@ The pin layout of the ESLOV connector is the following:
 5. GND
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
+
+## Troubleshooting
+
+### NDP120 Processor Firmware and Models Upload
+
+Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to format your Nicla Voice external Flash memory every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory. Follow these steps to perform the external memory format process:
+
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
+2. After uploading the sketch, navigate to the IDE's Serial Monitor and type an `F`. Your board's external memory should be erased, you can confirm this by typing an `L`.
 
 ## Support
 
