@@ -179,7 +179,7 @@ To use this component, copy the script script below into your `main.py` file, an
 from machine import Pin
 # Import the sleep class from the time module
 from time import sleep
-#Import the NeoPixel module
+#Import the neopixel module
 import neopixel
 
 # Set the number of pixel on the RGB strip
