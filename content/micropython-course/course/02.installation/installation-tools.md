@@ -80,6 +80,10 @@ while True:
     time.sleep(1) 
 ```
 
+After loading the script, we should be seeing a green light blink on the board.
+
+![Blinking green LED.](assets/greenled.gif)
+
 So what just happened? We just loaded a script to our board, instructing it to blink a green LED every second. This is to confirm things are working, and if you see blinking green light, you successfully installed and uploaded a script to your board! 
 
 ## Summary
