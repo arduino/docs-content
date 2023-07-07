@@ -450,7 +450,7 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 #### Accelerometer and Gyroscope Data
 
-The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter.
+The example sketch below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter. The sketch needs the `BMI270_Init.h` header file to be in the same directory as the sketch. You can download the example sketch and the header files [here](assets/nv_acc_gyro_test.rar).
 
 ```arduino
 /**
