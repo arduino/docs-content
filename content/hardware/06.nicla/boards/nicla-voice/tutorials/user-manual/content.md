@@ -727,7 +727,7 @@ When the board is not moving, you should see acceleration measurements close to 
 
 #### Magnetometer Data
 
-The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter.
+The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter. You can download the example sketch [here](assets/nv_mag_test.rar).
 
 ```arduino
 /**
@@ -885,7 +885,7 @@ void loop() {
 }
 ```
 
-Here you can find a step-by-step explanation of the code:
+Here you can find a step-by-step explanation of the sketch:
 
 First, the necessary libraries are included: 
 
