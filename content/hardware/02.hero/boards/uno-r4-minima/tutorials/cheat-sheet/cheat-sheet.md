@@ -149,7 +149,7 @@ The UNO R4 Minima supports PWM on pins marked with ~ on the headers. Officially 
 
 | Pin | RA4M1 | Timer   |
 | --- | ----- | ------- |
-| D3  | P105  | GTIOC1B |
+| D3  | P104  | GTIOC1B |
 | D5  | P102  | GTIOC2B |
 | D6  | P106  | GTIOC0B |
 | D9  | P303  | GTIOC7B |
