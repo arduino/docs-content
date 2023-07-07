@@ -143,6 +143,13 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 
 After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
 
+**Note**: Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory. Follow these steps to perform the **external memory format process**:
+
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
+2. After uploading the sketch, navigate to the IDE's Serial Monitor, type `F`, and press `Enter`. Your board's external memory should be formatted now, you can confirm this by typing an `L` and pressing `Enter`.
+
+After completing this process, you can upload NDP processor's firmware and model files to your board's external memory without issues as explained before.
+
 ### Built-in Speech Recognition Example
 
 The speech recognition example can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> AlexaDemo**. After successfully updating the NDP120 processor firmware and the speech recognition model to the latest release, we can upload the speech recognition example to the Nicla Voice. To test the example, say "Alexa"; this should make the onboard LED of the Nicla Voice blink blue if the keyword "Alexa" is recognized. If there is no response from the board, try speaking from a closer proximity or louder. You should also see in the Serial Monitor if the word "Alexa" was detected, as shown in the image below:
@@ -1420,17 +1427,6 @@ The pin layout of the ESLOV connector is the following:
 5. GND
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
-
-## Troubleshooting
-
-### NDP120 Processor Firmware and Models Upload
-
-Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory. Follow these steps to perform the external memory format process:
-
-1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
-2. After uploading the sketch, navigate to the IDE's Serial Monitor, type `F`, and press `Enter`. Your board's external memory should be formatted now, you can confirm this by typing an `L`.
-
-After completing this process, you can upload NDP processor's firmware and model files to your board's external memory without issues.
 
 ## Support
 
