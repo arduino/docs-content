@@ -1077,12 +1077,6 @@ The Portenta C33 board features an onboard Bluetooth® module, the ESP32-C3-MINI
 To enable Bluetooth® communication on the Portenta C33, you can use the [`ArduinoBLE` library](https://github.com/arduino-libraries/ArduinoBLE)`ArduinoBLE` library. Let's walk through an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of how to use the `ArduinoBLE` to create a voltage level monitor application:
 
 ```arduino
-// Define the voltage service and its characteristic
-BLEService voltageService("1101");
-BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
-
-const int analogPin = A0;
-
 /**
   Read voltage level from an analog input of the Nicla Voice,
   then maps the voltage reading to a percentage value ranging from 0 to 100.
@@ -1090,6 +1084,15 @@ const int analogPin = A0;
   @param none
   @return the voltage level percentage (int).
 */
+
+#include <ArduinoBLE.h>
+
+// Define the voltage service and its characteristic
+BLEService voltageService("1101");
+BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
+
+const int analogPin = A0;
+
 int readVoltageLevel() {
   int voltage = analogRead(analogPin);
   int voltageLevel = map(voltage, 0, 1023, 0, 100);
