@@ -102,6 +102,14 @@ The Nicla voice can be powered by:
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
+The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharge()` function defined in the Nicla Voice board core:
+
+```arduino
+// Enabling the battery charger 
+// The function parameter defines the charging current in mA
+nicla::enableCharge(100);
+```
+
 ### NDP120 Processor Firmware Update
 
 It is recommended to update the NDP120 processor firmware and the built-in speech recognition model to the latest release. Follow these three steps to complete the update process:
