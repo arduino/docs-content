@@ -12,9 +12,9 @@ Arduino is a platform that enables students, teachers, hobbyists & professionals
 
 The Arduino ecosystem is comprised of the hardware (a physical board with a tiny computer), software tools & services (Arduino IDE, Arduino Cloud), and the Arduino programming language, or "Arduino API".
 
-![The Arduino Ecosystem]()
-
 ## The Arduino Board
+
+![The Arduino Nano ESP32.](assets/nano-esp32.png)
 
 An Arduino development board is centered around a tiny computer that you program yourself to behave in specific ways. You can, for example, program a board to control a light, a motor, or to read the values of a temperature sensor.
 
