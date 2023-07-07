@@ -91,13 +91,13 @@ Having trouble? Continue to the troubleshooting section. Otherwise, move on to t
 ## Troubleshooting
 Got stuck? Here are a few common issues you may run into and tips on how to move forward.
 
-### Board not Detected?
+### Board not Detected
 
 If your board is not detected by the MicroPython firmware installer app, double check that you've correctly put your board in bootloader mode.
 
 Go back to step 3 in the [Step by Step](#step-by-step) section, and make sure that your board has a purple light by the end of it.
 
-### Can't connect to your board in Arduino Lab for MicroPython?
+### Connection Fail
 
 If you cannot connect to your board in the code editor, make sure you're selecting the right port. 
 
