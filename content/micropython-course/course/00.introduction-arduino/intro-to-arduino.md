@@ -67,7 +67,7 @@ The compiler is very strict and will point out where in your code you have a pro
 
 ### MicroPython
 
-Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python® on your board permanently, and then you send instructions to it. This means you can change the code for your board and load it in real time. MicroPython also implements a file system on your board.
+Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python on your board permanently, and then you send instructions to it. This means you can change the code for your board and load it in real time. MicroPython also implements a file system on your board.
 
 ## Summary
 
