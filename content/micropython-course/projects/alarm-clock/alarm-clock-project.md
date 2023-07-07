@@ -7,7 +7,7 @@ description: 'Build your own alarm clock using a 4-digit-display and a buzzer to
 ---
 
 
-This project will use the `ntptime` module to keep track of the time and display it on a 4-digit-display. An alarm can then be set in the code, which will turn on the buzzer at a specified time. To keep track of time accurately the board will also connect to a wifi network.
+This project will use the `ntptime` module to keep track of the time and display it on a 4-digit-display. An alarm can then be set in the code, which will turn on the buzzer at a specified time. To keep track of time accurately the board will also connect to a Wi-Fi® network.
 
 ## Required Hardware
 
