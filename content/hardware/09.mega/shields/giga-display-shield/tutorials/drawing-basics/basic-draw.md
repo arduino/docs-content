@@ -82,7 +82,7 @@ Now that the drawing is done the `Display.endDraw()` function can be called.
 
 The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogoDrawing**. Now upload the entire sketch and you should see the Arduino logo being drawn on the display. 
 
-## Testing it out
+## Testing It Out
 
 Now that it is all uploaded your display shield should look like the image below:
 
