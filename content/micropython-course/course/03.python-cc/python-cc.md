@@ -6,25 +6,25 @@ title: 'Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
 ---
 
-We ended last chapter by making **a light blink**, to make sure our setup was working properly. In this chapter, we will take you through some useful Python syntax that will be of help when you are creating MicroPython scripts.
+We ended last chapter by making **a light blink**, to make sure our setup was working properly. In this chapter, we will take you through some useful Python® syntax that will be of help when you are creating MicroPython scripts.
 
-***In this chapter we will cover a small part of the Python programming language. This will help you to better understand the rest of the course. If you are familiar with Python, this chapter is not a requirement.***
+***In this chapter we will cover a small part of the Python® programming language. This will help you to better understand the rest of the course. If you are familiar with Python®, this chapter is not a requirement.***
 
 ## Overview
 
-This chapter introduces a number of Python syntax that will prove very useful throughout this course. The intention of this chapter is for you to get familiar with Python, so that the MicroPython examples in this course will be easier to understand.
+This chapter introduces a number of Python® syntax that will prove very useful throughout this course. The intention of this chapter is for you to get familiar with Python®, so that the MicroPython examples in this course will be easier to understand.
 
-Many of the examples presented in this chapter are just fragments. Try to combine different elements to test your Python skills!
+Many of the examples presented in this chapter are just fragments. Try to combine different elements to test your Python® skills!
 
-### Learn Python
+### Learn Python®
 
-While this chapter provides some fundamental Python syntax, it does not cover all. If you are interested in learning more about Python, we recommend you checking out some of the links below:
+While this chapter provides some fundamental Python® syntax, it does not cover all. If you are interested in learning more about Python®, we recommend you checking out some of the links below:
 - [learnpython.org](https://www.learnpython.org/)
 - [W3Schools](https://www.w3schools.com/python/default.asp)
 
 ## Variables
 
-Let's get to it! The very first thing to learn in Python is how to create a variable. Using Python, you do not need to name the data type, that is automatically handled.
+Let's get to it! The very first thing to learn in Python® is how to create a variable. Using Python®, you do not need to name the data type, that is automatically handled.
 
 ```python
 stringVar = 'This is a String' # string
@@ -32,7 +32,7 @@ numVar = 250 # numeric value
 arrayVar = [1,3,6,7] # array
 ```
 
-A variable can store just about anything, but pay attention to *how* they are stored. For example, a string (which holds characters, or text), needs the quotation marks, while a number does not need anything.
+A variable can store just about anything, but pay attention to **how** they are stored. For example, a string (which holds characters, or text), needs the quotation marks, while a number does not need anything.
 
 ## Print
 
@@ -53,7 +53,7 @@ As you can see, there are many different approaches on how to print things to th
 
 ## Operators
 
-Operators in Python are used to for example add two numbers together, assign a value to a variable or compare two values with each other, and are fundamental in Python programming.
+Operators in Python® are used to for example add two numbers together, assign a value to a variable or compare two values with each other, and are fundamental in Python® programming.
 
 To perform an **arithmetic** operation (addition, subtraction, division etc.), you can write it like:
 
@@ -102,16 +102,16 @@ else:
     print("x is smaller than 10")
 ```
 
-Now take a look at what happens after each statement. Notice the empty space just before `print()`? This is called an *indentation*, and is how Python organises code.
+Now take a look at what happens after each statement. Notice the empty space just before `print()`? This is called an **indentation**, and is how Python® organizes code.
 
-Anything inside of this indentation will execute if the statement is met, and this is a fundamental principle that is used in every Python program that you write!
+Anything inside of this indentation will execute if the statement is met, and this is a fundamental principle that is used in every Python® program that you write!
 
 Now since we already defined `x` to be `5+5`, the terminal will of course print:
 - `"x is larger than 10"` 
 
 ## While Loop
 
-Now that we are a bit more familiar with statements, let's take a look at the `while` loop, which is designed to execute code *while* a condition is met.  
+Now that we are a bit more familiar with statements, let's take a look at the `while` loop, which is designed to execute code **while** a condition is met.  
 
 ```python
 x = 5
@@ -197,12 +197,12 @@ value = my_function(5,5)
 print(value)
 ```
 
-The above function *returns* a value of `10`, because we fed `5`,`5` into it. The function simply adds it together, and returns the value to you.
+The above function **returns** a value of `10`, because we fed `5`,`5` into it. The function simply adds it together, and returns the value to you.
 
 ## Summary
 
-In this Python crash course, we've covered some of the very fundamental aspects of the Python programming language. 
+In this Python® crash course, we've covered some of the very fundamental aspects of the Python® programming language. 
 
-In this course, we are focused on MicroPython, which is a micro-implementation of the language. This means that most core functionalites of the language is available, such as **operators, statements, loops & functions.**
+In this course, we are focused on MicroPython, which is a micro-implementation of the language. This means that most core functionalities of the language is available, such as **operators, statements, loops and functions**.
 
 - [Next Chapter: Digital Signals](/micropython-course/course/digital)

@@ -9,7 +9,7 @@ description: 'Ready to use code & circuit examples for popular components such a
 
 In this final chapter of the MicroPython 101 course, you will find code & circuit examples for popular components, such as motors, displays and sensors. These components can be combined to make fun projects, and works out of the box with the Nano ESP32 & MicroPython.
 
-***External odules used in this chapter are third party and has not been developed by the Arduino team. Credit is due to the developers of these modules.***
+***External modules used in this chapter are third party and has not been developed by the Arduino team. Credit is due to the developers of these modules.***
 
 ## Module Installation
 
@@ -166,11 +166,11 @@ You should now see the servo moving back and forth in an endless loop.
 <source src="assets/servoMotor.mp4" type="video/mp4" />
 </video>
 
-## Neopixel
+## NeoPixel
 
-This example shows how to use a [Neopixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB LEDs. Although we are addressing 10 LEDs at once we luckily still only need one signal pin making our setup super easy. Connect the RGB strip as seen in the circuit below, copy the code to `main.py` and press play.
+This example shows how to use a [NeoPixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB LEDs. Although we are addressing 10 LEDs at once we luckily still only need one signal pin making our setup super easy. Connect the RGB strip as seen in the circuit below, copy the code to `main.py` and press play.
 
-![Neopixel Circuit](./assets/circuitNeopixel.png)
+![NeoPixel Circuit](./assets/circuitNeopixel.png)
 
 To use this component, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 
@@ -179,7 +179,7 @@ To use this component, copy the script script below into your `main.py` file, an
 from machine import Pin
 # Import the sleep class from the time module
 from time import sleep
-#Import the neopixel module
+#Import the NeoPixel module
 import neopixel
 
 # Set the number of pixel on the RGB strip
@@ -444,7 +444,7 @@ if imu.device_check():
         time.sleep(0.1)
 ```
 
-Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movements is initalized.
+Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movements is initialized.
 
 <video width="100%" loop autoplay>
 <source src="assets/Accelerometer.mp4" type="video/mp4" />
@@ -495,7 +495,7 @@ After running the script, test it out by clapping your hands or making other lou
 
 This example shows how to use a [Grove 4-digit display](https://store.arduino.cc/products/grove-4-digit-display). 
 
-4 digit displays are very basic types of displays that are often seen in alarm clocks as they can display any number between 0 - 9. This sensors also uses I2C which is why we need all four wires as shown below.
+4 digit displays are very basic types of displays that are often seen in alarm clocks as they can display any number between 0-9. This sensors also uses I2C which is why we need all four wires as shown below.
 
 ![4 Digit Display Circuit](./assets/circuit4DigitDisplay.png)
 
