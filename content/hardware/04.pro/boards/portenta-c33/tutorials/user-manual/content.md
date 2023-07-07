@@ -1608,6 +1608,9 @@ If you encounter any issues or have questions while working with the Portenta C3
 
 Explore our Help Center, which offers a comprehensive collection of articles and guides for the Portenta C33. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
+<embed type="text/html" src="https://support.arduino.cc/hc/en-us/sections/360004767859-Portenta-Family" width="500" height="200">
+
+
 - [Portenta C33 help center page](https://support.arduino.cc/hc/en-us/sections/360004767859-Portenta-Family)
 
 ### Forum
