@@ -50,4 +50,4 @@ There are several examples available for the Nano ESP32 board, which can be acce
 
 In this tutorial, we have installed the Nano ESP32 board package, using the Arduino IDE.
 
-For any issues regarding the Arduino ESP32 board package, please refer to the [arduino-esp32](https://github.com/arduino/arduino-esp32).
+For any issues regarding the Arduino ESP32 board package, please refer to the [arduino-esp32 Core](https://github.com/arduino/arduino-esp32).

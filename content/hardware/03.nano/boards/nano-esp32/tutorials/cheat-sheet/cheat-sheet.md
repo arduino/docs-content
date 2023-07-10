@@ -12,7 +12,7 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
+The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox® NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
 ![Nano ESP32 overview](assets/nano-esp32-overview.png)
 
@@ -24,13 +24,13 @@ In this document, you will find information regarding features your board, and l
 
 ![NORA-W106 module.](assets/nano-esp32-wifi.png)
 
-The Nano ESP32 features the **ESP32-S3** system on a chip (SoC) from Espressif, which is embedded in the **NORA-W106** module. The ESP32-S3 has a dual-core microprocessor Xtensa® 32-bit LX7, and has support for the 2.4 GHz Wi-Fi® band as well as Bluetooth 5. The operating voltage of this SoC is 3.3 V.
+The Nano ESP32 features the **ESP32-S3** system on a chip (SoC) from Espressif, which is embedded in the **NORA-W106** module. The ESP32-S3 has a dual-core microprocessor Xtensa® 32-bit LX7, and has support for the 2.4 GHz Wi-Fi® band as well as Bluetooth® 5. The operating voltage of this SoC is 3.3 V.
 
 The NORA-W106 also embeds an antenna for Bluetooth® and Wi-Fi® connectivity.
 
 ### Memory
 
-The memory of the ESP32-S3 has 
+The Nano ESP32 has
 - 384 kB ROM
 - 512 kB SRAM
 - 16 MB of Flash (external, provided via GD25B128EWIGR)
@@ -43,17 +43,17 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Nano ESP32 Core
 
-This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), a derivation of the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
+This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
-To install the core, go the **board manager** and search for **Nano ESP32**. If you need more instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
+To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
 You can also program your board via the [Arduino Web Editor](arduino-cloud/getting-started/getting-started-web-editor), an online IDE.
 
 ## MicroPython
 
-The Nano ESP32 has support for MicroPython, a micro-implementation of Python that can easily be installed on your board.
+The Nano ESP32 has support for MicroPython, a micro-implementation of Python® that can easily be installed on your board.
 
 To get started with MicroPython, please visit [MicroPython 101](/micropython-course), a course dedicated towards learning MicroPython on the Nano ESP32.
 
@@ -87,11 +87,11 @@ The [Sleep Modes](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/
 
 ![Nano ESP32 Power Tree.](assets/nano-esp32-powertree.png)
 
-To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. Never exceed 5-18 V as the **MP2322GQH** converter on the board is not designed for any higher voltages. 
+To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When using the VIN pin, use voltages within the range of 5-18 V as the **MP2322GQH** converter on the board may otherwise be damaged. 
 
 ### Input Voltage (VIN)
 
-- If you're using the USB-C connector you must power it with 5 V.
+- If you're using the USB-C® connector you must power it with 5 V.
 - The recommended input voltage on the VIN pin is 5-18 V.
 
 ### Operating Voltage
@@ -102,9 +102,9 @@ The internal operating voltage of the ESP32-S3 SoC is 3.3 V, and you should not 
 
 The Nano ESP32 is the first board to not feature a **5V** pin. It has instead been replaced with VBUS, which is a more accurate description of the pin's capabilities.
 
-`VBUS` provides 5V whenever powered via USB. If powered via the VIN pin, it is disabled. This means that while powering the board through the VIN pin, you can't get 5 V from the board, and you need to use a logic level shifter or an external 5V power supply.
+`VBUS` provides 5 V whenever powered via USB. If powered via the VIN pin, it is disabled. This means that while powering the board through the VIN pin, you can't get 5 V from the board, and you need to use a logic level shifter or an external 5 V power supply.
 
-This measure is taken to prevent the board's microcontroller from accidentally receiving 5V, which will damage it.
+This measure is taken to prevent the board's microcontroller from accidentally receiving 5 V, which will damage it.
 
 ## Pins
 
@@ -157,8 +157,8 @@ The Nano ESP32 has 14 digital pins (D0-D13), that can be read by using `digitalR
 | D4       | Digital | GPIO                                 |
 | D3       | Digital | GPIO                                 |
 | D2       | Digital | GPIO                                 |
-| D1/RX    | Digital | GPIO 1 / **UART** Receiver (RX)      |
-| D0/TX    | Digital | GPIO 0 / **UART** Transmitter (TX)   |
+| D0/RX    | Digital | GPIO 0 / **UART** Receiver (RX)      |
+| D1/TX    | Digital | GPIO 1 / **UART** Transmitter (TX)   |
 
 Note that all analog pins can be used as digital pins as well, but not vice versa.
 
