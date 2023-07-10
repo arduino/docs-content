@@ -38,7 +38,7 @@ The goals of this tutorial are:
 
 Debugging your Arduino project allows you to dive deep into your code and troubleshoot as well as analyze the code execution. J-link is a popular debugging tool that provides a direct connection between your computer and the Arduino board. By connecting it you can gain full access to the microcontroller's internal registers, memory, and variables. This is especially helpful when working on more complex projects where understanding the code execution flow is crucial. With J-link and Ozone, you can step through the code line by line, allowing you to analyze why your code might break at a specific point.
 
-## Connnection
+## Connection
 
 Connecting the J-link to your UNO R4 Minima is super easy because there are special pins for debugging labeled as **SWD** pins.
 
