@@ -3,8 +3,8 @@ title: 'Debugging the Arduino UNO R4 Minima'
 description: 'Learn how to debug the UNO R4 Minima.'
 tags:
   - Debugger
-  - J-link
-  - Ozone
+  - J-Link®
+  - Segger® Ozone
 author: 'Hannes Siebeneicher'
 ---
 
@@ -12,18 +12,16 @@ Debugging is the process of identifying and fixing errors in your code. It’s a
 
 But generally speaking, debugging is used to inspect the code at different points in time, check the value of variables, and read specific memory addresses to make sure information is being passed on as intended. This is especially helpful when creating complex projects but even as a beginner, it can be helpful to know the basics of debugging, consequently saving you time and energy when trying to find the little annoying error causing your code to go bananas.
 
-This article covers the basic steps for debugging the UNO R4 Minima using the SWD pins and a J-link debugger.
+This article covers the basic steps for debugging the UNO R4 Minima using the SWD pins and a J-Link® debugger.
 
-![ArduinoJ-link](assets/arduino-j-link.png)
-
-In addition to the necessary hardware we also need some software allowing us to set breakpoints in our code. A breakpoint is an intentional stopping or pausing place at a specific point in the code, allowing you to read values at that exact point. In this case, we will be using Ozone which is a software developed by Segger. It’s a graphical debugger for embedded applications and we can use it to set breakpoints, read out memory addresses, and read the value of any variable at a specific point in time.
+In addition to the necessary hardware we also need some software allowing us to set breakpoints in our code. A breakpoint is an intentional stopping or pausing place at a specific point in the code, allowing you to read values at that exact point. In this case, we will be using Ozone which is a software developed by Segger®. It’s a graphical debugger for embedded applications and we can use it to set breakpoints, read out memory addresses, and read the value of any variable at a specific point in time.
 
 ## Goals
 
 The goals of this tutorial are:
 
 - learn about the basics of debugging.
-- learn how to connect the UNO R4 Minima to the Segger® J-link debugger.
+- learn how to connect the UNO R4 Minima to the Segger J-Link debugger.
 - learn how to use the Ozone debugger software to debug an Arduino sketch.
 
 ## Hardware & Software Needed
@@ -31,12 +29,12 @@ The goals of this tutorial are:
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
-- [Segger® J-link](https://www.segger.com/products/debug-probes/j-link/)
+- [Segger J-Link](https://www.segger.com/products/debug-probes/j-link/)
 - [Ozone](https://www.segger.com/products/development-tools/ozone-j-link-debugger/)
 
 ## Debugging
 
-Debugging your Arduino project allows you to dive deep into your code and troubleshoot as well as analyze the code execution. J-link is a popular debugging tool that provides a direct connection between your computer and the Arduino board. By connecting it you can gain full access to the microcontroller's internal registers, memory, and variables. This is especially helpful when working on more complex projects where understanding the code execution flow is crucial. With J-link and Ozone, you can step through the code line by line, allowing you to analyze why your code might break at a specific point.
+Debugging your Arduino project allows you to dive deep into your code and troubleshoot as well as analyze the code execution. J-Link is a popular debugging tool that provides a direct connection between your computer and the Arduino board. By connecting it you can gain full access to the microcontroller's internal registers, memory, and variables. This is especially helpful when working on more complex projects where understanding the code execution flow is crucial. With J-Link and Ozone, you can step through the code line by line, allowing you to analyze why your code might break at a specific point.
 
 ## Connection
 
@@ -66,15 +64,15 @@ When we upload the sketch with the Arduino IDE, we need to know where the `.ELF`
 
 ### Using the Setup with Segger® Ozone
 
-Download and install [Ozone (Segger) debugger](https://www.segger.com/downloads/J-link/#Ozone). If you are on Windows, make sure to also download the [J-Link Software and Documentation Pack for Windows.](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/about-j-link-gdb-server/) 
+Download and install [Ozone debugger](https://www.segger.com/downloads/J-link/#Ozone). If you are on Windows, make sure to also download the [J-Link Software and Documentation Pack for Windows.](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/about-j-link-gdb-server/) 
 
  When starting Ozone, make sure to enter the correct CPU into the settings box. The UNO R4 Minima uses the **R7FA4M1AB**. 
 
-![Ozone (Segger) J-Link cpu settings](assets/ozone_select_core.png)
+![Ozone J-Link cpu settings](assets/ozone_select_core.png)
 
-Continue to the next step. Here you need to change the **Target Interface** to **SWD**. Then select your J-link device in the list of emulators and head to the next page.
+Continue to the next step. Here you need to change the **Target Interface** to **SWD**. Then select your J-Link device in the list of emulators and head to the next page.
 
-![Ozone (Segger) J-Link connection settings](assets/ozone_select_debugger.png)
+![Ozone J-Link connection settings](assets/ozone_select_debugger.png)
 
 Now you get to the window that asks you to select the program to be debugged, this is where you load the project's `.ELF` file with the temporary output path that we noted before. Navigate to the correct directory, and select the `.ELF` file.
 
@@ -82,7 +80,7 @@ Now you get to the window that asks you to select the program to be debugged, th
 
 In the 'optional settings' dialog, set both options 'Initial PC' and 'Initial Stack Pointer' to 'Do not set' as it would skip the Arduino bootloader, otherwise this may prevent the sketch from running correctly.
 
-![Ozone (Segger) J-Link connection optional settings](assets/ozone_optional_settings.png)
+![Ozone J-Link connection optional settings](assets/ozone_optional_settings.png)
 
 When the setup is finished, Ozone will open the file containing the main function. You will note that this is not the .ino sketch you wrote since this is an abstraction layer generated by the IDE. To open our .ino sketch we need to go to **Find > Find source file** in the top toolbar.
 
@@ -100,4 +98,4 @@ For more information about the features present in the Ozone debugger, please go
 
 ## Conclusion
 
-In this tutorial, you learned how to connect your UNO R4 Minima board to a J-link device using the SWD pins and use it with the Ozone debugger. We also went through how to create a file with Arduino IDE that can be debugged in Ozone. And eventually how to use the Ozone debugger to debug an Arduino sketch.
+In this tutorial, you learned how to connect your UNO R4 Minima board to a J-Link device using the SWD pins and use it with the Ozone debugger. We also went through how to create a file with Arduino IDE that can be debugged in Ozone. And eventually how to use the Ozone debugger to debug an Arduino sketch.
