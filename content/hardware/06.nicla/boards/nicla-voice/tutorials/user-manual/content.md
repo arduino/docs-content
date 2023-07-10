@@ -143,7 +143,7 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 
 After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
 
-#### External Memory format
+#### External Memory Format
 
 Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory.
 
