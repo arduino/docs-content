@@ -12,7 +12,7 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox® NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
+The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC as its main microcontroller, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox® NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
 ![Nano ESP32 overview](assets/nano-esp32-overview.png)
 
@@ -149,16 +149,16 @@ The Nano ESP32 has 14 digital pins (D0-D13), that can be read by using `digitalR
 | D12/CIPO | Digital | **SPI** Controller In Peripheral Out |
 | D11/COPI | Digital | **SPI** Controller Out Peripheral In |
 | D10      | Digital | GPIO                                 |
-| D9       | Digital | GPIO                                 |
-| D8       | Digital | GPIO                                 |
+| D9       | Digital | GPIO & RX1                           |
+| D8       | Digital | GPIO & TX1                           |
 | D7       | Digital | GPIO                                 |
 | D6       | Digital | GPIO                                 |
 | D5       | Digital | GPIO                                 |
 | D4       | Digital | GPIO                                 |
 | D3       | Digital | GPIO                                 |
 | D2       | Digital | GPIO                                 |
-| D0/RX    | Digital | GPIO 0 / **UART** Receiver (RX)      |
-| D1/TX    | Digital | GPIO 1 / **UART** Transmitter (TX)   |
+| D0/RX    | Digital | GPIO 0 / **UART** Receiver (RX0)     |
+| D1/TX    | Digital | GPIO 1 / **UART** Transmitter (TX0)  |
 
 Note that all analog pins can be used as digital pins as well, but not vice versa.
 
@@ -197,7 +197,7 @@ To enter bootloader mode (chip boot mode), you can use either the BOOT0 (B0) or 
 
 ![Boot pins.](assets/nano-esp32-boot.png)
 
-Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding LED will light up (blue for )
+Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding Blue LED will light up.
 
 You can read more about different this in the [Strapping Pins section](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf#page=23) in the ESP32-S3's datasheet.
 

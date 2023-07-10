@@ -13,7 +13,7 @@ Connectivity:
   Wi-Fi®: u-blox® NORA-W106 (ESP32-S3)
   Bluetooth®: u-blox® NORA-W106 (ESP32-S3)
 Communication:
-  UART: 1x, D0 (TX), D1, (RX)
+  UART: 2x
   I2C: 1x, A4 (SDA), A5 (SCL)
   SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
 Power:
