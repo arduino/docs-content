@@ -39,9 +39,9 @@ noise and vibration detection, low-power speech recognition, contactless operati
   - Dedicated 48KB SRAM
 - **Sensors**
   - IMU 6-axis (BMI270)
-    - 16 bit 3-axis accelerometer ± 2/4/8/16 g range
+    - 16-bit 3-axis accelerometer ± 2/4/8/16 g range
       - Output data rates (ODR): 0.78Hz-1.6 kHz
-    - 16 bit 3-axis gyroscope ±125/250/500/1000/2000 dps range
+    - 16-bit 3-axis gyroscope ±125/250/500/1000/2000 dps range
       - Output data rates (ODR): 25Hz-6.4 kHz
     - Fast offset error compensation for accelerometer and gyroscope
     - Rapid startup time:
@@ -66,7 +66,7 @@ noise and vibration detection, low-power speech recognition, contactless operati
     - <1% total harmonic distortions up to 128 dBSPL
     - Sensitivity (± 1dB) and phase (± 2° @1kHz) matched
     - Flat frequency response with low-frequency roll-off at 28Hz
-    - Power optimized modes determined by PDM clock frequency
+    - Power-optimized modes determined by PDM clock frequency
     - PDM output
     - Omnidirectional pickup pattern
 - **I/O**
