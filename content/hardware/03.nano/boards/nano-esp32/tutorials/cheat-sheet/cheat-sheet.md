@@ -281,6 +281,8 @@ The pins used for UART on the Nano ESP32 are the following:
 | D0  | RX       | Receive Serial Data  |
 | D1  | TX       | Transmit Serial Data |
 
+![Nano ESP32 UART Pins](./assets/nano-esp32-uart.png)
+
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial1` object.
 
 ```arduino

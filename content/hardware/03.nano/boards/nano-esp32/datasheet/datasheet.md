@@ -106,7 +106,7 @@ The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/ardui
 
 The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embedding an ESP32-S3 series SoC as well as an embedded antenna. The ESP32-S3 is based on an Xtensa® LX7 series microprocessor.
 
-### Xtensa® Dual-Core 32-bit LX7 Microprocessor
+### Xtensa® Dual-Core 32bit LX7 Microprocessor
 
 The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-core 32-bit Xtensa® LX7. Each core can run at up to 240 MHz and has 512 kB SRAM memory. The LX7 features:
 - 32-bit customized instruction set
@@ -249,7 +249,7 @@ The efficiency of the converter depends on the input voltage via the VIN pin. Se
 - **12 V** - 85-90%
 - **18 V** - <85%
 
-This information is extracted from the [MP2322GQH's datasheet](/resources/datasheets/MP2322.pdf).
+This information is extracted from the MP2322GQH's datasheet.
 
 ### VUSB
 
@@ -257,7 +257,7 @@ There is no 5V pin available on the Nano ESP32. 5 V can only be provided via the
 
 While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
 
-### 3.3 V Pin
+### Using the 3.3 V Pin
 
 The 3.3 V pin is connected to the 3.3 V rail which is connected to the output of the MP2322GQH step down converter. This pin is primarily used to power external components.
 
@@ -269,7 +269,7 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 
 ## Pinout
 
-![Pinout for Nano ESP32.]()
+![Pinout for Nano ESP32.](./assets/pinout.png)
 
 ### Analog (JP1)
 
