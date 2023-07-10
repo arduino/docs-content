@@ -275,12 +275,12 @@ If you want to read more about the EEPROM check out [this article about Arduino 
 
 The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
-| Pin  | Type | 
-| ---- | ---- | 
-| D13  | SCK  |
-| D12  | CIP  |
-| D11  | COP  |
-| D10  | CS   |
+| Pin  | Type  | 
+| ---- | ----- | 
+| D13  | SCK   |
+| D12  | CIPO  |
+| D11  | COPI  |
+| D10  | CS    |
 
 The following example shows how to use SPI:
 
