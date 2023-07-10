@@ -125,9 +125,23 @@ The communication between both devices is done leveraging the I2C communication 
 
 ### Valves Control
 
+The valves can be controlled manually by using the onboard button, one tap opens the valve one, two taps valve two, and so on. Also, the valves can be controlled automatically by the system when the soil moisture is poor. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+
 ### Water Usage
 
-### Weather Forecast Consideration
+The water flow sensor will measure the water used and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
+
+### Soil moisture measurement
+
+Instead of measuring the percentage of water by volume in a given amount of soil, we will be using watermark sensors that are capable of measuring the physical force holding water in the soil, this is correlated with how difficult it is for the plants to extract water from the soil. 
+
+This measurement is done in Centibars, and we can use the following readings as a general guideline:
+
+- **0-10 Centibars** = Saturated soil
+- **10-30 Centibars** = Soil is adequately wet (except coarse sands, which are drying)
+- **30-60 Centibars** = Usual range for irrigation (most soils)
+- **60-100 Centibars** = Usual range for irrigation in heavy clay
+- **100-200 Centibars** = Soil is becoming dangerously dry- proceed with caution!
 
 ### Arduino Edge Control Code
 
