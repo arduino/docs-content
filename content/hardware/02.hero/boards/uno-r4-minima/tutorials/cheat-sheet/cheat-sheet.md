@@ -206,7 +206,7 @@ However you may change this write resolution if you need to, to up to 12 bits, a
 analogWriteResolution(12);
 ```
 
-To learn more about the ADC capabilities of the UNO R4 Minima, check out the [DAC Guide](/tutorials/uno-r4-minima/dac).
+To learn more about the DAC capabilities of the UNO R4 Minima, check out the [DAC Guide](/tutorials/uno-r4-minima/dac).
 
 ## RTC
 
