@@ -85,7 +85,7 @@ The [Sleep Modes](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/
 
 ## Power Considerations
 
-![Nano ESP32 Power Tree.](assets/nano-esp32-powertree.png)
+![Nano ESP32 Power Tree.](./assets/nano-esp32-powertree.png)
 
 To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When using the VIN pin, use voltages within the range of 5-18 V as the **MP2322GQH** converter on the board may otherwise be damaged. 
 
@@ -309,19 +309,19 @@ The ESP32-S3 SoC features an IO mux (input/output multiplexer) and a GPIO matrix
 
 The ESP32-S3 chip has 45 physical GPIOs, but many more digital peripherals. The IO mux provides the flexibility of routing the signals to different GPIOs, thus changing the function of a specific pin.
 
-![](assets/nano-esp32-iomux.png)
+![Peripheral IO MUX](./assets/nano-esp32-iomux.png)
 
 This technique is well known and applied within ESP32 boards, but on the Nano ESP32 we use a set of default pins for the I2C, SPI & UART peripherals to remain consistent with previous designs.
 
 As an example, the Nano ESP32's SDA/SCL pins are attached to A4/A5 by default. These pins can be changed to e.g. D8,D9 if you need to use another set of pins. This is done through the mux / GPIO matrix.
 
-### Re-assigning Pins
+### Re-Assigning Pins
 
 You can read more about re-assigning the peripherals through the links below:
 - [I2C configuration (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2c.html#i2c-api-configure-driver)
 - [UART configuration (link to Espressif docs)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/uart.html#uart-api-setting-communication-pins)
 
-You can also 
+You can also read Espressifs technical reference manual here:
 
 - [IO MUX and GPIO Matrix (ESP32-S3 technical reference manual)](https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf#iomuxgpio)
 
