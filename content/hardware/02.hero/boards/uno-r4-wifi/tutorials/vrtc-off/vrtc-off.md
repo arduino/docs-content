@@ -42,7 +42,9 @@ The OFF pin on the Arduino UNO R4 WiFi board lets you turn the boards onboard 5 
 
 However, it will only turn off the board when it is powered through the VIN pin, or the barrel jack. Why is this? Because by using this pin, you are turning off the step down converter that generates 5 V from whatever voltage you are providing it with. If you are powering the board from USB, 5 V is provided from the USB cable, and there is no need for this step down converter to begin with. 
 
-To use the OFF pin, all you need to do is to create a short circuit from it to a GND connection. To experiment, you can do this with a jumper cable, but for your finished projects you may want to incorporate a button or switch that will turn the board on or off in this way.
+To use the OFF pin, all you need to do is to create a short circuit from it to a GND connection, like in the diagram below. To experiment, you can do this with a jumper cable, but for your finished projects you may want to incorporate a button or switch that will turn the board on or off in this way.
+
+![OFF Pin Shorted to GND](./assets/OFF.png)
 
 ## Summary
 
