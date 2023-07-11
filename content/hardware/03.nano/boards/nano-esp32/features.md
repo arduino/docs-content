@@ -6,7 +6,7 @@ The Arduino Nano ESP32 features the NORA-W106, a module with a ESP32-S3 chip ins
 
 <Feature title="MicroPython" image="python">
 The Nano ESP32 is the perfect board for getting started with MicroPython.
-<FeatureLink title="Install MicroPython" url="/"/>
+<FeatureLink title="Install MicroPython" url="/micropython-course"/>
 </Feature>
 
 <Feature title="Arduino IoT Cloud" image="wifi">
