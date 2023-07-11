@@ -62,7 +62,7 @@ The goal of this application note is to showcase a sensorized farming irrigation
 - Arduino Edge Control Enclosure Kit
 - Water flow sensor (YF-B2 15 mm)
 - WATERMARK Soil Moisture Sensors.
-- 2-Wires Solenoid Valves (x4)
+- 2-Wires Irrigation Solenoid Valves (x4)
 - 12 VDC 5Ah acid/lead SLA battery (x1)
 - 18 VDC 180 W solar panel.
 - 3.4 meters of 15 mm PVC pipes (x1)
@@ -91,11 +91,11 @@ The electrical connections of the intended application are shown in the diagram 
 
 [!]()
 
-- The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively, the battery will be recharged with a 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
+- The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively, the battery will be recharged with an 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
 [!]()
 
-- The four solenoid valves will be connected to the Edge Control Latching outputs of J9 connector from OUT0 to OUT6. 
+- The four solenoid valves will be connected to the Edge Control relay contacts of J11 connector following the wiring below. 
 
 [!]()
 
@@ -109,14 +109,14 @@ The electrical connections of the intended application are shown in the diagram 
 
 The irrigation system works as a whole: it integrates the water flow measurement and the activation of the valves, done by the Edge Control, with the Cloud communication, using the MKR WAN 1310.
 
-The Edge Control is responsible of:
+The Edge Control is responsible for:
 
 - Measuring the water usage with a water flow sensor.
 - Measuring the soil humidity level using watermark sensors.
 - Controlling an LCD screen where different system variables will be shown, including soil humidity.
 - Deciding whether to irrigate based on local humidity.
 
-The MKR WAN 1310 is responsible of:
+The MKR WAN 1310 is responsible for:
 
 - Providing Cloud connectivity using LoRaWAN.
 - Reporting the values of the Edge Control sensors on the cloud. 
