@@ -19,7 +19,7 @@ software:
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
 
-This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get get started with your next project. 
+This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get started with your next project. 
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
 
