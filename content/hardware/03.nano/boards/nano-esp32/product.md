@@ -1,6 +1,6 @@
 ---
 title: Nano ESP32
-url_shop: https://store.arduino.cc/arduino-nano-esp32
+url_shop: https://store.arduino.cc/nano-esp32
 url_guide: /tutorials/
 core: arduino:esp32
 ---
