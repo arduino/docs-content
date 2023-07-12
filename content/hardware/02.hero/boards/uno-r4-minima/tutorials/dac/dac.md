@@ -1,6 +1,6 @@
 ---
 title: "Arduino UNO R4 Minima Digital-to-Analog Converter (DAC)"
-description: "Learn how to create waveforms and output them on a piezo, using the DAC on the UNO R4 Minima board."
+description: "Learn how create waveforms and output them on a piezo, using the DAC on the UNO R4 Minima board."
 tags:
   - Waveform Generation
   - Analog
@@ -15,20 +15,20 @@ software:
 ---
 
 
-The Arduino UNO R4 Minima has a built in **DAC** (Digital to Analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment or as a cheap function generator, for example.
+The Arduino UNO R4 Minima has a built in **DAC** (Digital-to-analog Converter) which is used to transform a digital signal to an analog one. This feature can be used to build a plethora of fun audio projects, but also work as professional lab equipment as a cheap function generator, for example.
 
 ## Goals
 
 In this article, you will learn:
-- About the DAC feature onboard the UNO R4 Minima,
+- about the DAC feature onboard the UNO R4 Minima,
 - differences between PWM and DAC techniques,
-- how to generate a waveform (sawtooth),
+- how to generate a waveform (sine),
 - how to output this waveform on a piezo speaker.
 
 ## Hardware & Software Needed
   To follow along with this article, you will need the following hardware: 
   
-  - [Arduino UNO R4 minima](https://store.arduino.cc/uno-r4-minima)
+  - [Arduino UNO R4 Minima](https://store.arduino.cc/uno-r4-minima)
   - Piezo buzzer 
   - Potentiometer
   - Jumper wires
@@ -38,8 +38,8 @@ The circuit required for this tutorial can be found in the diagram below:
 
 ![Piezo buzzer connected to UNO R4](./assets/circuit.png)
 
-## Analog Output VS. PWM
-For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
+## Analog Output vs PWM
+For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning it on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
 
 For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 
 
@@ -48,82 +48,188 @@ However this will not always be the case, and for many uses you will need to use
 ## Code
 The code for this tutorial is split in two parts, one main sketch and a header file containing a pre-generated sawtooth-waveform.
 
-With this sketch, we have pre-generated a sawtooth waveform. You could also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice. 
+With this sketch, we have pre-generated a sine waveform. You could also dynamically generate it either at the beginning of your sketch or during, but doing so would be less efficient without gaining any performance. So going this route is the best practice. 
 
 The waveform is being stored as samples in an array, and with every loop of the sketch we'll update the DACs output value to the next value in the array.  
 
 Open a new sketch and paste the following code into your window.
 
 ```arduino
-/*
-  Simple Sawtooth Waveform generator with Arduino UNO R4 Minima
+#include "analogWave.h"
 
- */
+analogWave wave(DAC);
 
-#include "Waveforms.h"
-
-#define oneHzSample 10000 / maxSamplesNum  // sample for the 1Hz signal expressed in microseconds
-
-
-int i = 0;
-int sample;
-
+int freq = 10;  // in hertz, change accordingly
 
 void setup() {
-  analogWriteResolution(12);  // set the analog output resolution to 12 bit (4096 levels)
-  analogReadResolution(12);  // set the analog input resolution to 12 bit (4096 levels)
+  Serial.begin(115200);
+  pinMode(A5, INPUT);
+  wave.sine(freq);
 }
 
 void loop() {
-
-  sample = map(analogRead(A5), 0, 4095, 0, 1000);
-
-  analogWrite(DAC, waveformsTable[i]);  // write the selected waveform on DAC0
-
-  i++;
-  if (i == maxSamplesNum)  // Reset the counter to repeat the wave
-    i = 0;
-
-  delayMicroseconds(sample);  // Hold the sample value for the sample time
+  freq = map(analogRead(A5), 0, 1024, 0, 10000);
+  Serial.println("Frequency is now " + String(freq) + " hz");
+  wave.freq(freq);
+  delay(1000);
 }
-```
-Now you will need to create the header file that will hold the waveform. Click the three dots in the top right of the Arduino IDE window, select **"New Tab"**, and name the new file **"Waveforms.h"**.
-
-![Creating a new Header file in the Arduino IDE](./assets/new-headerfile.png)
-
-Then paste the following code into the empty file.
-
-```arduino
-#ifndef _Waveforms_h_
-#define _Waveforms_h_
-
-#define maxSamplesNum 120
-
-static int waveformsTable[maxSamplesNum] = {
-
-    0x22, 0x44, 0x66, 0x88, 0xaa, 0xcc, 0xee, 0x110, 0x132, 0x154,
-    0x176, 0x198, 0x1ba, 0x1dc, 0x1fe, 0x220, 0x242, 0x264, 0x286, 0x2a8,
-    0x2ca, 0x2ec, 0x30e, 0x330, 0x352, 0x374, 0x396, 0x3b8, 0x3da, 0x3fc,
-    0x41e, 0x440, 0x462, 0x484, 0x4a6, 0x4c8, 0x4ea, 0x50c, 0x52e, 0x550,
-    0x572, 0x594, 0x5b6, 0x5d8, 0x5fa, 0x61c, 0x63e, 0x660, 0x682, 0x6a4,
-    0x6c6, 0x6e8, 0x70a, 0x72c, 0x74e, 0x770, 0x792, 0x7b4, 0x7d6, 0x7f8,
-    0x81a, 0x83c, 0x85e, 0x880, 0x8a2, 0x8c4, 0x8e6, 0x908, 0x92a, 0x94c,
-    0x96e, 0x990, 0x9b2, 0x9d4, 0x9f6, 0xa18, 0xa3a, 0xa5c, 0xa7e, 0xaa0,
-    0xac2, 0xae4, 0xb06, 0xb28, 0xb4a, 0xb6c, 0xb8e, 0xbb0, 0xbd2, 0xbf4,
-    0xc16, 0xc38, 0xc5a, 0xc7c, 0xc9e, 0xcc0, 0xce2, 0xd04, 0xd26, 0xd48,
-    0xd6a, 0xd8c, 0xdae, 0xdd0, 0xdf2, 0xe14, 0xe36, 0xe58, 0xe7a, 0xe9c,
-    0xebe, 0xee0, 0xf02, 0xf24, 0xf46, 0xf68, 0xf8a, 0xfac, 0xfce, 0xff0
-  
-
-};
-
-#endif
 ```
 
 ## Testing It Out
-Once you have uploaded the code to the board, it should start generating a sawtooth wave oscillation on the DAC, that depending on the frequency could be used to produce sound on a piezo buzzer or speaker. If you have an oscilloscope at hand, connecting its probe to the DAC output might be an interesting exercise so see what the wave looks like. 
+Once you have uploaded the code to the board, it should start generating a sine wave oscillation on the DAC, that depending on the frequency could be used to produce sound on a piezo buzzer or speaker. If you have an oscilloscope at hand, connecting its probe to the DAC output might be an interesting exercise so see what the wave looks like. 
 
 Now try twisting the potentiometer, and listen to how the sound changes.
 
+Now that you know your setup is working, you can experiment further with different examples and see how you can use the DAC of the UNO R4 to generate sounds and even melodies.
+
+***Note: In this setup, we're just using a piezo buzzer, you may notice that the sounds it's making are pretty faint. If you want to fix this you'll need a 4 or 8 Ohm speaker, and an amplifier. You can find many breakout amplifier modules that are easy to use online.***
+
+### Frere Jacques
+
+This one for example plays the melody of Frere Jacques:
+```arduino
+  /*
+  DAC Melody player
+
+  Generates a series of tones from MIDI note values
+  using the Uno R4 DAC and the AnalogWave Library.
+   The melody is "Frere Jacques"
+
+circuit:
+     * audio amp (LM386 used for testing) input+ attached to A0
+     * audio amp input- attached to ground
+     * 4-8-ohm speaker attached to amp output+
+     * Potentiometer connected to pin A5
+
+  created 13 Feb 2017
+  modified 3 Jul 2023
+  by Tom Igoe
+*/
+#include "analogWave.h"
+analogWave wave(DAC);
+
+#define NOTE_A4 69         // MIDI note value for middle A
+#define FREQ_A4 440        // frequency for middle A
+
+// the tonic, or first note of the key signature for the song:
+int tonic = 65;
+// the melody sequence. Note values are relative to the tonic:
+int melody[] = {1, 3, 5, 1,
+                1, 3, 5, 1,
+                5, 6, 8, 5, 6, 8,
+                8, 10, 8, 6, 5, 1,
+                8, 10, 8, 6, 5, 1,
+                1, -4, 1,
+                1, -4, 1
+               };
+// the rhythm sequence. Values are 1/note, e.g. 4 = 1/4 note:
+int rhythm[] = {4, 4, 4, 4,
+                4, 4, 4, 4,
+                4, 4, 2,
+                4, 4, 2,
+                8, 8, 8, 8, 4, 4,
+                8, 8, 8, 8, 4, 4,
+                4, 4, 2,
+                4, 4, 2
+               };
+// which note of the melody to play:
+int noteCounter = 0;
+
+int bpm = 120;  // beats per minute
+// duration of a beat in ms
+float beatDuration = 60.0 / bpm * 1000;
+
+void setup() {
+// start the sine wave generator:
+  wave.sine(10);
+}
+
+void loop() {
+  // current note is an element of the array:
+  int currentNote = melody[noteCounter] + tonic;
+  // play a note from the melody:
+  // convert MIDI note number to frequency:
+  float frequency =  FREQ_A4 * pow(2, ((currentNote - NOTE_A4) / 12.0));
+
+  // all the notes in this are sixteenth notes,
+  // which is 1/4 of a beat, so:
+  float noteDuration = beatDuration * (4.0 / rhythm[noteCounter]);
+  // turn the note on:
+  wave.freq(frequency);
+ // tone(speakerPin, frequency, noteDuration * 0.85);
+  // keep it on for the appropriate duration:
+  delay(noteDuration * 0.85);
+  wave.stop();
+  delay(noteDuration * 0.15);
+  // turn the note off:
+ // noTone(speakerPin);
+  // increment the note number for next time through the loop:
+  noteCounter++;
+  // keep the note in the range from 0 - 32 using modulo:
+  noteCounter = noteCounter % 32;
+
+}
+```
+
+### MIDI Piano Notes
+This sketch will break down the potentiometer input to steps, that are translated to the 88 MIDI notes that represent the keys on a piano.
+
+```arduino
+/*
+  Plays a tone in response to a potentiometer
+  formula from https://newt.phys.unsw.edu.au/jw/notes.html
+  and https://en.wikipedia.org/wiki/MIDI_tuning_standard:
+
+  the MIDI protocol divides the notes of an equal-tempered scale into 
+  128 possible note values. Middle A is MIDI note value 69. There is
+  a formula for converting MIDI note numbers (0-127) to pitches. This sketch
+  reduces that to the notes 21 - 108, which are the 88 keys found on a piano:
+
+     frequency =  440 * ((noteNumber - 69) / 12.0)^2
+
+  You can see this applied in the code below. 
+
+  circuit:
+     * audio amp (LM386 used for testing) input+ attached to A0
+     * audio amp input- attached to ground
+     * 4-8-ohm speaker attached to amp output+
+     * Potentiometer connected to pin A5
+
+   created 18 Dec 2018
+   modified 3 Jul 2023
+   by Tom Igoe
+*/
+
+// include the AnalogWave library:
+#include "analogWave.h"
+analogWave wave(DAC);
+
+// middle A is the reference frequency for an
+// equal-tempered scale. Set its frequency and note value:
+#define NOTE_A4 69         // MIDI note value for middle A
+#define FREQ_A4 440        // frequency for middle A
+
+const int speakerPin = A0;  // the pin number for the speaker
+void setup() {
+  Serial.begin(9600);
+  wave.sine(10);
+}
+void loop() {
+  // convert sensor reading to 21 - 108 range
+  // which is the range of MIDI notes on an 88-key keyboard
+  // (from A0 to C8):
+  int sensorReading = analogRead(A5);
+  int noteValue = map(sensorReading, 0, 1023, 21, 108);
+  // then convert to frequency:
+  float frequency =  FREQ_A4 * pow(2, ((noteValue - NOTE_A4) / 12.0));
+  int freq = int(frequency);
+  // turn the speaker on:
+  wave.freq(freq);
+  Serial.print("note value: "+ String(noteValue) + " freq: ");
+  Serial.println(freq);
+  delay(500);
+}
+```
+
 ## Conclusion
-By following this tutorials you've experimented with the DAC on the Arduino UNO R4 Minima board and used it to generate a sawtooth wave. 
+By following this tutorials you've experimented with the DAC on the Arduino UNO R4 boards and used it to first generate a sine wave, then to explore the possibilities of analog output by testing out various examples.
