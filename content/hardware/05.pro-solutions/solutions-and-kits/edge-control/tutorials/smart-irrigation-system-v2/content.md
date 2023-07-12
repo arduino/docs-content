@@ -6,10 +6,11 @@ tags:
   - Irrigation System
   - Arduino Edge Control
   - Arduino MKR WAN 1310
-  - Latching Valve
+  - Solenoid Valve
   - Arduino IoT Cloud
   - Application Note
   - WisGate Lite
+  - LoRaWAN®
 author: 'Christopher Mendez'
 libraries:
   - name: Arduino_EdgeControl
@@ -60,18 +61,18 @@ The goal of this application note is to showcase a sensorized farming irrigation
 - Arduino Edge Control
 - Arduino MKR WAN 1310
 - Arduino Edge Control Enclosure Kit
-- Water flow sensor (YF-B2 15 mm)
+- Water flow sensor (YF-B2 DN15)
 - WATERMARK Soil Moisture Sensors.
 - 2-Wires Irrigation Solenoid Valves (x4)
 - 12 VDC 5Ah acid/lead SLA battery (x1)
 - 18 VDC 180 W solar panel.
-- 3.4 meters of 15 mm PVC pipes (x1)
-- 15 mm PVC TEE pipes (x3)
-- 15 mm PVC elbow (x8)
-- 15 mm Manual Valve (x1)
-- 15 mm PVC caps (x4)
-- 15 mm PVC male adapters (x11)
-- 15 mm wall pipe brackets (x7)
+- 3.4 meters of DN15 PVC pipes (x1)
+- DN15 PVC TEE pipes (x3)
+- DN15 PVC elbow (x8)
+- DN15 Manual Valve (x1)
+- DN15 PVC caps (x4)
+- DN15 PVC male adapters (x11)
+- DN15 wall pipe brackets (x7)
 - Rectangular planters (x4)
 - DIN rail (x1)
 - Cable glands (x6)
@@ -89,21 +90,19 @@ The goal of this application note is to showcase a sensorized farming irrigation
 
 The electrical connections of the intended application are shown in the diagram below:
 
-[!]()
+![Electrical diagram of the irrigation system](assets/EDGE_CONTROL_DIAGRAM.png)
 
 - The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively, the battery will be recharged with an 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
-[!]()
+![Power connection diagram](assets/POWER_CONNECTIONS.png)
 
 - The four solenoid valves will be connected to the Edge Control relay contacts of J11 connector following the wiring below. 
 
-[!]()
+![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS.png)
 
-- The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector.
+- The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector, and the four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
 
-[!]()
-
-- The four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
+![Watermark and water flow sensors connection diagram](assets/SENSORS_CONNECTIONS.png)
 
 ## Irrigation System Overview
 
@@ -145,7 +144,13 @@ This measurement is done in Centibars, and we can use the following readings as 
 
 ### Arduino Edge Control Code
 
+```arduino
+```
+
 ### Arduino MKR WAN 1310 Code
+
+```arduino
+```
 
 ### The Arduino IoT Cloud Dashboard
 
