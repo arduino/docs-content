@@ -35,7 +35,7 @@ To use triggers, you will need to set up a Thing and at least one variable that 
 
 **2.** Upload your code to the board you want to use. If you don't have existing code you want to connect the Trigger to, you can use the example sketch found below. It's a simple button sketch setting our button boolean equal to true each time a button connected to Pin D3 is pressed.
 
-**3.** Go to [Arduino Cloud home](https://cloud.arduino.cc/home/) and click on `Triggers`.
+**3.** Go to [Arduino Cloud home](https://cloud.arduino.cc/home/) and click on **Triggers**.
  
 
 ![Triggers in Homepage](./assets/triggerHomepage.png)
