@@ -82,6 +82,7 @@ Now try twisting the potentiometer, and listen to how the sound changes.
 
 Now that you know your setup is working, you can experiment further with different examples and see how you can use the DAC of the UNO R4 to generate sounds and even melodies.
 
+***Note: In this setup, we're just using a piezo buzzer, you may notice that the sounds it's making are pretty faint. If you want to fix this you'll need a 4 or 8 Ohm speaker, and an amplifier. You can find many breakout amplifier modules that are easy to use online.***
 
 ### Frere Jacques
 
