@@ -236,34 +236,34 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Digital
 
-| Pin | Function | Type    | Description                              |
-|-----|----------|---------|------------------------------------------|
-| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                      |
-| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                   |
-| 3   | AREF     | Digital | Analog Reference Voltage                 |
-| 4   | GND      | Power   | Ground                                   |
-| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock                        |
-| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out |
-| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In |
-| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select                  |
-| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline                    |
-| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline                   |
-| 11  | D7       | Digital | GPIO 7                                   |
-| 12  | D6       | Digital | GPIO 6                                   |
-| 13  | D5       | Digital | GPIO 5                                   |
-| 14  | D4       | Digital | GPIO 4                                   |
-| 15  | D3       | Digital | GPIO 3                                   |
-| 16  | D2       | Digital | GPIO 2                                   |
-| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter            |
-| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver               |
-| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter           |
-| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver              |
-| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter           |
-| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver              |
-| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter           |
-| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver              |
-| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                 |
-| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                    |
+| Pin | Function | Type    | Description                                    |
+|-----|----------|---------|------------------------------------------------|
+| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                            |
+| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline (PWM~)                  |
+| 3   | AREF     | Digital | Analog Reference Voltage (PWM~)                |
+| 4   | GND      | Power   | Ground (PWM~)                                  |
+| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock (PWM~)                       |
+| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out (PWM~)|
+| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In (PWM~)|
+| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select (PWM~)                 |
+| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline (PWM~)                   |
+| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline (PWM~)                  |
+| 11  | D7       | Digital | GPIO 7 (PWM~)                                  |
+| 12  | D6       | Digital | GPIO 6 (PWM~)                                  |
+| 13  | D5       | Digital | GPIO 5 (PWM~)                                  |
+| 14  | D4       | Digital | GPIO 4                                         |
+| 15  | D3       | Digital | GPIO 3                                         |
+| 16  | D2       | Digital | GPIO 2                                         |
+| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                  |
+| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                     |
+| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                 |
+| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                    |
+| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                 |
+| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                    |
+| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                 |
+| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                    |
+| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                       |
+| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                          |
 
 ### STM32 ICSP
 
@@ -427,6 +427,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes** |
-|------------|-------------|
-| 03/02/2023 | Release     |
+| **Date**   | **Changes**   |
+| ---------- | ------------- |
+| 03/02/2023 | Release       |
+| 12/07/2023 | Pinout Update |
