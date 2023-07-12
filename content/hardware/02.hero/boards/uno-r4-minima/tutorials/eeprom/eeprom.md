@@ -2,8 +2,7 @@
 title: 'Arduino UNO R4 Minima EEPROM'
 description: 'Learn how to access the EEPROM memory on the UNO R4 Minima.'
 tags:
-  - RTC
-  - Alarm
+  - EEPROM
 author: 'Karl Söderby'
 ---
 
@@ -14,17 +13,20 @@ In this tutorial you will learn how to access the EEPROM (memory) on an **Arduin
 The goals of this tutorials are:
 
 - Write to the EEPROM memory,
-- read from the EEPROM memory.
+- Read from the EEPROM memory.
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
+- [Arduino IDE](https://www.arduino.cc/en/main/software)) or ([Arduino Create](https://create.arduino.cc/)
+- USB-C cable to your computers USB port type(often USB-C or USB-A).
 - [Arduino R4 Minima](/hardware/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
 
 ## EEPROM
 
 Electronically erasable programmable read-only memory (EEPROM) is a memory that can be used to store data that can be retrieved after power loss. This memory can be effective to use during run-time to log data that can be used to re-initialize whenever a system comes back online.
+
+The Arduino Uno R4 Minima has 8 kB of EEPROM.
 
 When writing to the EEPROM memory, we specify two parameters: the **address** and **value**. Each byte can hold a value between 0-255.
 
@@ -75,7 +77,7 @@ void setup() {
   Serial.begin(9600);
   value = EEPROM.read(addr);
   while (!Serial) {
-    ;
+    
   }
 
   Serial.print("Address 0: ");
