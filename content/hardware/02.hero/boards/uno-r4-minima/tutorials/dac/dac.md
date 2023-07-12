@@ -20,7 +20,7 @@ The Arduino UNO R4 Minima has a built in **DAC** (Digital-to-analog Converter) w
 ## Goals
 
 In this article, you will learn:
-- About the DAC feature onboard the UNO R4 Minima,
+- about the DAC feature onboard the UNO R4 Minima,
 - differences between PWM and DAC techniques,
 - how to generate a waveform (sine),
 - how to output this waveform on a piezo speaker.
@@ -39,7 +39,7 @@ The circuit required for this tutorial can be found in the diagram below:
 ![Piezo buzzer connected to UNO R4](./assets/circuit.png)
 
 ## Analog Output vs PWM
-For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
+For many use cases when analog output is required, using PWM (Pulse Width Modulation) instead of genuine analog output will yield essentially the same results. A digital output pin can only either be fully on (HIGH) or fully off (LOW), but by turning it on and off very quickly with precise timings, the average voltage can be controlled and emulate an analog output. This method is called [PWM](/learn/microcontrollers/analog-output). 
 
 For example when dimming an LED, you can freely use a PWM enabled digital pin as an analog output pin and the LED would dim just the same as if you'd be using a DAC output. 
 

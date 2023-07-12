@@ -232,4 +232,4 @@ void loop() {
 ```
 
 ## Conclusion
-By following this tutorials you've experimented with the DAC on the Arduino UNO R4 boards and used it to first generate a sine wave, then to explore the possibilities of analog output by testing out various examples.
+By following this tutorials you've experimented with the DAC on the Arduino UNO R4 boards and used it to first generate a sine wave, and then to explore the possibilities of analog output by testing out various examples.
