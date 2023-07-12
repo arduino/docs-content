@@ -58,11 +58,15 @@ Qwiic is an ecosystem of breakout-modules and development boards with a so calle
 
 Effectively this means that the wiring of your Qwiic devices is as simple as plugging them in in a series, and you're done.
 
-![Picture of Qwiic Line of Modules]()
+![3 Qwiic Modules in a Line](./assets/Qwiic-modules.jpg)
 
-## Arduino UNO R4 WiFi implementation
+## Arduino UNO R4 WiFi Implementation
 
-The Arduino UNO R4 WiFi has two I2C buses, and the Qwiic connector is connected to the secondary one. Practically, this means that if you intend to use the Qwiic connector, when you're writing the code for your sketches, you cannot use the primary `Wire` object for I2C that you normally would, but you instead need to use the secondary one, `Wire1`. This **can** get problematic in some instances depending on the library developed for the breakout module you are using, as if there is no adequate solution for selecting the `Wire1` object when initialising the library you may need to alter the library code slightly, or write your own. 
+The Arduino UNO R4 WiFi has two I2C buses, and the Qwiic connector is connected to the secondary one. 
+
+Practically, this means that if you intend to use the Qwiic connector, when you're writing the code for your sketches, you cannot use the primary `Wire` object for I2C that you normally would, but you instead need to use the secondary one, `Wire1`. 
+
+This *can* get problematic in some instances depending on the library developed for the breakout module you are using, as if there is no adequate solution for selecting the `Wire1` object when initialising the library you may need to alter the library code slightly, or write your own. 
 
 In most cases, however, you will be able to select the `Wire1` object when initialising the library in a fashion similar to this:
 
