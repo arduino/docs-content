@@ -11,7 +11,8 @@ Functions in the **EEPROM** class is automatically included with the platform fo
 ## Hardware Required
 
 All of the following boards have an EEPROM:
-
+- [Arduino UNO Rev.4 Minima](https://store-usa.arduino.cc/products/uno-r4-minima)
+- [Arduino UNO Rev.4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi)
 - [Arduino UNO Rev.3](https://store.arduino.cc/products/arduino-uno-rev3/)
 - [Arduino UNO WiFi Rev.2](https://store.arduino.cc/arduino-uno-wiFi-rev2)
 - [Arduino Mega 2560 Rev.3](https://store.arduino.cc/products/arduino-mega-2560-rev3)
