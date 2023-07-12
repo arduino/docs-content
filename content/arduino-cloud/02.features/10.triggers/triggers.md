@@ -14,7 +14,7 @@ Triggers can be set up for any of your existing projects, and are found in the [
 - [Arduino IoT Cloud](https://create.arduino.cc/iot/) (Maker plan).
 - Cloud-compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware).
 
-***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?queryID=undefined). This is not a requirement, you can use **any IoT **Cloud-compatible** board for** this tutorial.***
+***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?queryID=undefined). This is not a requirement, you can use any IoT Cloud-compatible board for this tutorial.***
 
 ## Setup & Configuration
 
