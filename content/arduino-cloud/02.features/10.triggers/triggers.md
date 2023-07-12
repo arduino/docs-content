@@ -27,13 +27,11 @@ Currently the only variables supported by the trigger feature are:
 
 ## Setup & Configuration
 
-To use triggers, you will need to set up a Thing and at least one variable that you want to assign the trigger to. In our case, we chose to set up a boolean called `button`.
-
 ***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
 
-**1.** If you haven't already done so, head over to the Things tab and create a new Thing, create a variable, and set up your device including a working network connection.
+**1.** Head over to the Things tab and create a new Thing, create a variable, and set up your device including a working network connection.
 
-**2.** Upload your code to the board you want to use. If you don't have existing code you want to connect the Trigger to, you can use the example sketch found below. It's a simple button sketch setting our button boolean equal to true each time a button connected to Pin D3 is pressed.
+**2.** Upload your code to the board you want to use. For demonstration purposes, we'll use a [simple button](#example-code) sketch setting our button boolean equal to true each time a button connected to Pin D3 is pressed. You can of course set this up in whatever way you'd like.
 
 **3.** Go to [Arduino Cloud home](https://cloud.arduino.cc/home/) and click on **Triggers**.
  
@@ -56,7 +54,7 @@ To use triggers, you will need to set up a Thing and at least one variable that 
 
 ![Select Action](./assets/selectAction.png)
 
-You can even include **dynamic data** such as `{variable.timestamp}` or `{variable.value}` by using the tags shown at the bottom.
+You can even include **dynamic data** such as `{variable.timestamp}` or `{variable.value}` by using the tags shown at the bottom, to include variable data from your sketch in the messages sent to your email.
 
 ![Email Form with Dynamic Tags](./assets/emailForm.png)
 
@@ -115,6 +113,15 @@ void loop() {
   }
 }
 ```
+
+## Use Cases
+
+Here are some suggestions for potential projects that utilize **Triggers** in a project:
+
+- A PIR detecting motion, sending a notification as soon as the sensor is triggered.
+- An automated plant monitoring setup sending a notification as soon as your plants need water.
+- An environmental data collection setup notifying you as soon as the values reach a certain threshold.
+
 
 ## Summary
 Triggers are a simple but extremely powerful feature allowing you to stay on track with all your Arduino IoT Cloud projects. Instead of constantly checking your dashboards to see the newest update just create a trigger notifying you as soon as changes occur. In this tutorial, we used just **one trigger** in combination with a simple demo sketch but you can create **as many Triggers as you need** to automate your projects.
