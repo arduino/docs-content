@@ -15,6 +15,7 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
+  - create-agent
 ---
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
@@ -316,7 +317,7 @@ EEPROM, also referred to as 'data' memory, is type of memory that can retain dat
 
 ```arduino
 EEPROM.write(address, val);
-EEPROM.read(address)
+EEPROM.read(address);
 ```
 
 It has a limited amount of write cycles, meaning that it is best suited for read-only applications. Make sure to never use `write()` inside `void loop()` because you may use all write cycles for the chip.
