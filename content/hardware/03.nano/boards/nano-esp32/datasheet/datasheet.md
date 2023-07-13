@@ -23,7 +23,7 @@ Maker, Debugging, IoT, MicroPython
 * **Power**
   * Operating voltage 3.3 V
   * VUSB supplies 5 V via USB-C® connector
-  * VIN range is 6-18 V
+  * VIN range is 6-21 V
 * **Connectivity**
   * Wi-Fi®
   * Bluetooth® LE
@@ -72,7 +72,7 @@ The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/ardui
 
 | Symbol          | Description                      | Min | Typ | Max | Unit |
 | --------------- | -------------------------------- | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 5   | 7.0 | 18  | V    |
+| V<sub>IN</sub>  | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
 | T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85  | °C   |
 
@@ -240,7 +240,7 @@ All digital & analog pins on the Nano ESP32 are 3.3 V. Do not connect any higher
 
 ### VIN Rating
 
-The recommended input voltage range is **5-18 V**.
+The recommended input voltage range is **6-21 V**.
 
 You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 18 V.
 
