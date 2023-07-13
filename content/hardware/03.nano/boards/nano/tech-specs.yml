@@ -13,7 +13,7 @@ Communication:
   I2C: A4 (SDA), A5 (SCL)
   SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
 Power:
-  I/O Voltage: 5V
+  I/O Voltage: 3.3V
   Input voltage (nominal): 7-12V
   DC Current per I/O Pin: 20 mA
 Clock speed:
