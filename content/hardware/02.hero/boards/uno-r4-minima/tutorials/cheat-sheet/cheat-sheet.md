@@ -257,6 +257,7 @@ To learn more about the RTC capabilities of the UNO R4 Minima, check out the [RT
 ## EEPROM
 
 EEPROM, also referred to as 'data' memory, is a type of memory that can retain data even after the board has been powered off.
+The Arduino Uno R4 Minima has 8 kB EEPROM.
 
 ```arduino
 EEPROM.write(address, val);
