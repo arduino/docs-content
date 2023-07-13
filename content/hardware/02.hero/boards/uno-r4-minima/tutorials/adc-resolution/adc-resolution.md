@@ -7,7 +7,7 @@ tags:
 author: 'Karl Söderby'
 ---
 
-In this tutorial you will learn how to change the analog-to-digital converter (ADC) on an **Arduino UNO R4 Minima** board. By default, the resolution is set to 10-bit, which can be updated to both 12-bit (0-4096) and 14-bit (0-65355) resolutions for improved accuracy on analog readings.
+In this tutorial you will learn how to change the analog-to-digital converter (ADC) on an **Arduino UNO R4 Minima** board. By default, the resolution is set to 10-bit, which can be updated to both 12-bit (0-4096) and 14-bit (0-16383) resolutions for improved accuracy on analog readings.
 
 ## Goals
 
@@ -29,13 +29,14 @@ To update the resolution, you will only need to use the [analogReadResolution()]
 
 To use it, simply include it in your `setup()`, and use `analogRead()` to retrieve a value from an analog pin.
 
+
 ```arduino
 void setup(){
   analogReadResolution(14); //change to 14-bit resolution
 }
 
 void loop(){
-  int reading = analogRead(A3); // returns a value between 0-65355
+  int reading = analogRead(A3); // returns a value between 0-16383
 }
 ```
 
