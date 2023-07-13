@@ -242,7 +242,7 @@ All digital & analog pins on the Nano ESP32 are 3.3 V. Do not connect any higher
 
 The recommended input voltage range is **6-21 V**.
 
-You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 18 V.
+You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 21 V.
 
 The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:  
 - **4.5 V** - >90%.
