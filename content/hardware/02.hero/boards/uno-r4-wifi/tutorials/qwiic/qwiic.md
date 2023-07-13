@@ -14,7 +14,7 @@ In this tutorial you will learn how to use the Qwiic connector on the Arduino UN
 
 We will walk through the concept of I2C, and how it relates to the Qwiic ecosystem.
 
-You'll learn 
+You'll learn what Qwiic is, as well as how to set it up and get started making your own Qwiic system with the Arduino UNO R4 WiFi.
 
 ![The Qwiic connector of the Arduino UNO R4 WiFi](./assets/Qwiic-connector.png)
 
@@ -71,7 +71,30 @@ This *can* get problematic in some instances depending on the library developed 
 In most cases, however, you will be able to select the `Wire1` object when initialising the library in a fashion similar to this:
 
 ```arduino
-libraryName.begin( &Wire1 );
+Wire1.begin();
+libraryName.begin( Wire1 );
+```
+
+For example, when using SparkFuns AHT20 library, your setup function could look something like this:
+```arduino
+#include <Wire.h>
+
+#include <SparkFun_Qwiic_Humidity_AHT20.h> 
+
+
+void setup(){
+  Serial.begin(115200);
+
+  Wire1.begin(); //Join I2C bus
+
+  //Check if the AHT20 will acknowledge
+  if (humiditySensor.begin( Wire1 ) == false)
+  {
+    Serial.println("AHT20 not detected. Please check wiring. Freezing.");
+    while (1);
+  }
+  Serial.println("AHT20 acknowledged.");
+}
 ```
 
 ## Summary
