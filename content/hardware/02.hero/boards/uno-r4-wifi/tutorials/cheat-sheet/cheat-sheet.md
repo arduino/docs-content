@@ -15,7 +15,6 @@ software:
   - ide-v1
   - ide-v2
   - web-editor
-  - create-agent
 ---
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
