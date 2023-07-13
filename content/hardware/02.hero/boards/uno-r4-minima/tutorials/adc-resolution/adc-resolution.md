@@ -29,6 +29,7 @@ To update the resolution, you will only need to use the [analogReadResolution()]
 
 To use it, simply include it in your `setup()`, and use `analogRead()` to retrieve a value from an analog pin.
 
+
 ```arduino
 void setup(){
   analogReadResolution(14); //change to 14-bit resolution
