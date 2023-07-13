@@ -316,7 +316,7 @@ EEPROM, also referred to as 'data' memory, is type of memory that can retain dat
 
 ```arduino
 EEPROM.write(address, val);
-EEPROM.read(address)
+EEPROM.read(address);
 ```
 
 It has a limited amount of write cycles, meaning that it is best suited for read-only applications. Make sure to never use `write()` inside `void loop()` because you may use all write cycles for the chip.
