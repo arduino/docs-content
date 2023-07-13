@@ -17,8 +17,8 @@ The goals of this tutorials are:
 
 ## Hardware & Software Needed
 
-- [Arduino IDE](https://www.arduino.cc/en/main/software)) or ([Arduino Create](https://create.arduino.cc/)
-- USB-C cable to your computers USB port type(often USB-C or USB-A).
+- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
+- USB-C cable 
 - [Arduino R4 Minima](/hardware/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
 
