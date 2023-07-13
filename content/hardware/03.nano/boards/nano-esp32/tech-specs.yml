@@ -18,7 +18,7 @@ Communication:
   SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
 Power:
   I/O Voltage: 3.3 V
-  Input voltage (nominal): 5-18 V
+  Input voltage (nominal): 6-21 V
   Source Current per I/O Pin: 40 mA
   Sink Current per I/O Pin: 28 mA
 Clock speed:
