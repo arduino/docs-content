@@ -70,7 +70,7 @@ A minimal example on how to **read** from the EEPROM can be found below:
 ```arduino
 #include <EEPROM.h>
 
-int address = 0;
+int addr = 0;
 byte value;
 
 void setup() {
