@@ -1162,7 +1162,7 @@ void loop() {
     }
   }
 
-  // The LED blinks when bluetooh is not connected to an external device
+  // The LED blinks when bluetooth® is not connected to an external device
   digitalWrite(LEDB, HIGH);
   delay(200);
   digitalWrite(LEDB, LOW);
