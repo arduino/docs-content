@@ -67,7 +67,10 @@ The example code shown below shows how to interface an Opta™ device with a USB
 /**
   Opta USB data logging example sketch
   Name: usb_data_logging_opta.ino
-  Purpose: Sketch stores readings from four analog inputs of an Opta device into a file on a USB memory stick 
+  Purpose: This sketch logs data from four analog inputs of an Opta device into a file on a USB memory stick. 
+  The data logging process starts when the user button is pressed for 3 seconds and stops when the button is pressed again for 3 seconds. 
+  A knight rider LED pattern is used to indicate the status of USB connection.
+  Once the data logging is done, all user LEDs blink 10 times.
 
   @author Arduino PRO Content Team
   @version 1.0 07/06/23
@@ -80,111 +83,161 @@ The example code shown below shows how to interface an Opta™ device with a USB
 // Create an instance of USBHostMSD to handle USB mass storage devices
 USBHostMSD msd;
 
-// Create an instance of the FATFileSystem class to handle the file system on the device
+// Create an instance of the FATFileSystem class to handle the FAT file system on the USB mass storage device
 mbed::FATFileSystem usb("KINGSTON");
 
 // Define arrays for analog input pin numbers and built-in LEDs
 const int analog_pins[] = { A0, A1, A2, A3 };
 const int led_pins[] = { LED_D0, LED_D1, LED_D2, LED_D3 };
 
-// Variables for time tracking without using delay() function
+// Variables for time tracking without using delay() function (non-blocking)
 unsigned long previousMillis = 0;
 const long interval = 1000;
-
-// Variables to control the maximum number of write operations
-const long maxIterations = 5;
-long iterationCount = 0;
 
 // File pointer for the data file
 FILE *f;
 
+// Knight Rider LED pattern variables
+// 1 for left-to-right patterns, -1 for right-to-left pattern
+int ledDirection = 1;
+int currentLed = 0;
+
 void setup() {
-  // Set the ADC resolution to 12 bits
+  // Set the Opta ADC resolution to 12-bits
   analogReadResolution(12);
 
-  // Initialize LED pins
+  // Initialize and turn off the Opta user LEDs
   for (int i = 0; i < 4; i++) {
     pinMode(led_pins[i], OUTPUT);
     digitalWrite(led_pins[i], LOW);
   }
 
-  // Wait for USB mass storage device connection
-  while (!msd.connect()) {
-    digitalWrite(led_pins[0], HIGH);  // Blink LED to indicate waiting
-    delay(500);
-    digitalWrite(led_pins[0], LOW);
-    delay(500);
-  }
-
-  // Try to mount the file system on the device
-  int err = usb.mount(&msd);
-  if (err) {  // If there's an error, blink a different LED
-    while (1) {
-      digitalWrite(led_pins[1], HIGH);
-      delay(500);
-      digitalWrite(led_pins[1], LOW);
-      delay(500);
-    }
-  }
-
-  // Open the data file on the USB device for writing
-  f = fopen("/KINGSTON/analog_inputs_data.txt", "w+");
-  if (f == NULL) {  // If there's an error, blink another LED
-    while (1) {
-      digitalWrite(led_pins[2], HIGH);
-      delay(500);
-      digitalWrite(led_pins[2], LOW);
-      delay(500);
-    }
-  }
+  // Initialize the Opta user button
+  pinMode(BTN_USER, INPUT_PULLUP);
 }
 
 void loop() {
-  delay(1000);
+  // Flag indicating if the data logging process has started
+  static bool dataLoggingStarted = false;
 
-  // Check if the device is still connected and try to reconnect if not
-  if (!msd.connected()) {
-    msd.connect();
+  // Check if the Opta user button is held down for 3 seconds to start data logging process
+  if (!dataLoggingStarted) {
+    if (digitalRead(BTN_USER) == LOW) {
+      unsigned long buttonPressTime = millis();
+      while (digitalRead(BTN_USER) == LOW) {}
+      if (millis() - buttonPressTime >= 3000) {
+        dataLoggingStarted = true;
+      
+        // Turn off all the Opta user LEDs
+        for (int i = 0; i < 4; i++) {
+          digitalWrite(led_pins[i], LOW);
+        }
+      }
+    }
   }
 
-  // Take analog readings and write to file every second
-  unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= interval) {
-    previousMillis = currentMillis;
+  // Only execute the data logging process once dataLoggingStarted flag is TRUE
+  if (dataLoggingStarted) {
+    delay(1000);
 
-    // Loop over the analog pins, read values, and write to the data file
+    // Check if the Opta user button is held down for 3 seconds to stop data logging process
+    if (digitalRead(BTN_USER) == LOW) {
+      unsigned long buttonPressTime = millis();
+      while (digitalRead(BTN_USER) == LOW) {}
+      if (millis() - buttonPressTime >= 3000) {
+        if (f != NULL) {
+          fclose(f);
+          dataLoggingStarted = false;
+          // Blink all the Opta user LEDs 10 times to indicate that the data logging process has stopped
+          for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 4; j++) {
+              digitalWrite(led_pins[j], HIGH);
+            }
+            delay(500);
+            for (int j = 0; j < 4; j++) {
+              digitalWrite(led_pins[j], LOW);
+            }
+            delay(500);
+          }
+        }
+      }
+    }
+
+    // Wait for USB mass storage device connection
+    while (!msd.connect()) {
+      // Knight Rider LED pattern indicating that Opta is waiting for a USB mass storage device connection
+      for (int i = 0; i < 4; i++) {
+        digitalWrite(led_pins[i], LOW);
+      }
+
+      digitalWrite(led_pins[currentLed], HIGH);
+      delay(100);
+      currentLed += ledDirection;
+
+      if (currentLed == 3) {
+        ledDirection = -1;
+      } else if (currentLed == 0) {
+        ledDirection = 1;
+      }
+    }
+
+    // Turn off all the Opta user LEDs when changing state
     for (int i = 0; i < 4; i++) {
-      int value = analogRead(analog_pins[i]);
-
-      // Write the analog reading to the file
-      if (i < 3) {
-        fprintf(f, "Pin A%d: %d, ", i, value);
-      } else {
-        fprintf(f, "Pin A%d: %d\n", i, value);
-      }
-
-      // Check if there was an error writing to the file
-      if (ferror(f)) {
-        error("error: %s (%d)\n", strerror(errno), -errno);
-      }
+      digitalWrite(led_pins[i], LOW);
     }
 
-    // Flush the file output
-    fflush(f);
-
-    // If we have reached the maximum number of iterations, close the file
-    iterationCount++;
-    if (iterationCount >= maxIterations) {
-      fclose(f);
-
-      // Indicate completion by blinking another LED
+    // Try to mount the file system on the USB mass storage device
+    // If there's an error, blink an Opta user LED (LED_D1)
+    int err = usb.mount(&msd);
+    if (err) {
       while (1) {
-        digitalWrite(led_pins[3], HIGH);
+        digitalWrite(led_pins[1], HIGH);
         delay(500);
-        digitalWrite(led_pins[3], LOW);
+        digitalWrite(led_pins[1], LOW);
         delay(500);
       }
     }
+
+    // Open the data file on the USB device for writing
+    // If there's an error, blink an Opta user LED (LED_D1)
+    f = fopen("/KINGSTON/analog_inputs_data.txt", "w+");
+    if (f == NULL) {
+      while (1) {
+        digitalWrite(led_pins[2], HIGH);
+        delay(500);
+        digitalWrite(led_pins[2], LOW);
+        delay(500);
+      }
+    }
+
+    // Take analog readings and write them to a .txt file every second
+    unsigned long currentMillis = millis();
+    if (currentMillis - previousMillis >= interval) {
+      previousMillis = currentMillis;
+
+      // Loop over the analog pins, read values, and write to the data file
+      for (int i = 0; i < 4; i++) {
+        int value = analogRead(analog_pins[i]);
+
+        // Write the analog reading to the file
+        if (i < 3) {
+          fprintf(f, "Pin A%d: %d, ", i, value);
+        } else {
+          fprintf(f, "Pin A%d: %d\n", i, value);
+        }
+
+        // Check if there was an error writing to the file
+        if (ferror(f)) {
+          error("- Error: %s (%d)\n", strerror(errno), -errno);
+        }
+      }
+
+      // Flush and close the file output to ensure data is written to it
+      fflush(f);
+      fclose(f);
+    }
+
+    usb.unmount();
   }
 }
 ```
