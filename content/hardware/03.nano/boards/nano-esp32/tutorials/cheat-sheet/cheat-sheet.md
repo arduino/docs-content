@@ -51,6 +51,13 @@ To install the core, go the **board manager** and search for **Nano ESP32**. For
 
 You can also program your board via the [Arduino Web Editor](arduino-cloud/getting-started/getting-started-web-editor), an online IDE.
 
+## Bootloader Mode
+The Nano ESP32 has a feature that we call bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
+
+This mode is useful if you've uploaded a sketch that produces some unwanted behaviour. Maybe the sketch causes it to become undetectable by your computer, or maybe its an HID sketch that took over your keyboard and mouse and you need to regain control of your computer. It lets you turn the board on without actually running any sketch.
+
+To enter bootloader-mode, press the reset button, and then press it again once you see the RGB LED flashing. You'll know that you've successfully entered bootloader-mode if you see the RGD LED pulsing slowly.
+
 ## MicroPython
 
 The Nano ESP32 has support for MicroPython, a micro-implementation of Python® that can easily be installed on your board.
