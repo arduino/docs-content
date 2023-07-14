@@ -94,7 +94,9 @@ In the little window that appears, type ".ino". You should now be able to see th
 
 ![Find source file window](./assets/ozone_find_window.png)
 
-Covering all features of Ozone would go beyond the scope of this tutorial but to give you a starting point we will show you how to add a breakpoint and hold your sketch at that point. As mentioned above a breakpoint is an intentional stopping or pausing place at a specific point in the code. You can add them by clicking the sidebar next to your sketch, and you should see a red dot appear. You have now set a breakpoint.
+### Setting Breakpoints
+
+As mentioned above a breakpoint is an intentional stopping or pausing place at a specific point in the code. You can add them by clicking the sidebar next to your sketch, and you should see a red dot appear. You have now set a breakpoint.
 
 ![Setting a breakpoint](./assets/breakpoint.png)
 
