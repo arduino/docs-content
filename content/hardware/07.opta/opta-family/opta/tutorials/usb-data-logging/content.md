@@ -74,7 +74,7 @@ This tutorial also requires the latest version of the `Arduino_USBHostMbed5` lib
 
 ### Writing Data to a USB Memory Stick
 
-The example code shown below shows how to interface an Opta™ device with a USB memory stick, storing readings from four analog inputs into a file on the USB memory stick: 
+The example code shown below shows how to interface an Opta™ device with a USB memory stick, storing readings from its four analog inputs into a .`.txt` file on a USB memory stick: 
 
 ```arduino
 /**
@@ -263,18 +263,23 @@ Import libraries:
 
 - The necessary libraries are imported at the beginning of the code. `Arduino_USBHostMbed5` enables USB host functionality, while `FATFileSystem` allows us to interact with the FAT file system on the USB memory stick.
 
-Define variables and instances:
+variables and instances definition:
 
-- Instances for handling the USB mass storage device (`USBHostMSD msd`) and the file system (`mbed::FATFileSystem usb("KINGSTON")`) are created. Arrays are also created to store analog input pin numbers and the onboard LED numbers. Timing variables and a file pointer are also defined.
+- Instances for handling the USB mass storage device (`USBHostMSD msd`) and the file system (`mbed::FATFileSystem usb("KINGSTON")`) are created. Arrays are also created to store analog input pin numbers and the onboard LED numbers. Timing variables and a file pointer are also defined; `previousMillis` and `interval` are used for time tracking without using the `delay()` function, `ledDirection` and `currentLed` are used to create a "Knight Rider" LED pattern, which lights up the onboard user LEDs from left to right and right to left.
 
-`setup()` function:
+The `setup()` function:
 
 - The Opta™ device is initialized. The analog-to-digital converter's resolution is set, onboard LEDs are initialized, and a connection to the USB memory stick is established. If the USB memory stick is successfully connected and mounted, a file named "analog_inputs_data.txt" is opened in read/write mode.
 
-Main `loop()` function:
+The main `loop()` function:
 
-- The connection between the Opta™ device and the USB memory stick is checked, and reconnection is made if both devices are disconnected. Then, readings are taken from the analog pins at an interval of one second, and those readings are written to a file on the USB memory stick. After a certain number of iterations, the file is closed, and one of the onboard LEDs is made to blink continuously.
+- It first checks whether the onboard user button is pressed for three seconds to start the data logging process. If it is, all onboard user LEDs are turned off and `dataLoggingStarted` flag is set to `TRUE`.
+- Then, if the data logging has started, it checks if the user button is held down for three seconds again to stop the data logging process. If it is, all LEDs blink 10 times to indicate that data logging has stopped.
+The program then waits for a USB mass storage device connection and displays a "Knight Rider" LED pattern to indicate that it's waiting for a connection.
+- Once a connection is established, the onboard user LEDs are turned off. The file system on the USB memory stick is then mounted. If there's an error, `LED_D1` blinks continuously.
+- A file named `analog_inputs_data.txt` is opened on the USB memory stick for writing. If there's an error opening the file, `LED_D2` blinks continuously.
+- Finally, the program takes analog readings and writes them to the file every second. If there's an error writing to the file, the program will print an error message and the error number. Once the data is successfully written, the file is flushed, closed, and the USB memory stick is unmounted.
 
 ## Conclusion
 
-In this tutorial, you have learned how to interface an Opta™ device with a USB memory stick, read analog input data, and store it on the USB memory stick. You also learned how to use the onboard LEDs to display the status and error information to the user.
+In this tutorial, you have learned how to interface an Opta™ device with a USB memory stick, read analog input data, and store it on the USB memory stick. Additionally, you've gained understanding on how to use the onboard user LEDs to display status and error information to the user. With these skills, you can now explore more complex projects, such as implementing advanced data logging and analysis for various sensors.
