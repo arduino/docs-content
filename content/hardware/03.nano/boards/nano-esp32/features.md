@@ -4,7 +4,7 @@ The Arduino Nano ESP32 features the NORA-W106, a module with a ESP32-S3 chip ins
 
 <FeatureList>
 
-<Feature title="MicroPython 101" image="python">
+<Feature title="MicroPython 101" image="core">
 Learn the basics of MicroPython with the Nano ESP32 and our free MicroPython 101 course.
 <FeatureLink title="MicroPython 101" url="/micropython-course"/>
 </Feature>

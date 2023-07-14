@@ -3,6 +3,10 @@
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
+  <EssentialElement title="MicroPython 101" type="resource" link="/micropython-course">
+    Learn MicroPython with the Nano ESP32 and our free MicroPython 101 course.
+  </EssentialElement>
+
   <EssentialElement title="Nano Hardware Design Guide" type="tutorial" link="/learn/hardware/nano-pcb-guide">
     Learn how to create your own custom hardware that is compatible with the Arduino Nano Family.
   </EssentialElement>
