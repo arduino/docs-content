@@ -71,7 +71,7 @@ Now, to verify things are working as they should, copy the script script below i
 from machine import Pin
 import time
 
-myLED = Pin(45, Pin.OUT)
+myLED = Pin(0, Pin.OUT)
 
 while True:
     myLED.value(0)
@@ -83,6 +83,8 @@ while True:
 After loading the script, we should be seeing a green light blink on the board.
 
 ![Blinking green LED.](assets/greenled.gif)
+
+***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
 
 So what just happened? We just loaded a script to our board, instructing it to blink a green LED every second. This is to confirm things are working, and if you see blinking green light, you successfully installed and uploaded a script to your board!
 
