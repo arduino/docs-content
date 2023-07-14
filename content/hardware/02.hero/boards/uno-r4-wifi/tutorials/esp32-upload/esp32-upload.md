@@ -28,7 +28,7 @@ In order to flash custom firmware to the ESP32-S3 we need to put the chip in dow
 
 The easiest way is to use a female-to-female cable and short the pins at the top of the board. At this point, the board has to be powered off. Once the pins are shorted you can connect the board to your PC and remove the jumper wire. If you check the device name inside the device manager it should have changed to: **USB JTAG/serial debug unit**.
 
-## Step 2: Flash firmware
+## Step 2: Flash Firmware
 
 Once the chip is set to the right mode we use esptool to flash custom firmware to the board. Download the tool from [here](https://github.com/espressif/esptool) and put it somewhere you will find it. Next, we need to navigate to our installation folder using the terminal. Because esptool is a cli (command line interface) tool we need to perform our next steps in the terminal. Once you are inside the right folder verify that the tool is working by typing `esptool`. You should see a list of commands appear in the terminal. If you don't, make sure you downloaded all the necessary files and you are located in the right folder.
 
