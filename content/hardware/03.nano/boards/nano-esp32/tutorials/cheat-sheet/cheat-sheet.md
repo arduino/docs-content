@@ -92,7 +92,7 @@ To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When
 ### Input Voltage (VIN)
 
 - If you're using the USB-C® connector you must power it with 5 V.
-- The recommended input voltage on the VIN pin is 5-18 V.
+- The recommended input voltage on the VIN pin is 6-21 V.
 
 ### Operating Voltage
 
@@ -336,6 +336,8 @@ There are several examples provided bundled with the core that showcase how to m
 ## RGB
 
 The ESP32 features an RGB that can be controlled with the `0`, `45` and `46` GPIO. These are not connected to any physical pins. 
+
+***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
 
 To control them, use:
 
