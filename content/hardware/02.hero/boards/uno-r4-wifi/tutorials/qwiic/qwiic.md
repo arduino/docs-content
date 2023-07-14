@@ -98,3 +98,4 @@ void setup(){
 ```
 
 ## Summary
+In this tutorial, we have gone over the Qwiic connector on the Arduino UNO R4 WiFi. We've learned about how I2C works, and how that relates to Qwiic. We've also learned how the Arduino UNO R4 WiFis Qwiic connector is configured and how to make use of it to conveniently build large I2C networks of nodes for your interactive projects with minimal wiring. 
