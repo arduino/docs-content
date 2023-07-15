@@ -148,7 +148,7 @@ The pre-requisities for connecting with Python is:
 Connection to the cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) module, we can use `pip`.
 
 ```py
-pip install arduino-iot-cloud-py
+pip install arduino-iot-cloud
 ```
 
 You will also need to have configured a manual device in the cloud. The **Device ID** and **Secret Key** are required in your script to authenticate. To connect, we use the following command:
