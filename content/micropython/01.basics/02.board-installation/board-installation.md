@@ -41,16 +41,19 @@ Software required:
 ​
 First prepare the board for a new firmware upload by shorting the B1 pin to GND and pressing the reset button.
 
-Then run the following esptool command to erase the flash, replace `{port-name}` the name of the port your board is connected to:
+Then run the following esptool command to erase the flash, replace `{port-name}` with the name of the port your board is connected to:
+
 ​
 ```
 esptool.py --chip esp32s3 --port {port-name} erase_flash
 ```
 ​
-Then run this command to upload the new firmware, replace `{firmware.bin}` with the name of your firmware binary file:
+Then run this command to upload the new firmware, replace `{firmware.bin}` with the name of your firmware binary file, and {port-name} with the name of the port your board is connected to:
+
 ​
 ```
-esptool.py --chip esp32s3 --port /dev/cu.usbmodem101 write_flash -z 0 {firmware.bin}
+esptool.py --chip esp32s3 --port {port-name} write_flash -z 0 {firmware.bin}
+
 ```
 ​
 Now your board should be prepared to be programmed with MicroPython!
