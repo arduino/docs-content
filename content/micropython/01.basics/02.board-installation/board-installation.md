@@ -34,12 +34,12 @@ If you don't want to use the Arduino MicroPython Installer tool, these are the p
 
 ## Nano ESP32
 
-Software requried:
+Software required:
 - MicroPython Firmware
 - [esptool.py](https://github.com/espressif/esptool) installed
 - [Python](https://www.python.org) installed on your computer
 ​
-First prepare the board for a new firmare upload by shorting the B1 pin to GND and pressing the reset button.
+First prepare the board for a new firmware upload by shorting the B1 pin to GND and pressing the reset button.
 
 Then run the following esptool command to erase the flash, replace `{port-name}` the name of the port your board is connected to:
 ​
@@ -47,7 +47,7 @@ Then run the following esptool command to erase the flash, replace `{port-name}`
 esptool.py --chip esp32s3 --port {port-name} erase_flash
 ```
 ​
-Then run this command to upload the new firwmare, replace `{firmare.bin}` with the name of your firmware binary file:
+Then run this command to upload the new firwmare, replace `{firwmare.bin}` with the name of your firmware binary file:
 ​
 ```
 esptool.py --chip esp32s3 --port /dev/cu.usbmodem101 write_flash -z 0 {firmware.bin}
