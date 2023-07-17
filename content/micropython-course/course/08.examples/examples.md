@@ -69,7 +69,7 @@ from machine import Pin
 from time import sleep     
 
 # Create a Pin object for pin 5 as an input with a pull-up resistor
-button = Pin(5, Pin.IN, Pin.PULL_UP)   
+button = Pin(9, Pin.IN, Pin.PULL_UP)   
 
 # Start an infinite loop
 while True:
@@ -107,7 +107,7 @@ from machine import Pin
 from time import sleep     
 
 # Create a Pin object for pin 5 as an output
-led = Pin(5, Pin.OUT)    
+led = Pin(9, Pin.OUT)    
 
 # Start an infinite loop
 while True:    
@@ -144,7 +144,7 @@ from machine import Pin, PWM
 import time                    
 
 # Create a PWM object named 'servo' on pin 5 configured as an output
-servo = PWM(Pin(5, mode=Pin.OUT))    
+servo = PWM(Pin(9, mode=Pin.OUT))    
 # Set the frequency of the PWM signal to 50Hz
 servo.freq(50)                      
 
@@ -185,7 +185,7 @@ import neopixel
 # Set the number of pixel on the RGB strip
 PIXEL_NUMBER = 10
 # Create a NeoPixel object with 24 pixels connected to pin 21
-np = neopixel.NeoPixel(Pin(21), PIXEL_NUMBER)   
+np = neopixel.NeoPixel(Pin(9), PIXEL_NUMBER)   
 
 # Define colors
 purple = (200, 0, 200)
@@ -253,7 +253,7 @@ from machine import Pin
 from time import sleep_ms
 
 # Define sensor pin
-SENSOR_PIN = 5
+SENSOR_PIN = 9
 
 # Create a DHT11 object with the specified pin number
 TEMP_SENSOR = dht.DHT11(Pin(SENSOR_PIN))  
@@ -355,7 +355,7 @@ from machine import Pin, PWM
 import time
 
 # Pin connected to the Grove Speaker
-SPEAKER_PIN = 5
+SPEAKER_PIN = 9
 
 # Frequency and duration of the sound
 FREQUENCY = 220  # Hz
@@ -397,7 +397,7 @@ import lis3dh, time, math
 # Import Pin and SoftI2C class from the machine module
 from machine import Pin, SoftI2C
 
-i2c = SoftI2C(sda=Pin(11), scl=Pin(12)) # I2C
+i2c = SoftI2C(scl=Pin(12), sda=Pin(11)) # I2C
 imu = lis3dh.LIS3DH_I2C(i2c, address=0x19)
 
 last_convert_time = 0
@@ -465,7 +465,7 @@ from machine import Pin, ADC
 import time
 
 # Create an ADC object and associate it with pin 5
-pin_adc = ADC(Pin(5))      
+pin_adc = ADC(Pin(9))      
 # Set the attenuation level to 11dB, which allows for a wider input voltage range
 pin_adc.atten(ADC.ATTN_11DB)   
 
@@ -512,7 +512,7 @@ from machine import Pin
 from time import sleep
 import tm1637
 
-tm = tm1637.TM1637(clk=Pin(10), dio=Pin(11))
+tm = tm1637.TM1637(clk=Pin(12), dio=Pin(11))
 
 tm.write([63, 191, 63, 63])  # Write a specific pattern of segments to the TM1637 display
 sleep(1)
