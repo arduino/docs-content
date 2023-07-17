@@ -97,6 +97,8 @@ Having trouble? Continue to the troubleshooting section. Otherwise, move on to t
 ## Troubleshooting
 Got stuck? Here are a few common issues you may run into and tips on how to move forward.
 
+If you can't find what you're looking for in this article, you can have a look in the [Arduino Help Center](https://support.arduino.cc/) for more tips.
+
 ### Board not Detected
 
 If your board is not detected by the MicroPython firmware installer app, double check that you've correctly put your board in bootloader mode.
