@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-The GIGA R1 WiFi comes with a USB-C® connector for programming, communication and HID functionality, a USB-A connector for connecting devices such as USB sticks and keyboards. It features a 3.5 mm audio jack for connecting speakers, microphones etc. Dedicated camera & display connectors are located at the top of the board, which can also be connected from underneath. 
+The GIGA Display Shield comes with a 3.97” 480x800 RGB touch screen, a digital microphone and on-board IMU, that can easily be mounted on the GIGA R1 WiFi board. An arducam connector is located at the top of the shield.
 
-With a fast dual core microcontroller (480MHz / 240MHz), 76 GPIOs, several communication buses, you can build large projects using the GIGA R1 WiFi as a base. The GIGA R1 WiFi also comes equipped with a radio module, crypto chip and an antenna.
+Using the fast dual core microcontroller (480MHz / 240MHz) of the GIGA R1 WiFi powerful visual solutions can be developed using the LVGL library or the Arduino_Graphics library.
 
 </FeatureDescription>
 
