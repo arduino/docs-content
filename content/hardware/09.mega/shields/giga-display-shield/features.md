@@ -13,7 +13,7 @@ A reference to all technical features on this board, with pointers to additional
 <FeatureLink title="Cheat Sheet" url="/tutorials/giga-r1-wifi/cheat-sheet"/>
 </Feature>
 
-<Feature title="3.97” 480x800 RGB touch screen." image="">
+<Feature title="3.97” 480x800 RGB touch screen" image="">
 
 <FeatureLink title="" url=""/>
 </Feature>
