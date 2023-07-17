@@ -49,8 +49,6 @@ This board is based on the [Arduino ESP32 Core](https://github.com/arduino/ardui
 
 To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
-You can also program your board via the [Arduino Web Editor](arduino-cloud/getting-started/getting-started-web-editor), an online IDE.
-
 ## Bootloader Mode
 The Nano ESP32 has a feature that we call bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
 
@@ -71,6 +69,7 @@ In this course, you will fundamental knowledge to get started, as well as a larg
 Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
 - [Getting Started with Arduino IoT Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
 - [MicroPython with Arduino IoT Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
+***IoT Cloud support is coming August 2023***
 
 ## API
 
