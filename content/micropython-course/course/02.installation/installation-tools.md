@@ -3,7 +3,7 @@ author: 'Jacob Hylen'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: 'Installing Arduino Labs for MicroPython'
+title: 'MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
@@ -17,7 +17,7 @@ In this chapter we will go over how to install the prerequisite software: the **
 The software you will have installed are:
 
 - [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
-- The Arduino MicroPython firmware installer
+- The [Arduino MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer)
 
 ![The Installed Software](./assets/apps-open.png)
 
