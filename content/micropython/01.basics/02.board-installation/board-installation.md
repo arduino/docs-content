@@ -41,7 +41,7 @@ Software requried:
 ​
 First prepare the board for a new firmare upload by shorting the B1 pin to GND and pressing the reset button.
 
-Then run the following esptool command to erase the flash, replace `{port-name}` the name of the port your board is conncted to:
+Then run the following esptool command to erase the flash, replace `{port-name}` the name of the port your board is connected to:
 ​
 ```
 esptool.py --chip esp32s3 --port {port-name} erase_flash
