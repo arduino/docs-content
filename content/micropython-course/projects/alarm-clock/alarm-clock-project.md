@@ -23,7 +23,7 @@ You will need the following to build this project:
 
 Assemble the components according to the circuit diagram below:
 
-![Circuit for the alarm clock](assets/alarm-clock.png)
+![Circuit for the alarm clock](assets/Alarm-clock.png)
 
 ## Code
 
