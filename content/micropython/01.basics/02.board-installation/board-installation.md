@@ -47,7 +47,7 @@ Then run the following esptool command to erase the flash, replace `{port-name}`
 esptool.py --chip esp32s3 --port {port-name} erase_flash
 ```
 ​
-Then run this command to upload the new firwmare, replace `{firwmare.bin}` with the name of your firmware binary file:
+Then run this command to upload the new firmware, replace `{firmware.bin}` with the name of your firmware binary file:
 ​
 ```
 esptool.py --chip esp32s3 --port /dev/cu.usbmodem101 write_flash -z 0 {firmware.bin}
