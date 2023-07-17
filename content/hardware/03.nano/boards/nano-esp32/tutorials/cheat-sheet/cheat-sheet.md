@@ -204,7 +204,7 @@ To enter bootloader mode (chip boot mode), you can use either the BOOT0 (B0) or 
 
 ![Boot pins.](assets/nano-esp32-boot.png)
 
-Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding Green LED will light up.
+Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding LED will light up.
 
 ***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
 
