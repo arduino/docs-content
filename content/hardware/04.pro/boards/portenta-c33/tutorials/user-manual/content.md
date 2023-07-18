@@ -102,7 +102,6 @@ The Portenta C33 can be powered by the following:
 - Using an external **4.1 to 6 V power supply** connected to the `VIN` pin located in the MKR-styled connectors pins of the board (please, refer to the [board pinout section](#pinout) of the user manual).
 - Using an external **5 V power supply** connected to the `5V` pin located in the MKR-styled connectors of the board (please, refer to the [board pinout section](#pinout) of the user manual).
 - Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS-GAN-TF(LF)(SN), and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Portenta C33 is 800 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- Using the onboard **ESLOV connector**, which has a dedicated 5 V power line.
 - Using an Arduino Pro carrier board, such as the [Portenta Max Carrier](https://store.arduino.cc/collections/pro-family/products/portenta-max-carrier) and the [Portenta Breakout](https://store.arduino.cc/collections/pro-family/products/arduino-portenta-breakout). 
 - Using your custom boards to power the board through the board's castellated pins, MKR-styled or High-Density connectors. Check out the [board pinout](#pinout) and its schematic to know more about it.
 
