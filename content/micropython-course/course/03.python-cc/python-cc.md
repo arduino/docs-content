@@ -2,7 +2,7 @@
 author: 'Karl Söderby'
 hero_image: "./hero-banner.png"
 featured: micropython-101
-title: 'Python Crash Course'
+title: '4. Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
 ---
 

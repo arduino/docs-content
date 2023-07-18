@@ -3,7 +3,7 @@ author: 'Jacob Hylen'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: 'MicroPython Installation Guide'
+title: '3. MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 

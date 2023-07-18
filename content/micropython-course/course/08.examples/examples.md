@@ -3,7 +3,7 @@ author: 'Hannes Siebeneicher'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: 'Component Examples'
+title: '9. Component Examples'
 description: 'Ready to use code & circuit examples for popular components such as Neopixel, DHT11 & Servo motor.'
 ---
 
