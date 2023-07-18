@@ -9,9 +9,8 @@ tags:
   - Opta
 author: 'José Bagur and Julián Caro Linares'
 hardware:
-  - hardware/04.pro/boards/portenta-c33
+  - hardware/07.opta/opta-family/opta
 software:
-  - ide-v1
   - ide-v2
   - web-editor
   - iot-cloud
