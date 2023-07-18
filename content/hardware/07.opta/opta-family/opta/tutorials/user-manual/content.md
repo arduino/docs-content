@@ -52,7 +52,7 @@ Here's an overview of the device's main components shown in the images above:
 - **Analog and digital peripherals**: The Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: The Opta™ (all variants) features a physical RS-485 communication interface available through an onboard connector.
 
-### Board Core and Libraries
+### Opta™ Core and Libraries
 
 The **Arduino Mbed OS Opta Boards** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest Arduino Mbed OS Opta Boards version.
 
@@ -61,3 +61,9 @@ The **Arduino Mbed OS Opta Boards** core contains the libraries and examples to 
 The complete pinout is available and downloadable as PDF from the link below:
 
 - [Opta™ pinout](https://docs.arduino.cc/static/820c493afe76c7aedca3f4709b12b129/opta-full-pinout.pdf)
+
+### Datasheet
+
+The complete datasheet (for all Opta™ variants) is available and downloadable as PDF from the link below:
+
+- [Opta™ datasheet](https://docs.arduino.cc/resources/datasheets/AFX00001-AFX00002-AFX00003-datasheet.pdf)
