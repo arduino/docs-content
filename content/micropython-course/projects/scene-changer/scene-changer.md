@@ -5,6 +5,7 @@ featured: micropython-101-projects
 title: 'Scene Changer'
 description: 'Learn how to change the scene on an OLED screen with the press of a button'
 ---
+***Please complete the basic installation-chapters before starting a project.***
 
 This project will show you how to interact with a screen using a button. The script will follow a sequence when the button is pressed and change what is displayed. It will call different functions depending on the current function that is displayed.
 
