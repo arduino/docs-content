@@ -36,7 +36,7 @@ This user manual will provide a comprehensive overview of the Opta™, covering 
 
 ## Opta™ Overview
 
-The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard PLC languages such as Ladder Diagram (LD), Sequential fFunction Block Diagram (FBD), making it an ideal device for automation engineers Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, the Opta™  is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
+The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST) and Instruction List (IL), making it an ideal device for automation engineers. Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, the Opta™  is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
 
 ### Opta™ Main Components
 
