@@ -1,12 +1,12 @@
 ---
-title: 'Opta™ C33 User Manual'
+title: 'Opta™ User Manual'
 difficulty: beginner
-compatible-products: [portenta-c33]
-description: 'Learn about the hardware and software features of the Arduino® Portenta C33.'
+compatible-products: [opta]
+description: 'Learn about the hardware and software features of Arduino® Opta™ devices.'
 tags:
   - Cheat sheet
   - User manual
-  - Portenta C33
+  - Opta
 author: 'José Bagur and Julián Caro Linares'
 hardware:
   - hardware/04.pro/boards/portenta-c33
@@ -25,7 +25,7 @@ This user manual will provide a comprehensive overview of the Opta™, covering 
 
 ### Hardware Requirements
 
-- [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
 - 24 VDC/0.5A power supply (x1)
 
@@ -48,7 +48,7 @@ Here's an overview of the device's main components shown in the images above:
 - **Wireless connectivity**: The Opta™ (WiFi variant only) supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware), allowing the device to communicate wirelessly with other devices and systems. 
 - **Ethernet connectivity**: The Opta™ (all variants) features an onboard, high-performance 10/100 Mbps Ethernet transceiver accessible through its onboard RJ45 connector.
 - **Security**: The Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices and provides advanced security features.
-- **USB connectivity**: The Opta™ features an onboard USB-C port that can be used for programming purposes.
+- **USB connectivity**: The Opta™ features an onboard USB-C port that can be used for programming and data logging purposes.
 - **Analog and digital peripherals**: The Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: The Opta™ (all variants) features a physical RS-485 communication interface available through an onboard connector.
 
