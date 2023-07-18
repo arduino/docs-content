@@ -55,3 +55,9 @@ Here's an overview of the device's main components shown in the images above:
 ### Board Core and Libraries
 
 The **Arduino Mbed OS Opta Boards** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest Arduino Mbed OS Opta Boards version.
+
+### Pinout
+
+The complete pinout is available and downloadable as PDF from the link below:
+
+- [Opta™ pinout](https://docs.arduino.cc/static/820c493afe76c7aedca3f4709b12b129/opta-full-pinout.pdf)
