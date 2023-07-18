@@ -66,3 +66,18 @@ The complete pinout is available and downloadable as PDF from the link below:
 The complete datasheet (for all Opta™ variants) is available and downloadable as PDF from the link below:
 
 - [Opta™ datasheet](https://docs.arduino.cc/resources/datasheets/AFX00001-AFX00002-AFX00003-datasheet.pdf)
+
+### STEP Files
+
+The complete STEP files are available and downloadable from the link below:
+
+- Opta™ STEP files  
+
+## First Use
+
+### Powering the Opta™
+
+The Opta™ can be powered by the following:
+
+- Using a USB-C® cable (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
+- Using an external 12 VDC to 24 VDC power supply connected to the Opta™'s power supply connectors (please, refer to the [pinout section](#pinout) of the user manual).
