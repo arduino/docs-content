@@ -2,7 +2,7 @@
 identifier: ASX00039
 title: Arduino® GIGA Display Shield
 type: maker
-author: Ali Jahangiri
+author: Ali Jahangiri, Benjamin Dannegård
 ---
 
 
@@ -108,7 +108,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | J1       | DF40HC(3.5)-80DS-0.4V(51) HD Connector | J2       | DF40HC(3.5)-80DS-0.4V(51) HD Connector |
 | J3       | 21TW-247 Camera Connector 2.54mm Header         | J4       | F32Q-1A7H1-11020 Display Connector     |
 | J5       | F32Q-1A7H1-11008 Touch Connector       | J6       | 2.54mm Header GIGA Connector           |
-| J7       | 2.54mm Header GIGA Connector           | J8       | 505550-2420 Arducam Connector          |
+| J7       | 2.54mm Header GIGA Connector           |
 
 ## TFT Display
 
