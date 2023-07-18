@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started-nano-esp32">
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/nano-esp32/getting-started-nano-esp32">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 
