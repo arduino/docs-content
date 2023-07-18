@@ -48,7 +48,8 @@ Then run the following esptool command to erase the flash, replace `{port-name}`
 esptool.py --chip esp32s3 --port {port-name} erase_flash
 ```
 ​
-Then run this command to upload the new firmware, replace `{firmware.bin}` with the name of your firmware binary file, and {port-name} with the name of the port your board is connected to:
+Then run this command to upload the new firmware, replace `{firmware.bin}` with the name of your firmware binary file, and `{port-name}` with the name of the port your board is connected to:
+
 
 ​
 ```
