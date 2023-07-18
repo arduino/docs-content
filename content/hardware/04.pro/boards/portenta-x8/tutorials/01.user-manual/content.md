@@ -1157,7 +1157,7 @@ Open Portenta X8 Shell as explained [here](#working-with-linux).
 Thus, execute the following command:
 
 ```arduino
-sudo madprobe i2c-dev
+sudo modprobe i2c-dev
 ```
 
 Insert the user password `fio`.
