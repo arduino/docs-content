@@ -29,6 +29,14 @@ Assemble the components according to the circuit diagram below:
 
 Read the comments in the code and change the variables as necessary then upload it to your board.
 
+In order to use the OLED screen you will need to install the following module:
+
+```python
+mip.install("https://raw.githubusercontent.com/micropython/micropython-lib/master/micropython/drivers/display/ssd1306/ssd1306.py")
+```
+
+***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython-course/course/introduction-python#external-modules)***
+
 ```python
 from machine import SoftI2C, Pin
 from Button import Button
