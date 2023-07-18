@@ -7,13 +7,13 @@ title: 'Component Examples'
 description: 'Ready to use code & circuit examples for popular components such as Neopixel, DHT11 & Servo motor.'
 ---
 
-In this final chapter of the MicroPython 101 course, you will find code & circuit examples for popular components, such as motors, displays and sensors. These components can be combined to make fun projects, and works out of the box with the Nano ESP32 & MicroPython.
+In this final chapter of the MicroPython 101 course, you will find code & circuit examples for popular components, such as motors, displays, and sensors. These components can be combined to make fun projects and work out of the box with the Nano ESP32 & MicroPython.
 
-***External modules used in this chapter are third party and has not been developed by the Arduino team. Credit is due to the developers of these modules.***
+***External modules used in this chapter are third-party and have not been developed by the Arduino team. Credit is due to the developers of these modules.***
 
 ## Module Installation
 
-Many of these modules are not included in your MicroPython installation, but don't worry, installing them are very easy and require no additional software!
+Many of these modules are not included in your MicroPython installation, but don't worry, installing them is very easy and requires no additional software!
 
 To install an external module, use the script below. Inside the script, the `URL` variable needs to be replaced with a valid URL that leads to a module. The URL can look like the following:
 - https://raw.githubusercontent.com/stlehmann/micropython-ssd1306/master/ssd1306.py
@@ -89,7 +89,7 @@ while True:
 Now whenever you press the button you should see `Button pressed` being printed in the REPL. 
 
 <video width="100%" loop autoplay>
-<source src="assets/Button.mp4" type="video/mp4" />
+<source src="assets/button.mp4" type="video/mp4" />
 </video>
 
 ## LED
@@ -131,7 +131,7 @@ You should now see the led blinking. Change the code to make it speed up or slow
 
 This code controls a [servo motor](https://store.arduino.cc/products/grove-servo) connected to Pin 5 (D2) using PWM. As with any motor if the current is being drawn due to the motor needing too much power the board resets.
 
-***You should always use an external power supply when powering a servo. Servo motor consume very high amounts of current when initiated, which can reset your board or damage it.***
+***You should always use an external power supply when powering a servo. Servo motors consume very high amounts of current when initiated, which can reset your board or damage it.***
 
 ![Servo Motor Circuit](./assets/circuitServo.png)
 
@@ -168,7 +168,7 @@ You should now see the servo moving back and forth in an endless loop.
 
 ## NeoPixel
 
-This example shows how to use a [NeoPixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB LEDs. Although we are addressing 10 LEDs at once we luckily still only need one signal pin making our setup super easy. Connect the RGB strip as seen in the circuit below, copy the code to `main.py` and press play.
+This example shows how to use a [NeoPixel](https://www.seeedstudio.com/Grove-RGB-LED-Stick-10-WS2813-Mini.html) strip with 10 RGB LEDs. Although we are addressing 10 LEDs at once we luckily still only need one signal pin making our setup super easy. Connect the RGB strip as seen in the circuit below, copy the code to `main.py`, and press play.
 
 ![NeoPixel Circuit](./assets/circuitNeopixel.png)
 
@@ -230,7 +230,7 @@ def runPixelRun():
 runPixelRun()             
 ```
 
-You should now see a the LED RGB strip fade in and out.
+You should now see the LED RGB strip fade in and out.
 
 <video width="100%" loop autoplay>
 <source src="assets/neopixel.mp4" type="video/mp4" />
@@ -275,7 +275,7 @@ while(1):
 You should now see the temperature and humidity printed in the REPL, every second.
 
 <video width="100%" loop autoplay>
-<source src="assets/DHT11.mp4" type="video/mp4" />
+<source src="assets/dht11.mp4" type="video/mp4" />
 </video>
 
 ## OLED Screen
@@ -444,10 +444,10 @@ if imu.device_check():
         time.sleep(0.1)
 ```
 
-Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movements is initialized.
+Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movement is initialized.
 
 <video width="100%" loop autoplay>
-<source src="assets/Accelerometer.mp4" type="video/mp4" />
+<source src="assets/accelerometer.mp4" type="video/mp4" />
 </video>
 
 ## Sound Sensor
@@ -488,7 +488,7 @@ while True:
 After running the script, test it out by clapping your hands or making other loud noises next to the sensor. You should see the output change in the REPL. 
 
 <video width="100%" loop autoplay>
-<source src="assets/SoundSensor.mp4" type="video/mp4" />
+<source src="assets/soundSensor.mp4" type="video/mp4" />
 </video>
 
 ## 4 Digit Display
@@ -574,5 +574,5 @@ while True:
 After running the script, you should see the values from the moisture sensor printed in the REPl. 
 
 <video width="100%" loop autoplay>
-<source src="assets/Moisture.mp4" type="video/mp4" />
+<source src="assets/moisture.mp4" type="video/mp4" />
 </video>

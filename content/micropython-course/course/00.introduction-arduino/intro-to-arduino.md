@@ -30,7 +30,7 @@ This course is designed around two main components:
 - [Nano ESP32](https://store.arduino.cc/products/nano-esp32) - an Arduino board with a Wi-Fi® chip and antenna. 
 - [Nano Screw Terminal Adapter](https://store.arduino.cc/products/nano-screw-terminal) - a carrier with screw terminal connections.
 
-Additionally, as we progress in the course, we introduce the option of using third party components from [Seeed](https://www.seeedstudio.com/), which uses the **Grove connector standard**. These components can easily be connected to the Nano Screw Terminal Adapter via a [grove-to-male cable](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs).
+Additionally, as we progress in the course, we introduce the option of using third-party components from [Seeed](https://www.seeedstudio.com/), which uses the **Grove connector standard**. These components can easily be connected to the Nano Screw Terminal Adapter via a [grove-to-male cable](https://store.arduino.cc/products/grove-4-pin-male-to-grove-4-pin-cable-5-pcs).
 
 ![Mount the Nano ESP32 on the Nano Screw terminal.](assets/esp32-terminal.png)
 
@@ -67,7 +67,7 @@ The compiler is very strict and will point out where in your code you have a pro
 
 ### MicroPython
 
-Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python on your board permanently, and then you send instructions to it. This means you can change the code for your board and load it in real time. MicroPython also implements a file system on your board.
+Programming an Arduino using MicroPython is a slightly different experience. In this scenario, you install a version of Python on your board permanently, and then you send instructions to it. This means you can change the code for your board and load it in real-time. MicroPython also implements a file system on your board.
 
 ## Summary
 

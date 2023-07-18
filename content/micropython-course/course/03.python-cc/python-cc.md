@@ -6,7 +6,7 @@ title: 'Python Crash Course'
 description: 'Learn some Python fundamentals that will help you create MicroPython scripts.'
 ---
 
-We ended last chapter by making **a light blink**, to make sure our setup was working properly. In this chapter, we will take you through some useful Python® syntax that will be of help when you are creating MicroPython scripts.
+We ended the last chapter by making **a light blink**, to make sure our setup was working properly. In this chapter, we will take you through some useful Python® syntax that will be of help when you are creating MicroPython scripts.
 
 ***In this chapter we will cover a small part of the Python programming language. This will help you to better understand the rest of the course. If you are familiar with Python, this chapter is not a requirement.***
 
@@ -18,7 +18,7 @@ Many of the examples presented in this chapter are just fragments. Try to combin
 
 ### Learn Python
 
-While this chapter provides some fundamental Python syntax, it does not cover all. If you are interested in learning more about Python, we recommend you checking out some of the links below:
+While this chapter provides some fundamental Python syntax, it does not cover all. If you are interested in learning more about Python, we recommend you check out some of the links below:
 - [learnpython.org](https://www.learnpython.org/)
 - [W3Schools](https://www.w3schools.com/python/default.asp)
 
@@ -32,11 +32,11 @@ numVar = 250 # numeric value
 arrayVar = [1,3,6,7] # array
 ```
 
-A variable can store just about anything, but pay attention to **how** they are stored. For example, a string (which holds characters, or text), needs the quotation marks, while a number does not need anything.
+A variable can store just about anything, but pay attention to **how** they are stored. For example, strings (which hold characters, or text), need quotation marks, while a number does not need anything.
 
 ## Print
 
-The `print()` function is the best way of knowing what's happening on your board. You can use `print()` to print the numeric value of a variable, the state of a button, or to send a message back to the computer.
+The `print()` function is the best way of knowing what's happening on your board. You can use `print()` to print the numeric value of a variable, the state of a button, or send a message back to the computer.
 
 ```python
 print('Hello') # print a string
@@ -47,15 +47,15 @@ print(func()) # prints the return value of a function
 print('Value: ', data) # prints "Value: <value of data variable>"
 ```
 
-As you can see, there are many different approaches on how to print things to the terminal.
+As you can see, there are many different approaches how to print things to the terminal.
 
-***The `print()` function is one of the most commonly used functions. When programming your board, this function allows you to see what happens on the board in real time.***
+***The `print()` function is one of the most commonly used functions. When programming your board, this function allows you to see what happens on the board in real-time.***
 
 ## Operators
 
 Operators in Python are used to for example add two numbers together, assign a value to a variable or compare two values with each other, and are fundamental in Python programming.
 
-To perform an **arithmetic** operation (addition, subtraction, division etc.), you can write it like:
+To perform an **arithmetic** operation (addition, subtraction, division, etc.) you can write:
 
 ```python
 print(5+5) # value is 10
@@ -89,7 +89,7 @@ if x > 10 and x < 15:
 
 In the example just above, we started using conditional statements. These statements are fundamental in programming as they allow us to create code that executes only under specific conditions. 
 
-Below you can see how we can process the variable `x`. Three possible outcomes are available, which simply checks what number `x` is.
+Below you can see how we can process the variable `x`. Three possible outcomes are available, which check what number `x` is.
 
 ```python
 x = 5+5
@@ -102,7 +102,7 @@ else:
     print("x is smaller than 10")
 ```
 
-Now take a look at what happens after each statement. Notice the empty space just before `print()`? This is called an **indentation**, and is how Python organizes code.
+Now take a look at what happens after each statement. Notice the empty space just before `print()`? This is called an **indentation** and is how Python organizes code.
 
 Anything inside of this indentation will execute if the statement is met, and this is a fundamental principle that is used in every Python program that you write!
 
@@ -197,7 +197,7 @@ value = my_function(5,5)
 print(value)
 ```
 
-The above function **returns** a value of `10`, because we fed `5`,`5` into it. The function simply adds it together, and returns the value to you.
+The above function **returns** a value of `10`, because we fed `5`,`5` into it. The function performs an addition, and returns the value to you.
 
 ## Summary
 

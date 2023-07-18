@@ -3,7 +3,7 @@ author: 'Jacob Hylen'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: 'MicroPython Installation Guide'
+title: 'Installing Arduino Labs for MicroPython'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
@@ -14,10 +14,10 @@ In this chapter we will go over how to install the prerequisite software: the **
 
 ![Arduino Labs for MicroPython and the Installer tool](./assets/logo.png)
 
-The software you will have installed are:
+The software you need to have installed are:
 
 - [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
-- The [Arduino MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer)
+- [The Arduino MicroPython firmware installer](https://labs.arduino.cc/en/labs/micropython-installer)
 
 ![The Installed Software](./assets/apps-open.png)
 
@@ -27,7 +27,7 @@ Once this has been completed, you will use the MicroPython firmware installer to
 
 **1. Download the Arduino Lab for MicroPython**
 
-This editor will acts as your development environment, and it is here you will write your code as well as load it to your board.
+This editor will act as your development environment, and it is here you will write your code as well as upload it to your board.
 
 First, [download the app here](https://labs.arduino.cc/en/labs/micropython). It will be downloaded as a `.zip` archive. Extract the files into a folder on your computer, and launch the `.exe` to start up the code editor.
 
@@ -35,7 +35,7 @@ If you're on macOS, move the application to your **Applications** folder.
 
 **2. Put the Board in Bootloader Mode**
 
-Before we can install MicroPython, we need to place our board in a "bootloader" mode as we call it. This will make it possible to send a new firmware to it.
+Before we can install MicroPython, we need to place our board in a "bootloader" mode as we call it. This will make it possible to upload a new firmware to it.
 
 Connect your board to your computer, and connect B1 to GND with a jumper wire, tweezers, or something else metallic you have handy. Once you see a green light on the board, press the reset button on the board. If you remove the connection between B1 and GND, you should see a dim purple light if this step was successful. If not, then try again.
 
