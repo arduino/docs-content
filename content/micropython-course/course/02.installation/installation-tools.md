@@ -57,6 +57,8 @@ Now open the Firmware Installer tool, select the Arduino Nano ESP32, and press *
 
 ![Installer with Board Selected](./assets/installer.png)
 
+If the installer doesn't find the MicroPython firmware automatically, you can download it manually from [here](./assets/nanoesp32_micropython.bin)
+
 **5. Connect your Code Editor and Board**
 
 In the Arduino Lab for MicroPython app, press **connect** in the top left corner and choose the serial port that comes up. This is your Nano ESP32.
