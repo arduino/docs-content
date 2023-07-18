@@ -6,4 +6,4 @@ core: arduino:mbed_giga
 ---
 
 The **GIGA Display Shield** is a touch screen solution for quickly and easily deploy UI to your Giga R1 projects.
-Featuring a 3.97” 480x800 RGB touch screen. Arducam 20 pin camera connector / GC2145. Digital microphone (MP34DT06JTR). 6 Axis IMU (Bosch BMI270).
+Featuring a 3.97” 480x800 RGB touch screen. Arducam 20 pin camera connector. Digital microphone (MP34DT06JTR). 6 Axis IMU (Bosch BMI270).
