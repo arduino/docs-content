@@ -696,6 +696,8 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at his own expense.
+
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -718,15 +720,23 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+**Important:** The operating temperature of the EUT can’t exceed 50℃ and shouldn’t be lower than -20℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
+| Frequency bands           | Maximum output power (EIRP) |
+|---------------------------|---------------------------- |
+| 2412-2472 MHz (2.4G WIFI) | 5.42 dBm                    |
+| 2402-2480 MHz (BLE)       | 2.41 dBm                    |
+| 2402-2480 MHz (EDR)       | -6.27 dBm                   |
+
+
+
 ## Company Information
 
-| Company name    | Arduino SRL                                     |
+| Company name    | Arduino S.r.l                                     |
 |-----------------|-------------------------------------------------|
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy)    |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA （ Italy ) |
 
 
 ## Reference Documentation
@@ -745,6 +755,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**        |
 |------------|--------------|------------------- |
+| 16/05/2023 | 3            | Legal updates      |
 | 13/04/2023 | 2            | Tech Specs Updates |
-| 03/02/2023 | 1            | First Release      |
-
+| 02/03/2023 | 1            | First Release      |
