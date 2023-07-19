@@ -10,7 +10,7 @@ type: maker
 
 The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
 
-The RA4M1's operating voltage is fixed at 5 V, whereas the ESP32-S3 module is 3.3 V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
+The RA4M1's operating voltage is fixed at 5 V, whereas the ESP32-S3 module is 3.3 V. Communication between these two MCUs is performed via a logic-level translator (TXB0108DQSR).
 
 # Target areas:
 Maker, beginner, education
@@ -49,7 +49,7 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
 - [R7FA4M1AB3CFM#AA0 datasheet](/resources/datasheets/ra4m1.pdf)
 
-The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi® & Bluetooth® connectivity. This module operates on 3.3 V and communicates with the RA4M1 using a logic level translator (TXB0108DQSR).
+The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi® & Bluetooth® connectivity. This module operates on 3.3 V and communicates with the RA4M1 using a logic-level translator (TXB0108DQSR).
 
 * **Overview**
   * Xtensa® dual-core 32-bit LX7 microprocessor
@@ -75,7 +75,7 @@ The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, be
 
 The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART connections. It has a significantly larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB). With a 48 MHz clock speed, it is also 3x faster than its predecessors.
 
-In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making one of the most visually unique Arduino board to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
+In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making it one of the most visually unique Arduino boards to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
 
 **Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, and it has a lot of online documentation.
 
@@ -170,7 +170,7 @@ The ESP32-S3-MINI-1-N8 features:
 * 512  kB SRAM
 * Up to 150 Mbps bit rate
 
-This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage. 
+This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic-level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage. 
 
 ### ESP Header
 
@@ -230,7 +230,7 @@ This matrix can be used for a number of projects and prototyping purposes, and s
 
 The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
 
-The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth wave.
+The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth waves.
 
 ## I2C Connector
 
@@ -275,6 +275,8 @@ The general operating voltage for UNO R4 WiFi is 5 V, however the ESP32-S3 modul
 The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can safely handle up to 8 mA of current. Never connect devices that draw higher current directly to a GPIO as this may damage the circuit.
 
 For powering e.g. servo motors, always use an external power supply.
+
+<div style="page-break-after:always;"></div>
 
 # Mechanical Information
 
