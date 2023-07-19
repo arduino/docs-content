@@ -10,7 +10,7 @@ author: Ali Jahangiri, Benjamin Dannegård
 
 # Description
 
-The GIGA Display Shield is an easy way to add a touchscreen display with orientation detection to your GIGA factor board.
+The Arduino GIGA Display Shield (from now on referred to as GIGA Display Shield) is an easy way to add a touchscreen display with orientation detection to your Arduino GIGA R1 WiFi (from now on referred to as GIGA R1 WiFi) board.
 
 # Target Areas
 Human-Machine Interface, Display, Shield
