@@ -115,7 +115,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) and ISL97634IRT14Z-T (U4) LED Drivers.
 
 ## 6-Axis IMU
-The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the GIGA main board via a common I2C connection.
+The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the GIGA R1 WiFi board via a common I2C connection.
 
 ## RGB LED
 
