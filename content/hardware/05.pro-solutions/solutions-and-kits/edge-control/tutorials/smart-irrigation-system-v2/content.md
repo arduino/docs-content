@@ -1,5 +1,5 @@
 ---
-title: 'LoRaWAN® Sensorized Farm Irrigation System Using Arduino® Edge Control'
+title: 'LoRaWAN® Sensorized Irrigation System Using Arduino® Edge Control'
 description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino IoT Cloud with LoRaWAN® connectivity"
 difficulty: intermediate
 tags:
@@ -143,6 +143,19 @@ This measurement is done in Centibars, and we can use the following readings as 
 - **100-200 Centibars** = Soil is becoming dangerously dry- proceed with caution!
 
 ### Arduino Edge Control Code
+
+Let's go through some important code sections to make this application fully operative; starting with the required libraries:
+
+- `Arduino_EdgeControl.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
+- `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It is included in the Board Support Package (BSP) of the Edge Control.
+- `RunningMedian.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
+
+There are two headers included in the project code able to handle some helper functions and structures:
+
+- `SensorValues.hpp` handles the shared variables between the Edge Control and the MKR WiFi 1010 through I2C.
+- `helpers.h` handles the real-time clock (RTC) functions to retrieve the local date and time.
+
+This code's section also contains the defined structure to handle the number of enclosure button taps to control each valve manually.
 
 ```arduino
 ```
