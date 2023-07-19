@@ -49,7 +49,7 @@ Note: This board is passive and requires a GIGA board to function.
 ## Application Examples
 The GIGA Display Shield provides easy cross-form factor support for an external touch display, together with several useful peripherals.
 
-- **Human-Machine Interface Systems:** The GIGA Display Shield can be paired together with a GIGA board for rapid development of a Human-Machine Interface system. The included gyroscope allows for easy orientation detection to adjust the visual element orientation.
+- **Human-Machine Interface Systems:** The GIGA Display Shield can be paired together with a GIGA R1 WiFi board for rapid development of a Human-Machine Interface system. The included gyroscope allows for easy orientation detection to adjust the visual element orientation.
 
 - **Interaction Design Prototyping:** Quickly explore novel interaction design concepts and develop new ways to communicate with technology, including social robots that respond to sound.
 
