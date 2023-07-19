@@ -64,7 +64,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 ## Related Products
 
 - Arduino GIGA R1 WiFi (ABX00063)
-
+<div style="page-break-after:always;"></div>
 # Rating
 
 ## Recommended Operating Conditions
