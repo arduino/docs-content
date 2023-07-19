@@ -8,15 +8,15 @@
 <EssentialsColumn title="Suggested Libraries">
 
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_GigaDisplayTouch/" title="Arduino_GigaDisplayTouch" type="library">
-    The library manages the touch controller of the Giga Display Shield.
+    The library manages the touch controller of the GIGA Display Shield.
 </EssentialElement>
     
 <EssentialElement link="https://github.com/arduino-libraries/ArduinoGraphics" title="Arduino Graphics" type="library">
-    A Library with graphical features to produce visuals on the Giga Display Shield.
+    A Library with graphical features to produce visuals on the GIGA Display Shield.
 </EssentialElement>
 
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_BMI270_BMM150" title="Arduino_BMI270_BMM150.h" type="library">
-    A Library for using the IMU sensor on the Giga Display Shield.
+    A Library for using the IMU sensor on the GIGA Display Shield.
 </EssentialElement>
 
 

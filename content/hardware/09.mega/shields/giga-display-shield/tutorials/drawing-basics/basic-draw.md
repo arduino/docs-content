@@ -10,9 +10,9 @@ The most basic use of the Giga display shield is to draw an image on the screen 
 ## Hardware & Software Needed
 
 - [GIGA R1 WiFi](/hardware/giga-r1).
-- [GIGA Display Shield]()
+- [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [ArduinoGraphics library]()
+- [ArduinoGraphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/)
 - [Library]() library.
 
 ## Downloading the Library and Core
@@ -86,7 +86,7 @@ The complete code can be found as an example in the **Arduino_H7_video** library
 
 Now that it is all uploaded your display shield should look like the image below:
 
-![Sketch running on the Giga Display Shield](assets/draw-on-shield.jpg)
+![Sketch running on the GIGA Display Shield](assets/draw-on-shield.jpg)
 
 
 ## Conclusion

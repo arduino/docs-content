@@ -12,14 +12,14 @@ LVGL is a very powerful graphical framework that is compatible with the Giga Dis
 ## Hardware & Software Needed
 
 - [GIGA R1 WiFi](/hardware/giga-r1).
-- [GIGA Display Shield]()
+- [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino_H7_Video]() library.
 - [Arduino_GigaDisplayTouch]() library.
 
 ## Downloading the Library and Core
 
-The Giga core includes a library that will help us handle the display, so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
+The GIGA core includes a library that will help us handle the display, so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
 
 In this guide, we will be using three different libraries:
 - **Arduino_H7_Video**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
