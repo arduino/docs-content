@@ -67,9 +67,12 @@ In this course, you will fundamental knowledge to get started, as well as a larg
 ## Arduino IoT Cloud
 
 Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
+
+***IoT Cloud support is coming August 2023***
+
 - [Getting Started with Arduino IoT Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
 - [MicroPython with Arduino IoT Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
-***IoT Cloud support is coming August 2023***
+
 
 ## API
 
