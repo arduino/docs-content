@@ -77,7 +77,7 @@ A [SoftwareSerial library](https://www.arduino.cc/en/Reference/SoftwareSerial) a
 
 The LilyPad Arduino USB also supports I2C (TWI). The Arduino software includes a [Wire Library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus.
 
-The LilyPad Arduino USB appears as a generic keyboard and mouse, and can be programmed to control these input devices using the [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [Mouse](https://www.arduino.cc/en/Reference/mouse) classes.
+The LilyPad Arduino USB appears as a generic keyboard and mouse, and can be programmed to control these input devices using the [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) classes.
 
 ### Programming
 

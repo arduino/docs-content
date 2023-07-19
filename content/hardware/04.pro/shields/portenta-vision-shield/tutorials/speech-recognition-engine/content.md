@@ -212,7 +212,7 @@ Now to implement the **Input Trigger Command** and the **Command List** open the
 
 ...
 
-#include "Model_L0.h" -> #include "CybLicense_<id>.h"
+#include "Model_L0.h" -> #include "Model_<id>.h"
 
 ```
 

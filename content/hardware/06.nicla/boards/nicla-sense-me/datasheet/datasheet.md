@@ -301,6 +301,102 @@ All Arduino® boards have a built-in bootloader that allows flashing the board v
 **Note:** The measurements have been performed by activating the temperature sensor, accelerometer and gyroscope, which have been configured with a 1Hz sample rate and 1ms latency.
 
 ## Certifications
+
+### Certifications Summary
+
+<table>
+   <thead>
+      <tr>
+         <th style="width: 16%;vertical-align: middle;text-align: center;"><strong>Certification</strong></th>
+         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Status</strong></th>
+      </tr>
+      <tr></tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>CE (EU)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>EN IEC 62311:2020</p>
+            <p>EN 62368-1:2014+A11+2017</p>
+            <p>ETSI EN 301 489-1 V2.2.3 (2019-11)</p>
+            <p>ETSI EN 301 489-17 V3.2.4 (2020-09)</p>
+            <p>ETSI EN 300 328 V2.2.2: 2019-07</p>
+        </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>RoHS (EU)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+              <p>IEC 62321-3-1-2013</p>
+              <p>IEC 62321-5-2013</p>
+              <p>IEC 62321-7-1-2015</p>
+              <p>IEC 62321-7-2-2017</p>
+              <p>IEC 62321-6-2015</p>
+              <p>IEC 62321-8-2017</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>REACH (EU)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">Yes</td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>WEEE (EU)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">Yes</td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>UKCA (UK)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+                <p>EN IEC 62311:2020</p>
+                <p>EN 62368-1-2014+A11+2017</p>
+                <p>ETSI EN 301 489-1 V2.2.3 (2019-11)</p>
+                <p>ETSI EN 301 489-17 V3.2.4 (2020-09)</p>
+                <p>ETSI EN 300 328 V2.2.2: 2019-07</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>FCC (US)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>IC (CA)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>RSS-247 Issue 2</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>RCM</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>MIC</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>SRRC</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>CCC</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>GB4943</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
 
@@ -379,7 +475,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Company name    | Arduino SRL                                  |
 |-----------------|----------------------------------------------|
-| Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
+| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
 
 ## Reference Documentation
 
@@ -397,10 +493,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                        |
 |------------|--------------|------------------------------------|
-| 27-05-2021 | 01           | Initial Version                    |
-| 20-07-2021 | 02           | Technical Revisions                |
-| 13-12-2022 | 03           | Change Solution Overview Image     |
-| 22-12-2022 | 04           | Add NTC Image & addition pins info |
+| 03/07/2023 | 5           | Certification Summary Table Updated |
+| 22/12/2022 | 4           | Add NTC Image & addition pins info |
+| 13/12/2022 | 3           | Change Solution Overview Image     |
+| 20/07/2021 | 2           | Technical Revisions                |
+| 27/05/2021 | 1           | Initial Version                    |
 
 ## Product Warnings and Disclaimers
 

@@ -19,7 +19,7 @@ Go to the **Libraries panel** and type **‘Wifi101’** in the search tab, then
 
 As you can see, there are some identifiers like `SECRET_SIID` and `SECRET_PSW`. If you now click on the tab called “Secret,” you will notice some input fields where you can fill in your data.
 
-If you have a [MKR1000](https://store.arduino.cc/arduino-mkr1000-with-headers-mounted) lying around, you can upload this sketch on it and watch your board connect to Internet (just make sure you join a 2GHz WiFi network).
+If you have a [MKR1000](/hardware/mkr-1000-wifi) lying around, you can upload this sketch on it and watch your board connect to Internet (just make sure you join a 2GHz WiFi network).
 
 ![share_secure_sketches_img_2](assets/share_secure_sketches_img_2.png)
 ![share_secure_sketches_img_3](assets/share_secure_sketches_img_3.jpg)

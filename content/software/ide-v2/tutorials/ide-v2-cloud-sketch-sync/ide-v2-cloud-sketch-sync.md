@@ -51,8 +51,6 @@ In a nutshell, the steps required to make this integration are the following:
 - Pull a Sketch you want to edit.
 - When you have finished editing, push it back to the cloud. 
 
-***The Remote Sketchbook integration with IDE 2 does not yet support pushing your local Sketches to the cloud. The Sketch needs to have been originally created in the Arduino Cloud platform.***
-
 ### Requirements
 
 - [Arduino IDE 2](https://www.arduino.cc/en/software)

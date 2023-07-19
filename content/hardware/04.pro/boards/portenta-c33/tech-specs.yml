@@ -6,31 +6,34 @@ USB connector: USB-C®
 High-Density Pins:
   Digital I/O pins: 78
   Analog input pins: 8
-  ADC resolution: 12 bits 
   PWM pins: 10
-  DAC resolution: 12 bits
   SPI pins: 8 
   I2C pins: 6 
   UART pins: 16
   CAN pins: 4
   I2S pins: 4
-  USB2: 3
+  USB pins: 8
+  JTAG/SWD pins: 6
 MKR-styled Pins:
   Digital I/O pins: 22 
   Analog input pins: 7
-  ADC resolution: 12 bits 
   PWM pins: 7
-  DAC resolution: 12 bits
   SPI pins: 4 
   I2C pins: 2 
   UART pins: 2
 Wireless connectivity:
   Chipset: ESP32-C3-MINI-1U
-  Wi-Fi®: 2.4GHz Wi-Fi® (802.11 b/g/n)
+  Wi-Fi®: 2.4 GHz Wi-Fi® (802.11 b/g/n)
   Bluetooth®: Bluetooth® Low Energy 5.0
 Ethernet connectivity:
   Chipset: LAN8742AI-CZ-TR
-  Interface: 10/100Mbit Ethernet interface (PHY)
+  Interface: RMII 10/100 Mbps Ethernet interface (PHY)
+Analog-to-digital converter (ADC):
+  Channels: 8
+  Resolution: 12 bits
+Digital-to-analog converter (DAC):
+  Channels: 2
+  Resolution: 12 bits 
 Secure element: NXP® SE050C2
 Communication:
   I2C: 3
@@ -41,12 +44,15 @@ Communication:
   PWM: 10
   USB: 2 (1x USB 2.0 Full Speed + 1x USB 2.0 High Speed)
 Power:
-  Circuit operating voltage: 3.3 V
-  Input voltage (VIN): 5 V
+  Board operating voltage: 3.3 V
+  Board input voltage (VIN): 5 V
+  Supported battery: Li-ion/Li-Po Single Cell 3.7 V
+  Battery connector: JST 3-pin 1.2 mm pitch
 Clock speed: 200 MHz 
 Memory:
   Internal: 2 MB Flash, 512 KB RAM
   External: 16 MB (QSPI Flash)
+Hardware debugging interface: JTAG/SWD
 Dimensions:
   Width: 25.40 mm
   Length: 66.04 mm

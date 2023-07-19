@@ -15,7 +15,7 @@ The new **Arduino Tian** board is powered by Atmel’s SAMD21 MCU, featuring a 3
 
 **NB:** In some countries, it is prohibited to sell WiFi enabled devices without government approval. While waiting for proper certification, some local distributors are disabling WiFi functionality. Check with your dealer before purchasing a Tian if you believe you may live in such a country.
 
-**NB:** Before to start to run Arduino Tian must install CP201x driver on the computer. Find Drivers link [here](http://www.silabs.com/products/interface/Pages/CP2105EK.aspx).
+**NB:** Before to start to run Arduino Tian must install CP201x driver on the computer. Find Drivers link [here](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads).
 
 ## Getting Started
 

@@ -295,7 +295,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 03/03/2021 | 1            | First Release |
-| 13/01/2022 | 1            | Information update |
+| **Date**   | **Revision** | **Changes**        |
+| ---------- | ------------ | ------------------ |
+| 13/01/2022 | 2            | Information update |
+| 03/03/2021 | 1            | First Release      |

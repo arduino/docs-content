@@ -85,7 +85,7 @@ The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out ta
 
 ![LoRa® and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
 
-If you want to use this feature with Python® scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
+If you want to use this feature with Python® scripts, have a look at the [Modem Manager api](https://www.freedesktop.org/software/ModemManager/doc/latest/ModemManager/).
 
 ### LoRa®
 

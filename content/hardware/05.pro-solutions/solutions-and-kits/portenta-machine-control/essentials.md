@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta" title="Portenta H7 Quickstart Guide" type="getting-started">
+    <EssentialElement link="/tutorials/portenta-machine-control/rtd-thermocouple-pmc" title="Portenta H7 Quickstart Guide" type="getting-started">
         A quick guide to installing the Machine Control's integrated Portenta H7 with the Arduino IDE.
     </EssentialElement>
 

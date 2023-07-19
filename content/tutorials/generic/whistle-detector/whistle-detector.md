@@ -31,7 +31,7 @@ This example reads audio data from an Invensense's ICS43432I2S microphone breako
 
 ## Hardware & Software Needed
 
-- [Arduino Zero](https://store.arduino.cc/arduino-zero), [MKRZero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?queryID=undefined)  or [MKR1000](https://store.arduino.cc/arduino-mkr1000-wifi-with-headers-mounted) Board
+- [Arduino Zero](https://store.arduino.cc/arduino-zero), [MKRZero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?queryID=undefined)  or [MKR1000](/hardware/mkr-1000-wifi) Board
 
 - Invensense's ICS43432I2S microphone
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).

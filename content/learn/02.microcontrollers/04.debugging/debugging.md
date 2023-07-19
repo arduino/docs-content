@@ -133,7 +133,7 @@ An **in-circuit emulator** (or ICE) is a specialized tool that allows developers
 
 ![An early 1990s Mikrotek in-circuit emulator for 8086 microprocessors.](assets/debugging_img13.png)
 
-> [Binarysequence](https://commons.wikimedia.org/wiki/File:Microtek_8086_In-Circuit_Emulator.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0>), via Wikimedia Commons.
+> [Binarysequence](https://commons.wikimedia.org/wiki/File:Microtek_8086_In-Circuit_Emulator.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons.
 
 An **in-circuit debugger** (or ICD) is also a specialized tool connected between a host computer and a processor for debugging real-time applications faster and easier; this tool uses some memory and GPIO pins of the target microcontroller during the debugging operations. With an ICD, developers access an on-chip debug module which is integrated into the CPU over an interface (for example, JTAG). This debug module allows developers to load, run, halt and step the processor.
 

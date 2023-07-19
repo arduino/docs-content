@@ -5,7 +5,7 @@ title: 'Ethernet Shield Web Client Repeating'
 description: 'Make repeated HTTP requests.'
 ---
 
-This example shows you how to make repeated HTTP requests using an Ethernet shield.   This example uses DNS, by assigning the Ethernet client with a MAC address, IP address, and DNS address. It connects to  [http://www.arduino.cc/latest.txt](/latest.txt). The content of the page is viewable in the Serial Monitor.
+This example shows you how to make repeated HTTP requests using an Ethernet shield.   This example uses DNS, by assigning the Ethernet client with a MAC address, IP address, and DNS address. It connects to  [http://www.arduino.cc/latest.txt](http://www.arduino.cc/latest.txt). The content of the page is viewable in the Serial Monitor.
 
 ## Hardware Required
 
