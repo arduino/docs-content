@@ -20,7 +20,7 @@ Note: This board is passive and requires a GIGA board to function.
 
 - **KD040WVFID026-01-C025A** 3.97" TFT Display
   - 480x800 resolution
-  - 16.7 Million Colours
+  - 16.7 Million colors
   - 0.108 mm pixel size
   - Captive Touch sensor
   - 5-point and gesture support
