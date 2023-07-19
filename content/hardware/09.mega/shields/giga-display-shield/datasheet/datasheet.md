@@ -135,7 +135,7 @@ The GIGA Display Shield does not require a dedicated power jack. The 3V3 voltage
 
 ### Getting Started - IDE
 
-If you want to program your GIGA Display Shield while offline you need to install the Arduino® Desktop IDE **[1]**. A GIGA board is needed to use it. 
+If you want to program your GIGA Display Shield while offline you need to install the Arduino® Desktop IDE **[1]**. A GIGA R1 WiFi board is needed to use it. 
 
 ### Getting Started - Arduino Web Editor
 
