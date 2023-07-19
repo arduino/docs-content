@@ -16,7 +16,7 @@ The GIGA Display Shield is an easy way to add a touchscreen display with orienta
 Human-Machine Interface, Display, Shield
 
 # Features
-Note: This board is passive and requires a GIGA board to function.
+Note: This board is passive and requires a GIGA R1 WiFi board to function.
 
 - **KD040WVFID026-01-C025A** 3.97" TFT Display
   - 480x800 resolution
