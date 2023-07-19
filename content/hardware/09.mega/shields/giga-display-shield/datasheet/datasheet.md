@@ -53,7 +53,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 - **Interaction Design Prototyping:** Quickly explore novel interaction design concepts and develop new ways to communicate with technology, including social robots that respond to sound.
 
-- **Voice Assistant** Use the included microphone, together with the edge computing power of the GIGA board for voice automation with visual feedback. 
+- **Voice Assistant** Use the included microphone, together with the edge computing power of the GIGA R1 WiFi board for voice automation with visual feedback. 
 
 
 ## Accessories (Not Included)
