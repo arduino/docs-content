@@ -128,6 +128,10 @@ The NORA-W106-10B module supports the Wi-Fi® 4 IEEE 802.11 standards b/g/n, wit
 
 The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP at up to 10 dBm and data rates up to 2 Mbps. It has the option to scan and advertise simultaneously, as well as supporting multiple connections in peripheral/central mode.
 
+### PSRAM
+
+The NORA-W106-10B module includes 8 MB of embedded PSRAM. (Octal SPI)
+
 ## System
 
 ### Resets
