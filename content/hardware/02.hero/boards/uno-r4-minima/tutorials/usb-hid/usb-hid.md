@@ -15,7 +15,7 @@ This feature can be used to create game controllers, keyboard extensions or othe
 
 ## Goals
 
-The goals of this tutorial is:
+The goals of this tutorial are to:
 
 - Learn how to emulate a keyboard (keypresses),
 - Learn how to emulate a mouse (x,y coordinates).
