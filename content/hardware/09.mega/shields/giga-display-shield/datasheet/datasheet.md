@@ -39,7 +39,7 @@ Note: This board is passive and requires a GIGA R1 WiFi board to function.
   - –26 dBFS ± 3 dB sensitivity
 - **I/O**
   - GIGA Connector
-  - 2.54mm Camera Connector
+  - 2.54 mm Camera Connector
 
 
 # Contents
