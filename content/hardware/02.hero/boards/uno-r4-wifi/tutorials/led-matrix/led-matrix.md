@@ -300,83 +300,83 @@ To write more advanced sketches on your own, you may use the full API of the lib
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public ` [`ArduinoLEDMatrix`](#)`()` | The main class for controlling the LED matrix.
-`public void` [`autoscroll`](#)`(int32_t interval_ms)` | Sets the time in ms for each frame to be displayed.
-`public void` [`on`](#)`(size_t pin)` | Turn an individual pixel on.
-`public void` [`off`](#)`(size_t pin)` | Turn an individual pixel off.
-`public void` [`begin`](#)`()` | Start the LED matrix.
-`public void` [`next`](#)`()` | Manually move to the next frame in the sequence.
-`public void` [`loadFrame`](#)`(const uint32_t buffer[3])` | Load a new single frame that is not in any sequence.
-`public void` [`renderFrame`](#)`(uint8:t frameNumber)` | Render the loaded frame.
-`public void` [`play`](#)`(bool loop = false)` | Start playing the sequence of frames, with the option to loop indefinitely or play once.
-`public bool` [`sequenceDone`](#)`()` | checks if the sequence has finished playing.
-`public void` [`loadPixels`](#)`(uint8_t *arr, size_t size)` |Loads the pixels into the buffer but does not display them.
-`public void` [`loadWrapper`](#)`(`[`const uint32_t frames[][4], uint32_t howMany`](#)` callback)` | Sets the current frame to number 0 in the sequence.
+`public ` [`ArduinoLEDMatrix`](#ArduinoLEDMatrix)`()` | The main class for controlling the LED matrix.
+`public void` [`autoscroll`](#autoscroll)`(int32_t interval_ms)` | Sets the time in ms for each frame to be displayed.
+`public void` [`on`](#on)`(size_t pin)` | Turn an individual pixel on.
+`public void` [`off`](#off)`(size_t pin)` | Turn an individual pixel off.
+`public void` [`begin`](#begin)`()` | Start the LED matrix.
+`public void` [`next`](#next)`()` | Manually move to the next frame in the sequence.
+`public void` [`loadFrame`](#loadFrame)`(const uint32_t buffer[3])` | Load a new single frame that is not in any sequence.
+`public void` [`renderFrame`](#renderFrame)`(uint8:t frameNumber)` | Render the loaded frame.
+`public void` [`play`](#play)`(bool loop = false)` | Start playing the sequence of frames, with the option to loop indefinitely or play once.
+`public bool` [`sequenceDone`](#sequenceDone)`()` | checks if the sequence has finished playing.
+`public void` [`loadPixels`](#loadPixels)`(uint8_t *arr, size_t size)` |Loads the pixels into the buffer but does not display them.
+`public void` [`loadWrapper`](#loadWrapper)`(`[`const uint32_t frames[][4], uint32_t howMany`](#)` callback)` | Sets the current frame to number 0 in the sequence.
 
 ## Members
 
-**public  ArduinoLEDMatrix()**
+**public ArduinoLEDMatrix()** <a name="ArduinoLEDMatrix"></a>
 
 Construct a new `LEDMatrix` object.
 
-**public void autoscroll(int32_t interval_ms)**
+**public void autoscroll(int32_t interval_ms)** <a name="autoscroll"></a>
 
 Enable autoscrolling through the frames in a sequence. 
 
 **Parameters**
 * `interval_ms` Sets the time in milliseconds that should be spent on a frame before switching to the next frame in the sequence.
 
-
-**public void on(size_t pin)**
+**public void on(size_t pin)** <a name="on"></a>
 
 Turn on an individual LED.
 
 **Parameters**
 * `pin` Defines which LED should be turned on. Accepted values are 0-95. 
-**public void off(size_t pin)**
+
+**public void off(size_t pin)** <a name="off"></a>
 
 Turn off an individual LED.
 
 **Parameters**
 * `pin` Defines which LED should be turned off. Accepted values are 0-95. 
 
-**public void begin()**
+**public void begin()** <a name="begin"></a>
 
 Starts the LED matrix.
 
-**public void next()**
+**public void next()** <a name="next"></a>
 
 Manually moves to the next frame in the sequence.
 
-**public void loadFrame(const uint32_t buffer[3])**
+**public void loadFrame(const uint32_t buffer[3])** <a name="loadFrame"></a>
 
 loads a single frame that is not part of a sequence.
  
 **Parameters**
 * `buffer[3]` an array of three 32bit integers, where each bit represents an LED.  
 
-**public void renderFrame(uint8_t frameNumber)** 
+**public void renderFrame(uint8_t frameNumber)** <a name="renderFrame"></a>
 
 Render a specific frame from a sequence
 
 **Parameters**
 * `frameNumber` Specifies which frame of the sequence should be rendered. 
 
-**public void play(bool loop)** 
+**public void play(bool loop)** <a name="play"></a>
 
 Starts playing the loaded sequence. 
 
 **Parameters**
 * `loop` true to enable looping the sequence, false to play once.
 
-**public bool sequenceDone()**
+**public bool sequenceDone()** <a name="sequenceDone"></a>
 
 Check for if the sequence is finished playing or if the frame should be advanced another step.
 
 **Returns**
 false if the sequence is not finished, true if it is.
 
-**public void loadPixels(uint8_t arr, size_t size)**
+**public void loadPixels(uint8_t arr, size_t size)** <a name="loadPixels"></a>
 
 Loads the pixels into the frame but does not load them.
 
@@ -385,6 +385,6 @@ Loads the pixels into the frame but does not load them.
 
 * `size` the amount of pixels in your frame. 
 
-**public void loadWrapper(const uint32_t frames[][4], uint32_t howMany)**
+**public void loadWrapper(const uint32_t frames[][4], uint32_t howMany)** <a name="loadWrapper"></a>
 
 Sets the current frame to frame 0 in the sequence.
