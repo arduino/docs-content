@@ -1,0 +1,1 @@
+These are the technical specifications of the Arduino® Nyan CAT R0. It also includes technical specifications of the spinning Motor SR312 & SR418D that enables the CATs purring.

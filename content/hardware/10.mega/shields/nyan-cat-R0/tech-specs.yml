@@ -1,0 +1,90 @@
+Carrier:
+  Name: Arduino® Braccio Carrier
+  SKU: ASX00032
+  Compatibility: Nano Family (Inc. Nano RP2040 Connect)
+Peripherals:
+  Display: AX133T-IF05
+  Joystick: Switronic IT-1501-G
+Other I/O:
+  Programmable digital I/O (24V logic): 12
+Connectivity:
+  USB Programming Port: Amphenol USB Type C
+Communication protocols:
+  CAN-BUS: RS485 communication protocol
+  Programmable Serial ports: RS232 communication protocol
+Power:
+  Supply voltage: 7.4V
+  USB-C®: USB Power Delivery 3.0 (PD 3.0) compliant
+Connectors:
+  6x Motors: Adam Equipment LHA-04-TS
+  2x Motors: Molex 44914-0601
+Dimensions:
+  Weight: 54 g
+  Width: 78,5 mm
+  Length: 122 mm
+Compatible Motors Spec: 
+  Motor Model & Designation:
+    SR312: SO-SR312-MS
+    SR418D: SO-SR418D-MS
+  Communication Interface: RS485
+  Build:
+    Motor Type: 
+      SR312: Metal Brush Motor 
+      SR418D: Brushless Motor 
+    Gear Type: Metal Gear 
+    Bearing Type: 2 Ball Bearings
+    Amplifier Type: 
+      SR312: Digital Controller
+      SR418D: Analog Controller
+  Control Modes:
+    Mode A: Closed-Loop Control 
+    Mode B: Open-Loop Control
+  Rotational Specification:
+    Rotating Direction: CW / CCW
+    Angle Feedback: Absolute
+    Angle Accuracy: ±1.5 Degrees
+    Resolution: 0.1 Degrees
+    Rotation Angle Range: 180 Degrees
+    Rotational Limit: 320° ±5°
+    Center Regression Deviation: ＜1.0°
+  SR312 Electrical Specification:
+    Operating voltage: 4.8V - 6V
+    Rated 4.8V: 
+      Speed (No Load): 0.14sec/60° ±20%
+      Running Current (No Load): 100mA ±20% 
+      Peak Stall Torque (Locked): 3.1kg-cm ±20% / 43.05oz-in ±20%
+      Stall Current (Locked): 0.6A ±20%
+    Rated 6V: 
+      Speed (No Load): 0.12sec/60° ±20%
+      Running Current (No Load): 170mA ±20% 
+      Peak Stall Torque (Locked): 3.8kg-cm ±20% / 52.77oz-in ±20%
+      Stall Current (Locked): 1.0A ±20%
+  SR418D Electrical Specification:
+    Operating voltage: 6V - 7.4V
+    Rated 6V: 
+      Speed (No Load): 0.21sec/60° ±20%
+      Running Current (No Load): 270mA ±20% 
+      Peak Stall Torque (Locked): 12.2kg-cm ±20% / 169.43oz-in ±20%
+      Stall Current (Locked): 1.6A ±20%
+    Rated 7.4V: 
+      Speed (No Load): 0.18sec/60° ±20%
+      Running Current (No Load): 360mA ±20% 
+      Peak Stall Torque (Locked): 14.5kg-cm ±20% / 201.37oz-in ±20%
+      Stall Current (Locked): 2.1 A±20%
+  Operating Condition & Lifetime:
+    Life Span: 1500 Hours (50% Torque Load at 6 Hours/Day of Operation)
+    Operating Temperature Range: 
+      SR312: -5℃ ～ 50℃
+      SR418D: -10℃ ～ 60℃
+  Compatible Connector:
+    Connector: Adam Equipment LHA-04-TS
+  Dimension (L x W x H):
+    SR312:
+      Metric: 31.3 x 16.5 x 28.6 (mm)
+      Imperial: 1.23 x 0.65 x 1.13 (in)
+    SR418D: 
+      Metric: 41.3 x 20.7 x 40.0 (mm)
+      Imperial: 1.68 x 0.81 x 1.57 (in)
+  Weight: 
+    SR312: 27g ±5% / 0.95oz ±5%
+    SR418D: 64g ±5% / 2.19oz ±5%
