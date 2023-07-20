@@ -1,0 +1,7 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - web-editor
+hardware:
+  boards: 
+    - nano-rp2040-connect
