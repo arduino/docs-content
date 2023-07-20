@@ -2,7 +2,7 @@
 
 Thanks to its computing power, **Arduino Opta®** enables a wide range of real-time control, monitoring and predictive maintenance applications. 
 
-It allows professionals to scale up automation projects while taking advantage of the open and widely known Arduino ecosystem.
+It allows professionals to scale up automation projects while taking advantage of the open and widely known Arduino ecosystem. 
 
 Quickly put it to work, leveraging the many available software libraries. The onboard secure element ensures Over-The-Air firmware updates and remote control via the Arduino Cloud or third-party services.
 
