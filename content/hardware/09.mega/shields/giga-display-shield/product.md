@@ -1,7 +1,7 @@
 ---
 title: GIGA Display Shield
 url_shop: https://store.arduino.cc/
-url_guide: /tutorials/giga-r1-wifi/giga-getting-started
+url_guide: /tutorials/basic-draw
 core: arduino:mbed_giga
 ---
 

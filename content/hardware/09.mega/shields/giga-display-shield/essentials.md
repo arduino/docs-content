@@ -1,6 +1,6 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="Quickstart Guide" type="getting-started">
-        A quick guide to installing your board with the Arduino IDE.
+    <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/giga-display-shield/basic-draw">
+        A quick guide on how to use the GIGA Display Shield.
     </EssentialElement>
 
 </EssentialsColumn>
