@@ -282,3 +282,25 @@ void loop() {
   }
 }
 ```
+
+## Support
+
+If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Opta™ devices. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Opta™ help center page](https://support.arduino.cc/hc/en-us/categories/360001637274-Hardware-Support)
+
+### Forum
+
+Join our community forum to connect with other Portenta C33 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Opta™.
+
+- [Opta™ category in the Arduino Forum](https://forum.arduino.cc/c/hardware/opta/179)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about Opta™ devices.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)
