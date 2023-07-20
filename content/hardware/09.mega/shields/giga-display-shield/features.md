@@ -9,7 +9,7 @@ Using the fast dual core microcontroller (480MHz / 240MHz) of the GIGA R1 WiFi p
 <FeatureList>
 
 <Feature title="3.97” 480x800 RGB touch screen" image="configurability">
-
+A back-light screen with the resolution of a 4.0＂ TFT-LCD which contains 480x800 pixels, and can display up to 16.7M colors.
 <FeatureLink title="" url=""/>
 </Feature>
 
