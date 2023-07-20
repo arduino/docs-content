@@ -35,11 +35,13 @@ This user manual will provide a comprehensive overview of the Opta™, covering 
 
 ## Opta™ Overview
 
-The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST) and Instruction List (IL), making it an ideal device for automation engineers. Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, the Opta™  is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
+The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL), making it an ideal device for automation engineers. Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, the Opta™ is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
 
 ### Opta™ Main Components
 
 The Opta™ features a secure and durable design that enables it for automation applications. 
+
+
 
 Here's an overview of the device's main components shown in the images above:
 
@@ -47,13 +49,14 @@ Here's an overview of the device's main components shown in the images above:
 - **Wireless connectivity**: The Opta™ (WiFi variant only) supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware), allowing the device to communicate wirelessly with other devices and systems. 
 - **Ethernet connectivity**: The Opta™ (all variants) features an onboard, high-performance 10/100 Mbps Ethernet transceiver accessible through its onboard RJ45 connector.
 - **Security**: The Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices and provides advanced security features.
-- **USB connectivity**: The Opta™ features an onboard USB-C port that can be used for programming and data logging purposes.
+- **USB connectivity**: The Opta™ features an onboard USB-C® port that can be used for programming and data logging purposes.
 - **Analog and digital peripherals**: The Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: The Opta™ (all variants) features a physical RS-485 communication interface available through an onboard connector.
+- **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
 
 ### Opta™ Core and Libraries
 
-The **Arduino Mbed OS Opta Boards** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest Arduino Mbed OS Opta Boards version.
+The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
 
 ### Pinout
 
@@ -80,4 +83,137 @@ The complete STEP files are available and downloadable from the link below:
 The Opta™ can be powered by the following:
 
 - Using a USB-C® cable (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
-- Using an external 12 VDC to 24 VDC power supply connected to the Opta™'s power supply connectors (please, refer to the [pinout section](#pinout) of the user manual).
+- Using an external +12 VDC to +24 VDC power supply connected to the Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
+
+### Hello World Example
+
+Let's program the Opta™ with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Opta™ core and device are working as expected.
+
+There are two ways to program this example in the board:
+
+- Navigate to **File > Examples > 01.Basics > Blink**.
+- Copy and paste the code below into a new sketch in the Arduino IDE.
+
+```arduino
+void setup() {
+  // Initialize LED_BUILTIN as an output (this will turn on the LED)
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  // Turn the built-in LED off
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  // Turn the built-in LED on
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
+
+For the Opta™, the `LED_BUILTIN` macro represents the green LED of the built-in RGB LED of the device.
+
+To upload the code to the Opta™, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
+
+You should see now the green LED of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+
+## USB®-C Port
+
+The Opta™ has an onboard USB®-C port that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks.
+
+## Input Terminals
+
+The Opta™ has 12 input terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
+
+### Power Supply
+
+As shown in the image below, the first four terminals, from left to right, are Opta™'s power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. Opta™'s maximum power consumption at 12 VDC is 2 W, and at 24 VDC is 2.2 W.
+
+***For use with Opta devices, we recommend the official Finder 78.12.1.230.2400 power supply. This power supply was designed to provide stable +24 VDC despite consistently fluctuating current draw.***
+
+### Programmable Inputs
+
+The image below shows Opta™ devices have eight analog/digital programmable inputs accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. Analog/digital inputs terminals are mapped as described in the following table:
+
+| **Opta™ Terminal** | **Arduino Pin Mapping** |
+|:------------------:|:-----------------------:|
+|        `I1`        |      `A0`/`PIN_A0`      |
+|        `I2`        |      `A1`/`PIN_A1`      |
+|        `I3`        |      `A2`/`PIN_A2`      |
+|        `I4`        |      `A3`/`PIN_A3`      |
+|        `I5`        |      `A4`/`PIN_A4`      |
+|        `I6`        |      `A5`/`PIN_A5`      |
+|        `I7`        |      `A6`/`PIN_A6`      |
+|        `I8`        |      `A7`/`PIN_A7`      |
+
+***When used as analog inputs,the working voltage range is from 0 to +10 VDC; when used as digital inputs, the working voltage range is from 0 to +24 VDC.***
+
+To use the input terminals as digital inputs:
+
+- Add the `pinMode(pinName, INPUT)` instruction in your sketch's  `setup()` function. 
+
+To use the input terminals as analog inputs:
+
+- Add the `analogReadResolution()` instruction in your sketch's  `setup()` function.
+
+The sketch below will use analog inputs on Opta™ by reading values from three input terminals (`I1`, `I2`, and `I3`). We read the value from each terminal, convert it to a voltage value, and print out the analog value and its corresponding voltage value in the Arduino IDE's Serial Monitor.
+
+```arduino
+/**
+  Opta's Input Terminals
+  Name: optas_inputs.ino
+  Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
+  terminals as analog inputs on Opta™.
+
+  @author Arduino Team
+  @version 2.0 22/07/23
+*/
+
+// Define constants for voltage, resolution, and divider.
+const float VOLTAGE_MAX   = 3.0;      // Maximum voltage that can be read
+const float RESOLUTION    = 4095.0;   // 12-bit resolution
+const float DIVIDER       = 0.3;      // Voltage divider
+
+// Array of terminals.
+const int TERMINALS[] = {A0, A1, A2};
+
+// Number of terminals.
+const int NUM_PINS = sizeof(TERMINALS) / sizeof(int);
+
+void setup() {
+  // Initialize serial communication at 9600 bits per second.
+  Serial.begin(9600);
+
+  // Set the resolution of the ADC to 12 bits.
+  analogReadResolution(12); 
+}
+
+void loop() {
+  // Loop through each of the terminal, read the terminal analog value, convert it to voltage, and print the result.
+  for (int i = 0; i < NUM_PINS; i++) {
+    readAndPrint(TERMINALS[i], i + 1);
+  }
+
+  // Delay for a second before reading the terminals again.
+  delay(1000);
+}
+
+// This function reads the value from the specified pin, converts it to voltage, and prints the result.
+void readAndPrint(int terminal, int terminalNumber) {
+  // Read the input value from the analog pin.
+  int terminalValue = analogRead(terminal);
+
+  // Convert the terminal value to its corresponding voltage. 
+  float voltage = terminalValue * (VOLTAGE_MAX / RESOLUTION) / DIVIDER;
+  
+  // Print the terminal value and its corresponding voltage.
+  Serial.print("I");
+  Serial.print(terminalNumber);
+  Serial.print(" value: ");
+  Serial.print(terminalValue);
+  Serial.print(" corresponding to ");
+  Serial.print(voltage, 5);
+  Serial.println(" VDC");
+}
+```
+
+This sketch shown before is designed to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each of the defined terminals, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real-time.
