@@ -15,7 +15,6 @@ This is a great tutorial for getting started with your shield and exploring what
 - [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [ArduinoGraphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/)
-- [Library]() library.
 
 ## Downloading the Library and Core
 
