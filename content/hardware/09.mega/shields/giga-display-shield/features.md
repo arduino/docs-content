@@ -8,7 +8,7 @@ Using the fast dual core microcontroller (480MHz / 240MHz) of the GIGA R1 WiFi p
 
 <FeatureList>
 
-<Feature title="3.97” 480x800 RGB touch screen" image="">
+<Feature title="3.97” 480x800 RGB touch screen" image="configurability">
 
 <FeatureLink title="" url=""/>
 </Feature>

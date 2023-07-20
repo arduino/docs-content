@@ -1,5 +1,5 @@
 ---
-title: Guide for Using LVGL With the Giga Display Shield
+title: Guide for Using LVGL With the GIGA Display Shield
 description: 'Learn how to use LVGL with the GIGA display shield'
 author: Benjamin Dannegård
 tags: [Display, LVGL]
@@ -161,7 +161,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_t * checkbox;
 ```
 
-Assign the screenspace info to `obj`, that was detailed in the #Screen configuration section. To create the checkbox object use `lv_checkbox_create(obj)` and assign it to a suitable variable, here we use the `checkbox` pointer. Next set the text that will appear next to the checkbox by using `lv_checkbox_set_text(checkbox, "Example");`, here `Example` will be printed next to the checkbox.
+Assign the screenspace info to `obj`, that was detailed in the [Screen Configuration](#lvgl-screen-configuration) section. To create the checkbox object use `lv_checkbox_create(obj)` and assign it to a suitable variable, here we use the `checkbox` pointer. Next set the text that will appear next to the checkbox by using `lv_checkbox_set_text(checkbox, "Example");`, here `Example` will be printed next to the checkbox.
 
 ```arduino
   obj = lv_obj_create(screen);
@@ -367,4 +367,4 @@ This guide went through the building blocks of the different components that can
 This example sketch will show the different components in a 2x2 grid.
 
 ## Next Step
-If you are interested in finding out how to use LVGL with the on-board IMU check out our [Orientation tutorial](). There are more features of the display shield to discover, for example using the camera connector. For more information on that have a look at our [Camera tutorial](). LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#Display Shield Configuration).
+If you are interested in finding out how to use LVGL with the on-board IMU check out our [Orientation tutorial](). There are more features of the display shield to discover, for example using the camera connector. For more information on that have a look at our [Camera tutorial](). LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#display-shield-configuration).

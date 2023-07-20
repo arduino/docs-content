@@ -4,6 +4,6 @@ software:
   - web-editor
 hardware:
   boards:
-    - GIGA R1 WiFi
+    - giga-r1-wifi
   carriers: ~
   shields: ~
