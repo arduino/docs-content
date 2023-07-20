@@ -155,7 +155,8 @@ To use the input terminals as analog inputs:
 
 - Add the `analogReadResolution()` instruction in your sketch's  `setup()` function.
 
-The sketch below will use analog inputs on Opta™ by reading values from three input terminals (`I1`, `I2`, and `I3`). We read the value from each terminal, convert it to a voltage value, and print out the analog value and its corresponding voltage value in the Arduino IDE's Serial Monitor.
+The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real-time.
+
 
 ```arduino
 /**
@@ -164,7 +165,7 @@ The sketch below will use analog inputs on Opta™ by reading values from three 
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
   terminals as analog inputs on Opta™.
 
-  @author Arduino Team
+  @author Arduino PRO Content Team
   @version 2.0 22/07/23
 */
 
@@ -183,6 +184,7 @@ void setup() {
   // Initialize serial communication at 9600 bits per second.
   Serial.begin(9600);
 
+  // Enable analog inputs on Opta
   // Set the resolution of the ADC to 12 bits.
   analogReadResolution(12); 
 }
@@ -216,4 +218,67 @@ void readAndPrint(int terminal, int terminalNumber) {
 }
 ```
 
-This sketch shown before is designed to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each of the defined terminals, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real-time.
+## Status LEDs
+
+Opta™ Lite and Opta™ RS485 devices have four user-programmable LEDs, and **Opta™ WiFi devices have an extra one**. User-programmable LEDs are mapped as described in the following table:
+
+| **Opta™ User LED** | **Arduino Pin Mapping** |
+|:------------------:|:-----------------------:|
+|     `STATUS 1`     |  `LED_D0`/`LED_RELAY1`  |
+|     `STATUS 2`     |  `LED_D1`/`LED_RELAY2`  |
+|     `STATUS 3`     |  `LED_D2`/`LED_RELAY3`  |
+|     `STATUS 4`     |  `LED_D3`/`LED_RELAY4`  |
+|       `USER`       |    `LED_USER`/`LEDB`    |
+
+The sketch below shows how to create a Knight Rider-style "scanning" effect using the Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LEDs identifiers, and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
+
+```arduino
+/**
+  Opta's Knight Rider Scanning Effect
+  Name: knight_rider_opta.ino
+  Purpose: This sketch demonstrates a Knight Rider scanning effect using 
+  the user LEDs of Opta™ devices.
+
+  @author Arduino PRO Content Team
+  @version 2.0 22/07/23
+*/
+
+// Define an array to hold the pin numbers for Opta's user LEDs.
+const int USER_LEDS[] = {LED_D0, LED_D1, LED_D2, LED_D3};
+
+// Number of Opta's user LEDs
+const int NUM_LEDS = 4;
+
+void setup() {
+  // Set the mode for each user LED to OUTPUT.
+  for (int i = 0; i < NUM_LEDS; i++) {
+    pinMode(USER_LEDS[i], OUTPUT);
+  }
+}
+
+void loop() {
+  // Scan from the first LED to the last.
+  for (int i = 0; i < NUM_LEDS; i++) {
+    // Turn on the LED.
+    // Wait for 100 milliseconds.
+    digitalWrite(USER_LEDS[i], HIGH); 
+    delay(100); 
+    // Turn off the LED.
+    // Wait for 100 milliseconds.
+    digitalWrite(USER_LEDS[i], LOW); 
+    delay(100); 
+  }
+  
+  // Scan back from the last LED to the first.
+  for (int i = NUM_LEDS - 1; i >= 0; i--) {
+    // Turn on the LED.
+    // Wait for 100 milliseconds.
+    digitalWrite(USER_LEDS[i], HIGH); 
+    delay(100); 
+    // Turn off the LED.
+    // Wait for 100 milliseconds.
+    digitalWrite(USER_LEDS[i], LOW); 
+    delay(100); 
+  }
+}
+```
