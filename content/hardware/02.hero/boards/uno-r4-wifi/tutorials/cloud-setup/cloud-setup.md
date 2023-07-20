@@ -1,6 +1,8 @@
 ---
 title: UNO R4 WiFi Cloud Setup
 description: A step-by-step guide on how to set up the UNO R4 WiFi with the Arduino IoT Cloud
+hardware:
+  - hardware/02.hero/boards/uno-r4-wifi
 author: Hannes Siebeneicher
 tags: [UNO R4 WiFi, IoT Cloud]
 ---
@@ -10,7 +12,7 @@ Thanks to the ESP32-S3 the UNO R4 WiFi comes with WiFi compatibilities which mea
 ## Software & Hardware Needed
 
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/things)
+- [Arduino IoT Cloud](https://cloud.arduino.cc/home/)
 
 ## Setup and Process
 
@@ -22,27 +24,27 @@ To use the Arduino IoT Cloud you will need to register and set up a **free** acc
 
 After you have set up your account you can connect your board to your pc. Inside the IoT Cloud Things overview click on **Create**.
 
-![Create new Thing](.assets/thingsOverview.png)
+![Create new Thing](./assets/thingsOverview.png)
 
 This will take you to the setup menu for creating your Thing. Here you can set up your device, configure your network connection and add cloud variables. You will learn more about cloud variables in the following steps. First, under associate device, click on **Select Device**.
 
-![Select Device](.assets/selectDevice.png)
+![Select Device](./assets/selectDevice.png)
 
 Then click on **Set Up New Device**.
 
-![Set Up New Device](.assets/setUpNewDevice.png)
+![Set Up New Device](./assets/setUpNewDevice.png)
 
 You can now choose between three different options depending on what type of board you are using. In our case, using the UNo R4 WiFi continue by clicking on **Arduino board**.
 
-![Select Arduino](.assets/selectArduino.png)
+![Select Arduino](./assets/selectArduino.png)
 
 If this is your first time using the Arduino IoT Cloud you will be asked to download the **Arduino Create Agent** in the following step. The Create Agent is a piece of software that is necessary for your Arduino Board to communicate with the IoT Cloud. Download and install it by clicking on Download and following the installation process.
 
-![Arduino Create Agent](.assets/createAgent.png)
+![Arduino Create Agent](./assets/createAgent.png)
 
 When the installation is finished you will see a short loading screen and once your board has been found continue by pressing **configure**.
 
-![Configure Device](.assets/configureDevice.png)
+![Configure Device](./assets/configureDevice.png)
 
 Now it's time to give your board a name. Name it whatever you want, as long as it doesn't contain any special characters. We advise you to choose a name that is related to your project making it easier when you have multiple boards set up. If you are out of ideas you can also press the arrow button which will give you a random name.
 
@@ -50,11 +52,11 @@ Once you have chosen a name that you are happy with press next and the next part
 
 ***Note: If you don't save the **secret key** you will not be able to continue with the next step so make sure you document and save it!***
 
-![Secret Key](.assets/secretKey.png)
+![Secret Key](./assets/secretKey.png)
 
 To use the UNO R4 with the IoT Cloud you will also need to update the firmware. Luckily we have simplified the normally somewhat tricky part of flashing new software to the microcontroller. Depending on what operating system you are using read the respective description but the basic steps are the same regardless of what you are using. 
 
-![Update Board](.assets/updateDevice.png)
+![Update Board](./assets/updateDevice.png)
 
 **Step 1**
 [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-windows.zip) and unzip it
@@ -73,13 +75,13 @@ Once done, unplug the board, connect it again and click "Done" to finish the set
 
 If all the previous steps were done successfully you should be greeted by a prompt telling you that you can now use the board with the IoT Cloud.
 
-![Finish set up](.assets/finishSetUp.png)
+![Finish set up](./assets/finishSetUp.png)
 
 ### Network Configuration
 
 We are almost done with the setup and in the following step, you will need the **secret key** previously saved. Under Network click on **configure** and add your Wi-Fi® credentials as well as your secret key.
 
-![Network Configuration](.assets/network.png)
+![Network Configuration](./assets/network.png)
 
 ## Summary
 
