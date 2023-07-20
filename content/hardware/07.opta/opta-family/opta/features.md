@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-Thanks to its computing power, **Arduino Opta®** enables a wide range of real-time control, monitoring and predictive maintenance applications.
+Thanks to its computing power, **Arduino Opta®** enables a wide range of real-time control, monitoring and predictive maintenance applications. 
 
 It allows professionals to scale up automation projects while taking advantage of the open and widely known Arduino ecosystem.
 
