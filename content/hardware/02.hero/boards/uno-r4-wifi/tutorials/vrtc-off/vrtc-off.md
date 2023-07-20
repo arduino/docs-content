@@ -37,6 +37,40 @@ On the header that is located by the barrel jack, you'll find the VRTC pin. And 
 
 ![Battery Pack Powering the UNO R4 WiFi RTC](./assets/Circuit.png)
 
+The following sketch will start the RTC but only set the time if it is not already running.
+
+```arduino
+#include "RTC.h"
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  RTC.begin();
+  RTCTime mytime(24, Month::MAY, 2023, 11, 8, 0, DayOfWeek::THURSDAY, SaveLight::SAVING_TIME_ACTIVE);
+
+  RTC.setTimeIfNotRunning(mytime);
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+  RTCTime currenttime;
+  RTC.getTime(currenttime);
+
+  int hours = currenttime.getHour();
+  int minutes = currenttime.getMinutes();
+
+
+  Serial.print("Hours: ");
+  Serial.println(hours);
+  Serial.println("Minutes: ");
+  Serial.println(minutes);
+
+}
+
+```
+
 ## OFF Pin
 The OFF pin on the Arduino UNO R4 WiFi board lets you turn the boards onboard 5 V power supply off, basically turning off the board.
 
