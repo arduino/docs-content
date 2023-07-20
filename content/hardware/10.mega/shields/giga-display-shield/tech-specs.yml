@@ -1,0 +1,23 @@
+Board:
+  Name: Arduino® GIGA Display Shield
+  SKU: ASX00039
+Connectors:
+  Camera: SOCKET 2ROW 20POS VERTICAL PASS THROUGH
+  Display Video: F32Q-1A7H1-11020
+  Display Touch: F32Q-1A7H1-11008
+Display:
+  Size: 3.97”
+  Resolution: 480x800 RGB
+  Color: 16.7M
+  Touch Mode: Five points and Gestures
+  Interface: I2C
+Sensors:
+  IMU: BMI270
+  Microphone: MP34DT06JTR
+Power:
+  Circuit operating voltage: 
+  Input voltage (VIN): 
+  DC Current per I/O Pin: 
+Dimensions:
+  Width: 
+  Length: 
