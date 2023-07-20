@@ -151,6 +151,8 @@ All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows
 
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]** and the online store **[6]** where you will be able to complement your board with sensors, actuators and more.
 
+<div style="page-break-after:always;"></div>
+
 # Mechanical Information
 
 ## Mounting Holes And Board Outline
