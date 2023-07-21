@@ -63,7 +63,7 @@ The goal of this application note is to showcase a sensorized farming irrigation
 - Arduino Edge Control Enclosure Kit
 - Water flow sensor (YF-B2 DN15)
 - WATERMARK Soil Moisture Sensors.
-- 2-Wires Irrigation Solenoid Valves (x4)
+- 2-Wires Latching Solenoid Valves (x4)
 - 12 VDC 5Ah acid/lead SLA battery (x1)
 - 18 VDC 180 W solar panel.
 - 3.4 meters of DN15 PVC pipes (x1)
@@ -96,7 +96,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Power connection diagram](assets/POWER_CONNECTIONS.png)
 
-- The four solenoid valves will be connected to the Edge Control relay contacts of J11 connector following the wiring below. 
+- The four solenoid valves will be connected to the Edge Control latching outputs of the J9 connector following the wiring below. 
 
 ![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS.png)
 
@@ -124,7 +124,9 @@ The communication between both devices is done leveraging the I2C communication 
 
 ### Valves Control
 
-The valves can be controlled manually by using the onboard button, one tap opens the valve one, two taps valve two, and so on. Also, the valves can be controlled automatically by the system when the soil moisture is poor. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+The valves can be controlled manually by using the onboard button, one tap opens the valve one, two taps valve two, and so on. Also, the valves can be controlled automatically by the system when the soil moisture is poor, for this we must enable the "Smart mode" by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+
+*** These valves are latching ones, which means they are activated by a pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that can damage the latching outputs. *** 
 
 ### Water Usage
 
@@ -146,19 +148,228 @@ This measurement is done in Centibars, and we can use the following readings as 
 
 Let's go through some important code sections to make this application fully operative; starting with the required libraries:
 
+```arduino
+#include <Arduino_EdgeControl.h>
+#include <Wire.h>
+#include <RunningMedian.h>
+
+#include "SensorValues.hpp"
+#include "Helpers.h"
+
+// The MKR1 board I2C address
+#define EDGE_I2C_ADDR 0x05
+
+constexpr unsigned int adcResolution{ 12 };  // Analog Digital Converter resolution for the Watermark sensors.
+
+mbed::LowPowerTimeout TimerM;
+
+// Watermark sensors thresholds
+const long open_resistance = 35000, short_resistance = 200, short_CB = 240, open_CB = 255, TempC = 28;
+
+// Watermark sensors channels
+uint8_t watermarkChannel[4] = { 0, 1, 2, 3 };
+
+constexpr float tauRatio{ 0.63f };
+constexpr float tauRatioSamples{ tauRatio * float{ (1 << adcResolution) - 1 } };
+constexpr unsigned long sensorDischargeDelay{ 2 };
+
+constexpr unsigned int measuresCount{ 20 };
+RunningMedian measures{ measuresCount };
+
+constexpr unsigned int calibsCount{ 10 };
+RunningMedian calibs{ calibsCount };
+
+unsigned long previousMillis = 0;  // will store last time the sensors were updated
+
+const long interval = 180000;  // interval of the LoRaWAN message (milliseconds)
+
+// Variables for the water flow measurement
+volatile int irqCounts;
+float calibrationFactor = 4.5;
+volatile byte pulseCount = 0;
+float flowRate = 0.0;
+unsigned int flowMilliLitres = 0;
+unsigned long totalMilliLitres = 0;
+unsigned long oldTime = 0;
+unsigned long oldTime2 = 0;
+
+// Valves flow control variables
+bool controlV1 = 1;
+bool controlV2 = 1;
+bool controlV3 = 1;
+bool controlV4 = 1;
+
+// Valves On time kepping variables
+int StartTime1, CurrentTime1;
+int StartTime2, CurrentTime2;
+int StartTime3, CurrentTime3;
+int StartTime4, CurrentTime4;
+
+// LCD flow control variables
+bool controlLCD = 1;
+int showTimeLCD = 0;
+
+// Smart mode variables
+#define dry_soil 30
+bool smart = false;
+bool V1open = 0;
+bool V2open = 0;
+bool V3open = 0;
+bool V4open = 0;
+/** UI Management **/
+// Button statuses
+enum ButtonStatus : byte {
+  ZERO_TAP,
+  SINGLE_TAP,
+  DOUBLE_TAP,
+  TRIPLE_TAP,
+  QUAD_TAP,
+  FIVE_TAP,
+  LOT_OF_TAPS
+};
+
+// ISR: count the button taps
+volatile byte taps{ 0 };
+// ISR: keep elapsed timings
+volatile unsigned long previousPress{ 0 };
+// ISR: Final button status
+volatile ButtonStatus buttonStatus{ ZERO_TAP };
+
+SensorValues_t vals;
+
+```
 - `Arduino_EdgeControl.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
-- `Wire.h` will enable the I2C communication between the Edge Control, the MKR WiFi 1010 and the other peripherals. It is included in the Board Support Package (BSP) of the Edge Control.
-- `RunningMedian.h` will enable the support for the Edge Control peripherals; install it by searching for it on the Library Manager.
+- `Wire.h` will enable the I2C communication between the Edge Control, the MKR WAN 1310 and the other peripherals. It is included in the Board Support Package (BSP) of the Edge Control.
+- `RunningMedian.h` handles the calculations regarding the watermark sensor measurements.
 
 There are two headers included in the project code able to handle some helper functions and structures:
 
-- `SensorValues.hpp` handles the shared variables between the Edge Control and the MKR WiFi 1010 through I2C.
-- `helpers.h` handles the real-time clock (RTC) functions to retrieve the local date and time.
+- `SensorValues.hpp` handles the shared variables between the Edge Control and the MKR WAN 1310 through I2C.
+- `Helpers.h` handles the real-time clock (RTC) functions to retrieve the local date and time.
 
-This code's section also contains the defined structure to handle the number of enclosure button taps to control each valve manually.
+This code's section also contains all the system variables regarding the following:
+- Constants and variables to set and store the watermark sensors data.
+- Constants and variables for the water flow sensor.
+- Flow control variables.
+- Structure to handle the number of button taps to control each valve manually.
 
 ```arduino
+/**
+  Main section setup
+*/
+void setup() {
+
+  EdgeControl.begin();
+  Wire.begin();
+
+  delay(500);
+  Serial.begin(115200);
+  delay(2000);
+
+  Power.enable3V3();
+  Power.enable5V();
+  Power.on(PWR_3V3);
+  Power.on(PWR_VBAT);
+  Power.on(PWR_MKR1);
+
+  delay(5000);  // giving time for the MKR WAN 1310 to boot
+
+  // Init Edge Control IO Expander
+  Serial.print("IO Expander initializazion ");
+  if (!Expander.begin()) {
+    Serial.println("failed.");
+    Serial.println("Please, be sure to enable gated 3V3 and 5V power rails");
+    Serial.println("via Power.enable3V3() and Power.enable5V().");
+  } else Serial.println("succeeded.");
+
+  // Init IRQ INPUT pins
+  pinMode(IRQ_CH1, INPUT);
+
+  // Attach callbacks to IRQ pins
+  attachInterrupt(digitalPinToInterrupt(IRQ_CH1), [] {irqCounts++;},FALLING);
+
+  // LCD button definition
+  pinMode(POWER_ON, INPUT);
+  attachInterrupt(POWER_ON, buttonPress, RISING);
+
+  Watermark.begin();
+  Latching.begin();
+  analogReadResolution(adcResolution);
+
+  setSystemClock(__DATE__, __TIME__);  // define system time as a reference for the RTC
+
+  // Init the LCD display
+  LCD.begin(16, 2);
+  LCD.backlight();
+
+  LCD.home();
+  LCD.print("LoRa Irrigation");
+  LCD.setCursor(5, 1);
+  LCD.print("System");
+  CloseAll();
+  delay(2000);
+
+  LCD.clear();
+}
 ```
+
+To save energy and resources, the Edge Control has different power lines that must be enabled to power the different internal and external peripherals. In this case, the 3.3 V, 5 V, Battery, and the MKR1 slot need to be enabled. 
+
+We are using an external interruption for the water flow sensor attached to the IRQ_CH1 and the LCD button.
+
+To handle all the I/O, the I/O Expander together with the Enclosure Kit LCD and the sensors inputs need to be initialized. 
+
+```arduino
+void loop() {
+
+  // LCD button taps detector function
+  detectTaps();
+  tapsHandler();
+
+  // reset the valves accumuldated on time every day at midnight
+  if (getLocalhour() == " 00:00:00") {
+    Serial.println("Resetting accumulators every day");
+    vals.z1_on_time_local = 0;
+    vals.z2_on_time_local = 0;
+    vals.z3_on_time_local = 0;
+    vals.z4_on_time_local = 0;
+    delay(1000);
+  }
+
+  readWatermark();
+
+  if ((millis() - oldTime2) >= 1000)  // Only process counters once per second
+  {
+    oldTime2 = millis();
+    readWaterFLow();
+    auto vbat = Power.getVBat(adcResolution);
+    Serial.print("Battery Voltage: ");
+    Serial.println(vbat);
+    vals.battery_volt_local = vbat;
+  }
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    // send local sensors values and retrieve cloud variables status back and forth
+    Serial.println("Sending variables to MKR");
+    updateSensors();
+  }
+
+  // activate, deactive and keep time of valves function
+  valvesHandler();
+}
+```
+
+The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
+Then will read the watermark sensors, and periodically it will measure the battery voltage.
+
+Every 3 minutes, the Edge Control will request the MKR WAN to send a LoRaWAN message updating the sensors values in the cloud. 
+
+Finally, from our loop function, we will check the valves states to control them and keep their ON time.
 
 ### Arduino MKR WAN 1310 Code
 
