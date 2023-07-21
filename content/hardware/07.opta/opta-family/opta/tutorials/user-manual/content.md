@@ -64,7 +64,9 @@ The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples t
 
 ### Pinout
 
-The complete pinout is available and downloadable as PDF from the link below:
+![Opta™ WiFi variant pinout](assets/user-manual-4.png)
+
+The complete pinout (for all Opta™ variants) is available and downloadable as PDF from the link below:
 
 - [Opta™ pinout](https://docs.arduino.cc/static/820c493afe76c7aedca3f4709b12b129/opta-full-pinout.pdf)
 
@@ -76,7 +78,7 @@ The complete datasheet (for all Opta™ variants) is available and downloadable 
 
 ### STEP Files
 
-The complete STEP files are available and downloadable from the link below:
+The complete STEP files (for all Opta™ variants) are available and downloadable from the link below:
 
 - Opta™ STEP files  
 
@@ -267,25 +269,25 @@ void loop() {
   // Scan from the first LED to the last.
   for (int i = 0; i < NUM_LEDS; i++) {
     // Turn on the LED.
-    // Wait for 100 milliseconds.
+    // Wait for 50 milliseconds.
     digitalWrite(USER_LEDS[i], HIGH); 
-    delay(100); 
+    delay(50); 
     // Turn off the LED.
-    // Wait for 100 milliseconds.
+    // Wait for 50 milliseconds.
     digitalWrite(USER_LEDS[i], LOW); 
-    delay(100); 
+    delay(50); 
   }
   
   // Scan back from the last LED to the first.
   for (int i = NUM_LEDS - 1; i >= 0; i--) {
     // Turn on the LED.
-    // Wait for 100 milliseconds.
+    // Wait for 50 milliseconds.
     digitalWrite(USER_LEDS[i], HIGH); 
-    delay(100); 
+    delay(50); 
     // Turn off the LED.
-    // Wait for 100 milliseconds.
+    // Wait for 50 milliseconds.
     digitalWrite(USER_LEDS[i], LOW); 
-    delay(100); 
+    delay(50); 
   }
 }
 ```
