@@ -41,7 +41,7 @@ The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industria
 
 The Opta™ features a secure and durable design that enables it for automation applications. 
 
-
+![The Opta™ main components](assets/user-manual-1.png)
 
 Here's an overview of the device's main components shown in the images above:
 
@@ -229,6 +229,7 @@ Opta™ Lite and Opta™ RS485 devices have four user-programmable LEDs, and **O
 |     `STATUS 3`     |  `LED_D2`/`LED_RELAY3`  |
 |     `STATUS 4`     |  `LED_D3`/`LED_RELAY4`  |
 |       `USER`       |    `LED_USER`/`LEDB`    |
+|       `RESET`      |      `LED_BUILTIN`      |
 
 The sketch below shows how to create a Knight Rider-style "scanning" effect using the Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LEDs identifiers, and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
 
