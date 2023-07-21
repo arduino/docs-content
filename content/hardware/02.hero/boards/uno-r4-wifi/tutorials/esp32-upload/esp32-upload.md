@@ -49,7 +49,7 @@ To upload firmware run:
 esptool.py --chip esp32s3 --port <your port> write_flash -z 0 <yourCustomFirmware.bin>
 ```
 
-***Please note that we don't provide any custom firmware in this tutorial. If you flash a firmware that doesn't enable a **serial-usb-bridge** between two microcontrollers you will lose most of the board's functionality!***
+***Please note that we don't provide any custom firmware in this tutorial. If you flash a firmware that doesn't enable a serial-usb-bridge between two microcontrollers you will lose most of the board's functionality!***
 
 ## Restore Default Software
 
