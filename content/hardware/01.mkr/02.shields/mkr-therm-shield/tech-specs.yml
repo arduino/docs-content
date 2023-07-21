@@ -1,6 +1,6 @@
 Shield:
   Name: Arduino® MKR Therm Shield
-  SKU: ASX00005
+  SKU: ASX00012
   Compatibility: MKR
 Communication: SPI
 Digital converter: MAX31855
