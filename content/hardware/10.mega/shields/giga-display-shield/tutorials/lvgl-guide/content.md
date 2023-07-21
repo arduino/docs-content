@@ -1,5 +1,5 @@
 ---
-title: Guide for Using LVGL With the Giga Display Shield
+title: Guide for Using LVGL With the GIGA Display Shield
 description: 'Learn how to use LVGL with the GIGA display shield'
 author: Benjamin Dannegård
 tags: [Display, LVGL]
@@ -12,14 +12,14 @@ LVGL is a very powerful graphical framework that is compatible with the Giga Dis
 ## Hardware & Software Needed
 
 - [GIGA R1 WiFi](/hardware/giga-r1).
-- [GIGA Display Shield]()
+- [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino_H7_Video]() library.
-- [Arduino_GigaDisplayTouch]() library.
+- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library.
+- [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library.
 
 ## Downloading the Library and Core
 
-The Giga core includes a library that will help us handle the display, so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
+The GIGA core includes a library that will help us handle the display, so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
 
 In this guide, we will be using three different libraries:
 - **Arduino_H7_Video**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
@@ -161,7 +161,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_t * checkbox;
 ```
 
-Assign the screenspace info to `obj`, that was detailed in the #Screen configuration section. To create the checkbox object use `lv_checkbox_create(obj)` and assign it to a suitable variable, here we use the `checkbox` pointer. Next set the text that will appear next to the checkbox by using `lv_checkbox_set_text(checkbox, "Example");`, here `Example` will be printed next to the checkbox.
+Assign the screenspace info to `obj`, that was detailed in the [Screen Configuration](#lvgl-screen-configuration) section. To create the checkbox object use `lv_checkbox_create(obj)` and assign it to a suitable variable, here we use the `checkbox` pointer. Next set the text that will appear next to the checkbox by using `lv_checkbox_set_text(checkbox, "Example");`, here `Example` will be printed next to the checkbox.
 
 ```arduino
   obj = lv_obj_create(screen);
@@ -367,4 +367,4 @@ This guide went through the building blocks of the different components that can
 This example sketch will show the different components in a 2x2 grid.
 
 ## Next Step
-If you are interested in finding out how to use LVGL with the on-board IMU check out our [Orientation tutorial](). There are more features of the display shield to discover, for example using the camera connector. For more information on that have a look at our [Camera tutorial](). LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#Display Shield Configuration).
+LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#display-shield-configuration).
