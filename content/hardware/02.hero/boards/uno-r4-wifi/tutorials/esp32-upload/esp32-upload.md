@@ -1,5 +1,5 @@
 ---
-title: Upload firmware to the ESP32 on the UNO R4 WiFi
+title: Arduino UNO R4 WiFi Upload to ESP32
 description: Learn how to upload firmware to the ESP32-S3 on the UNO R4 WiFi
 author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]
