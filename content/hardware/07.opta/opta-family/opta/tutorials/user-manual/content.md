@@ -43,7 +43,7 @@ The Opta™ features a secure and durable design that enables it for automation 
 
 ![The Opta™ main components](assets/user-manual-1.png)
 
-Here's an overview of the device's main components shown in the images above:
+Here's an overview of the device's main components shown in the image above:
 
 - **Microcontroller**: At the heart of the Opta™ is the STM32H747XI, a powerful and high-performance microcontroller from STMicroelectronics®. The STM32H747XI is built around an Arm® Cortex®-M7 and Cortex®-M4 32-bit RISC cores. The Cortex®-M7 core operates at up to 480 MHz, and the Cortex®-M4 core at up to 240 MHz.
 - **Wireless connectivity**: The Opta™ (WiFi variant only) supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware), allowing the device to communicate wirelessly with other devices and systems. 
@@ -53,6 +53,8 @@ Here's an overview of the device's main components shown in the images above:
 - **Analog and digital peripherals**: The Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: The Opta™ (all variants) features a physical RS-485 communication interface available through an onboard connector.
 - **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
+
+![The Opta™ DIN rail mounting](assets/user-manual-2.png)
 
 ### Opta™ Core and Libraries
 
@@ -110,15 +112,17 @@ void loop() {
 }
 ```
 
-For the Opta™, the `LED_BUILTIN` macro represents the green LED of the built-in RGB LED of the device.
+***For the Opta™, the `LED_BUILTIN` macro represents the green LED located on top of the `RESET` button of the device.***
 
 To upload the code to the Opta™, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
 
-You should see now the green LED of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+You should see now the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly.
 
 ## USB®-C Port
 
-The Opta™ has an onboard USB®-C port that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks.
+The Opta™ has an onboard USB®-C port that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
+
+***Opta's USB-C port shall be used only for programming and data logging purposes. This port does not powers Opta's output relays. ***
 
 ## Input Terminals
 
