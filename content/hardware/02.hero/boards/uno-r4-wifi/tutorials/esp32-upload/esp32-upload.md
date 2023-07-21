@@ -1,5 +1,5 @@
 ---
-title: ESP32 Upload
+title: Upload firmware to the ESP32 on the UNO R4 WiFi
 description: Learn how to upload firmware to the ESP32-S3 on the UNO R4 WiFi
 author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]
@@ -18,9 +18,10 @@ The UNO R4 WiFi also exposes the ESP32's data lines, so that you can program the
 ## Hardware & Software Needed
 
 - [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)
-- [esptool](https://github.com/espressif/esptool)
+- [Python®](https://www.python.org/downloads/)
+- esptool
 
-## Step 1: Download Mode
+## Step 1: ESP32 Download Mode
 
 In order to flash custom firmware to the ESP32-S3 we need to put the chip in download mode by shorting the **download pin** and **GND**. The download pin can be found on the 3x2 header at the top of the board or on the downside using the exposed pads.
 
@@ -30,9 +31,13 @@ The easiest way is to use a female-to-female cable and short the pins at the top
 
 ## Step 2: Flash Firmware
 
-Once the chip is set to the right mode we use esptool to flash custom firmware to the board. Download the tool from [here](https://github.com/espressif/esptool) and put it somewhere you will find it. Next, we need to navigate to our installation folder using the terminal. Because esptool is a cli (command line interface) tool we need to perform our next steps in the terminal. Once you are inside the right folder verify that the tool is working by typing `esptool`. You should see a list of commands appear in the terminal. If you don't, make sure you downloaded all the necessary files and you are located in the right folder.
+Once the chip is set to the right mode we use esptool to flash custom firmware to the board. For this to work you will need to download and install Python, which you can then use to install esptool using a simple command. Verify that python is installed by opening your terminal and write ``pip3``. Once you have confirmed that it's installed properly install esptool by typing:
 
-Once everything is working it's just a matter of running the following two commands:
+```
+pip3 install esptool
+```
+
+Next, `esptool.py` should be added to your path so you can run it from anywhere, instead of navigating to the installation folder each time. Once everything is working it's just a matter of running the following two commands:
 
 To erase the flash memory run:
 ```
@@ -44,12 +49,12 @@ To upload firmware run:
 esptool.py --chip esp32s3 --port <your port> write_flash -z 0 <yourCustomFirmware.bin>
 ```
 
-***Please note that we **don't** provide any custom firmware in this tutorial. If you flash a firmware that doesn't enable a **serial-usb-bridge** between two microcontrollers you will lose most of the board's functionality!***
+***Please note that we don't provide any custom firmware in this tutorial. If you flash a firmware that doesn't enable a **serial-usb-bridge** between two microcontrollers you will lose most of the board's functionality!***
 
-## Default Software
+## Restore Default Software
 
 If you want to return to the default firmware simply download the zip file found [here](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-windows.zip). It contains two folders and one `.bat` file, that when executed flashes the default firmware to your board. It's configured in a way so that it takes care of everything and you **don't** need to short the **download** pin and **GND**. If for some reason the script doesn't execute properly or is unable to set your board into download mode you can instead repeat the manual steps of shorting the download pin and GND, and then flash the firmware manually using the `.bin` found in the firmware folder and the esptool.
 
 ## Conclusion
 
-These are the steps for uploading firmware to your ESP32-S3. This process is not suitable for beginners as it easily breaks your board especially when the serial bridge is not properly implemented. But for those who know what they are doing, it opens up many new possibilities as you can rewrite the firmware on the ESP32 to fit your custom needs.
+These are the steps for uploading firmware to your ESP32-S3. This process is **not suitable for beginners** as it easily breaks your board especially when the serial bridge is not properly implemented. But for those who know what they are doing, it opens up many new possibilities as you can rewrite the firmware on the ESP32 to fit your custom needs.
