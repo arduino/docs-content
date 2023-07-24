@@ -146,13 +146,13 @@ void loop() {
 
 The Opta™ has an onboard USB®-C port that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
 
-***Opta's USB®-C port shall be used only for programming or data logging purposes. This port does not powers Opta's output relays.***
-
 ![The USB®-C port in Opta™ devices](assets/user-manual-6.png)
+
+***Opta's USB®-C port shall be used only for programming or data logging purposes. This port does not powers Opta's output relays.***
 
 ## Electrical Terminals
 
-The Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
+This user manual section covers the Opta™ electrical terminals, showing their main hardware and software characteristics. The Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
 
 ### Power Supply
 
