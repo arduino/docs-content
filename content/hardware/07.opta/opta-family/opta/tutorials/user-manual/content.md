@@ -122,6 +122,8 @@ void loop() {
 
 To upload the code to the Opta™, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
 
+![Uploading a sketch to Opta™ devices in the Arduino IDE](assets/user-manual-7.png)
+
 You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
 ```arduino
@@ -144,11 +146,13 @@ void loop() {
 
 The Opta™ has an onboard USB®-C port that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
 
-***Opta's USB-C port shall be used only for programming and data logging purposes. This port does not powers Opta's output relays. ***
+***Opta's USB®-C port shall be used only for programming or data logging purposes. This port does not powers Opta's output relays.***
 
-## Input Terminals
+![The USB®-C port in Opta™ devices](assets/user-manual-6.png)
 
-The Opta™ has 12 input terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
+## Electrical Terminals
+
+The Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
 
 ### Power Supply
 
