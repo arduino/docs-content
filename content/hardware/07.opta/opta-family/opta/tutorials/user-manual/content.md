@@ -35,7 +35,7 @@ This user manual will provide a comprehensive overview of the Opta™, covering 
 
 ## Opta™ Overview
 
-The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL), making it an ideal device for automation engineers. Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, the Opta™ is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
+The Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages, such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL), making it an ideal device for automation engineers. Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, the Opta™ is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
 
 ### Opta™ Main Components
 
@@ -49,7 +49,7 @@ Here's an overview of the device's main components shown in the image above:
 - **Wireless connectivity**: The Opta™ (WiFi variant only) supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware), allowing the device to communicate wirelessly with other devices and systems. 
 - **Ethernet connectivity**: The Opta™ (all variants) features an onboard, high-performance 10/100 Mbps Ethernet transceiver accessible through its onboard RJ45 connector.
 - **Security**: The Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices and provides advanced security features.
-- **USB connectivity**: The Opta™ features an onboard USB-C® port that can be used for programming and data logging purposes.
+- **USB connectivity**: The Opta™ features an onboard USB-C® port that can be used for programming and data logging.
 - **Analog and digital peripherals**: The Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: The Opta™ (all variants) features a physical RS-485 communication interface available through an onboard connector.
 - **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
@@ -89,7 +89,7 @@ The complete STEP files (for all Opta™ variants) are available and downloadabl
 The Opta™ can be powered by the following:
 
 - Using a USB-C® cable (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
-- Using an external +12 VDC to +24 VDC power supply connected to the Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
+- Using an external **+12 VDC to +24 VDC power supply** connected to the Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
 
 ### Hello World Example
 
@@ -102,25 +102,43 @@ There are two ways to program this example in the board:
 
 ```arduino
 void setup() {
-  // Initialize LED_BUILTIN as an output (this will turn on the LED)
+  // Initialize LED_BUILTIN as an output 
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  // Turn the built-in LED off
+  // Turn the user LED (RESET) off
   digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
-  // Turn the built-in LED on
+  // Turn the user LED (RESET) on
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }
 ```
 
-***For the Opta™, the `LED_BUILTIN` macro represents the green LED located on top of the `RESET` button of the device.***
+***For all the Opta™ variants, the `LED_BUILTIN` macro represents the green LED on top of the device's RESET button***
 
 To upload the code to the Opta™, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
 
-You should see now the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly.
+
+
+You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
+
+```arduino
+void setup() {
+  // Initialize LED_USER as an output 
+  pinMode(LED_USER, OUTPUT);
+}
+
+void loop() {
+  // Turn the USER LED off
+  digitalWrite(LED_USER, HIGH);
+  delay(1000);
+  // Turn the USER LED on
+  digitalWrite(LED_USER, LOW);
+  delay(1000);
+}
+```
 
 ## USB®-C Port
 
