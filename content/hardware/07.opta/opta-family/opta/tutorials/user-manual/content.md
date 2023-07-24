@@ -144,7 +144,7 @@ void loop() {
 
 ## USB®-C Port
 
-The Opta™ has an onboard USB®-C port that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
+The Opta™ has an **onboard USB®-C port** that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
 
 ![The USB®-C port in Opta™ devices](assets/user-manual-6.png)
 
@@ -164,7 +164,7 @@ As shown in the image below, the first four terminals, from left to right, are O
 
 ### Programmable Inputs
 
-The image below shows Opta™ devices have eight analog/digital programmable inputs accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
+The image below shows Opta™ devices have **eight analog/digital programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
 
 ![Programmable input terminals in Opta™ devices](assets/user-manual-9.png)
 
@@ -308,7 +308,11 @@ void readAndPrint(int terminal, int terminalNumber) {
 
 ## Status LEDs
 
-Opta™ Lite and Opta™ RS485 devices have four user-programmable LEDs, and **Opta™ WiFi devices have an extra one**. User-programmable LEDs are mapped as described in the following table:
+Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an extra one**. 
+
+![User-programmable LEDs in Opta™ devices](assets/user-manual-10.png)
+
+User-programmable LEDs are mapped as described in the following table:
 
 | **Opta™ User LED** | **Arduino Pin Mapping** |
 |:------------------:|:-----------------------:|
