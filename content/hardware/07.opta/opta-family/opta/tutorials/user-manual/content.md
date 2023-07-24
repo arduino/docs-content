@@ -158,6 +158,8 @@ This user manual section covers the Opta™ electrical terminals, showing their 
 
 As shown in the image below, the first four terminals, from left to right, are Opta™'s power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. Opta™'s maximum power consumption at 12 VDC is 2 W, and at 24 VDC is 2.2 W.
 
+![Power supply terminals in Opta™ devices](assets/user-manual-8.png)
+
 ***For use with Opta devices, we recommend the official Finder 78.12.1.230.2400 power supply. This power supply was designed to provide stable +24 VDC despite consistently fluctuating current draw.***
 
 ### Programmable Inputs
