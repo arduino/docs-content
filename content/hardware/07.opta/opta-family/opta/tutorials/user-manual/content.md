@@ -376,6 +376,112 @@ void loop() {
 }
 ```
 
+## Actuators 
+
+This user manual section covers the Opta™ onboard actuators, showing their main hardware and software characteristics. The Opta™ has one user-programmable button and four user-programmable output relays.
+
+### User Button
+
+Opta™ devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. 
+
+![User-programmable button in Opta™ devices](assets/user-manual-11.png)
+
+The user-programmable button can be used through the built-in functions of the Arduino programming language. To use the user button, first define it as a digital input:
+
+- Add the `pinMode(BTN_USER, INPUT)` instruction in your sketch's  `setup()` function.
+
+To read the status of the user button:
+
+- Add the `digitalRead(BTN_USER)` instruction in your sketch.
+
+The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. It initializes the state of the user LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs, and then depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments and a different LED lights up, cycling back to the beginning after the final LED.
+
+```arduino
+/**
+  Opta's User Button Example
+  Name: optas_user_button_example.ino
+  Purpose: Configures Opta's user-programmable button to control the user LEDs.
+  This example includes debouncing for the user button.
+
+  @author Arduino PRO Content Team
+  @version 2.0 23/07/23
+*/
+
+// Current and previous state of the button.
+int buttonState     = 0;
+int lastButtonState = 0;
+
+// Counter to keep track of the LED sequence.
+int counter = 0;
+
+// Variables to implement button debouncing.
+unsigned long lastDebounceTime  = 0;
+unsigned long debounceDelay     = 50;
+
+// Array to store LED pins.
+int LEDS[] = {LED_D0, LED_D1, LED_D2, LED_D3};
+int NUM_LEDS = 4;
+
+void setup() {
+  // Initialize Opta user LEDs.
+  for(int i=0; i<NUM_LEDS; i++) {
+    pinMode(LEDS[i], OUTPUT);
+  }
+  pinMode(BTN_USER, INPUT);
+}
+
+void loop() {
+  int reading = digitalRead(BTN_USER);
+  
+  // Check if button state has changed.
+  if (reading != lastButtonState) {
+    lastDebounceTime = millis();
+  }
+
+  // If enough time has passed to ignore any noise.
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    if (reading != buttonState) {
+      buttonState = reading;
+
+      // Only increment the counter if the new button state is HIGH.
+      if (buttonState == HIGH) {
+        if(counter < NUM_LEDS){
+          counter++;
+        }
+        else{
+          counter = 0;
+        }
+      }
+    }
+  }
+
+  // Save the current state as the last state, for next time through the loop.
+  lastButtonState = reading;
+  
+  // Control LED states.
+  changeLights();
+}
+
+/**
+  Control the status LEDs based on a counter value.
+  Turns off all LEDs first, then turns on the LED 
+  corresponding to the current counter value.
+
+  @param None.
+*/
+void changeLights() {
+  // Turn off all user LEDs.
+  for(int i=0; i<NUM_LEDS; i++) {
+    digitalWrite(LEDS[i], LOW);
+  }
+
+  // Turn on the selected user LED.
+  if(counter > 0) {
+    digitalWrite(LEDS[counter-1], HIGH);
+  }
+}
+```
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
