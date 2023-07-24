@@ -5,6 +5,8 @@ author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]
 ---
 
+***This article is not suitable for beginners as it easily breaks your board especially when the serial bridge is not properly implemented.***
+
 The [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) has two different microcontrollers onboard, the Renesas RA4M1 and the ESP32-S3.
 
 By default, the ESP32-S3 module acts as a serial bridge, handling the connection to your computer. It also handles the rebooting of the main MCU, the Renesas RA4M1 when it is needed, for example when receiving a new sketch and resetting.
@@ -19,9 +21,11 @@ The UNO R4 WiFi also exposes the ESP32's data lines, so that you can program the
 
 - [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi)
 - [Python®](https://www.python.org/downloads/)
-- esptool
+- [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/)
 
 ## Step 1: ESP32 Download Mode
+
+***We don't provide any custom firmware in this tutorial. If you flash a firmware that doesn't enable a serial-usb-bridge between two microcontrollers you will lose most of the board's functionality!***
 
 In order to flash custom firmware to the ESP32-S3 we need to put the chip in download mode by shorting the **download pin** and **GND**. The download pin can be found on the 3x2 header at the top of the board or on the downside using the exposed pads.
 
@@ -31,13 +35,15 @@ The easiest way is to use a female-to-female cable and short the pins at the top
 
 ## Step 2: Flash Firmware
 
-Once the chip is set to the right mode we use esptool to flash custom firmware to the board. For this to work you will need to download and install Python, which you can then use to install esptool using a simple command. Verify that python is installed by opening your terminal and write ``pip3``. Once you have confirmed that it's installed properly install esptool by typing:
+Once the chip is set to the right mode we use esptool to flash custom firmware to the board. For this to work you will need to download and install Python, which you can then use to install esptool using a simple command. Verify that python is installed by opening your terminal and write ``pip3``. You should see a list of commands shown in the terminal. Once you have confirmed that it's installed properly install esptool by typing:
 
 ```
 pip3 install esptool
 ```
 
-Next, `esptool.py` should be added to your path so you can run it from anywhere, instead of navigating to the installation folder each time. Once everything is working it's just a matter of running the following two commands:
+Next, `esptool.py` should be added to your **PATH** so you can run it from anywhere, instead of navigating to the installation folder each time. The PATH variable allows you to run commands and programs from any location on your computer without having to specify the full path to the executable file. This is done differently depending on your operating system, you can read more about it [here](https://learn.sparkfun.com/tutorials/configuring-the-path-system-variable/all). 
+
+Flashing a new firmware is done in two steps, first erasing the firmware currently on the module and then flashing the new one. Once everything is set up it's just a matter of running the following two commands:
 
 To erase the flash memory run:
 ```
@@ -51,9 +57,70 @@ esptool.py --chip esp32s3 --port <your port> write_flash -z 0 <yourCustomFirmwar
 
 ***Please note that we don't provide any custom firmware in this tutorial. If you flash a firmware that doesn't enable a serial-usb-bridge between two microcontrollers you will lose most of the board's functionality!***
 
-## Restore Default Software
+## Restore Default Firmware
 
-If you want to return to the default firmware simply download the zip file found [here](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-windows.zip). It contains two folders and one `.bat` file, that when executed flashes the default firmware to your board. It's configured in a way so that it takes care of everything and you **don't** need to short the **download** pin and **GND**. If for some reason the script doesn't execute properly or is unable to set your board into download mode you can instead repeat the manual steps of shorting the download pin and GND, and then flash the firmware manually using the `.bin` found in the firmware folder and the esptool.
+Restoring the default firmware varies slightly depending on which operating system you are using. 
+
+**Windows**
+
+1. [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-windows.zip) and unzip it.
+
+2. Unplug all the USB devices except for your **UNO R4 WiFi**.
+
+3. Open the **update.bat** file - if a warning dialog appears, click on "More info" and then "Run anyway".
+
+4. Follow the steps inside the terminal and select your board from the device list (if you still see more than one device after unplugging everything apart from the board, check under Windows' Device Manager)
+
+5. Once done, unplug the board, connect it again and you should have the default firmware installed again.
+
+**MacOS**
+
+1. [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-macos.zip) and unzip it.
+
+2. Unplug all the USB devices except for your **UNO R4 WiFi**.
+
+3. Right-click on the folder, select "New terminal at folder" (you might find it under "Services"), and launch the following commands:
+
+``
+chmod a+x update.command
+``
+
+``
+sudo xattr -d com.apple.quarantine bin/espflash
+``
+
+``
+sudo xattr -d com.apple.quarantine bin/unor4wifi-reboot-macos
+``
+
+4. Launch this command in your terminal:
+
+``
+./update.command
+``
+
+5. Follow the steps inside the terminal and select your board from the device list, it is listed as
+/dev/tty.usbmodem141301 - USB JTAG_serial debug unit.
+
+6. Once done, unplug the board, connect it again and you should have the default firmware installed again.
+
+**Linux**
+
+1. [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-linux.zip) and unzip it.
+
+2. Unplug all the USB devices except for your **UNO R4 WiFi**.
+
+3. Right-click on the folder, select "Open in Terminal" and launch the following command:
+
+``
+sudo ./update.sh
+``
+
+4. Follow the steps inside the terminal and answer yes to the first question, no to the second.
+
+5. Once done, unplug the board, connect it again and you should have the default firmware installed again.
+
+Alternatively you can also repeat **Step 1** and **Step 2** using the ``.bin`` file found inside the ``.zip`` file using the esptool.
 
 ## Conclusion
 
