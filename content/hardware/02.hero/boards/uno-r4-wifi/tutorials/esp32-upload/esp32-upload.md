@@ -81,23 +81,23 @@ Restoring the default firmware varies slightly depending on which operating syst
 
 3. Right-click on the folder, select "New terminal at folder" (you might find it under "Services"), and launch the following commands:
 
-``
+```
 chmod a+x update.command
-``
+```
 
-``
+```
 sudo xattr -d com.apple.quarantine bin/espflash
-``
+```
 
-``
+```
 sudo xattr -d com.apple.quarantine bin/unor4wifi-reboot-macos
-``
+```
 
 4. Launch this command in your terminal:
 
-``
+```
 ./update.command
-``
+```
 
 5. Follow the steps inside the terminal and select your board from the device list, it is listed as
 /dev/tty.usbmodem141301 - USB JTAG_serial debug unit.
@@ -112,9 +112,9 @@ sudo xattr -d com.apple.quarantine bin/unor4wifi-reboot-macos
 
 3. Right-click on the folder, select "Open in Terminal" and launch the following command:
 
-``
+```
 sudo ./update.sh
-``
+```
 
 4. Follow the steps inside the terminal and answer yes to the first question, no to the second.
 
