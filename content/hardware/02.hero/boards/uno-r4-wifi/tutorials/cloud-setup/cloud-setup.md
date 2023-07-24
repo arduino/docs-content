@@ -61,21 +61,6 @@ You will be prompted with a popup when it's time. Follow the instructions depend
 
 ![Update Board](./assets/updateDevice.png)
 
-**Step 1**
-[Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-windows.zip) and unzip it
-
-**Step 2**
-Unplug all the USB devices except for your UNO R4.
-
-**Step 3**
-Open the update.bat file - if a warning dialog appears, click on "More info" and then "Run anyway"
-
-**Step 4**
-Follow the steps inside the terminal and select your board from the device list (if you still see more than one device after unplugging everything apart from the board, check under Windows Device Manager)
-
-**Step 5**
-Once done, unplug the board, connect it again and click "Done" to finish the setup.
-
 If all the previous steps were done successfully you should be greeted by a prompt telling you that you can now use the board with the IoT Cloud.
 
 ![Finish set up](./assets/finishSetUp.png)
