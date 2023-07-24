@@ -382,7 +382,7 @@ This user manual section covers the Opta™ onboard actuators, showing their mai
 
 ### User Button
 
-Opta™ devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. 
+All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has a pull-up resistor, meaning its default value (while not being pressed) is `HIGH`. 
 
 ![User-programmable button in Opta™ devices](assets/user-manual-11.png)
 
@@ -394,7 +394,7 @@ To read the status of the user button:
 
 - Add the `digitalRead(BTN_USER)` instruction in your sketch.
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. It initializes the state of the user LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs, and then depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments and a different LED lights up, cycling back to the beginning after the final LED.
+The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. It initializes the state of the user LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
 
 ```arduino
 /**
@@ -438,7 +438,7 @@ void loop() {
     lastDebounceTime = millis();
   }
 
-  // If enough time has passed to ignore any noise.
+  // Debouncing routine.
   if ((millis() - lastDebounceTime) > debounceDelay) {
     if (reading != buttonState) {
       buttonState = reading;
@@ -481,6 +481,10 @@ void changeLights() {
   }
 }
 ```
+
+### Relays 
+
+
 
 ## Support
 
