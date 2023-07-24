@@ -16,6 +16,7 @@ hardware:
   - hardware/04.pro/boards/portenta-h7-lite
   - hardware/04.pro/boards/portenta-h7-lite-connected
   - hardware/04.pro/shields/portenta-vision-shield
+  - hardware/06.nicla/boards/nicla-vision
   - hardware/03.nano/boards/nano-rp2040-connect
   - hardware/03.nano/boards/nano-33-ble-sense
   - hardware/03.nano/boards/nano-33-ble-sense-rev2
@@ -81,7 +82,8 @@ In case you would like to extend the engine functionalities, you will have to pu
 ### Setup
 #### Setup the Library
 There are three libraries, you will need to install one or another depending on which board you are using:
-* **Portenta H7**: Cyberon_DSpotterSDK_Maker_PortentaH7
+* **Portenta H7 Family**: Cyberon_DSpotterSDK_Maker_PortentaH7
+* **Nicla Vision**: Cyberon_DSpotterSDK_Maker_NiclaVision
 * **Nano 33 BLE Sense (Rev1 & Rev2)**: Cyberon_DSpotterSDK_Maker_33BLE
 * **Nano RP2040**: Cyberon_DSpotterSDK_Maker_RP2040
 
@@ -103,13 +105,13 @@ Connect your board to the computer, upload the sketch to it and, once is done, o
 
 #### Get the Demo License
 
-Once you have the Serial number, open: https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
+Once you have the Serial number, open: https://tool.cyberon.com.tw/ArduinoDSpotterAuth/FDMain.php
 
 * Select your board
 * Fill in the "Board serial number" field
 * Click the **Submit** button
 
-![Get License Page](assets/getLicense.png)
+![Get License Page](assets/getLicense_2.png)
 
 Once everything is ready, click on the **submit** button to get your license, it will print an array of numbers for the license. **Save it in a safe place**, it will be used in the next step.
 
@@ -157,7 +159,7 @@ Go to [Cyberon Model Configuration](https://tool.cyberon.com.tw/ArduinoDSpotterA
 * Serial Number of your board
 * EULA Agreement - Please, read it carefully
 
-![Cyberon Model Configuration](assets/MakerTrialModelLicense.png)
+![Cyberon Model Configuration](assets/MakerTrialModelLicense_2.png)
 
 Click next, you will see a new page to:
 * Create a new project
@@ -167,7 +169,7 @@ Click next, you will see a new page to:
 
 ***Warning: each project is bound to a single Arduino board with the declared Serial Number. If you would like to use the Arduino Speech Recognition Engine on another Arduino board, you need to create a new project from scratch and assign it to the new Serial Number.***
 
-To create a new project, first you need to select the desired language for the speech recognition. Once is set, click **create**.
+To create a new project first you need to select the desired language for the speech recognition. Once is set, click **create**.
 
 ![Cyberon, New Project](assets/newProject.png)
 
@@ -221,7 +223,7 @@ At this point, the project is set to be used. Upload the sketch and open the Ser
 #### Unlock Limitations (License)
 
 In case you want to further customize your model or add additional commands or trigger words, we have the right licenses for you:
-- **Speech Recognition license.** Voucher available on the [Arduino Store](https://store.arduino.cc/speech-recognition-engine).
+- **Speech Recognition license.** Vouchers available on the [Arduino Store](https://store.arduino.cc/speech-recognition-engine).
 - **Pro License.** Feel free to [contact us](https://www.arduino.cc/pro/contact-us/) to unlock all the limitations.
 
 There are different licensing options to fit the needs of your project. Read more in the [Licensing section (Voucher codes)](#licensing). Note that you need to have an already existing project to use a paid license. Check the [previous section](#create-a-new-project) to know more.
@@ -236,7 +238,7 @@ Fill in the required fields:
 * Import project: the `.dsproj` file that you received in your e-mail inbox during the creation of the project.
 * EULA Agreement - Please read it carefully
 
-![Cyberon Model Configuration with a voucher code](assets/licensedModel.png)
+![Cyberon Model Configuration with a voucher code](assets/licensedModel_2.png)
 
 Click next, review your project options and press continue.
 
@@ -329,8 +331,8 @@ After getting the demo sketch working, we encourage you to start implementing th
 In case you are looking for more information, you can check out Cyberon's documentation:
 * Inside each of the libraries and under the folder "extra", you will find additional documentation made by Cyberon, as well as the `Readme.md` file that contains the requirements and the steps shown in this tutorial
 * [Cyberon's youtube channel](https://youtube.com/playlist?list=PLTEknqO5GAbrzlKN3fP-rW0l7BntOuaK0) contains a series of step-by-step tutorials that can help you to know more about how to use the Arduino Speech Recognition Engine
-* You can also consult the [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
+* You can also consult [Cyberon's official Maker User Guide](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/Document/Cyberon_DSpotterSDK_Maker_User_Guide_Arduino_Platform.pdf)
 
 ## Conclusion
 
-In this tutorial, you have learned what is the Arduino Speech Recognition Engine, the different licenses and limitations, and how to acquire one. Once you have your license, you learned how to test it with the free demo sketch and how to create your own project with your own custom voice triggers. Eventually, you learned how to upgrade a free already-made project to be used with a more advanced license.
+In this tutorial, you have learned what is the Arduino Speech Recognition Engine, the different licenses and limitations, and how to acquire one. Once you have your license, you learned how to test it with the free demo sketch and how to create a project with your own custom voice triggers. Eventually, you learned how to upgrade a free already-made project to be used with a more advanced license.
