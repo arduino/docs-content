@@ -164,7 +164,11 @@ As shown in the image below, the first four terminals, from left to right, are O
 
 ### Programmable Inputs
 
-The image below shows Opta™ devices have eight analog/digital programmable inputs accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. Analog/digital inputs terminals are mapped as described in the following table:
+The image below shows Opta™ devices have eight analog/digital programmable inputs accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
+
+![Programmable input terminals in Opta™ devices](assets/user-manual-9.png)
+
+Analog/digital inputs terminals are mapped as described in the following table:
 
 | **Opta™ Terminal** | **Arduino Pin Mapping** |
 |:------------------:|:-----------------------:|
@@ -179,7 +183,7 @@ The image below shows Opta™ devices have eight analog/digital programmable inp
 
 ***When used as analog inputs,the working voltage range is from 0 to +10 VDC; when used as digital inputs, the working voltage range is from 0 to +24 VDC.***
 
-To use the input terminals as digital inputs:
+The input terminals can be used through the built-in functions of the Arduino programming language. To use the input terminals as digital inputs:
 
 - Add the `pinMode(pinName, INPUT)` instruction in your sketch's  `setup()` function. 
 
@@ -192,8 +196,8 @@ The sketch below shows how to monitor analog voltages on Opta™'s input termina
 
 ```arduino
 /**
-  Opta's Input Terminals
-  Name: optas_inputs.ino
+  Opta's Analog Input Terminals
+  Name: optas_analog_inputs.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
   terminals as analog inputs on Opta™.
 
@@ -210,7 +214,7 @@ const float DIVIDER       = 0.3;      // Voltage divider
 const int TERMINALS[] = {A0, A1, A2};
 
 // Number of terminals.
-const int NUM_PINS = sizeof(TERMINALS) / sizeof(int);
+const int NUM_PINS = 3;
 
 void setup() {
   // Initialize serial communication at 9600 bits per second.
@@ -247,6 +251,58 @@ void readAndPrint(int terminal, int terminalNumber) {
   Serial.print(" corresponding to ");
   Serial.print(voltage, 5);
   Serial.println(" VDC");
+}
+```
+
+The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets these readings as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor changes in real-time.
+
+```arduino
+/**
+  Opta's Digital Input Terminals
+  Name: optas_digital_inputs.ino
+  Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
+  terminals as digital inputs on Opta™.
+
+  @author Arduino PRO Content Team
+  @version 2.0 23/07/23
+*/
+
+// Array of terminals.
+const int TERMINALS[] = {A0, A1, A2};
+
+// Number of terminals.
+const int NUM_PINS = 3;
+
+void setup() {
+  // Initialize serial communication at 9600 bits per second.
+  Serial.begin(9600);
+
+  // Set the mode of the pins as digital inputs.
+  for (int i = 0; i < NUM_PINS; i++) {
+    pinMode(TERMINALS[i], INPUT);
+  }
+}
+
+void loop() {
+  // Loop through each of the terminal, read the terminal digital value, and print the result.
+  for (int i = 0; i < NUM_PINS; i++) {
+    readAndPrint(TERMINALS[i], i + 1);
+  }
+
+  // Delay for a second before reading the terminals again.
+  delay(1000);
+}
+
+// This function reads the digital value from the specified pin and prints the result.
+void readAndPrint(int terminal, int terminalNumber) {
+  // Read the input value from the digital pin.
+  int terminalValue = digitalRead(terminal);
+  
+  // Print the terminal value.
+  Serial.print("I");
+  Serial.print(terminalNumber);
+  Serial.print(" value: ");
+  Serial.println(terminalValue);
 }
 ```
 
