@@ -88,8 +88,10 @@ The complete STEP files (for all Opta™ variants) are available and downloadabl
 
 The Opta™ can be powered by the following:
 
-- Using a USB-C® cable (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
+- Using a **USB-C® cable** (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
 - Using an external **+12 VDC to +24 VDC power supply** connected to the Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
+
+![Different ways to power Opta™ devices](assets/user-manual-5.png)
 
 ### Hello World Example
 
@@ -119,8 +121,6 @@ void loop() {
 ***For all the Opta™ variants, the `LED_BUILTIN` macro represents the green LED on top of the device's RESET button***
 
 To upload the code to the Opta™, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
-
-
 
 You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
