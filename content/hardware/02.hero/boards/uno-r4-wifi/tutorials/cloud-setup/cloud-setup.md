@@ -40,7 +40,7 @@ You can now choose between three different options depending on what type of boa
 
 ![Select Arduino](./assets/selectArduino.png)
 
-If this is your first time using the Arduino IoT Cloud you will be asked to download the **Arduino Create Agent**. The Create Agent is a piece of software that is necessary for your Arduino Board to communicate with your browser. Download and install it by clicking on download and following the installation process.
+If this is your first time using the Arduino IoT Cloud you will be asked to download the **Arduino Create Agent**. The Create Agent is a piece of software that is necessary for your Arduino board to communicate with your browser. Download and install it by clicking on download and following the installation process.
 
 ![Arduino Create Agent](./assets/createAgent.png)
 
