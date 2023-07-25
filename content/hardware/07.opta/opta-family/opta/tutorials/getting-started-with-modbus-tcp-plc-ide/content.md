@@ -87,7 +87,8 @@ Once the Modbus connection is properly working, the Opta™ devices can remain c
 
 There are some considerations that you will need to take it into account beforehand for proper use of Modbus TCP on Opta™ within PLC IDE. Following subsections will help briefly explain such aspects.
 
-***It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#3-project-setup) to familiarize with Arduino PLC IDE environment.***
+#### PLC IDE Project Configuration & Licenses Management
+It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) to familiarize with the Arduino PLC IDE environment.
 
 #### Opta™ Basic Configuration
 
