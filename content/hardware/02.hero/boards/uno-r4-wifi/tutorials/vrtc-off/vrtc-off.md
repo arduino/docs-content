@@ -8,7 +8,7 @@ author: 'Jacob Hylén'
 
 The Arduino UNO R4 WiFi features 2 pins that have not been seen before on UNO boards, the VRTC pin and the OFF pin. 
 
-They are used to control some of the boards functions electrically. The VRTC pin can be used to keep the onboard RTC (Real Time Clock) running even when the boards main power supply is turned off, and the OFF pin is used to turn off the board by cutting off the power.
+They are used to control some of the boards electrical functions. The VRTC pin can be used to keep the onboard RTC (Real Time Clock) running even when the boards main power supply is turned off, and the OFF pin is used to turn off the board by cutting off the power.
 
 
 ## Goals
@@ -82,4 +82,4 @@ To use the OFF pin, all you need to do is to create a short circuit from it to a
 
 ## Summary
 
-This short tutorial shows how to use the VRTC and OFF pins that are found on the new header on the Arduino UNO R4 WiFi, features that are brand new to the UNO family.
+This short tutorial showed how to use the VRTC and OFF pins that are found on the new header on the Arduino UNO R4 WiFi. These features are brand new to the UNO family.
