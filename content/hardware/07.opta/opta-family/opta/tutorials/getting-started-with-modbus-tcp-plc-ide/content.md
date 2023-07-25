@@ -39,7 +39,7 @@ Opta™ features industrial-grade hardware with rich connectivity options like M
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide))
 - [Opta™ Modbus TCP PLC IDE Project Example File](assets/ModbusTCP_Opta_Example.zip)
 
-***If you have an Opta™, you do not need any license key to activate your product.***
+***Your Opta is already pre-licensed so no license key is need it to activate your product. Check [the license activation guide](https://docs.arduino.cc/tutorials/opta/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to learn more.***
 
 ## Modbus TCP
 
