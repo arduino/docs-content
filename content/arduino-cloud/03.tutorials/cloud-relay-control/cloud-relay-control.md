@@ -109,6 +109,15 @@ Now that we have created the variables, we can configure the **network details**
 
 >**Note:** You can't enter any network details until you have added a variable.
 
+
+### Over the Air Uploads
+
+Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+
+***Over the Air uploads requires an Entry plan to the Arduino IoT Cloud***
+
+To use this feature, make sure the board has power. If your project is already sitting somewhere in your house, as long as it's powered on, you should be able to upload to it. navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+
 ### Creating the program
 
 Once we are finished with all the configurations, we can move on to creating the sketch that we are going to upload to our MKR WiFi 1010. To do so, we first need to go to the **"Sketch"** tab.

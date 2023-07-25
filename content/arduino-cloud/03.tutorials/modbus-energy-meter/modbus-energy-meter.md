@@ -404,6 +404,14 @@ double readEnergy() {
   return kwh;
 }
 ```
+### Over the Air Uploads
+
+Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+
+***Over the Air uploads requires an Entry plan to the Arduino IoT Cloud***
+
+To use this feature, make sure the board has power. If your project is already sitting somewhere in your house, as long as it's powered on, you should be able to upload to it. navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+
 
 ### Creating a Dashboard in the Arduino Cloud IoT
 
