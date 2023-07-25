@@ -63,8 +63,8 @@ Thus, the Modbus TCP/IP is structured by TCP/IP networking standards on the Ethe
 
 Access the Arduino PLC IDE software by following [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide). You will have to download two executable files for proper software installation:
 
-- Arduino PLC IDE
 - Arduino PLC IDE Tools
+- Arduino PLC IDE
 
 The **Arduino PLC IDE** will install the IDE software, while the **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development.
 
