@@ -43,7 +43,7 @@ Opta™ features industrial-grade hardware with rich connectivity options like M
 
 ## Modbus TCP
 
-The **Modbus TCP/IP**, also briefly referred to as **Modbus TCP**, is a Modbus RTU protocol on Transmission Control Protocol and Internet Protocol (TCP/IP) interface over Ethernet to exchange data between compatible devices.
+The **Modbus TCP/IP**, also briefly referred to as **Modbus TCP**, is a Modbus RTU protocol that uses TCP/IP interface over Ethernet to exchange data between compatible devices.
 
 ***For more information regarding the Modbus RTU protocol implementation on an Opta™, it may interest you to check out ["Getting Started with Modbus RTU on Opta™"](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial.***
 
