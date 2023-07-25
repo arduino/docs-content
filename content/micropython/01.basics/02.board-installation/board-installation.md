@@ -23,8 +23,6 @@ To get started, open the app and plug in your board to the computer. You should 
 
 ![Arduino Nano ESP32 detected!](./assets/board-selected.png)
 
-***Note: The Arduino Nano ESP32 may require you to manually prepare the board for a new firmware upload by shorting the B1 pin to GND and pressing the reset button, instead of double tapping the reset button.***
-
 Now, uploading the MicroPython firmware is as easy as pressing **"install MicroPython"** and waiting for a couple of seconds while the installer tool takes care of everything else.
 
 ![Firmware Successfully Uploaded!](./assets/flashed.png)
