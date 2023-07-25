@@ -29,7 +29,7 @@ Opta™ features industrial-grade hardware with rich connectivity options like M
 
 ### Hardware Requirements
 
-- Opta™ PLC (x2)
+- Opta™ PLC with RS-485 support (x2)
 - USB-C® cable (x2)
 - Ethernet LAN cable (x3)
 - Ethernet Switch (Recommended) (x1)
