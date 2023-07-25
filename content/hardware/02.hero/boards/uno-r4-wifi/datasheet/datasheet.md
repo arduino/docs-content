@@ -322,8 +322,8 @@ For powering e.g. servo motors, always use an external power supply.
 | 12  | D6             | Digital | GPIO 6 (PWM~)                                          |
 | 13  | D5             | Digital | GPIO 5 (PWM~)                                          |
 | 14  | D4             | Digital | GPIO 4                                                 |
-| 15  | D3             | Digital | GPIO 3 (PWM~) / Interrupt                              |
-| 16  | D2             | Digital | GPIO 2 / Interrupt                                     |
+| 15  | D3             | Digital | GPIO 3 (PWM~) / Interrupt Pin                          |
+| 16  | D2             | Digital | GPIO 2 / Interrupt Pin                                 |
 | 17  | D1/TX0         | Digital | GPIO 1 / Serial 0 Transmitter (TX)                     |
 | 18  | D0/TX0         | Digital | GPIO 0 / Serial 0 Receiver    (RX)                     |
 
