@@ -64,7 +64,9 @@ Access the Arduino PLC IDE software by following [Arduino PLC IDE official websi
 - Arduino PLC IDE Tools
 - Arduino PLC IDE
 
-The **Arduino PLC IDE** will install the IDE software, while the **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development.
+The **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development while the **Arduino PLC IDE** will install the IDE software.
+
+Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential problems related to old libraries and drivers. 
 
 ***For more details regarding Arduino PLC IDE setup, please have a look at [Arduino PLC IDE Setup and Board's License Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) tutorial.***
 
