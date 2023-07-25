@@ -17,9 +17,7 @@ hardware:
 
 ## Overview
 
-The Opta™ features industrial-grade hardware with rich connectivity options providing scalability, and the Arduino PLC IDE software enriches the experience by bringing the most out of the Opta™ for robust field deployments. The Opta™ offers Modbus protocols and can be implemented effortlessly using the Arduino PLC IDE.
-
-The Modbus TCP is one of the protocols available within Opta™. In this tutorial, you will learn how to implement Modbus TCP based communication between two Opta™ devices using Arduino PLC IDE.
+Opta™ features industrial-grade hardware with rich connectivity options like Modbus TCP using its RJ-45 port. In this tutorial, you will learn how to implement Modbus TCP based communication between two Opta™ devices using Arduino PLC IDE.
 
 ## Goals
 
