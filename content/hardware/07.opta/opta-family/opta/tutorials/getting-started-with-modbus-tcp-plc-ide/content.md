@@ -76,7 +76,9 @@ Two Opta™ devices and the PLC IDE will be used to create a Modbus TCP communic
 
 ![General setup for two Opta™ devices with Ethernet Switch](assets/opta_plcide_hardware_connection_eth.svg)
 
-The setup includes an Ethernet switch monitoring both Opta™ devices using PLC IDE and profile to observe the information exchanges in real-time. **It is a recommendable hardware setup for the present tutorial**. The Opta™ devices can remain connected directly without the need for the Ethernet switch when deployed in an application field. Thus, the commonly found deployment setup may look as follows:
+The setup includes an Ethernet switch monitoring both Opta™ devices using PLC IDE and profile to observe the information exchanges in real time; being the recommendable hardware setup for the present tutorial. 
+
+Once the Modbus connection is properly working, the Opta™ devices can remain connected directly without the need for the Ethernet switch when deployed in an application field as it can be seen in the following image.
 
 ![General setup for two Opta™ devices](assets/opta_plcide_hardware_connection.svg)
 
