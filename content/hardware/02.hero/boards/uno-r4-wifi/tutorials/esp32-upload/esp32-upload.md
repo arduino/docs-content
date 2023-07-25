@@ -7,7 +7,7 @@ hardware:
   - hardware/02.hero/boards/uno-r4-wifi
 ---
 
-***This article is not suitable for beginners as it easily breaks your board especially when the serial bridge is not properly implemented.***
+***This tutorial is for advanced users. Following along may result in soft-bricking your board.***
 
 The [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) has two different microcontrollers onboard, the Renesas RA4M1 and the ESP32-S3.
 
@@ -126,4 +126,4 @@ Alternatively you can also repeat **Step 1** and **Step 2** using the ``.bin`` f
 
 ## Conclusion
 
-These are the steps for uploading firmware to your ESP32-S3. This process is **not suitable for beginners** as it easily breaks your board especially when the serial bridge is not properly implemented. But for those who know what they are doing, it opens up many new possibilities as you can rewrite the firmware on the ESP32 to fit your custom needs.
+These are the steps for uploading firmware to your ESP32-S3. This process is **not suitable for beginners** as it easily breaks your board. Unless the new firmware does not implement a new serial bridge, a lot of functionality is lost. But for those who know what they are doing, it opens up many new possibilities as you can rewrite the firmware on the ESP32 to fit your custom needs.
