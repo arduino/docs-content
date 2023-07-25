@@ -317,7 +317,7 @@ Finally, the Opta™ is ready as a Modbus TCP Client (Master).
 
 You can access the complete example project [here](assets/ModbusTCP_Opta_Example.zip). You can download the compressed file, extract it, and use the pre-configured example project for your Opta™ devices.
 
-Set both Opta™ devices running with the corresponding main PLC code with the hardware setup explained in [this section](#hardware-setup). You will be able to observe the following results on master Opta™ repeatedly:
+Set both Opta™ devices running with the corresponding main PLC code with the hardware setup explained in [this section](#hardware-setup). You will be able to observe the following results on master Opta™ periodically:
 
 * Counter value = `500`: The status LED #1 and relay #1 will turn on
 * Counter value = `1000`: The status LED #2 and relay #2 will turn on
