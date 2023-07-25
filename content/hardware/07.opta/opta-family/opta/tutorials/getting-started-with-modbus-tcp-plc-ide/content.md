@@ -21,7 +21,7 @@ Opta™ features industrial-grade hardware with rich connectivity options like M
 
 ## Goals
 
-- Learn how to configure Modus TCP for Opta™ using Arduino PLC IDE
+- Learn how to configure Modbus TCP for Opta™ using Arduino PLC IDE
 - Learn how to configure the workspace environment to work with Modbus TCP using Arduino PLC IDE
 - Learn how to verify that Opta™ has been correctly set up and Modbus TCP is enabled using an example project on Arduino PLC IDE
 
