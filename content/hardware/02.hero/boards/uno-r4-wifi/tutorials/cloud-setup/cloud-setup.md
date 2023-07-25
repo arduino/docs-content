@@ -1,5 +1,5 @@
 ---
-title: UNO R4 WiFi IoT Cloud Setup
+title: Arduino UNO R4 WiFi IoT Cloud Setup Guide
 description: A step-by-step guide on how to set up the UNO R4 WiFi with the Arduino IoT Cloud.
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
@@ -61,7 +61,7 @@ You will be prompted with a popup when it's time. Follow the instructions depend
 
 ![Update Board](./assets/updateDevice.png)
 
-If all the previous steps were done successfully you should be greeted by a prompt telling you that you can now use the board with the IoT Cloud.
+After completing the steps in the popup you should be greeted by a prompt telling you that you can now use the board with the IoT Cloud.
 
 ![Finish set up](./assets/finishSetUp.png)
 
