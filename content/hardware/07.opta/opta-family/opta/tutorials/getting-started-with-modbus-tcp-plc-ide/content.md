@@ -82,7 +82,6 @@ Once the Modbus connection is properly working, the Opta™ devices can remain c
 
 ![General setup for two Opta™ devices](assets/opta_plcide_hardware_connection.svg)
 
-The Modbus TCP communication network can be scaled up by integrating additional protocol compatible devices such as Opta™.
 
 ### Workspace Pre-Configuration
 
