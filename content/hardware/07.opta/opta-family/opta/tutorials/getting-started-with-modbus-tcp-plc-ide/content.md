@@ -72,7 +72,7 @@ Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential 
 
 ### Hardware Setup
 
-The two Opta™ devices will communicate using Modbus TCP. It is set up by attaching the Ethernet LAN (RJ45) cable to both devices on the `ETH RJ45` port. The following image shows the connection diagram to work with two Opta™ devices.
+Two Opta™ devices and the PLC IDE will be used to create a Modbus TCP communication. It is set up by attaching the Ethernet LAN (RJ-45) cable to both devices on the `ETH RJ45` port. The following image shows the connection diagram to work with both devices.
 
 ![General setup for two Opta™ devices with Ethernet Switch](assets/opta_plcide_hardware_connection_eth.svg)
 
