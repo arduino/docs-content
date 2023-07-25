@@ -47,7 +47,7 @@ The **Modbus TCP/IP**, also briefly referred to as **Modbus TCP**, is a Modbus R
 
 ***For more information regarding the Modbus RTU protocol implementation on an Opta™, it may interest you to check out ["Getting Started with Modbus RTU on Opta™"](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial.***
 
-The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol* to manage the data independent of the transmission method.
+The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol*, being the data management independent of the transmission method.
 
 For the transmission, the *Transmission Control Protocol and Internet Protocol (TCP/IP)* is the transmission protocol integrating the TCP to handle the exchanging packets and IP to define the addresses for routing message destinations.
 
