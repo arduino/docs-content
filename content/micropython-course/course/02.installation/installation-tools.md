@@ -3,7 +3,7 @@ author: 'Jacob Hylen'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: 'MicroPython Installation Guide'
+title: '3. MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
@@ -33,15 +33,7 @@ First, [download the app here](https://labs.arduino.cc/en/labs/micropython). It 
 
 If you're on macOS, move the application to your **Applications** folder.
 
-**2. Put the Board in Bootloader Mode**
-
-Before we can install MicroPython, we need to place our board in a "bootloader" mode as we call it. This will make it possible to send a new firmware to it.
-
-Connect your board to your computer, and connect B1 to GND with a jumper wire, tweezers, or something else metallic you have handy. Once you see a green light on the board, press the reset button on the board. If you remove the connection between B1 and GND, you should see a dim purple light if this step was successful. If not, then try again.
-
-![Bootloader Mode](./assets/bootloader.png)
-
-**3. Download the Firmware Installer**
+**2. Download the Firmware Installer**
 
 The **Firmware Installer** program will help install MicroPython on your board.
 
@@ -51,7 +43,7 @@ First [download the app here](), and extract the files to a folder on your compu
 
 If you're on macOS, move the application to your **Applications** folder.
 
-**4. Flash Firmware**
+**3. Flash Firmware**
 
 Now open the Firmware Installer tool, select the Arduino Nano ESP32, and press **"Install MicroPython"**. Wait for the installer to do its magic and after some seconds, we are ready to go!
 
@@ -59,13 +51,13 @@ Now open the Firmware Installer tool, select the Arduino Nano ESP32, and press *
 
 If the installer doesn't find the MicroPython firmware automatically, you can download it manually from [here](./assets/nanoesp32_micropython.bin)
 
-**5. Connect your Code Editor and Board**
+**4. Connect your Code Editor and Board**
 
 In the Arduino Lab for MicroPython app, press **connect** in the top left corner and choose the serial port that comes up. This is your Nano ESP32.
 
 ![Connect to your Board](./assets/connect.png)
 
-**6. Verify**
+**5. Verify**
 
 Now, to verify things are working as they should, copy the script script below into your `main.py` file, and run it by clicking the **"Run"** button.
 

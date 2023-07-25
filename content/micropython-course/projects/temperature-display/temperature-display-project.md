@@ -5,6 +5,7 @@ featured: micropython-101-projects
 title: 'Temperature Display'
 description: 'Use a temperature sensor together with a NeoPixel stick, giving you visual feedback on the current temperature.'
 ---
+***Please complete the basic installation-chapters before starting a project.***
 
 This project will take the temperature reading from a DHT11 sensor and change the color of the LEDs on the NeoPixel accordingly.
 

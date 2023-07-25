@@ -5,7 +5,7 @@ featured: micropython-101-projects
 title: 'Alarm Clock'
 description: 'Build your own alarm clock using a 4-digit-display and a buzzer to get you out of bed.'
 ---
-
+***Please complete the basic installation-chapters before starting a project.***
 
 This project will use the `ntptime` module to keep track of the time and display it on a 4-digit-display. An alarm can then be set in the code, which will turn on the buzzer at a specified time. To keep track of time accurately the board will also connect to a Wi-Fi® network.
 
@@ -28,6 +28,14 @@ Assemble the components according to the circuit diagram below:
 ## Code
 
 Read the comments in the code and change the variables as necessary then upload it to your board.
+
+In order to use the 4-digit-display you will need to install the following module:
+
+```python
+mip.install("https://raw.githubusercontent.com/mcauser/micropython-tm1637/master/tm1637.py")
+```
+
+***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython-course/course/introduction-python#external-modules)***
 
 ```python
 from machine import Pin, PWM, RTC
