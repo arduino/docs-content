@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started With Modbus TCP On Opta™ Using PLC IDE'
+title: 'Modbus TCP On Opta™ Using PLC IDE'
 description: "Learn how to use Modbus TCP on Opta™ using Arduino® PLC IDE."
 author: 'Taddy Chung and José Bagur'
 libraries:
