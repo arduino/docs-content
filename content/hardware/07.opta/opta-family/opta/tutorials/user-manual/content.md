@@ -486,6 +486,8 @@ void changeLights() {
 
 Opta™ devices (all variants) have four Normally Open (NO) 10 A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
 
+![Output relays in Opta™ devices](assets/user-manual-12.png)
+
 User-programmable relay outputs are mapped as described in the following table:
 
 | **Opta™ Relay Output** | **Arduino Pin Mapping** |
@@ -494,6 +496,14 @@ User-programmable relay outputs are mapped as described in the following table:
 |       `OUTPUT 2`       |      `D1`/`RELAY2`      |
 |       `OUTPUT 3`       |      `D2`/`RELAY3`      |
 |       `OUTPUT 4`       |      `D3`/`RELAY4`      |
+
+The output relays can be used through the built-in functions of the Arduino programming language. To use an output relay as a digital output:
+
+- Add the `pinMode(relayOutput, OUTPUT)` instruction in your sketch's `setup()` function.
+
+To change the status of the output relay (`LOW` or `HIGH`):
+
+- Add your sketch's `digitalWrite(relayOutput, LOW)` or `digitalWrite(relayOutput, HIGH)` instruction.
 
 The sketch below tests the output relays and status LEDs of an Opta™ device. The sketch initializes the relays outputs and user LEDs as outputs; then, the sketch turns each output relay and its corresponding status LED on and off in sequence, with a one-second delay between each state change. This allows us to visually verify the correct functioning of the output relays and user LEDs.
 
