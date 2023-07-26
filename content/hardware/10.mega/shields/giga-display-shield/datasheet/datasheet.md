@@ -6,7 +6,7 @@ author: Ali Jahangiri, Benjamin Dannegård
 ---
 
 
-![](assets/featured.png)
+![](assets/featured.jpg)
 
 # Description
 
