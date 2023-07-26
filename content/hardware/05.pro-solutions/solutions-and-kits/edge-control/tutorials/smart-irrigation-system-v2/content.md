@@ -1,6 +1,6 @@
 ---
 title: 'LoRaWAN® Sensorized Irrigation System Using Arduino® Edge Control'
-description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino IoT Cloud with LoRaWAN® connectivity"
+description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino Cloud with LoRaWAN® connectivity"
 difficulty: intermediate
 tags:
   - Irrigation System
@@ -15,6 +15,8 @@ author: 'Christopher Mendez'
 libraries:
   - name: Arduino_EdgeControl
     url: https://github.com/arduino-libraries/Arduino_EdgeControl
+  - name: ArduinoJson
+    url: https://github.com/bblanchon/ArduinoJson
 software:
   - ide-v1
   - ide-v2
@@ -536,7 +538,13 @@ Below you can find some additional images and animations showing how the system 
 ![Battery connection](assets/BATTERY.png)
 ![Irrigation in zone three and four](assets/WATER.gif)
 
-
 ## Conclusion
 
+In this application note, you have learned how to build a LoRaWAN® irrigation system to water your crops automatically or manually, and monitor the crop's status remotely. Thanks to soil moisture analysis, you can avoid irrigation when it's not necessary, saving water and avoiding over-irrigation or flooding problems. 
+
+Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the more suitable technology for your application.
+
+Thanks to the Edge Control capabilities of controlling different types of actuators and handling a vast variety of input sensors, it is a great choice for developing robust and agriculture environment-proof solutions.
+
 ### Next Steps
+
