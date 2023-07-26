@@ -17,6 +17,10 @@ libraries:
     url: https://github.com/arduino-libraries/Arduino_EdgeControl
   - name: ArduinoJson
     url: https://github.com/bblanchon/ArduinoJson
+  - name: Arduino_ConnectionsHandler
+    url: https://github.com/arduino-libraries/Arduino_ConnectionHandler
+  - name: ArduinoIoTCloud
+    url: https://github.com/arduino-libraries/ArduinoIoTCloud
 software:
   - ide-v1
   - ide-v2
@@ -85,7 +89,7 @@ The goal of this application note is to showcase a sensorized farming irrigation
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
-- If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl` and `ArduinoIoTCloud`. You can install them through the Arduino IDE Library Manager.
+- If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `RunningMedian`, `ArduinoIoTCloud`, `ArduinoJson` and `Arduino_ConnectionsHandler`. You can install them through the Arduino IDE Library Manager.
 - The [Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
 - [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WAN 1310 on the Arduino IoT Cloud.
 
@@ -102,6 +106,8 @@ The electrical connections of the intended application are shown in the diagram 
 - The four solenoid valves will be connected to the Edge Control latching outputs of the J9 connector following the wiring below. 
 
 ![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS.png)
+
+***You can also use 3-Wires motorized valves. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 
 - The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector, and the four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
 
@@ -540,7 +546,7 @@ Below you can find some additional images and animations showing how the system 
 
 ## Conclusion
 
-In this application note, you have learned how to build a LoRaWAN® irrigation system to water your crops automatically or manually, and monitor the crop's status remotely. Thanks to soil moisture analysis, you can avoid irrigation when it's not necessary, saving water and avoiding over-irrigation or flooding problems. 
+In this application note, you have learned how to build a LoRaWAN® irrigation system to water your crops automatically or manually and monitor the crop's status remotely. Thanks to soil moisture analysis, you can avoid irrigation when it's not necessary, saving water and avoiding over-irrigation or flooding problems. 
 
 Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the more suitable technology for your application.
 
@@ -548,3 +554,6 @@ Thanks to the Edge Control capabilities of controlling different types of actuat
 
 ### Next Steps
 
+Since you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WAN 1310, it is time for you to continue exploring all the capabilities of the Arduino Pro portfolio and integrating it into your professional setup.
+
+You can extend the capabilities of your Edge Control-based system by adding different connectivity options, leveraging the Arduino MKR family like WiFi®, GSM, RS-485 or Ethernet.
