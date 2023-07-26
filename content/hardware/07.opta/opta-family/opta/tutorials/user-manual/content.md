@@ -482,7 +482,58 @@ void changeLights() {
 }
 ```
 
-### Relays 
+### Relays
+
+Opta™ devices (all variants) have four Normally Open (NO) 10 A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+
+User-programmable relay outputs are mapped as described in the following table:
+
+| **Opta™ Relay Output** | **Arduino Pin Mapping** |
+|:----------------------:|:-----------------------:|
+|       `OUTPUT 1`       |      `D0`/`RELAY1`      |
+|       `OUTPUT 2`       |      `D1`/`RELAY2`      |
+|       `OUTPUT 3`       |      `D2`/`RELAY3`      |
+|       `OUTPUT 4`       |      `D3`/`RELAY4`      |
+
+The sketch below tests the output relays and status LEDs of an Opta™ device. The sketch initializes the relays outputs and user LEDs as outputs; then, the sketch turns each output relay and its corresponding status LED on and off in sequence, with a one-second delay between each state change. This allows us to visually verify the correct functioning of the output relays and user LEDs.
+
+```arduino
+/*
+  Opta's™ Output Relays 
+  Name: optas_outputs_relays.ino
+  Purpose: This sketch tests the output relays of Opta™ devices.
+
+  @author Arduino PRO Content Team
+  @version 2.0 22/07/23
+*/
+
+// Arrays of relays and user LEDs
+int relayOutputs[] = {D0, D1, D2, D3};
+int userLeds[] = {LED_D0, LED_D1, LED_D2, LED_D3};
+
+// Compute the number of relays/LEDs based on the size of the relayPins array
+int numRelays = 4;
+
+void setup() {
+  for(int i = 0; i < numRelays; i++) {
+    // Sets the mode of the relays and user LEDs as outputs
+    pinMode(relayOutputs[i], OUTPUT); 
+    pinMode(userLeds[i], OUTPUT); 
+  }
+}
+
+void loop() {
+  // For each relay/user LED: turn it on, wait for a second, turn it off, wait for another second
+  for(int i = 0; i < numRelays; i++) {
+    digitalWrite(relayOutputs[i], HIGH); 
+    digitalWrite(userLeds[i], HIGH);
+    delay(1000);
+    digitalWrite(relayOutputs[i], LOW);
+    digitalWrite(userLeds[i], LOW);
+    delay(1000);
+  }
+}
+```
 
 ## Arduino PLC IDE
 
