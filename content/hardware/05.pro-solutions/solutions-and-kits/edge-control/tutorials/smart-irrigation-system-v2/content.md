@@ -507,6 +507,8 @@ The `uploadValues` function simply updates the Cloud variables with the ones rec
 
 ## Connectivity
 
+![LoRaWAN® Gateways](assets/GATEWAY.png)
+
 This project is using LoRaWAN®, which stands for Long Range Wide Area Network, and it is a low-power wireless communication protocol designed for connecting battery-operated devices to the internet over long distances. If you want to learn more about LoRa® and LoRaWAN® check this [guide](https://docs.arduino.cc/learn/communication/lorawan-101).
 
 The MKR WAN 1310 will be the **end-device** encharged of connecting to The Things Network (TTN), which is the network server supported by the Arduino Cloud. Learn how to connect the MKR WAN 1310 to TTN using this [guide](https://docs.arduino.cc/tutorials/mkr-wan-1310/the-things-network).
