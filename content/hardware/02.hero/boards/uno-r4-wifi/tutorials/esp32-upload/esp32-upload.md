@@ -33,7 +33,16 @@ In order to flash custom firmware to the ESP32-S3 we need to put the chip in dow
 
 ![ESP32-S3 download pin](./assets/esp32-data-pins.png)
 
-The easiest way is to use a female-to-female cable and short the pins at the top of the board. At this point, the board has to be powered off. Once the pins are shorted you can connect the board to your PC and remove the jumper wire. If you check the device name inside the device manager it should have changed to: **USB JTAG/serial debug unit**.
+The easiest way is to use a female-to-female cable and short the pins at the top of the board. At this point, the board has to be powered off. Once the pins are shorted you can connect the board to your PC and remove the jumper wire. If you check the device name it should have changed to: **USB JTAG/serial debug unit**.
+
+**Windows**
+- Check in the device manager under Univsersal Serial Bus devices.
+
+**MacOS**
+- Check in the System Information under USB.
+
+**Linux**
+- Open the commandline and type `lsusb`.
 
 ## Step 2: Flash Firmware
 
