@@ -424,7 +424,7 @@ int NUM_LEDS = 4;
 
 void setup() {
   // Initialize Opta user LEDs.
-  for(int i=0; i<NUM_LEDS; i++) {
+  for(int i = 0; i < NUM_LEDS; i++) {
     pinMode(LEDS[i], OUTPUT);
   }
   pinMode(BTN_USER, INPUT);
@@ -471,20 +471,32 @@ void loop() {
 */
 void changeLights() {
   // Turn off all user LEDs.
-  for(int i=0; i<NUM_LEDS; i++) {
+  for(int i = 0; i < NUM_LEDS; i++) {
     digitalWrite(LEDS[i], LOW);
   }
 
   // Turn on the selected user LED.
   if(counter > 0) {
-    digitalWrite(LEDS[counter-1], HIGH);
+    digitalWrite(LEDS[counter - 1], HIGH);
   }
 }
 ```
 
 ### Relays 
 
+## Arduino PLC IDE
 
+PLC IDE is the Arduino solution to program Opta™ devices using the five programming languages recognized by the IEC 61131-3 standard. These programming languages include:
+
+- Ladder Diagram (LD)
+- Functional Block Diagram (FBD)
+- Structured Text (ST)
+- Sequential Function Chart (SFC)
+- Instruction List (IL)
+
+In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as CANOpen, Modbus RTU, and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
+
+[Click here](https://www.arduino.cc/pro/software-plc-ide) to learn more about the PLC IDE.
 
 ## Support
 
