@@ -58,8 +58,6 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 ## Accessories (Not Included)
 
-- USB-C® cable
-- USB 2.0 A cable
 
 ## Related Products
 
