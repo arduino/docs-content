@@ -110,7 +110,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 ## TFT Display
 
-The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) and ISL97634IRT14Z-T (U4) LED Drivers.
+The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) LED Driver.
 
 ## 6-Axis IMU
 The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the GIGA R1 WiFi board via a common I2C connection.
@@ -121,7 +121,7 @@ A common anode RGB (DL1) is driven by a dedicated IS31FL3197-QFLS2-TR RGB LED Dr
 
 ## Digital Microphone
 
-The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors. The microphone is in a single channel configuration, with audio signals transmitter over PDM.
+The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an I2C interface. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors. The microphone is in a single channel configuration, with audio signals transmitter over PDM.
 
 ## Power Tree
 
