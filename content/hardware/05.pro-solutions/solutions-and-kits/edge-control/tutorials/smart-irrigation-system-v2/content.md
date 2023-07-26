@@ -519,7 +519,7 @@ After following the guide you will get two important keys that will be needed fo
 
 As a **gateway** we will be using the [WisGate Edge Lite 2](https://docs.arduino.cc/hardware/wisgate-edge-lite-2), which will provide long-range coverage and access to the network. Learn how to set up yours using this [guide](https://docs.arduino.cc/tutorials/wisgate-edge-lite-2/getting-started).
 
-***If there is coverage of a TTN public gateway in your area, it is not necessary to install yours.**
+***If there is coverage of a TTN public gateway in your area, it is not necessary to install yours.***
 
 ### The Arduino IoT Cloud Dashboard
 
