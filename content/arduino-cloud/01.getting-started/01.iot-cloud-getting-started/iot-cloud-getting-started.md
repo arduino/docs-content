@@ -186,6 +186,14 @@ After we have successfully uploaded the code, we can open the **“Serial Monito
 
 ***The cloud editor is a mirrored "minimal" version of the Web Editor. Any changes you make will also be reflected in the Web Editor, which is more suitable for developing more advanced sketches.***
 
+#### Over the Air Uploads
+
+Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+
+***Over the Air uploads requires an Entry plan to the Arduino IoT Cloud***
+
+To use this feature, make sure the board has power. If your project is already sitting somewhere in your house, as long as it's powered on, you should be able to upload to it. navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+
 ### 8. Creating a Dashboard
 
 Now that we have configured the device & network, created variables, completed the sketch and successfully uploaded the code, we can move on to the fun part: **creating dashboards!**
