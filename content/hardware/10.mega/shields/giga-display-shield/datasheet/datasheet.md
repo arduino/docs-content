@@ -71,7 +71,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 | Symbol          | Description                      | Min  | Typ | Max | Unit |
 |-----------------|----------------------------------|------|-----|-----|------|
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6    | 7.0 | 32  | V    |
+| V<sub>IN</sub>  | Input voltage from VIN header       | 6    | 7.0 | 32  | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8  | 5.0 | 5.5 | V    |
 | V<sub>DD</sub>  | Input high-level voltage         | 2.31 |     | 3.3 | V    |
 | V<sub>IL</sub>  | Input low-level voltage          | 0    |     | 1   | V    |
