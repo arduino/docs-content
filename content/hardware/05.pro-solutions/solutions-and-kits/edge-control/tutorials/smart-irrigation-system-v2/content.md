@@ -107,7 +107,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS.png)
 
-**You can also use 3-Wires motorized valves. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.**
+***You can also use 3-Wires motorized valves. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 
 - The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector, and the four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
 
@@ -141,7 +141,7 @@ The communication between both devices is done leveraging the I2C communication 
 
 The valves can be controlled manually by using the onboard button, one tap opens the valve one, two taps valve two, and so on. Also, the valves can be controlled automatically by the system when the soil moisture is poor, for this we must enable the "Smart mode" by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
 
-**These valves are latching ones, which means they are activated by a pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that can damage the latching outputs.** 
+***These valves are latching ones, which means they are activated by a pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that can damage the latching outputs.*** 
 
 ### Water Usage
 
@@ -519,7 +519,7 @@ After following the guide you will get two important keys that will be needed fo
 
 As a **gateway** we will be using the [WisGate Edge Lite 2](https://docs.arduino.cc/hardware/wisgate-edge-lite-2), which will provide long-range coverage and access to the network. Learn how to set up yours using this [guide](https://docs.arduino.cc/tutorials/wisgate-edge-lite-2/getting-started).
 
-**If there is coverage of a TTN public gateway in your area, it is not necessary to install yours.**
+***If there is coverage of a TTN public gateway in your area, it is not necessary to install yours.***
 
 ### The Arduino IoT Cloud Dashboard
 
@@ -558,7 +558,7 @@ Arduino Edge Control allows you to easily implement this kind of agriculture sys
 
 Thanks to the Edge Control capabilities of controlling different types of actuators and handling a vast variety of input sensors, it is a great choice for developing robust and agriculture environment-proof solutions.
 
-**We have a similar project using motorized ball valves, WiFi® connectivity and scheduled remote control from the Arduino Cloud, don't miss it**
+***We have a similar project using motorized ball valves, WiFi® connectivity and scheduled remote control from the Arduino Cloud, don't miss it***
 
 ### Next Steps
 
