@@ -214,7 +214,7 @@ bool controlV2 = 1;
 bool controlV3 = 1;
 bool controlV4 = 1;
 
-// Valves On time kepping variables
+// Valves On time keeping variables
 int StartTime1, CurrentTime1;
 int StartTime2, CurrentTime2;
 int StartTime3, CurrentTime3;
@@ -374,7 +374,7 @@ void loop() {
     updateSensors();
   }
 
-  // activate, deactive and keep time of valves function
+  // activate, deactivate and keep time of valves function
   valvesHandler();
 }
 ```
