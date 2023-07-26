@@ -1,5 +1,5 @@
 ---
-title: 'LoRaWAN® Sensorized Irrigation System Using Arduino® Edge Control'
+title: 'LoRaWAN® Irrigation System Using Arduino® Edge Control'
 description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino Cloud with LoRaWAN® connectivity"
 difficulty: intermediate
 tags:
@@ -552,8 +552,11 @@ Arduino Edge Control allows you to easily implement this kind of agriculture sys
 
 Thanks to the Edge Control capabilities of controlling different types of actuators and handling a vast variety of input sensors, it is a great choice for developing robust and agriculture environment-proof solutions.
 
+***We have a similar project using motorized ball valves, WiFi® connectivity and scheduled remote control from the Arduino Cloud, don't miss it***
+
 ### Next Steps
 
 Since you already know how to develop a Smart Irrigation System with Arduino Edge Control and the MKR WAN 1310, it is time for you to continue exploring all the capabilities of the Arduino Pro portfolio and integrating it into your professional setup.
 
 You can extend the capabilities of your Edge Control-based system by adding different connectivity options, leveraging the Arduino MKR family like WiFi®, GSM, RS-485 or Ethernet.
+
