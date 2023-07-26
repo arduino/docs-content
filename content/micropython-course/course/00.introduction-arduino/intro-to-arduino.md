@@ -1,6 +1,6 @@
 ---
 featured: micropython-101
-title: 'Introduction to Arduino'
+title: '1. Introduction to Arduino'
 description: 'Learn about the Arduino platform'
 author: 'Karl Söderby'
 hero_image: "./hero-banner.png"

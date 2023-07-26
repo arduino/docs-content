@@ -5,6 +5,7 @@ featured: micropython-101-projects
 title: 'Scene Changer'
 description: 'Learn how to change the scene on an OLED screen with the press of a button'
 ---
+***Please complete the basic installation-chapters before starting a project.***
 
 This project will show you how to interact with a screen using a button. The script will follow a sequence when the button is pressed and change what is displayed. It will call different functions depending on the current function that is displayed.
 
@@ -27,6 +28,14 @@ Assemble the components according to the circuit diagram below:
 ## Code
 
 Read the comments in the code and change the variables as necessary then upload it to your board.
+
+In order to use the OLED screen you will need to install the following module:
+
+```python
+mip.install("https://raw.githubusercontent.com/micropython/micropython-lib/master/micropython/drivers/display/ssd1306/ssd1306.py")
+```
+
+***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython-course/course/introduction-python#external-modules)***
 
 ```python
 from machine import SoftI2C, Pin

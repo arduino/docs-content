@@ -3,7 +3,7 @@ author: 'Hannes Siebeneicher'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: 'Component Examples'
+title: '9. Component Examples'
 description: 'Ready to use code & circuit examples for popular components such as Neopixel, DHT11 & Servo motor.'
 ---
 
@@ -287,6 +287,7 @@ This example demonstrates how to use an [OLED](https://store.arduino.cc/products
 This module is not part of the MicroPython installation, and needs to be installed via the following command:
 
 ```python
+import mip
 mip.install("https://raw.githubusercontent.com/micropython/micropython-lib/master/micropython/drivers/display/ssd1306/ssd1306.py")
 ```
 
@@ -386,6 +387,7 @@ This example shows how to use a [Grove Accelerometer](https://store.arduino.cc/p
 This module is not part of the MicroPython installation, and needs to be installed via the following command:
 
 ```python
+import mip
 mip.install("https://raw.githubusercontent.com/tinypico/tinypico-micropython/master/lis3dh%20library/lis3dh.py")
 ```
 
@@ -502,6 +504,7 @@ This example shows how to use a [Grove 4-digit display](https://store.arduino.cc
 This module is not part of the MicroPython installation, and needs to be installed via the following command:
 
 ```python
+import mip
 mip.install("https://raw.githubusercontent.com/mcauser/micropython-tm1637/master/tm1637.py")
 ```
 
