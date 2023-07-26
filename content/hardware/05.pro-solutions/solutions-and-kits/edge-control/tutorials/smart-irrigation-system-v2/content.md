@@ -139,7 +139,7 @@ The valves can be controlled manually by using the onboard button, one tap opens
 
 The water flow sensor will measure the water used and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
 
-### Soil moisture measurement
+### Soil Moisture Measurement
 
 Instead of measuring the percentage of water by volume in a given amount of soil, we will be using watermark sensors that are capable of measuring the physical force holding water in the soil, this is correlated with how difficult it is for the plants to extract water from the soil. 
 
