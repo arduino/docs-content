@@ -201,7 +201,7 @@ IF cnt >= 2750 THEN
 END_IF;
 ```
 
-The server Opta™ device's task runs a simple counter and resets whenever the counter reaches `2750`. You can use `Download PLC code` or press `F7` to begin the main code compilation and upload to the Opta™. If the process was successful, you will have a similar result as shown in the following image.
+The server Opta™ device's task runs a simple counter and resets whenever the counter reaches `2750`. You can use `Download PLC code` or press `F7` to begin the main code compilation and upload to the Opta™. If the process is successful, you will have a similar result as shown in the following image.
 
 ![Arduino PLC IDE - Opta™ Server (Slave) Main Code](assets/opta_plcide_server_mainCode.svg)
 
