@@ -38,7 +38,7 @@ There are many practical examples using an RTC, and the examples provided in thi
 
 To set the starting time for the RTC, you can create an `RTCTime` object. Here you can specify the day, month, year, hour, minute, second, and specify day of week as well as daylight saving mode.
 
-Then to set the time, use the `setTime()` method. 
+Then to set the time, use the `setTime()` method.
 
 Example:
 
