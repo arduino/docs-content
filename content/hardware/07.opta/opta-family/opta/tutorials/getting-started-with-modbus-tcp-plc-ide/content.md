@@ -253,7 +253,6 @@ void setup()
     eth.begin(ip, dns, gateway, subnet);
 }
 
-...
 ```
 
 The `ip(192, 168, 1, 1)` is the IP address assigned to Modbus TCP Client (Master) Opta™. The Internet Protocol properties can be changed to your preference. It is important to have the `subnet` defined to your computer's subnet to have the Opta™ devices work in the same network.
