@@ -80,7 +80,7 @@ The complete datasheet (for all Opta™ variants) is available and downloadable 
 
 The complete STEP files (for all Opta™ variants) are available and downloadable from the link below:
 
-- Opta™ STEP files  
+- [Opta™ STEP files](https://docs.arduino.cc/static/805141cc64a9a27e4e73a94065fa0703/AFX00001-AFX00002-AFX00003-step.zip)  
 
 ## First Use
 
@@ -576,34 +576,34 @@ Once the connection is successful, the program sends an `HTTP GET` request to th
   @version 4.0 01/06/18
 */
 
-// Include the Ethernet library
+// Include the Ethernet library.
 #include <Ethernet.h>
 
-// Define the server to which we'll connect
-// This can be an IP address or a URL
+// Define the server to which we'll connect,
+// This can be an IP address or a URL.
 char server[] = "www.google.com";
 
-// Set a static IP address to use if the DHCP fails to assign one automatically
+// Set a static IP address to use if the DHCP fails to assign one automatically.
 IPAddress ip(10, 130, 22, 84);
 
-// Initialize the Ethernet client object
-// This will be used to interact with the server
+// Initialize the Ethernet client object,
+// This will be used to interact with the server.
 EthernetClient client;
 
 void setup() {
   // Begin serial communication at a baud rate of 115200
   Serial.begin(115200);
 
-  // Wait for the serial port to connect
-  // This is necessary for boards that have native USB
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
   while (!Serial);
 
-  // Attempt to start Ethernet connection via DHCP
-  // If DHCP failed, print a diagnostic message
+  // Attempt to start Ethernet connection via DHCP,
+  // If DHCP failed, print a diagnostic message.
   if (Ethernet.begin() == 0) {
     Serial.println("- Failed to configure Ethernet using DHCP!");
 
-    // Try to configure Ethernet with the predefined static IP address
+    // Try to configure Ethernet with the predefined static IP address.
     Ethernet.begin(ip);
   }
 
@@ -634,13 +634,13 @@ void read_request() {
   uint32_t received_data_num = 0;
   while (client.available()) {
 
-    // Actual data reception
+    // Actual data reception.
     char c = client.read();
 
-    // Print data to serial port
+    // Print data to serial port.
     Serial.print(c);
 
-    // Wrap data to 80 columns
+    // Wrap data to 80 columns.
     received_data_num++;
     if (received_data_num % 80 == 0) {
       Serial.println();
@@ -649,22 +649,22 @@ void read_request() {
 }
 
 void loop() {
-  // Read data from the client
+  // Read data from the client.
   read_request();
 
-  // If there's data available from the server, read it and print it to the Serial Monitor
+  // If there's data available from the server, read it and print it to the Serial Monitor.
   while (client.available()) {
     char c = client.read();
     Serial.print(c);
   }
 
-  // If the server has disconnected, disconnect the client and stop
+  // If the server has disconnected, disconnect the client and stop.
   if (!client.connected()) {
     Serial.println();
     Serial.println("- Disconnecting...");
     client.stop();
 
-    // Halt the sketch by entering an infinite loop
+    // Halt the sketch by entering an infinite loop.
     while (true);
   }
 }
@@ -696,54 +696,54 @@ Once connected, it sends a GET request to the server. The `read_response()` func
   @version 2.0 31/05/12
 */
 
-// Include the necessary libraries for Wi-Fi management and HTTP communication
+// Include the necessary libraries for Wi-Fi management and HTTP communication.
 #include "WiFi.h"
 #include "WiFiClient.h"
 #include "IPAddress.h"
 #include "arduino_secrets.h"
 
-// Define the credentials of the Wi-Fi network to connect to
+// Define the credentials of the Wi-Fi network to connect to.
 char ssid[] = SECRET_SSID;  // Network SSID
 char pass[] = SECRET_PASS;  // Network password
 
-// Define a variable for storing the status of the Wi-Fi connection
+// Define a variable for storing the status of the Wi-Fi connection.
 int status = WL_IDLE_STATUS;
 
-// Define the server to which we'll connect
+// Define the server to which we'll connect.
 // This can be an IP address or a URL
 char server[] = "www.google.com";
 
-// Initialize the Wi-Fi client object
-// This will be used to interact with the server
+// Initialize the Wi-Fi client object,
+// This will be used to interact with the server.
 WiFiClient client;
 
 void setup() {
-  // Begin serial communication at a baud rate of 115200
+  // Begin serial communication at a baud rate of 115200.
   Serial.begin(115200);
 
-  // Wait for the serial port to connect
-  // This is necessary for boards that have native USB
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
   while (!Serial) {}
 
-  // Check for the onboard Wi-Fi module
-  // If the module isn't found, halt the program
+  // Check for the onboard Wi-Fi module,
+  // If the module isn't found, halt the program.
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println("- Communication with Wi- Fi module failed!");
     while (true);
   }
 
-  // Attempt to connect to the defined Wi-Fi network
-  // Wait for the connection to be established
+  // Attempt to connect to the defined Wi-Fi network,
+  // Wait for the connection to be established.
   while (status != WL_CONNECTED) {
     Serial.print("- Attempting to connect to SSID: ");
     Serial.println(ssid);
     status = WiFi.begin(ssid, pass);
-    delay(10000); 
+    delay(10000);
   }
 
   // Print the Wi-Fi connection status
-  printWifiStatus(); 
-
+  printWifiStatus();
+  
   // Attempt to connect to the server at port 80 (the standard port for HTTP).
   // If the connection is successful, print a message and send a HTTP GET request.
   // If the connection failed, print a diagnostic message.
@@ -769,13 +769,13 @@ void read_response() {
   uint32_t received_data_num = 0;
   while (client.available()) {
 
-    // Actual data reception
+    // Actual data reception.
     char c = client.read();
 
-    // Print data to serial port
+    // Print data to serial port.
     Serial.print(c);
 
-    // Wrap data to 80 columns
+    // Wrap data to 80 columns.
     received_data_num++;
     if (received_data_num % 80 == 0) {
       Serial.println();
@@ -784,10 +784,10 @@ void read_response() {
 }
 
 void loop() {
-  // Read and print the server's response
+  // Read and print the server's response.
   read_response();
 
-  // If the server has disconnected, disconnect the client and halt the program
+  // If the server has disconnected, disconnect the client and halt the program.
   if (!client.connected()) {
     Serial.println();
     Serial.println("- Disconnecting from server...");
@@ -807,12 +807,12 @@ void printWifiStatus() {
   Serial.print("- SSID: ");
   Serial.println(WiFi.SSID());
 
-  // Print board's IP address
+  // Print board's IP address.
   IPAddress ip = WiFi.localIP();
   Serial.print("- IP Address: ");
   Serial.println(ip);
 
-  // Print signal strength
+  // Print signal strength.
   long rssi = WiFi.RSSI();
   Serial.print("- Signal strength (RSSI):");
   Serial.print(rssi);
@@ -947,10 +947,10 @@ The sketch below shows how to use Opta™'s programmable user button to control 
 /**
   Opta's User Button Example (Interrupt)
   Name: opta_user_button_interrupt_example.ino
-  Purpose: Configures Opta's user-programmable button to control the user LEDs 
-  using interrupts rather than polling the button's state. This example includes 
+  Purpose: Configures Opta's user-programmable button to control the user LEDs
+  using interrupts rather than polling the button's state. This example includes
   debouncing for the user button.
-
+  
   @author Arduino PRO Content Team
   @version 2.0 23/07/23
 */
@@ -1031,7 +1031,6 @@ void changeLights() {
     digitalWrite(LEDS[counter - 1], HIGH);
   }
 }
-
 ```
 
 To learn more about interrupts in Opta devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
