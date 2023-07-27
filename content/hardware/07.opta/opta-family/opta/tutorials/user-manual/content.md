@@ -545,6 +545,129 @@ void loop() {
 }
 ```
 
+## Communication
+
+This user manual section covers the different communication protocols supported by Opta™ devices, including the Ethernet, RS-485, Modbus, Wi-Fi®, and Bluetooth®.
+
+### Ethernet
+
+Opta™ devices feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
+
+Some of the key capabilities of Opta™'s Ethernet transceiver are the following:
+
+- **Speed and duplex mode**: It can operate at 10 Mbps (10BASE-T) or 100 Mbps (100BASE-TX). It also features auto-negotiation, which means it can automatically determine the best speed and duplex mode for communication.
+- **HP Auto-MDIX**: This feature allows you to use a straight-through or crossover Ethernet cable.
+- **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
+- **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
+
+The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library. Let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." The `Ethernet` library is included in the beginning to enable the Ethernet functionality in the device. In the `setup()` function, the program initializes the serial port and attempts to establish an Ethernet connection. In case DHCP configuration fails, a static IP address is utilized as a backup. Depending on the DHCP success, the code may or may not employ a DNS server for server resolution.
+
+Once the connection is successful, the program sends an `HTTP GET` request to the server. In case of a connection failure, an error message is displayed in the Arduino IDE's Serial Monitor. The `read_request()` function handles data retrieval from the client and formats it for display in the Serial Monitor. The `loop()` function continuously calls `read_request()` to manage incoming data. If the server gets disconnected, the program halts in an infinite loop, ensuring no further execution without a valid connection.
+
+```arduino
+/**
+  Web Client (Ethernet version)
+  Name: opta_web_client_example.ino
+  Purpose: This sketch connects an Opta device to a website via Ethernet
+
+  @author Arduino Team, modified by Arduino PRO Content Team
+  @version 4.0 01/06/18
+*/
+
+// Include the Ethernet library
+#include <Ethernet.h>
+
+// Define the server to which we'll connect
+// This can be an IP address or a URL
+char server[] = "www.google.com";
+
+// Set a static IP address to use if the DHCP fails to assign one automatically
+IPAddress ip(10, 130, 22, 84);
+
+// Initialize the Ethernet client object
+// This will be used to interact with the server
+EthernetClient client;
+
+void setup() {
+  // Begin serial communication at a baud rate of 115200
+  Serial.begin(115200);
+
+  // Wait for the serial port to connect
+  // This is necessary for boards that have native USB
+  while (!Serial);
+
+  // Attempt to start Ethernet connection via DHCP
+  // If DHCP failed, print a diagnostic message
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Failed to configure Ethernet using DHCP!");
+
+    // Try to configure Ethernet with the predefined static IP address
+    Ethernet.begin(ip);
+  }
+
+  delay(2000);
+
+  // Attempt to connect to the server at port 80 (the standard port for HTTP).
+  // If the connection is successful, print a message and send a HTTP GET request.
+  // If the connection failed, print a diagnostic message.
+  Serial.println("- Connecting...");
+  if (client.connect(server, 80)) {
+    Serial.println("- Connected!");
+    client.println("GET /search?q=arduino HTTP/1.1");
+    client.println("Host: www.google.com");
+    client.println("Connection: close");
+    client.println();
+  } else {
+    Serial.println("- Connection failed!");
+  }
+}
+
+/**
+  Reads data from the client while there's data available
+
+  @param none
+  @return none
+*/
+void read_request() {
+  uint32_t received_data_num = 0;
+  while (client.available()) {
+
+    // Actual data reception
+    char c = client.read();
+
+    // Print data to serial port
+    Serial.print(c);
+
+    // Wrap data to 80 columns
+    received_data_num++;
+    if (received_data_num % 80 == 0) {
+      Serial.println();
+    }
+  }
+}
+
+void loop() {
+  // Read data from the client
+  read_request();
+
+  // If there's data available from the server, read it and print it to the Serial Monitor
+  while (client.available()) {
+    char c = client.read();
+    Serial.print(c);
+  }
+
+  // If the server has disconnected, disconnect the client and stop
+  if (!client.connected()) {
+    Serial.println();
+    Serial.println("- Disconnecting...");
+    client.stop();
+
+    // Halt the sketch by entering an infinite loop
+    while (true);
+  }
+}
+```
+
 ## Interrupts
 
 **Opta's™ analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's™ microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
@@ -653,8 +776,6 @@ void changeLights() {
 To learn more about interrupts in Opta devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
 ## Real-Time Clock
-
-
 
 ## Arduino PLC IDE
 
