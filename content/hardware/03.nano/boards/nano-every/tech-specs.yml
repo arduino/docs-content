@@ -5,7 +5,7 @@ Microcontroller: ATMega4809
 USB connector: Micro USB
 Pins:
   Built-in LED Pin: 13
-  Digital I/O Pins: 14
+  Digital I/O Pins: 16
   Analog input pins: 8
   PWM pins: 5
 Communication:
