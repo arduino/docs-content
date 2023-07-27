@@ -175,7 +175,7 @@ void setup()
 
 The Ethernet properties consist of `ip`, `dns`, `gateway`, and `subnet` elements and are called arguments for the `eth.begin()` method to assign these properties for the Opta™. These elements are defined to your preference or network requirements, and previous addresses are one configuration example that can be applied. The `ip(192, 168, 1, 2)` is the IP address assigned to Modbus TCP Server (Slave) Opta™.
 
-It is the sketch that comes commented by default when you create the project file in PLC IDE. You will need to uncomment the lines to make the effect of the configuration and set the features by downloading the sketch manually to Opta™ at the `Opta™ Configuration` window.
+The sketch comes with some important lines commented by default when you create the project file in PLC IDE. You will need to uncomment the lines to make the effect of the configuration and set the features by downloading the sketch manually to Opta™ at the `Opta™ Configuration` window.
 
 The following image shows the `Status variables (volatile)` window, where you will define the `cnt` variable with its access address and its data type to share over Modbus TCP.
 
