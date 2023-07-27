@@ -672,6 +672,8 @@ The `Ethernet` library is included in the beginning to enable the Ethernet funct
 
 Once the connection is successful, the program sends an `HTTP GET` request to the server. In case of a connection failure, an error message is displayed in the Arduino IDE's Serial Monitor. The `read_request()` function handles data retrieval from the client and formats it for display in the Serial Monitor. The `loop()` function continuously calls `read_request()` to manage incoming data. If the server gets disconnected, the program halts in an infinite loop, ensuring no further execution without a valid connection.
 
+To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+
 ### Wi-Fi®
 
 Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing the Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
@@ -822,6 +824,8 @@ The sketch starts by including the necessary libraries `WiFi.h` and `WiFiClient.
 
 Once connected, it sends a GET request to the server. The `read_response()` function reads data from the client and prints it in wrapped format on the Arduino IDE's Serial Monitor. In the `loop()` function, `read_response()` is continuously called to handle available data. If the server gets disconnected, the client is disconnected, and the sketch enters an infinite loop, halting further execution. The `printWifiStatus()` function is included, which prints the connected network SSID, the board's IP address, and the signal strength (RSSI) on the Arduino IDE's Serial Monitor.
 
+To learn more about Wi-Fi® connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+
 ### Bluetooth Low Energy®
 
 Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
@@ -930,6 +934,8 @@ void loop() {
 ```
 
 After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristics, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristics. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in blue LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a percentage value between 0 and 100, prints the voltage level to the Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
+
+To learn more about Bluetooth Low Energy® connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
 ## Interrupts
 
