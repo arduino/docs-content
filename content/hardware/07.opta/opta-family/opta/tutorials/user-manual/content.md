@@ -592,7 +592,7 @@ void setup() {
   }
   
   // Set up the interrupt on USER_BTN to trigger on a rising edge (when the button is pressed)
-  attachInterrupt(digitalPinToInterrupt(2), buttonISR, RISING);
+  attachInterrupt(digitalPinToInterrupt(USER_BTN), buttonISR, RISING);
 }
 
 /**
