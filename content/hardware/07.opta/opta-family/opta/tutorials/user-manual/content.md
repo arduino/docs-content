@@ -562,9 +562,7 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." The `Ethernet` library is included in the beginning to enable the Ethernet functionality in the device. In the `setup()` function, the program initializes the serial port and attempts to establish an Ethernet connection. If the DHCP configuration fails, a static IP address is utilized as a backup. Depending on the DHCP's success, the code may or may not employ a DNS server for server resolution.
-
-Once the connection is successful, the program sends an `HTTP GET` request to the server. In case of a connection failure, an error message is displayed in the Arduino IDE's Serial Monitor. The `read_request()` function handles data retrieval from the client and formats it for display in the Serial Monitor. The `loop()` function continuously calls `read_request()` to manage incoming data. If the server gets disconnected, the program halts in an infinite loop, ensuring no further execution without a valid connection.
+The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." 
 
 ```arduino
 /**
@@ -670,6 +668,10 @@ void loop() {
 }
 ```
 
+The `Ethernet` library is included in the beginning to enable the Ethernet functionality in the device. In the `setup()` function, the program initializes the serial port and attempts to establish an Ethernet connection. If the DHCP configuration fails, a static IP address is utilized as a backup. Depending on the DHCP's success, the code may or may not employ a DNS server for server resolution.
+
+Once the connection is successful, the program sends an `HTTP GET` request to the server. In case of a connection failure, an error message is displayed in the Arduino IDE's Serial Monitor. The `read_request()` function handles data retrieval from the client and formats it for display in the Serial Monitor. The `loop()` function continuously calls `read_request()` to manage incoming data. If the server gets disconnected, the program halts in an infinite loop, ensuring no further execution without a valid connection.
+
 ### Wi-Fi®
 
 Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing the Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
@@ -681,10 +683,6 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 - **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
 
 The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Wi-Fi® module, the `WiFi` library right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
-
-The sketch starts by including the necessary libraries `WiFi.h` and `WiFiClient.h`, which provide the essential functionalities for Wi-Fi® communication. It then defines the SSID and password for the Wi-Fi® network and establishes the server, "www.google.com," while creating the Wi-Fi® client object to manage the connection. The serial port is initialized in the `setup()` function, and the sketch checks for Wi-Fi® module availability. It attempts to connect to the defined Wi-Fi® network using the specified SSID and password. If the connection is successful, it prints the Wi-Fi® status and tries to connect to the server. 
-
-Once connected, it sends a GET request to the server. The `read_response()` function reads data from the client and prints it in wrapped format on the Arduino IDE's Serial Monitor. In the `loop()` function, `read_response()` is continuously called to handle available data. If the server gets disconnected, the client is disconnected, and the sketch enters an infinite loop, halting further execution. The `printWifiStatus()` function is included, which prints the connected network SSID, the board's IP address, and the signal strength (RSSI) on the Arduino IDE's Serial Monitor.
 
 ```arduino
 /**
@@ -820,13 +818,15 @@ void printWifiStatus() {
 }
 ```
 
+The sketch starts by including the necessary libraries `WiFi.h` and `WiFiClient.h`, which provide the essential functionalities for Wi-Fi® communication. It then defines the SSID and password for the Wi-Fi® network and establishes the server, "www.google.com," while creating the Wi-Fi® client object to manage the connection. The serial port is initialized in the `setup()` function, and the sketch checks for Wi-Fi® module availability. It attempts to connect to the defined Wi-Fi® network using the specified SSID and password. If the connection is successful, it prints the Wi-Fi® status and tries to connect to the server. 
+
+Once connected, it sends a GET request to the server. The `read_response()` function reads data from the client and prints it in wrapped format on the Arduino IDE's Serial Monitor. In the `loop()` function, `read_response()` is continuously called to handle available data. If the server gets disconnected, the client is disconnected, and the sketch enters an infinite loop, halting further execution. The `printWifiStatus()` function is included, which prints the connected network SSID, the board's IP address, and the signal strength (RSSI) on the Arduino IDE's Serial Monitor.
+
 ### Bluetooth Low Energy®
 
 Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
 
 To enable Bluetooth® communication on Opta™ devices, you can use the `ArduinoBLE library`. Let's walk through an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of how to use the ArduinoBLE to create a voltage level monitor application. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic to transmit voltage values read from one of the analog input terminals of an Opta™ device to a central device. 
-
-After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristics, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristics. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in blue LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a percentage value between 0 and 100, prints the voltage level to the Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
 
 ```arduino
 /**
@@ -928,6 +928,8 @@ void loop() {
   Serial.println(central.address());
 }
 ```
+
+After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristics, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristics. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in blue LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a percentage value between 0 and 100, prints the voltage level to the Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
 
 ## Interrupts
 
