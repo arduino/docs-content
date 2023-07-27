@@ -224,7 +224,7 @@ These are the properties you have to set for the Modbus TCP Server (Slave) Opta�
 
 The Modbus node for client Opta™ is defined but it needs to set which Modbus function will be used to retrieve the counter (`cnt`) information from the server Opta™. Right-clicking on `Opta_TCP_1` in this case, or the name you choose to use will show the 'Add' option and will open a device catalog window listing all the available Modbus functions.
 
-The 'Modbus FC-04 (Read Input Registers)' function is chosen to request and retrieve the counter data from the server Opta™. You will need to set some parameters in the 'General' tab to access the data appropriately, and it uses the following parameters:
+The 'Modbus FC-04 (Read Input Registers)' function is chosen to request and retrieve the counter data from the server Opta™. You will need to set some parameters in the 'General' tab to access the data appropriately using the following parameters:
 
 * Start address: 25000
 * Polling time: 0 ms (Continuous Read)
