@@ -197,7 +197,7 @@ The sketch below shows how to monitor analog voltages on Opta™'s input termina
 ```arduino
 /**
   Opta's Analog Input Terminals
-  Name: optas_analog_inputs.ino
+  Name: opta_analog_inputs_example.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
   terminals as analog inputs on Opta™.
 
@@ -259,7 +259,7 @@ The sketch below shows how to monitor digital states on Opta™'s input terminal
 ```arduino
 /**
   Opta's Digital Input Terminals
-  Name: optas_digital_inputs.ino
+  Name: opta_digital_inputs_example.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
   terminals as digital inputs on Opta™.
 
@@ -328,7 +328,7 @@ The sketch below shows how to create a Knight Rider-style "scanning" effect usin
 ```arduino
 /**
   Opta's Knight Rider Scanning Effect
-  Name: knight_rider_opta.ino
+  Name: opta_knight_rider_example.ino
   Purpose: This sketch demonstrates a Knight Rider scanning effect using 
   the user LEDs of Opta™ devices.
 
@@ -399,7 +399,7 @@ The sketch below shows how to use Opta™'s programmable user button to control 
 ```arduino
 /**
   Opta's User Button Example
-  Name: optas_user_button_example.ino
+  Name: opta_user_button_example.ino
   Purpose: Configures Opta's user-programmable button to control the user LEDs.
   This example includes debouncing for the user button.
 
@@ -416,7 +416,7 @@ int counter = 0;
 
 // Variables to implement button debouncing.
 unsigned long lastDebounceTime  = 0;
-unsigned long debounceDelay     = 50;
+unsigned long debounceDelay     = 150;
 
 // Array to store LED pins.
 int LEDS[] = {LED_D0, LED_D1, LED_D2, LED_D3};
@@ -499,8 +499,8 @@ User-programmable relay outputs are mapped as described in the following table:
 
 The output relays can be used through the built-in functions of the Arduino programming language. To use an output relay as a digital output:
 
-- Add the `pinMode(relayOutput, OUTPUT)` instruction in your sketch's `setup()` function.
-
+- Add the `pinMode(relayOutput, OUTPUT)` instruction in your sketch's `setup()` function. 
+  
 To change the status of the output relay (`LOW` or `HIGH`):
 
 - Add your sketch's `digitalWrite(relayOutput, LOW)` or `digitalWrite(relayOutput, HIGH)` instruction.
@@ -510,7 +510,7 @@ The sketch below tests the output relays and status LEDs of an Opta™ device. T
 ```arduino
 /*
   Opta's™ Output Relays 
-  Name: optas_outputs_relays.ino
+  Name: opta_outputs_relays_example.ino
   Purpose: This sketch tests the output relays of Opta™ devices.
 
   @author Arduino PRO Content Team
@@ -543,6 +543,109 @@ void loop() {
     delay(1000);
   }
 }
+```
+
+## Interrupts
+
+**Opta's™ analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's™ microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
+
+Interrupts are particularly useful when reacting instantly to an external event, such as a button press or a sensor signal. Without interrupts, you would have to constantly poll the status of a button or a sensor in the main loop of your running sketch. With interrupts, you can let your Opta's™ microcontroller do other tasks and only react when a desired event occurs.
+
+Interrupts can be used through the built-in functions of the Arduino programming language. To enable interrupts in your Opta™s analog/digital programmable inputs and user-programmable button:
+
+- Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `USER_BTN`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
+
+The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a rising edge (`RISING`) of the signal from the user button, which means it triggers when the button is pressed. 
+
+```arduino
+/**
+  Opta's User Button Example (Interrupt)
+  Name: opta_user_button_interrupt_example.ino
+  Purpose: Configures Opta's user-programmable button to control the user LEDs 
+  using interrupts rather than polling the button's state. This example includes 
+  debouncing for the user button.
+
+  @author Arduino PRO Content Team
+  @version 2.0 23/07/23
+*/
+
+// Current and previous state of the button.
+volatile bool buttonPressed = false;
+
+// Counter to keep track of the LED sequence.
+int counter = 0;
+
+// Variables to implement button debouncing.
+unsigned long lastDebounceTime  = 0;
+unsigned long debounceDelay     = 150;
+
+// Array to store LED pins.
+int LEDS[] = {LED_D0, LED_D1, LED_D2, LED_D3};
+int NUM_LEDS = 4;
+
+void setup() {
+  // Initialize Opta user LEDs.
+  for(int i = 0; i < NUM_LEDS; i++) {
+    pinMode(LEDS[i], OUTPUT);
+  }
+  
+  // Set up the interrupt on USER_BTN to trigger on a rising edge (when the button is pressed)
+  attachInterrupt(digitalPinToInterrupt(2), buttonISR, RISING);
+}
+
+/**
+  Interrupt service routine (ISR)
+  Set the variable buttonPressed to true
+
+  @param None.
+*/
+void buttonISR() {
+  buttonPressed = true;
+}
+
+void loop() {
+  // If the button was pressed
+  if (buttonPressed) {
+    // Debouncing routine.
+    if ((millis() - lastDebounceTime) > debounceDelay) {
+      lastDebounceTime = millis();
+
+      // Only increment the counter if the new button state is HIGH.
+      if(counter < NUM_LEDS){
+        counter++;
+      }
+      else{
+        counter = 0;
+      }
+      
+      // Reset the button pressed flag
+      buttonPressed = false;
+    }
+  }
+
+  // Control LED states.
+  changeLights();
+}
+
+/**
+  Control the status LEDs based on a counter value.
+  Turns off all LEDs first, then turns on the LED 
+  corresponding to the current counter value.
+
+  @param None.
+*/
+void changeLights() {
+  // Turn off all user LEDs.
+  for(int i = 0; i < NUM_LEDS; i++) {
+    digitalWrite(LEDS[i], LOW);
+  }
+
+  // Turn on the selected user LED.
+  if(counter > 0) {
+    digitalWrite(LEDS[counter - 1], HIGH);
+  }
+}
+
 ```
 
 ## Arduino PLC IDE
