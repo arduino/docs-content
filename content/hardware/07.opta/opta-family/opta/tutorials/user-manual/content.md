@@ -58,7 +58,7 @@ Here's an overview of the device's main components shown in the image above:
 
 ### Opta™ Core and Libraries
 
-The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
+The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
 
 ![Installing the Arduino Mbed OS Opta Boards core in the Arduino IDE](assets/user-manual-3.png)
 
@@ -562,7 +562,7 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." 
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." 
 
 ```arduino
 /**
@@ -682,7 +682,7 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
 - **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
 
-The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Wi-Fi® module, the `WiFi` library right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the `WiFi` library right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
 
 ```arduino
 /**
@@ -1038,6 +1038,109 @@ void changeLights() {
 To learn more about interrupts in Opta devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
 ## Real-Time Clock
+
+Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low-power Real-Time Clock (RTC) with sub-second accuracy and hardware calendar accessible through specific RTC management methods from Mbed™️.
+
+Some of the key capabilities of Opta™'s onboard RTC are the following:
+
+- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, year, in BCD (binary-coded decimal) format.
+- Automatic correction for 28, 29 (leap year), 30, and 31 days of the month.
+- Two programmable alarms. 
+- Timestamp feature, which can be used to save the calendar content.
+
+The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi network, synchronizes its onboard RTC with an NTP server using the `NTPClient` library, and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
+
+```arduino
+/**
+  Opta's RTC Example
+  Name: opta_rtc_example.ino
+  Purpose: Connects an Opta device to a Wi-Fi network, synchronizes its onboard RTC
+  with a NTP server and prints the current RTC time to the Serial Monitor every 5 seconds.
+
+  @author Arduino PRO Content Team
+  @version 1.0 23/07/23
+*/
+
+// Libraries used in the sketch.
+#include <WiFi.h>
+#include <NTPClient.h>
+#include <mbed_mktime.h>
+
+// Wi-Fi network credentials.
+char ssid[] = "YOUR_WIFI_SSID";   
+char pass[] = "YOUR_WIFI_PASSWORD";
+int status  = WL_IDLE_STATUS;
+
+// NTP client configuration and RTC update interval.
+WiFiUDP   ntpUDP;
+NTPClient timeClient(ntpUDP, "pool.ntp.org", -6*3600, 0);
+// Display time every 5 seconds.
+unsigned long interval = 5000UL;
+unsigned long lastTime = 0;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ;
+  }
+  delay(5000);
+
+  // Attempt Wi-Fi connection.
+  while (status != WL_CONNECTED) {
+    Serial.print("- Attempting to connect to WPA SSID: ");
+    Serial.println(ssid);
+    status = WiFi.begin(ssid, pass);
+    delay(500);
+  }
+
+  // NTP client object initialization and time update, display updated time on the Serial Monitor.
+  timeClient.begin();
+  updateTime();
+}
+
+void loop() {
+  // Update time client periodically.
+  unsigned long currentTime = millis();
+  if (currentTime - lastTime >= interval) {
+    updateTime();
+    lastTime = currentTime;
+  }
+}
+
+/**
+  Updates Opta's internal RTC using a NTP server
+
+  @param none
+  @return none
+*/
+void updateTime() {
+  Serial.println();
+  Serial.println("- TIME INFORMATION:");
+  timeClient.update();
+  const unsigned long epoch = timeClient.getEpochTime();
+  set_time(epoch);
+  Serial.print("- RTC time: ");
+  Serial.println(getLocalTime());
+}
+
+/**
+  Retrieves Opta's RTC time
+
+  @param none
+  @return Opta's RTC time in hh:mm:ss format
+*/
+String getLocalTime() {
+  char buffer[32];
+  tm t;
+  _rtc_localtime(time(NULL), &t, RTC_FULL_LEAP_YEAR_SUPPORT);
+  strftime(buffer, 32, "%k:%M:%S", &t);
+  return String(buffer);
+}
+```
+
+This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the code synchronizes with a Network Time Protocol (NTP) server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods. 
+
+From there, the sketch enters an infinite loop where, every 5 seconds, it updates the RTC using the NTP server and then prints the current time from the RTC to the serial monitor in a more readable format, thanks to the `tm` structure provided by `mbed_mktime.h`. This way, accurate time tracking can be maintained, even if the internet connection is interrupted or the system restarts, as long as the RTC's power supply is not interrupted.
 
 ## Arduino PLC IDE
 
