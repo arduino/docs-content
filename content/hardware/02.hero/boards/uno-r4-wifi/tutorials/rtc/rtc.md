@@ -14,7 +14,7 @@ In this tutorial you will learn how to access the real-time clock (RTC) on an **
 The goals of this project are:
 
 - Set a start date of the RTC
-- Access the date / time from the RTC in calendar format.
+- Access the date / time from the RTC in calendar format. 
 - Access the time in Unix format.
 
 ## Hardware & Software Needed
