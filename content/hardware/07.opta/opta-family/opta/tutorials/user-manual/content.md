@@ -553,6 +553,8 @@ This user manual section covers the different communication protocols supported 
 
 Opta™ devices feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
 
+![Onboard RJ45 connector in Opta™ devices](assets/user-manual-13.png)
+
 Some of the key capabilities of Opta™'s Ethernet transceiver are the following:
 
 - **Speed and duplex mode**: It can operate at 10 Mbps (10BASE-T) or 100 Mbps (100BASE-TX). It also features auto-negotiation, which means it can automatically determine the best speed and duplex mode for communication.
@@ -560,14 +562,14 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library. Let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." The `Ethernet` library is included in the beginning to enable the Ethernet functionality in the device. In the `setup()` function, the program initializes the serial port and attempts to establish an Ethernet connection. In case DHCP configuration fails, a static IP address is utilized as a backup. Depending on the DHCP success, the code may or may not employ a DNS server for server resolution.
+The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." The `Ethernet` library is included in the beginning to enable the Ethernet functionality in the device. In the `setup()` function, the program initializes the serial port and attempts to establish an Ethernet connection. If the DHCP configuration fails, a static IP address is utilized as a backup. Depending on the DHCP's success, the code may or may not employ a DNS server for server resolution.
 
 Once the connection is successful, the program sends an `HTTP GET` request to the server. In case of a connection failure, an error message is displayed in the Arduino IDE's Serial Monitor. The `read_request()` function handles data retrieval from the client and formats it for display in the Serial Monitor. The `loop()` function continuously calls `read_request()` to manage incoming data. If the server gets disconnected, the program halts in an infinite loop, ensuring no further execution without a valid connection.
 
 ```arduino
 /**
   Web Client (Ethernet version)
-  Name: opta_web_client_example.ino
+  Name: opta_ethernet_web_client_example.ino
   Purpose: This sketch connects an Opta device to a website via Ethernet
 
   @author Arduino Team, modified by Arduino PRO Content Team
@@ -665,6 +667,265 @@ void loop() {
     // Halt the sketch by entering an infinite loop
     while (true);
   }
+}
+```
+
+### Wi-Fi®
+
+Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing the Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
+
+Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the following:
+
+- **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the internet and communicate with other devices.
+- **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
+- **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
+
+The `Arduino Mbed OS Opta Boards` has a built-in library that lets you use the onboard Wi-Fi® module, the `WiFi` library right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
+
+The sketch starts by including the necessary libraries `WiFi.h` and `WiFiClient.h`, which provide the essential functionalities for Wi-Fi® communication. It then defines the SSID and password for the Wi-Fi® network and establishes the server, "www.google.com," while creating the Wi-Fi® client object to manage the connection. The serial port is initialized in the `setup()` function, and the sketch checks for Wi-Fi® module availability. It attempts to connect to the defined Wi-Fi® network using the specified SSID and password. If the connection is successful, it prints the Wi-Fi® status and tries to connect to the server. 
+
+Once connected, it sends a GET request to the server. The `read_response()` function reads data from the client and prints it in wrapped format on the Arduino IDE's Serial Monitor. In the `loop()` function, `read_response()` is continuously called to handle available data. If the server gets disconnected, the client is disconnected, and the sketch enters an infinite loop, halting further execution. The `printWifiStatus()` function is included, which prints the connected network SSID, the board's IP address, and the signal strength (RSSI) on the Arduino IDE's Serial Monitor.
+
+```arduino
+/**
+  Web Client (Wi-Fi version)
+  Name: opta_wifi_web_client_example.ino
+  Purpose: This sketch connects an Opta device to a website via Wi-Fi
+
+  @author Arduino Team, modified by Arduino PRO Content Team
+  @version 2.0 31/05/12
+*/
+
+// Include the necessary libraries for Wi-Fi management and HTTP communication
+#include "WiFi.h"
+#include "WiFiClient.h"
+#include "IPAddress.h"
+#include "arduino_secrets.h"
+
+// Define the credentials of the Wi-Fi network to connect to
+char ssid[] = SECRET_SSID;  // Network SSID
+char pass[] = SECRET_PASS;  // Network password
+
+// Define a variable for storing the status of the Wi-Fi connection
+int status = WL_IDLE_STATUS;
+
+// Define the server to which we'll connect
+// This can be an IP address or a URL
+char server[] = "www.google.com";
+
+// Initialize the Wi-Fi client object
+// This will be used to interact with the server
+WiFiClient client;
+
+void setup() {
+  // Begin serial communication at a baud rate of 115200
+  Serial.begin(115200);
+
+  // Wait for the serial port to connect
+  // This is necessary for boards that have native USB
+  while (!Serial) {}
+
+  // Check for the onboard Wi-Fi module
+  // If the module isn't found, halt the program
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println("- Communication with Wi- Fi module failed!");
+    while (true);
+  }
+
+  // Attempt to connect to the defined Wi-Fi network
+  // Wait for the connection to be established
+  while (status != WL_CONNECTED) {
+    Serial.print("- Attempting to connect to SSID: ");
+    Serial.println(ssid);
+    status = WiFi.begin(ssid, pass);
+    delay(10000); 
+  }
+
+  // Print the Wi-Fi connection status
+  printWifiStatus(); 
+
+  // Attempt to connect to the server at port 80 (the standard port for HTTP).
+  // If the connection is successful, print a message and send a HTTP GET request.
+  // If the connection failed, print a diagnostic message.
+  Serial.println("\n- Starting connection to server...");
+  if (client.connect(server, 80)) {
+    Serial.println("- Connected to server!");
+    client.println("GET /search?q=arduino HTTP/1.1");
+    client.println("Host: www.google.com");
+    client.println("Connection: close");
+    client.println();
+  } else {
+    Serial.println("- Connection failed!");
+  }
+}
+
+/**
+  Reads data from the client while there's data available
+
+  @param none
+  @return none
+*/
+void read_response() {
+  uint32_t received_data_num = 0;
+  while (client.available()) {
+
+    // Actual data reception
+    char c = client.read();
+
+    // Print data to serial port
+    Serial.print(c);
+
+    // Wrap data to 80 columns
+    received_data_num++;
+    if (received_data_num % 80 == 0) {
+      Serial.println();
+    }
+  }
+}
+
+void loop() {
+  // Read and print the server's response
+  read_response();
+
+  // If the server has disconnected, disconnect the client and halt the program
+  if (!client.connected()) {
+    Serial.println();
+    Serial.println("- Disconnecting from server...");
+    client.stop();
+    while (true);
+  }
+}
+
+/**
+  Prints data from the Wi-Fi connection status
+
+  @param none
+  @return none
+*/
+void printWifiStatus() {
+  // Print network SSID
+  Serial.print("- SSID: ");
+  Serial.println(WiFi.SSID());
+
+  // Print board's IP address
+  IPAddress ip = WiFi.localIP();
+  Serial.print("- IP Address: ");
+  Serial.println(ip);
+
+  // Print signal strength
+  long rssi = WiFi.RSSI();
+  Serial.print("- Signal strength (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+```
+
+### Bluetooth Low Energy®
+
+Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
+
+To enable Bluetooth® communication on Opta™ devices, you can use the `ArduinoBLE library`. Let's walk through an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of how to use the ArduinoBLE to create a voltage level monitor application. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic to transmit voltage values read from one of the analog input terminals of an Opta™ device to a central device. 
+
+After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristics, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristics. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in blue LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a percentage value between 0 and 100, prints the voltage level to the Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
+
+```arduino
+/**
+  Opta's Bluetooth Example
+  Name: opta_bluetooth_example.ino
+  Purpose: Read voltage level from an analog input terminal of an Opta device,
+  then maps the voltage reading to a percentage value ranging from 0 to 100.
+
+  @author Arduino PRO Content Team
+  @version 1.1 23/07/23
+*/
+
+#include <ArduinoBLE.h>
+
+// Define the voltage service and its characteristic.
+BLEService voltageService("1101");
+BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
+
+const int TERMINAL = A0;
+
+/**
+  Read voltage level from an analog input terminal of an Opta device,
+  then maps the voltage reading to a percentage value ranging from 0 to 100.
+
+  @param none
+  @return the voltage level percentage (int).
+*/
+
+int readVoltageLevel() {
+  int voltage = analogRead(TERMINAL);
+  int voltageLevel = map(voltage, 0, 4095, 0, 100);
+  return voltageLevel;
+}
+
+void setup() {
+  // Initialize LED_USER as an output.
+  pinMode(LED_USER, OUTPUT);
+  digitalWrite(LED_USER, HIGH);
+
+  // Initialize serial communication at 9600 bits per second.
+  Serial.begin(9600);
+
+  // Enable analog inputs on Opta.
+  // Set the resolution of the ADC to 12 bits.
+  analogReadResolution(12); 
+
+  
+
+  // Initialize the BLE module.
+  if (!BLE.begin()) {
+    Serial.println("- Starting BLE failed!");
+    while (1)
+      ;
+  }
+
+  // Set the local name and advertised service for the BLE module.
+  BLE.setLocalName("VoltageMonitor");
+  BLE.setAdvertisedService(voltageService);
+  voltageService.addCharacteristic(voltageLevelChar);
+  BLE.addService(voltageService);
+
+  // Start advertising the BLE service.
+  BLE.advertise();
+  Serial.println("- Bluetooth device active, waiting for connections...");
+}
+
+void loop() {
+  // Check for incoming BLE connections.
+  BLEDevice central = BLE.central();
+
+  // If a central device is connected.
+  if (central) {
+    Serial.print("- Connected to device: ");
+    Serial.println(central.address());
+
+    // Set the LED color to solid blue when connected.
+    digitalWrite(LED_USER, LOW);
+
+    // While the central device is connected.
+    while (central.connected()) {
+      // Read the voltage level and update the BLE characteristic with the level value.
+      int voltageLevel = readVoltageLevel();
+
+      Serial.print("- Voltage level is: ");
+      Serial.println(voltageLevel);
+      voltageLevelChar.writeValue(voltageLevel);
+
+      delay(200);
+    }
+  }
+
+  // The LED blinks when Bluetooth® is not connected to an external device.
+  digitalWrite(LED_USER, HIGH);
+  delay(200);
+  digitalWrite(LED_USER, LOW);
+  delay(200);
+
+  Serial.print("- BLE not connected: ");
+  Serial.println(central.address());
 }
 ```
 
@@ -803,7 +1064,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 ### Forum
 
-Join our community forum to connect with other Portenta C33 users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Opta™.
+Join our community forum to connect with other Opta™ devices users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Opta™.
 
 - [Opta™ category in the Arduino Forum](https://forum.arduino.cc/c/hardware/opta/179)
 
