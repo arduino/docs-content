@@ -22,10 +22,10 @@ The goals of this tutorial are:
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
-- CAN transceiver module\* 
+- CAN transceiver module *
 - Jumper wires
 
-\*In this tutorial, we are using a SN65HVD230 breakout module. 
+* In this tutorial, we are using a SN65HVD230 breakout module.
 
 ## Controller Area Network (CAN)
 
@@ -41,12 +41,12 @@ For this tutorial, we will use a simple example that sends a CAN message between
 
 To connect the CAN transceiver, follow the table and circuit diagram below:
 
-| UNO R4 WiFi | CAN Transceiver |
-| ------------- | --------------- |
+| UNO R4 WiFi    | CAN Transceiver |
+| -------------- | --------------- |
 | D13 (CANRX0)   | CANRX           |
 | D10 (CANTX0)   | CANTX           |
-| 3.3V         | VIN/VCC/5V      |
-| GND           | GND             |
+| 3.3V           | VIN             |
+| GND            | GND             |
 
 Then, between the CAN transceivers, connect the following:
 
@@ -57,9 +57,9 @@ Then, between the CAN transceivers, connect the following:
 
 ## Code Examples
 
-The following code examples needs to be uploaded to each of the UNO R4 WiFi boards, one will send a message, one will receive it. These examples are available in the Renesas core, and using the Arduino IDE, you can access them by navigating to **File > Examples > Arduino_CAN > CANWrite/CANRead**
+The following code examples need to be uploaded to each of the UNO R4 WiFi boards, one will send a message, one will receive it. These examples are available in the Renesas core, and using the Arduino IDE, you can access them by navigating to **File > Examples > Arduino_CAN > CANWrite/CANRead**
 
-The library used is built in to the core, so no need to install the library if you have the core installed.
+The library used is built into the core, so no need to install the library if you have the core installed.
 
 To initialize the library, use `CAN.begin(CanBitRate::BR_250k)`, where a CAN bit rate is specified. Choose between:
 - BR_125k (125000)
