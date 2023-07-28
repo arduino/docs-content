@@ -214,7 +214,7 @@ You now have set an Opta™ as Modbus TCP Server (Slave). You will now set anoth
 
 #### Modbus TCP Client (Master) Opta™
 
-To set the Opta™ as a Modbus TCP Client (Master), you will need to go to the 'Ethernet' tab under the 'Resources' panel in PLC IDE and check the 'Modbus TCP Master' option. As explained previously [here](#modbus-tcp-master-client-and-server-slave-mode), the Opta™ will be assigned as a Client (Master) and you don't need to worry about the greyed-out option for Server (Slave).
+To set the Opta™ as a Modbus TCP Client (Master), you will need to go to the 'Ethernet' tab under the 'Resources' panel in PLC IDE and check the 'Modbus TCP Master' option. As explained previously [here](#modbus-tcp-master-client-and-server-slave-mode), the Opta™ will be assigned as a Client (Master). Do not to worry about the greyed-out option for Server (Slave).
 
 A Modbus node needs to be added to set parameters to establish communication with the previously configured Modbus TCP Server (Slave) Opta™. Right-clicking on the 'Ethernet' tab under the 'Resources' panel, the 'Add' option will appear. Choose this option to add a 'Generic Modbus' node. The properties for the node for this example project are the following parameters:
 
