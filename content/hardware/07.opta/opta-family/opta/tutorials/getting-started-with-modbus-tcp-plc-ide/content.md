@@ -343,4 +343,4 @@ In this tutorial, you have learned to configure the workspace environment to wor
 
 Now that you have learned to implement the Modbus TCP between Opta™ devices using Arduino PLC IDE, try adding additional Modbus TCP compatible devices yo your Modbus TCP communication network.
 
-Further, explore the possibilities by combining the Opta™ device's onboard features with the Modbus TCP communication network and deploy it as an enhancement solution for industrial management systems.
+Additionally, you can explore the possibilities by combining the Opta™ device's onboard features with the Modbus TCP communication network and deploy it as an enhancement solution for industrial management systems. 
