@@ -49,11 +49,16 @@ The **Modbus TCP/IP**, also briefly referred to as **Modbus TCP**, is a Modbus R
 
 The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol*, being the data management independent of the transmission method.
 
-For the transmission, the *Transmission Control Protocol and Internet Protocol (TCP/IP)* is the transmission protocol integrating the TCP to handle the exchanging packets and IP to define the addresses for routing message destinations.
 
-One characteristic of Modbus TCP is regarding how the data integrity is maintained. Due to Modbus TCP enclosing the basic data frame into the TCP frame, the usual checksum field of the Modbus is not used. Instead, the checksum method from Ethernet TCP/IP layer is used to ensure data integrity.
+In the case of Modbus TCP, there are some elements to take into account: 
 
-Thus, the Modbus TCP/IP is structured by TCP/IP networking standards on the Ethernet using the Modbus messaging service as the data handler. The connected devices are usually Modbus TCP/IP Client and Server devices, but also interconnections established via routers, gateways, or bridges constructing a TCP/IP network.
+* The *Transmission Control Protocol (TCP) is responsible for exchanging packets.
+
+* The Internet Protocol (IP)* defines the addresses for routing message destinations.
+
+* One characteristic of Modbus TCP is regarding how the data integrity is maintained. Due to Modbus TCP enclosing the basic data frame into the TCP frame, the usual checksum field of the Modbus is not used. Instead, the checksum method from Ethernet TCP/IP layer is used to ensure data integrity.
+
+* The Modbus TCP/IP is structured by TCP/IP networking standards on the Ethernet using the Modbus messaging service as the data handler. The connected devices are usually Modbus TCP/IP Client and Server devices, but also interconnections established via routers, gateways, or bridges constructing a TCP/IP network.
 
 ## Instructions
 
