@@ -120,7 +120,7 @@ There are two options on the Modbus TCP configuration panel:
 - Modbus TCP Master
 - Modbus TCP Slave always enabled. Unit Identifier: 255
 
-If the Modbus TCP Master remains unchecked, the Opta™ will behave as a Modbus TCP Slave with its assigned Unit Identifier. In this instance, you don't have to worry about the Unit Identifier because the configured IP address for the Opta™ will be the routing address to understand which Opta™ device it is talking to even though it has the same Unit Identifier as the other.
+If the Modbus TCP Master remains unchecked, the Opta™ will behave as a Modbus TCP Slave with its assigned Unit Identifier. In this instance, you do not have to worry about the Unit Identifier because the configured IP address for the Opta™ will be the routing address to understand which Opta™ device it is talking to even though it has the same Unit Identifier as the other.
 
 On the other hand, if the Modbus TCP Master is checked, then the Opta™ will behave as a Client (Master) and also as a Server (Slave) device, prioritizing as a Client (Master). This will allow an option to add *General Modbus Node* under the `Ethernet` configuration tab.
 
