@@ -22,7 +22,7 @@ The goals of this tutorial are:
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
-- CAN transceiver module\* 
+- CAN transceiver module
 - Jumper wires
 
 In this tutorial, we are using a SN65HVD230 breakout module. 
@@ -45,7 +45,7 @@ To connect the CAN transceiver, follow the table and circuit diagram below:
 | ------------- | --------------- |
 | D5 (CANRX0)   | CANRX           |
 | D4 (CANTX0)   | CANTX           |
-| 5 V            | VIN/VCC/5 V      |
+| 3.3 V         | VCC             |
 | GND           | GND             |
 
 Then, between the CAN transceivers, connect the following:
