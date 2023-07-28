@@ -93,6 +93,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                | **Ref.** | **Description** |
 |----------|--------------------------------|----------|-----------------|
 | U1       | MP34DT06JTR MEMS Microphone IC |          | TFT Display     |
+| U1       | SMLP34RGB2W3 LED RGB DIFFUSED PICOLED SMD|         |      |
 
 ### Back View
 
@@ -101,9 +102,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 |----------|----------------------------------------|----------|----------------------------------------|
 | U2       | IS31FL3197-QFLS2-TR RGB LED Driver IC  | U3       | LV52204MTTBG LED Driver IC             |
-| U4       | ISL97634IRT14Z-T White LED Driver IC         | U5       | AP7335-28WG-7 2.8V V-REG LDO IC            |
-| U6       | AP7311-WG-7 1.8V LDO IC                 | U7       | BMI270 6-axis IMU                      |
-| J1       | DF40HC(3.5)-80DS-0.4V(51) HD Connector | J2       | DF40HC(3.5)-80DS-0.4V(51) HD Connector |
+| U7       | BMI270 6-axis IMU                      |
 | J3       | 21TW-247 Camera Connector 2.54mm Header         | J4       | F32Q-1A7H1-11020 Display Connector     |
 | J5       | F32Q-1A7H1-11008 Touch Connector       | J6       | 2.54mm Header GIGA Connector           |
 | J7       | 2.54mm Header GIGA Connector           |
