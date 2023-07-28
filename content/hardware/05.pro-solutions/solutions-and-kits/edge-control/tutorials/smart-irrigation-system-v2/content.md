@@ -105,17 +105,17 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The four solenoid valves will be connected to the Edge Control latching outputs of the J9 connector following the wiring below. 
 
-![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS.png)
+![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS1.png)
 
 ***You can also use 3-Wires motorized valves. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 
 - The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector, and the four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
 
-![Watermark and water flow sensors connection diagram](assets/SENSORS_CONNECTIONS.png)
+![Watermark and water flow sensors connection diagram](assets/SENSORS_CONNECTIONS1.png)
 
 Here are the physical connections:
 
-![Project physical connections](assets/PHYSICAL_CONN.png)
+![Project physical connections](assets/PHYSICAL_CONN1.png)
 
 ## Irrigation System Overview
 
@@ -507,7 +507,7 @@ The `uploadValues` function simply updates the Cloud variables with the ones rec
 
 ## Connectivity
 
-![LoRaWAN® Gateways](assets/GATEWAY.png)
+![LoRaWAN® Gateways](assets/GATEWAY1.png)
 
 This project is using LoRaWAN®, which stands for Long Range Wide Area Network, and it is a low-power wireless communication protocol designed for connecting battery-operated devices to the internet over long distances. If you want to learn more about LoRa® and LoRaWAN® check this [guide](https://docs.arduino.cc/learn/communication/lorawan-101).
 
@@ -533,7 +533,7 @@ Within the Arduino IoT Cloud's dashboard, the system variables can be monitored 
 - The watermark sensor instant values are shown in gauges alongside a time series record chart.
 - There is a resources section showing the battery voltage in a gauge and the water flow in liters per minute, also, it shows the liters of water used.
 
-![Arduino Cloud project dashboard on a smartphone](assets/DASHBOARD-CELL.png)
+![Arduino Cloud project dashboard on a smartphone](assets/DASHBOARD-CELL1.png)
 
 The dashboard is easily accessible from a browser, mobile phone or tablet, allowing a user to receive updates on the irrigation status from anywhere.
 ## Full Smart Irrigation System Example
@@ -548,7 +548,7 @@ Below you can find some additional images and animations showing how the system 
 
 ![Watermark sensors](assets/WATERMARK.jpg)
 ![Battery connection](assets/BATTERY.png)
-![Irrigation in zone three and four](assets/WATER.gif)
+![Irrigation in zone three and four](assets/WATER1.gif)
 
 ## Conclusion
 
