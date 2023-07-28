@@ -346,16 +346,16 @@ There are several examples provided bundled with the core that showcase how to m
 
 ## RGB
 
-The ESP32 features an RGB that can be controlled with the `0`, `45` and `46` GPIO. These are not connected to any physical pins. 
+The ESP32 features an RGB that can be controlled with the `LED_RED`, `LED_GREEN` and `LED_BLUE` pins. These are not connected to any physical pins. 
 
 ***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
 
 To control them, use:
 
 ```arduino
-digitalWrite(46, STATE); //red
-digitalWrite(45, STATE); //green
-digitalWrite(0, STATE); //blue
+digitalWrite(LED_RED, STATE); //red
+digitalWrite(LED_GREEN, STATE); //green
+digitalWrite(LED_BLUE, STATE); //blue
 ```
 
 
