@@ -97,7 +97,7 @@ It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutoria
 
 #### Opta™ Basic Configuration
 
-The IP address is the device address when using the Modbus TCP. If you attach the Opta™ and leave the ethernet configuration as default, the external *Dynamic Host Configuration Protocol (DHCP)* server will provide an IP address by assigning automatically for the Opta™. You will later need to scan for the address and use that IP address as the device address of the Opta™.
+To configure the Modbus TCP communication, we need to know first each Opta IP. If you attach the Opta™ to your computer using the RJ-45 cable and the Ethernet switch and leave the ethernet configuration as default, the external *Dynamic Host Configuration Protocol (DHCP)* server will provide an IP address by assigning automatically for the Opta™. You will need to scan for the address and use that IP address as the device address of the Opta™.
 
 The Opta™ can also be configured manually with a specific IP address. This method is viable to assign devices with specific addresses to operate under certain policies if required. To do this, you need to define the IP setting by effectuating the sketch found within the `Resources` tab of the PLC IDE. The following image shows what the configuration could look like.
 
