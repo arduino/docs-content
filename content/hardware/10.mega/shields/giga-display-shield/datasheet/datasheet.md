@@ -93,7 +93,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                | **Ref.** | **Description** |
 |----------|--------------------------------|----------|-----------------|
 | U1       | MP34DT06JTR MEMS Microphone IC |          | TFT Display     |
-| U1       | SMLP34RGB2W3 LED RGB DIFFUSED PICOLED SMD|         |      |
+| DL1       | SMLP34RGB2W3 LED RGB DIFFUSED PICOLED SMD|         |      |
 
 ### Back View
 
