@@ -22,10 +22,10 @@ The goals of this tutorial are:
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
-- CAN transceiver module
+- CAN transceiver module * 
 - Jumper wires
 
-In this tutorial, we are using a SN65HVD230 breakout module. 
+* In this tutorial, we are using a SN65HVD230 breakout module. 
 
 ## Controller Area Network (CAN)
 
