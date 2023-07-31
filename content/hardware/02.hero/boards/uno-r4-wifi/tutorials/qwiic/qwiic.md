@@ -75,7 +75,7 @@ Wire1.begin();
 libraryName.begin( Wire1 );
 ```
 
-For example, when using SparkFuns AHT20 library, your setup function could look something like this:
+For example, when using SparkFuns AHT20 library, a sketch that read the temperature and prints it to the serial monitor could look like this:
 ```arduino
 #include <Wire.h>
 #include <SparkFun_Qwiic_Humidity_AHT20.h>
