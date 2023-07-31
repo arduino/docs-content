@@ -78,22 +78,29 @@ libraryName.begin( Wire1 );
 For example, when using SparkFuns AHT20 library, your setup function could look something like this:
 ```arduino
 #include <Wire.h>
+#include <SparkFun_Qwiic_Humidity_AHT20.h>
 
-#include <SparkFun_Qwiic_Humidity_AHT20.h> 
+AHT20 humiditySensor;
 
-
-void setup(){
-  Serial.begin(115200);
-
-  Wire1.begin(); //Join I2C bus
-
+void setup() {
+  Serial.begin(9600);
+  Wire1.begin();  //Join I2C bus
   //Check if the AHT20 will acknowledge
-  if (humiditySensor.begin( Wire1 ) == false)
-  {
+  if (humiditySensor.begin(Wire1) == false) {
     Serial.println("AHT20 not detected. Please check wiring. Freezing.");
-    while (1);
+    while (1)
+      ;
   }
   Serial.println("AHT20 acknowledged.");
+}
+
+void loop() { 
+
+
+  float temperature = humiditySensor.getTemperature();
+  Serial.print("Temperature: ");
+  Serial.print(temperature, 2);
+  Serial.println(" C");
 }
 ```
 
