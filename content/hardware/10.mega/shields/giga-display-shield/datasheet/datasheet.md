@@ -125,7 +125,7 @@ The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS mi
 
 ![Arduino GIGA Display Shield Power Tree](assets/GIGA_Display_Shield_Power_Tree.svg)
 
-The GIGA Display Shield does not require a dedicated power jack. The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 or J7) board. All on-board logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED drivers (U3 and U4). A +2V8 and +1V8 power rail is generated for the camera module by AP7335-28WG-7 (U5) and AP7311-WG-7 (U6) respectively.
+The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 or J7) board. All on-board logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED driver (U3).
 
 ## Board Operation
 
