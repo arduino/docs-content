@@ -1,6 +1,6 @@
 ---
 title: 'LoRaWAN® Irrigation System Using Arduino® Edge Control'
-description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino Cloud with LoRaWAN® connectivity"
+description: "This application note describes how to control a four zones irrigation system using Edge Control and Arduino Cloud with LoRaWAN® connectivity"
 difficulty: intermediate
 tags:
   - Irrigation System
@@ -8,7 +8,7 @@ tags:
   - Arduino MKR WAN 1310
   - Solenoid Valve
   - Arduino IoT Cloud
-  - Application Note
+  - Agriculture
   - WisGate Lite
   - LoRaWAN®
 author: 'Christopher Mendez'
@@ -35,9 +35,9 @@ hardware:
 
 ## Introduction
 
-We know that agricultural activities are normally carried out in remote environments, this makes access to electricity and connectivity a challenge. 
+Agricultural & farm activities are normally carried out in remote environments where having access to consistent electricity power sources and good communication connectivity are a challenge. 
 
-Smart farming techniques are being implemented more and more due to the importance of optimizing the use of resources. This includes the demand for more efficient, eco-friendly, and more profitable crops.
+Smart farming techniques are being implemented more and more due to the importance of optimizing the use of resources while increasing the demand for more efficient, eco-friendly, and profitable crops.
 
 ![Application Note Overview. Each pot represents one individual irrigation zone capable of watering a crop field](assets/Thumbnail.png)
 
@@ -45,11 +45,9 @@ Implementing traditional wired communication infrastructure in remote areas can 
 
 Arduino has you covered in these scenarios with its Pro solutions. With products designed to work in remote environments, supplying their power from renewable sources and providing long-distance connectivity and low power consumption.
 
-The shown application note is intended to replicate a scaled smart farming application, that can be implemented on real agriculture fields using the same hardware and firmware.
-
 ## Goals
 
-The goal of this application note is to showcase a sensorized farming irrigation system using a combination of an Edge Control, an MKR WAN 1310, and the Arduino IoT Cloud. The project's objectives are the following:
+The goal of this application note is to showcase a LoRaWAN® farming irrigation system that can be implemented on real agriculture fields using a combination of an Edge Control, an MKR WAN 1310, and the Arduino IoT Cloud. The project's objectives are the following:
 
 - Independently control four irrigation zones using latching valves.
 - Leverage MKR WAN 1310 with LoRa® and a Wisgate (Lite or PRO) to communicate with Arduino IoT Cloud.
@@ -64,14 +62,14 @@ The goal of this application note is to showcase a sensorized farming irrigation
 ![Project main hardware](assets/HARDWARE.png)
 
 ### Hardware Requirements
-- Arduino Edge Control
-- Arduino MKR WAN 1310
-- Arduino Edge Control Enclosure Kit
-- Water flow sensor (YF-B2 DN15)
-- WATERMARK Soil Moisture Sensors.
+- [Arduino Edge Control](https://store-usa.arduino.cc/collections/pro-family/products/arduino-edge-control)
+- [Arduino MKR WAN 1310](https://store-usa.arduino.cc/products/arduino-mkr-wan-1310?selectedStore=us)
+- [Arduino Edge Control Enclosure Kit](https://store-usa.arduino.cc/collections/pro-family/products/edge-control-enclosure-kit)
+- Water flow sensor (YF-B2 DN15) (x1)
+- Watermark Soil Moisture Sensors (200SS) (x4)
 - 2-Wires Latching Solenoid Valves (x4)
 - 12 VDC 5Ah acid/lead SLA battery (x1)
-- 18 VDC 180 W solar panel.
+- 18 VDC 180 W solar panel (x1)
 - 3.4 meters of DN15 PVC pipes (x1)
 - DN15 PVC TEE pipes (x3)
 - DN15 PVC elbow (x8)
