@@ -523,7 +523,7 @@ As a **gateway** we will be using the [WisGate Edge Lite 2](https://docs.arduino
 
 Taking advantage of the Arduino IoT Cloud, it is possible to seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system from remote, resulting in a professional Human-Computer Interaction (HCI) as shown below:
 
-![Arduino Cloud project dashboard ](assets/DASHBOARD.png)
+![Arduino Cloud project dashboard ](assets/DASHBOARD1.png)
 
 Within the Arduino IoT Cloud's dashboard, the system variables can be monitored as follow:
 - Each solenoid valve status is shown as **OFF** or **ON**.
