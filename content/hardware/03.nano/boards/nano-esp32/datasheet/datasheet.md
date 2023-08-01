@@ -52,7 +52,7 @@ Maker, IoT, MicroPython
 
 ## The Board
 
-Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies at up to 240 MHz.
+Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) supports clock frequencies at up to 240 MHz.
 
 ### Application Examples
 
