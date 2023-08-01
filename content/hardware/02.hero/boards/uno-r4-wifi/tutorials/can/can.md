@@ -29,7 +29,7 @@ The goals of this tutorial are:
 
 ## Controller Area Network (CAN)
 
-The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 WiFi, these pins are: 
+The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 WiFi, these pins are:
 - D13/CANRX0 (receive)
 - D10/CANTX0 (transmit)
 
