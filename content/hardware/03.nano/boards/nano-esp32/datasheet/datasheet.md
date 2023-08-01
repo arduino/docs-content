@@ -6,12 +6,12 @@ type: maker
 ![](assets/featured.png)
 
 # Description 
-The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi®, Bluetooth® LE, debugging via native USB in the Arduino IDE as well as low power.
+The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
 
 The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
 # Target areas:
-Maker, Debugging, IoT, MicroPython
+Maker, IoT, MicroPython
 
 # Features
 * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
@@ -52,7 +52,7 @@ Maker, Debugging, IoT, MicroPython
 
 ## The Board
 
-Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies at up to 240 MHz and has native support for debugging via the USB-C® connector.
+Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®, a module that includes a ESP32-S3 system on a chip (SoC). This module has support for Wi-Fi® and Bluetooth® Low Energy (LE), with amplified communication through a built-in antenna. The CPU (32-bit Xtensa® LX7) support clock frequencies at up to 240 MHz.
 
 ### Application Examples
 
@@ -112,7 +112,6 @@ The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-co
 - 32-bit customized instruction set
 - 128-bit data bus 
 - 32-bit multiplier / divider
-- Support for JTAG debugging
 
 The LX7 has a 384 kB ROM (Read Only Memory), and 512 kB of SRAM (Static Random Access Memory). It also features an 8 kB **RTC FAST** and **RTC SLOW** memory. These memories are designed for low-power operations, where the **SLOW** memory can be accessed by the ULP (Ulta Low Power) coprocessor, retaining the data in deep sleep mode.
 
