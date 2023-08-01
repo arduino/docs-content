@@ -65,8 +65,8 @@ The PLC program layer will manage internal communication and data handling. It c
 
 The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. Here are two important elements that you should always have well characterized:
 
-- 'PLCOut.Shared_Variable' : Every variable that **comes** from PLC program layer.
-- 'PLCIn.Shared_Variable' : Every variable that **goes** to PLC program layer.
+- '**PLCOut.Shared_Variable**' : Every variable that **comes** from PLC program layer.
+- '**PLCIn.Shared_Variable**' : Every variable that **goes** to PLC program layer.
 
 These are the transporter variables that will allow to exchange information between the PLC program layer and the IoT Cloud platform. The `Shared_Variable` tag defines the name of the variables you want to receive or take data to. This concept is essential to have a synchronized PLC IDE environment and IoT Cloud platform.
 
@@ -175,7 +175,7 @@ The successful communication between Opta™ configured with PLC IDE and IoT Clo
 
 ![PLC IDE - Shared 'Input' and 'Output' variables](assets/plc-ide-shared-variable.png)
 
-The 'Inputs' define variables that will capture the data that comes to the Opta™ device. It is the compilation of variables that the IoT Cloud will send accordingly.
+The '**Inputs**' define variables that will capture the data that comes to the Opta™ device. It is the compilation of variables that the IoT Cloud will send accordingly.
 
 Subsequently, the Green LED will be controlled via IoT Cloud dashboard. So, the variable that will represent the Green LED of the Opta™ will be added to its table.
 
@@ -183,7 +183,7 @@ Subsequently, the Green LED will be controlled via IoT Cloud dashboard. So, the 
 
 The Green LED of the Opta™ is represented as `in_cloudButton` and indicates that is an input variable with the `in` tag.
 
-The 'Outputs' define the variables that the Opta™ will send to IoT Cloud. It is the compilation of variables that you would want to monitor within the IoT Cloud dashboard.
+The '**Outputs**' define the variables that the Opta™ will send to IoT Cloud. It is the compilation of variables that you would want to monitor within the IoT Cloud dashboard.
 
 The analog port reading and the counter value of the Opta™ are the information that we want to display on the IoT Cloud dashboard. The following table shows the variables added to the 'Shared outputs' table.
 
