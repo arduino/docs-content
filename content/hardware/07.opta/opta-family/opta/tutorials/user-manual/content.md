@@ -181,7 +181,7 @@ Analog/digital inputs terminals are mapped as described in the following table:
 |        `I7`        |      `A6`/`PIN_A6`      |
 |        `I8`        |      `A7`/`PIN_A7`      |
 
-***When used as analog inputs,the working voltage range is from 0 to +10 VDC; when used as digital inputs, the working voltage range is from 0 to +24 VDC.***
+***When used as analog inputs, the working voltage range is from 0 to +10 VDC; when used as digital inputs, the working voltage range is from 0 to +24 VDC.***
 
 The input terminals can be used through the built-in functions of the Arduino programming language. To use the input terminals as digital inputs:
 
@@ -416,7 +416,7 @@ int counter = 0;
 
 // Variables to implement button debouncing.
 unsigned long lastDebounceTime  = 0;
-unsigned long debounceDelay     = 150;
+unsigned long debounceDelay     = 50; // In ms
 
 // Array to store LED pins.
 int LEDS[] = {LED_D0, LED_D1, LED_D2, LED_D3};
@@ -562,7 +562,11 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. The sketch below demonstrates how to establish Ethernet communication with a server, specifically "www.google.com." 
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. 
+
+The sketch below enables a device to connect to the Internet via an Ethernet connection. Once the connection is established, the sketch makes a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to obtain the current weather information from Turin, Italy (where the Arduino PRO office is located). The sketch then prints out the response, which includes data about temperature and other weather conditions, on the Arduino's IDE Serial Monitor. 
+
+***To access weather data from OpenWeatherMap, an API key is required. This key serves as a unique identifier for the user and allows OpenWeatherMap to monitor and control the usage of their service to ensure a quality experience for all users. This API key can be obtained for free by registering on the [OpenWeatherMap website](https://home.openweathermap.org/) and must be included in each request sent to the OpenWeatherMap API.***
 
 ```arduino
 /**
@@ -579,7 +583,10 @@ The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use 
 
 // Define the server to which we'll connect,
 // This can be an IP address or a URL.
-char server[] = "www.google.com";
+char server[] = "api.openweathermap.org";
+
+// Replace with your OpenWeatherMap API key
+char apiKey[] = "your_openweathermap_api_key";
 
 // Set a static IP address to use if the DHCP fails to assign one automatically.
 IPAddress ip(10, 130, 22, 84);
@@ -613,9 +620,13 @@ void setup() {
   Serial.println("- Connecting...");
   if (client.connect(server, 80)) {
     Serial.println("- Connected!");
-    client.println("GET /search?q=arduino HTTP/1.1");
-    client.println("Host: www.google.com");
-    client.println("Connection: close");
+
+    // We'll construct the HTTP GET request to obtain weather information about Turin
+    client.print("- GET /data/2.5/weather?q=Turin,it&units=metric&appid=");
+    client.print(apiKey);
+    client.println(" HTTP/1.1");
+    client.println("- Host: api.openweathermap.org");
+    client.println("- Connection: close");
     client.println();
   } else {
     Serial.println("- Connection failed!");
@@ -668,9 +679,11 @@ void loop() {
 }
 ```
 
-The `Ethernet` library is included in the beginning to enable the Ethernet functionality in the device. In the `setup()` function, the program initializes the serial port and attempts to establish an Ethernet connection. If the DHCP configuration fails, a static IP address is utilized as a backup. Depending on the DHCP's success, the code may or may not employ a DNS server for server resolution.
+The sketch starts by including the `Ethernet` library, which is necessary to provide Ethernet functionality to the Opta™ device. The `setup()` function initiates the serial communication for debugging purposes and tries to establish an Ethernet connection using DHCP. If this automatic configuration fails, it resorts to a predefined static IP address.
 
-Once the connection is successful, the program sends an `HTTP GET` request to the server. In case of a connection failure, an error message is displayed in the Arduino IDE's Serial Monitor. The `read_request()` function handles data retrieval from the client and formats it for display in the Serial Monitor. The `loop()` function continuously calls `read_request()` to manage incoming data. If the server gets disconnected, the program halts in an infinite loop, ensuring no further execution without a valid connection.
+Once the Ethernet connection is up, it connects to the OpenWeatherMap API server. The connection uses the `HTTP` protocol, specifically an `HTTP GET` request, constructed to query the current weather data for Turin, Italy. In the event of a connection failure to the server, the code outputs an error message to the IDE's Serial Monitor for troubleshooting.
+
+The function `read_request()` is designed to manage the data received from the client. It reads the incoming data and structures it for display on the IDE's Serial Monitor, wrapping the output to 80 columns for better readability. In the main `loop()` function, the `read_request()` function is persistently called to handle incoming data streams. If a server disconnect is detected, the program intentionally stalls in an infinite loop to prevent further execution without a live connection.
 
 To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
