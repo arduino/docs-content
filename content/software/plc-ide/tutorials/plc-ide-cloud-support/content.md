@@ -4,11 +4,9 @@ description: "Learn how to integrate PRO solution devices with the IoT Cloud usi
 difficulty: beginner 
 tags:
   - Opta
-  - Portenta Machine Control
   - PLC IDE
 author: 'Taddy Chung and José Bagur'
 hardware:
-  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
   - hardware/07.opta/opta-family/opta
 software:
   - plc-ide
@@ -17,52 +15,51 @@ software:
 
 ## Overview
 
-The Arduino PLC IDE can help to configure network connectivity on the Opta™ and Portenta Machine Control offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
+The Arduino PLC IDE can help to configure network connectivity on the Opta™ offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
 
-In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ and Portenta Machine Control on the Arduino PLC IDE.
+TODO Add image, adding the dashboard animation to explain overall idea of the feature
+
+In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ on the Arduino PLC IDE.
 
 ## Goals
 
 - Learn how the Arduino IoT Cloud and the PLC IDE co-operates for seamless data exchange
 - Learn how to set the workspace environment on the PLC IDE for use with the Arduino IoT Cloud
-- Program an Opta™ device using the PLC IDE integrating IoT Cloud
+- Program an Opta™ device using an example integrating the PLC IDE and IoT Cloud
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
 - [Opta™](https://store.arduino.cc/collections/pro-family) (x1)
-- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - USB-C® cable (x1)
 - Micro-USB cable (x1)
 
 ### Software Requirements
 
-- Portenta Machine Control or Opta™ are compatible with the Arduino PLC IDE.
 - [Official Website](https://www.arduino.cc/pro/software-plc-ide) for Arduino PLC IDE.
-- If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control).
 - If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
 - The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. The Arduino Cloud account is free and is needed to access its features.
 
-***Important: the present tutorial requires latest version of the PLC IDE, with at least version 1.4.0. It goes same with the PLC IDE Tools. You can get the latest version [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools.***
+***The present tutorial requires latest version of the PLC IDE, with at least version 1.4.0. It goes same with the PLC IDE Tools. You can get the latest version [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools.***
 
 ## PLC IDE & IoT Cloud Integration
 
-The [**Arduino PLC IDE**](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are LD, SFC, FBD, ST, and IL. All these languages are applicable for Opta™ and Portenta Machine Control. A wide set of standard features are included with these PRO solutions to develop industrial automation or advanced applications. You can find more resources related to PLC IDE [here](https://docs.arduino.cc/software/plc-ide) and the software can be accessed [here](https://www.arduino.cc/en/software#arduino-plc-ide).
+The [**Arduino PLC IDE**](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are LD, SFC, FBD, ST, and IL. All these languages are applicable for Opta™. A wide set of standard features are included with these PRO solutions to develop industrial automation or advanced applications. You can find more resources related to PLC IDE [here](https://docs.arduino.cc/software/plc-ide) and the software can be accessed [here](https://www.arduino.cc/en/software#arduino-plc-ide).
 
-The **IoT Cloud** is a platform that allows to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ and Portenta Machine Control take advantage to provide secure industrial application deployments. You can find more about IoT Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
+The **IoT Cloud** is a platform that allows to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ take advantage to provide secure industrial application deployments. You can find more about IoT Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
 
 ### Understanding the Process
 
-The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for the Opta™ and Portenta Machine Control. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operation.
+The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for the Opta™. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operation.
 
-The structure composes of two elements, where PLC IDE defines Opta™ and Portenta Machine Control with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
+The structure composes of two elements, where PLC IDE defines Opta™ with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
 
 TODO Create a new image for explaining the structure
 
 ![PLC IDE with Cloud Support Structure](assets/plc-ide-cloud-structure.png)
 
-The Opta™ and Portenta Machine Control is programmed with two layers: PLC program and Arduino sketch. The key to a successful transmission is to use 'Shared variables' between these two layers.
+The Opta™ is programmed with two layers: PLC program and Arduino sketch. The key to a successful transmission is to use 'Shared variables' between these two layers.
 
 The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
@@ -377,6 +374,8 @@ Once you have successfully configured the Opta™, the following behaviors are e
 
 ![IoT Cloud dashboard preview animation](assets/plc-ide-cloud-preview.gif)
 
+***If the Opta™ does not communicate with the IoT Cloud after condiguration and code upload, please use the `WiFiFirmwareUpdater` to update the Opta™ with the latest network firmware version.***
+
 ## Conclusion
 
 ## Support
@@ -391,7 +390,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 ### Forum
 
-Join our community forum to connect with other the PLC IDE and IoT Cloud users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Portenta Hat Carrier.
+Join our community forum to connect with other the PLC IDE and IoT Cloud users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Opta™.
 
 - [the PLC IDE and IoT Cloud in the Arduino Forum](https://forum.arduino.cc/)
 
