@@ -962,7 +962,7 @@ Interrupts can be used through the built-in functions of the Arduino programming
 
 - Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `BTN_USER`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a rising edge (`RISING`) of the signal from the user button, which means it triggers when the button is pressed. 
+The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a rising edge (`FALLING`) of the signal from the user button, which means it triggers when the button is pressed. 
 
 ```arduino
 /**
@@ -997,7 +997,7 @@ void setup() {
   }
   
   // Set up the interrupt on USER_BTN to trigger on a rising edge (when the button is pressed)
-  attachInterrupt(digitalPinToInterrupt(BTN_USER), buttonISR, RISING);
+  attachInterrupt(digitalPinToInterrupt(BTN_USER), buttonISR, FALLING);
 }
 
 /**
