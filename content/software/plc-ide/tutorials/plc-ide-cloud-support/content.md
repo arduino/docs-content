@@ -1,0 +1,402 @@
+---
+title: 'Using PLC IDE With Arduino® IoT Cloud'
+description: "Learn how to integrate PRO solution devices with the IoT Cloud using the PLC IDE."
+difficulty: beginner 
+tags:
+  - Opta
+  - Portenta Machine Control
+  - PLC IDE
+author: 'Taddy Chung and José Bagur'
+hardware:
+  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
+  - hardware/07.opta/opta-family/opta
+software:
+  - plc-ide
+  - iot-cloud
+---
+
+## Overview
+
+The Arduino PLC IDE can help to configure network connectivity on the Opta™ and Portenta Machine Control offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
+
+In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ and Portenta Machine Control on the Arduino PLC IDE.
+
+## Goals
+
+- Learn how the Arduino IoT Cloud and the PLC IDE co-operates for seamless data exchange
+- Learn how to set the workspace environment on the PLC IDE for use with the Arduino IoT Cloud
+- Program an Opta™ device using the PLC IDE integrating IoT Cloud
+
+## Hardware and Software Requirements
+
+### Hardware Requirements
+
+- [Opta™](https://store.arduino.cc/collections/pro-family) (x1)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
+- USB-C® cable (x1)
+- Micro-USB cable (x1)
+
+### Software Requirements
+
+- Portenta Machine Control or Opta™ are compatible with the Arduino PLC IDE.
+- [Official Website](https://www.arduino.cc/pro/software-plc-ide) for Arduino PLC IDE.
+- If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control).
+- If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
+- The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. The Arduino Cloud account is free and is needed to access its features.
+
+***Important: the present tutorial requires latest version of the PLC IDE, with at least version 1.4.0. It goes same with the PLC IDE Tools. You can get the latest version [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools.***
+
+## PLC IDE & IoT Cloud Integration
+
+The [**Arduino PLC IDE**](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are LD, SFC, FBD, ST, and IL. All these languages are applicable for Opta™ and Portenta Machine Control. A wide set of standard features are included with these PRO solutions to develop industrial automation or advanced applications. You can find more resources related to PLC IDE [here](https://docs.arduino.cc/software/plc-ide) and the software can be accessed [here](https://www.arduino.cc/en/software#arduino-plc-ide).
+
+The **IoT Cloud** is a platform that allows to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ and Portenta Machine Control take advantage to provide secure industrial application deployments. You can find more about IoT Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
+
+### Understanding the Process
+
+The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for the Opta™ and Portenta Machine Control. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operation.
+
+The structure composes of two elements, where PLC IDE defines Opta™ and Portenta Machine Control with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
+
+TODO Create a new image for explaining the structure
+
+![PLC IDE with Cloud Support Structure](assets/plc-ide-cloud-structure.png)
+
+The Opta™ and Portenta Machine Control is programmed with two layers: PLC program and Arduino sketch. The key to a successful transmission is to use 'Shared variables' between these two layers.
+
+The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
+
+The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. Here are two important elements that you should always have well characterized:
+
+- 'PLCOut.Shared_Variable' : Every variable that **comes** from PLC program layer.
+- 'PLCIn.Shared_Variable' : Every variable that **goes** to PLC program layer.
+
+These are the transporter variables that will allow to exchange information between the PLC program layer and the IoT Cloud platform. The `Shared_Variable` tag defines the name of the variables you want to receive or take data to. This concept is essential to have a synchronized PLC IDE environment and IoT Cloud platform.
+
+## Instructions
+
+We will now continue with a demonstrative example to show you how both features are integrated. The example will consist of an IoT Cloud dashboard and a PLC IDE project file configured with an Opta™.
+
+The Opta™ will be programmed to execute the following actions:
+
+- Send analog readings and counter values to IoT Cloud
+- Green LED of the Opta™ will be controlled via an interactive button found within the IoT Cloud dashboard, which can later be designed to trigger certain actions.
+
+### Setting Up the IoT Cloud
+
+You will begin by configuring the IoT Cloud with Opta™ to create a Thing. It will have the Opta™ registered with variables and the dashboard configured to control programmed behaviors.
+
+***To learn more about how to use the IoT Cloud, please take a look at ["Getting Started With the Arduino IoT Cloud" tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).***
+
+Following cloud variables will be created:
+
+| **Cloud Variables** |        **Type**       | **Variable Permission** | **Send Values** |
+|:-------------------:|:---------------------:|:-----------------------:|:---------------:|
+| analog01            | Floating point number | Read Only               | On change       |
+| counter             | Integer number        | Read Only               | On change       |
+| cloudButton         | Boolean               | Read & Write            | On change       |
+
+The cloud variables will later be connected to 'Shared variables' of the PLC IDE environment to establish its communication path.
+
+Once the IoT Cloud Thing has been created successfully, you will have a similar window on IoT Cloud Thing as the following image:
+
+![IoT Cloud Thing with Opta™](assets/plc-ide-cloud-thing.png)
+
+You can now extract the code that will serve as the base for the Arduino sketch for the Opta™ later in the PLC IDE. The code can be accessed by going to the full editor. You will need to add some of the lines of the `ThingProperties.h`  The sketch of the example is as follows:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+
+const char SSID[]     = SECRET_SSID;    // Network SSID (name)
+const char PASS[]     = SECRET_OPTIONAL_PASS;    // Network password (use for WPA, or use as key for WEP)
+
+void onCloudButtonChange();
+
+float analog01;
+int counter;
+bool cloudButton;
+
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500); 
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+  ArduinoCloud.update();
+  // Your code here 
+}
+
+void initProperties(){
+  ArduinoCloud.addProperty(analog01, READ, ON_CHANGE, NULL);
+  ArduinoCloud.addProperty(counter, READ, ON_CHANGE, NULL);
+  ArduinoCloud.addProperty(cloudButton, READWRITE, ON_CHANGE, onCloudButtonChange);
+}
+
+/*
+  Since CloudButton is READ_WRITE variable, onCloudButtonChange() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onCloudButtonChange()  {
+  // Add your code here to act upon CloudButton change
+}
+```
+
+We will now continue to set up the PLC IDE environment with the Opta™.
+
+### Setting Up the PLC IDE
+
+***Before continuing with the PLC IDE configuration with Opta™, please remember to have the latest PLC IDE with its corresponding tools stated within [Software Requirements](#software-requirements).***
+
+The PLC IDE configuration will play an important role in establishing successful communication with the IoT Cloud. It will require setting onboard features and communication protocol for the Opta™ as usual. But, a proper 'Shared variables' setting will define the communication outcome with the IoT Cloud.
+
+Thus, you will learn to configure 'Shared variables' based on the peripherals and tasks you may assign to the Opta™.
+
+#### Shared Variable Configuration
+
+The successful communication between Opta™ configured with PLC IDE and IoT Cloud relies on the 'Shared variables'. The 'Shared variables' is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: 'Inputs' and 'Outputs'.
+
+![PLC IDE - Shared 'Input' and 'Output' variables](assets/plc-ide-shared-variable.png)
+
+The 'Inputs' define variables that will capture the data that comes to the Opta™ device. It is the compilation of variables that the IoT Cloud will send accordingly.
+
+Subsequently, the Green LED will be controlled via IoT Cloud dashboard. So, the variable that will represent the Green LED of the Opta™ will be added to its table.
+
+![PLC IDE - Shared variable inputs](assets/plc-ide-shared-variable-input.png)
+
+The Green LED of the Opta™ is represented as `in_cloudButton` and indicates that is an input variable with the `in` tag.
+
+The 'Outputs' define the variables that the Opta™ will send to IoT Cloud. It is the compilation of variables that you would want to monitor within the IoT Cloud dashboard.
+
+The analog port reading and the counter value of the Opta™ are the information that we want to display on the IoT Cloud dashboard. The following table shows the variables added to the 'Shared outputs' table.
+
+![PLC IDE - Shared variable outputs](assets/plc-ide-shared-variable-output.png)
+
+The shared output variables are indicated with an `out` tag and represent the following information:
+
+- `out_analog01`: Analog port number one reading
+- `out_counter` : Counter value
+
+The same variable name is used to maintain variable relationship and simplicity with the Cloud variables that we have defined [here](#setting-up-the-iot-cloud) previously.
+
+Depending on the project's development requirements, you can add all the variables that will be used to exchange information with the IoT Cloud.
+
+We will now configure the Opta™ device's features to link all these shared variables.
+
+#### Analog Port Configuration
+
+The analog port is configured using the following properties under `Resources > Opta > Local IO Mapping > Programmable Inputs`:
+
+| **Analog Port** | **Name** | **Variable** | **IO Type** | **Type** |
+|-----------------|----------|--------------|-------------|----------|
+| #1              | I1       | analog01     | Analog      | UINT     |
+
+The Opta™ has available 8 I/O ports that can be programmed either as analog or digital. You will select port number one and assign the `analog01` as the variable. The 'IO Type' must be 'Analog' and the 'Type' will update based on the selection of the 'IO Type' property.
+
+The 'Programmable inputs mapping' table should look as the following image:
+
+![PLC IDE - Programmable inputs mapping table](assets/plc-ide-programmable-inputs-mapping.png)
+
+You can also change the analog resolution if needed, and the options are:
+
+- 12 bits
+- 14 bits
+- 16 bits
+
+#### Green LED Configuration
+
+The Green LED of the Opta™ is configurable under `Resources > Opta > Local IO Mapping > LED Outputs`. To use the Green LED, you will need to assign a variable that will represent the 'LG' row.
+
+![PLC IDE - LED outputs mapping table](assets/plc-ide-led-output-mapping.png)
+
+In this case, the `greenLed` is assigned as the variable that will represent the Green LED of the Opta™. The `greenLed` is a boolean type variable as well as the `in_cloudButton`. It will be matched inside the PLC program to pass the boolean state per the command sent from the IoT Cloud dashboard.
+
+#### Arduino Sketch
+
+We can now build the Arduino sketch that will be used to establish communication with the IoT Cloud and manage data traffic. The base sketch will be needed and can be found as discussed in the ['Setting Up the IoT Cloud'](#setting-up-the-iot-cloud) section.
+
+Most of the code will keep the same structure contrary to the `loop()` and `onCloudButtonChange()` functions. It will integrate the 'Shared variables' with the `PLCOut.Shared_Variable` or `PLCIn.Shared_Variable` to establish information exchange between the device and platform.
+
+Beginning with the `loop()` function, we have the following code:
+
+```arduino
+void loop() {
+  ArduinoCloud.update();
+   
+  analog01 = PLCOut.out_analog01;
+  counter = PLCOut.out_counter;
+}
+```
+
+The `loop()` function is used to periodically update the `analog01` and `counter` variables with the shared output variables. The shared output variables are `out_analog01` and `out_counter`, and they are attached to `PLCOut`.
+
+This means that the PLC program, which is capturing the analog port reading and updating the counter value, is defined to bring the data to the Arduino sketch layer and update the cloud variables accordingly. The IoT Cloud dashboard then displays updated information after the `ArduinoCloud.update()` method based on the cloud variables, which are `analog01` and `counter`.
+
+The `onCloudButtonChange()` function is designed to process similar tasks. Every time a new value is updated from the IoT Cloud, the function will be triggered and run the assigned tasks. In this instance, it will update the Green LED of the Opta™ whenever a change is detected with the assigned dashboard button.
+
+```
+/*
+  Since CloudButton is READ_WRITE variable, onCloudButtonChange() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onCloudButtonChange()  {
+  // Add your code here to act upon CloudButton change
+  PLCIn.in_cloudButton = cloudButton;
+}
+```
+
+The exact process involves assigning the updated cloud variable value to the `PLCIn.in_cloudButton` variable. It will update the shared variable attached to `PLCIn`, which is the `in_cloudButton`, and pass its value to the PLC program layer updating the status of the Opta™.
+
+Consequently, you will have an Opta™ constantly exchanging information with the IoT Cloud. The complete code for the Arduino sketch is as follows:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+
+const char SSID[]     = SECRET_SSID;    // Network SSID (name)
+const char PASS[]     = SECRET_PASS;    // Network password (use for WPA, or use as key for WEP)
+
+void onCloudButtonChange();
+
+bool cloudButton;
+float analog01;
+int counter;
+
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500); 
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+  ArduinoCloud.update();
+  
+  analog01 = PLCOut.out_analog01;
+  counter = PLCOut.out_counter;
+}
+
+void initProperties(){
+  ArduinoCloud.addProperty(cloudButton, READWRITE, ON_CHANGE, onCloudButtonChange);
+  ArduinoCloud.addProperty(counter, READ, ON_CHANGE, NULL);
+  ArduinoCloud.addProperty(analog01, READ, ON_CHANGE, NULL);
+}
+
+/*
+  Since CloudButton is READ_WRITE variable, onCloudButtonChange() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onCloudButtonChange()  {
+  // Add your code here to act upon CloudButton change
+  PLCIn.in_cloudButton = cloudButton;
+}
+```
+
+#### PLC Program
+
+The Arduino sketch is ready, and it needs a PLC program that will control the onboard features of the Opta™ and data readings.
+
+The PLC program will do the following processes:
+
+- Run a linear counter and store to `cnt`, and pass the data to `out_counter` (Shared variable)
+- Reset counter value when it reaches 2500 in its value
+- Update the Green LED state of the Opta™ based on `in_cloudButton` (Shared variable)
+- Update analog reading on the port number one defined to `analog01` and passing it to `out_analog01` (Shared variable)
+
+The following code delivers the previous tasks:
+
+```
+cnt := cnt + 1;
+out_counter := cnt;
+
+IF out_counter >= 2500 THEN
+	cnt := 0;
+END_IF;
+
+greenLed := in_cloudButton;
+
+out_analog01 := analog01;
+```
+
+With this PLC program, you are all set to configure the Opta™ device's internal processes and use Arduino sketch to establish a connection with the IoT Cloud.
+
+TODO Expand the following content
+
+### IoT Cloud Dashboard
+
+The IoT Cloud dashboard can be designed to your preference. The following image shows a dashboard example that would let control Green LED and display information received from the Opta™.
+
+![IoT Cloud dashboard example](assets/plc-ide-cloud-dashboard.png)
+
+### Testing PLC IDE with IoT Cloud
+
+The complete example project file for PLC IDE can be downloaded [here](assets/Opta_PLCIDE_Cloud.zip).
+
+Once you have successfully configured the Opta™, the following behaviors are expected:
+
+- IoT Cloud dashboard displays the analog port number one reading and counter value of the connected Opta™
+- Green LED of the Opta™ can be controlled using the button found within the IoT Cloud dashboard
+
+![IoT Cloud dashboard preview animation](assets/plc-ide-cloud-preview.gif)
+
+## Conclusion
+
+## Support
+
+If you encounter any issues or have questions while working with the PLC IDE or IoT Cloud, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for the the PLC IDE or IoT Cloud. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Arduino help center page](https://support.arduino.cc/hc)
+
+### Forum
+
+Join our community forum to connect with other the PLC IDE and IoT Cloud users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Portenta Hat Carrier.
+
+- [the PLC IDE and IoT Cloud in the Arduino Forum](https://forum.arduino.cc/)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the the PLC IDE and IoT Cloud.
+
+- [Contact us page](https://www.arduino.cc/pro/contact-us)
