@@ -62,9 +62,9 @@ The goal of this application note is to showcase a LoRaWAN® farming irrigation 
 ![Project main hardware](assets/HARDWARE.png)
 
 ### Hardware Requirements
-- [Arduino Edge Control](https://store-usa.arduino.cc/collections/pro-family/products/arduino-edge-control)
-- [Arduino MKR WAN 1310](https://store-usa.arduino.cc/products/arduino-mkr-wan-1310?selectedStore=us)
-- [Arduino Edge Control Enclosure Kit](https://store-usa.arduino.cc/collections/pro-family/products/edge-control-enclosure-kit)
+- [Arduino Edge Control](https://store-usa.arduino.cc/collections/pro-family/products/arduino-edge-control) (x1)
+- [Arduino MKR WAN 1310](https://store-usa.arduino.cc/products/arduino-mkr-wan-1310?selectedStore=us) (x1)
+- [Arduino Edge Control Enclosure Kit](https://store-usa.arduino.cc/collections/pro-family/products/edge-control-enclosure-kit) (x1)
 - Water flow sensor (YF-B2 DN15) (x1)
 - Watermark Soil Moisture Sensors (200SS) (x4)
 - 2-Wires Latching Solenoid Valves (x4)
@@ -83,7 +83,7 @@ The goal of this application note is to showcase a LoRaWAN® farming irrigation 
 - Cable glands (x6)
 - 6 meters of duplex cable AWG 18 (x1)
 - Electrical Register Box (x1)
-
+- Access to the water system, in case you do not have access to the water system and you want to use a water tank instead, please take also a look at the [Smart Farm Irrigation](https://docs.arduino.cc/tutorials/edge-control/smart-irrigation-system) application note to know more.
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
@@ -97,21 +97,23 @@ The electrical connections of the intended application are shown in the diagram 
 
 ![Electrical diagram of the irrigation system](assets/EDGE_CONTROL_DIAGRAM.png)
 
-- The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively, the battery will be recharged with an 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
+- The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively. The battery will be recharged with an 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
-![Power connection diagram](assets//POWER_CONNECTIONS1.png)
+![Power connection diagram](assets//POWER_CONNECTIONS.png)
 
 - The four solenoid valves will be connected to the Edge Control latching outputs of the J9 connector following the wiring below. 
 
-![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS1.png)
+![Solenoid valves connection diagram](assets/VALVES_CONNECTIONS.png)
 
 ***You can also use 3-Wires motorized valves. See this [guide](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve) for reference.***
 
-- The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the IRQ_C_CH_1, of the J3 connector, and the four watermark sensors will be connected to a terminal block rail, one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8.
+- The water flow sensor will be connected to a +12 VDC output, GND and the signal wire to the P1.15/IRQ_C_CH_1 of the J3 connector. 
 
-![Watermark and water flow sensors connection diagram](assets/SENSORS_CONNECTIONS1.png)
+![Watermark and water flow sensors connection diagram](assets/SENSORS_CONNECTIONS.png)
 
-Here are the physical connections:
+- The four watermark sensors will be connected to a terminal block rail; one terminal to the common and the others to the watermark sensor inputs from 1 to 4 respectively on J8. Depending on the wiring of your sensors, you can use electrical clamps to ease the connection.
+
+![Edge Control with all the wiring](assets/PHYSICAL_CONN1.png)
 
 ![Project physical connections](assets/PHYSICAL_CONN1.png)
 
@@ -523,7 +525,7 @@ As a **gateway** we will be using the [WisGate Edge Lite 2](https://docs.arduino
 
 Taking advantage of the Arduino IoT Cloud, it is possible to seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system from remote, resulting in a professional Human-Computer Interaction (HCI) as shown below:
 
-![Arduino Cloud project dashboard ](assets/DASHBOARD1.png)
+![Arduino Cloud project dashboard ](assets/DASHBOARD2.png)
 
 Within the Arduino IoT Cloud's dashboard, the system variables can be monitored as follow:
 - Each solenoid valve status is shown as **OFF** or **ON**.
