@@ -126,7 +126,7 @@ To upload the code to your Opta™ device, click the **Verify** button to compil
 
 You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. 
 
-With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
+With Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
 ```arduino
 void setup() {
@@ -327,7 +327,7 @@ User-programmable LEDs are mapped as described in the following table:
 |       `USER`       |    `LED_USER`/`LEDB`    |
 |       `RESET`      |      `LED_BUILTIN`      |
 
-The sketch below shows how to create a Knight Rider-style "scanning" effect using the Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LEDs identifiers, and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
+The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LEDs identifiers, and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
 
 ```arduino
 /**
@@ -568,7 +568,7 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 
 The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. 
 
-The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the [ArduinoJson library ](https://arduinojson.org/v6/doc/) to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor. 
+The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the [`ArduinoJson` library](https://arduinojson.org/v6/doc/) to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor. 
 
 ***To access weather data from OpenWeatherMap, an API key is required. This key serves as a unique identifier for the user and allows OpenWeatherMap to monitor and control the usage of their service to ensure a quality experience for all users. This API key can be obtained for free by registering on the [OpenWeatherMap website](https://home.openweathermap.org/) and must be included in each request sent to the OpenWeatherMap API.***
 
@@ -702,7 +702,7 @@ Opta™ RS485 and WiFi variants have a built-in RS-485 interface.
 
 ### Wi-Fi®
 
-Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing the Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
+Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
 
 Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the following:
 
@@ -710,7 +710,7 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
 - **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the `WiFi` library right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/) right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
 
 ```arduino
 /**
@@ -856,7 +856,7 @@ To learn more about Wi-Fi® connectivity in Opta devices, check out our [Bluetoo
 
 Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
 
-To enable Bluetooth® communication on Opta™ devices, you can use the `ArduinoBLE library`. Let's walk through an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of how to use the ArduinoBLE to create a voltage level monitor application. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic to transmit voltage values read from one of the analog input terminals of an Opta™ device to a central device. 
+To enable Bluetooth® communication on Opta™ devices, you can use the [`ArduinoBLE` library](https://www.arduino.cc/reference/en/libraries/arduinoble/). Let's walk through an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of how to use the ArduinoBLE to create a voltage level monitor application. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic to transmit voltage values read from one of the analog input terminals of an Opta™ device to a central device. 
 
 ```arduino
 /**
@@ -1080,7 +1080,7 @@ Some of the key capabilities of Opta™'s onboard RTC are the following:
 - Two programmable alarms. 
 - Timestamp feature, which can be used to save the calendar content.
 
-The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi network, synchronizes its onboard RTC with an NTP server using the `NTPClient` library, and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
+The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi network, synchronizes its onboard RTC with an NTP server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
 
 ```arduino
 /**
@@ -1200,7 +1200,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 ### Forum
 
-Join our community forum to connect with other Opta™ devices users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Opta™.
+Join our community forum to connect with other Opta™ devices users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to Opta™.
 
 - [Opta™ category in the Arduino Forum](https://forum.arduino.cc/c/hardware/opta/179)
 
@@ -1208,4 +1208,4 @@ Join our community forum to connect with other Opta™ devices users, share your
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about Opta™ devices.
 
-- [Contact us page](https://www.arduino.cc/en/contact-us/)
+- [Contact us page](https://www.arduino.cc/en/contact-us/)  
