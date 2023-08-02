@@ -63,14 +63,15 @@ The Opta™ is programmed with two layers: PLC program and Arduino sketch. The k
 
 The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
-The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. Here are two important elements that you should always have well characterized:
+The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' manages shared variables that facilitate communication between the two systems. Let's break down each:
 
-- '**PLCOut.Shared_Variable**' : Every variable that **comes** from PLC program layer.
-- '**PLCIn.Shared_Variable**' : Every variable that **goes** to PLC program layer.
+- __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the IoT Cloud platform. In other words, it represents output from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
 
-These are the transporter variables that will allow to exchange information between the PLC program layer and the IoT Cloud platform. The `Shared_Variable` tag defines the name of the variables you want to receive or take data to. This concept is essential to have a synchronized PLC IDE environment and IoT Cloud platform.
+- __PLCIn.Shared_Variable__: Conversely, this variable refers to the data that is being sent to the PLC from the IoT Cloud system. This is input for the PLC program. It could be commands, configuration data, or other information that the IoT Cloud system sends to control or interact with the PLC.
 
-## Instructions
+In most industrial IoT applications, the PLC program layer will be responsible for direct control of machinery or processes based on its programming and input it receives, while the IoT Cloud platform will often be used for higher-level management, analytics, and remote control capabilities. The `Shared_Variable` in both cases allows for real-time communication between these two layers.
+
+## Example Implementation
 
 We will now continue with a demonstrative example to show you how both features are integrated. The example will consist of an IoT Cloud dashboard and a PLC IDE project file configured with an Opta™.
 
@@ -230,13 +231,13 @@ In this case, the `greenLed` is assigned as the variable that will represent the
 
 #### Library Components
 
-The Library section would be where you could find various pre-written codes or functions specific to PLC operations. This could include libraries for handling various industrial protocols, dealing with specific types of I/O, or even specialized functions for certain types of control systems. This makes the development process more efficient by providing ready-to-use codes, saving you time and effort.
+The Library section would be where you could find various pre-written codes or functions specific to PLC operations. It could include libraries for handling several industrial protocols, dealing with specific types of I/O, or even specialized functions for certain control systems. It makes the development process more efficient by providing ready-to-use codes, saving time and effort.
 
-In the context of the PLC IDE, you will need to add the libraries manually under the `Sketch Libraries` found within 'Resources' tab. These libraries will be mostly to manage IoT Cloud connection and it is as follows:
+In the context of the PLC IDE, the libraries will need to be added manually under the `Sketch Libraries` found within the 'Resources' tab. These libraries are required to manage IoT Cloud connection and it is as follows:
 
 ![PLC IDE - Required libraries for IoT Cloud integration](assets/plc-ide-libraries.png)
 
-These libraries are indexed, thus they are certified guranteeing optimized performance and reliability. Leveraging them will not only speed up your development process but also increase the robustness of your applications for industrial environments.It may seem an extra step but it will help you keep cleaner, more reliable, and maintainable code.
+These libraries are indexed, thus they are certified guaranteeing optimized performance and reliability. Leveraging them will not only speed up your development process but also increase the robustness of your applications for industrial environments. It may seem an extra step but it will help you keep cleaner, more reliable, and maintainable code.
 
 ***For more information about managing libraries inside PLC IDE, please have a look at ["Library Management"](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction#library-management) section from the [Programming Introduction with Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction).***
 
@@ -388,11 +389,11 @@ Once you have successfully configured the Opta™ and the IoT Cloud dashboard, t
 
 ![IoT Cloud dashboard preview animation](assets/plc-ide-cloud-preview.gif)
 
-***If the Opta™ does not communicate with the IoT Cloud after condiguration and code upload, please use the `WiFiFirmwareUpdater` to update the Opta™ with the latest network firmware version.***
+***If the Opta™ does not communicate with the IoT Cloud after configuration and code upload, please use the `WiFiFirmwareUpdater` to update the Opta™ with the latest network firmware version.***
 
 ## Conclusion
 
-You have now set an Opta™ using PLC IDE and successfully connected to the IoT Cloud platform. You learned how these tools integrate and can be used to create a simple interface allowing to oversee Opta™ device's status. With this, you are now more familiar with the PLC IDE and IoT Cloud environment.
+You have now set an Opta™ using PLC IDE and successfully connected to the IoT Cloud platform. You learned how these tools integrate and can be used to create a simple interface allowing you to oversee the Opta™ device's status. With this, you are now more familiar with the PLC IDE and IoT Cloud environment.
 
 ### Next Steps
 
