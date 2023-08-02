@@ -15,7 +15,7 @@ software:
 
 ## Overview
 
-The Arduino PLC IDE can help to configure network connectivity on the Opta™ offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
+The Arduino PLC IDE can help configure network connectivity on the Opta™, offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
 
 TODO Add image, adding the dashboard animation to explain overall idea of the feature
 
@@ -23,7 +23,7 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 
 ## Goals
 
-- Learn how the Arduino IoT Cloud and the PLC IDE co-operates for seamless data exchange
+- Learn how the Arduino IoT Cloud and the PLC IDE cooperate for seamless data exchange
 - Learn how to set the workspace environment on the PLC IDE for use with the Arduino IoT Cloud
 - Program an Opta™ device using an example integrating the PLC IDE and IoT Cloud
 
@@ -45,15 +45,15 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 
 ## PLC IDE & IoT Cloud Integration
 
-The [**Arduino PLC IDE**](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are LD, SFC, FBD, ST, and IL. All these languages are applicable for Opta™. A wide set of standard features are included with these PRO solutions to develop industrial automation or advanced applications. You can find more resources related to PLC IDE [here](https://docs.arduino.cc/software/plc-ide) and the software can be accessed [here](https://www.arduino.cc/en/software#arduino-plc-ide).
+The [__Arduino PLC IDE__](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are LD, SFC, FBD, ST, and IL. All these languages are applicable for Opta™. A wide set of standard features are included with these PRO solutions to develop industrial automation or advanced applications. You can find more resources related to PLC IDE [here](https://docs.arduino.cc/software/plc-ide) and the software can be accessed [here](https://www.arduino.cc/en/software#arduino-plc-ide).
 
-The **IoT Cloud** is a platform that allows to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ take advantage to provide secure industrial application deployments. You can find more about IoT Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
+The __IoT Cloud__ is a platform that allows users to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ take advantage to provide secure industrial application deployments. You can find more about IoT Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
 
 ### Understanding the Process
 
 The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for the Opta™. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operation.
 
-The structure composes of two elements, where PLC IDE defines Opta™ with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
+The structure comprises two elements, where PLC IDE defines Opta™ with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
 
 TODO Create a new image for explaining the structure
 
@@ -99,7 +99,7 @@ Once the IoT Cloud Thing has been created successfully, you will have a similar 
 
 ![IoT Cloud Thing with Opta™](assets/plc-ide-cloud-thing.png)
 
-You can now extract the code that will serve as the base for the Arduino sketch for the Opta™ later in the PLC IDE. The code can be accessed by going to the full editor. You will need to add some of the lines of the `ThingProperties.h`  The sketch of the example is as follows:
+You can now extract the code that will serve as the base for the Arduino sketch for the Opta™ in the PLC IDE. The code can be accessed by going to the full editor. You will need to add some of the lines of the `ThingProperties.h`  The sketch of the example is as follows:
 
 ```arduino
 #include <ArduinoIoTCloud.h>
@@ -159,7 +159,7 @@ void onCloudButtonChange()  {
 }
 ```
 
-We will now continue to set up the PLC IDE environment with the Opta™.
+We will now proceed with a demonstrative example to show you how both features are integrated.
 
 ### Setting Up the PLC IDE
 
@@ -227,6 +227,18 @@ The Green LED of the Opta™ is configurable under `Resources > Opta > Local IO 
 ![PLC IDE - LED outputs mapping table](assets/plc-ide-led-output-mapping.png)
 
 In this case, the `greenLed` is assigned as the variable that will represent the Green LED of the Opta™. The `greenLed` is a boolean type variable as well as the `in_cloudButton`. It will be matched inside the PLC program to pass the boolean state per the command sent from the IoT Cloud dashboard.
+
+#### Library Components
+
+The Library section would be where you could find various pre-written codes or functions specific to PLC operations. This could include libraries for handling various industrial protocols, dealing with specific types of I/O, or even specialized functions for certain types of control systems. This makes the development process more efficient by providing ready-to-use codes, saving you time and effort.
+
+In the context of the PLC IDE, you will need to add the libraries manually under the `Sketch Libraries` found within 'Resources' tab. These libraries will be mostly to manage IoT Cloud connection and it is as follows:
+
+![PLC IDE - Required libraries for IoT Cloud integration](assets/plc-ide-libraries.png)
+
+These libraries are indexed, thus they are certified guranteeing optimized performance and reliability. Leveraging them will not only speed up your development process but also increase the robustness of your applications for industrial environments.It may seem an extra step but it will help you keep cleaner, more reliable, and maintainable code.
+
+***For more information about managing libraries inside PLC IDE, please have a look at ["Library Management"](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction#library-management) section from the [Programming Introduction with Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction).***
 
 #### Arduino Sketch
 
@@ -359,15 +371,17 @@ TODO Expand the following content
 
 ### IoT Cloud Dashboard
 
-The IoT Cloud dashboard can be designed to your preference. The following image shows a dashboard example that would let control Green LED and display information received from the Opta™.
+The IoT Cloud dashboard can be designed to your preference. The following image shows a dashboard example that allows for the control of the Green LED and the display of information received from the Opta™.
 
 ![IoT Cloud dashboard example](assets/plc-ide-cloud-dashboard.png)
 
+More information about IoT Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/).
+
 ### Testing PLC IDE with IoT Cloud
 
-The complete example project file for PLC IDE can be downloaded [here](assets/Opta_PLCIDE_Cloud.zip).
+The complete example project file for PLC IDE can be downloaded [here](assets/Opta_PLCIDE_Cloud.zip). It is ready to use with the Opta™ in the instance at the preferred workspace.
 
-Once you have successfully configured the Opta™, the following behaviors are expected:
+Once you have successfully configured the Opta™ and the IoT Cloud dashboard, the following behaviors are expected to be observed:
 
 - IoT Cloud dashboard displays the analog port number one reading and counter value of the connected Opta™
 - Green LED of the Opta™ can be controlled using the button found within the IoT Cloud dashboard
@@ -377,6 +391,12 @@ Once you have successfully configured the Opta™, the following behaviors are e
 ***If the Opta™ does not communicate with the IoT Cloud after condiguration and code upload, please use the `WiFiFirmwareUpdater` to update the Opta™ with the latest network firmware version.***
 
 ## Conclusion
+
+You have now set an Opta™ using PLC IDE and successfully connected to the IoT Cloud platform. You learned how these tools integrate and can be used to create a simple interface allowing to oversee Opta™ device's status. With this, you are now more familiar with the PLC IDE and IoT Cloud environment.
+
+### Next Steps
+
+As you progress, feel free to delve into the vast Arduino ecosystem. It will encourage you to utilize an array of libraries and hardware enhancements to construct robust, secure, and interconnected industrial solutions with the Opta™. For a deeper understanding of its software and hardware characteristics, consider reviewing our beginner's guide to the Opta™ [here](https://docs.arduino.cc/tutorials/opta/getting-started).
 
 ## Support
 
