@@ -389,7 +389,7 @@ Once you have successfully configured the Opta™ and the IoT Cloud dashboard, t
 
 ![IoT Cloud dashboard preview animation](assets/plc-ide-cloud-preview.gif)
 
-***If the Opta™ does not communicate with the IoT Cloud after configuration and code upload, please use the `WiFiFirmwareUpdater` to update the Opta™ with the latest network firmware version.***
+***If the Opta™ fails to communicate with the IoT Cloud after configuration, please use the `WiFiFirmwareUpdater` to update the Opta™ with the latest network firmware version.***
 
 ## Conclusion
 
