@@ -905,8 +905,6 @@ void setup() {
   // Set the resolution of the ADC to 12 bits.
   analogReadResolution(12); 
 
-  
-
   // Initialize the BLE module.
   if (!BLE.begin()) {
     Serial.println("- Starting BLE failed!");
@@ -935,7 +933,7 @@ void loop() {
     Serial.println(central.address());
 
     // Set the LED color to solid blue when connected.
-    digitalWrite(LED_USER, LOW);
+    digitalWrite(LED_USER, HIGH);
 
     // While the central device is connected.
     while (central.connected()) {
