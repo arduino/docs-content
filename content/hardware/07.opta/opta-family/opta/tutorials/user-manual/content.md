@@ -58,7 +58,7 @@ Here's an overview of the device's main components shown in the image above:
 
 ### Opta™ Core and Libraries
 
-The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with the Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for the Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
+The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
 
 ![Installing the Arduino Mbed OS Opta Boards core in the Arduino IDE](assets/user-manual-3.png)
 
@@ -86,7 +86,7 @@ The complete STEP files (for all Opta™ variants) are available and downloadabl
 
 ### Powering the Opta™
 
-The Opta™ can be powered by the following:
+Opta™ can be powered by the following:
 
 - Using a **USB-C® cable** (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
 - Using an external **+12 VDC to +24 VDC power supply** connected to the Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
