@@ -2,6 +2,8 @@
 title: Getting Started with UNO R4 WiFi
 description: A step-by-step guide to install the board package needed for the UNO R4 WiFi board.
 author: Hannes Siebeneicher
+hardware:
+  - hardware/02.hero/boards/uno-r4-wifi
 tags: [UNO R4 WiFi, Installation, IDE]
 ---
 
