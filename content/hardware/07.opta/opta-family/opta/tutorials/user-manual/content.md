@@ -856,7 +856,9 @@ To learn more about Wi-Fi® connectivity in Opta devices, check out our [Bluetoo
 
 Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
 
-To enable Bluetooth® communication on Opta™ devices, you can use the [`ArduinoBLE` library](https://www.arduino.cc/reference/en/libraries/arduinoble/). Let's walk through an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of how to use the ArduinoBLE to create a voltage level monitor application. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic to transmit voltage values read from one of the analog input terminals of an Opta™ device to a central device. 
+To enable Bluetooth® communication on Opta™ devices, you can use the [`ArduinoBLE` library](https://www.arduino.cc/reference/en/libraries/arduinoble/). Let's use an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of using the ArduinoBLE library to create a voltage level monitor application, such as a 0 to 10 VDC sensor. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic of voltage values read from one of the analog input terminals of an Opta™ device to a central device, for example, an smartphone. 
+
+***You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor® to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth Low Energy® devices and communicate with them.***
 
 ```arduino
 /**
@@ -879,15 +881,15 @@ const int TERMINAL = A0;
 
 /**
   Read voltage level from an analog input terminal of an Opta device,
-  then maps the voltage reading to a percentage value ranging from 0 to 100.
+  then maps the voltage reading to a voltage value ranging from 0 to 10 VDC.
 
   @param none
-  @return the voltage level percentage (int).
+  @return the voltage value (int).
 */
 
 int readVoltageLevel() {
   int voltage = analogRead(TERMINAL);
-  int voltageLevel = map(voltage, 0, 4095, 0, 100);
+  int voltageLevel = map(voltage, 0, 4095, 0, 10);
   return voltageLevel;
 }
 
@@ -937,7 +939,7 @@ void loop() {
 
     // While the central device is connected.
     while (central.connected()) {
-      // Read the voltage level and update the BLE characteristic with the level value.
+      // Read the voltage level and update the BLE characteristic with the voltage level value.
       int voltageLevel = readVoltageLevel();
 
       Serial.print("- Voltage level is: ");
@@ -959,7 +961,7 @@ void loop() {
 }
 ```
 
-After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristics, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristics. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in blue LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a percentage value between 0 and 100, prints the voltage level to the Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
+After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristic, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristic. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in USER LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a voltage value between 0 and 10 VDC, prints the voltage level value to the IDE'S Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
 
 To learn more about Bluetooth Low Energy® connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
