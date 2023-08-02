@@ -151,7 +151,9 @@ The water flow sensor will measure the water used and will calculate its volume 
 
 ![Water flow sensor output signal](assets/FLOW_SENSOR.png)
 
-The system will measure the instantaneous water flow in liters per minute, and the total water used in liters. This data will be shown on dedicated widgets in the Arduino IoT Cloud.
+The water flow is measured by a Hall effect sensor that generates a pulsed output by the rotation steps of a propeller inside the metal body.
+
+The data is shown on dedicated widgets in the Arduino IoT Cloud.
 
 ![Water usage widgets in the Arduino Cloud](assets/WATER_FLOW.png)
 
