@@ -89,15 +89,15 @@ The complete STEP files (for all Opta™ variants) are available and downloadabl
 Opta™ can be powered by the following:
 
 - Using a **USB-C® cable** (not included) for programming purposes only, **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
-- Using an external **+12 VDC to +24 VDC power supply** connected to the Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
+- Using an external **+12 VDC to +24 VDC power supply** connected Opta™'s power supply terminals (please, refer to the [pinout section](#pinout) of the user manual).
 
 ![Different ways to power Opta™ devices](assets/user-manual-5.png)
 
 ### Hello World Example
 
-Let's program the Opta™ with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Opta™ core and device are working as expected.
+Let's program Opta™ with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Opta™ core and device are working as expected.
 
-There are two ways to program this example in the board:
+There are two ways to program this example in the device:
 
 - Navigate to **File > Examples > 01.Basics > Blink**.
 - Copy and paste the code below into a new sketch in the Arduino IDE.
@@ -118,13 +118,15 @@ void loop() {
 }
 ```
 
-***For all the Opta™ variants, the `LED_BUILTIN` macro represents the green LED on top of the device's RESET button***
+***For all Opta™ variants, the `LED_BUILTIN` macro represents the green LED on top of the device's RESET button***
 
-To upload the code to the Opta™, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
+To upload the code to your Opta™ device, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
 
 ![Uploading a sketch to Opta™ devices in the Arduino IDE](assets/user-manual-7.png)
 
-You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
+You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. 
+
+With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
 ```arduino
 void setup() {
@@ -142,9 +144,11 @@ void loop() {
 }
 ```
 
+You should see the blue LED on top of your device's USER button turn on for one second, then off for one second, repeatedly. 
+
 ## USB®-C Port
 
-The Opta™ has an **onboard USB®-C port** that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
+Opta™ has an **onboard USB®-C port** that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
 
 ![The USB®-C port in Opta™ devices](assets/user-manual-6.png)
 
@@ -152,7 +156,7 @@ The Opta™ has an **onboard USB®-C port** that can be used for programming the
 
 ## Electrical Terminals
 
-This user manual section covers the Opta™ electrical terminals, showing their main hardware and software characteristics. The Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
+This user manual section covers Opta™'s electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and 8 of them can be used as digital/analog inputs.
 
 ### Power Supply
 
@@ -378,7 +382,7 @@ void loop() {
 
 ## Actuators 
 
-This user manual section covers the Opta™ onboard actuators, showing their main hardware and software characteristics. The Opta™ has one user-programmable button and four user-programmable output relays.
+This user manual section covers Opta™ onboard actuators, showing their main hardware and software characteristics. Opta™ has one user-programmable button and four user-programmable output relays.
 
 ### User Button
 
@@ -388,7 +392,7 @@ All Opta™ variants devices have an onboard user-programmable button; this user
 
 The user-programmable button can be used through the built-in functions of the Arduino programming language. To use the user button, first define it as a digital input:
 
-- Add the `pinMode(BTN_USER, INPUT)` instruction in your sketch's  `setup()` function.
+- Add the `pinMode(BTN_USER, INPUT)` instruction in your sketch's `setup()` function.
 
 To read the status of the user button:
 
@@ -564,8 +568,7 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 
 The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. 
 
-
-The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the [ArduinoJson library ](https://arduinojson.org/v6/doc/) to extract key weather parameters in metric units: temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor. 
+The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the [ArduinoJson library ](https://arduinojson.org/v6/doc/) to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor. 
 
 ***To access weather data from OpenWeatherMap, an API key is required. This key serves as a unique identifier for the user and allows OpenWeatherMap to monitor and control the usage of their service to ensure a quality experience for all users. This API key can be obtained for free by registering on the [OpenWeatherMap website](https://home.openweathermap.org/) and must be included in each request sent to the OpenWeatherMap API.***
 
@@ -616,7 +619,7 @@ void setup() {
   // Start Ethernet via DHCP,
   // If DHCP fails, print a diagnostic message and use a static IP.
   if (Ethernet.begin(mac) == 0) {
-    Serial.println("Failed to configure Ethernet via DHCP");
+    Serial.println("- Failed to configure Ethernet via DHCP");
     Ethernet.begin(mac, ip);
   }
 
@@ -646,10 +649,12 @@ void loop() {
         DeserializationError error = deserializeJson(doc, client);
         if (error) {
           // If there's an error in parsing, print it on the Serial Monitor.
-          Serial.print("deserializeJson() failed: ");
+          Serial.print("- deserializeJson() failed: ");
           Serial.println(error.f_str());
           return;
         }
+
+        Serial.println("- Weather data:");
 
         // Fetch and print the weather data.
         float temp = doc["main"]["temp"];
@@ -673,7 +678,7 @@ void loop() {
       client.stop();
     } else {
       // If the link is off, print a message
-      Serial.println("Ethernet link disconnected");
+      Serial.println("- Ethernet link disconnected!");
     }
     // Update the last_time to the current time
     last_time = millis();
@@ -683,11 +688,11 @@ void loop() {
 
 The sketch starts by including the `Ethernet` and `ArduinoJson` libraries, which provide the necessary Ethernet and JSON handling functionality, respectively. In the `setup()` function, the serial communication is initiated for debugging purposes. The Ethernet connection is attempted to be established using DHCP, and if this automatic configuration fails, a predefined static IP address is used.
 
-Once the Ethernet connection is up, the sketch connects to the OpenWeatherMap API server using the HTTP protocol. Specifically, an HTTP GET request is constructed to query the current weather data for Turin, Italy. In the event of a failure to connect to the server, the code outputs an error message to the Arduino IDE's Serial Monitor for troubleshooting.
+Once the Ethernet connection is up, the sketch connects to the OpenWeatherMap API server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query the current weather data for Turin, Italy. In the event of a failure to connect to the server, the code outputs an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
-The `loop()` function regularly checks the link status of the Ethernet connection, and if the link is up, it sends an HTTP GET request to the server. The sketch then skips the HTTP headers of the response, and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response.
+The `loop()` function regularly checks the link status of the Ethernet connection, and if the link is up, it sends an `HTTP GET` request to the server. The sketch then skips the HTTP headers of the response, and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response.
 
-The parsed data is used to extract key weather parameters such as temperature, pressure, humidity, and wind speed, which are then printed to the IDE's Serial Monitor. The function also handles Ethernet disconnection, printing a message to the Serial Monitor if the link goes down. The `GET` requests are scheduled to be sent every 10 seconds. If the JSON parsing fails for any reason, an error message is outputted to the IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
+The parsed data is used to extract key weather parameters such as temperature, pressure, humidity, and wind speed, which are then printed to the IDE's Serial Monitor. The function also handles Ethernet disconnection, printing a message to the IDE's Serial Monitor if the link goes down. The `GET` requests are scheduled to be sent every 10 seconds. If the JSON parsing fails for any reason, an error message is outputted to the IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
 
 To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
