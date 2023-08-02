@@ -93,9 +93,13 @@ The goal of this application note is to showcase a LoRaWAN® farming irrigation 
 
 ## Irrigation System Setup
 
+- The Edge Control Enclosure Kit is perfect to enclose the main board alongside the MKR shields:
+
+![Edge Control, MKR WAN1310 and the Enclosure Kit Assembly](assets/ASSEM_GIF.gif)
+
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical diagram of the irrigation system](assets/EDGE_CONTROL_DIAGRAM.png)
+![Electrical diagram of the irrigation system](assets/EDGE_CONTROL_DIAGRAM1.png)
 
 - The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively. The battery will be recharged with an 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
