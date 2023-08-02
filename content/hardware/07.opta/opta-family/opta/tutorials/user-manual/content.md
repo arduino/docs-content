@@ -551,7 +551,7 @@ This user manual section covers the different communication protocols supported 
 
 ### Ethernet
 
-Opta™ devices feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
+Opta™ devices (all variants) feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
 
 ![Onboard RJ45 connector in Opta™ devices](assets/user-manual-13.png)
 
@@ -564,7 +564,8 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 
 The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. 
 
-The sketch below enables a device to connect to the Internet via an Ethernet connection. Once the connection is established, the sketch makes a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to obtain the current weather information from Turin, Italy (where the Arduino PRO office is located). The sketch then prints out the response, which includes data about temperature and other weather conditions, on the Arduino's IDE Serial Monitor. 
+
+The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the [ArduinoJson library ](https://arduinojson.org/v6/doc/) to extract key weather parameters in metric units: temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor. 
 
 ***To access weather data from OpenWeatherMap, an API key is required. This key serves as a unique identifier for the user and allows OpenWeatherMap to monitor and control the usage of their service to ensure a quality experience for all users. This API key can be obtained for free by registering on the [OpenWeatherMap website](https://home.openweathermap.org/) and must be included in each request sent to the OpenWeatherMap API.***
 
@@ -572,120 +573,126 @@ The sketch below enables a device to connect to the Internet via an Ethernet con
 /**
   Web Client (Ethernet version)
   Name: opta_ethernet_web_client_example.ino
-  Purpose: This sketch connects an Opta device to a website via Ethernet
-
-  @author Arduino Team, modified by Arduino PRO Content Team
-  @version 4.0 01/06/18
+  Purpose: This sketch connects an Opta device to OpenWeatherMap API via Ethernet
+  and fetches weather data for Turin, Italy.
+  @author Arduino PRO Content Team
+  @version 1.0 01/06/18
 */
 
-// Include the Ethernet library.
+// Include necessary libraries
 #include <Ethernet.h>
+#include <ArduinoJson.h>
 
-// Define the server to which we'll connect,
-// This can be an IP address or a URL.
-char server[] = "api.openweathermap.org";
+// OpenWeatherMap server.
+const char* server = "api.openweathermap.org";
 
-// Replace with your OpenWeatherMap API key
-char apiKey[] = "your_openweathermap_api_key";
+// Define your OpenWeatherMap API key.
+String my_Api_Key = "YOUR_API_KEY";  
 
-// Set a static IP address to use if the DHCP fails to assign one automatically.
+// Define the city and country for which you want weather data.
+String my_city = "Turin";
+String my_country_code = "IT";
+
+// Interval between weather requests (in ms).
+unsigned long last_time = 0;
+unsigned long timer_delay = 10000;
+
+// Define the OpenWeatherMap API endpoint path.
+String path = "/data/2.5/weather?q=" + my_city + "," + my_country_code + "&units=metric&APPID=" + my_Api_Key;
+
+// Set the IP address for the Ethernet client and initialize it.
 IPAddress ip(10, 130, 22, 84);
-
-// Initialize the Ethernet client object,
-// This will be used to interact with the server.
 EthernetClient client;
 
-void setup() {
-  // Begin serial communication at a baud rate of 115200
-  Serial.begin(115200);
+// Set up a JSON document with 1024 bytes capacity.
+StaticJsonDocument<1024> doc;
 
-  // Wait for the serial port to connect,
-  // This is necessary for boards that have native USB.
+void setup() {
+  // Begin serial communication,
+  // Wait for the serial port to connect.
+  Serial.begin(115200);
   while (!Serial);
 
-  // Attempt to start Ethernet connection via DHCP,
-  // If DHCP failed, print a diagnostic message.
-  if (Ethernet.begin() == 0) {
-    Serial.println("- Failed to configure Ethernet using DHCP!");
-
-    // Try to configure Ethernet with the predefined static IP address.
-    Ethernet.begin(ip);
+  // Start Ethernet via DHCP,
+  // If DHCP fails, print a diagnostic message and use a static IP.
+  if (Ethernet.begin(mac) == 0) {
+    Serial.println("Failed to configure Ethernet via DHCP");
+    Ethernet.begin(mac, ip);
   }
 
   delay(2000);
-
-  // Attempt to connect to the server at port 80 (the standard port for HTTP).
-  // If the connection is successful, print a message and send a HTTP GET request.
-  // If the connection failed, print a diagnostic message.
-  Serial.println("- Connecting...");
-  if (client.connect(server, 80)) {
-    Serial.println("- Connected!");
-
-    // We'll construct the HTTP GET request to obtain weather information about Turin
-    client.print("- GET /data/2.5/weather?q=Turin,it&units=metric&appid=");
-    client.print(apiKey);
-    client.println(" HTTP/1.1");
-    client.println("- Host: api.openweathermap.org");
-    client.println("- Connection: close");
-    client.println();
-  } else {
-    Serial.println("- Connection failed!");
-  }
-}
-
-/**
-  Reads data from the client while there's data available
-
-  @param none
-  @return none
-*/
-void read_request() {
-  uint32_t received_data_num = 0;
-  while (client.available()) {
-
-    // Actual data reception.
-    char c = client.read();
-
-    // Print data to serial port.
-    Serial.print(c);
-
-    // Wrap data to 80 columns.
-    received_data_num++;
-    if (received_data_num % 80 == 0) {
-      Serial.println();
-    }
-  }
 }
 
 void loop() {
-  // Read data from the client.
-  read_request();
+  // Send a new request if the time since the last request is greater than the defined interval.
+  if ((millis() - last_time) > timer_delay) {
+    // Check the link status and connect to the server.
+    if (Ethernet.linkStatus() == LinkON) {
+      if (client.connect(server, 80)) {
+        // Send HTTP GET request.
+        client.print("GET ");
+        client.print(path);
+        client.println(" HTTP/1.1");
+        client.print("Host: ");
+        client.println(server);
+        client.println("Connection: close");
+        client.println();
 
-  // If there's data available from the server, read it and print it to the Serial Monitor.
-  while (client.available()) {
-    char c = client.read();
-    Serial.print(c);
-  }
+        // Skip HTTP headers.
+        char endOfHeaders[] = "\r\n\r\n";
+        client.find(endOfHeaders);
 
-  // If the server has disconnected, disconnect the client and stop.
-  if (!client.connected()) {
-    Serial.println();
-    Serial.println("- Disconnecting...");
-    client.stop();
+        // Parse the JSON response.
+        DeserializationError error = deserializeJson(doc, client);
+        if (error) {
+          // If there's an error in parsing, print it on the Serial Monitor.
+          Serial.print("deserializeJson() failed: ");
+          Serial.println(error.f_str());
+          return;
+        }
 
-    // Halt the sketch by entering an infinite loop.
-    while (true);
+        // Fetch and print the weather data.
+        float temp = doc["main"]["temp"];
+        Serial.print("- Temperature (°C): ");
+        Serial.println(temp);
+        
+        int pressure = doc["main"]["pressure"];
+        Serial.print("- Pressure (hPa): ");
+        Serial.println(pressure);
+        
+        int humidity = doc["main"]["humidity"];
+        Serial.print("- Humidity (%): ");
+        Serial.println(humidity);
+
+        float windSpeed = doc["wind"]["speed"];
+        Serial.print("- Wind speed (m/s): ");
+        Serial.println(windSpeed);
+      }
+      // Disconnect the client
+      client.stop();
+    } else {
+      // If the link is off, print a message
+      Serial.println("Ethernet link disconnected");
+    }
+    // Update the last_time to the current time
+    last_time = millis();
   }
 }
 ```
 
-The sketch starts by including the `Ethernet` library, which is necessary to provide Ethernet functionality to the Opta™ device. The `setup()` function initiates the serial communication for debugging purposes and tries to establish an Ethernet connection using DHCP. If this automatic configuration fails, it resorts to a predefined static IP address.
+The sketch starts by including the `Ethernet` and `ArduinoJson` libraries, which provide the necessary Ethernet and JSON handling functionality, respectively. In the `setup()` function, the serial communication is initiated for debugging purposes. The Ethernet connection is attempted to be established using DHCP, and if this automatic configuration fails, a predefined static IP address is used.
 
-Once the Ethernet connection is up, it connects to the OpenWeatherMap API server. The connection uses the `HTTP` protocol, specifically an `HTTP GET` request, constructed to query the current weather data for Turin, Italy. In the event of a connection failure to the server, the code outputs an error message to the IDE's Serial Monitor for troubleshooting.
+Once the Ethernet connection is up, the sketch connects to the OpenWeatherMap API server using the HTTP protocol. Specifically, an HTTP GET request is constructed to query the current weather data for Turin, Italy. In the event of a failure to connect to the server, the code outputs an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
-The function `read_request()` is designed to manage the data received from the client. It reads the incoming data and structures it for display on the IDE's Serial Monitor, wrapping the output to 80 columns for better readability. In the main `loop()` function, the `read_request()` function is persistently called to handle incoming data streams. If a server disconnect is detected, the program intentionally stalls in an infinite loop to prevent further execution without a live connection.
+The `loop()` function regularly checks the link status of the Ethernet connection, and if the link is up, it sends an HTTP GET request to the server. The sketch then skips the HTTP headers of the response, and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response.
+
+The parsed data is used to extract key weather parameters such as temperature, pressure, humidity, and wind speed, which are then printed to the IDE's Serial Monitor. The function also handles Ethernet disconnection, printing a message to the Serial Monitor if the link goes down. The `GET` requests are scheduled to be sent every 10 seconds. If the JSON parsing fails for any reason, an error message is outputted to the IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
 
 To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+
+### RS-485
+
+Opta™ RS485 and WiFi variants have a built-in RS-485 interface. 
 
 ### Wi-Fi®
 
