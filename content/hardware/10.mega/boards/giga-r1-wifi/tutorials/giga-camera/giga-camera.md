@@ -3,6 +3,8 @@ title: GIGA R1 Camera Guide
 description: Learn about the GIGA R1 WiFi's camera connector, and how to use existing examples.
 tags: [ArduCAM, Camera, Processing]
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
 ---
 
 The GIGA R1 has a dedicated camera connector that allows certain camera modules to mount directly on the board. This makes it possible to add machine vision to your GIGA R1 board without much effort at all.

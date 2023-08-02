@@ -2,6 +2,8 @@
 title: GIGA R1 WiFi Network Examples
 description: Discover examples compatible with the WiFi library included in the GIGA core.
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
 tags: [Wi-Fi, Web Server, AP Mode, SSL, UDP]
 ---
 

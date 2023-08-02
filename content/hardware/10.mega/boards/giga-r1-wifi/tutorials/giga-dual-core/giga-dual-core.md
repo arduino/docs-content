@@ -2,6 +2,8 @@
 title: Guide to GIGA R1 Dual Cores
 description: Learn how to access and control the M4 and M7 cores on the GIGA R1, and how to communicate between them using RPC.
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
 tags: [Dual Core, M4, M7]
 ---
 

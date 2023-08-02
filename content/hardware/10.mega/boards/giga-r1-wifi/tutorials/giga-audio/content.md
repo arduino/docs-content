@@ -2,6 +2,8 @@
 title: Guide to GIGA R1 Advanced ADC/DAC and Audio Features
 description: 'Learn how to use the ADC/DAC features, along with useful examples on how to generate waveforms and play audio from a file.'
 author: José Bagur, Taddy Chung & Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
 tags: [ADC, DAC, Audio, USB]
 ---
 
