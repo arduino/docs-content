@@ -1,9 +1,9 @@
 ---
 title: 'Using PLC IDE With Arduino® IoT Cloud'
-description: "Learn how to integrate PRO solution devices with the IoT Cloud using the PLC IDE."
+description: "Learn how to integrate Opta™ with the IoT Cloud using the PLC IDE."
 difficulty: beginner 
 tags:
-  - Opta
+  - Opta™
   - PLC IDE
 author: 'Taddy Chung and José Bagur'
 hardware:
@@ -262,7 +262,7 @@ The `loop()` function is used to periodically update the `analog01` and `counter
 
 This means that the PLC program, which is capturing the analog port reading and updating the counter value, is defined to bring the data to the Arduino sketch layer and update the cloud variables accordingly. The IoT Cloud dashboard then displays updated information after the `ArduinoCloud.update()` method based on the cloud variables, which are `analog01` and `counter`.
 
-The `onCloudButtonChange()` function is designed to process similar tasks. Every time a new value is updated from the IoT Cloud, the function will be triggered and run the assigned tasks. In this instance, it will update the Green LED of the Opta™ whenever a change is detected with the assigned dashboard button.
+The `onCloudButtonChange()` function is cloud generated and designed to process similar tasks. Every time a new value is updated from the IoT Cloud, the function will be triggered and run the assigned tasks. In this instance, it will update the Green LED of the Opta™ whenever a change is detected with the assigned dashboard button.
 
 ```
 /*
@@ -381,6 +381,8 @@ More information about IoT Cloud can be found [here](https://docs.arduino.cc/ard
 ### Testing PLC IDE with IoT Cloud
 
 The complete example project file for PLC IDE can be downloaded [here](assets/Opta_PLCIDE_Cloud.zip). It is ready to use with the Opta™ in the instance at the preferred workspace.
+
+***The first compilation process may take some time to finish. It can take upto 7 minutes or more depending on the environment.***
 
 Once you have successfully configured the Opta™ and the IoT Cloud dashboard, the following behaviors are expected to be observed:
 
