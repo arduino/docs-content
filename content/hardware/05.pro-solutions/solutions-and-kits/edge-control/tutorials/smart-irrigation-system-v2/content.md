@@ -344,7 +344,7 @@ void setup() {
 
 To save energy and resources, the Edge Control has different power lines that must be enabled to power the different internal and external peripherals. In this case, the 3.3 V, 5 V, Battery, and the MKR1 slot need to be enabled. 
 
-An external interruption is being used for the water flow sensor and the LCD button, they are attached to the IRQ_CH1 and the POWER_ON inputs respectively. To handle all the I/O, the I/O Expander together with the Enclosure Kit LCD and the sensors inputs need to be initialized. 
+An external interruption is being used for the water flow sensor and the LCD button, they are attached to the IRQ_CH1 and the POWER_ON inputs respectively. To handle all the I/Os, the I/O Expander together with the Enclosure Kit LCD and the sensors inputs need to be initialized. 
 
 The loop function is in charge of handling the system's repetitive tasks.
 
