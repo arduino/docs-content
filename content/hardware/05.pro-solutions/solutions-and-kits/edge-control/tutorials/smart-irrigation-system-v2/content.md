@@ -43,7 +43,7 @@ Smart farming techniques are being implemented more and more due to the importan
 
 Implementing traditional wired communication infrastructure in remote areas can be expensive and time-consuming. LoRaWAN®, being a wireless technology, provides a cost-effective alternative, as it requires minimal infrastructure setup, reducing installation and maintenance costs.
 
-Arduino has you covered in these scenarios with its Pro solutions. With products designed to work in remote environments, supplying their power from renewable sources and providing long-distance connectivity and low power consumption.
+Arduino has you covered in these scenarios with its Pro solutions, including products designed to work in remote environments, supplying their power from renewable sources, and providing long-distance connectivity and low power consumption.
 
 ## Goals
 
