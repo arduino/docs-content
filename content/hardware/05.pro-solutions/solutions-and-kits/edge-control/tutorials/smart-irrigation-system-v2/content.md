@@ -1,6 +1,6 @@
 ---
 title: 'LoRaWAN® Irrigation System Using Arduino® Edge Control'
-description: "This application note describes how to control a four zones irrigation system using Edge Control and Arduino Cloud with LoRaWAN® connectivity"
+description: "This application note describes how to control a four zones irrigation system using Edge Control and Arduino Cloud with LoRaWAN® connectivity."
 difficulty: intermediate
 tags:
   - Irrigation System
