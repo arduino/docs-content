@@ -147,7 +147,7 @@ The valves can be controlled manually by using the onboard button, one tap opens
 
 ![Latching valves activation pulse](assets/VALVES_ACTIVATION.png)
 
-***The valves used are latching ones, which means they are activated by a single pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that time could damage the latching outputs of your device.*** 
+***The used valves used are latching, which means they are activated by a single pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that time could damage the latching outputs of your device.*** 
 
 ### Water Usage
 
