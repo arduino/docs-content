@@ -43,7 +43,7 @@ Smart farming techniques are being implemented more and more due to the importan
 
 Implementing traditional wired communication infrastructure in remote areas can be expensive and time-consuming. LoRaWAN®, being a wireless technology, provides a cost-effective alternative, as it requires minimal infrastructure setup, reducing installation and maintenance costs.
 
-Arduino has you covered in these scenarios with its Pro solutions. With products designed to work in remote environments, supplying their power from renewable sources and providing long-distance connectivity and low power consumption.
+Arduino has you covered in these scenarios with its Pro solutions, including products designed to work in remote environments, supplying their power from renewable sources, and providing long-distance connectivity and low power consumption.
 
 ## Goals
 
@@ -143,15 +143,15 @@ The communication between both devices is done leveraging the I2C communication 
 
 ### Valves Control
 
-The valves can be controlled manually by using the onboard button, one tap opens the valve one, two taps valve two, and so on. Also, the valves can be controlled automatically by the system when the soil moisture is poor. To do this the "Smart mode" has to be enabled by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+The valves can be controlled manually by using the onboard button, one tap opens the first valve, two taps the second valve, and so on. In addition, the valves can be controlled automatically by the system when the soil moisture is poor. To do so, a "Smart mode" has to be enabled by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
 
 ![Latching valves activation pulse](assets/VALVES_ACTIVATION.png)
 
-***The valves used are latching ones, which means they are activated by a single pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that time could damage the latching outputs of your device.*** 
+***The used valves used are latching, which means they are activated by a single pulse. The polarity defines if it opens or closes. This pulse must be in the range of 20-40 ms, more than that time could damage the latching outputs of your device.*** 
 
 ### Water Usage
 
-The water flow sensor will measure the water used and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
+The water flow sensor will measure the consumed water and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
 
 ![Water flow sensor output signal](assets/FLOW_SENSOR.png)
 
@@ -163,7 +163,7 @@ The data is shown on dedicated widgets in the Arduino IoT Cloud.
 
 ### Soil Moisture Measurement
 
-Instead of measuring the percentage of water by volume in a given amount of soil, we will be using watermark sensors that are capable of measuring the physical force holding water in the soil. Those measurements are correlated with how difficult it is for the plants to extract water from the soil, being really interesting data for agriculture applications.
+Instead of measuring the percentage of water by volume in a given amount of soil, we will be using watermark sensors that are capable of measuring the physical force holding the water in the soil. Those measurements are correlated with the effort plants have to make to extract water from the soil, a really interesting data for agricultural applications.
 
 The measurement is done in Centibars, and we can use the following readings as a general guideline:
 
@@ -171,7 +171,7 @@ The measurement is done in Centibars, and we can use the following readings as a
 - **10-30 Centibars**: Soil is adequately wet (except coarse sands, which are drying)
 - **30-60 Centibars**: Usual range for irrigation (most soils)
 - **60-100 Centibars**: Usual range for irrigation in heavy clay
-- **100-200 Centibars**: Soil is becoming dangerously dry- proceed with caution!
+- **100-200 Centibars**: Soil is becoming dangerously dry - Proceed with caution!
 
 ### Arduino Edge Control Code
 
@@ -344,7 +344,7 @@ void setup() {
 
 To save energy and resources, the Edge Control has different power lines that must be enabled to power the different internal and external peripherals. In this case, the 3.3 V, 5 V, Battery, and the MKR1 slot need to be enabled. 
 
-An external interruption is being used for the water flow sensor and the LCD button, they are attached to the IRQ_CH1 and the POWER_ON inputs respectively. To handle all the I/O, the I/O Expander together with the Enclosure Kit LCD and the sensors inputs need to be initialized. 
+An external interruption is being used for the water flow sensor and the LCD button, they are attached to the IRQ_CH1 and the POWER_ON inputs respectively. To handle all the I/Os, the I/O Expander together with the Enclosure Kit LCD and the sensors inputs need to be initialized. 
 
 The loop function is in charge of handling the system's repetitive tasks.
 
@@ -394,11 +394,11 @@ void loop() {
 ```
 
 The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
-Then will read the watermark sensors, and periodically it will measure the battery voltage.
+Then, it will read the watermark sensors and periodically measure the battery voltage.
 
 Every 3 minutes, the Edge Control will request the MKR WAN to send a LoRaWAN® message updating the sensors values in the cloud. 
 
-Finally, from our loop function, we will check the valves states to control them and keep track of their active time.
+Finally, in the loop function, we will check the valves states to control them and keep track of their active time.
 
 ### Arduino MKR WAN 1310 Code
 
@@ -533,7 +533,7 @@ After following the guide you will get two important keys that will be needed fo
 
 As a **gateway** we will be using the [WisGate Edge Lite 2](https://docs.arduino.cc/hardware/wisgate-edge-lite-2), which will provide long-range coverage and access to the network. Learn how to set up yours using this [guide](https://docs.arduino.cc/tutorials/wisgate-edge-lite-2/getting-started).
 
-***If there is coverage of a TTN public gateway in your area, it is not necessary to install yours. You can check your area network [here](https://ttnmapper.org/heatmap/)***
+***If there is coverage of a TTN public gateway in your area, it is not necessary to install yours. You can check your area network [here](https://ttnmapper.org/heatmap/).***
 
 ### The Arduino IoT Cloud Dashboard
 
@@ -564,15 +564,15 @@ Below you can find some additional images and animations showing how the system 
 ![Battery connection](assets/BATTERY.png)
 ![Irrigation in zone three and four](assets/WATER1.gif)
 
-Remember that the system is designed to be scalable and therefore it is possible to control 4 big irrigation zones independently like, for example, different cultivated fields with different crops with different water and soil needs.
+Remember that the system is designed to be scalable; therefore, it is possible to control 4 bigger irrigation zones independently, like, for example, different cultivated fields, each with different crops and, consequently, different water and soil needs.
 
 ## Conclusion
 
 In this application note, you have learned how to build a LoRaWAN® irrigation system to water your crops automatically or manually and monitor the crop's status remotely. Thanks to the soil moisture analysis, you can avoid irrigation when it's not necessary, saving water and avoiding over-irrigation or flooding problems. 
 
-Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the more suitable technology for your application.
+Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the most suitable technology for your application.
 
-In this project LoRaWAN® was used leveraging its capabilities, this technology is perfect for remote deployments where there's no internet connection and for battery-powered devices because of its low energy consumption.
+In this project, LoRaWAN® was used leveraging its capabilities: this technology is perfect for remote deployments where there is no internet connection and for battery-powered devices because of its low energy consumption.
 
 Thanks to its capabilities of controlling different types of actuators and handling a vast variety of input sensors, the Edge Control is a great choice for developing robust and agriculture environment-proof solutions.
 
