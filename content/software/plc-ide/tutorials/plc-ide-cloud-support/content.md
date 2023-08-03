@@ -119,7 +119,7 @@ The cloud variables will later be connected to the 'Shared variables' of the PLC
 
 Once the IoT Cloud Thing has been created successfully, you will have a similar window on IoT Cloud Thing as the following image:
 
-![IoT Cloud Thing with Opta™](assets/plc-ide-cloud-thing.png)
+![IoT Cloud Thing and its variables created for Opta™](assets/plc-ide-cloud-thing.png)
 
 You can now extract the code that will serve as the base for the Arduino sketch for the Opta™ in the PLC IDE. The code can be accessed by going to the full editor. You will need to add some of the lines of the `ThingProperties.h`  The sketch of the example is as follows:
 
