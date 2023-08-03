@@ -129,7 +129,7 @@ The Edge Control is responsible for:
 
 - Measuring the water usage with a water flow sensor.
 - Measuring the soil humidity level using watermark sensors.
-- Controlling the LCD screen of the Edge Control Enclosure kit; where different system variables will be shown, including soil humidity.
+- Controlling the LCD screen of the Edge Control Enclosure kit, where different system variables will be shown, including soil humidity.
 - Deciding whether to irrigate based on soil local humidity.
 
 The MKR WAN 1310 is responsible for:
