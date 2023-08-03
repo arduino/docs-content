@@ -574,7 +574,7 @@ Arduino Edge Control allows you to easily implement this kind of agriculture sys
 
 In this project LoRaWAN® was used leveraging its capabilities, this technology is perfect for remote deployments where there's no internet connection and for battery-powered devices because of its low energy consumption.
 
-Thanks to the Edge Control capabilities of controlling different types of actuators and handling a vast variety of input sensors, it is a great choice for developing robust and agriculture environment-proof solutions.
+Thanks to its capabilities of controlling different types of actuators and handling a vast variety of input sensors, the Edge Control is a great choice for developing robust and agriculture environment-proof solutions.
 
 ### Next Steps
 
