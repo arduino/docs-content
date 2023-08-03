@@ -52,7 +52,7 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 
 ### Understanding the Process
 
-The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for the Opta™. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operation.
+The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for its compatible devices. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operations.
 
 The structure comprises two elements:
 * The PLC IDE defines the device program with its connectivity settings and designed tasks. 
