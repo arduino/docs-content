@@ -25,7 +25,7 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 
 - Learn how the Arduino IoT Cloud and the PLC IDE cooperate for seamless data exchange
 - Learn how to set the workspace environment on the PLC IDE for use with the Arduino IoT Cloud
-- Program an Opta™ device using an example integrating the PLC IDE and IoT Cloud
+- Program a device using an Opta™ as an example integrating the PLC IDE and IoT Cloud
 
 ## Hardware and Software Requirements
 
