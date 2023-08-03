@@ -197,7 +197,7 @@ The successful communication between Opta™ configured with PLC IDE and IoT Clo
 
 ![PLC IDE - Shared 'Input' and 'Output' variables](assets/plc-ide-shared-variable.png)
 
-The '**Inputs**' define variables that will capture the data that comes to the Opta™ device. It is the compilation of variables that the IoT Cloud will send accordingly.
+The '**Inputs**' define variables that will capture the data that comes from the Arduino IoT Cloud through the local Arduino sketch to the Opta™ PLC main program runtime. It is the compilation of variables that the IoT Cloud will send accordingly.
 
 Subsequently, the Green LED will be controlled via IoT Cloud dashboard. So, the variable that will represent the Green LED of the Opta™ will be added to its table.
 
