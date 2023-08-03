@@ -878,6 +878,9 @@ BLEService voltageService("1101");
 BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
 
 const int TERMINAL = A0;
+const long interval = 200; // Delay interval in ms for voltage reading and LED blinking
+
+BLEDevice central;
 
 /**
   Read voltage level from an analog input terminal of an Opta device,
@@ -886,7 +889,6 @@ const int TERMINAL = A0;
   @param none
   @return the voltage value (int).
 */
-
 int readVoltageLevel() {
   int voltage = analogRead(TERMINAL);
   int voltageLevel = map(voltage, 0, 4095, 0, 10);
@@ -908,8 +910,7 @@ void setup() {
   // Initialize the BLE module.
   if (!BLE.begin()) {
     Serial.println("- Starting BLE failed!");
-    while (1)
-      ;
+    while (1); // In case of failure, loop indefinitely.
   }
 
   // Set the local name and advertised service for the BLE module.
@@ -924,44 +925,68 @@ void setup() {
 }
 
 void loop() {
-  // Check for incoming BLE connections.
-  BLEDevice central = BLE.central();
+  // Get the current time since the Arduino started.
+  unsigned long currentMillis = millis();
+  
+  // Static variables to hold the last time the tasks were performed.
+  static unsigned long previousVoltageMillis = 0; // Last time the voltage was read
+  static unsigned long previousLEDMillis = 0; // Last time the LED state changed
+
+  // If the interval has passed, update the LED.
+  if (currentMillis - previousLEDMillis >= interval) {
+    // Save the current time to check against in the next loop iteration.
+    previousLEDMillis = currentMillis;
+
+    // Toggle the state of the LED.
+    digitalWrite(LED_USER, !digitalRead(LED_USER));
+  }
 
   // If a central device is connected.
   if (central) {
-    Serial.print("- Connected to device: ");
-    Serial.println(central.address());
+    if (central.connected()) {
+      // Set the LED color to solid blue when connected.
+      digitalWrite(LED_USER, HIGH);
 
-    // Set the LED color to solid blue when connected.
-    digitalWrite(LED_USER, HIGH);
+      // If the interval has passed, update the voltage level.
+      if (currentMillis - previousVoltageMillis >= interval) {
+        // Save the current time to check against in the next loop iteration.
+        previousVoltageMillis = currentMillis;
 
-    // While the central device is connected.
-    while (central.connected()) {
-      // Read the voltage level and update the BLE characteristic with the voltage level value.
-      int voltageLevel = readVoltageLevel();
+        // Read the voltage level and update the BLE characteristic with the voltage level value.
+        int voltageLevel = readVoltageLevel();
 
-      Serial.print("- Voltage level is: ");
-      Serial.println(voltageLevel);
-      voltageLevelChar.writeValue(voltageLevel);
-
-      delay(200);
+        Serial.print("- Voltage level is: ");
+        Serial.println(voltageLevel);
+        voltageLevelChar.writeValue(voltageLevel);
+      }
+    }
+    else {
+      central = BLE.central();
+      if (central) {
+        Serial.print("- Connected to device: ");
+        Serial.println(central.address());
+      }
+      else {
+        Serial.print("- BLE not connected: ");
+        Serial.println(central.address());
+      }
     }
   }
-
-  // The LED blinks when Bluetooth® is not connected to an external device.
-  digitalWrite(LED_USER, HIGH);
-  delay(200);
-  digitalWrite(LED_USER, LOW);
-  delay(200);
-
-  Serial.print("- BLE not connected: ");
-  Serial.println(central.address());
+  else {
+    central = BLE.central();
+    if (central) {
+      Serial.print("- Connected to device: ");
+      Serial.println(central.address());
+    }
+  }
 }
 ```
 
-After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristic, the `setup()` function initializes the Opta™ device and configures the Bluetooth® Low Energy service and characteristic. The code starts advertising the defined service to allow connections. In the `loop() `function, the code constantly checks for a Bluetooth® Low Energy connection, and when a central device connects, the board's built-in USER LED turns on. Subsequently, the code enters a loop that continuously reads the voltage level from an analog input terminal, maps it to a voltage value between 0 and 10 VDC, prints the voltage level value to the IDE'S Serial Monitor, and transmits it to the central device via the defined Bluetooth® Low Energy characteristic.
+After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristic, the `setup()` function initializes the Opta™ device and sets up the Bluetooth® Low Energy service and characteristic. The sketch then starts advertising the defined service to allow connections.
 
-To learn more about Bluetooth Low Energy® connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+In the `loop()` function, the sketch constantly checks for a Bluetooth® Low Energy connection. When a central device connects to the device, the Opta™'s built-in USER LED stays solidly on, and the sketch begins continuously reading the voltage level from an analog input terminal, mapping it to a voltage value between 0 and 10 VDC, and transmitting it to the central device via the defined Bluetooth® Low Energy characteristic. If no central device is connected, the USER LED blinks regularly. The non-blocking approach of the sketch allows simultaneous tasks on it, such as sensor data reading and LED control.
+
+To learn more about Bluetooth Low Energy® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
 ## Interrupts
 
