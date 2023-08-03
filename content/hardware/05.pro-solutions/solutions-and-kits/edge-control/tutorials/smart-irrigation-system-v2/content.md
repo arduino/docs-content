@@ -564,7 +564,7 @@ Below you can find some additional images and animations showing how the system 
 ![Battery connection](assets/BATTERY.png)
 ![Irrigation in zone three and four](assets/WATER1.gif)
 
-Remember that the system is designed to be scalable and therefore it is possible to control 4 big irrigation zones independently like, for example, different cultivated fields with different crops with different water and soil needs.
+Remember that the system is designed to be scalable; therefore, it is possible to control 4 bigger irrigation zones independently, like, for example, different cultivated fields, each with different crops and, consequently, different water and soil needs.
 
 ## Conclusion
 
