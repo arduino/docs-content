@@ -731,7 +731,13 @@ constexpr auto baudrate { 115200 };
   @param baudrate (int)
 */
 void configureRS485(const int baudrate) {
+    const auto bitduration { 1.f / baudrate };
+    const auto wordlen { 9.6f }; // Or 10.0f depending on the channel configuration
+    const auto preDelayBR { bitduration * wordlen * 3.5f * 1e6 };
+    const auto postDelayBR { bitduration * wordlen * 3.5f * 1e6 }
+
     RS485.begin(baudrate);
+    RS485.setDelays(preDelayBR, postDelayBR);
     RS485.noReceive();
 }
 
@@ -794,145 +800,144 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
 - **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/) right out of the box; let's walk through an example code demonstrating some of the module's capabilities. The code below showcases how to connect to a Wi-Fi® network, check Wi-Fi® status, connect to a server, send HTTP requests, and receive and print HTTP responses, common tasks for an IoT device.
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/) right out of the box; let's walk through an example code demonstrating some of the module's capabilities.
+
+The sketch below enables an Opta™ device to connect to the Internet via a Wi-Fi® connection (just like the [Ethernet example](#ethernet) shown before). Once connected, it performs a GET request to the OpenWeatherMap API to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the ArduinoJson library to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor.
+
+**Note:** You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
+
+![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
+
+Enter the following code on the header file:
+
+```arduino
+char ssid[] = "SECRET_SSID"; // Your network SSID (name)
+char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
+```
+
+The example code is as follows: 
 
 ```arduino
 /**
-  Web Client (Wi-Fi version)
+  Web Client (WiFi version)
   Name: opta_wifi_web_client_example.ino
-  Purpose: This sketch connects an Opta device to a website via Wi-Fi
+  Purpose: This sketch connects an Opta device to OpenWeatherMap API via WiFi
+  and fetches weather data for Turin, Italy.
 
-  @author Arduino Team, modified by Arduino PRO Content Team
-  @version 2.0 31/05/12
+  @author Arduino PRO Content Team
+  @version 1.0 01/06/18
 */
 
-// Include the necessary libraries for Wi-Fi management and HTTP communication.
-#include "WiFi.h"
-#include "WiFiClient.h"
-#include "IPAddress.h"
+// Include necessary libraries
+#include <WiFi.h>
 #include "arduino_secrets.h"
+#include <ArduinoJson.h>
 
-// Define the credentials of the Wi-Fi network to connect to.
-char ssid[] = SECRET_SSID;  // Network SSID
-char pass[] = SECRET_PASS;  // Network password
+// OpenWeatherMap server.
+const char* server = "api.openweathermap.org";
 
-// Define a variable for storing the status of the Wi-Fi connection.
-int status = WL_IDLE_STATUS;
+// Define your OpenWeatherMap API key.
+String my_Api_Key = "YOUR_API_KEY";  
 
-// Define the server to which we'll connect.
-// This can be an IP address or a URL
-char server[] = "www.google.com";
+// Define the city and country for which you want weather data.
+String my_city = "Turin";
+String my_country_code = "IT";
 
-// Initialize the Wi-Fi client object,
-// This will be used to interact with the server.
+// Interval between weather requests (in ms).
+unsigned long last_time = 0;
+unsigned long timer_delay = 10000;
+
+// Define the OpenWeatherMap API endpoint path.
+String path = "/data/2.5/weather?q=" + my_city + "," + my_country_code + "&units=metric&APPID=" + my_Api_Key;
+
+// Initialize the WiFi client library.
 WiFiClient client;
 
+// Set up a JSON document with 1024 bytes capacity.
+StaticJsonDocument<1024> doc;
+
 void setup() {
-  // Begin serial communication at a baud rate of 115200.
+  // Begin serial communication,
+  // Wait for the serial port to connect.
   Serial.begin(115200);
+  while (!Serial);
 
-  // Wait for the serial port to connect,
-  // This is necessary for boards that have native USB.
-  while (!Serial) {}
-
-  // Check for the onboard Wi-Fi module,
-  // If the module isn't found, halt the program.
-  if (WiFi.status() == WL_NO_MODULE) {
-    Serial.println("- Communication with Wi- Fi module failed!");
-    while (true);
-  }
-
-  // Attempt to connect to the defined Wi-Fi network,
-  // Wait for the connection to be established.
-  while (status != WL_CONNECTED) {
-    Serial.print("- Attempting to connect to SSID: ");
+  // Attempt to connect to WiFi network.
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print("- Connecting to WiFi network: ");
     Serial.println(ssid);
-    status = WiFi.begin(ssid, pass);
-    delay(10000);
+    WiFi.begin(ssid, password);
+    delay(5000);
   }
-
-  // Print the Wi-Fi connection status
-  printWifiStatus();
-  
-  // Attempt to connect to the server at port 80 (the standard port for HTTP).
-  // If the connection is successful, print a message and send a HTTP GET request.
-  // If the connection failed, print a diagnostic message.
-  Serial.println("\n- Starting connection to server...");
-  if (client.connect(server, 80)) {
-    Serial.println("- Connected to server!");
-    client.println("GET /search?q=arduino HTTP/1.1");
-    client.println("Host: www.google.com");
-    client.println("Connection: close");
-    client.println();
-  } else {
-    Serial.println("- Connection failed!");
-  }
-}
-
-/**
-  Reads data from the client while there's data available
-
-  @param none
-  @return none
-*/
-void read_response() {
-  uint32_t received_data_num = 0;
-  while (client.available()) {
-
-    // Actual data reception.
-    char c = client.read();
-
-    // Print data to serial port.
-    Serial.print(c);
-
-    // Wrap data to 80 columns.
-    received_data_num++;
-    if (received_data_num % 80 == 0) {
-      Serial.println();
-    }
-  }
+  Serial.println("- Successfully connected to WiFi network!");
+  Serial.println("");
 }
 
 void loop() {
-  // Read and print the server's response.
-  read_response();
+  // Send a new request if the time since the last request is greater than the defined interval.
+  if ((millis() - last_time) > timer_delay) {
+    if (client.connect(server, 80)) {
+      // Send HTTP GET request.
+      client.print("GET ");
+      client.print(path);
+      client.println(" HTTP/1.1");
+      client.print("Host: ");
+      client.println(server);
+      client.println("Connection: close");
+      client.println();
 
-  // If the server has disconnected, disconnect the client and halt the program.
-  if (!client.connected()) {
-    Serial.println();
-    Serial.println("- Disconnecting from server...");
+      // Skip HTTP headers.
+      char endOfHeaders[] = "\r\n\r\n";
+      client.find(endOfHeaders);
+
+      // Parse the JSON response.
+      DeserializationError error = deserializeJson(doc, client);
+      if (error) {
+        // If there's an error in parsing, print it on the Serial Monitor.
+        Serial.print("deserializeJson() failed: ");
+        Serial.println(error.f_str());
+        return;
+      }
+
+      Serial.println("- Weather data:");
+
+      // Fetch and print the weather data.
+      float temp = doc["main"]["temp"];
+      Serial.print("- Temperature (°C): ");
+      Serial.println(temp);
+      
+      int pressure = doc["main"]["pressure"];
+      Serial.print("- Pressure (hPa): ");
+      Serial.println(pressure);
+      
+      int humidity = doc["main"]["humidity"];
+      Serial.print("- Humidity (%): ");
+      Serial.println(humidity);
+
+      float windSpeed = doc["wind"]["speed"];
+      Serial.print("- Wind speed (m/s): ");
+      Serial.println(windSpeed);
+      Serial.println("");
+    }
+    // Disconnect the client
     client.stop();
-    while (true);
+
+    // Update the last_time to the current time
+    last_time = millis();
   }
-}
-
-/**
-  Prints data from the Wi-Fi connection status
-
-  @param none
-  @return none
-*/
-void printWifiStatus() {
-  // Print network SSID
-  Serial.print("- SSID: ");
-  Serial.println(WiFi.SSID());
-
-  // Print board's IP address.
-  IPAddress ip = WiFi.localIP();
-  Serial.print("- IP Address: ");
-  Serial.println(ip);
-
-  // Print signal strength.
-  long rssi = WiFi.RSSI();
-  Serial.print("- Signal strength (RSSI):");
-  Serial.print(rssi);
-  Serial.println(" dBm");
 }
 ```
 
-The sketch starts by including the necessary libraries `WiFi.h` and `WiFiClient.h`, which provide the essential functionalities for Wi-Fi® communication. It then defines the SSID and password for the Wi-Fi® network and establishes the server, "www.google.com," while creating the Wi-Fi® client object to manage the connection. The serial port is initialized in the `setup()` function, and the sketch checks for Wi-Fi® module availability. It attempts to connect to the defined Wi-Fi® network using the specified SSID and password. If the connection is successful, it prints the Wi-Fi® status and tries to connect to the server. 
+The sketch starts by including the `WiFi` and `ArduinoJson` libraries, which provide the necessary Wi-Fi® and JSON handling functionality, respectively. The `setup()` function initiates serial communication for debugging purposes and attempts to connect to a specified Wi-Fi® network. If the connection is not established, the sketch will keep trying until a successful connection is made.
 
-Once connected, it sends a GET request to the server. The `read_response()` function reads data from the client and prints it in wrapped format on the Arduino IDE's Serial Monitor. In the `loop()` function, `read_response()` is continuously called to handle available data. If the server gets disconnected, the client is disconnected, and the sketch enters an infinite loop, halting further execution. The `printWifiStatus()` function is included, which prints the connected network SSID, the board's IP address, and the signal strength (RSSI) on the Arduino IDE's Serial Monitor.
+Once the Wi-Fi® connection is established, the sketch is ready to connect to the OpenWeatherMap API server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query the current weather data for Turin, Italy. The GET request is sent if the Wi-Fi® connection is active and the time since the last request is greater than the defined interval (10 seconds).
+
+The `loop()` function is the heart of the sketch. It checks if the client was able to connect to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response. The parsed data is used to extract key weather parameters such as temperature, pressure, humidity, and wind speed, which are then printed to the Arduino IDE's Serial Monitor. Once the data is printed, the client is disconnected to free up the resources. If the JSON parsing fails for any reason, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
+
+Lastly, the time of the last request is updated to the current time. The process repeats in the `loop()` function, sending an `HTTP GET` request every 10 seconds, as long as the Wi-Fi® connection is maintained. You should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17.png)
+
 
 To learn more about Wi-Fi® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
