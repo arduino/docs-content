@@ -394,7 +394,7 @@ void loop() {
 ```
 
 The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
-Then will read the watermark sensors, and periodically it will measure the battery voltage.
+Then, it will read the watermark sensors and periodically measure the battery voltage.
 
 Every 3 minutes, the Edge Control will request the MKR WAN to send a LoRaWAN® message updating the sensors values in the cloud. 
 
