@@ -107,7 +107,7 @@ You will begin by configuring the IoT Cloud with Opta™ to create a Thing. It w
 
 ***To learn more about how to use the IoT Cloud, please take a look at ["Getting Started With the Arduino IoT Cloud" tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).***
 
-Following cloud variables will be created:
+The following cloud variables will be created:
 
 | **Cloud Variables** |        **Type**       | **Variable Permission** | **Send Values** |
 |:-------------------:|:---------------------:|:-----------------------:|:---------------:|
