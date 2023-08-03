@@ -780,7 +780,7 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
-TThe many nodes connected in a Modbus network, whether RTU or TCP, allow a high degree of flexibility and scalability in constructing automation and control systems.
+The many nodes connected in a Modbus network, whether RTU or TCP, allow a high degree of flexibility and scalability in constructing automation and control systems.
 
 To learn more about the Modbus interface in Opta™ devices, check out our [Getting Started with Modbus RTU on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
 
