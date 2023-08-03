@@ -75,7 +75,7 @@ TODO Create an image focusing on PLCOut and PLCIn
 
 - __PLCIn.Shared_Variable__: Conversely, this variable refers to the data that is being sent to the PLC from the IoT Cloud system. This is input for the PLC program. It could be commands, configuration data, or other information that the IoT Cloud system sends to control or interact with the PLC.
 
-In most industrial IoT applications, the PLC program layer will be responsible for direct control of machinery or processes based on its programming and input it receives, while the IoT Cloud platform will often be used for higher-level management, analytics, and remote control capabilities. The `Shared_Variable` in both cases allows for real-time communication between these two layers.
+In most industrial IoT applications, the PLC program layer will be responsible for direct control of machinery or processes based on its programming, while the IoT Cloud platform will often be used as an HMI for operators, analytics, and remote control capabilities. The `Shared_Variables` commands allow in both cases real-time communication between these two layers.
 
 ## Example Implementation
 
