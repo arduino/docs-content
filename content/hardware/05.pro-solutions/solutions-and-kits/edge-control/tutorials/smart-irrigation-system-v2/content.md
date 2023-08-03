@@ -35,7 +35,7 @@ hardware:
 
 ## Introduction
 
-Agricultural & farm activities are normally carried out in remote environments where having access to consistent electricity power sources and good communication connectivity are a challenge. 
+Agricultural & farm activities are normally carried out in remote environments, where having access to consistent electricity power sources and good communication connectivity is a challenge. 
 
 Smart farming techniques are being implemented more and more due to the importance of optimizing the use of resources while increasing the demand for more efficient, eco-friendly, and profitable crops.
 
