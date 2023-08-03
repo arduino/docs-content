@@ -191,7 +191,7 @@ The PLC IDE configuration will play an important role in establishing successful
 
 Thus, you will learn to configure the 'Shared variables' based on the peripherals and tasks you may assign to the Opta™.
 
-#### Shared Variable Configuration
+#### Shared Variables Configuration
 
 The successful communication between Opta™ configured with PLC IDE and IoT Cloud relies on the 'Shared variables'. The 'Shared variables' is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: 'Inputs' and 'Outputs'.
 
