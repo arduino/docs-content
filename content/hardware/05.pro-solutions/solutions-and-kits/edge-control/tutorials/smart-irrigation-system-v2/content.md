@@ -143,7 +143,7 @@ The communication between both devices is done leveraging the I2C communication 
 
 ### Valves Control
 
-The valves can be controlled manually by using the onboard button, one tap opens the valve one, two taps valve two, and so on. Also, the valves can be controlled automatically by the system when the soil moisture is poor. To do this the "Smart mode" has to be enabled by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+The valves can be controlled manually by using the onboard button, one tap opens the first valve, two taps the second valve, and so on. In addition, the valves can be controlled automatically by the system when the soil moisture is poor. To do so, a "Smart mode" has to be enabled by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
 
 ![Latching valves activation pulse](assets/VALVES_ACTIVATION.png)
 
