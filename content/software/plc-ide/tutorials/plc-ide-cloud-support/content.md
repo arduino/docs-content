@@ -54,7 +54,9 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 
 The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilities for the Opta™. The application field can be expanded thanks to this feature with the needed security elements, ensuring stable industrial operation.
 
-The structure comprises two elements, where PLC IDE defines Opta™ with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
+The structure comprises two elements:
+* The PLC IDE defines the device program with its connectivity settings and designed tasks. 
+* The Arduino IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
 
 TODO Create a new image for explaining the overall structure - follow the image below
 
