@@ -187,7 +187,7 @@ Save this example code for later. We will now proceed with a demonstrative examp
 
 ***Before continuing with the PLC IDE configuration with Opta™, please remember to have the latest PLC IDE with its corresponding tools stated within [Software Requirements](#software-requirements).***
 
-The PLC IDE configuration will play an important role in establishing successful communication with the IoT Cloud. It will require setting onboard features and communication protocol for the Opta™ as usual. But, a proper 'Shared variables' setting will define the communication outcome with the IoT Cloud.
+The PLC IDE configuration will play an important role in establishing successful communication with the IoT Cloud. It will require setting onboard features and the communication protocol for the Opta™ as usual but, additionally, a proper 'Shared variables' setting will define the communication outcome with the IoT Cloud.
 
 Thus, you will learn to configure the 'Shared variables' based on the peripherals and tasks you may assign to the Opta™.
 
