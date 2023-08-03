@@ -163,7 +163,7 @@ The data is shown on dedicated widgets in the Arduino IoT Cloud.
 
 ### Soil Moisture Measurement
 
-Instead of measuring the percentage of water by volume in a given amount of soil, we will be using watermark sensors that are capable of measuring the physical force holding water in the soil. Those measurements are correlated with how difficult it is for the plants to extract water from the soil, being really interesting data for agriculture applications.
+Instead of measuring the percentage of water by volume in a given amount of soil, we will be using watermark sensors that are capable of measuring the physical force holding the water in the soil. Those measurements are correlated with the effort plants have to make to extract water from the soil, a really interesting data for agricultural applications.
 
 The measurement is done in Centibars, and we can use the following readings as a general guideline:
 
