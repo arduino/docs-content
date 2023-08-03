@@ -42,7 +42,7 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 - The [Arduino Cloud](https://cloud.arduino.cc/) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. In case you do not have an account, you can create one for free inside the [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 - [PLC IDE & Arduino IoT Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file compatible with Opta™
 
-***The present tutorial requires latest version of the PLC IDE, with at least version 1.4.0. It goes same with the PLC IDE Tools. You can get the latest version [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools.***
+***The present tutorial requires the latest versions of the PLC IDE & PLC IDE Tools (  >= v 1.4.0). You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools.***
 
 ## PLC IDE & IoT Cloud Integration
 
