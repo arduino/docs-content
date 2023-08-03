@@ -103,7 +103,7 @@ and finally ['System integration test'](#testing-plc-ide-with-iot-cloud).
 
 ### Setting Up the IoT Cloud
 
-You will begin by configuring the IoT Cloud with Opta™ to create a Thing. It will have the Opta™ registered with variables and the dashboard configured to control programmed behaviors.
+You will begin by configuring the IoT Cloud with Opta™ to create a Thing. It will have the Opta™ registered with variables and the dashboard configured to perform different actions.
 
 ***To learn more about how to use the IoT Cloud, please take a look at ["Getting Started With the Arduino IoT Cloud" tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).***
 
