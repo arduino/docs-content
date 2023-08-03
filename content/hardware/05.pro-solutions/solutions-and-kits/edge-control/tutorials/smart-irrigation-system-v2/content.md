@@ -572,7 +572,7 @@ In this application note, you have learned how to build a LoRaWAN® irrigation s
 
 Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the most suitable technology for your application.
 
-In this project LoRaWAN® was used leveraging its capabilities, this technology is perfect for remote deployments where there's no internet connection and for battery-powered devices because of its low energy consumption.
+In this project, LoRaWAN® was used leveraging its capabilities: this technology is perfect for remote deployments where there is no internet connection and for battery-powered devices because of its low energy consumption.
 
 Thanks to its capabilities of controlling different types of actuators and handling a vast variety of input sensors, the Edge Control is a great choice for developing robust and agriculture environment-proof solutions.
 
