@@ -768,6 +768,22 @@ The sketch starts with the `configureRS485()` function, which initializes the RS
 
 To learn more about the RS-485 interface in Opta™ devices, check out our [Getting Started with RS-485 on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-rs485).
 
+### Modbus (RTU/TCP)
+
+Opta™ RS485 and WiFi variants incorporate a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that utilizes RS-485 serial transmission or in its TCP version that operates over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
+
+![Modbus interface in Opta™ devices](assets/user-manual-15.png)
+
+Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using the Arduino Opta's RS-485 physical interface. 
+
+***Opta® does not have internal terminator resistors, so they must be added following the Modbus protocol specification if necessary.***
+
+Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
+
+TThe many nodes connected in a Modbus network, whether RTU or TCP, allow a high degree of flexibility and scalability in constructing automation and control systems.
+
+To learn more about the Modbus interface in Opta™ devices, check out our [Getting Started with Modbus RTU on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
+
 ### Wi-Fi®
 
 Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
