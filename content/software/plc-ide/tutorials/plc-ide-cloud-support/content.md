@@ -17,7 +17,7 @@ software:
 
 The Arduino PLC IDE can help configure network connectivity on the Opta™, offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
 
-TODO Add image, adding the dashboard animation to explain overall idea of the feature
+TODO Add image - A brief overview indicating connection between PLC IDE and IoT Cloud
 
 In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ on the Arduino PLC IDE.
 
@@ -56,7 +56,7 @@ The PLC IDE supports seamless integration with IoT Cloud, enabling IoT capabilit
 
 The structure comprises two elements, where PLC IDE defines Opta™ with connectivity settings and designed tasks; while IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
 
-TODO Create a new image for explaining the structure
+TODO Create a new image for explaining the overall structure - follow the image below
 
 ![PLC IDE with Cloud Support Structure](assets/plc-ide-cloud-structure.png)
 
@@ -64,7 +64,11 @@ The Opta™ is programmed with two layers: PLC program and Arduino sketch. The k
 
 The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
-The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' manages shared variables that facilitate communication between the two systems. Let's break down each:
+The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' manages shared variables that facilitate communication between the two systems.
+
+TODO Create an image focusing on PLCOut and PLCIn
+
+Let's break down each:
 
 - __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the IoT Cloud platform. In other words, it represents output from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
 
@@ -202,7 +206,9 @@ The Green LED of the Opta™ is represented as `in_cloudButton` and indicates th
 
 The '**Outputs**' define the variables that the Opta™ will send to IoT Cloud. It is the compilation of variables that you would want to monitor within the IoT Cloud dashboard.
 
-The analog port reading and the counter value of the Opta™ are the information that we want to display on the IoT Cloud dashboard. The following table shows the variables added to the 'Shared outputs' table.
+The analog port reading and the counter value of the Opta™ are the information that we want to display on the IoT Cloud dashboard. It can be programmed to use Modbus compatible devices and use its information further development.
+
+The following table shows the variables added to the 'Shared outputs' table.
 
 ![PLC IDE - Shared variable outputs](assets/plc-ide-shared-variable-output.png)
 
