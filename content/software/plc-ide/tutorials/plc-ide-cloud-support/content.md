@@ -84,7 +84,7 @@ A demonstrative example will be used to show how both features are integrated. T
 The Opta™ will be programmed to execute the following actions:
 
 - Send analog readings and counter values to IoT Cloud.
-- Green LED of the Opta™ will be controlled via an interactive button found within the IoT Cloud dashboard, which can later be designed to trigger certain actions.
+- The Green LED of the Opta™ will be controlled via an interactive button found within the IoT Cloud dashboard, which can later be designed to trigger certain actions.
 
 The following diagram shows how you will achieve previous objectives for the Opta™ before continuing with sections containing series of instructions in detail.
 
