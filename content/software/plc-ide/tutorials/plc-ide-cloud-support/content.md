@@ -181,7 +181,7 @@ void onCloudButtonChange()  {
 }
 ```
 
-We will now proceed with a demonstrative example to show you how both features are integrated.
+Save this example code for later. We will now proceed with a demonstrative example to show you how to set up the PLC IDE to be connected to the Arduino IoT cloud "Thing" we just created. 
 
 ### Setting Up the PLC IDE
 
