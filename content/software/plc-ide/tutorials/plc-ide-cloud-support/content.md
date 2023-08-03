@@ -15,7 +15,7 @@ software:
 
 ## Overview
 
-The Arduino PLC IDE can help configure network connectivity on the Opta™, offering an edge for industrial applications. Such industrial applications can be enhanced with its integration of IoT capabilities.
+The Arduino PLC IDE offers multiple possibilities to expand the connectivity of your industrial applications. The integration of the PLC IDE with the Arduino IoT Cloud allows you to create advanced HMI for your professional solutions that can be controlled in real-time in multiple ways and devices.
 
 TODO Add image - A brief overview indicating connection between PLC IDE and IoT Cloud
 
