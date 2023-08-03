@@ -86,7 +86,7 @@ The Opta™ will be programmed to execute the following actions:
 - Send analog readings and counter values to IoT Cloud.
 - The Green LED of the Opta™ will be controlled via an interactive button found within the IoT Cloud dashboard, which can later be designed to trigger certain actions.
 
-The following diagram shows how you will achieve previous objectives for the Opta™ before continuing with sections containing series of instructions in detail.
+The following diagram shows the main steps to connect Opta™ to the Arduino IoT cloud using the PLC IDE. In the following sections, you will find how to perform all of these steps in detail.
 
 ![Example Implementation Procedure Overview](assets/plc-ide-cloud-procedure-overview.png)
 
