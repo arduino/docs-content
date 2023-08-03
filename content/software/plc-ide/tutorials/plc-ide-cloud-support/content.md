@@ -40,6 +40,7 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 - [Official Website](https://www.arduino.cc/pro/software-plc-ide) for Arduino PLC IDE.
 - If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
 - The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. The Arduino Cloud account is free and is needed to access its features.
+- [PLC IDE & IoT Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file, compatible with Opta™
 
 ***The present tutorial requires latest version of the PLC IDE, with at least version 1.4.0. It goes same with the PLC IDE Tools. You can get the latest version [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools.***
 
@@ -73,12 +74,27 @@ In most industrial IoT applications, the PLC program layer will be responsible f
 
 ## Example Implementation
 
-We will now continue with a demonstrative example to show you how both features are integrated. The example will consist of an IoT Cloud dashboard and a PLC IDE project file configured with an Opta™.
+A demonstrative example will be used to show you how both features are integrated. The example will consist of an IoT Cloud dashboard and a PLC IDE project file configured for an Opta™.
 
 The Opta™ will be programmed to execute the following actions:
 
 - Send analog readings and counter values to IoT Cloud
 - Green LED of the Opta™ will be controlled via an interactive button found within the IoT Cloud dashboard, which can later be designed to trigger certain actions.
+
+The following diagram shows how you will achieve previous objectives for the Opta™ before continuing with sections containing series of instructions in detail.
+
+![Example Implementation Procedure Overview](assets/plc-ide-cloud-procedure-overview.png)
+
+The example implementation comprises in following sequence:
+
+1. [Setting up the IoT Cloud](#setting-up-the-iot-cloud)
+2. [Setting up the PLC IDE](#setting-up-the-plc-ide)
+3. PLC IDE - [Shared variable configuration](#shared-variable-configuration)
+4. PLC IDE - [Analog port](#analog-port-configuration) & [Green LED](#green-led-configuration) configuration
+5. PLC IDE - [Library management](#library-components)
+6. [Setting up the IoT Cloud dashboard](#iot-cloud-dashboard)
+
+and finally ['System integration test'](#testing-plc-ide-with-iot-cloud).
 
 ### Setting Up the IoT Cloud
 
@@ -90,7 +106,7 @@ Following cloud variables will be created:
 
 | **Cloud Variables** |        **Type**       | **Variable Permission** | **Send Values** |
 |:-------------------:|:---------------------:|:-----------------------:|:---------------:|
-| analog01            | Floating point number | Read Only               | On change       |
+| analog01            | Floating point number | Read Only               | On change       |s
 | counter             | Integer number        | Read Only               | On change       |
 | cloudButton         | Boolean               | Read & Write            | On change       |
 
@@ -367,8 +383,6 @@ out_analog01 := analog01;
 ```
 
 With this PLC program, you are all set to configure the Opta™ device's internal processes and use Arduino sketch to establish a connection with the IoT Cloud.
-
-TODO Expand the following content
 
 ### IoT Cloud Dashboard
 
