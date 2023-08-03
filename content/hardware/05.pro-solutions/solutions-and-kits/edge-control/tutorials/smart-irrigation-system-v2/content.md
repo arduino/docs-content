@@ -398,7 +398,7 @@ Then, it will read the watermark sensors and periodically measure the battery vo
 
 Every 3 minutes, the Edge Control will request the MKR WAN to send a LoRaWAN® message updating the sensors values in the cloud. 
 
-Finally, from our loop function, we will check the valves states to control them and keep track of their active time.
+Finally, in the loop function, we will check the valves states to control them and keep track of their active time.
 
 ### Arduino MKR WAN 1310 Code
 
