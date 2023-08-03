@@ -62,7 +62,7 @@ TODO Create a new image for explaining the overall structure - follow the image 
 
 ![PLC IDE with Cloud Support Structure](assets/plc-ide-cloud-structure.png)
 
-The Opta™ is programmed with two layers: PLC program and Arduino sketch. The key to a successful transmission is to use 'Shared variables' between these two layers.
+The device is programmed in two layers: The PLC main execution program and the Arduino sketch. To communicate and interchange data in a safe way between these two different program layers, the PLC IDE use 'Shared variables' between these two layers.
 The functions of each layer are:
 The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
