@@ -68,7 +68,6 @@ The Arduino sketch will handle data exchange bound between the PLC program layer
 
 TODO Create an image focusing on PLCOut and PLCIn
 
-Let's break down each:
 
 - __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the IoT Cloud platform. In other words, it represents output from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
 
