@@ -103,7 +103,7 @@ The electrical connections of the intended application are shown in the diagram 
 
 - The Edge Control board will be powered with a 12 VDC acid/lead SLA battery connected to BATT+ and GND of J11 respectively. The battery will be recharged with an 18 VDC 180W solar panel connected to SOLAR+ and GND on the same connector.
 
-![Power connection diagram](assets//POWER_CONNECTIONS.png)
+![Power connection diagram](assets/POWER_CONNECTIONS1.png)
 
 - The four solenoid valves will be connected to the Edge Control latching outputs of the J9 connector following the wiring below. 
 
