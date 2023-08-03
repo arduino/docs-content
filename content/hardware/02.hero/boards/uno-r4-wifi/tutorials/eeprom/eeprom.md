@@ -50,13 +50,43 @@ There are several more methods available when working with EEPROM, and you can r
 
 A minimal example on how to **write** to the EEPROM can be found below:
 
-<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/EEPROM/examples/eeprom_write/eeprom_write.ino" className="arduino"/>
+```arduino
+#include <EEPROM.h>
+
+int addr = 0;
+byte value = 100; 
+
+void setup() {
+  EEPROM.write(addr, value);
+}
+void loop(){ 
+}
+```
 
 ### EEPROM Read
 
 A minimal example of how to **read** from the EEPROM can be found below:
 
-<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/EEPROM/examples/eeprom_read/eeprom_read.ino" className="arduino"/>
+```arduino
+#include <EEPROM.h>
+
+int addr = 0;
+byte value;
+
+void setup() {
+  Serial.begin(9600);
+  value = EEPROM.read(addr);
+  while (!Serial) {
+
+  }
+
+  Serial.print("Address 0: ");
+  Serial.println(value);
+}
+
+void loop() {
+}
+```
 
 ## Summary
 
