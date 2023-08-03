@@ -31,7 +31,7 @@ In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ o
 
 ### Hardware Requirements
 
-- [Opta™](https://store.arduino.cc/collections/pro-family) (x1)
+- [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
 - Micro-USB cable (x1)
 
