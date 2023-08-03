@@ -64,9 +64,9 @@ TODO Create a new image for explaining the overall structure - follow the image 
 
 The device is programmed in two layers: The PLC main execution program and the Arduino sketch. To communicate and interchange data in a safe way between these two different program layers, the PLC IDE use 'Shared variables' between these two layers.
 The functions of each layer are:
-The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
+* The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
-The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' manages shared variables that facilitate communication between the two systems.
+* The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. The commands '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' manages the shared variables that facilitate communication between the two systems:
 
 TODO Create an image focusing on PLCOut and PLCIn
 
