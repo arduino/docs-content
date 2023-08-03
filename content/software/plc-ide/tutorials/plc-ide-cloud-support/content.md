@@ -19,7 +19,7 @@ The Arduino PLC IDE offers multiple possibilities to expand the connectivity of 
 
 TODO Add image - A brief overview indicating connection between PLC IDE and IoT Cloud
 
-In this tutorial, you will learn to set and use the IoT Cloud with the Opta™ on the Arduino PLC IDE.
+In this step-by-step tutorial, you will learn how to set and use the Arduino IoT Cloud on the Arduino PLC IDE with your compatible devices creating a small cloud-connected application with Opta™.
 
 ## Goals
 
