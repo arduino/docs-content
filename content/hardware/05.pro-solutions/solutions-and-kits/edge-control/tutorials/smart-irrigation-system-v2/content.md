@@ -570,7 +570,7 @@ Remember that the system is designed to be scalable; therefore, it is possible t
 
 In this application note, you have learned how to build a LoRaWAN® irrigation system to water your crops automatically or manually and monitor the crop's status remotely. Thanks to the soil moisture analysis, you can avoid irrigation when it's not necessary, saving water and avoiding over-irrigation or flooding problems. 
 
-Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the more suitable technology for your application.
+Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. Alongside MKR boards, it can get access to the network using the most suitable technology for your application.
 
 In this project LoRaWAN® was used leveraging its capabilities, this technology is perfect for remote deployments where there's no internet connection and for battery-powered devices because of its low energy consumption.
 
