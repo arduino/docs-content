@@ -115,7 +115,7 @@ The following cloud variables will be created:
 | counter             | Integer number        | Read Only               | On change       |
 | cloudButton         | Boolean               | Read & Write            | On change       |
 
-The cloud variables will later be connected to 'Shared variables' of the PLC IDE environment to establish its communication path.
+The cloud variables will later be connected to the 'Shared variables' of the PLC IDE environment to establish its communication path.
 
 Once the IoT Cloud Thing has been created successfully, you will have a similar window on IoT Cloud Thing as the following image:
 
