@@ -63,7 +63,7 @@ TODO Create a new image for explaining the overall structure - follow the image 
 ![PLC IDE with Cloud Support Structure](assets/plc-ide-cloud-structure.png)
 
 The Opta™ is programmed with two layers: PLC program and Arduino sketch. The key to a successful transmission is to use 'Shared variables' between these two layers.
-
+The functions of each layer are:
 The PLC program layer will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
 The Arduino sketch will handle data exchange bound between the PLC program layer and the IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' manages shared variables that facilitate communication between the two systems.
