@@ -90,7 +90,7 @@ The following diagram shows how you will achieve previous objectives for the Opt
 
 ![Example Implementation Procedure Overview](assets/plc-ide-cloud-procedure-overview.png)
 
-The example implementation comprises in following sequence:
+The example implementation comprises the following sequence:
 
 1. [Setting up the IoT Cloud](#setting-up-the-iot-cloud)
 2. [Setting up the PLC IDE](#setting-up-the-plc-ide)
