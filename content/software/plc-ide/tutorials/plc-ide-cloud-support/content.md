@@ -79,7 +79,7 @@ In most industrial IoT applications, the PLC program layer will be responsible f
 
 ## Example Implementation
 
-A demonstrative example will be used to show you how both features are integrated. The example will consist of an IoT Cloud dashboard and a PLC IDE project file configured for an Opta™.
+A demonstrative example will be used to show how both features are integrated. The example will consist of an IoT Cloud dashboard and a PLC IDE project file configured for an Opta™.
 
 The Opta™ will be programmed to execute the following actions:
 
