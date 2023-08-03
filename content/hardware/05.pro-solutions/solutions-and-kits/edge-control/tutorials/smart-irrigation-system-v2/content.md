@@ -151,7 +151,7 @@ The valves can be controlled manually by using the onboard button, one tap opens
 
 ### Water Usage
 
-The water flow sensor will measure the water used and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
+The water flow sensor will measure the consumed water and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
 
 ![Water flow sensor output signal](assets/FLOW_SENSOR.png)
 
