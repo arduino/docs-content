@@ -171,7 +171,7 @@ The measurement is done in Centibars, and we can use the following readings as a
 - **10-30 Centibars**: Soil is adequately wet (except coarse sands, which are drying)
 - **30-60 Centibars**: Usual range for irrigation (most soils)
 - **60-100 Centibars**: Usual range for irrigation in heavy clay
-- **100-200 Centibars**: Soil is becoming dangerously dry- proceed with caution!
+- **100-200 Centibars**: Soil is becoming dangerously dry - Proceed with caution!
 
 ### Arduino Edge Control Code
 
