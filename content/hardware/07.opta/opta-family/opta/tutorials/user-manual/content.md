@@ -164,7 +164,7 @@ As shown in the image below, the first four terminals, from left to right, are O
 
 ![Power supply terminals in Opta™ devices](assets/user-manual-8.png)
 
-***For use with Opta devices, we recommend the official Finder 78.12.1.230.2400 power supply. This power supply was designed to provide stable +24 VDC despite consistently fluctuating current draw.***
+***For use with Opta™ devices, we recommend the official Finder 78.12.1.230.2400 power supply. This power supply was designed to provide stable +24 VDC despite consistently fluctuating current draw.***
 
 ### Programmable Inputs
 
@@ -578,6 +578,7 @@ The sketch below enables an Opta™ device to connect to the Internet via an Eth
   Name: opta_ethernet_web_client_example.ino
   Purpose: This sketch connects an Opta device to OpenWeatherMap API via Ethernet
   and fetches weather data for Turin, Italy.
+
   @author Arduino PRO Content Team
   @version 1.0 01/06/18
 */
@@ -698,7 +699,74 @@ To learn more about Ethernet connectivity in Opta devices, check out our [Blueto
 
 ### RS-485
 
-Opta™ RS485 and WiFi variants have a built-in RS-485 interface. 
+Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the construction of robust and reliable data transmission systems. RS-485 interface is still the most widely used protocol for Point Of Sale (POS), industrial, and telecommunications applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the lines.
+
+![RS-485 interface in Opta™ devices](assets/user-manual-15.png)
+
+***Opta™ RS485 and WiFi variants RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
+
+To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
+
+```arduino
+/*
+  Opta's™ Basic RS-485 Communication
+  Name: opta_basic_rs485_example.ino
+  Purpose: This sketch tests the RS-485 interface of 
+  Opta RS485 and Opta WiFi devices.
+
+  @author Arduino PRO Content Team
+  @version 2.0 22/07/23
+*/
+#include <ArduinoRS485.h>
+
+// Set the baudrate to be used by the RS-485 interface.
+constexpr auto baudrate { 115200 };
+
+/**
+  Configure the RS-485 interface. It initializes the
+  interface with the specified baud rate and explicitly 
+  disables data reception to avoid potential data 
+  collision in this half-duplex communication standard.
+
+  @param baudrate (int)
+*/
+void configureRS485(const int baudrate) {
+    RS485.begin(baudrate);
+    RS485.noReceive();
+}
+
+/**
+  Send a text message through the RS485 interface. Writes 
+  the intended message to the transmission buffer, appends
+  carriage return and newline characters for message 
+  termination, and finally ends the transmission. 
+
+  @param message (char)
+*/
+size_t printlnRS485(char* message) {
+    RS485.beginTransmission();
+    auto len = strlen(message);
+    RS485.write(message, len);
+    RS485.write('\r');
+    RS485.write('\n');
+    RS485.endTransmission();
+}
+
+void setup() {
+    configureRS485(baudrate);
+    printlnRS485("- RS-485 interface configured!");
+}
+
+void loop() {
+    delay(2000);
+    // Wait for two seconds and then sends a test message via the RS485 interface.
+    printlnRS485("- This is a message transmitted via RS-485!");
+}
+```
+
+The sketch starts with the `configureRS485()` function, which initializes the RS-485 interface with the defined baud rate and turns off data receiving. The `printlnRS485()` function handles the transmission of text messages. It starts the transmission, sends the message followed by a carriage return and newline character, and ends the transmission. The `setup()` function calls the `configureRS485()` function to configure the RS-485 interface and then sends a confirmation message. The `loop()` function repeatedly sends a message every two seconds using the `printlnRS485()` function.
+
+To learn more about the RS-485 interface in Opta™ devices, check out our [Getting Started with RS-485 on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-rs485).
 
 ### Wi-Fi®
 
@@ -850,7 +918,7 @@ The sketch starts by including the necessary libraries `WiFi.h` and `WiFiClient.
 
 Once connected, it sends a GET request to the server. The `read_response()` function reads data from the client and prints it in wrapped format on the Arduino IDE's Serial Monitor. In the `loop()` function, `read_response()` is continuously called to handle available data. If the server gets disconnected, the client is disconnected, and the sketch enters an infinite loop, halting further execution. The `printWifiStatus()` function is included, which prints the connected network SSID, the board's IP address, and the signal strength (RSSI) on the Arduino IDE's Serial Monitor.
 
-To learn more about Wi-Fi® connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+To learn more about Wi-Fi® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
 ### Bluetooth Low Energy®
 
@@ -988,8 +1056,7 @@ In the `loop()` function, the sketch constantly checks for a Bluetooth® Low Ene
 
 You should be able now to connect to your Opta™ using a central device. The Bluetooth® Low Energy service and characteristic information are shown in the image below using the nRF Connect for Mobile app.
 
-
-![Programmable input terminals in Opta™ devices](assets/user-manual-14.png)
+![Bluetooth® Low Energy service and characteristic information from an Opta™ device](assets/user-manual-14.png)
 
 To learn more about Bluetooth Low Energy® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
@@ -1097,7 +1164,7 @@ void changeLights() {
 }
 ```
 
-To learn more about interrupts in Opta devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
+To learn more about interrupts in Opta™ devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
 ## Real-Time Clock
 
