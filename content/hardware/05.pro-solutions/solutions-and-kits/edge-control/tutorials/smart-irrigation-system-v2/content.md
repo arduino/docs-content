@@ -551,8 +551,6 @@ Within the Arduino IoT Cloud's dashboard, the system variables can be monitored 
 
 The dashboard is easily accessible from a browser, mobile phone or tablet, allowing a user to receive updates on the irrigation status from anywhere. 
 
- Due to LoRaWAN® properties, the communication between the device and the Arduino Cloud is not in real-time, it is not recommended to control the valves remotely from the Arduino Cloud.
-
 ## Full Smart Irrigation System Example
 
 All the necessary files to replicate this application note can be found below:
