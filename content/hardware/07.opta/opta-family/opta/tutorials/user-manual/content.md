@@ -703,9 +703,16 @@ Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the c
 
 ![RS-485 interface in Opta™ devices](assets/user-manual-15.png)
 
-RS-485 terminals are mapped as described in the following table:
-
 ***Opta™ RS485 and WiFi variants RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
+
+RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as described in the following table:
+
+| **EIA-485 Specification Labels** | **Opta™ Labels** |
+|:--------------------------------:|:----------------:|
+|                `A`               |      `A(-)`      |
+|                `B`               |      `B(+)`      |
+
+***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal, and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
 
 To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
 
@@ -788,7 +795,7 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
-The many nodes connected in a Modbus network, whether RTU or TCP, allow a high degree of flexibility and scalability in constructing automation and control systems.
+The many nodes connected in a Modbus network, whether RTU or TCP, allow high flexibility and scalability in constructing automation and control systems.
 
 To learn more about the Modbus interface in Opta™ devices, check out our [Getting Started with Modbus RTU on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
 
