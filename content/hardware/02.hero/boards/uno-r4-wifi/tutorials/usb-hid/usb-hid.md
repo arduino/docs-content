@@ -38,6 +38,8 @@ To turn your board into an HID, you can use the **keyboard/mouse** API that is b
 
 In the section below, you will a couple of useful examples to get you started!
 
+***Note: In certain cases, uploading a sketch that turns your board into an HID device will occupy the boards communication with the computer, making it temporarily unavailable for a new sketch. If you find that you cannot upload a new sketch, try quickly double tapping the reset button. This puts the board in bootloader-mode, a state where it is turned on and listening for a new sketch, without running the current one.***
+
 ## Keyboard
 
 To use keyboard functionalities, we need to include the library at the top of our sketch. The Keyboard class contains several methods that are useful to emulate a keyboard.
