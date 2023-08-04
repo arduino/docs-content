@@ -425,7 +425,7 @@ The animation below shows a simple active desktop dashboard:
 
 The mobile dashboard is also available if on-demand monitoring and actuation is needed:
 
-![Arduino IoT Cloud mobile dashboard preview animation](assets/plc-ide-cloud-mobile.gif)
+![Arduino IoT Cloud mobile dashboard preview animation](assets/plc-ide-cloud-dashboard-mobile.gif)
 
 ***If Opta™ fails to communicate with the Arduino IoT Cloud after configuration, please use the `WiFiFirmwareUpdater` to update Opta™ with the latest network firmware version.***
 
