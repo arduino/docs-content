@@ -17,8 +17,6 @@ software:
 
 The Arduino PLC IDE offers multiple possibilities to expand the connectivity of your industrial applications. The integration of the PLC IDE with the Arduino IoT Cloud allows you to create advanced HMI for your professional solutions that can be controlled in real-time in multiple ways and devices.
 
-TODO Add image - A brief overview indicating connection between PLC IDE and Arduino IoT Cloud
-
 In this comprehensive tutorial, you will learn how to integrate and utilize the Arduino IoT Cloud with the Arduino PLC IDE. The tutorial covers the process of connecting your compatible devices and creating a compact, cloud-connected application using Opta™.
 
 ## Goals
@@ -64,8 +62,6 @@ The structure comprises two elements:
 * The PLC IDE defines the device program with its connectivity settings and designed tasks.
 * The Arduino IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
 
-TODO Create a new image for explaining the overall structure - follow the image below
-
 ![Dynamics of PLC IDE with Cloud Support Workflow](assets/plc-ide-cloud-structure.png)
 
 The device is programmed in two layers: The PLC main execution program and the Arduino sketch. To communicate and interchange data in a safe way between these two different program layers, the PLC IDE use 'Shared variables' between these two layers.
@@ -74,8 +70,6 @@ The functions of each layer are:
 * The *PLC program layer* will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
 * The *Arduino sketch* will handle data exchange bound between the PLC program layer and the Arduino IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' methods manage the shared variables that facilitate communication between the two systems:
-
-TODO Create an image focusing on PLCOut and PLCIn
 
 - __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the Arduino sketch layer, which will be sent to Arduino IoT Cloud.
   
@@ -259,7 +253,7 @@ The user programmable LED of Opta™ is configurable under `Resources > Opta > L
 
 ![PLC IDE - LED outputs mapping table](assets/plc-ide-led-output-mapping.png)
 
-In this case, the `userLed` is assigned as the variable that will represent the user programmable LED of Opta™. The `userLed` is a boolean type variable as well as the `in_cloudButton`. It will be matched inside the PLC program to pass the boolean state per the command sent from the Arduino IoT Cloud dashboard.
+In this case, the `userLed` is assigned as the variable that will represent the user programmable LED of Opta™ that emits blue light. The `userLed` is a boolean type variable as well as the `in_cloudButton`. It will be matched inside the PLC program to pass the boolean state per the command sent from the Arduino IoT Cloud dashboard.
 
 #### Library Components
 
@@ -399,7 +393,7 @@ out_analog01 := analog01;
 
 ```
 
-With this PLC program, you are all set to configure Opta™ device's internal processes and use Arduino sketch to establish a connection with the Arduino IoT Cloud.
+With this PLC program, we are all set to configure Opta™ device's internal processes and use Arduino sketch to establish a connection with the Arduino IoT Cloud.
 
 ### Arduino IoT Cloud Dashboard
 
@@ -415,12 +409,18 @@ The complete example project file for PLC IDE can be downloaded [here](assets/Op
 
 ***The first compilation process may take some time to finish. It can take upto 7 minutes or more depending on the environment.***
 
-Once you have successfully configured Opta™ and the Arduino IoT Cloud dashboard, the following behaviors are expected to be observed:
+Once we have successfully configured Opta™ with PLC IDE and established communication with the Arduino IoT Cloud dashboard, we have following tasks in action:
 
 - Arduino IoT Cloud dashboard displays the analog port number one reading and counter value of the connected Opta™
-- user programmable LED of Opta™ can be controlled using the button found within the Arduino IoT Cloud dashboard
+- The user programmable LED of Opta™ can be controlled using the button found within the Arduino IoT Cloud dashboard
+
+The animation below shows a simple active desktop dashboard:
 
 ![Arduino IoT Cloud dashboard preview animation](assets/plc-ide-cloud-preview.gif)
+
+The mobile dashboard is also available if on-demand monitoring and actuation is needed:
+
+![Arduino IoT Cloud mobile dashboard preview animation](assets/plc-ide-cloud-mobile.gif)
 
 ***If Opta™ fails to communicate with the Arduino IoT Cloud after configuration, please use the `WiFiFirmwareUpdater` to update Opta™ with the latest network firmware version.***
 
