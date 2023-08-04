@@ -97,30 +97,13 @@ The following diagram shows the main steps to connect Opta™ to the Arduino IoT
 
 The example implementation comprises the following sequence:
 
-- [Overview](#overview)
-- [Goals](#goals)
-- [Hardware and Software Requirements](#hardware-and-software-requirements)
-  - [Hardware Requirements](#hardware-requirements)
-  - [Software Requirements](#software-requirements)
-- [PLC IDE \& Arduino IoT Cloud Integration](#plc-ide--arduino-iot-cloud-integration)
-  - [Understanding the Process](#understanding-the-process)
-- [Example Implementation](#example-implementation)
-  - [Setting Up the Arduino IoT Cloud](#setting-up-the-arduino-iot-cloud)
-  - [Setting Up the PLC IDE](#setting-up-the-plc-ide)
-    - [Shared Variables Configuration](#shared-variables-configuration)
-    - [Analog Port Configuration](#analog-port-configuration)
-    - [User Programmable LED Configuration](#user-programmable-led-configuration)
-    - [Library Components](#library-components)
-    - [Arduino Sketch](#arduino-sketch)
-    - [PLC Program](#plc-program)
-  - [Arduino IoT Cloud Dashboard](#arduino-iot-cloud-dashboard)
-  - [Testing PLC IDE with Arduino IoT Cloud](#testing-plc-ide-with-arduino-iot-cloud)
-- [Conclusion](#conclusion)
-  - [Next Steps](#next-steps)
-- [Support](#support)
-  - [Help Center](#help-center)
-  - [Forum](#forum)
-  - [Contact Us](#contact-us)
+1. [Setting up the Arduino IoT Cloud](#setting-up-the-arduino-iot-cloud)
+2. [Setting up the PLC IDE](#setting-up-the-plc-ide)
+   1. [Shared variables configuration](#shared-variables-configuration)
+   2. [Analog port](#analog-port-configuration) & [user programmable LED](#user-programmable-led-configuration) configuration
+   3. [Library management](#library-components)
+3. [Setting up the Arduino IoT Cloud dashboard](#arduino-iot-cloud-dashboard)
+4. [System integration test](#testing-plc-ide-with-iot-cloud)
 
 ### Setting Up the Arduino IoT Cloud
 
