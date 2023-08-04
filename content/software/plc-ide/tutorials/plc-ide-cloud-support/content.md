@@ -5,7 +5,7 @@ difficulty: beginner
 tags:
   - Opta™
   - PLC IDE
-author: 'Taddy Chung and José Bagur'
+author: 'Taddy Chung, José Bagur and Giampaolo Mancini'
 hardware:
   - hardware/07.opta/opta-family/opta
 software:
@@ -31,7 +31,6 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 
 - [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
-- Micro-USB cable (x1)
 
 ### Software Requirements
 
