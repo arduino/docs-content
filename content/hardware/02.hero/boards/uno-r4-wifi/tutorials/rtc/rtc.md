@@ -5,6 +5,8 @@ tags:
   - RTC
   - Alarm
 author: 'Karl Söderby'
+hardware:
+  - hardware/02.hero/boards/uno-r4-wifi
 ---
 
 In this tutorial you will learn how to access the real-time clock (RTC) on an **Arduino UNO R4 WiFi** board. The RTC is embedded in the UNO R4 WiFi's microcontroller (RA4M1).
