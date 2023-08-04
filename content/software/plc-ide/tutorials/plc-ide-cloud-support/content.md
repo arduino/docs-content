@@ -79,6 +79,8 @@ The functions of each layer are:
   
   This is input for the PLC program. It could be commands, configuration data, or other information that the Arduino IoT Cloud system sends to control or interact with the PLC.
 
+![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
+
 In most industrial IoT applications, the PLC program layer will be responsible for direct control of machinery or processes based on its programming, while the Arduino IoT Cloud platform will often be used as an HMI for operators, analytics, and remote control capabilities. The `Shared_Variables` commands allow in both cases real-time communication between these two layers.
 
 ## Example Implementation
