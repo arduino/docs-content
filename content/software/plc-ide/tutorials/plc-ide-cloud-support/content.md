@@ -38,9 +38,10 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 - [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
 - The [Arduino Cloud](https://cloud.arduino.cc/) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. In case you do not have an account, you can create one for free inside the [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
+- To ensure optimal Wi-Fi® connectivity on Opta™, please use the `WiFiFirmwareUpdater` to update with the latest network firmware version. This can be done by going `Examples -> STM32H747_System -> WiFiFirmwareUpdater` on Arduino IDE 2. Additionally, please ensure that you have the latest __Arduino Mbed OS Opta Boards__ version.
 - [PLC IDE & Arduino IoT Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file compatible with Opta™
 
-***The present tutorial requires the latest versions of the PLC IDE & PLC IDE Tools ( >= v 1.4.0 ). You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino® PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
+***The present tutorial requires the latest versions of the PLC IDE & PLC IDE Tools ( >= v 1.0.4 ). You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino® PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
 
 ## PLC IDE & Arduino IoT Cloud Integration
 
@@ -91,7 +92,7 @@ Opta™ will be programmed to execute the following actions:
 - Send analog readings and counter values to Arduino IoT Cloud.
 - The user programmable LED of Opta™ will be controlled via an interactive button found within the Arduino IoT Cloud dashboard, which can later be designed to trigger certain actions.
 
-The following diagram shows the main steps to connect Opta™ to the Arduino IoT cloud using the PLC IDE. In the following sections, you will find how to perform all of these steps in detail.
+The following diagram shows the main steps to connect Opta™ to the Arduino IoT Cloud using the PLC IDE. In the following sections, you will find how to perform all of these steps in detail.
 
 ![Example Implementation Procedure Overview](assets/plc-ide-cloud-procedure-overview.png)
 
@@ -131,8 +132,8 @@ We can now extract the code that will serve as the base for the Arduino sketch f
 #include <ArduinoIoTCloud.h>
 #include <Arduino_ConnectionHandler.h>
 
-const char SSID[]     = SECRET_SSID;    // Network SSID (name)
-const char PASS[]     = SECRET_OPTIONAL_PASS;    // Network password (use for WPA, or use as key for WEP)
+const char SSID[]     = "SECRET_SSID";    // Network SSID (name)
+const char PASS[]     = "SECRET_OPTIONAL_PASS";    // Network password (use for WPA, or use as key for WEP)
 
 void onCloudButtonChange();
 
@@ -222,7 +223,7 @@ The shared output variables are indicated with an `out` tag and represent the fo
 - `out_analog01`: Analog port number one reading
 - `out_counter` : Counter value
 
-The same variable name is used to maintain variable relationship and simplicity with the Cloud variables that we have defined [here](#setting-up-the-iot-cloud) previously.
+The same variable name is used to maintain variable relationship and simplicity with the Cloud variables that we have defined [here](#setting-up-the-arduino-iot-cloud) previously.
 
 Depending on the project's development requirements, you can add all the variables that will be used to exchange information with the Arduino IoT Cloud.
 
