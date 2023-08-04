@@ -703,6 +703,8 @@ Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the c
 
 ![RS-485 interface in Opta™ devices](assets/user-manual-15.png)
 
+RS-485 terminals are mapped as described in the following table:
+
 ***Opta™ RS485 and WiFi variants RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
 
 To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
@@ -938,7 +940,7 @@ Lastly, the time of the last request is updated to the current time. The process
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17.png)
 
-You can download the example code [here](assets/opta_wifi_web_client_example.rar). To learn more about Wi-Fi® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+You can download the example code [here](assets/opta_wifi_web_client_example.zip). To learn more about Wi-Fi® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
 ### Bluetooth Low Energy®
 
