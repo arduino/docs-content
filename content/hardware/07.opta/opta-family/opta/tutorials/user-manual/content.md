@@ -384,7 +384,7 @@ void loop() {
 
 You should see a Knight Rider-style "scanning" effect with Opta™'s user LEDs.
 
-![Opta™ Knight Rider secuence](assets/user-manual-21.gif)
+![Opta™ Knight Rider scanning effect](assets/user-manual-21.gif)
 
 ## Actuators 
 
