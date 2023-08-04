@@ -62,6 +62,7 @@ The structure comprises two elements:
 * The PLC IDE defines the device program with its connectivity settings and designed tasks.
 * The Arduino IoT Cloud processes information exchange with the Arduino layer of the PRO solution devices.
 
+![Dynamics of PLC IDE with Cloud Support Workflow](assets/plc-ide-iot-cloud-img_01.png)
 
 The device is programmed in two layers: The PLC main execution program and the Arduino sketch. To communicate and interchange data in a safe way between these two different program layers, the PLC IDE use 'Shared variables' between these two layers.
 The functions of each layer are:
