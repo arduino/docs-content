@@ -126,6 +126,8 @@ To upload the code to your Opta™ device, click the **Verify** button to compil
 
 You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. 
 
+![Opta™ blink](assets/user-manual-19.gif)
+
 With Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
 ```arduino
@@ -491,6 +493,9 @@ void changeLights() {
   }
 }
 ```
+You should be able now to control the sequence of status LEDs by pressing Opta™'s programmable user button.
+
+![Opta™ user button](assets/user-manual-22.gif)
 
 ### Relays
 
