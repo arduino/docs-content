@@ -146,6 +146,8 @@ void loop() {
 
 You should see the blue LED on top of your device's USER button turn on for one second, then off for one second, repeatedly. 
 
+![Opta™ blink](assets/user-manual-20.gif)
+
 ## USB®-C Port
 
 Opta™ has an **onboard USB®-C port** that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
@@ -379,6 +381,10 @@ void loop() {
   }
 }
 ```
+
+You should see a Knight Rider-style "scanning" effect with Opta™'s user LEDs.
+
+![Opta™ Knight Rider secuence](assets/user-manual-21.gif)
 
 ## Actuators 
 
