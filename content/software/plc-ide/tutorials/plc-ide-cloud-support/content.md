@@ -126,7 +126,11 @@ Once the Arduino IoT Cloud Thing has been created successfully, we will have a s
 
 ![Arduino IoT Cloud Thing and Cloud variables for Opta™](assets/plc-ide-cloud-thing.png)
 
-We can now extract the code that will serve as the base for the Arduino sketch for Opta™ in the PLC IDE. The code can be accessed by going to the full editor. It will require some of the lines from the `ThingProperties.h`. The base sketch of the example is as follows:
+We can now extract the code that will serve as the base for the Arduino sketch for Opta™ in the PLC IDE. The code can be accessed by going to the full editor. It will require some of the lines from the `ThingProperties.h`. Please follow `Things -> Created Thing -> Sketch -> Open full editor` to get to the full editor window.
+
+![Arduino IoT Cloud Full Editor](assets/iot-cloud-full-editor.png)
+
+The base sketch of the exampl will be as follows:
 
 ```arduino
 #include <ArduinoIoTCloud.h>
@@ -141,8 +145,7 @@ float analog01;
 int counter;
 bool cloudButton;
 
-WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
-
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PA
 void setup() {
   // Initialize serial and wait for port to open:
   Serial.begin(9600);
