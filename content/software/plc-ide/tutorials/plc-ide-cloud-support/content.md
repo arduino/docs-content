@@ -98,9 +98,9 @@ The example implementation comprises the following sequence:
 
 1. [Setting up the Arduino IoT Cloud](#setting-up-the-arduino-iot-cloud)
 2. [Setting up the PLC IDE](#setting-up-the-plc-ide)
-   1. PLC IDE - [Shared variables configuration](#shared-variables-configuration)
-   2. PLC IDE - [Analog port](#analog-port-configuration) & [user programmable LED](#user-programmable-led-configuration) configuration
-   3. PLC IDE - [Library management](#library-components)
+   1. [Shared variables configuration](#shared-variables-configuration)
+   2. [Analog port](#analog-port-configuration) & [user programmable LED](#user-programmable-led-configuration) configuration
+   3. [Library management](#library-components)
 3. [Setting up the Arduino IoT Cloud dashboard](#arduino-iot-cloud-dashboard)
 4. [System integration test](#testing-plc-ide-with-iot-cloud)
 
