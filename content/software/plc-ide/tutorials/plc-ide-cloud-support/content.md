@@ -207,11 +207,11 @@ The successful communication between Opta™ configured with PLC IDE and Arduino
 
 The '**Inputs**' define variables that will capture the data that comes from the Arduino IoT Cloud through the local Arduino sketch to Opta™ PLC main program runtime. It is the compilation of variables that the Arduino IoT Cloud will send accordingly.
 
-Subsequently, the user programmable LED will be controlled via Arduino IoT Cloud dashboard. So, the variable that will represent the user programmable LED of Opta™ will be added to its table.
+Subsequently, the user programmable LED will be controlled via Arduino IoT Cloud dashboard. It will emit Blue light and to use the LED, we will need to define a variable so that it can be assigned later to update state according to LED state.
 
 ![PLC IDE - Shared inputs](assets/plc-ide-shared-variable-input.png)
 
-The user programmable LED of Opta™ is represented as `in_cloudButton` and indicates that is an input variable with the `in` tag.
+The `in_cloudButton` will represent user programmable LED of Opta™ as a two state variable and indicates that is an input variable with the `in` tag.
 
 The '**Outputs**' define the variables that Opta™ will send to Arduino IoT Cloud. It is the compilation of variables that you would want to monitor within the Arduino IoT Cloud dashboard.
 
