@@ -207,7 +207,7 @@ The successful communication between Opta™ configured with PLC IDE and Arduino
 
 The '**Inputs**' define variables that will capture the data that comes from the Arduino IoT Cloud through the local Arduino sketch to Opta™ PLC main program runtime. It is the compilation of variables that the Arduino IoT Cloud will send accordingly.
 
-Subsequently, the user programmable LED will be controlled via Arduino IoT Cloud dashboard. It will emit Blue light and to use the LED, we will need to define a variable so that it can be assigned later to update state according to LED state.
+Subsequently, the user programmable LED will be controlled via Arduino IoT Cloud dashboard. We will define a variable so that it can be assigned later to update LED state variable accordingly.
 
 ![PLC IDE - Shared inputs](assets/plc-ide-shared-variable-input.png)
 
@@ -265,6 +265,17 @@ In this case, the `userLed` is assigned as the variable that will represent the 
 The Library section would be where you could find various pre-written codes or functions specific to PLC operations. It could include libraries for handling several industrial protocols, dealing with specific types of I/O, or even specialized functions for certain control systems. It makes the development process more efficient by providing ready-to-use codes, saving time and effort.
 
 In the context of the PLC IDE, the libraries will need to be added manually under the `Sketch Libraries` found within the 'Resources' tab. These libraries are required to manage Arduino IoT Cloud connection and it is as follows:
+
+|      **Library Name**     | **Version** |
+|:-------------------------:|:-----------:|
+| ArduinoIoTCloud           | 1.11.2      |
+| Arduino_ConnectionHandler | 0.7.6       |
+| ArduinoECCX08             | 1.3.7       |
+| ArduinoMqttClient         | 0.1.7       |
+| Arduini_DebugUtils        | 1.4.0       |
+| Arduino_Portenta_OTA      | 1.1.3       |
+
+Once the libraries are in place within `Sketch Libraries`, we should have similar table as the following image:
 
 ![PLC IDE - Required libraries for Arduino IoT Cloud integration](assets/plc-ide-libraries.png)
 
