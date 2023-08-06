@@ -38,7 +38,7 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 - [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.
 - The [Arduino Cloud](https://cloud.arduino.cc/) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. In case you do not have an account, you can create one for free inside the [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
-- To ensure optimal Wi-Fi® connectivity on Opta™, please use the `WiFiFirmwareUpdater` to update with the latest network firmware version. This can be done by going `Examples -> STM32H747_System -> WiFiFirmwareUpdater` on Arduino IDE 2. Additionally, please ensure that you have the latest __Arduino Mbed OS Opta Boards__ version.
+- To ensure optimal Wi-Fi® connectivity on Opta™, please use the `WiFiFirmwareUpdater` to update with the latest network firmware version. This can be done by going to `Examples -> STM32H747_System -> WiFiFirmwareUpdater` on Arduino IDE 2. Additionally, please ensure that you have the latest __Arduino Mbed OS Opta Boards__ version, which can be checked under `Boards Manager`.
 - [PLC IDE & Arduino IoT Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file compatible with Opta™
 
 ***The present tutorial requires the latest versions of the PLC IDE & PLC IDE Tools ( >= v 1.0.4 ). You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino® PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
@@ -266,8 +266,8 @@ The Library section would be where you could find various pre-written codes or f
 
 In the context of the PLC IDE, the libraries will need to be added manually under the `Sketch Libraries` found within the 'Resources' tab. These libraries are required to manage Arduino IoT Cloud connection and it is as follows:
 
-|      **Library Name**     | **Version** |
-|:-------------------------:|:-----------:|
+| **Library Name**          | **Version** |
+|---------------------------|-------------|
 | ArduinoIoTCloud           | 1.11.2      |
 | Arduino_ConnectionHandler | 0.7.6       |
 | ArduinoECCX08             | 1.3.7       |
@@ -382,6 +382,8 @@ void onCloudButtonChange()  {
 }
 ```
 
+The `NETWORK_SSID` and `NETWORK_PASS` requires to be manually defined. Please replace these parameters to establish connection with the desired network. Also, the parameters must be defined in between the quotation marks, replacing `NETWORK_SSID` and `NETWORK_PASS` fields.
+
 #### PLC Program
 
 The Arduino sketch is ready, and it needs a PLC program that will control the onboard features of Opta™ and data readings.
@@ -410,6 +412,10 @@ out_analog01 := analog01;
 ```
 
 With this PLC program, we are all set to configure Opta™ device's internal processes and use Arduino sketch to establish a connection with the Arduino IoT Cloud.
+
+For a good practice, we will set the present PLC program as a 'Fast Task'. It can be done by adding the `main`, which is the present PLC program we will use, to `Tasks -> Fast` under `Project` window tab.
+
+![PLC IDE - Fast Task assignment](assets/plc-ide-fast-task.png)
 
 ### Arduino IoT Cloud Dashboard
 
