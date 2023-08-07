@@ -1,6 +1,6 @@
 ---
 title: 'Using PLC IDE With Arduino® IoT Cloud'
-description: "Learn how to integrate Opta™ with the Arduino IoT Cloud using the PLC IDE."
+description: "Learn how to integrate PLC IDE compatible devices with the Arduino IoT Cloud."
 difficulty: beginner 
 tags:
   - Opta™
