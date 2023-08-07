@@ -107,7 +107,7 @@ The example implementation comprises the following sequence:
    2. [Analog port](#analog-port-configuration) & [user programmable LED](#user-programmable-led-configuration) configuration
    3. [Library management](#library-components)
 3. [Setting up the Arduino IoT Cloud dashboard](#arduino-iot-cloud-dashboard)
-4. [System integration test](#testing-plc-ide-with-iot-cloud)
+4. [System integration test](#testing-plc-ide-with-arduino-iot-cloud)
 
 ### Setting Up the Arduino IoT Cloud
 
