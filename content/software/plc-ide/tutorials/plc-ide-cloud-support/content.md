@@ -31,6 +31,7 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 
 - [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
+- Analog sensor (Optional)
 
 ### Software Requirements
 
