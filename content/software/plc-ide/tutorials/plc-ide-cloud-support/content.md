@@ -69,7 +69,7 @@ The functions of each layer are:
 
 * The *PLC program layer* will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
-* The *Arduino sketch* will handle data exchange bound between the PLC program layer and the Arduino IoT Cloud platform. The methods are '__PLCOut.varname__' and '__PLCIn.varname__', which are used to acccess the shared variables. For the purpose of the tutorial and to easily classify these methods, we will replace the 'varname' with the 'Shared_variable' tag.
+* The *Arduino sketch* will handle data exchange bound between the PLC program layer and the Arduino IoT Cloud platform. The methods are '__PLCOut.varname__' and '__PLCIn.varname__', which are used to access the shared variables. For the purpose of the tutorial and to easily classify these methods, we will replace the 'varname' with the 'Shared_variable' tag.
 
   Therefore, the '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' methods manage the shared variables that facilitate communication between the two systems:
 
@@ -128,7 +128,9 @@ Once the Arduino IoT Cloud Thing has been created successfully, we will have a s
 
 ![Arduino IoT Cloud Thing and Cloud variables for Opta™](assets/plc-ide-cloud-thing.png)
 
-We can now extract the code that will serve as the base for the Arduino sketch for Opta™ in the PLC IDE. The code can be accessed by going to the full editor. It will require some of the lines from the `ThingProperties.h`. Please follow `Things -> Created Thing -> Sketch -> Open full editor` to get to the full editor window.
+We can now extract the code that will serve as the base for the Arduino sketch for Opta™ in the PLC IDE. The code can be accessed by going to the full editor. It will require some of the lines from the `ThingProperties.h`.
+
+Please follow `Things -> "Opta PLC IDE Cloud" Thing -> Sketch -> Open full editor`, of which 'Opta PLC IDE Cloud' is the name of your created Thing, to get to the full editor window.
 
 ![Arduino IoT Cloud Full Editor](assets/iot-cloud-full-editor.png)
 
