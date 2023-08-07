@@ -470,9 +470,9 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 ### Forum
 
-Join our community forum to connect with other the PLC IDE and Arduino IoT Cloud users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to Opta™.
+Join our community forum to connect with other the PLC IDE and Arduino IoT Cloud users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to PLC IDE and Arduino IoT Cloud.
 
-- [the PLC IDE and Arduino IoT Cloud in the Arduino Forum](https://forum.arduino.cc/)
+- [The PLC IDE and Arduino IoT Cloud in the Arduino Forum](https://forum.arduino.cc/)
 
 ### Contact Us
 
