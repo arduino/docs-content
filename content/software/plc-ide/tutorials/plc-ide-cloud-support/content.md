@@ -69,15 +69,17 @@ The functions of each layer are:
 
 * The *PLC program layer* will manage internal communication and data handling. It can be programmed to read sensor information that is obtained via selected Modbus protocol or available I/O pins. Then use this data to send out to or receive from the Arduino sketch layer.
 
-* The *Arduino sketch* will handle data exchange bound between the PLC program layer and the Arduino IoT Cloud platform. The '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' methods manage the shared variables that facilitate communication between the two systems:
+* The *Arduino sketch* will handle data exchange bound between the PLC program layer and the Arduino IoT Cloud platform. The methods are '__PLCOut.varname__' and '__PLCIn.varname__', which are used to acccess the shared variables. For the purpose of the tutorial and to easily classify these methods, we will replace the 'varname' with the 'Shared_variable' tag.
 
-- __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the Arduino sketch layer, which will be sent to Arduino IoT Cloud.
-  
-  In other words, it represents output from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
+  Therefore, the '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' methods manage the shared variables that facilitate communication between the two systems:
 
-- __PLCIn.Shared_Variable__: Conversely, this variable refers to the data that is being sent to the PLC from the Arduino sketch layer, received from Arduino IoT Cloud platform.
+  - __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the Arduino sketch layer, which will be sent to Arduino IoT Cloud.
   
-  This is input for the PLC program. It could be commands, configuration data, or other information that the Arduino IoT Cloud system sends to control or interact with the PLC.
+    In other words, it represents output from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
+
+  - __PLCIn.Shared_Variable__: Conversely, this variable refers to the data that is being sent to the PLC from the Arduino sketch layer, received from Arduino IoT Cloud platform.
+  
+    This is input for the PLC program. It could be commands, configuration data, or other information that the Arduino IoT Cloud system sends to control or interact with the PLC.
 
 ![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
 
@@ -115,12 +117,12 @@ We will begin by configuring the Arduino IoT Cloud with Opta™ to create a Thin
 The following cloud variables will be created:
 
 | **Cloud Variables** |        **Type**       | **Variable Permission** | **Send Values** |
-|:-------------------:|:---------------------:|:-----------------------:|:---------------:|
-| analog01            | Floating point number | Read Only               | On change       |
-| counter             | Integer number        | Read Only               | On change       |
+|---------------------|-----------------------|-------------------------|-----------------|
+| analog01            | Float (0 - 65535)     | Read Only               | On change       |
+| counter             | Integer (0 - 2500)    | Read Only               | On change       |
 | cloudButton         | Boolean               | Read & Write            | On change       |
 
-The cloud variables will later be connected to the 'Shared variables' of the PLC IDE environment to establish its communication path.
+The cloud variables will subsequently be linked to the 'Shared variables' within the PLC IDE environment to set up the communication pathway. Furthermore, the table displays a full 16-bit resolution range for 'analog01', as it can be paired with any chosen analog sensor. The 'counter' is set with a default limit of 2500, beyond which the device will reset to 0. If necessary, this limit can be adjusted in the PLC program, as elaborated further in this tutorial.
 
 Once the Arduino IoT Cloud Thing has been created successfully, we will have a similar window on Arduino IoT Cloud Thing as the following image:
 
