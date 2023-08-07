@@ -424,7 +424,7 @@ The Arduino IoT Cloud dashboard can be designed to your preference. The followin
 
 ![Arduino IoT Cloud dashboard example](assets/plc-ide-cloud-dashboard.png)
 
-More information about Arduino IoT Cloud & how to create dashboards can be found [here]([https://docs.arduino.cc/arduino-cloud/](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
+More information about Arduino IoT Cloud & how to create dashboards can be found [here](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
 
 ### Testing PLC IDE with Arduino IoT Cloud
 
