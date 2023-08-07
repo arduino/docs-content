@@ -348,7 +348,7 @@ At this point, if you would to continue to use your Out-of-the-box, you can open
 
 #### Troubleshooting
 
-If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). You can follow [this section](#update-using-uuu-command) to learn to use `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
+If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). You can follow [this section](#update-using-uuu-tool) to learn to use `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
 
 ### Update With Portenta X8 Board Manager
 
@@ -750,6 +750,16 @@ To gain admin (root) access, type `sudo su -` and the password, which by default
 
 You can now freely program your Portenta X8 Linux OS. In the sections below you can check some basic commands to get started.
 
+### Change Default User Password
+
+Your Portenta X8 comes with the default user fio with password fio.
+
+For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the fio account:
+
+```arduino
+passwd fio
+```
+
 ### Manage Your Network Via CLI
 
 In order to connect to a Wi-Fi® Access Point via CLI, you can use the network manager tool **nmcli**. These are some of the most used commands:
@@ -1043,17 +1053,17 @@ With this tool, you can easily upload containers to a board that is linked to yo
 In order to learn how to properly call GPIOs or other peripherals both in the Arduino environment or in Linux, with or without a carrier, you can check the following pinout diagrams:
 
 * [Portenta X8 pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-* [Portenta Breakout pinout](https://docs.arduino.cc/static/1d4277f47a3df614b726a89b2129ec69/ASX00031-full-pinout.pdf)
+* [Portenta Breakout pinout](https://docs.arduino.cc/static/8d54d1a01d6174ed60fc9698e881ad4c/ASX00031-full-pinout.pdf)
 * [Portenta Max Carrier pinout](https://docs.arduino.cc/static/d0bd73b17e97af0fe376b7d518b18660/ABX00043-full-pinout.pdf)
 
 ## Communication
 
 In this section you will learn how to make your Portenta X8 to communicate with multiple types of sensors or other external devices, leveraging the vast variety of supported interfaces:
 
-* [SPI](#SPI)
-* [I2C](#I2C)
-* [UART](#UART)
-* [Bluetooth®](#Bluetooth®)
+* [SPI](#spi)
+* [I2C](#i2c)
+* [UART](#uart)
+* [Bluetooth®](#bluetooth)
 
 ### SPI
 
@@ -1147,7 +1157,7 @@ Open Portenta X8 Shell as explained [here](#working-with-linux).
 Thus, execute the following command:
 
 ```arduino
-sudo madprobe i2c-dev
+sudo modprobe i2c-dev
 ```
 
 Insert the user password `fio`.

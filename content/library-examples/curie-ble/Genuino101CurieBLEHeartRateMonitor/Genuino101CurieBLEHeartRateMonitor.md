@@ -5,7 +5,7 @@ tags: [Arduino 101]
 title: 'Arduino 101 CurieBLE Heart Rate Monitor'
 ---
 
-This tutorial demonstrates the Arduino 101's onboard Bluetooth® Low Energy capabilities. The sketch implements the [standard Bluetooth® Low Energy "Heart Rate Monitor" service](https://www.bluetooth.org/docman/handlers/downloaddoc.ashx?doc_id=239866). The Heart Rate service takes values from a heart rate sensor (in this tutorial emulated by an analog sensor) and sends them over Bluetooth® Low Energy to your smartphone/device to create a graph of the data using the app [nRF Toolbox for Bluetooth® Low Energy](https://www.nordicsemi.com/eng/Products/nRFready-Demo-Apps/nRF-Toolbox-App).
+This tutorial demonstrates the Arduino 101's onboard Bluetooth® Low Energy capabilities. The sketch implements the [standard Bluetooth® Low Energy "Heart Rate Monitor" service](https://www.bluetooth.org/docman/handlers/downloaddoc.ashx?doc_id=239866). The Heart Rate service takes values from a heart rate sensor (in this tutorial emulated by an analog sensor) and sends them over Bluetooth® Low Energy to your smartphone/device to create a graph of the data using the app [nRF Toolbox for Bluetooth® Low Energy](https://www.nordicsemi.com/Products/Development-tools/nRF-Toolbox).
 
 ## Hardware Required
 

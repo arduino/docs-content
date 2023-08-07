@@ -25,7 +25,7 @@ Some of the important use cases for LPWAN's include the following applications:
 - **Smart grids**: electricity, water, and gas metering.
 - **Smart agriculture**: land condition monitoring, animal tracking, geofencing. 
 
-***If you want to read more about LPWAN's, check out [this article](/learn/wireless/low-power-wide-area-networks-101) from the Learn section.***
+***If you want to read more about LPWAN's, check out [this article](/learn/communication/low-power-wide-area-networks-101) from the Learn section.***
 
 Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation, **LoRaWAN®**, is currently one of the existing LPWAN gaining the most traction to support IoT devices and services. 
 

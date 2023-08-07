@@ -119,7 +119,7 @@ You can visit the official documentation for this board at the [MKR NB 1500 docu
 
 ![The MKR FOX 1200](assets/MKRFOX1200.png)
 
-The [MKR FOX 1200](https://store.arduino.cc/arduino-mkr-fox-1200-1408) is a development board designed for LPWAN solutions using the [Sigfox infrastructure](https://www.sigfox.com/en).
+The [MKR FOX 1200](/hardware/mkr-fox-1200) is a development board designed for LPWAN solutions using the [Sigfox infrastructure](https://www.sigfox.com/en).
 
 Every MKR FOX 1200 comes with a free one-year subscription to Sigfox' data plan, useful for testing the Sigfox network. Please check the plan’s conditions in terms of messages per day at the Sigfox website.
 

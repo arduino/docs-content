@@ -10,7 +10,7 @@ source: "https://create.arduino.cc/projecthub/officine-innesto/control-your-iot-
 
 ## Components and Supplies
 
-- [Arduino MKR IoT Bundle](https://store.arduino.cc/usa/arduino-iot-mkr1000-bundle)
+- [Arduino MKR IoT Bundle](/hardware/iot-bundle)
 - [Raspberry Pi 3 Model B](http://www.newark.com/raspberry-pi/raspberrypi3-modb-1gb/sbc-raspberry-pi-3-mod-b-1gb-ram/dp/77Y6519?COM=ref_hackster)
 
 ## Apps and Online Services

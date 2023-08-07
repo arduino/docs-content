@@ -10,7 +10,7 @@ author: 'Benjamin Dannegård'
 description: This tutorial teaches you how to connect the PMC and HMI to then run a sketch that makes these communicate with each other.
 libraries:
   - name: Arduino_MachineControl
-    url: https://www.arduino.cc/en/Reference/Arduino_MachineControl
+    url: https://www.arduino.cc/reference/en/libraries/arduino_machinecontrol/
   - name: Arduino_StoneHMIv2
     url: https://www.arduino.cc/en/Reference/Arduino_StoneHMIv2
 hardware:
@@ -52,7 +52,7 @@ Below you can find a table that shows which connections to make between the HMI 
 
 ### Stone Designer and HMI
 
-First make sure that you downloaded and installed the [Stone Designer](https://www.stoneitech.com/support/download/software). You can download the HMI demo for the Stone Designer [here](https://content.arduino.cc/assets/stone-App-tutorial.st). If you are on a mac and can't use the Stone designer app, then please download [this folder](https://content.arduino.cc/assets/stone-App-demo.zip), extract the folder inside and follow the instructions below.
+First make sure that you downloaded and installed the [Stone Designer](https://www.stoneitech.com/support/download/software). You can download the HMI demo for the Stone Designer [here](assets/stone-App-tutorial.st). If you are on a mac and can't use the Stone designer app, then please download [this folder](assets/stone-App-demo.zip), extract the folder inside and follow the instructions below.
 
 Open the demo file in the Stone Designer. Now press the compile button.
 

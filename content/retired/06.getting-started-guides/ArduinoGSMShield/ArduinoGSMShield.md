@@ -32,7 +32,7 @@ A number of technologies such as SMS rely on GPRS to function. With the GSM shie
 
 To access a network, you must have a subscription with a mobile phone operator (either prepaid or contract), a GSM compliant device like the GSM shield or mobile phone, and a Subscriber Identity Module (SIM) card. The network operator provides the SIM card, which contains information like the mobile number, and can store limited amounts of contacts and SMS messages.
 
-To use GPRS for internet access, and for the Arduino to request or serve webpages, you need to obtain the Access Point Name (APN) and a username/password from the network operator. See the information in [Connecting to the Internet](#toc10) for more information about using the data capabilities of the shield.
+To use GPRS for internet access, and for the Arduino to request or serve webpages, you need to obtain the Access Point Name (APN) and a username/password from the network operator. See the information in [Connecting to the Internet](#connecting-to-the-internet) for more information about using the data capabilities of the shield.
 
 ### SIM cards
 

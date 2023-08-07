@@ -13,7 +13,7 @@ The **Arduino Ethernet Shield** allows an Arduino board to connect to the intern
 
 To use the shield, mount it on top of an Arduino board (e.g. the Uno). To upload sketches to the board, connect it to your computer with a USB cable as you normally would. Once the sketch has been uploaded, you can disconnect the board from your computer and power it with an external power supply.
 
-Connect the shield to your computer or a network hub or router using a standard ethernet cable (CAT5 or CAT6 with RJ45 connectors). Connecting to a computer may require the use of a cross-over cable (although many computers, including [all recent Macs](http://support.apple.com/kb/HT2274) can do the cross-over internally).
+Connect the shield to your computer or a network hub or router using a standard ethernet cable (CAT5 or CAT6 with RJ45 connectors). Connecting to a computer may require the use of a cross-over cable (although many computers, including [all recent Macs](https://web.archive.org/web/20191015221518/https://support.apple.com/en-us/HT2274) can do the cross-over internally).
 
 ### Tutorials
 

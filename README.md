@@ -87,6 +87,15 @@ Code snippets can be included by using the triple backticks syntax e.g. ` ```ard
 arduino, bash, markup, clike, c, cpp, css, css-extras, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml
 ```
 
+### Including Code Blocks fetching Github pages
+
+CodeBlocks are custom components that can be added directly in the Markdown on docs-content.
+Using this component, the code block will be fetched directly from Github pages.
+
+Syntax:
+` <CodeBlock url=”https://github.com/example” className="{language}"/>`
+ 
+Broken URL will show error alert. URL must be in Github domain and must be public.
 
 ## Previewing Changes
 

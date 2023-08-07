@@ -31,7 +31,7 @@ This example reads a wave file from an SD card and plays it using the I2S interf
 
 ## Hardware & Software Needed 
 
-- [Arduino Zero](https://store.arduino.cc/arduino-zero), [MKRZero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?queryID=undefined)  or [MKR1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi-with-headers-mounted) Board
+- [Arduino Zero](https://store.arduino.cc/arduino-zero), [MKRZero](https://store.arduino.cc/arduino-mkr-zero-i2s-bus-sd-for-sound-music-digital-audio-data?queryID=undefined)  or [MKR1000 WiFi](/hardware/mkr-1000-wifi) Board
 
 - MAX98357 I2S Amp Breakout board.
 - Amplifier

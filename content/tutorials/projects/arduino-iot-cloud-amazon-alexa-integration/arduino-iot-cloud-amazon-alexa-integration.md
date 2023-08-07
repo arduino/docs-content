@@ -11,7 +11,7 @@ source: "https://create.arduino.cc/projecthub/303628/arduino-iot-cloud-amazon-al
 ## Components and Supplies
 
 - [Arduino MKR WiFi 1010](https://www.newark.com/71AC0169?COM=ref_hackster)
-- [Arduino MKR ENV Shield](https://store.arduino.cc/usa/mkr-env-shield)
+- [Arduino MKR ENV Shield](/hardware/mkr-env-shield)
 - [Breadboard (generic)](https://www.newark.com/99W1759?COM=ref_hackster)
 - [High Brightness LED, White](https://www.newark.com/57J2335?COM=ref_hackster)
 - [Jumper wires (generic)](https://www.newark.com/88W2571?COM=ref_hackster)

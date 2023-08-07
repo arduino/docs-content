@@ -10,12 +10,12 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/mkr-zero-weather-d
 
 ## Components and Supplies
 
-- [Arduino MKR Zero](https://store.arduino.cc/arduino-mkrzero-with-headers)
+- [Arduino MKR Zero](/hardware/mkr-zero)
 - [Jumper wires (generic)](https://www.newark.com/88W2571?COM=ref_hackster)
 - [Capacitor 100 nF](https://www.newark.com/58M4550?COM=ref_hackster)
 - [Resistor 4.75k ohm](https://www.newark.com/multicomp/mcmf0w4ff4751a50/metal-film-resistor-4-75kohm-250mw/dp/58K3862?COM=ref_hackster)
 - [microSD card](https://store.arduino.cc/index.php?main_page=product_info&products_code=X000009)
-- [Medium breadboard](https://store.arduino.cc/product/C000767)
+- Medium breadboard
 - [DHT22 Temperature and Humidity sensor](http://celare.cl/am2302-dht22-digital-temperature-humidity-sensor-module-for-arduino-am-2302/)
 
 ## Apps and Online Services

@@ -43,7 +43,7 @@ With this API, you can:
 As a wrapper for the Device API, we have the following libraries:
 	
 - An official Arduino IoT Cloud Library for your Arduino sketches: `ArduinoIoTCloud.h` 
-- An NPM Javascript package: `arduino-iot-js`  
+- An NPM Javascript package: `arduino-iot-js` 
 
 ### Arduino IoT Cloud Sketch library
 
@@ -78,6 +78,32 @@ Full examples and documentation can be found at:
 
 - The [official repository](https://github.com/arduino/arduino-iot-js)
 - The [NPM module](https://www.npmjs.com/package/arduino-iot-js) page  
+
+### MicroPython
+
+The [Arduino IoT Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the cloud, using credentials obtained during the manual device configuration.
+
+Below is a minimal example:
+
+```python
+DEVICE_ID = "YOUR_DEVICE_ID"
+SECRET_KEY = "YOUR_SECRET_KEY"
+
+client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
+
+client.register("variable")  
+client["variable"] = 255
+
+client.start()
+```
+
+For more information, visit the [Connecting to Arduino IoT Cloud using MicroPython](/arduino-cloud/getting-started/iot-cloud-micropython) guide.
+
+### Python
+
+The [Arduino IoT Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can also be used with regular python, and is very similar to how you connect using MicroPython, with a few adjustments.
+
+To find out more about how to connect using Python, you can refer to the Python section of the [Manual Device Configuration](/arduino-cloud/getting-started/manual-device#python) guide.
 
 ## Backward Compatibility Policy
 
