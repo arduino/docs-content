@@ -134,7 +134,7 @@ Please follow `Things -> "Opta PLC IDE Cloud" Thing -> Sketch -> Open full edito
 
 ![Arduino IoT Cloud Full Editor](assets/iot-cloud-full-editor.png)
 
-The base sketch of the exampl will be as follows:
+The base sketch of the example will be as follows:
 
 ```arduino
 #include <ArduinoIoTCloud.h>
