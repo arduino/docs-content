@@ -9,7 +9,7 @@ tags:
   - UART
   - Wi-Fi®
   - Bluetooth® LE
-author: 'Karl Söderby'
+author: 'Karl Söderby & Jacob Hylén'
 ---
 
 The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC as its main microcontroller, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox® NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
@@ -54,7 +54,18 @@ The Nano ESP32 has a feature that we call bootloader-mode, what this means is th
 
 This mode is useful if you've uploaded a sketch that produces some unwanted behaviour. Maybe the sketch causes it to become undetectable by your computer, or maybe its an HID sketch that took over your keyboard and mouse and you need to regain control of your computer. It lets you turn the board on without actually running any sketch.
 
-To enter bootloader-mode, press the reset button, and then press it again once you see the RGB LED flashing. You'll know that you've successfully entered bootloader-mode if you see the RGD LED pulsing slowly.
+To enter bootloader-mode, press the reset button, and then press it again once you see the RGB LED flashing. You'll know that you've successfully entered bootloader-mode if you see the green LED pulsing slowly. 
+
+***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
+
+### ROM Boot Mode
+
+In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter ROM boot mode. This is rarely needed, but there are some cases where it might be useful, for example you may want to follow this process to:
+
+- Update the Arduino bootloader already on the board. This can resolve issues with Nano ESP32 being misidentified as other ESP32 boards.
+- Restore the ability to upload regular Arduino sketches to a Nano ESP32 that has been flashed with the MicroPython firmware.
+
+If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
 
 ## MicroPython
 
@@ -198,18 +209,6 @@ analogWrite(pin,value);
 
 ***Due to timer restrictions, only 4 PWM signals can be generated simultaneously.***
 
-### Boot Pins
-
-To enter bootloader mode (chip boot mode), you can use either the BOOT0 (B0) or BOOT1 (B1) pins, which are connected to the ESP32-S3's `GPIO0` and `GPIO46`. 
-
-![Boot pins.](assets/nano-esp32-boot.png)
-
-Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding LED will light up.
-
-***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
-
-You can read more about different this in the [Strapping Pins section](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf#page=23) in the ESP32-S3's datasheet.
-
 ## I2C
 
 ![I2C Pins](assets/nano-esp32-i2c.png)
@@ -281,7 +280,25 @@ void loop() {
 }
 ```
 
-## UART
+## USB Serial & UART
+
+The Nano ESP32 board features 2 separate hardware serial ports.
+
+One port is exposed via USB-C®, and
+One is exposed via RX/TX pins.
+
+### Native USB
+
+Sending serial data to your computer is done using the standard `Serial` object. I
+
+```arduino
+Serial.begin(9600);
+Serial.print("hello world");
+```
+
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
+
+### UART
 
 The pins used for UART on the Nano ESP32 are the following:
 
