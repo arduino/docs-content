@@ -27,7 +27,7 @@ This user manual will guide you through a practical journey covering the most in
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
-- [Nicla Voice](https://store.arduino.cc/products/nicla-sense-me) (x1)
+- [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me) (x1)
 - Micro USB cable (x1)
 
 ### Software Requirements
