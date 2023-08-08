@@ -45,17 +45,17 @@ Opta™ features industrial-grade hardware with rich connectivity options like M
 
 ## Modbus TCP
 
-The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol*, being the data management independent of the transmission method.
+The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol*, with its data management being independent of the transmission method.
 
-The **Modbus TCP/IP**, also briefly referred to as **Modbus TCP**, is a Modbus RTU protocol that uses TCP/IP interface over Ethernet to exchange data between compatible devices. There are some elements to understand with Modbus TCP:
+The **Modbus TCP/IP**, often simply referred to as **Modbus TCP**, is a variant of the Modbus RTU protocol that uses the TCP/IP interface over Ethernet to exchange data between compatible devices. Here are some key elements to understand about Modbus TCP:
 
-* The 'Transmission Control Protocol (TCP)' is responsible for exchanging packets.
+* The 'Transmission Control Protocol (TCP)' is responsible for the exchange of packets.
 
 * The 'Internet Protocol (IP)' defines the addresses for routing message destinations.
 
-* One characteristic of Modbus TCP is regarding how the data integrity is maintained. Due to Modbus TCP enclosing the basic data frame into the TCP frame, the usual checksum field of the Modbus is not used. Instead, the checksum method from Ethernet TCP/IP layer is used to ensure data integrity.
+* A distinct feature of Modbus TCP concerns how it maintains data integrity. Since Modbus TCP encapsulates the basic data frame within the TCP frame, the usual checksum field of Modbus isn't utilized. Instead, the checksum method from the Ethernet TCP/IP layer ensures data integrity.
 
-* The Modbus TCP/IP is structured by TCP/IP networking standards on the Ethernet using the Modbus messaging service as the data handler. The connected devices are usually Modbus TCP/IP Client and Server devices, but also interconnections established via routers, gateways, or bridges constructing a TCP/IP network.
+* Modbus TCP/IP adheres to TCP/IP networking standards on Ethernet, using the Modbus messaging service as its data handler. Typically, the connected devices are Modbus TCP/IP Client and Server devices. However, interconnections can also be established through routers, gateways, or bridges, forming a TCP/IP network.
 
 ***Controller/Peripheral is formerly known as Master/Slave. Arduino no longer supports the use of this terminology. Devices formerly known as Master are referred to as Controller/Client and devices formerly known as Slaves are referred to as Peripheral/Server.***
 
