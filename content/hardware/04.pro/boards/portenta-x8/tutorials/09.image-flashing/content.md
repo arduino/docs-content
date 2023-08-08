@@ -80,7 +80,7 @@ You will need to connect one USB-C® end to the Portenta X8 and the other end (U
 
 #### Flashing Mode without Carrier
 
-***It is recommended to flash the board with the carrier. If it is not possible, we provide an alternative procedure for advanced users only implying the full flash memory erasing. If something gets wrong during the procedure, you might not be able to recover the board, so be careful.***
+***It is recommended to flash the board with the carrier. If it is not possible, we provide an alternative procedure for advanced users only implying the full flash memory erasing. If something gets wrong during the procedure, you might not be able to recover the board. Proceed with caution.***
 
 If *Portenta Breakout* or *Portenta Max Carrier* is not available to you, the Portenta X8 can be configured for programming mode using a few lines of command inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while you are in the root environment with root permission.
 
