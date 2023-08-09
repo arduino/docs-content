@@ -1,13 +1,13 @@
 ---
 title: 'Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7'
-description: 'This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug your Portenta H7 or Nicla Vision applications via GDB on a serial interface.'
+description: 'This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug multiple Arduino applications via GDB on a serial interface.'
 coverImage: assets/por_ard_trace32_cover.svg
 difficulty: advanced
 tags:
   - Debugging
   - Lauterbach
   - TRACE32
-author: 'Marco Ferrario, Lauterbach Italy, Sebastian Romero, Marta Barbero'
+author: 'Marco Ferrario, Lauterbach Italy, Sebastian Romero, Benjamin Dannegård, Marta Barbero'
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/06.nicla/boards/nicla-vision
@@ -17,22 +17,27 @@ software:
   - web-editor
 ---
 ## Overview
-This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug your Portenta H7 or Nicla Vision applications via GDB on a serial interface. It also explains how to obtain a free license of a fully functional version of TRACE32 using your board's serial number.
+
+This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug your Arduino boards' applications via GDB on a serial interface. It also explains how to obtain a free license for a fully functional version of TRACE32 using your board's serial number.
 
 ## Goals
 
-- How to get a free license key for TRACE32 GDB Front End debugger for Portenta H7 or Nicla Vision - M7 core
+- How to get a free license key for TRACE32 GDB Front End debugger
 - How to download and start the Lauterbach TRACE32 GDB Front End debugger
 - How to Flash and debug some ready-to-run demos
 
 ### Required Hardware
-- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected) or [Nicla Vision (ABX00051)](https://store.arduino.cc/products/nicla-vision)
+To use the TRACE32 GDB Front End debugger, you will need one of the following boards:
+- [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7), [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Nicla Vision (ABX00051)](https://store.arduino.cc/products/nicla-vision)
+- [Arduino Nano 33 BLE (ABX00030)](https://store.arduino.cc/nano-33-ble)
+- [Arduino Nano 33 BLE Sense (ABX00031)](https://store.arduino.cc/nano-33-ble-sense)
 -  USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®) for Portenta H7
--  Micro USB cable (either USB-A to Micro USB or USB-C® to Micro USB) for Nicla Vision
+-  Micro USB cable (either USB-A to Micro USB or USB-C® to Micro USB) for Nicla Vision, Nano 33 BLE and Nano 33 BLE Sense
 
 ### Required Software
 -  [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
--  Lauterbach TRACE32 software build 144320 (6 Feb 2022) or higher for Portenta H7, available [here](https://repo.lauterbach.com/download_demo.html)
+-  Lauterbach TRACE32 software build 144320 (6 Feb 2022) or higher for Portenta H7, Nano 33 BLE and Nano 33 BLE Sense, available [here](https://repo.lauterbach.com/download_demo.html)
 -  Lauterbach TRACE32 software build 161373 (31 Jul 2023) for Nicla Vision, available [here](https://repo.lauterbach.com/download_demo.html)
 
 
@@ -40,11 +45,9 @@ This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debu
 
 ### TRACE32 GDB Front End Debugger
 
-In this tutorial, you will load on the board (either Portenta H7 or Nicla Vision) an application that includes the MRI (Monitor for Remote Inspection). This is a GDB-compatible serial monitor which is included with the ThreadDebug sketch in the IDE Examples for these boards (M7 core) and with all examples in the TRACE32 /demo directory.
+In this tutorial, you will learn how to upload an application that contains an MRI (Monitor for Remote Inspection) to your Arduino boards. This is a GDB-compatible serial monitor, which is included both in the ThreadDebug sketch in the IDE Examples and in all the examples available inside the TRACE32 /demo directory.
 
-Throughout this document the **double-tilde (~~)** is used as a placeholder for the directory where you unzipped the TRACE32 software.
-
-***This tutorial assumes that you have already installed the Arduino IDE and configured it to support the Portenta H7 or Nicla Vision board. Please refer to [Setting Up Portenta H7 For Arduino](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta) before you proceed.***
+In the next steps, the **double-tilde (~~)** is used as a placeholder for the directory where you unzipped the TRACE32 software.
 
 ### 1. Downloading the TRACE32 Debugger
 
@@ -54,21 +57,15 @@ Extract the zip file to a directory of your choice. On Windows systems, please a
 
 ### 2. Registration and License Key
 
-Without a valid license, the TRACE32 debugger only works for a few minutes in demo mode. Lauterbach can generate a **free license** based on the serial number of your board. The license will be valid for one year and can easily be renewed for free after this period using the same procedure. In order to obtain a license, please register here:
+Without a valid license, the TRACE32 debugger only works for a few minutes in demo mode. To avoid this limitation, Lauterbach may generate a **free license** based on the serial number of your board. The license will be valid for one year and can easily be renewed for free after this expiration using the same procedure. 
 
-[www.lauterbach.com/4543](http://www.lauterbach.com/4543)
+In order to obtain a new license, you need to first get the serial number of your board. There are two alternative ways to do so:
 
-Enter the board's serial number (instructions below), your name and e-mail address and you will receive your license key.
-
-![Request a Debug License for Arduino Pro](assets/por_ard_trace32_register.png)
-
-There are two alternative ways to detect the board serial number:
-
-- In the Arduino IDE select the "Tools->Get Board Info" menu command after selecting the port to which your board is connected to. This should show a 24 character (96 bit) long serial number.
+- In the Arduino IDE, select the "Tools->Get Board Info" menu command after choosing the port to which your board is connected. This should show a 16-character (64-bit) long serial number for your Nano BLE devices and a 24-character (96-bit) long serial number for your Portenta H7 or Nicla Vision.
 
 ![Your board's serial number can be displayed in the Arduino IDE using the "Get Board Info" command](assets/por_ard_trace32_board_info.png)
 
-***If you only see a 16 character (64-bit) long serial number, then you need to update your Arduino IDE and the "Arduino mbed-enabled Boards" core from the boards manager in the IDE. Details on how to do this can be found on the Arduino website. Also, make sure your Portenta H7 or Nicla Vision has the [latest bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) installed.***
+***For Portenta H7 and Nicla Vision only: if you only see a 16-character (64-bit) long serial number, then you need to update your Arduino IDE and your boards' core from the boards manager in the IDE. Details on how to do so can be found on the Arduino website. In addition, make sure your board has the [latest bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) installed.***
 
 - Use the TRACE32 debugger. Check section "3. Start the TRACE32 Debugger" to learn how to get started. Click the menu item "Board S/N and License State". Your board's serial number will be printed in the AREA window and a dialog LICENSE.state will be opened.
 
@@ -78,7 +75,15 @@ There are two alternative ways to detect the board serial number:
 
 Either copy & paste the displayed serial number manually to the Lauterbach registration page or click on the provided link in the dialog window.
 
-Note: Newer TRACE32 software version should automatically detect and show the board serial number, at the first connection to the target.
+***Note: Newer TRACE32 software version should automatically detect and show the board serial number, at the first connection to the target.***
+
+At this point, you are ready to register at the Lauterbach registration page below:
+
+[www.lauterbach.com/4543](http://www.lauterbach.com/4543)
+
+Enter the board's serial number, your name and e-mail address, to get your new license. 
+
+![Request a Debug License for Arduino board](assets/por_ard_trace32_register.png)
 
 When you receive the email containing your license key, follow the instructions provided at the end of the message: 
 - Copy the complete line of code provided in the email and paste it into the **license.t32** text file in your TRACE32 installation directory. Create the file license.t32 if it does not exist yet. On Windows, the TRACE32 system directory is by default "C:\T32".
@@ -97,23 +102,23 @@ To use the debugger, launch the appropriate executable for your host operating s
 
 `~~/bin/linux64` for 64-bit Linux hosts.
 
-For easy access, we suggest creating a link to the corresponding executable file on your desktop:
+To simplify the access, we suggest creating a link to the corresponding executable file on your desktop:
 
 - for Windows, this is t32marm.exe
 
 - for Linux, this is t32marm-qt
 
-### Setting Up the Serial Port
+#### Setting Up the Serial Port
 
 On Windows systems, the TRACE32 start-up script will automatically search for the right COM port attached to the board.
 
-On Linux systems, you will need to edit the system-settings.cmm file to manually add the serial port to connect to the board. This is a text file and can be opened with your favorite text editor. Edit the line that defines &GDBPORT to refer to the serial port, for example: `&GDBPORT="/dev/ttyACM0"`. This must be done **before** you start the TRACE32 software. After changing the port you can start the TRACE32 debugger or re-start it in case it was open while you made the changes.
+On Linux systems, you will need to edit the `system-settings.cmm` file to manually add the serial port your board is connected to. This is a text file and can be opened with your favorite text editor. Edit the line that defines &GDBPORT to refer to the serial port, for example: `&GDBPORT="/dev/ttyACM0"`. This must be done **before** you start the TRACE32 software. After changing the port, you can start the TRACE32 debugger or re-start it in case it was open while you performed the changes.
 
-***The manual port setting is also useful for Windows systems where you have multiple Portenta H7 or Nicla Vision boards connected and you want to select a specific board to be used by TRACE32 for debugging. The automatic port selection is disabled when a &GDBPORT definition is found in `system-settings.cmm`.***
+***The manual port setting is also useful for Windows systems when you connect multiple boards simultaneously and you would like to select a specific board to be used by TRACE32 for debugging. The automatic port selection is disabled when a &GDBPORT definition is found in `system-settings.cmm`.***
 
 ### 4. Running Your First Demo
 
-A number of pre-built demo programs are available. They can be accessed from the "Portenta H7 Projects" or "Nicla Vision Projects" menu. The following instructions relate to the T32ThreadDebug example. However, the other examples follow a similar pattern.
+A number of pre-built demo programs are available in the tool. They can be accessed from the "Arduino Projects" menu. The following instructions relate to the T32ThreadDebug example. However, the other examples follow a similar pattern.
 
 The demo directory already includes the symbolic file (.elf) for debugging and the binary file (.bin) for Flash programming.
 
