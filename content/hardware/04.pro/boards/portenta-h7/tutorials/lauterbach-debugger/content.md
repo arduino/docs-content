@@ -1,5 +1,5 @@
 ---
-title: 'Lauterbach TRACE32 GDB Front-End Debugger for Portenta H7'
+title: 'Debugging with Lauterbach TRACE32 GDB Front-End Debugger'
 description: 'This tutorial will show you how to use the Lauterbach TRACE32 GDB front-end debugger to debug multiple Arduino applications via GDB on a serial interface.'
 coverImage: assets/por_ard_trace32_cover.svg
 difficulty: advanced
