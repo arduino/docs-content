@@ -73,22 +73,19 @@ In order to obtain a new license, you need to first get the serial number of you
 
 ![License State Dialog](assets/por_ard_trace32_license_state.png)
 
-Either copy & paste the displayed serial number manually to the Lauterbach registration page or click on the provided link in the dialog window.
-
 ***Note: Newer TRACE32 software version should automatically detect and show the board serial number, at the first connection to the target.***
 
 At this point, you are ready to register at the Lauterbach registration page below:
 
 [www.lauterbach.com/4543](http://www.lauterbach.com/4543)
 
-Enter the board's serial number, your name and e-mail address, to get your new license. 
+Copy & paste your board's serial number and enter your name and e-mail address to get your new license. 
 
 ![Request a Debug License for Arduino board](assets/por_ard_trace32_register.png)
 
 When you receive the email containing your license key, follow the instructions provided at the end of the message: 
 - Copy the complete line of code provided in the email and paste it into the **license.t32** text file in your TRACE32 installation directory. Create the file license.t32 if it does not exist yet. On Windows, the TRACE32 system directory is by default "C:\T32".
 - Restart TRACE32 after adding the license key.
-
 
 ### Starting the TRACE32 Debugger
 
