@@ -77,7 +77,7 @@ In order to obtain a new license, you need to first get the serial number of you
 
 ***Note: Newer TRACE32 software version should automatically detect and show the board serial number, at the first connection to the target.***
 
-At this point, you are ready to register at the Lauterbach registration page below:
+At this point, you are ready to register at the [Lauterbach registration page](http://www.lauterbach.com/4543):
 
 [www.lauterbach.com/4543](http://www.lauterbach.com/4543)
 
