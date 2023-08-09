@@ -11,6 +11,8 @@ author: 'Marco Ferrario, Lauterbach Italy, Sebastian Romero, Benjamin Dannegård
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/06.nicla/boards/nicla-vision
+  - hardware/03.nano/boards/nano-33-ble-sense
+  - hardware/03.nano/boards/nano-33-ble
 software:
   - ide-v1
   - ide-v2
