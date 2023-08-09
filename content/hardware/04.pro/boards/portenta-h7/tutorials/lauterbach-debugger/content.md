@@ -49,13 +49,13 @@ In this tutorial, you will learn how to upload an application that contains an M
 
 In the next steps, the **double-tilde (~~)** is used as a placeholder for the directory where you unzipped the TRACE32 software.
 
-### 1. Downloading the TRACE32 Debugger
+### Downloading the TRACE32 Debugger
 
 In order to download the TRACE32 debugger, open the [Lauterbach download page](https://www.lauterbach.com/download_demo.html) in your browser. Download the zip file named **Debugger for GDB target (Arduino Pro)**.
 
 Extract the zip file to a directory of your choice. On Windows systems, please avoid C:\T32, because this is the default installation directory for the full TRACE32 distribution.
 
-### 2. Registration and License Key
+### Registration and License Key
 
 Without a valid license, the TRACE32 debugger only works for a few minutes in demo mode. To avoid this limitation, Lauterbach may generate a **free license** based on the serial number of your board. The license will be valid for one year and can easily be renewed for free after this expiration using the same procedure. 
 
@@ -65,9 +65,9 @@ In order to obtain a new license, you need to first get the serial number of you
 
 ![Your board's serial number can be displayed in the Arduino IDE using the "Get Board Info" command](assets/por_ard_trace32_board_info.png)
 
-***For Portenta H7 and Nicla Vision only: if you only see a 16-character (64-bit) long serial number, then you need to update your Arduino IDE and your boards' core from the boards manager in the IDE. Details on how to do so can be found on the Arduino website. In addition, make sure your board has the [latest bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) installed.***
+***For Portenta H7 and Nicla Vision only: if you only see a 16-character (64-bit) long serial number, then you need to update your Arduino IDE and your boards' core from the Boards Manager in the IDE. Details on how to do so can be found on the Arduino website. In addition, make sure your board has the [latest bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) installed.***
 
-- Use the TRACE32 debugger. Check section "3. Start the TRACE32 Debugger" to learn how to get started. Click the menu item "Board S/N and License State". Your board's serial number will be printed in the AREA window and a dialog LICENSE.state will be opened.
+- Use the TRACE32 debugger. Check the section "Starting the TRACE32 Debugger" to learn how to get started. Click the menu item "Board S/N and License State". Your board's serial number will be printed in the AREA window and a dialog LICENSE.state will be opened.
 
 ![Click the menu item "Detect Board S/N" to display the serial number](assets/por_ard_trace32_board_sn.png)
 
@@ -90,7 +90,7 @@ When you receive the email containing your license key, follow the instructions 
 - Restart TRACE32 after adding the license key.
 
 
-### 3. Starting the TRACE32 Debugger
+### Starting the TRACE32 Debugger
 
 To use the debugger, launch the appropriate executable for your host operating system. The executables can be found in the corresponding sub-directory for your operating system:
 
@@ -116,55 +116,57 @@ On Linux systems, you will need to edit the `system-settings.cmm` file to manual
 
 ***The manual port setting is also useful for Windows systems when you connect multiple boards simultaneously and you would like to select a specific board to be used by TRACE32 for debugging. The automatic port selection is disabled when a &GDBPORT definition is found in `system-settings.cmm`.***
 
-### 4. Running Your First Demo
+### Running Your First Demo
 
-A number of pre-built demo programs are available in the tool. They can be accessed from the "Arduino Projects" menu. The following instructions relate to the T32ThreadDebug example. However, the other examples follow a similar pattern.
+A number of pre-built demo programs are available in the tool. They can be accessed from the "Arduino Projects" menu. The following instructions relate to the T32ThreadDebug example. However, other examples follow a similar pattern.
 
 The demo directory already includes the symbolic file (.elf) for debugging and the binary file (.bin) for Flash programming.
 
 ![.elf files contain debug symbols which are required for debugging. .bin files can run directly on the board's hardware](assets/por_ard_trace32_files.svg)
 
-### ELF File Selection
+#### ELF File Selection
 
-Select "T32ThreadDebug" from the "Portenta H7 Demos" menu and you will be presented with a dialog called "Elf File Selection". This is where the TRACE32 initial environment can be configured.
+Select "T32ThreadDebug" from the "Portenta H7 Projects" menu and you will be presented with a dialog called "Elf File Selection". This is where the TRACE32 initial environment can be configured.
 
 ![Elf File Selection](assets/por_ard_trace32_elf_file_selection.png)
 
-In this dialog, you can select which variant of the Arduino IDE you would like to use to source ELF files or if you want to use the current directory. To follow this tutorial please select "current dir". 
+In this dialog, you can select which variant of the Arduino IDE you would like to use to source ELF files or if you want to use the current directory. To follow this tutorial, please select "current dir". 
 
-The list to the right of the "Options" selection should then become populated with a number of available ELF files for downloading and debugging. Select the one you want with a double click. In this case, select "T32ThreadDebug.ino.elf". This will also show file attributes such as date, time and size. To select an ELF file from a custom directory, click the "File" button underneath the "User's choice" field and browse for the desired ELF file. You can opt for changing the behavior of this script the next time it is executed.
+The list on the right of the "Options" selection should then become populated with a number of available ELF files ready for downloading and debugging. Select the one you are interested into with a double click. In this tutorial, "T32ThreadDebug.ino.elf" has been selected. This will also show file attributes such as date, time and size. 
 
-If the application has already been programmed to Flash, for instance via the Arduino IDE or a previous TRACE32 session, select "Load debug symbols (program is already in Flash)" to prevent an unnecessary erase and write cycle of the on-chip Flash memory.
+To select an ELF file from a custom directory, click the "File" button underneath the "User's choice" field and browse for the desired ELF file. You can decide to change the behavior of this script the next time it is executed.
+
+If the application has already been programmed on the Flash, for instance via the Arduino IDE or a previous TRACE32 session, select "Load debug symbols (program is already in Flash)" to prevent an unnecessary erase and write cycle of the on-chip Flash memory.
 
 If the application has changed or does not match the contents of the Flash, then select "Flash program and load debug symbols".
 
 Click the "OK" button to confirm all of your choices and start the session.
 
-### Debugging Session
+#### Debugging Session
 
-If the Flash is being programmed, TRACE32 will prompt you to double-click the reset button on the board to enable the bootloader mode. The built-in green LED of the board fades in and out when in bootloader mode. Click the "OK" button to proceed. Diagnostic messages will be displayed in the TRACE32 AREA window whilst the erasing and programming take place.
+If the Flash is being programmed, TRACE32 will prompt you to double-click the reset button on the board to enable the bootloader mode. The built-in green LED of the board will fade in and out when the board will be in bootloader mode. Click the "OK" button to proceed. Diagnostic messages will be displayed in the TRACE32 AREA window whilst the erasing and programming take place.
 
-The script will then attach to the board and cause TRACE32 to open some debug windows. When everything is ready, you should see the Program Counter halted at the entry to the setup() function. You may now use the arrow buttons in the toolbar to step through the code and inspect the variables, registers, call stack etc.
+The script will then be uploaded to the board and cause TRACE32 to open some debug windows. When everything is ready, you should see the Program Counter halted at the beginning of the setup() function. You may now use the arrow buttons in the toolbar to step through the code and inspect the variables, registers, call stack etc.
 
 ![TRACE32 debug session on Portenta H7 - T32ThreadDebug demo application](assets/por_ard_trace32_main_screen.png)
 
 In case of errors, please check the physical connection to the board, check if your host PC has detected the board's serial port and if this is the port configured in TRACE32. Reset the board and retry.
 
-Take a look at the readme.txt file inside the demo directory for further information about the demo.
+Take a look at the `readme.txt` file inside the demo directory for further information about the demo.
 
 ### Compile and Debug Other Projects
 
-The provided demos or another project of your choice can be edited, compiled and flashed with the Arduino IDE. You can open for example the T32ThreadDebug.ino file with Arduino IDE, build and flash it. Flashing is also possible with TRACE32.
+The provided demos or any other project of your choice can be edited, compiled, and flashed with the Arduino IDE. You can open for example the `T32ThreadDebug.ino` file in the Arduino IDE, build and flash it. Flashing is also possible with TRACE32 tool.
 
-***IMPORTANT: If you choose to program the Flash from within the Arduino IDE, do not close the IDE after programming; leave it open. This is very important because, if you close the IDE, it cleans up the temporary build directory which includes the ELF file.***
+***IMPORTANT: If you choose to program the Flash within the Arduino IDE, do not close the IDE after programming; leave it open. This is very important because, if you close the IDE, it cleans up the temporary build directory which includes the ELF file.***
 
-The demo directory contains a startup script which will copy the ELF file and the binary file in the current working directory. After the startup script is run, you can safely close the Arduino IDE if you don't need it anymore.
+The demo directory contains a startup script that will copy the ELF file and the binary file in the current working directory. After the startup script is run, you can safely close the Arduino IDE if you do not need it anymore.
 
 When you are done with flashing your application to the board, you can switch back to TRACE32. Select the type of Arduino IDE. If an ELF file is found, double-click to select it, then select "Load debug symbols (program is already in flash)" and click "OK".
 
-### Startup Script
+### Custom Startup Script
 
-You may also create a custom startup script for your own application. A minimal startup script is shown below. Copy it into a text file and save it with a file extension ".cmm". To execute it call the menu command "File-->Run Script..." from the TRACE32 GUI.
+You may also create a custom startup script for your own application. A minimal startup script is shown below. Copy it into a text file and save it with a file extension ".cmm". To execute it, call the menu command "File-->Run Script..." from the TRACE32 GUI.
 
 ```cpp
 SYStem.Down
@@ -184,13 +186,13 @@ List.auto
 ENDDO
 ```
 
-You can also copy the script start.cmm from the T32ThreadDebug demo directory to your working directory. For an application using the Serial Monitor, it is necessary to copy both start.cmm and term.cmm from the T32ThreadDebugPrint demo directory.
+You can also copy the script `start.cmm` from the T32ThreadDebug demo directory to your working directory. For an application using the Serial Monitor, it is necessary to copy both `start.cmm` and `term.cmm` from the T32ThreadDebugPrint demo directory.
 
-For each demo the corresponding start.cmm script comes with a predefined window layout. For your own layout, manually open and arrange the windows as you prefer, then save this window layout using the "Store Windows..." command in the Window menu. Save the file as win.cmm. It will be automatically found and used the next time you start a debugging session.
+For each demo the corresponding `start.cmm` script comes with a predefined window layout. For your own layout, manually open and arrange the windows as you prefer, then save this window layout using the "Store Windows..." command in the Window menu. Save the file as `win.cmm`. It will be automatically found and used the next time you start a debugging session.
 
 ## Conclusion
 
-In this tutorial you learned how to acquire a free version of the TRACE32 GDB Front End debugger, fully licensed for Portenta H7 or Nicla Vision for one year. You learned how to start the debugger and debug some ready-to-run demos. Furthermore, you learned how to debug an application compiled with the classic Arduino IDE.
+In this tutorial, you learned how to acquire a free version of the TRACE32 GDB Front End debugger, fully licensed for your Arduino board for one year. You learned how to start the debugger and debug some ready-to-run demos. Furthermore, you learned how to debug an application compiled with the classic Arduino IDE.
 
 ### Next Steps
 Lauterbach also provides hardware-based debug & trace tools. To learn more about them please visit:
@@ -201,15 +203,15 @@ Lauterbach also provides hardware-based debug & trace tools. To learn more about
 
 ## Troubleshooting
 
-### Portenta’s Serial Number Is Not 24 Digits Long
+### Portenta’s or Nicla's Serial Number Is Not 24 Digits Long
 
 - Update Arduino IDE to the latest version available
 - Update **Arduino mbed-enabled Boards** core from Arduino IDE menu: **Tools > Board > Boards Manager**
-- [Update the Portenta's bootloader using the instructions](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
+- Update the board's bootloader using the instructions available [here](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
 
 ### Error Message in AREA View: 'No More Arguments Expected' 
 
-- This may be caused by unsupported characters in your Windows user name. Make sure your user name neither contains any spaces nor special characters.
+- This may be caused by unsupported characters in your Windows user name. Make sure your user name contains neither any spaces nor special characters.
 
 ### Debugger Connection Issues
 
@@ -220,30 +222,28 @@ In case the debugger encounters any issues while connecting to the Portenta, try
 
 ### Flashing Issues
 
-- Before flashing the board from the Arduino IDE, please disconnect the TRACE32 debugger by typing the command: “SYStem.Down” on the command line interface. Alternatively, open the menu: “CPU-> System Settings…” and press the radio button “Down” in the “Mode” section.
+- Before flashing your board with the Arduino IDE, please disconnect the TRACE32 debugger by typing the command: “SYStem.Down” on the command line interface. Alternatively, open the menu: “CPU-> System Settings…” and press the radio button “Down” in the “Mode” section.
 
 ### Debugger Hanging Issues
 
-- The TRACE32 GDB front-end debugger is a run-mode debugger: At a breakpoint, only the user threads are stopped. The kernel and all other system threads continue to run. It may happen that the debugger hangs if a breakpoint is set in critical system areas. In this case, reset the board, remove all breakpoints and connect again to the target (SYStem.Mode Attach command).
+- The TRACE32 GDB front-end debugger is a run-mode debugger: At a breakpoint, only the user threads are stopped. The kernel and all other system threads continue to run. It may happen that the debugger hangs if a breakpoint is set in critical system areas. In this case, reset the board, remove all breakpoints, and connect again to the target (SYStem.Mode Attach command).
 
 ### Issues While Starting TRACE32 on Linux
 
 - The TRACE32 executable for Linux requires the Qt libraries. Please verify that one of the following versions of Qt is installed:
-- Qt4 >= 4.6.2	(Linux 32 bit or 64 bit)
-- or Qt5 >= 5.9	(Linux 64 bit)
+- Qt4 >= 4.6.2	(Linux 32-bit or 64-bit)
+- or Qt5 >= 5.9	(Linux 64-bit)
 
 On Ubuntu Linux, for example, you can install the Qt5 libraries using apt-get: `sudo apt-get install qt5-default`
 
 ### Issues With the GDB Serial Port on Host Linux
 
-The user running the TRACE32 executable on Linux must have the permission to access serial devices. For example, in Ubuntu a temporary permission can be set as follows:
+The user running the TRACE32 executable on Linux must have permission to access serial devices. For example, in Ubuntu, a temporary permission can be set as follows:
 
 `sudo chown :username /dev/devicename`
 
-You can also set a permanent permission adding the user to the "dialout" group. For example, in Ubuntu:
+You can also set permanent permission by adding the user to the "dialout" group. For example, in Ubuntu:
 
 `sudo adduser username dialout`
 
-Alternatively you can run the TRACE32 executable with root permissions.
-
-**Reviewed by:** Maurizio Menegotto, Richard Copeman [2023-08-02]
+Alternatively, you can run the TRACE32 executable with root permissions.
