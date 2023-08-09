@@ -79,7 +79,6 @@ In order to obtain a new license, you need to first get the serial number of you
 
 At this point, you are ready to register at the [Lauterbach registration page](http://www.lauterbach.com/4543):
 
-[www.lauterbach.com/4543](http://www.lauterbach.com/4543)
 
 Copy & paste your board's serial number and enter your name and e-mail address to get your new license. 
 
