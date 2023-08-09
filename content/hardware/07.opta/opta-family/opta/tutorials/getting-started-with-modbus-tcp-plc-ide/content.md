@@ -142,9 +142,13 @@ Opta™ can also be configured manually with a specific IP address. This method 
 
 ![Opta™ Manual IP Configuration](assets/opta_plcide_ipconfig.svg)
 
-If the IP address for Opta™ is set manually, it is necessary to configure the Ethernet interface on your computer by introducing a manual IP address setting under *IPv4*. The information set under the IPv4 configuration follows the gateway setting. You have to ensure a stable connection with Opta™ using the PLC IDE to develop the project.
+If the IP address for Opta™ is set manually, it is necessary to configure the Ethernet interface on your computer by introducing a manual IP address setting under *IPv4*. The information set under the IPv4 configuration follows the gateway setting. You have to ensure a stable connection with Opta™ using the PLC IDE to develop the project. The following image shows a configuration example on Windows 11 operating system:
+
+![Windows IP Manual IP Configuration](assets/plcide_ip_manual_config.png)
 
 The configured IP address for Opta™ also serves to connect and develop within the Arduino PLC IDE environment. The Modbus TCP option must be activated and set with Opta™ device's assigned IP address by going to `On-line -> Set up communication`. The connection between Opta™ and the development environment can be verified with the`ping <Opta™ IP Address>` command via the terminal.
+
+![Arduino PLC IDE - Device Connection Procedure](assets/opta_plcide_device_connection_master.gif)
 
 Keep in mind that the correct configuration is key to work with PLC IDE and Opta™. Once the properties of Opta™ devices are correctly set, you will be able to connect to Opta™ and two devices' states without any issue.
 
@@ -235,9 +239,11 @@ The `cnt` status variable uses the following parameters:
 
 With these settings ready, you need to go to `Resources -> Opta`, select the corresponding port, and begin the `Manual sketch download` process. Then you need to go to `On-line -> Set up Communication` and activate Modbus TCP with the assigned IP address for Opta™.
 
+![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Slave Opta™)](assets/opta_plcide_device_connection_slave.gif)
+
 Proceed with `On-line -> Connect` and it will establish communication between your computer and the server Opta™. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
 
-![PLC IDE Device Connection Status](assets/plcide_connection_stable.png)
+![Arduino PLC IDE - Device Connection Status](assets/plcide_connection_stable.png)
 
 Symbols `(1)` and `(2)` denote the connection statuses: Opta™ connected without a PLC code, and Opta™ connected with an available PLC code, respectively.
 
@@ -274,6 +280,8 @@ These are the properties you have to set for the Modbus TCP Slave Opta™ previo
 
 The Modbus node for client Opta™ is defined but it needs to set which Modbus function will be used to retrieve the counter (`cnt`) information from the server Opta™. Right-clicking on `Opta_TCP_1` in this case, or the name you choose to use will show the 'Add' option and will open a device catalog window listing all the available Modbus functions.
 
+![Arduino PLC IDE - Modbus Functions](assets/opta_plcide_modbus_functions.svg)
+
 The 'Modbus FC-04 (Read Input Registers)' function is chosen to request and retrieve the counter data from the server Opta™. You will need to set some parameters in the 'General' tab to access the data appropriately using the following parameters:
 
 * Start address: 25000
@@ -282,7 +290,9 @@ The 'Modbus FC-04 (Read Input Registers)' function is chosen to request and retr
 
 ![Arduino PLC IDE - Opta™ Master Modbus Function of the Node](assets/opta_plcide_client_modbusFunctionConfig.svg)
 
-It also needs to set a variable that will store the counter information transmitted from server Opta™. You can add the variable by going into the `Input Reg.` tab within the Modbus function configuration window. The following image shows how the configuration should look like:
+It also needs to set a variable that will store the counter information transmitted from server Opta™. You can add the variable by going into the `Input Reg.` tab within the Modbus function configuration window. A variable named `counter_rec` will be added to store the received data over the protocol transmission.
+
+The following image shows how the configuration should look like:
 
 ![Arduino PLC IDE - Opta™ Master Modbus Function of the Node (Input Reg.)](assets/opta_plcide_client_modbusFunctionConfig_reg.svg)
 
@@ -354,7 +364,7 @@ IF counter >= 2500 THEN
 END_IF;
 ```
 
-The `counter` is a global variable for client Opta™, while the `counter_rec` is the Modbus variable which stores the counter information retrieved from server Opta™.
+The `counter` is a global variable for client Opta™, while the `counter_rec` is the Modbus variable which stores the counter information retrieved from server Opta™. The `counter_rec` is the variable defined when the 'Read Input Registers' Modbus function was configured.
 
 The complete workspace interface for client Opta™ should look similar to the following image if the main PLC code was successfully compiled and uploaded to client Opta™:
 
