@@ -49,8 +49,8 @@ This board is based on the [Arduino ESP32 Core](https://github.com/arduino/ardui
 
 To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
-## Bootloader Mode
-The Nano ESP32 has a feature that we call bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
+## Arduino Bootloader Mode
+The Nano ESP32 has a feature that we call Arduino Bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
 
 This mode is useful if you've uploaded a sketch that produces some unwanted behaviour. Maybe the sketch causes it to become undetectable by your computer, or maybe its an HID sketch that took over your keyboard and mouse and you need to regain control of your computer. It lets you turn the board on without actually running any sketch.
 
@@ -309,18 +309,18 @@ The pins used for UART on the Nano ESP32 are the following:
 
 ![Nano ESP32 UART Pins](./assets/nano-esp32-uart.png)
 
-To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial1` object.
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial0` object.
 
 ```arduino
-Serial1.begin(9600);
+Serial0.begin(9600);
 ```
 
 To read incoming data, we can use a while loop() to read each individual character and add it to a string.
 
 ```arduino
-  while(Serial1.available()){
+  while(Serial0.available()){
     delay(2);
-    char c = Serial1.read();
+    char c = Serial0.read();
     incoming += c;
   }
 ```
@@ -328,7 +328,7 @@ To read incoming data, we can use a while loop() to read each individual charact
 And to write something, we can use the following command:
 
 ```arduino
-Serial1.write("Hello world!");
+Serial0.write("Hello world!");
 ```
 
 ## IO Mux & GPIO Matrix
@@ -361,7 +361,7 @@ There are several examples provided bundled with the core that showcase how to m
 
 ## RGB
 
-The ESP32 features an RGB that can be controlled with the `LED_RED`, `LED_GREEN` and `LED_BLUE` pins. These are not connected to any physical pins. 
+The ESP32 features an RGB LED that can be controlled with the `LED_RED`, `LED_GREEN` and `LED_BLUE` pin names. These pins are not accessible on the headers of the board, and can only be used for the RGB LED. 
 
 ***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
 
@@ -372,20 +372,59 @@ digitalWrite(LED_RED, STATE); //red
 digitalWrite(LED_GREEN, STATE); //green
 digitalWrite(LED_BLUE, STATE); //blue
 ```
+These pins are pulled down by default, what this means in practice is that to turn on one of the LEDs, you need to write it to `LOW`, like this:
+
+```arduino
+digitalWrite(LED_RED, LOW);
+```
 
 
 
 ## USB HID
 
-Nano ESP32 can be used to emulate an HID device by using e.g. `Mouse.move(x,y)` or `Keyboard.press('w')`. The API documentation can be found in Arduino's language reference:
+Nano ESP32 can be used to emulate an HID device by using e.g. `Mouse.move(x,y)` or `Keyboard.press('w')`.
 
-- [Keyboard API](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
-- [Mouse API](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
+These are minimal examples for keyboard and mouse use:
+
+### Keyboard Example 
+```arduino
+#include "USB.h"
+#include "USBHIDKeyboard.h"
+USBHIDKeyboard Keyboard;
+
+void setup() {
+  // put your setup code here, to run once:
+  Keyboard.begin();
+  USB.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Keyboard.print("Hello World");
+  delay(500);
+}
+```
+
+### Mouse Example 
+
+```arduino
+#include "USB.h"
+#include "USBHIDMouse.h"
+USBHIDMouse Mouse;
+
+void setup() {
+  // put your setup code here, to run once:
+  Mouse.begin();
+  USB.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Mouse.move(5, 0, 0); 
+  delay(50);
+}
+```
 
 Several ready to use examples are also available in the core at **Examples > USB**.
 
-## Test Pads
-
-There are several test pads on the bottom side of the Nano ESP32. See the image below:
-
-![Test pads on Nano ESP32](assets/nano-esp32-testpads.png)
+Remember that if the board stops being recognised in the IDE, you can put it in [Arduino Bootloader Mode](#arduino-bootloader-mode) to recover it.
