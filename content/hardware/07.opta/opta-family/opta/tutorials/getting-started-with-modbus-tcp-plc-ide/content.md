@@ -108,13 +108,19 @@ Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential 
 
 ### Hardware Setup
 
-Two Opta™ devices and the PLC IDE will be used to create a Modbus TCP communication. It is set up by attaching the Ethernet LAN (RJ-45) cable to both devices on the `ETH RJ45` port. The following image shows the connection diagram to work with both devices.
+For Modbus TCP communication, we will use two Opta™ devices and the PLC IDE.
+
+#### Connection and Ethernet Switch Integration
+
+Set up the connection by attaching the Ethernet LAN (RJ-45) cable to both devices using the `ETH RJ45` port. The following image provides a connection diagram for both devices:
 
 ![General setup for two Opta™ devices with Ethernet Switch](assets/opta_plcide_hardware_connection_eth.svg)
 
-The setup includes an Ethernet switch monitoring both Opta™ devices using PLC IDE and profile to observe the information exchanges in real time; being the recommendable hardware setup for the present tutorial.
+The setup incorporates an Ethernet switch that monitors both Opta™ devices using the PLC IDE. This configuration not only links both Opta™ devices using the PLC IDE but also lets you employ a profile to observe information exchanges in real-time. The setup with the Ethernet switch is the recommended approach for this tutorial, ensuring optimal communication between devices.
 
-Once the Modbus connection is properly working, Opta™ devices can remain connected directly without the need for the Ethernet switch when deployed in an application field as it can be seen in the following image.
+#### Field Deployment Setup
+
+Once the Modbus connection is active, you can directly connect the Opta™ devices without the Ethernet switch in the field application. Furthermore, you have the flexibility to add more Modbus TCP compatible devices to the communication line, expanding the setup as needed. Refer to the following image for this configuration:
 
 ![General setup for two Opta™ devices](assets/opta_plcide_hardware_connection.svg)
 
@@ -124,13 +130,15 @@ There are some considerations that you will need to understand beforehand for pr
 
 #### PLC IDE Project Configuration & Licenses Management
 
-It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) to familiarize with the Arduino PLC IDE environment.
+In any robust development environment, understanding the intricacies of project configuration and the nuances of license management is essential. The Arduino PLC IDE provides a unique blend of features tailored for industrial automation, but to utilize them effectively, a solid foundation is indispensable.
+
+We highly recommend reviewing [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) before delving into the present tutorial.
 
 #### Opta™ Basic Configuration
 
 To configure the Modbus TCP communication, we need to know the IP address of each Opta™. If you attach Opta™ to your computer using the RJ-45 cable and the Ethernet switch and leave the ethernet configuration as default, the external *Dynamic Host Configuration Protocol (DHCP)* server will provide an IP address by assigning automatically for Opta™. You will need to scan for the address and use that IP address as the device address of Opta™.
 
-Opta™ can also be configured manually with a specific IP address. This method is viable to assign devices with specific addresses to operate under certain policies if required. To do this, you need to define the IP setting by effectuating the sketch found within the `Resources` tab of the PLC IDE. The following image shows what the configuration could look like.
+Opta™ can also be configured manually with a specific IP address. This method is viable to assign devices with specific addresses to operate under certain policies if required. To do this, you need to define the IP setting by effectuating the sketch found within the `Resources` tab of the PLC IDE. The following image shows what the configuration could look like inside the sketch.
 
 ![Opta™ Manual IP Configuration](assets/opta_plcide_ipconfig.svg)
 
@@ -189,13 +197,11 @@ The continuing sections will show how to configure each Opta™ based on its rol
 
 #### Modbus TCP Slave Opta™
 
-To set Opta™ as a Modbus TCP Slave, you will need to go to the `Ethernet` tab under the `Resources` panel in PLC IDE. Since the `Modbus TCP Slave` mode is always enabled, you don't have to change any setting in the current window. It still requires properties that will allow Opta™ to correctly operate Modbus TCP, thus you will need the subsequent configuration.
+To set Opta™ as a Modbus TCP Slave, navigate to the `Ethernet` tab located in the `Resources` panel of the PLC IDE. Since the `Modbus TCP Slave` mode is always enabled, you don't have to change any setting in the current window. However, certain properties are essential for Opta™ to function accurately with Modbus TCP, thus it requires the subsequent configuration.
 
-The Modbus TCP Slave Opta™ will use the following Ethernet properties.
+The Modbus TCP Slave Opta™ will employs following Ethernet properties.
 
 ```arduino
-#include <PortentaEthernet.h>
-arduino::EthernetClass eth(&m_netInterface);
 
 void setup()
 {
@@ -205,7 +211,7 @@ void setup()
     IPAddress gateway(192, 168, 1, 23);
     IPAddress subnet(255, 255, 255, 0);
     // If the cable is not connected this will block the start of PLC with about 60s of timeout!
-    eth.begin(ip, dns, gateway, subnet);
+    Ethernet.begin(ip, dns, gateway, subnet);
 }
 
 ...
@@ -213,9 +219,11 @@ void setup()
 
 The Ethernet properties consist of `ip`, `dns`, `gateway`, and `subnet` elements and are called arguments for the `eth.begin()` method to assign these properties for Opta™. These elements are defined to your preference or network requirements, and previous addresses are one configuration example that can be applied. The `ip(192, 168, 1, 2)` is the IP address assigned to Modbus TCP Slave Opta™.
 
-The sketch comes with some important lines commented by default when you create the project file in PLC IDE. You will need to uncomment the lines to make the effect of the configuration and set the features by downloading the sketch manually to Opta™ at the `Opta™ Configuration` window.
+These properties — `ip`, `dns`, `gateway`, and `subnet` — are provided as arguments to the `Ethernet.begin()` method, setting its properties for Opta™. It can be adjusted as per your preference or based on network prerequisites. The IP address `ip(192, 168, 1, 2)` is designated for the Modbus TCP Slave Opta™.
 
-The following image shows the `Status variables (volatile)` window, where you will define the `cnt` variable with its access address and its data type to share over Modbus TCP.
+When initializing a project file in PLC IDE, certain essential lines within the sketch are commented out. These lines should be uncommented to activate the configurations. Once this is done, the sketch should be manually downloaded to Opta™ through the `Opta™ Configuration` window.
+
+The following image shows the `Status variables (volatile)` window. Here, you'll define the cnt variable, assigning its access address and datatype for Modbus TCP transmission.
 
 ![Arduino PLC IDE - Opta™ Slave Status Variable](assets/opta_plcide_server_statVar.svg)
 
@@ -229,7 +237,11 @@ With these settings ready, you need to go to `Resources -> Opta`, select the cor
 
 Proceed with `On-line -> Connect` and it will establish communication between your computer and the server Opta™. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
 
-Now it requires the PLC code or referred to as the main code, needs to be compiled and uploaded to Opta™. To do this, go to the `main` tab under the `Project` panel. You will then copy the following code to the space.
+![PLC IDE Device Connection Status](assets/plcide_connection_stable.png)
+
+Symbols `(1)` and `(2)` denote the connection statuses: Opta™ connected without a PLC code, and Opta™ connected with an available PLC code, respectively.
+
+Next, the main PLC code, also referred to as the primary code, must be compiled and uploaded to Opta™. To do this, navigate to the `main` tab within the `Project` panel, and input the following code:
 
 ```arduino
 cnt := cnt + 1;
@@ -239,11 +251,11 @@ IF cnt >= 2750 THEN
 END_IF;
 ```
 
-The server Opta™ device's task runs a simple counter and resets whenever the counter reaches `2750`. You can use `Download PLC code` or press `F7` to begin the main code compilation and upload to Opta™. If the process is successful, you will have a similar result as shown in the following image.
+The server Opta™ device's task runs a simple counter and resets whenever the counter reaches `2750`. Use the `Download PLC code` option or press `F7` to initiate the code's compilation and uploading process to Opta™. A successful upload will resemble the image provided below.
 
 ![Arduino PLC IDE - Opta™ Slave Main Code](assets/opta_plcide_server_mainCode.svg)
 
-You now have set an Opta™ as Modbus TCP Slave. You will now set another Opta™ as a Modbus TCP Master with the following section.
+With these steps completed, you've successfully configured an Opta™ device as a Modbus TCP Slave. The next section will guide you through setting up another Opta™ as a Modbus TCP Master.
 
 #### Modbus TCP Master Opta™
 
@@ -277,8 +289,6 @@ It also needs to set a variable that will store the counter information transmit
 The Modbus TCP Master Opta™ will use the following Ethernet properties.
 
 ```arduino
-#include <PortentaEthernet.h>
-arduino::EthernetClass eth(&m_netInterface);
 
 void setup()
 {
@@ -288,7 +298,7 @@ void setup()
     IPAddress gateway(192, 168, 1, 3);
     IPAddress subnet(255, 255, 255, 0);
     // If the cable is not connected this will block the start of PLC with about 60s of timeout!
-    eth.begin(ip, dns, gateway, subnet);
+    Ethernet.begin(ip, dns, gateway, subnet);
 }
 
 ```
