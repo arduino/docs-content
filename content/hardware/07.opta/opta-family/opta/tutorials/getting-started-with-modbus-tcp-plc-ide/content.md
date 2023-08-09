@@ -17,7 +17,11 @@ hardware:
 
 ## Overview
 
-Opta™ features industrial-grade hardware with rich connectivity options like Modbus TCP using its RJ-45 port. In this tutorial, you will learn how to implement Modbus TCP based communication between two Opta™ devices using Arduino PLC IDE.
+Opta™ is distinguished by its industrial-grade hardware that ensures durability and consistent performance even in the most challenging environments. A highlight of its design is the inclusion of multiple connectivity options, notably Modbus TCP through the RJ-45 port.
+
+![General Modbus TCP System Model with Opta™ & PLC IDE](assets/opta_plcide_modbustcp_overview.svg)
+
+In this tutorial, you will learn how to implement Modbus TCP based communication between two Opta™ devices using Arduino PLC IDE.
 
 ## Goals
 
@@ -59,6 +63,32 @@ The **Modbus TCP/IP**, often simply referred to as **Modbus TCP**, is a variant 
 
 ***Controller/Peripheral is formerly known as Master/Slave. Arduino no longer supports the use of this terminology. Devices formerly known as Master are referred to as Controller/Client and devices formerly known as Slaves are referred to as Peripheral/Server.***
 
+## Modbus TCP & PLC IDE
+
+In this tutorial, we will guide you through setting up two Opta™ devices with Modbus TCP using the Arduino PLC IDE. Understanding the overall process of implementation is crucial for successful deployment.
+
+Refer to the following diagram for a concise visualization of how Opta™ is configured and deployed with Modbus TCP:
+
+![Modbus TCP Implementation with Arduino PLC IDE](assets/plcide_modbustcp_process.svg)
+
+The entire procedure is divided into three distinct stages:
+
+* __Modbus TCP Configuration__ is the foundational step where we initialize the Opta™ device with Modbus TCP and other essential properties intrinsic to the device. A pivotal component of this stage is the IP configuration, which is essential for Modbus TCP communication and will be defined within the Arduino sketch.
+
+  During this stage, the Modbus TCP role, either Master or Slave, is designated to the Opta™ device. Based on this role within the Modbus TCP, 'Status variables' are delineated or the Modbus node is defined to determine the communicating devices using this protocol.
+
+* __PLC Program__, developed subsequent to device initialization, it is grounded in Modbus TCP and other properties. The beauty of this stage is the absence of a need for detailed configurations or programming related to Modbus TCP settings in the PLC code.
+
+  The process has been simplified for user convenience. By merely referencing predefined variables in your PLC code, the system autonomously manages data exchange via Modbus TCP. This method capitalizes on the device's earlier initialization, thus cutting down on redundant steps and bolstering efficient communication.
+
+* __System Operation__ represents the anticipated outcome post the Modbus TCP configuration and the execution of the PLC program based on the developer's designed logic. Consequently, we can observe the device engaging in communication with other devices through Modbus TCP.
+
+The provided diagram underscores the consistency in the Modbus TCP configuration across Arduino devices using the PLC IDE. A salient feature of this system is its adaptability. Irrespective of the Modbus TCP configurations, the PLC program can operate effectively and reliably. This autonomous nature guarantees its interoperability and versatility in a variety of scenarios.
+
+Furthermore, when it comes to creating or customizing the PLC code, we're not restricted in terms of programming language. The system supports the IEC61131-3 standard, which means it can be designed with preferred language from the suite defined under this standard. This adaptability allows for both ease of use and precision in program development.
+
+Having provided an overview of the entire process, we can now delve into the specifics.
+
 ## Instructions
 
 ### Setting Up the Arduino PLC IDE
@@ -67,6 +97,8 @@ Access the Arduino PLC IDE software by following [Arduino PLC IDE official websi
 
 - [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - [Arduino PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide)
+
+![Arduino PLC IDE Software Download Section](assets/plcide_software_download.svg)
 
 The **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development while the **Arduino PLC IDE** will install the IDE software.
 
