@@ -16,7 +16,7 @@ The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC as its m
 
 ![Nano ESP32 overview](assets/nano-esp32-overview.png)
 
-In this document, you will find information regarding features your board, and links to resources. 
+In this document, you will find information regarding features of the board, and links to resources. 
 
 ***Note that this board is compatible with many ESP32 examples out of the box, but that the pinout may vary. You can find the complete API at [ESP32-S3 API reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html).*** 
 
@@ -289,7 +289,7 @@ One is exposed via RX/TX pins.
 
 ### Native USB
 
-Sending serial data to your computer is done using the standard `Serial` object. I
+Sending serial data to your computer is done using the standard `Serial` object.
 
 ```arduino
 Serial.begin(9600);
