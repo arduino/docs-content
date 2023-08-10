@@ -52,7 +52,7 @@ Here's an overview of the device's main components shown in the image above:
 - **Security**: Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices that provides advanced security features.
 - **USB connectivity**: Opta™ features an onboard USB-C® port that can be used for programming and data logging.
 - **Analog and digital peripherals**: Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
-- **RS-485 connectivity**: Opta™ (all variants) features a physical RS-485 communication interface available through an onboard terminal connector that can be used for standard communication interfaces like Modbus RTU or custom communication protocols.
+- **RS-485 connectivity**: Opta™ (RS485 and WiFi variants) features a physical RS-485 communication interface available through an onboard terminal connector that can be used for standard communication interfaces like Modbus RTU or custom communication protocols.
 - **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
 
 ![Opta™ DIN rail mounting](assets/user-manual-2.gif)
