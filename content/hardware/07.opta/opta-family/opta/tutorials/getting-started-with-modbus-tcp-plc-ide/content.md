@@ -45,8 +45,6 @@ In this tutorial, you will learn how to implement Modbus TCP based communication
 - If you have an Opta™, you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to know more.
 - [Opta™ Modbus TCP PLC IDE Project Example File](assets/ModbusTCP_Opta_Example.zip)
 
-***Your Opta is already pre-licensed so no license key is need it to activate your product. Check [the license activation guide](https://docs.arduino.cc/tutorials/opta/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to learn more.***
-
 ## Modbus TCP
 
 The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol*, with its data management being independent of the transmission method.
@@ -85,7 +83,7 @@ The entire procedure is divided into three distinct stages:
 
 The provided diagram underscores the consistency in the Modbus TCP configuration across Arduino devices using the PLC IDE. A salient feature of this system is its adaptability. Irrespective of the Modbus TCP configurations, the PLC program can operate effectively and reliably. This autonomous nature guarantees its interoperability and versatility in a variety of scenarios.
 
-Furthermore, when it comes to creating or customizing the PLC code, we're not restricted in terms of programming language. The system supports the IEC61131-3 standard, which means it can be designed with preferred language from the suite defined under this standard. This adaptability allows for both ease of use and precision in program development.
+Furthermore, when it comes to creating or customizing the PLC code, we are not restricted in terms of programming language. The system supports the IEC61131-3 standard, which means it can be designed with preferred language from the suite defined under this standard. This adaptability allows for both ease of use and precision in program development.
 
 Having provided an overview of the entire process, we can now delve into the specifics.
 
@@ -116,7 +114,7 @@ Set up the connection by attaching the Ethernet LAN (RJ-45) cable to both device
 
 ![General setup for two Opta™ devices with Ethernet Switch](assets/opta_plcide_hardware_connection_eth.svg)
 
-The setup incorporates an Ethernet switch that monitors both Opta™ devices using the PLC IDE. This configuration not only links both Opta™ devices using the PLC IDE but also lets you employ a profile to observe information exchanges in real-time. The setup with the Ethernet switch is the recommended approach for this tutorial, ensuring optimal communication between devices.
+The setup incorporates an Ethernet switch that monitors both Opta™ devices using the PLC IDE. This configuration not only links both Opta™ devices using the PLC IDE but also lets you employ a profile to observe information exchanges in real-time. We recommend using the setup with the Ethernet switch for this tutorial to ensure optimal communication between devices.
 
 #### Field Deployment Setup
 
@@ -150,7 +148,7 @@ The configured IP address for Opta™ also serves to connect and develop within 
 
 ![Arduino PLC IDE - Device Connection Procedure](assets/opta_plcide_device_connection_master.gif)
 
-Keep in mind that the correct configuration is key to work with PLC IDE and Opta™. Once the properties of Opta™ devices are correctly set, we will be able to connect to Opta™ and two devices' states without any issue.
+Keep in mind that the correct configuration is key to work with PLC IDE and Opta™. Once the properties of the Opta™ devices are correctly set, we will be able to seamlessly connect to Opta™ and monitor the states of both devices.
 
 #### Modbus TCP Master and Slave Mode
 
@@ -225,7 +223,7 @@ These properties — `ip`, `dns`, `gateway`, and `subnet` — are provided as ar
 
 When initializing a project file in PLC IDE, certain essential lines within the sketch are commented out. These lines should be uncommented to activate the configurations. Once this is done, the sketch should be manually downloaded to Opta™ through the `Opta™ Configuration` window.
 
-The following image shows the `Status variables (volatile)` window. Here, you'll define the `cnt` variable, assigning its access address and datatype for Modbus TCP transmission.
+The following image shows the `Status variables (volatile)` window. Here, we will define the `cnt` variable, assigning its access address and datatype for Modbus TCP transmission.
 
 ![Arduino PLC IDE - Opta™ Slave Status Variable](assets/opta_plcide_server_statVar.svg)
 
@@ -239,7 +237,7 @@ With these settings ready, you need to go to `Resources -> Opta`, select the cor
 
 ![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Slave Opta™)](assets/opta_plcide_device_connection_slave.gif)
 
-Proceed with `On-line -> Connect` and it will establish communication between your computer and the server Opta™. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
+Proceed with `On-line -> Connect` and it will establish communication between your computer and the slave Opta™. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
 
 ![Arduino PLC IDE - Device Connection Status](assets/plcide_connection_stable.png)
 
@@ -255,7 +253,7 @@ IF cnt >= 2750 THEN
 END_IF;
 ```
 
-The server Opta™ device's task runs a simple counter and resets whenever the counter reaches `2750`. Use the `Download PLC code` option or press `F7` to initiate the code's compilation and uploading process to Opta™. A successful upload will resemble the image provided below.
+The slave Opta™ device's task runs a simple counter and resets whenever the counter reaches `2750`. Use the `Download PLC code` option or press `F7` to initiate the code's compilation and uploading process to Opta™. A successful upload will resemble the image provided below.
 
 ![Arduino PLC IDE - Opta™ Slave Main Code](assets/opta_plcide_server_mainCode.svg)
 
@@ -272,15 +270,15 @@ To establish communication with the configured Modbus TCP Slave Opta™, Modbus 
 * Minimum polling time: 1 ms
 * Address type: Modbus
 
-These properties should be set in the same manner as for the Modbus TCP Slave Opta™. The most crucial configuration is the IP address. This address must correspond to the one assigned to the server Opta™, or any other compatible device should you add more nodes. The resulting configuration should look similar to the accompanying image:
+These properties should be set in the same manner as for the Modbus TCP Slave Opta™. The most crucial configuration is the IP address. This address must correspond to the one assigned to the slave Opta™, or any other compatible device should you add more nodes. The resulting configuration should look similar to the accompanying image:
 
 ![Arduino PLC IDE - Opta™ Master Node](assets/opta_plcide_client_nodeConfig.svg)
 
-While the Modbus node for the client Opta™ is defined, the Modbus function that will retrieve the counter (`cnt`) information from the server Opta™ must be specified. By right-clicking on `Opta_TCP_1` or whichever name you choose, the 'Add' option will appear, revealing a device catalog window with a list of available Modbus functions:
+While the Modbus node for the master Opta™ is defined, the Modbus function that will retrieve the counter (`cnt`) information from the slave Opta™ must be specified. By right-clicking on `Opta_TCP_1` or whichever name you choose, the 'Add' option will appear, revealing a device catalog window with a list of available Modbus functions:
 
 ![Arduino PLC IDE - Modbus Functions](assets/opta_plcide_modbus_functions.svg)
 
-For retrieving counter data from the server Opta™, select the 'Modbus FC-04 (Read Input Registers)' function. The 'General' tab needs to be configured with the following parameters for correct data access:
+For retrieving counter data from the slave Opta™, select the 'Modbus FC-04 (Read Input Registers)' function. The 'General' tab needs to be configured with the following parameters for correct data access:
 
 * Start address: 25000
 * Polling time: 0 ms (Continuous Read)
@@ -288,7 +286,7 @@ For retrieving counter data from the server Opta™, select the 'Modbus FC-04 (R
 
 ![Arduino PLC IDE - Opta™ Master Modbus Function of the Node](assets/opta_plcide_client_modbusFunctionConfig.svg)
 
-Next, a variable that will store the counter information from the server Opta™ must be defined. This variable can be added by navigating to the `Input Reg.` tab within the Modbus function configuration window. A variable named `counter_rec` will be added to hold the received data over the protocol transmission.
+Next, a variable that will store the counter information from the slave Opta™ must be defined. This variable can be added by navigating to the `Input Reg.` tab within the Modbus function configuration window. A variable named `counter_rec` will be added to hold the received data over the protocol transmission.
 
 The following image shows a visual representation of the expected configuration:
 
@@ -313,7 +311,7 @@ void setup()
 
 The `ip(192, 168, 1, 1)` represents the IP address of the Modbus TCP Master Opta™. The Internet Protocol properties can be adjusted as required, but ensuring the `subnet` matches your computer's is crucial.
 
-The client Opta™ employs status LEDs and relays in this tutorial's example. The status LEDs can be defined with variables of your choice. For this example, it could use `LED1` to `LED4` designations for corresponding status LEDs.
+The master Opta™ employs status LEDs and relays in this tutorial's example. The status LEDs can be defined with variables of your choice. For this example, it could use `LED1` to `LED4` designations for corresponding status LEDs.
 
 For instance, to use the `relay_1` and `LED1` variables for the first relay and status LED respectively, these variables must be defined under the 'Local IO Mapping' tab within 'Relay Outputs' and 'LED Outputs'. If omitted, program compilation will produce an error due to unrecognized designations.
 
@@ -362,9 +360,9 @@ IF counter >= 2500 THEN
 END_IF;
 ```
 
-The `counter` is a global variable for the client Opta™. `Counter_rec`, on the other hand, is the Modbus variable storing information retrieved from the server Opta™. This variable was defined during the 'Read Input Registers' Modbus function's configuration.
+The `counter` is a global variable for the master Opta™. `Counter_rec`, on the other hand, is the Modbus variable storing information retrieved from the slave Opta™. This variable was defined during the 'Read Input Registers' Modbus function's configuration.
 
-The complete workspace interface for client Opta™ should resemble the following image once the main PLC code has been successfully compiled and downloaded to the client Opta™:
+The complete workspace interface for master Opta™ should resemble the following image once the main PLC code has been successfully compiled and downloaded to the master Opta™:
 
 ![Arduino PLC IDE - Opta™ Master Main Code](assets/opta_plcide_client_mainCode.svg)
 
