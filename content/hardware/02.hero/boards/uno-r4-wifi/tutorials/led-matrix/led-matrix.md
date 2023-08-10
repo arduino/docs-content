@@ -287,7 +287,7 @@ To use the tool you need to upload the following sketch, allowing the board to r
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
-![LED Matrix Editor](./assets/led-matrix-editor.png)
+![LED Matrix Editor](./assets/led-matrix-tool.png)
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 
