@@ -2,7 +2,7 @@
 title: 'Opta™ User Manual'
 difficulty: beginner
 compatible-products: [opta]
-description: 'Learn about the hardware and software features of Arduino® Opta™ devices.'
+description: 'Learn about the hardware and software features of Opta™ devices.'
 tags:
   - Cheat sheet
   - User manual
