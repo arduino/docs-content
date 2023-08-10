@@ -151,7 +151,7 @@ You should see the green LED on top of your device's `RESET` button turn on for 
 
 ![Opta™ blink](assets/user-manual-19_2.gif)
 
-With Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
+With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
 ```arduino
 void setup() {
@@ -222,7 +222,7 @@ To use the input terminals as analog inputs:
 
 - Add the `analogReadResolution()` instruction in your sketch's  `setup()` function.
 
-The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real-time.
+The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real time.
 
 
 ```arduino
@@ -285,7 +285,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 }
 ```
 
-The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets these readings as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor changes in real-time.
+The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets these readings as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor changes in real time.
 
 ```arduino
 /**
@@ -429,7 +429,7 @@ To read the status of the user button:
 
 - Add the `digitalRead(BTN_USER)` instruction in your sketch.
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. It initializes the state of the user LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
+The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. It initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
 
 ```arduino
 /**
@@ -721,11 +721,11 @@ void loop() {
 }
 ```
 
-The sketch starts by including the `Ethernet` and `ArduinoJson` libraries, which provide the necessary Ethernet and JSON handling functionality, respectively. In the `setup()` function, the serial communication is initiated for debugging purposes. The Ethernet connection is attempted to be established using DHCP, and if this automatic configuration fails, a predefined static IP address is used.
+The sketch starts by including the `Ethernet` and `ArduinoJson` libraries, which provide the necessary Ethernet and JSON handling functionality, respectively. In the `setup()` function, serial communication is initiated for debugging purposes. The Ethernet connection is attempted to be established using DHCP, and if this automatic configuration fails, a predefined static IP address is used.
 
 Once the Ethernet connection is up, the sketch connects to the OpenWeatherMap API server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query the current weather data for Turin, Italy. In the event of a failure to connect to the server, the code outputs an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
-The `loop()` function regularly checks the link status of the Ethernet connection, and if the link is up, it sends an `HTTP GET` request to the server. The sketch then skips the HTTP headers of the response, and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response.
+The `loop()` function regularly checks the link status of the Ethernet connection, and if the link is up, it sends an `HTTP GET` request to the server. The sketch then skips the HTTP headers of the response and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response.
 
 The parsed data is used to extract key weather parameters such as temperature, pressure, humidity, and wind speed, which are then printed to the IDE's Serial Monitor. The function also handles Ethernet disconnection, printing a message to the IDE's Serial Monitor if the link goes down. The `GET` requests are scheduled to be sent every 10 seconds. If the JSON parsing fails for any reason, an error message is outputted to the IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
 
@@ -746,7 +746,7 @@ RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as desc
 |                `A`               |      `A(-)`      |
 |                `B`               |      `B(+)`      |
 
-***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal, and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
 
 To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
 
