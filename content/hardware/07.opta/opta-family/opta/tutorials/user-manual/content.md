@@ -16,8 +16,6 @@ software:
   - iot-cloud
 ---
 
-## Overview
-
 This user manual will provide a comprehensive overview of Opta™, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure and use all the main features of an Opta™ device.
 
 ## Hardware and Software Requirements
@@ -51,7 +49,7 @@ Here's an overview of the device's main components shown in the image above:
 - **Microcontroller**: At the heart of Opta™ is the STM32H747XI, a powerful and high-performance microcontroller from STMicroelectronics®. The STM32H747XI is built around an Arm® Cortex®-M7 and Cortex®-M4 32-bit RISC cores. The Cortex®-M7 core operates at up to 480 MHz, and the Cortex®-M4 core at up to 240 MHz.
 - **Wireless connectivity**: Opta™ (WiFi variant only) supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware), allowing the device to communicate wirelessly with other devices and systems. 
 - **Ethernet connectivity**: Opta™ (all variants) features an onboard, high-performance 10/100 Mbps Ethernet transceiver accessible through its onboard RJ45 connector.
-- **Security**: Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices and provides advanced security features.
+- **Security**: Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices that provides advanced security features.
 - **USB connectivity**: Opta™ features an onboard USB-C® port that can be used for programming and data logging.
 - **Analog and digital peripherals**: Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: Opta™ (all variants) features a physical RS-485 communication interface available through an onboard terminal connector that can be used for standard communication interfaces like Modbus RTU or custom communication protocols.
