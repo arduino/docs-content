@@ -284,7 +284,7 @@ To use the tool you need to upload the following sketch, allowing the board to r
 
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/Arduino_LED_Matrix/examples/LivePreview/LivePreview.ino" className="arduino"/>
 
-[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
 ![LED Matrix Editor](./assets/led-matrix-editor.png)
