@@ -374,13 +374,11 @@ digitalWrite(LED_RED, STATE); //red
 digitalWrite(LED_GREEN, STATE); //green
 digitalWrite(LED_BLUE, STATE); //blue
 ```
-These pins are pulled down by default, what this means in practice is that to turn on one of the LEDs, you need to write it to `LOW`, like this:
+These pins are so called active-low, what this means in practice is that to turn on one of the LEDs, you need to write it to `LOW`, like this:
 
 ```arduino
 digitalWrite(LED_RED, LOW);
 ```
-
-
 
 ## USB HID
 
