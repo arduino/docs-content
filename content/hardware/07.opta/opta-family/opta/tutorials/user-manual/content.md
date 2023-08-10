@@ -55,7 +55,7 @@ Here's an overview of the device's main components shown in the image above:
 - **RS-485 connectivity**: Opta™ (RS485 and WiFi variants) features a physical RS-485 communication interface available through an onboard terminal connector that can be used for standard communication interfaces like Modbus RTU or custom communication protocols.
 - **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
 
-![Opta™ DIN rail mounting (WiFi variant)](assets/user-manual-2.gif)
+![Opta™ DIN rail mounting (WiFi variant)](assets/user-manual-2_2.gif)
 
 ### Opta™ Core and Libraries
 
@@ -127,7 +127,7 @@ To upload the code to your Opta™ device, click the **Verify** button to compil
 
 You should see the green LED on top of your device's `RESET` button turn on for one second, then off for one second, repeatedly. 
 
-![Opta™ blink](assets/user-manual-19.gif)
+![Opta™ blink](assets/user-manual-19_2.gif)
 
 With Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
 
@@ -149,7 +149,7 @@ void loop() {
 
 You should see the blue LED on top of your device's USER button turn on for one second, then off for one second, repeatedly. 
 
-![Opta™ blink](assets/user-manual-20.gif)
+![Opta™ blink](assets/user-manual-20_2.gif)
 
 ## USB®-C Port
 
@@ -387,7 +387,7 @@ void loop() {
 
 You should see a Knight Rider-style "scanning" effect with Opta™'s user LEDs.
 
-![Opta™ Knight Rider scanning effect](assets/user-manual-21.gif)
+![Opta™ Knight Rider scanning effect](assets/user-manual-21_2.gif)
 
 ## Actuators 
 
@@ -496,7 +496,7 @@ void changeLights() {
 ```
 You should be able now to control the sequence of status LEDs by pressing Opta™'s programmable user button.
 
-![Opta™ user button](assets/user-manual-22.gif)
+![Opta™ user button](assets/user-manual-22_2.gif)
 
 ### Relays
 
