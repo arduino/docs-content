@@ -40,7 +40,7 @@ Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cor
 
 ### Opta™ Main Components
 
-Opta™ features a secure and durable design that enables it for automation applications. 
+Opta™ features a secure, certified, and durable design that enables it for automation and industrial applications. 
 
 ![Opta™ main components](assets/user-manual-1.png)
 
