@@ -4,6 +4,7 @@ Shield:
   Compatibility: MKR
 Protocol: CAN bus
 Communication: SPI
+Chip Select Pin (SPI): D3
 Integrated circuits:
   Controller: Microchip MCP2515
   Transceiver: NXP® TJA1049
