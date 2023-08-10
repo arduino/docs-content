@@ -89,7 +89,25 @@ The complete STEP files are available and downloadable from the link below:
 
 ## First Use
 ### Powering the Board
-// examples using internal stuff
+
+The Nicla Sense ME can be powered by:
+
+- Using a Micro USB cable (not included). 
+- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
+
+![Nicla Sense ME battery powered](assets/battery-white.png)
+
+### Battery Charging 
+
+One of the characteristic features of the Nicla Sense ME is power management, the BQ25120 battery charger IC is configurable by the user, which means that its charging parameters can be customized by software. We listed the main ones below:
+
+- **Enable charging:** If you are powering the board with a rechargeable battery, you may want it to be recharged, the IC lets you enable the charging function by calling `nicla::enableCharging(x)`.
+
+- **Battery charging current:** A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half of the battery's capacity. For example, a 200mAh battery could be charged at 100mA (0.1A).
+   - The desired current must be set as the parameter of the enabling function:
+    `nicla::enableCharging(100)`
 
 ## Pins
 ### Analog Pins
