@@ -103,14 +103,16 @@ The Nicla Sense ME can be powered by:
 
 One of the characteristic features of the Nicla Sense ME is power management, the BQ25120 battery charger IC is configurable by the user, which means that its charging parameters can be customized by software. We listed the main ones below:
 
-- **Enable charging:** If you are powering the board with a rechargeable battery, you may want it to be recharged, the IC lets you enable the charging function by calling `nicla::enableCharging(x)`.
+- **Enable charging:** If you are powering the board with a rechargeable battery, you may want it to be recharged, the IC lets you enable the charging function by calling `nicla::enableCharging()`.
 
 - **Battery charging current:** A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half of the battery's capacity. For example, a 200mAh battery could be charged at 100mA (0.1A).
 
   The desired current must be set as the parameter of the enabling function:
-    `nicla::enableCharging(100)`
+    `nicla::enableCharging(100)`.
 
-- **Battery NTC:** if your battery has an NTC to measure its temperature, you can enable it by calling this function: `nicla::setBatteryNTCEnabled(true)`, if not, set the argument to *false*. 
+  When the function parameter is left blank, the default current is 20mA.
+
+- **Battery NTC:** If your battery has an NTC to measure its temperature, you can enable it by calling this function: `nicla::setBatteryNTCEnabled(true)`, if not, set the argument to *false*. 
 
 - **Battery maximum charging time:** To get an estimation of the charging time, you can use the following formula:
 
@@ -153,8 +155,59 @@ auto operatingStatus = nicla::getOperatingStatus();
     }
 ```
 
+To extend your knowledge on this topic, refer to the board examples by navigating to "**File > Examples > Nicla_Sense_System**", and chose between both examples:
+
+- `NiclaSenseME_BatteryStatus`
+- `NiclaSenseME_BatteryChargingSimple`
+
 ## Pins
 ### Analog Pins
+
+The Nicla Voice has **two analog input pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|      `ADC1`/`P0_02`     |           `A0`          |
+|      `ADC2`/`P0_30`     |           `A1`          |
+
+Both pins can be used through the built-in functions of the Arduino programming language. 
+
+Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
+
+```arduino
+analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
+```
+
+***The Nicla boards ADC reference voltage is fixed to 1.8v, this means that it will map the ADC range from 0 to 1.8 volts.***
+
+The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
+
+![ADC input example wiring](assets/ADC%20input.svg)
+
+```arduino
+#include "Nicla_System.h"
+
+int sensorPin = A0;   // select the input pin for the potentiometer
+int sensorValue = 0;  // variable to store the value coming from the sensor
+
+void setup() {
+
+  analogReadResolution(12); // ADC bits configuration
+  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3v output.
+  Serial.begin(115200);     // Serial initialization
+}
+
+void loop() {
+  // read the value from the sensor:
+  sensorValue = analogRead(sensorPin);
+  // print the value
+  Serial.println(sensorValue);
+  delay(1000);
+}
+```
+
+***The ADC inputs support 3.3v even when the ADC reference is 1.8v, it just won't sense any change from 1.8v and above.***
+
 ### Digital Pins
 ### PWM Pins
 
