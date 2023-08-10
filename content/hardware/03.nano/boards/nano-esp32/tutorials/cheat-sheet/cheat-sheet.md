@@ -34,6 +34,8 @@ The Nano ESP32 has
 - 384 kB ROM
 - 512 kB SRAM
 - 16 MB of Flash (external, provided via GD25B128EWIGR)
+- 8 MB of PSRAM 
+
 
 ## Datasheet
 
@@ -63,7 +65,7 @@ To enter bootloader-mode, press the reset button, and then press it again once y
 In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter ROM boot mode. This is rarely needed, but there are some cases where it might be useful, for example you may want to follow this process to:
 
 - Update the Arduino bootloader already on the board. This can resolve issues with Nano ESP32 being misidentified as other ESP32 boards.
-- Restore the ability to upload regular Arduino sketches to a Nano ESP32 that has been flashed with the MicroPython firmware.
+- Restore the ability to upload regular Arduino sketches to a Nano ESP32 that has been flashed with a third party firmware.
 
 If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
 
