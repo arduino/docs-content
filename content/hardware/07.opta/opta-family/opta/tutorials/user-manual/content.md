@@ -26,7 +26,7 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
-- 24 VDC/0.5A power supply (x1)
+- 24 VDC/0.5 A power supply (x1)
 
 ### Software Requirements
 
