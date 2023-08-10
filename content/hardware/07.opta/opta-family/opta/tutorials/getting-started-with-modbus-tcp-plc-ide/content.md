@@ -172,7 +172,7 @@ When "Modbus TCP Master" is checked, both Master and Slave roles are taken on by
 
 #### General Modbus Node Configuration
 
-
+<br></br>
 The General Modbus Node allows to add information regarding the devices compatible with the Modbus messaging service.
 
 ![Arduino PLC IDE - General Modbus Node Configuration](assets/opta_plcide_generalNode.svg)
