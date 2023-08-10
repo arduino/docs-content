@@ -40,6 +40,26 @@ Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial In
 
 Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, Opta™ is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
 
+### Opta™ Variants
+
+There are three variants of Opta™ created to fit the different needs of each industry and application. 
+
+![Opta™ Variants](assets/user-manual-23.png)
+
+The difference between each of the variants can be found in the following table:
+
+|    **Feature**     |   **Opta™ Lite**    |   **Opta™ RS485**   |     **Opta™ Wifi**      |
+|:------------------:|:-------------------:|:-------------------:|:-----------------------:|
+|       `SKU`        |     `AFX00003`      |     `AFX00001`      |       `AFX00003`        |
+|       `USB`        |      `USB-C®`       |      `USB-C®`       |        `USB-C®`         |
+| `Ethernet Support` | `10/100BASE-T Port` | `10/100BASE-T Port` |   `10/100BASE-T Port`   |
+|     `RS-485 `      |        `N/A`        |    `Half-duplex`    |      `Half-duplex`      |
+|     `Wi-Fi® `      |       `N/A `        |       `N/A `        |     `802.11 b/g/n`      |
+|    `Bluetooth®`    |        `N/A`        |        `N/A`        | `Bluetooth® Low Energy` |
+
+ The main differences between each one of the variants are related to their connectivity possibilities. All the variants can be connected to the cloud using the onboard ethernet. If your solution does not need an RS-485 interface or wireless connectivity Opta™ Lite can fit your needs. In case you need to connect your device to a Modbus RTU bus using an RS-485 connection but you do not need wireless communication, Opta™ RS485 is the chosen variant. To have all Opta™ features and flexibility with full wireless Wifi® and Bluetooth® connectivity the Opta™ Wifi variant is the perfect choice for your professional projects.
+
+
 ### Opta™ Main Components
 
 Opta™ features a secure, certified, and durable design that enables it for automation and industrial applications. 
