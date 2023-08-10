@@ -155,7 +155,7 @@ The configured IP address for Opta™ also serves to connect and develop within 
 Keep in mind that the correct configuration is key to work with PLC IDE and Opta™. Once the properties of the Opta™ devices are correctly set, we will be able to seamlessly connect to Opta™ and monitor the states of both devices.
 
 #### Modbus TCP Master and Slave Mode
-
+<br></br>
 
 The image below shows the interface we'll encounter when accessing the Modbus TCP configuration panel in the PLC IDE.
 
@@ -171,8 +171,8 @@ If the "Modbus TCP Master" option remains unchecked, the role of a Modbus TCP Sl
 When "Modbus TCP Master" is checked, both Master and Slave roles are taken on by the Opta™ device. In this mode, precedence is given to the Master role. As a consequence, under the `Ethernet` configuration tab, the introduction of a *General Modbus Node* option can be observed, as will be detailed in the section that follows.
 
 #### General Modbus Node Configuration
-
 <br></br>
+
 The General Modbus Node allows to add information regarding the devices compatible with the Modbus messaging service.
 
 ![Arduino PLC IDE - General Modbus Node Configuration](assets/opta_plcide_generalNode.svg)
@@ -182,7 +182,7 @@ It will require you to fill in basic information under the `General` tab. The im
 If you have added a General Modbus Node defining Opta™ as a Modbus TCP Master initially and unchecked the Master role later, the Node option will stay. However, the Node's configuration field will change and request for a Modbus address with the `1 ... 247` range.
 
 #### PLC IDE Modbus Custom Editor
-
+<br></br>
 
 This is an alternative way of adding a Modbus node under the `Ethernet` configuration tab. To open the Modbus Custom Editor window, go to `Tools -> Run Modbus Custom Editor` on PLC IDE.
 
