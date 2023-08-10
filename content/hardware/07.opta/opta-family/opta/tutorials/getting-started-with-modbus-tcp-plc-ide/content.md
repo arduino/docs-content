@@ -33,7 +33,7 @@ In this tutorial, you will learn how to implement Modbus TCP based communication
 
 ### Hardware Requirements
 
-- [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x2)
+- [Opta™](https://store.arduino.cc/collections/pro-family) (x2)
 - USB-C® cable (x2)
 - RJ-45 LAN cable (x3)
 - Ethernet Switch (Recommended) (x1)
