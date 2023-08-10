@@ -42,7 +42,7 @@ Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cor
 
 Opta™ features a secure, certified, and durable design that enables it for automation and industrial applications. 
 
-![Opta™ main components](assets/user-manual-1.png)
+![Opta™ main components (WiFi variant)](assets/user-manual-1.png)
 
 Here's an overview of the device's main components shown in the image above:
 
@@ -55,7 +55,7 @@ Here's an overview of the device's main components shown in the image above:
 - **RS-485 connectivity**: Opta™ (RS485 and WiFi variants) features a physical RS-485 communication interface available through an onboard terminal connector that can be used for standard communication interfaces like Modbus RTU or custom communication protocols.
 - **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
 
-![Opta™ DIN rail mounting](assets/user-manual-2.gif)
+![Opta™ DIN rail mounting (WiFi variant)](assets/user-manual-2.gif)
 
 ### Opta™ Core and Libraries
 
@@ -65,7 +65,7 @@ The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples t
 
 ### Pinout
 
-![Opta™ WiFi variant pinout](assets/user-manual-4.png)
+![Opta™ pinout (WiFi variant)](assets/user-manual-4.png)
 
 The complete pinout (for all Opta™ variants) is available and downloadable as PDF from the link below:
 
