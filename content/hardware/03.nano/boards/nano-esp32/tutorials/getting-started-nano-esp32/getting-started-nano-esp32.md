@@ -2,6 +2,8 @@
 title: Getting Started with Nano ESP32
 description: A step-by-step guide to install the board package needed for the Nano ESP32.
 author: Karl Söderby
+hardware:
+  - hardware/03.nano/boards/nano-esp32
 tags: [ESP32, Installation, IDE]
 ---
 
