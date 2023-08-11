@@ -1361,6 +1361,51 @@ In the PLC IDE, you can mix PLC programming with standard Arduino sketches withi
 
 [Click here](https://www.arduino.cc/pro/software-plc-ide) to learn more about the PLC IDE.
 
+## Arduino IoT Cloud
+
+Opta™ WiFi variant is fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), which simplifies how professional applications are developed and tracked. By using the Arduino IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware Over-The-Air (OTA). 
+
+In case it is the first time you are using the Arduino IoT Cloud:
+
+- To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free here.
+- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
+
+Let's walk through a step-by-step demonstration of how to use your Opta™ WiFi device with the Arduino IoT Cloud.
+
+Log in to your Arduino IoT Cloud account; you should see the following:
+
+First, provision your Opta™ device on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+
+The Setup Device pop-up window will appear, navigate into **AUTOMATIC** and select the **Arduino board** option:
+
+After a while, your Opta™ device should be discovered by the Arduino IoT Cloud, as shown below:
+
+Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to securely communicate with the Arduino IoT Cloud; this process can take a while.
+
+Once your Opta™ has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+
+Navigate into **Associate Device** and click the **Select Device** button. Select your Opta™ device and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
+
+The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button.
+
+Add one variable with the following characteristics:
+
+- **Name**: `led`
+- **Variable type**: `boolean`
+- **Variable permission**: `Read & Write`
+- **Variable update policy**: `On change`
+
+You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard; give your dashboard a name.
+
+Add the following widgets to your dashboard:
+
+- **Switch**: name the widget Switch and link it to the `led` variable you created before.
+- **LED**: name the widget **LED** and link it to the `led` variable you created before.
+
+Your dashboard should look like the following:
+
+Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into Sketch, where you should see the online editor.
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
