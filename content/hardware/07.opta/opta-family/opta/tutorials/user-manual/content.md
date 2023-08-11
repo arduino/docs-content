@@ -198,7 +198,7 @@ As shown in the image below, the first four terminals, from left to right, are O
 
 The image below shows Opta™ devices have **eight analog/digital programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
 
-![Programmable input terminals in Opta™ devices](assets/user-manual-9.png)
+![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
 
 Analog/digital inputs terminals are mapped as described in the following table:
 
