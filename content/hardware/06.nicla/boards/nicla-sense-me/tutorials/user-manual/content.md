@@ -182,7 +182,7 @@ analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
 
 The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
 
-![ADC input example wiring](assets/ADC%20input.svg)
+![ADC input example wiring](assets/ADC-input.svg)
 
 ```arduino
 #include "Nicla_System.h"
@@ -209,6 +209,96 @@ void loop() {
 ***The ADC inputs support 3.3v even when the ADC reference is 1.8v, it just won't sense any change from 1.8v and above.***
 
 ### Digital Pins
+
+The Nicla Sense ME has **twelve digital pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_10`         |           `0`           |
+|         `P0_09`         |           `1`           |
+|         `P0_20`         |           `2`           |
+|         `P0_23`         |           `3`           |
+|         `P0_22`         |           `4`           |
+|         `P0_24`         |           `5`           |
+|         `P0_29`         |           `6`           |
+|         `P0_27`         |           `7`           |
+|         `P0_28`         |           `8`           |
+|         `P0_11`         |           `9`           |
+|         `P0_02`         |           `A0`          |
+|         `P0_30`         |           `A1`          |
+
+Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+
+```arduino
+// Pin configured as an input
+pinMode(pin, INPUT);        
+
+// Pin configured as an output
+pinMode(pin, OUTPUT);        
+
+// Pin configured as an input, internal pull-up resistor enabled
+pinMode(pin, INPUT_PULLUP);  
+```
+
+The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+// Reads pin state, stores value in state variable
+state = digitalRead(pin);
+```
+
+The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
+
+```arduino
+// Set pin on
+digitalWrite(pin, HIGH);    
+
+// Set pin off
+digitalWrite(pin, LOW);    
+```
+
+The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
+
+![Digital I/O example wiring](assets/Digital-IO.svg)
+
+```arduino
+// Define button and LED pin
+int buttonPin = 2;
+int ledPin = 3;
+
+// Variable to store the button state
+int buttonState = 0;
+
+void setup() {
+  // Configure button and LED pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize Serial communication
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Read the state of the button
+  buttonState = digitalRead(buttonPin);
+
+  // If the button is pressed, turn on the LED and print its state to the Serial Monitor
+  if (buttonState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("- Button is pressed. LED is on.");
+  } else {
+    // If the button is not pressed, turn off the LED and print to the Serial Monitor
+    digitalWrite(ledPin, LOW);
+    Serial.println("- Button is not pressed. LED is off.");
+  }
+
+  // Wait for 1000 milliseconds
+  delay(1000);
+}
+```
+
 ### PWM Pins
 
 ## Onboard Sensors
