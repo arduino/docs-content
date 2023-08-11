@@ -301,6 +301,67 @@ void loop() {
 
 ### PWM Pins
 
+Most digital and analog pins of the Nicla Sense ME can be used as PWM (Pulse Width Modulation) pins. This functionality can be used with the built-in function `analogWrite()` as shown below:
+
+```arduino
+analogWrite(pin, value);  
+```
+By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
+
+```arduino
+analogWriteResolution(bits);  
+```
+
+Using this function has some limitations, for example, the PWM signal frequency is fixed at 500 Hz, and this could not be ideal for every application.
+
+![PWM output signal using analogWrite()](assets/500-Hz.png)
+
+If you need to work with a higher frequency PWM signal, you must do it by working with the PWM peripheral at a lower level as shown in the example code below:
+
+```arduino
+#include "nrfx_pwm.h"
+
+static nrfx_pwm_t pwm1 = NRFX_PWM_INSTANCE(0);
+
+static uint16_t /*const*/ seq1_values[] = {0};
+
+static nrf_pwm_sequence_t seq1 = {
+  .values = { .p_common = seq1_values },
+  .length = NRF_PWM_VALUES_LENGTH(seq1_values),
+  .repeats = 0,
+  .end_delay = 0
+};
+
+void setup() {
+
+  nrfx_pwm_config_t config1 = {
+    .output_pins = {
+      32 + 23,  // Nicla Sense ME pin 3  = pin P0_23 in the ANNAB112 MCU
+    },
+    .irq_priority = APP_IRQ_PRIORITY_LOWEST,
+    .base_clock = NRF_PWM_CLK_1MHz,   // 1 us period
+    .count_mode = NRF_PWM_MODE_UP,
+    .top_value = 1000,                //  PWM counter limit, this will set the final output frequency 1MHz / 1000 = 1KHz
+    .load_mode = NRF_PWM_LOAD_COMMON,
+    .step_mode = NRF_PWM_STEP_AUTO,
+  };
+
+  nrfx_pwm_init(&pwm1, &config1, NULL);
+
+  (*seq1_values) = 500;   // this variable sets the signal duty cycle, for a 50% we are using 500. (1000 / 500  = 1/2)
+  (void)nrfx_pwm_simple_playback(&pwm1, &seq1, 1, NRFX_PWM_FLAG_LOOP);
+}
+
+void loop() {
+
+}
+
+```
+
+The code above results in a 1KHz square waveform with a 50% duty cycle as in the image below. The frequency is defined by the `.base_clock` and `.top_value` variables, and the duty cycle by the `seq1_values` variable.
+
+![PWM output signal using the PWM at a lower level](assets/1000-Hz.png)
+
 ## Onboard Sensors
 
 ## Actuators
