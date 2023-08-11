@@ -94,7 +94,7 @@ The Nicla Sense ME can be powered by:
 
 - Using a Micro USB cable (not included). 
 - Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
-- Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Nicla Sense ME battery powered](assets/battery-white.png)
@@ -163,7 +163,7 @@ To extend your knowledge on this topic, refer to the board examples by navigatin
 ## Pins
 ### Analog Pins
 
-The Nicla Voice has **two analog input pins**, mapped as follows:
+The Nicla Sense ME has **two analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
@@ -363,6 +363,19 @@ The code above results in a 1KHz square waveform with a 50% duty cycle as in the
 ![PWM output signal using the PWM at a lower level](assets/1000-Hz.png)
 
 ## Onboard Sensors
+
+The Nicla Sense ME boards come with various onboard sensors that allow you to capture and process environmental and motion data via a 6-axis IMU, a 3-axis magnetometer and a gas, temperature, humidity and pressure sensor. The onboard sensors can be used for developing various applications, such as activity recognition, and environmental monitoring.
+
+### IMU and Magnetometer
+
+The Nicla Sense ME features an advanced IMU and a magnetometer, which allows the board to sense motion, orientation, and magnetic fields. The IMU on the board is the BHI260AP from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BHI260AP apart from being able to do raw measurements of movements; is equipped with pre-trained machine-learning models that recognize activities right out of the box.
+
+
+![Nicla Sense ME onboard IMU](assets/imu.png)
+
+### On-Board Sensors WebBLE Dashboard
+
+https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
 
 ## Actuators
 
