@@ -58,6 +58,12 @@ Work files:
 
 Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/ArduinoComic-InkscapeSVGs.zip)
 
+**DEVNAGARI /  देवनागरी**
+
+* **Translated by:** Kaushlendra Singh Sisodia
+* **Email/url:** kaushlendra.sisodia@gmail.com / The IoT Academy
+* [PDF version](/resources/arduino-comics/arduino-comic-devNagri-hindi.pdf)
+
 **GREEK / ΕΛΛΗΝΙΚΑ**
 
 - **Translated by:** Anna Maragkoudaki
@@ -96,6 +102,12 @@ Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/Arduin
 - **Email/url:** rodrigocaett@gmail.com
 - [Comic em Português](https://content.arduino.cc/assets/arduino_comic_pt.pdf)
 - [Translated text in .doc format](https://content.arduino.cc/assets/arduino_comic_pt.doc)
+
+**SONAR BANGLA /  সোনার বাংলা**
+
+* **Translated by:** Kaushlendra Singh Sisodia
+* **Email/url:** kaushlendra.sisodia@gmail.com / The IoT Academy
+* [PDF version](/resources/arduino-comics/arduino-comic-shonar-bangla.pdf)
 
 **SPANISH / ESPAÑOL**
 
