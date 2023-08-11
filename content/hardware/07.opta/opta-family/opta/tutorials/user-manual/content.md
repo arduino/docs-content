@@ -152,28 +152,6 @@ You should see the green LED on top of your device's `RESET` button turn on for 
 
 ![Opta™ blink](assets/user-manual-19_2.gif)
 
-With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified code that uses the blue `LED_USER` is shown below:
-
-```arduino
-void setup() {
-  // Initialize LED_USER as an output 
-  pinMode(LED_USER, OUTPUT);
-}
-
-void loop() {
-  // Turn the USER LED off
-  digitalWrite(LED_USER, HIGH);
-  delay(1000);
-  // Turn the USER LED on
-  digitalWrite(LED_USER, LOW);
-  delay(1000);
-}
-```
-
-You should see the blue LED on top of your device's USER button turn on for one second, then off for one second, repeatedly. 
-
-![Opta™ blink](assets/user-manual-20_2.gif)
-
 ## USB®-C Port
 
 Opta™ has an **onboard USB®-C port** that can be used for programming the device's microcontroller and for data logging with mass storage devices such as USB memory sticks. 
@@ -579,6 +557,33 @@ void loop() {
   }
 }
 ```
+
+## User LED (Opta™ Wifi Only)
+
+With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified blink code that uses the blue `LED_USER` is shown below:
+
+```arduino
+void setup() {
+  // Initialize LED_USER as an output 
+  pinMode(LED_USER, OUTPUT);
+}
+
+void loop() {
+  // Turn the USER LED off
+  digitalWrite(LED_USER, HIGH);
+  delay(1000);
+  // Turn the USER LED on
+  digitalWrite(LED_USER, LOW);
+  delay(1000);
+}
+```
+
+You should see the blue LED on top of your device's USER button turn on for one second, then off for one second, repeatedly. 
+
+![Opta™ blink](assets/user-manual-20_2.gif)
+
+*** The USER LED located above the User button is only available on Arduino Opta® WiFi (AFX00002).***
+
 
 ## Communication
 
