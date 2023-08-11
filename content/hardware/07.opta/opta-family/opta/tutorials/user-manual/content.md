@@ -412,11 +412,7 @@ You should see a Knight Rider-style "scanning" effect with Opta™'s user LEDs.
 
 ![Opta™ Knight Rider scanning effect](assets/user-manual-21_2.gif)
 
-## Actuators 
-
-This user manual section covers Opta™ onboard actuators, showing their main hardware and software characteristics. Opta™ has one user-programmable button and four user-programmable output relays.
-
-### User Button
+## User Button
 
 All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has a pull-up resistor, meaning its default value (while not being pressed) is `HIGH`. 
 
@@ -521,7 +517,7 @@ You should be able now to control the sequence of status LEDs by pressing Opta�
 
 ![Opta™ user button](assets/user-manual-22_2.gif)
 
-### Relays
+## Relays
 
 Opta™ devices (all variants) have four Normally Open (NO) 10 A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
 
