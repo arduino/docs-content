@@ -582,7 +582,7 @@ void loop() {
 
 ## Communication
 
-This user manual section covers the different communication protocols supported by Opta™ devices, including the Ethernet, RS-485, Modbus, Wi-Fi®, and Bluetooth®.
+This user manual section covers the different communication interfaces and protocols supported by Opta™ devices, including the Ethernet, RS-485, Modbus, Wi-Fi®, and Bluetooth®.
 
 ### Ethernet
 
