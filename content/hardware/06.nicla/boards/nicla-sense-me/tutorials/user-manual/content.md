@@ -366,12 +366,224 @@ The code above results in a 1KHz square waveform with a 50% duty cycle as in the
 
 The Nicla Sense ME boards come with various onboard sensors that allow you to capture and process environmental and motion data via a 6-axis IMU, a 3-axis magnetometer and a gas, temperature, humidity and pressure sensor. The onboard sensors can be used for developing various applications, such as activity recognition, and environmental monitoring.
 
-### IMU and Magnetometer
+To read from any of these sensors you need to install the Arduino_BHY2 and Arduino_BHY2Host libraries. These can be found in the Arduino IDE library manager. To do so in the IDE, select it from the left side menu, now search for Arduino_BHY and click on the install button.
 
-The Nicla Sense ME features an advanced IMU and a magnetometer, which allows the board to sense motion, orientation, and magnetic fields. The IMU on the board is the BHI260AP from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BHI260AP apart from being able to do raw measurements of movements; is equipped with pre-trained machine-learning models that recognize activities right out of the box.
+![BHY2 library install](assets/Library-install.png)
 
+### IMU
+
+The Nicla Sense ME features an advanced IMU, which allows the board to sense motion. The IMU on the board is the BHI260AP from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BHI260AP apart from being able to do raw measurements of movements; is equipped with pre-trained machine-learning models that recognize activities right out of the box.
 
 ![Nicla Sense ME onboard IMU](assets/imu.png)
+
+The example code below shows how to get acceleration and angular velocity data from the onboard IMU and stream it to the Arduino IDE Serial Monitor and Serial Plotter.
+
+```arduino
+
+#include "Arduino.h"
+#include "Arduino_BHY2.h"
+
+SensorXYZ accel(SENSOR_ID_ACC);
+SensorXYZ gyro(SENSOR_ID_GYRO);
+
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial)
+    ;
+
+  BHY2.begin();
+
+  accel.begin();
+  gyro.begin();
+}
+
+void loop() {
+  static auto printTime = millis();
+
+  // Update function should be continuously polled
+  BHY2.update();
+
+  if (millis() - printTime >= 50) {
+    printTime = millis();
+
+    // Accelerometer values
+    Serial.print("acc_X:");
+    Serial.print(accel.x());
+    Serial.print(",");
+    Serial.print("acc_Y:");
+    Serial.print(accel.y());
+    Serial.print(",");
+    Serial.print("acc_Z:");
+    Serial.print(accel.z());
+    Serial.print(",");
+
+    // Gyroscope values
+    Serial.print("gyro_X:");
+    Serial.print(gyro.x());
+    Serial.print(",");
+    Serial.print("gyro_Y:");
+    Serial.print(gyro.y());
+    Serial.print(",");
+    Serial.print("gyro_Z:");
+    Serial.println(gyro.z());
+  }
+}
+```
+
+![Accelerometer and gyroscope output in the serial plotter](assets/IMU-output.png)
+
+To take advantage of the IMU pre-trained ML capabilities, we can do it by using the *Activity Recognition* class, the following example code let your Nicla Sense ME classify movements from different daily activities.
+
+```arduino
+#include "Nicla_System.h"
+#include "Arduino_BHY2.h"
+
+SensorActivity activ(SENSOR_ID_AR);
+
+unsigned long previousMillis = 0;  // will store last time the sensor was updated
+
+const long interval = 1000;
+
+void setup() {
+
+  Serial.begin(115200);
+  nicla::begin();
+  BHY2.begin(NICLA_I2C);
+  activ.begin();
+}
+
+void loop() {
+
+  BHY2.update();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    
+    previousMillis = currentMillis;
+    Serial.println(String("Activity info: ") + activ.toString());
+  
+  }
+
+}
+```
+The code from above prints the inferred activity between:
+
+- Standing still
+- Walking
+- Running
+- On bicycle
+- In vehicle
+- Tilting
+- In vehicle still
+
+### Magnetometer
+
+The Nicla Sense ME is equipped with an onboard magnetometer, which allows the board to sense orientation and magnetic fields. The BMM150 allows measurements of the magnetic field in three perpendicular axes. Based on Bosch’s proprietary FlipCore technology, performance and features of BMM150 are carefully tuned and perfectly match the demanding requirements of all 3-axis mobile applications such as electronic compass, navigation or augmented reality.
+
+![Nicla Sense ME onboard magnetometer](assets/magnetometer.png)
+
+In the example code below, the magnetometer is used as a compass measuring the heading orientation in degrees.
+
+```arduino
+
+#include "Nicla_System.h"
+#include "Arduino_BHY2.h"
+#include "Math.h"
+
+SensorXYZ magnetometer(SENSOR_ID_MAG);
+
+float heading = 0;
+
+unsigned long previousMillis = 0;  // will store last time the sensor was updated
+
+const long interval = 1000;
+
+void setup() {
+
+  Serial.begin(115200);
+  nicla::begin();
+  BHY2.begin(NICLA_I2C);
+  magnetometer.begin();
+
+}
+
+void loop() {
+  BHY2.update();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    heading = round(atan2(magnetometer.x(), magnetometer.y()) * 180.0 / PI);
+    Serial.println(String(heading) + "º");
+  }
+}
+
+```
+
+![Compass orientation](assets/compass.png)
+
+### Environmental sensor
+
+The Arduino Nicla Sense ME is able to perform environmental monitoring via the Bosch BME688 sensor. This provides capabilities for pressure, humidity, temperature as well as gas detection. The gas sensor can detect Volatile Organic Compounds (VOCs), volatile sulfur compounds (VSCs) and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
+
+![Nicla Sense ME onboard environmental sensor](assets/environmental.png)
+
+The BME688 apart from letting you measure pressure, humidity, temperature and gas sensor resistance, alongside a proprietary solution from Bosch called BSEC, the system is capable of providing numerous useful outputs such as:
+
+- Index for Air Quality (IAQ)
+- CO<sub>2</sub> equivalents
+- b-VOC equivalents
+- Gas % 
+
+To extract these measurements from the sensor use the below example code:
+
+```arduino
+
+#include "Nicla_System.h"
+#include "Arduino_BHY2.h"
+
+
+unsigned long previousMillis = 0;  // will store last time the sensor was updated
+
+const long interval = 1000;
+
+SensorBSEC bsec(SENSOR_ID_BSEC);    // 4-in-1 sensor.
+
+void setup() {
+
+  Serial.begin(115200);
+  nicla::begin();
+  BHY2.begin(NICLA_I2C);
+  bsec.begin();
+}
+
+void loop() {
+
+  BHY2.update();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    Serial.println(bsec.toString());
+  }
+}
+
+```
+
+***When using the BSEC sensor class be aware that the system will need several minutes to start providing IAQ and CO<sub>2</sub> measurements due to some internal calibrations.***
+
+
+To know how to work with every sensor class and predefined objects to get readings from them, go to our [Nicla Sense ME Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).
+
+
 
 ### On-Board Sensors WebBLE Dashboard
 
