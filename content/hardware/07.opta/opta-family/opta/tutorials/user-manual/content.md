@@ -92,7 +92,7 @@ The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples t
 
 The complete pinout (for all Opta™ variants) is available and downloadable as PDF from the link below:
 
-- [Opta™ pinout](https://docs.arduino.cc/static/820c493afe76c7aedca3f4709b12b129/opta-full-pinout.pdf)
+- [Opta™ pinout](https://docs.arduino.cc/resources/pinouts/opta-full-pinout.pdf)
 
 ### Datasheet
 
