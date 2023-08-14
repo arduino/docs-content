@@ -582,15 +582,68 @@ void loop() {
 
 ### Pressure sensor
 
+The Nicla Sense ME counts with a high-accuracy digital pressure sensor (BMP390). Its operating range is from 300 to 1250 hPa which makes it perfect for a variety of applications such as:
+
+- Weather forecast
+- Outdoor navigation
+- Vertical velocity indication
+- Portable health care devices
+- Fitness applications
+
+![Nicla Sense ME onboard barometric pressure sensor](assets/pressure.png)
+
+To use this sensor in standalone mode, you can do it with the below example code:
+
+```arduino
+
+#include "Nicla_System.h"
+#include "Arduino_BHY2.h"
 
 
-To know how to work with every sensor class and predefined objects to get readings from them, go to our [Nicla Sense ME Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).
+unsigned long previousMillis = 0;  // will store last time the sensor was updated
 
+const long interval = 1000;
+
+Sensor pressure(SENSOR_ID_BARO);    
+
+void setup() {
+
+  Serial.begin(115200);
+  nicla::begin();
+  BHY2.begin(NICLA_I2C);
+  pressure.begin();
+}
+
+void loop() {
+
+  BHY2.update();
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+
+    previousMillis = currentMillis;
+
+    Serial.println(String(pressure.value()) + " hPa");
+  }
+}
+
+```
+
+***To know how to work with every sensor class and predefined objects to get readings from them, go to our [Nicla Sense ME Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).***
 
 
 ### On-Board Sensors WebBLE Dashboard
 
-https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/
+A very interesting way to test the Nicla Sense ME onboard sensors all at once, is by the WebBLE dashboard demo.
+
+- Enable your PC Bluetooth connection and go to the [dashboard link](https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/), add this [firmware](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) to your sketchbook in the Arduino Cloud or download it to use it locally.
+
+- Upload the code to your Nicla Sense ME and now you are ready to start monitoring the variables through the WebBLE dashboard.
+
+- Click on "CONNECT", search for your board and pair it.
+
+![WebBLE dashboard](assets/WebBLE.gif)
 
 ## Actuators
 
