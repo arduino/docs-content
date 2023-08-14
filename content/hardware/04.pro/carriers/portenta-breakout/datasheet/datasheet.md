@@ -5,8 +5,8 @@ type: pro
 ---
 ![](assets/featured.png)
 
-# Description 
-The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors. 
+# Description
+The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors.
 
 # Target areas:
 Prototyping
@@ -15,17 +15,17 @@ Prototyping
 * Power ON Button
 * Boot mode DIP switch
 * Connectors
-  *   USBA 
+  *   USBA
   *   RJ45 Ethernet up to 1Gb/s; speed depending on installed board
   *   Micro SD card
-  <!-- *   OpenMV shutter module -->
+  {/* *   OpenMV shutter module */}
   *   MIPI 20T JTAG with trace capability
 * Power
   *   CR2032 RTC Lithium Battery backup
   *   External power terminal block
 * I/O
   *   Break out all Portenta High Density connector signals (see pinout table below)
-  *   Male/female HD connectors 
+  *   Male/female HD connectors
   allow interposing breakout between Portenta and shield to debug signals
 * Compatibility
   Standard Portenta High Density connector pinout
@@ -37,28 +37,26 @@ Prototyping
 ### Application Examples
 This product is designed to work alongside the Portenta family. Please check the Getting Started guide of your Portenta board.
 
-**Product Development:** The Portenta Breakout board reduces development time for industrial grade solution automation based on the Portenta line. 
+**Product Development:** The Portenta Breakout board reduces development time for industrial grade solution automation based on the Portenta line.
 
-<!-- **OpenMV:** Connectivity to the OpenMV Global Shutter Camera Module is provided on the Portenta Breakout board allowing for rapid development of machine vision applications alongside the Portenta family. -->
+{/* **OpenMV:** Connectivity to the OpenMV Global Shutter Camera Module is provided on the Portenta Breakout board allowing for rapid development of machine vision applications alongside the Portenta family. */}
 
 **Technical Education:** The Portenta Breakout board can act as a first point of entry for technician education in industrial grade control and embedded systems.
 
 ### Accessories
 *   8-, 10-, 12- and 22-pin headers/connectors with 2.54 mm pitch
 *   20 pin JTAG programmer
-<!-- *   OpenMV Global Shutter Camera Module -->
-<!-- *   M2x3 screws for attaching the OpenMV Global Shutter Camera Module -->
+{/* *   OpenMV Global Shutter Camera Module */}
+{/* *   M2x3 screws for attaching the OpenMV Global Shutter Camera Module */}
 
 ### Related Products
 *   Arduino Portenta H7 (SKU: ABX00042)
 *   Arduino Portenta H7 Lite (SKU: ABX00045)
 *   Arduino Portenta H7 Lite Connected (SKU: ABX00046)
 *   Arduino Portenta X8 (SKU: ABX00049)
-<!-- *   OpenMV Global Shutter Camera Module -->
+{/* *   OpenMV Global Shutter Camera Module */}
 
 ### Solution Overview
-
-<!-- [Example of a typical installation for a solution including Portenta H7 and Global Shutter Camera Module. A Portenta board must be connected for operation of the Portenta Breakout Board.](assets/breakoutCarrierAssembly.jpg) -->
 
 ![](assets/breakoutsolution.png)
 Example of a typical installation for a solution including Portenta H7. A Portenta board must be connected for operation of the Portenta Breakout Board.
@@ -78,7 +76,7 @@ Example of a typical installation for a solution including Portenta H7. A Porten
 |   5V   | Input voltage from 5V input | 4.8  |  5   | 5.2  |  V   |
 
 ## Functional Overview
-### Board Topology 
+### Board Topology
 Front view
 ![Top view - connectors](assets/breakoutCarrierConnectors.png)
 
@@ -87,7 +85,7 @@ Front view
 |    J1    | DF40HC(3.5)-80DS-0.4V(51) High Density connector |    J5    |        Micro SD card        |
 |    J2    | DF40HC(3.5)-80DS-0.4V(51) High Density connector |    J6    | 20 mm coin battery retainer |
 |    J3    |               USB type A connector               |    J7    |      Ethernet adaptor       |
-|    J4    |               <!--OpenMV-->Cam connector               |    J8    |    Power terminal block     |
+|    J4    |               {/* OpenMV */}Cam connector               |    J8    |    Power terminal block     |
 |   SW1    |               Boot mode selection                |   PB1    |       Power ON button       |
 |    U1    |               USBA power switch IC               |          |                             |
 
@@ -98,7 +96,7 @@ Back view
 | :------: | :----------------------------------------: | :------: | :----------------------------------------: |
 |   J15    | DF40C-80DP-0.4V(51) High Density connector |   J16    | DF40C-80DP-0.4V(51) High Density connector |
 
-<!--
+{/*
 Shared pins table
 Some nets/pins are electrically shared in the board and precaution must be taken to avoid conflicts. The full list is presented below.
 
@@ -112,7 +110,7 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 | SPI1_MOSI |   I2C/OPENMV    | SPI1 MOSI |      OPENMV_CAM_MOSI      |
 |  SPI1_CS  |   I2C/OPENMV    |  SPI1 CS  |       OPENMV_CAM_CS       |
 |  GPIO_0   |   GPIO/OPENMV    |  GPIO 0   |      OPENMV_CAM_RST       |
-|  GPIO_1   |   GPIO/OPENMV    |  GPIO 1   |      OPENMV_CAM_FSIN      | 
+|  GPIO_1   |   GPIO/OPENMV    |  GPIO 1   |      OPENMV_CAM_FSIN      |
 |  GPIO_2   |    GPIO/USBA    |  GPIO 2   |  USBA VBUS FLAG (jumper)  |
 |  GPIO_3   |   GPIO/OPENMV    |  GPIO 3   |      OPENMV_CAM_PWDN      |
 |  GPIO_4   |    GPIO/JTAG    |  GPIO 4   |   TRACEDATA_0 (jumper)    |
@@ -120,7 +118,7 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 |   PWM0    |   PWM/OPENMV |   PWM 0   |      OPENMV_CAM_CLK       |
 |  PDM_CK   |    PDM/JTAG     |  PDM CK   |   TRACEDATACLK (jumper)   |
 | UART2_TX  |    UART/JTAG    | UART2 TX  |     TRACEDATA1 (JTAG)     |
--->
+*/}
 
 ### DIP Switch
 The DIP switch allows for boot mode configuration:
@@ -137,30 +135,30 @@ To **allow** compatibility with the **Arduino Portenta X8** it is needed to cut 
 ![Ethernet Jumper pads](assets/breakoutCarrierEthernetSolderJumpers.svg)
 
 ## Board Operation
-**Note:** This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview). 
+**Note:** This board is intended to operate together with Portenta H7 (see section 1.4 Solution Overview).
 
-### Getting Started - IDE 
+### Getting Started - IDE
 If you want to program your Portenta H7 with the Breakout Board while offline you need to install the Arduino Desktop IDE **[1]**. To connect your Portenta H7 with the Portenta Breakout Board to your computer, you will need a Type-C USB cable. This also provides power to both the Portenta H7 as well as the Portenta Breakout Board. Alternatively, in order to provide power to the USB connectors and the 5V pins, a 5V source must be applied to J8. This will also provide power to the Portenta H7.
 
-### Getting Started - Arduino Web Editor 
+### Getting Started - Arduino Web Editor
 All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud 
+### Getting Started - Arduino IoT Cloud
 All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
-### Sample Sketches 
+### Sample Sketches
 Sample sketches can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website **[4]**
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
 
-### Board Recovery 
+### Board Recovery
 In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
-The Portenta Breakout Board provides easy access to the pins on the high density connector of the Portenta family. The Portenta Breakout Board is shipped in a headerless configuration to provide flexibility in using 2.54mm compatible connectors to meet their specific application. 
+The Portenta Breakout Board provides easy access to the pins on the high density connector of the Portenta family. The Portenta Breakout Board is shipped in a headerless configuration to provide flexibility in using 2.54mm compatible connectors to meet their specific application.
 
 ![Pinouts](assets/breakoutCarrierPinOut.jpg)
 
@@ -198,7 +196,7 @@ In cases where multiple channels are on a single header, the first channel is on
 
 ### CAN0/CAN1
 Pins closer to the edge of the board are CAN0. Pins close to the centre are CAN1.
-**Please Note** 
+**Please Note**
 When used with Arduino Portenta H7, only CAN1 is available.
 
 | Pin  | **Function** |   **Type**   |      **Description**      |
@@ -354,10 +352,10 @@ Pins closer to the edge of the board are UART2. Pins closer to the center are UA
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA). 
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment. 
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
 | -------------------------------------- | ----------------------- |
@@ -372,11 +370,11 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed. 
+Exemptions : No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-### Conflict Minerals Declaration 
+### Conflict Minerals Declaration
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.F
 
 ## Company Information

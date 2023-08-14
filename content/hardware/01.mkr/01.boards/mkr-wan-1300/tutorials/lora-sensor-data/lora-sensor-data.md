@@ -3,12 +3,12 @@ title: "LoRa® Sensor Data with MKR WAN 1300"
 difficulty: intermediate
 compatible-products: [mkr-wan-1300]
 description: 'Learn how to send environmental data with LoRa® using two MKR WAN 1300s and a MKR ENV shield.'
-tags: 
+tags:
   - IoT
   - LoRa®
   - Environmental data
 author: 'Karl Söderby'
-libraries: 
+libraries:
   - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
@@ -49,9 +49,9 @@ Follow the wiring diagram below to connect the antennas to the MKR WAN 1300 boar
 
 ## Let's Start
 
-In this tutorial, we will use the MKR WAN 1300 board and the **LoRa** library to create a simple one way communication. It will teach you how to set up one board to be a **sender** and one board to be a **receiver**, and how to set up communication between these two without using any external services. We will learn how to send packages using the **LoRa** library, and how to receive packages. 
+In this tutorial, we will use the MKR WAN 1300 board and the **LoRa** library to create a simple one way communication. It will teach you how to set up one board to be a **sender** and one board to be a **receiver**, and how to set up communication between these two without using any external services. We will learn how to send packages using the **LoRa** library, and how to receive packages.
 
-All data received is printed in the Serial Monitor using a very simple interface. 
+All data received is printed in the Serial Monitor using a very simple interface.
 
 **To create the sender sketch, we will have to go through the following steps:**
 
@@ -99,12 +99,12 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
   Serial.println("LoRa Sender");
-  
+
   if (!LoRa.begin(868E6)) {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
-  
+
 delay(1000);
 
   if (!ENV.begin()) {
@@ -116,7 +116,7 @@ delay(1000);
 
 In the `loop()` we start by printing "Sending packet" in the Serial Monitor and the value of `counter`. This is followed by a reading of the temperature sensor, using the command `double temperature = ENV.readTemperature();`. We use a double variable, as the temperature value we record has a decimal point (e.g. 25.85).
 
-We then begin a packet by using the command, `LoRa.beginPacket()`, and print the temperature, followed by the message "celsius". This is done using the `LoRa.print()` function, which we then broadcast, using the `LoRa.endPacket()` command. 
+We then begin a packet by using the command, `LoRa.beginPacket()`, and print the temperature, followed by the message "celsius". This is done using the `LoRa.print()` function, which we then broadcast, using the `LoRa.endPacket()` command.
 
 Finally, we add increase counter by 1 each time the loop has run, and a delay of 5 seconds, to limit the message rate. This will print in the Serial Monitor, to keep track on how many transmissions we have made.
 
@@ -126,7 +126,7 @@ void loop() {
   Serial.println(counter);
 
   double temperature = ENV.readTemperature();
-  
+
   // send packet
   LoRa.beginPacket();
   LoRa.print(temperature);
@@ -140,9 +140,9 @@ void loop() {
 
 ### Programming the Receiver
 
-The initialization and setup of the receiver is more or less identical to the **sender** sketch, but as we are writing this sketch to only receive data, we can remove the **Arduino_MKRENV** library. 
+The initialization and setup of the receiver is more or less identical to the **sender** sketch, but as we are writing this sketch to only receive data, we can remove the **Arduino_MKRENV** library.
 
-Inside the loop, we will not be creating any packets. Instead, we will listen to incoming ones. This is done by first using the command `int packetSize = LoRa.parsePacket();`, and then check for an incoming packet. If we receive one, it is parsed, and printed in the Serial Monitor. 
+Inside the loop, we will not be creating any packets. Instead, we will listen to incoming ones. This is done by first using the command `int packetSize = LoRa.parsePacket();`, and then check for an incoming packet. If we receive one, it is parsed, and printed in the Serial Monitor.
 
 ```arduino
 
@@ -198,12 +198,12 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
   Serial.println("LoRa Sender");
-  
+
   if (!LoRa.begin(868E6)) {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
-  
+
 delay(1000);
 
   if (!ENV.begin()) {
@@ -267,10 +267,10 @@ void loop() {
 
 <iframe src="https://create.arduino.cc/editor/ArduinoEdu/a17573e3-b2dd-4277-a5b4-b62b2e520055/preview?embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
 
-<!-- Here we explain how to test the program -->
+{/* Here we explain how to test the program */}
 ## Upload Sketch and Testing the Program
 
-Once we are finished with the coding, we can upload the sketches to each board. The easiest way to go forward is to have two separate computers, as we will need to have the Serial Monitor open for both boards. Alternatively, we can use a Serial interfacing program called Putty. But for demonstration, it is good to use two computers. This way, you can move the boards further away from each other while testing the signal. 
+Once we are finished with the coding, we can upload the sketches to each board. The easiest way to go forward is to have two separate computers, as we will need to have the Serial Monitor open for both boards. Alternatively, we can use a Serial interfacing program called Putty. But for demonstration, it is good to use two computers. This way, you can move the boards further away from each other while testing the signal.
 
 ### Sending Values
 
@@ -280,14 +280,14 @@ After we have uploaded the code to the **sender**, we need to open the Serial Mo
 
 ### Receiving Values
 
-After we have uploaded the code to the **receiver**, we need to open the Serial Monitor to initialize the program. If everything works, we should now pick up the package we sent from the other device. The package contains the temperature, followed by RSSI (Received Signal Strength Indication). The closer this value is to 0, the stronger the signal are. 
+After we have uploaded the code to the **receiver**, we need to open the Serial Monitor to initialize the program. If everything works, we should now pick up the package we sent from the other device. The package contains the temperature, followed by RSSI (Received Signal Strength Indication). The closer this value is to 0, the stronger the signal are.
 
 ![Receiving the environmental data.](assets/WAN1300_T2_IMG05.png)
 
 
 ## Experimenting with This Setup
 
-Now that we have communication between the boards, we can do a simple test with the signal. If we move the sender device away from the receiver device, we will start noticing changes in the RSSI. For example, while conducting this test, the sender device was moved around 20 meters away from the receiver, which decreased the RSSI to about -60. 
+Now that we have communication between the boards, we can do a simple test with the signal. If we move the sender device away from the receiver device, we will start noticing changes in the RSSI. For example, while conducting this test, the sender device was moved around 20 meters away from the receiver, which decreased the RSSI to about -60.
 
 ### Troubleshoot
 
@@ -301,4 +301,4 @@ If the code is not working, there are some common issues we might need to troubl
 
 ## Conclusion
 
-This tutorial demonstrates a simple communication between two MKR WAN 1300 boards and a MKR ENV shield, using LoRa® technology.   
+This tutorial demonstrates a simple communication between two MKR WAN 1300 boards and a MKR ENV shield, using LoRa® technology.

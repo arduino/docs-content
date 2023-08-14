@@ -3,7 +3,7 @@ identifier: ABX00051
 title: Arduino® Nicla Vision
 type: pro
 author: Ali Jahangiri
---- 
+---
 
 ![Nicla Vision](assets/featured.png)
 
@@ -383,7 +383,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
