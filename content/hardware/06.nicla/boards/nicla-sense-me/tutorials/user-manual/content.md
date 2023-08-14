@@ -580,7 +580,7 @@ void loop() {
 
 ***When using the BSEC sensor class be aware that the system will need several minutes to start providing IAQ and CO<sub>2</sub> measurements due to some internal calibrations.***
 
-### Pressure sensor
+### Pressure Sensor
 
 The Nicla Sense ME counts with a high-accuracy digital pressure sensor (BMP390). Its operating range is from 300 to 1250 hPa which makes it perfect for a variety of applications such as:
 
@@ -645,7 +645,102 @@ A very interesting way to test the Nicla Sense ME onboard sensors all at once, i
 
 ![WebBLE dashboard](assets/WebBLE.gif)
 
+Follow this [dedicated guide](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard) for more details.
+
 ## Actuators
+
+### RGB LED
+
+The Nicla Sense ME features a built-in I2C RGB LED that can be a visual feedback indicator for the user. The LED is connected through the boards' I2C port; therefore, specific functions must be used to operate the LED colors. 
+
+![Built-in RGB LED](assets/rgb-led.png)
+
+To use the RGB LED, include the `Nicla System` header:
+
+```arduino
+// Include the Nicla System header to access the built-in RGB LED functions
+#include "Nicla_System.h" 
+```
+
+Since the functions are scoped under a class name called `nicla`, you must explicitly write it before each statement. To initialize the board's built-in RGB LED along with the Nicla system inside the void `setup()` function:
+
+```arduino
+void setup() {
+  // Initialize the Nicla system and the built-in RGB LED
+  nicla::begin();
+  nicla::leds.begin();
+}
+```
+The LED can be set to the desired RGB value using red, green and blue components or by using one of the following predefined colors:
+
+- off
+- red
+- green
+- blue
+- yellow
+- magenta
+- cyan
+
+To set the LED to a predefined color (e.g. green or blue):
+
+```arduino
+// Set the LED color to green, wait for 1000 milliseconds
+nicla::leds.setColor(green);
+delay(1000);
+
+// Set the LED color to blue, wait for 1000 milliseconds
+nicla::leds.setColor(blue);
+delay(1000);  
+```
+
+To turn off the built-in RGB LED:
+
+```arduino
+// Turn off the LED
+nicla::leds.setColor(off);
+```
+
+You can also choose a value between 0 and 255 for each color component (red, green, or blue) to set a custom color:
+
+
+```arduino
+// Define custom color values for red, green, and blue components
+int red = 234;
+int green = 72;
+int blue = 122;
+
+// Set the LED to the custom color, wait for 1000 milliseconds
+nicla::leds.setColor(red, green, blue);
+delay(1000);
+
+// Turn off the LED and wait, wait for 1000 milliseconds
+nicla::leds.setColor(off);
+delay(1000); 
+```
+Here you can find a complete example code to blink the built-in I2C RGB LED of the Nicla Sense ME:
+
+```arduino
+// Include the Nicla System header to access the built-in RGB LED functions
+#include "Nicla_System.h"
+
+void setup() {
+  // Initialize the Nicla system and the built-in RGB LED
+  nicla::begin();
+  nicla::leds.begin();  
+}
+
+void loop() {
+  // Set the LED color to red, wait for 1000 milliseconds
+  nicla::leds.setColor(green);
+  delay(1000);
+
+  // Turn off the LED and wait, wait for 1000 milliseconds
+  nicla::leds.setColor(off);
+  delay(1000); 
+}
+```
+
+![Nicla Sense ME built-in LED blink](assets/LED-blink.gif)
 
 ## Communication
 ### I2C
