@@ -527,7 +527,7 @@ void loop() {
 
 ![Compass orientation](assets/compass.png)
 
-### Environmental sensor
+### Environmental Sensor
 
 The Arduino Nicla Sense ME is able to perform environmental monitoring via the Bosch BME688 sensor. This provides capabilities for pressure, humidity, temperature as well as gas detection. The gas sensor can detect Volatile Organic Compounds (VOCs), volatile sulfur compounds (VSCs) and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
 
@@ -579,6 +579,9 @@ void loop() {
 ```
 
 ***When using the BSEC sensor class be aware that the system will need several minutes to start providing IAQ and CO<sub>2</sub> measurements due to some internal calibrations.***
+
+### Pressure sensor
+
 
 
 To know how to work with every sensor class and predefined objects to get readings from them, go to our [Nicla Sense ME Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).
