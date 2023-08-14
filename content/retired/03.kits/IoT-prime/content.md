@@ -18,7 +18,7 @@ The Internet of Things is a way of understanding the digitalization of our world
 * **everything can be marked digitally** and therefore distinguished from the rest by means of this identifier, and
 * **any digital object** that could be connected to a global network (in our case the Internet) **will be connected**.
 
-  
+
 This vision of a connected world brings a new computing paradigm where computation happens in a distributed manner, but where data is later shared and processed at different centralized pieces of infrastructure.
 
 When a device is connected to the network, the information it collects from the environment through sensors, can and will be shared. The process of billions of data points coming from all of those connected devices is what we have come to call **big data**. The kind of processing needed to make sense from these flows of information is constantly growing but accessible only at remote locations where thousands of computers arranged as server farms are able of anticipating from ecological to social phenomena through complex algorithms.
@@ -27,13 +27,13 @@ The latest advancements in computation have allowed us focusing in the use of **
 
 ### IoT in Education
 
-While IoT is an always evolving field, it is possible to extract some patterns that will help creating meaningful experiments for students of different ages to understand the complexity of IoT's vision while performing hands on experiments. 
+While IoT is an always evolving field, it is possible to extract some patterns that will help creating meaningful experiments for students of different ages to understand the complexity of IoT's vision while performing hands on experiments.
 
-There are many fields one could focus on when designing experiments for the class. However, at Arduino we have decided to focus in the creation of wireless weather stations. Students learn about the relevance of different sensors and how they can be used to capture meaningful data from the environment. Step by step they are introduced to how the different data points can be sent to a computer, stored locally on a SD card, and transmitted over wireless communication to an online server. 
+There are many fields one could focus on when designing experiments for the class. However, at Arduino we have decided to focus in the creation of wireless weather stations. Students learn about the relevance of different sensors and how they can be used to capture meaningful data from the environment. Step by step they are introduced to how the different data points can be sent to a computer, stored locally on a SD card, and transmitted over wireless communication to an online server.
 
 Graphing the data is an important part of learning how to make data analysis and figuring out what is the relevance of it. We will see how to plot the data in different ways using standard tools and even how to represent the data in real time using the Arduino Cloud.
 
-Other relevant fields where IoT can be applied and that we invite you to explore, given the lessons you will learn throughout this course are: 
+Other relevant fields where IoT can be applied and that we invite you to explore, given the lessons you will learn throughout this course are:
 
 * **Connected factories**: adding sensors to machines allows for predictive maintenance, what minimizes the downtime of machinery and reduces the possible economic impact emerging from machines breaking down
 * **Vehicle monitoring**: the optimization of freely moving vehicles within fleets and help reduce the consumption of fuel, what will not just cut down expenses, but also contribute to the reduction of emissions to CO2 to the atmosphere
@@ -46,7 +46,7 @@ In this experiment you will connect the different boards and capture temperature
 
 ### Experiment two - Ways of graphing your data
 
-Making graphs is a very powerful way to reaching a better understanding of what is going on with the data. While developing this project, you will be introduced to two different techniques for graphing real-life data coming from the temperature and humidity sensors on your MKR ENV Shield. 
+Making graphs is a very powerful way to reaching a better understanding of what is going on with the data. While developing this project, you will be introduced to two different techniques for graphing real-life data coming from the temperature and humidity sensors on your MKR ENV Shield.
 
 ### Experiment three - Store data in memory cards
 
@@ -64,7 +64,7 @@ The *Arduino MKR1010* (read “maker ten ten”) is a microcontroller board feat
 
 ##### Start Using your Board
 
-You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: <https://create.arduino.cc> Please note that you have to become a registered Arduino user to use the online editor.
+You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: [https://create.arduino.cc](https://create.arduino.cc) Please note that you have to become a registered Arduino user to use the online editor.
 
 #### MKR ENV Shield
 
@@ -86,7 +86,7 @@ These new features come with associated software you will need to install. The s
 
 #### MKR Relay Proto Shield
 
-The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow. 
+The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow.
 
 The shield has a prototyping area that could be used to solder your own components and, in that way, make a more final installation using it. This is something we will not see throughout this course, but you should be aware of the possibility.
 
