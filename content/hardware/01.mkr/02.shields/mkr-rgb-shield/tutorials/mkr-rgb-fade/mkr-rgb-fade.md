@@ -52,7 +52,7 @@ for (int i = 0; i <= 255; i++){
 }
 ```
 
-As seen in the snippet above, the variable `i` is the only variable altered. It is first initialized, and set to `0`. We then set the value to always be smaller or equal (<=) to 255. Finally, we use an increment, `i++`, to increase it.
+As seen in the snippet above, the variable `i` is the only variable altered. It is first initialized, and set to `0`. We then set the value to always be smaller or equal (`<=`) to 255. Finally, we use an increment, `i++`, to increase it.
 
 This means, that as long as the number is smaller or equal to 255, it will continue to increase. Now, we can add code within the curly brackets, and feed the `i` variable into it. As the variable increases, we can for example use it to light up an LED gradually, or speed up a motor.
 
