@@ -407,7 +407,9 @@ All Opta™ variants devices have an onboard user-programmable button; this user
 
 ![User-programmable button in Opta™ devices](assets/user-manual-11.png)
 
-The user-programmable button can be used through the built-in functions of the Arduino programming language. To use the user button, first define it as a digital input:
+The user-programmable button can be used through the built-in functions of the Arduino programming language. 
+
+To use the user button, first define it as a digital input:
 
 - Add the `pinMode(BTN_USER, INPUT)` instruction in your sketch's `setup()` function.
 
