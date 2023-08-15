@@ -191,7 +191,10 @@ Analog/digital inputs terminals are mapped as described in the following table:
 |        `I7`        |      `A6`/`PIN_A6`      |
 |        `I8`        |      `A7`/`PIN_A7`      |
 
-***When used as analog inputs, the working voltage range is from 0 to +10 VDC; when used as digital inputs, the working voltage range is from 0 to +24 VDC.***
+The voltage range for each analog or digital input is the following:
+* Analog input: 0 to +10 VDC
+* Digital input: 0 to +24 VDC
+
 
 The input terminals can be used through the built-in functions of the Arduino programming language. To use the input terminals as digital inputs:
 
