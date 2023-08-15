@@ -329,7 +329,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 
 ## Status LEDs
 
-Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an extra one**. 
+Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an [extra one](#user-led-wifi-variant-only)**. 
 
 ![User-programmable LEDs in Opta™ devices](assets/user-manual-10.png)
 
@@ -569,7 +569,7 @@ void loop() {
 }
 ```
 
-## User LED (Opta™ Wifi Only)
+## User LED (WiFi Variant Only)
 
 With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified blink code that uses the blue `LED_USER` is shown below:
 
