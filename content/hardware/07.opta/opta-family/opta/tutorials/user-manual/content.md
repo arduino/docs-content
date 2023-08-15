@@ -1230,7 +1230,7 @@ void changeLights() {
 
 To learn more about interrupts in Opta™ devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
-## Real-Time Clock
+## Real-Time Clock (RTC)
 
 Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low-power Real-Time Clock (RTC) with sub-second accuracy and hardware calendar accessible through specific RTC management methods from Mbed™️.
 
