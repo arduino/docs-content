@@ -403,7 +403,7 @@ You should see a Knight Rider-style "scanning" effect with Opta™'s user LEDs.
 
 ## User Button
 
-All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has a pull-up resistor, meaning its default value (while not being pressed) is `HIGH`. 
+All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has an internal pull-up resistor, meaning its default value (while not being pressed) is `HIGH`. 
 
 ![User-programmable button in Opta™ devices](assets/user-manual-11.png)
 
