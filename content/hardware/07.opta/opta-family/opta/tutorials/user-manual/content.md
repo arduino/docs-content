@@ -582,8 +582,7 @@ You should see the blue LED on top of your device's USER button turn on for one 
 
 ![Opta™ blink](assets/user-manual-20_2.gif)
 
-*** The USER LED located above the User button is only available on Arduino Opta® WiFi (AFX00002).***
-
+***The USER LED located above the User button is only available on Arduino Opta® WiFi (AFX00002).***
 
 ## Communication
 
