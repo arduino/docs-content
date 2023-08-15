@@ -32,7 +32,7 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 - [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
 - [Arduino PLC IDE 1.0.3+ Tools](https://www.arduino.cc/en/software#arduino-plc-ide) 
 
-***To learn more about the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide)***
+***To learn more about the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
 
 ## Opta™ Overview
 
@@ -142,7 +142,7 @@ void loop() {
 }
 ```
 
-***For all Opta™ variants, the `LED_BUILTIN` macro represents the green LED on top of the device's RESET button***
+***For all Opta™ variants, the `LED_BUILTIN` macro represents the green LED on top of the device's RESET button.***
 
 To upload the code to your Opta™ device, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
 
