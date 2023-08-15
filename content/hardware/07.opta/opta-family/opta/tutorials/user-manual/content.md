@@ -193,21 +193,17 @@ Analog/digital inputs terminals are mapped as described in the following table:
 |        `I7`        |      `A6`/`PIN_A6`      |
 |        `I8`        |      `A7`/`PIN_A7`      |
 
-The voltage range for each analog or digital input is the following:
+#### Analog Inputs
 
-- **Analog inputs**: 0 to +10 VDC
-- **Digital inputs**: 0 to +24 VDC
+The input voltage range for each analog input terminal is the following:
 
-The input terminals can be used through the built-in functions of the Arduino programming language. To use the input terminals as digital inputs:
+- **Input voltage range**: 0 to +10 VDC
 
-- Add the `pinMode(pinName, INPUT)` instruction in your sketch's  `setup()` function. 
+The analog input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as analog inputs:
 
-To use the input terminals as analog inputs:
-
-- Add the `analogReadResolution()` instruction in your sketch's  `setup()` function.
+- Add the `analogReadResolution()` instruction in your sketch's `setup()` function.
 
 The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real time.
-
 
 ```arduino
 /**
@@ -268,6 +264,16 @@ void readAndPrint(int terminal, int terminalNumber) {
   Serial.println(" VDC");
 }
 ```
+
+#### Digital Inputs
+
+The input voltage range for each digital input terminal is the following:
+
+- **Input voltage range**: 0 to +24 VDC
+
+The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
+
+- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function. 
 
 The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets these readings as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor changes in real time.
 
