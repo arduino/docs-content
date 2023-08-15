@@ -617,7 +617,7 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box, the `Ethernet` library; let's walk through an example code demonstrating some of the transceiver's capabilities. 
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the `Ethernet` library. Let's walk through an example code demonstrating some of the transceiver's capabilities. 
 
 The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the [`ArduinoJson` library](https://arduinojson.org/v6/doc/) to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor. 
 
