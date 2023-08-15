@@ -166,7 +166,9 @@ This user manual section covers Opta™'s electrical terminals, showing their ma
 
 ### Power Supply
 
-As shown in the image below, the first four terminals, from left to right, are Opta™'s power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. Opta™'s maximum power consumption at 12 VDC is 2 W, and at 24 VDC is 2.2 W.
+As shown in the image below, the first four terminals, from left to right, are Opta™'s power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. 
+
+Opta™'s maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 ![Power supply terminals in Opta™ devices](assets/user-manual-8.png)
 
@@ -192,9 +194,9 @@ Analog/digital inputs terminals are mapped as described in the following table:
 |        `I8`        |      `A7`/`PIN_A7`      |
 
 The voltage range for each analog or digital input is the following:
-* Analog input: 0 to +10 VDC
-* Digital input: 0 to +24 VDC
 
+- **Analog inputs**: 0 to +10 VDC
+- **Digital inputs**: 0 to +24 VDC
 
 The input terminals can be used through the built-in functions of the Arduino programming language. To use the input terminals as digital inputs:
 
