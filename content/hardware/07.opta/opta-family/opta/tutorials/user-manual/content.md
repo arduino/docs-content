@@ -862,7 +862,7 @@ You need to create first a header file named `arduino_secrets.h` to store your W
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
 Put `arduino_secrets.h` as the `Name for new file" and enter the following code on the header file:
-
+Replace  `SECRET_SSID` with the name of your wifi network and `SECRET_PASS` with the password of the network and save the project.
 ```arduino
 char ssid[] = "SECRET_SSID"; // Your network SSID (name)
 char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
