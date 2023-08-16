@@ -861,7 +861,7 @@ The sketch below enables an Opta™ device to connect to the Internet via a Wi-F
 
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
-Enter the following code on the header file:
+Put `arduino_secrets.h` as the `Name for new file" and enter the following code on the header file:
 
 ```arduino
 char ssid[] = "SECRET_SSID"; // Your network SSID (name)
