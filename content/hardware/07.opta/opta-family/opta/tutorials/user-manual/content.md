@@ -617,18 +617,18 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet`](https://www.arduino.cc/reference/en/libraries/ethernet/) library. Let's walk through an example code demonstrating some of the transceiver's capabilities. 
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's walk through an example code demonstrating some of the transceiver's capabilities. 
 
-The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [`wttr.in`](https://wttr.in/) service to fetch the current weather data for Turin, Italy. It then parses the received JSON object using the [`Arduino_JSON`](https://github.com/arduino-libraries/Arduino_JSON) library to extract key weather parameters: current weather description, temperature (in Celsius), humidity, wind direction, and wind speed (in km/h). This data is then printed to the Arduino IDE's Serial Monitor.
+The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) service to fetch details about the device's IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
 ```arduino
 /**
   Web Client (Ethernet version)
-  Name: opta_ethernet_web_client_wttr.in.ino
-  Purpose: This sketch connects an Opta device to wttr.in via Ethernet
-  and fetches weather data for Turin, Italy.
+  Name: opta_ethernet_web_client.ino
+  Purpose: This sketch connects an Opta device to ip-api.com via Ethernet
+  and fetches IP details for the device.
 
-  @author Arduino PRO Content Team (modified for wttr.in by ChatGPT)
+  @author Arduino PRO Content Team
   @version 2.0 15/08/23
 */
 
@@ -636,14 +636,11 @@ The sketch below enables an Opta™ device to connect to the Internet via an Eth
 #include <Ethernet.h>
 #include <Arduino_JSON.h>
 
-// Server address for wttr.in
-const char* server = "wttr.in";
+// Server address for ip-api.com
+const char* server = "ip-api.com";
 
-// City for which the weather data is to be fetched
-String my_city = "Turin";
-
-// API endpoint path to get weather data in JSON format from wttr.in
-String path = "/" + my_city + "?format=j1";
+// API endpoint path to get IP details in JSON format
+String path = "/json/";
 
 // Static IP configuration for the Opta device
 IPAddress ip(10, 130, 22, 84);
@@ -654,24 +651,31 @@ EthernetClient client;
 // JSON variable to store and process the fetched data
 JSONVar doc;
 
-// Timestamp of the last data fetch
-unsigned long last_time = 0;
-
-// Interval between data fetches (in milliseconds)
-unsigned long timer_delay = 10000;
+// Variable to ensure we fetch data only once
+bool dataFetched = false;
 
 void setup() {
-  // Initialize serial communication
-  // Start the Ethernet connection using a static IP
+  // Begin serial communication at a baud rate of 115200
   Serial.begin(115200);
+
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
   while (!Serial);
-  Ethernet.begin(ip);
+
+  // Attempt to start Ethernet connection via DHCP,
+  // If DHCP failed, print a diagnostic message.
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Failed to configure Ethernet using DHCP!");
+
+    // Try to configure Ethernet with the predefined static IP address.
+    Ethernet.begin(ip);
+  }
   delay(2000);
 }
 
 void loop() {
-  // Check if it's time to fetch new data based on the timer_delay variable
-  if ((millis() - last_time) > timer_delay) {
+  // Ensure we haven't fetched data already
+  if (!dataFetched) {
     // Ensure the Ethernet link is active
     if (Ethernet.linkStatus() == LinkON) {
       // Establish a connection to the server
@@ -690,7 +694,7 @@ void loop() {
         client.find(endOfHeaders);
 
         // Read and parse the JSON response
-        String payload = client.readStringUntil('\n');
+        String payload = client.readString();
         doc = JSON.parse(payload);
 
         // Check if the parsing was successful
@@ -699,46 +703,41 @@ void loop() {
           return;
         }
 
-        // Extract and print the weather data
-        Serial.println("- Weather data for " + my_city + ":");
-        String weatherType = doc["current_condition"][0]["weatherDesc"][0]["value"];
-        Serial.print("- Current weather: ");
-        Serial.println(weatherType);
-
-        int tempC = (int)doc["current_condition"][0]["temp_C"];
-        Serial.print("- Temperature (°C): ");
-        Serial.println(tempC);
-
-        int humidity = (int)doc["current_condition"][0]["humidity"];
-        Serial.print("- Humidity (%): ");
-        Serial.println(humidity);
-
-        String windDir = doc["current_condition"][0]["winddir16Point"];
-        int windSpeedKmh = (int)doc["current_condition"][0]["windspeedKmph"];
-        Serial.print("- Wind: ");
-        Serial.print(windSpeedKmh);
-        Serial.print(" km/h ");
-        Serial.println(windDir);
+        // Extract and print the IP details
+        Serial.println("*** IP Details:");
+        Serial.print("- IP Address: ");
+        Serial.println((const char*)doc["query"]);
+        Serial.print("- City: ");
+        Serial.println((const char*)doc["city"]);
+        Serial.print("- Region: ");
+        Serial.println((const char*)doc["regionName"]);
+        Serial.print("- Country: ");
+        Serial.println((const char*)doc["country"]);
         Serial.println("");
+
+        // Mark data as fetched
+        dataFetched = true;
       }
       // Close the client connection once done
       client.stop();
     } else {
       Serial.println("- Ethernet link disconnected!");
     }
-    // Update the timestamp for the next fetch cycle
-    last_time = millis();
   }
 }
 ```
 
 The sketch starts by including the `Ethernet` and `Arduino_JSON` libraries, essential for Ethernet and JSON handling functionality, respectively. In the `setup()` function, serial communication is initiated for debugging and output purposes. Instead of using DHCP, the Ethernet connection uses a predefined static IP address.
 
-Once the Ethernet connection is up and running, the sketch connects to the wttr.in service, utilizing the HTTP protocol. Specifically, an `HTTP GET` request is crafted to query the current weather data for Turin, Italy. If the connection to the server fails for any reason, the sketch will output an error message to the Arduino IDE's Serial Monitor for troubleshooting.
+Once the Ethernet connection is up and running, the sketch connects to the ip-api.com service, utilizing the HTTP protocol. Specifically, an `HTTP GET` request is crafted to retrieve details about the device's IP address, including its city, region, and country. If the connection to the server fails for any reason, the sketch will output an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
-Within the `loop()` function, the sketch periodically verifies the Ethernet link status. If the link is active, an `HTTP GET` request is sent to the `wttr.in` service. The sketch then waits for and skips the HTTP headers of the response, parsing the JSON payload that follows.
+Within the `loop()` function, an `HTTP GET` request is sent to the `ip-api.com` service once. The sketch then waits for and skips the HTTP headers of the response, parsing the JSON payload that follows.
 
-Using the parsed data, key weather parameters like the current weather description, temperature, humidity, wind direction, and wind speed are extracted and then displayed in the IDE's Serial Monitor. If the Ethernet link happens to be disconnected, a corresponding message is printed to the Serial Monitor. The `GET` requests are programmed to be dispatched every 10 seconds. Should the JSON parsing fail, an error message is showcased on the IDE's Serial Monitor, prompting the sketch to exit the current iteration of the `loop()` function immediately.
+Using the parsed data, key IP details such as IP address, city, region, and country are extracted and then displayed in the IDE's Serial Monitor. If the Ethernet link happens to be disconnected, a corresponding message is printed to the Serial Monitor. Should the JSON parsing fail, an error message is showcased on the IDE's Serial Monitor, prompting the sketch to exit the current iteration of the `loop()` function immediately.
+
+You should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24.png)
 
 To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
