@@ -853,7 +853,7 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
 - **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/) right out of the box; let's walk through an example code demonstrating some of the module's capabilities.
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/), right out of the box. Let's walk through an example code demonstrating some of the module's capabilities.
 
 The sketch below enables an Opta™ device to connect to the Internet via a Wi-Fi® connection (just like the [Ethernet example](#ethernet) shown before). Once connected, it performs a GET request to the OpenWeatherMap API to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the ArduinoJson library to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor.
 
