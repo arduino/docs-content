@@ -632,30 +632,30 @@ The sketch below enables an Opta™ device to connect to the Internet via an Eth
   @version 2.0 15/08/23
 */
 
-// Include the necessary libraries
+// Include the necessary libraries.
 #include <Ethernet.h>
 #include <Arduino_JSON.h>
 
-// Server address for ip-api.com
+// Server address for ip-api.com.
 const char* server = "ip-api.com";
 
-// API endpoint path to get IP details in JSON format
+// API endpoint path to get IP details in JSON format.
 String path = "/json/";
 
-// Static IP configuration for the Opta device
+// Static IP configuration for the Opta device.
 IPAddress ip(10, 130, 22, 84);
 
-// Ethernet client instance for the communication
+// Ethernet client instance for the communication.
 EthernetClient client;
 
-// JSON variable to store and process the fetched data
+// JSON variable to store and process the fetched data.
 JSONVar doc;
 
-// Variable to ensure we fetch data only once
+// Variable to ensure we fetch data only once.
 bool dataFetched = false;
 
 void setup() {
-  // Begin serial communication at a baud rate of 115200
+  // Begin serial communication at a baud rate of 115200.
   Serial.begin(115200);
 
   // Wait for the serial port to connect,
@@ -674,13 +674,13 @@ void setup() {
 }
 
 void loop() {
-  // Ensure we haven't fetched data already
+  // Ensure we haven't fetched data already,
+  // ensure the Ethernet link is active,
+  // establish a connection to the server,
+  // compose and send the HTTP GET request.
   if (!dataFetched) {
-    // Ensure the Ethernet link is active
     if (Ethernet.linkStatus() == LinkON) {
-      // Establish a connection to the server
       if (client.connect(server, 80)) {
-        // Compose and send the HTTP GET request
         client.print("GET ");
         client.print(path);
         client.println(" HTTP/1.1");
@@ -689,21 +689,21 @@ void loop() {
         client.println("Connection: close");
         client.println();
 
-        // Wait and skip the HTTP headers to get to the JSON data
+        // Wait and skip the HTTP headers to get to the JSON data.
         char endOfHeaders[] = "\r\n\r\n";
         client.find(endOfHeaders);
 
-        // Read and parse the JSON response
+        // Read and parse the JSON response.
         String payload = client.readString();
         doc = JSON.parse(payload);
 
-        // Check if the parsing was successful
+        // Check if the parsing was successful.
         if (JSON.typeof(doc) == "undefined") {
           Serial.println("- Parsing failed!");
           return;
         }
 
-        // Extract and print the IP details
+        // Extract and print the IP details.
         Serial.println("*** IP Details:");
         Serial.print("- IP Address: ");
         Serial.println((const char*)doc["query"]);
@@ -715,10 +715,10 @@ void loop() {
         Serial.println((const char*)doc["country"]);
         Serial.println("");
 
-        // Mark data as fetched
+        // Mark data as fetched.
         dataFetched = true;
       }
-      // Close the client connection once done
+      // Close the client connection once done.
       client.stop();
     } else {
       Serial.println("- Ethernet link disconnected!");
@@ -857,7 +857,7 @@ The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use 
 
 The sketch below enables an Opta™ device to connect to the Internet via a Wi-Fi® connection (just like the [Ethernet example](#ethernet) shown before). Once connected, it performs a GET request to the OpenWeatherMap API to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the ArduinoJson library to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor.
 
-**Note:** You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
 
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
