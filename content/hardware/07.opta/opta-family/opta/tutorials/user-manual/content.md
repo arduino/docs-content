@@ -739,7 +739,7 @@ You should see the following output in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24.png)
 
-To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+You can download the example code [here](assets/opta_ethernet_web_client.zip). To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
 ### RS-485
 
@@ -855,13 +855,13 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 
 The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/), right out of the box. Let's walk through an example code demonstrating some of the module's capabilities.
 
-The sketch below enables an Opta™ device to connect to the Internet via a Wi-Fi® connection (just like the [Ethernet example](#ethernet) shown before). Once connected, it performs a GET request to the OpenWeatherMap API to fetch the current weather data for Turin, Italy (where the Arduino PRO office is located). It then parses the received JSON object using the ArduinoJson library to extract key weather parameters (in metric units): temperature, atmospheric pressure, humidity, and wind speed. This data is then printed to the Arduino IDE's Serial Monitor.
+The sketch below enables an Opta™ device to connect to the Internet via a Wi-Fi® connection (just like the [Ethernet example](#ethernet) shown before). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
 You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
 
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
-Put `arduino_secrets.h` as the `Name for new file" and enter the following code on the header file:
+Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
 
 ```arduino
 char ssid[] = "SECRET_SSID"; // Your network SSID (name)
@@ -872,122 +872,132 @@ Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` wi
 
 ```arduino
 /**
-  Web Client (WiFi version)
-  Name: opta_wifi_web_client_example.ino
-  Purpose: This sketch connects an Opta device to OpenWeatherMap API via WiFi
-  and fetches weather data for Turin, Italy.
+  WiFi Web Client
+  Name: opta_wifi_web_client.ino
+  Purpose: This sketch connects an Opta device to ip-api.com via WiFi
+  and fetches IP details.
 
   @author Arduino PRO Content Team
-  @version 1.0 01/06/18
+  @version 2.2 16/08/23
 */
 
-// Include necessary libraries
 #include <WiFi.h>
-#include "arduino_secrets.h"
-#include <ArduinoJson.h>
+#include <Arduino_JSON.h>
 
-// OpenWeatherMap server.
-const char* server = "api.openweathermap.org";
+// Wi-Fi network details.
+const char* ssid     = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
 
-// Define your OpenWeatherMap API key.
-String my_Api_Key = "YOUR_API_KEY";  
+// Server address for ip-api.com.
+const char* server = "ip-api.com";
 
-// Define the city and country for which you want weather data.
-String my_city = "Turin";
-String my_country_code = "IT";
+// API endpoint path to get IP details in JSON format.
+String path = "/json";
 
-// Interval between weather requests (in ms).
-unsigned long last_time = 0;
-unsigned long timer_delay = 10000;
-
-// Define the OpenWeatherMap API endpoint path.
-String path = "/data/2.5/weather?q=" + my_city + "," + my_country_code + "&units=metric&APPID=" + my_Api_Key;
-
-// Initialize the WiFi client library.
+// Wi-Fi client instance for the communication.
 WiFiClient client;
 
-// Set up a JSON document with 1024 bytes capacity.
-StaticJsonDocument<1024> doc;
+// JSON variable to store and process the fetched data.
+JSONVar doc;
+
+// Variable to ensure we fetch data only once.
+bool dataFetched = false;
 
 void setup() {
-  // Begin serial communication,
-  // Wait for the serial port to connect.
+  // Begin serial communication at a baud rate of 115200.
   Serial.begin(115200);
+
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
   while (!Serial);
 
-  // Attempt to connect to WiFi network.
+  // Start the Wi-Fi connection using the provided SSID and password.
+  Serial.print("- Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.print("- Connecting to WiFi network: ");
-    Serial.println(ssid);
-    WiFi.begin(ssid, password);
-    delay(5000);
+    delay(1000);
+    Serial.print(".");
   }
-  Serial.println("- Successfully connected to WiFi network!");
-  Serial.println("");
+
+  Serial.println();
+  Serial.println("- Wi-Fi connected!");
+  Serial.print("- IP address: ");
+  Serial.println(WiFi.localIP());
 }
 
 void loop() {
-  // Send a new request if the time since the last request is greater than the defined interval.
-  if ((millis() - last_time) > timer_delay) {
-    if (client.connect(server, 80)) {
-      // Send HTTP GET request.
-      client.print("GET ");
-      client.print(path);
-      client.println(" HTTP/1.1");
-      client.print("Host: ");
-      client.println(server);
-      client.println("Connection: close");
-      client.println();
-
-      // Skip HTTP headers.
-      char endOfHeaders[] = "\r\n\r\n";
-      client.find(endOfHeaders);
-
-      // Parse the JSON response.
-      DeserializationError error = deserializeJson(doc, client);
-      if (error) {
-        // If there's an error in parsing, print it on the Serial Monitor.
-        Serial.print("deserializeJson() failed: ");
-        Serial.println(error.f_str());
-        return;
-      }
-
-      Serial.println("- Weather data:");
-
-      // Fetch and print the weather data.
-      float temp = doc["main"]["temp"];
-      Serial.print("- Temperature (°C): ");
-      Serial.println(temp);
-      
-      int pressure = doc["main"]["pressure"];
-      Serial.print("- Pressure (hPa): ");
-      Serial.println(pressure);
-      
-      int humidity = doc["main"]["humidity"];
-      Serial.print("- Humidity (%): ");
-      Serial.println(humidity);
-
-      float windSpeed = doc["wind"]["speed"];
-      Serial.print("- Wind speed (m/s): ");
-      Serial.println(windSpeed);
-      Serial.println("");
-    }
-    // Disconnect the client
-    client.stop();
-
-    // Update the last_time to the current time
-    last_time = millis();
+  // Check if the IP details have been fetched.
+  // If not, call the function to fetch IP details,
+  // Set the flag to true after fetching.
+  if (!dataFetched) {
+    fetchIPDetails();
+    dataFetched = true;
   }
 }
+
+/**
+  Fetch IP details from defined server
+
+  @param none
+  @return IP details
+*/
+void fetchIPDetails() {
+  if (client.connect(server, 80)) {
+    // Compose and send the HTTP GET request.
+    client.print("GET ");
+    client.print(path);
+    client.println(" HTTP/1.1");
+    client.print("Host: ");
+    client.println(server);
+    client.println("Connection: close");
+    client.println();
+
+    // Wait and skip the HTTP headers to get to the JSON data.
+    char endOfHeaders[] = "\r\n\r\n";
+    client.find(endOfHeaders);
+
+    // Read and parse the JSON response.
+    String payload = client.readStringUntil('\n');
+    doc = JSON.parse(payload);
+
+    // Check if the parsing was successful. 
+    if (JSON.typeof(doc) == "undefined") {
+      Serial.println("- Parsing failed!");
+      return;
+    }
+
+    // Extract and print the IP details.
+    Serial.println("*** IP Details:");
+    String query = doc["query"];
+    Serial.print("- IP Address: ");
+    Serial.println(query);
+    String city = doc["city"];
+    Serial.print("- City: ");
+    Serial.println(city);
+    String region = doc["regionName"];
+    Serial.print("- Region: ");
+    Serial.println(region);
+    String country = doc["country"];
+    Serial.print("- Country: ");
+    Serial.println(country);
+    Serial.println("");
+  } else {
+    Serial.println("- Failed to connect to server!");
+  }
+
+  // Close the client connection once done. 
+  client.stop();
+}
 ```
+The sketch starts by including the `WiFi` and `Arduino_JSON` libraries, which provide the necessary Wi-Fi® and JSON handling functionality, respectively. The `setup()` function initiates serial communication for debugging purposes and attempts to connect to a specified Wi-Fi® network. If the connection is not established, the sketch will keep trying until a successful connection is made.
 
-The sketch starts by including the `WiFi` and `ArduinoJson` libraries, which provide the necessary Wi-Fi® and JSON handling functionality, respectively. The `setup()` function initiates serial communication for debugging purposes and attempts to connect to a specified Wi-Fi® network. If the connection is not established, the sketch will keep trying until a successful connection is made.
+Once the Wi-Fi® connection is established, the sketch is ready to connect to the `ip-api.com` server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query details related to its IP address. The `GET` request is sent only once after the Wi-Fi® connection is active.
 
-Once the Wi-Fi® connection is established, the sketch is ready to connect to the OpenWeatherMap API server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query the current weather data for Turin, Italy. The GET request is sent if the Wi-Fi® connection is active and the time since the last request is greater than the defined interval (10 seconds).
+The `loop()` function is the heart of the sketch. It checks whether the data has been fetched or not. If the data hasn't been fetched yet, it tries to establish a connection to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `JSON.parse()` function from the `Arduino_JSON` library to parse the JSON object from the response. The parsed data is used to extract key IP details like IP address, city, region, and country, which are then printed to the Arduino IDE's Serial Monitor. Once the data is printed, the client is disconnected to free up resources. If the JSON parsing fails for any reason, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
 
-The `loop()` function is the heart of the sketch. It checks if the client was able to connect to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `deserializeJson()` function from the `ArduinoJson` library to parse the JSON object from the response. The parsed data is used to extract key weather parameters such as temperature, pressure, humidity, and wind speed, which are then printed to the Arduino IDE's Serial Monitor. Once the data is printed, the client is disconnected to free up the resources. If the JSON parsing fails for any reason, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
-
-Lastly, the time of the last request is updated to the current time. The process repeats in the `loop()` function, sending an `HTTP GET` request every 10 seconds, as long as the Wi-Fi® connection is maintained. You should see the following output in the Arduino IDE's Serial Monitor:
+Since the data is fetched only once, there's no need for repeatedly sending `HTTP GET` requests. After the initial fetch, you should see the details related to the IP address displayed in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17.png)
 
@@ -1145,7 +1155,7 @@ Interrupts can be used through the built-in functions of the Arduino programming
 
 - Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `BTN_USER`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a rising edge (`FALLING`) of the signal from the user button, which means it triggers when the button is pressed. 
+The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a falling edge (`FALLING`) of the signal from the user button, which means it triggers when the button is pressed. 
 
 ```arduino
 /**
