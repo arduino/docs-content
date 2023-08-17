@@ -941,10 +941,133 @@ Serial1.println("Hello world!");
 
 ## Arduino IoT Cloud
 
-The Nicla Sense ME doesn't have WiFi built-in, so it can not be directly connected to the internet. For this, we need to use a WiFi capable Arduino board as a host for the Nicla.
+The Nicla Sense ME doesn't have built-in WiFi, so it can not be directly connected to the internet. For this, we need to use a WiFi capable Arduino board as a host for the Nicla.
 
 In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino IoT Cloud.
 
+### Nicla Sense ME Setup
+
+The **Nicla Sense ME** will be listening to the Host board to send back the required data, this is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**
+
+The code is available inside the examples provided with the Arduino_BHY2 Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**
+
+This is the code, which initializes the sensors, and maintains the communication:
+
+```arduino
+/* 
+ * Use this sketch if you want to control nicla from 
+ * an external device acting as a host.
+ * Here, nicla just reacts to external stimuli coming from
+ * the eslov port or through BLE 
+ * 
+ * NOTE: Remember to choose your Nicla configuration! 
+ * If Nicla is used as a Shield, provide the NICLA_AS_SHIELD parameter.
+ * If you want to enable just one between I2C and BLE,
+ * use NICLA_I2C or NICLA_BLE parameters.
+ *
+*/
+
+#include "Arduino.h"
+#include "Arduino_BHY2.h"
+
+// Set DEBUG to true in order to enable debug print
+#define DEBUG false
+
+void setup()
+{
+#if DEBUG
+  Serial.begin(115200);
+  BHY2.debug(Serial);
+#endif
+
+  BHY2.begin();
+}
+
+void loop()
+{
+  // Update and then sleep
+  BHY2.update(100);
+}
+```
+
+Upload the sketch from above to the Nicla Sense ME.
+
+### Arduino IoT Cloud Setup
+
+To start using the Arduino IoT cloud, we first need to [log in or sign up](https://create.arduino.cc/iot/things) to Arduino.
+
+Once in, it's time to configure your Portenta C33. For this, follow this [section](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#arduino-iot-cloud) on the Portenta C33 user manual.
+
+With a Thing already created, add a variable, in this case, "temperature" float type.
+
+![Adding the temperature variable to the Thing](assets/variable.png)
+
+Once the variable is added, let's define the WiFi credentials for the board, for this, click on your Thing Network setting and add your WiFi SSID and password:
+
+![WiFi credentials](assets/wifi.png)
+
+It's time to open the automatically generated sketch and modify the code. It should be replaced by the following:
+
+```arduino
+#include "thingProperties.h"
+#include "Arduino_BHY2Host.h"
+
+Sensor tempSensor(SENSOR_ID_TEMP);  // Temperature sensor ID
+
+void setup() {
+  Serial.begin(9600);
+  delay(1500);
+
+  Serial.print("Configuring the Arduino IoT Cloud");
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  Serial.println("Connecting to the Arduino IoT Cloud");
+  while (ArduinoCloud.connected() != 1) {
+    ArduinoCloud.update();
+    delay(500);
+  }
+
+  delay(1500);
+  
+  Serial.println("Initialize the Nicla as a ESLOV connected device");
+  BHY2Host.begin(false, NICLA_VIA_ESLOV);   
+  
+  tempSensor.configure(1,0);
+  temperature = tempSensor.value();   // take a first sample
+}
+
+void loop() {
+  
+  BHY2Host.update();
+  
+  temperature = tempSensor.value();
+ 
+  ArduinoCloud.update();
+  
+  Serial.print("Temperature: ");
+  Serial.println(temperature);
+  
+  delay(2000);
+  
+}
+```
+### Portenta C33 Setup
+
+With the Portenta C33 code ready on the Arduino Cloud, before uploading it to the board let's connect everything together. Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
+
+![Hardware connection](assets/eslov-connection.svg)
+
+Upload the code to the Portenta C33 by connecting it to your computer using a USB cable and clicking on the upload button in the IoT Cloud editor.
+
+![Uploading the sketch to the Portenta C33](assets/code_upload.png)
+
+Finally, after searching for and connecting to your WiFi network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the cloud where we can monitor it from anywhere in the world and from any device.
+
+![Temperature monitor dashboard](assets/Dashboard2.gif)
 
 ## Support
 
