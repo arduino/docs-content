@@ -439,7 +439,7 @@ To take advantage of the IMU pre-trained ML capabilities, we can do it by using 
 #include "Nicla_System.h"
 #include "Arduino_BHY2.h"
 
-SensorActivity activ(SENSOR_ID_AR);
+SensorActivity active(SENSOR_ID_AR);
 
 unsigned long previousMillis = 0;  // will store last time the sensor was updated
 
@@ -450,7 +450,7 @@ void setup() {
   Serial.begin(115200);
   nicla::begin();
   BHY2.begin(NICLA_I2C);
-  activ.begin();
+  active.begin();
 }
 
 void loop() {
@@ -462,7 +462,7 @@ void loop() {
   if (currentMillis - previousMillis >= interval) {
     
     previousMillis = currentMillis;
-    Serial.println(String("Activity info: ") + activ.toString());
+    Serial.println(String("Activity info: ") + active.toString());
   
   }
 
@@ -743,13 +743,227 @@ void loop() {
 ![Nicla Sense ME built-in LED blink](assets/LED-blink.gif)
 
 ## Communication
-### I2C
+
+This section of the user manual covers the different communication protocols that are supported by the Nicla Sense ME board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Bluetooth® Low Energy; communication via the onboard ESLOV connector is also explained in this section. The Nicla Sense ME features dedicated pins for each communication protocol, making connecting and communicating with different components, peripherals, and sensors easy.
+
 ### SPI
+
+The Nicla Sense ME supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Sense ME for the SPI communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|       `CS`/`P0_29`      |       `SS` or `6`       |
+|      `COPI`/`P0_27`     |       `MOSI` or `7`     |
+|      `CIPO`/`P0_28`     |       `MISO` or `9`     |
+|      `SCLK`/`P0_11`     |       `SCK` or `8`      |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+
+```arduino
+#include <SPI.h>
+```
+
+In the `setup()` function, initialize the SPI library, define and configure the chip select (`CS`) pin:
+
+```arduino
+void setup() {
+  // Set the chip select pin as output
+  pinMode(SS, OUTPUT); 
+
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH); 
+  
+  // Initialize the SPI communication
+  SPI.begin();
+}
+```
+
+To transmit data to an SPI-compatible device, you can use the following commands:
+
+```arduino
+// Replace with the target device's address
+byte address = 0x35; 
+
+// Replace with the value to send
+byte value = 0xFA; 
+
+// Pull the CS pin LOW to select the device
+digitalWrite(SS, LOW); 
+
+// Send the address
+SPI.transfer(address); 
+
+// Send the value
+SPI.transfer(value); 
+
+// Pull the CS pin HIGH to unselect the device
+digitalWrite(SS, HIGH); 
+```
+
+The example code above should output this:
+
+![SPI logic data output](assets/SPI.png)
+
+### I2C
+
+The Nicla Sense ME supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Sense ME for the I2C communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_23`         |       `SCL` or `3`      |
+|         `P0_22`         |       `SDA` or `4`      |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Sense ME.
+
+To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
+
+```arduino
+#include <Wire.h>
+```
+
+In the `setup()` function, initialize the I2C library:
+
+```arduino
+ // Initialize the I2C communication
+Wire.begin();
+```
+
+To transmit data to an I2C-compatible device, you can use the following commands:
+
+```arduino
+// Replace with the target device's I2C address
+byte deviceAddress = 0x35; 
+
+// Replace with the appropriate instruction byte
+byte instruction = 0xCC; 
+
+// Replace with the value to send
+byte value = 0xFA; 
+
+// Begin transmission to the target device
+Wire.beginTransmission(deviceAddress); 
+
+// Send the instruction byte
+Wire.write(instruction); 
+
+// Send the value
+Wire.write(value); 
+
+// End transmission
+Wire.endTransmission(); 
+```
+
+To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
+
+```arduino
+// The target device's I2C address
+byte deviceAddress = 0x1; 
+
+// The number of bytes to read
+int numBytes = 2; 
+
+// Request data from the target device
+Wire.requestFrom(deviceAddress, numBytes);
+
+// Read while there is data available
+while (Wire.available()) {
+  byte data = Wire.read(); 
+}
+```
+
 ### UART
+
+The pins used in the Nicla Sense ME for the UART communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         `P0_09`         |       `RX` or `1`       |
+|         `P0_20`         |       `TX` or `2`       |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+
+```arduino
+// Start UART communication at 115200 baud
+Serial1.begin(115200); 
+```
+
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
+
+```arduino
+// Variable for storing incoming data
+String incoming = ""; 
+
+void loop() {
+  // Check for available data and read individual characters
+  while (Serial1.available()) {
+    // Allow data buffering and read a single character
+    delay(2); 
+    char c = Serial1.read();
+    
+    // Check if the character is a newline (line-ending)
+    if (c == '\n') {
+      // Process the received data
+      processData(incoming);
+
+      // Clear the incoming data string for the next message
+      incoming = ""; 
+    } else {
+      // Add the character to the incoming data string
+      incoming += c; 
+    }
+  }
+}
+```
+
+To transmit data to another device via UART, you can use the `write()` function:
+
+```arduino
+// Transmit the string "Hello world!
+Serial1.write("Hello world!");
+```
+
+You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
+
+```arduino
+// Transmit the string "Hello world!" 
+Serial1.print("Hello world!");
+
+// Transmit the string "Hello world!" followed by a newline character
+Serial1.println("Hello world!");
+```
+
 ### Bluetooth® Low Energy
 ### ESLOV Connector 
 
+## Arduino IoT Cloud
+
+The Nicla Sense ME doesn't have WiFi built-in, so it can not be directly connected to the internet. For this, we need to use a WiFi capable Arduino board as a host for the Nicla.
+
+In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino IoT Cloud.
+
+
 ## Support
+
+If you encounter any issues or have questions while working with the Nicla Sense ME, we provide various support resources to help you find answers and solutions.
+
 ### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nicla Sense ME. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Nicla Family help center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+
 ### Forum
+
+Join our community forum to connect with other Nicla Sense ME users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Sense ME.
+
+- [Nicla Sense ME category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-family/170)
+
 ### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla Sense ME.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/) 
