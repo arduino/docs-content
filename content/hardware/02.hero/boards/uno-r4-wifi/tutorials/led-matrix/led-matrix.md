@@ -282,7 +282,29 @@ We have developed a tool that is used to generate frames and animations to be re
 
 To use the tool you need to upload the following sketch, allowing the board to read serial inputs send by the browser.
 
-<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/Arduino_LED_Matrix/examples/LivePreview/LivePreview.ino" className="arduino"/>
+```arduino
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+uint32_t frame[] = {
+  0, 0, 0, 0xFFFF
+};
+
+void loop() {
+  if(Serial.available() >= 12){
+    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    matrix.loadFrame(frame);
+  }
+}
+```
 
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
