@@ -14,6 +14,8 @@ Display:
 Sensors:
   IMU: BMI270
   Microphone: MP34DT06JTR
+Pins:
+  LED: 1 RGB LED (I2C)
 Power:
   Circuit operating voltage: 
   Input voltage (VIN): 
