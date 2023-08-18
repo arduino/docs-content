@@ -1214,7 +1214,7 @@ Finally, after searching for and connecting to your Wi-Fi® network, it will gat
 
 ![Temperature monitor dashboard](assets/Dashboard2.gif)
 
-### Bluetooth® Low Energy connection
+### Bluetooth® Low Energy Connection
 
 ***This option just works with the Portenta H7 series***.
 
