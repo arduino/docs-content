@@ -36,6 +36,8 @@ You should now be able to select your board in the board selector. You will need
 
 ![Arduino Nano ESP32 board found.](./assets/selector.png)
 
+***Note: You may see two versions for the Nano ESP32 available to pick in the board selector, one USB(COM21 in picture) and DFU(3-2 in picture). If you do, select the one with USB.***
+
 Congratulations, you have now successfully installed the Nano ESP32 board package via the Arduino IDE.
 
 ## Compile & Upload Sketches
