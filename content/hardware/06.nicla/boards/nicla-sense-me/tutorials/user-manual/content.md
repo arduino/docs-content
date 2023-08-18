@@ -937,11 +937,159 @@ Serial1.println("Hello world!");
 ```
 
 ### Bluetooth® Low Energy
+
+To enable Bluetooth® Low Energy communication on the Nicla Sense ME, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
+
+For this BLE application example, we are going to monitor the Nicla Sense ME battery level. Here is an example of how to use the ArduinoBLE library to achieve it:
+
+```arduino
+#include "Nicla_System.h"
+#include <ArduinoBLE.h>
+
+// Bluetooth® Low Energy Battery Service
+BLEService batteryService("180F");
+
+// Bluetooth® Low Energy Battery Level Characteristic
+BLEUnsignedCharCharacteristic batteryLevelChar("2A19",                // standard 16-bit characteristic UUID
+                                               BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
+
+int oldBatteryLevel = 0;  // last battery level reading from analog input
+long previousMillis = 0;  // last time the battery level was checked, in ms
+
+void blePeripheralDisconnectHandler(BLEDevice central) {
+  nicla::leds.setColor(red);
+  Serial.println("Device disconnected.");
+}
+
+void blePeripheralConnectHandler(BLEDevice central) {
+  nicla::leds.setColor(blue);
+  Serial.println("Device connected.");
+}
+
+void setup() {
+  Serial.begin(9600);  // initialize serial communication
+  while (!Serial)
+    ;
+
+  // run this code once when Nicla Sense ME board turns on
+  nicla::begin();       // initialize library
+  nicla::leds.begin();  // initialize LEDs support 
+
+  nicla::setBatteryNTCEnabled(false);  // Set to false if your battery doesn't have an NTC thermistor.
+  nicla::enableCharging(100);  // enable the battery charger and define the charging current in mA
+
+  nicla::leds.setColor(green);
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting BLE failed!");
+
+    while (1)
+      ;
+  }
+
+  /* Set a local name for the Bluetooth® Low Energy device
+     This name will appear in advertising packets
+     and can be used by remote devices to identify this Bluetooth® Low Energy device
+     The name can be changed but maybe be truncated based on space left in advertisement packet
+  */
+  BLE.setLocalName("BatteryMonitor");
+  BLE.setAdvertisedService(batteryService);            // add the service UUID
+  batteryService.addCharacteristic(batteryLevelChar);  // add the battery level characteristic
+  BLE.addService(batteryService);                      // Add the battery service
+  batteryLevelChar.writeValue(oldBatteryLevel);        // set initial value for this characteristic
+  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);   // handler that fires when BLE is disconnected
+  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);         // handler that fires when BLE is disconnected
+
+  /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
+     advertising packets and will be visible to remote Bluetooth® Low Energy central devices
+     until it receives a new connection */
+
+  // start advertising
+  BLE.advertise();
+
+  Serial.println("Bluetooth® device active, waiting for connections...");
+}
+
+void loop() {
+  // wait for a Bluetooth® Low Energy central
+  BLEDevice central = BLE.central();
+
+  // if a central is connected to the peripheral:
+  if (central) {
+    Serial.print("Connected to central: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+
+    // check the battery level every 200ms
+    // while the central is connected:
+    while (central.connected()) {
+      long currentMillis = millis();
+      // if 200ms have passed, check the battery level:
+      if (currentMillis - previousMillis >= 200) {
+        previousMillis = currentMillis;
+        updateBatteryLevel();
+      }
+    }
+
+    Serial.print("Disconnected from central: ");
+    Serial.println(central.address());
+  }
+}
+
+void updateBatteryLevel() {
+  /* Read the power management IC registers to retrieve the battery percentage
+  */
+
+  int batteryLevel = nicla::getBatteryVoltagePercentage();  // this command return the battery percentage
+
+  if (batteryLevel != oldBatteryLevel) {       // if the battery level has changed
+    Serial.print("Battery Level % is now: ");  // print it
+    Serial.println(batteryLevel);
+    batteryLevelChar.writeValue(batteryLevel);  // and update the battery level characteristic
+    oldBatteryLevel = batteryLevel;             // save the level for next comparison
+  }
+}
+
+
+```
+
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC. 
+
+- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic for a battery level application.
+
+  1. **Battery Service: `180F`**
+  2. **Battery Level Characteristic: `2A19`**
+
+- In the `setup()` function, the code initializes the Nicla Voice board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
+
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Sense, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the battery percent. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
+
+Using the nRF Connect app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) you can easily connect to your Nicla Sense ME and monitor the battery level in real time.
+
+![Battery level monitored from the nRF Connect app](assets/battery-monitor.png)
+
 ### ESLOV Connector 
+
+The Nicla Sense ME board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Sense ME without soldering or wiring.
+
+![Nicla Sense ME built-in ESLOV connector](assets/eslov.png)
+
+ The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
+
+The pin layout of the ESLOV connector is the following:
+
+1. VCC_IN (5V input)
+2. INT
+3. SCL
+4. SDA
+5. GND
+
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
 ## Arduino IoT Cloud
 
-The Nicla Sense ME doesn't have built-in WiFi, so it can not be directly connected to the internet. For this, we need to use a WiFi capable Arduino board as a host for the Nicla.
+The Nicla Sense ME doesn't have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
 
 In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino IoT Cloud.
 
@@ -990,7 +1138,7 @@ void loop()
 }
 ```
 
-Upload the sketch from above to the Nicla Sense ME.
+Upload the sketch from above to the Nicla Sense ME using the Arduino IDE.
 
 ### Arduino IoT Cloud Setup
 
@@ -1002,9 +1150,9 @@ With a Thing already created, add a variable, in this case, "temperature" float 
 
 ![Adding the temperature variable to the Thing](assets/variable.png)
 
-Once the variable is added, let's define the WiFi credentials for the board, for this, click on your Thing Network setting and add your WiFi SSID and password:
+Once the variable is added, let's define the Wi-Fi® credentials for the board, for this, click on your Thing Network setting and add your Wi-Fi® SSID and password:
 
-![WiFi credentials](assets/wifi.png)
+![Wi-Fi® credentials](assets/wifi.png)
 
 It's time to open the automatically generated sketch and modify the code. It should be replaced by the following:
 
@@ -1055,6 +1203,8 @@ void loop() {
   
 }
 ```
+***If you are interested in using a different sensor from the onboard options of the Nicla Sense ME, check all the sensors ID on this [list](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)***
+
 ### Portenta C33 Setup
 
 With the Portenta C33 code ready on the Arduino Cloud, before uploading it to the board let's connect everything together. Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
@@ -1065,9 +1215,11 @@ Upload the code to the Portenta C33 by connecting it to your computer using a US
 
 ![Uploading the sketch to the Portenta C33](assets/code_upload.png)
 
-Finally, after searching for and connecting to your WiFi network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the cloud where we can monitor it from anywhere in the world and from any device.
+Finally, after searching for and connecting to your Wi-Fi® network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the cloud where we can monitor it from anywhere in the world and from any device.
 
 ![Temperature monitor dashboard](assets/Dashboard2.gif)
+
+***For a more detailed process on how to connect the Nicla Sense ME to the Arduino Cloud, follow this [guide](https://docs.arduino.cc/tutorials/nicla-sense-me/connecting-to-iot-cloud)***
 
 ## Support
 
