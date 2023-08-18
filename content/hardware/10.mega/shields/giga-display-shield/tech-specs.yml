@@ -5,7 +5,7 @@ Connectors:
   Camera: SOCKET 2ROW 20POS VERTICAL PASS THROUGH
   Display Video: F32Q-1A7H1-11020
   Display Touch: F32Q-1A7H1-11008
-Display:
+Display (KD040WVFID026-01-C025A):
   Size: 3.97”
   Resolution: 480x800 RGB
   Color: 16.7M
@@ -14,6 +14,8 @@ Display:
 Sensors:
   IMU: BMI270
   Microphone: MP34DT06JTR
+Pins:
+  LED: 1 RGB LED (I2C)
 Power:
   Circuit operating voltage: 
   Input voltage (VIN): 
