@@ -837,7 +837,7 @@ To transmit data to an I2C-compatible device, you can use the following commands
 byte deviceAddress = 0x35; 
 
 // Replace with the appropriate instruction byte
-byte instruction = 0xCC; 
+byte instruction = 0x00; 
 
 // Replace with the value to send
 byte value = 0xFA; 
@@ -854,6 +854,11 @@ Wire.write(value);
 // End transmission
 Wire.endTransmission(); 
 ```
+
+The output data should look like the image below, where we can see the device address data frame:
+
+![I2C output data](assets/i2c.png)
+
 
 To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
 
@@ -1061,9 +1066,9 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
   1. **Battery Service: `180F`**
   2. **Battery Level Characteristic: `2A19`**
 
-- In the `setup()` function, the code initializes the Nicla Voice board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
+- In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
 
-- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Sense, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the battery percent. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Sense ME, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the battery percent. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
 
 Using the nRF Connect app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) you can easily connect to your Nicla Sense ME and monitor the battery level in real time.
 
@@ -1087,6 +1092,7 @@ The pin layout of the ESLOV connector is the following:
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
+
 ## Arduino IoT Cloud
 
 The Nicla Sense ME doesn't have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
@@ -1102,19 +1108,6 @@ The code is available inside the examples provided with the Arduino_BHY2 Library
 This is the code, which initializes the sensors, and maintains the communication:
 
 ```arduino
-/* 
- * Use this sketch if you want to control nicla from 
- * an external device acting as a host.
- * Here, nicla just reacts to external stimuli coming from
- * the eslov port or through BLE 
- * 
- * NOTE: Remember to choose your Nicla configuration! 
- * If Nicla is used as a Shield, provide the NICLA_AS_SHIELD parameter.
- * If you want to enable just one between I2C and BLE,
- * use NICLA_I2C or NICLA_BLE parameters.
- *
-*/
-
 #include "Arduino.h"
 #include "Arduino_BHY2.h"
 
@@ -1128,7 +1121,7 @@ void setup()
   BHY2.debug(Serial);
 #endif
 
-  BHY2.begin();
+  BHY2.begin();   // this initialization enables the ESLOV and BLE communication
 }
 
 void loop()
@@ -1182,7 +1175,7 @@ void setup() {
   delay(1500);
   
   Serial.println("Initialize the Nicla as a ESLOV connected device");
-  BHY2Host.begin(false, NICLA_VIA_ESLOV);   
+  BHY2Host.begin(false, NICLA_VIA_ESLOV);  // use NICLA_VIA_BLE if a wireless connection is desired    
   
   tempSensor.configure(1,0);
   temperature = tempSensor.value();   // take a first sample
@@ -1207,9 +1200,11 @@ void loop() {
 
 ### Portenta C33 Setup
 
-With the Portenta C33 code ready on the Arduino Cloud, before uploading it to the board let's connect everything together. Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
+With the Portenta C33 code ready on the Arduino Cloud, before uploading it to the board let's connect everything together. 
 
-![Hardware connection](assets/eslov-connection.svg)
+Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
+
+![ESLOV connection](assets/eslov-connection.svg)
 
 Upload the code to the Portenta C33 by connecting it to your computer using a USB cable and clicking on the upload button in the IoT Cloud editor.
 
@@ -1218,6 +1213,30 @@ Upload the code to the Portenta C33 by connecting it to your computer using a US
 Finally, after searching for and connecting to your Wi-Fi® network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the cloud where we can monitor it from anywhere in the world and from any device.
 
 ![Temperature monitor dashboard](assets/Dashboard2.gif)
+
+### Bluetooth® Low Energy connection
+
+***This option just works with the Portenta H7 series***.
+
+For Bluetooth® communication, substitute the line of code `BHY2Host.begin(false, NICLA_VIA_ESLOV);` with `BHY2Host.begin(false, NICLA_VIA_BLE);` in the host sketch, the boards will bind wirelessly.
+
+![Bluetooth® Low Energy connection](assets/ble-connection.png)
+
+### Using the Nicla Sense ME as an MKR Shield
+
+Another way to communicate the Nicla Sense ME with a Portenta C33/H7 is by using it as a shield.
+
+To convert the Nicla Sense ME into a Shield, you will have to **solder** 2 rows of headers: one side has 9 pins and the other 8 pins; the long side of the headers needs to be on the **battery connectors side.**
+
+The host (Portenta C33/H7) will communicate through the BHY2Host library with the Nicla Sense ME (both devices communicate over I2C).
+
+We learned how to communicate the Nicla Sense ME with the IoT Cloud using BLE and a wired ESLOV connection. For this example, set the communication method to `NICLA_AS_SHIELD` in the host sketch as follows:
+
+`BHY2Host.begin(false, NICLA_AS_SHIELD);`
+
+![Nicla Sense ME as a shield](assets/AS_SHIELD.png)
+
+***This setup works with the ESLOV cable as well. Keep in mind female headers or raw cables can be used as well, but make sure the connections of the pinout match with the MKR pinout (3V3, GND, SCL and SDA).***
 
 ***For a more detailed process on how to connect the Nicla Sense ME to the Arduino Cloud, follow this [guide](https://docs.arduino.cc/tutorials/nicla-sense-me/connecting-to-iot-cloud)***
 
