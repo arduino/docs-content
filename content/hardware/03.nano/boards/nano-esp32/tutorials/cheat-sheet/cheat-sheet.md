@@ -10,6 +10,8 @@ tags:
   - Wi-Fi®
   - Bluetooth® LE
 author: 'Karl Söderby & Jacob Hylén'
+hardware:
+  - hardware/03.nano/boards/nano-esp32
 ---
 
 The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC as its main microcontroller, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox® NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
