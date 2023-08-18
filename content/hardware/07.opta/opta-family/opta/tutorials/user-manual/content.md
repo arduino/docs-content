@@ -1247,6 +1247,8 @@ void changeLights() {
 }
 ```
 
+**Note**: the example code shown above employs a "debouncing" technique to ensure that the user button press is recognized as a singular event, despite any rapid electrical fluctuations that can occur when physically pressing the button. Upon detecting a press through an interrupt, the sketch waits for a brief interval (150 milliseconds, set by `debounceDelay` variable) before processing the press. This delay ensures that any additional "noise" or fluctuations don't trigger multiple registrations of the same press, ensuring precise LED sequencing operation.
+
 To learn more about interrupts in Opta™ devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
 ## Real-Time Clock (RTC)
