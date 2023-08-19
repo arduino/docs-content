@@ -321,7 +321,9 @@ Following a similar process:
 #### Task Configuration
 <br></br>
 
-It is recommendable to set an executing period of 50 ms for the main task; to do this, double-click on `Tasks` inside the `Project` window; a new `Tasks Configuration` window will appear. On this window, change the `Set period` option of the `Fast Task` to `Yes` and set choose 50 ms period. If you want to learn more about task configuration, take a look at [this tutorial](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction#task-attachment).
+It is recommendable to set an executing period of 50 ms for the main task; to do this, double-click on `Tasks` inside the `Project` window; a new `Tasks Configuration` window will appear.
+
+On this window, change the `Set period` option of the `Fast Task` to `Yes` and set choose 50 ms period. If you want to learn more about task configuration, take a look at [this tutorial](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction#task-attachment).
 
 ![Task configuration](assets/task-configuration.png)
 
