@@ -56,7 +56,7 @@ Here is an overview of the board's architecture's main components shown in the i
 
 ### Board Core and Libraries
 
-The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense Me` and install the latest `Arduino Mbed OS Nicla Boards` version.
+The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense ME` and install the latest `Arduino Mbed OS Nicla Boards` version.
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
 
@@ -1063,8 +1063,8 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
 - The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic for a battery level application.
 
-  1. **Battery Service: `180F`**
-  2. **Battery Level Characteristic: `2A19`**
+  - **Battery Service: `180F`**
+  - **Battery Level Characteristic: `2A19`**
 
 - In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
 
@@ -1216,7 +1216,7 @@ Finally, after searching for and connecting to your Wi-Fi® network, it will gat
 
 ### Bluetooth® Low Energy Connection
 
-***This option just works with the Portenta H7 series***.
+***This option just works with the Portenta H7 series.***
 
 For Bluetooth® communication, substitute the line of code `BHY2Host.begin(false, NICLA_VIA_ESLOV);` with `BHY2Host.begin(false, NICLA_VIA_BLE);` in the host sketch, the boards will bind wirelessly.
 
