@@ -70,9 +70,12 @@ Communication between end-devices and gateways in LoRaWAN® networks is spread o
 
 To maximize the battery life of each end-device and the overall capacity available through the network, LoRaWAN® uses an **Adaptive Data Rate** (ADR) mechanism for **optimizing data rates, airtime, and power consumption**. ADR controls the following transmission parameters on end-devices:
 
-- **Spreading factor**: the **speed of data transmission**. Lower spreading factors mean a higher data transmission rate. 
-- **Bandwidth**: the **amount of data that can be transmitted** from one point to another within the network. 
-- **Transmission power**: the energy that the end-device transmitter produces at its output.
+- **Spreading factor**: the **speed of data transmission**. Lower spreading factors mean a higher data transmission rate, but lower range and link budget.
+- **Bandwidth**: the **the amount of radio-frequency spectrum used** for the transmission. Higher bandwidth mean a higher data rate, but potentially more inference and lower range/link budget. 
+- **Transmission power**: the energy that the end-device transmitter produces at its output.  Higher power means more range and link budget (lower error rates), and _allows_ increased data rates (via raising bandwidth and/or lowering spreading).
+- **Redundancy**: the number of times each message is repeated.  Higher redundancy means a much lower (effective) data rate, but some improvement in reliability.
+
+Note that spreading factor and bandwidth aren't independently configurable, rather the "Data Rate" parameter is an index into a table of pre-defined "bandwidth + spreading factor (and sometimes other modulation parameters)" configurations.  Transmit power is configured separately, also through a lookup table. Note also that there are *different* tables for different frequency bands and regions/regulators.  For example, in the US 902 - 928 MHz band, "data rate" 3 corresponds to a 125 kHz bandwidth with SF7, and "data rate" 4 is 500 kHz with SF8 (see [RP002-1.0.4](https://resources.lora-alliance.org/technical-specifications/rp002-1-0-4-regional-parameters) Table 15).
 
 The table below shows compares spreading factor, data rate, and time on-air at a bandwidth of 125 kHz (range is an indicative value, it will depend on the propagation conditions):
 
