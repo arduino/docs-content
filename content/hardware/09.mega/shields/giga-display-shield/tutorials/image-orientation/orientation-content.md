@@ -12,9 +12,9 @@ Any modern device uses sensors to determine the correct orientation in which an 
 - [GIGA R1 WiFi](/hardware/giga-r1).
 - [GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino_BMI270_BMM150 library]()
-- [ArduinoGraphics library]()
-- [Library]() library.
+- [Arduino_BMI270_BMM150 library](https://reference.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/)
+- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library.
+- [Lvgl](https://reference.arduino.cc/reference/en/libraries/lvgl/) library.
 
 ## Downloading the Library and Core
 
@@ -43,14 +43,11 @@ Any image could be used here. This tutorial will use the following image of the 
 Now to first get the readings from the IMU we will use the `"Arduino_BMI270_BMM150.h"` library. Then we need to set the image name variables with `extern const lv_img_dsc_t arduino_logo_1;`. To use the IMU set it up with `BoschSensorClass imu(Wire1);`.
 
 ```arduino
-
-#include "Portenta_lvgl.h"
-#include "lv_demo_widgets.h"
 #include "Arduino_BMI270_BMM150.h"
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
 
-extern const lv_img_dsc_t arduino_logo_1;
-
-void LCD_ST7701_Init();
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Video Display(1024, 768, USBCVideo); */
 
 BoschSensorClass imu(Wire1);
 ```
@@ -58,26 +55,25 @@ BoschSensorClass imu(Wire1);
 initialize the display with `Display.begin();` and start recieving IMU readings with `imu.begin();`. Next, we can give the image its attributes.
 
 ```arduino
+LV_IMG_DECLARE(img_arduinologo);
+lv_obj_t * img;
+
 void setup() {
   Serial.begin(115200);
+  
   Display.begin();
   imu.begin();
 
-  LV_IMG_DECLARE(arduino_logo_1);
-  lv_obj_t * obj;
-  obj = lv_obj_create(lv_scr_act());
-  lv_obj_set_size(obj, 350, 350);
-
-  avatar = lv_img_create(obj);
-  lv_img_set_src(avatar, &arduino_logo_1);
+  img = lv_img_create(lv_scr_act());
+  lv_img_set_src(img, &img_arduinologo);
+  lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
+  lv_img_set_pivot(img, (img_arduinologo.header.w)/2, (img_arduinologo.header.h)/2); /* Rotate around the center of the image */
 }
-
 ```
 
 Now all that is left is to change the image depending on the IMU readings. First, declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`. Next, we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end, we render the image with the correct rotation.
 
 ```arduino
-
 uint8_t rotation = 0;
 
 void loop() {
@@ -94,11 +90,15 @@ void loop() {
       } else if (y > 0.8) {
         rotation = 3;
       }
-      lv_img_set_angle(avatar,  900 - atan(x / y) * 180.0 / M_PI * 10);
+      int16_t rot_angle = 900 - atan(x / y) * 180.0 / M_PI * 10;
+      lv_img_set_angle(img, rot_angle);
     }
   }
+  lv_timer_handler();
 }
 ```
+
+### IMU Test Sketch
 
 The easiest way to tell what values you are getting depending on the orientation of the device is to use a simple sketch, like the one below that will simply print the IMU values in the serial monitor. Take note of the values you are getting when you rotate the shield and you can use them in the previous sketch.
 
@@ -125,10 +125,56 @@ void loop(){
 }
 ```
 
+### Full Sketch
+
 Now to put it all together where the image will change depending on how we rotate the board and shield:
 
 ```arduino
+#include "Arduino_BMI270_BMM150.h"
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
 
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Video Display(1024, 768, USBCVideo); */
+
+BoschSensorClass imu(Wire1);
+
+LV_IMG_DECLARE(img_arduinologo);
+lv_obj_t * img;
+
+void setup() {
+  Serial.begin(115200);
+  
+  Display.begin();
+  imu.begin();
+
+  img = lv_img_create(lv_scr_act());
+  lv_img_set_src(img, &img_arduinologo);
+  lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
+  lv_img_set_pivot(img, (img_arduinologo.header.w)/2, (img_arduinologo.header.h)/2); /* Rotate around the center of the image */
+}
+
+uint8_t rotation = 0;
+
+void loop() {
+  float x, y, z;
+  if (imu.accelerationAvailable()) {
+    imu.readAcceleration(x, y, z);
+    if ( z < 0.8 && z > -0.8) {
+      if (x < -0.8) {
+        rotation = 0;
+      } else if (x > 0.8) {
+        rotation = 2;
+      } else if (y < -0.8) {
+        rotation = 1;
+      } else if (y > 0.8) {
+        rotation = 3;
+      }
+      int16_t rot_angle = 900 - atan(x / y) * 180.0 / M_PI * 10;
+      lv_img_set_angle(img, rot_angle);
+    }
+  }
+  lv_timer_handler();
+}
 ```
 
 ## Testing it Out
