@@ -1262,20 +1262,20 @@ Some of the key capabilities of Opta™'s onboard RTC are the following:
 - Two programmable alarms. 
 - Timestamp feature, which can be used to save the calendar content.
 
-The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with an NTP server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
+The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with an Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
 
-**Note:** You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
 
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
-Enter the following code on the header file:
+Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
 
 ```arduino
 char ssid[] = "SECRET_SSID"; // Your network SSID (name)
 char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
 ```
 
-The example code is as follows: 
+Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` with the password of it and save the project. The example code is as follows: 
 
 ```arduino
 /**
@@ -1321,30 +1321,35 @@ void setup() {
 
   // NTP client object initialization and time update, display updated time on the Serial Monitor.
   timeClient.begin();
-  updateTime();
+  timeClient.update();
+  const unsigned long epoch = timeClient.getEpochTime();
+  set_time(epoch);
+
+  // Show the synchronized time.
+  Serial.println();
+  Serial.println("- TIME INFORMATION:");
+  Serial.print("- RTC time: ");
+  Serial.println(getLocalTime());
 }
 
 void loop() {
-  // Update time client periodically.
+  // Display RTC time periodically.
   unsigned long currentTime = millis();
   if (currentTime - lastTime >= interval) {
-    updateTime();
+    displayRTC();
     lastTime = currentTime;
   }
 }
 
 /**
-  Updates Opta's internal RTC using a NTP server
+  Display Opta's internal RTC time 
 
   @param none
   @return none
 */
-void updateTime() {
+void displayRTC() {
   Serial.println();
   Serial.println("- TIME INFORMATION:");
-  timeClient.update();
-  const unsigned long epoch = timeClient.getEpochTime();
-  set_time(epoch);
   Serial.print("- RTC time: ");
   Serial.println(getLocalTime());
 }
@@ -1362,11 +1367,12 @@ String getLocalTime() {
   strftime(buffer, 32, "%k:%M:%S", &t);
   return String(buffer);
 }
+
 ```
 
 This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the code synchronizes with a Network Time Protocol (NTP) server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods. 
 
-From there, the sketch enters an infinite loop where, every 5 seconds, it updates the RTC using the NTP server and then prints the current time from the RTC to the serial monitor in a more readable format, thanks to the `tm` structure provided by `mbed_mktime.h`. This way, accurate time tracking can be maintained, even if the internet connection is interrupted or the system restarts, as long as the RTC's power supply is not interrupted. You should see the following output in the Arduino IDE's Serial Monitor:
+Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every 5 seconds, it retrieves the current time from the RTC and prints it to the serial monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, as long as the RTC's power supply is not interrupted, accurate time tracking is maintained. You should see the following output in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18.png)
 
