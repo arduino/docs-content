@@ -1,46 +1,29 @@
 ---
-title: Using IMU to determine the orientation of the Giga Display Shield
+title: Screen Orientation With IMU Readings
 description: 'Learn how to use the shields IMU to determine the orientation of the Giga Display Shield'
 author: Benjamin Dannegård
-tags: [Display, IMU, orientation]
+tags: [Display, IMU, orientation, lvgl]
 ---
 
-Any modern device uses sensors to determine the correct orientation in which an image should be displayed. Using the Arduino GIGA R1 WiFi with the GIGA Display Shield we can read values given by the onboard IMU to determine what orientation an image should be given. This tutorial will show you how to manipulate an image on the GIGA Display Shield using readings from the IMU sensor. 
+Any modern device with a screen uses sensors to determine the correct orientation in which an image should be displayed. Using the Arduino GIGA R1 WiFi with the GIGA Display Shield we can read values given by the onboard IMU to determine what orientation an image should be given. This tutorial will show you how to manipulate an image on the GIGA Display Shield using lvgl and readings from the IMU sensor.
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
+- [GIGA R1 WiFi](/hardware/giga-r1)
 - [GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino_BMI270_BMM150 library](https://reference.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/)
-- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library.
-- [Lvgl](https://reference.arduino.cc/reference/en/libraries/lvgl/) library.
+- [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)
+- [Lvgl library](https://reference.arduino.cc/reference/en/libraries/lvgl/)
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the IMU. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU.
-
-## Getting IMU Readings
-
-The three-axis that we will measure will be:
-
-- x-axis: Measures horizontally
-- y-axis: Measures vertically
-- z-axis: Measures the rotational axis
-
-This tutorial will assume that the screen is oriented as in the image below.
-
-![Orientation of screen normally]()
-
-## Creating an Image
-
-Any image could be used here. This tutorial will use the following image of the Arduino logo. Alternatively, any raw RGB565 image can be used. If you have an image you want to use, you can use this [online image converter](https://lvgl.io/tools/imageconverter), or any other software that lets you convert an image to a raw RGB565 image. This website will output in the Binary RGB565 format.
-
-[In sketch image]()
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the IMU and the library for handling the image. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU. Now search for **LVGL**, and install it. This library will be used for the image and rotating it.
 
 ## Using the IMU Readings With the Image
 
-Now to first get the readings from the IMU we will use the `"Arduino_BMI270_BMM150.h"` library. Then we need to set the image name variables with `extern const lv_img_dsc_t arduino_logo_1;`. To use the IMU set it up with `BoschSensorClass imu(Wire1);`.
+Now to first get the readings from the IMU we will use the `"Arduino_BMI270_BMM150.h"` library. The `"Arduino_H7_Video.h"` and 
+`"lvgl.h"` libraries will help us handle the image. Set up the display dimensions with `Arduino_H7_Video Display(800, 480, GigaDisplayShield);`. To use the IMU set it up with `BoschSensorClass imu(Wire1);`. Next, we can give the image its attributes.
 
 ```arduino
 #include "Arduino_BMI270_BMM150.h"
@@ -52,7 +35,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Vi
 BoschSensorClass imu(Wire1);
 ```
 
-initialize the display with `Display.begin();` and start recieving IMU readings with `imu.begin();`. Next, we can give the image its attributes.
+Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`. 
 
 ```arduino
 LV_IMG_DECLARE(img_arduinologo);
@@ -71,7 +54,7 @@ void setup() {
 }
 ```
 
-Now all that is left is to change the image depending on the IMU readings. First, declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`. Next, we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end, we render the image with the correct rotation.
+Now all that is left is to change the image depending on the IMU readings. First, declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`. Next, we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end, we render the image with the correct rotation. When the correct rotation has been calculated, we can apply it to the image using `lv_img_set_angle(img, rot_angle);`.
 
 ```arduino
 uint8_t rotation = 0;
@@ -90,7 +73,7 @@ void loop() {
       } else if (y > 0.8) {
         rotation = 3;
       }
-      int16_t rot_angle = 900 - atan(x / y) * 180.0 / M_PI * 10;
+      int16_t rot_angle = 900 - atan(x / y) * 180.0 / M_PI * 10; //Calculation for the rotation angle
       lv_img_set_angle(img, rot_angle);
     }
   }
@@ -100,7 +83,7 @@ void loop() {
 
 ### IMU Test Sketch
 
-The easiest way to tell what values you are getting depending on the orientation of the device is to use a simple sketch, like the one below that will simply print the IMU values in the serial monitor. Take note of the values you are getting when you rotate the shield and you can use them in the previous sketch.
+The easiest way to tell what values you are getting depending on the orientation of the device is to use a simple sketch, like the one below that will print the IMU values in the serial monitor. Take note of the values you are getting when you rotate the shield and you can use them in the full sketch.
 
 ```arduino
 #include "Arduino_BMI270_BMM150.h"
@@ -176,6 +159,10 @@ void loop() {
   lv_timer_handler();
 }
 ```
+
+### Using Another Image 
+
+Any image could be the sketch. This tutorial and the example uses an image of the Arduino logo. Alternatively, any raw RGB565 image can be used. If you have an image you want to use, you can use this [online image converter](https://lvgl.io/tools/imageconverter), or any other software that lets you convert an image to a raw RGB565 image. This website will output in the Binary RGB565 format. For further instructions on how to display your own image, have a look at our [Text and Image tutorial](/tutorials/text-and-image).
 
 ## Testing it Out
 
