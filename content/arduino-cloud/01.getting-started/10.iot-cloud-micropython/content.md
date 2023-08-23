@@ -72,7 +72,7 @@ After configuring your device, **assign** it to the thing that you created previ
 
 ## Installing The Library
 
-To install the Arduino IoT Cloud (Micro)Python library on your board, you first need to install `mpremote` if you haven't done it yet. You can install it using pip:
+To install the Arduino IoT Cloud (Micro)Python library on your board, you can use thy Python based tool `mpremote`. This requires Python to be installed. On macOS and Linux Python usually comes pre-installed. If it's not installed on your system you may download it from [here](https://www.python.org/downloads/). Then, to install `mpremote` you can use pip:
 
 ```bash
 $ pip install mpremote
@@ -91,6 +91,7 @@ $ mpremote connect id:335B34603532 mip install github:arduino/arduino-iot-cloud-
 ```
 
 This will install the library and all required dependencies on the board.
+Another option is to manually copy the files from the library's [repository](https://github.com/arduino/arduino-iot-cloud-py/tree/main/src/arduino_iot_cloud) to the board's file system. It's good practice to put those files into a folder called `lib` to have the files organized neatly.
 
 ## Programming the Board
 
