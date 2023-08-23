@@ -7,6 +7,8 @@ sku: "DEV-10274"
 source: "https://store.arduino.cc/lilypad-arduino-simple"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The LilyPad Arduino Simple board](./assets/lilypad.jpg)
 
 Unlike the [LilyPad Arduino Main Board](https://www.arduino.cc/en/Main/ArduinoBoardLilyPad), the **LilyPad Simple** has only 9 pins for input/output. Additionally, it has a JST connector and a built in charging circuit for Lithium Polymer batteries. The board is based on the [ATmega328](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf).  

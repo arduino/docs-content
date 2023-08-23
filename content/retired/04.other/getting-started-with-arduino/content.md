@@ -7,13 +7,9 @@ sku: "B000001"
 source: "https://store.arduino.cc/product/B000001"
 ---
 
+***Note: This page refers to a product that is retired.This can no longer be bought from us.***
+
 ![](./assets/B000001_Featured.jpg)
-
-***Note: A fourth version of the book is planned for 2022!***
-
-
-
-**This version is a retired product and can no longer be bought from us.**
 
 This edition thorough introduction gives you lots of ideas for projects and helps you work with them right away!
 

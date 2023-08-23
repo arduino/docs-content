@@ -223,7 +223,23 @@ The Arduino® Web Editor is hosted online, therefore it will always be up-to-dat
 All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Getting Started - ESLOV
-This board can act as a secondary to a ESLOV controller and have the firmware updated through this method.
+
+The Nicla Voice board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus; the board itself can act as a secondary ESLOV controller or peripheral. The ESLOV connector simplifies connecting various sensors, actuators, and other modules to the Nicla Voice without soldering or wiring.
+
+ The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
+
+The pin layout of the Nicla Voice ESLOV connector is the following:
+
+1. VCC_IN (5V input)
+2. INT
+3. SCL
+4. SDA
+5. GND
+
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
+
+**Note**: Pin 1 of the ESLOV connector of the Nicla Voice board is a **5V voltage input**, not a voltage output. This means that the Nicla Voice is intended to be used as a secondary or a peripheral board of a main board or controller with an ESLOV connector with a 5V output like, for example, the Portenta H7.
+
 ### Sample Sketches
 Sample sketches for the Arduino® Nicla Voice can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**.
 
@@ -424,9 +440,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date (DD/MM/YY)**   | **Revision** | **Changes**   |
-| --------------------- | ------------ | ------------- |
-| 05-01-2023            | 01           | First release |
+| **Date (DD/MM/YY)**   | **Revision** | **Changes**               |
+| --------------------- | ------------ | ------------------------- |
+| 17-05-2023            | 2            | ESLOV Information updated |
+| 05-01-2023            | 1            | First release             |
 
 ## Product Warnings and Disclaimers
 

@@ -7,6 +7,8 @@ sku: "A000126"
 source: "https://store.arduino.cc/arduino-industrial-101"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Industrial 101 board](assets/A000126_ArduinoIndustrial101_featured_2.jpg)
 
 **Arduino Industrial 101** is an Evaluation board for Arduino 101 LGA module. The ATmega32u4 microcontroller is integrated in the baseboard. The module supports a Linux distribution based on OpenWRT named LininoOS. The board has built-in WiFi (IEEE 802.11b/g/n operations up to 150Mbps 1x1 2.4 GHz), 3 GPIOs (of which 2 can be used as PWM Outputs), 4 Analog Inputs, 1 USB, 1 Ethernet signal on pin headers and a built-in DC/DC converter. Check out the assembling guide and simply connect your board to a computer with a micro USB cable to get started.

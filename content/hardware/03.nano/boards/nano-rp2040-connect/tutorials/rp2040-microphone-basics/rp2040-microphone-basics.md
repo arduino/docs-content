@@ -2,7 +2,7 @@
 title: 'Reading Microphone Data on Nano RP2040 Connect'
 difficulty: intermediate
 compatible-products: [nano-rp2040-connect]
-description: 'Learn how to read data from the MP34DT05 microphone, and how to use the data to turn ON or OFF the built-in RGB.'
+description: 'Learn how to read data from the MP34DT06JTR microphone, and how to use the data to turn ON or OFF the built-in RGB.'
 tags: 
   - Microphone
   - RGB
@@ -22,7 +22,7 @@ software:
 
 ## Introduction 
 
-The Nano RP2040 connect comes with the **MP34DT05** microphone, which can be used to record audio. In this tutorial, we will setup a basic application that simply turns ON or OFF the built in RGB LED whenever a loud noise is recorded (for example snapping our fingers).
+The Nano RP2040 connect comes with the **MP34DT06JTR** microphone, which can be used to record audio. In this tutorial, we will setup a basic application that simply turns ON or OFF the built in RGB LED whenever a loud noise is recorded (for example snapping our fingers).
 
 >**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano).
 
@@ -42,19 +42,17 @@ The goals of this project are:
 - [PDM](https://www.arduino.cc/en/Reference/PDM) library installed.
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect).
 
-## The MP34DT05 Microphone
+## The MP34DT06JTR Microphone
 
-![The MP34DT05 microphone.](assets/rp2040-microphone-img-00.png)
+![The MP34DT06JTR microphone.](assets/rp2040-microphone-img-00.png)
 
 Microphones are components that convert physical sound into digital data. Microphones are commonly used in mobile terminals, speech recognition systems or even gaming and virtual reality input devices.
 
-The MP34DT05 sensor is a ultra-compact microphone that use PDM (Pulse-Density Modulation) to represent an analog signal with a binary signal. The sensor's range of different values are the following:
+The MP34DT06JTR sensor is a ultra-compact microphone that use PDM (Pulse-Density Modulation) to represent an analog signal with a binary signal. The sensor's range of different values are the following:
 
 - Signal-to-noise ratio: 64dB
 - Sensitivity: -26dBFS ±3dB
 - Temperature range: -40 to 85°C
-
-If you want to read more about the MP34DT05 sensor you can take a look at the <a href="https://content.arduino.cc/assets/Nano_BLE_Sense_mp34dt05-a.pdf" target="_blank">datasheet</a>.
 
 ### Circuit
 

@@ -15,7 +15,7 @@ Connectivity:
   Secure element: ATECC608A-MAHDA-T Crypto IC
 Sensors:
   IMU: LSM6DSOXTR (6-axis)
-  Microphone: MP34DT05
+  Microphone: MP34DT06JTR
 Communication:
   UART: RX/TX 
   I2C: A4 (SDA), A5 (SCL)

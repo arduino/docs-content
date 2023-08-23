@@ -7,6 +7,8 @@ sku: "A000105"
 source: "https://store.arduino.cc/arduino-gsm-shield-2-integrated-antenna"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino GSM Shield 2 with integrated antenna](./assets/A000105_featured_2.jpg)
 
 The **Arduino GSM Shield 2** allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/uploads/Main/Quectel_M10_AT_commands.pdf"). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.

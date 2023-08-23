@@ -7,6 +7,8 @@ sku: "A000022"
 source: "https://store.arduino.cc/arduino-leonardo-eth"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino Leonardo ETH board](./assets/a000022_front.jpg)
 
 The **Leonardo ETH** is a microcontroller board based on the ATmega32U4 (datasheet) and the new W5500 TCP/IP Embedded Ethernet Controller (datasheet). It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a RJ45 connection, a micro USB connector, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.

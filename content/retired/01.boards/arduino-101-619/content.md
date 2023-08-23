@@ -7,6 +7,8 @@ sku: "ABX00005"
 source: "https://store.arduino.cc/arduino-101-619"
 ---
 
+***Note: This page refers to a product that is retired.***
+
 ![The Arduino 101 board](./assets/ABX00005_featured_2.jpg)
 
 A learning and development board that delivers the performance and low-power consumption of the [Intel® Curie™](/resources/datasheets/intel-curie-module-datasheet.pdf) Module with the simplicity of Arduino at an entry-level price. It keeps the same robust form factor and peripheral list of the UNO with the addition of onboard Bluetooth® Low Energy capabilities and a 6-axis accelerometer/gyro to help you easily expand your creativity into the connected world. 
