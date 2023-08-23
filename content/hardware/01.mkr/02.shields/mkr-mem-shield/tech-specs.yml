@@ -3,6 +3,7 @@ Shield:
   SKU: ASX00008
   Compatibility: MKR
 Communication: SPI
+Chip Select Pin (SPI): MicroSD on D4, Flash on D% 
 Features:
   Storage: Micro SD card slot
   Flash memory: 2MB (W25Q16)

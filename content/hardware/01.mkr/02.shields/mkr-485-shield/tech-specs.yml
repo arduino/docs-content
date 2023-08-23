@@ -3,7 +3,7 @@ Shield:
   SKU: ASX00004
   Compatibility: MKR
 Protocol: RS485
-Interface: Serial
+Interface: Serial (TXP on D7, RXP on D6)
 Operating mode: Isolated half / full duplex (switchable)
 Integrated circuits:
   Transceiver: MAXIM MAX3157
