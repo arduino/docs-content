@@ -212,6 +212,7 @@ Analog/digital inputs terminals are mapped as described in the following table:
 |        `I8`        |      `A7`/`PIN_A7`      |
 
 #### Analog Inputs
+<br></br>
 
 The input voltage range for each analog input terminal is the following:
 
@@ -284,6 +285,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 ```
 
 #### Digital Inputs
+<br></br>
 
 The input voltage range for each digital input terminal is the following:
 
