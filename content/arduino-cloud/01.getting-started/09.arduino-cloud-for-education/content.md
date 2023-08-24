@@ -17,7 +17,7 @@ software:
 
 The [Arduino Cloud for Schools](https://cloud.arduino.cc/schools/) is a tool that provides an online space for teachers and students. 
 
-In this article, you will get a general overview of the major features of the Arduino Cloud for Education and the features Free and School plan can offer.
+In this article, you will get a general overview of the major features of the Arduino Cloud for Education and the features *Free* and *School* plan can offer.
 
 ## Required Software
 
@@ -25,7 +25,7 @@ In this article, you will get a general overview of the major features of the Ar
 
 ## How to create an account
 
-In order to get started with Arduino Cloud, you need to [have an Arduino account](https://auth.arduino.cc/login.). An **Arduino account gives you full access to all Arduino websites, apps, and services**.
+In order to get started with Arduino Cloud, you need to [have an Arduino account](https://auth.arduino.cc/login.). An **Arduino account gives** you **full access to all Arduino websites, apps**, and **services**.
 
 If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step by step explanation on how to do it.
 
@@ -42,7 +42,7 @@ The Arduino Cloud for School consists of **two main subscriptions**:
 * **Free Plan**  
 * **School Plan** 
 
-By default any new user who created an Arduino account has access to Arduino Cloud with a *Free Plan*.
+By default, any new user who created an Arduino account has access to Arduino Cloud with a *Free Plan*.
 
 ## Free Plan
 
@@ -93,7 +93,7 @@ Congratulations! Now you own a Shared Space linked to your Arduino account.
 
 You can switch to other Shared Spaces at any time using the corresponding menu, which you can find at the top right-hand corner, and click on it.
 
-With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.
+***With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.***
 
 ![shared space vs private](assets/my-school.PNG)
 
@@ -143,6 +143,8 @@ Important to remember are **Student role limitations:**
 
 ![school user roles differences](assets/users-roles.PNG)
 
+***There is no limitation on the numbers of members you can add into a Shared Space.***
+
 ## CLOUD APPS
 
 On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps:
@@ -163,13 +165,27 @@ If you want to unlock this function, you'll need to upgrade to a [School Plan](h
 
 ### What is Arduino Web Editor?
 
-[Arduino Web Editor](http://create.arduino.cc/editor) allows you to **write code** and **upload sketches** to any Arduino board after installing a **[simple plug-in](https://create.arduino.cc/getting-started/plugin/welcome) for your browser**. Your Sketchbook will be stored in the Cloud and accessible from any device. You can even import your Sketchbook via a .zip file. Web Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solutions for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software). A lite version of the Web Editor is included in the Arduino IoT Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. 
+[Arduino Web Editor](http://create.arduino.cc/editor) allows you to **write code** and **upload sketches** to any Arduino board after installing a **[simple plug-in](https://create.arduino.cc/getting-started/plugin/welcome) for your browser**. Your Sketchbook will be stored in the Cloud and accessible from any device. You can even import your Sketchbook via a .zip file. Web Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solutions for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
 
-***If you want to know more about Arduino Web Editor [visit this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor).***
+If you want to know more about Arduino Web Editor [visit this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor).
+
+A **lite version of the Web Editor** is included in the Arduino IoT Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. The editor also has a **Serial Monitor Tool**, which can be opened by clicking the magnifying glass in the toolbar.
+
+![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png)
+
+***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default.                                                                                                                                                                                    The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
+
+You can check how many times you've left to verify and upload your program from the [Cloud home](https://cloud.arduino.cc/home/), on the `Feature Usage` menu on the left bottom corner.
+
+![feature usage menu](assets/features-usage.png) 
+
+***
 
 ### What is Arduino IoT Cloud?
 
 Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Arduino IoT Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface. It is integrated into your Arduino Cloud Space. 
+
+
 
 ## IoT Projects Management
 
@@ -199,7 +215,7 @@ Define the connection type you want to use with your board and click on **Next.*
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully set up.
 
-The `Devices` tab displays the name, status, and linked Things for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
+The `Devices` tab displays the name, status, and linked `Things` for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
 The device status indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
 
@@ -207,23 +223,23 @@ The device status indicates whether it is connected to the Arduino IoT Cloud (on
 
 ### Link A Thing To Your Device
 
-To use a device in IoT Cloud, you need to [create a Thing](https://create.arduino.cc/iot/things), or associate it to an existing Thing. A Thing is the digital twin of your device, as little reference to the actual hardware used to implement them. Each Thing is represented by a collection of properties, the configuration of some variables and other settings, as well as the history of the data collected for those variables.
+To use a device in IoT Cloud, you need to [create a Thing](https://create.arduino.cc/iot/things), or associate it to an existing Thing. A Thing is the digital twin of your device, like a reference to the actual hardware used to implement them. Each Thing is represented by a collection of properties, the configuration of some variables and other settings, as well as the history of the data collected for those variables.
 
 To create a Thing, click on **Create Thing** next to the device of your interest, and your Thing will be automatically created for you. At this point, you can start updating it.
 
 ![create a thing from device tab](assets/create-a-thing.png)
 
-***If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).***
+If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).
 
-***With a Free Plan you can only connect two Things with the IoT Cloud at the a time***
+***With a Free Plan you can only connect two Things with the IoT Cloud at the a time.                                    With a School Plan each member you've included in your plan can connect up tp five Things to a Device.***
 
 The image  below highlights the important elements that we will use frequently. Each number is explained below the image.
 
-![things overview](assets/thing-overview.png)
+![things overview](assets/edu-tutorial-thing-overview.png)
 
 1. **Name of thing:** By clicking on "Untitled", we can rename our thing to anything we like. 
 2. **Navigation menu:** This helps to navigate between things, dashboards and devices. 
-3. **Thing tab:** There are two different tabs: **Setup** ,**Sketch** and **Metadata**. The setup is the current view, while the sketch works as the Arduino IDE where the Serial Monitor is detachable.
+3. **Thing tab:** There are two different tabs: **Setup**, **Sketch** and **Metadata**. The setup is the current view, while the sketch works as the Arduino IDE where the Serial Monitor is detachable.
 4. **Variables:** By clicking the **Add variable** button, we can create variables that will be incorporated in a sketch later on. These variables can then be linked to a dashboard.
 5. **Device configuration:** To associate our Thing with a device, detach or change it.
 6. **Network configuration:** Here, we will enter the name and password of our Wi-Fi network, which will be necessary to communicate with the IoT Cloud.
@@ -253,39 +269,44 @@ At this point, you can go back to the Things tab and start filtering your Things
 
 ### Variables
 
-In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud are very similar to the variables we create in a regular sketch. When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
+In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud are very similar to the variables we create in a regular sketch. 
 
-***To learn more on the different types of Variables and their features go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).***
+![variables in the Arduino IoT Cloud](assets/variables.PNG)
 
-The Arduino Cloud *Free Plan* allows a maximum number of 5 variables per each Thing by default.
+When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
 
-The Arduino Cloud *School Plan* allows unlimited number of variables per each Thing by default.
+To learn more on the different types of Variables and their features go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
+
+***The Arduino Cloud Free Plan allows a maximum number of 5 variables per each Thing by default.                                                                                                                                                                                    The Arduino Cloud School Plan allows unlimited number of variables per each Thing.***
 
 ### Dashboards
 
+Dashboards are used to visualize real-time data and to enable direct interaction with the board through the IoT Cloud. Go to `Dashboard`  and click the green button `Create`. We'll link `Variables` we've created before to a **Widget**.
 
+With a *Free Plan* is not possible to share your Dashboard with other users.
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
-***If you want to learn more on how to customize your dashboard and leverage the wide widget portfolio, check the dedicated documentation available at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).***
+Widgets are the ‘building blocks’ of a dashboard, and are directly linked to our properties. They allow us to visualize the data we get from sensors. There are several different widgets: gauges, sliders, switches, color palettes, messenger and more.
 
-### Sharing Dashboards
+![widgets selection](assets/widgets.PNG)
 
+If you want to learn more on how to customize your dashboard and widgets, check [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
 
+***If want to use to Advanced Chart Widget for your IoT projects, that allows you to visualize multiple variables in one chart, you'll need access to the School Plan***
 
-![Share your dashboard](assets/dashboard-sharing.png "Share your dashboard")
+![advance widget](assets/advanced-chart.gif)
 
-You can check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards) 
+You can read more about Advance Chart Widget [here](https://docs.arduino.cc/arduino-cloud/features/advanced-chart).
 
 ### Data Export
 
 Arduino Cloud, both with free or School plan, allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further evaluation or manipulation.
 
-The Arduino Cloud *Free Plan* allows only 1 day of data retention by default.
+***The Arduino Cloud Free Plan allows only 1 day of data retention by default.                                     
+The Arduino Cloud for School Plan includes 6 months of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 6 months.***
 
-The Arduino Cloud for *School Plan* includes 6 months of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 6 months.
-
-To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the Download icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
+To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the **Download** icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
 ![Download icon](assets/download-button.png "Download icon")
 
@@ -305,65 +326,70 @@ You will get an email like the one below with a link allowing you to download al
 
 You are now ready to monitor and manipulate all your Cloud data.
 
-## Arduino Cloud API
 
-Some of
-
-Use Arduino IoT Cloud back-end to control Things and devices via Arduino rest APIs in [Javascript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you will be able to manage up to 10 requests per second, guaranteeing stable data sharing.
-
-Leveraging the APIs, you can interact with any element of the Cloud: data, devices, dashboards, and web properties. At the same time, APIs allow you to add power to the script, create complex scenarios or send and receive data from your custom service, 3rd party solution, or mobile application.
-
-To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
-
-
-
-If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).
-
-## Device Management
-
-The Arduino Cloud for Business allows for device management with Over-The-Air updates, secure provisioning to connect boards leveraging their secure element, and easy verification of their status (connected, not connected) and maintenance.
-
-
-
-
-
-
-
-### Device Programming
-
-It is now time to start uploading sketches on your devices.
-
-The Arduino Cloud has a feature capable of creating some pre-built sections of the sketch related to a Thing, including some libraries necessary to interact with the cloud variables, as well as directly populating and updating the sketch once the new cloud variables are created and defined.
-
-The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of cloud variables is shown.
-
-From this sketch view, by clicking the "Open full editor button", it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
-
-Otherwise, to open the Web Editor to directly retrieve your sketches, go to Arduino Cloud Home and click on the [Web Editor](https://create.arduino.cc/editor) button.
-
-![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
-
-***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
-
-All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Web Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches) on how to do it.
-
-Keep in mind that your sketch may contain some sensitive data that you do not want to share with other members, like Wi-Fi® credentials or API keys. If this is the case, check [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/store-your-sensitive-data-safely-when-sharing) to learn how to share sketches without sharing sensitive data.
-
-### OTA Updates
-
-Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. This feature allows you to upload sketches wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a Wi-Fi®/Ethernet network and configured to work with OTA, you will not need to physically connect the board to your computer to upload new sketches to it; instead, everything will work Over-The-Air, even from remote.
-
-***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work). If you prefer to use the Arduino Cloud CLI instead, go to [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air).***
 
 ## School Plan
+
+* [Buy a School Plan](link anchor here)
+* [Sharing Dashboards]( link to anchor)
+* [Cloud Triggers](link to anchor)
+* [Google Classroom Integration](link to anchor)
+* [Arduino Cloud API](link to anchor)
+* [Over the Air Uploads](link to anchor here)
+* [Billing](link to anchor)
+* [Junior Account](link to anchor)
+
+### Buy a School Plan
+
+???
+
+### Sharing Dashboards
+
+With a School Plan is possible to share any Dashboard with anyone. Go to the [Dashboard](https://create.arduino.cc/iot/dashboards) tab in Arduino IoT Cloud, click on the three dots on the Dashboard you would like to share.
+
+As shown in the image below you can either send it directly to the user's *email* or *username*, or *share the link* with your class.
+
+![Share your dashboard](assets/dashboard-sharing.png "Share your dashboard")
+
+You can check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards) to learn more about sharing a dashboard.
 
 ### Cloud Triggers
 
 ![cloud triggers with school plan](assets/available_triggers.png)
 
-Triggers are used in many IoT projects to monitor specific variables within your Things and receive notifications.  This is super useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or something security related such as movement detection. With a School Plan you have **10 notifications per day for 10 members** of your Shared Space. There is no limitations on how many triggers you can create for your projects and you can combine them together.
+Triggers are used in many IoT projects to monitor specific variables within your Things and receive notifications.  This is super useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or something security related such as movement detection. 
 
-***To learn how to use triggers that allow you to send notifications based on set conditions, [read this tutorial](https://docs.arduino.cc/arduino-cloud/features/triggers)***
+***With a School Plan you have 10 notifications per day for 10 members of your Shared Space. There is no limitations on how many triggers you can create for your projects and you can combine them together.***
+
+To learn how to use triggers that allow you to send notifications based on set conditions, [read this tutorial](https://docs.arduino.cc/arduino-cloud/features/triggers).
+
+### Google Classroom Integration
+
+With a School plan any educator that is part of a Shared Space can create assignments and share a sketch directly from the Arduino Web Editor, that is part of the Arduino Cloud apps.
+
+![share sketch with google classroom](assets/google-integration-arduino-cloud02.png)
+
+It is also possible to share the content of a course or give it as an assignment.
+
+![share content with google classroom](assets/google-classroom-content-share.png)
+
+### Arduino Cloud API
+
+For more advanced IoT projects and classes the *School Plan* offers full access to Arduino IoT Cloud back-end offering to control Things and Devices via Arduino rest APIs in [Javascript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you will be able to manage up to **10 requests per second**, guaranteeing stable data sharing.
+
+With APIs, you can interact with any element of the Cloud: data, devices, dashboards, and web properties. and receive data from an external service. 
+
+To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
+
+![cloud api keys](assets/api-keys.png)
+
+If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).
+
+### Over the Air Uploads
+
+This feature, included in the Arduino Cloud *School Plan*, allows you to upload programs wirelessly to your Arduino boards. If you have a compatible board connected to a Wi-Fi®/Ethernet network and configured to work with OTA, you won’t need to physically connect the board to the computer in order to upload new sketches to it. 
+
+ Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work) to learn how to upload your program remotely to your board.
 
 ### Billing
 
@@ -386,8 +412,6 @@ It allows you to monitor your dashboards anywhere, anytime, from a **mobile devi
 If you want to communicate with more than one device at a time or you prefer to work through a terminal window, we have the right tool for you: [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli).
 
 To proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli). It will explain to you all the required steps to connect your board through your terminal.
-
-
 
 ## Arduino Cloud Tutorials
 
