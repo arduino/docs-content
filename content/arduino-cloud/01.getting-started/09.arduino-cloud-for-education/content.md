@@ -46,18 +46,13 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 ## Free Plan
 
-* [Access to free online courses content](insert anchor here?)
-* [Manage Your Spaces](linktoanchor)
-* [CLOUD APPS](link to anchor)
-* [IoT Projects Management](link anchor)
-
 ### Access to free online courses content
 
 Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses`or click [here](https://cloud.arduino.cc/home/courses). 
 
-![free courses in the cloud](assets/free-courses.png)
+![free courses in the cloud](assets/free-courses.PNG)
 
-In this section you get access to several free online courses, for different age groups and topics. This library of courses get widen an extended regularly with new releases.
+In this section you get access to several free online courses, for different age groups and topics. This library of courses get widen and extended regularly with new releases.
 
 ***With a School Plan you unlock access to extra online courses.***
 
@@ -215,6 +210,8 @@ Define the connection type you want to use with your board and click on **Next.*
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully set up.
 
+![successfully set up device](assets/congratulations-setup.png)
+
 The `Devices` tab displays the name, status, and linked `Things` for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
 The device status indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
@@ -329,15 +326,6 @@ You are now ready to monitor and manipulate all your Cloud data.
 
 
 ## School Plan
-
-* [Buy a School Plan](link anchor here)
-* [Sharing Dashboards]( link to anchor)
-* [Cloud Triggers](link to anchor)
-* [Google Classroom Integration](link to anchor)
-* [Arduino Cloud API](link to anchor)
-* [Over the Air Uploads](link to anchor here)
-* [Billing](link to anchor)
-* [Junior Account](link to anchor)
 
 ### Buy a School Plan
 
