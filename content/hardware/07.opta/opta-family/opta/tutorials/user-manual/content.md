@@ -50,7 +50,7 @@ There are three variants of Opta™ created to fit the different needs of each i
 
 The difference between each of the variants can be found in the following table:
 
-|         Feature        |    **Opta™ Lite**   |   **Opta™ RS485**   |      **Opta™ WiFi**     |
+|       **Feature**      |    **Opta™ Lite**   |   **Opta™ RS485**   |      **Opta™ WiFi**     |
 |:----------------------:|:-------------------:|:-------------------:|:-----------------------:|
 |        **`SKU`**       |      `AFX00003`     |      `AFX00001`     |        `AFX00003`       |
 |        **`USB`**       |       `USB-C®`      |       `USB-C®`      |         `USB-C®`        |
