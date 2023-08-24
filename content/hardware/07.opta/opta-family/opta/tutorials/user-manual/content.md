@@ -86,6 +86,24 @@ The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples t
 
 ![Installing the Arduino Mbed OS Opta Boards core in the Arduino IDE](assets/user-manual-3.png)
 
+### Arduino PLC IDE
+
+PLC IDE is the Arduino solution to program Opta™ devices using the five programming languages recognized by the IEC 61131-3 standard. 
+
+![Arduino PLC IDE UI](assets/user-manual-25.png)
+
+The IEC 61131-3 programming languages include:
+
+- Ladder Diagram (LD)
+- Functional Block Diagram (FBD)
+- Structured Text (ST)
+- Sequential Function Chart (SFC)
+- Instruction List (IL)
+
+In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as CANOpen, Modbus RTU, and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
+
+[Click here](https://www.arduino.cc/pro/software-plc-ide) to learn more about the PLC IDE.
+
 ### Pinout
 
 ![Opta™ pinout (WiFi variant)](assets/user-manual-4.png)
@@ -1377,20 +1395,6 @@ Once the RTC has been synchronized in the setup, the sketch enters an infinite l
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18.png)
 
 You can download the example code [here](assets/opta_rtc_example.zip). To learn more about date and time manipulation operations, check out the [`time` function documentation from Mbed™️](https://os.mbed.com/docs/mbed-os/v5.15/apis/time.html).
-
-## Arduino PLC IDE
-
-PLC IDE is the Arduino solution to program Opta™ devices using the five programming languages recognized by the IEC 61131-3 standard. These programming languages include:
-
-- Ladder Diagram (LD)
-- Functional Block Diagram (FBD)
-- Structured Text (ST)
-- Sequential Function Chart (SFC)
-- Instruction List (IL)
-
-In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as CANOpen, Modbus RTU, and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
-
-[Click here](https://www.arduino.cc/pro/software-plc-ide) to learn more about the PLC IDE.
 
 ## Arduino IoT Cloud
 
