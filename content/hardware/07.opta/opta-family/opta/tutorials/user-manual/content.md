@@ -755,7 +755,7 @@ Using the parsed data, key IP details such as IP address, city, region, and coun
 
 You should see the following output in the Arduino IDE's Serial Monitor:
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24.png)
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24_2.png)
 
 You can download the example code [here](assets/opta_ethernet_web_client.zip). To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
@@ -1017,7 +1017,7 @@ The `loop()` function is the heart of the sketch. It checks whether the data has
 
 Since the data is fetched only once, there's no need for repeatedly sending `HTTP GET` requests. After the initial fetch, you should see the details related to the IP address displayed in the Arduino IDE's Serial Monitor:
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17.png)
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17_2.png)
 
 You can download the example code [here](assets/opta_wifi_web_client_example.zip). To learn more about Wi-Fi® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
 
@@ -1392,7 +1392,7 @@ This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and meth
 
 Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every 5 seconds, it retrieves the current time from the RTC and prints it to the serial monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, as long as the RTC's power supply is not interrupted, accurate time tracking is maintained. You should see the following output in the Arduino IDE's Serial Monitor:
 
-![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18.png)
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18_2.png)
 
 You can download the example code [here](assets/opta_rtc_example.zip). To learn more about date and time manipulation operations, check out the [`time` function documentation from Mbed™️](https://os.mbed.com/docs/mbed-os/v5.15/apis/time.html).
 
