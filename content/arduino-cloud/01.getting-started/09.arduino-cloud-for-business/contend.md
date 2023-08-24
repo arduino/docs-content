@@ -386,10 +386,6 @@ Build and train professional-grade predictive models with just a few lines of co
 
 You can find more tutorials on the [Arduino IoT Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
 
-## Support
-
-Sentence provided by Content team.
-
 ## Congratulations
 
 You are just a few easy steps from deploying your very own IoT project. Having a project connected to the Arduino Cloud for Business opens up many possibilities, such as tracking data in real-time, triggering remote devices and building wireless systems.

@@ -5,7 +5,7 @@ description: 'Learn about different methods you can use to share your Arduino sk
 
 ## Share Your Sketches on the Arduino Web Editor
 
-The [Arduino Web Editor](https://create.arduino.cc/editor) is the online IDE developed by the Arduino team, this web app is part of the [Arduino Cloud platform](https://www.arduino.cc/en/Main/Create). If you are new to it you can learn all about it on this [Getting Started tutorial](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-the-arduino-web-editor-4b3e4a).
+The [Arduino Web Editor](https://create.arduino.cc/editor) is the online IDE developed by the Arduino team, this web app is part of the [Arduino Cloud platform](https://cloud.arduino.cc/home/). If you are new to it you can learn all about it on this [Getting Started tutorial](/arduino-cloud/getting-started/getting-started-web-editor).
 
 The Arduino sketch is the unit that can include everything you need to bring an idea to life. With the **Share feature** of the Web Editor you can simply give someone access to your sketches just by sending them a URL, or by embedding the sketch into a webpage or in a Project Hub tutorial.
 
