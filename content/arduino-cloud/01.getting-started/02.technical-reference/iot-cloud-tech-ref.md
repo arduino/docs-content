@@ -29,6 +29,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
