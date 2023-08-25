@@ -35,9 +35,9 @@ After the registration is completed, you should verify your email address by cli
 
 Now let's explore https://cloud.arduino.cc/home/:
 
-![Arduino Cloud home](assets/cloud-home.png)
+![Arduino Cloud home](assets/cloud-home.png "Arduino Cloud Homepage View")
 
-The Arduino Cloud for School consists of **two main subscriptions**:
+The Arduino Cloud for Education consists of **two main subscriptions**:
 
 * **Free Plan**  
 * **School Plan** 
@@ -48,9 +48,9 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 ### Access to free online courses content
 
-Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses`or click [here](https://cloud.arduino.cc/home/courses). 
+Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
 
-![free courses in the cloud](assets/free-courses.PNG)
+![free courses in the cloud](assets/free-courses.PNG "Free Content Courses in the Cloud")
 
 In this section you get access to several free online courses, for different age groups and topics. This library of courses get widen and extended regularly with new releases.
 
@@ -60,19 +60,19 @@ In this section you get access to several free online courses, for different age
 
 In your Arduino Cloud free plan comes with two **spaces** by default:
 
-![free courses in the cloud](assets/join-space.PNG)
+![free courses in the cloud](assets/join-space.PNG "My Cloud - default Space")
 
 * **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100MB of Sketch storage, 1 day data retention by default.
 * **New shared space**. A *Shared Space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
 * **Join Space** - copy paste here the space code that another admin or teacher shared with you to join their space. Like in the image below.
 
-![join space](assets/joinspace.PNG)
+![join space](assets/joinspace.PNG "Join Space - Insert Code")
 
 ### Create a shared space
 
 Open the top-right space selection menu and click on *New shared space*.
 
-![New shared space creation](assets/join-space-highlight.png)
+![New shared space creation](assets/join-space-highlight.png "New shared space creation")
 
 Then you will be asked which type of Shared Space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating a online space to share with your students or other colleagues.  
 
@@ -80,7 +80,7 @@ Then you will be asked which type of Shared Space you want to create (i.e. For B
 
 Fill in additional information.
 
-![Fill in school information for the new Space](assets/fillinschoolinfo.PNG)
+![Fill in school information for the new Space](assets/fillinschoolinfo.PNG "Fill in School Information")
 
 Congratulations! Now you own a Shared Space linked to your Arduino account.
 
