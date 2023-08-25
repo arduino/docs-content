@@ -154,7 +154,7 @@ The configured IP address for Opta™ also serves to connect and develop within 
 
 Keep in mind that the correct configuration is key to work with PLC IDE and Opta™. Once the properties of the Opta™ devices are correctly set, we will be able to seamlessly connect to Opta™ and monitor the states of both devices.
 
-#### Modbus TCP Master and Slave Mode
+#### Modbus TCP Client and Server Mode
 <br></br>
 
 The image below shows the interface we'll encounter when accessing the Modbus TCP configuration panel in the PLC IDE.
