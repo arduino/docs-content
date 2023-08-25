@@ -47,7 +47,7 @@ In this tutorial, you will learn how to implement Modbus TCP based communication
 
 ## Modbus TCP
 
-The Modbus protocol is a messaging service structure using Client/Server or Master/Slave communication. It is an *application protocol*, with its data management being independent of the transmission method.
+The Modbus protocol is a messaging service structure using Client/Server communication. It is an *application protocol*, with its data management being independent of the transmission method.
 
 The **Modbus TCP/IP**, often simply referred to as **Modbus TCP**, is a variant of the Modbus RTU protocol that uses the TCP/IP interface over Ethernet to exchange data between compatible devices. Here are some key elements to understand about Modbus TCP:
 
