@@ -6,7 +6,7 @@ author: Ali Jahangiri, Benjamin Dannegård
 ---
 
 
-![](assets/featured.png)
+![](assets/featured.jpg)
 
 # Description
 
@@ -58,8 +58,6 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 ## Accessories (Not Included)
 
-- USB-C® cable
-- USB 2.0 A cable
 
 ## Related Products
 
@@ -71,7 +69,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 | Symbol          | Description                      | Min  | Typ | Max | Unit |
 |-----------------|----------------------------------|------|-----|-----|------|
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6    | 7.0 | 32  | V    |
+| V<sub>IN</sub>  | Input voltage from VIN header       | 6    | 7.0 | 32  | V    |
 | V<sub>USB</sub> | Input voltage from USB connector | 4.8  | 5.0 | 5.5 | V    |
 | V<sub>DD</sub>  | Input high-level voltage         | 2.31 |     | 3.3 | V    |
 | V<sub>IL</sub>  | Input low-level voltage          | 0    |     | 1   | V    |
@@ -95,6 +93,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                | **Ref.** | **Description** |
 |----------|--------------------------------|----------|-----------------|
 | U1       | MP34DT06JTR MEMS Microphone IC |          | TFT Display     |
+| DL1       | SMLP34RGB2W3 LED RGB DIFFUSED PICOLED SMD|         |      |
 
 ### Back View
 
@@ -102,17 +101,14 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 |----------|----------------------------------------|----------|----------------------------------------|
-| U2       | IS31FL3197-QFLS2-TR RGB LED Driver IC  | U3       | LV52204MTTBG LED Driver IC             |
-| U4       | ISL97634IRT14Z-T White LED Driver IC         | U5       | AP7335-28WG-7 2.8V V-REG LDO IC            |
-| U6       | AP7311-WG-7 1.8V LDO IC                 | U7       | BMI270 6-axis IMU                      |
-| J1       | DF40HC(3.5)-80DS-0.4V(51) HD Connector | J2       | DF40HC(3.5)-80DS-0.4V(51) HD Connector |
-| J3       | 21TW-247 Camera Connector 2.54mm Header         | J4       | F32Q-1A7H1-11020 Display Connector     |
-| J5       | F32Q-1A7H1-11008 Touch Connector       | J6       | 2.54mm Header GIGA Connector           |
-| J7       | 2.54mm Header GIGA Connector           |
+| U2       | IS31FL3197-QFLS2-TR                    | U3       | LV52204MTTBG LED Driver IC             |
+| U7       | BMI270 6-axis IMU                      | J3       | 21TW-247 Camera Connector 2.54mm Header |        
+| J4       | F32Q-1A7H1-11020 Display Connector     | J5       | F32Q-1A7H1-11008 Touch Connector       |
+| J6       | 2.54mm Header GIGA Connector           | J7       | 2.54mm Header GIGA Connector           |
 
 ## TFT Display
 
-The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) and ISL97634IRT14Z-T (U4) LED Drivers.
+The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) LED Driver.
 
 ## 6-Axis IMU
 The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the GIGA R1 WiFi board via a common I2C connection.
@@ -123,13 +119,13 @@ A common anode RGB (DL1) is driven by a dedicated IS31FL3197-QFLS2-TR RGB LED Dr
 
 ## Digital Microphone
 
-The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors. The microphone is in a single channel configuration, with audio signals transmitter over PDM.
+The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an I2C interface. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors. The microphone is in a single channel configuration, with audio signals transmitter over PDM.
 
 ## Power Tree
 
 ![Arduino GIGA Display Shield Power Tree](assets/GIGA_Display_Shield_Power_Tree.svg)
 
-The GIGA Display Shield does not require a dedicated power jack. The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 or J7) board. All on-board logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED drivers (U3 and U4). A +2V8 and +1V8 power rail is generated for the camera module by AP7335-28WG-7 (U5) and AP7311-WG-7 (U6) respectively.
+The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 and J7) board. All on-board logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED driver (U3).
 
 ## Board Operation
 
