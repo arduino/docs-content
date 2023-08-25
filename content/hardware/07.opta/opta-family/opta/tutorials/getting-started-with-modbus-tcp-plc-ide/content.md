@@ -207,7 +207,7 @@ In the sections that follow, the configuration of each Opta™, based on its des
 #### Modbus TCP Server Opta™
 <br></br>
 
-To set Opta™ as a Modbus TCP Slave, navigate to the `Ethernet` tab located in the `Resources` panel of the PLC IDE. Since the `Modbus TCP Slave` mode is always enabled, you don't have to change any setting in the current window. However, certain properties are essential for Opta™ to function accurately with Modbus TCP, thus it requires the subsequent configuration.
+To set Opta™ as a Modbus TCP Server, navigate to the `Ethernet` tab located in the `Resources` panel of the PLC IDE. Since the `Modbus TCP Slave` mode is always enabled, you don't have to change any setting in the current window. However, certain properties are essential for Opta™ to work properly with Modbus TCP, thus it requires the subsequent configuration.
 
 The Modbus TCP Slave Opta™ will employ the following Ethernet properties.
 
