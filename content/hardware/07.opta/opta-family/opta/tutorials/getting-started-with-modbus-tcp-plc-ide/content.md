@@ -265,7 +265,7 @@ The Opta™ server device's task runs a simple counter and resets whenever the c
 
 ![Arduino PLC IDE - Opta™ Slave Main Code](assets/opta_plcide_server_mainCode.svg)
 
-Upon completing these steps, you will have successfully configured an Opta™ device as a Modbus TCP Slave. The next section will guide you through setting up another Opta™ as a Modbus TCP Master.
+Upon completing these steps, you will have successfully configured an Opta™ device as a Modbus TCP Server. The next section will guide you through setting up another Opta™ as a Modbus TCP Client.
 
 #### Modbus TCP Master Opta™
 <br></br>
