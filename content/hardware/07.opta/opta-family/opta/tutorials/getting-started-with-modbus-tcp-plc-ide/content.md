@@ -73,7 +73,7 @@ The entire procedure is divided into three distinct stages:
 
 * __Modbus TCP Configuration__ is the foundational step where we initialize the Opta™ device with Modbus TCP and other essential properties intrinsic to the device. A pivotal component of this stage is the IP configuration, which is essential for Modbus TCP communication and will be defined within the Arduino sketch.
 
-  During this stage, the Modbus TCP role, either Master or Slave, is designated to the Opta™ device. Based on this role within the Modbus TCP, 'Status variables' are delineated or the Modbus node is defined to determine the communicating devices using this protocol.
+  During this stage, the Modbus TCP role, either Client or Server, is designated to the Opta™ device. Based on this role within the Modbus TCP, either the 'Status variables' are delineated or the Modbus node is defined to determine the communicating devices using this protocol.
 
 * __PLC Program__, developed subsequent to device initialization, it is grounded in Modbus TCP and other properties. The beauty of this stage is the absence of a need for detailed configurations or programming related to Modbus TCP settings in the PLC code.
 
