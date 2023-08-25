@@ -200,7 +200,7 @@ The example project will make a slight change to its default example code using 
 
 The status LED and relay of *Modbus TCP Master Opta™* will be activated based on the counter information received from the *Modbus TCP Slave Opta™*. Through specific sections dedicated to roles, the setting of the Modbus TCP role for each Opta™ device will be learned.
 
-For those wishing to test without delay, the complete example project can be accessed [here](assets/ModbusTCP_Opta_Example.zip). Every essential configuration and component has been included, ensuring it's ready to be compiled and uploaded to the corresponding Opta™ device.
+For those wishing to skip the step by step procedure, the complete example project can be downloaded [here](assets/ModbusTCP_Opta_Example.zip). Every essential configuration and component has been included, ensuring it's ready to be compiled and uploaded to the corresponding Opta™ device.
 
 In the sections that follow, the configuration of each Opta™, based on its designated role in Modbus TCP communication, will be detailed.
 
