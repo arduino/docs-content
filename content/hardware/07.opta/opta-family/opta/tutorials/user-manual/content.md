@@ -16,7 +16,7 @@ software:
   - iot-cloud
 ---
 
-This user manual will provide a comprehensive overview of Opta™, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure and use all the main features of an Opta™ device.
+This user manual will provide a comprehensive overview of Opta™, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of an Opta™ device.
 
 ## Hardware and Software Requirements
 
@@ -85,6 +85,24 @@ Here's an overview of the device's main components shown in the image above:
 The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
 
 ![Installing the Arduino Mbed OS Opta Boards core in the Arduino IDE](assets/user-manual-3.png)
+
+### Arduino PLC IDE
+
+PLC IDE is the Arduino solution to program Opta™ devices using the five programming languages recognized by the IEC 61131-3 standard. 
+
+![Arduino PLC IDE UI](assets/user-manual-25.png)
+
+The IEC 61131-3 programming languages include:
+
+- Ladder Diagram (LD)
+- Functional Block Diagram (FBD)
+- Structured Text (ST)
+- Sequential Function Chart (SFC)
+- Instruction List (IL)
+
+In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as CANOpen, Modbus RTU, and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
+
+[Click here](https://www.arduino.cc/pro/software-plc-ide) and [here](https://docs.arduino.cc/hardware/opta)  to access all the tutorials that will show you how to start with the Arduino PLC IDE and use IEC 61131-3 programming languages with Opta™.
 
 ### Pinout
 
@@ -158,7 +176,7 @@ Opta™ has an **onboard USB®-C port** that can be used for programming the dev
 
 ![The USB®-C port in Opta™ devices](assets/user-manual-6.png)
 
-***Opta's USB®-C port shall be used only for programming or data logging purposes. This port does not powers Opta's output relays.***
+***Opta's USB®-C port shall be used only for programming or data logging. This port does not power Opta's output relays.***
 
 ## Electrical Terminals
 
@@ -180,7 +198,7 @@ The image below shows Opta™ devices have **eight analog/digital programmable i
 
 ![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
 
-Analog/digital inputs terminals are mapped as described in the following table:
+Analog/digital input terminals are mapped as described in the following table:
 
 | **Opta™ Terminal** | **Arduino Pin Mapping** |
 |:------------------:|:-----------------------:|
@@ -204,7 +222,7 @@ The analog input terminals can be used through the built-in functions of the [Ar
 
 - Add the `analogReadResolution()` instruction in your sketch's `setup()` function.
 
-The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes in real time.
+The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes real-time changes.
 
 ```arduino
 /**
@@ -277,7 +295,7 @@ The input terminals can be used through the built-in functions of the [Arduino p
 
 - Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function. 
 
-The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets these readings as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor changes in real time.
+The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
 
 ```arduino
 /**
@@ -346,7 +364,7 @@ User-programmable LEDs are mapped as described in the following table:
 | `USER` (WiFi variant only) |    `LED_USER`/`LEDB`    |
 |           `RESET`          |      `LED_BUILTIN`      |
 
-The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LEDs identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
+The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LED identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
 
 ```arduino
 /**
