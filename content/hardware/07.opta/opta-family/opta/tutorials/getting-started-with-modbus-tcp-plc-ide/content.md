@@ -245,7 +245,7 @@ With these settings ready, you need to go to `Resources -> Opta`, select the cor
 
 ![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Slave Opta™)](assets/opta_plcide_device_connection_slave.gif)
 
-Proceed with `On-line -> Connect` and it will establish communication between your computer and the slave Opta™. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
+Proceed with `On-line -> Connect` and it will establish communication between your computer and the Opta™ server. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
 
 ![Arduino PLC IDE - Device Connection Status](assets/plcide_connection_stable.png)
 
