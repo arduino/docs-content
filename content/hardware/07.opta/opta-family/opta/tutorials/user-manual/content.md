@@ -525,15 +525,15 @@ void changeLights() {
 }
 ```
 
-The sketch initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
+The sketch initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
 
-You should be able now to control the sequence of status LEDs by pressing Opta™'s programmable user button.
+You should now be able to control the status LED sequence by pressing Opta™'s programmable user button.
 
 ![Opta™ user button](assets/user-manual-22_2.gif)
 
 ## Relays
 
-Opta™ devices (all variants) have four Normally Open (NO) 10 A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+Opta™ devices (all variants) have four Normally Open (NO) 10 A relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
 
 ![Output relays in Opta™ devices](assets/user-manual-12.png)
 
@@ -554,7 +554,7 @@ To change the status of the output relay (`LOW` or `HIGH`):
 
 - Add your sketch's `digitalWrite(relayOutput, LOW)` or `digitalWrite(relayOutput, HIGH)` instruction.
 
-The sketch below tests the output relays and status LEDs of an Opta™ device. The sketch initializes the relays outputs and user LEDs as outputs; then, the sketch turns each output relay and its corresponding status LED on and off in sequence, with a one-second delay between each state change. This allows us to visually verify the correct functioning of the output relays and user LEDs.
+The sketch below tests the output relays and status LEDs of an Opta™ device. The sketch initializes the relay outputs and user LEDs as outputs; then, the sketch turns each output relay and its corresponding status LED on and off in sequence, with a one-second delay between each state change. This allows us to visually verify the correct functioning of the output relays and user LEDs.
 
 ```arduino
 /*
@@ -618,7 +618,7 @@ You should see the blue LED on top of your device's USER button turn on for one 
 
 ![Opta™ blink](assets/user-manual-20_2.gif)
 
-***The USER LED located above the User button is only available on Opta™ WiFi (AFX00002).***
+***The USER LED located above the USER BUTTON is only available on Opta™ WiFi (AFX00002).***
 
 ## Communication
 
@@ -637,7 +637,7 @@ Some of the key capabilities of Opta™'s Ethernet transceiver are the following
 - **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
 - **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's walk through an example code demonstrating some of the transceiver's capabilities. 
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's use an example code demonstrating some of the transceiver's capabilities. 
 
 The sketch below enables an Opta™ device to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) service to fetch details about the device's IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
@@ -747,13 +747,13 @@ void loop() {
 }
 ```
 
-The sketch starts by including the `Ethernet` and `Arduino_JSON` libraries, essential for Ethernet and JSON handling functionality, respectively. In the `setup()` function, serial communication is initiated for debugging and output purposes. Instead of using DHCP, the Ethernet connection uses a predefined static IP address.
+The sketch includes the `Ethernet` and `Arduino_JSON` libraries, essential for Ethernet and JSON handling functionality. In the `setup()` function, serial communication is initiated for debugging and output. Instead of DHCP, the Ethernet connection uses a predefined static IP address.
 
-Once the Ethernet connection is up and running, the sketch connects to the ip-api.com service, utilizing the HTTP protocol. Specifically, an `HTTP GET` request is crafted to retrieve details about the device's IP address, including its city, region, and country. If the connection to the server fails for any reason, the sketch will output an error message to the Arduino IDE's Serial Monitor for troubleshooting.
+Once the Ethernet connection runs, the sketch connects to the `ip-api.com` service, utilizing the HTTP protocol. Specifically, an `HTTP GET` request is crafted to retrieve details about the device's IP address, including its city, region, and country. If the connection to the server fails, the sketch will output an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
-Within the `loop()` function, an `HTTP GET` request is sent to the `ip-api.com` service once. The sketch then waits for and skips the HTTP headers of the response, parsing the JSON payload that follows.
+Within the `loop()` function, an `HTTP GET` request is sent to the `ip-api.com` service once. The sketch then waits for and skips the response's HTTP headers, parsing the following JSON payload.
 
-Using the parsed data, key IP details such as IP address, city, region, and country are extracted and then displayed in the IDE's Serial Monitor. If the Ethernet link happens to be disconnected, a corresponding message is printed to the Serial Monitor. Should the JSON parsing fail, an error message is showcased on the IDE's Serial Monitor, prompting the sketch to exit the current iteration of the `loop()` function immediately.
+Key IP details such as IP address, city, region, and country are extracted and then displayed in the IDE's Serial Monitor using the parsed data. If the Ethernet link happens to be disconnected, a corresponding message is printed to the Serial Monitor. Should the JSON parsing fail, an error message is showcased on the IDE's Serial Monitor, prompting the sketch to exit the current iteration of the `loop()` function immediately.
 
 You should see the following output in the Arduino IDE's Serial Monitor:
 
@@ -776,7 +776,7 @@ RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as desc
 |                `A`               |      `A(-)`      |
 |                `B`               |      `B(+)`      |
 
-***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal, and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
 
 To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
 
@@ -869,15 +869,15 @@ Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides sea
 
 Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the following:
 
-- **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the internet and communicate with other devices.
+- **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the Internet and communicate with other devices.
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
 - **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
 
-The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module, the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/), right out of the box. Let's walk through an example code demonstrating some of the module's capabilities.
+The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example code demonstrating some of the module's capabilities.
 
-The sketch below enables an Opta™ device to connect to the Internet via a Wi-Fi® connection (just like the [Ethernet example](#ethernet) shown before). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
+The sketch below enables an Opta™ device to connect to the Internet via Wi-Fi® (like the Ethernet example). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
-You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.0.
 
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
@@ -1011,11 +1011,12 @@ void fetchIPDetails() {
   client.stop();
 }
 ```
-The sketch starts by including the `WiFi` and `Arduino_JSON` libraries, which provide the necessary Wi-Fi® and JSON handling functionality, respectively. The `setup()` function initiates serial communication for debugging purposes and attempts to connect to a specified Wi-Fi® network. If the connection is not established, the sketch will keep trying until a successful connection is made.
+
+The sketch includes the `WiFi` and `Arduino_JSON`, which provide the necessary Wi-Fi® and JSON handling functionality. The `setup()` function initiates serial communication for debugging purposes and attempts to connect to a specified Wi-Fi® network. If the connection is not established, the sketch will keep trying until a successful connection is made.
 
 Once the Wi-Fi® connection is established, the sketch is ready to connect to the `ip-api.com` server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query details related to its IP address. The `GET` request is sent only once after the Wi-Fi® connection is active.
 
-The `loop()` function is the heart of the sketch. It checks whether the data has been fetched or not. If the data hasn't been fetched yet, it tries to establish a connection to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `JSON.parse()` function from the `Arduino_JSON` library to parse the JSON object from the response. The parsed data is used to extract key IP details like IP address, city, region, and country, which are then printed to the Arduino IDE's Serial Monitor. Once the data is printed, the client is disconnected to free up resources. If the JSON parsing fails for any reason, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
+The `loop()` function is the heart of the sketch. It checks whether the data has been fetched or not. If the data still needs to be fetched, it tries to establish a connection to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `JSON.parse()` function from the `Arduino_JSON` library to parse the JSON object from the response. The parsed data extracts key IP details like IP address, city, region, and country, which are then printed to the Arduino IDE's Serial Monitor. Once the data is published, the client is disconnected to free up resources. Suppose the JSON parsing fails for any reason. In that case, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
 
 Since the data is fetched only once, there's no need for repeatedly sending `HTTP GET` requests. After the initial fetch, you should see the details related to the IP address displayed in the Arduino IDE's Serial Monitor:
 
@@ -1025,9 +1026,9 @@ You can download the example code [here](assets/opta_wifi_web_client_example.zip
 
 ### Bluetooth Low Energy®
 
-Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
+Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module, which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
 
-To enable Bluetooth® communication on Opta™ devices, you can use the [`ArduinoBLE` library](https://www.arduino.cc/reference/en/libraries/arduinoble/). Let's use an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of using the ArduinoBLE library to create a voltage level monitor application, such as a 0 to 10 VDC sensor. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and characteristic of voltage values read from one of the analog input terminals of an Opta™ device to a central device, for example, an smartphone. 
+To enable Bluetooth® communication on Opta™ devices, you can use the [`ArduinoBLE` library](https://www.arduino.cc/reference/en/libraries/arduinoble/). Let's use an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of using the ArduinoBLE library to create a voltage level monitor application, such as a 0 to 10 VDC sensor. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and the characteristic of voltage values read from one of the analog input terminals of an Opta™ device to a central device, for example, a smartphone.
 
 ***You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor® to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth Low Energy® devices and communicate with them.***
 
@@ -1267,7 +1268,7 @@ void changeLights() {
 }
 ```
 
-**Note**: the example code shown above employs a "debouncing" technique to ensure that the user button press is recognized as a singular event, despite any rapid electrical fluctuations that can occur when physically pressing the button. Upon detecting a press through an interrupt, the sketch waits for a brief interval (150 milliseconds, set by `debounceDelay` variable) before processing the press. This delay ensures that any additional "noise" or fluctuations don't trigger multiple registrations of the same press, ensuring precise LED sequencing operation.
+**Note**: The example code above employs a "debouncing" technique to ensure that the user button press is recognized as a singular event despite any rapid electrical fluctuations that can occur when physically pressing the button. Upon detecting a press through an interrupt, the sketch waits for a brief interval (150 milliseconds, set by the `debounceDelay` variable) before processing the press. This delay ensures that any additional "noise" or fluctuations don't trigger multiple registrations of the same press, ensuring precise LED sequencing operation.
 
 To learn more about interrupts in Opta™ devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
@@ -1277,14 +1278,14 @@ Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low
 
 Some of the key capabilities of Opta™'s onboard RTC are the following:
 
-- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, year, in BCD (binary-coded decimal) format.
+- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, and years in BCD (binary-coded decimal) format.
 - Automatic correction for 28, 29 (leap year), 30, and 31 days of the month.
 - Two programmable alarms. 
 - Timestamp feature, which can be used to save the calendar content.
 
-The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with an Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
+The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with a Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
 
-You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking on the ellipsis (the three horizontal dots) button located on the top right of the Arduino IDE 2.0.
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.0.
 
 ![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
 
@@ -1392,7 +1393,7 @@ String getLocalTime() {
 
 This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the code synchronizes with a Network Time Protocol (NTP) server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods. 
 
-Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every 5 seconds, it retrieves the current time from the RTC and prints it to the serial monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, as long as the RTC's power supply is not interrupted, accurate time tracking is maintained. You should see the following output in the Arduino IDE's Serial Monitor:
+Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every 5 seconds, it retrieves the current time from the RTC and prints it to the serial monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, accurate time tracking is maintained as long as the RTC's power supply is not interrupted. You should see the following output in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18_2.png)
 
@@ -1400,7 +1401,7 @@ You can download the example code [here](assets/opta_rtc_example.zip). To learn 
 
 ## Arduino IoT Cloud
 
-Opta™ WiFi variant is fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), which simplifies how professional applications are developed and tracked. By using the Arduino IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware Over-The-Air (OTA). 
+Opta™ WiFi variant is fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the Arduino IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
 
 In case it is the first time you are using the Arduino IoT Cloud:
 
@@ -1413,17 +1414,17 @@ Log in to your Arduino IoT Cloud account; you should see the following:
 
 First, provision your Opta™ device on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
 
-The Setup Device pop-up window will appear, navigate into **AUTOMATIC** and select the **Arduino board** option:
+The Setup Device pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
 
 After a while, your Opta™ device should be discovered by the Arduino IoT Cloud, as shown below:
 
-Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to securely communicate with the Arduino IoT Cloud; this process can take a while.
+Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to communicate securely with the Arduino IoT Cloud; this process can take a while.
 
 Once your Opta™ has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
 
 Navigate into **Associate Device** and click the **Select Device** button. Select your Opta™ device and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
 
-The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button.
+The project is ready to add variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button.
 
 Add one variable with the following characteristics:
 
@@ -1432,12 +1433,12 @@ Add one variable with the following characteristics:
 - **Variable permission**: `Read & Write`
 - **Variable update policy**: `On change`
 
-You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard; give your dashboard a name.
+You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard and give your dashboard a name.
 
 Add the following widgets to your dashboard:
 
-- **Switch**: name the widget Switch and link it to the `led` variable you created before.
-- **LED**: name the widget **LED** and link it to the `led` variable you created before.
+- **Switch**:  Name the widget Switch and link it to the `led` variable you created before.
+- **LED**: Name the widget **LED** and link it to the `led` variable you created before.
 
 Your dashboard should look like the following:
 
