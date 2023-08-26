@@ -65,7 +65,7 @@ The main differences between each one of the variants are related to their conne
 
 Opta™ features a secure, certified, and durable design that enables it for automation and industrial applications. 
 
-![Opta™ main components (WiFi variant)](assets/user-manual-1.png)
+![Opta™ main components (WiFi variant)](assets/user-manual_1.png)
 
 Here's an overview of the device's main components shown in the image above:
 
