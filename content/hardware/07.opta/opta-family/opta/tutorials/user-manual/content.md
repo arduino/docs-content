@@ -106,7 +106,7 @@ In the PLC IDE, you can mix PLC programming with standard Arduino sketches withi
 
 ### Pinout
 
-![Opta™ pinout (WiFi variant)](assets/user-manual-4.png)
+![Opta™ pinout (WiFi variant)](assets/user-manual_4.png)
 
 The complete pinout (for all Opta™ variants) is available and downloadable as PDF from the link below:
 
@@ -133,7 +133,7 @@ Opta™ can be powered in different ways:
 - Using a **USB-C® cable** (not included) for programming purposes only. **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
 - Using an external **+12 VDC to +24 VDC power supply** connected to Opta™'s power supply terminals. Please, refer to the [pinout section](#pinout) of the user manual.
 
-![Different ways to power Opta™ devices](assets/user-manual-5.png)
+![Different ways to power Opta™ devices](assets/user-manual_5.png)
 
 ### Hello World Example
 
@@ -188,7 +188,7 @@ As shown in the image below, the first four terminals, from left to right, are O
 
 Opta™'s maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
-![Power supply terminals in Opta™ devices](assets/user-manual-8.png)
+![Power supply terminals in Opta™ devices](assets/user-manual_8.png)
 
 ***For use with Opta™ devices, we recommend the official Finder 78.12.1.230.2400 power supply. This power supply was designed to provide stable +24 VDC despite consistently fluctuating current draw.***
 
