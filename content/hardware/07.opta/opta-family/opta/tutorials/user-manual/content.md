@@ -1444,6 +1444,8 @@ Your dashboard should look like the following:
 
 Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into Sketch, where you should see the online editor.
 
+To learn more about Opta™ and the Arduino IoT Cloud, check out our [Opta™ Relay Management](https://create.arduino.cc/iot/templates/relay-management) template. This is an excellent template if you're new to using the Arduino IoT Cloud and Opta.
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
