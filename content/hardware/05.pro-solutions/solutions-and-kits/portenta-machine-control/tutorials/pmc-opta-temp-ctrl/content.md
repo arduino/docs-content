@@ -101,14 +101,14 @@ After clicking on `New Project` in the previous step, a window will appear. Set 
 #### Modbus Server Configuration
 <br></br>
 
-Once created, you will configure the Modbus RTU connection through the RS485 Serial Port. To do this, go to the resources window and double-click on `RS485 SerialPort`. If you can't see the `Resources` tab, try going to ```View > Tool windows > Resources```.
+Once created, you will configure the Modbus RTU connection through the RS-485 serial port. To do this, go to the resources window and double-click on `RS485 SerialPort`. If you can't see the `Resources` tab, try going to ```View > Tool windows > Resources```.
 
 ![RS-485 Resources Window](assets/RS485-Resources.png)
 
 On the `Modbus Configuration` window, set the following parameters to configure Portenta Machine Control as a Server:
 
 - Mode: Modbus RTU Slave
-- Port Type: RS485
+- Port Type: RS-485
 - Baud rate: 19200 b/s
 - Serial Mode: N,8,2 (No parity, 8 data bits, 2 stop bits)
 - Modbus address: 17
