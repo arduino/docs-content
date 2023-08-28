@@ -23,8 +23,8 @@ In this article you will learn how to configure a manual device, and how to conn
 ## Hardware & Software Needed
 
 Depending on what framework you choose to connect with, you will need various requirements.
+- To connect using MicroPython you need to have a [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi), [Portenta H7](https://store.arduino.cc/products/portenta-h7), [Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect) with MicroPython => 1.2 installed.
 - To connect using Python you need to have a [version of Python](https://www.python.org/) installed on your machine (check `python --version`). This has been tested with Python version **3.11**.
-- To connect using MicroPython you need to have a [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) / [Portenta H7](https://store.arduino.cc/products/portenta-h7), with MicroPython => 1.2 installed.
 - To connect using JavaScript, you will need to install [Node.js](https://nodejs.org/en) is required to be installed to connect via JS.
 
 Each method of interaction with the Device API requires various levels of complexity.
@@ -143,12 +143,18 @@ For a more details, you can visit a more complete guide at [Connecting to Arduin
 The pre-requisities for connecting with Python is:
 - [Python](https://www.python.org/) installed on your machine (this is tested and confirmed to work with v3.11),
 - [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) installed,
-- a Thing + device created in the Arduino IoT Cloud.
+- a Thing + [manual device](#configure-manual-devices) created in the Arduino IoT Cloud.
 
 Connection to the cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) module, we can use `pip`.
 
-```py
+```
 pip install arduino-iot-cloud
+```
+
+You will also need to install [SWIG](https://pypi.org/project/swig/), which is also done via `pip`:
+
+```
+pip install swig
 ```
 
 You will also need to have configured a manual device in the cloud. The **Device ID** and **Secret Key** are required in your script to authenticate. To connect, we use the following command:
