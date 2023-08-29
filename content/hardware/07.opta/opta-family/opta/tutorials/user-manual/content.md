@@ -1412,13 +1412,23 @@ Let's walk through a step-by-step demonstration of how to use your Opta™ WiFi 
 
 Log in to your Arduino IoT Cloud account; you should see the following:
 
+![Arduino IoT Cloud initial page](assets/user-manual-26.png)
+
 First, provision your Opta™ device on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+
+![Arduino IoT Cloud initial page](assets/user-manual-27.png)
 
 The Setup Device pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
 
+![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-28.png)
+
 After a while, your Opta™ device should be discovered by the Arduino IoT Cloud, as shown below:
 
+![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-29.png)
+
 Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to communicate securely with the Arduino IoT Cloud; this process can take a while.
+
+![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-30.png)
 
 Once your Opta™ has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
 
