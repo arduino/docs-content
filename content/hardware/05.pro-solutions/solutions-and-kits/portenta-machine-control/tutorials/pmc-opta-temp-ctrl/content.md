@@ -108,7 +108,7 @@ Once created, you will configure the Modbus RTU connection through the RS-485 se
 On the `Modbus Configuration` window, set the following parameters to configure Portenta Machine Control as a Server:
 
 - Mode: Modbus RTU Slave
-- Port Type: RS-485
+- Port Type: `RS485`
 - Baud rate: 19200 b/s
 - Serial Mode: N,8,2 (No parity, 8 data bits, 2 stop bits)
 - Modbus address: 17
