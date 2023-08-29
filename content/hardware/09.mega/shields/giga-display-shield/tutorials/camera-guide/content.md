@@ -7,7 +7,7 @@ tags: [Display, Camera]
 
 ## Introduction
 
-The Giga Display shield comes with an arducam camera connector. In this tutorial we will go through what cameras are compatible with the Display shield, how to connect the camera and how to run a sketch that will take a picture and display it on the screen.
+The Giga Display shield comes with an arducam camera connector. In this tutorial we will go through what cameras are compatible with the Display shield, how to connect the camera and how to run a sketch that will stream the camera feed to the display.
 
 ## Hardware & Software Needed
 
@@ -22,7 +22,7 @@ The Giga Display shield comes with an arducam camera connector. In this tutorial
 
 The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shields camera connector. To install the core for Giga boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version. Now open the library tab on the left, search for **Arducam_dvp** and install this library.
 
-![Library tab in the Arduino IDE]()
+![Library tab in the Arduino IDE](assets/ide-library.svg)
 
 ## Compatible Cameras
 
@@ -35,7 +35,7 @@ The Giga Display shield is compatible with the following cameras:
 
 Connect the camera to the connector on the front of the display shield as shown in the image below.
 
-![Camera connected to the Giga display shield](assets/camera.png)
+![Camera connected to the Giga display shield](assets/camera-connected.svg)
 
 
 ## Full Sketch
