@@ -29,7 +29,7 @@ Is your robot bumping into walls? This quickly solves that problem. By attaching
 
 5. The robot will move around, avoiding obstacles in front of it
 
-6. If you want to change the detection range, in the code below, find the line @@while (getDistance()<20)**, 20 here means 20cm; change it to another value to try out other sensitivities.
+6. If you want to change the detection range, in the code below, find the line `@@while (getDistance()<20)**`, 20 here means 20cm; change it to another value to try out other sensitivities.
 
 7. You can also change the robot speed, look at motorWrite() for a hint on how to do that.
 
