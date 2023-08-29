@@ -1567,7 +1567,11 @@ void onLedChange()  {
 
 To upload the code to the Opta™ from the online editor, click the green **Verify** button to compile the sketch and check for errors, then click the green **Upload** button to program the board with the sketch.
 
-To learn more about Opta™ and the Arduino IoT Cloud, check out our [Opta™ Relay Management](https://create.arduino.cc/iot/templates/relay-management) template. This is an excellent template if you're new to using the Arduino IoT Cloud and Opta.
+![Uploading a sketch to the Opta™ in the Arduino IoT Cloud](assets/user-manual-36.png)
+
+Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
+
+To learn more about Opta™ and the Arduino IoT Cloud, check out our [Opta™ Relay Management](https://create.arduino.cc/iot/templates/relay-management) template. This is an excellent template to continue learning about the Arduino IoT Cloud and Opta™.
 
 ## Support
 
