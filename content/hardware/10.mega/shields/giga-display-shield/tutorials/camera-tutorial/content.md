@@ -14,7 +14,7 @@ The Giga Display shield comes with an arducam camera connector. In this tutorial
 - [GIGA R1 WiFi](/hardware/giga-r1).
 - [GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- OV7675, GC2145, HM01B0 or HM0360 camera
+- HM01B0 or HM0360 camera
 - [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)
 - [Arducam_dvp library](https://www.arduino.cc/reference/en/libraries/arducam_dvp/)
 
@@ -28,8 +28,6 @@ The Arduino Mbed OS Giga Boards core contains most of the libraries you need to 
 
 The Giga Display shield is compatible with the following cameras:
 
-- [OV7675](https://store.arduino.cc/products/arducam-camera-module)
-- [GC2145](https://www.arducam.com/product/2mp-gc2145-color-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 - [HM01B0](https://www.arducam.com/product/hm01b0-qvga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 - [HM0360](https://www.arducam.com/product/hm0360-vga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 
