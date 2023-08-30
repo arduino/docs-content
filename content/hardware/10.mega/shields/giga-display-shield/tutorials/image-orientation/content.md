@@ -35,7 +35,7 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Vi
 BoschSensorClass imu(Wire1);
 ```
 
-Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`. Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with lvgl, check out our [lvgl tutorial.](lvgl-guide#image)
+Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`. Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](lvgl-guide#image).
 
 ```arduino
 LV_IMG_DECLARE(img_arduinologo);
