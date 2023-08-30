@@ -1,18 +1,18 @@
 ---
 title: Using Basic Draw Functions with the GIGA Display Shield
-description: 'Learn how to use basic draw functions to create images on the GIGA display shield'
+description: 'Learn how to use basic draw functions to create images on the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, Draw]
 ---
 
-The most basic use of the GIGA display shield is to draw an image on the screen using code. This is made easy by using the library `ArduinoGraphics`. In this tutorial we will go through how to draw the Arduino logo on the GIGA display shield with the commands provided by this library.
+The most basic use of the GIGA Display Shield is to draw an image on the screen using code. This is made easy by using the library `ArduinoGraphics`. In this tutorial we will go through how to draw the Arduino logo on the GIGA Display Shield with the commands provided by this library.
 
 This is a great tutorial for getting started with your shield and exploring what possibilities the library gives us.
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
-- [GIGA Display Shield](/hardware/giga-display-shield)
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1).
+- [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [ArduinoGraphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/)
 
@@ -33,7 +33,7 @@ Arduino_H7_Video Display(800, 480, GigaDisplayShield);
 
 As we only want to draw something on the screen once, we can put all the drawing code in the `void setup()`. If we instead put this code in the `void loop()` function it will keep drawing the given image over and over.
 
-Lets first draw the background of the image. Start by initializing the display class from the library with `Display.begin()`. Then to start drawing things on the screen we need to use `Display.beginDraw()`. Now the background color can be set with `Display.background(255, 255, 255)`, where RGB values are entered within the parentheses. `Display.clear()` will clear anything that has been drawn on the screen, but it will leave the background as it was set before.
+Let's first draw the background of the image. Start by initializing the display class from the library with `Display.begin()`. Then to start drawing things on the screen we need to use `Display.beginDraw()`. Now the background color can be set with `Display.background(255, 255, 255)`, where RGB values are entered within the parentheses. `Display.clear()` will clear anything that has been drawn on the screen, but it will leave the background as it was set before.
 
 
 ```arduino
@@ -121,11 +121,11 @@ void loop() { }
 
 ## Testing It Out
 
-Now that it is all uploaded your display shield should look like the image below:
+Now that it is all uploaded your GIGA Display Shield should look like the image below:
 
 ![Sketch running on the GIGA Display Shield](assets/draw-on-shield.jpg)
 
 
 ## Conclusion
 
-In this tutorial we used basic drawing functions with the Giga display shield. Using the `ArduinoGraphics` library we managed to draw the Arduino logo with just a few simple commands. Using these basic functions it is possible to create most images that you can think of. Now you can let your imagination run wild and draw to your hearts content!
+In this tutorial, we used basic drawing functions with the Giga Display Shield. Using the `ArduinoGraphics` library we managed to draw the Arduino logo with just a few simple commands. Using these basic functions it is possible to create most images that you can think of. Now you can let your imagination run wild and draw to your heart's content!
